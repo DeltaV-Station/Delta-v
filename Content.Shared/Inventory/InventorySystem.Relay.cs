@@ -79,7 +79,8 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, WieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IngestionAttemptEvent>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, CheckPsionicallyInsulativeGearEvent>(RefRelayInventoryEvent); // DeltaV - Psionicsrefactor
+        SubscribeLocalEvent<InventoryComponent, CheckPsionicInsulativeGearEvent>(RefRelayInventoryEvent); // DeltaV - Psionicsrefactor
+        SubscribeLocalEvent<InventoryComponent, PsionicPowerAttemptEvent>(RefRelayInventoryEvent); // DeltaV - Psionicsrefactor
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);

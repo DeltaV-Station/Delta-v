@@ -1,4 +1,5 @@
 using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -14,20 +15,25 @@ namespace Content.Shared.Abilities.Psionics;
 
 public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+
         SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
+
+
 
     private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
     {

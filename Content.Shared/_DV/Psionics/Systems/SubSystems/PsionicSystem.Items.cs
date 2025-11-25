@@ -16,52 +16,49 @@ public sealed partial class PsionicSystem
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotEquippedEvent>(OnInsulativeGearEquipped);
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotUnequippedEvent>(OnInsulativeGearUnequipped);
 
-        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<CheckPsionicallyInsulativeGearEvent>>(OnPsionicGearChanged);
+        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<PsionicPowerAttemptEvent>>(OnPowerUseAttempt);
+        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<CheckPsionicInsulativeGearEvent>>(OnPsionicGearChecked);
     }
 
     private void OnInsulativeGearEquipped(Entity<PsionicallyInsulativeComponent> gear, ref GotEquippedEvent args)
     {
-        RefreshPsionicInsulation(args.Equipee);
+        RefreshPsionicAbilities(args.Equipee);
     }
 
     private void OnInsulativeGearUnequipped(Entity<PsionicallyInsulativeComponent> gear, ref GotUnequippedEvent args)
     {
-        RefreshPsionicInsulation(args.Equipee);
+        RefreshPsionicAbilities(args.Equipee);
     }
 
-    private void RefreshPsionicInsulation(EntityUid user)
+    private void RefreshPsionicAbilities(EntityUid user)
     {
-        var ev = new CheckPsionicallyInsulativeGearEvent();
+        if (!TryComp<PsionicComponent>(user, out var psionic))
+            return;
+
+        var ev = new CheckPsionicInsulativeGearEvent();
         RaiseLocalEvent(user, ref ev);
 
-        if (!ev.AllowsPsionicUsage && !ev.ShieldsFromPsionics)
+        foreach (var actionEntity in psionic.PsionicPowersActionEntities)
         {
-            RemComp<PsionicallyInsulatedComponent>(user);
-            _psiAbilities.SetPsionicsThroughEligibility(user);
-            return;
+            _actionSystem.SetEnabled(actionEntity, ev.AllowsPsionicUsage);
         }
-
-        var insulationComp = EnsureComp<PsionicallyInsulatedComponent>(user);
-
-        // insulationComp.AllowsPsionicUsage = ev.AllowsPsionicUsage ?? insulationComp.AllowsPsionicUsage;
-        // insulationComp.ShieldsFromPsionics = ev.ShieldsFromPsionics ?? insulationComp.ShieldsFromPsionics;
-
-        _psiAbilities.SetPsionicsThroughEligibility(user);
     }
 
-    private void OnPsionicGearChanged(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<CheckPsionicallyInsulativeGearEvent> args)
+    private void OnPsionicGearChecked(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<CheckPsionicInsulativeGearEvent> args)
     {
         var evArgs = args.Args;
 
-        evArgs.AllowsPsionicUsage = false;
-        // if (evArgs.AllowsPsionicUsage.HasValue)
-        //     evArgs.AllowsPsionicUsage = evArgs.AllowsPsionicUsage.Value && gear.Comp.AllowsPsionicUsage;
-        // else
-        //     evArgs.AllowsPsionicUsage = gear.Comp.AllowsPsionicUsage;
-        //
-        // if (evArgs.ShieldsFromPsionics.HasValue)
-        //     evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics.Value && gear.Comp.ShieldsFromPsionics;
-        // else
-        //     evArgs.ShieldsFromPsionics = gear.Comp.ShieldsFromPsionics;
+        evArgs.GearPresent = true;
+        // If one gear blocks psionic usage, psionics cannot be used.
+        evArgs.AllowsPsionicUsage = evArgs.AllowsPsionicUsage && gear.Comp.AllowsPsionicUsage;
+        // If one gear shields from psionics, they're shielded.
+        evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics || gear.Comp.ShieldsFromPsionics;
+    }
+
+    private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerAttemptEvent> args)
+    {
+        var evArgs = args.Args;
+        // If one gear blocks psionic usage, psionics cannot be used.
+        evArgs.CanUsePower = evArgs.CanUsePower && gear.Comp.AllowsPsionicUsage;
     }
 }

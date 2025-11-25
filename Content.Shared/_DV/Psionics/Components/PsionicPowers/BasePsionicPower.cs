@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 
@@ -8,5 +9,9 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public abstract partial class BasePsionicPower : Component
 {
+    [DataField, AutoNetworkedField]
+    public EntityUid? ActionEntity;
 
+    [DataField, AutoNetworkedField]
+    public EntProtoId ActionProtoId;
 }
