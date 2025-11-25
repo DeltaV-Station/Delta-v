@@ -3245,6 +3245,10 @@
   - type: HTN # DeltaV - make all cats eat mice
     rootTask:
       task: SimpleHostileCompound
+  - type: JumpAbility # DeltaV - Give cats a pounce :3
+    jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
+    jumpDistance: 3
+    action: ActionCatJump
   - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
