@@ -24,13 +24,13 @@ public sealed partial class CrawlerComponent : Component
     /// Time it takes us to stand up
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan StandTime = TimeSpan.FromSeconds(2);
+    public TimeSpan StandTime = TimeSpan.FromSeconds(0.5); // DeltaV - restore old crawling values
 
     /// <summary>
     /// Base modifier to the maximum movement speed of a knocked down mover.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SpeedModifier = 0.4f;
+    public float SpeedModifier = 0.2f; // DeltaV - restore old crawling values
 
     /// <summary>
     /// Friction modifier applied to an entity in the downed state.
