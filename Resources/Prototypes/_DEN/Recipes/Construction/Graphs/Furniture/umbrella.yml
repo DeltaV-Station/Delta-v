@@ -1,0 +1,187 @@
+
+- type: constructionGraph
+  id: BeachUmbrella
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: BeachUmbrellaBlue
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaGray
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaGreen
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaOrange
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaPink
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaPurple
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaRed
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: BeachUmbrellaYellow
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+
+  # Deconstructs
+  - node: BeachUmbrellaBlue
+    entity: BeachUmbrellaBlue
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaGray
+    entity: BeachUmbrellaGray
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaGreen
+    entity: BeachUmbrellaGreen
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaOrange
+    entity: BeachUmbrellaOrange
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaPink
+    entity: BeachUmbrellaPink
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaPurple
+    entity: BeachUmbrellaPurple
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaRed
+    entity: BeachUmbrellaRed
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3
+  - node: BeachUmbrellaYellow
+    entity: BeachUmbrellaYellow
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 3

@@ -1,0 +1,101 @@
+- type: entity
+  abstract: true
+  parent: [SeatBase, BaseItem]
+  id: BaseSwimRing
+  name: swim ring
+  description: Also known as a floatie, or inner tube, or water donut. An inflatable rubber toy for resting on top of the water.
+  components:
+  - type: Sprite
+    sprite: _DEN/Structures/Furniture/pool_ring.rsi
+  - type: Item
+    size: Normal # should probably be "large" instead, but eh
+  - type: Strap
+    buckleOffset: "0,0.1"
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingBlack
+  name: black swim ring
+  components:
+  - type: Sprite
+    state: black
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingBlue
+  name: blue swim ring
+  components:
+  - type: Sprite
+    state: blue
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingCyan
+  name: cyan swim ring
+  components:
+  - type: Sprite
+    state: cyan
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingGreen
+  name: green swim ring
+  components:
+  - type: Sprite
+    state: green
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingMagenta
+  name: magenta swim ring
+  components:
+  - type: Sprite
+    state: magenta
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingPink
+  name: pink swim ring
+  components:
+  - type: Sprite
+    state: pink
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingPurple
+  name: purple swim ring
+  components:
+  - type: Sprite
+    state: purple
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingRainbow
+  name: rainbow swim ring
+  components:
+  - type: Sprite
+    state: rainbow
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingRed
+  name: red swim ring
+  components:
+  - type: Sprite
+    state: red
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingTrans
+  name: pastel swim ring
+  components:
+  - type: Sprite
+    state: trans
+
+- type: entity
+  parent: BaseSwimRing
+  id: SwimRingYellow
+  name: yellow swim ring
+  components:
+  - type: Sprite
+    state: yellow

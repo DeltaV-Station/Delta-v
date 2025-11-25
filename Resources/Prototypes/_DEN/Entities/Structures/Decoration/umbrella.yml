@@ -1,0 +1,144 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: BeachUmbrellaBase
+  name: beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  placement:
+    mode: SnapgridBorder
+  components:
+  - type: Transform
+    anchored: false # needed for SnapgridBorder; lmk if this causes issues?
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 120
+        hard: false
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Sprite
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0,0.75
+  - type: Icon
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+  - type: Construction
+    graph: BeachUmbrella
+    node: BeachUmbrellaBlue
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 2
+            max: 2
+          MaterialCloth1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaBlue
+  suffix: blue
+  components:
+  - type: Sprite
+    state: blue
+  - type: Icon
+    state: blue
+  - type: Construction
+    node: BeachUmbrellaBlue
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaGray
+  suffix: gray
+  components:
+  - type: Sprite
+    state: gray
+  - type: Icon
+    state: gray
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaGreen
+  suffix: green
+  components:
+  - type: Sprite
+    state: green
+  - type: Icon
+    state: green
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaOrange
+  suffix: orange
+  components:
+  - type: Sprite
+    state: orange
+  - type: Icon
+    state: orange
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaPink
+  suffix: pink
+  components:
+  - type: Sprite
+    state: pink
+  - type: Icon
+    state: pink
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaPurple
+  suffix: purple
+  components:
+  - type: Sprite
+    state: purple
+  - type: Icon
+    state: purple
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaRed
+  suffix: red
+  components:
+  - type: Sprite
+    state: red
+  - type: Icon
+    state: red
+
+- type: entity
+  parent: BeachUmbrellaBase
+  id: BeachUmbrellaYellow
+  suffix: yellow
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Icon
+    state: yellow

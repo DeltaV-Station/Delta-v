@@ -1,0 +1,13 @@
+- type: stack
+  id: FloorTilePool
+  name: pool tile
+  spawn: FloorTileItemPool
+  maxCount: 30
+  itemSize: 5
+
+- type: stack
+  id: FloorTilePoolDark
+  name: dark pool tile
+  spawn: FloorTileItemPoolDark
+  maxCount: 30
+  itemSize: 5

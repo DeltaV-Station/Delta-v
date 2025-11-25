@@ -1,0 +1,35 @@
+- type: tile
+  id: FloorTilePool
+  name: pool tile
+  sprite: /Textures/_DEN/Tiles/pool.rsi/pool.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemPool
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTilePoolDark
+  name: dark pool tile
+  sprite: /Textures/_DEN/Tiles/pool.rsi/pool-dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemPoolDark
+  heatCapacity: 10000

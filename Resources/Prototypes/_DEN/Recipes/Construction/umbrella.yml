@@ -1,0 +1,135 @@
+- type: construction
+  id: BeachUmbrellaBlue
+  name: blue beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaBlue
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: blue
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaGray
+  name: gray beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaGray
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: gray
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaGreen
+  name: green beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaGreen
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: green
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaOrange
+  name: orange beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaOrange
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: orange
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaPink
+  name: pink beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaPink
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: pink
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaPurple
+  name: purple beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaPurple
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: purple
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaRed
+  name: red beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaRed
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: red
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BeachUmbrellaYellow
+  name: yellow beach umbrella
+  description: A standing umbrella that blocks the sun and rain for those sitting underneath. Well, if there WAS sun and rain...
+  graph: BeachUmbrella
+  startNode: start
+  targetNode: BeachUmbrellaYellow
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridBorder
+  canBuildInImpassable: false
+  icon:
+    sprite: _DEN/Structures/Decoration/umbrella.rsi
+    state: yellow
+  conditions:
+  - !type:TileNotBlocked
