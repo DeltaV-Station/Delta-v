@@ -57,7 +57,7 @@ public sealed partial class XenoArtifactSystem
             if (
                 _entityWhitelist.IsWhitelistFail(trigger.Whitelist, ent)
                 || (trigger.TriggerBlacklist != null && triggerPool.Any(otherTrigger => trigger.TriggerBlacklist.Contains(otherTrigger.ID)))
-                || (triggerPool.Any(otherTrigger => otherTrigger.TriggerBlacklist != null && otherTrigger.TriggerBlacklist.Contains(triggerId)))
+                || triggerPool.Any(otherTrigger => otherTrigger.TriggerBlacklist != null && otherTrigger.TriggerBlacklist.Contains(triggerId))
             )
                 continue;
             // DeltaV - end of TriggerBlacklist
