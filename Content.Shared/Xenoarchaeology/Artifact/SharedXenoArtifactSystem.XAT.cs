@@ -91,9 +91,12 @@ public abstract partial class SharedXenoArtifactSystem
         if (node != null && unlockingComp.TriggeredNodeIndexes.Add(GetIndex(ent, node.Value)))
         {
             // DeltaV - start of faster unlock effect
-            if (ent.Comp.UnlockCompleteDuration != null && TryGetNodeFromUnlockState((ent.Owner, unlockingComp, ent.Comp), out var unlockingNode))
+            if (
+                ent.Comp.UnlockCompleteDuration is {} completeDuration 
+                && TryGetNodeFromUnlockState((ent.Owner, unlockingComp, ent.Comp), out var unlockingNode)
+            )
             {
-                unlockingComp.EndTime = _timing.CurTime + ent.Comp.UnlockCompleteDuration.Value;
+                unlockingComp.EndTime = _timing.CurTime + completeDuration;
             }
             // DeltaV - end of faster unlock effect
 
