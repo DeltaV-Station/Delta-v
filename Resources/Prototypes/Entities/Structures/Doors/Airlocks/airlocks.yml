@@ -162,6 +162,16 @@
 
 - type: entity
   parent: Airlock
+  id: AirlockXenoborg
+  name: xenoborg airlock
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/xenoborg.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: Airlock
   id: AirlockHatchMaintenance
   name: maintenance hatch
   components:
@@ -320,24 +330,24 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/basic.rsi
 
-# Begin DeltaV removal: we don't have these things yet
-#- type: entity
-#  parent: Airlock
-#  id: AirlockXeno
-#  suffix: Xeno
-#  components:
-#  - type: Sprite
-#    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
-#  - type: Paintable
-#    group: null
-#
-#- type: entity
-#  parent: AirlockGlass
-#  id: AirlockGlassXeno
-#  suffix: Xeno
-#  components:
-#  - type: Sprite
-#    sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
-#  - type: Paintable
-#    group: null
-# End DeltaV removal
+- type: entity
+  parent: Airlock
+  id: AirlockXeno
+  suffix: Xeno
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassXeno
+  suffix: Xeno
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite

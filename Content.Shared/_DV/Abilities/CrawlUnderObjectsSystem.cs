@@ -122,7 +122,10 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
     /// </summary>
     public bool TrySetEnabled(Entity<CrawlUnderObjectsComponent> ent, bool enabled)
     {
-        if (ent.Comp.Enabled == enabled || IsOnCollidingTile(ent) || _standing.IsDown(ent))
+        if (!TryComp<StandingStateComponent>(ent, out var standing))
+            return false;
+
+        if (ent.Comp.Enabled == enabled || IsOnCollidingTile(ent) || _standing.IsDown((ent, standing)))
             return false;
 
         if (TryComp<ClimbingComponent>(ent, out var climbing) && climbing.IsClimbing)
@@ -159,7 +162,10 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
 
     private bool IsOnCollidingTile(EntityUid uid)
     {
-        if (Transform(uid).Coordinates.GetTileRef() is not {} tile)
+
+        var coords = Transform(uid).Coordinates;
+
+        if (_turf.GetTileRef(coords) is not { } tile)
             return false;
 
         return _turf.IsTileBlocked(tile, CollisionGroup.MobMask);

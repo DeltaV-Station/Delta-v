@@ -273,7 +273,7 @@
     - BoxBottleMedicineBasic
     - CrowbarRed
     - ChemistryBottleEpinephrine
-    - RollerBedHoloSpawnFolded
+    - HoverBedHoloSpawnFolded
     belt:
     - DefibrillatorCompact
     - ChemistryBottleEpinephrine
@@ -294,7 +294,7 @@
     - CrowbarRed
     - ChemistryBottleEpinephrine
     - ChemistryBottleEpinephrine
-    - RollerBedHoloSpawnFolded
+    - HoverBedHoloSpawnFolded
     - FireExtinguisherMini
 
 # Janitor
@@ -320,7 +320,6 @@
     back:
     - CrowbarRed
     - BoxCleanerGrenades
-    belt:
     - TrashBag
 
 - type: startingGear
@@ -332,12 +331,14 @@
     outerClothing: ClothingOuterHardsuitERTJanitorBase
     pocket1: WeaponEnergyGunMini
     pocket2: FlashlightSeclite
+  inhand:
+  - AdvMopItem
+  - TrashBagOfHolding
   storage:
     back:
     - WeaponLauncherHydra
     - CleanadeGrenadeBox
     - CrowbarRed
-    belt:
     - TrashBagOfHolding
 
 - type: startingGear
