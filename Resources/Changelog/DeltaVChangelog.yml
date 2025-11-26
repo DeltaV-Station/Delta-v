@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed being able to instantly deconstruct malign walls with an RCD.
-    type: Fix
-  id: 1360
-  time: '2025-05-07T22:19:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3677
 - author: KZhProgram
   changes:
   - message: Flare shell boxes can now be printed in Sec Techfabs! This is a default
@@ -4256,3 +4249,12 @@
   id: 1859
   time: '2025-11-26T22:01:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4379
+- author: cmorley191
+  changes:
+  - message: Mindbreaker Toxin now resets your psionic reroll, so you can use the
+      Oracle to roll for a power again. (helps make Code White mindbreaking for instant
+      glimmer reductions less painful for the victims)
+    type: Tweak
+  id: 1860
+  time: '2025-11-26T22:04:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4429
