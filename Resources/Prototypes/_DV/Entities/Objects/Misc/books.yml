@@ -192,12 +192,16 @@
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookUncommon1
-  name: ancient heavy book
-  description: An ancient book lost to time. One can only wonder what can be learned from these...
+  name: notes on the psionic part 4
+  suffix: Book, Uncommon
+  description: An old worn notebook containing notes on various psionic powers.
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookuncommon1
+  - type: Paper
+    content: book-text-ancientbookuncommon-1
+    contentSize: 12000
 
 - type: entity
   parent: BaseAncientBookReadable
@@ -222,29 +226,41 @@
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookRare1
-  name: ancient mysterious book
-  description: An ancient book lost to time. One can only wonder what can be learned from these...
+  name: newkies defunct original manuscript
+  suffix: Book, Rare
+  description: An old manuscript somehow in pristine condition. You feel like you've heard of the show before, but can't be sure...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare1
+  - type: Paper
+    content: book-text-ancientbookrare-1
+    contentSize: 12000
 
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookRare2
-  name: ancient ominous book
-  description: An ancient book lost to time. One can only wonder what can be learned from these...
+  name: and the machine is bleeding to death
+  suffix: Book, Rare
+  description: An old story written hundreds of years ago. Now, in your hands. A collector would probably pay a lot for it, but where are you gonna find a book collector on a space station?
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare2
+  - type: Paper
+    content: book-text-ancientbookrare-2
+    contentSize: 12000
 
 - type: entity
   parent: BaseAncientBookReadable
   id: AncientBookRare3
-  name: ancient shining book
-  description: An ancient book lost to time. One can only wonder what can be learned from these...
+  name: making friends in strange spaces
+  suffix: Book, Rare
+  description: A salvager's notes that got lost in space. The handwriting seems a little familiar, but that can't be right...
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/books.rsi
     state: ancientbookrare3
+  - type: Paper
+    content: book-text-ancientbookrare-3
+    contentSize: 12000
