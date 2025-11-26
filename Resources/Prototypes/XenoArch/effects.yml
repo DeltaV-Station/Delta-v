@@ -474,7 +474,7 @@
   id: XenoArtifactEffectGoodFeeling
   parent: BaseXenoArtifactEffect
   components:
-  - type: XAEDetails
+  - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-feeling
     vagueTip: xenoarch-effect-tip-vague-biological
   - type: XAETelepathic
@@ -505,7 +505,7 @@
   id: XenoArtifactEffectJunkSpawn
   parent: BaseXenoArtifactEffect
   components:
-  - type: XAEDetails
+  - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-junk
     vagueTip: xenoarch-effect-tip-vague-pattern
   - type: XAEApplyComponents
@@ -539,7 +539,7 @@
   id: XenoArtifactPotassiumWave
   parent: BaseXenoArtifactEffect
   components:
-  - type: XAEDetails
+  - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-potassium
     vagueTip: xenoarch-effect-tip-vague-element
   - type: XAEApplyComponents
@@ -738,7 +738,7 @@
   id: XenoArtifactChargeBattery
   parent: BaseXenoArtifactEffect
   components:
-  - type: XAEDetails
+  - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-charge
     vagueTip: xenoarch-effect-tip-vague-energy-manipulation
   - type: XAEChargeBattery
