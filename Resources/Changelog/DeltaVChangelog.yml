@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: sowelipililimute
   changes:
-  - message: Cosmic cultists are now deconverted via censer instead of by metabolising
-      holy water, and trying to deconvert a non-cultist has consequences
-    type: Tweak
-  - message: Cosmic cultist deconversion popup now shows up
-    type: Fix
-  id: 1354
-  time: '2025-05-06T19:28:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3636
-- author: sowelipililimute
-  changes:
   - message: Malign rifts now corrupt everything they were intended to
     type: Fix
   id: 1355
@@ -4256,3 +4246,10 @@
   id: 1853
   time: '2025-11-26T13:53:33.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4760
+- author: Cepelinas1
+  changes:
+  - message: Periapsis now pings a specific discord role whenever a new round is starting.
+    type: Add
+  id: 1854
+  time: '2025-11-26T14:01:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4755
