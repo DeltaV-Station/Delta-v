@@ -14,12 +14,12 @@ public sealed partial class PsionicSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MetapsionicPulsePowerComponent, ComponentInit>(OnPowerInit);
+        SubscribeLocalEvent<MetapsionicPulsePowerComponent, MapInitEvent>(OnPowerInit);
         SubscribeLocalEvent<MetapsionicPulsePowerComponent, MetapsionicPulseActionEvent>(OnPowerUsed);
         SubscribeLocalEvent<MetapsionicPulsePowerComponent, PsionicMindBrokenEvent>(OnMindBroken);
     }
 
-    private void OnPowerInit(Entity<MetapsionicPulsePowerComponent> psionic, ref ComponentInit args)
+    private void OnPowerInit(Entity<MetapsionicPulsePowerComponent> psionic, ref MapInitEvent args)
     {
         OnPowerInit((psionic.Owner, psionic.Comp));
     }
