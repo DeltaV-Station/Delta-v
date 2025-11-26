@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: AveriV2
-  changes:
-  - message: Made the breaching hammer hit harder but swing slower!
-    type: Tweak
-  id: 1351
-  time: '2025-05-06T15:49:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3632
 - author: Lyndomen
   changes:
   - message: Uplink catalog has been tuned a bit! Expect consumable and utility items
@@ -4254,3 +4247,13 @@
   id: 1850
   time: '2025-11-26T00:29:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4716
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed borgs not being able to pick up machine parts.
+    type: Fix
+  - message: Fixed IPCs seeing a message that they are being unlocked from erroneously
+      appearing.
+    type: Fix
+  id: 1851
+  time: '2025-11-26T08:59:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4757
