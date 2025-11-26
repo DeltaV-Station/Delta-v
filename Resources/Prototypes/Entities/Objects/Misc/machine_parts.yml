@@ -24,8 +24,5 @@
   components:
     - type: Sprite
       state: micro_mani
-    - type: Tag # DeltaV - engiborgs can hold stock parts
-      tags:
-      - BorgStockPart
     - type: Stack
       stackType: Manipulator

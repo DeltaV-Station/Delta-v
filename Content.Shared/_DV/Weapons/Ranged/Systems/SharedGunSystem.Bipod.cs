@@ -26,8 +26,10 @@ public abstract partial class SharedGunSystem
 
         SubscribeLocalEvent<GunBipodComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<GunBipodComponent, BipodSetupFinishedEvent>(SetupBipod);
-        SubscribeLocalEvent<GunBipodComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<IsUsingBipodComponent, MoveEvent>(OnMove);
+
+        SubscribeLocalEvent<GunBipodComponent, ShotAttemptedEvent>(OnShotAttempted);
+        SubscribeLocalEvent<IsUsingBipodComponent, ShooterImpulseEvent>(OnImpulse);
     }
 
     private void OnMapInit(Entity<GunBipodComponent> weapon, ref MapInitEvent args)
@@ -188,8 +190,13 @@ public abstract partial class SharedGunSystem
     private void OnShotAttempted(Entity<GunBipodComponent> ent, ref ShotAttemptedEvent args)
     {
         // This is true when the bipod is being set up - Preventing the gun from shooting.
-        if (Timing.CurTime < ent.Comp.BipodSetupTime + ent.Comp.SetupDelay)
+        if (Timing.CurTime < ent.Comp.BipodSetupTime + ent.Comp.SetupDelay + TimeSpan.FromSeconds(0.1))
             args.Cancel();
+    }
+
+    private void OnImpulse(Entity<IsUsingBipodComponent> bipodUser, ref ShooterImpulseEvent args)
+    {
+        args.CannotBePushed = true;
     }
 }
 
