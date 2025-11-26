@@ -86,6 +86,17 @@
     - Dwarf
     - Human
     - Reptilian
+    # Begin DeltaV additions
+    - Felinid
+    - Harpy
+    - Oni
+    - Vulpkanin
+    - Rodentia
+    - Chitinid
+    - Thaven
+    - Kitsune
+    - Avali
+    # End DeltaV additions
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
@@ -97,7 +108,7 @@
 - type: loadout
   id: EmergencyOxygenMime
   effects:
-  - !type:SpeciesLoadoutEffect
+  - !type:GroupLoadoutEffect
     proto: OxygenBreatherMime
   storage:
     back:
