@@ -355,7 +355,7 @@
         type: Add
         time: 10
         refresh: false
-      - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u.
+      - !type:ChemRemovePsionics #Nyano - Summary: removes psionics from the user at 20u.
         conditions:
           - !type:ReagentThreshold
             reagent: MindbreakerToxin

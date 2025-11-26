@@ -33,8 +33,6 @@ public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
         SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-
-
     private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
     {
         SetPsionicsThroughEligibility(uid);

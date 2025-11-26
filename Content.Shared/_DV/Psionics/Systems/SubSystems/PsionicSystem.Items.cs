@@ -16,8 +16,9 @@ public sealed partial class PsionicSystem
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotEquippedEvent>(OnInsulativeGearEquipped);
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotUnequippedEvent>(OnInsulativeGearUnequipped);
 
-        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<PsionicPowerAttemptEvent>>(OnPowerUseAttempt);
+        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<PsionicPowerUseAttemptEvent>>(OnPowerUseAttempt);
         SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<CheckPsionicInsulativeGearEvent>>(OnPsionicGearChecked);
+        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<TargetedByPsionicPowerEvent>>(OnTargetedByPsionicPower);
     }
 
     private void OnInsulativeGearEquipped(Entity<PsionicallyInsulativeComponent> gear, ref GotEquippedEvent args)
@@ -55,10 +56,17 @@ public sealed partial class PsionicSystem
         evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics || gear.Comp.ShieldsFromPsionics;
     }
 
-    private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerAttemptEvent> args)
+    private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerUseAttemptEvent> args)
     {
         var evArgs = args.Args;
         // If one gear blocks psionic usage, psionics cannot be used.
         evArgs.CanUsePower = evArgs.CanUsePower && gear.Comp.AllowsPsionicUsage;
+    }
+
+    private void OnTargetedByPsionicPower(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<TargetedByPsionicPowerEvent> args)
+    {
+        var evArgs = args.Args;
+        // If one gear shields from psionics, they're shielded.
+        evArgs.IsShielded = evArgs.IsShielded || gear.Comp.ShieldsFromPsionics;
     }
 }

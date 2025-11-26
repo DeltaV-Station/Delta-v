@@ -38,7 +38,6 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Flash;
 using Content.Shared.Maps;
 using Content.Shared.Mind.Components;
-using Content.Shared.Nyanotrasen.Chemistry.Effects;
 using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Xenoarchaeology.Artifact;
@@ -136,12 +135,6 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ActivateArtifact>>(OnActivateArtifact);
-
-        // Nyanotrasen
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRemovePsionic>>(OnChemRemovePsionic);
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRerollPsionic>>(OnChemRerollPsionic);
-        // Nyanotrasen end
-
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -1022,25 +1015,4 @@ public sealed class EntityEffectSystem : EntitySystem
             coordinates: Transform(args.Args.TargetEntity).Coordinates
         );
     }
-
-    // Nyanotrasen
-    private void OnChemRemovePsionic(ref ExecuteEntityEffectEvent<ChemRemovePsionic> args)
-    {
-        if (args.Args is EntityEffectReagentArgs reagentArgs)
-        {
-            if (reagentArgs.Scale != 1f)
-                return;
-        }
-
-        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
-
-        psySys.RemovePsionics(args.Args.TargetEntity);
-    }
-
-    private void OnChemRerollPsionic(ref ExecuteEntityEffectEvent<ChemRerollPsionic> args)
-    {
-        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
-        psySys.RerollPsionics(args.Args.TargetEntity, bonusMuliplier: args.Effect.BonusMuliplier);
-    }
-    // Nyanotrasen end
 }

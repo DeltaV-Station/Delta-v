@@ -5,11 +5,11 @@ namespace Content.Shared._DV.Psionics.Events;
 /// <summary>
 /// Event raised on an entity that is attempting to use a psionic power.
 /// </summary>
-/// <param name="Psionic">The psionic that attempted to use a psionic power.</param>
+/// <value><see cref="CanUsePower"/> returns true if able to use psionic powers, false if not.</value>
 [ByRefEvent]
-public struct PsionicPowerAttemptEvent : IInventoryRelayEvent
+public sealed class PsionicPowerUseAttemptEvent() : IInventoryRelayEvent
 {
-    public bool CanUsePower;
+    public bool CanUsePower = true;
 
     SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
 };

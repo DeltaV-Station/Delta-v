@@ -56,7 +56,7 @@
         damage:
           groups:
             Toxin: 2
-      - !type:ChemRemovePsionic
+      - !type:ChemRemovePsionics
         conditions:
         - !type:ReagentThreshold
           reagent: SoulbreakerToxin
@@ -80,7 +80,7 @@
         type: Add
         time: 5
         refresh: false
-      - !type:ChemRerollPsionic
+      - !type:ChemRollPsionic
         bonusMultiplier: 4
         conditions:
         - !type:ReagentThreshold
