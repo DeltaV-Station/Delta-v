@@ -11,6 +11,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using System.Threading.Tasks;
 
 namespace Content.Server._DV.StationEvents.Events;
 
@@ -38,6 +39,8 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         component.SwapTime = Timing.CurTime + component.Delay;
         component.SoundTime = component.SwapTime - _warningSoundLength;
 
+        component.MaxNumberOfPairs = component.MaxNumberOfPairs < 1 ? 1 : component.MaxNumberOfPairs;
+
         var announcement = Loc.GetString("minor-mass-mind-swap-event-announcement", ("time", component.Delay.TotalSeconds));
         var sender = Loc.GetString("minor-mass-mind-swap-event-sender");
 
@@ -49,12 +52,14 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<MinorMassMindSwapRuleComponent, GameRuleComponent>();
+
         while (query.MoveNext(out var uid, out var comp, out var ruleComp))
         {
             if (comp.SoundTime != null && comp.SoundTime <= Timing.CurTime)
             {
                 _audio.PlayGlobal(_resolvedWarningSound, Filter.Broadcast(), true);
                 comp.SoundTime = null;
+                continue;
             }
 
             if (comp.SwapTime == null || comp.SwapTime > Timing.CurTime)
@@ -75,15 +80,13 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         {
             if (_mobstateSystem.IsAlive(psion) && !HasComp<PsionicInsulationComponent>(psion)
                 && HasComp<ActorComponent>(psion))
-            {
                 // Only a list of Players
                 psionicActors.Add(psion);
-            }
         }
 
         // We go with 4 pairs for now
         List<EntityUid> actorsToSwap = new();
-        var swapPairCount = _random.Next(1, 3);
+        var swapPairCount = _random.Next(1, component.MaxNumberOfPairs);
 
         for (; swapPairCount > 0 && psionicActors.Count > 1; swapPairCount--)
         {
