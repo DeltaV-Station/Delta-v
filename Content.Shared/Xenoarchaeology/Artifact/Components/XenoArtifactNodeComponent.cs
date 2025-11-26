@@ -29,25 +29,25 @@ public sealed partial class XenoArtifactNodeComponent : Component
     public LocId? TriggerTip;
 
     /// <summary>
-    /// Unique effect description.
+    /// DeltaV - Unique effect description.
     /// </summary>
     [DataField, AutoNetworkedField]
     public LocId EffectTipSpecific;
 
     /// <summary>
-    /// Vague effect description that may be shared by other effects.
+    /// DeltaV - Vague effect description that may be shared by other effects.
     /// </summary>
     [DataField, AutoNetworkedField]
     public LocId? EffectTipVague;
 
     /// <summary>
-    /// Whether the effect of the node is hidden in the analysis console until unlocked.
+    /// DeltaV - Whether the effect of the node is hidden in the analysis console until unlocked.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool LockedEffectTipHidden = false;
 
     /// <summary>
-    /// Whether the effect of the node is described only vaguely in the analysis console until unlocked.
+    /// DeltaV - Whether the effect of the node is described only vaguely in the analysis console until unlocked.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool LockedEffectTipVague = false;

@@ -121,9 +121,7 @@ public abstract partial class SharedXenoArtifactSystem
             nodeComponent.EffectTipSpecific = details.SpecificTip;
             nodeComponent.EffectTipVague = details.VagueTip;
             if (!details.AllowLockedEffectHiding)
-            {
                 nodeComponent.LockedEffectTipHidden = false;
-            }
         }
         else 
         {
