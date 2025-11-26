@@ -3,6 +3,10 @@
   weights:
     TriggerMetapsionic: 1 # DeltaV
     TriggerMusic: 1
+    # DeltaV - make less frequent
+    #TriggerHeat: 1
+    #TriggerCold: 0.5
+    #TriggerNoOxygen: 1
     TriggerHeat: 0.5
     TriggerCold: 0.25
     TriggerNoOxygen: 0.5
@@ -14,6 +18,9 @@
     TriggerAmmonia: 0.1
     TriggerFrezon: 0.1
     TriggerRadiation: 1
+    # DeltaV - make less frequent
+    #TriggerPressureHigh: 0.5
+    #TriggerPressureLow: 1
     TriggerPressureHigh: 0.25
     TriggerPressureLow: 0.5
     TriggerExamine: 1
