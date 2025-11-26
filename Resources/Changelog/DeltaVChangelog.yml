@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed bluespace shelter capsules not checking for blockages.
-    type: Fix
-  id: 1359
-  time: '2025-05-07T21:15:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3674
-- author: deltanedas
-  changes:
   - message: Fixed being able to instantly deconstruct malign walls with an RCD.
     type: Fix
   id: 1360
@@ -4255,3 +4248,11 @@
   id: 1858
   time: '2025-11-26T21:36:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4776
+- author: cmorley191
+  changes:
+  - message: Meteors will *actually* be on collision course with the station now!
+      Brace for impact.
+    type: Fix
+  id: 1859
+  time: '2025-11-26T22:01:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4379
