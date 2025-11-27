@@ -74,7 +74,6 @@
   - type: Speech
     speechSounds: Alto
     speechVerb: Ovinia
-    allowedEmotes: ["Baa, OviniaMoo"]
   - type: Vocal
     sounds:
       Male: MaleOvinia
@@ -133,8 +132,6 @@
   components:
   - type: HumanoidAppearance
     species: Ovinia
-  - type: Inventory
-    speciesId: Ovinia
     templateId: human
     displacements:
       jumpsuit:
