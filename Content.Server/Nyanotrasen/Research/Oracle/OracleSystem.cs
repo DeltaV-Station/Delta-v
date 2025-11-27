@@ -240,18 +240,12 @@ public sealed class OracleSystem : EntitySystem
         var researchServers = new List<(
             EntityUid serverUid, 
             TechnologyDatabaseComponent database, 
-            Dictionary<string, int> disciplineTiers,
-            Dictionary<string, int> disciplineTechsRemainingToTierUp
+            Dictionary<string, int> disciplineTiers
         )>();
         var query = EntityQueryEnumerator<ResearchServerComponent, TechnologyDatabaseComponent>();
         while (query.MoveNext(out var serverUid, out var server, out var database))
         {
-            var disciplineTiers = _research.GetDisciplineTiers(database);
-            var disciplineTechsRemainingToTierUp = disciplineTiers.Keys.ToDictionary(
-                d => d,
-                d => _research.GetTechsRemainingToTierUp(database, d, disciplineTiers)
-            );
-            researchServers.Add((serverUid, database, disciplineTiers, disciplineTechsRemainingToTierUp));
+            researchServers.Add((serverUid, database, _research.GetDisciplineTiers(database)));
         }
 
         foreach (var tech in allTechs)
@@ -261,10 +255,6 @@ public sealed class OracleSystem : EntitySystem
                 || researchServers.Any(server => 
                     _research.IsTechnologyUnlocked(server.serverUid, tech, server.database)
                     || _research.IsTechnologyAvailable(server.database, tech, server.disciplineTiers)
-                    || (
-                        tech.Tier == server.disciplineTiers[tech.Discipline] + 1
-                        && server.disciplineTechsRemainingToTierUp[tech.Discipline] <= 1
-                    )
                 )
             )
             {

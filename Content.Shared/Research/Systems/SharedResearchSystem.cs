@@ -146,36 +146,6 @@ public abstract class SharedResearchSystem : EntitySystem
         return tier - 1;
     }
 
-    // DeltaV - start of oracle tech tier check
-    public int GetTechsRemainingToTierUp(TechnologyDatabaseComponent component, string disciplineId, Dictionary<string, int>? disciplineTiers = null)
-    {
-        return GetTechsRemainingToTierUp(component, PrototypeManager.Index<TechDisciplinePrototype>(disciplineId), disciplineTiers);
-    }
-
-    public int GetTechsRemainingToTierUp(TechnologyDatabaseComponent component, TechDisciplinePrototype techDiscipline, Dictionary<string, int>? disciplineTiers = null)
-    {
-        var tier = 
-            disciplineTiers == null
-            ? GetHighestDisciplineTier(component, techDiscipline)
-            : disciplineTiers[techDiscipline.ID];
-
-        if (tier >= techDiscipline.TierPrerequisites.Keys.Max())
-        {
-            return 0;
-        }
-        
-        var allTierTechCount = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>()
-            .Where(p => p.Discipline == techDiscipline.ID && p.Tier == tier && !p.Hidden)
-            .Count();
-        var unlockedTierTechCount = component.UnlockedTechnologies
-            .Select(t => PrototypeManager.Index<TechnologyPrototype>(t))
-            .Where(p => p.Discipline == techDiscipline.ID && p.Tier == tier)
-            .Count();
-        
-        return (int)MathF.Max(0f, MathF.Ceiling(techDiscipline.TierPrerequisites[tier+1] * allTierTechCount) - unlockedTierTechCount);
-    }
-    // DeltaV - end of oracle tech tier check
-
     public FormattedMessage GetTechnologyDescription(
         TechnologyPrototype technology,
         bool includeCost = true,
