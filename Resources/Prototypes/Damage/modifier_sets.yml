@@ -323,3 +323,13 @@
   id: ManifestedSpirit
   coefficients:
     Holy: 2
+
+# DeltaV - Give dragons a damage modifier set
+- type: damageModifierSet
+  id: Dragon
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 0.8
+    Shock: 0.5
