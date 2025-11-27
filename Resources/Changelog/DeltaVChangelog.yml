@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: foxcurl
-  changes:
-  - message: Engineering holoprojectors, similar to the janitor's, are now printable
-      in Engineering's lathe.
-    type: Add
-  - message: Oil packs have been moved from the Medical lathe to Engineering's, and
-      are still printable in the exosuit fabricator.
-    type: Tweak
-  id: 1362
-  time: '2025-05-08T07:23:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3679
 - author: AftrLite
   changes:
   - message: Mystagogue now starts with a Censer.
@@ -4252,3 +4241,11 @@
   id: 1861
   time: '2025-11-27T03:48:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4743
+- author: cmorley191
+  changes:
+  - message: The more difficult atmos triggers on artifacts (low O2, heat, cold, low
+      pressure, high pressure) will show up less frequently.
+    type: Tweak
+  id: 1862
+  time: '2025-11-27T03:49:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4744
