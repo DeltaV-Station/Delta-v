@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: 'Engineering borgs hold more construction materials in their construction
-      module: paper, wood, plasma, uranium, gold, silver, and stock machine parts.'
-    type: Tweak
-  - message: Engineering borgs have two more slots for tiles in their construction
-      module.
-    type: Tweak
-  id: 1368
-  time: '2025-05-09T14:04:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3659
 - author: deltanedas
   changes:
   - message: Code blue and red no longer give security permission to search anyone
@@ -4247,3 +4236,10 @@
   id: 1867
   time: '2025-11-27T18:29:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4786
+- author: Proxysseia
+  changes:
+  - message: Security Hardsuits are no longer insulated
+    type: Remove
+  id: 1868
+  time: '2025-11-27T22:25:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4724
