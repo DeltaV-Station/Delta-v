@@ -20,8 +20,8 @@ namespace Content.Server.Psionics
             base.Initialize();
             /// Masking
             SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<PsionicInsulationComponent, ComponentInit>(OnInsulInit);
-            SubscribeLocalEvent<PsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
+            SubscribeLocalEvent<OldPsionicInsulationComponent, ComponentInit>(OnInsulInit);
+            SubscribeLocalEvent<OldPsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
             SubscribeLocalEvent<EyeComponent, ComponentInit>(OnEyeInit);
 
             /// Layer
@@ -38,7 +38,7 @@ namespace Content.Server.Psionics
             SetCanSeePsionicInvisiblity(uid, false);
         }
 
-        private void OnInsulInit(EntityUid uid, PsionicInsulationComponent component, ComponentInit args)
+        private void OnInsulInit(EntityUid uid, OldPsionicInsulationComponent component, ComponentInit args)
         {
             if (!HasComp<PotentialPsionicComponent>(uid))
                 return;
@@ -61,7 +61,7 @@ namespace Content.Server.Psionics
             SetCanSeePsionicInvisiblity(uid, true);
         }
 
-        private void OnInsulShutdown(EntityUid uid, PsionicInsulationComponent component, ComponentShutdown args)
+        private void OnInsulShutdown(EntityUid uid, OldPsionicInsulationComponent component, ComponentShutdown args)
         {
             if (!HasComp<PotentialPsionicComponent>(uid))
                 return;

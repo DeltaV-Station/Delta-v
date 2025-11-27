@@ -62,7 +62,7 @@ namespace Content.Shared.Abilities.Psionics
 
             foreach (var entity in _lookup.GetEntitiesInRange(args.Performer, ent.Comp.WarningRadius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<OldPsionicInsulationComponent>(entity))
                 {
                     _popup.PopupEntity(Loc.GetString("psionic-power-mass-sleep-warning"),
                         entity,
@@ -93,7 +93,7 @@ namespace Content.Shared.Abilities.Psionics
 
             foreach (var entity in _lookup.GetEntitiesInRange(args.User, ent.Comp.Radius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<OldPsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
                         _statusEffects.TryAddStatusEffect<ForcedSleepingStatusEffectComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);

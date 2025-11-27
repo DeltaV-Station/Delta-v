@@ -32,7 +32,7 @@ internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRu
                 continue;
 
             // Skip over those who are already psionic or those who are insulated, or zombies.
-            if (HasComp<PsionicComponent>(potentialPsionic) || HasComp<PsionicInsulationComponent>(potentialPsionic) || HasComp<ZombieComponent>(potentialPsionic))
+            if (HasComp<PsionicComponent>(potentialPsionic) || HasComp<OldPsionicInsulationComponent>(potentialPsionic) || HasComp<ZombieComponent>(potentialPsionic))
                 continue;
 
             validList.Add(potentialPsionic);

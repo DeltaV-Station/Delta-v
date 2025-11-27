@@ -45,7 +45,7 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
 
         List<(EntityUid wearer, PsionicallyInsulativeComponent worn)> psionicList = new();
 
-        var query = EntityQueryEnumerator<PsionicInsulationComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<OldPsionicInsulationComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out _))
         {
             if (!_mobStateSystem.IsAlive(psion))

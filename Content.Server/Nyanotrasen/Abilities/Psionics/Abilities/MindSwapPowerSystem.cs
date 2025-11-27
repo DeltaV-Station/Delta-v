@@ -74,7 +74,7 @@ namespace Content.Server.Abilities.Psionics
             if (!(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological"))
                 return;
 
-            if (HasComp<PsionicInsulationComponent>(args.Target))
+            if (HasComp<OldPsionicInsulationComponent>(args.Target))
                 return;
 
             Swap(args.Performer, args.Target);
@@ -85,7 +85,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerReturned(EntityUid uid, MindSwappedComponent component, MindSwapPowerReturnActionEvent args)
         {
-            if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
+            if (HasComp<OldPsionicInsulationComponent>(component.OriginalEntity) || HasComp<OldPsionicInsulationComponent>(uid))
                 return;
 
             if (HasComp<MobStateComponent>(uid) && !_mobStateSystem.IsAlive(uid))

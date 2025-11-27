@@ -8,5 +8,5 @@ reagent-effect-guidebook-chem-roll-psionic =
     Has a chance to grant another, different psionic power
     { $multiplier ->
         [1] power
-        *[other] power with a chance multiplier of {$multiplier}
+        *[other] with a chance multiplier of {$multiplier}
     }

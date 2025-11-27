@@ -72,7 +72,7 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
         var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out _))
         {
-            if (_mobStateSystem.IsAlive(psion) && !HasComp<PsionicInsulationComponent>(psion))
+            if (_mobStateSystem.IsAlive(psion) && !HasComp<OldPsionicInsulationComponent>(psion))
             {
                 psionicPool.Add(psion);
 

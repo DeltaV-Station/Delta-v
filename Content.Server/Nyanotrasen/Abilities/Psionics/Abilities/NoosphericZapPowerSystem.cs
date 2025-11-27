@@ -50,7 +50,7 @@ namespace Content.Server.Abilities.Psionics
             if (!HasComp<PotentialPsionicComponent>(args.Target))
                 return;
 
-            if (HasComp<PsionicInsulationComponent>(args.Target))
+            if (HasComp<OldPsionicInsulationComponent>(args.Target))
                 return;
 
             _lightning.ShootLightning(args.Performer, args.Target);

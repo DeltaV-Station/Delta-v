@@ -1,6 +1,7 @@
 ﻿using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Actions;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 
@@ -9,10 +10,10 @@ namespace Content.Shared._DV.Psionics.Systems;
 public sealed partial class PsionicSystem
 {
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psiAbilities = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     private void InitializeItems()
     {
-        base.Initialize();
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotEquippedEvent>(OnInsulativeGearEquipped);
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotUnequippedEvent>(OnInsulativeGearUnequipped);
 
@@ -38,11 +39,6 @@ public sealed partial class PsionicSystem
 
         var ev = new CheckPsionicInsulativeGearEvent();
         RaiseLocalEvent(user, ref ev);
-
-        foreach (var actionEntity in psionic.PsionicPowersActionEntities)
-        {
-            _actionSystem.SetEnabled(actionEntity, ev.AllowsPsionicUsage);
-        }
     }
 
     private void OnPsionicGearChecked(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<CheckPsionicInsulativeGearEvent> args)
