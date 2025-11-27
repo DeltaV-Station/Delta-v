@@ -64,10 +64,10 @@
   - type: HandHeldArmor # Holding the Bible protects you
     modifiers:
       coefficients:
-        Cold: 0.5
-        Asphyxiation: 0.5
-        Holy: 0.5
-        Shadow: 0.5
+        Cold: 0.7
+        Asphyxiation: 0.7
+        Holy: 0.3
+        Shadow: 0.3
     whitelist:
       components:
         - BibleUser # Only if you're the Chaplain or Mystagogue
