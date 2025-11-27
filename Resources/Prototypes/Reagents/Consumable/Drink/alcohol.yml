@@ -1177,6 +1177,12 @@
   physicalDesc: reagent-physical-desc-pungent # Delta-V desc changed
   flavor: hooch
   color: "#706a58" # Delta-V color changed
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/hooch.rsi # Delta-V sprite changed
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: IcedBeer
