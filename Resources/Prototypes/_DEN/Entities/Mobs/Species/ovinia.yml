@@ -22,8 +22,8 @@
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
         # sprite refactor when
         state: l_leg
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] #Removed - Delta-V
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] #Removed - Delta-V
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -74,7 +74,7 @@
   - type: Speech
     speechSounds: Alto
     speechVerb: Ovinia
-    allowedEmotes: ["Baa"]
+    allowedEmotes: ["Baa, OviniaMoo"]
   - type: Vocal
     sounds:
       Male: MaleOvinia
@@ -87,18 +87,15 @@
   #  understands:
   #  - TauCetiBasic
   #  - Caprine
+  - type: Tag
+    tags:
+    - OviniaEmotes
   - type: ProtectedFromStepTriggers
     #whitelist:
     #  types:
     #    - Shard
     #    - Mousetrap
     #    - SlipEntity //Removed - Delta-V
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - OviniaEmotes
   - type: TypingIndicator
     proto: ovinia
   - type: Inventory
@@ -115,7 +112,7 @@
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: shoes
   - type: Hunger
-    baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
+    baseDecayRate: 0.026 #25% slower than normal (chewin they cud)
   - type: Thirst
     baseDecayRate: 0.075 #25% slower than normal
 

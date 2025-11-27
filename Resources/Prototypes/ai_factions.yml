@@ -1,11 +1,3 @@
-- type: npcFaction
-  id: AnimalFriend
-  hostile:
-  - Syndicate
-  - Xeno
-  - Zombie
-  - AllHostile
-  - SalvageMob
 
 - type: npcFaction
   id: Dragon
@@ -19,24 +11,6 @@
   - AllHostile
   - Wizard
   - AnimalFriend
-
-- type: npcFaction
-  id: Coscult
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Dragon
-  - AllHostile
-  - Wizard
-  - Xenoborg
-  - PetsNT
-  - AnimalFriend
-  - Passive
-  - NanoTrasen
-  - SalvageMob
 
 - type: npcFaction
   id: SalvageMob
@@ -94,7 +68,7 @@
 - type: npcFaction
   id: SimpleHostile
   friendly:
-  - AnimalFriend
+  - AnimalFriend # DeltaV - Add AnimalFriend faction
   - SalvageMob
   hostile:
   - NanoTrasen

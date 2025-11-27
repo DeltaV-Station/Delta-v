@@ -8,13 +8,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: emote
-  id: CowMoo
+  id: OviniaMoo
   name: chat-emote-name-cowmoo
   category: Vocal
   icon: _DEN/Interface/Emotes/moo.png
   whitelist:
     tags:
-    - SiliconEmotes
+    - OviniaEmotes
   blacklist:
     components:
     - BorgChassis
@@ -23,7 +23,6 @@
     - moos
     - moo
 
-# Ovinia
 - type: emote
   id: Baa
   name: chat-emote-name-baa
@@ -48,3 +47,5 @@
     - bahs
     - bahed
     - bah'd
+    - bleat
+    - bleats

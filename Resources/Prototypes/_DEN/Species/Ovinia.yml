@@ -11,12 +11,12 @@
   maleFirstNames: NamesFirstMale
   femaleFirstNames: NamesFirstFemale
   lastNames: NamesLast
-  minHeight: 0.5
- # defaultHeight: 0.9 #Disabled due to EE bug
-  maxHeight: 1.175
- # minWidth: 0.65 // DV - We dont have width 
- # defaultWidth: 0.9 #Disabled due to EE Bug
- # maxWidth: 1.225 // DV - We dont have width
+  minHeight: 0.8
+  basescale: "1, 1"
+  maxHeight: 1.05
+ # minWidth: 0.65 // DeltaV - We dont have width
+ # defaultWidth: 0.9 // DeltaV - We dont have width
+ # maxWidth: 1.225 // DeltaV - We dont have width
  # customName: true
 
 - type: speciesBaseSprites
@@ -68,7 +68,7 @@
     Arms:
       points: 4
       required: false
-  
+
 - type: humanoidBaseSprite
   id: MobOviniaHead
   baseSprite:
