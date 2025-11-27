@@ -1469,11 +1469,11 @@
   desc: reagent-desc-moonshine
   physicalDesc: reagent-physical-desc-pungent
   flavor: moonshine
-  color: "#d1d7d155"
+  color: "#d4d3cd" # Delta-V color changed
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/moonshineglass.rsi
+    sprite: _DV/Objects/Consumable/Drinks/moonshinebottle.rsi # Delta-V sprite changed
     state: icon_empty
-  metamorphicMaxFillLevels: 6
+  metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
