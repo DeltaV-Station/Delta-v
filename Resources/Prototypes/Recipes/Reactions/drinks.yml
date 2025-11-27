@@ -492,7 +492,7 @@
   reactants:
     Gin:
       amount: 1
-    JuiceLime:
+    JuiceLemon: # Delta-V lime changed to lemon
       amount: 1
     SodaWater:
       amount: 1
@@ -523,15 +523,19 @@
 
 - type: reaction
   id: Grog
+  requiredMixerCategories: # Delta-V Recipe Changed
+  - Stir
   reactants:
     Rum:
       amount: 1
     Water:
-      amount: 2
+      amount: 3 # Delta-V Recipe Changed
     Sugar:
       amount: 1
+    JuiceLime: # Delta-V Recipe Changed
+      amount: 1
   products:
-    Grog: 4
+    Grog: 6
 
 - type: reaction
   id: HippiesDelight
@@ -961,12 +965,10 @@
 - type: reaction
   id: Posca
   reactants:
-    TableSalt:
-      amount: 1
     Vinegar:
       amount: 1
     Water:
-      amount: 1
+      amount: 2 # Delta-V recipe edited
   products:
     Posca: 3
 
