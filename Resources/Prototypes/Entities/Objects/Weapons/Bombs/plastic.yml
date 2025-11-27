@@ -97,7 +97,7 @@
     layers:
     - state: icon
       map: ["base"]
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger # DeltaV: use TimerTrigger instead of OnUseTimerTrigger
     delay: 5
     delayOptions: [5, 10, 15, 20]
     initialBeepDelay: 0
