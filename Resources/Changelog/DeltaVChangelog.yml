@@ -1,68 +1,4 @@
 ﻿Entries:
-- author: KZhProgram
-  changes:
-  - message: Flare shell boxes can now be printed in Sec Techfabs! This is a default
-      technology.
-    type: Add
-  - message: 3 Metal Foam Grenades are now available in your local Engi-Vend! The
-      restock price got BRUTALLY hiked a result..
-    type: Add
-  - message: Admeme emergency secret orders are now a thing. You might find some real
-      orders in those folders now...
-    type: Add
-  id: 1361
-  time: '2025-05-08T00:38:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3634
-- author: foxcurl
-  changes:
-  - message: Engineering holoprojectors, similar to the janitor's, are now printable
-      in Engineering's lathe.
-    type: Add
-  - message: Oil packs have been moved from the Medical lathe to Engineering's, and
-      are still printable in the exosuit fabricator.
-    type: Tweak
-  id: 1362
-  time: '2025-05-08T07:23:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3679
-- author: AftrLite
-  changes:
-  - message: Mystagogue now starts with a Censer.
-    type: Add
-  - message: A strange new figurine now has a chance of appearing.
-    type: Add
-  - message: Further balance changes to Cosmic Cult.
-    type: Tweak
-  id: 1363
-  time: '2025-05-08T09:55:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3681
-- author: deltanedas
-  changes:
-  - message: Fixed energy katana's held sprite.
-    type: Fix
-  id: 1364
-  time: '2025-05-08T12:19:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3682
-- author: deltanedas
-  changes:
-  - message: No more "visitor CMO ghost role" quirky people.
-    type: Fix
-  id: 1365
-  time: '2025-05-08T19:27:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3688
-- author: sowelipililimute
-  changes:
-  - message: Deconverting cultists requires that they aren't critical or dead
-    type: Tweak
-  id: 1366
-  time: '2025-05-08T19:27:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3687
-- author: Stop-Signs
-  changes:
-  - message: Adjusted ERT loadouts to better fit our balance and game modes.
-    type: Tweak
-  id: 1367
-  time: '2025-05-09T14:01:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3680
 - author: sowelipililimute
   changes:
   - message: 'Engineering borgs hold more construction materials in their construction
@@ -4258,3 +4194,56 @@
   id: 1860
   time: '2025-11-26T22:04:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4429
+- author: cmorley191
+  changes:
+  - message: Artifacts now activate much faster after you successfully perform their
+      triggers. More danger = more fun
+    type: Tweak
+  id: 1861
+  time: '2025-11-27T03:48:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4743
+- author: cmorley191
+  changes:
+  - message: The more difficult atmos triggers on artifacts (low O2, heat, cold, low
+      pressure, high pressure) will show up less frequently.
+    type: Tweak
+  id: 1862
+  time: '2025-11-27T03:49:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4744
+- author: cmorley191
+  changes:
+  - message: Artifact "psionic disturbances" trigger fixed
+    type: Fix
+  id: 1863
+  time: '2025-11-27T03:50:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4705
+- author: Woljif
+  changes:
+  - message: Re-balanced the Vulcan, giving it a slower fire rate but high accuracy
+      and a scope.
+    type: Tweak
+  id: 1864
+  time: '2025-11-27T05:08:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4769
+- author: Turtlemutt
+  changes:
+  - message: 'Lighthouse: Fixed missing wall, button, and disposals. Added a button
+      to the artifact chamber.'
+    type: Fix
+  id: 1865
+  time: '2025-11-27T11:37:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4771
+- author: Velcroboy
+  changes:
+  - message: Fixed gladiators now spawn with a prisoner headset
+    type: Fix
+  id: 1866
+  time: '2025-11-27T16:34:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4778
+- author: MantasDab360
+  changes:
+  - message: Ore Box can now dump out ores!
+    type: Add
+  id: 1867
+  time: '2025-11-27T18:29:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4786
