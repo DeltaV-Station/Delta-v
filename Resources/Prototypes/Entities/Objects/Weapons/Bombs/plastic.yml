@@ -97,7 +97,10 @@
     layers:
     - state: icon
       map: ["base"]
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger # DeltaV: use TimerTrigger instead of OnUseTimerTrigger
+    keysIn:
+    - trigger
+    - stuck
     delay: 5
     delayOptions: [5, 10, 15, 20]
     initialBeepDelay: 0
@@ -105,8 +108,6 @@
       path: /Audio/Effects/Cargo/buzz_two.ogg
       params:
         volume: -6
-    startOnStick: false
-    canToggleStartOnStick: true
   - type: TriggerOnSignal
   - type: DeviceLinkSink
     ports:
