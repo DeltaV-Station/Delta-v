@@ -6,6 +6,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Damage;
@@ -42,7 +43,7 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
     {
         base.Started(uid, component, gameRule, args);
 
-        List<(EntityUid wearer, TinfoilHatComponent worn)> psionicList = new();
+        List<(EntityUid wearer, PsionicallyInsulativeComponent worn)> psionicList = new();
 
         var query = EntityQueryEnumerator<PsionicInsulationComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out _))
@@ -53,15 +54,15 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
             if (!_inventorySystem.TryGetSlotEntity(psion, "head", out var headItem))
                 continue;
 
-            if (!TryComp<TinfoilHatComponent>(headItem, out var tinfoil))
+            if (!TryComp<PsionicallyInsulativeComponent>(headItem, out var insulativeGear))
                 continue;
 
-            psionicList.Add((psion, tinfoil));
+            psionicList.Add((psion, insulativeGear));
         }
 
         foreach (var pair in psionicList)
         {
-            if (pair.worn.DestroyOnFry)
+            if (pair.worn.CanBeFried)
             {
                 QueueDel(pair.worn.Owner);
                 Spawn("Ash", Transform(pair.wearer).Coordinates);

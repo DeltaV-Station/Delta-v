@@ -1,6 +1,7 @@
 using Content.Server._DV.StationEvents.Components;
 using Content.Server.Body.Systems;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;

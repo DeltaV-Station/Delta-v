@@ -109,18 +109,22 @@
 
 - type: entity
   parent: BasePsionicAction
-  id: ActionMetapsionic
+  id: ActionMetapsionicPulse
   name: Metapsionic Pulse
-  description: Send a mental pulse through the area to see if there are any psychics nearby.
+  description: Send a mental pulse through a specified area to see if there are any psychics.
   components:
   - type: Action
     icon:
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: metapsionic
     useDelay: 45
+    startDelay: true
     checkCanInteract: false
-  - type: InstantAction
-    event: !type:MetapsionicPowerActionEvent
+  - type: TargetAction
+    checkCanAccess: false
+    range: -1 # You can cast it anywhere on your screen.
+  - type: WorldTargetAction
+    event: !type:MetapsionicPulseActionEvent
 
 - type: entity
   parent: BasePsionicAction

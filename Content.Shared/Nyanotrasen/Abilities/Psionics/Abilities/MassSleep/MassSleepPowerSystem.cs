@@ -1,3 +1,4 @@
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Bed.Sleep;
@@ -42,8 +43,8 @@ namespace Content.Shared.Abilities.Psionics
                 _actions.StartUseDelay(ent.Comp.MassSleepActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = ent.Comp.MassSleepActionEntity;
+            if (TryComp<PsionicComponent>(ent, out var psionic))
+                psionic.PsionicPowersActionEntities.Add(ent.Comp.MassSleepActionEntity);
         }
 
         private void OnShutdown(Entity<MassSleepPowerComponent> ent, ref ComponentShutdown args)

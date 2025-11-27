@@ -6,6 +6,7 @@ using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Server.Mind;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Psionics
@@ -37,10 +38,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.PyrokinesisActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.PyrokinesisActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.PyrokinesisActionEntity);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Content.Server.Abilities.Psionics
             _actions.RemoveAction(uid, component.PyrokinesisActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.PyrokinesisActionEntity);
             }
         }
 
