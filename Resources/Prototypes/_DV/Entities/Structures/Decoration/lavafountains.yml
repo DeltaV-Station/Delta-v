@@ -42,9 +42,10 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.75
+          radius: 0.5
         density: 400
-        hard: false
+        layer:
+        - WallLayer
 
 - type: entity
   parent: BaseStructure
@@ -69,5 +70,4 @@
           !type:PhysShapeCircle
           radius: 0.5
         density: 400
-        layer:
-        - WallLayer
+        hard: false
