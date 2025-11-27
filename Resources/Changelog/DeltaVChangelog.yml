@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: KZhProgram
-  changes:
-  - message: Flare shell boxes can now be printed in Sec Techfabs! This is a default
-      technology.
-    type: Add
-  - message: 3 Metal Foam Grenades are now available in your local Engi-Vend! The
-      restock price got BRUTALLY hiked a result..
-    type: Add
-  - message: Admeme emergency secret orders are now a thing. You might find some real
-      orders in those folders now...
-    type: Add
-  id: 1361
-  time: '2025-05-08T00:38:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3634
 - author: foxcurl
   changes:
   - message: Engineering holoprojectors, similar to the janitor's, are now printable
@@ -4258,3 +4244,11 @@
   id: 1860
   time: '2025-11-26T22:04:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4429
+- author: cmorley191
+  changes:
+  - message: Artifacts now activate much faster after you successfully perform their
+      triggers. More danger = more fun
+    type: Tweak
+  id: 1861
+  time: '2025-11-27T03:48:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4743
