@@ -23,7 +23,7 @@ public sealed class PsionicNosebleedRule : StationEventSystem<PsionicNosebleedRu
         var query = EntityQueryEnumerator<PsionicComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out var mobState))
         {
-            if (_mob.IsAlive(psion, mobState) && !HasComp<PsionicInsulationComponent>(psion))
+            if (_mob.IsAlive(psion, mobState) && !HasComp<OldPsionicInsulationComponent>(psion))
             {
                 _popup.PopupEntity(Loc.GetString("psionic-nosebleed-message"), psion, psion, PopupType.MediumCaution);
                 _bloodstream.TryModifyBleedAmount(psion, comp.BleedAmount);

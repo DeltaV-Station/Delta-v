@@ -76,7 +76,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(DispelPowerActionEvent args)
         {
-            if (HasComp<PsionicInsulationComponent>(args.Target))
+            if (HasComp<OldPsionicInsulationComponent>(args.Target))
                 return;
 
             var ev = new DispelledEvent();

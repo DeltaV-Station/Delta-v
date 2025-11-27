@@ -1,6 +1,9 @@
 ﻿using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Jittering;
+using Content.Shared.Popups;
+using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
@@ -14,8 +17,10 @@ namespace Content.Shared._DV.Psionics.Systems;
 public sealed partial class PsionicSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedStutteringSystem  _stutteringSystem = default!;
 
@@ -23,10 +28,35 @@ public sealed partial class PsionicSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
         SubscribeLocalEvent<PsionicComponent, PsionicMindBrokenEvent>(OnMindBroken);
 
         InitializeItems();
-        InitializePowers();
+        InitializeStatusEffects();
+    }
+
+    private void OnPowerUsed(Entity<PsionicComponent> psionic, ref PsionicPowerUsedEvent args)
+    {
+        var coords = Transform(psionic).Coordinates;
+
+        foreach (var detector in _lookupSystem.GetEntitiesInRange<MetapsionicPulsePowerComponent>(coords, 10f))
+        {
+            if (detector.Owner == psionic.Owner)
+                continue;
+
+            var ev = new PsionicPowerUseAttemptEvent();
+            RaiseLocalEvent(detector, ref ev);
+
+            if (!ev.CanUsePower)
+                continue;
+
+            var detectEv = new PsionicPowerDetectedEvent(psionic, args.Power);
+            RaiseLocalEvent(detector, ref detectEv);
+
+            _popupSystem.PopupEntity(Loc.GetString("psionic-power-metapsionic-power-detected", ("power", args.Power)), detector, detector, PopupType.LargeCaution);
+        }
+
+        args.Handled = true;
     }
 
     private void OnMindBroken(Entity<PsionicComponent> psionic, ref PsionicMindBrokenEvent args)
@@ -38,7 +68,7 @@ public sealed partial class PsionicSystem : EntitySystem
 
         _stutteringSystem.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
         _stunSystem.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, false);
-        _jittering.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
+        _jitteringSystem.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
 
         RemComp<PsionicComponent>(psionic);
     }

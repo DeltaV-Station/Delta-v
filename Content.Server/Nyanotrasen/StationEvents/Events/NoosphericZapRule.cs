@@ -31,7 +31,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
 
         while (query.MoveNext(out var psion, out var potentialPsionicComponent, out _))
         {
-            if (!_mobStateSystem.IsAlive(psion) || HasComp<PsionicInsulationComponent>(psion))
+            if (!_mobStateSystem.IsAlive(psion) || HasComp<OldPsionicInsulationComponent>(psion))
                 continue;
 
             _stunSystem.TryAddParalyzeDuration(psion, TimeSpan.FromSeconds(5));
