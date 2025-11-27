@@ -1,78 +1,4 @@
 ﻿Entries:
-- author: AveriV2
-  changes:
-  - message: Made the breaching hammer hit harder but swing slower!
-    type: Tweak
-  id: 1351
-  time: '2025-05-06T15:49:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3632
-- author: Lyndomen
-  changes:
-  - message: Uplink catalog has been tuned a bit! Expect consumable and utility items
-      to be much cheaper, with more expensive guns.
-    type: Tweak
-  id: 1352
-  time: '2025-05-06T15:51:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3509
-- author: AftrLite
-  changes:
-  - message: Cosmic Cult prerelease balance pass!
-    type: Tweak
-  id: 1353
-  time: '2025-05-06T15:58:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3649
-- author: sowelipililimute
-  changes:
-  - message: Cosmic cultists are now deconverted via censer instead of by metabolising
-      holy water, and trying to deconvert a non-cultist has consequences
-    type: Tweak
-  - message: Cosmic cultist deconversion popup now shows up
-    type: Fix
-  id: 1354
-  time: '2025-05-06T19:28:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3636
-- author: sowelipililimute
-  changes:
-  - message: Malign rifts now corrupt everything they were intended to
-    type: Fix
-  id: 1355
-  time: '2025-05-07T11:10:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3657
-- author: deltanedas
-  changes:
-  - message: Merged most of April's changes from upstream.
-    type: Add
-  id: 1356
-  time: '2025-05-06T23:35:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3596
-- author: deltanedas
-  changes:
-  - message: No free AA
-    type: Fix
-  id: 1357
-  time: '2025-05-07T11:52:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3662
-- author: Radezolid
-  changes:
-  - message: Fixed Sugar Rush candy cigarettes showing an error sprite.
-    type: Fix
-  id: 1358
-  time: '2025-05-07T19:16:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3668
-- author: deltanedas
-  changes:
-  - message: Fixed bluespace shelter capsules not checking for blockages.
-    type: Fix
-  id: 1359
-  time: '2025-05-07T21:15:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3674
-- author: deltanedas
-  changes:
-  - message: Fixed being able to instantly deconstruct malign walls with an RCD.
-    type: Fix
-  id: 1360
-  time: '2025-05-07T22:19:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3677
 - author: KZhProgram
   changes:
   - message: Flare shell boxes can now be printed in Sec Techfabs! This is a default
@@ -4254,3 +4180,81 @@
   id: 1850
   time: '2025-11-26T00:29:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4716
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed borgs not being able to pick up machine parts.
+    type: Fix
+  - message: Fixed IPCs seeing a message that they are being unlocked from erroneously
+      appearing.
+    type: Fix
+  id: 1851
+  time: '2025-11-26T08:59:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4757
+- author: SirWarock
+  changes:
+  - message: Shooting the NT-3 does not disable the bipod anymore via recoil!
+    type: Fix
+  id: 1852
+  time: '2025-11-26T13:29:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4764
+- author: Dorragon
+  changes:
+  - message: Security now has gloves in loadouts
+    type: Add
+  id: 1853
+  time: '2025-11-26T13:53:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4760
+- author: Cepelinas1
+  changes:
+  - message: Periapsis now pings a specific discord role whenever a new round is starting.
+    type: Add
+  id: 1854
+  time: '2025-11-26T14:01:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4755
+- author: kotobdev
+  changes:
+  - message: Slipping is now scary again, and will stun you for a while. Beware of
+      the clown.
+    type: Tweak
+  id: 1855
+  time: '2025-11-26T15:31:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4747
+- author: Exile152
+  changes:
+  - message: Added a new cargo mascot fit! Check it out in the LogiDrobe!
+    type: Add
+  id: 1856
+  time: '2025-11-26T16:23:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4708
+- author: pootslap
+  changes:
+  - message: Fixed certain species not starting with a survival box when joining as
+      a mime.
+    type: Fix
+  id: 1857
+  time: '2025-11-26T16:45:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4768
+- author: ShepardToTheStars
+  changes:
+  - message: The chaplain and command can no longer become a deal-making devil.
+    type: Tweak
+  id: 1858
+  time: '2025-11-26T21:36:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4776
+- author: cmorley191
+  changes:
+  - message: Meteors will *actually* be on collision course with the station now!
+      Brace for impact.
+    type: Fix
+  id: 1859
+  time: '2025-11-26T22:01:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4379
+- author: cmorley191
+  changes:
+  - message: Mindbreaker Toxin now resets your psionic reroll, so you can use the
+      Oracle to roll for a power again. (helps make Code White mindbreaking for instant
+      glimmer reductions less painful for the victims)
+    type: Tweak
+  id: 1860
+  time: '2025-11-26T22:04:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4429

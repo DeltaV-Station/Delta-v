@@ -404,7 +404,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shooterEv = new ShooterImpulseEvent();
         RaiseLocalEvent(user, ref shooterEv);
 
-        if (shooterEv.Push)
+        if (shooterEv.Push && !shooterEv.CannotBePushed) // DeltaV - Bipods stop you from being moved by recoil.
             CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
     }
 
@@ -662,6 +662,7 @@ public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootab
 public record struct ShooterImpulseEvent()
 {
     public bool Push;
+    public bool CannotBePushed; // DeltaV - Bipods stop you from being moved by recoil.
 };
 
 public enum EffectLayers : byte
