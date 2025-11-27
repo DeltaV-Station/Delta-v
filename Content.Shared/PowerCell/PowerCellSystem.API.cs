@@ -39,6 +39,65 @@ public sealed partial class PowerCellSystem
     }
 
     /// <summary>
+    /// First tries to get a battery from the entity's power cell slot.
+    /// If that fails check if the entity itself is a battery with <see cref="PredictedBatteryComponent"/>.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetBatteryFromSlotOrEntity(Entity<PowerCellSlotComponent?> ent, [NotNullWhen(true)] out Entity<PredictedBatteryComponent>? battery)
+    {
+        if (TryGetBatteryFromSlot(ent, out battery))
+            return true;
+
+        if (TryComp<PredictedBatteryComponent>(ent, out var batteryComp))
+        {
+            battery = (ent.Owner, batteryComp);
+            return true;
+        }
+
+        // Begin DeltaV additions - event-based search for battery
+        var evt = new SearchForBatteryEvent();
+        RaiseLocalEvent(ent, ref evt);
+        if (evt.Handled && evt.Uid.HasValue)
+        {
+            battery = (evt.Uid.Value, evt.Component!);
+            return true;
+        }
+        // End DeltaV additions - event-based search for battery
+
+        battery = null;
+        return false;
+    }
+
+    /// <summary>
+    /// First checks if the entity itself is a battery with <see cref="PredictedBatteryComponent"/>.
+    /// If that fails it will try to get a battery from the entity's power cell slot instead.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetBatteryFromEntityOrSlot(Entity<PowerCellSlotComponent?> ent, [NotNullWhen(true)] out Entity<PredictedBatteryComponent>? battery)
+    {
+        if (TryComp<PredictedBatteryComponent>(ent, out var batteryComp))
+        {
+            battery = (ent.Owner, batteryComp);
+            return true;
+        }
+        if (TryGetBatteryFromSlot(ent, out battery))
+            return true;
+
+        // Begin DeltaV additions - event-based search for battery
+        var evt = new SearchForBatteryEvent();
+        RaiseLocalEvent(ent, ref evt);
+        if (evt.Handled && evt.Uid.HasValue)
+        {
+            battery = (evt.Uid.Value, evt.Component!);
+            return true;
+        }
+        // End DeltaV additions - event-based search for battery
+
+        battery = null;
+        return false;
+    }
+
+    /// <summary>
     /// Returns whether the entity has a slotted battery and charge for the requested action.
     /// </summary>
     /// <param name="ent">The power cell.</param>
@@ -143,3 +202,20 @@ public sealed partial class PowerCellSystem
         return _battery.GetMaxUses(battery.Value.AsNullable(), cost);
     }
 }
+
+// Begin DeltaV - event-based search for battery
+
+/// <summary>
+/// Event raised to search for batteries within an entity
+/// </summary>
+[ByRefEvent]
+public struct SearchForBatteryEvent
+{
+    public EntityUid? Uid;
+
+    public PredictedBatteryComponent? Component;
+
+    public bool Handled;
+}
+
+// End DeltaV - event-based search for battery
