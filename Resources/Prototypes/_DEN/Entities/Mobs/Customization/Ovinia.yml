@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# Default
+# Ear Markings
 - type: marking
   id: OviniaEars
   bodyPart: HeadTop
@@ -17,6 +17,7 @@
   - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
     state: ovinia-ears-inner
 
+# Tail Markings
 - type: marking
   id: OviniaTail
   bodyPart: Tail
@@ -26,9 +27,7 @@
   - sprite: _DEN/Mobs/Customization/Ovinia/tail_markings.rsi
     state: ovinia-tail
 
-# Ears Markings
-
-# Head Markings
+# Neck Fluff Markings
 - type: marking
   id: OviniaNeckfluff
   bodyPart: NeckFluff
@@ -144,8 +143,6 @@
     state: ovinia-snout
   - sprite: _DEN/Mobs/Customization/Ovinia/snout_markings.rsi
     state: ovinia-nose
-
-# Tail Markings
 
 # Body Markings
 - type: marking
