@@ -77,18 +77,12 @@
       Male: MaleOvinia
       Female: FemaleOvinia
       Unsexed: MaleOvinia
-  # type: LanguageKnowledge //Removed - Delta-V
-  #  speaks:
-  #  - TauCetiBasic
-  #  - Caprine
-  #  understands:
-  #  - TauCetiBasic
-  #  - Caprine
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
     - OviniaEmotes
   - type: ProtectedFromStepTriggers
     #whitelist:

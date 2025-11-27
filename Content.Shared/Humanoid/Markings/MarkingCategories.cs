@@ -39,7 +39,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Eyes => MarkingCategories.Eyes, // DeltaV - Add Eyes Category for IPCs
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
-                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff, // TheDen - Add Ovinia
+                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff, // TheDen - Ovinia, for fluff on necks
                 HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
                 HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,
