@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Psionics.Events;
+namespace Content.Shared._DV.Psionics.Events;
 
 /// <summary>
 /// Event that gets raised whenever someone uses a psionic power.

@@ -1,4 +1,4 @@
-﻿reagent-effect-guidebook-chem-remove-psionic =
+reagent-effect-guidebook-chem-remove-psionic =
     { $chance ->
         [1] Removes
         *[other] {$chance} to remove

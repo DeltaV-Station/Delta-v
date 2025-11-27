@@ -1,4 +1,4 @@
-﻿using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -13,4 +13,3 @@ public sealed partial class ChemRemovePsionics : EventEntityEffect<ChemRemovePsi
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-chem-remove-psionic", ("chance", Probability));
 }
-

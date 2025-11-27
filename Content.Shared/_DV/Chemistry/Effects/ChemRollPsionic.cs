@@ -1,4 +1,4 @@
-﻿using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -19,4 +19,3 @@ public sealed partial class ChemRollPsionic : EventEntityEffect<ChemRollPsionic>
     [DataField]
     public float BonusMultiplier = 1f;
 }
-

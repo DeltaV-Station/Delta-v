@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Chemistry.Effects;
+using Content.Shared._DV.Chemistry.Effects;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Systems;
 using Content.Shared.EntityEffects;
