@@ -55,13 +55,15 @@
     equipDelay: 3
     unequipDelay: 6
   - type: CatWearable
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger # DeltaV: use TimerTrigger instead of OnUseTimerTrigger
+    keysIn:
+    - trigger
+    - stuck
     delay: 10
     delayOptions: [10, 30, 60, 120, 300]
     initialBeepDelay: 0
-    beepSound: /Audio/Machines/Nuke/general_beep.ogg
-    startOnStick: true
-    canToggleStartOnStick: true
+    beepSound:
+      path: /Audio/Machines/Nuke/general_beep.ogg
   - type: TriggerOnSignal # DeltaV: use old behaviour instead of TimerStartOnSignal
   - type: DeviceLinkSink
     ports:
