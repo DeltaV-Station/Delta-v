@@ -25,6 +25,7 @@ public sealed class TileWallsCommand : IConsoleCommand
     public static readonly ProtoId<ContentTileDefinition> TilePrototypeId2 = "FloorCave"; // Delta V - Add cave floor under asteroid rocks
     public static readonly ProtoId<TagPrototype> WallTag = "Wall";
     public static readonly ProtoId<TagPrototype> NaturalTag = "Natural"; // Delta V - Add cave floor under asteroid rocks
+    public static readonly ProtoId<TagPrototype> WoodenTag = "Wooden"; // Delta V - Ignore wooden support walls
     public static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -88,7 +89,7 @@ public sealed class TileWallsCommand : IConsoleCommand
                 continue;
             }
 
-            if (tagSystem.HasTag(child, DiagonalTag))
+            if (tagSystem.HasTag(child, DiagonalTag) || tagSystem.HasTag(child, WoodenTag)) // Delta V - Add wooden tag
             {
                 continue;
             }
