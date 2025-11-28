@@ -39,7 +39,17 @@ public abstract partial class SharedHandsSystem
         // Entities without the HandsComponent will always have full crawling speed.
         if (totalHands == 0)
             args.SpeedModifier = 0f;
-        else
-            args.SpeedModifier *= (float)freeHands / totalHands;
+        // DeltaV - hand free = 75% movespeed, no hands free = 50% movespeed
+        else if (totalHands > freeHands)
+        {
+            // For some reason, this feels a bit dirty
+            // 0 free hands out of 1 total hands = (1-(1-0)*.50) = 50% move speed
+            // 1 free hand out of 2 total hands = (1-(2-1)*.25) = 75% move speed
+            // 1 free hand out of 4 total hands = (1-(4-1)*.125) = 62.5% move speed
+            // 6 free hands out of 10 total hands hands = (1-(10-6)*0.05) = 80% move speed
+            var reductionPerHand = 1 / totalHands * 2;
+            args.SpeedModifier = (float)Math.Clamp(1 - (totalHands - freeHands) * reductionPerHand, 0.5, 1.0);
+        }
+        // END DeltaV
     }
 }
