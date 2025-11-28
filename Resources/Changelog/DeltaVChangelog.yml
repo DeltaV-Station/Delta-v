@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Changed goliath sprites to be accurate to SS13's regular goliath and
-      not ancient goliath.
-    type: Tweak
-  - message: Goliaths attack range was slightly reduced to make combat more fair.
-    type: Tweak
-  id: 1371
-  time: '2025-05-09T15:57:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3654
 - author: nkokic
   changes:
   - message: Added typing indicator when writing on paper.
@@ -4234,3 +4224,10 @@
   id: 1870
   time: '2025-11-28T07:17:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4715
+- author: Colin-Tel, BigMaxPorter
+  changes:
+  - message: The laser carbine now does the intended 20 heat damage.
+    type: Fix
+  id: 1871
+  time: '2025-11-28T08:24:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4790
