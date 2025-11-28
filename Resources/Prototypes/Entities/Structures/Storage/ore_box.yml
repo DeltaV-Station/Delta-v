@@ -59,6 +59,12 @@
     whitelist:
       tags:
       - Ore
+  - type: MagnetPickup
+    range: 1.0
+  - type: ItemToggle
+  - type: ItemToggleExamine
+    on: magnet-pickup-component-magnet-on
+    off: magnet-pickup-component-magnet-off
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
