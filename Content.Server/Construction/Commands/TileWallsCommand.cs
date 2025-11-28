@@ -89,7 +89,7 @@ public sealed class TileWallsCommand : IConsoleCommand
                 continue;
             }
 
-            if (tagSystem.HasTag(child, DiagonalTag) || tagSystem.HasTag(child, WoodenTag)) // Delta V - Add wooden tag
+            if (tagSystem.HasTag(child, DiagonalTag) || tagSystem.HasTag(child, WoodenTag)) // Delta V - Ignore wooden support walls
             {
                 continue;
             }
