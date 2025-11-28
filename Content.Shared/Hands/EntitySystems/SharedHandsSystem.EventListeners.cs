@@ -39,7 +39,7 @@ public abstract partial class SharedHandsSystem
         // Entities without the HandsComponent will always have full crawling speed.
         if (totalHands == 0)
             args.SpeedModifier = 0f;
-        // DeltaV - hand free = 75% movespeed, no hands free = 50% movespeed
+        // DeltaV - 1 hand free = 75% movespeed, no hands free = 50% movespeed
         else if (totalHands > freeHands)
         {
             // For some reason, this feels a bit dirty
