@@ -90,7 +90,7 @@ public sealed class HandHeldArmorSystem : EntitySystem
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("held-armor-examine"));
 
-        foreach (var coefficientArmor in armor.Modifiers.Coefficients) // DeltaV
+        foreach (var coefficientArmor in armor.Modifiers.Coefficients)
         {
             msg.PushNewline();
 
@@ -112,7 +112,6 @@ public sealed class HandHeldArmorSystem : EntitySystem
             ));
         }
 
-        // Begin DeltaV Additions - Add melee stamina resistance information if it has any
         if (!MathHelper.CloseTo(armor.StaminaMeleeDamageCoefficient, 1.0f))
         {
             msg.PushNewline();
@@ -121,7 +120,6 @@ public sealed class HandHeldArmorSystem : EntitySystem
                 ("value", MathF.Round(reduction, 1))
             ));
         }
-        // End DeltaV
 
         return msg;
     }
