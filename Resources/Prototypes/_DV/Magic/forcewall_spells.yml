@@ -1,0 +1,9 @@
+- type: entity
+  parent: ActionForceWall
+  id: ActionForceWallBookOfMysteries
+  name: Force Wall
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 90
+  - type: LimitedCharges
+    maxCharges: 1

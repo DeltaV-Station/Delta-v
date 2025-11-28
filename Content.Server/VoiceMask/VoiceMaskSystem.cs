@@ -6,11 +6,13 @@ using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
+using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.Speech;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.VoiceMask;
@@ -23,6 +25,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     // CCVar.
     private int _maxNameLength;
@@ -32,6 +36,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerName);
         SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerNameImplant);
+        SubscribeLocalEvent<VoiceMaskComponent, LockToggledEvent>(OnLockToggled);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
         SubscribeLocalEvent<VoiceMaskComponent, ClothingGotEquippedEvent>(OnEquip);
@@ -46,11 +51,20 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         args.Args.SpeechVerb = entity.Comp.VoiceMaskSpeechVerb ?? args.Args.SpeechVerb;
     }
 
-    // Delta-v specific for implants
+    // DeltaV - specific for implants
     private void OnTransformSpeakerNameImplant(Entity<VoiceMaskComponent> entity, ref ImplantRelayEvent<TransformSpeakerNameEvent> args)
     {
         args.Event.VoiceName = GetCurrentVoiceName(entity);
         args.Event.SpeechVerb = entity.Comp.VoiceMaskSpeechVerb ?? args.Event.SpeechVerb;
+    }
+    // END DeltaV
+
+    private void OnLockToggled(Entity<VoiceMaskComponent> ent, ref LockToggledEvent args)
+    {
+        if (args.Locked)
+            _actions.RemoveAction(ent.Comp.ActionEntity);
+        else if (_container.TryGetContainingContainer(ent.Owner, out var container))
+            _actions.AddAction(container.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action, ent);
     }
 
     #region User inputs from UI
@@ -87,6 +101,9 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     #region UI
     private void OnEquip(EntityUid uid, VoiceMaskComponent component, ClothingGotEquippedEvent args)
     {
+        if (_lock.IsLocked(uid))
+            return;
+
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
     }
 
