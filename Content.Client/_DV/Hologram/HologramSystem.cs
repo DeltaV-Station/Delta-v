@@ -11,7 +11,7 @@ public sealed class HologramSystem : SharedHologramSystem
     [Dependency] private readonly OccluderSystem _occluder = default!;
     [Dependency] private readonly EntityManager _entMan = default!;
 
-    private static readonly ProtoId<ShaderPrototype> HologramProto = new("HologramDeltaV");
+    private static readonly ProtoId<ShaderPrototype> HologramProto = "HologramDeltaV";
     private ShaderInstance _shader = default!;
 
     public override void Initialize()

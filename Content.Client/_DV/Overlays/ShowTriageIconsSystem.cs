@@ -21,9 +21,9 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
     private static readonly ProtoId<HealthIconPrototype> Immediate = "TriageStatusImmediate";
     private static readonly ProtoId<HealthIconPrototype> Expectant = "TriageStatusExpectant";
 
-    private static readonly ProtoId<HealthIconPrototype> TriageClaimedYoursId = new("TriageClaimedYours");
-    private static readonly ProtoId<HealthIconPrototype> TriageClaimedOthersId = new("TriageClaimedOthers");
-    private static readonly ProtoId<HealthIconPrototype> TriageUnclaimedId = new("TriageUnclaimed");
+    private static readonly ProtoId<HealthIconPrototype> TriageClaimedYoursId = "TriageClaimedYours";
+    private static readonly ProtoId<HealthIconPrototype> TriageClaimedOthersId = "TriageClaimedOthers";
+    private static readonly ProtoId<HealthIconPrototype> TriageUnclaimedId = "TriageUnclaimed";
 
     public override void Initialize()
     {

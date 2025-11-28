@@ -16,8 +16,8 @@ namespace Content.Server.Psionics
         [Dependency] private readonly NpcFactionSystem _faction = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
 
-        private static readonly ProtoId<NpcFactionPrototype> PsionicInterloperProtoId = new("PsionicInterloper");
-        private static readonly ProtoId<NpcFactionPrototype> GlimmerMonsterProtoId = new("GlimmerMonster");
+        private static readonly ProtoId<NpcFactionPrototype> PsionicInterloperProtoId = "PsionicInterloper";
+        private static readonly ProtoId<NpcFactionPrototype> GlimmerMonsterProtoId = "GlimmerMonster";
 
 
         public override void Initialize()
