@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
@@ -32,6 +33,25 @@ public sealed class VocalSystem : EntitySystem
         SubscribeLocalEvent<VocalComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<VocalComponent, ScreamActionEvent>(OnScreamAction);
         SubscribeLocalEvent<VocalComponent, SoundsChangedEvent>(OnSoundsChanged); // DeltaV - support for changing vocal sounds on the go. Why it wasn't there in the first place is beyond me.
+    }
+
+    /// <summary>
+    /// Copy this component's datafields from one entity to another.
+    /// This can't use CopyComp because of the ScreamActionEntity DataField, which should not be copied.
+    /// <summary>
+    public void CopyComponent(Entity<VocalComponent?> source, EntityUid target)
+    {
+        if (!Resolve(source, ref source.Comp))
+            return;
+
+        var targetComp = EnsureComp<VocalComponent>(target);
+        targetComp.Sounds = source.Comp.Sounds;
+        targetComp.ScreamId = source.Comp.ScreamId;
+        targetComp.Wilhelm = source.Comp.Wilhelm;
+        targetComp.WilhelmProbability = source.Comp.WilhelmProbability;
+        LoadSounds(target, targetComp);
+
+        Dirty(target, targetComp);
     }
 
     private void OnMapInit(EntityUid uid, VocalComponent component, MapInitEvent args)

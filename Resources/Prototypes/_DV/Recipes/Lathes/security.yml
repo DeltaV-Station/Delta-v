@@ -352,3 +352,37 @@
     Silver: 1500
     Gold: 500
     Wood: 300
+
+# .40 Anti-materiel Ammo for the NT-3
+
+- type: latheRecipe
+  id: MagazineBoxLMGAntiMateriel
+  result: MagazineBoxLMGAntiMateriel
+  completetime: 4
+  materials:
+    Steel: 1000
+    Uranium: 250
+
+- type: latheRecipe
+  id: PyroLeftArm
+  result: PyroLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300
+
+- type: latheRecipe
+  id: ZapLeftArm
+  result: ZapLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300

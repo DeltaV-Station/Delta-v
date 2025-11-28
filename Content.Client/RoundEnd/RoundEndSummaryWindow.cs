@@ -1,9 +1,11 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
+using Content.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
 using Content.Shared.GameTicking;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
@@ -79,7 +81,20 @@ namespace Content.Client.RoundEnd
             if (!string.IsNullOrEmpty(roundEnd))
             {
                 var roundEndLabel = new RichTextLabel();
-                roundEndLabel.SetMarkup(roundEnd);
+                // Begin DeltaV - Limit what tags can be used in custom objective summaries
+                roundEndLabel.SetMessage(
+                    FormattedMessage.FromMarkupPermissive(roundEnd),
+                    [
+                        typeof(BoldItalicTag),
+                        typeof(BoldTag),
+                        typeof(BulletTag),
+                        typeof(ColorTag),
+                        typeof(HeadingTag),
+                        typeof(ItalicTag),
+                        typeof(MonoTag)
+                    ]
+                );
+                // End DeltaV - Limit what tags can be used in custom objective summaries
                 roundEndSummaryContainer.AddChild(roundEndLabel);
             }
 

@@ -7,11 +7,7 @@
 /Resources/ @DeltaV-Station/maintainers
 
 # Server config files
-/Resources/ConfigPresets/ @deltanedas
-
-# YML files
-/Resources/*.yml @DeltaV-Station/yaml-maintainers
-/Resources/**/*.yml @DeltaV-Station/yaml-maintainers
+/Resources/ConfigPresets/ @Toby222
 
 # Sprites - Direction in lack of art director
 /Resources/Textures/ @DeltaV-Station/direction
@@ -28,11 +24,14 @@
 # Server rules
 /Resources/ServerInfo/Guidebook/DeltaV/Rules/ @DeltaV-Station/head-administrators
 
+# Wiki
+/.wiki/ @DeltaV-Station/direction
+
 # Tools and scripts
-/Tools/ @deltanedas
+/Tools/ @Toby222
 
 # Workflows, codeowners, templates, etc.
-/.github/ @deltanedas
+/.github/ @Toby222
 
 # Standalone files in the root repo
-/* @deltanedas
+/* @Toby222

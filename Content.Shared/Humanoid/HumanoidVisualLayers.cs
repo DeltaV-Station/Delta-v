@@ -15,8 +15,10 @@ namespace Content.Shared.Humanoid
         Chest,
         Head,
         Snout,
+        SnoutCover, // things layered over snouts (i.e. noses)
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
+        NeckFluff, // TheDen - Ovinia, for fluff on necks
         Eyes,
         RArm,
         LArm,

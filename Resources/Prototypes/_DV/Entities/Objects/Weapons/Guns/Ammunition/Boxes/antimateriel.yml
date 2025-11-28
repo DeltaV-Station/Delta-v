@@ -1,0 +1,13 @@
+- type: entity
+  parent: MagazineBoxAntiMateriel
+  id: MagazineBoxLMGAntiMateriel
+  name: ammunition box (.40 anti-materiel)
+  description: A rigid steel box of .40 anti-materiel rounds. Intended to hold structure-piercing kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeLMGAntiMateriel
+    proto: CartridgeLMGAntiMateriel
+    capacity: 30
