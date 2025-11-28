@@ -104,8 +104,8 @@ public sealed class TileWallsCommand : IConsoleCommand
             var mapSystem = _entManager.System<MapSystem>();
             var tile = mapSystem.GetTileRef(gridId.Value, grid, childTransform.Coordinates);
             var tileDef = (ContentTileDefinition)_tileDefManager[tile.Tile.TypeId];
-
-            if (tileDef.ID == TilePrototypeId && !tagSystem.HasTag(child, NaturalTag)) // Delta V - Begin add natural wall tile replace
+            // Delta V - Begin add natural wall tile replace
+            if (tileDef.ID == TilePrototypeId && !tagSystem.HasTag(child, NaturalTag))
             {
                 continue;
             }
