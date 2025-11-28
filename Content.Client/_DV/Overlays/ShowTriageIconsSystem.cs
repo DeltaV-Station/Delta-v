@@ -16,10 +16,14 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    private static ProtoId<HealthIconPrototype> Minor = "TriageStatusMinor";
-    private static ProtoId<HealthIconPrototype> Delayed = "TriageStatusDelayed";
-    private static ProtoId<HealthIconPrototype> Immediate = "TriageStatusImmediate";
-    private static ProtoId<HealthIconPrototype> Expectant = "TriageStatusExpectant";
+    private static readonly ProtoId<HealthIconPrototype> Minor = "TriageStatusMinor";
+    private static readonly ProtoId<HealthIconPrototype> Delayed = "TriageStatusDelayed";
+    private static readonly ProtoId<HealthIconPrototype> Immediate = "TriageStatusImmediate";
+    private static readonly ProtoId<HealthIconPrototype> Expectant = "TriageStatusExpectant";
+
+    private static readonly ProtoId<HealthIconPrototype> TriageClaimedYoursId = "TriageClaimedYours";
+    private static readonly ProtoId<HealthIconPrototype> TriageClaimedOthersId = "TriageClaimedOthers";
+    private static readonly ProtoId<HealthIconPrototype> TriageUnclaimedId = "TriageUnclaimed";
 
     public override void Initialize()
     {
@@ -33,32 +37,33 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
         if (!IsActive)
             return;
 
-        var triageStatusIcon = ent.Comp.Record.Status switch {
+        var triageStatusIcon = ent.Comp.Record.Status switch
+        {
             TriageStatus.None => null,
             TriageStatus.Minor => _prototype.Index(Minor),
             TriageStatus.Delayed => _prototype.Index(Delayed),
             TriageStatus.Immediate => _prototype.Index(Immediate),
             TriageStatus.Expectant => _prototype.Index(Expectant),
+            _ => null,
         };
-        if (triageStatusIcon is not {} statusPrototype)
+
+        if (triageStatusIcon is not { } statusPrototype)
             return;
 
         ev.StatusIcons.Add(statusPrototype);
 
-        if (ent.Comp.Record.ClaimedName is {} claimedName)
+        if (ent.Comp.Record.ClaimedName is not { } claimedName)
         {
-            if (_player.LocalEntity is {} local && _idCard.TryFindIdCard(local, out var idCard) && idCard.Comp.FullName == claimedName)
-            {
-                ev.StatusIcons.Add(_prototype.Index<HealthIconPrototype>("TriageClaimedYours"));
-            }
-            else
-            {
-                ev.StatusIcons.Add(_prototype.Index<HealthIconPrototype>("TriageClaimedOthers"));
-            }
+            ev.StatusIcons.Add(_prototype.Index(TriageUnclaimedId));
+            return;
         }
-        else
+
+        if (_player.LocalEntity is { } local && _idCard.TryFindIdCard(local, out var idCard) && idCard.Comp.FullName == claimedName)
         {
-            ev.StatusIcons.Add(_prototype.Index<HealthIconPrototype>("TriageUnclaimed"));
+            ev.StatusIcons.Add(_prototype.Index(TriageClaimedYoursId));
+            return;
         }
+
+        ev.StatusIcons.Add(_prototype.Index(TriageClaimedOthersId));
     }
 }
