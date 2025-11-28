@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/28/2025 06:53:59
+  time: 11/28/2025 07:31:29
   entityCount: 13040
 maps:
 - 55
@@ -4314,6 +4314,7 @@ entities:
       - 7885
       - 8363
       - 10024
+      - 517
     - type: Fixtures
       fixtures: {}
   - uid: 7889
@@ -35461,6 +35462,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -4.5,-44.5
       parent: 8
+    - type: DeviceNetwork
+      deviceLists:
+      - 7887
   - uid: 5361
     components:
     - type: Transform
@@ -35468,8 +35472,6 @@ entities:
       pos: 56.5,-21.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
   - uid: 7728
@@ -35968,7 +35970,7 @@ entities:
       pos: -20.5,-6.5
       parent: 8
     - type: Door
-      secondsUntilStateChange: -14249.658
+      secondsUntilStateChange: -16404.041
       state: Closing
   - uid: 7908
     components:
@@ -51889,8 +51891,6 @@ entities:
       pos: -0.5,35.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6104
     - type: AtmosPipeColor
@@ -51944,8 +51944,6 @@ entities:
       pos: -14.5,28.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12533
     - type: AtmosPipeColor
@@ -52114,8 +52112,6 @@ entities:
       pos: 2.5,38.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6104
     - type: AtmosPipeColor
@@ -52392,8 +52388,6 @@ entities:
       pos: -13.5,26.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12533
     - type: AtmosPipeColor
@@ -52687,8 +52681,6 @@ entities:
     - type: AtmosPipeColor
       color: '#033FFCFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10396
   - uid: 11783
@@ -52789,8 +52781,6 @@ entities:
       pos: 57.5,-22.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
     - type: AtmosPipeColor
@@ -52802,8 +52792,6 @@ entities:
       pos: 60.5,-22.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
     - type: AtmosPipeColor
@@ -52815,8 +52803,6 @@ entities:
       pos: 64.5,-24.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
     - type: AtmosPipeColor
@@ -52948,8 +52934,6 @@ entities:
       pos: -0.5,36.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6104
   - uid: 5344
@@ -53187,8 +53171,6 @@ entities:
       pos: 4.5,38.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6104
     - type: AtmosPipeColor
@@ -53301,8 +53283,6 @@ entities:
       pos: -15.5,28.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12533
     - type: AtmosPipeColor
@@ -53340,8 +53320,6 @@ entities:
       pos: -14.5,26.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12533
     - type: AtmosPipeColor
@@ -53698,8 +53676,6 @@ entities:
     - type: AtmosPipeColor
       color: '#FF1212FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
     - type: AtmosPipeLayers
@@ -53772,8 +53748,6 @@ entities:
     - type: AtmosPipeColor
       color: '#FF1212FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
     - type: AtmosPipeLayers
@@ -53787,8 +53761,6 @@ entities:
     - type: AtmosPipeColor
       color: '#FF1212FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 515
     - type: AtmosPipeLayers
@@ -81081,8 +81053,6 @@ entities:
       pos: 60.5,-19.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13019
   - uid: 11536
@@ -81092,8 +81062,6 @@ entities:
       pos: 64.5,-26.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13019
   - uid: 11570
@@ -81103,8 +81071,6 @@ entities:
       pos: 60.5,-23.5
       parent: 8
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13019
 - proto: WeaponEnergyTurretCommandControlPanel
@@ -81235,7 +81201,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -36683.12
+      secondsUntilStateChange: -38837.504
       state: Opening
     - type: Airlock
       autoClose: False
