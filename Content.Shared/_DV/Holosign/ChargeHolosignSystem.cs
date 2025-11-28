@@ -19,14 +19,13 @@ public sealed class ChargeHolosignSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private HashSet<Entity<IComponent>> _signs = new();
+    private HashSet<Entity<IComponent>> _placedSigns = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChargeHolosignProjectorComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<ChargeHolosignProjectorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChargeHolosignProjectorComponent, BeforeRangedInteractEvent>(OnBeforeInteract);
     }
 
@@ -37,12 +36,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return;
 
         ent.Comp.SignComponent = EntityManager.ComponentFactory.GetRegistration(ent.Comp.SignComponentName).Type;
-    }
-
-    private void OnMapInit(Entity<ChargeHolosignProjectorComponent> ent, ref MapInitEvent args)
-    {
-        if (!TryComp<LimitedChargesComponent>(ent, out var charges))
-            return;
     }
 
     private void OnBeforeInteract(Entity<ChargeHolosignProjectorComponent> ent, ref BeforeRangedInteractEvent args)
@@ -56,14 +49,14 @@ public sealed class ChargeHolosignSystem : EntitySystem
         var coords = args.ClickLocation.SnapToGrid(EntityManager);
         var mapCoords = _transform.ToMapCoordinates(coords);
 
-        _signs.Clear();
+        _placedSigns.Clear();
 
-        _lookup.GetEntitiesInRange(ent.Comp.SignComponent, mapCoords, 0.25f, _signs);
+        _lookup.GetEntitiesInRange(ent.Comp.SignComponent, mapCoords, 0.25f, _placedSigns);
 
-        if (_signs.Count == 0)
+        if (!ent.Comp.CanPickup || _placedSigns.Count == 0)
             TryPlaceSign((ent, ent, charges), args);
         else
-            TryRemoveSign((ent, ent, charges), _signs.First(), args.User);
+            TryRemoveSign((ent, ent, charges), _placedSigns.First(), args.User);
 
         args.Handled = true;
     }
@@ -86,7 +79,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
     public bool TryRemoveSign(Entity<ChargeHolosignProjectorComponent, LimitedChargesComponent> ent, EntityUid sign, EntityUid user)
     {
-        if(!ent.Comp1.CanPickup)
+        if (!ent.Comp1.CanPickup)
             return false;
 
         // don't overfill

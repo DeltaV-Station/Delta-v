@@ -1,5 +1,14 @@
 - type: entity
-  parent: HoloprojectorEngineering
-  id: HoloprojectorEngineeringEmpty
-  categories: [ HideSpawnMenu ] # DeltaV - this is identical to the normal one
-  suffix: Empty
+  parent: Holoprojector
+  id: HoloprojectorEngineering
+  name: engineering holoprojector
+  description: Displays a warning sign.
+  components:
+  - type: ChargeHolosignProjector
+    signProto: HolosignEng
+    signComponentName: Holosign # Fuck it, these can pick up janitor signs.
+  - type: AutoRecharge
+    rechargeDuration: 180
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Holoprojectors/eng.rsi
+    state: icon

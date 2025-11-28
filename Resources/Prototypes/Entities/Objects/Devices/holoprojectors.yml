@@ -7,6 +7,14 @@
   - type: Item
     storedRotation: -90
   #- type: HolosignProjector # DeltaV - Holoprojectors don't need batteries
+  # Begin DeltaV - Holoprojectors don't need batteries
+  - type: ChargeHolosignProjector
+    signComponentName: Holosign
+  - type: LimitedCharges
+    maxCharges: 6 # same as it was on a medium cell
+  - type: AutoRecharge
+    rechargeDuration: 90 # Same as holosign lifetime
+  # END DeltaV
   - type: UseDelay
   #- type: ContainerContainer # DeltaV - Holoprojectors dont need batteries
   #  containers:
@@ -24,14 +32,7 @@
   - type: Tag
     tags:
       - HolosignProjector
-  # Begin DeltaV - Holoprojectors don't need batteries
-  - type: ChargeHolosignProjector
-    signComponentName: Holosign
-  - type: LimitedCharges
-    maxCharges: 6 # same as it was on a medium cell
-  - type: AutoRecharge
-    rechargeDuration: 90 # Same as holosign lifetime
-  # END DeltaV
+
 
 - type: entity
   parent: Holoprojector
@@ -169,7 +170,7 @@
     # Begin DeltaV Additions
     - type: ChargeHolosignProjector
       signProto: HolosignForcefield
-      canPickup: false
+      signComponentName: HoloForcefield
     - type: AutoRecharge
       rechargeDuration: 180 # Same as the HolosignForcefield lifetime
     # End DeltaV Additions

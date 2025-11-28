@@ -17,6 +17,11 @@ public sealed partial class ChargeHolosignProjectorComponent : Component
     [DataField]
     public EntProtoId SignProto = "HolosignWetFloor";
 
+    /// <summary>
+    /// A whitelist component that the projection has to have in order for the projector to pick it back up.
+    /// For example, HolosignWetFloor has the component Holosign, and while HoloFan has the Holofan component.
+    /// When SignComponentName is Holosign, then it can pick up HolosignWetFloor but not HoloFan.
+    /// </summary>
     [DataField]
     public string? SignComponentName = "Holosign";
 

@@ -17,7 +17,7 @@ public sealed class TimedDespawnDetailedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
 
-    private HashSet<EntityUid> _timedDespawns = new();
+    private readonly HashSet<EntityUid> _timedDespawns = new();
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -91,6 +91,7 @@ public sealed class TimedDespawnDetailedSystem : EntitySystem
             _audioSystem.PlayPredicted(ent.Comp.EndSound, entCoords, null, ent.Comp.EndSoundParams);
         }
 
+        _timedDespawns.Remove(ent);
         EntityManager.QueueDeleteEntity(ent);
     }
 
