@@ -21,7 +21,6 @@ namespace Content.Server._DV.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class LoadCharacter : IConsoleCommand
 {
-    [Dependency] private readonly IEntitySystemManager _entitySys = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
@@ -120,9 +119,9 @@ public sealed class LoadCharacter : IConsoleCommand
 
         var coordinates = player.AttachedEntity != null
             ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
-            : EntitySystem.Get<GameTicker>().GetObserverSpawnPoint();
+            : _entityManager.System<GameTicker>().GetObserverSpawnPoint();
 
-        EntitySystem.Get<StationSpawningSystem>()
+        _entityManager.System<StationSpawningSystem>()
             .SpawnPlayerMob(coordinates, profile: character, entity: target, job: null, station: null);
 
         shell.WriteLine(Loc.GetString("loadcharacter-command-complete"));
@@ -135,20 +134,20 @@ public sealed class LoadCharacter : IConsoleCommand
             case 1:
                 return CompletionResult.FromHint(Loc.GetString("shell-argument-uid"));
             case 2:
-            {
-                if (shell.Player is not ICommonSession player)
-                    return CompletionResult.Empty;
+                {
+                    if (shell.Player is not ICommonSession player)
+                        return CompletionResult.Empty;
 
-                var data = player.ContentData();
-                var mind = data?.Mind;
+                    var data = player.ContentData();
+                    var mind = data?.Mind;
 
-                if (mind == null || data == null)
-                    return CompletionResult.Empty;
+                    if (mind == null || data == null)
+                        return CompletionResult.Empty;
 
-                return FetchCharacters(data.UserId, out var characters)
-                    ? CompletionResult.FromOptions(characters.Select(c => c.Name))
-                    : CompletionResult.Empty;
-            }
+                    return FetchCharacters(data.UserId, out var characters)
+                        ? CompletionResult.FromOptions(characters.Select(c => c.Name))
+                        : CompletionResult.Empty;
+                }
             default:
                 return CompletionResult.Empty;
         }

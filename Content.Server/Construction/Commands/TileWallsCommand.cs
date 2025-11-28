@@ -22,7 +22,9 @@ public sealed class TileWallsCommand : IConsoleCommand
     public string Help => $"Usage: {Command} <gridId> | {Command}";
 
     public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "Plating";
+    public static readonly ProtoId<ContentTileDefinition> TilePrototypeId2 = "FloorCave"; // Delta V - Add cave floor under asteroid rocks
     public static readonly ProtoId<TagPrototype> WallTag = "Wall";
+    public static readonly ProtoId<TagPrototype> NaturalTag = "Natural"; // Delta V - Add cave floor under asteroid rocks
     public static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -70,6 +72,8 @@ public sealed class TileWallsCommand : IConsoleCommand
         var tagSystem = _entManager.EntitySysManager.GetEntitySystem<TagSystem>();
         var underplating = _tileDefManager[TilePrototypeId];
         var underplatingTile = new Tile(underplating.TileId);
+        var naturalunderplating = _tileDefManager[TilePrototypeId2]; // Delta V - Add cave floor under asteroid rocks
+        var naturalunderplatingTile = new Tile(naturalunderplating.TileId); // Delta V - Add cave floor under asteroid rocks
         var changed = 0;
         var enumerator = _entManager.GetComponent<TransformComponent>(gridId.Value).ChildEnumerator;
         while (enumerator.MoveNext(out var child))
@@ -102,9 +106,17 @@ public sealed class TileWallsCommand : IConsoleCommand
 
             if (tileDef.ID == TilePrototypeId)
             {
+                // Delta V - Begin add natural wall tile replace
+                if (tagSystem.HasTag(child, NaturalTag))
+                {
+
+                    mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, naturalunderplatingTile);
+                    changed++;
+                    continue;
+                }
+                // Delta V - end add natural wall tile replace
                 continue;
             }
-
             mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, underplatingTile);
             changed++;
         }

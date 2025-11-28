@@ -1,88 +1,6 @@
 ﻿Entries:
 - author: sowelipililimute
   changes:
-  - message: 'Engineering borgs hold more construction materials in their construction
-      module: paper, wood, plasma, uranium, gold, silver, and stock machine parts.'
-    type: Tweak
-  - message: Engineering borgs have two more slots for tiles in their construction
-      module.
-    type: Tweak
-  id: 1368
-  time: '2025-05-09T14:04:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3659
-- author: deltanedas
-  changes:
-  - message: Code blue and red no longer give security permission to search anyone
-      they like. Follow probable cause from now on!
-    type: Remove
-  id: 1369
-  time: '2025-05-09T14:05:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3655
-- author: deltanedas
-  changes:
-  - message: Added PKA modkits to the salvage points vendor.
-    type: Add
-  - message: Reworked PKA modkits to be cost-based, you can have multiple of the same
-      one now.
-    type: Tweak
-  - message: PKA only does 25% damage when indoors.
-    type: Tweak
-  - message: Added PKA indoors modkit for salvage traitors which counters indoor damage
-      reduction.
-    type: Add
-  id: 1370
-  time: '2025-05-09T15:53:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3671
-- author: deltanedas
-  changes:
-  - message: Changed goliath sprites to be accurate to SS13's regular goliath and
-      not ancient goliath.
-    type: Tweak
-  - message: Goliaths attack range was slightly reduced to make combat more fair.
-    type: Tweak
-  id: 1371
-  time: '2025-05-09T15:57:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3654
-- author: nkokic
-  changes:
-  - message: Added typing indicator when writing on paper.
-    type: Add
-  id: 1372
-  time: '2025-05-09T15:58:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3689
-- author: sowelipililimute
-  changes:
-  - message: Departmental cargo request computers now print slips that can be given
-      to Logistics for final approval, rather than directly approving the orders themselves
-    type: Tweak
-  id: 1373
-  time: '2025-05-09T22:16:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3658
-- author: Colin_Tel, lyndomen, Kazne
-  changes:
-  - message: Updated metashield with Cultist information.
-    type: Tweak
-  id: 1374
-  time: '2025-05-09T22:21:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3643
-- author: SubspaceEmber
-  changes:
-  - message: Combat RCD has new sprite to match ERT suits
-    type: Tweak
-  - message: Experimental RCD has new animated sprite
-    type: Tweak
-  - message: All RCDs have new in-hand sprites
-    type: Tweak
-  - message: Experimental RCD can now make reinforced walls, plasma windows, reinforced
-      plasma windows, and external airlocks
-    type: Tweak
-  - message: RCD can now make windoors and post lights
-    type: Tweak
-  id: 1375
-  time: '2025-05-09T22:40:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3637
-- author: sowelipililimute
-  changes:
   - message: Extremities such as hands and feet are now easier to hack off in combat,
       whilst core things such as arms, legs, and heads are more difficult to hack
       off
@@ -4247,3 +4165,60 @@
   id: 1867
   time: '2025-11-27T18:29:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4786
+- author: Proxysseia
+  changes:
+  - message: Security Hardsuits are no longer insulated
+    type: Remove
+  id: 1868
+  time: '2025-11-27T22:25:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4724
+- author: MantasDab360
+  changes:
+  - message: Borgs can pick up metal rods!
+    type: Fix
+  id: 1869
+  time: '2025-11-28T00:03:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4787
+- author: juniwoofs, Vapetastic-Gaming
+  changes:
+  - message: OVINIA ARE SPOTTED IN THE DELTA-V SECTOR
+    type: Add
+  id: 1870
+  time: '2025-11-28T07:17:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4715
+- author: Colin-Tel, BigMaxPorter
+  changes:
+  - message: The laser carbine now does the intended 20 heat damage.
+    type: Fix
+  id: 1871
+  time: '2025-11-28T08:24:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4790
+- author: Toby222
+  changes:
+  - message: Cardboard boxes are now affected by gravity
+    type: Fix
+  id: 1872
+  time: '2025-11-28T08:47:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4794
+- author: Toby222
+  changes:
+  - message: Skimmer now does its one and only job again, lazy bugger
+    type: Fix
+  id: 1873
+  time: '2025-11-28T09:36:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4795
+- author: Toby222
+  changes:
+  - message: Flintlock is now craftable as intended
+    type: Fix
+  id: 1874
+  time: '2025-11-28T09:41:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4796
+- author: Toby222
+  changes:
+  - message: Removed the invisible, intangible bear inside all fishing crates that
+      was trying to steal your fish
+    type: Fix
+  id: 1875
+  time: '2025-11-28T09:49:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4797

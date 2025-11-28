@@ -1,20 +1,24 @@
 - type: entity
-  id: AsteroidAltRock #It's 1994
-  parent: BaseStructure
+  id: BaseAltRock #It's 1994
+  parent: BaseWall
+  abstract: true
   name: asteroid rock
-  suffix: Low Ore Yield
   description: A rocky asteroid.
   components:
-  - type: Gatherable
-    toolWhitelist:
-      tags:
-        - Pickaxe
   - type: Sprite
     sprite: _DV/Structures/Walls/asteroid_rock.rsi
     state: full
+  - type: Icon
+    sprite: _DV/Structures/Walls/asteroid_rock.rsi
+    state: full
+  - type: Tag
+    tags:
+    - Wall
+    - Natural
+  - type: MiningScannerViewable
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
   - type: Destructible
     thresholds:
     - trigger:
@@ -23,15 +27,18 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: Occluder
-  - type: Airtight
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
-        density: 100
+        density: 2000
         mask:
         - FullTileMask
         layer:
@@ -39,18 +46,75 @@
   - type: IconSmooth
     key: walls
     base: rock_
+
+- type: entity
+  id: AsteroidAltRock
+  parent: BaseAltRock
+  suffix: Low Yield, Standard Value
+  components:
   - type: OreVein
     oreChance: 0.2
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
-  id: MountainRockMining
+  id: AsteroidAltRockMining
   parent: AsteroidAltRock
+  suffix: High Yield, Standard Value
+  components:
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionStandard
+
+- type: entity
+  id: AsteroidRockOreCrab
+  parent: AsteroidAltRock
+  suffix: Ore Crab
+  components:
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: OreCrab
+
+- type: entity
+  id: MountainRock
+  parent: BaseAltRock
   name: mountain rock
-  suffix: Low Yield/Higher Value Ore
   description: A craggy mountain wall.
+  suffix: Un-mineable
   components:
   - type: Sprite
+    sprite: _DV/Structures/Walls/mountain_rock.rsi
+    state: full
+    drawdepth: Walls
+  - type: Icon
+    sprite: _DV/Structures/Walls/mountain_rock.rsi
+    state: full
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: MountainRock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+
+- type: entity
+  id: MountainRockMining
+  parent: MountainRock
+  suffix: Low Yield, High Value
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Walls/mountain_rock_ore.rsi
+    state: full
+    drawdepth: Walls
+  - type: Icon
     sprite: _DV/Structures/Walls/mountain_rock_ore.rsi
     state: full
   - type: Destructible
@@ -61,70 +125,14 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
   - type: OreVein
     oreChance: 0.20
     oreRarityPrototypeId: RandomOreDistributionHigh
-
-- type: entity
-  id: MountainRock
-  parent: BaseStructure
-  name: mountain rock
-  suffix: Un-mineable
-  description: A craggy mountain wall. It is too hard to mine.
-  components:
-  - type: Sprite
-    sprite: _DV/Structures/Walls/mountain_rock.rsi
-    state: full
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Occluder
-  - type: Airtight
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 100
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-  - type: IconSmooth
-    key: walls
-    base: rock_
-
-- type: entity
-  id: AsteroidAltRockMining
-  parent: AsteroidAltRock
-  name: asteroid rock
-  suffix: Higher Ore Yield
-  description: A rocky asteroid.
-  components:
-  - type: Gatherable
-    toolWhitelist:
-      tags:
-        - Pickaxe
-  - type: OreVein
-    oreChance: 0.33
-    oreRarityPrototypeId: RandomOreDistributionStandard
-
-- type: entity
-  id: AsteroidRockOreCrab
-  parent: AsteroidAltRock
-  name: asteroid rock
-  suffix: Ore Crab
-  description: A rocky asteroid.
-  components:
-  - type: OreVein
-    oreChance: 0.33
-    oreRarityPrototypeId: OreCrab

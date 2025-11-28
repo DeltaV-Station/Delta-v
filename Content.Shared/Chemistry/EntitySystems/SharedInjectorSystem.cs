@@ -5,6 +5,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Reagent; // DeltaV - Skimmer
 using Content.Shared.CombatMode;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -19,6 +20,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
+using Robust.Shared.Prototypes; // DeltaV - Skimmer
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -398,6 +400,13 @@ public abstract class SharedInjectorSystem : EntitySystem
         {
             temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, reagentWhitelist.ToArray());
         }
+        // Begin DeltaV Additions - skimmer functionality
+        else if (injector.Comp.TargetSmallest && applicableTargetSolution.Any())
+        {
+            var smallest = applicableTargetSolution.MinBy(soln => soln.Quantity);
+            temporarilyRemovedSolution = applicableTargetSolution.SplitSolutionWithout(applicableTargetSolution.Volume, (ProtoId<ReagentPrototype>)smallest.Reagent.Prototype);
+        }
+        // End DeltaV Additions - skimmer functionality
 
         // Get transfer amount. May be smaller than _transferAmount if not enough room, also make sure there's room in the injector
         var realTransferAmount = FixedPoint2.Min(injector.Comp.CurrentTransferAmount, applicableTargetSolution.Volume,
