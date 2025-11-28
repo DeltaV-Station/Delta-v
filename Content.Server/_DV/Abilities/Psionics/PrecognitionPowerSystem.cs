@@ -3,6 +3,7 @@ using Content.Server.DoAfter;
 using Content.Server._DV.StationEvents.NextEvent;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions.Events;
 using Content.Shared.Actions;
@@ -62,10 +63,9 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     {
         _actions.AddAction(ent, ref ent.Comp.PrecognitionActionEntity, ent.Comp.PrecognitionActionId);
         _actions.StartUseDelay(ent.Comp.PrecognitionActionEntity);
-        if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
+        if (TryComp<PsionicComponent>(ent, out var psionic))
         {
-            psionic.PsionicAbility = ent.Comp.PrecognitionActionEntity;
-            psionic.ActivePowers.Add(ent.Comp);
+            psionic.PsionicPowersActionEntities.Add(ent.Comp.PrecognitionActionEntity);
         }
     }
 
@@ -73,7 +73,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     {
         _actions.RemoveAction(uid, component.PrecognitionActionEntity);
         if (TryComp<PsionicComponent>(uid, out var psionic))
-            psionic.ActivePowers.Remove(component);
+            psionic.PsionicPowersActionEntities.Remove(component.PrecognitionActionEntity);
     }
 
     private void OnPowerUsed(EntityUid uid, PrecognitionPowerComponent component, PrecognitionPowerActionEvent args)

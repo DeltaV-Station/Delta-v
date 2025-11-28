@@ -56,42 +56,11 @@
         damage:
           groups:
             Toxin: 2
-      - !type:ChemRemovePsionic
+      - !type:ChemRemovePsionics
         conditions:
         - !type:ReagentThreshold
           reagent: SoulbreakerToxin
           min: 5
-
-- type: reagent
-  id: LotophagoiOil
-  name: reagent-name-lotophagoi-oil
-  group: Narcotics
-  desc: reagent-desc-lotophagoi-oil
-  flavor: enthralling
-  color: "#FFBF00"
-  physicalDesc: reagent-physical-desc-overpowering
-  metabolisms:
-    Narcotic:
-      metabolismRate: 0.2
-      effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 5
-        refresh: false
-      - !type:ChemRerollPsionic
-        bonusMultiplier: 4
-        conditions:
-        - !type:ReagentThreshold
-          reagent: LotophagoiOil
-          min: 20
-      - !type:GenericStatusEffect
-        key: ScrambledSpeech
-        component: ScrambledAccent
-      - !type:GenericStatusEffect
-        key: RepeatingTelepath
-        component: TelepathicRepeater
 
 - type: reagent
   id: Ectoplasm

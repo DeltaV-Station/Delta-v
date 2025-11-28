@@ -3,6 +3,7 @@ using Content.Server.Psionics;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server.Stunnable;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
@@ -30,7 +31,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
 
         while (query.MoveNext(out var psion, out var potentialPsionicComponent, out _))
         {
-            if (!_mobStateSystem.IsAlive(psion) || HasComp<PsionicInsulationComponent>(psion))
+            if (!_mobStateSystem.IsAlive(psion) || HasComp<OldPsionicInsulationComponent>(psion))
                 continue;
 
             _stunSystem.TryAddParalyzeDuration(psion, TimeSpan.FromSeconds(5));

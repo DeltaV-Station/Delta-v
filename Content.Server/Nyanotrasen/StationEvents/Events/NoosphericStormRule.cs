@@ -2,6 +2,7 @@ using Content.Server.Abilities.Psionics;
 using Content.Server.Psionics;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Systems;
@@ -31,7 +32,7 @@ internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRu
                 continue;
 
             // Skip over those who are already psionic or those who are insulated, or zombies.
-            if (HasComp<PsionicComponent>(potentialPsionic) || HasComp<PsionicInsulationComponent>(potentialPsionic) || HasComp<ZombieComponent>(potentialPsionic))
+            if (HasComp<PsionicComponent>(potentialPsionic) || HasComp<OldPsionicInsulationComponent>(potentialPsionic) || HasComp<ZombieComponent>(potentialPsionic))
                 continue;
 
             validList.Add(potentialPsionic);

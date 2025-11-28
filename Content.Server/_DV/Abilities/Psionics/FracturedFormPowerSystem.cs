@@ -5,6 +5,7 @@ using Content.Server.DoAfter;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
@@ -61,10 +62,9 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         var component = entity.Comp;
         _actions.AddAction(entity, ref component.FracturedFormActionEntity, component.FracturedFormActionId);
         _actions.StartUseDelay(component.FracturedFormActionEntity);
-        if (TryComp<PsionicComponent>(entity, out var psionic) && psionic.PsionicAbility == null)
+        if (TryComp<PsionicComponent>(entity, out var psionic))
         {
-            psionic.PsionicAbility = component.FracturedFormActionEntity;
-            psionic.ActivePowers.Add(component);
+            psionic.PsionicPowersActionEntities.Add(component.FracturedFormActionEntity);
         }
 
         // Next random swap is between 5 to 20 minutes.
@@ -82,7 +82,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
         if (TryComp<PsionicComponent>(entity, out var psionic))
         {
-            psionic.ActivePowers.Remove(entity.Comp);
+            psionic.PsionicPowersActionEntities.Remove(entity.Comp.FracturedFormActionEntity);
         }
     }
 

@@ -1,3 +1,15 @@
+## Names of Psionic Powers
+psionic-power-name-metapsionic = Metapsionic Pulse
+
+## Base Psionic messages
+psionic-cannot-use-psionics = You're currently unable to use psionics!
+
+## Specific Psionic messages
+# Metapsionic Pulse
+psionic-power-metapsionic-success = You detect psychic presence there.
+psionic-power-metapsionic-failure = You don't detect any psychic presence there.
+psionic-power-metapsionic-power-detected = You detect that {$power} was used nearby.
+
 psionic-nosebleed-message = Your nose starts gushing blood!
 
 mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
