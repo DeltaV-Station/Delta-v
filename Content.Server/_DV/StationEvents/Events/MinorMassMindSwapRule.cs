@@ -11,7 +11,6 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using System.Threading.Tasks;
 
 namespace Content.Server._DV.StationEvents.Events;
 
