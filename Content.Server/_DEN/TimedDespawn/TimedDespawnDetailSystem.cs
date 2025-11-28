@@ -91,7 +91,7 @@ public sealed class TimedDespawnDetailedSystem : EntitySystem
             _audioSystem.PlayPredicted(ent.Comp.EndSound, entCoords, null, ent.Comp.EndSoundParams);
         }
 
-        _timedDespawns.Remove(ent);
+        StopTimer(ent);
         EntityManager.QueueDeleteEntity(ent);
     }
 
