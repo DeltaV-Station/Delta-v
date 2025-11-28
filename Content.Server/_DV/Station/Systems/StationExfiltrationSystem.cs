@@ -7,12 +7,12 @@ using Content.Server.Pinpointer;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Localizations;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.Tiles;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization.Systems;
@@ -106,7 +106,7 @@ public sealed class StationExfiltrationSystem : EntitySystem
         if (!TryComp<StationDataComponent>(ent, out var stationData))
             return;
 
-        if (_station.GetLargestGrid(stationData) is not { } grid)
+        if (_station.GetLargestGrid((ent, stationData)) is not { } grid)
             return;
 
         if (!TryComp<StationCentcommComponent>(ent, out var centcomm))
