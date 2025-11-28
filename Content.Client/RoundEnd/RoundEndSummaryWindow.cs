@@ -142,12 +142,12 @@ namespace Content.Client.RoundEnd
                 if (playerInfo.PlayerNetEntity != null)
                 {
                     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                    {
-                        OverrideDirection = Direction.South,
-                        VerticalAlignment = VAlignment.Center,
-                        SetSize = new Vector2(32, 32),
-                        VerticalExpand = true,
-                    });
+                        {
+                            OverrideDirection = Direction.South,
+                            VerticalAlignment = VAlignment.Center,
+                            SetSize = new Vector2(32, 32),
+                            VerticalExpand = true,
+                        });
                 }
 
                 if (playerInfo.PlayerICName != null)
