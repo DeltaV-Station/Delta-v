@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: SubspaceEmber
-  changes:
-  - message: Combat RCD has new sprite to match ERT suits
-    type: Tweak
-  - message: Experimental RCD has new animated sprite
-    type: Tweak
-  - message: All RCDs have new in-hand sprites
-    type: Tweak
-  - message: Experimental RCD can now make reinforced walls, plasma windows, reinforced
-      plasma windows, and external airlocks
-    type: Tweak
-  - message: RCD can now make windoors and post lights
-    type: Tweak
-  id: 1375
-  time: '2025-05-09T22:40:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3637
 - author: sowelipililimute
   changes:
   - message: Extremities such as hands and feet are now easier to hack off in combat,
@@ -4230,3 +4214,11 @@
   id: 1874
   time: '2025-11-28T09:41:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4796
+- author: Toby222
+  changes:
+  - message: Removed the invisible, intangible bear inside all fishing crates that
+      was trying to steal your fish
+    type: Fix
+  id: 1875
+  time: '2025-11-28T09:49:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4797
