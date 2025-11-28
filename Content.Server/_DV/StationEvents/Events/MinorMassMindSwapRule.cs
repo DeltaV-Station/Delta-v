@@ -55,6 +55,9 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
 
         while (query.MoveNext(out var uid, out var comp, out var ruleComp))
         {
+            if (comp.SwapTime == null)
+                continue;
+
             if (comp.SoundTime != null && comp.SoundTime <= Timing.CurTime)
             {
                 _audio.PlayGlobal(_resolvedWarningSound, Filter.Broadcast(), true);
@@ -62,7 +65,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
                 continue;
             }
 
-            if (comp.SwapTime == null || comp.SwapTime > Timing.CurTime)
+            if (comp.SwapTime > Timing.CurTime)
                 continue;
 
             SwapMinds(comp);
