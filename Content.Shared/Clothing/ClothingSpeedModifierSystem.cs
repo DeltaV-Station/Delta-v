@@ -60,6 +60,8 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
         if (!_toggle.IsActivated(uid))
             return;
 
+        if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
+            return;
 
         // DeltaV Start - Introduce ClothingSlowResistance to Species
         if (_container.TryGetContainingContainer((uid, null), out var container))
@@ -74,11 +76,6 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
             args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
         }
         // DeltaV End - Introduce ClothingSlowResistance to Species
-
-        if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
-            return;
-
-        args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
     }
 
     private void OnClothingVerbExamine(EntityUid uid, ClothingSpeedModifierComponent component, GetVerbsEvent<ExamineVerb> args)

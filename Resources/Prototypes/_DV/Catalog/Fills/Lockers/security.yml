@@ -130,3 +130,20 @@
     - id: ClothingShoesBootsSecurityMagboots
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+
+- type: entity
+  parent: GunSafeBaseSecure
+  id: GunSafeNonLethalShotgun
+  name: non-lethal shotgun safe
+  suffix: Security, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunKammererNonLethal
+      amount: 2
+    - id: BoxBeanbag
+      amount: 2
+    - id: BoxShotgunPractice
+      amount: 2
