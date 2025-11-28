@@ -104,19 +104,22 @@ public sealed class TileWallsCommand : IConsoleCommand
             var tile = mapSystem.GetTileRef(gridId.Value, grid, childTransform.Coordinates);
             var tileDef = (ContentTileDefinition)_tileDefManager[tile.Tile.TypeId];
 
-            if (tileDef.ID == TilePrototypeId)
+            if (tileDef.ID == TilePrototypeId && !tagSystem.HasTag(child, NaturalTag)) // Delta V - Begin add natural wall tile replace
             {
-                // Delta V - Begin add natural wall tile replace
-                if (tagSystem.HasTag(child, NaturalTag))
-                {
-
-                    mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, naturalunderplatingTile);
-                    changed++;
-                    continue;
-                }
-                // Delta V - end add natural wall tile replace
                 continue;
             }
+
+            if (tagSystem.HasTag(child, NaturalTag))
+            {
+                if (tileDef.ID == TilePrototypeId2)
+                {
+                    continue;
+                }
+                mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, naturalunderplatingTile);
+                changed++;
+                continue;
+            }
+            // Delta V - end add natural wall tile replace
             mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, underplatingTile);
             changed++;
         }
