@@ -6,6 +6,7 @@ namespace Content.Client._DV.Biscuit;
 public sealed class BiscuitSystem : VisualizerSystem<BiscuitVisualsComponent>
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, BiscuitVisualsComponent component,
         ref AppearanceChangeEvent args)
@@ -15,7 +16,7 @@ public sealed class BiscuitSystem : VisualizerSystem<BiscuitVisualsComponent>
 
         _appearance.TryGetData(uid, BiscuitStatus.Cracked, out bool cracked);
 
-        args.Sprite.LayerSetVisible(BiscuitVisualLayers.Top, !cracked);
+        _sprite.LayerSetVisible((uid, args.Sprite), BiscuitVisualLayers.Top, !cracked);
     }
 }
 
