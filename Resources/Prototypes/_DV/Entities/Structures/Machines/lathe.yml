@@ -14,9 +14,6 @@
     - BorgModulesStatic
     - BorgLimbsStatic
     - BorgModulesResearched
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
   - type: Machine
     board: SyndieExosuitFabricatorMachineCircuitboard
 
@@ -99,9 +96,6 @@
     board: EngineeringTechFabCircuitboard
   - type: StealTarget
     stealGroup: EngineeringTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
   - type: LatheAnnouncing
     channels: [Engineering]
 
@@ -142,9 +136,6 @@
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
   - type: LatheAnnouncing
     channels: [Supply]
 
@@ -185,9 +176,6 @@
     board: ServiceTechFabCircuitboard
   - type: StealTarget
     stealGroup: ServiceTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
   - type: LatheAnnouncing
     channels: [Service]
 
@@ -231,6 +219,3 @@
     board: EpistemicsTechFabCircuitboard
   - type: StealTarget
     stealGroup: EpistemicsTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30

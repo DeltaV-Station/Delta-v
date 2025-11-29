@@ -60,6 +60,11 @@
     - Arsenal
     - Experimental
     - CivilianServices
+  # Begin DeltaV additions
+  - type: MaterialStorageMagnetPickup
+    magnetEnabled: True
+    range: 0.30
+  # End DeltaV additions
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -299,11 +304,6 @@
         - RawMaterial
         - Ingot
   - type: OreSiloClient
-  # Begin DeltaV Additions
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
-  # End DeltaV Additions
   - type: RequireProjectileTarget
 
 - type: entity
@@ -373,11 +373,6 @@
       - RawMaterial
       - Ingot
   - type: OreSiloClient
-  # Begin DeltaV Additions
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
-  # End DeltaV Additions
   - type: GuideHelp
     guides:
     - Robotics
@@ -488,11 +483,6 @@
       blueprint: !type:Container
   # End DeltaV Additions
   - type: OreSiloClient
-  # Begin DeltaV Additions
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
-  # End DeltaV Additions
   - type: LatheAnnouncing
     channels: [Security]
 
@@ -534,11 +524,6 @@
         machine_board: !type:Container
         machine_parts: !type:Container
         blueprint: !type:Container
-    # Begin DeltaV Additions
-    - type: MaterialStorageMagnetPickup
-      magnetEnabled: True
-      range: 0.30
-    # End DeltaV Additions
     - type: MaterialStorage
       whitelist:
         tags:
@@ -601,11 +586,6 @@
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
   - type: OreSiloClient
-  # Begin DeltaV Additions
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
-  # End DeltaV Additions
   - type: LatheAnnouncing
     channels: [Medical]
 
@@ -656,11 +636,6 @@
         - RawMaterial
         - Ingot
   - type: OreSiloClient
-  # Begin DeltaV Additions
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
-  # End DeltaV Additions
 
 - type: entity
   id: Biogenerator
@@ -833,8 +808,3 @@
         - RawMaterial
         - Plastic
   - type: OreSiloClient
-  # Begin DeltaV Additions
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
-  # End DeltaV Additions
