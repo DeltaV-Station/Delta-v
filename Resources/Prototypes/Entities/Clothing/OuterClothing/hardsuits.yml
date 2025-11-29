@@ -435,9 +435,16 @@
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.1
+        Caustic: 0.3 #DeltaV (was 0.1)
+        Blunt: 0.70 #DeltaV
+        Slash: 0.70 #DeltaV
+        Piercing: 0.85 #DeltaV
+        Heat: 0.80 #DeltaV
+        Radiation: 0.80 #DeltaV
+  - type: ExplosionResistance #DeltaV
+    damageCoefficient: 0.80 #deltaV
   - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
+    zombificationResistanceCoefficient: 0.2 #DeltaV (was 0.4)
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
