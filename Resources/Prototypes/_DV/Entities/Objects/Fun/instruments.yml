@@ -29,8 +29,13 @@
       path: /Audio/_DV/Weapons/electricguitarhit.ogg
     damage:
       types:
-        Blunt: 7
+        Blunt: 8 # Increased by one
     bluntStaminaDamageFactor: 1.50 #13.5 stamina damage
+  - type: Wieldable # Made Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: Rickenbacker4003Instrument
@@ -47,10 +52,10 @@
     range: 1.85
     damage:
       types:
-        Blunt: 7
+        Blunt: 8 # Increased by one
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 7
-        Shock: 2
+        Blunt: 6 # Decreased to 6
+        Shock: 6 # Increased to 6

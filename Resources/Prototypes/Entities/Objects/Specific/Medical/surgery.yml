@@ -64,7 +64,13 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 10
+        Piercing: 3 # DeltaV: 10 Piercing changed to 3
+    # Start DeltaV additions
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: 90
+    attackRate: 4
+    # End DeltaV additions
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: StaticPrice
@@ -193,6 +199,13 @@
     storedRotation: 90
     heldPrefix: laser
   - type: Scalpel # Shitmed
+    # Start DeltaV additions
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4
+        Heat: 4
+    # End DeltaV additions
     speed: 1.5
   # TODO: prevent bleeding from incisions
   - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
@@ -316,8 +329,8 @@
     heldPrefix: improv
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        Slash: 10 # DeltaV: Brute changed to Slash
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
@@ -338,9 +351,16 @@
     size: Normal
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
   - type: MeleeWeapon
+    # Start DeltaV additions
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: 90
+    attackRate: 4
+    # End DeltaV additions
     damage:
-      groups:
-        Brute: 15
+      types:
+        Slash: 3 # DeltaV: 15 Brute changed to 3 Slash
+        Structural: 10 # DeltaV: Added a small amount of structural
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
@@ -364,7 +384,12 @@
     storedRotation: 90
     heldPrefix: advanced
   - type: MeleeWeapon
-    attackRate: 1.5
+    # Start DeltaV additions
+    damage:
+      types:
+        Slash: 6
+        Structural: 20
+    # End DeltaV additions
   - type: Tool
     speedModifier: 2.0
   - type: BoneSaw # Shitmed
@@ -397,8 +422,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 10
-        Heat: 1
+        Piercing: 6 # DeltaV: Changed from 10 to 6
+        Heat: 6 # DeltaV: Changed from 1 to 6
   - type: Cautery
     speed: 1.5
   - type: Drill
@@ -429,8 +454,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Heat: 1
+        Slash: 6 # DeltaV: Changed from 10 to 6
+        Heat: 6 # DeltaV: Changed from 1 to 6
   - type: Scalpel
     speed: 1.5
   - type: BoneSaw
@@ -461,8 +486,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 6.5
-        Heat: 1
+        Piercing: 4
+        Heat: 2
   - type: Hemostat
     speed: 1.5
   - type: Retractor
