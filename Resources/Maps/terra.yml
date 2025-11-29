@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/28/2025 22:56:24
-  entityCount: 28493
+  time: 11/24/2025 23:01:07
+  entityCount: 28491
 maps:
 - 1
 grids:
@@ -83883,13 +83883,6 @@ entities:
     - type: Transform
       pos: -54.866085,-10.217259
       parent: 2
-- proto: ForensicScanner
-  entities:
-  - uid: 28492
-    components:
-    - type: Transform
-      pos: -61.472694,-16.653166
-      parent: 2
 - proto: ForkPlastic
   entities:
   - uid: 12914
@@ -127180,13 +127173,6 @@ entities:
     components:
     - type: Transform
       pos: -11.67022,-62.76212
-      parent: 2
-- proto: LogProbeCartridge
-  entities:
-  - uid: 28493
-    components:
-    - type: Transform
-      pos: -61.369255,-14.887237
       parent: 2
 - proto: LootSpawnerMaterials
   entities:
