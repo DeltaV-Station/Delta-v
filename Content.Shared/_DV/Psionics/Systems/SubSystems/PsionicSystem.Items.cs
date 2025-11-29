@@ -45,24 +45,22 @@ public sealed partial class PsionicSystem
     {
         var evArgs = args.Args;
 
-        evArgs.GearPresent = true;
+        args.Args.GearPresent = true;
         // If one gear blocks psionic usage, psionics cannot be used.
-        evArgs.AllowsPsionicUsage = evArgs.AllowsPsionicUsage && gear.Comp.AllowsPsionicUsage;
+        args.Args.AllowsPsionicUsage &= gear.Comp.AllowsPsionicUsage;
         // If one gear shields from psionics, they're shielded.
-        evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics || gear.Comp.ShieldsFromPsionics;
+        args.Args.ShieldsFromPsionics |= gear.Comp.ShieldsFromPsionics;
     }
 
     private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerUseAttemptEvent> args)
     {
-        var evArgs = args.Args;
         // If one gear blocks psionic usage, psionics cannot be used.
-        evArgs.CanUsePower = evArgs.CanUsePower && gear.Comp.AllowsPsionicUsage;
+        args.Args.CanUsePower &= gear.Comp.AllowsPsionicUsage;
     }
 
     private void OnTargetedByPsionicPower(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<TargetedByPsionicPowerEvent> args)
     {
-        var evArgs = args.Args;
         // If one gear shields from psionics, they're shielded.
-        evArgs.IsShielded = evArgs.IsShielded || gear.Comp.ShieldsFromPsionics;
+        args.Args.IsShielded |= gear.Comp.ShieldsFromPsionics;
     }
 }

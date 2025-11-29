@@ -3,6 +3,8 @@ using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Clothing;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
@@ -29,6 +31,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
 
         SubscribeLocalEvent<T, T1>(OnPowerActionUsed);
         SubscribeLocalEvent<T, PsionicMindBrokenEvent>(OnMindBroken);
+        SubscribeLocalEvent<T, GetItemActionsEvent>(OnGrantingClothingEquipped);
     }
 
     /// <summary>
@@ -65,6 +68,14 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     }
 
     protected abstract void OnPowerUsed(Entity<T> psionic, ref T1 args);
+
+    private void OnGrantingClothingEquipped(Entity<T> psionicClothing, ref GetItemActionsEvent args)
+    {
+        if (args.SlotFlags is null or SlotFlags.POCKET)
+            return;
+
+        args.AddAction(psionicClothing.Comp.ActionEntity);
+    }
 
     public void OnMindBroken(Entity<T> psionic, ref PsionicMindBrokenEvent args)
     {

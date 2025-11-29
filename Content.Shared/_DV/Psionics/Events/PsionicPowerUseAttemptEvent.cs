@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Psionics.Events;
 /// </summary>
 /// <value><see cref="CanUsePower"/> returns true if able to use psionic powers, false if not.</value>
 [ByRefEvent]
-public sealed class PsionicPowerUseAttemptEvent() : IInventoryRelayEvent
+public record struct PsionicPowerUseAttemptEvent() : IInventoryRelayEvent
 {
     public bool CanUsePower = true;
 
