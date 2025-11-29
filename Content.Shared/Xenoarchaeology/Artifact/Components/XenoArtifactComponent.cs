@@ -79,6 +79,14 @@ public sealed partial class XenoArtifactComponent : Component
     public TimeSpan UnlockStateRefractory = TimeSpan.FromSeconds(5);
 
     /// <summary>
+    /// DeltaV - If set, will overwrite the unlocking state time remaining as soon as a node is ready to unlock (triggers are met).
+    ///   (why: letting the timer run out naturally makes artifacts less dangerous, since scientists have lots of time to run away)
+    /// If null, the unlock time will just run its course naturally.
+    /// </summary>
+    [DataField]
+    public TimeSpan? UnlockCompleteDuration = TimeSpan.FromSeconds(0.7);
+    
+    /// <summary>
     /// When next unlock session can be triggered.
     /// </summary>
     [DataField, AutoPausedField]

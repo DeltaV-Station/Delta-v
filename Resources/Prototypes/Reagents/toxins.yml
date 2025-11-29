@@ -355,6 +355,9 @@
         type: Add
         time: 10
         refresh: false
+      - !type:AdjustReagent
+        reagent: LotophagoiOil # DeltaV: prevent rapid remove/reroll/remove/reroll psionic loop
+        amount: -100
       - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u.
         conditions:
           - !type:ReagentThreshold

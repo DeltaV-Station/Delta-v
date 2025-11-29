@@ -303,6 +303,10 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: JumpAbility # DeltaV - Don't leave Bingus out on being able to pounce
+    jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
+    jumpDistance: 3
+    action: ActionCatJump
   - type: StealTarget
     stealGroup: AnimalNamedCat
 

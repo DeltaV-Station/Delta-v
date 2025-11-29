@@ -1032,9 +1032,11 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
         }
 
-        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
+        var psyAbilitiesSys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
+        psyAbilitiesSys.RemovePsionics(args.Args.TargetEntity);
 
-        psySys.RemovePsionics(args.Args.TargetEntity);
+        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
+        psySys.GrantNewPsionicReroll(args.Args.TargetEntity);
     }
 
     private void OnChemRerollPsionic(ref ExecuteEntityEffectEvent<ChemRerollPsionic> args)
