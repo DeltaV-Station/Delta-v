@@ -207,7 +207,8 @@
     count: 1
   - type: MeleeWeapon
     resistanceBypass: true
-    wideAnimationRotation: -135
+    wideAnimationRotation: -170 # Changed to -170
+    swingLeft: true # Added this
     animation: WeaponArcCosmic
     attackRate: 0.62
     clickDamageModifier: 1.1

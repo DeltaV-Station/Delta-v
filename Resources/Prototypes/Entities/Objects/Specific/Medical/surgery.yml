@@ -485,10 +485,16 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
   - type: MeleeWeapon
+    # Start DeltaV additions
+    wideAnimationRotation: -90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    # End DeltaV additions
     damage:
       types:
-        Piercing: 4
-        Heat: 2
+        Slash: 4 # DeltaV: Changed to 4
+        Heat: 2 # DeltaV: Increased by 1
+
   - type: Hemostat
     speed: 1.5
   - type: Retractor
