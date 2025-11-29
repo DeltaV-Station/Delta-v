@@ -8,6 +8,7 @@ using Content.Server.Stack;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
 using Content.Shared.Database;
+using Content.Shared._NF.Storage.Components; // Frontier
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -80,6 +81,14 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 
         if (volume <= 0 || !TryChangeMaterialAmount(uid, msg.Material, -volume))
             return;
+
+        // Frontier
+        // If we made it this far, turn off the magnet before spawning materials
+        if (TryComp<MaterialStorageMagnetPickupComponent>(uid, out var magnet))
+        {
+            magnet.MagnetEnabled = false;
+        }
+        // end Frontier
 
         var mats = SpawnMultipleFromMaterial(volume, material, Transform(uid).Coordinates, out _);
         foreach (var mat in mats.Where(mat => !TerminatingOrDeleted(mat)))
