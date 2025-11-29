@@ -421,6 +421,7 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 45 # DeltaV: Added wideAnimationRotation
     damage:
       types:
         Piercing: 6 # DeltaV: Changed from 10 to 6
