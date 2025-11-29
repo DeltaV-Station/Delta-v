@@ -25,6 +25,7 @@ public sealed class TileWallsCommand : IConsoleCommand
     public static readonly ProtoId<ContentTileDefinition> TilePrototypeId2 = "FloorCave"; // Delta V - Add cave floor under asteroid rocks
     public static readonly ProtoId<TagPrototype> WallTag = "Wall";
     public static readonly ProtoId<TagPrototype> NaturalTag = "Natural"; // Delta V - Add cave floor under asteroid rocks
+    public static readonly ProtoId<TagPrototype> WoodenTag = "Wooden"; // Delta V - Ignore wooden support walls
     public static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -88,7 +89,7 @@ public sealed class TileWallsCommand : IConsoleCommand
                 continue;
             }
 
-            if (tagSystem.HasTag(child, DiagonalTag))
+            if (tagSystem.HasTag(child, DiagonalTag) || tagSystem.HasTag(child, WoodenTag)) // Delta V - Ignore wooden support walls
             {
                 continue;
             }
@@ -103,20 +104,23 @@ public sealed class TileWallsCommand : IConsoleCommand
             var mapSystem = _entManager.System<MapSystem>();
             var tile = mapSystem.GetTileRef(gridId.Value, grid, childTransform.Coordinates);
             var tileDef = (ContentTileDefinition)_tileDefManager[tile.Tile.TypeId];
-
-            if (tileDef.ID == TilePrototypeId)
+            // Delta V - Begin add natural wall tile replace
+            if (tileDef.ID == TilePrototypeId && !tagSystem.HasTag(child, NaturalTag))
             {
-                // Delta V - Begin add natural wall tile replace
-                if (tagSystem.HasTag(child, NaturalTag))
-                {
-
-                    mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, naturalunderplatingTile);
-                    changed++;
-                    continue;
-                }
-                // Delta V - end add natural wall tile replace
                 continue;
             }
+
+            if (tagSystem.HasTag(child, NaturalTag))
+            {
+                if (tileDef.ID == TilePrototypeId2)
+                {
+                    continue;
+                }
+                mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, naturalunderplatingTile);
+                changed++;
+                continue;
+            }
+            // Delta V - end add natural wall tile replace
             mapSystem.SetTile(gridId.Value, grid, childTransform.Coordinates, underplatingTile);
             changed++;
         }
