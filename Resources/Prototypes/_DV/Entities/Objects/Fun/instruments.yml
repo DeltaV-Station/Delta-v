@@ -25,7 +25,7 @@
     tags:
     - StringInstrument
   - type: MeleeWeapon
-    wideAnimationRotation: 45 # Added wideAnimationRotation
+    wideAnimationRotation: -45 # Added wideAnimationRotation
     soundHit:
       path: /Audio/_DV/Weapons/electricguitarhit.ogg
     damage:
@@ -45,7 +45,7 @@
   description: It's the climax!
   components:
   - type: MeleeWeapon
-    wideAnimationRotation: 45 # Added wideAnimationRotation
+    wideAnimationRotation: -45 # Added wideAnimationRotation
     soundHit:
       path: /Audio/_DV/Weapons/electricguitarhit.ogg
     bluntStaminaDamageFactor: 2
