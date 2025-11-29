@@ -198,14 +198,14 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
     heldPrefix: laser
-  - type: Scalpel # Shitmed
-    # Start DeltaV additions
+  # Start DeltaV additions
   - type: MeleeWeapon
     damage:
       types:
         Slash: 4
         Heat: 4
-    # End DeltaV additions
+  # End DeltaV additions
+  - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions
   - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
