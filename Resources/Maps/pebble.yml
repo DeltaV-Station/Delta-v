@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/29/2025 09:26:00
-  entityCount: 27638
+  time: 11/29/2025 10:06:47
+  entityCount: 27664
 maps:
 - 1
 grids:
@@ -32947,6 +32947,11 @@ entities:
       parent: 2
 - proto: BorgCharger
   entities:
+  - uid: 5425
+    components:
+    - type: Transform
+      pos: 24.5,5.5
+      parent: 2
   - uid: 12739
     components:
     - type: Transform
@@ -32974,10 +32979,20 @@ entities:
       rot: 3.141592653589793 rad
       pos: -27.5,70.5
       parent: 2
+  - uid: 20565
+    components:
+    - type: Transform
+      pos: 1.5,36.5
+      parent: 2
   - uid: 23426
     components:
     - type: Transform
       pos: -33.5,21.5
+      parent: 2
+  - uid: 24871
+    components:
+    - type: Transform
+      pos: -69.5,38.5
       parent: 2
 - proto: BoxBeanbag
   entities:
@@ -135946,11 +135961,6 @@ entities:
     - type: Transform
       pos: 9.5,2.5
       parent: 2
-  - uid: 5425
-    components:
-    - type: Transform
-      pos: 24.5,5.5
-      parent: 2
   - uid: 5526
     components:
     - type: Transform
@@ -136211,11 +136221,6 @@ entities:
     - type: Transform
       pos: -9.5,53.5
       parent: 2
-  - uid: 20565
-    components:
-    - type: Transform
-      pos: 1.5,36.5
-      parent: 2
   - uid: 20840
     components:
     - type: Transform
@@ -136356,11 +136361,6 @@ entities:
     - type: Transform
       pos: -69.5,42.5
       parent: 2
-  - uid: 24871
-    components:
-    - type: Transform
-      pos: -69.5,38.5
-      parent: 2
   - uid: 25321
     components:
     - type: Transform
@@ -136400,6 +136400,11 @@ entities:
     components:
     - type: Transform
       pos: -40.5,-26.5
+      parent: 2
+  - uid: 27644
+    components:
+    - type: Transform
+      pos: 0.5,36.5
       parent: 2
 - proto: PottedPlantRandomPlastic
   entities:
@@ -154386,6 +154391,43 @@ entities:
     - type: Transform
       pos: -8.5,-8.5
       parent: 2
+- proto: SpawnPointBorg
+  entities:
+  - uid: 27642
+    components:
+    - type: Transform
+      pos: -30.5,69.5
+      parent: 2
+  - uid: 27643
+    components:
+    - type: Transform
+      pos: -33.5,22.5
+      parent: 2
+  - uid: 27645
+    components:
+    - type: Transform
+      pos: -11.5,-21.5
+      parent: 2
+  - uid: 27646
+    components:
+    - type: Transform
+      pos: -5.5,-19.5
+      parent: 2
+  - uid: 27647
+    components:
+    - type: Transform
+      pos: 13.5,-15.5
+      parent: 2
+  - uid: 27648
+    components:
+    - type: Transform
+      pos: -3.5,-1.5
+      parent: 2
+  - uid: 27649
+    components:
+    - type: Transform
+      pos: -33.5,-1.5
+      parent: 2
 - proto: SpawnPointBotanist
   entities:
   - uid: 244
@@ -154789,6 +154831,23 @@ entities:
     - type: Transform
       pos: -4.5,-23.5
       parent: 2
+- proto: SpawnPointJanitor
+  entities:
+  - uid: 27639
+    components:
+    - type: Transform
+      pos: -25.5,35.5
+      parent: 2
+  - uid: 27640
+    components:
+    - type: Transform
+      pos: -23.5,33.5
+      parent: 2
+  - uid: 27641
+    components:
+    - type: Transform
+      pos: 28.5,11.5
+      parent: 2
 - proto: SpawnPointLatejoin
   entities:
   - uid: 26674
@@ -154981,6 +155040,85 @@ entities:
     components:
     - type: Transform
       pos: -42.5,-36.5
+      parent: 2
+- proto: SpawnPointMedicalDoctor
+  entities:
+  - uid: 27656
+    components:
+    - type: Transform
+      pos: -0.5,48.5
+      parent: 2
+  - uid: 27657
+    components:
+    - type: Transform
+      pos: -3.5,52.5
+      parent: 2
+  - uid: 27658
+    components:
+    - type: Transform
+      pos: -12.5,31.5
+      parent: 2
+  - uid: 27659
+    components:
+    - type: Transform
+      pos: -11.5,33.5
+      parent: 2
+  - uid: 27660
+    components:
+    - type: Transform
+      pos: -16.5,28.5
+      parent: 2
+  - uid: 27661
+    components:
+    - type: Transform
+      pos: -6.5,21.5
+      parent: 2
+  - uid: 27662
+    components:
+    - type: Transform
+      pos: -6.5,25.5
+      parent: 2
+  - uid: 27663
+    components:
+    - type: Transform
+      pos: -10.5,32.5
+      parent: 2
+  - uid: 27664
+    components:
+    - type: Transform
+      pos: -11.5,28.5
+      parent: 2
+- proto: SpawnPointMedicalIntern
+  entities:
+  - uid: 27650
+    components:
+    - type: Transform
+      pos: -5.5,21.5
+      parent: 2
+  - uid: 27651
+    components:
+    - type: Transform
+      pos: -12.5,30.5
+      parent: 2
+  - uid: 27652
+    components:
+    - type: Transform
+      pos: -16.5,33.5
+      parent: 2
+  - uid: 27653
+    components:
+    - type: Transform
+      pos: -7.5,40.5
+      parent: 2
+  - uid: 27654
+    components:
+    - type: Transform
+      pos: -2.5,48.5
+      parent: 2
+  - uid: 27655
+    components:
+    - type: Transform
+      pos: -1.5,48.5
       parent: 2
 - proto: SpawnPointMime
   entities:
