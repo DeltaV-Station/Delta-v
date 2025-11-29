@@ -14,11 +14,15 @@ public sealed partial class PsionicSystem
 
     private void OnPowerUseAttempt(Entity<PsionicsDisabledComponent> psionic, ref StatusEffectRelayedEvent<PsionicPowerUseAttemptEvent> args)
     {
-        args.Args.CanUsePower = false;
+        var ev = args.Args;
+        ev.CanUsePower = false;
+        args.Args = ev;
     }
 
     private void OnTargetedByPsionicPower(Entity<ShieldedFromPsionicsComponent> psionic, ref StatusEffectRelayedEvent<TargetedByPsionicPowerEvent> args)
     {
-        args.Args.IsShielded = true;
+        var ev = args.Args;
+        ev.IsShielded = true;
+        args.Args = ev;
     }
 }
