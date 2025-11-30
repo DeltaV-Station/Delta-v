@@ -492,7 +492,7 @@
   reactants:
     Gin:
       amount: 1
-    JuiceLime:
+    JuiceLemon: # DeltaV: JuiceLime changed to JuiceLemon
       amount: 1
     SodaWater:
       amount: 1
@@ -523,15 +523,19 @@
 
 - type: reaction
   id: Grog
+  requiredMixerCategories: # DeltaV: Added requiredMixerCategories: Stir
+  - Stir
   reactants:
     Rum:
       amount: 1
     Water:
-      amount: 2
+      amount: 3 # DeltaV: Water amount changed from 2 to 3
     Sugar:
       amount: 1
+    JuiceLime: # DeltaV: JuiceLime added
+      amount: 1
   products:
-    Grog: 4
+    Grog: 6 # DeltaV: Products changed from 4 to 6
 
 - type: reaction
   id: HippiesDelight
@@ -961,12 +965,10 @@
 - type: reaction
   id: Posca
   reactants:
-    TableSalt:
-      amount: 1
     Vinegar:
       amount: 1
     Water:
-      amount: 1
+      amount: 2 # DeltaV: Water amount changed from 1 to 2
   products:
     Posca: 3
 
