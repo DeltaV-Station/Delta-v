@@ -30,7 +30,7 @@ public sealed partial class DVNodeScannerDisplay : FancyWindow
 
     private Texture? _blipTexture;
     private EntityUid _owner;
-    
+
     private float animatedTimeRemaining = 0;
     private float animatedTimeRemainingVelocity = 0;
 
@@ -86,16 +86,16 @@ public sealed partial class DVNodeScannerDisplay : FancyWindow
 
 
         // header banner
-        NodeScannerState.Text = 
+        NodeScannerState.Text =
             unlockingComponent != null
             ? Loc.GetString("node-scanner-artifact-state-unlocking")
             : _timing.CurTime < artifactComponent.NextUnlockTime
                 ? Loc.GetString("node-scanner-artifact-state-cooldown")
                 : Loc.GetString("node-scanner-artifact-state-ready");
-        
+
 
         // time remaining progress bar
-        var unlockTimeRemaining = 
+        var unlockTimeRemaining =
             unlockingComponent != null
             ? MathF.Max(0f, (float)(unlockingComponent.EndTime - _timing.CurTime).TotalSeconds)
             : 0f;
@@ -106,7 +106,7 @@ public sealed partial class DVNodeScannerDisplay : FancyWindow
 
         // sigmoid-style function to make sure progress bar never goes over 100%
         ProgressBar.Value = 2f / (1f + MathF.Exp(-0.08f * animatedTimeRemaining)) - 1f;
-        
+
 
         // node data and warning panel
         (List<int> triggeredIndexesOrdered, HashSet<int> triggeredIndexesRelated)? unlockingDataToShow = null;
