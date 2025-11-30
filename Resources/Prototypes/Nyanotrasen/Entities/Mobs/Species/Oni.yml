@@ -20,23 +20,27 @@
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.35
-        Slash: 1.2
-        Piercing: 1.2
-        Asphyxiation: 1.35
+        Blunt: 1.25
+        Slash: 1.25
+        Piercing: 1.25
+        Asphyxiation: 1.25
+        Structural: 1.25
   - type: ClothingSlowResistance
     modifier: 0.25 # Slowdowns incurred by worn clothing are 25% less effective.
   - type: Damageable
     damageModifierSet: Oni
+    damageContainer: BiologicalMetaphysical
   - type: Body
-    prototype: Human
+    prototype: Oni
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: .5 # REAL hard for oni to get drunk
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.42
-        density: 220
+        density: 250 # Heavy species
         restitution: 0.0
         mask:
         - MobMask

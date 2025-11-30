@@ -62,3 +62,13 @@
   storage:
     back:
     - PlushieBee
+
+- type: loadout
+  id: DrinkOniGourd
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Oni
+  storage:
+    back:
+    - DrinkOniGourd
