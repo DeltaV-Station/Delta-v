@@ -92,7 +92,7 @@
     - !type:BodyMindFilter
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
     - !type:BodyMindFilter
       whitelist:
         components:
@@ -115,7 +115,7 @@
     - !type:BodyMindFilter
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:

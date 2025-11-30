@@ -52,7 +52,7 @@
         - CommandStaff
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
 
   - type: KillPersonCondition
     requireDead: true

@@ -41,7 +41,7 @@
     - !type:BodyMindFilter
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
@@ -67,7 +67,7 @@
         - CommandStaff
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
 
 - type: entity
   parent: SkeletonBaseObjective

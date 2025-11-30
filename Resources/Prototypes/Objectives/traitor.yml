@@ -96,10 +96,10 @@
     title: objective-condition-maroon-person-title
   - type: PickRandomPerson
     filters:
-    - !type:BodyMindFilter #  DeltaV - ObjectiveImmune
+    - !type:BodyMindFilter #  DeltaV - TargetObjectiveImmune
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -126,9 +126,9 @@
       whitelist:
         components:
         - CommandStaff
-      blacklist: # DeltaV - ObjectiveImmune
+      blacklist: # DeltaV - TargetObjectiveImmune
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -157,10 +157,10 @@
       whitelist:
         components:
         - TraitorRole
-    - !type:BodyMindFilter # DeltaV - ObjectiveImmune
+    - !type:BodyMindFilter # DeltaV - TargetObjectiveImmune
       blacklist:
         components:
-        - ObjectiveImmune 
+        - TargetObjectiveImmune 
     # Can't have multiple objectives to help/save the same person
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -183,10 +183,10 @@
       whitelist:
         components:
         - TraitorRole
-    - !type:BodyMindFilter # DeltaV - ObjectiveImmune
+    - !type:BodyMindFilter # DeltaV - TargetObjectiveImmune
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
     # Can't help anyone who is tasked with helping:
     # 1. thats boring
     # 2. no cyclic progress dependencies!!!

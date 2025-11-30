@@ -24,20 +24,20 @@
       whitelist:
         components:
         - CommandStaff
-      blacklist: # DeltaV - ObjectiveImmune
+      blacklist: # DeltaV - TargetObjectiveImmune
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
 
 - type: entity
   parent: BaseNinjaTeachLessonObjective
   id: NinjaTeachLessonRandomPersonObjective
   components:
   - type: PickRandomPerson
-    filters:  # DeltaV - Add ObjectiveImmune filter
+    filters:  # DeltaV - Add TargetObjectiveImmune filter
     - !type:BodyMindFilter
       blacklist:
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
 
 - type: entity
   parent: [ BaseNinjaObjective, BaseKillObjective ]
@@ -56,9 +56,9 @@
       whitelist:
         components:
         - CommandStaff
-      blacklist: # DeltaV - ObjectiveImmune
+      blacklist: # DeltaV - TargetObjectiveImmune
         components:
-        - ObjectiveImmune
+        - TargetObjectiveImmune
 
   - type: KillPersonCondition
     requireDead: true
