@@ -60,6 +60,11 @@
     - Arsenal
     - Experimental
     - CivilianServices
+  # Begin DeltaV additions
+  - type: MaterialStorageMagnetPickup
+    magnetEnabled: True
+    range: 0.30
+  # End DeltaV additions
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -519,7 +524,6 @@
         machine_board: !type:Container
         machine_parts: !type:Container
         blueprint: !type:Container
-      # End DeltaV Additions
     - type: MaterialStorage
       whitelist:
         tags:
