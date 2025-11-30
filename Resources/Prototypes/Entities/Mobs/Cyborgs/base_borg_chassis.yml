@@ -32,7 +32,7 @@
         - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.5
+    baseSprintSpeed : 4.8
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
@@ -45,7 +45,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      110: Critical
       200: Dead
     stateAlertDict:
       Alive: BorgHealth
@@ -108,7 +108,7 @@
   #  doAfterDelay: 10
   #  allowSelfRepair: false
   - type: WeldingHealable
-    allowSelfHeal: false
+    allowSelfHeal: true
   # End DeltaV Changes
   - type: BorgChassis
   - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
@@ -143,7 +143,7 @@
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
   - type: PowerCellDraw
-    drawRate: 0.6
+    drawRate: 0.4
   # no ToggleCellDraw since dont want to lose access when power is gone
   - type: ItemSlots
     slots:
@@ -191,7 +191,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
