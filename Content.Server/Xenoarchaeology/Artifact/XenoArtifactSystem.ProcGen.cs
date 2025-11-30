@@ -53,10 +53,11 @@ public sealed partial class XenoArtifactSystem
             var triggerId = RobustRandom.Pick(weightsByTriggersLeft);
             weightsByTriggersLeft.Remove(triggerId);
             var trigger = PrototypeManager.Index<XenoArchTriggerPrototype>(triggerId);
+            if (_entityWhitelist.IsWhitelistFail(trigger.Whitelist, ent))
+                continue;
             // DeltaV - start of TriggerBlacklist
             if (
-                _entityWhitelist.IsWhitelistFail(trigger.Whitelist, ent)
-                || (trigger.TriggerBlacklist != null && triggerPool.Any(otherTrigger => trigger.TriggerBlacklist.Contains(otherTrigger.ID)))
+                (trigger.TriggerBlacklist != null && triggerPool.Any(otherTrigger => trigger.TriggerBlacklist.Contains(otherTrigger.ID)))
                 || triggerPool.Any(otherTrigger => otherTrigger.TriggerBlacklist != null && otherTrigger.TriggerBlacklist.Contains(triggerId))
             )
                 continue;

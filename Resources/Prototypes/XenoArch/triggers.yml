@@ -40,7 +40,7 @@
 - type: xenoArchTrigger
   id: TriggerHeat
   tip: xenoarch-trigger-tip-heat
-  triggerBlacklist: # DeltaV
+  triggerBlacklist: # DeltaV - add blacklist for difficult trigger combinations
   - TriggerCold # two different temperature triggers on the same node is doable (frezon + welding), but silly
   components:
   - type: XATTemperature
@@ -58,7 +58,7 @@
 - type: xenoArchTrigger
   id: TriggerCold
   tip: xenoarch-trigger-tip-cold
-  triggerBlacklist: # DeltaV
+  triggerBlacklist: # DeltaV - add blacklist for difficult trigger combinations
   - TriggerHeat # two different temperature triggers on the same node is doable (frezon + welding), but silly
   components:
   - type: XATTemperature
@@ -159,7 +159,7 @@
 - type: xenoArchTrigger
   id: TriggerPressureHigh
   tip: xenoarch-trigger-tip-pressure-high
-  triggerBlacklist: # DeltaV
+  triggerBlacklist: # DeltaV - add blacklist for difficult trigger combinations
   - TriggerPressureLow # two different pressure triggers on the same node is too difficult to complete
   components:
   - type: XATPressure
@@ -168,7 +168,7 @@
 - type: xenoArchTrigger
   id: TriggerPressureLow
   tip: xenoarch-trigger-tip-pressure-low
-  triggerBlacklist: # DeltaV
+  triggerBlacklist: # DeltaV - add blacklist for difficult trigger combinations
   - TriggerPressureHigh # two different pressure triggers on the same node is too difficult to complete
   components:
   - type: XATPressure
