@@ -90,6 +90,10 @@
   - type: PickRandomPerson
     filters:
     - !type:BodyMindFilter
+      blacklist:
+        components:
+        - ObjectiveImmune
+    - !type:BodyMindFilter
       whitelist:
         components:
         - CommandStaff
@@ -108,6 +112,10 @@
     title: objective-condition-wizard-kill-person-title
   - type: PickRandomPerson
     filters:
+    - !type:BodyMindFilter
+      blacklist:
+        components:
+        - ObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:

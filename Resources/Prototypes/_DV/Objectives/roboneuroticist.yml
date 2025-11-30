@@ -50,6 +50,10 @@
       whitelist:
         components:
         - CommandStaff
+      blacklist:
+        components:
+        - ObjectiveImmune
+
   - type: KillPersonCondition
     requireDead: true
 

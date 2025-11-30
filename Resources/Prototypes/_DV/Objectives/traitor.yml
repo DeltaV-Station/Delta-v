@@ -105,6 +105,9 @@
       whitelist:
         components:
         - CommandStaff
+      blacklist: # DeltaV - ObjectiveImmune
+        components:
+        - ObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:

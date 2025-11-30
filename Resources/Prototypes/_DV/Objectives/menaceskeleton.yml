@@ -38,6 +38,10 @@
     title: objective-skeleton-haunt-title
   - type: PickRandomPerson
     filters:
+    - !type:BodyMindFilter
+      blacklist:
+        components:
+        - ObjectiveImmune
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
@@ -61,6 +65,9 @@
       whitelist:
         components:
         - CommandStaff
+      blacklist:
+        components:
+        - ObjectiveImmune
 
 - type: entity
   parent: SkeletonBaseObjective
