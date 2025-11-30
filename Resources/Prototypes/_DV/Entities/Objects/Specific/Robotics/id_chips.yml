@@ -22,19 +22,6 @@
     - IdChip
 
 # Crew ID Chips
-
-- type: entity
-  parent: BaseIdChip
-  id: IdChipBasic
-  suffix: Basic
-  components:
-  - type: Access
-    tags:
-    - Maintenance
-    - Research # need it to get to robo usually
-    - Robotics # safe place to recharge + get upgrades
-    - Borg
-
 - type: entity
   parent: BaseIdChip
   id: IdChipAA
