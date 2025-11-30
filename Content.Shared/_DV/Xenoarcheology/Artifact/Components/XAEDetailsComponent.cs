@@ -12,7 +12,7 @@ public sealed partial class XAEDetailsComponent : Component
     /// <summary>
     /// Unique description of the effect.
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public LocId SpecificTip;
 
     /// <summary>
@@ -24,5 +24,6 @@ public sealed partial class XAEDetailsComponent : Component
     /// <summary>
     /// Whether to permit this effect from being hidden until unlocked.
     /// </summary>
+    [DataField]
     public bool AllowLockedEffectHiding = true;
 }

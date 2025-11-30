@@ -123,10 +123,6 @@ public abstract partial class SharedXenoArtifactSystem
             if (!details.AllowLockedEffectHiding)
                 nodeComponent.LockedEffectTipHidden = false;
         }
-        else 
-        {
-            nodeComponent.EffectTipSpecific = "xenoarch-effect-tip-unknown";
-        }
         // DeltaV - end of hide locked node effects
         EntityManager.AddComponents(nodeEnt.Value, trigger.Components);
 

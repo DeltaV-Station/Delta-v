@@ -32,7 +32,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
     /// DeltaV - Unique effect description.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public LocId EffectTipSpecific;
+    public LocId? EffectTipSpecific;
 
     /// <summary>
     /// DeltaV - Vague effect description that may be shared by other effects.
