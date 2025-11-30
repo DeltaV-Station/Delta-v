@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: SolStar2
   changes:
-  - message: Cloned Kisunes now retain their color.
-    type: Fix
-  id: 1388
-  time: '2025-05-13T03:47:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3724
-- author: SolStar2
-  changes:
   - message: Fox fires now have the same brightness regardless of eye color.
     type: Fix
   id: 1389
@@ -4234,3 +4227,11 @@
   id: 1887
   time: '2025-11-30T17:00:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4816
+- author: Coryler
+  changes:
+  - message: The minor mass mind swap glimmer event has been added. If glimmer is
+      above 750, it can mindswap up to 6 people temporarily.
+    type: Add
+  id: 1888
+  time: '2025-11-30T17:46:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4728
