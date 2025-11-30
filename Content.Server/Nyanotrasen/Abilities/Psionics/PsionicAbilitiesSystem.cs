@@ -5,6 +5,7 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
@@ -62,9 +63,6 @@ namespace Content.Server.Abilities.Psionics
 
         public void AddPsionics(EntityUid uid, string powerComp)
         {
-            if (Deleted(uid))
-                return;
-
             if (HasComp<PsionicComponent>(uid))
                 return;
 
@@ -116,11 +114,10 @@ namespace Content.Server.Abilities.Psionics
                 if (EntityManager.TryGetComponent(uid, comp.GetType(), out var psionicPower))
                     RemComp(uid, psionicPower);
             }
-            if (psionic.PsionicAbility != null){
-                if (_actionsSystem.GetAction(psionic.PsionicAbility) is { } psiAbility)
-                {
-                    _actionsSystem.RemoveAction(uid, psiAbility.Owner);
-                }
+
+            foreach (var power in psionic.PsionicPowersActionEntities)
+            {
+                _actionsSystem.RemoveAction(power);
             }
 
             _glimmerSystem.Glimmer -= _random.Next(50, 70);

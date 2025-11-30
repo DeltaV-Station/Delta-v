@@ -7,6 +7,7 @@ using Content.Server.Jittering;
 using Content.Server.Lightning;
 using Content.Server.Mind;
 using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
@@ -68,10 +69,9 @@ public sealed class PsionicEruptionSystem : EntitySystem
             _actions.StartUseDelay(action.Owner);
         }
 
-        if (TryComp<PsionicComponent>(entity, out var psionic) && psionic.PsionicAbility == null)
+        if (TryComp<PsionicComponent>(entity, out var psionic))
         {
-            psionic.PsionicAbility = component.EruptionActionEntity;
-            psionic.ActivePowers.Add(component);
+            psionic.PsionicPowersActionEntities.Add(component.EruptionActionEntity);
         }
     }
 
@@ -95,7 +95,7 @@ public sealed class PsionicEruptionSystem : EntitySystem
 
         if (TryComp<PsionicComponent>(entity, out var psionic))
         {
-            psionic.ActivePowers.Remove(entity.Comp);
+            psionic.PsionicPowersActionEntities.Remove(entity.Comp.EruptionActionEntity);
         }
     }
 

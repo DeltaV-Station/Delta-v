@@ -290,7 +290,7 @@
         type: Add
         time: 5
         refresh: false
-      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic.
+      - !type:ChemRollPsionic #Nyano - Summary: lets the imbiber become psionic.
         conditions:
         - !type:ReagentThreshold
           reagent: SpaceDrugs

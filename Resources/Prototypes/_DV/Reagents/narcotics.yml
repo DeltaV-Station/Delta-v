@@ -1,0 +1,31 @@
+- type: reagent
+  id: LotophagoiOil
+  name: reagent-name-lotophagoi-oil
+  group: Narcotics
+  desc: reagent-desc-lotophagoi-oil
+  flavor: enthralling
+  color: "#FFBF00"
+  physicalDesc: reagent-physical-desc-overpowering
+  allowedDepartments:
+  - Science
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 5
+        refresh: false
+#      - !type:ModifyStatusEffect # Removed until ScrambledSpeech gets fixed by an upstream merge.
+#        key: ScrambledSpeech
+#        component: ScrambledAccent
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectTelepathicRepeater
+        type: Add
+      - !type:ChemRollPsionic
+        bonusMultiplier: 4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: LotophagoiOil
+          min: 20

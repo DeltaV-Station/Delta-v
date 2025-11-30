@@ -4,6 +4,7 @@ using Content.Server.Station.Systems;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Components;

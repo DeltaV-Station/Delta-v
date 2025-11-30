@@ -1,6 +1,8 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Server.Abilities.Psionics;
 using Content.Shared.Eye;
+using Content.Server.NPC.Systems;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
@@ -25,8 +27,8 @@ namespace Content.Server.Psionics
             base.Initialize();
             /// Masking
             SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<PsionicInsulationComponent, ComponentInit>(OnInsulInit);
-            SubscribeLocalEvent<PsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
+            SubscribeLocalEvent<OldPsionicInsulationComponent, ComponentInit>(OnInsulInit);
+            SubscribeLocalEvent<OldPsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
             SubscribeLocalEvent<EyeComponent, ComponentInit>(OnEyeInit);
 
             /// Layer
@@ -43,7 +45,7 @@ namespace Content.Server.Psionics
             SetCanSeePsionicInvisiblity(uid, false);
         }
 
-        private void OnInsulInit(EntityUid uid, PsionicInsulationComponent component, ComponentInit args)
+        private void OnInsulInit(EntityUid uid, OldPsionicInsulationComponent component, ComponentInit args)
         {
             if (!HasComp<PotentialPsionicComponent>(uid))
                 return;
@@ -51,22 +53,22 @@ namespace Content.Server.Psionics
             if (HasComp<PsionicInvisibilityUsedComponent>(uid))
                 _invisSystem.ToggleInvisibility(uid);
 
-            if (_faction.IsMember(uid, PsionicInterloperProtoId))
+            if (_faction.IsMember(uid, "PsionicInterloper"))
             {
-                component.SuppressedFactions.Add(PsionicInterloperProtoId);
-                _faction.RemoveFaction(uid, PsionicInterloperProtoId);
+                component.SuppressedFactions.Add("PsionicInterloper");
+                _faction.RemoveFaction(uid, "PsionicInterloper");
             }
 
-            if (_faction.IsMember(uid, GlimmerMonsterProtoId))
+            if (_faction.IsMember(uid, "GlimmerMonster"))
             {
-                component.SuppressedFactions.Add(GlimmerMonsterProtoId);
-                _faction.RemoveFaction(uid, GlimmerMonsterProtoId);
+                component.SuppressedFactions.Add("GlimmerMonster");
+                _faction.RemoveFaction(uid, "GlimmerMonster");
             }
 
             SetCanSeePsionicInvisiblity(uid, true);
         }
 
-        private void OnInsulShutdown(EntityUid uid, PsionicInsulationComponent component, ComponentShutdown args)
+        private void OnInsulShutdown(EntityUid uid, OldPsionicInsulationComponent component, ComponentShutdown args)
         {
             if (!HasComp<PotentialPsionicComponent>(uid))
                 return;
