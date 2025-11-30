@@ -16,6 +16,7 @@
     - id: ThavenMoodUpset
     #- id: LockProbers
     - id: PsionicNosebleedEvent
+    - id: MinorMassMindSwap # Delta V
 
 - type: entity
   parent: BaseGameRule
@@ -87,6 +88,17 @@
     glimmerBurnLower: 50
     glimmerBurnUpper: 110
   - type: MassMindSwapRule
+
+- type: entity
+  id: MinorMassMindSwap
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 750
+    glimmerBurnLower: 40
+    glimmerBurnUpper: 80
+  - type: MinorMassMindSwapRule
+    isTemporary: true
 
 - type: entity
   abstract: true
