@@ -203,7 +203,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         var hasInfo = _xenoArtifact.HasUnlockedPredecessor(artifact.Value, node.Value);
 
         // DeltaV - start of hide locked node effects
-        var specificInfo = nodeComponent.EffectTipSpecific ?? "xenoarch-effect-tip-unknown";
+        var specificInfo = node.Value.Comp.EffectTipSpecific ?? "xenoarch-effect-tip-unknown";
         if (!hasInfo || (node.Value.Comp.LockedEffectTipHidden && node.Value.Comp.Locked))
         {
             EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
