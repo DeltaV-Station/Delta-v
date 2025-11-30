@@ -185,7 +185,7 @@ public sealed partial class XenoArtifactComponent : Component
     /// DeltaV - Probability for each node that its effect will give a generic hint, rather than a specific one (until it is unlocked).
     /// </summary>
     [DataField]
-    public float LockedEffectVagueProbability = 0.33f;
+    public float LockedEffectVagueProbability = 0.67f;
 }
 
 /// <summary>
