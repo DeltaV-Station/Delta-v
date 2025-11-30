@@ -15,8 +15,10 @@
 - type: entity
   parent: BaseXenoArtifactEffect
   id: XenoArtifactRaiseGlimmer
-  description: Noöspheric shift
   components:
+  - type: XAEDetails
+    specificTip: xenoarch-effect-tip-specific-glimmer
+    vagueTip: xenoarch-effect-tip-vague-energy-manipulation
   - type: GlimmerArtifact
     range:
       min: 0
@@ -46,7 +48,9 @@
 - type: entity
   parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactMakePsionic
-  description: Psionic imprinting
   components:
+  - type: XAEDetails
+    specificTip: xenoarch-effect-tip-specific-psionic
+    vagueTip: xenoarch-effect-tip-vague-energy-manipulation
   - type: PsionicProducingArtifact
     range: 5
