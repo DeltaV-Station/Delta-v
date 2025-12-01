@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Client.CharacterInfo;
+using Content.Shared.CCVar;
 using Content.Shared._DV.CCVars;
 using Content.Shared.Dataset;
 using Content.Shared.Chat;
@@ -26,117 +27,85 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
     /// </summary>
     public event Action<string>? OnAutoHighlightsUpdated;
 
-    [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
-
-    /// <summary>
-    ///     A list of words to be highlighted in the chatbox.
-    ///     User-specified.
-    /// </summary>
-    private readonly List<string> _highlights = [];
-
     /// <summary>
     ///     A list of words to be highlighted in the chatbox.
     ///     Auto-generated from users's character information.
     /// </summary>
-    private readonly List<string> _autoHighlights = [];
+    private string _autoHighlights = String.Empty;
 
     /// <summary>
-    ///     The color (hex) in witch the words will be highlighted as.
+    /// Returns the list of auto-generated highlights based on the character's info (job, name, etc). Returns an empty list if the option is disabled.
     /// </summary>
-    private string? _highlightsColor;
+    internal string AutoHighlights => _autoFillHighlightsEnabled ? _autoHighlights : String.Empty;
 
-    private bool _autoFillHighlightsEnabled;
+    internal string CurrentUserHighlights => _config.GetCVar(DCCVars.ChatHighlights);
 
-    private void InitializeChatHighlights()
+    /// <summary>
+    /// Gets whether the player has auto-generated highlights enabled or not.
+    /// </summary>
+    internal bool AutoHighlightsEnabled => _autoFillHighlightsEnabled;
+
+    internal void OnCharacterUpdated(CharacterData data)
     {
+        // If _charInfoIsAttach is false then the opening of the character panel was the one
+        // to generate the event, dismiss it.
+        if (!_charInfoIsAttach)
+            return;
 
-        _player.LocalPlayerAttached += _ => _characterInfo.RequestCharacterInfo();
-        _player.LocalPlayerDetached += _ => _characterInfo.RequestCharacterInfo();
-
-        _config.OnValueChanged(DCCVars.ChatAutoFillHighlights, value => { _autoFillHighlightsEnabled = value; UpdateHighlights(); });
-        _autoFillHighlightsEnabled = _config.GetCVar(DCCVars.ChatAutoFillHighlights);
-
-        _config.OnValueChanged(DCCVars.ChatHighlightsColor, value => _highlightsColor = value);
-        _highlightsColor = _config.GetCVar(DCCVars.ChatHighlightsColor);
-
-        _config.OnValueChanged(DCCVars.ChatHighlights, UpdateHighlights);
-        UpdateHighlights(_config.GetCVar(DCCVars.ChatHighlights));
-    }
-
-
-    public void OnSystemLoaded(CharacterInfoSystem system)
-    {
-        system.OnCharacterUpdate += UpdateAutoHighlights;
-    }
-
-    public void OnSystemUnloaded(CharacterInfoSystem system)
-    {
-        system.OnCharacterUpdate -= UpdateAutoHighlights;
-    }
-
-    private void UpdateAutoHighlights(CharacterData data)
-    {
         var (_, job, _, _, entityName) = data;
 
-        _autoHighlights.Clear();
+        // Mark this entity's name as our character name for the "UpdateHighlights" function.
+        string newHighlights = "@" + entityName;
 
-        // If the character has a normal name (eg. "Name Surname" and not "Name Initial Surname" or a particular species name)
-        // subdivide it so that the name and surname individually get highlighted.
-        if (entityName.Count(c => c == ' ') == 1)
-            _autoHighlights.AddRange(entityName.Split(' '));
-        _autoHighlights.Add(entityName);
+        // Subdivide the character's name based on spaces or hyphens so that every word gets highlighted.
+        if (newHighlights.Count(c => (c == ' ' || c == '-')) == 1)
+            newHighlights = newHighlights.Replace("-", "\n@").Replace(" ", "\n@");
 
-        var jobKey = "ChatHighlight" + job.Replace(" ", "");
-        if (_prototypeManager.TryIndex<LocalizedDatasetPrototype>(jobKey, out var jobMatches))
-            _autoHighlights.AddRange(jobMatches.Values.Select(Loc.GetString));
-        else
-            _sawmill.Debug("Missing LocalizedDataset for Job: " + jobKey);
-        UpdateHighlights();
+        // If the character has a name with more than one hyphen assume it is a lizard name and extract the first and
+        // last name eg. "Eats-The-Food" -> "@Eats" "@Food"
+        if (newHighlights.Count(c => c == '-') > 1)
+            newHighlights = newHighlights.Split('-')[0] + "\n@" + newHighlights.Split('-')[^1];
+
+        // Convert the job title to kebab-case and use it as a key for the loc file.
+        string jobKey = job.Replace(' ', '-').ToLower();
+
+        if (Loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
+            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
+
+        _autoHighlights = newHighlights; // DeltaV
+        UpdateHighlights(CurrentUserHighlights); // DeltaV
+        OnAutoHighlightsUpdated?.Invoke($"{AutoHighlights}"); // DeltaV
+        _charInfoIsAttach = false;
     }
 
-    public void UpdateHighlights(string? newHighlights = null)
+    /// <summary>
+    /// This is ugly but it's only going to be around until the next upstream merge.
+    /// We'll still use DCCVars.ChatHighlights.
+    /// </summary>
+    private void MigrateDVHighlightSettings()
     {
-        var configuredHighlights = _config.GetCVar(DCCVars.ChatHighlights);
-        var highlights = newHighlights ?? configuredHighlights;
-        // Save the newly provided list of highlights if different.
-        if (newHighlights is not null && !string.Equals(configuredHighlights, highlights, StringComparison.CurrentCultureIgnoreCase))
+        // AutoHightligt Checkbox
+        bool shouldSave = false;
+        var oldDCCAutofillFlag = _config.GetCVar(DCCVars.ChatAutoFillHighlights);
+        if (oldDCCAutofillFlag)
         {
-            _config.SetCVar(DCCVars.ChatHighlights, highlights);
+            _config.SetCVar(CCVars.ChatAutoFillHighlights, oldDCCAutofillFlag);
+            _config.SetCVar(DCCVars.ChatAutoFillHighlights, false); // Next time this runs, it won't migrate this value again since CCVars.ChatAutoFillHighlights defaults to false.
+            shouldSave = true;
+        }
+
+        // Chat Color
+        var oldDCCVarColor = _config.GetCVar(DCCVars.ChatHighlightsColor);
+        var defaultColor = "#17FFC1FF";
+        if (!oldDCCVarColor.Equals(defaultColor)) // Default value
+        {
+            _config.SetCVar(CCVars.ChatHighlightsColor, oldDCCVarColor); // Next time, it should equal those words
+            _config.SetCVar(DCCVars.ChatHighlightsColor, defaultColor); // Prevents it from running again
+            shouldSave = true;
+        }
+
+        if (shouldSave)
             _config.SaveToFile();
-        }
-
-        var effectiveAutoHighlights = _autoFillHighlightsEnabled
-            ? string.Join("\n", _autoHighlights)
-            : string.Empty;
-        OnAutoHighlightsUpdated?.Invoke(effectiveAutoHighlights);
-
-        // If `highlights` is an empty string, this gives a single empty string, which breaks stuff, so check for that separately when adding it to `_highlights`
-        var allHighlights = _autoFillHighlightsEnabled
-            ? highlights.Split("\n").Concat(_autoHighlights)
-            : highlights.Split("\n");
-
-        _highlights.Clear();
-
-        void AddHighlights(IEnumerable<string> highlights)
-        {
-            foreach (var highlight in highlights)
-            {
-                if (string.IsNullOrWhiteSpace(highlight))
-                    continue;
-                // Use `"` as layman symbol for Regex `\b`, ignore all other special sequences
-                // (Without that escape, a name like `Robert'); DROP TABLE users; --` breaks all messsages)
-                // Turn `\` into `\\` or else it'll escape the tags inside the actual chat message for reasons I can barely intuit but not explain.
-                _highlights.Add(Regex.Escape(highlight.Replace(@"\", @"\\")).Replace("\"", "\\b"));
-            }
-        }
-
-        AddHighlights(highlights.Split("\n"));
-        if (_autoFillHighlightsEnabled)
-            AddHighlights(_autoHighlights);
-
-        // Arrange the list in descending order so that when highlighting,
-        // the full word (eg. "Security") appears before the abbreviation (eg. "Sec").
-        _highlights.Sort((x, y) => y.Length.CompareTo(x.Length));
     }
 
     /// <summary>

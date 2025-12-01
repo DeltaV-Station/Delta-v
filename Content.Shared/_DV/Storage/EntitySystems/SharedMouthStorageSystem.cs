@@ -95,6 +95,6 @@ public abstract class SharedMouthStorageSystem : EntitySystem
 
         var firstItem = storage.Container.ContainedEntities[0];
         args.Blocker = firstItem;
-        args.Cancel();
+        args.Cancelled = true;
     }
 }

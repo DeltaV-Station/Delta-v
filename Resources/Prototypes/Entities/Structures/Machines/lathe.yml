@@ -60,6 +60,11 @@
     - Arsenal
     - Experimental
     - CivilianServices
+  # Begin DeltaV additions
+  - type: MaterialStorageMagnetPickup
+    magnetEnabled: True
+    range: 0.30
+  # End DeltaV additions
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -139,6 +144,7 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -345,6 +351,7 @@
     - MechEquipment
     - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
     - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
+    - PsionicProsthetics # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
@@ -357,6 +364,7 @@
     - SalvageHardsuits
     - ParamedicHardsuit
     - EngineeringHardsuits
+    - AdvancedPsionicProsthetics
     # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
@@ -455,12 +463,25 @@
     - SecurityWeapons
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
+    - AdvancedPsionicProsthetics # DeltaV
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+  # End DeltaV Additions
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+      - BlueprintSecurityTechfab
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  # End DeltaV Additions
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -493,6 +514,16 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
+    # End DeltaV Additions
+    - type: BlueprintReceiver
+      whitelist:
+        tags:
+        - BlueprintAmmoTechfab
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        blueprint: !type:Container
     - type: MaterialStorage
       whitelist:
         tags:
