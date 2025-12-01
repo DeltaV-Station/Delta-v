@@ -106,7 +106,7 @@ namespace Content.Server.StationEvents.Events
             float maxImpactTime = 0;
             for (var i = 0; i < component.MeteorsPerWave; i++)
             {
-                var protectedAreasThisMeteor = 
+                var protectedAreasThisMeteor =
                     protectedAreas.Where(protectedArea => RobustRandom.Prob(protectedArea.protectionRate)).ToList();
 
                 MapCoordinates spawnPosition;
@@ -141,7 +141,7 @@ namespace Content.Server.StationEvents.Events
                     }
 
                     targetingAttempts++;
-                } 
+                }
                 while (!targetingSafe && targetingAttempts <= 3); // attempt to avoid the protected areas a few times
 
                 var meteor = Spawn(proto, spawnPosition);
