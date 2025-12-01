@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "rosieposieeee (Github), Edited by Verybigman311",
+    "size": {
+        "x": 128,
+        "y": 128
+    },
+    "states": [
+        {
+            "name": "large-round-base"
+        },
+        {
+            "name": "large-round-base-lava",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "large-round-top"
+        },
+        {
+            "name": "large-round-top-lava",
+            "delays": [
+                [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            ]
+        },
+        {
+            "name": "large-round-flows",
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
+        }
+    ]
+}

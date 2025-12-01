@@ -231,7 +231,14 @@ public abstract partial class SharedStunSystem
         if (playerSession.AttachedEntity is not { Valid: true } playerEnt || !Exists(playerEnt))
             return;
 
-        ToggleKnockdown(playerEnt);
+        // DeltaV - Double-tap Standup bind forces standup (unless hands full)
+        if (_standingState.IsDown(playerEnt)
+            && TryComp<KnockedDownComponent>(playerEnt, out var knockedDown)
+            && knockedDown.DoAfterId != null)
+            ForceStandUp(playerEnt);
+        else
+            ToggleKnockdown(playerEnt);
+        // END DeltaV
     }
 
     /// <summary>
