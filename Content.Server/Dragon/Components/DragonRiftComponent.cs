@@ -37,4 +37,15 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
 
     [ViewVariables(VVAccess.ReadWrite), DataField("spawn", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string SpawnPrototype = "MobCarpDragon";
+
+    //Delta-v Additions begin
+    [ViewVariables(VVAccess.ReadWrite), DataField("spawnElite", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string SpawnElitePrototype = "MobSharkminnowDragon";
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float SpawnEliteFrequency = 5f;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float SpawnEliteAccumulator = 5f;
+    //Delta-v Additions end
 }
