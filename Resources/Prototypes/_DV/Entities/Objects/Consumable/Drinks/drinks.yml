@@ -148,3 +148,83 @@
   - type: Icon
     sprite: _DV/Objects/Consumable/Drinks/lemonlimebitters.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: OldFashionedGlass
+  suffix: old fashioned
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OldFashioned
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/oldfashioned.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: MnatsaCollinsGlass
+  suffix: mnatsa collins
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MnatsaCollins
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/mnatsacollins.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: AffogatoGlass
+  suffix: affogato
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Affogato
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/affogato.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: FiveOClockGlass
+  suffix: fiveoclock
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FiveOClock
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/fiveoclock.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: MlikoGlass
+  suffix: mliko
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mliko
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/mliko.rsi
+    state: icon

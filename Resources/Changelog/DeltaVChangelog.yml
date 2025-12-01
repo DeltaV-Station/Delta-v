@@ -1,165 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Changed goliath sprites to be accurate to SS13's regular goliath and
-      not ancient goliath.
-    type: Tweak
-  - message: Goliaths attack range was slightly reduced to make combat more fair.
-    type: Tweak
-  id: 1371
-  time: '2025-05-09T15:57:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3654
-- author: nkokic
-  changes:
-  - message: Added typing indicator when writing on paper.
-    type: Add
-  id: 1372
-  time: '2025-05-09T15:58:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3689
-- author: sowelipililimute
-  changes:
-  - message: Departmental cargo request computers now print slips that can be given
-      to Logistics for final approval, rather than directly approving the orders themselves
-    type: Tweak
-  id: 1373
-  time: '2025-05-09T22:16:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3658
-- author: Colin_Tel, lyndomen, Kazne
-  changes:
-  - message: Updated metashield with Cultist information.
-    type: Tweak
-  id: 1374
-  time: '2025-05-09T22:21:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3643
-- author: SubspaceEmber
-  changes:
-  - message: Combat RCD has new sprite to match ERT suits
-    type: Tweak
-  - message: Experimental RCD has new animated sprite
-    type: Tweak
-  - message: All RCDs have new in-hand sprites
-    type: Tweak
-  - message: Experimental RCD can now make reinforced walls, plasma windows, reinforced
-      plasma windows, and external airlocks
-    type: Tweak
-  - message: RCD can now make windoors and post lights
-    type: Tweak
-  id: 1375
-  time: '2025-05-09T22:40:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3637
-- author: sowelipililimute
-  changes:
-  - message: Extremities such as hands and feet are now easier to hack off in combat,
-      whilst core things such as arms, legs, and heads are more difficult to hack
-      off
-    type: Tweak
-  id: 1376
-  time: '2025-05-10T01:16:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3585
-- author: Lyndomen
-  changes:
-  - message: Passengers have been renamed to Assistants.
-    type: Tweak
-  - message: Assistants are full crew of the station, and are employed by NanoTrasen
-      to assist wherever the crew might need.
-    type: Tweak
-  id: 1377
-  time: '2025-05-10T01:38:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3650
-- author: deltanedas
-  changes:
-  - message: Added bluespace ore which can only be smelted at an industrial ore processor.
-      Mine it on lavaland, red roid or expeditions.
-    type: Add
-  id: 1378
-  time: '2025-05-10T14:46:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3651
-- author: deltanedas
-  changes:
-  - message: Fixed most techfabs not supporting material silos.
-    type: Fix
-  id: 1379
-  time: '2025-05-10T17:23:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3701
-- author: sowelipililimute
-  changes:
-  - message: Automatic ACO announcements work again
-    type: Fix
-  id: 1380
-  time: '2025-05-10T17:55:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3691
-- author: deltanedas
-  changes:
-  - message: No more infinite hairballs for felenids, eat your mice.
-    type: Fix
-  id: 1381
-  time: '2025-05-10T21:22:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3705
-- author: AftrLite
-  changes:
-  - message: Toned down Toy Swords' realism.
-    type: Fix
-  id: 1382
-  time: '2025-05-11T04:28:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3708
-- author: deltanedas
-  changes:
-  - message: Fixed kitsunes having infinite foxfires...
-    type: Fix
-  id: 1383
-  time: '2025-05-11T15:13:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3715
-- author: Toby222
-  changes:
-  - message: Re-added the jumpskirt and jumpsuit as an option to the Cargo Technician's
-      loadout
-    type: Add
-  id: 1384
-  time: '2025-05-12T04:05:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3717
-- author: sowelipililimute
-  changes:
-  - message: Non-hostage ops nukies will always be warops.
-    type: Tweak
-  id: 1385
-  time: '2025-05-12T16:54:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3561
-- author: deltanedas
-  changes:
-  - message: Completely reworked traitors to use the new contracts system. Read the
-      guidebook!
-    type: Add
-  id: 1386
-  time: '2025-05-12T21:16:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/2913
-- author: SolStar2
-  changes:
-  - message: Kitsune now use correct emote sounds in fox form.
-    type: Fix
-  id: 1387
-  time: '2025-05-13T03:44:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3725
-- author: SolStar2
-  changes:
-  - message: Cloned Kisunes now retain their color.
-    type: Fix
-  id: 1388
-  time: '2025-05-13T03:47:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3724
-- author: SolStar2
-  changes:
-  - message: Fox fires now have the same brightness regardless of eye color.
-    type: Fix
-  id: 1389
-  time: '2025-05-13T04:10:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3726
-- author: Deathninja5551
-  changes:
-  - message: Added Experiment Plushie and Bee Plushie to Trinkets
-    type: Add
-  id: 1390
-  time: '2025-05-13T04:31:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3729
 - author: sowelipililimute
   changes:
   - message: Thieves now require 30 players to roll
@@ -4234,3 +4073,168 @@
   id: 1870
   time: '2025-11-28T07:17:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4715
+- author: Colin-Tel, BigMaxPorter
+  changes:
+  - message: The laser carbine now does the intended 20 heat damage.
+    type: Fix
+  id: 1871
+  time: '2025-11-28T08:24:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4790
+- author: Toby222
+  changes:
+  - message: Cardboard boxes are now affected by gravity
+    type: Fix
+  id: 1872
+  time: '2025-11-28T08:47:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4794
+- author: Toby222
+  changes:
+  - message: Skimmer now does its one and only job again, lazy bugger
+    type: Fix
+  id: 1873
+  time: '2025-11-28T09:36:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4795
+- author: Toby222
+  changes:
+  - message: Flintlock is now craftable as intended
+    type: Fix
+  id: 1874
+  time: '2025-11-28T09:41:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4796
+- author: Toby222
+  changes:
+  - message: Removed the invisible, intangible bear inside all fishing crates that
+      was trying to steal your fish
+    type: Fix
+  id: 1875
+  time: '2025-11-28T09:49:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4797
+- author: SirWarock
+  changes:
+  - message: The faithful rejoice! Your deity has chosen to to protect you as long
+      as you hold your religious tome!
+    type: Tweak
+  id: 1876
+  time: '2025-11-28T19:03:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4726
+- author: Vapetastic-Gaming
+  changes:
+  - message: Submarine Playtest Fixes and Tweaks, it is now in current rotation, with
+      a minimum 80 population !!
+    type: Tweak
+  id: 1877
+  time: '2025-11-29T03:30:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4554
+- author: snowywinters
+  changes:
+  - message: Now normal command turrets alert the AI to an intruder
+    type: Fix
+  id: 1878
+  time: '2025-11-29T19:57:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4803
+- author: kotobdev
+  changes:
+  - message: The FG13 Xiuhcoatl is now substantially more deadly. It also costs less!
+    type: Tweak
+  id: 1879
+  time: '2025-11-29T22:27:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4749
+- author: ShepardToTheStars
+  changes:
+  - message: While trying to stand-up, you can now press your Toggle Crawling keybind
+      to get up faster at the cost of stamina. Of course, you still still need a free
+      hand to do this.
+    type: Tweak
+  id: 1880
+  time: '2025-11-30T16:24:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4802
+- author: TheGrimbeeper
+  changes:
+  - message: Artifacts can now be triggered by ambient radiation, not just uranium
+      spears
+    type: Fix
+  id: 1881
+  time: '2025-11-30T16:30:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4817
+- author: pootslap
+  changes:
+  - message: Characters must now be 40 to be considered middle-aged and 70 to be considered
+      old.
+    type: Tweak
+  id: 1882
+  time: '2025-11-30T16:31:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4783
+- author: Proxysseia
+  changes:
+  - message: Crew of legally docked foreign vessels now has rights
+    type: Add
+  id: 1883
+  time: '2025-11-30T16:37:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4763
+- author: verybigman311
+  changes:
+  - message: Rejoice! Four new cocktails utilizing the long-neglected Angobitters
+      are now available.
+    type: Add
+  - message: You can now ask for Mliko (glorified beer foam) at your local bar.
+    type: Add
+  - message: Famous drinks such as Pilk, Moonshine, and Hooch have been given new
+      sprites.
+    type: Add
+  - message: Alterations have been made to the Grog, Posca, and Gin Fizz recipes.
+    type: Tweak
+  - message: Numerous beverages will now form puddles of the correct color when thrown
+      violently against the ground.
+    type: Fix
+  id: 1884
+  time: '2025-11-30T16:41:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4780
+- author: verybigman311
+  changes:
+  - message: Lava Fountains are now an available decoration.
+    type: Add
+  - message: Drinking from fountains has become much easier.
+    type: Fix
+  id: 1885
+  time: '2025-11-30T16:44:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4792
+- author: SirWarock
+  changes:
+  - message: Buffed the Advanced Truncheon to actually.. be better than the normal
+      Truncheon.
+    type: Tweak
+  id: 1886
+  time: '2025-11-30T16:46:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4736
+- author: cmorley191
+  changes:
+  - message: psychokinetic scream now works with "psionic disturbance" arti trigger
+    type: Fix
+  id: 1887
+  time: '2025-11-30T17:00:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4816
+- author: Coryler
+  changes:
+  - message: The minor mass mind swap glimmer event has been added. If glimmer is
+      above 750, it can mindswap up to 6 people temporarily.
+    type: Add
+  id: 1888
+  time: '2025-11-30T17:46:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4728
+- author: TehFlaminTaco
+  changes:
+  - message: Fractured Form can now be mindbreaker'd without perma-sleeping
+    type: Fix
+  - message: Fractured Form will no-longer spawn an IPC body.
+    type: Tweak
+  id: 1889
+  time: '2025-11-30T18:00:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4582
+- author: cmorley191
+  changes:
+  - message: Artifact node effects are sometimes hidden or unpredictable until after
+      you trigger them for the first time. Be careful!
+    type: Tweak
+  id: 1890
+  time: '2025-11-30T18:10:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4748
