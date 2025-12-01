@@ -100,7 +100,6 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     /// <param name="protoId">The TypingIndicator to use in place of default or clothing indicators. Clears overrides when null.</param>
     private void SetTypingOverride(EntityUid uid, ProtoId<TypingIndicatorPrototype>? protoId)
     {
-        Log.Info("SetTypingOverride called: " + protoId);
         var comp = EnsureComp<TypingIndicatorComponent>(uid);
         comp.TypingIndicatorOverridePrototype = protoId;
         Dirty(uid, comp);
