@@ -8,6 +8,21 @@
 
 - type: entity
   parent: BasePsionicAction
+  id: ActionTestPower # this power is just for testing. remove before merging.
+  name: Testing Power
+  description: Wow this tests real good
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: dispel
+    useDelay: 5
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:TestPowerActionEvent
+
+- type: entity
+  parent: BasePsionicAction
   id: ActionDispel
   name: Dispel
   description: Dispel summoned entities such as familiars or forcewalls.
