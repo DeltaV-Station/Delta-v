@@ -193,7 +193,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # DeltaV - Was 70
       behaviors:
       - !type:PlaySoundBehavior
         sound:
