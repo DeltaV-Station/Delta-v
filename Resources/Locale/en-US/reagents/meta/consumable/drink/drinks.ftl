@@ -86,8 +86,8 @@ reagent-name-hot-ramen = hot ramen
 reagent-desc-hot-ramen = Hot noodles.
 
 reagent-name-pilk = pilk
-reagent-desc-pilk = A sickening mixture of milk and cola.
-
+reagent-desc-pilk = A sickening mixture of milk and cola. Das boot!
+# DeltaV: Referenced the shape of the pilk glass in the description
 reagent-name-posca = posca
 reagent-desc-posca = Poor warriors' drink from a forgotten era.
 
