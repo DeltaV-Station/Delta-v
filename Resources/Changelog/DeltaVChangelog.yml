@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed getting objectives to assist non-traitors...
-    type: Fix
-  - message: Fixed getting an objective to assist someone with assisting someone else.
-    type: Fix
-  id: 1392
-  time: '2025-05-13T20:46:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3738
-- author: deltanedas
-  changes:
   - message: Fixed being able to fulton items in your bag.
     type: Fix
   id: 1393
@@ -4238,3 +4229,11 @@
   id: 1891
   time: '2025-12-01T07:57:02.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4772
+- author: Cepelinas1
+  changes:
+  - message: Possession charges no longer stack. The highest offending category is
+      now charged.
+    type: Tweak
+  id: 1892
+  time: '2025-12-01T13:33:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4808
