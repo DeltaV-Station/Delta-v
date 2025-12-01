@@ -4,6 +4,7 @@ using Content.Server._DV.StationEvents.Components;
 using Content.Server.Psionics;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -80,7 +81,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out _))
         {
-            if (_mobstateSystem.IsAlive(psion) && !HasComp<PsionicInsulationComponent>(psion)
+            if (_mobstateSystem.IsAlive(psion) && !HasComp<PsionicallyInsulatedComponent>(psion)
                 && HasComp<ActorComponent>(psion))
                 // Only a list of Players
                 psionicActors.Add(psion);
