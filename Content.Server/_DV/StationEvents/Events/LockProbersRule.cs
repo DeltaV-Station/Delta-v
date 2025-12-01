@@ -1,23 +1,15 @@
 using Content.Server._DV.StationEvents.Components;
-using Content.Server.Power.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.Station.Systems;
-using Content.Server.StationEvents;
-using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.NPC.Components;
 using Content.Shared.Psionics.Glimmer;
-using Robust.Shared.Map;
-using Robust.Shared.Random;
 using System.Linq;
 
 namespace Content.Server._DV.StationEvents.Events;
 
 public sealed class LockProbersRule : StationEventSystem<LockProbersRuleComponent>
 {
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
 
