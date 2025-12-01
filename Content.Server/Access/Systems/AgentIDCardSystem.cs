@@ -9,6 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._DV.Access.Components; // DeltaV
 using Content.Shared._DV.NanoChat; // DeltaV
 using Content.Server.Clothing.Systems;
 using Content.Server.Implants;
@@ -101,11 +102,15 @@ namespace Content.Server.Access.Systems
             if (!TryComp<AccessComponent>(uid, out var access) || !HasComp<IdCardComponent>(uid))
                 return;
 
-            var beforeLength = access.Tags.Count;
-            access.Tags.UnionWith(targetAccess.Tags);
-            var addedLength = access.Tags.Count - beforeLength;
+            // Begin DeltaV Additions
+            // Prevent Borg ID chips from being copied
+            if (!HasComp<BorgIdCardComponent>(args.Target))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("agent-id-card-borg-cannot-copy"), args.Target.Value, args.User);
+                return;
+            }
 
-            // Begin DeltaV Additions - Copy NanoChat data if available
+            // Copy NanoChat data if available
             if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
                 TryComp<NanoChatCardComponent>(uid, out var agentNanoChat))
             {
@@ -132,6 +137,10 @@ namespace Content.Server.Access.Systems
                 }
             }
             // End DeltaV Additions
+            var beforeLength = access.Tags.Count;
+            access.Tags.UnionWith(targetAccess.Tags);
+            var addedLength = access.Tags.Count - beforeLength;
+
             _popupSystem.PopupEntity(Loc.GetString("agent-id-new", ("number", addedLength), ("card", args.Target)), args.Target.Value, args.User);
             if (addedLength > 0)
                 Dirty(uid, access);
