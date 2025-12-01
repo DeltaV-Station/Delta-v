@@ -32,7 +32,9 @@
         - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.8
+    baseSprintSpeed : 4.5
+    baseWeightlessModifier: 0.75 # DeltaV
+    baseWeightlessAcceleration: 1.25 # DeltaV
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
