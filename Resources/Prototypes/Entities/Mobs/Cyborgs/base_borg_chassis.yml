@@ -145,7 +145,7 @@
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
   - type: PowerCellDraw
-    drawRate: 0.4
+    drawRate: 0.4 # DeltaV - Was 0.6
   # no ToggleCellDraw since dont want to lose access when power is gone
   - type: ItemSlots
     slots:
