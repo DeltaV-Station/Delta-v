@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Thieves now require 30 players to roll
-    type: Fix
-  id: 1391
-  time: '2025-05-13T12:46:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3731
-- author: deltanedas
-  changes:
-  - message: Fixed getting objectives to assist non-traitors...
-    type: Fix
-  - message: Fixed getting an objective to assist someone with assisting someone else.
-    type: Fix
-  id: 1392
-  time: '2025-05-13T20:46:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3738
 - author: deltanedas
   changes:
   - message: Fixed being able to fulton items in your bag.
@@ -4238,3 +4222,18 @@
   id: 1890
   time: '2025-11-30T18:10:16.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4748
+- author: ShepardToTheStars, slarticodefast
+  changes:
+  - message: Crawling speed now depends on the number of free hands you have.
+    type: Tweak
+  id: 1891
+  time: '2025-12-01T07:57:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4772
+- author: Cepelinas1
+  changes:
+  - message: Possession charges no longer stack. The highest offending category is
+      now charged.
+    type: Tweak
+  id: 1892
+  time: '2025-12-01T13:33:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4808
