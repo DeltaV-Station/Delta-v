@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/01/2025 01:49:11
-  entityCount: 1935
+  time: 12/01/2025 04:25:42
+  entityCount: 1943
 maps: []
 grids:
 - 1
@@ -7005,6 +7005,22 @@ entities:
     - type: Transform
       pos: 7.5,-4.5
       parent: 1
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 1939
+    components:
+    - type: Transform
+      pos: -12.5,0.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1940
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: FaxMachineBase
   entities:
   - uid: 278
@@ -7012,6 +7028,8 @@ entities:
     - type: Transform
       pos: 4.5,-5.5
       parent: 1
+    - type: FaxMachine
+      name: ATS
 - proto: filingCabinetRandom
   entities:
   - uid: 272
@@ -10054,6 +10072,24 @@ entities:
     - type: Transform
       pos: -2.3295474,1.4953785
       parent: 1
+- proto: PosterContrabandBeachStarYamamoto
+  entities:
+  - uid: 1941
+    components:
+    - type: Transform
+      pos: 6.5,-2.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: PosterLegitMail
+  entities:
+  - uid: 1675
+    components:
+    - type: Transform
+      pos: 1.5,4.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: PottedPlantRandomPlastic
   entities:
   - uid: 1665
@@ -10264,11 +10300,6 @@ entities:
     components:
     - type: Transform
       pos: -8.5,7.5
-      parent: 1
-  - uid: 1675
-    components:
-    - type: Transform
-      pos: 1.5,4.5
       parent: 1
   - uid: 1676
     components:
@@ -11085,6 +11116,24 @@ entities:
           - Close
     - type: Fixtures
       fixtures: {}
+- proto: SignCargo
+  entities:
+  - uid: 1937
+    components:
+    - type: Transform
+      pos: 1.5,0.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: SignCargoDock
+  entities:
+  - uid: 1936
+    components:
+    - type: Transform
+      pos: -14.5,0.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SignElectricalMed
   entities:
   - uid: 1006
@@ -11217,6 +11266,15 @@ entities:
     components:
     - type: Transform
       pos: 1.5,9.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: SignEngineering
+  entities:
+  - uid: 1938
+    components:
+    - type: Transform
+      pos: 12.5,1.5
       parent: 1
     - type: Fixtures
       fixtures: {}
@@ -12426,4 +12484,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,-5.5
       parent: 1
+- proto: WindoorCargoLocked
+  entities:
+  - uid: 1942
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,-3.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
+  - uid: 1943
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,-4.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 ...
