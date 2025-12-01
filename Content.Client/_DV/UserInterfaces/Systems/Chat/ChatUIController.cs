@@ -145,6 +145,7 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
     public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel)
     {
         ChatSelectChannel channel = _currentChannel;
+        Log.Info("selectedChannel: " + selectedChannel + "currentChannel: " + _currentChannel);
         if (_currentChannel == ChatSelectChannel.None)
             channel = selectedChannel;
 

@@ -1,4 +1,5 @@
-﻿using Content.Shared.Chat.TypingIndicator;
+﻿using System.Diagnostics;
+using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
@@ -31,6 +32,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         // Begin DeltaV Additions - AAC TypingIndicator Override
         if (component.TypingIndicatorOverridePrototype != null)
         {
+            Log.Debug("TypingIndicatorVisualizerSystem recieving non-null indicator " + component.TypingIndicatorOverridePrototype.Value);
             currentTypingIndicator = component.TypingIndicatorOverridePrototype.Value;
         }
         // End DeltaV Additions

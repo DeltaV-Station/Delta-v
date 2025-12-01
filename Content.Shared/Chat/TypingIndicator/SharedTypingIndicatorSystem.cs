@@ -80,7 +80,11 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
             return;
         }
 
-        SetTypingOverride(uid.Value, ev.OverrideIndicator); // DeltaV
+        //Log.Info("Typing Override..?" + ev.OverrideIndicator + " State Value/State: " + uid.Value + " " + ev.State);
+
+        if(ev.State != TypingIndicatorState.Idle) // DeltaV - don't remove override when transitioning to idle
+            SetTypingOverride(uid.Value, ev.OverrideIndicator); // DeltaV
+
         SetTypingIndicatorState(uid.Value, ev.State);
     }
 
@@ -88,6 +92,8 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     {
         if (!Resolve(uid, ref appearance, false))
             return;
+
+        Log.Info("SetTypingIndicatorState called: " + state);
 
         _appearance.SetData(uid, TypingIndicatorVisuals.State, state, appearance);
     }
@@ -98,6 +104,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     /// <param name="protoId">The TypingIndicator to use in place of default or clothing indicators. Clears overrides when null.</param>
     private void SetTypingOverride(EntityUid uid, ProtoId<TypingIndicatorPrototype>? protoId)
     {
+        Log.Info("SetTypingOverride called: " + protoId);
         var comp = EnsureComp<TypingIndicatorComponent>(uid);
         comp.TypingIndicatorOverridePrototype = protoId;
         Dirty(uid, comp);
