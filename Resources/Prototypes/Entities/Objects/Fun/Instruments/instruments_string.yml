@@ -33,7 +33,7 @@
       "Muted": {28: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/eguitar.rsi
-# Start DeltaV additions
+  # Start DeltaV additions
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:
@@ -44,7 +44,7 @@
     damage:
       types:
         Blunt: 6
-# End DeltaV additions
+  # End DeltaV additions
 
 - type: entity
   parent: BaseStringInstrumentClothing
@@ -62,7 +62,7 @@
       "Slap (XTra Funky)": {37: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/bassguitar.rsi
-# Start DeltaV additions
+  # Start DeltaV additions
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:
@@ -73,7 +73,7 @@
     damage:
       types:
         Blunt: 6
-# End DeltaV additions
+  # End DeltaV additions
 
 - type: entity
   parent: BaseStringInstrumentClothing

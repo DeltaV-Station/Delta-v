@@ -25,13 +25,13 @@
     tags:
     - StringInstrument
   - type: MeleeWeapon
-    wideAnimationRotation: -45 # Added wideAnimationRotation
+    wideAnimationRotation: -45
     soundHit:
       path: /Audio/_DV/Weapons/electricguitarhit.ogg
     damage:
       types:
-        Blunt: 8 # Increased by one
-  - type: Wieldable # Made Wieldable
+        Blunt: 8
+  - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -45,16 +45,12 @@
   description: It's the climax!
   components:
   - type: MeleeWeapon
-    wideAnimationRotation: -45 # Added wideAnimationRotation
-    soundHit:
-      path: /Audio/_DV/Weapons/electricguitarhit.ogg
     bluntStaminaDamageFactor: 4.5
     attackRate: 1.25
     range: 1.85
     damage:
       types:
-        Blunt: 7
-  - type: Wieldable
+        Blunt: 8
   - type: IncreaseDamageOnWield
     damage:
       types:
