@@ -3272,7 +3272,7 @@
       Dead:
         Base: cat2_dead
 
-- type: entity # DeltaV - Readd SyndiCat with C4, removed implant
+- type: entity
   name: syndicat
   id: MobCatSyndy
   parent: MobCatSpace
@@ -3301,12 +3301,15 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  #- type: AutoImplant  # DetlaV
+  #  implants:
+  #  - MicroBombImplant
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: NpcFactionMember
     factions:
     - Syndicate
-  - type: Inventory
+  - type: Inventory # DeltaV
     templateId: nfcat
     speciesId: cat
   - type: Access

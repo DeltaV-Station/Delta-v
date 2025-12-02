@@ -65,3 +65,8 @@
     prototype: MobCatSyndy
   - type: EmitSoundOnUse
     sound: /Audio/Animals/cat_meow.ogg
+
+- type: entity
+  parent: ReinforcementRadioSyndicateSyndiCat
+  id: ReinforcementRadioSyndicateSyndiCatDV
+  description: Calls in a faithfully trained cat.
