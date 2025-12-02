@@ -278,14 +278,13 @@ public sealed class OracleSystem : EntitySystem
         var allRecipes = new List<EntProtoId>();
 
         var researchServers = new List<(
-            EntityUid serverUid, 
-            TechnologyDatabaseComponent database, 
+            Entity<TechnologyDatabaseComponent> database,
             Dictionary<string, int> disciplineTiers
         )>();
         var query = EntityQueryEnumerator<ResearchServerComponent, TechnologyDatabaseComponent>();
         while (query.MoveNext(out var serverUid, out var server, out var database))
         {
-            researchServers.Add((serverUid, database, _research.GetDisciplineTiers(database)));
+            researchServers.Add(((serverUid, database), _research.GetDisciplineTiers(database)));
         }
 
         foreach (var tech in allTechs)
@@ -293,8 +292,8 @@ public sealed class OracleSystem : EntitySystem
             if (
                 researchServers.Count == 0
                 || researchServers.Any(server => 
-                    _research.IsTechnologyUnlocked(server.serverUid, tech, server.database)
-                    || _research.IsTechnologyAvailable(server.database, tech, server.disciplineTiers)
+                    _research.IsTechnologyUnlocked(server.database.Owner, tech, server.database.Comp)
+                    || _research.IsTechnologyAvailable(server.database.Comp, tech, server.disciplineTiers)
                 )
             )
             {
