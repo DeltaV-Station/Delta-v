@@ -103,10 +103,11 @@ namespace Content.Server.Access.Systems
                 return;
 
             // Begin DeltaV Additions
-            // Prevent Borg ID chips from being copied
-            if (HasComp<BorgIdCardComponent>(args.Target))
+            // Prevent certain types of IDs from being copied (i.e. Borg ID chips)
+            if (TryComp<PreventAgentIdComponent>(args.Target, out var preventable))
             {
-                _popupSystem.PopupEntity(Loc.GetString("agent-id-card-borg-cannot-copy"), args.Target.Value, args.User);
+                if (preventable.PopupText is { } popupText)
+                    _popupSystem.PopupEntity(Loc.GetString(popupText), args.Target.Value, args.User);
                 return;
             }
 

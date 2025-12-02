@@ -7,4 +7,8 @@ namespace Content.Shared._DV.Access.Components;
 /// Used to prevent agent IDs from copying access from borg IDs chips.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class BorgIdCardComponent : Component;
+public sealed partial class PreventAgentIdComponent : Component
+{
+    [DataField]
+    public LocId? PopupText = "agent-id-card-cannot-copy";
+}
