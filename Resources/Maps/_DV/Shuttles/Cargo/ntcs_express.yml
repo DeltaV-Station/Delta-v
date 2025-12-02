@@ -26,7 +26,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NTCS Cargo Shuttle
+      name: NTCS Express
     - type: Transform
       pos: -0.484375,-0.5
       parent: invalid
@@ -1474,7 +1474,7 @@ entities:
       pos: 0.5,0.5
       parent: 1
     - type: WarpPoint
-      location: NTCS Cargo
+      location: Cargo Shuttle
 - proto: WindoorSecureCargoLocked
   entities:
   - uid: 42

@@ -34,7 +34,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: EX-RE Saucer
+      name: NTEX-RE Saucer
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -953,7 +953,7 @@ entities:
       pos: 7.5,-2.5
       parent: 1
     - type: FaxMachine
-      name: EX-RE Saucer
+      name: NTEX-RE Saucer
 - proto: FirelockGlass
   entities:
   - uid: 129
@@ -1991,12 +1991,12 @@ entities:
   - uid: 335
     components:
     - type: MetaData
-      name: long-range holopad (EX-RE Saucer)
+      name: long-range holopad (NTEX-RE Saucer)
     - type: Transform
       pos: 0.5,3.5
       parent: 1
     - type: Label
-      currentLabel: EX-RE Saucer
+      currentLabel: NTEX-RE Saucer
     - type: NameModifier
       baseName: long-range holopad
 - proto: IntercomScience
@@ -2976,7 +2976,7 @@ entities:
       pos: 0.5,-3.5
       parent: 1
     - type: WarpPoint
-      location: EX-RE Saucer
+      location: NTEX-RE Saucer
 - proto: WindoorSecurePlasma
   entities:
   - uid: 413

@@ -28,7 +28,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: CI-TR Private Transport Shuttle
+      name: NTCI-TR Private Transport Shuttle
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -557,7 +557,7 @@ entities:
       pos: 0.5,3.5
       parent: 1
     - type: FaxMachine
-      name: CI-TR PTS
+      name: NTCI-TR PTS
 - proto: FirelockGlass
   entities:
   - uid: 65
@@ -831,12 +831,12 @@ entities:
   - uid: 166
     components:
     - type: MetaData
-      name: long-range holopad (CI-TR PTS)
+      name: long-range holopad (NTCI-TR PTS)
     - type: Transform
       pos: -0.5,-0.5
       parent: 1
     - type: Label
-      currentLabel: CI-TR PTS
+      currentLabel: NTCI-TR PTS
     - type: NameModifier
       baseName: long-range holopad
 - proto: IntercomCommon
@@ -1258,7 +1258,7 @@ entities:
       pos: -0.5,-0.5
       parent: 1
     - type: WarpPoint
-      location: CI-TR Private Transport Shuttle
+      location: NTCI-TR Private Transport Shuttle
 - proto: Window
   entities:
   - uid: 160

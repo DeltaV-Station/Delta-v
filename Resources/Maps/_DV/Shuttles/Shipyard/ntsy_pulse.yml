@@ -33,7 +33,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: CI-SH Pulse
+      name: NTCI-SH Pulse
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -1627,7 +1627,7 @@ entities:
       pos: -5.5,-1.5
       parent: 1
     - type: FaxMachine
-      name: CI-SH Pulse
+      name: NTCI-SH Pulse
 - proto: filingCabinetDrawer
   entities:
   - uid: 232
@@ -2472,12 +2472,12 @@ entities:
   - uid: 550
     components:
     - type: MetaData
-      name: long-range holopad (CI-SH Pulse)
+      name: long-range holopad (NTCI-SH Pulse)
     - type: Transform
       pos: -1.5,-2.5
       parent: 1
     - type: Label
-      currentLabel: CI-SH Pulse
+      currentLabel: NTCI-SH Pulse
     - type: NameModifier
       baseName: long-range holopad
 - proto: KitchenKnife
@@ -3792,7 +3792,7 @@ entities:
       pos: 0.5,0.5
       parent: 1
     - type: WarpPoint
-      location: CI-SH Pulse
+      location: NTCI-SH Pulse
 - proto: Windoor
   entities:
   - uid: 532

@@ -25,7 +25,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: CI-ME Orit
+      name: NTCI-ME Orit
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -1257,7 +1257,7 @@ entities:
       pos: 4.5,1.5
       parent: 1
     - type: FaxMachine
-      name: CI-ME Orit
+      name: NTCI-ME Orit
 - proto: Firelock
   entities:
   - uid: 149
@@ -1600,12 +1600,12 @@ entities:
   - uid: 139
     components:
     - type: MetaData
-      name: long-range holopad (CI-ME Orit)
+      name: long-range holopad (NTCI-ME Orit)
     - type: Transform
       pos: 2.5,3.5
       parent: 1
     - type: Label
-      currentLabel: CI-ME Orit
+      currentLabel: NTCI-ME Orit
     - type: NameModifier
       baseName: long-range holopad
 - proto: LockerParamedicFilledHardsuit
@@ -2309,7 +2309,7 @@ entities:
       pos: 2.5,7.5
       parent: 1
     - type: WarpPoint
-      location: CI-ME Orit
+      location: NTCI-ME Orit
 - proto: WaterCooler
   entities:
   - uid: 227

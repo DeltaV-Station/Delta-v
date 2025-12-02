@@ -26,7 +26,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: CI-SH Tote
+      name: NTCI-SH Tote
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -597,7 +597,7 @@ entities:
       pos: -0.5,0.5
       parent: 1
     - type: FaxMachine
-      name: CI-SH Tote
+      name: NTCI-SH Tote
 - proto: FoodSnackEnergy
   entities:
   - uid: 74
@@ -848,12 +848,12 @@ entities:
   - uid: 103
     components:
     - type: MetaData
-      name: long-range holopad (CI-SH Tote)
+      name: long-range holopad (NTCI-SH Tote)
     - type: Transform
       pos: -0.5,-3.5
       parent: 1
     - type: Label
-      currentLabel: CI-SH Tote
+      currentLabel: NTCI-SH Tote
     - type: NameModifier
       baseName: long-range holopad
 - proto: LockerEvacRepairFilled
@@ -1338,5 +1338,5 @@ entities:
       pos: -0.5,-5.5
       parent: 1
     - type: WarpPoint
-      location: CI-SH Tote
+      location: NTCI-SH Tote
 ...
