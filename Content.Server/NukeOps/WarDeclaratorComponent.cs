@@ -52,7 +52,7 @@ public sealed partial class WarDeclaratorComponent : Component
     /// DeltaV - Dataset for choosing company sponsoring war
     /// </summary>
     [DataField]
-    public ProtoId<DatasetPrototype> WarIssuers = "TraitorCorporations";
+    public ProtoId<LocalizedDatasetPrototype> WarIssuers = "TraitorCorporations";
 
     /// <summary>
     /// Time allowed for declaration of war

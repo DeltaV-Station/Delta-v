@@ -25,7 +25,7 @@ public sealed partial class WarDeclaratorWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        //WarButton.OnPressed += (_) => OnActivated?.Invoke(Rope.Collapse(MessageEdit.TextRope)); // DeltaV - remove custom message
+        WarButton.OnPressed += (_) => OnActivated?.Invoke(""); // DeltaV - remove custom message
 
         //MessageEdit.Placeholder = new Rope.Leaf(_localizationManager.GetString("war-declarator-message-placeholder")); // DeltaV - remove custom message
     }
