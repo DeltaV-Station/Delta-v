@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/30/2025 04:20:15
-  entityCount: 27763
+  time: 12/02/2025 04:25:01
+  entityCount: 27775
 maps:
 - 1
 grids:
@@ -9707,7 +9707,7 @@ entities:
   - uid: 2890
     components:
     - type: MetaData
-      name: 'Air Alarm: Hydroponics'
+      name: 'Air Alarm: Hydroponic'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,6.5
@@ -9727,7 +9727,7 @@ entities:
   - uid: 3168
     components:
     - type: MetaData
-      name: 'Air Alarm: LO Office'
+      name: "Air Alarm: LO's Office"
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.5,4.5
@@ -9944,7 +9944,7 @@ entities:
   - uid: 6235
     components:
     - type: MetaData
-      name: 'Air Alarm: Warden Office'
+      name: "Air Alarm: Warden's Office"
     - type: Transform
       pos: 28.5,-22.5
       parent: 2
@@ -10002,7 +10002,7 @@ entities:
   - uid: 6660
     components:
     - type: MetaData
-      name: 'Air Alarm: HoS Office'
+      name: "Air Alarm: HoS's Office"
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,-33.5
@@ -10048,7 +10048,7 @@ entities:
   - uid: 6848
     components:
     - type: MetaData
-      name: 'Air Alarm: CJ Office'
+      name: "Air Alarm: CJ's Office"
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,-17.5
@@ -10132,7 +10132,7 @@ entities:
   - uid: 7497
     components:
     - type: MetaData
-      name: 'AIr Alarm: Disposals'
+      name: 'Air Alarm: Disposal'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,11.5
@@ -10378,10 +10378,10 @@ entities:
   - uid: 9052
     components:
     - type: MetaData
-      name: 'Air Alarm: Brake Room'
+      name: 'Air Alarm: Break Room'
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -42.5,39.5
+      pos: -44.5,39.5
       parent: 2
     - type: DeviceList
       devices:
@@ -10402,7 +10402,7 @@ entities:
   - uid: 9872
     components:
     - type: MetaData
-      name: 'Air Alarm: Arrival Docking Arms'
+      name: 'Air Alarm: Arrivals Docking Arm'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -52.5,-31.5
@@ -10515,7 +10515,7 @@ entities:
   - uid: 12964
     components:
     - type: MetaData
-      name: 'Air Alarm: Docking Arm 1'
+      name: 'Air Alarm: Evac Docking Arm 1'
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -37.5,-7.5
@@ -10686,7 +10686,7 @@ entities:
   - uid: 16632
     components:
     - type: MetaData
-      name: 'Air Alarm: Attorney Office'
+      name: "Air Alarm: Attorney's Office"
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -21.5,-15.5
@@ -10703,7 +10703,7 @@ entities:
   - uid: 16633
     components:
     - type: MetaData
-      name: 'Air Alarm: Prosecutor Office'
+      name: "Air Alarm: Prosecutor's Office"
     - type: Transform
       pos: -32.5,-25.5
       parent: 2
@@ -10734,7 +10734,7 @@ entities:
   - uid: 16716
     components:
     - type: MetaData
-      name: 'Air Alarm: Docking Arm 2'
+      name: 'Air Alarm: Evac Docking Arm 2'
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -37.5,0.5
@@ -10976,7 +10976,7 @@ entities:
   - uid: 20441
     components:
     - type: MetaData
-      name: 'Air Alarm: Cryogenics'
+      name: 'Air Alarm: Cryogenic'
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -19.5,46.5
@@ -11257,7 +11257,7 @@ entities:
   - uid: 23430
     components:
     - type: MetaData
-      name: 'Air Alarm: Robotics'
+      name: 'Air Alarm: Robotic'
     - type: Transform
       pos: -36.5,24.5
       parent: 2
@@ -11409,7 +11409,7 @@ entities:
   - uid: 24206
     components:
     - type: MetaData
-      name: 'Air Alarm: Janitor Office'
+      name: "Air Alarm: Janitor's Office"
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -25.5,31.5
@@ -11609,7 +11609,7 @@ entities:
   - uid: 25719
     components:
     - type: MetaData
-      name: 'Air Alarm: Epistemics Foyer'
+      name: 'Air Alarm: Epistemic Foyer'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -27.5,35.5
@@ -11633,7 +11633,7 @@ entities:
   - uid: 25723
     components:
     - type: MetaData
-      name: 'Air Alarm: Epistemics Reception'
+      name: 'Air Alarm: Epistemic Reception'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -36.5,39.5
@@ -11674,7 +11674,7 @@ entities:
   - uid: 26590
     components:
     - type: MetaData
-      name: 'Air Alarm: Dorms'
+      name: 'Air Alarm: Dorm'
     - type: Transform
       pos: -38.5,-27.5
       parent: 2
@@ -11694,7 +11694,7 @@ entities:
   - uid: 27028
     components:
     - type: MetaData
-      name: 'Air Alarm: Arrival'
+      name: 'Air Alarm: Arrivals'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -44.5,-30.5
@@ -11763,7 +11763,7 @@ entities:
   - uid: 27485
     components:
     - type: MetaData
-      name: 'Air Alarm: Reporter'
+      name: "Air Alarm: Reporter's Office"
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -16.5,-24.5
@@ -11778,7 +11778,7 @@ entities:
   - uid: 27533
     components:
     - type: MetaData
-      name: 'Air Alarm: Arrival Maints'
+      name: 'Air Alarm: Arrivals Maints'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -41.5,-22.5
@@ -15482,7 +15482,7 @@ entities:
   - uid: 4083
     components:
     - type: MetaData
-      name: 'APC: Hydroponics'
+      name: 'APC: Hydroponic'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,6.5
@@ -15551,7 +15551,7 @@ entities:
   - uid: 6669
     components:
     - type: MetaData
-      name: 'APC: CJ Office'
+      name: "APC: CJ's Office"
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 18.5,-17.5
@@ -15600,7 +15600,7 @@ entities:
   - uid: 7501
     components:
     - type: MetaData
-      name: 'APC: Disposals'
+      name: 'APC: Disposal'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 29.5,9.5
@@ -15610,7 +15610,7 @@ entities:
   - uid: 7693
     components:
     - type: MetaData
-      name: 'APC: LO Office'
+      name: "APC: LO's Office"
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,4.5
@@ -15670,7 +15670,7 @@ entities:
   - uid: 9025
     components:
     - type: MetaData
-      name: 'APC: Brake Room'
+      name: 'APC: Break Room'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -43.5,39.5
@@ -15827,7 +15827,7 @@ entities:
   - uid: 14070
     components:
     - type: MetaData
-      name: 'APC: Warden Office'
+      name: "APC: Warden's Office"
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,-23.5
@@ -15837,7 +15837,7 @@ entities:
   - uid: 14328
     components:
     - type: MetaData
-      name: 'APC: HoS Office'
+      name: "APC: HoS's Office"
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,-32.5
@@ -15857,7 +15857,7 @@ entities:
   - uid: 15505
     components:
     - type: MetaData
-      name: 'APC: Reporter'
+      name: "APC: Reporter's Office"
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -16.5,-25.5
@@ -15897,7 +15897,7 @@ entities:
   - uid: 16631
     components:
     - type: MetaData
-      name: 'APC: Attorney Office'
+      name: "APC: Attorney's Office"
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -21.5,-14.5
@@ -15907,7 +15907,7 @@ entities:
   - uid: 16634
     components:
     - type: MetaData
-      name: 'APC: Prosecutor Office'
+      name: "APC: Prosecutor's Office"
     - type: Transform
       pos: -33.5,-25.5
       parent: 2
@@ -16034,7 +16034,7 @@ entities:
   - uid: 20440
     components:
     - type: MetaData
-      name: 'APC: Cryogenics'
+      name: 'APC: Cryogenic'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -13.5,46.5
@@ -16131,7 +16131,7 @@ entities:
   - uid: 22674
     components:
     - type: MetaData
-      name: 'APC: Epistemics Hallway'
+      name: 'APC: Epistemic Hallway'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -26.5,11.5
@@ -16161,7 +16161,7 @@ entities:
   - uid: 24207
     components:
     - type: MetaData
-      name: 'APC: Janitor Office'
+      name: "APC: Janitor's Office"
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -26.5,31.5
@@ -16249,7 +16249,7 @@ entities:
   - uid: 25718
     components:
     - type: MetaData
-      name: 'APC: Epistemics Foyer'
+      name: 'APC: Epistemic Foyer'
     - type: Transform
       pos: -28.5,36.5
       parent: 2
@@ -16258,7 +16258,7 @@ entities:
   - uid: 25725
     components:
     - type: MetaData
-      name: 'APC: Epistemics Reception'
+      name: 'APC: Epistemic Reception'
     - type: Transform
       pos: -36.5,42.5
       parent: 2
@@ -16267,7 +16267,7 @@ entities:
   - uid: 26589
     components:
     - type: MetaData
-      name: 'APC: Dorms'
+      name: 'APC: Dorm'
     - type: Transform
       pos: -39.5,-27.5
       parent: 2
@@ -16276,7 +16276,7 @@ entities:
   - uid: 27027
     components:
     - type: MetaData
-      name: 'APC: Arrival'
+      name: 'APC: Arrivals'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -45.5,-30.5
@@ -16304,7 +16304,7 @@ entities:
   - uid: 27532
     components:
     - type: MetaData
-      name: 'APC: Arrival Maints'
+      name: 'APC: Arrivals Maints'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -41.5,-23.5
@@ -69134,7 +69134,7 @@ entities:
       parent: 2
 - proto: ComputerResearchAndDevelopment
   entities:
-  - uid: 23363
+  - uid: 2227
     components:
     - type: Transform
       pos: -29.5,39.5
@@ -81384,12 +81384,6 @@ entities:
     - type: Transform
       pos: 22.5,-27.5
       parent: 2
-  - uid: 14602
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 25.5,-32.5
-      parent: 2
   - uid: 14603
     components:
     - type: Transform
@@ -82011,6 +82005,12 @@ entities:
     - type: Transform
       pos: -71.5,31.5
       parent: 2
+  - uid: 24865
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,-31.5
+      parent: 2
   - uid: 25122
     components:
     - type: Transform
@@ -82066,6 +82066,65 @@ entities:
     components:
     - type: Transform
       pos: -43.5,18.5
+      parent: 2
+  - uid: 27764
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.5,-22.5
+      parent: 2
+  - uid: 27765
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-13.5
+      parent: 2
+  - uid: 27766
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -29.5,-17.5
+      parent: 2
+  - uid: 27767
+    components:
+    - type: Transform
+      pos: -29.5,-11.5
+      parent: 2
+  - uid: 27768
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -35.5,6.5
+      parent: 2
+  - uid: 27769
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -45.5,-29.5
+      parent: 2
+  - uid: 27770
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -53.5,-31.5
+      parent: 2
+  - uid: 27771
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -61.5,-27.5
+      parent: 2
+  - uid: 27772
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -50.5,-24.5
+      parent: 2
+  - uid: 27774
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-27.5
       parent: 2
 - proto: EmergencyMedipen
   entities:
@@ -82442,7 +82501,7 @@ entities:
       pos: -12.5,-24.5
       parent: 2
     - type: FaxMachine
-      name: Reporter Office
+      name: Reporter's Office
   - uid: 2896
     components:
     - type: Transform
@@ -82456,7 +82515,7 @@ entities:
       pos: 14.5,-4.5
       parent: 2
     - type: FaxMachine
-      name: Logistic
+      name: Logistics
   - uid: 3978
     components:
     - type: Transform
@@ -82477,7 +82536,7 @@ entities:
       pos: 21.5,-14.5
       parent: 2
     - type: FaxMachine
-      name: CJ Office
+      name: CJ's Office
   - uid: 5115
     components:
     - type: Transform
@@ -82491,7 +82550,7 @@ entities:
       pos: 7.5,-10.5
       parent: 2
     - type: FaxMachine
-      name: Clerk Office
+      name: Clerk's Office
   - uid: 5841
     components:
     - type: Transform
@@ -82512,14 +82571,14 @@ entities:
       pos: 19.5,5.5
       parent: 2
     - type: FaxMachine
-      name: LO Office
+      name: LO's Office
   - uid: 9440
     components:
     - type: Transform
       pos: 25.5,-25.5
       parent: 2
     - type: FaxMachine
-      name: Warden Office
+      name: Warden's Office
   - uid: 9993
     components:
     - type: Transform
@@ -82540,7 +82599,7 @@ entities:
       pos: 12.5,-32.5
       parent: 2
     - type: FaxMachine
-      name: HoS Office
+      name: HoS's Office
   - uid: 10570
     components:
     - type: Transform
@@ -82561,7 +82620,7 @@ entities:
       pos: 17.5,-30.5
       parent: 2
     - type: FaxMachine
-      name: Detective Office
+      name: Detective's Office
   - uid: 11248
     components:
     - type: Transform
@@ -82582,21 +82641,21 @@ entities:
       pos: 25.5,29.5
       parent: 2
     - type: FaxMachine
-      name: Atmospheric
+      name: Atmospherics
   - uid: 13951
     components:
     - type: Transform
       pos: -24.5,-13.5
       parent: 2
     - type: FaxMachine
-      name: Attorney Office
+      name: Attorney's Office
   - uid: 13953
     components:
     - type: Transform
       pos: -33.5,-30.5
       parent: 2
     - type: FaxMachine
-      name: Prosecutor Office
+      name: Prosecutor's Office
   - uid: 14714
     components:
     - type: Transform
@@ -82624,7 +82683,7 @@ entities:
       pos: -25.5,26.5
       parent: 2
     - type: FaxMachine
-      name: Chaplain Office
+      name: Chaplain's Office
   - uid: 23410
     components:
     - type: Transform
@@ -82638,14 +82697,14 @@ entities:
       pos: -27.5,37.5
       parent: 2
     - type: FaxMachine
-      name: Epistemic Reception
+      name: Epistemics Reception
   - uid: 24782
     components:
     - type: Transform
       pos: -78.5,45.5
       parent: 2
     - type: FaxMachine
-      name: Epistemic Research
+      name: Epistemics Research
   - uid: 25310
     components:
     - type: Transform
@@ -149707,11 +149766,6 @@ entities:
       parent: 2
 - proto: ShardCrystalRandom
   entities:
-  - uid: 4919
-    components:
-    - type: Transform
-      pos: 38.393234,11.471767
-      parent: 2
   - uid: 4920
     components:
     - type: Transform
@@ -149729,6 +149783,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 34.496014,-21.397326
+      parent: 2
+  - uid: 27775
+    components:
+    - type: Transform
+      pos: 38.370686,11.446873
       parent: 2
 - proto: ShardCrystalYellow
   entities:
@@ -153038,6 +153097,14 @@ entities:
       fixtures: {}
 - proto: SignHead
   entities:
+  - uid: 1773
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -42.5,39.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 3693
     components:
     - type: Transform
@@ -153078,6 +153145,14 @@ entities:
     components:
     - type: Transform
       pos: -7.5,28.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 25685
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -34.5,-14.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -158182,16 +158257,6 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: North Solar Exterior
-  - uid: 24862
-    components:
-    - type: Transform
-      pos: -76.5,31.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraEngineering
-      nameSet: True
-      id: Anomaly Chamber
   - uid: 27531
     components:
     - type: Transform
@@ -158227,17 +158292,6 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Cryosleep
-  - uid: 9915
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -48.5,-3.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: Evac exterior
   - uid: 10227
     components:
     - type: Transform
@@ -158270,6 +158324,49 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Docking Arm 2
+  - uid: 14602
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -48.5,-3.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Evac Exterior
+  - uid: 14610
+    components:
+    - type: Transform
+      pos: -45.5,-29.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Arrivals 1
+  - uid: 14612
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -53.5,-31.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Arrivals 2
+  - uid: 14617
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -61.5,-27.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Arrivals 3
   - uid: 15544
     components:
     - type: Transform
@@ -158527,40 +158624,29 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Park
-  - uid: 27418
-    components:
-    - type: Transform
-      pos: -45.5,-29.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: Arrival 1
-  - uid: 27419
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -61.5,-27.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: Arrival 3
-  - uid: 27420
+- proto: SurveillanceCameraMedical
+  entities:
+  - uid: 14618
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -53.5,-31.5
+      pos: -0.5,56.5
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
-      - SurveillanceCameraGeneral
+      - SurveillanceCameraMedical
       nameSet: True
-      id: Arrival 2
-- proto: SurveillanceCameraMedical
-  entities:
+      id: Paramedic's Office
+  - uid: 14651
+    components:
+    - type: Transform
+      pos: -16.5,43.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
+      nameSet: True
+      id: Cryogenic
   - uid: 16770
     components:
     - type: Transform
@@ -158604,17 +158690,6 @@ entities:
       - SurveillanceCameraMedical
       nameSet: True
       id: Surgery
-  - uid: 20656
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,56.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraMedical
-      nameSet: True
-      id: Paramedic Office
   - uid: 20658
     components:
     - type: Transform
@@ -158637,16 +158712,6 @@ entities:
       - SurveillanceCameraMedical
       nameSet: True
       id: Cloning
-  - uid: 20774
-    components:
-    - type: Transform
-      pos: -16.5,43.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraMedical
-      nameSet: True
-      id: Cryogenics
   - uid: 20778
     components:
     - type: Transform
@@ -158793,7 +158858,17 @@ entities:
       parent: 2
 - proto: SurveillanceCameraScience
   entities:
-  - uid: 23202
+  - uid: 9915
+    components:
+    - type: Transform
+      pos: -76.5,31.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Anomaly Chamber
+  - uid: 15626
     components:
     - type: Transform
       pos: -25.5,24.5
@@ -158802,7 +158877,49 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraScience
       nameSet: True
-      id: Chaplain Office
+      id: Chaplain's Office
+  - uid: 16725
+    components:
+    - type: Transform
+      pos: -34.5,21.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Robotic
+  - uid: 16856
+    components:
+    - type: Transform
+      pos: -65.5,44.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Epistemic Passage 2
+  - uid: 20656
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -53.5,45.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Epistemic Passage 1
+  - uid: 20774
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -46.5,42.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Epistemic Conference
   - uid: 23203
     components:
     - type: Transform
@@ -158836,16 +158953,6 @@ entities:
       - SurveillanceCameraScience
       nameSet: True
       id: Library
-  - uid: 23468
-    components:
-    - type: Transform
-      pos: -34.5,21.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraScience
-      nameSet: True
-      id: Robotics
   - uid: 24857
     components:
     - type: Transform
@@ -158901,38 +159008,6 @@ entities:
       - SurveillanceCameraScience
       nameSet: True
       id: Epistemic Office
-  - uid: 24865
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -53.5,45.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraScience
-      nameSet: True
-      id: Epistemics Passage 2
-  - uid: 24866
-    components:
-    - type: Transform
-      pos: -65.5,44.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraScience
-      nameSet: True
-      id: Epistemics Passage 1
-  - uid: 25685
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -46.5,42.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraScience
-      nameSet: True
-      id: Epistemics Conference
   - uid: 25686
     components:
     - type: Transform
@@ -158990,27 +159065,17 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Prison Mine
-  - uid: 1773
+  - uid: 4919
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -22.5,-15.5
+      rot: -1.5707963267948966 rad
+      pos: 22.5,-31.5
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: Attorney Office
-  - uid: 2227
-    components:
-    - type: Transform
-      pos: 10.5,-11.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Clerk Office
+      id: Corpsman's Office
   - uid: 9871
     components:
     - type: Transform
@@ -159044,17 +159109,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: HoS Office
-  - uid: 14610
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 16.5,-32.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Detective Office
   - uid: 14611
     components:
     - type: Transform
@@ -159066,17 +159120,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Hallway
-  - uid: 14612
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 24.5,-23.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Warden Office
   - uid: 14613
     components:
     - type: Transform
@@ -159121,27 +159164,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Brig
-  - uid: 14617
-    components:
-    - type: Transform
-      pos: 35.5,-32.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Guard Office
-  - uid: 14618
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 25.5,-32.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Corpsman Office
   - uid: 14621
     components:
     - type: Transform
@@ -159164,26 +159186,6 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Courtroom
-  - uid: 14651
-    components:
-    - type: Transform
-      pos: 20.5,-16.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: CJ Office
-  - uid: 16725
-    components:
-    - type: Transform
-      pos: -32.5,-28.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraSecurity
-      nameSet: True
-      id: Prosecutor Office
   - uid: 20952
     components:
     - type: Transform
@@ -159195,6 +159197,38 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Security Airlock
+  - uid: 23202
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -22.5,-15.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Attorney's Office
+  - uid: 23363
+    components:
+    - type: Transform
+      pos: 10.5,-11.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Clerk's Office
+  - uid: 23468
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,-32.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Detective's Office
   - uid: 23899
     components:
     - type: Transform
@@ -159217,19 +159251,49 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Solitary Confinement
-- proto: SurveillanceCameraService
-  entities:
-  - uid: 15626
+  - uid: 24204
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -12.5,-23.5
+      pos: 24.5,-23.5
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
-      - SurveillanceCameraService
+      - SurveillanceCameraSecurity
       nameSet: True
-      id: Reporter
+      id: Warden's Office
+  - uid: 24862
+    components:
+    - type: Transform
+      pos: 35.5,-32.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Guard's Office
+  - uid: 24866
+    components:
+    - type: Transform
+      pos: 20.5,-16.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: CJ's Office
+  - uid: 27773
+    components:
+    - type: Transform
+      pos: -32.5,-28.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Prosecutor's Office
+- proto: SurveillanceCameraService
+  entities:
   - uid: 16855
     components:
     - type: Transform
@@ -159241,16 +159305,6 @@ entities:
       - SurveillanceCameraService
       nameSet: True
       id: Bar
-  - uid: 16856
-    components:
-    - type: Transform
-      pos: -5.5,7.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraService
-      nameSet: True
-      id: Hydroponics
   - uid: 17356
     components:
     - type: Transform
@@ -159283,7 +159337,28 @@ entities:
       - SurveillanceCameraService
       nameSet: True
       id: Service Storage
-  - uid: 24204
+  - uid: 27418
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -12.5,-23.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Reporter's Office
+  - uid: 27419
+    components:
+    - type: Transform
+      pos: -5.5,7.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Hydroponic
+  - uid: 27420
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -159293,7 +159368,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraService
       nameSet: True
-      id: Janitor Office
+      id: Janitor's Office
   - uid: 27430
     components:
     - type: Transform
