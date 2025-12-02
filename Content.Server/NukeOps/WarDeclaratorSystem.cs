@@ -1,7 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
-using Content.Server.Station.Systems;
+using Content.Server.Station.Systems; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -30,7 +30,8 @@ public sealed class WarDeclaratorSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly StationSystem _station = default!; // DeltaV
+
     public override void Initialize()
     {
         SubscribeLocalEvent<WarDeclaratorComponent, MapInitEvent>(OnMapInit);
