@@ -127,7 +127,6 @@
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
     soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
-  - type: Damageable # DeltaV - Add Damageable component to add a damageModifierSet
   - type: MeleeWeapon
     altDisarm: false
     angle: 90 # DeltaV - Give dragons a wide-sweep attack
