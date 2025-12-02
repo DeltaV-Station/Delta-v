@@ -23,5 +23,6 @@
     - type: WarDeclarator
       message: war-declarator-default-message
       sound: /Audio/Announcements/war.ogg
+      allowEditingMessage: false # DeltaV
     - type: AccessReader
       access: [["NuclearOperative"]]

@@ -3,10 +3,10 @@
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                Title="{Loc 'war-declarator-ui-header'}">
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="440">
-        <TextEdit Name="MessageEdit"
+        <!--<TextEdit Name="MessageEdit"
                   HorizontalExpand="True"
                   MinHeight="200"
-                  Access="Public" />
+                  Access="Public" /> DeltaV - remove custom message -->
         <Button Name="WarButton"
                 Text="{Loc 'war-declarator-ui-try-war-button'}"
                 StyleClasses="Caution"

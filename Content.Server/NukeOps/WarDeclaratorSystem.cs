@@ -1,14 +1,18 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
+using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.NukeOps;
+using Content.Shared.Random.Helpers; // DeltaV
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes; // DeltaV
+using Robust.Shared.Random; // DeltaV
 using Robust.Shared.Timing;
 
 namespace Content.Server.NukeOps;
@@ -21,11 +25,13 @@ public sealed class WarDeclaratorSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // DeltaV
+    [Dependency] private readonly IRobustRandom _random = default!; // DeltaV
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-
+    [Dependency] private readonly StationSystem _station = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<WarDeclaratorComponent, MapInitEvent>(OnMapInit);
@@ -36,7 +42,15 @@ public sealed class WarDeclaratorSystem : EntitySystem
 
     private void OnMapInit(Entity<WarDeclaratorComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.Message = Loc.GetString("war-declarator-default-message");
+        // Begin DeltaV - fancy default message
+        var issuer = _random.Pick(_prototypeManager.Index(ent.Comp.WarIssuers).Values);
+        var stationName = _station.GetStationNames()[0];
+        var presetMessage = Loc.GetString("nuke-ops-war-declaration-message",
+            ("company", issuer),
+            ("station", stationName));
+        ent.Comp.Message = presetMessage;
+        // End DeltaV - fancy default message
+
         ent.Comp.DisableAt = _gameTiming.CurTime + TimeSpan.FromMinutes(ent.Comp.WarDeclarationDelay);
     }
 

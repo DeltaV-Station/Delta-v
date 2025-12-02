@@ -1,6 +1,8 @@
 ﻿using Content.Server.GameTicking.Rules;
+using Content.Shared.Dataset; // DeltaV
 using Content.Shared.NukeOps;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.NukeOps;
@@ -45,6 +47,12 @@ public sealed partial class WarDeclaratorComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public LocId SenderTitle = "comms-console-announcement-title-nukie";
+
+    /// <summary>
+    /// DeltaV - Dataset for choosing company sponsoring war
+    /// </summary>
+    [DataField]
+    public ProtoId<DatasetPrototype> WarIssuers = "TraitorCorporations";
 
     /// <summary>
     /// Time allowed for declaration of war
