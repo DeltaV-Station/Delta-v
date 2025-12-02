@@ -18,17 +18,15 @@
       params:
         volume: -3
     damage:
-      types: # DeltaV: Changed Brute to Blunt and Piercing, increased damage
-        Blunt: 5
-        Piercing: 5
-        Structural: 10
+      groups:
+        Brute: 5
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types: # DeltaV: Decreased damage on wield.
-        Blunt: 2.5
-        Piercing: 2.5
-        Structural: 20
+      groups:
+        Brute: 5
+      types:
+        Structural: 30
   - type: Item
     size: Normal
     shape:

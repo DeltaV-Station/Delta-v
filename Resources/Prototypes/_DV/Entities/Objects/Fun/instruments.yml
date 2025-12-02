@@ -48,15 +48,15 @@
     wideAnimationRotation: -45 # Added wideAnimationRotation
     soundHit:
       path: /Audio/_DV/Weapons/electricguitarhit.ogg
-    bluntStaminaDamageFactor: 2
+    bluntStaminaDamageFactor: 4.5
     attackRate: 1.25
     range: 1.85
     damage:
       types:
-        Blunt: 8 # Increased by one
+        Blunt: 7
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 6 # Decreased to 6
-        Shock: 6 # Increased to 6
+        Blunt: 7
+        Shock: 2
