@@ -31,6 +31,7 @@ public sealed class SuicideSystem : EntitySystem
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
+    private static readonly ProtoId<TagPrototype> CannotSuicideAny = "CannotSuicideAny"; // DeltaV / Goob, ProtoID Tag
 
     public override void Initialize()
     {
@@ -49,7 +50,7 @@ public sealed class SuicideSystem : EntitySystem
     public bool Suicide(EntityUid victim)
     {
         // Can't suicide if we're already dead
-        if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState))
+        if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState) || _tagSystem.HasTag(victim, CannotSuicideAny)) // Goobstation - DeltaV Use ProtoId
             return false;
 
         _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} is attempting to suicide");
@@ -70,6 +71,9 @@ public sealed class SuicideSystem : EntitySystem
 
         return false; // DeltaV - Prevent Suicide. We allow the event to go out anyways in case anything relies on the event for a message or whatever.
 
+        // TODO: fix this
+        // This is a handled event, but the result is never used
+        // It looks like TriggerOnMobstateChange is supposed to prevent you from suiciding
         var suicideEvent = new SuicideEvent(victim);
         RaiseLocalEvent(victim, suicideEvent);
 

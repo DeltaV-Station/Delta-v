@@ -1,0 +1,154 @@
+- type: species
+  id: Ovinia
+  name: species-name-ovinia
+  roundStart: true
+  prototype: MobOvinia
+  sprites: MobOviniaSprites
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobOviniaMarkingLimits
+  dollPrototype: MobOviniaDummy
+  skinColoration: Hues
+  maleFirstNames: NamesFirstMale
+  femaleFirstNames: NamesFirstFemale
+  lastNames: NamesLast
+  minHeight: 0.8
+  maxHeight: 1.05
+
+- type: speciesBaseSprites
+  id: MobOviniaSprites
+  sprites:
+    Head: MobOviniaHead
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    Chest: MobOviniaTorso
+    NeckFluff: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobOviniaLArm
+    RArm: MobOviniaRArm
+    LHand: MobOviniaLHand
+    RHand: MobOviniaRHand
+    LLeg: MobOviniaLLeg
+    RLeg: MobOviniaRLeg
+    LFoot: MobOviniaLFoot
+    RFoot: MobOviniaRFoot
+- type: markingPoints
+  id: MobOviniaMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    NeckFluff:
+      points: 1
+      required: false
+    HeadTop:
+      points: 2
+      required: true
+      defaultMarkings: [ OviniaEars ]
+    Snout:
+      points: 2
+      required: false
+    Chest:
+      points: 4
+      required: false
+    Legs:
+      points: 4
+      required: false
+    Arms:
+      points: 4
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobOviniaHead
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobOviniaHeadMale
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobOviniaHeadFemale
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobOviniaTorso
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobOviniaTorsoMale
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobOviniaTorsoFemale
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobOviniaLLeg
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobOviniaLHand
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobOviniaLArm
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobOviniaLFoot
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobOviniaRLeg
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobOviniaRHand
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobOviniaRArm
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobOviniaRFoot
+  baseSprite:
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: r_foot
