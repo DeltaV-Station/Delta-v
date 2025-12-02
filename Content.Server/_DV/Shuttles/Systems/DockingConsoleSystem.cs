@@ -7,7 +7,6 @@ using Content.Shared._DV.Shuttles.Components;
 using Content.Shared._DV.Shuttles.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
-using Content.Shared.Station.Components;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
@@ -18,7 +17,6 @@ namespace Content.Server._DV.Shuttles.Systems;
 public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
