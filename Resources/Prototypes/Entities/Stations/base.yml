@@ -51,7 +51,7 @@
   abstract: true
   components:
     - type: StationCargoShuttle
-      path: /Maps/_DV/Shuttles/Cargo/cargo.yml # DeltaV - Custom cargo shuttle
+      path: /Maps/_DV/Shuttles/Cargo/ntcs_express.yml # DeltaV - Custom cargo shuttle
     - type: GridSpawn
       groups:
 #        trade: # DeltaV - trade station has its own map
