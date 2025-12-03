@@ -1,6 +1,6 @@
 using Content.Shared._DV.Fishing.Components;
 using Content.Shared._Goobstation.Fishing.Components;
-using Content.Shared.Interaction.Events;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
@@ -50,7 +50,7 @@ public sealed class FishingVendorSystem : EntitySystem
         EntityUid user,
         EntityUid fishEntity,
         FishComponent fishComp,
-        Entity<FishingPointsComponent?> idCard)
+        Entity<FishingPointsComponent> idCard)
     {
         // Determine if fish is rare based on difficulty threshold
         var isRare = fishComp.FishDifficulty >= vendor.Comp.RareFishThreshold;
