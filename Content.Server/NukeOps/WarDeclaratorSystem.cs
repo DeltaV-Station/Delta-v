@@ -44,10 +44,10 @@ public sealed class WarDeclaratorSystem : EntitySystem
     {
         // Begin DeltaV - fancy default message
         var issuer = _random.Pick(_prototypeManager.Index(ent.Comp.WarIssuers).Values);
-        var stationName = _station.GetStationNames()[0].Name;
+        var stationNames = _station.GetStationNames();
         var presetMessage = Loc.GetString("nuke-ops-war-declaration-message",
             ("company", Loc.GetString(issuer)),
-            ("station", stationName));
+            ("station", stationNames.Count > 0 ? stationNames[0].Name : Loc.GetString("nuke-ops-war-declaration-default-station")));
         ent.Comp.Message = presetMessage;
         // End DeltaV - fancy default message
 
