@@ -1,0 +1,26 @@
+- type: entity
+  name: Fish Basket
+  id: FishBasket
+  parent: BaseStorageItem
+  description: A basket for storing your hard caught fish.
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/fish_basket.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Storage/fish_basket.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,4,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+        - Fish
+  - type: Dumpable
