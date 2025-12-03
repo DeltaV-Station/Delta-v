@@ -1,0 +1,72 @@
+# Main Company Policy Directory
+- type: guideEntry
+  id: companyPolicies
+  name: Company Policy
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  filterEnabled: true
+  priority: 1
+  children:
+    - policyPreface
+    - policyCodeOfConduct
+    - policyAppearanceStandards
+    - policyRightsAndResponsibilities
+    - policySelfDefence
+    - policyDangersFromOurCompetitors
+    - policyPotentialThreats
+    - policyContactingCentralCommand
+    - policyConclusion
+
+# Child entries
+- type: guideEntry
+  id: policyPreface
+  name: Preface
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/Preface.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyCodeOfConduct
+  name: Code Of Conduct
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/CodeofConduct.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyAppearanceStandards
+  name: Appearance Standards
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/AppearanceStandards.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyRightsAndResponsibilities
+  name: Rights And Responsibilities
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/RightsandResponsibilities.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policySelfDefence
+  name: Self-defence
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/selfDefence.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyDangersFromOurCompetitors
+  name: Dangers From Our Competitors
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/DangersFromOurCompetitors.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyPotentialThreats
+  name: Potential Threats 
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/PotentialThreats.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyContactingCentralCommand
+  name: Contacting Central Command
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/ContactingCentralCommand.xml"
+  filterEnabled: true
+
+- type: guideEntry
+  id: policyConclusion
+  name: Conclusion
+  text: "/ServerInfo/Guidebook/_DV/SPLAW/CompanyPolicy/Conclusion.xml"
+  filterEnabled: true
