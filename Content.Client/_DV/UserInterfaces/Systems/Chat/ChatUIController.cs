@@ -15,7 +15,7 @@ namespace Content.Client.UserInterface.Systems.Chat;
 
 public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSystem>
 {
-    private ChatSelectChannel _currentChannel = ChatSelectChannel.None;
+    public ChatSelectChannel CurrentChannel = ChatSelectChannel.None;
     private static readonly ProtoId<TypingIndicatorPrototype> WhisperID = "whisper";
     private static readonly ProtoId<TypingIndicatorPrototype> EmoteID = "emote";
     private static readonly ProtoId<TypingIndicatorPrototype> OocID = "ooc";
@@ -113,8 +113,8 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
     /// </summary>
     public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel)
     {
-        ChatSelectChannel channel = _currentChannel;
-        if (_currentChannel == ChatSelectChannel.None)
+        var channel = CurrentChannel;
+        if (CurrentChannel == ChatSelectChannel.None)
             channel = selectedChannel;
 
         switch (channel)
