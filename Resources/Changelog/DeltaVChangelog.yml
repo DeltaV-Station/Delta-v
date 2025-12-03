@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: AftrLite
-  changes:
-  - message: the Entropic Decay status effect no longer has an indicator popup.
-    type: Remove
-  id: 1401
-  time: '2025-05-16T01:51:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3747
 - author: sowelipililimute
   changes:
   - message: The station can now call a GALPOL exfiltration shuttle to exfiltrate
@@ -4234,3 +4227,11 @@
   id: 1900
   time: '2025-12-03T07:07:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4759
+- author: ShepardToTheStars
+  changes:
+  - message: Stasicillin should once again force the target to fall asleep if they
+      have over 11u.
+    type: Fix
+  id: 1901
+  time: '2025-12-03T16:08:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4823
