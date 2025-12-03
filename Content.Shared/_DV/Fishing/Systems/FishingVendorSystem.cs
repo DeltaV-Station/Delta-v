@@ -10,7 +10,6 @@ public sealed class FishingVendorSystem : EntitySystem
 {
     [Dependency] private readonly FishingPointsSystem _fishingPoints = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
@@ -50,7 +49,7 @@ public sealed class FishingVendorSystem : EntitySystem
         EntityUid user,
         EntityUid fishEntity,
         FishComponent fishComp,
-        Entity<FishingPointsComponent> idCard)
+        Entity<FishingPointsComponent?> idCard)
     {
         // Determine if fish is rare based on difficulty threshold
         var isRare = fishComp.FishDifficulty >= vendor.Comp.RareFishThreshold;
