@@ -54,7 +54,7 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
 
     /// <summary>
     /// Accumulation of elite spawns
-    /// Starts at the same as Frequency to gurantee the first spawn to be elite
+    /// Starts at the same value as Frequency to guarantee the first spawn to be elite
     /// </summary>
     [DataField]
     public int SpawnEliteAccumulator = 5;
