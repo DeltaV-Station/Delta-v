@@ -190,31 +190,11 @@
   id: WeaponRifleMusket
   parent: [Musket, BaseGunWieldable]
   suffix: "craftable"
-  description: An old flintlock musket. Uses musket cartridges.
+  description: A handmade flintlock musket. Uses musket cartridges.
   components:
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeMusket
-    capacity: 1
-    proto: CartridgeMusket
-  - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
-    state: base
-  - type: Gun #Smoothbore
-    fireRate: .125
-    resetOnHandSelected: false
-    minAngle: 22
-    maxAngle: 43
-  - type: Wieldable
-  - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -40
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
-  - type: UseDelay
-    delay: 0 #Straight up doesn't work for guns
 
 - type: entity
   parent: WeaponRifleLecter
