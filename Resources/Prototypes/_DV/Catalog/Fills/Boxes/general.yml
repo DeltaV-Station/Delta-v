@@ -195,3 +195,20 @@
       amount: 8
     - id: SyndicateFlippoDV
       amount: 1
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSyndicateSydicatC4
+  name: Syndicat C4 Bundle Box
+  description: A box containing a Syndicat radio, a C4, an advanced remote signaler, and a multitool.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+  - type: StorageFill
+    contents:
+    - id: C4
+    - id: Multitool
+    - id: RemoteSignallerAdvanced
+    - id: ReinforcementRadioSyndicateYarn

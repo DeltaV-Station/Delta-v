@@ -1,83 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed being able to fulton items in your bag.
-    type: Fix
-  id: 1393
-  time: '2025-05-13T22:08:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3741
-- author: deltanedas
-  changes:
-  - message: Fixed the subvert AI objective being available immediately and having
-      no payment.
-    type: Tweak
-  id: 1394
-  time: '2025-05-13T22:38:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3742
-- author: KZhProgram
-  changes:
-  - message: Added Approved and Denied stamps to CJ locker, Clerk locker, and bureaucracy
-      crate. Paperwork!
-    type: Add
-  - message: Paperwork belt is now in the lawdrobe. Paperwork!
-    type: Add
-  id: 1395
-  time: '2025-05-13T23:03:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3704
-- author: deltanedas
-  changes:
-  - message: Re-added the expeditions console board to the salvage equipment research.
-    type: Add
-  id: 1396
-  time: '2025-05-14T00:26:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3744
-- author: AftrLite
-  changes:
-  - message: Cosmic Cultists now gain a special, one-time use ability while Empowered.
-    type: Add
-  - message: Changes to CODE OCTARINE's Alert Procedure.
-    type: Tweak
-  - message: Changes to Cosmic Cult Guidebook - Deconversion.
-    type: Tweak
-  - message: Cosmic Cult shifts are now spicier.
-    type: Tweak
-  - message: Malign Rifts now spawn pervasively.
-    type: Tweak
-  - message: Shunt is now correctly buffed while Empowered.
-    type: Tweak
-  - message: Various Cosmic Cult fixes.
-    type: Fix
-  id: 1397
-  time: '2025-05-14T02:25:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3698
-- author: deltanedas
-  changes:
-  - message: Limbs are harder to get disabled by poisons, etc.
-    type: Tweak
-  id: 1398
-  time: '2025-05-15T14:47:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3759
-- author: deltanedas
-  changes:
-  - message: All jobs now get the same starting TC.
-    type: Tweak
-  id: 1399
-  time: '2025-05-15T15:59:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3750
-- author: deltanedas
-  changes:
-  - message: Uplink implants can now use contracts and reputation-locked items.
-    type: Add
-  id: 1400
-  time: '2025-05-15T16:43:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3761
-- author: AftrLite
-  changes:
-  - message: the Entropic Decay status effect no longer has an indicator popup.
-    type: Remove
-  id: 1401
-  time: '2025-05-16T01:51:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3747
 - author: sowelipililimute
   changes:
   - message: The station can now call a GALPOL exfiltration shuttle to exfiltrate
@@ -4237,3 +4158,80 @@
   id: 1892
   time: '2025-12-01T13:33:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4808
+- author: Apachit0
+  changes:
+  - message: Buffed the Makeshift Fishing rod
+    type: Tweak
+  id: 1893
+  time: '2025-12-01T21:20:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4827
+- author: BunglesnortBoss
+  changes:
+  - message: Enabled Cyborg's to weld themselves! Takes a lot of time but at least
+      you can weld up those scratches!
+    type: Tweak
+  - message: Cyborg's power draw rate lowered! Still get the TEG up fast however!
+    type: Tweak
+  - message: Increased Weightless Acceleration, Should feel a bit faster for the Cyborg's
+      in space, Congrats Salvage!
+    type: Tweak
+  id: 1894
+  time: '2025-12-02T00:13:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4819
+- author: Deltanedas, Bonktrauma
+  changes:
+  - message: Added Ovni Station.
+    type: Add
+  id: 1895
+  time: '2025-12-02T04:42:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4602
+- author: Vapetastic-Gaming
+  changes:
+  - message: Patreon link in game has been updated
+    type: Tweak
+  id: 1896
+  time: '2025-12-02T14:20:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4833
+- author: ShepardToTheStars
+  changes:
+  - message: Healing from breathing miasma with rat lungs no longer scales by quantity
+      of the gas in the air.
+    type: Tweak
+  id: 1897
+  time: '2025-12-02T22:26:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4836
+- author: Eternally-Confused
+  changes:
+  - message: Aroace cloaks can now be found in the Pride-o-mat!
+    type: Add
+  - message: Pride-o-mat restocks now cost slightly more
+    type: Tweak
+  id: 1898
+  time: '2025-12-03T05:01:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4847
+- author: Stxcking
+  changes:
+  - message: Syndicat Returns! with some tweaks
+    type: Add
+  id: 1899
+  time: '2025-12-03T05:32:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4731
+- author: Proxysseia
+  changes:
+  - message: Larynx Implants are now purchaseable in the uplink for all species
+    type: Tweak
+  - message: Kanabou are now purchaseable in the uplink for all species
+    type: Tweak
+  - message: Samurai armors are now purchaseable in the uplink for all species
+    type: Tweak
+  id: 1900
+  time: '2025-12-03T07:07:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4759
+- author: ShepardToTheStars
+  changes:
+  - message: Stasicillin should once again force the target to fall asleep if they
+      have over 11u.
+    type: Fix
+  id: 1901
+  time: '2025-12-03T16:08:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4823
