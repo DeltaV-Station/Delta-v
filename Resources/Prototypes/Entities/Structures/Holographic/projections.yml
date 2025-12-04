@@ -1,4 +1,3 @@
-
 - type: entity
   parent: BaseHolosign # DeltaV
   id: HolosignWetFloor
@@ -17,9 +16,11 @@
     state: icon
   #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
   #  lifetime: 90
+  # DeltaV Additions
   - type: TimedDespawnDetailed # DeltaV - Replaced by TimedDespawnDetailed
     lifetime: 300
   - type: Holosign # DeltaV - Whitelist for holoprojector pickup
+  # END DeltaV
   #- type: Damageable # DeltaV - Moved all these commented out attributes to BaseHolosign
   # damageContainer: Inorganic
   #- type: Destructible
@@ -46,16 +47,16 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-  #- type: TimedDespawn # 
+  #- type: TimedDespawn # DeltaV
   #  lifetime: 180
+  # DeltaV Additions
   - type: TimedDespawnDetailed # DeltaV - Replaced by TimedDespawnDetailed
     lifetime: 300
   - type: Holofan # DeltaV - Whitelist for holoprojector pickup
+  # END DeltaV
   - type: Airtight
     noAirWhenFullyAirBlocked: false
-  # DeltaV Additions
 
-  # END DeltaV
 
 - type: entity
   id: HoloPeel
@@ -85,9 +86,11 @@
         - SlipLayer
   #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
   #  lifetime: 30
+  # DeltaV Additions
   - type: TimedDespawnDetailed # DeltaV
     lifetime: 30
   - type: Holopeel # DeltaV - Whitelist for holoprojector pickup
+  # END DeltaV
   - type: Clickable
   - type: Destructible
     thresholds:
@@ -122,6 +125,7 @@
             - TableLayer
     #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
     #  lifetime: 180
+    # DeltaV Additions
     - type: TimedDespawnDetailed # DeltaV
       lifetime: 180
     - type: Holobarrier # DeltaV - Whitelist for holoprojector pickup
@@ -129,6 +133,7 @@
       enabled: true
       radius: 3
       color: red
+    # END DeltaV
     - type: Climbable
     - type: Clickable
 
@@ -156,6 +161,7 @@
         - GlassLayer
   #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
   #  lifetime: 180
+  # DeltaV Additions
   - type: TimedDespawnDetailed # DeltaV
     lifetime: 180
   - type: HoloForcefield # DeltaV - Whitelist for holoprojector pickup
@@ -163,6 +169,7 @@
     enabled: true
     radius: 3
     color: blue
+  # END DeltaV
   - type: Clickable
   - type: ContainmentField
     throwForce: 0

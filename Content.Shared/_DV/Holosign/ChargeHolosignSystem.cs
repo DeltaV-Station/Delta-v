@@ -5,8 +5,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using System.Linq;
 
 namespace Content.Shared._DV.Holosign;
@@ -15,7 +13,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -82,11 +79,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
         if (!ent.Comp1.CanPickup)
             return false;
 
-        // don't overfill
-        if (_charges.GetCurrentCharges((ent, ent.Comp2)) < ent.Comp2.MaxCharges)
-        {
-            _charges.AddCharges((ent, ent.Comp2), 1);
-        }
+        _charges.AddCharges((ent, ent.Comp2), 1);
 
         var userIdentity = Identity.Name(user, EntityManager);
         _popup.PopupPredicted(
