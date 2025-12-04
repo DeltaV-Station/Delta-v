@@ -16,7 +16,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private HashSet<Entity<IComponent>> _placedSigns = new();
+    private readonly HashSet<Entity<IComponent>> _placedSigns = new();
 
     public override void Initialize()
     {
