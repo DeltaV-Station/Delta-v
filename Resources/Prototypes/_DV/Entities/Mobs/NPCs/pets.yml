@@ -235,3 +235,8 @@
       - FootstepSound
     - type: StealTarget
       stealGroup: AnimalSilvia
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - BiologicalMetaphysical # Kitsune
+    - type: NoSlip
