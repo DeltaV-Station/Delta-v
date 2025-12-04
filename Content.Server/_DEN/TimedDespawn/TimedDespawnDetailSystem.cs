@@ -4,9 +4,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
-
 namespace Content.Server._DEN.TimedDespawn;
-
 
 /// <summary>
 /// This handles the <see cref="TimedDespawnDetailedComponent"/>

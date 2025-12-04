@@ -31,5 +31,4 @@ public sealed partial class TimedDespawnDetailedComponent : Component
 
     [DataField]
     public AudioParams EndSoundParams { get; set; } = AudioParams.Default;
-
 }
