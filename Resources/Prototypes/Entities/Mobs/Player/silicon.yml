@@ -503,6 +503,8 @@
       - BorgModuleConstruction
       - BorgModuleRCD
       - BorgModuleCable
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -575,6 +577,8 @@
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
       - BorgModuleCustodial
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -612,6 +616,8 @@
       - BorgModuleChemical
       - BorgModuleTopicals
       - BorgModuleRescue
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -648,6 +654,8 @@
       - BorgModuleMining
       - BorgModuleTraversal
       - BorgModuleAppraisal
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -683,6 +691,8 @@
       - BorgModuleOperative
       - BorgModuleC20r
       - BorgModuleEsword
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipRoboNeuroticist # BorgAA doesn't make sense. This gives them externals and maintenence access to get into the station at least.
   - type: ItemSlots
     slots:
       cell_slot:
