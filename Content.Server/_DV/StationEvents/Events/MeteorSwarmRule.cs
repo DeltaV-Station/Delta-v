@@ -90,17 +90,25 @@ namespace Content.Server.StationEvents.Events
             var targetSpread = (targetArea.TopRight - targetArea.Center).Length() * component.TargetingSpread;
 
             var protectedAreas = new List<(MapCoordinates center, float radiusSquared, float protectionRate)>();
-            var protectedAreaQuery = AllEntityQuery<MeteorProtectedAreaComponent, TransformComponent>();
-            while (protectedAreaQuery.MoveNext(out var protectedEntityUid, out var protectedArea, out var transform))
+
+            var protectedAreaQuery = AllEntityQuery<AntiMeteorZoneComponent, TransformComponent>();
+            while (protectedAreaQuery.MoveNext(out var protectedEntityUid, out var antiZone, out var transform))
             {
-                if (protectedArea.Enabled)
-                {
-                    protectedAreas.Add((
-                        center: _transform.ToMapCoordinates(transform.Coordinates),
-                        radiusSquared: MathF.Pow(protectedArea.ProtectionRadius, 2f),
-                        protectionRate: protectedArea.ProtectionRate
-                    ));
-                }
+                protectedAreas.Add((
+                    center: _transform.ToMapCoordinates(transform.Coordinates),
+                    radiusSquared: MathF.Pow(antiZone.ZoneRadius, 2f),
+                    protectionRate: antiZone.AvoidanceRate
+                ));
+            }
+            // dang, I wish I could use Linq on queries
+            var standardRateProtectedAreaQuery = AllEntityQuery<AntiMeteorZoneStandardRateComponent, TransformComponent>();
+            while (standardRateProtectedAreaQuery.MoveNext(out var protectedEntityUid, out var antiZone, out var transform))
+            {
+                protectedAreas.Add((
+                    center: _transform.ToMapCoordinates(transform.Coordinates),
+                    radiusSquared: MathF.Pow(antiZone.ZoneRadius, 2f),
+                    protectionRate: antiZone.AvoidanceRate
+                ));
             }
 
             float maxImpactTime = 0;

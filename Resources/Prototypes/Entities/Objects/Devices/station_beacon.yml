@@ -633,10 +633,6 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-arrivals
-  - type: MeteorProtectedArea # DeltaV - add arrivals shielding so brand new players don't often spawn in vacuum
-    protectionRadius: 8
-    protectionRate: 0.67 # block most of the meteors, but not all
-    disablePermanentlyIfUnanchored: true # prevent stealing the beacon to protect somewhere else
 
 - type: entity
   parent: DefaultStationBeacon
@@ -645,10 +641,6 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-evac
-  - type: MeteorProtectedArea # DeltaV - add slight shielding to evac to be gentle with the crew
-    protectionRadius: 8
-    protectionRate: 0.25
-    disablePermanentlyIfUnanchored: true # prevent stealing the beacon to protect somewhere else
 
 - type: entity
   parent: DefaultStationBeacon
