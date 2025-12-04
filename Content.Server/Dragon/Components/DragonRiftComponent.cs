@@ -47,7 +47,7 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     public EntProtoId? SpawnElitePrototype = "MobSharkminnowDragon";
 
     /// <summary>
-    /// Eveny N-th spawn is the elite where N is Elite frequency
+    /// Every N-th spawn is the elite where N is Elite frequency
     /// </summary>
     [DataField]
     public int SpawnEliteFrequency = 5;
@@ -58,5 +58,5 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     /// </summary>
     [DataField]
     public int SpawnEliteAccumulator = 5;
-    //Delta-v part ends
+    //End DeltaV - Elite spawns on dragon rifts
 }
