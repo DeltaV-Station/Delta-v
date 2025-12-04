@@ -118,7 +118,7 @@
   - type: FishingVendor
   - type: UserInterface
     interfaces:
-      enum.VendingMachineUiKey.Key:
+      enum.ShopVendorUiKey.Key:
         type: ShopVendorBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
