@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Traitor ransom objectives can be picked earlier.
-    type: Fix
-  id: 1409
-  time: '2025-05-18T14:56:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3783
-- author: deltanedas
-  changes:
   - message: Added an objective to make an anomaly go super-critical.
     type: Add
   id: 1410
@@ -4248,3 +4241,23 @@
   id: 1908
   time: '2025-12-04T16:59:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4679
+- author: verybigman311
+  changes:
+  - message: Every single wieldable gun now has wielded sprites.
+    type: Add
+  - message: Wieldable guns that previously utilized upstream sprites, have been updated
+      with Delta-V sprites.
+    type: Add
+  - message: Mark-1 series rifles are now wieldable.
+    type: Tweak
+  - message: Touched up a few miscolored cocktail sprites.
+    type: Tweak
+  - message: Practice security weapons now have orange tips for safety purposes.
+    type: Tweak
+  - message: Practice laser carbines are now blue.
+    type: Tweak
+  - message: Practice disablers not having inhand sprites.
+    type: Fix
+  id: 1909
+  time: '2025-12-04T18:42:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4851
