@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/21/2025 23:25:01
+  time: 12/01/2025 20:31:42
   entityCount: 664
 maps: []
 grids:
@@ -30,8 +30,9 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: USSPS Miriam
+      name: NTCI-ME Miriam
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -344,8 +345,8 @@ entities:
             0: 52975
             1: 4096
           0,3:
-            1: 59408
-            0: 132
+            1: 57360
+            0: 2176
           -1,3:
             1: 194
           0,4:
@@ -356,7 +357,7 @@ entities:
           1,1:
             0: 3942
           1,2:
-            0: 28599
+            0: 20371
           1,3:
             0: 60959
           1,4:
@@ -372,7 +373,7 @@ entities:
           2,3:
             0: 56815
           2,4:
-            0: 223
+            0: 159
             1: 18432
           3,1:
             1: 14199
@@ -391,7 +392,7 @@ entities:
           -1,4:
             1: 65529
           3,4:
-            1: 27474
+            1: 27458
             2: 4096
           2,5:
             1: 8
@@ -464,6 +465,8 @@ entities:
       - 546
       - 550
       - 664
+    - type: Fixtures
+      fixtures: {}
   - uid: 399
     components:
     - type: Transform
@@ -476,6 +479,8 @@ entities:
       - 293
       - 408
       - 407
+    - type: Fixtures
+      fixtures: {}
   - uid: 400
     components:
     - type: Transform
@@ -488,6 +493,8 @@ entities:
       - 294
       - 412
       - 408
+    - type: Fixtures
+      fixtures: {}
   - uid: 401
     components:
     - type: Transform
@@ -499,6 +506,8 @@ entities:
       - 300
       - 413
       - 408
+    - type: Fixtures
+      fixtures: {}
   - uid: 402
     components:
     - type: Transform
@@ -516,6 +525,8 @@ entities:
       - 295
       - 373
       - 663
+    - type: Fixtures
+      fixtures: {}
   - uid: 537
     components:
     - type: Transform
@@ -528,6 +539,8 @@ entities:
       - 504
       - 550
       - 547
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 549
@@ -707,12 +720,16 @@ entities:
     - type: Transform
       pos: 5.5,13.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 313
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 338
@@ -2490,6 +2507,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,7.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
   - uid: 505
@@ -2553,6 +2572,8 @@ entities:
     - type: Transform
       pos: 5.5,17.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: FaxMachineBase
   entities:
   - uid: 403
@@ -2561,7 +2582,7 @@ entities:
       pos: -1.5,5.5
       parent: 1
     - type: FaxMachine
-      name: USSPS Miriam
+      name: NTCI-ME Miriam
 - proto: Firelock
   entities:
   - uid: 407
@@ -3453,19 +3474,19 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.5,7.5
       parent: 1
-- proto: HolopadBluespace
+- proto: HolopadLongRange
   entities:
   - uid: 404
     components:
     - type: MetaData
-      name: bluespace holopad (USSPS Miriam)
+      name: long-range holopad (NTCI-ME Miriam)
     - type: Transform
       pos: 3.5,9.5
       parent: 1
     - type: Label
-      currentLabel: USSPS Miriam
+      currentLabel: NTCI-ME Miriam
     - type: NameModifier
-      baseName: bluespace holopad
+      baseName: long-range holopad
 - proto: hydroponicsTray
   entities:
   - uid: 173
@@ -3696,6 +3717,8 @@ entities:
     - type: Transform
       pos: 1.5,8.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SignCryogenicsMed
   entities:
   - uid: 539
@@ -3703,6 +3726,8 @@ entities:
     - type: Transform
       pos: 9.5,15.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SignDirectionalDorms
   entities:
   - uid: 227
@@ -3711,6 +3736,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SignHydro1
   entities:
   - uid: 177
@@ -3719,6 +3746,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SinkWide
   entities:
   - uid: 249
@@ -4515,7 +4544,7 @@ entities:
       pos: 3.5,8.5
       parent: 1
     - type: WarpPoint
-      location: USSPS Miriam
+      location: NTCI-ME Miriam
 - proto: WaterCooler
   entities:
   - uid: 394

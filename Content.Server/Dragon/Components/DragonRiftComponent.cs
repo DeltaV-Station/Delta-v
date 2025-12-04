@@ -37,4 +37,26 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
 
     [ViewVariables(VVAccess.ReadWrite), DataField("spawn", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string SpawnPrototype = "MobCarpDragon";
+
+    //Begin DeltaV - Elite spawns on dragon rifts
+
+    [DataField]
+    public bool SpawnElites = true;
+
+    [DataField("spawnElite")]
+    public EntProtoId? SpawnElitePrototype = "MobSharkminnowDragon";
+
+    /// <summary>
+    /// Every N-th spawn is the elite where N is Elite frequency
+    /// </summary>
+    [DataField]
+    public int SpawnEliteFrequency = 5;
+
+    /// <summary>
+    /// Accumulation of elite spawns
+    /// Starts at the same value as Frequency to guarantee the first spawn to be elite
+    /// </summary>
+    [DataField]
+    public int SpawnEliteAccumulator = 5;
+    //End DeltaV - Elite spawns on dragon rifts
 }
