@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._EE.Flight;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
@@ -513,6 +514,15 @@ namespace Content.Shared.Cuffs
                 _popup.PopupClient(Loc.GetString("handcuff-component-cannot-drop-cuffs", ("target", Identity.Name(target, EntityManager, user))), user, user);
                 return false;
             }
+
+            // EE - Harpy Flight
+            if (TryComp<FlightComponent>(target, out var flight) && flight.IsCurrentlyFlying)
+            {
+                _popup.PopupClient(Loc.GetString("handcuff-component-target-flying-error",
+                    ("targetName", Identity.Name(target, EntityManager, user))), user, user);
+                return true;
+            }
+            // END EE
 
             var cuffTime = handcuffComponent.CuffTime;
 

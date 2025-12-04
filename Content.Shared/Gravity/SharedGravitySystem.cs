@@ -1,3 +1,4 @@
+using Content.Shared._EE.Flight;
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
 using Content.Shared.Throwing;
@@ -68,6 +69,9 @@ public abstract partial class SharedGravitySystem : EntitySystem
 
         if (entity.Comp2.BodyType is BodyType.Static or BodyType.Kinematic)
             return false;
+
+        if (TryComp<FlightComponent>(entity, out var flying) && flying.IsCurrentlyFlying) // DeltaV - Harpy Flying
+            return true;
 
         // Check if something other than the grid or map is overriding our gravity
         var ev = new IsWeightlessEvent();

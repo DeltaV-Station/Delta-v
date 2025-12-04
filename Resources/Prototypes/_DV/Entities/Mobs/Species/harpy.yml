@@ -6,6 +6,10 @@
   abstract: true
   components:
   - type: HarpySinger
+  - type: Flight # EE - Flight
+    isLayerAnimated: true
+    layer: "/Textures/Mobs/Customization/Harpy/harpy_wings.rsi"
+    animationKey: "Flap"
   - type: Instrument
     allowPercussion: false
     program: 52
@@ -236,5 +240,17 @@
   - type: Action
     icon: _DV/Interface/Actions/harpy_syrinx.png
     itemIconStyle: BigAction
+
+- type: entity
+  id: ActionToggleFlight
+  name: Fly
+  description: Make use of your wings to fly. Beat the flightless bird allegations.
+  noSpawn: true
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon: { sprite: _EE/Interface/Actions/flight.rsi, state: flight_off }
+    iconOn: { sprite : _EE/Interface/Actions/flight.rsi, state: flight_on }
+    checkCanInteract: false
   - type: InstantAction
-    event: !type:VoiceMaskSetNameEvent
+    event: !type:ToggleFlightEvent
