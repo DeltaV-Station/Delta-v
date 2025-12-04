@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Cepelinas1
-  changes:
-  - message: ERT and CBURN roles now have security and department-specific time requirements.
-    type: Add
-  id: 1406
-  time: '2025-05-17T14:03:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3768
 - author: Field Command
   changes:
   - message: The cargo shuttle has been changed out for a newer model. There is now
@@ -4233,3 +4226,25 @@
   id: 1905
   time: '2025-12-04T08:27:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4781
+- author: ShepardToTheStars, Niomi
+  changes:
+  - message: Borg ID chips from the exofab now have the same access as round-start
+      borgs.
+    type: Tweak
+  - message: SRNs can no longer print normal borg ID chips.
+    type: Tweak
+  - message: Syndicate borg ID chips now cost a bit less to make.
+    type: Tweak
+  - message: Agent IDs can no longer copy access from borg ID chips.
+    type: Tweak
+  - message: The new derelict borgs now have the intended borg access to the station!
+    type: Fix
+  - message: Derelict syndicate borgs don't have usual borg access, but has enough
+      to get into the station.
+    type: Tweak
+  - message: Derelict syndicate borgs can be unlocked by people with Robotics access
+      (so they can get their access updated).
+    type: Tweak
+  id: 1906
+  time: '2025-12-04T11:18:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4821
