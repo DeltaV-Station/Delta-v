@@ -3,7 +3,7 @@
 - type: guideEntry
   id: SOP
   name: Standard Operating Procedure
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/SOP.xml"
+  text: "/ServerInfo/Guidebook/_DV/SpaceLaw/SOP.xml"
   filterEnabled: true
   children:
   - GeneralRegulations
@@ -18,7 +18,7 @@
 - type: guideEntry
   id: GeneralRegulations
   name: General Regulations
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations.xml
   priority: 1
   children:
   - Definitions
@@ -30,7 +30,7 @@
 - type: guideEntry
   id: ControlledISA
   name: Controlled Items, Substances & Areas
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA.xml
   priority: 1
   children:
   - ControlledItems
@@ -43,7 +43,7 @@
 - type: guideEntry
   id: DepartmentalDisp
   name: Departmental Dispensations
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/DepartmentalDisp.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/DepartmentalDisp.xml
   children:
   - LogisticsDisp
   - ResearchDisp
@@ -54,7 +54,7 @@
 - type: guideEntry
   id: CommandingOfficer
   name: Commanding Officer
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/empty.xml
   priority: 1
   children:
   - CapsAuthority
@@ -68,7 +68,7 @@
 - type: guideEntry
   id: Security&JusticeRegulations
   name: Security And Justice Regulations
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/empty.xml
   priority: 1
   children:
   - SecurityJurisdiction
@@ -87,9 +87,8 @@
 - type: guideEntry
   id: Hearings
   name: Hearings
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Hearings/Hearings.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Hearings/Hearings.xml
   priority: 1
-  filterEnabled: true
   children:
   - HearingProcedure
 
@@ -97,7 +96,7 @@
 - type: guideEntry
   id: MedicalRegulations
   name: Medical Regulations
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/empty.xml"
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/empty.xml
   priority: 1
   children:
   - DNRs
@@ -109,46 +108,46 @@
 - type: guideEntry
   id: Definitions
   name: Definitions
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations/Definitions.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/Definitions.xml
+
 
 - type: guideEntry
   id: HiringProcedure
   name: Hiring Procedure
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations/HiringProcedure.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/HiringProcedure.xml
+
 
 - type: guideEntry
   id: RightsToRefuseService
   name: Rights To Refuse Service
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/GeneralRegulations/RightsToRefuseService.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/RightsToRefuseService.xml
+
 
 ## Controlled ISA Entries
 
 - type: guideEntry
   id: ControlledItems
   name: Controlled Items
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/ControlledItems.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledItems.xml
+
 
 - type: guideEntry
   id: ControlledSub
   name: Controlled Substances
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/ControlledSub.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledSub.xml
+
 
 - type: guideEntry
   id: ControlledArms
   name: Controlled Armaments
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/ControlledArms.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledArms.xml
+
 
 - type: guideEntry
   id: HSA
   name: High Security Areas
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/HighSecurity.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/HighSecurity.xml
+
 
 
 ### Departmental Dispensations Entries
@@ -156,147 +155,147 @@
 - type: guideEntry
   id: LogisticsDisp
   name: Logistics
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/LogisticsDisp.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/LogisticsDisp.xml
+
 
 - type: guideEntry
   id: ResearchDisp
   name: Research
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/ResearchDisp.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/ResearchDisp.xml
+
 
 - type: guideEntry
   id: MedicalDisp
   name: Medical
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/ControlledISA/DepartmentalDisp/MedicalDisp.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/MedicalDisp.xml
+
 
 ## Commanding Officer Entries
 - type: guideEntry
   id: CapsAuthority
   name: Captain's Authority
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/CapsAuthority.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/CapsAuthority.xml
+
 
 - type: guideEntry
   id: LineOfSuccession
   name: Line Of Succession
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/LineOfSuccession.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/LineOfSuccession.xml
+
 
 - type: guideEntry
   id: CommandPromotions
   name: Command Promotions
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/CommandPromotions.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/CommandPromotions.xml
+
 
 - type: guideEntry
   id: Mutiny
   name: Mutiny
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/Mutiny.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/Mutiny.xml
+
 
 - type: guideEntry
   id: ForeignVessels
   name: Foreign Vessels
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/CommandingOfficer/ForeignVessels.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/ForeignVessels.xml
+
 
 ## Security And Justice Regulations entries
 - type: guideEntry
   id: SecurityJurisdiction
   name: Security Jurisdiction
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/SecurityJurisdiction.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/SecurityJurisdiction.xml
+
 
 - type: guideEntry
   id: ProbableCause
   name: Probable Cause
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/ProbableCause.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/ProbableCause.xml
+
 
 - type: guideEntry
   id: RulesOfEngagement
   name: Rules Of Engagement
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/RulesOfEngagement.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/RulesOfEngagement.xml
+
 
 - type: guideEntry
   id: MartialLaw
   name: Martial Law
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/MartialLaw.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/MartialLaw.xml
+
 
 - type: guideEntry
   id: ArmoryProcedure
   name: Armory Procedure
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/ArmoryProcedure.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/ArmoryProcedure.xml
+
 
 - type: guideEntry
   id: TreatmentOfPrisoners
   name: Treatment Of Prisoners
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/TreatmentOfPrisoners.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/TreatmentOfPrisoners.xml
+
 
 - type: guideEntry
   id: Arrest&Sentencing
   name: Arrest & Sentencing
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/Arrest&Sentencing.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/Arrest&Sentencing.xml
+
 
 - type: guideEntry
   id: AppealsParolePardons
   name: Appeals Parole Pardons
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/AppealsParolePardons.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/AppealsParolePardons.xml
+
 
 - type: guideEntry
   id: PressingCriminalCharges
   name: Pressing Criminal Charges
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/PressingCriminalCharges.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/PressingCriminalCharges.xml
+
 
 - type: guideEntry
   id: Warrants
   name: Warrants
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/Warrants.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/Warrants.xml
+
 
 - type: guideEntry
   id: Injunctions
   name: Injunctions
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Security&JusticeRegulations/Injunctions.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Security&JusticeRegulations/Injunctions.xml
+
 
 ## Hearings Entries
 - type: guideEntry
   id: HearingProcedure
   name: Hearing Procedure
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/Hearings/HearingProcedure.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Hearings/HearingProcedure.xml
+
 
 ## Medical Regulations Entries
 - type: guideEntry
   id: DNRs
   name: DNRs
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/DNRs.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/DNRs.xml
+
 
 - type: guideEntry
   id: MedicalEvaluation
   name: Medical Evaluation
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/MedicalEvaluation.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalEvaluation.xml
+
 
 - type: guideEntry
   id: Quarantine
   name: Quarantine
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/Quarantine.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/Quarantine.xml
+
 
 - type: guideEntry
   id: StandardOfCare
   name: Standard Of Care
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/MedicalRegulations/StandardOfCare.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/StandardOfCare.xml
+

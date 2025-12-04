@@ -2,5 +2,13 @@
 - type: guideEntry
   id: SpaceLaw
   name: Space Law
-  text: "/ServerInfo/Guidebook/_DV/SPLAW/SpaceLaw.xml"
-  filterEnabled: true
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLawEntries/SpaceLaw.xml
+  children:
+    - SpaceLawCrimesReferences
+
+ # Child Entry
+
+    - type: guideEntry
+      id: SpaceLawCrimesReferences
+      name: Crimes Quick Code References
+      text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLawEntries/CrimeReferences.xml
