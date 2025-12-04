@@ -22,6 +22,9 @@
   name: nocturine hypo
   description: A self-refilling injector for rapid administration of nocturine to victms.
   components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: borghypo_s
   - type: SolutionContainerManager
     solutions:
       hypospray:
