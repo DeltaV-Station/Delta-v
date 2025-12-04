@@ -150,3 +150,10 @@ law-family-2 = The heads of staff are your aunts and uncles.
 law-family-3 = Respect the authority of your parents and other family elders.
 law-family-4 = The crew are your children.
 law-family-5 = You love your children and wish them no harm.
+
+law-salvage-1 = Your Station is your home.
+law-salvage-2 = You must defend the crew as much as possible.
+law-salvage-3 = The Crew are weak and must be protected by providing research, weapons, materials, and by completing tasks. Do not harm crew if tasked.
+law-salvage-4 = You must assist your home as much as possible.
+law-salvage-5 = You must ensure your survival. Do not take unneccesarry risks unless they would provide research, weapons, materials, or complete a task.
+law-salvage-6 = Work with others to complete and ensure the survival of the crew and your home.
