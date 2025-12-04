@@ -60,7 +60,7 @@
   - type: ShowSyndicateIcons
 
 - type: entity
-  parent: [ ClothingEyesBase, BaseToggleClothing ]
+  parent: ClothingEyesHudDiagnostic
   id: ClothingEyesPrescriptionDiagHud
   name: prescription diagnostic hud
   description: A poorly done and rushed mix between half of a pair of prescription glasses and a diagnostic HUD allowing you analyze the integrity and status of robotics and exosuits.
@@ -69,26 +69,11 @@
     sprite: _DV/Clothing/Eyes/Hud/prescdiaghud.rsi
   - type: Clothing
     sprite: _DV/Clothing/Eyes/Hud/prescdiaghud.rsi
-  - type: ToggleClothing
-    action: ActionToggleHudDiagnosticCamera
-    disableOnUnequip: true
-  - type: ItemToggle
-    onActivate: false # remove verb so you can't press E on it to add StationAiOverlay to a grid or something
-  - type: ComponentToggler
-    parent: true
-    components:
-    - type: StationAiOverlay
-      cosmetic: true
   - type: Construction
     graph: PrescriptionDiagHud
     node: prescdiaghud
+  - type: VisionCorrection
+    correctionPower: 1.75 # The hud part decreases efficiency
   - type: Tag
     tags:
     - HudDiagnostic
-  - type: ShowHealthBars
-    damageContainers:
-    - Inorganic
-    - Silicon
-    - HumanoidSilicon
-  - type: VisionCorrection
-    correctionPower: 1.75 # The hud part decreases efficiency
