@@ -288,6 +288,14 @@
   - DuraVest
 
 - type: loadoutGroup
+  id: CorpsmanEyewear
+  name: loadout-group-corpsman-eyewear
+  minLimit: 0
+  loadouts:
+  - CorpsmanGlasses
+  - PrescriptionCorpsmanGlasses
+
+- type: loadoutGroup
   id: BrigMedicBack
   name: loadout-group-brig-medic-back
   loadouts:
@@ -773,6 +781,7 @@
 - type: loadoutGroup
   id: RoboticistGlasses
   name: loadout-group-roboticist-glasses
+  minLimit: 0
   loadouts:
   - ClothingEyesHudDiagnostic
   - ClothingEyesPrescriptionDiagHud
