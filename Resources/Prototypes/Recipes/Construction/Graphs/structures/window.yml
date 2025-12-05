@@ -111,15 +111,6 @@
             - material: MetalRod
               amount: 2
               doAfter: 2
-        # Start DeltaV additions
-        - to: reinforcedtintedWindow
-          steps:
-            - material: Plastic
-              amount: 2
-            - material: MetalRod
-              amount: 2
-              doAfter: 2
-        # End DeltaV additions
 
     - node: tintedWindow
       entity: TintedWindow
@@ -138,6 +129,13 @@
               doAfter: 1
             - tool: Anchoring
               doAfter: 2
+        # Start DeltaV additions
+        - to: reinforcedtintedWindow
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+        # End DeltaV additions
 
     - node: plasmaWindow
       entity: PlasmaWindow
@@ -210,7 +208,6 @@
             - tool: Anchoring
               doAfter: 3
 
-    # Start DeltaV additions
     - node: reinforcedWindow
       entity: ReinforcedWindow
       edges:
@@ -243,8 +240,15 @@
             - material: Uranium
               amount: 2
               doAfter: 1
-    # End DeltaV additions
+        # Start DeltaV additions
+        - to: reinforcedtintedWindow
+          steps:
+            - material: Plastic
+              amount: 2
+              doAfter: 0.5
+        # End DeltaV additions
 
+    # Start DeltaV additions
     - node: reinforcedtintedWindow
       entity: ReinforcedTintedWindow
       edges:
@@ -270,6 +274,7 @@
               doAfter: 1
             - tool: Anchoring
               doAfter: 2
+    # End DeltaV additions
 
     - node: reinforcedPlasmaWindow
       entity: ReinforcedPlasmaWindow
