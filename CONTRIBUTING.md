@@ -114,7 +114,7 @@ Also keep in mind that fluent (.ftl) files **do not support comments on the same
 
 ### Early merges
 
-We mostly merge upstream features in big chunks (e.g. a month of upstream PRs at a time), but urgent features can be merged early, separately.
+We mostly merge upstream changes in big chunks (e.g. a month of upstream PRs at a time), but urgent changes can be merged early, separately.
 
 Early merges are an exception to the above rules - if cherry-picking a PR for an early merge, you don't need to add `#DeltaV` comments, since the code is coming directly from upstream without any changes.
 
