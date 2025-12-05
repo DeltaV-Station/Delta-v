@@ -62,9 +62,8 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 4
     damage:
-      groups:
-        Brute: 3
       types:
+        Piercing: 3 # DeltaV: Blunt changed to Piercing
         Structural: 15
   - type: ReverseEngineering # DeltaV
     difficulty: 2
@@ -88,9 +87,8 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 4
     damage:
-      groups:
-        Brute: 6
       types:
+        Piercing: 6 # DeltaV: Brute changed to Piercing
         Structural: 30
 
 

@@ -1,77 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Traitor ransom objectives can be picked earlier.
-    type: Fix
-  id: 1409
-  time: '2025-05-18T14:56:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3783
-- author: deltanedas
-  changes:
-  - message: Added an objective to make an anomaly go super-critical.
-    type: Add
-  id: 1410
-  time: '2025-05-18T14:57:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3748
-- author: deltanedas
-  changes:
-  - message: You can now see items locked behind reputation in the uplink.
-    type: Tweak
-  id: 1411
-  time: '2025-05-18T14:57:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3765
-- author: Unkn0wnGh0st333
-  changes:
-  - message: Certain species now have more chest markings cause that's cool
-    type: Tweak
-  id: 1412
-  time: '2025-05-18T14:58:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3702
-- author: Cepelinas1
-  changes:
-  - message: You can now print security handheld radios in the security fabricator.
-    type: Add
-  - message: You can now print handheld radios in service and logistics fabricators.
-    type: Add
-  id: 1413
-  time: '2025-05-18T19:31:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3779
-- author: Radezolid
-  changes:
-  - message: Syndicate foam grenades are now a shrapnel grenade instead of explosive
-      one.
-    type: Tweak
-  id: 1414
-  time: '2025-05-19T06:32:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3788
-- author: deltanedas
-  changes:
-  - message: Fixed traitors randomly not being able to do anything.
-    type: Fix
-  id: 1415
-  time: '2025-05-19T06:57:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3786
-- author: Blackdutchie
-  changes:
-  - message: Added the Scrimpering Whimperlet, a pathetic and rare vent critter.
-    type: Add
-  id: 1416
-  time: '2025-05-19T12:31:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3616
-- author: keekee38
-  changes:
-  - message: added a few phrases to the AAC tablet
-    type: Add
-  id: 1417
-  time: '2025-05-19T19:54:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3790
-- author: Velcroboy
-  changes:
-  - message: Added potted plant crates for sale at your local logistics dept.
-    type: Add
-  id: 1418
-  time: '2025-05-20T16:08:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3762
 - author: Colin-Tel
   changes:
   - message: Adjusted rule C3 to be more specific on certain matters.
@@ -4248,3 +4175,99 @@
   id: 1908
   time: '2025-12-04T16:59:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4679
+- author: verybigman311
+  changes:
+  - message: Every single wieldable gun now has wielded sprites.
+    type: Add
+  - message: Wieldable guns that previously utilized upstream sprites, have been updated
+      with Delta-V sprites.
+    type: Add
+  - message: Mark-1 series rifles are now wieldable.
+    type: Tweak
+  - message: Touched up a few miscolored cocktail sprites.
+    type: Tweak
+  - message: Practice security weapons now have orange tips for safety purposes.
+    type: Tweak
+  - message: Practice laser carbines are now blue.
+    type: Tweak
+  - message: Practice disablers not having inhand sprites.
+    type: Fix
+  id: 1909
+  time: '2025-12-04T18:42:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4851
+- author: verybigman311
+  changes:
+  - message: Frag Grenades now have shrapnel!
+    type: Add
+  id: 1910
+  time: '2025-12-04T22:28:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4856
+- author: kontakt, ShepardToTheStars
+  changes:
+  - message: The ninja's spider clan charge can now be placed on walls and windows
+      again.
+    type: Fix
+  id: 1911
+  time: '2025-12-05T01:44:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4861
+- author: ShepardToTheStars
+  changes:
+  - message: The nukie agent's visor can finally see silicon health.
+    type: Fix
+  id: 1912
+  time: '2025-12-05T01:58:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4864
+- author: cmorley191
+  changes:
+  - message: Rock anom won't make unbreakable rocks anymore
+    type: Fix
+  id: 1913
+  time: '2025-12-05T02:04:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4873
+- author: Stxcking
+  changes:
+  - message: Security, medical, and roboticist's loadouts now have prescription glasses
+      counterparts. (Security players make sure to save your option.)
+    type: Tweak
+  id: 1914
+  time: '2025-12-05T02:14:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4871
+- author: verybigman311
+  changes:
+  - message: A large plethora of melee weapons now have the correct wideswing rotation.
+    type: Fix
+  - message: Drills and Saws now function similarly in combat to Mining Drills.
+    type: Tweak
+  - message: Electric and Bass guitars can now be used as weapons.
+    type: Tweak
+  - message: Numerous other tweaks have been made to melee weapons. Too many to list.
+    type: Tweak
+  id: 1915
+  time: '2025-12-05T02:37:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4806
+- author: ShepardToTheStars
+  changes:
+  - message: Silvia, the CMO's pet, can now equip medhuds and PDAs! No more dragging
+      them around.
+    type: Add
+  - message: Silvia can no longer slip.
+    type: Fix
+  id: 1916
+  time: '2025-12-05T02:40:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4867
+- author: HTMLSystem
+  changes:
+  - message: Chitnids will now use moth sprites for their glasses
+    type: Tweak
+  id: 1917
+  time: '2025-12-05T02:49:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4835
+- author: Stxcking
+  changes:
+  - message: 'Fishing vendor: Exchange fish for fishing points!'
+    type: Add
+  - message: Fishing basket to easily store caught fish.
+    type: Add
+  id: 1918
+  time: '2025-12-05T02:58:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4862
