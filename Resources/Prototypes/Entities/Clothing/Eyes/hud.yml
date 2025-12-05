@@ -262,6 +262,12 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
+    - Inorganic # DeltaV
+    - Silicon # DeltaV - Borgs
+    - HumanoidSilicon # DeltaV - IPCs
   - type: Tag
     tags:
     - PetWearable
