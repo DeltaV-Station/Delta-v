@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Zephyrpak
-  changes:
-  - message: Included sprites for Feroxi and Vulpkanin on welding masks.
-    type: Tweak
-  id: 1421
-  time: '2025-05-21T02:05:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3548
 - author: deltanedas
   changes:
   - message: Fixed medical and security cyborg jobs having traits like accents apply.
@@ -4278,3 +4271,22 @@
   id: 1920
   time: '2025-12-05T12:56:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4734
+- author: PureBreadBagel, Cepelinas1
+  changes:
+  - message: Guidebook has got new entries! The guidebook now contains Entries relating
+      to Space Law, SOP, Commanding Officer, Security And Justice Regulations, Hearings
+      and all the entries you could ever need to enforce law and legality!
+    type: Add
+  - message: Security and Justice's reading materials got upgraded! Security 101 and
+      Space Law books now contain new entries! Such as Space Law, SOP, General Regulations,
+      Commanding Officer...etc!
+    type: Tweak
+  - message: The Medical Reference book contains the Medical Regulations now.
+    type: Tweak
+  - message: Fixed a guidebook entry relating to Organ Manipulation. It no longer
+      displays that replacing the heart cures rot, and that replacing the liver cures
+      poison.
+    type: Fix
+  id: 1921
+  time: '2025-12-05T17:56:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4857
