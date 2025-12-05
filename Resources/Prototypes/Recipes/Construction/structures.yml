@@ -298,22 +298,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
-  # Start DeltaV additions
-- type: construction
-  id: ReinforcedTintedWindow
-  graph: Window
-  startNode: start
-  targetNode: reinforcedtintedWindow
-  category: construction-category-structures
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  # End DeltaV additions
-
 - type: construction
   id: ReinforcedWindow
   graph: Window
