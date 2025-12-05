@@ -7,8 +7,18 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared._EE.Flight.Events;
 using Content.Shared.Standing;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.Mobs;
+using Content.Shared.Popups;
+using Content.Shared.Stunnable;
+using Content.Shared.Zombies;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared._EE.Flight;
+
 public abstract class SharedFlightSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -18,6 +28,10 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!; // DeltaV
 
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -26,6 +40,35 @@ public abstract class SharedFlightSystem : EntitySystem
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FlightComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<FlightComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
+
+        SubscribeLocalEvent<FlightComponent, ToggleFlightEvent>(OnToggleFlight);
+        SubscribeLocalEvent<FlightComponent, FlightDoAfterEvent>(OnFlightDoAfter);
+        SubscribeLocalEvent<FlightComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
+        SubscribeLocalEvent<FlightComponent, EntityZombifiedEvent>(OnZombified);
+        SubscribeLocalEvent<FlightComponent, KnockedDownEvent>(OnKnockedDown);
+        SubscribeLocalEvent<FlightComponent, StunnedEvent>(OnStunned);
+        SubscribeLocalEvent<FlightComponent, SleepStateChangedEvent>(OnSleep);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<FlightComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            if (!component.IsCurrentlyFlying)
+                continue;
+
+            component.TimeUntilFlap -= frameTime;
+
+            if (component.TimeUntilFlap > 0f)
+                continue;
+
+            _audio.PlayPvs(component.FlapSound, uid);
+            component.TimeUntilFlap = component.FlapInterval;
+
+        }
     }
 
     #region Core Functions
@@ -41,8 +84,8 @@ public abstract class SharedFlightSystem : EntitySystem
 
     public void ToggleActive(Entity<FlightComponent> ent, bool active)
     {
-        // TODO: Add standing check and ftl string if not standing
-        if(TryComp<StandingStateComponent>(ent, out var standing) && _standing.IsDown((ent, standing)))
+        // Can't start flying if laying down
+        if (TryComp<StandingStateComponent>(ent, out var standing) && _standing.IsDown((ent, standing)))
             return; // TODO: pop-up?
 
         ent.Comp.IsCurrentlyFlying = active;
@@ -117,5 +160,112 @@ public abstract class SharedFlightSystem : EntitySystem
         args.ModifyFriction(ent.Comp.FrictionModifier, ent.Comp.FrictionModifier);
         args.ModifyAcceleration(ent.Comp.AccelerationModifer);
     }
+
+    #region Core Functions
+    private void OnToggleFlight(EntityUid uid, FlightComponent component, ToggleFlightEvent args)
+    {
+        // If the user isnt flying, we check for conditionals and initiate a doafter.
+        if (!component.IsCurrentlyFlying)
+        {
+            if (!CanFly(uid, component))
+                return;
+
+            var doAfterArgs = new DoAfterArgs(EntityManager,
+            uid, component.ActivationDelay,
+            new FlightDoAfterEvent(), uid, target: uid)
+            {
+                BlockDuplicate = true,
+                BreakOnMove = true,
+                //BreakOnTargetMove = true,
+                //BreakOnUserMove = true,
+                BreakOnDamage = true,
+                NeedHand = true
+            };
+
+            if (!_doAfter.TryStartDoAfter(doAfterArgs))
+                return;
+        }
+        else
+            ToggleActive((uid, component), false);
+    }
+
+    private void OnFlightDoAfter(EntityUid uid, FlightComponent component, FlightDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        ToggleActive((uid, component), true);
+        args.Handled = true;
+    }
+
+    #endregion
+
+    #region Conditionals
+
+    private bool CanFly(EntityUid uid, FlightComponent component)
+    {
+        if (TryComp<CuffableComponent>(uid, out var cuffableComp) && !cuffableComp.CanStillInteract)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-restrained"), uid, uid, PopupType.Medium);
+            return false;
+        }
+
+        if (HasComp<ZombieComponent>(uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-zombified"), uid, uid, PopupType.Medium);
+            return false;
+        }
+        return true;
+    }
+
+    private void OnMobStateChangedEvent(EntityUid uid, FlightComponent component, MobStateChangedEvent args)
+    {
+        if (!component.IsCurrentlyFlying
+            || args.NewMobState is MobState.Critical or MobState.Dead)
+            return;
+
+        ToggleActive((args.Target, component), false);
+    }
+
+    private void OnZombified(EntityUid uid, FlightComponent component, ref EntityZombifiedEvent args)
+    {
+        if (!component.IsCurrentlyFlying)
+            return;
+
+        ToggleActive((args.Target, component), false);
+        if (!TryComp<StaminaComponent>(uid, out var stamina))
+            return;
+        Dirty(uid, stamina);
+    }
+
+    private void OnKnockedDown(EntityUid uid, FlightComponent component, ref KnockedDownEvent args)
+    {
+        if (!component.IsCurrentlyFlying)
+            return;
+
+        ToggleActive((uid, component), false);
+    }
+
+    private void OnStunned(EntityUid uid, FlightComponent component, ref StunnedEvent args)
+    {
+        if (!component.IsCurrentlyFlying)
+            return;
+
+        ToggleActive((uid, component), false);
+    }
+
+    private void OnSleep(EntityUid uid, FlightComponent component, ref SleepStateChangedEvent args)
+    {
+        if (!component.IsCurrentlyFlying
+            || !args.FellAsleep)
+            return;
+
+        ToggleActive((uid, component), false);
+        if (!TryComp<StaminaComponent>(uid, out var stamina))
+            return;
+
+        Dirty(uid, stamina);
+    }
+    #endregion
 }
 public sealed partial class ToggleFlightEvent : InstantActionEvent { }
