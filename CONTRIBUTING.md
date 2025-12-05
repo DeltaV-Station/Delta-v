@@ -22,29 +22,25 @@ Examples:
 
 # Changes to upstream files
 
-If you make a change to an upstream C# or YAML file **you must add comments on or around the changed lines**.
-The comments should clarify what changed, to make conflict resolution simpler when a file is changed upstream.
+Follow a few guidelines when modifying non-DeltaV files, to help us manage our project. (files that are not in `_DV` or `Nyano` folders)
 
-For YAML specifically, if you add a new component to a prototype add the comment to the `type: ...` line.
-If you just modify some fields of a component, comment the fields instead.
+Primarily, **add comments on or around all new or changed lines** in upstream files. Explain what was changed to make resolving merge conflicts easier; we regularly merge new upstream changes into our project.
 
-For C# files, if you are adding a lot of code try to put it in a partial class when it makes sense.
+### Changing Upstream YAML .yml files
 
-The exception to this is early merging commits that are going to be cherry picked in the future regardless, there's no harm in leaving them as-is.
+**Add comments on or around any changed lines.**
 
-As an aside, fluent (.ftl) files **do not support comments on the same line** as a locale value, so be careful when changing them.
+If you add a new component to a prototype, add an explanation to the `type: ...` line. Example:
 
-## Examples of comments in upstream files
-
-A single line comment on a changed yml field:
 ```yml
-- type: entity
-  parent: BasePDA
-  id: SciencePDA
-  name: epistemics PDA # DeltaV - Epistemics Department replacing Science
+- type: xenoArchTrigger
+  id: TriggerHeat
+  triggerBlacklist: # DeltaV - add blacklist for difficult trigger combinations
+  - TriggerCold
 ```
 
-A pair of comments enclosing a list of added items to starting gear:
+Whereas if you just modify some fields of a component, comment the fields instead, using inline or block comments. Example:
+
 ```yml
   storage:
     back:
@@ -54,6 +50,12 @@ A pair of comments enclosing a list of added items to starting gear:
     - Portafib
     # End DeltaV additions
 ```
+
+### Changing Upstream C# .cs files
+
+If you are adding a lot of C# code, then take advantage of partial classes. Put the new code in its own file in the `_DV` folder, if it makes sense.
+
+Otherwise, **add comments on or around any changed lines.**
 
 A comment on a new imported namespace:
 ```cs
@@ -76,6 +78,40 @@ private EntityUid Slice(...)
     ...
 }
 ```
+
+### Changing Upstream Localization Fluent .ftl files
+
+**Move all changed locale strings to a new DeltaV file** - use a `.ftl` file in the `_DV` folder. Comment out the old strings in the upstream file, and explain that they were moved.
+
+Example:
+
+Commented out old string in `Resources\Locale\en-US\xenoarchaeology\artifact-analyzer.ftl`
+```
+# DeltaV - moved to _DV file
+#analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
+#    [true] {$info}
+#    *[false] Unlock nodes to gain info
+#}[/color][/font]
+```
+
+The new version of the string in `Resources\Locale\en-US\_DV\xenoarchaeology\artifact-analyzer.ftl`
+```
+analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
+    [vagueandspecific] {$vagueInfo} ({$specificInfo})
+    [vagueonly] {$vagueInfo} (unable to detect details)
+    [simple] {$specificInfo}
+    [hidden] Unable to detect (unlock to discover)
+    *[noinfo] Unlock nodes to gain info
+}[/color][/font]
+```
+
+Also keep in mind that fluent (.ftl) files **do not support comments on the same line** as a locale value, so be careful when commenting.
+
+### Early merges
+
+We mostly merge upstream features in big chunks (e.g. a month of upstream PRs at a time), but urgent features can be merged early, separately.
+
+Early merges are an exception to the above rules - if cherry-picking a PR for an early merge, you can leave out all the `#DeltaV` comments, since the code is coming directly from upstream without any changes.
 
 # Mapping
 
