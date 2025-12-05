@@ -22,7 +22,6 @@ public sealed class FlightSystem : SharedFlightSystem
             || !_entityManager.TryGetComponent(uid, out FlightComponent? flight))
             return;
 
-
         int? targetLayer = null;
         if (flight.IsLayerAnimated && flight.Layer is not null)
         {
@@ -53,7 +52,7 @@ public sealed class FlightSystem : SharedFlightSystem
         if (!Resolve(uid, ref sprite))
             return null;
 
-        int index = 0;
+        var index = 0;
         foreach (var layer in sprite.AllLayers)
         {
             // This feels like absolute shitcode, isn't there a better way to check for it?

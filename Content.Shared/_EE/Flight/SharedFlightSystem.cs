@@ -26,11 +26,10 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!; // DeltaV
-
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -65,29 +64,16 @@ public abstract class SharedFlightSystem : EntitySystem
             if (component.TimeUntilFlap > 0f)
                 continue;
 
-            _audio.PlayPvs(component.FlapSound, uid);
+            _audio.PlayPredicted(component.FlapSound, uid, uid);
             component.TimeUntilFlap = component.FlapInterval;
 
         }
     }
 
     #region Core Functions
-    private void OnStartup(EntityUid uid, FlightComponent component, ComponentStartup args)
-    {
-        _actionsSystem.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
-    }
-
-    private void OnShutdown(EntityUid uid, FlightComponent component, ComponentShutdown args)
-    {
-        _actionsSystem.RemoveAction(uid, component.ToggleActionEntity);
-    }
 
     public void ToggleActive(Entity<FlightComponent> ent, bool active)
     {
-        // Can't start flying if laying down
-        if (TryComp<StandingStateComponent>(ent, out var standing) && _standing.IsDown((ent, standing)))
-            return; // TODO: pop-up?
-
         ent.Comp.IsCurrentlyFlying = active;
         ent.Comp.TimeUntilFlap = 0f;
         _actionsSystem.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.IsCurrentlyFlying);
@@ -97,6 +83,29 @@ public abstract class SharedFlightSystem : EntitySystem
         _movementSpeed.RefreshFrictionModifiers(ent);
         UpdateHands(ent, active);
         Dirty(ent, ent.Comp);
+    }
+
+    private bool CanFly(EntityUid uid, FlightComponent component)
+    {
+        if (TryComp<StandingStateComponent>(uid, out var standing) && _standing.IsDown((uid, standing))) {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-down"), uid, uid, PopupType.Small);
+            return false;
+        }
+
+        if (TryComp<CuffableComponent>(uid, out var cuffableComp) && !cuffableComp.CanStillInteract)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-restrained"), uid, uid, PopupType.Medium);
+            return false;
+        }
+
+        if (HasComp<ZombieComponent>(uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-zombified"), uid, uid, PopupType.Medium);
+            return false;
+        }
+
+        // All preflight checks complete, ready for take-off!
+        return true;
     }
 
     private void UpdateHands(EntityUid uid, bool flying)
@@ -142,6 +151,18 @@ public abstract class SharedFlightSystem : EntitySystem
         _virtualItem.DeleteInHandsMatching(uid, uid);
     }
 
+    #endregion
+
+    #region Events
+    private void OnStartup(EntityUid uid, FlightComponent component, ComponentStartup args)
+    {
+        _actionsSystem.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
+    }
+
+    private void OnShutdown(EntityUid uid, FlightComponent component, ComponentShutdown args)
+    {
+        _actionsSystem.RemoveAction(uid, component.ToggleActionEntity);
+    }
     private void OnRefreshMoveSpeed(EntityUid uid, FlightComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (!component.IsCurrentlyFlying) // If we're not flying, don't apply flying's modifier
@@ -149,7 +170,6 @@ public abstract class SharedFlightSystem : EntitySystem
 
         args.ModifySpeed(component.SpeedModifier, component.SpeedModifier);
     }
-
 
     // DeltaV - Since we use the new movement system and EE doesn't, we got to also apply friction modifiers.
     private void OnRefreshFrictionModifiers(Entity<FlightComponent> ent, ref RefreshFrictionModifiersEvent args)
@@ -193,26 +213,6 @@ public abstract class SharedFlightSystem : EntitySystem
 
         ToggleActive((uid, component), true);
         args.Handled = true;
-    }
-
-    #endregion
-
-    #region Conditionals
-
-    private bool CanFly(EntityUid uid, FlightComponent component)
-    {
-        if (TryComp<CuffableComponent>(uid, out var cuffableComp) && !cuffableComp.CanStillInteract)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-restrained"), uid, uid, PopupType.Medium);
-            return false;
-        }
-
-        if (HasComp<ZombieComponent>(uid))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-zombified"), uid, uid, PopupType.Medium);
-            return false;
-        }
-        return true;
     }
 
     private void OnMobStateChangedEvent(EntityUid uid, FlightComponent component, MobStateChangedEvent args)

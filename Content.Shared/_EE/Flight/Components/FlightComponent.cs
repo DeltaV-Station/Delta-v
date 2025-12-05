@@ -54,7 +54,7 @@ public sealed partial class FlightComponent : Component
     ///     they have less control while flying. Also applies to friction with no inputs.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float AccelerationModifer = 0.25f;
+    public float AccelerationModifer = 0.1f;
 
     /// <summary>
     ///     Path to a sound specifier or collection for the noises made during flight
