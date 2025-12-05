@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Server.Power.Components;
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Audio;

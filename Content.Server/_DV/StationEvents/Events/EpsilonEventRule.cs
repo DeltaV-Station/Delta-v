@@ -1,19 +1,14 @@
-using System.Threading;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
-using JetBrains.Annotations;
-using Robust.Shared.Player;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Robust.Shared.Audio.Systems;
-using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.StationEvents.Events
 {
-[UsedImplicitly]
 public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleComponent>
 {
     [Dependency] private readonly ApcSystem _apcSystem = default!;
