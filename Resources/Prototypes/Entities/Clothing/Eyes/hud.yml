@@ -47,6 +47,9 @@
     - type: StationAiOverlay
       cosmetic: true # don't give roboticists reach hacks
   # End DeltaV Additions
+  - type: Tag
+    tags:
+    - HudDiagnostic
   - type: ShowHealthBars
     damageContainers:
     - Inorganic
