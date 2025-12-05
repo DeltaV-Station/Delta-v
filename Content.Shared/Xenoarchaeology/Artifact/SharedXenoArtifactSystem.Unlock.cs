@@ -82,9 +82,7 @@ public abstract partial class SharedXenoArtifactSystem
             // var activated = ActivateNode((ent, artifactComponent), node.Value, null, null, Transform(ent).Coordinates, false);
             // if (activated)
             soundEffect = unlockingComponent.UnlockActivationSuccessfulSound;
-            // DeltaV - start of node scanner overhaul
-            artifactComponent.LastUnlockingSuccessful = true;
-            // DeltaV - end of node scanner overhaul
+            artifactComponent.LastUnlockingSuccessful = true; // DeltaV - node scanner overhaul
         }
         else
         {
