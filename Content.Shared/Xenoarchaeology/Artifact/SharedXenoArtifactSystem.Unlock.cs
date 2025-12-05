@@ -90,9 +90,7 @@ public abstract partial class SharedXenoArtifactSystem
         {
             unlockAttemptResultMsg = "artifact-unlock-state-end-failure";
             soundEffect = unlockingComponent.UnlockActivationFailedSound;
-            // DeltaV - start of node scanner overhaul
-            artifactComponent.LastUnlockingSuccessful = false;
-            // DeltaV - end of node scanner overhaul
+            artifactComponent.LastUnlockingSuccessful = false; // DeltaV - node scanner overhaul
         }
 
         if (_net.IsServer)
