@@ -6,8 +6,6 @@ using Content.Shared._DV.Psionics.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
-using Content.Shared.NPC.Prototypes;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Psionics
 {
@@ -17,11 +15,6 @@ namespace Content.Server.Psionics
         [Dependency] private readonly PsionicInvisibilityPowerSystem _invisSystem = default!;
         [Dependency] private readonly NpcFactionSystem _faction = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
-
-        private static readonly ProtoId<NpcFactionPrototype> PsionicInterloperProtoId = "PsionicInterloper";
-        private static readonly ProtoId<NpcFactionPrototype> GlimmerMonsterProtoId = "GlimmerMonster";
-
-
         public override void Initialize()
         {
             base.Initialize();

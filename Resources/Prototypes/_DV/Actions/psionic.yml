@@ -8,6 +8,21 @@
 
 - type: entity
   parent: BasePsionicAction
+  id: ActionTestPower # this power is just for testing. remove before merging.
+  name: Testing Power
+  description: Wow this tests real good
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics.rsi
+      state: dispel
+    useDelay: 5
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:TestPowerActionEvent
+
+- type: entity
+  parent: BasePsionicAction
   id: ActionDispel
   name: Dispel
   description: Dispel summoned entities such as familiars or forcewalls.
@@ -68,7 +83,8 @@
     icon:
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: mind_swap_return
-    useDelay: 20
+    startDelay: true # Delta V - Start Delay after Mind Swap
+    useDelay: 120 # Delta V - 20 => 120
     checkCanInteract: false
   - type: InstantAction
     event: !type:MindSwapPowerReturnActionEvent

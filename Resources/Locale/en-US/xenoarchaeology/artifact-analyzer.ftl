@@ -20,10 +20,11 @@ analysis-console-info-locked-value = [font="Monospace" size=11][color={ $state -
 analysis-console-info-durability = [font="Monospace" size=11]Durability:[/font]
 analysis-console-info-durability-value = [font="Monospace" size=11][color={$color}]{$current}/{$max}[/color][/font]
 analysis-console-info-effect = [font="Monospace" size=11]Effect:[/font]
-analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
-    [true] {$info}
-    *[false] Unlock nodes to gain info
-}[/color][/font]
+# DeltaV - moved to _DV file
+#analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
+#    [true] {$info}
+#    *[false] Unlock nodes to gain info
+#}[/color][/font]
 analysis-console-info-trigger = [font="Monospace" size=11]Triggers:[/font]
 analysis-console-info-triggered-value = [font="Monospace" size=11][color=gray]{$triggers}[/color][/font]
 analysis-console-info-scanner = Scanning...
