@@ -53,6 +53,58 @@
           Quantity: 10
 
 - type: entity
+  parent: PuddleTemporary
+  id: PuddleBloodSmall
+  suffix: Blood (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 5
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleBlood
+  suffix: Blood (30u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcidSmall
+  suffix: FluorosulfuricAcid (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 5
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleFluorosulfuricAcid
+  suffix: FluorosulfuricAcid (15u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 15
+
+- type: entity
   id: PuddleWatermelon
   parent: PuddleTemporary
   suffix: Watermelon
@@ -107,6 +159,8 @@
   components:
   - type: Clickable
   - type: Slippery
+    staminaDamage: 0
+    frictionStatusTime: 0 # Don't apply friction twice
   - type: Transform
     noRot: true
     anchored: true
@@ -145,13 +199,14 @@
   - type: EdgeSpreader
     id: Puddle
   - type: StepTrigger
-  - type: Drink
+  - type: Edible
+    edible: Drink
     delay: 3
     transferAmount: 1
     solution: puddle
-    examinable: false
   - type: ExaminableSolution
     solution: puddle
+    locVolume: "examinable-solution-on-examine-volume-puddle"
   - type: DrawableSolution
     solution: puddle
   - type: BadDrink

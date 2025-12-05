@@ -224,7 +224,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: BaseSecurityPDA
@@ -480,7 +480,7 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader # DeltaV - append nanochat, mail metrics and stock trading
+  - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
@@ -489,6 +489,7 @@
     - NanoChatCartridge
     - MailMetricsCartridge
     - StockTradingCartridge
+    - AstroNavCartridge
 
 - type: entity
   parent: BasePDA
@@ -778,7 +779,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: MedicalPDA
@@ -1529,7 +1530,7 @@
       - NanoChatCartridge # DeltaV
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, SelectableLock]
   id: ChameleonPDA
   name: passenger PDA
   description: Why isn't it gray?
@@ -1582,3 +1583,15 @@
     borderColor: "#b5b196" # DeltaV
   - type: Icon
     state: pda-wizard # DeltaV
+
+
+- type: entity
+  parent: ClearPDA
+  id: ScurretPDA
+  description: A temporary PDA granted to scurret temps. Doesn't do much. Wawa!
+  components:
+  - type: Pda
+    id: VisitorIDCard
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

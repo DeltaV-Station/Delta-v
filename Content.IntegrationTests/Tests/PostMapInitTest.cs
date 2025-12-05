@@ -63,24 +63,29 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentComm",
             "MeteorArena",
-            "Pebble", // DeltaV
-            "Edge", // DeltaV
-            "Shoukou", // DeltaV
-            "Tortuga", // DeltaV
-            "Terra", //DeltaV
+            "Academy", //DeltaV
             "Arena", // DeltaV
+            "ArenaMedieval", //DeltaV
             "Asterisk", // DeltaV
             "Byoin", // DeltaV
+            "Chibi", // DeltaV
+            "Division", // DeltaV
+            "Edge", // DeltaV
+            "Elegance", // DeltaV
             "Glacier", // DeltaV
-            "TheHive", // DeltaV
             "Hammurabi", // DeltaV
             "Lighthouse", // DeltaV
             "Micro", // DeltaV
-            "Chibi", // DeltaV
-            "Elegance", // DeltaV
-            "Division", // DeltaV
-            "ArenaMedieval" //DeltaV
+            "Ovni", //DeltaV
+            "Pebble", // DeltaV
+            "Shoukou", // DeltaV
+            "Submarine", //DeltaV
+            "Terra", //DeltaV
+            "TheHive", // DeltaV
+            "Tortuga" // DeltaV
         };
+
+        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
@@ -259,7 +264,7 @@ namespace Content.IntegrationTests.Tests
                 return;
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+            if (!protoManager.TryIndex(DoNotMapCategory, out var dnmCategory))
                 return;
 
             Assert.Multiple(() =>

@@ -13,6 +13,7 @@ namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 /// <remarks>
 ///     Can be used for things like adding accents or something. I don't know. Go wild.
 /// </remarks>
+[Obsolete("Use ModifyStatusEffect with StatusEffectNewSystem instead")]
 public sealed partial class GenericStatusEffect : EntityEffect
 {
     [DataField(required: true)]
@@ -48,6 +49,12 @@ public sealed partial class GenericStatusEffect : EntityEffect
         {
             statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh, Component);
         }
+        // Begin Mono Changes - just add status without component
+        else if (Type == StatusEffectMetabolismType.Add)
+        {
+            statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh);
+        }
+        // End Mono Changes - just add status without component
         else if (Type == StatusEffectMetabolismType.Remove)
         {
             statusSys.TryRemoveTime(args.TargetEntity, Key, TimeSpan.FromSeconds(time));

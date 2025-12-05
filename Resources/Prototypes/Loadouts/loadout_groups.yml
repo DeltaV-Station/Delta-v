@@ -40,6 +40,12 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - OffsetCane
+  - OffsetCaneWood
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -66,6 +72,7 @@
   - TapeRecorder
   - ClothingHeadHatUshanka
   - Eyepatch
+  - SuperSynthesizerInstrument #Delta-V - Ports Super Synth Trinket from Starlight
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -174,6 +181,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HoPBeret
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -545,6 +553,17 @@
   - ScarfBlack # DeltaV
 
 - type: loadoutGroup
+  id: ChaplainBible
+  name: loadout-group-chaplain-bible
+  minLimit: 1
+  loadouts:
+  - Bible
+  - BibleDruid
+  - BibleNanoTrasen
+  - BibleSatanic
+  - BibleTanakh
+
+- type: loadoutGroup
   id: JanitorHead
   name: loadout-group-janitor-head
   minLimit: 0
@@ -627,6 +646,7 @@
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
+  - ClownSkirt # Starlight
   - JesterSuit
   - JesterAltSuit
 
@@ -681,6 +701,7 @@
   - MimeMask
   - MimeMaskSad
   - MimeMaskScared
+  - MimeMaskBlushing # DeltaV
 
 - type: loadoutGroup
   id: MimeJumpsuit
@@ -1043,7 +1064,6 @@
   # Begin DeltaV Additions
   - WorkBoots
   - BlueShoes
-  - RedShoes
   - OrangeShoes
   - RedShoes
   - AtmosWinterBoots
@@ -1348,6 +1368,14 @@
   - SeniorOfficerPDA
 
 - type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-eyewear
+  minLimit: 0
+  loadouts:
+  - SecurityGlasses
+  - PrescriptionSecurityGlasses
+
+- type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-detective-head
   minLimit: 0
@@ -1597,6 +1625,7 @@
   loadouts:
   - MedicalHud
   - MedicalEyePatchHud
+  - PrescriptionMedHud # DeltaV
   - Glasses
   - GlassesJamjar
   - GlassesJensen

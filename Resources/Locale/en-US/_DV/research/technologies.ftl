@@ -9,6 +9,7 @@ research-technology-engineering-eva = EVA PPE Suits
 # Experimental
 research-technology-cloning = Cloning
 research-technology-artifact-display = Artifact Display Technology
+research-technology-psionic-prosthetics = Psionic Prosthetics
 
 # Civilian
 research-technology-civilian-mechs = Civilian Mechs
@@ -29,3 +30,4 @@ research-technology-robust-melee = Robust Melee
 research-technology-incendiary-laser-weapons = Incendiary Laser Weapons
 research-technology-security-eva = EVA Armored Suits
 research-technology-salvage-eva = EVA Xeno-fighting Suits
+research-technology-offensive-psionic-prosthetics = Offensive Psionic Prosthetics

@@ -65,6 +65,14 @@
   - ScarfGreen
   - ScarfBrown
 
+## Clown
+- type: loadoutGroup
+  id: ClownMask
+  name: loadout-group-clown-mask
+  loadouts:
+  - ClownMask
+  - BlushingClownMask
+
 ## Mime
 - type: loadoutGroup
   id: MimeNeck
@@ -233,6 +241,7 @@
   loadouts:
   - SalvageCloak
   - ScarfBrown
+  - SalvageMantle
 
 - type: loadoutGroup
   id: SalvageSpecialistJumpsuit
@@ -277,6 +286,14 @@
   - StasecWinterCoatCorpsman
   - PlateCarrier
   - DuraVest
+
+- type: loadoutGroup
+  id: CorpsmanEyewear
+  name: loadout-group-corpsman-eyewear
+  minLimit: 0
+  loadouts:
+  - CorpsmanGlasses
+  - PrescriptionCorpsmanGlasses
 
 - type: loadoutGroup
   id: BrigMedicBack
@@ -384,6 +401,15 @@
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
 
+## Security Gloves
+- type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  minLimit: 0
+  loadouts:
+  - SecurityClothingHandsGlovesColorBlack
+  - SecurityClothingHandsGlovesFingerless
+
 ## Security Officer
 - type: loadoutGroup
   id: SecurityNeck
@@ -420,6 +446,7 @@
   - PlateCarrier
   - DuraVest
   - StasecWinterCoatHoS
+  - HeadOfSecurityTrenchcoat
 
 ## Detective
 - type: loadoutGroup
@@ -633,6 +660,7 @@
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - AtmosHardHatBlue
+  - AtmosBeret
 
 ## Clerk
 - type: loadoutGroup
@@ -750,6 +778,15 @@
   - WhiteShoes
   - ScienceWinterBoots
 
+- type: loadoutGroup
+  id: RoboticistGlasses
+  name: loadout-group-roboticist-glasses
+  minLimit: 0
+  loadouts:
+  - ClothingEyesHudDiagnostic
+  - ClothingEyesPrescriptionDiagHud
+  - ClothingEyesEyepatchHudDiag
+
 # Command
 ## Captain
 - type: loadoutGroup
@@ -786,6 +823,14 @@
   - WhiteLeatherShoes
   - LaceupShoes
   - HoPWinterBoots
+
+## chift engenier
+- type: loadoutGroup
+  id: ChiefEngineerGloves
+  name: loadout-group-chief-engineer-gloves
+  minLimit: 0
+  loadouts:
+  - insulatedgloves
 
 # PDAs
 - type: loadoutGroup

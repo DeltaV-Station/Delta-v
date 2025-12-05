@@ -12,6 +12,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   recognizable: true
+  standsout: true
   physicalDesc: reagent-physical-desc-ferrous
   metabolisms:
     Drink:
@@ -64,6 +65,7 @@
   flavor: slimy
   color: "#2cf274"
   recognizable: true
+  standsout: true
   physicalDesc: reagent-physical-desc-viscous
   viscosity: 0.25
   tileReactions:
@@ -166,15 +168,15 @@
     # Dragon doesn't require airloss healing, so omnizine is still best for humans.
       - !type:ModifyBloodLevel
         amount: 3
-      - !type:HealthChange
+      # Begin DeltaV additions
+      - !type:EvenHealthChange # Changed from HealthChange to EvenHealthChange
         damage:
-          groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -4 # Funkychem - was -2
-            Airloss: -6 # Funkychem - ichor does airloss now too
-          types:
-            Bloodloss: -5
+          Brute: -2 # Was -5 with HealthChange
+          Burn: -2 # Was -5 with HealthChange
+          Toxin: -2 # Funkychem - Was -2 with HealthChange
+          Airloss: -3 # Funkychem - Ichor heals Airloss now.
+          # -6 Bloodloss with HealthChange has been removed due to -3 Airloss with EvenHealthChange above.
+      # End DeltaV additions
       - !type:ModifyBleedAmount
         amount: -1.5
   # Just in case you REALLY want to water your plants

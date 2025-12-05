@@ -138,10 +138,10 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (_net.IsServer)
             Log.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(ent.Owner)}");
 
-        Audio.PlayPvs(ent.Comp.SupercriticalSoundAtAnimationStart, Transform(ent).Coordinates);
+        Audio.PlayPvs(ent.Comp.SupercriticalSoundAtAnimationStart, ent);
 
         var super = AddComp<AnomalySupercriticalComponent>(ent);
-        super.EndTime = Timing.CurTime + super.SupercriticalDuration;
+        super.EndTime = Timing.CurTime + ent.Comp.SupercriticalDuration;
         Appearance.SetData(ent, AnomalyVisuals.Supercritical, true);
         Dirty(ent, super);
     }
@@ -425,6 +425,11 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             if (!settings.CanSpawnOnEntities)
             {
+                // DeltaV - start of duplicate spawn fix (borrowed from upstream #37833)
+                // If it can't spawn on entities, ensure that maximum one entity will be spawned here this pulse.
+                tilerefs.Remove(tileref);
+                // DeltaV - end of duplicate spawn fix (borrowed from upstream #37833)
+
                 var valid = true;
                 foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
                 {
@@ -441,7 +446,7 @@ public abstract class SharedAnomalySystem : EntitySystem
                 }
                 if (!valid)
                 {
-                    tilerefs.Remove(tileref);
+                    // DeltaV - duplicate spawn fix removed: tilerefs.Remove(tileref);
                     continue;
                 }
             }

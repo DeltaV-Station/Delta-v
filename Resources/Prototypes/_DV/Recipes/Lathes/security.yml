@@ -188,6 +188,14 @@
     Plastic: 1000
 
 - type: latheRecipe
+  id: ClothingOuterArmorDuraVestK9
+  result: ClothingOuterArmorDuraVestK9
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 1000
+
+- type: latheRecipe
   id: ClothingOuterArmorReflective
   result: ClothingOuterArmorReflective
   completetime: 10
@@ -335,3 +343,46 @@
     Glass: 1000
     Gold: 500
     Plasma: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSwordSilver
+  result: SilverSword
+  materials:
+    Silver: 1500
+    Gold: 500
+    Wood: 300
+
+# .40 Anti-materiel Ammo for the NT-3
+
+- type: latheRecipe
+  id: MagazineBoxLMGAntiMateriel
+  result: MagazineBoxLMGAntiMateriel
+  completetime: 4
+  materials:
+    Steel: 1000
+    Uranium: 250
+
+- type: latheRecipe
+  id: PyroLeftArm
+  result: PyroLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300
+
+- type: latheRecipe
+  id: ZapLeftArm
+  result: ZapLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300

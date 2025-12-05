@@ -37,6 +37,12 @@
   id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
+  id: BlueprintAmmoTechfab
+
+- type: Tag
+  id: BlueprintSecurityTechfab
+
+- type: Tag
   id: BluespaceCrystal
 
 - type: Tag
@@ -46,9 +52,6 @@
   id: BorgSecurityArmour
 
 - type: Tag
-  id: BorgMaterial # for materials that can be used in a borg construction module
-
-- type: Tag
   id: BorgStockPart
 
 - type: Tag
@@ -56,6 +59,9 @@
 
 - type: Tag
   id: CartridgeLaser
+
+- type: Tag
+  id: CartridgeLMGAntiMateriel
 
 - type: Tag
   id: CartridgeSpecial # For the .38 special ammo and revolver
@@ -115,6 +121,9 @@
   id: MagazineLaser
 
 - type: Tag
+  id: MagazineLMGAntiMaterielBox # For the NT-3
+
+- type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
 
 - type: Tag
@@ -133,6 +142,9 @@
   id: MothroachHide
 
 - type: Tag
+  id: Natural
+
+- type: Tag
   id: NormalityCrystal
 
 - type: Tag
@@ -145,7 +157,13 @@
   id: PreventLabel
 
 - type: Tag
+  id: SilverSword # Used to let the silver sword be used in the crafting system.
+
+- type: Tag
   id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
+
+- type: Tag
+  id: SiliconOrIPCEmotes # upstream's SiliconEmotes = only bots and borgs, this one includes IPCs
 
 - type: Tag
   id: Skirt
@@ -181,6 +199,12 @@
   id: Hoodie
 
 - type: Tag
+  id: K9Armor # Limits what equipment K9 units can wear
+
+- type: Tag
+  id: K9 # Lets K9 units wear specialized clothing
+
+- type: Tag
   id: AncientBookDamagedCommon
 
 - type: Tag
@@ -188,3 +212,12 @@
 
 - type: Tag
   id: AncientBookDamagedRare
+
+- type: Tag
+  id: DisplayCaseBoard
+
+- type: Tag
+  id: BeamDevastator
+
+- type: Tag # Ovinia, allows them to use specified emotes
+  id: OviniaEmotes

@@ -26,6 +26,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
+using Content.Shared._Mono.CorticalBorer; // Mono
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -47,6 +48,7 @@ public abstract partial class SharedSurgerySystem
 
         SubSurgery<SurgeryTendWoundsEffectComponent>(OnTendWoundsStep, OnTendWoundsCheck);
         SubSurgery<SurgeryStepCavityEffectComponent>(OnCavityStep, OnCavityCheck);
+        SubSurgery<SurgeryStepRemoveCorticalBorerComponent>(OnCorticalBorerRemovalStep, OnCorticalBorerRemovalCheck); // Mono
         SubSurgery<SurgeryAddPartStepComponent>(OnAddPartStep, OnAddPartCheck);
         SubSurgery<SurgeryAffixPartStepComponent>(OnAffixPartStep, OnAffixPartCheck);
         SubSurgery<SurgeryRemovePartStepComponent>(OnRemovePartStep, OnRemovePartCheck);
@@ -166,7 +168,7 @@ public abstract partial class SharedSurgerySystem
         }
 
 
-        //if (!HasComp<ForcedSleepingComponent>(args.Body))
+        //if (!HasComp<ForcedSleepingStatusEffectComponent>(args.Body))
         //    //RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
         // No mood on Goob :(
         if (!_inventory.TryGetSlotEntity(args.User, "gloves", out var _)
@@ -426,6 +428,21 @@ public abstract partial class SharedSurgerySystem
             && itemComp.Slots[partComp.ContainerName].HasItem)
             args.Cancelled = true;
     }
+
+    // Begin Mono Changes - borer
+    private void OnCorticalBorerRemovalStep(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepEvent args)
+    {
+        if (TryComp<CorticalBorerInfestedComponent>(args.Body, out var infested) &&
+            infested.InfestationContainer.ContainedEntities.Count != 0)
+            _corticalBorer.TryEjectBorer(infested.Borer);
+    }
+
+    private void OnCorticalBorerRemovalCheck(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepCompleteCheckEvent args)
+    {
+        if (HasComp<CorticalBorerInfestedComponent>(args.Body))
+            args.Cancelled = true;
+    }
+    // End Mono Changes - borer
 
     private void OnAddPartStep(Entity<SurgeryAddPartStepComponent> ent, ref SurgeryStepEvent args)
     {

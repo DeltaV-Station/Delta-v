@@ -2,7 +2,7 @@
   id: UplinkBionicSyrinxImplanter
   name: uplink-bionic-syrinx-implanter-name
   description: uplink-bionic-syrinx-implanter-desc
-  productEntity: BionicSyrinxImplanter
+  productEntity: BionicVoiceMaskImplanter
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
@@ -11,9 +11,6 @@
   categories:
   - UplinkImplants
   conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Harpy
   - !type:BuyerWhitelistCondition
     blacklist:
       components:

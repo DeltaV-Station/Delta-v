@@ -47,7 +47,7 @@
 
 - type: mapCategories
   id: Dreadnought
-  map: /Maps/_DV/Shuttles/dreadnought.yml
+  map: /Maps/_DV/Shuttles/Admin/dreadnought.yml
   allowed:
   - Syndicate
 
@@ -78,7 +78,7 @@
 
 - type: mapCategories
   id: RoboNeuroticistShip
-  map: /Maps/Shuttles/roboneuroticist_ship.yml
+  map: /Maps/_DV/Shuttles/Admin/roboneuroticist_ship.yml
   allowed:
   - Syndicate
 
@@ -102,31 +102,31 @@
 
 - type: mapCategories
   id: TraderShip
-  map: /Maps/_DV/Shuttles/trader.yml
+  map: /Maps/_DV/Shuttles/Admin/e_mag.yml
   allowed:
   - Stamps # Trader stamp
 
 - type: mapCategories
   id: TravelingCuisineDv
-  map: /Maps/_DV/Shuttles/traveling_cuisines_dv.yml
+  map: /Maps/_DV/Shuttles/Event/traveling_cuisines_dv.yml
   allowed:
   - Stamps # Trader stamp
 
 - type: mapCategories
   id: HaibuShuttleSRN
-  map: /Maps/_DV/Shuttles/haibu.yml
+  map: /Maps/_DV/Shuttles/Event/haibu.yml
   allowed:
   - Syndicate
 
 - type: mapCategories
   id: HammerShuttleLOP
-  map: /Maps/_DV/Shuttles/hammer.yml
+  map: /Maps/_DV/Shuttles/Event/hammer.yml
   allowed:
   - Syndicate
 
 - type: mapCategories
   id: StrongboxShuttle
-  map: /Maps/_DV/Shuttles/strongbox.yml
+  map: /Maps/_DV/Shuttles/Event/strongbox.yml
   allowed:
   - Syndicate
 

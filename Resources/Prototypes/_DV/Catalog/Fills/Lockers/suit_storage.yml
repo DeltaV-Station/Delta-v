@@ -39,3 +39,37 @@
         tableId: ParamedicSuitStorageFill
   - type: AccessReader
     access: [["Paramedic"]]
+
+- type: entity
+  id: SuitStorageCorpsman
+  parent: SuitStorageBase
+  suffix: Corpsman
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageCorpsman
+  - type: AccessReader
+    access: [ [ "Corpsman" ] ]
+
+- type: entityTable
+  id: FillSuitStorageCorpsman
+  table: !type:AllSelector
+    children:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitCombatCorpsman
+    - id: ClothingMaskBreath
+    - id: ClothingShoesBootsSecurityMagboots #Added security magboots.
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageQM
+  suffix: Logistics Officer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillQuarterMasterHardsuit
+  - type: AccessReader
+    access: [["Quartermaster"]]

@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseWallmount
   categories: [ HideSpawnMenu ]
   id: BaseAPC
   name: APC
@@ -19,12 +20,8 @@
     color: "#3db83b"
     castShadows: false
     netsync: false
-  - type: Clickable
   - type: AccessReader
     access: [["Engineering"]]
-  - type: InteractionOutline
-  - type: Transform
-    anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _DV/Structures/Power/apc.rsi # DeltaV - Add sprite rotations
@@ -158,6 +155,7 @@
 
 # APC under construction
 - type: entity
+  parent: BaseWallmountMetallic
   categories: [ HideSpawnMenu ]
   id: APCFrame
   name: APC frame
@@ -165,10 +163,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Transform
-    anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _DV/Structures/Power/apc.rsi # DeltaV - Add sprite rotations
@@ -176,10 +170,6 @@
   - type: Construction
     graph: APC
     node: apcFrame
-  - type: WallMount
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -256,3 +246,14 @@
     startingCharge: 200000
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 26000
+
+- type: entity
+  parent: BaseAPC
+  id: APCXenoborg
+  suffix: Basic, 50kJ, Xenoborg
+  components:
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: AccessReader
+    access: [["Xenoborg"]]

@@ -584,7 +584,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region AddRemoveActions
 
     public EntityUid? AddAction(EntityUid performer,
-        string? actionPrototypeId,
+        [ForbidLiteral] string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -604,7 +604,7 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <param name="container">The entity that contains/enables this action (e.g., flashlight).</param>
     public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
-        string? actionPrototypeId,
+        [ForbidLiteral] string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -615,7 +615,7 @@ public abstract class SharedActionsSystem : EntitySystem
     public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
         [NotNullWhen(true)] out ActionComponent? action,
-        string? actionPrototypeId,
+        [ForbidLiteral] string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -1022,6 +1022,7 @@ public abstract class SharedActionsSystem : EntitySystem
     public bool IsCooldownActive(ActionComponent action, TimeSpan? curTime = null)
     {
         // TODO: Check for charge recovery timer
+        curTime ??= GameTiming.CurTime;
         return action.Cooldown.HasValue && action.Cooldown.Value.End > curTime;
     }
 
@@ -1037,4 +1038,27 @@ public abstract class SharedActionsSystem : EntitySystem
         ent.Comp.Temporary = temporary;
         Dirty(ent);
     }
+
+    // Shitmed Change Start - Starlight Abductors
+    public EntityUid[] HideActions(EntityUid performer, ActionsComponent? comp = null)
+    {
+        if (!Resolve(performer, ref comp, false))
+            return [];
+
+        var actions = comp.Actions.ToArray();
+        comp.Actions.Clear();
+        Dirty(performer, comp);
+        return actions;
+    }
+
+    public void UnHideActions(EntityUid performer, EntityUid[] actions, ActionsComponent? comp = null)
+    {
+        if (!Resolve(performer, ref comp, false))
+            return;
+
+        foreach (var action in actions)
+            comp.Actions.Add(action);
+        Dirty(performer, comp);
+    }
+    // Shitmed Change End
 }

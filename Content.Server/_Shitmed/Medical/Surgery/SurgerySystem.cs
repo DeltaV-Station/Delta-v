@@ -1,35 +1,23 @@
-using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
-using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Server.Popups;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 // Begin DeltaV Additions
 using Content.Shared._DV.Surgery;
 using Content.Shared.FixedPoint;
 using Content.Shared.Forensics.Components;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Traits.Assorted;
 // End DeltaV Additions
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
-using Content.Shared._Shitmed.Medical.Surgery.Steps;
-using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
 using Content.Shared.Verbs;
 using Content.Shared._Goobstation.CCVar;
 
@@ -45,8 +33,6 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SurgeryCleanSystem _clean = default!; // DeltaV
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly RottingSystem _rot = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // DeltaV - surgery cross contamination
 
     private readonly HashSet<string> _dirtyDnas = new(); // DeltaV

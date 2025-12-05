@@ -4,6 +4,10 @@ mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected
 
 mass-mind-swap-event-sender = Sophic Grammateus
 
+minor-mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Minor Mass Consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immedieately.
+
+minor-mass-mind-swap-event-sender = Sophic Grammateus
+
 psionic-power-mass-sleep-warning = Your eyelids begin to droop...
 
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
@@ -56,6 +60,7 @@ psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message = Yo
 psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = You see a vision of death and blood, of a destruction so complete only few survive, drifting through the coldness of space.
 psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
 psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
+psionic-power-precognition-asakim-spawn-result-message = You smell stale air from a cryopod opening, and the faint echo of an intelligence far away but very near.
 
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
 psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.
@@ -82,3 +87,8 @@ eruption-warning-window-prompt-text-part = You feel a strong pressure building u
 eruption-warning-window-acknowledge-button = I Understand
 
 telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
+
+fractured-form-nobodies = You have no alternate forms to switch to!
+fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
+fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
+fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.

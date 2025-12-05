@@ -35,6 +35,7 @@
     - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -81,6 +82,7 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.8 # DV - Was 0.7
@@ -119,24 +121,15 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Stutter
-    - SeeingRainbows
     - Electrocution
-    - Drunk
-    - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
     - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
@@ -180,6 +173,7 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
+  - type: Crawler
   - type: Dna
   - type: MindContainer
     showExamineInfo: true
@@ -231,12 +225,12 @@
     - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
   - type: FootPrints # DeltaV port from EE, blood splatter
-  - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: SurgeryTarget # Shitmed Change
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
   - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
+  - type: GrappleTarget # DeltaV - Allow targets to be grappled
 
 - type: entity
   save: false
@@ -279,9 +273,9 @@
         Heat: 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      293: 0.8
-      280: 0.6
-      260: 0.4
+      293: 0.9
+      280: 0.8
+      260: 0.7
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -305,7 +299,8 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: LayingDown # WD EDIT
+  #- type: StunVisuals # DeltaV - No stars
+  - type: CanDoCPR # DeltaV - Addition of CPR
 
 - type: entity
   save: false
@@ -353,6 +348,7 @@
     - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

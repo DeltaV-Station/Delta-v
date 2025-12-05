@@ -91,7 +91,21 @@
     sprite: _DV/Mobs/Pets/secdog.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: secdog
+      state: base
+    - map: [ "outerClothing" ]
+    - map: ["enum.DamageStateVisualLayers.Tail"]
+      state: tail_animated
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+        Tail: tail_animated
+      Critical:
+        Base: base
+        Tail: tail_static
+      Dead:
+        Base: base
+        Tail: tail_static
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -141,14 +155,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: secdog
-      Critical:
-        Base: secdog_crit
-      Dead:
-        Base: secdog_dead
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -175,9 +181,13 @@
     tags:
     - DoorBumpOpener
     - VimPilot
+    - K9
   - type: Vocal
     sounds:
       Unsexed: MobDog
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
 
 - type: entity
   parent: MobMouse
@@ -280,3 +290,180 @@
     damage:
       types:
         Piercing: 0.5 # Minimal damage, 'mostly harmless'.
+
+- type: entity
+  parent: SimpleMobBase # Not parenting off from MobMothroach to remove the ghost role components
+  id: MobMothroachEvil
+  name: mad mothroach
+  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches... and it's out for blood.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Chitter
+    allowedEmotes: [ 'Chitter', 'Squeak' ]
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: _DV/Mobs/Animals/mothroach_evil.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Critical # Slightly weaker than normal mothroaches
+      50: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 4
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moth
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
+  - type: CombatMode
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 2
+    - id: HideMothroach
+      amount: 1
+      prob: 0.5
+  - type: Extractable
+    grindableSolutionName: food
+  - type: ReplacementAccent
+    accent: mothroach
+  - type: ZombieAccentOverride
+    accent: zombieMoth
+  - type: Vocal
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
+    wilhelmProbability: 0.001
+  - type: MobPrice
+    price: 150
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - VimPilot
+  - type: CanEscapeInventory
+  - type: Body
+    prototype: Mothroach
+  - type: SurgeryTarget # Shitmed
+  - type: TypingIndicator
+    proto: moth
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: hamster
+    templateId: hamster
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: suitstorage
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: eyes
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: neck

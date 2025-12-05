@@ -103,7 +103,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      60: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -147,7 +147,7 @@
   # apid-type always weightless movement
   - type: MovementAlwaysTouching
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: Physics
     bodyStatus: InAir
   - type: CanMoveInAir
@@ -627,7 +627,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Asphyxiation: 10 # suffocating darkness
+        Shadow: 10 # DeltaV - Shadow damage exists here
     angle: 0
     animation: WeaponArcBite
   - type: Damageable

@@ -18,6 +18,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using Content.Shared._DV.Abilities.Psionics;
 
 namespace Content.Server.Psionics
 {
@@ -176,6 +177,14 @@ namespace Content.Server.Psionics
 
             RollPsionics(uid, psionic, multiplier: bonusMuliplier);
             psionic.Rerolled = true;
+        }
+
+        public void GrantNewPsionicReroll(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        {
+            if (!Resolve(uid, ref psionic, false))
+                return;
+
+            psionic.Rerolled = false;
         }
     }
 }

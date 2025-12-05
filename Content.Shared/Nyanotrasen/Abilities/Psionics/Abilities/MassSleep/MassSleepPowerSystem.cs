@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
 using Content.Shared.StatusEffect;
@@ -21,6 +22,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
         public override void Initialize()
         {
@@ -68,7 +70,7 @@ namespace Content.Shared.Abilities.Psionics
                 }
             }
 
-            _statusEffects.TryAddStatusEffect<SlowedDownComponent>(ent, "SlowedDown", ent.Comp.UseDelay, true);
+            _movementMod.TryUpdateMovementSpeedModDuration(ent, MovementModStatusSystem.PsionicSlowdown, ent.Comp.UseDelay, 0.5f);
 
             _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
             ent.Comp.DoAfter = doAfterId;
@@ -93,7 +95,7 @@ namespace Content.Shared.Abilities.Psionics
                 if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
-                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);
+                        _statusEffects.TryAddStatusEffect<ForcedSleepingStatusEffectComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);
                 }
             }
 

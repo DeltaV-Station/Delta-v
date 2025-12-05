@@ -45,6 +45,11 @@
       - RawMaterial
       - Ingot
   - type: OreSiloClient
+  # Begin DeltaV Additions
+  - type: MaterialStorageMagnetPickup
+    magnetEnabled: True
+    range: 0.30
+  # End DeltaV Additions
   - type: AmbientSound
     enabled: false
     volume: 5
@@ -69,6 +74,9 @@
           components:
           - MachineBoard
           - ComputerBoard
+        blacklist: # DeltaV
+          tags:
+          - DisplayCaseBoard
   - type: AutomationSlots # Goobstation
     slots:
     - !type:AutomatedItemSlot

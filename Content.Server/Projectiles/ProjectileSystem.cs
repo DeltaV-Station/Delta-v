@@ -1,3 +1,4 @@
+using Content.Server._DV.Projectiles.Events; // DeltaV - Addition of the NT-3
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
@@ -57,7 +58,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter);
         var deleted = Deleted(target);
 
-        if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
+        if (modifiedDamage is not null && Exists(component.Shooter))
         {
             if (modifiedDamage.AnyPositive() && !deleted)
             {
@@ -88,6 +89,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     component.ProjectileSpent = true;
             }
 
+            var pierceEv = new ProjectilePierceEvent(target, damageRequired); // DeltaV - Addition of the NT-3
+            RaiseLocalEvent(uid, ref pierceEv);
+
             // If the object won't be destroyed, it "tanks" the penetration hit.
             if (modifiedDamage.GetTotal() < damageRequired)
             {
@@ -103,6 +107,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     component.ProjectileSpent = true;
                 }
             }
+
+            if (component.ProjectileSpent && pierceEv.Pierced) // DeltaV - Addition of the NT-3
+                component.ProjectileSpent = false;
         }
         else
         {

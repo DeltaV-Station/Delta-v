@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Right.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_right.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Division Station {1}'
           nameGenerator:
@@ -44,6 +44,7 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Paramedic: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
             MedicalDoctor: [ 3, 5 ]
             MedicalIntern: [ 3, 5 ]
             Surgeon: [ 2, 2 ]

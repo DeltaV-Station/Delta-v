@@ -68,7 +68,8 @@
     icon:
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: mind_swap_return
-    useDelay: 20
+    startDelay: true # Delta V - Start Delay after Mind Swap
+    useDelay: 120 # Delta V - 20 => 120
     checkCanInteract: false
   - type: InstantAction
     event: !type:MindSwapPowerReturnActionEvent
@@ -222,3 +223,17 @@
     useDelay: 60
   - type: InstantAction
     event: !type:ShatterLightsActionEvent
+
+- type: entity
+  id: ActionFracturedForm
+  name: Swap Form
+  description: Switch to one of your alternate forms, if you have one. This can also be done by sleeping.
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics_small.rsi
+      state: fractured_form
+    useDelay: 60
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:FracturedFormPowerActionEvent

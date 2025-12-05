@@ -1,1 +1,83 @@
 xenoarch-trigger-tip-psionic = Psionic disturbance
+
+xenoarch-effect-tip-unknown = Unknown
+
+xenoarch-effect-tip-specific-intercom = Obtains ability of long-distance communication device
+xenoarch-effect-tip-specific-become-instrument = Obtains ability of musical instrument
+xenoarch-effect-tip-specific-storage = Obtains ability of hidden storage
+xenoarch-effect-tip-specific-phasing = Becomes phased
+xenoarch-effect-tip-specific-wandering = Starts to move sporadically
+xenoarch-effect-tip-specific-solution-storage = Obtains ability of container for chemical solutions
+xenoarch-effect-tip-specific-speedup = Improves holder movement speed
+xenoarch-effect-tip-specific-drill = Obtains ability of drill
+xenoarch-effect-tip-specific-generator = Produces power
+xenoarch-effect-tip-specific-gun = Obtains ability of firearm
+xenoarch-effect-tip-specific-ghost = Becomes sentient
+xenoarch-effect-tip-specific-omnitool = Obtains ability of omnitool
+xenoarch-effect-tip-specific-feeling = Broadcasts sublime message
+xenoarch-effect-tip-specific-junk = Create recyclable junk
+xenoarch-effect-tip-specific-flicker = Minor electromagnetic interference
+xenoarch-effect-tip-specific-potassium = Produces potassium
+xenoarch-effect-tip-specific-flora = Produces flora
+xenoarch-effect-tip-specific-puddle-basic = Produces puddle of chemical mixture
+xenoarch-effect-tip-specific-throw = Minor implosion
+xenoarch-effect-tip-specific-cold = Cools down surrounding gas
+xenoarch-effect-tip-specific-heat = Heats up surrounding gas greatly
+xenoarch-effect-tip-specific-foam-basic = Produces chemical foam
+xenoarch-effect-tip-specific-create-instrument = Creates musical instrument
+xenoarch-effect-tip-specific-monkey = Creates primate
+xenoarch-effect-tip-specific-radioactive-mild = Becomes mildly radioactive
+xenoarch-effect-tip-specific-charge = Charges up batteries
+xenoarch-effect-tip-specific-knock = Mild electromagnetic interference
+xenoarch-effect-tip-specific-magnet = Create small gravity well
+xenoarch-effect-tip-specific-stealth = Create light interference
+xenoarch-effect-tip-specific-rare-materials = Create rare materials
+xenoarch-effect-tip-specific-plasma = Create plasma
+xenoarch-effect-tip-specific-gold = Create gold
+xenoarch-effect-tip-specific-uranium = Create uranium
+xenoarch-effect-tip-specific-carp = Create hostile fish
+# used to be "friendly fauna", which it's not
+xenoarch-effect-tip-specific-fauna = Create fauna
+xenoarch-effect-tip-specific-cash = Create money
+xenoarch-effect-tip-specific-shatter = Break windows
+xenoarch-effect-tip-specific-foam-medicine = Creates wave of helpful foam
+xenoarch-effect-tip-specific-foam-poison = Creates wave of harmful foam
+xenoarch-effect-tip-specific-puddle-rare = Creates puddle of helpful chemicals
+xenoarch-effect-tip-specific-anomaly = Creates anomaly
+xenoarch-effect-tip-specific-ignite = Pyrokinesis
+xenoarch-effect-tip-specific-teleport = Teleportation
+xenoarch-effect-tip-specific-emp = Dangerous electromagnetic interference
+xenoarch-effect-tip-specific-poly-monkey = Temporarily reshape flesh to fur
+xenoarch-effect-tip-specific-poly-lizard = Temporarily reshape flesh to scale
+xenoarch-effect-tip-specific-poly-luminous = Temporarily reshape flesh to light
+xenoarch-effect-tip-specific-radioactive-strong = Becomes highly radioactive
+xenoarch-effect-tip-specific-glass = Create glass
+xenoarch-effect-tip-specific-steel = Create steel
+xenoarch-effect-tip-specific-plastic = Create plastic
+xenoarch-effect-tip-specific-portal = Create short-living bluespace portal
+xenoarch-effect-tip-specific-artifact = Create artifact
+#not ALL beings, but oh well...
+xenoarch-effect-tip-specific-shuffle = Switch places of sentient beings
+xenoarch-effect-tip-specific-heal = Miraclous healing
+xenoarch-effect-tip-specific-tesla = Mass destruction
+xenoarch-effect-tip-specific-singularity = Imminent doom
+xenoarch-effect-tip-specific-explosion-radioactive = Small scale high-speed nuclear reaction
+xenoarch-effect-tip-specific-explosion-default = Explosion
+xenoarch-effect-tip-specific-gas-plasma = Expels plasma
+xenoarch-effect-tip-specific-gas-tritium = Expels tritium
+xenoarch-effect-tip-specific-gas-ammonia = Expels ammonia
+xenoarch-effect-tip-specific-gas-frezon = Expels frezon
+xenoarch-effect-tip-specific-gas-nitrous = Expels nitrous oxide
+xenoarch-effect-tip-specific-gas-carbon = Expels carbon dioxide
+
+xenoarch-effect-tip-specific-glimmer = Noöspheric shift
+xenoarch-effect-tip-specific-psionic = Psionic imprinting
+
+
+xenoarch-effect-tip-vague-energy-release = Strong energy release
+xenoarch-effect-tip-vague-energy-manipulation = Energetic focusing
+xenoarch-effect-tip-vague-spatial = Spacetime tunneling
+xenoarch-effect-tip-vague-element = Elemental creation
+xenoarch-effect-tip-vague-chemical = Molecular reaction
+xenoarch-effect-tip-vague-biological = Organic manipulation
+xenoarch-effect-tip-vague-pattern = Pattern mimicry

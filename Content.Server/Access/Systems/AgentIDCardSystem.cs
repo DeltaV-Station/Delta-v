@@ -9,11 +9,13 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._DV.Access.Components; // DeltaV
 using Content.Shared._DV.NanoChat; // DeltaV
 using Content.Server.Clothing.Systems;
 using Content.Server.Implants;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
+using Content.Shared.Lock;
 using Content.Shared.PDA;
 
 namespace Content.Server.Access.Systems
@@ -27,6 +29,7 @@ namespace Content.Server.Access.Systems
         [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!; // DeltaV
         [Dependency] private readonly ChameleonClothingSystem _chameleon = default!;
         [Dependency] private readonly ChameleonControllerSystem _chamController = default!;
+        [Dependency] private readonly LockSystem _lock = default!;
 
         public override void Initialize()
         {
@@ -92,17 +95,23 @@ namespace Content.Server.Access.Systems
 
         private void OnAfterInteract(EntityUid uid, AgentIDCardComponent component, AfterInteractEvent args)
         {
-            if (args.Target == null || !args.CanReach || !TryComp<AccessComponent>(args.Target, out var targetAccess) || !HasComp<IdCardComponent>(args.Target))
+            if (args.Target == null || !args.CanReach || _lock.IsLocked(uid) ||
+                !TryComp<AccessComponent>(args.Target, out var targetAccess) || !HasComp<IdCardComponent>(args.Target))
                 return;
 
             if (!TryComp<AccessComponent>(uid, out var access) || !HasComp<IdCardComponent>(uid))
                 return;
 
-            var beforeLength = access.Tags.Count;
-            access.Tags.UnionWith(targetAccess.Tags);
-            var addedLength = access.Tags.Count - beforeLength;
+            // Begin DeltaV Additions
+            // Prevent certain types of IDs from being copied (i.e. Borg ID chips)
+            if (TryComp<PreventAgentIdComponent>(args.Target, out var preventable))
+            {
+                if (preventable.PopupText is { } popupText)
+                    _popupSystem.PopupEntity(Loc.GetString(popupText), args.Target.Value, args.User);
+                return;
+            }
 
-            // Begin DeltaV Additions - Copy NanoChat data if available
+            // Copy NanoChat data if available
             if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
                 TryComp<NanoChatCardComponent>(uid, out var agentNanoChat))
             {
@@ -129,6 +138,10 @@ namespace Content.Server.Access.Systems
                 }
             }
             // End DeltaV Additions
+            var beforeLength = access.Tags.Count;
+            access.Tags.UnionWith(targetAccess.Tags);
+            var addedLength = access.Tags.Count - beforeLength;
+
             _popupSystem.PopupEntity(Loc.GetString("agent-id-new", ("number", addedLength), ("card", args.Target)), args.Target.Value, args.User);
             if (addedLength > 0)
                 Dirty(uid, access);
