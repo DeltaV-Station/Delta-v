@@ -51,7 +51,7 @@ public sealed partial class FlightComponent : Component
 
     /// <summary>
     ///     DeltaV - Acceleration modifer while in flight. Should be less than one so 
-    ///     they have less control while flying. Also applies to friction with no inputs.
+    ///     they have less control while turning and can't just go 0 to 100% speed right away.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float AccelerationModifer = 0.1f;
