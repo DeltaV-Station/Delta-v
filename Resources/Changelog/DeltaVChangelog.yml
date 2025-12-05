@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Adjusted rule C3 to be more specific on certain matters.
-    type: Tweak
-  id: 1419
-  time: '2025-05-20T18:18:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3801
 - author: deltanedas
   changes:
   - message: Fixed not being able to buy ransomed crewmembers.
@@ -4271,3 +4264,13 @@
   id: 1918
   time: '2025-12-05T02:58:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4862
+- author: kotobdev
+  changes:
+  - message: Nukie commanders are now ~~threatened~~ *encouraged* to use the war declarator
+      properly.
+    type: Add
+  - message: Nukies now have 8 minutes to declare war, up from 6.
+    type: Tweak
+  id: 1919
+  time: '2025-12-05T04:48:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4876
