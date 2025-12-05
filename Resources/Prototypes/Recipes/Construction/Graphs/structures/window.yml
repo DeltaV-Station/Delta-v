@@ -42,6 +42,16 @@
               amount: 2
               doAfter: 3
 
+        # Start DeltaV additions
+        - to: reinforcedtintedWindow
+          steps:
+            - material: ReinforcedGlass
+              amount: 2
+            - material: Plastic
+              amount: 2
+              doAfter: 3
+        # End DeltaV additions
+
         - to: reinforcedPlasmaWindow # 150 hp reinforced damage mod
           steps:
             - material: ReinforcedPlasmaGlass
@@ -101,6 +111,15 @@
             - material: MetalRod
               amount: 2
               doAfter: 2
+        # Start DeltaV additions
+        - to: reinforcedtintedWindow
+          steps:
+            - material: Plastic
+              amount: 2
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+        # End DeltaV additions
 
     - node: tintedWindow
       entity: TintedWindow
@@ -191,6 +210,7 @@
             - tool: Anchoring
               doAfter: 3
 
+    # Start DeltaV additions
     - node: reinforcedWindow
       entity: ReinforcedWindow
       edges:
@@ -223,6 +243,33 @@
             - material: Uranium
               amount: 2
               doAfter: 1
+    # End DeltaV additions
+
+    - node: reinforcedtintedWindow
+      entity: ReinforcedTintedWindow
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: SheetRGlass1
+              amount: 2
+            - !type:GivePrototype
+              prototype: SheetPlastic1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 2
 
     - node: reinforcedPlasmaWindow
       entity: ReinforcedPlasmaWindow

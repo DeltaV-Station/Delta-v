@@ -62,6 +62,22 @@
     minPressureDelta: 10000
     scalingType: Threshold
 
+ # Start DeltaV additions
+- type: entity
+  id: ReinforcedTintedWindow
+  name: reinforced tinted window
+  parent: ReinforcedWindow
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _DV/Structures/Windows/reinforced_tinted_window.rsi
+  - type: Icon
+    sprite: _DV/Structures/Windows/reinforced_tinted_window.rsi
+  - type: IconSmooth
+    base: rtwindow
+  - type: Occluder
+  # End DeltaV additions
+
 - type: entity
   id: WindowReinforcedDirectional
   parent: WindowDirectional
