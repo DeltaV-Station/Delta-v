@@ -359,9 +359,12 @@
     attackRate: 4
     # End DeltaV additions
     damage:
+      groups:
+        Brute: 3 # DeltaV: 15 Brute changed to 3 Brute
+      # Start DeltaV additions
       types:
-        Slash: 3 # DeltaV: 15 Brute changed to 3 Slash
-        Structural: 10 # DeltaV: Added a small amount of structural
+        Structural: 7.5 # Half as much as a regular drill
+      # End DeltaV additions
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
@@ -385,12 +388,13 @@
     storedRotation: 90
     heldPrefix: advanced
   - type: MeleeWeapon
-    # Start DeltaV additions
     damage:
+      groups:
+        Brute: 6 # DeltaV: 15 Brute changed to 6 brute
+      # Start DeltaV additions
       types:
-        Slash: 6
-        Structural: 20
-    # End DeltaV additions
+        Structural: 15 # Half as much as a diamond drill
+      # End DeltaV additions
   - type: Tool
     speedModifier: 2.0
   - type: BoneSaw # Shitmed
