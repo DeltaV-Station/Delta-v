@@ -58,3 +58,22 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: ShowSyndicateIcons
+
+- type: entity
+  parent: ClothingEyesHudDiagnostic
+  id: ClothingEyesPrescriptionDiagHud
+  name: prescription diagnostic hud
+  description: A poorly done and rushed mix between half of a pair of prescription glasses and a diagnostic HUD allowing you analyze the integrity and status of robotics and exosuits.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Hud/prescdiaghud.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Hud/prescdiaghud.rsi
+  - type: Construction
+    graph: PrescriptionDiagHud
+    node: prescdiaghud
+  - type: VisionCorrection
+    correctionPower: 1.75 # The hud part decreases efficiency
+  - type: Tag
+    tags:
+    - HudDiagnostic

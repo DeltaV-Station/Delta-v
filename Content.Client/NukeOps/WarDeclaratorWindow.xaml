@@ -19,5 +19,9 @@
                    Align="Center"
                    Access="Public"/>
         </BoxContainer>
+        <Label Name='WarningLabel'
+               Align="Center"
+               StyleClasses="WindowFooterText"
+               Text="{Loc 'war-declarator-standards-warning'}" /> <!-- DeltaV - warops LRP announcement warning -->
     </BoxContainer>
 </controls:FancyWindow>

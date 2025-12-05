@@ -1,0 +1,23 @@
+- type: inventoryTemplate
+  id: silvia
+  slots:
+  - name: eyes
+    slotTexture: glasses
+    slotFlags: EYES
+    stripTime: 3
+    uiWindowPos: 0,2
+    strippingWindowPos: 0,0
+    displayName: Eyes
+    offset: 0, -0.15 # If her sprite wasn't animated, this would be way easier. ;_;
+    whitelist:
+      tags:
+      - PetWearable
+
+  - name: id
+    slotTexture: id
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
