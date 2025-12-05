@@ -259,7 +259,7 @@
         - !type:ReagentThreshold
           reagent: Ammonia
           min: 1
-        scaleByQuantity: true
+        scaleByQuantity: false # DeltaV - Nerf rat lungs, upstream doesn't have shitmed
         ignoreResistances: true
         damage:
           groups:

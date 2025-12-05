@@ -90,7 +90,16 @@ public sealed class DragonRiftSystem : EntitySystem
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
-                var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
+                //Begin DeltaV - Elite spawns on dragon rifts
+                comp.SpawnEliteAccumulator += 1;
+                var entSpawnPrototype = comp.SpawnPrototype;
+                if (comp.SpawnElites && comp.SpawnEliteAccumulator >= comp.SpawnEliteFrequency)
+                {
+                    comp.SpawnEliteAccumulator -= comp.SpawnEliteFrequency;
+                    entSpawnPrototype = comp.SpawnElitePrototype;
+                }
+                //End DeltaV - Elite spawns on dragon rifts
+                var ent = Spawn(entSpawnPrototype, xform.Coordinates); //Delta-v change: comp.SpawnPrototype -> entSpawnPrototype
 
                 // Update their look to match the leader.
                 if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
