@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed not being able to buy ransomed crewmembers.
-    type: Fix
-  id: 1420
-  time: '2025-05-21T00:29:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3810
 - author: Zephyrpak
   changes:
   - message: Included sprites for Feroxi and Vulpkanin on welding masks.
@@ -4274,3 +4267,14 @@
   id: 1919
   time: '2025-12-05T04:48:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4876
+- author: ShepardToTheStars, Jakumba
+  changes:
+  - message: Holofans are no longer infinite duration. They last 5 minutes but also
+      recharge over time. They can still be picked up.
+    type: Tweak
+  - message: All holoprojectors function the same way now. You can pick up janitor
+      holosigns, security holobarriers, and they all recharge over time.
+    type: Tweak
+  id: 1920
+  time: '2025-12-05T12:56:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4734
