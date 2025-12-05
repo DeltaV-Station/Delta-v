@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/05/2025 00:19:32
-  entityCount: 27797
+  time: 12/05/2025 01:14:18
+  entityCount: 27799
 maps:
 - 1
 grids:
@@ -125491,6 +125491,16 @@ entities:
     - type: Transform
       pos: -51.5,-3.5
       parent: 2
+  - uid: 27798
+    components:
+    - type: Transform
+      pos: 36.5,-11.5
+      parent: 2
+  - uid: 27799
+    components:
+    - type: Transform
+      pos: 38.5,-11.5
+      parent: 2
 - proto: GrilleBroken
   entities:
   - uid: 52
@@ -142161,7 +142171,6 @@ entities:
   - uid: 27695
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -27.5,-51.5
       parent: 2
 - proto: RandomFoodBakedSingle
