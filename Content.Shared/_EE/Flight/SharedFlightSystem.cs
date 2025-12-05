@@ -6,6 +6,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared._EE.Flight.Events;
+using Content.Shared.Standing;
 
 namespace Content.Shared._EE.Flight;
 public abstract class SharedFlightSystem : EntitySystem
@@ -15,6 +16,7 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -23,6 +25,7 @@ public abstract class SharedFlightSystem : EntitySystem
         SubscribeLocalEvent<FlightComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FlightComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<FlightComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
     }
 
     #region Core Functions
@@ -36,16 +39,21 @@ public abstract class SharedFlightSystem : EntitySystem
         _actionsSystem.RemoveAction(uid, component.ToggleActionEntity);
     }
 
-    public void ToggleActive(EntityUid uid, bool active, FlightComponent component)
+    public void ToggleActive(Entity<FlightComponent> ent, bool active)
     {
-        component.IsCurrentlyFlying = active;
-        component.TimeUntilFlap = 0f;
-        _actionsSystem.SetToggled(component.ToggleActionEntity, component.IsCurrentlyFlying);
-        RaiseNetworkEvent(new FlightEvent(GetNetEntity(uid), component.IsCurrentlyFlying, component.IsAnimated));
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false);
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        UpdateHands(uid, active);
-        Dirty(uid, component);
+        // TODO: Add standing check and ftl string if not standing
+        if(TryComp<StandingStateComponent>(ent, out var standing) && _standing.IsDown((ent, standing)))
+            return; // TODO: pop-up?
+
+        ent.Comp.IsCurrentlyFlying = active;
+        ent.Comp.TimeUntilFlap = 0f;
+        _actionsSystem.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.IsCurrentlyFlying);
+        RaiseNetworkEvent(new FlightEvent(GetNetEntity(ent), ent.Comp.IsCurrentlyFlying, ent.Comp.IsAnimated));
+        _staminaSystem.ToggleStaminaDrain(ent, ent.Comp.StaminaDrainRate, active, false);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        _movementSpeed.RefreshFrictionModifiers(ent);
+        UpdateHands(ent, active);
+        Dirty(ent, ent.Comp);
     }
 
     private void UpdateHands(EntityUid uid, bool flying)
@@ -100,5 +108,14 @@ public abstract class SharedFlightSystem : EntitySystem
     }
 
     #endregion
+
+    private void OnRefreshFrictionModifiers(Entity<FlightComponent> ent, ref RefreshFrictionModifiersEvent args)
+    {
+        if (!ent.Comp.IsCurrentlyFlying)
+            return;
+
+        args.ModifyFriction(ent.Comp.FrictionModifier, ent.Comp.FrictionModifier);
+        args.ModifyAcceleration(ent.Comp.AccelerationModifer);
+    }
 }
 public sealed partial class ToggleFlightEvent : InstantActionEvent { }

@@ -43,6 +43,20 @@ public sealed partial class FlightComponent : Component
     public float SpeedModifier = 2.0f;
 
     /// <summary>
+    ///     DeltaV - Friction modifier while in flight. Should be less than one so 
+    ///     they have less control while flying. Also applies to friction with no inputs.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionModifier = 0.1f;
+
+    /// <summary>
+    ///     DeltaV - Acceleration modifer while in flight. Should be less than one so 
+    ///     they have less control while flying. Also applies to friction with no inputs.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float AccelerationModifer = 0.25f;
+
+    /// <summary>
     ///     Path to a sound specifier or collection for the noises made during flight
     /// </summary>
     [DataField]

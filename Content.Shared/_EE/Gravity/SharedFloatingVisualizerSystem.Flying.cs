@@ -14,10 +14,10 @@ public abstract partial class SharedFloatingVisualizerSystem : EntitySystem
         var uid = GetEntity(args.Uid);
         if (!TryComp<FloatingVisualsComponent>(uid, out var floating))
             return;
+
         floating.CanFloat = args.IsFlying;
 
-        if (!args.IsFlying
-            || !args.IsAnimated)
+        if (!args.IsFlying || !args.IsAnimated)
             return;
 
         FloatAnimation(uid, floating.Offset, floating.AnimationKey, floating.AnimationTime);

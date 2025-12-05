@@ -76,7 +76,7 @@ public sealed class FlightSystem : SharedFlightSystem
                 return;
         }
         else
-            ToggleActive(uid, false, component);
+            ToggleActive((uid, component), false);
     }
 
     private void OnFlightDoAfter(EntityUid uid, FlightComponent component, FlightDoAfterEvent args)
@@ -84,7 +84,7 @@ public sealed class FlightSystem : SharedFlightSystem
         if (args.Handled || args.Cancelled)
             return;
 
-        ToggleActive(uid, true, component);
+        ToggleActive((uid, component), true);
         args.Handled = true;
     }
 
@@ -114,7 +114,7 @@ public sealed class FlightSystem : SharedFlightSystem
             || args.NewMobState is MobState.Critical or MobState.Dead)
             return;
 
-        ToggleActive(args.Target, false, component);
+        ToggleActive((args.Target, component), false);
     }
 
     private void OnZombified(EntityUid uid, FlightComponent component, ref EntityZombifiedEvent args)
@@ -122,7 +122,7 @@ public sealed class FlightSystem : SharedFlightSystem
         if (!component.IsCurrentlyFlying)
             return;
 
-        ToggleActive(args.Target, false, component);
+        ToggleActive((args.Target, component), false);
         if (!TryComp<StaminaComponent>(uid, out var stamina))
             return;
         Dirty(uid, stamina);
@@ -133,7 +133,7 @@ public sealed class FlightSystem : SharedFlightSystem
         if (!component.IsCurrentlyFlying)
             return;
 
-        ToggleActive(uid, false, component);
+        ToggleActive((uid, component), false);
     }
 
     private void OnStunned(EntityUid uid, FlightComponent component, ref StunnedEvent args)
@@ -141,7 +141,7 @@ public sealed class FlightSystem : SharedFlightSystem
         if (!component.IsCurrentlyFlying)
             return;
 
-        ToggleActive(uid, false, component);
+        ToggleActive((uid, component), false);
     }
 
     private void OnSleep(EntityUid uid, FlightComponent component, ref SleepStateChangedEvent args)
@@ -150,7 +150,7 @@ public sealed class FlightSystem : SharedFlightSystem
             || !args.FellAsleep)
             return;
 
-        ToggleActive(uid, false, component);
+        ToggleActive((uid, component), false);
         if (!TryComp<StaminaComponent>(uid, out var stamina))
             return;
 
