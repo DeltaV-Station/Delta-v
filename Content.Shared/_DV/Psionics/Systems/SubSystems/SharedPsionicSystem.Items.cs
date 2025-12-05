@@ -1,17 +1,12 @@
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.Actions;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 
 namespace Content.Shared._DV.Psionics.Systems;
 
-public sealed partial class PsionicSystem
+public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly SharedPsionicAbilitiesSystem _psiAbilities = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-
     private void InitializeItems()
     {
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotEquippedEvent>(OnInsulativeGearEquipped);
@@ -43,26 +38,23 @@ public sealed partial class PsionicSystem
 
     private void OnPsionicGearChecked(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<CheckPsionicInsulativeGearEvent> args)
     {
-        var evArgs = args.Args;
-
-        evArgs.GearPresent = true;
+        args.Args.GearPresent = true;
         // If one gear blocks psionic usage, psionics cannot be used.
-        evArgs.AllowsPsionicUsage = evArgs.AllowsPsionicUsage && gear.Comp.AllowsPsionicUsage;
+        args.Args.AllowsPsionicUsage &= gear.Comp.AllowsPsionicUsage;
         // If one gear shields from psionics, they're shielded.
-        evArgs.ShieldsFromPsionics = evArgs.ShieldsFromPsionics || gear.Comp.ShieldsFromPsionics;
+        args.Args.ShieldsFromPsionics |= gear.Comp.ShieldsFromPsionics;
+
     }
 
     private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerUseAttemptEvent> args)
     {
-        var evArgs = args.Args;
         // If one gear blocks psionic usage, psionics cannot be used.
-        evArgs.CanUsePower = evArgs.CanUsePower && gear.Comp.AllowsPsionicUsage;
+        args.Args.CanUsePower &= gear.Comp.AllowsPsionicUsage;
     }
 
     private void OnTargetedByPsionicPower(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<TargetedByPsionicPowerEvent> args)
     {
-        var evArgs = args.Args;
         // If one gear shields from psionics, they're shielded.
-        evArgs.IsShielded = evArgs.IsShielded || gear.Comp.ShieldsFromPsionics;
+        args.Args.IsShielded |= gear.Comp.ShieldsFromPsionics;
     }
 }

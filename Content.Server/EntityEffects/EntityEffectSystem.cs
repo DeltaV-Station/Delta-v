@@ -784,7 +784,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
         ghostRole = AddComp<GhostRoleComponent>(uid);
         EnsureComp<GhostTakeoverAvailableComponent>(uid);
-        EnsureComp<PotentialPsionicComponent>(uid); //Nyano - Summary:. Makes the animated body able to get psionics.
+        EnsureComp<OldPotentialPsionicComponent>(uid); //Nyano - Summary:. Makes the animated body able to get psionics.
 
         var entityData = Comp<MetaDataComponent>(uid);
         ghostRole.RoleName = entityData.EntityName;

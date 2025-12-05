@@ -26,7 +26,7 @@ namespace Content.Server.Psionics
         {
             base.Initialize();
             /// Masking
-            SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<OldPotentialPsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<OldPsionicInsulationComponent, ComponentInit>(OnInsulInit);
             SubscribeLocalEvent<OldPsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
             SubscribeLocalEvent<EyeComponent, ComponentInit>(OnEyeInit);
@@ -40,14 +40,14 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<PsionicallyInvisibleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         }
 
-        private void OnInit(EntityUid uid, PotentialPsionicComponent component, ComponentInit args)
+        private void OnInit(EntityUid uid, OldPotentialPsionicComponent component, ComponentInit args)
         {
             SetCanSeePsionicInvisiblity(uid, false);
         }
 
         private void OnInsulInit(EntityUid uid, OldPsionicInsulationComponent component, ComponentInit args)
         {
-            if (!HasComp<PotentialPsionicComponent>(uid))
+            if (!HasComp<OldPotentialPsionicComponent>(uid))
                 return;
 
             if (HasComp<PsionicInvisibilityUsedComponent>(uid))
@@ -70,7 +70,7 @@ namespace Content.Server.Psionics
 
         private void OnInsulShutdown(EntityUid uid, OldPsionicInsulationComponent component, ComponentShutdown args)
         {
-            if (!HasComp<PotentialPsionicComponent>(uid))
+            if (!HasComp<OldPotentialPsionicComponent>(uid))
                 return;
 
             SetCanSeePsionicInvisiblity(uid, false);

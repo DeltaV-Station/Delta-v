@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Psionics.Events;
 /// </summary>
 /// <value><see cref="IsShielded"/> returns true if able to use psionic powers, false if not.</value>
 [ByRefEvent]
-public sealed class TargetedByPsionicPowerEvent() : IInventoryRelayEvent
+public record struct TargetedByPsionicPowerEvent() : IInventoryRelayEvent
 {
     public bool IsShielded;
 

@@ -1,4 +1,4 @@
-using Content.Shared.Abilities.Psionics;
+using Content.Server._DV.Psionics.UI;
 using Content.Shared.Actions;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Random;
@@ -33,11 +33,11 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPlayerAttached(EntityUid uid, PsionicAwaitingPlayerComponent component, PlayerAttachedEvent args)
         {
-            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus) && bonus.Warn == true)
-                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
-            else
-                AddRandomPsionicPower(uid);
-            RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
+            // if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus) && bonus.Warn == true)
+            //     _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
+            // else
+            //     AddRandomPsionicPower(uid);
+            // RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
         }
 
         public void AddPsionics(EntityUid uid, bool warn = true)
@@ -55,10 +55,10 @@ namespace Content.Server.Abilities.Psionics
                 return;
             }
 
-            if (warn)
-                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), actor.PlayerSession);
-            else
-                AddRandomPsionicPower(uid);
+            // if (warn)
+            //     _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), actor.PlayerSession);
+            // else
+            //     AddRandomPsionicPower(uid);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)

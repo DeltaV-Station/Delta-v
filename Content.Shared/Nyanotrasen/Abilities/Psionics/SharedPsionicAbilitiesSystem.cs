@@ -76,8 +76,8 @@ public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
     public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)
     {
         _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
-        var ev = new PsionicPowerUsedEvent(uid, power);
-        RaiseLocalEvent(uid, ev, false);
+        // var ev = new PsionicPowerUsedEvent(uid, power);
+        // RaiseLocalEvent(uid, ev, false);
 
         _glimmerSystem.Glimmer += _robustRandom.Next(minGlimmer, maxGlimmer);
     }

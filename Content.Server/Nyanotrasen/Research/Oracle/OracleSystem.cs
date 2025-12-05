@@ -78,7 +78,7 @@ public sealed class OracleSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, OracleComponent component, InteractHandEvent args)
     {
-        if (!HasComp<PotentialPsionicComponent>(args.User) || HasComp<OldPsionicInsulationComponent>(args.User))
+        if (!HasComp<OldPotentialPsionicComponent>(args.User) || HasComp<OldPsionicInsulationComponent>(args.User))
             return;
 
         if (!TryComp<ActorComponent>(args.User, out var actor))

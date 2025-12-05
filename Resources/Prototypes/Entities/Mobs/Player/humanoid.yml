@@ -663,9 +663,8 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: NukeOperative
-    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
-      multiplier: 7
-      warn: false
+    - type: PotentialPsionic # DeltaV - Psionic Refactor
+      jobBonusChance: 0.05 # Additional 5% chance to roll a psionic power.
 
 - type: entity
   id: RandomHumanoidSpawnerCluwne

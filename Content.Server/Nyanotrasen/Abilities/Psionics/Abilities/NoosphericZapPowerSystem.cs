@@ -47,7 +47,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)
         {
-            if (!HasComp<PotentialPsionicComponent>(args.Target))
+            if (!HasComp<OldPotentialPsionicComponent>(args.Target))
                 return;
 
             if (HasComp<OldPsionicInsulationComponent>(args.Target))

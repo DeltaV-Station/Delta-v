@@ -36,37 +36,14 @@ namespace Content.Server.Psionics
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-        /// <summary>
-        /// Unfortunately, since spawning as a normal role and anything else is so different,
-        /// this is the only way to unify them, for now at least.
-        /// </summary>
-        Queue<(PotentialPsionicComponent component, EntityUid uid)> _rollers = new();
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-            foreach (var roller in _rollers)
-            {
-                RollPsionics(roller.uid, roller.component, false);
-            }
-            _rollers.Clear();
-        }
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<PotentialPsionicComponent, MapInitEvent>(OnStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
 
             SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicComponent, ComponentRemove>(OnRemove);
-        }
-
-        private void OnStartup(EntityUid uid, PotentialPsionicComponent component, MapInitEvent args)
-        {
-            if (HasComp<PsionicComponent>(uid))
-                return;
-
-            _rollers.Enqueue((component, uid));
         }
 
         private void OnMeleeHit(EntityUid uid, AntiPsionicWeaponComponent component, MeleeHitEvent args)
@@ -87,7 +64,7 @@ namespace Content.Server.Psionics
                     return;
                 }
 
-                if (component.Punish && HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
+                if (component.Punish && HasComp<OldPotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
                     _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
             }
         }
@@ -134,7 +111,7 @@ namespace Content.Server.Psionics
         /// Makes the entity psionic if it is possible.
         /// Ignores rolling and rerolling prevention.
         /// </summary>
-        public bool TryMakePsionic(Entity<PotentialPsionicComponent> ent)
+        public bool TryMakePsionic(Entity<OldPotentialPsionicComponent> ent)
         {
             if (HasComp<PsionicComponent>(ent))
                 return false;
@@ -147,28 +124,28 @@ namespace Content.Server.Psionics
             return true;
         }
 
-        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
-        {
+        // public void RollPsionics(EntityUid uid, OldPotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
+        // {
+        //
+        //     var chance = component.Chance;
+        //     if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
+        //     {
+        //         chance *= bonus.Multiplier;
+        //         chance += bonus.FlatBonus;
+        //     }
+        //
+        //     if (applyGlimmer)
+        //         chance += ((float) _glimmerSystem.Glimmer / 1000);
+        //
+        //     chance *= multiplier;
+        //
+        //     chance = Math.Clamp(chance, 0, 1);
+        //
+        //     if (_random.Prob(chance))
+        //         TryMakePsionic((uid, component));
+        // }
 
-            var chance = component.Chance;
-            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
-            {
-                chance *= bonus.Multiplier;
-                chance += bonus.FlatBonus;
-            }
-
-            if (applyGlimmer)
-                chance += ((float) _glimmerSystem.Glimmer / 1000);
-
-            chance *= multiplier;
-
-            chance = Math.Clamp(chance, 0, 1);
-
-            if (_random.Prob(chance))
-                TryMakePsionic((uid, component));
-        }
-
-        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null, float bonusMuliplier = 1f)
+        public void RerollPsionics(EntityUid uid, OldPotentialPsionicComponent? psionic = null, float bonusMuliplier = 1f)
         {
             if (!Resolve(uid, ref psionic, false))
                 return;
@@ -176,11 +153,11 @@ namespace Content.Server.Psionics
             if (psionic.Rerolled)
                 return;
 
-            RollPsionics(uid, psionic, multiplier: bonusMuliplier);
+            // RollPsionics(uid, psionic, multiplier: bonusMuliplier);
             psionic.Rerolled = true;
         }
 
-        public void GrantNewPsionicReroll(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        public void GrantNewPsionicReroll(EntityUid uid, OldPotentialPsionicComponent? psionic = null)
         {
             if (!Resolve(uid, ref psionic, false))
                 return;

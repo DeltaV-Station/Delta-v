@@ -11,8 +11,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Actions.Events;
+using Content.Shared.Mind;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {

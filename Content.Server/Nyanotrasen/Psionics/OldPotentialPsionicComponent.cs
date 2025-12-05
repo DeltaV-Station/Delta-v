@@ -1,7 +1,7 @@
 namespace Content.Server.Psionics
 {
     [RegisterComponent]
-    public sealed partial class PotentialPsionicComponent : Component
+    public sealed partial class OldPotentialPsionicComponent : Component
     {
         [DataField("chance")]
         public float Chance = 0.04f;

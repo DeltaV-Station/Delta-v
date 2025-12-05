@@ -1,5 +1,6 @@
 ## Names of Psionic Powers
 psionic-power-name-metapsionic = Metapsionic Pulse
+psionic-power-name-eruption = Psionic Eruption
 
 ## Base Psionic messages
 psionic-cannot-use-psionics = You're currently unable to use psionics!
