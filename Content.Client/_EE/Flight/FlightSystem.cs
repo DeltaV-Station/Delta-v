@@ -11,9 +11,7 @@ public sealed class FlightSystem : SharedFlightSystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeNetworkEvent<FlightEvent>(OnFlight);
-
     }
 
     private void OnFlight(FlightEvent args)

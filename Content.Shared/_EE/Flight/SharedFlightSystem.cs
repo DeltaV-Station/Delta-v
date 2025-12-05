@@ -144,24 +144,23 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, FlightComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (!component.IsCurrentlyFlying)
+        if (!component.IsCurrentlyFlying) // If we're not flying, don't apply flying's modifier
             return;
 
         args.ModifySpeed(component.SpeedModifier, component.SpeedModifier);
     }
 
-    #endregion
 
+    // DeltaV - Since we use the new movement system and EE doesn't, we got to also apply friction modifiers.
     private void OnRefreshFrictionModifiers(Entity<FlightComponent> ent, ref RefreshFrictionModifiersEvent args)
     {
-        if (!ent.Comp.IsCurrentlyFlying)
+        if (!ent.Comp.IsCurrentlyFlying) // If we're not flying, don't apply flying's modifier
             return;
 
         args.ModifyFriction(ent.Comp.FrictionModifier, ent.Comp.FrictionModifier);
         args.ModifyAcceleration(ent.Comp.AccelerationModifer);
     }
 
-    #region Core Functions
     private void OnToggleFlight(EntityUid uid, FlightComponent component, ToggleFlightEvent args)
     {
         // If the user isnt flying, we check for conditionals and initiate a doafter.
@@ -176,8 +175,6 @@ public abstract class SharedFlightSystem : EntitySystem
             {
                 BlockDuplicate = true,
                 BreakOnMove = true,
-                //BreakOnTargetMove = true,
-                //BreakOnUserMove = true,
                 BreakOnDamage = true,
                 NeedHand = true
             };
@@ -233,8 +230,10 @@ public abstract class SharedFlightSystem : EntitySystem
             return;
 
         ToggleActive((args.Target, component), false);
+
         if (!TryComp<StaminaComponent>(uid, out var stamina))
             return;
+
         Dirty(uid, stamina);
     }
 
