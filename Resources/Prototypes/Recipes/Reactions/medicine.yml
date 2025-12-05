@@ -691,7 +691,7 @@
       amount: 1
   products:
     Traumoxadone: 3
-  
+
 - type: reaction
   id: Stelloxadone
   impact: Medium
@@ -706,3 +706,27 @@
     Stelloxadone: 5
     Water: 3
     Fiber: 2
+
+- type: reaction
+  id: Warfarin
+  reactants:
+    SulfuricAcid:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    Sodium:
+      amount: 1
+  products:
+    Warfarin: 2
+
+- type: reaction
+  id: Hemorrhinol
+  reactants:
+    Warfarin:
+      amount: 2
+    Razorium:
+      amount: 2
+    Plasma:
+      amount: 1
+  products:
+    Hemorrhinol: 2
