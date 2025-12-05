@@ -127,6 +127,7 @@
   - type: StaticPrice
     price: 3500
 
+# Start DeltaV removals
 #- type: entity
 #  name: musket
 #  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
@@ -165,6 +166,7 @@
 #    soundHit:
 #      path: /Audio/Weapons/bladeslice.ogg
 #  - type: GunRequiresWield
+# End DeltaV removals
 
   # Start DeltaV additions
 - type: entity
@@ -219,7 +221,7 @@
   - type: InjectableSolution
     solution: melee
   - type: SolutionTransfer
-    maxTransferAmount: 2 #It's a bayonet <--- shes right
+    maxTransferAmount: 2 #It's a bayonet <--- correct
   - type: Sharp
     butcherDelayModifier: 2
   # End DeltaV Additions
