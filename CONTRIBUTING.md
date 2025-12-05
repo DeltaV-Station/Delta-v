@@ -33,10 +33,15 @@ Primarily, **add comments on or around all new or changed lines** in upstream fi
 If you add a new component to a prototype, add an explanation to the `type: ...` line. Example:
 
 ```yml
-- type: xenoArchTrigger
-  id: TriggerHeat
-  triggerBlacklist: # DeltaV - add blacklist for difficult trigger combinations
-  - TriggerCold
+- type: entity
+  parent: MobSiliconBase
+  id: MobSupplyBot
+  components:
+  - type: InteractionPopup # DeltaV - Make supplybots pettable
+    interactSuccessString: petting-success-supplybot
+    interactFailureString: petting-failure-supplybot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
 ```
 
 Whereas if you just modify some fields of a component, comment the fields instead, using inline or block comments. Example:
