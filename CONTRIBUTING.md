@@ -44,15 +44,26 @@ If you add a new component to a prototype, add an explanation to the `type: ...`
       path: /Audio/Ambience/Objects/periodic_beep.ogg
 ```
 
-Whereas if you just modify some fields of a component, comment the fields instead, using inline or block comments. Example:
+Whereas if you just modify some fields of a component, comment the fields instead, using inline or block comments. Examples:
 
 ```yml
-  storage:
-    back:
-    - EmergencyRollerBedSpawnFolded
+- type: entityTable
+  id: FillLockerWarden
+  table: !type:AllSelector
+    children:
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
+    - id: ClothingShoesBootsJack
+    #- id: ClothingOuterCoatWarden # DeltaV - removed for incongruence
+    #- id: ClothingOuterWinterWarden # DeltaV - removed for incongruence
+    - id: RubberStampWarden
+    - id: DoorRemoteArmory
+    - id: HoloprojectorSecurity
     # Begin DeltaV additions
-    - BodyBagFolded
-    - Portafib
+    - id: WeaponEnergyShotgun
+    - id: BoxPDAPrisoner
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
     # End DeltaV additions
 ```
 
