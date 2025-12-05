@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: The server now calls an OOC vote for the routine crew change shuttle
-    type: Add
-  id: 1403
-  time: '2025-05-16T20:50:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3766
-- author: deltanedas
-  changes:
-  - message: Fixed AI detectors sometimes not working.
-    type: Fix
-  id: 1404
-  time: '2025-05-16T22:13:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3774
-- author: Lonestar827
-  changes:
-  - message: Minor formatting fixes to the thief and minor antagonist pages in the
-      guidebook
-    type: Fix
-  id: 1405
-  time: '2025-05-17T01:01:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3775
-- author: Cepelinas1
-  changes:
-  - message: ERT and CBURN roles now have security and department-specific time requirements.
-    type: Add
-  id: 1406
-  time: '2025-05-17T14:03:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3768
-- author: Field Command
-  changes:
-  - message: The cargo shuttle has been changed out for a newer model. There is now
-      some pilot gear on the cargo shuttle.
-    type: Tweak
-  id: 1407
-  time: '2025-05-17T15:38:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3692
-- author: Stop-Signs
-  changes:
-  - message: lobby times have been reduced by 3 minutes.
-    type: Tweak
-  id: 1408
-  time: '2025-05-17T18:54:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3772
-- author: deltanedas
-  changes:
-  - message: Traitor ransom objectives can be picked earlier.
-    type: Fix
-  id: 1409
-  time: '2025-05-18T14:56:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3783
 - author: deltanedas
   changes:
   - message: Added an objective to make an anomaly go super-critical.
@@ -4234,3 +4183,81 @@
   id: 1902
   time: '2025-12-03T20:25:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4854
+- author: FieldCommand
+  changes:
+  - message: All ships from the shipyard cost 1000 more spesos due to inflation.
+    type: Tweak
+  id: 1903
+  time: '2025-12-03T22:34:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4858
+- author: verybigman311
+  changes:
+  - message: Christmas lamps now display the correct rotation
+    type: Fix
+  id: 1904
+  time: '2025-12-04T03:26:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4865
+- author: Woljif
+  changes:
+  - message: Gave the dragon a wide-sweep attack, more damage, and faster fireballs.
+    type: Tweak
+  id: 1905
+  time: '2025-12-04T08:27:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4781
+- author: ShepardToTheStars, Niomi
+  changes:
+  - message: Borg ID chips from the exofab now have the same access as round-start
+      borgs.
+    type: Tweak
+  - message: SRNs can no longer print normal borg ID chips.
+    type: Tweak
+  - message: Syndicate borg ID chips now cost a bit less to make.
+    type: Tweak
+  - message: Agent IDs can no longer copy access from borg ID chips.
+    type: Tweak
+  - message: The new derelict borgs now have the intended borg access to the station!
+    type: Fix
+  - message: Derelict syndicate borgs don't have usual borg access, but has enough
+      to get into the station.
+    type: Tweak
+  - message: Derelict syndicate borgs can be unlocked by people with Robotics access
+      (so they can get their access updated).
+    type: Tweak
+  id: 1906
+  time: '2025-12-04T11:18:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4821
+- author: Dorragon
+  changes:
+  - message: Space dragons welcome sharkminnows in their family
+    type: Add
+  id: 1907
+  time: '2025-12-04T13:27:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4826
+- author: Nesoryo, Nikovnik, kotobdev
+  changes:
+  - message: Added alternative typing indicators for whispering, emoting, using the
+      radio, and (L)OOC-ing!
+    type: Add
+  id: 1908
+  time: '2025-12-04T16:59:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4679
+- author: verybigman311
+  changes:
+  - message: Every single wieldable gun now has wielded sprites.
+    type: Add
+  - message: Wieldable guns that previously utilized upstream sprites, have been updated
+      with Delta-V sprites.
+    type: Add
+  - message: Mark-1 series rifles are now wieldable.
+    type: Tweak
+  - message: Touched up a few miscolored cocktail sprites.
+    type: Tweak
+  - message: Practice security weapons now have orange tips for safety purposes.
+    type: Tweak
+  - message: Practice laser carbines are now blue.
+    type: Tweak
+  - message: Practice disablers not having inhand sprites.
+    type: Fix
+  id: 1909
+  time: '2025-12-04T18:42:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4851
