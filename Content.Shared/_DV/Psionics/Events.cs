@@ -13,7 +13,4 @@ public sealed partial class GlimmerWispDrainDoAfterEvent : SimpleDoAfterEvent;
 public sealed partial class MassSleepDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
-public sealed partial class PsionicEruptionDoAfterEvent : SimpleDoAfterEvent;
-
-[Serializable, NetSerializable]
 public sealed partial class FracturedFormDoAfterEvent : SimpleDoAfterEvent;

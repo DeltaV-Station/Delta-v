@@ -120,3 +120,29 @@
         damage:
           Brute: -2
           Burn: -2
+
+- type: reagent
+  id: SanctusSal
+  name: reagent-name-sanctussal
+  group: Medicine
+  desc: reagent-desc-sanctussal
+  physicalDesc: reagent-physical-desc-salty
+  allowedDepartments:
+  - Medical
+  - Science
+  flavor: medicine
+  color: "#91C3F7"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectShieldedFromPsionics
+        type: Add
+        time: 60
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPsionicsDisabled
+        type: Add
+        time: 60
+        refresh: false

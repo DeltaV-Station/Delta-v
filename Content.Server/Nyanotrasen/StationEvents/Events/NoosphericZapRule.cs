@@ -3,6 +3,7 @@ using Content.Server.Psionics;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server.Stunnable;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
@@ -26,11 +27,11 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
     {
         base.Started(uid, component, gameRule, args);
 
-        var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<OldPotentialPsionicComponent, MobStateComponent>();
 
         while (query.MoveNext(out var psion, out var potentialPsionicComponent, out _))
         {
-            if (!_mobStateSystem.IsAlive(psion) || HasComp<PsionicInsulationComponent>(psion))
+            if (!_mobStateSystem.IsAlive(psion) || HasComp<OldPsionicInsulationComponent>(psion))
                 continue;
 
             _stunSystem.TryAddParalyzeDuration(psion, TimeSpan.FromSeconds(5));
@@ -46,7 +47,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
                     _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize-potential-regained"), psion, psion, Shared.Popups.PopupType.LargeCaution);
                 } else
                 {
-                    _psionicsSystem.RollPsionics(psion, potentialPsionicComponent, multiplier: 0.25f);
+                    // _psionicsSystem.RollPsionics(psion, potentialPsionicComponent, multiplier: 0.25f);
                     _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize"), psion, psion, Shared.Popups.PopupType.LargeCaution);
                 }
             }

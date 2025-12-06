@@ -15,6 +15,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Shared._DV.Psionics.Components;
 
 namespace Content.Server.Nyanotrasen.Chat
 {
@@ -47,7 +48,7 @@ namespace Content.Server.Nyanotrasen.Chat
         private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
         {
             var filtered = Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
+                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<OldPsionicInsulationComponent>(entity))
                 .Recipients
                 .Select(p => p.Channel);
 
@@ -63,7 +64,7 @@ namespace Content.Server.Nyanotrasen.Chat
         {
             return HasComp<PsionicComponent>(entity)
                 && !HasComp<PsionicsDisabledComponent>(entity)
-                && !HasComp<PsionicInsulationComponent>(entity)
+                && !HasComp<OldPsionicInsulationComponent>(entity)
                 && (!TryComp<MobStateComponent>(entity, out var mobstate) || mobstate.CurrentState == MobState.Alive);
         }
 

@@ -209,7 +209,7 @@ public sealed class CloningPodSystem : EntitySystem
             return false;
         }
 
-        EnsureComp<PotentialPsionicComponent>(mob.Value); // DeltaV
+        EnsureComp<OldPotentialPsionicComponent>(mob.Value); // DeltaV
 
         var cloneMindReturn = AddComp<BeingClonedComponent>(mob.Value);
         cloneMindReturn.Mind = mind;

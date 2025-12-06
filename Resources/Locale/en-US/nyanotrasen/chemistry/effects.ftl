@@ -4,17 +4,7 @@ reagent-effect-guidebook-change-glimmer-reaction-effect =
         *[other] modify
     } the glimmer count by {$count} points
 
-reagent-effect-guidebook-chem-remove-psionic =
-    { $chance ->
-        [1] Removes
-        *[other] remove
-    } psionic powers
 
-reagent-effect-guidebook-chem-reroll-psionic =
-    { $chance ->
-        [1] Allows
-        *[other] allow
-    } a chance to get a different psionic power
 
 ## Disease System support
 

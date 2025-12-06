@@ -25,7 +25,7 @@ public sealed partial class ParadoxCloneRuleSystem
     private void PostClone(EntityUid mob)
     {
         // guaranteed psionic power
-        var psi = EnsureComp<PotentialPsionicComponent>(mob);
-        _psionics.RollPsionics(mob, psi, false, 100);
+        var psi = EnsureComp<OldPotentialPsionicComponent>(mob);
+        // _psionics.RollPsionics(mob, psi, false, 100);
     }
 }

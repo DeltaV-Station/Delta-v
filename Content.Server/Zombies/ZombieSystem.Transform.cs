@@ -13,6 +13,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Abilities.Psionics; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
@@ -122,13 +123,9 @@ public sealed partial class ZombieSystem
 
         if (TryComp<PsionicComponent>(target, out var psionic)) // DeltaV - Prevent psionic zombies
         {
-            if (psionic.ActivePowers.Count > 0)
+            foreach (var power in psionic.PsionicPowersActionEntities)
             {
-                foreach (var power in psionic.ActivePowers)
-                {
-                    RemComp(target, power);
-                }
-                psionic.ActivePowers.Clear();
+                _actions.RemoveAction(power);
             }
             RemComp<PsionicComponent>(target);
         }

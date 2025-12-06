@@ -11,6 +11,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 using Content.Server.Mind;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions.Events;
 using Robust.Shared.Audio.Systems;
 
@@ -48,10 +49,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.PsionicInvisibilityActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.PsionicInvisibilityActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.PsionicInvisibilityActionEntity);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Content.Server.Abilities.Psionics
             _actions.RemoveAction(uid, component.PsionicInvisibilityActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.PsionicInvisibilityActionEntity);
             }
         }
 

@@ -42,7 +42,7 @@ public sealed class PsionicProducingArtifactSystem : EntitySystem
 
         var coords = Transform(uid).Coordinates;
 
-        foreach (var target in _lookup.GetEntitiesInRange<PotentialPsionicComponent>(coords, comp.Range))
+        foreach (var target in _lookup.GetEntitiesInRange<OldPotentialPsionicComponent>(coords, comp.Range))
         {
             _psionics.TryMakePsionic(target);
         }

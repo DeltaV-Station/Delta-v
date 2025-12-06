@@ -4,25 +4,18 @@
   group: Medicine
   desc: reagent-desc-cryptobiolin
   physicalDesc: reagent-physical-desc-fizzy
+  allowedDepartments:
+  - Medical
   flavor: medicine
   color: "#081a80"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
       effects:
-      - !type:GenericStatusEffect
-        key: PsionicallyInsulated #Nyano - Summary: makes the user psionically insulated from effects.
-        component: PsionicInsulation #Nyano - Summary: see above.
-        type: Add
-      - !type:GenericStatusEffect
-        key: ScrambledSpeech
-        component: ScrambledAccent
-      - !type:GenericStatusEffect
-        key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
-        component: PsionicsDisabled #Nyano - Summary: see above.
-        type: Add
+#      - !type:ModifyStatusEffect # Removed until ScrambledSpeech gets fixed by an upstream merge.
+#        effectProto: StatusEffectScrambled
+#        type: Add
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectSlurred
+        effectProto: StatusEffectWoozy
         time: 10.0 # DeltaV - 20 is ridiculous
 
 - type: reagent
