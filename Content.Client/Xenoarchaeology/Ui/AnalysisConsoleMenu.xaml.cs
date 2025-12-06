@@ -67,7 +67,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             SetSelectedNode(node);
         };
 
-        // DeltaV
         ServerButton.OnPressed += _ =>
         {
             OnServerSelectionButtonPressed?.Invoke();
