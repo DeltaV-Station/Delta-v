@@ -15,12 +15,9 @@ using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Content.Shared.Trigger.Systems;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.StepTrigger.Components;
-using System.Reflection;
 
 namespace Content.Shared._EE.Flight;
 
@@ -99,16 +96,15 @@ public abstract class SharedFlightSystem : EntitySystem
         ent.Comp.TimeUntilFlap = 0f;
         _actionsSystem.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.IsCurrentlyFlying);
         RaiseNetworkEvent(new FlightEvent(GetNetEntity(ent), ent.Comp.IsCurrentlyFlying, ent.Comp.IsAnimated));
-
-        _gravity.RefreshWeightless(ent.Owner, active);
+        UpdateHands(ent, active);
         _stamina.TryTakeStamina(ent.Owner, ent.Comp.InitialStaminaCost, visual: false);
         _stamina.ToggleStaminaDrain(ent, ent.Comp.StaminaDrainRate, active, false);
 
+        _gravity.RefreshWeightless(ent.Owner, active);
         _movementSpeed.RefreshMovementSpeedModifiers(ent);
         _movementSpeed.RefreshFrictionModifiers(ent);
         _movementSpeed.RefreshWeightlessModifiers(ent);
 
-        UpdateHands(ent, active);
         Dirty(ent, ent.Comp);
     }
 
@@ -131,19 +127,15 @@ public abstract class SharedFlightSystem : EntitySystem
             return false;
         }
 
-        // Only do the InitialStaminaCost check if there's a cost
-        if (component.InitialStaminaCost > 0)
-        {
-            // Got to have stamina to fly
-            if (!TryComp<StaminaComponent>(uid, out var stam))
-                return false;
+        // Got to have stamina to fly
+        if (!TryComp<StaminaComponent>(uid, out var stam))
+            return false;
 
-            var hasEnoughStamina = stam.StaminaDamage + component.InitialStaminaCost < stam.CritThreshold || stam.Critical;
-            if (!hasEnoughStamina)
-            {
-                _popupSystem.PopupClient(Loc.GetString("no-flight-exhausted"), uid, uid, PopupType.MediumCaution);
-                return false;
-            }
+        var hasEnoughStamina = stam.StaminaDamage + component.InitialStaminaCost < stam.CritThreshold || stam.Critical;
+        if (!hasEnoughStamina)
+        {
+            _popupSystem.PopupClient(Loc.GetString("no-flight-exhausted"), uid, uid, PopupType.MediumCaution);
+            return false;
         }
 
         // All preflight checks complete, ready for take-off!

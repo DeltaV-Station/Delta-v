@@ -31,10 +31,10 @@ public sealed partial class FlightComponent : Component
     public float StaminaDrainRate = 10.0f;
 
     /// <summary>
-    ///     DeltaV - Stamina drain when taking off
+    ///     DeltaV - Stamina cost when taking off.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float InitialStaminaCost = 20.0f;
+    public float InitialStaminaCost = 0f;
 
     /// <summary>
     ///     DoAfter delay until the user becomes weightless.
@@ -56,8 +56,7 @@ public sealed partial class FlightComponent : Component
     public float FrictionModifier = 1f;
 
     /// <summary>
-    ///     DeltaV - Acceleration modifer while in flight. Should be less than one so 
-    ///     they have less control while turning and can't just go 0 to 100% speed right away.
+    ///     DeltaV - Acceleration modifer while in flight.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float AccelerationModifer = 1.5f;
