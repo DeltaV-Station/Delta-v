@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Shared._EE.Flight; // DeltaV
 using Content.Shared._EE.FootPrint;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -12,6 +13,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedFlightSystem _flight = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -21,6 +23,9 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
 
     private void OnStepTrigger(EntityUid uid, PuddleFootPrintsComponent component, ref EndCollideEvent args)
     {
+        if (_flight.IsFlying(uid)) // DeltaV - Flying players won't make footprints
+            return;
+
         if (!TryComp<AppearanceComponent>(uid, out var appearance)
             || !TryComp<PuddleComponent>(uid, out var puddle)
             || !TryComp<FootPrintsComponent>(args.OtherEntity, out var tripper)
