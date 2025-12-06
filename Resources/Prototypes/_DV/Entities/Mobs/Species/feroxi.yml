@@ -82,14 +82,13 @@
         visible: false
   - type: MeleeWeapon
     hidden: true
-    altDisarm: false
     soundHit:
       path: /Audio/Effects/bite.ogg
     angle: 30
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 10
+        Piercing: 7 # oooh scary extra damage~
   - type: Perishable
   - type: Damageable
     damageModifierSet: Feroxi
