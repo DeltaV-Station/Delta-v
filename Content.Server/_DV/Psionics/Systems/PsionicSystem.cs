@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server._DV.Psionics.UI;
 using Content.Server.EUI;
 using Content.Shared._DV.Psionics.Components;

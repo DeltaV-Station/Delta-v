@@ -5,4 +5,3 @@ namespace Content.Shared._DV.Psionics.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class PsionicAwaitingPlayerComponent : Component;
-

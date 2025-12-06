@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Psionics.Systems;
+using Content.Shared._DV.Psionics.Systems;
 
 namespace Content.Client._DV.Psionics.Systems;
 

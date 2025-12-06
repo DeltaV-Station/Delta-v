@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Popups;

@@ -1,4 +1,4 @@
-﻿using Content.Shared.EntityTable;
+using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.GameStates;
 
