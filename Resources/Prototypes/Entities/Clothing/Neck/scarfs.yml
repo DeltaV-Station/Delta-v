@@ -136,7 +136,7 @@
 
 # Pride Scarves
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedAce
   name: striped asexual scarf
   description: A stylish striped asexual scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -145,9 +145,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/ace.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/ace.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedAce # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedAro
   name: striped aromantic scarf
   description: A stylish striped aromantic scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -156,9 +158,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedAro # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedAroace
   name: striped aroace scarf
   description: A stylish striped aroace scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -167,9 +171,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedAroace # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedBiSexual
   name: striped bisexual scarf
   description: A stylish striped bisexual scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -178,9 +184,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/bi.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/bi.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedBiSexual # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedGay
   name: striped gay scarf
   description: A stylish striped gay scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -189,9 +197,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/gay.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/gay.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedGay # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedInter
   name: striped intersex scarf
   description: A stylish striped intersex scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -200,9 +210,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/inter.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/inter.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedInter # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedLesbian
   name: striped lesbian scarf
   description: A stylish striped lesbian scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -211,9 +223,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedLesbian # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedPan
   name: striped pan scarf
   description: A stylish striped pan scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -222,9 +236,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/pan.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/pan.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedPan # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedNonBinary
   name: striped non-binary scarf
   description: A stylish striped non-binary scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -233,9 +249,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/non.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/non.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedNonBinary # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedRainbow
   name: rainbow scarf
   description: A stylish rainbow scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -244,9 +262,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedRainbow # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedTrans
   name: striped trans scarf
   description: A stylish striped trans scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
@@ -255,9 +275,11 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedTrans # DeltaV - Chameleon pride clothing
 
 - type: entity
-  parent: ClothingScarfBase
+  parent: ClothingGenderScarfBase # DeltaV - Chameleon pride clothing
   id: ClothingNeckScarfStripedLesbianLong
   name: long bacon
   description: Long bacon! Perfect for sharing with your girlfriend!
@@ -266,3 +288,5 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
+  - type: ChameleonClothing # DeltaV - Chameleon pride clothing
+    default: ClothingNeckScarfStripedLesbianLong # DeltaV - Chameleon pride clothing
