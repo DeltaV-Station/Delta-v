@@ -65,6 +65,8 @@
     slot: Neck
     requireTag: GenderCloak
     affectedByEmp: false
+    windowTitleOverride: change-cloak-pattern
+    verbNameOverride: change-cloak-pattern
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
