@@ -16,18 +16,16 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     [DataField]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
 
-    // Begin DeltaV - Tie point output to glimmer
     /// <summary>
-    /// The ratio of research points per one glimmer.
+    /// DeltaV - The ratio of research points per one glimmer.
     /// </summary>
     public int ExtractRatio = 750;
 
     /// <summary>
-    /// The maximum added multiplier, reached at max glimmer.
+    /// DeltaV - The maximum added multiplier, reached at max glimmer.
     /// </summary>
     [DataField]
     public float PointGlimmerMultiplier = 8f;
-    // End DeltaV - Tie point output to glimmer
     /// <summary>
     /// The current artifact placed on this analyzer.
     /// Can be null if none are present.
