@@ -33,7 +33,7 @@ analysis-console-progress-text = {$seconds ->
     *[other] T-{$seconds} seconds
 }
 
-analysis-console-extract-value = [font="Monospace" size=11][color=orange]Node:{$id} Reseach:+{$value}[/color][/font]
+analysis-console-extract-value = [font="Monospace" size=11][color=orange]Node:{$id} Research:+{$value}[/color][/font]
 # DeltaV - modified analysis-console-glimmer-value
 analysis-console-glimmer-value = [font="Monospace" size=11][color=orange]Node:{$id} Glimmer:+{$value}[/color][/font]
 analysis-console-extract-none = [font="Monospace" size=11][color=orange]No unlocked nodes have any points left to extract [/color][/font]
