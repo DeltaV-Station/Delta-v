@@ -7,7 +7,6 @@ namespace Content.Shared._DV.EntityEffects;
 
 public sealed class EntityEffectSystem : EntitySystem
 {
-    [Dependency] private readonly PsionicSystem  _psionicSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

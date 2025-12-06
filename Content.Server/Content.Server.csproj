@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="_DV\Abilities\Psionics\PsionicEruption\" />
     <Folder Include="_DV\EntityEffects\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

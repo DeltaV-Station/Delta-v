@@ -140,6 +140,9 @@
       hasMindState: synd_medical_e
       noMindState: synd_medical
     - type: ShowHealthBars
+      damageContainers: # DeltaV
+      - Biological
+      - BiologicalMetaphysical # Kitsune
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
       interactFailureString: petting-failure-syndicate-cyborg

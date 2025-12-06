@@ -153,6 +153,7 @@
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: eruption
     useDelay: 45
+    startDelay: true
     checkCanInteract: false
   - type: InstantAction
     event: !type:PsionicEruptionPowerActionEvent

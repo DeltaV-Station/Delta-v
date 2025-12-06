@@ -2,7 +2,7 @@
   parent: ClothingOuterHardsuitRd
   id: ClothingOuterHardsuitMystagogue
   name: mystagogue's hardsuit
-  description: A heavy-duty hardsuit specialized for research that includes a built-in psionic nullification and detection system in the helmet. Modified bluespace embedded into the plating allows it to be folded into a smaller space then one would expect.
+  description: A heavy-duty hardsuit specialized for research that includes a built-in psionic one-way nullification system in the helmet and a detection system in the core suit. Modified bluespace embedded into the plating allows it to be folded into a smaller space than one would expect.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rd.rsi
@@ -10,7 +10,7 @@
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rd.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMystagogue
-  - type: MetapsionicPulsePower
+  - type: MetapsionicPulsePower # The suit gives the ability to pulse and seek psionic energies.
 
 - type: entity
   parent: [ClothingOuterHardsuitMystagogue, ClothingOuterStorageFoldableBaseOpened]

@@ -1,0 +1,23 @@
+﻿# Table
+- type: entityTable
+  id: PsionicPowerTable
+  table: !type:GroupSelector
+    children:
+    - id: MetapsionicPulsePowerEntity
+      weight: 1
+    - id: PsionicEruptionPowerEntity
+      weight: 0.1
+
+# Powers
+
+- type: entity
+  id: MetapsionicPulsePowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MetapsionicPulsePower
+
+- type: entity
+  id: PsionicEruptionPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PsionicEruptionPower

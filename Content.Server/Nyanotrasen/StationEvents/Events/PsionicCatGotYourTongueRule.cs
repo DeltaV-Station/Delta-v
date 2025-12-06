@@ -29,7 +29,7 @@ internal sealed class PsionicCatGotYourTongueRule : StationEventSystem<PsionicCa
 
         List<EntityUid> psionicList = new();
 
-        var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<OldPotentialPsionicComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out _))
         {
             if (_mobStateSystem.IsAlive(psion) && !HasComp<OldPsionicInsulationComponent>(psion))

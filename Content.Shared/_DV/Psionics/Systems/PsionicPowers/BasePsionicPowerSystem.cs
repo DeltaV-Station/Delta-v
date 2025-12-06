@@ -3,11 +3,11 @@ using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Clothing;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
@@ -21,6 +21,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     [Dependency] protected readonly SharedActionsSystem ActionSystem = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly GlimmerSystem GlimmerSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,12 +41,13 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// </summary>
     /// <param name="power">The psionic power whose action is put into the container.</param>
     /// <param name="args">The args from the event.</param>
-    private void OnPowerInit(Entity<T> power, ref MapInitEvent args)
+    protected virtual void OnPowerInit(Entity<T> power, ref MapInitEvent args)
     {
         ActionSystem.AddAction(power, ref power.Comp.ActionEntity, power.Comp.ActionProtoId );
 
         var psionicComp = EnsureComp<PsionicComponent>(power);
         psionicComp.PsionicPowersActionEntities.Add(power.Comp.ActionEntity);
+        Dirty(power);
     }
 
     /// <summary>
@@ -55,8 +57,11 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// <param name="args">The action event for said power.</param>
     private void OnPowerActionUsed(Entity<T> psionic,  ref T1 args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         var ev = new PsionicPowerUseAttemptEvent();
-        RaiseLocalEvent(psionic.Owner, ref ev);
+        RaiseLocalEvent(args.Performer, ref ev);
 
         if (ev.CanUsePower)
         {
@@ -64,31 +69,33 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
             return;
         }
 
-        PopupSystem.PopupClient(Loc.GetString("psionic-cannot-use-psionics"), psionic);
+        PopupSystem.PopupClient(Loc.GetString("psionic-cannot-use-psionics"), args.Performer);
     }
 
     protected abstract void OnPowerUsed(Entity<T> psionic, ref T1 args);
 
-    private void OnGrantingClothingEquipped(Entity<T> psionicClothing, ref GetItemActionsEvent args)
+    protected void OnGrantingClothingEquipped(Entity<T> psionicClothing, ref GetItemActionsEvent args)
     {
         if (args.SlotFlags is null or SlotFlags.POCKET)
             return;
 
         args.AddAction(psionicClothing.Comp.ActionEntity);
+        Dirty(psionicClothing);
     }
 
     public void OnMindBroken(Entity<T> psionic, ref PsionicMindBrokenEvent args)
     {
         ActionSystem.RemoveAction(psionic.Comp.ActionEntity);
-        RemComp(psionic.Owner, psionic.Comp);
+        RemComp<T>(psionic);
     }
 
-    public void LogPowerUsed(EntityUid psionic, string power, int minGlimmer = 8, int maxGlimmer = 12)
+    public void LogPowerUsed(EntityUid psionicSource, EntityUid performer, string power, int minGlimmer = 8, int maxGlimmer = 12)
     {
-        AdminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(psionic):player} used {power}");
+        power = Loc.GetString(power);
+        AdminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(psionicSource):player} used {power}");
 
-        var ev = new PsionicPowerUsedEvent(psionic, power);
-        RaiseLocalEvent(psionic, ev);
+        var ev = new PsionicPowerUsedEvent(performer, psionicSource, power);
+        RaiseLocalEvent(psionicSource, ev);
 
         GlimmerSystem.Glimmer += Random.Next(minGlimmer, maxGlimmer);
     }

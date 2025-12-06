@@ -27,7 +27,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
     {
         base.Started(uid, component, gameRule, args);
 
-        var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<OldPotentialPsionicComponent, MobStateComponent>();
 
         while (query.MoveNext(out var psion, out var potentialPsionicComponent, out _))
         {
@@ -47,7 +47,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
                     _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize-potential-regained"), psion, psion, Shared.Popups.PopupType.LargeCaution);
                 } else
                 {
-                    _psionicsSystem.RollPsionics(psion, potentialPsionicComponent, multiplier: 0.25f);
+                    // _psionicsSystem.RollPsionics(psion, potentialPsionicComponent, multiplier: 0.25f);
                     _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize"), psion, psion, Shared.Popups.PopupType.LargeCaution);
                 }
             }
