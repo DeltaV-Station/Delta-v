@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/20/2025 23:04:27
-  entityCount: 22336
+  time: 12/03/2025 02:04:03
+  entityCount: 22337
 maps:
 - 1313
 grids:
@@ -11776,7 +11776,7 @@ entities:
       pos: -38.5,33.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -49857.33
+      secondsUntilStateChange: -50457.695
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12243,7 +12243,7 @@ entities:
       pos: -31.5,9.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -47004.03
+      secondsUntilStateChange: -47604.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12617,13 +12617,6 @@ entities:
     - type: Transform
       pos: -24.5,-41.5
       parent: 100
-  - uid: 15062
-    components:
-    - type: MetaData
-      name: Epistemics Maintenance
-    - type: Transform
-      pos: -19.5,-20.5
-      parent: 100
   - uid: 15174
     components:
     - type: MetaData
@@ -12640,6 +12633,8 @@ entities:
       parent: 100
   - uid: 19026
     components:
+    - type: MetaData
+      name: Epistemics Maintenance
     - type: Transform
       pos: -21.5,-21.5
       parent: 100
@@ -12651,6 +12646,15 @@ entities:
       name: Intensive Care Maintenance
     - type: Transform
       pos: -24.5,42.5
+      parent: 100
+- proto: AirlockMaintRnDLocked
+  entities:
+  - uid: 3358
+    components:
+    - type: MetaData
+      name: Epistemics Maintenance
+    - type: Transform
+      pos: -19.5,-20.5
       parent: 100
 - proto: AirlockMaintSalvageLocked
   entities:
@@ -56652,6 +56656,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -15.5,33.5
       parent: 100
+  - uid: 15062
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-11.5
+      parent: 100
   - uid: 15685
     components:
     - type: Transform
@@ -56736,14 +56746,6 @@ entities:
     components:
     - type: Transform
       pos: -21.5,2.5
-      parent: 100
-    - type: PointLight
-      enabled: True
-    - type: ActiveEmergencyLight
-  - uid: 16629
-    components:
-    - type: Transform
-      pos: -20.5,-4.5
       parent: 100
     - type: PointLight
       enabled: True
@@ -56933,10 +56935,10 @@ entities:
       parent: 100
 - proto: ExosuitFabricator
   entities:
-  - uid: 8921
+  - uid: 16629
     components:
     - type: Transform
-      pos: -8.5,-12.5
+      pos: -9.5,-12.5
       parent: 100
 - proto: ExplosivesSignMed
   entities:
@@ -57158,7 +57160,7 @@ entities:
       pos: -3.5,79.5
       parent: 100
     - type: FaxMachine
-      name: Admin Assistant
+      name: Bridge Fax
   - uid: 20752
     components:
     - type: Transform
@@ -112807,11 +112809,6 @@ entities:
     - type: Transform
       pos: -48.766964,-0.4833074
       parent: 100
-  - uid: 8931
-    components:
-    - type: Transform
-      pos: -7.456021,-12.437594
-      parent: 100
   - uid: 12472
     components:
     - type: Transform
@@ -112826,6 +112823,11 @@ entities:
     components:
     - type: Transform
       pos: -17.53536,-1.5072498
+      parent: 100
+  - uid: 21657
+    components:
+    - type: Transform
+      pos: -8.530609,-12.491675
       parent: 100
 - proto: SheetPlasma
   entities:
@@ -112848,10 +112850,10 @@ entities:
     - type: Transform
       pos: -46.65759,-0.4208074
       parent: 100
-  - uid: 12080
+  - uid: 8927
     components:
     - type: Transform
-      pos: -6.8686876,-12.494178
+      pos: -7.968109,-12.53855
       parent: 100
   - uid: 16933
     components:
@@ -112877,10 +112879,10 @@ entities:
     - type: Transform
       pos: -50.391964,-0.4989324
       parent: 100
-  - uid: 8935
+  - uid: 8931
     components:
     - type: Transform
-      pos: -6.331021,-12.484469
+      pos: -7.421234,-12.554175
       parent: 100
   - uid: 11668
     components:
@@ -120596,15 +120598,15 @@ entities:
     - type: Transform
       pos: -15.5,37.5
       parent: 100
+  - uid: 8921
+    components:
+    - type: Transform
+      pos: -8.5,-12.5
+      parent: 100
   - uid: 8924
     components:
     - type: Transform
       pos: -7.5,-12.5
-      parent: 100
-  - uid: 8927
-    components:
-    - type: Transform
-      pos: -6.5,-12.5
       parent: 100
   - uid: 11662
     components:
@@ -122712,12 +122714,19 @@ entities:
     - type: Transform
       pos: -16.5,20.5
       parent: 100
-- proto: VendingMachineRobotics
+- proto: VendingMachineRoboDrobe
   entities:
-  - uid: 3358
+  - uid: 12080
     components:
     - type: Transform
       pos: -11.5,-10.5
+      parent: 100
+- proto: VendingMachineRobotics
+  entities:
+  - uid: 8935
+    components:
+    - type: Transform
+      pos: -6.5,-12.5
       parent: 100
 - proto: VendingMachineSalvage
   entities:
@@ -122894,7 +122903,8 @@ entities:
   - uid: 8920
     components:
     - type: Transform
-      pos: -9.489354,-12.375094
+      rot: 3.141592653589793 rad
+      pos: -9.500496,-10.298204
       parent: 100
 - proto: WallClown
   entities:
@@ -141269,7 +141279,7 @@ entities:
       pos: 6.5,-10.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -11257.53
+      secondsUntilStateChange: -11857.896
       state: Opening
   - uid: 226
     components:
