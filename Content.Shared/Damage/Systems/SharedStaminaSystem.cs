@@ -267,7 +267,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
         EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool ignoreResist = false,
-        bool? allowsSlowdown = true) // EE - Harpy flight
+        bool? allowsSlowdown = true) // EE - Harpy Flight
     {
         if (!Resolve(uid, ref component, false))
             return;
