@@ -300,12 +300,9 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private void OnStunned(EntityUid uid, FlightComponent component, ref StunnedEvent args)
     {
-        
-
         if (!component.IsCurrentlyFlying)
             return;
 
-        _popupSystem.PopupPredicted(Loc.GetString("no-flight-exhausted"), uid, uid, PopupType.Small);
         ToggleActive((uid, component), false);
     }
 
