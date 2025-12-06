@@ -12,6 +12,8 @@
   - type: AntagImmune
   - type: StaminaResistance
     damageCoefficient: 0 # No more stunning colossi
+    worn: false
+    meleeResistance: true
   - type: Sprite
     drawdepth: Mobs
     sprite: _DV/CosmicCult/Mobs/colossus.rsi
@@ -167,7 +169,6 @@
   - type: StatusEffects
     allowed:
     - Stutter
-    - Stun
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:

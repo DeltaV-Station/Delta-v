@@ -1,9 +1,11 @@
 using System.Linq;
+using Content.Shared._DV.Xenoarchaeology.Artifact.Components; // DeltaV
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random; // DeltaV
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
@@ -111,6 +113,17 @@ public abstract partial class SharedXenoArtifactSystem
         var nodeComponent = nodeEnt.Value.Comp;
         nodeComponent.Depth = depth;
         nodeComponent.TriggerTip = trigger.Tip;
+        // DeltaV - start of hide locked node effects
+        nodeComponent.LockedEffectTipHidden = RobustRandom.Prob(ent.Comp.LockedEffectHiddenProbability);
+        nodeComponent.LockedEffectTipVague = RobustRandom.Prob(ent.Comp.LockedEffectVagueProbability);
+        if (TryComp<XAEDetailsComponent>(nodeEnt.Value.Owner, out var details))
+        {
+            nodeComponent.EffectTipSpecific = details.SpecificTip;
+            nodeComponent.EffectTipVague = details.VagueTip;
+            if (!details.AllowLockedEffectHiding)
+                nodeComponent.LockedEffectTipHidden = false;
+        }
+        // DeltaV - end of hide locked node effects
         EntityManager.AddComponents(nodeEnt.Value, trigger.Components);
 
         Dirty(nodeEnt.Value);

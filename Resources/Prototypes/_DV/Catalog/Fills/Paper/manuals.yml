@@ -27,15 +27,27 @@
 
 - type: entity
   parent: Paper
-  id: PaperWrittenSubscriptionNotice
+  id: PaperWrittenGorlexGirlfriendsSubscriptionNotice
   name: "subscription notice"
   description: "Thank you for your purchase"
   components:
   - type: Paper
-    content: book-text-subscription-notice
+    content: book-text-gorlex-girlfriends-subscription-notice
     stampedBy:
     - stampedColor: "#850000"
       stampedName: stamp-component-stamped-name-syndicate
+
+- type: entity
+  parent: Paper
+  id: PaperWrittenCentcommChadsSubscriptionNotice
+  name: "subscription notice"
+  description: "Thank you for your purchase"
+  components:
+  - type: Paper
+    content: book-text-centcomm-chads-subscription-notice
+    stampedBy:
+    - stampedColor: "#006600FF"
+      stampedName: stamp-component-stamped-name-centcom
 
 - type: entity
   parent: Paper
@@ -44,3 +56,11 @@
   components:
   - type: Paper
     content: paper-salvage-gun-safe-notice
+
+- type: entity
+  parent: Paper
+  id: PaperViralCarePackageManual
+  name: viral care package manual
+  components:
+  - type: Paper
+    content: paper-viral-care-package-manual

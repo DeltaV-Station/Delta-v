@@ -6,19 +6,16 @@ using Content.Shared.Revenant.Components;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using Content.Shared.Mind;
 using Content.Shared.Actions.Events;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Abilities.Psionics
 {
     public sealed class DispelPowerSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -27,8 +24,6 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
 
 
         public override void Initialize()
@@ -94,7 +89,7 @@ namespace Content.Server.Abilities.Psionics
             QueueDel(uid);
             Spawn("Ash", Transform(uid).Coordinates);
             _popupSystem.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.MediumCaution);
-            _audioSystem.PlayEntity("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
+            _audioSystem.PlayEntity(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), Filter.Pvs(uid), uid, true);
             args.Handled = true;
         }
 
@@ -138,7 +133,7 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             _popupSystem.PopupCoordinates(Loc.GetString("psionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.SmallCaution);
-            _audioSystem.PlayEntity("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
+            _audioSystem.PlayEntity(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), Filter.Pvs(uid), uid, true);
 
             if (damage == null)
             {

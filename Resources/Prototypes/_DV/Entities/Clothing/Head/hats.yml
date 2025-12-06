@@ -84,7 +84,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapBlack
-  name: surgical cap
+  name: black surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapCyan
-  name: surgical cap
+  name: cyan surgical cap
   description: A cyan cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -106,7 +106,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapCybersun
-  name: surgical cap
+  name: cybersun surgical cap
   description: A surgical cap worn by members of Cybersun's Biotechnology division.
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapPink
-  name: surgical cap
+  name: pink surgical cap
   description: A pink cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -128,7 +128,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapRainbow
-  name: surgical cap
+  name: rainbow surgical cap
   description: A rainbow cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -139,7 +139,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapWhite
-  name: surgical cap
+  name: white surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -248,3 +248,14 @@
     sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretAtmospherics
+  name: atmospherics beret
+  description: A yellow and blue beret that encourages you to make canister bombs. Do not listen.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi

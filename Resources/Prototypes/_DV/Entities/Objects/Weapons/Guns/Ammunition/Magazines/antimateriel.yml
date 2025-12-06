@@ -1,0 +1,33 @@
+- type: entity
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: MagazineLMGAntiMaterielBox
+  name: "NT-3 magazine box (.40 anti-materiel)"
+  description: An ancient design of a box containing containing a 60-round belt of linked .40 anti-materiel rounds, used by refurbished light machine guns such as the NT-3. Intended to hold structure-piercing kinetic ammunition.
+  components:
+  - type: Tag
+    tags:
+    - MagazineLMGAntiMaterielBox
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeLMGAntiMateriel
+    proto: CartridgeLMGAntiMateriel
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_small_box.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance

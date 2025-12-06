@@ -10,10 +10,6 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Oni
 
 - type: listing
   id: UplinkRickenbacker
@@ -45,9 +41,6 @@
   categories:
   - UplinkWearables
   conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Oni
   - !type:BuyerWhitelistCondition
     blacklist:
       components:

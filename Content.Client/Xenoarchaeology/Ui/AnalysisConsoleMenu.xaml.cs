@@ -236,14 +236,34 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         var hasInfo = _xenoArtifact.HasUnlockedPredecessor(artifact.Value, node.Value);
 
-        EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
-            ("state", hasInfo),
-            ("info", _ent.GetComponentOrNull<MetaDataComponent>(node.Value)?.EntityDescription ?? string.Empty)));
+        // DeltaV - start of hide locked node effects
+        var specificInfo = node.Value.Comp.EffectTipSpecific ?? "xenoarch-effect-tip-unknown";
+        if (!hasInfo || (node.Value.Comp.LockedEffectTipHidden && node.Value.Comp.Locked))
+        {
+            EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
+                ("state", hasInfo ? XenoArtifactEffectVisibility.Hidden : XenoArtifactEffectVisibility.NoInfo)));
+        }
+        else if (!node.Value.Comp.LockedEffectTipHidden && node.Value.Comp.LockedEffectTipVague && node.Value.Comp.EffectTipVague != null)
+        {
+            EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
+                ("state", node.Value.Comp.Locked ? XenoArtifactEffectVisibility.VagueOnly : XenoArtifactEffectVisibility.VagueAndSpecific),
+                ("specificInfo", Loc.GetString(specificInfo)),
+                ("vagueInfo", Loc.GetString(node.Value.Comp.EffectTipVague))));
+        }
+        else
+        {
+            EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
+                ("state", XenoArtifactEffectVisibility.Simple),
+                ("specificInfo", Loc.GetString(specificInfo))));
+        }
+        // DeltaV - end of hide locked node effects
 
         var predecessorNodes = _xenoArtifact.GetPredecessorNodes(artifact.Value.Owner, node.Value);
         if (!hasInfo)
         {
-            TriggerValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value", ("state", false)));
+            // DeltaV - start of hide locked node effects
+            TriggerValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value", ("state", XenoArtifactEffectVisibility.NoInfo)));
+            // DeltaV - end of hide locked node effects
         }
         else
         {
@@ -263,5 +283,16 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ClassValueLabel.SetMarkup(Loc.GetString("analysis-console-info-class-value",
             ("class", Loc.GetString($"artifact-node-class-{Math.Min(6, predecessorNodes.Count + 1)}"))));
     }
+
+    // DeltaV - start of hide locked node effects
+    public enum XenoArtifactEffectVisibility : sbyte
+    {
+        NoInfo = 0,
+        Hidden = 1,
+        Simple = 2,
+        VagueOnly = 3,
+        VagueAndSpecific = 4,
+    }
+    // DeltaV - end of hide locked node effects
 }
 

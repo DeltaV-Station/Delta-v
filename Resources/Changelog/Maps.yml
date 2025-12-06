@@ -253,4 +253,191 @@
   id: 30
   time: '2025-11-05T02:35:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4601
+- author: Colin-Tel
+  changes:
+  - message: 'Division: Replaces sentry turrets with new ones, adding a couple to
+      security, changed some sec airlocks to be security only so lawyers don''t get
+      blasted. Adds stuff to hallways to make them a little prettier. Added like more
+      content to maints.'
+    type: Add
+  - message: 'Division: added archivist stuff to library'
+    type: Add
+  - message: 'Division: fixed engineering maints hatch in reception to be public access'
+    type: Fix
+  - message: 'Division: Moved condenser from chemistry to atmosia. Replaced guns in
+      salvage with the salvage gun safe spawner. Moved holopads in logistics'
+    type: Tweak
+  id: 31
+  time: '2025-11-13T19:28:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4604
+- author: Colin-Tel
+  changes:
+  - message: 'Division: Added the Psychologist role that should''ve been there in
+      the first place.'
+    type: Add
+  id: 32
+  time: '2025-11-14T18:03:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4652
+- author: Velcroboy
+  changes:
+  - message: 'The Hive: Added Chef Vend and a recycler in perma.'
+    type: Add
+  - message: 'The Hive: Added archivist stuff.'
+    type: Add
+  - message: 'The Hive: Swapped in sentry turrets and indestructible tiles in AI satellite.'
+    type: Tweak
+  - message: 'The Hive:  Extended the epistemics silo to reach robotics'
+    type: Tweak
+  - message: 'The Hive: Fixed funny disposals outside justice.'
+    type: Fix
+  id: 33
+  time: '2025-11-16T09:28:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4657
+- author: Velcroboy
+  changes:
+  - message: 'Tortuga: Added several public APCs, Archivist stuff, and Clippy!'
+    type: Add
+  - message: 'Tortuga: Swapped AI turrets to use sentry turrets, moved condenser to
+      atmos, and made adjustments to cryogenics piping.'
+    type: Tweak
+  id: 34
+  time: '2025-11-17T03:46:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4669
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Newer AI turrets and expanded Library'
+    type: Add
+  - message: 'Terra: Signs and Buttons are no longer in a centered mess'
+    type: Fix
+  - message: 'Terra: Mirrors are now facing INTO the bathrooms instead of outside
+      of them.'
+    type: Fix
+  id: 35
+  time: '2025-11-20T01:46:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4685
+- author: Velcroboy
+  changes:
+  - message: 'Ruins: Added two new ruins.'
+    type: Add
+  id: 36
+  time: '2025-11-23T08:24:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4706
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Changed burn chamber windows to reinforced plasma. Pressure damage
+      jumpscare'
+    type: Tweak
+  id: 37
+  time: '2025-11-25T03:18:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4741
+- author: Colin-Tel
+  changes:
+  - message: 'Chibi: Updated the burn chamber for the TEG.'
+    type: Tweak
+  id: 38
+  time: '2025-11-25T03:20:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4739
+- author: snowy_winter
+  changes:
+  - message: 'Asterisk: New ai turrets and a new armory'
+    type: Add
+  - message: 'Asterisk: A fishing spot west of kitchen and a lot more'
+    type: Add
+  - message: 'Asterisk: Fixed telecoms servers and other issues that where there'
+    type: Tweak
+  id: 39
+  time: '2025-11-27T04:05:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4758
+- author: Velcroboy
+  changes:
+  - message: 'Arena: Updated with AI turrets and Archivist tools'
+    type: Add
+  - message: 'Arena: Gladiator gets some new toys'
+    type: Tweak
+  - message: 'Arena: Increased musician slots from 1 to 2'
+    type: Tweak
+  id: 40
+  time: '2025-11-27T11:07:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4729
+- author: Velcroboy
+  changes:
+  - message: 'Tortuga: Adjusted TEG burn chamber to accommodate pressure changes'
+    type: Tweak
+  id: 41
+  time: '2025-11-27T12:02:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4773
+- author: Velcroboy
+  changes:
+  - message: Fixed tilewall command replacing some asteroid rocks with plating and
+      some rock walls not showing up on station maps
+    type: Fix
+  id: 42
+  time: '2025-11-28T08:26:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4777
+- author: FieldCommand
+  changes:
+  - message: 'Pebble: Pebble''s reincarnation, Rejoice. Pebble has now been fully
+      overhauled and should be up to the latest standards.'
+    type: Tweak
+  id: 43
+  time: '2025-12-02T05:33:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4807
+- author: FieldCommand
+  changes:
+  - message: 'Grids: Lots of edits to shuttle grids, e.g., shipyard, evac, and cargo
+      shuttles. Slight increase in shipyard pricing.'
+    type: Tweak
+  - message: Standardize shuttle naming convention further.
+    type: Tweak
+  id: 44
+  time: '2025-12-02T23:29:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4828
+- author: FieldCommand
+  changes:
+  - message: 'NTES BC20: Lighthouse evac shuttle has been updated to let command members
+      access shuttle bridge without the need for security to let them in. Public-facing
+      APC''s have been added'
+    type: Tweak
+  id: 45
+  time: '2025-12-04T05:06:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4842
+- author: FieldCommand
+  changes:
+  - message: 'Pebble: Increased min and max soft cap from 0 - 35 to 5 - 55'
+    type: Tweak
+  id: 46
+  time: '2025-12-04T05:06:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4850
+- author: FieldCommand
+  changes:
+  - message: 'Pebble: Added ore processor!'
+    type: Tweak
+  id: 47
+  time: '2025-12-06T01:24:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4874
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Some kinda snowstorm blew through the station'
+    type: Tweak
+  id: 48
+  time: '2025-12-06T01:25:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4843
+- author: Velcroboy
+  changes:
+  - message: 'The Hive: Increased the amount of ammonia in jani''s tank and upgraded
+      some weak spots at the AI Satelite'
+    type: Tweak
+  id: 49
+  time: '2025-12-06T04:40:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4887
+- author: Velcroboy
+  changes:
+  - message: 'Tortuga: Increased the amount of detective slots.'
+    type: Tweak
+  - message: 'Tortuga: Fixed some missing cable at TEG cold loop, redirected some
+      TEG pipes, and added a pressure siphon to the TEG burn chamber'
+    type: Fix
+  id: 50
+  time: '2025-12-06T05:33:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4878
 Order: 1
