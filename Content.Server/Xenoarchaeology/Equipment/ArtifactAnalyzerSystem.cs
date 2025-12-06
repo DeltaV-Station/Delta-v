@@ -21,7 +21,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; // DeltaV
-
+    [Dependency] private readonly ArtifactAnalyzerSystem _analyzerSystem = default!; //DeltaV
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -42,13 +42,9 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         // Begin DeltaV - Variables for extraction totals
         var sumResearch = 0;
         var sumGlimmer = 0;
+        if (!_analyzerSystem.TryGetAnalyzer(ent, out var analyzer))
+            return;
         // End DeltaV
-        ArtifactAnalyzerComponent? analyzer = null;
-        if (ent.Comp.AnalyzerEntity is { } analyzerNetEntity)
-        {
-            var analyzerEntityUid = GetEntity(analyzerNetEntity); // Convert NetEntity to EntityUid
-            TryComp<ArtifactAnalyzerComponent>(analyzerEntityUid, out analyzer);
-        }
 
         foreach (var node in _xenoArtifact.GetAllNodes(artifact.Value))
         {
@@ -58,8 +54,8 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             // Begin DeltaV - Only run if we have an artifact ready for extraction
             if (analyzer != null)
             {
-                sumGlimmer += (int)(research / (float)analyzer.ExtractRatio);
-                research = (int)(research * GetGlimmerMultiplier(analyzer));
+                sumGlimmer += (int)(research / (float)analyzer.Value.Comp.ExtractRatio);
+                research = (int)(research * GetGlimmerMultiplier(analyzer.Value.Comp));
             }
             // End DeltaV
             sumResearch += research;
@@ -69,7 +65,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             UpdateClientUI(ent, analyzer);
         }
 
-
+        // 4-16-25: It's a sad day when a scientist makes negative 5k research
         if (sumResearch <= 0)
             return;
 
