@@ -17,6 +17,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedFlightSystem _flight = default!;
 
     public static readonly ProtoId<AlertPrototype> WeightlessAlert = "Weightless";
 
@@ -70,7 +71,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
         if (entity.Comp2.BodyType is BodyType.Static or BodyType.Kinematic)
             return false;
 
-        if (TryComp<FlightComponent>(entity, out var flying) && flying.IsCurrentlyFlying) // DeltaV - Harpy Flying
+        if (_flight.IsFlying(entity.Owner)) // DeltaV - Harpy Flying
             return true;
 
         // Check if something other than the grid or map is overriding our gravity

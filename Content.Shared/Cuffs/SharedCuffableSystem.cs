@@ -56,6 +56,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+        [Dependency] private readonly SharedFlightSystem _flight = default!;
 
         public override void Initialize()
         {
@@ -516,11 +517,11 @@ namespace Content.Shared.Cuffs
             }
 
             // EE - Harpy Flight
-            if (TryComp<FlightComponent>(target, out var flight) && flight.IsCurrentlyFlying)
+            if (_flight.IsFlying(target))
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-target-flying-error",
                     ("targetName", Identity.Name(target, EntityManager, user))), user, user);
-                return true;
+                return false;
             }
             // END EE
 
