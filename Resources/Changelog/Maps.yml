@@ -392,4 +392,52 @@
   id: 44
   time: '2025-12-02T23:29:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4828
+- author: FieldCommand
+  changes:
+  - message: 'NTES BC20: Lighthouse evac shuttle has been updated to let command members
+      access shuttle bridge without the need for security to let them in. Public-facing
+      APC''s have been added'
+    type: Tweak
+  id: 45
+  time: '2025-12-04T05:06:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4842
+- author: FieldCommand
+  changes:
+  - message: 'Pebble: Increased min and max soft cap from 0 - 35 to 5 - 55'
+    type: Tweak
+  id: 46
+  time: '2025-12-04T05:06:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4850
+- author: FieldCommand
+  changes:
+  - message: 'Pebble: Added ore processor!'
+    type: Tweak
+  id: 47
+  time: '2025-12-06T01:24:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4874
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Some kinda snowstorm blew through the station'
+    type: Tweak
+  id: 48
+  time: '2025-12-06T01:25:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4843
+- author: Velcroboy
+  changes:
+  - message: 'The Hive: Increased the amount of ammonia in jani''s tank and upgraded
+      some weak spots at the AI Satelite'
+    type: Tweak
+  id: 49
+  time: '2025-12-06T04:40:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4887
+- author: Velcroboy
+  changes:
+  - message: 'Tortuga: Increased the amount of detective slots.'
+    type: Tweak
+  - message: 'Tortuga: Fixed some missing cable at TEG cold loop, redirected some
+      TEG pipes, and added a pressure siphon to the TEG burn chamber'
+    type: Fix
+  id: 50
+  time: '2025-12-06T05:33:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4878
 Order: 1

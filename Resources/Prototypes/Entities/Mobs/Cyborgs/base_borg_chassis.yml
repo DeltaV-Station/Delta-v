@@ -448,8 +448,9 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+    - Robotics # DeltaV - Allow robotics to open derelict syndicate borgs to update access
   - type: AccessReader
-    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
+    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ], [ "Robotics" ] ] # DeltaV - Added Robotics
   - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
     channels:
     - Binary #1984

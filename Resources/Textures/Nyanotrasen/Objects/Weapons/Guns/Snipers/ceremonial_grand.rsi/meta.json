@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from InterBay at https://github.com/Kraseo/InterBay/blob/5a5be69ffeeccec99184a5965b7d9ff03f60dba9/icons/obj/gun.dmi. Modified by TJohnson.",
+    "copyright": "Taken from InterBay at https://github.com/Kraseo/InterBay/blob/5a5be69ffeeccec99184a5965b7d9ff03f60dba9/icons/obj/gun.dmi. Modified by TJohnson, wielded sprites by Verybigman311",
     "size": {
         "x": 32,
         "y": 32
@@ -16,6 +16,14 @@
         },
         {
             "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
             "directions": 4
         },
         {
