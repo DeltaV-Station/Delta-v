@@ -9,6 +9,7 @@ namespace Content.Shared._DV.Xenoarchaeology.BUI;
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
+    // Point multiplier from glimmer, and glimmer-generated-per-points ratio. See these variables in ArtifactAnalyzerComponent
     public float Mult { get; }
     public float Ratio { get; }
 
