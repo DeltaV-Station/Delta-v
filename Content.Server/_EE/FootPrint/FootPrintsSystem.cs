@@ -1,9 +1,9 @@
 ﻿using Content.Server.Atmos.Components;
+using Content.Shared._EE.Flight; // DeltaV
 using Content.Shared._EE.FootPrint;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared._EE.FootPrint;
 // using Content.Shared.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -21,10 +21,12 @@ public sealed class FootPrintsSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedFlightSystem _flight = default!; // DeltaV
 
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
     private EntityQuery<AppearanceComponent> _appearanceQuery;
+    
 //    private EntityQuery<LayingDownComponent> _layingQuery;
 
     public override void Initialize()
@@ -47,6 +49,9 @@ public sealed class FootPrintsSystem : EntitySystem
 
     private void OnMove(EntityUid uid, FootPrintsComponent component, ref MoveEvent args)
     {
+        if (_flight.IsFlying(uid)) // DeltaV - Flying players won't make footprints
+            return;
+
         if (component.PrintsColor.A <= 0f
             || !_transformQuery.TryComp(uid, out var transform)
             || !_mobThresholdQuery.TryComp(uid, out var mobThreshHolds)

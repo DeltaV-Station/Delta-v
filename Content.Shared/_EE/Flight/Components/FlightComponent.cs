@@ -31,10 +31,16 @@ public sealed partial class FlightComponent : Component
     public float StaminaDrainRate = 10.0f;
 
     /// <summary>
+    ///     DeltaV - Stamina drain when taking off
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float InitialStaminaCost = 20.0f;
+
+    /// <summary>
     ///     DoAfter delay until the user becomes weightless.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ActivationDelay = 1.0f;
+    public float ActivationDelay = 0.5f;
 
     /// <summary>
     ///     Speed modifier while in flight
@@ -47,14 +53,14 @@ public sealed partial class FlightComponent : Component
     ///     they have less control while flying. Also applies to friction with no inputs.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float FrictionModifier = 0.1f;
+    public float FrictionModifier = 1f;
 
     /// <summary>
     ///     DeltaV - Acceleration modifer while in flight. Should be less than one so 
     ///     they have less control while turning and can't just go 0 to 100% speed right away.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float AccelerationModifer = 0.1f;
+    public float AccelerationModifer = 1.5f;
 
     /// <summary>
     ///     Path to a sound specifier or collection for the noises made during flight
