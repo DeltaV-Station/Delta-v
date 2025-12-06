@@ -591,4 +591,14 @@ public sealed class PullingSystem : EntitySystem
         StopPulling(pullableUid, pullable);
         return true;
     }
+    //delta-v addition
+    public void ToggleNeedsHands(Entity<PullerComponent?> ent, bool needsHands)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.NeedsHands = needsHands;
+
+        Dirty(ent); //Delta-v TODO: Make dirty actually work. Dunno why it doesn't
+    }
 }
