@@ -1,5 +1,5 @@
 - type: entity
-  save: false 
+  save: false
   name: Urist McRaptor # DeltaV - we ain't marines here
   parent: BaseMobSpeciesOrganic # DeltaV - set proper parent
   id: BaseMobAvali # DeltaV - rename base entity
@@ -20,7 +20,7 @@
       Female: RMCFemaleAvali
   - type: Speech
     speechVerb: Parrot # Didn't come with one
-    speechSounds: MaleAvali    
+    speechSounds: MaleAvali
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -31,7 +31,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg
-    damage: # DeltaV - evens out to about 5 after damage modifier    
+    damage: # DeltaV - evens out to about 5 after damage modifier
       types:
         Slash: 6
     animation: WeaponArcClaw
@@ -117,3 +117,8 @@
   parent: BaseSpeciesDummy
   id: MobAvaliDummy
   categories: [ HideSpawnMenu ]
+  # Begin DeltaV additions - Gives them moth eye sprites in the character menu
+  components:
+  - type: Inventory
+    speciesId: moth
+  # End DeltaV additions
