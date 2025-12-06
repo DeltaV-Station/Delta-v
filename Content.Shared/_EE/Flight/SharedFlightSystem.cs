@@ -20,6 +20,7 @@ using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.StepTrigger.Components;
+using System.Reflection;
 
 namespace Content.Shared._EE.Flight;
 
@@ -130,15 +131,19 @@ public abstract class SharedFlightSystem : EntitySystem
             return false;
         }
 
-        // Gotta have stamina to fly
-        if(!TryComp<StaminaComponent>(uid, out var stam))
-            return false;
-
-        var hasEnoughStamina = stam.StaminaDamage + component.InitialStaminaCost < stam.CritThreshold || stam.Critical;
-        if (!hasEnoughStamina)
+        // Only do the InitialStaminaCost check if there's a cost
+        if (component.InitialStaminaCost > 0)
         {
-            _popupSystem.PopupClient(Loc.GetString("no-flight-exhausted"), uid, uid, PopupType.MediumCaution);
-            return false;
+            // Got to have stamina to fly
+            if (!TryComp<StaminaComponent>(uid, out var stam))
+                return false;
+
+            var hasEnoughStamina = stam.StaminaDamage + component.InitialStaminaCost < stam.CritThreshold || stam.Critical;
+            if (!hasEnoughStamina)
+            {
+                _popupSystem.PopupClient(Loc.GetString("no-flight-exhausted"), uid, uid, PopupType.MediumCaution);
+                return false;
+            }
         }
 
         // All preflight checks complete, ready for take-off!
