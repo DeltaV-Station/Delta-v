@@ -356,6 +356,26 @@
       collection: FemaleDeathGasp
 
 - type: emoteSounds
+  id: FeroxiBodyEmotes
+  sounds:
+    Thump:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Blink:
+      collection: Blinks
+
+- type: emoteSounds
   id: MaleKitsune
   params:
     variation: 0.125
