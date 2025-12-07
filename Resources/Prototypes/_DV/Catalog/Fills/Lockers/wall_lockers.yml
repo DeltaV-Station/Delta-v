@@ -224,9 +224,8 @@
     - id: RubberStampGreytide # a disturbance in the rising grey water.
 
 - type: entity
-  id: LockerWallChemistryFilled
-  parent: LockerWallChemistry
-  name: chemistry wall locker
+  id: LockerWallChemicalFilled
+  parent: LockerWallChemical
   suffix: Filled
   components:
     - type: EntityTableContainerFill
@@ -237,7 +236,6 @@
 - type: entity
   id: LockerWallSurgeonFilled
   parent: LockerWallSurgeon
-  name: surgeon wall locker
   suffix: Filled
   components:
     - type: EntityTableContainerFill
@@ -248,7 +246,6 @@
 - type: entity
   id: LockerWallParamedicFilled
   parent: LockerWallParamedic
-  name: paramedic wall locker
   suffix: Filled
   components:
     - type: EntityTableContainerFill
