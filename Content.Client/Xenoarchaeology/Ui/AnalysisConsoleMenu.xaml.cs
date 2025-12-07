@@ -109,7 +109,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         }
     }
 
-    private void StartExtract()
+    private void StartExtract() // DeltaV - args changed
     {
         if (!_artifactAnalyzer.TryGetArtifactFromConsole(_owner, out var artifact))
             return;
