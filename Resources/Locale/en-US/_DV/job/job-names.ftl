@@ -78,6 +78,8 @@ JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
+JobZookeeper = Zookeeper
+JobBoxer = Boxer
 
 # Pet Roles
 RoleLaika = Laika
@@ -93,3 +95,7 @@ role-name-ifrit = Ifrit
 role-name-carpy = Carpy
 role-name-shiva = Shiva
 role-name-pun-pun = Pun Pun
+
+# Station specific
+job-name-boxer = Boxer
+job-name-zookeeper = Zookeeper
