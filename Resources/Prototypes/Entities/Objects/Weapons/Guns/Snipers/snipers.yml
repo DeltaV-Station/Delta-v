@@ -127,71 +127,30 @@
   - type: StaticPrice
     price: 3500
 
-# Start DeltaV removals
-#- type: entity
-#  name: musket
-#  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
-#  id: Musket
-#  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
-#  components:
-#  - type: Sharp
-#  - type: Item
-#    size: Large
-#  - type: Sprite
-#    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
-#    state: base
-#  - type: Clothing
-#    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
-#  - type: Gun
-#    selectedMode: SemiAuto
-#    availableModes:
-#    - SemiAuto
-#  - type: UseDelayOnShoot
-#  - type: UseDelay
-#    delay: 8 #it's a musket
-#  - type: BallisticAmmoProvider
-#    whitelist:
-#      tags:
-#      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
-#    capacity: 1
-#    proto: CartridgeMusket # DeltaV
-#  - type: MeleeWeapon
-#    wideAnimationRotation: -135
-#    damage:
-#      types:
-#        Piercing: 15 #you fucking stab em
-#        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
-#    angle: 0
-#    animation: WeaponArcThrust
-#    soundHit:
-#      path: /Audio/Weapons/bladeslice.ogg
-#  - type: GunRequiresWield
-# End DeltaV removals
-
-  # Start DeltaV additions
 - type: entity
   name: musket
   parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
   id: Musket
-  description: This should've been in a museum long before you were born. Uses musket cartridges.
+  description: This should've been in a museum long before you were born. Uses musket cartridges. # DeltaV - description now states "musket cartridges"
   components:
+  - type: Sharp
+    butcherDelayModifier: 2 # DeltaV - butcherDelay added
   - type: Item
     size: Large
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi # DeltaV - sprite changed
     state: base
   - type: Clothing
-    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi # DeltaV - sprite changed
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    minAngle: 22
-    maxAngle: 43
-  - type: GunRequiresWield
-  - type: GunWieldBonus
-    minAngle: -15
-    maxAngle: -35
+    minAngle: 22 # DeltaV - minAngle added
+    maxAngle: 43 # DeltaV - maxAngle added
+# - type: UseDelayOnShoot
+# - type: UseDelay
+#   delay: 8 #it's a musket
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -202,11 +161,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 12
+        Piercing: 12 # DeltaV
+#       Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
     angle: 0
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  # Start DeltaV additions
   - type: MeleeRequiresWield
   - type: AltFireMelee
     attackType: Heavy
@@ -221,10 +182,12 @@
   - type: InjectableSolution
     solution: melee
   - type: SolutionTransfer
-    maxTransferAmount: 2 #It's a bayonet <--- correct
-  - type: Sharp
-    butcherDelayModifier: 2
-  # End DeltaV Additions
+    maxTransferAmount: 2
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -35
+  # End DeltaV additions
+  - type: GunRequiresWield
 
 - type: entity
   name: flintlock pistol
