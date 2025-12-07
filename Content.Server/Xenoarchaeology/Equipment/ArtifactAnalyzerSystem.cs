@@ -60,7 +60,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             // End DeltaV
             sumResearch += research;
         }
-        UpdateClientUI(ent, analyzer); // DeltaV
+        UpdateClientUI(ent, analyzer!.Value); // DeltaV
 
         // 4-16-25: It's a sad day when a scientist makes negative 5k research
         if (sumResearch <= 0)
