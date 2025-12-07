@@ -18,6 +18,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -38,6 +44,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -58,6 +70,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -78,6 +96,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -98,6 +122,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -118,6 +148,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -138,6 +174,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -158,6 +200,12 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
 
 - type: entity
   id: ReinforcedSurveillanceCameraAssembly
