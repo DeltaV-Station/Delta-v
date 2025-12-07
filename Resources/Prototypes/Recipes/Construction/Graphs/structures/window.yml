@@ -43,7 +43,7 @@
               doAfter: 3
 
         # Start DeltaV additions
-        - to: reinforcedtintedWindow
+        - to: reinforcedTintedWindow
           steps:
             - material: ReinforcedGlass
               amount: 2
@@ -130,7 +130,7 @@
             - tool: Anchoring
               doAfter: 2
         # Start DeltaV additions
-        - to: reinforcedtintedWindow
+        - to: reinforcedTintedWindow
           steps:
             - material: MetalRod
               amount: 2
@@ -241,7 +241,7 @@
               amount: 2
               doAfter: 1
         # Start DeltaV additions
-        - to: reinforcedtintedWindow
+        - to: reinforcedTintedWindow
           steps:
             - material: Plastic
               amount: 2
@@ -249,7 +249,7 @@
         # End DeltaV additions
 
     # Start DeltaV additions
-    - node: reinforcedtintedWindow
+    - node: reinforcedTintedWindow
       entity: ReinforcedTintedWindow
       edges:
         - to: start
