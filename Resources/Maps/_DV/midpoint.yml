@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/06/2025 18:00:38
+  time: 12/07/2025 06:18:11
   entityCount: 10635
 maps: []
 grids:
@@ -7553,38 +7553,6 @@ entities:
       name: Gremlin Electronics Backroom
     - type: Transform
       pos: -30.5,-10.5
-      parent: 1
-- proto: AlwaysPoweredLightColoredFrostyBlue
-  entities:
-  - uid: 8930
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 38.5,4.5
-      parent: 1
-  - uid: 8956
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 29.5,3.5
-      parent: 1
-  - uid: 8959
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 30.5,-3.5
-      parent: 1
-  - uid: 8960
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 38.5,-2.5
-      parent: 1
-  - uid: 8968
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,9.5
       parent: 1
 - proto: AnomalyLocator
   entities:
@@ -54598,6 +54566,38 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -27.5,-33.5
+      parent: 1
+- proto: PoweredLightColoredFrostyBlue
+  entities:
+  - uid: 8930
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,9.5
+      parent: 1
+  - uid: 8956
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,4.5
+      parent: 1
+  - uid: 8959
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,-2.5
+      parent: 1
+  - uid: 8960
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 30.5,-3.5
+      parent: 1
+  - uid: 8968
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,3.5
       parent: 1
 - proto: PoweredlightOrange
   entities:
