@@ -59,7 +59,7 @@
   allowedDepartments:
   - Medical
   allowedJobs:
-  - Zookeeper
+  - Zookeeper # DeltaV - Keep Zookeeper/Boxer
   metabolisms:
     Poison:
       metabolismRate: 0.25 # DeltaV: chloral hydrate should last longer for surgery
@@ -447,7 +447,7 @@
             type: [Animal]
           - !type:ReagentCondition  # DeltaV - No longer causes vomitting at the lightest whiff of coffee
             reagent: Histamine
-            min: 0.5 
+            min: 0.5
 
 - type: reagent
   id: Amatoxin
@@ -581,7 +581,7 @@
   - Security
   - Medical
   allowedJobs:
-  - Zookeeper
+  - Zookeeper # DeltaV - Keep Zookeeper/Boxer
   color: "#AAAAAA"
   metabolisms:
     Poison:

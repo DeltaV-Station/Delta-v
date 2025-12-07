@@ -800,7 +800,7 @@
       offset: *icon-offset
       state: Boxer
   - type: PresetIdCard
-    job: Boxer
+    job: Boxer  # DeltaV - Keep Zookeeper/Boxer
 
 - type: entity
   parent: IDCardStandard
@@ -818,7 +818,7 @@
       offset: *icon-offset
       state: Zookeeper
   - type: PresetIdCard
-    job: Zookeeper
+    job: Zookeeper # DeltaV - Keep Zookeeper/Boxer
 
 #Supply
 
