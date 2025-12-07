@@ -142,7 +142,7 @@ public sealed class SharkVisionOverlay : Overlay
                 }
             }
 
-            if (_entries.Any(e => e.Ent.Owner == uid))
+            if (_entries.Any(e => e.Ent.Owner == entity))
                 continue;
 
             _entries.Add(new SharkVisionRenderEntry((entity, sprite, xform), mapId, eyeRot));
