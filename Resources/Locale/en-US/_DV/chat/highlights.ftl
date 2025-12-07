@@ -14,6 +14,8 @@ highlights-corpsman = Corpsman, "Corps", Brigmed, "Sec", Security, "Med", Medica
 highlights-gladiator = Gladiator
 highlights-martial-artist = Martial Artist, Martial
 highlight-prisoner = Prisoner
+highlights-zookeeper = Zookeeper
+highlights-boxer = Boxer
 
 # Epistemics
 highlight-roboticist = Roboticist, Epistemics, "Epi"
