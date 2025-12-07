@@ -1,0 +1,13 @@
+# Engineering EVA Suit
+- type: entity
+  id: LockerEngineerFilledSoftsuit
+  suffix: Filled, Softsuit
+  parent: LockerEngineerFilled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitEVAEngineering
+    - id: ClothingHeadHelmetEVAEngineering
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: WaterVaporTankFilled

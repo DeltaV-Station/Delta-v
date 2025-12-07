@@ -22,3 +22,62 @@
   - type: ClothingSpeedModifier # Make em a bit more nimble so they can hide/Run
     walkModifier: 1
     sprintModifier: 1
+
+# Departmental EVA Suits
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVAScience
+  name: Epistemics EVA Suit
+  description: A modified EVA suit padded with shock-absorbant airbags. Looks like it could take a pretty strong blast.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_epistemics.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_epistemics.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.6 
+        Blunt: 0.85
+        Heat: 0.9
+        Caustic: 0.9 # Wouldn't want John Scientist getting obliterated by the funny caustic chem artifact.
+  - type: ExplosionResistance
+    damageCoefficient: 0.45 # Practically a budget bombsuit, so it absorbs a lot of explosion damage.
+  - type: ClothingSpeedModifier # Super lightweight, so very minor speed modifier.
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
+    - WhitelistChameleon
+    - HidesHarpyWings
+
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVAEngineering
+  name: Engineering EVA Suit
+  description: A modified EVA suit, lined with numerous lead plates. It's somewhat heavy, but it'll get the job done, that's for sure. Seems like it'll block a very generous amount of radiation.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_engineering.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_engineering.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.15 # Big radiation resistance
+        Blunt: 0.80 # Lead plates, duh
+        Heat: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.85 
+  - type: ClothingSpeedModifier 
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: Tag
+    tags:
+    - SuitEVA
+    - WhitelistChameleon
+    - HidesHarpyWings
