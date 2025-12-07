@@ -16,7 +16,7 @@ using Robust.Client.Graphics;
 
 namespace Content.Client._Goobstation.Overlays;
 
-public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent> //TODO: Shark
+public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
@@ -69,7 +69,7 @@ public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent>
             else if (tvComp.DrawOverlay == comp.DrawOverlay && tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
                 tvComp = comp;
 
-            lightRadius = MathF.Max(lightRadius, 1); // TODO: Shark - 1 was light radius
+            lightRadius = MathF.Max(lightRadius, 1);
         }
 
         UpdateSharkOverlay(tvComp, lightRadius);
