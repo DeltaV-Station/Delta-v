@@ -215,7 +215,7 @@
     - type: Clickable
     - type: InteractionOutline
     - type: Construction
-      graph: SurveillanceCamera
+      graph: ReinforcedSurveillanceCameraGraph
       node: assembly
     - type: WallMount
     - type: Transform
@@ -232,3 +232,26 @@
     mode: SnapgridCenter
     snap:
       - Wallmount
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraConstructed
+  name: Reinforced camera (Constructed)
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wired
+      receiveFrequencyId: SurveillanceCamera
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+    - type: Sprite
+      drawdepth: WallMountedItems
+      sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+      layers:
+        - state: reinforced_camera
+    - type: SurveillanceCameraVisuals
+      sprites:
+        Active: reinforced_camera
+        InUse: reinforced_camera_in_use
+        Emp: reinforced_camera_emp
+        Disabled: reinforced_camera_off
