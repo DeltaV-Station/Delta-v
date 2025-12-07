@@ -254,9 +254,9 @@
     - id: RubberStampGreytide # a disturbance in the rising grey water.
 
 - type: entity
-  id: LockerWallChemistry
+  id: LockerWallChemical
   parent: BaseWallLockerDeltaV
-  name: chemistry wall locker
+  name: chemical wall locker
   components:
   - type: EntityStorageVisuals
     stateBaseClosed: chem
