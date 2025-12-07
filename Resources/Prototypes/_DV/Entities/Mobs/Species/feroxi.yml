@@ -97,8 +97,7 @@
     dehydratedMetabolizer: FeroxiDehydrated
     dehydrationThreshold: 150
   - type: SharkVision
-    pulseTime: 60
-    ToggleAction: ActionSharkVisionPulse
+    pulseTime: 5
 
 - type: entity
   parent: MobHumanDummy
@@ -135,5 +134,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 4
+    useDelay: 10
   - type: InstantAction
