@@ -38,6 +38,15 @@
           steps:
             - tool: Screwing
               doAfter: 2
+         - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 2
 
     # once a camera is constructed, it will
     # instead just require wire cutting + welding
@@ -56,5 +65,5 @@
             - !type:DeleteEntity {}
           steps:
             - tool: Welding
-              doAfter: 2
+              doAfter: 4
 

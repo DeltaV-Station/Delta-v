@@ -283,10 +283,12 @@
       drawdepth: WallMountedItems
       sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
       layers:
-        - state: reinforced_camera
+       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+         state: reinforced_camera
+         cycle: true
     - type: SurveillanceCameraVisuals
       sprites:
-        Active: reinforced_camera
-        InUse: reinforced_camera_in_use
-        Emp: reinforced_camera_emp
-        Disabled: reinforced_camera_off
+       Active: reinforced_camera
+       InUse: reinforced_camera_in_use
+       Emp: reinforced_camera_emp
+       Disabled: reinforced_camera_off
