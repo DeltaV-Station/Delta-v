@@ -115,7 +115,7 @@ public sealed class SharkVisionOverlay : Overlay
             if (!CanSee(uid, sprite))
                 continue;
 
-            // Luckily, players are also SolutionContainerManagerComponent, so let's check for a bloodstream and check for bleeds            
+            // Luckily, players are also SolutionContainerManagerComponent, so let's check for a bloodstream and check for bleeds
             if (_entity.TryGetComponent<BloodstreamComponent>(uid, out var bloodstream) && bloodstream.BleedAmount <= 0)
                 continue;
 
