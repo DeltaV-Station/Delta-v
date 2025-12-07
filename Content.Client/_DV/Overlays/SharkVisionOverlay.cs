@@ -143,11 +143,12 @@ public sealed class SharkVisionOverlay : Overlay
             if (!bloodFound)
                 continue;
 
+            var entity = uid;
             // Parent container check
             if (_container.TryGetOuterContainer(uid, xform, out var container))
             {
                 var owner = container.Owner;
-                var entity = uid;
+
                 if (_entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
                     && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
                 {
@@ -160,7 +161,7 @@ public sealed class SharkVisionOverlay : Overlay
             if (_entries.Any(e => e.Ent.Owner == uid))
                 continue;
 
-            _entries.Add(new SharkVisionRenderEntry((uid, sprite, xform), mapId, eyeRot));
+            _entries.Add(new SharkVisionRenderEntry((entity, sprite, xform), mapId, eyeRot));
         }
     }
 
