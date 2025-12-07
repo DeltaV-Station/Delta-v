@@ -15,7 +15,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: ERTLeaderGear
@@ -119,7 +119,7 @@
     components:
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: ERTChaplainGear
@@ -210,7 +210,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: ERTEngineerGear
@@ -293,7 +293,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: ERTSecurityGear
@@ -394,7 +394,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: ERTMedicalGear
@@ -469,7 +469,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: ERTJanitorGear
