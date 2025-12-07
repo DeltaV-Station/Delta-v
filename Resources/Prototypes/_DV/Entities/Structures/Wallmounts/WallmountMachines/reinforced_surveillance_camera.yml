@@ -1,0 +1,186 @@
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraEngineering
+  name: Reinforced camera
+  suffix: Engineering
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraEngineering
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraSecurity
+  name: Reinforced camera
+  suffix: Security
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraScience
+  name: Reinforced camera
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraScience
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraSupply
+  name: Reinforced camera
+  suffix: Supply
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraSupply
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraCommand
+  name: Reinforced camera
+  suffix: Command
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraCommand
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraService
+  name: Reinforced camera
+  suffix: Service
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraService
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraMedical
+  name: Reinforced camera
+  suffix: Medical
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraMedical
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraGeneral
+  name: Reinforced camera
+  suffix: General
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraGeneral
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+
+- type: entity
+  id: ReinforcedSurveillanceCameraAssembly
+  name: Reinforced camera
+  description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Construction
+      graph: SurveillanceCamera
+      node: assembly
+    - type: WallMount
+    - type: Transform
+      anchored: true
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Metallic
+    - type: Sprite
+      drawdepth: WallMountedItems
+      sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+      layers:
+        - state: reinforced_camera_off
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wallmount
