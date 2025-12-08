@@ -48,7 +48,6 @@ public sealed class SharkVisionOverlay : Overlay
         _container = _entity.System<ContainerSystem>();
         _transform = _entity.System<TransformSystem>();
         _stealth = _entity.System<StealthSystem>();
-        _light = _entity.System<SharedPointLightSystem>();
         _solution = _entity.System<SharedSolutionContainerSystem>();
         _sprite = _entity.System<SpriteSystem>();
 
