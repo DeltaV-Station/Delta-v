@@ -55,3 +55,24 @@
     sprite: _DV/Clothing/Neck/Cloaks/witchcloak.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/Cloaks/witchcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingGenderCloakBase
+  abstract: true
+  components:
+  - type: ChameleonClothing
+    slot: Neck
+    requireTag: GenderCloak
+    affectedByEmp: false
+    windowTitleOverride: change-cloak-pattern
+    verbNameOverride: change-cloak-pattern
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade # for whatever reason, these tags aren't being inhereted from the parent
+    - WhitelistChameleon
+    - GenderCloak
