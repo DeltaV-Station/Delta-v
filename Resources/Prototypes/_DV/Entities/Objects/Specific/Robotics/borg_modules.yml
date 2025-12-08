@@ -152,7 +152,7 @@
     layers:
     - state: cargo
     - state: icon-carp
-      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: WeaponProtoKineticAcceleratorOneHanded
@@ -175,10 +175,10 @@
   description: A borg module for deploying patterns, guides or labels across the station.
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: generic
     - state: icon-deco
-      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: CrayonMagic
@@ -210,6 +210,7 @@
   abstract: true
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: syndicate
     - state: icon-syndicate
@@ -252,9 +253,10 @@
   name: radio jammer cyborg module
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-jammer
   - type: ItemBorgModule
     hands:
     - item: RechargingRadioJammer
@@ -267,6 +269,10 @@
   name: Experimental C.H.I.M.P. cyborg module
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-chimp
   - type: ItemBorgModule
     hands:
     - item: WeaponPistolCHIMPUpgraded
@@ -279,6 +285,10 @@
   name: syndicate radio cyborg module
   description: "A module that comes with a syndicate handheld radio and pinpointer to the shuttle"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-radio
   - type: ItemBorgModule
     hands:
     - item: RadioHandheldSyndicate
@@ -298,6 +308,10 @@
   name: infiltrator module
   description: "A module that comes with a crew monitor and camera bug, perfect for spying."
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-infiltrator
   - type: ItemBorgModule
     hands:
     - item: SyndiCrewMonitorRecharging
@@ -311,6 +325,10 @@
   name: chameleon projector module
   description: "A module used to create a hard-light replica of any object around you."
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-chameleon
   - type: ItemBorgModule
     hands:
     - item: ChameleonProjector
@@ -323,6 +341,10 @@
   name: cannon cyborg module
   description: "A special module for pirating, come with a cannon with 3 types of shot"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-cannon
   - type: ItemBorgModule
     hands:
     - item: WeaponLauncherPirateCannonBorg
@@ -335,6 +357,10 @@
   name: buccaneer cyborg module
   description: "A module containing a grappling hook, material bag, a cutlass, and a pirate's sidearm"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-buccaneer
   - type: ItemBorgModule
     hands:
     - item: WeaponGrapplingGun
@@ -350,6 +376,10 @@
   name: sleeper module
   description: "A module with a sleep hypo, for silently abducting victims"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-sleeper
   - type: ItemBorgModule
     hands:
     - item: SyndicateNocturineHypo

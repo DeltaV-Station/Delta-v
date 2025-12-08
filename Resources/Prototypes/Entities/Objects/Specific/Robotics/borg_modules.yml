@@ -1173,9 +1173,10 @@
   name: weapon cyborg module
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-weapon # Delta-V
   - type: ItemBorgModule
     hands:
     - item: WeaponPistolEchis
@@ -1209,19 +1210,20 @@
   name: operative cyborg module
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
-    - type: Sprite
-      layers:
-      - state: syndicate
-      - state: icon-syndicate
-    - type: ItemBorgModule
-      hands:
-      - item: Crowbar
-      - item: Emag
-      #- item: AccessBreaker # DeltaV
-      - item: Doorjack # DeltaV - replaces AccessBreaker
-      - item: PinpointerSyndicateNuclear
-    - type: BorgModuleIcon
-      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
+    layers:
+  - state: syndicate
+  - state: icon-operative # Delta-V
+  - type: ItemBorgModule
+    hands:
+    - item: Crowbar
+    - item: Emag
+    #- item: AccessBreaker # DeltaV
+    - item: Doorjack # DeltaV - replaces AccessBreaker
+    - item: PinpointerSyndicateNuclear
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
 
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
@@ -1230,9 +1232,10 @@
   description: A weapons module that comes with an energy sword.
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-esword # Delta-V
   - type: ItemBorgModule
     hands:
     - item: CyborgEnergySword
@@ -1247,9 +1250,10 @@
   description: A weapons module that comes with a double energy sword.
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-desword # Delta-V
   - type: ItemBorgModule
     hands:
     - item: CyborgEnergySwordDouble
@@ -1264,9 +1268,10 @@
   description: A weapons module that comes with a L6C.
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-l6c # Delta-V
   - type: ItemBorgModule
     hands:
     - item: WeaponLightMachineGunL6C
@@ -1281,9 +1286,10 @@
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-c20r # Delta-V
   - type: ItemBorgModule
     hands:
     - item: WeaponSubMachineGunC20rROW
