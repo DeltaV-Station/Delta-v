@@ -152,7 +152,7 @@
     layers:
     - state: cargo
     - state: icon-carp
-    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: WeaponProtoKineticAcceleratorOneHanded
@@ -175,10 +175,10 @@
   description: A borg module for deploying patterns, guides or labels across the station.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: generic
     - state: icon-deco
+      sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: CrayonMagic
