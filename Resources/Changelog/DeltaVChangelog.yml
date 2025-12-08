@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Quanteey
-  changes:
-  - message: Fixed limbs not getting correctly severed when receiving high amounts
-      of damage at once. Defibs will no longer pop limbs off.
-    type: Fix
-  id: 1427
-  time: '2025-05-23T12:55:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3826
 - author: ArtisticRoomba
   changes:
   - message: The TEG's efficiency in extracting power from gasses has been tweaked
@@ -4287,3 +4279,11 @@
   id: 1926
   time: '2025-12-07T18:02:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4895
+- author: zelezniciar, ArtisticRoomba
+  changes:
+  - message: Atmospherics Delta-Pressure now has a short guidebook entry. You can
+      find it in Jobs > Engineering > Atmospherics > Atmospheric Upsets > Delta Pressure.
+    type: Add
+  id: 1927
+  time: '2025-12-08T00:03:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4906
