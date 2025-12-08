@@ -38,7 +38,7 @@
 
 - type: entity
   parent: BorgChassisSyndicateMedical
-  id: PlayerBorgSyndicateMedical
+  id: BorgChassisSyndicateMedicalBattery
   suffix: Battery, Ghost Role
   components:
   - type: NukeOperative
@@ -57,3 +57,16 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+
+- type: entity
+  parent: BorgChassisSyndicateMedicalBattery
+  id: PlayerBorgSyndicateMedicalGhostRole
+  suffix: Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-medical-name
+      description: ghost-role-information-syndicate-cyborg-description
+      rules: ghost-role-information-silicon-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
