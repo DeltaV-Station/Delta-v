@@ -21,6 +21,39 @@
     - /Audio/Voice/Reptilian/reptilian_scream.ogg
 
 - type: soundCollection
+  id: HarpyScreamsMale
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
+  - /Audio/Animals/monkey_scream.ogg
+  - /Audio/Voice/Human/malescream_1.ogg
+  - /Audio/Voice/Human/malescream_2.ogg
+  - /Audio/Voice/Human/malescream_3.ogg
+  - /Audio/Voice/Human/malescream_4.ogg
+  - /Audio/Voice/Human/malescream_5.ogg
+  - /Audio/Voice/Human/malescream_6.ogg
+  - /Audio/Voice/Moth/moth_scream.ogg
+  - /Audio/Voice/Skeleton/skeleton_scream.ogg
+  - /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+- type: soundCollection
+  id: HarpyScreamsFemale
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
+  - /Audio/Animals/monkey_scream.ogg
+  - /Audio/Voice/Human/femalescream_1.ogg
+  - /Audio/Voice/Human/femalescream_2.ogg
+  - /Audio/Voice/Human/femalescream_3.ogg
+  - /Audio/Voice/Human/femalescream_4.ogg
+  - /Audio/Voice/Human/femalescream_5.ogg
+  - /Audio/Voice/Moth/moth_scream.ogg
+  - /Audio/Voice/Skeleton/skeleton_scream.ogg
+  - /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+- type: soundCollection
   id: HarpyLaugh
   files:
     - /Audio/Voice/Human/manlaugh1.ogg
@@ -32,6 +65,29 @@
     - /Audio/Animals/lizard_happy.ogg
     - /Audio/Animals/ferret_happy.ogg
     - /Audio/Voice/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: HarpyLaughMale
+  files:
+  - /Audio/Voice/Human/manlaugh1.ogg
+  - /Audio/Voice/Human/manlaugh2.ogg
+  - /Audio/Voice/Diona/diona_rustle1.ogg
+  - /Audio/Voice/Diona/diona_rustle2.ogg
+  - /Audio/Voice/Diona/diona_rustle3.ogg
+  - /Audio/Animals/lizard_happy.ogg
+  - /Audio/Animals/ferret_happy.ogg
+  - /Audio/Voice/Moth/moth_laugh.ogg
+
+- type: soundCollection
+  id: HarpyLaughFemale
+  files:
+  - /Audio/Voice/Human/womanlaugh.ogg
+  - /Audio/Voice/Diona/diona_rustle1.ogg
+  - /Audio/Voice/Diona/diona_rustle2.ogg
+  - /Audio/Voice/Diona/diona_rustle3.ogg
+  - /Audio/Animals/lizard_happy.ogg
+  - /Audio/Animals/ferret_happy.ogg
+  - /Audio/Voice/Moth/moth_laugh.ogg
 
 - type: soundCollection
   id: HarpyHisses
@@ -71,6 +127,22 @@
     - /Audio/Voice/Human/cry_female_2.ogg
     - /Audio/Voice/Human/cry_female_3.ogg
     - /Audio/Voice/Human/cry_female_4.ogg
+
+- type: soundCollection
+  id: HarpyCryMale
+  files:
+  - /Audio/Voice/Human/cry_male_1.ogg
+  - /Audio/Voice/Human/cry_male_2.ogg
+  - /Audio/Voice/Human/cry_male_3.ogg
+  - /Audio/Voice/Human/cry_male_4.ogg
+
+- type: soundCollection
+  id: HarpyCryFemale
+  files:
+  - /Audio/Voice/Human/cry_female_1.ogg
+  - /Audio/Voice/Human/cry_female_2.ogg
+  - /Audio/Voice/Human/cry_female_3.ogg
+  - /Audio/Voice/Human/cry_female_4.ogg
 
 - type: soundCollection
   id: HarpyMeows
@@ -217,7 +289,7 @@
 
 - type: soundCollection
   id: HarpyChitter
-  files: 
+  files:
     - /Audio/Voice/Moth/moth_chitter.ogg
     - /Audio/Machines/circuitprinter.ogg
     - /Audio/Machines/diagnoser_printing.ogg
@@ -226,18 +298,24 @@
 
 - type: soundCollection
   id: HarpySqueak
-  files: 
+  files:
     - /Audio/Voice/Moth/moth_squeak.ogg
     - /Audio/Animals/mouse_squeak.ogg
 
 - type: soundCollection
   id: HarpyCaws
-  files: 
+  files:
     - /Audio/_DV/Voice/Harpy/caw1.ogg
+    - /Audio/Animals/chicken_cluck_happy.ogg
+    - /Audio/Animals/duck_quack_happy.ogg
+    - /Audio/Animals/goose_honk.ogg
+    - /Audio/Animals/parrot_raught.ogg
+    - /Audio/Animals/penguin_squawk.ogg
+
 
 - type: soundCollection
   id: HarpyChirps
-  files: 
+  files:
     - /Audio/_DV/Voice/Harpy/chirp1.ogg
     - /Audio/Voice/Talk/pai.ogg
     - /Audio/Voice/Talk/pai_ask.ogg
