@@ -1213,8 +1213,8 @@
   - type: Sprite
     sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi # Delta-V
     layers:
-  - state: syndicate
-  - state: icon-operative # Delta-V
+    - state: syndicate
+    - state: icon-operative # Delta-V
   - type: ItemBorgModule
     hands:
     - item: Crowbar
