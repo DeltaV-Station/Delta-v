@@ -252,7 +252,7 @@
     defaultTarget: live
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndie, BaseProviderBorgModule ]
   id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
   description: "A module that comes with a recharging radio jammer."
   name: radio jammer cyborg module
