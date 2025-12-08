@@ -187,6 +187,10 @@
   suffix: DragonBrood
   parent: MobCarp
   components:
+    - type: MobThresholds # DeltaV - Dragon Fish Nerfs
+      thresholds:
+        0: Alive
+        25: Dead # was 40 upstream, and normal carps are 50 on DV
     - type: GhostRole
       allowMovement: true
       allowSpeech: true
