@@ -66,7 +66,6 @@
   - AACTablet
   - GoldRing
   - SilverRing
-  - Cane
   - WhiteCane
   - CDDogtags # taken from Cosmatic Drift
   - TapeRecorder
@@ -1368,6 +1367,14 @@
   - SeniorOfficerPDA
 
 - type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-eyewear
+  minLimit: 0
+  loadouts:
+  - SecurityGlasses
+  - PrescriptionSecurityGlasses
+
+- type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-detective-head
   minLimit: 0
@@ -1617,6 +1624,7 @@
   loadouts:
   - MedicalHud
   - MedicalEyePatchHud
+  - PrescriptionMedHud # DeltaV
   - Glasses
   - GlassesJamjar
   - GlassesJensen

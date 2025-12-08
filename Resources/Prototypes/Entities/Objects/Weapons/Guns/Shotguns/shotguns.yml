@@ -111,7 +111,7 @@
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
@@ -164,7 +164,7 @@
   description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: Clothing
@@ -192,7 +192,7 @@
     size: Small
     shape:
     - 0,0,2,0
-    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/sawn.rsi # Delta-V
   - type: Gun
     fireRate: 3
   - type: GunSpreadModifier

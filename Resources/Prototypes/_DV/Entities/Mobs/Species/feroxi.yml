@@ -20,12 +20,14 @@
   - type: Speech
     speechSounds: Tenor
     speechVerb: Feroxi
-    allowedEmotes: [ "Gnash" ]
+    allowedEmotes: [ "Gnash", "Thump" ]
   - type: Vocal
     sounds:
       Male: MaleFeroxi
       Female: FemaleFeroxi
       Unsexed: MaleFeroxi
+  - type: BodyEmotes
+    soundsId: FeroxiBodyEmotes
   - type: Sprite
     netsync: false
     noRot: true
