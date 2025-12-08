@@ -1,4 +1,3 @@
-
 - type: entity
   parent: SurveillanceCameraBase
   id: ReinforcedSurveillanceCameraEngineering
@@ -18,6 +17,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -44,6 +46,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -70,6 +75,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -96,6 +104,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -122,6 +133,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -148,6 +162,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -174,6 +191,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -200,6 +220,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -226,6 +249,9 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -286,6 +312,9 @@
        - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
          state: reinforced_camera
          cycle: true
+    - type: Construction
+      graph: ReinforcedSurveillanceCameraGraph
+      node: camera
     - type: SurveillanceCameraVisuals
       sprites:
        Active: reinforced_camera
