@@ -27,7 +27,6 @@ public sealed class SharkVisionOverlay : Overlay
     private readonly TransformSystem _transform;
     private readonly StealthSystem _stealth;
     private readonly ContainerSystem _container;
-    private readonly SharedPointLightSystem _light;
     private readonly SharedSolutionContainerSystem _solution;
     private readonly SpriteSystem _sprite;
 
