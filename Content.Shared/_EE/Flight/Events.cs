@@ -4,9 +4,6 @@ using Content.Shared.DoAfter;
 namespace Content.Shared._EE.Flight.Events;
 
 [Serializable, NetSerializable]
-public sealed partial class DashDoAfterEvent : SimpleDoAfterEvent { }
-
-[Serializable, NetSerializable]
 public sealed partial class FlightDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
