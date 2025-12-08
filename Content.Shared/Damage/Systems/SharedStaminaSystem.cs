@@ -46,7 +46,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // EE - Harpy Flight
-    
+
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
     /// </summary>

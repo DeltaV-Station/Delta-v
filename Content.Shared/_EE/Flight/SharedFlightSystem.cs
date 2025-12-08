@@ -110,7 +110,8 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private bool CanFly(EntityUid uid, FlightComponent component)
     {
-        if (TryComp<StandingStateComponent>(uid, out var standing) && _standing.IsDown((uid, standing))) {
+        if (TryComp<StandingStateComponent>(uid, out var standing) && _standing.IsDown((uid, standing)))
+        {
             _popupSystem.PopupClient(Loc.GetString("no-flight-while-down"), uid, uid, PopupType.Small);
             return false;
         }

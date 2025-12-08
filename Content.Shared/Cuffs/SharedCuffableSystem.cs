@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._EE.Flight;
+using Content.Shared._EE.Flight; # DeltaV - Harpy Flight
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
@@ -56,7 +56,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-        [Dependency] private readonly SharedFlightSystem _flight = default!;
+        [Dependency] private readonly SharedFlightSystem _flight = default!; # DeltaV - Harpy flight
 
         public override void Initialize()
         {

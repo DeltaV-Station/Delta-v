@@ -7,18 +7,12 @@ namespace Content.Shared._EE.Flight.Events;
 public sealed partial class DashDoAfterEvent : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
-public sealed partial class FlightDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class FlightDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
-public sealed class FlightEvent : EntityEventArgs
+public sealed class FlightEvent(NetEntity uid, bool isFlying, bool isAnimated) : EntityEventArgs
 {
-    public NetEntity Uid { get; }
-    public bool IsFlying { get; }
-    public bool IsAnimated { get; }
-    public FlightEvent(NetEntity uid, bool isFlying, bool isAnimated)
-    {
-        Uid = uid;
-        IsFlying = isFlying;
-        IsAnimated = isAnimated;
-    }
+    public NetEntity Uid { get; } = uid;
+    public bool IsFlying { get; } = isFlying;
+    public bool IsAnimated { get; } = isAnimated;
 }
