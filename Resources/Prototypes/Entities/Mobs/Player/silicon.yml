@@ -184,7 +184,6 @@
   suffix: Empty
   components:
   - type: Anchorable
-    flags: 
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
@@ -451,6 +450,7 @@
         - BorgModuleTool
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
+        - BorgModuleChameleonProjector # DeltaV
       borg_id_chip: # DeltaV - borg id chips
       - IdChipSyndie
   - type: ItemSlots
