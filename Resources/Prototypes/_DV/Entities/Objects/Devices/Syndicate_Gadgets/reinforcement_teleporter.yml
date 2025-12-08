@@ -55,3 +55,21 @@
     - state: syndicat-yarn
   - type: GhostRole
     description: ghost-role-information-DVSyndiCat-description
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSyndicateCyborgSaboteur
+  name: syndicate saboteur cyborg reinforcement radio
+  description: Calls in a saboteur borg with light weaponry and disruptive gear.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-saboteur-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: PlayerBorgSyndicateSaboteurBattery
+

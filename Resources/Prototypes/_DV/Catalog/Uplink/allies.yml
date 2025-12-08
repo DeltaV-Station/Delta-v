@@ -25,3 +25,17 @@
     Telecrystal: 5
   categories:
   - UplinkAllies
+
+- type: listing
+  id: UplinkReinforcementRadioSyndicateCyborgSaboteur
+  name: uplink-reinforcement-radio-cyborg-saboteur-name
+  description: uplink-reinforcement-radio-cyborg-saboteur-desc
+  productEntity: ReinforcementRadioSyndicateCyborgSaboteur
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAllies
