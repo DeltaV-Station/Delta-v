@@ -48,4 +48,9 @@
     sprite: _DV/Structures/Windows/reinforced_tinted_window.rsi
   - type: IconSmooth
     base: rtwindow
+  - type: Construction
+    graph: Window
+    node: reinforcedTintedWindow
   - type: Occluder
+  - type: CosmicCorruptible
+    convertTo: WindowCosmicCult
