@@ -37,7 +37,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Radiation: 0.6 
+        Radiation: 0.6
         Blunt: 0.85
         Heat: 0.9
         Caustic: 0.9 # Wouldn't want John Scientist getting obliterated by the funny caustic chem artifact.
@@ -72,8 +72,8 @@
         Slash: 0.9
         Piercing: 0.95
   - type: ExplosionResistance
-    damageCoefficient: 0.85 
-  - type: ClothingSpeedModifier 
+    damageCoefficient: 0.85
+  - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: Tag
