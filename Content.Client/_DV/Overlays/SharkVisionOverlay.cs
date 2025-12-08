@@ -31,7 +31,6 @@ public sealed class SharkVisionOverlay : Overlay
     private readonly SharedSolutionContainerSystem _solution;
     private readonly SpriteSystem _sprite;
 
-
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -78,7 +77,6 @@ public sealed class SharkVisionOverlay : Overlay
 
         var mapId = eye.Position.MapId;
         var eyeRot = eye.Rotation;
-
 
         GetVisionEntities(Comp.BloodPrototypes, mapId, eyeRot);
 
