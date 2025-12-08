@@ -6,11 +6,10 @@ namespace Content.Client._EE.Flight.Components;
 public sealed partial class FlightVisualsComponent : Component
 {
     /// <summary>
-    ///     How long does the animation last
+    ///     The speed of the shader animation.
     /// </summary>
     [DataField]
     public float Speed;
-
     /// <summary>
     ///     How far it goes in any direction.
     /// </summary>
