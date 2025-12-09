@@ -78,10 +78,6 @@
       - id: GroundCannabis
         amount: !type:RangeNumberSelector
           range: 1, 6
-    # Begin DeltaV modifications
-    - id: ClothingHeadsetPrison # Added prisoner headsets
-    - id: PrisonKnife # Bread cutting knife, does 4 damage total.
-    # End DeltaV modifications
 
 #- type: entity
 #  id: WardrobePajamaFilled
