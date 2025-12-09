@@ -173,7 +173,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 4 # Delta V - For Chameleon Module
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
