@@ -21,13 +21,37 @@
     securityLevel: medSecurity
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_engineering
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - cameraeng 
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -50,7 +74,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_security
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
@@ -59,6 +83,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - camerasec
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -81,7 +129,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_science
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
@@ -90,6 +138,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - camerasci
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -112,7 +184,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_supply
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
@@ -121,6 +193,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - camerasup
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -143,7 +239,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_command
   - type: WiresPanelSecurity
     securityLevel: highSecurity
   - type: SurveillanceCameraVisuals
@@ -152,6 +248,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - cameracom
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -174,7 +294,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_service
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
@@ -183,6 +303,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - cameraser
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -205,7 +349,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_medical
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
@@ -214,6 +358,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - cameramed
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -236,7 +404,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_general
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
@@ -245,12 +413,36 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.50
+  - type: Tag
+    tags:
+      - cameragen
 
 - type: entity
   parent: SurveillanceCameraBase
   id: ReinforcedSurveillanceCameraAI
   name: Reinforced camera
-  suffix: AI
+  suffix: AI [80% resistance]
   components:
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -267,7 +459,7 @@
         cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera
+    node: camera_ai
   - type: WiresPanelSecurity
     securityLevel: highSecurity
   - type: SurveillanceCameraVisuals
@@ -276,6 +468,30 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: ExplosionResistance 
+    damageCoefficient: 0.20
+  - type: Tag
+    tags:
+      - cameraai
 
 - type: entity
   id: ReinforcedSurveillanceCameraAssembly
@@ -340,3 +556,27 @@
        InUse: reinforced_camera_in_use
        Emp: reinforced_camera_emp
        Disabled: reinforced_camera_off
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+    - type: ExplosionResistance 
+      damageCoefficient: 0.50
+    - type: Tag
+      tags:
+        - cameracon

@@ -39,9 +39,20 @@
             - tool: Screwing
               doAfter: 2
 
+    #base note from cams
+
     # once a camera is constructed, it will
     # instead just require wire cutting + welding
     # to immediately deconstruct
+
+    #base note from cams
+
+    # The extra nodes for eatch cam network type
+    # is because if i did not add them and you removed the panel it would revert to (ReinforcedSurveillanceCameraConstructed)
+    # witch in turn would remove that cam from that subnet and reclose the wire panel
+    # extra note this is all beacause of the (wirepanelsecurity) was added if you want to add wirepanelsecurity to normal cams good luck
+
+    #constructed
     - node: camera
       entity: ReinforcedSurveillanceCameraConstructed
       actions:
@@ -77,76 +88,640 @@
             amount: 1
             doAfter: 2
 
-    - node: medSecurityUnfinished
+  #engineering
+    - node: camera_engineering
+      entity: ReinforcedSurveillanceCameraEngineering
       actions:
-        - !type:SetWiresPanelSecurity
-          examine: wires-panel-component-on-examine-security-level1
-          wiresAccessible: false
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
       edges:
-        - to: camera
+        - to: start
           conditions:
             - !type:WirePanel {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetSteel1
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 2
-
-        - to: medSecurity
-          conditions:
-            - !type:WirePanel {}
-          steps:
-            - tool: Welding
-              doAfter: 3
-
-    - node: medSecurity
-      actions:
-        - !type:SetWiresPanelSecurity
-          examine: wires-panel-component-on-examine-security-level2
-          wiresAccessible: false
-      edges:
-        - to: medSecurityUnfinished
-          conditions:
-            - !type:WirePanel {}
-          steps:
-            - tool: Welding
-              doAfter: 7
-
-    - node: highSecurityUnfinished
-      actions:
-        - !type:SetWiresPanelSecurity
-          examine: wires-panel-component-on-examine-security-level3
-          wiresAccessible: false
-      edges:
-        - to: camera
-          conditions:
-            - !type:WirePanel {}
+            - !type:AllWiresCut {}
           completed:
             - !type:GivePrototype
               prototype: SheetPlasteel1
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 4
-
-        - to: highSecurity
-          conditions:
-            - !type:WirePanel {}
+              amount: 2
+            - !type:DeleteEntity {}
           steps:
             - tool: Welding
               doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #Security
+    - node: camera_security
+      entity: ReinforcedSurveillanceCameraSecurity
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #Science
+    - node: camera_science
+      entity: ReinforcedSurveillanceCameraScience
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #supply
+    - node: camera_supply
+      entity: ReinforcedSurveillanceCameraSupply
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #command
+    - node: camera_command
+      entity: ReinforcedSurveillanceCameraCommand
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #service
+    - node: camera_service
+      entity: ReinforcedSurveillanceCameraService
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #medical
+    - node: camera_medical
+      entity: ReinforcedSurveillanceCameraMedical
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #general
+    - node: camera_general
+      entity: ReinforcedSurveillanceCameraGeneral
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #ai
+    - node: camera_ai
+      entity: ReinforcedSurveillanceCameraAI
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
+      edges:
+        - to: start
+          conditions:
+            - !type:WirePanel {}
+            - !type:AllWiresCut {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+  #medscurity
+    - node: medSecurityUnfinished
+      actions:
+      - !type:SetWiresPanelSecurity
+        examine: wires-panel-component-on-examine-security-level1
+        wiresAccessible: false
+      edges:
+      - to: camera
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameracon
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_engineering
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameraeng
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_security
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: camerasec
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_science
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: camerasci
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_supply
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: camerasup
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_command
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameracom
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_service
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameraser
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_medical
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameramed
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_general
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameragen
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: camera_ai
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameraai
+        steps:
+        - tool: Prying
+          doAfter: 2
+
+      - to: medSecurity
+        conditions:
+        - !type:WirePanel {}
+        steps:
+        - tool: Welding
+          doAfter: 4
+
+    - node: medSecurity
+      actions:
+      - !type:SetWiresPanelSecurity
+        examine: wires-panel-component-on-examine-security-level2
+        wiresAccessible: false
+      edges:
+      - to: medSecurityUnfinished
+        conditions:
+        - !type:WirePanel {}
+        steps:
+        - tool: Welding
+          doAfter: 7
+
+  # highsecurity
+    - node: highSecurityUnfinished
+      actions:
+      - !type:SetWiresPanelSecurity
+        examine: wires-panel-component-on-examine-security-level3
+        wiresAccessible: false
+      edges:
+      - to: camera
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameracon
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_engineering
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameraeng
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_security
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: camerasec
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_science
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: camerasci
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_supply
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: camerasup
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_command
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameracom
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_service
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameraser
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_medical
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameramed
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_general
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameragen
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: camera_ai
+        completed:
+        - !type:GivePrototype
+          prototype: SheetPlasteel1
+          amount: 1
+        conditions:
+        - !type:WirePanel {}
+        - !type:HasTag
+          tag: cameraai
+        steps:
+        - tool: Prying
+          doAfter: 4
+
+      - to: highSecurity
+        conditions:
+        - !type:WirePanel {}
+        steps:
+        - tool: Welding
+          doAfter: 6
 
     - node: highSecurity
       actions:
-        - !type:SetWiresPanelSecurity
-          examine: wires-panel-component-on-examine-security-level4
-          wiresAccessible: false
+      - !type:SetWiresPanelSecurity
+        examine: wires-panel-component-on-examine-security-level4
+        wiresAccessible: false
       edges:
-        - to: highSecurityUnfinished
-          conditions:
-            - !type:WirePanel {}
-          steps:
-            - tool: Welding
-              doAfter: 12
+      - to: highSecurityUnfinished
+        conditions:
+        - !type:WirePanel {}
+        steps:
+        - tool: Welding
+          doAfter: 13
