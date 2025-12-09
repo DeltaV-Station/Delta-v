@@ -17,6 +17,8 @@
       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
         state: reinforced_camera
         cycle: true
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
@@ -49,6 +51,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -78,6 +82,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -107,6 +113,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -136,6 +144,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: highSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -165,6 +175,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -194,6 +206,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -223,6 +237,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -252,6 +268,8 @@
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera
+  - type: WiresPanelSecurity
+    securityLevel: highSecurity
   - type: SurveillanceCameraVisuals
     sprites:
       Active: reinforced_camera
@@ -315,6 +333,7 @@
     - type: Construction
       graph: ReinforcedSurveillanceCameraGraph
       node: camera
+    - type: WiresPanelSecurity
     - type: SurveillanceCameraVisuals
       sprites:
        Active: reinforced_camera

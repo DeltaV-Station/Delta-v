@@ -44,11 +44,14 @@
     # to immediately deconstruct
     - node: camera
       entity: ReinforcedSurveillanceCameraConstructed
+      actions:
+      - !type:SetWiresPanelSecurity
+        wiresAccessible: true
       edges:
         - to: start
           conditions:
-            - !type:AllWiresCut {}
             - !type:WirePanel {}
+            - !type:AllWiresCut {}
           completed:
             - !type:GivePrototype
               prototype: SheetPlasteel1
@@ -57,3 +60,93 @@
           steps:
             - tool: Welding
               doAfter: 4
+
+        - to: medSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Steel
+            amount: 1
+            doAfter: 2
+
+        - to: highSecurityUnfinished
+          conditions:
+          - !type:WirePanel {}
+          steps:
+          - material: Plasteel
+            amount: 1
+            doAfter: 2
+
+    - node: medSecurityUnfinished
+      actions:
+        - !type:SetWiresPanelSecurity
+          examine: wires-panel-component-on-examine-security-level1
+          wiresAccessible: false
+      edges:
+        - to: camera
+          conditions:
+            - !type:WirePanel {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 2
+
+        - to: medSecurity
+          conditions:
+            - !type:WirePanel {}
+          steps:
+            - tool: Welding
+              doAfter: 3
+
+    - node: medSecurity
+      actions:
+        - !type:SetWiresPanelSecurity
+          examine: wires-panel-component-on-examine-security-level2
+          wiresAccessible: false
+      edges:
+        - to: medSecurityUnfinished
+          conditions:
+            - !type:WirePanel {}
+          steps:
+            - tool: Welding
+              doAfter: 7
+
+    - node: highSecurityUnfinished
+      actions:
+        - !type:SetWiresPanelSecurity
+          examine: wires-panel-component-on-examine-security-level3
+          wiresAccessible: false
+      edges:
+        - to: camera
+          conditions:
+            - !type:WirePanel {}
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 4
+
+        - to: highSecurity
+          conditions:
+            - !type:WirePanel {}
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+    - node: highSecurity
+      actions:
+        - !type:SetWiresPanelSecurity
+          examine: wires-panel-component-on-examine-security-level4
+          wiresAccessible: false
+      edges:
+        - to: highSecurityUnfinished
+          conditions:
+            - !type:WirePanel {}
+          steps:
+            - tool: Welding
+              doAfter: 12
