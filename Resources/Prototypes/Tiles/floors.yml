@@ -2016,34 +2016,6 @@
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroSnow
 
-# Start DeltaV additions
-- type: tile
-  id: FloorMowedAstroSnow
-  name: tiles-mowed-astro-snow
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  sprite: /Textures/Tiles/Planet/Snow/snow.png
-  variants: 13
-  placementVariants:
-  - 0.8
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0166
-  - 0.0116
-  - 0.0116
-  footstepSounds:
-    collection: FootstepSnow
-  itemDrop: FloorTileItemMowedAstroSnow
-# End DeltaV additions
-
 # Asteroid Sand
 - type: tile
   id: FloorAstroAsteroidSand
