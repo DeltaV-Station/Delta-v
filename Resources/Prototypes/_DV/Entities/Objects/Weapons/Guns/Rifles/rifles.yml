@@ -188,10 +188,56 @@
 - type: entity
   name: musket
   id: WeaponRifleMusket
-  parent: [Musket, BaseGunWieldable]
-  suffix: "craftable"
-  description: A handmade flintlock musket. Uses musket cartridges.
+  parent: [BaseWeaponSniper, BaseGunWieldable]
+  description: An old flintlock musket. Uses musket cartridges.
   components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+    state: base
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 30
+    maxAngle: 30
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -25
+    maxAngle: -25
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeMusket
+    capacity: 1
+    proto: CartridgeMusket
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 12
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Sharp
+    butcherDelayModifier: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
