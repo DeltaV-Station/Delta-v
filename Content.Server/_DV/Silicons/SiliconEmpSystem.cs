@@ -19,6 +19,6 @@ public sealed class SiliconEmpSystem : EntitySystem
     {
         args.Cancel(); // Stop all the normal effects of the EMP
         if (args.Damage is not { } damage) return;
-        _damageable.TryChangeDamage(ent, damage / 2, true); // Damage is divided by 2 because the event is raised twice (once from entity itself, and another is relayed from it's power cell) and I'm too lazy for an actual fix
+        _damageable.TryChangeDamage(ent, damage / 2, false); // Damage is divided by 2 because the event is raised twice (once from entity itself, and another is relayed from it's power cell) and I'm too lazy for an actual fix - NoElka | Make EMP not ignore armor.
     }
 }
