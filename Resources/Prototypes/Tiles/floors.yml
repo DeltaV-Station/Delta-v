@@ -2016,6 +2016,17 @@
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroSnow
 
+# Start DeltaV additions
+- type: tile
+  id: FloorMowedAstroSnow
+  name: tiles-mowed-astro-snow
+  parent: FloorSnow
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemMowedAstroSnow
+# End DeltaV additions
+
 # Asteroid Sand
 - type: tile
   id: FloorAstroAsteroidSand

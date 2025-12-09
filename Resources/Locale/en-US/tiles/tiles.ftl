@@ -131,6 +131,7 @@ tiles-mowed-astro-grass = mowed astro-grass
 tiles-jungle-astro-grass = jungle astro-grass
 tiles-astro-ice = astro-ice
 tiles-astro-snow = astro-snow
+tiles-mowed-astro-snow = mowed astro-snow
 tiles-astro-asteroid-sand = asteroid astro-sand
 tiles-astro-asteroid-sand-borderless = borderless asteroid astro-sand
 tiles-wood-large = large wood

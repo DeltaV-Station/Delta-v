@@ -629,6 +629,14 @@
   spawn: FloorTileItemAstroSnow
   maxCount: 30
 
+# Start DeltaV additions
+- type: stack
+  id: FloorTileMowedAstroSnow
+  name: stack-mowed-astro-snow-floor
+  spawn: FloorTileItemMowedAstroSnow
+  maxCount: 30
+# End DeltaV Additions
+
 - type: stack
   id: FloorTileAstroAsteroidSand
   name: stack-asteroid-astro-sand-floor

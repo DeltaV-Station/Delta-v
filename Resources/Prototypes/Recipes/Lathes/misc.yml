@@ -211,6 +211,13 @@
   id: FauxTileAstroSnow
   result: FloorTileItemAstroSnow
 
+# Start DeltaV additions
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileMowedAstroSnow
+  result: FloorTileItemMowedAstroSnow
+# End DeltaV additions
+
 - type: latheRecipe
   parent: BaseFauxTileRecipe
   id: FauxTileAstroAsteroidSand
