@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: Pistols now have a small chance to fire upon hitting the ground.
-    type: Tweak
-  id: 1441
-  time: '2025-06-01T06:55:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3869
 - author: Quanteey
   changes:
   - message: Salbutamol is slightly darker now
@@ -4265,3 +4258,12 @@
   id: 1940
   time: '2025-12-09T16:44:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4916
+- author: snowywinters
+  changes:
+  - message: Station AI can now use traffic comms. Your secrets are no longer safe.
+    type: Add
+  - message: Station AI can now see silicon health, just like diagnostic HUDs.
+    type: Add
+  id: 1941
+  time: '2025-12-09T17:56:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4905
