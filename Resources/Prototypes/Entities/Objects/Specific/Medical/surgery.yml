@@ -360,9 +360,9 @@
     # End DeltaV additions
     damage:
       types:
-        Slash: 1.5 # DeltaV: 15 brute changed to 1.5 slash
-        Piercing: 1.5 # DeltaV: 15 brute changed to 1.5 piercing
-        Structural: 7.5 # DeltaV: Added structural damage; Exactly half as much as a regular drill
+        Slash: 2 # DeltaV: 15 brute changed to 2 slash
+        Piercing: 2 # DeltaV: 15 brute changed to 2 piercing
+        Structural: 10 # DeltaV: Added 10 structural damage
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
@@ -388,8 +388,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 3 # DeltaV: 15 brute changed to 3 slash
-        Piercing: 3 # DeltaV: 15 brute changed 3 piercing
+        Slash: 4 # DeltaV: 15 brute changed to 4 slash
+        Piercing: 4 # DeltaV: 15 brute changed 4 piercing
         Structural: 20 # DeltaV: Added 20 structural damage
   - type: Tool
     speedModifier: 2.0
