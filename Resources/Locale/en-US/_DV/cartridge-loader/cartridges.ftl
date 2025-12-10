@@ -11,11 +11,12 @@ crime-assist-crimetype-grandfelony = Grand Felony
 crime-assist-crimetype-capital = Capital
 crime-assist-crime-innocent = No crime was committed
 crime-assist-mainmenu = Welcome to Crime Assist!
-crime-assist-sophont-explanation = A sophont is described as any entity with the capacity to display the following attributes:
-                                   • [bold]Sapience[/bold]: the entity possesses basic logic and problem-solving skills, or at a minimum some level of significant intelligence.
-                                   • [bold]Sentience[/bold]: the entity has the capacity to process an emotion or lack thereof, or at a minimum the ability to recognise its own pain.
-                                   • [bold]Self-awareness[/bold]: the entity is capable of altering its behaviour in a reasonable fashion as a result of stimuli, or at a minimum is capable of recognising its own sapience and sentience.
-                                   Any sophont is considered a legal person, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
+crime-assist-employee-explanation = The term "Employee" includes:
+                                        • All crew present on the Space Station.
+                                        • Any crewmate arriving from a different NanoTrasen Space Station.
+                                        • Any individuals imprisoned by Nanotrasen.
+                                        • Any and all members of NanoTrasen Central Command.
+                                    Any Employees fired by Station Command are still considered Employees until CentComm can confirm their contract termination.
 
 # Crimes
 crime-assist-crime-animalcruelty = Code 101: Animal Cruelty
@@ -52,7 +53,7 @@ crime-assist-crime-breachofcustody = Code 406: Breach of Custody
 # Questions
 crime-assist-question-isitterrorism = Did the suspect hold hostages, cause many deaths, or cause major destruction to force compliance from the crew?
 crime-assist-question-wassomeoneattacked = Was an entity attacked?
-crime-assist-question-wasitsophont = Was the victim in question a sophont?
+crime-assist-question-wasitemployee = Was the victim in question an employee of Nanotrasen?
 crime-assist-question-wasitvigilantism = Did the suspect perform the duties of security without official approval?
 crime-assist-question-didvictimdie = Did the victim die as a result of the attack?
 crime-assist-question-isvictimunrevivable = Did the suspect deliberately take actions to prevent the victim's revival through medical care?
@@ -62,7 +63,7 @@ crime-assist-question-forcedmindbreakertoxin = Did the suspect force someone to 
 crime-assist-question-didtamperwithnoosphere = Did the suspect maliciously tamper with noöspheric anomalies, entites, or other elements?
 crime-assist-question-didthreatenreality = Did the suspect deliberately threaten reality itself by raising glimmer or other anomalous reading levels?
 crime-assist-question-hadillicititem = Did the suspect have an illicit or controlled item, substance, or entity?
-crime-assist-question-wasitaperson = Did the suspect hold or confine another sophont against its will?
+crime-assist-question-wasitaperson = Did the suspect hold or confine another entity against its will?
 crime-assist-question-wassuspectselling = Was the suspect selling or distributing the illicit items?
 crime-assist-question-wassuspectseentaking = Can it be proven that the suspect stole the item from another entity?
 crime-assist-question-isitcategorycde = Is the item in question a category C, D, or E controlled armament?
