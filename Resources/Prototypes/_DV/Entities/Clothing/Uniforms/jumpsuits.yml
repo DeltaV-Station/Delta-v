@@ -587,3 +587,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformElf
+  name: elf jumpsuit
+  description: An elf costume complete with red-and-white striped stockings.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi

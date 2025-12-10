@@ -144,11 +144,11 @@ Please limit changelogs on map PRs to **significant** map alterations or additio
 Format for map PRs looks like:
 ```
 :cl: Yourname
-MAPS: Mapname
-- add: Added fun!
-- remove: Removed fun!
-- tweak: Changed fun!
-- fix: Fixed fun!
+MAPS:
+- add: Mapname: Added fun!
+- remove: Mapname: Removed fun!
+- tweak: Mapname: Changed fun!
+- fix: Mapname: Fixed fun!
 ``` 
 
 # Before you submit

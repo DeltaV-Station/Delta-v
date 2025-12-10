@@ -146,7 +146,7 @@ namespace Content.Client.PDA
 
             if (state.PdaOwnerInfo.ActualOwnerName != null)
             {
-                _pdaOwner = state.PdaOwnerInfo.ActualOwnerName;
+                _pdaOwner = FormattedMessage.EscapeText(state.PdaOwnerInfo.ActualOwnerName); // DeltaV - Escape actual owner
                 PdaOwnerLabel.SetMarkup(Loc.GetString("comp-pda-ui-owner",
                     ("actualOwnerName", _pdaOwner)));
                 PdaOwnerLabel.Visible = true;
@@ -159,8 +159,8 @@ namespace Content.Client.PDA
 
             if (state.PdaOwnerInfo.IdOwner != null || state.PdaOwnerInfo.JobTitle != null)
             {
-                _owner = state.PdaOwnerInfo.IdOwner ?? Loc.GetString("comp-pda-ui-unknown");
-                _jobTitle = state.PdaOwnerInfo.JobTitle ?? Loc.GetString("comp-pda-ui-unassigned");
+                _owner = FormattedMessage.EscapeText(state.PdaOwnerInfo.IdOwner ?? Loc.GetString("comp-pda-ui-unknown")); // DeltaV - Escape owner and job
+                _jobTitle = FormattedMessage.EscapeText(state.PdaOwnerInfo.JobTitle ?? Loc.GetString("comp-pda-ui-unassigned")); // DeltaV - Escape owner and job
                 IdInfoLabel.SetMarkup(Loc.GetString("comp-pda-ui",
                     ("owner", _owner),
                     ("jobTitle", _jobTitle)));

@@ -35,3 +35,22 @@
       - ForceNoFixRotations
   - type: Occluder
     boundingBox: "-0.5,-0.5,0.5,-0.3"
+
+- type: entity
+  id: ReinforcedTintedWindow
+  name: reinforced tinted window
+  parent: ReinforcedWindow
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _DV/Structures/Windows/reinforced_tinted_window.rsi
+  - type: Icon
+    sprite: _DV/Structures/Windows/reinforced_tinted_window.rsi
+  - type: IconSmooth
+    base: rtwindow
+  - type: Construction
+    graph: Window
+    node: reinforcedTintedWindow
+  - type: Occluder
+  - type: CosmicCorruptible
+    convertTo: WindowCosmicCult

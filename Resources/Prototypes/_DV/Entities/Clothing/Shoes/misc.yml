@@ -8,3 +8,14 @@
     sprite: _DV/Clothing/Shoes/Misc/whiteleather.rsi
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Misc/whiteleather.rsi
+
+- type: entity
+  parent: ClothingShoesJester
+  id: ClothingShoesMiscElf
+  name: elf shoes
+  description: Shoes for festive elves.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Shoes/Misc/elf.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Shoes/Misc/elf.rsi

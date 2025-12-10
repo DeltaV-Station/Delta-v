@@ -9,3 +9,5 @@ held-armor-whitelist-fail = You are not [color=yellow]{$reason}[/color].
 held-armor-blacklist-fail = You are [color=red]{$reason}[/color].
 
 held-armor-bible-user-fail = faithful
+
+armor-damage-type-ion = Ion
