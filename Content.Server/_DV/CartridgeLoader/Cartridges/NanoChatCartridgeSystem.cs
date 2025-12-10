@@ -46,42 +46,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
-        SubscribeLocalEvent<PdaComponent, BoundUIOpenedEvent>(OnPdaUiOpened);
-        SubscribeLocalEvent<PdaComponent, BoundUIClosedEvent>(OnPdaUiClosed);
 
         Subs.CVar(_cfg, CCVars.MaxNameLength, x => _maxNameLength = x, true);
         Subs.CVar(_cfg, CCVars.MaxIdJobLength, x => _maxIdJobLength = x, true);
-    }
-
-    private void OnPdaUiOpened(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
-    {
-        if (!PdaUiKey.Key.Equals(args.UiKey))
-            return;
-
-        var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
-        while (cartridgeQuery.MoveNext(out var cartridgeUid, out var nanoChat, out var cartridge))
-        {
-            if (cartridge.LoaderUid == ent.Owner)
-            {
-                UpdateClosed((cartridgeUid, nanoChat));
-            }
-        }
-    }
-
-    private void OnPdaUiClosed(Entity<PdaComponent> ent, ref BoundUIClosedEvent args)
-    {
-        if (!PdaUiKey.Key.Equals(args.UiKey))
-            return;
-
-        // Update any NanoChat cartridges in this PDA
-        var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, CartridgeComponent>();
-        while (cartridgeQuery.MoveNext(out var cartridgeUid, out var nanoChat, out var cartridge))
-        {
-            if (cartridge.LoaderUid == ent.Owner)
-            {
-                UpdateClosed((cartridgeUid, nanoChat));
-            }
-        }
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
@@ -187,7 +154,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             case NanoChatUiMessageType.DeadminUser:
                 HandleDeadminUser(card, msg);
                 break;
-            // Funky Station End - Group Chat Functionality
+                // Funky Station End - Group Chat Functionality
         }
 
         UpdateUI(ent, GetEntity(args.LoaderUid));
@@ -332,18 +299,17 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var chatNumber = msg.RecipientNumber.Value;
         var recipient = _nanoChat.GetRecipient((card, card.Comp), chatNumber);
 
-        // If it's a group chat, remove this user from the group
-        if (recipient != null && recipient.Value.IsGroup)
+        if (recipient is { IsGroup: true } groupChat)
         {
-            var members = recipient.Value.Members ?? new HashSet<uint>();
+            var members = groupChat.Members ?? new HashSet<uint>();
             if (members.Remove(card.Comp.Number.Value))
             {
-                var admins = recipient.Value.Admins ?? new HashSet<uint>();
+                var admins = groupChat.Admins ?? new HashSet<uint>();
                 admins.Remove(card.Comp.Number.Value);
 
                 // If the creator is leaving, transfer ownership
-                uint? newCreatorId = recipient.Value.CreatorId;
-                var isCreatorLeaving = card.Comp.Number.Value == recipient.Value.CreatorId;
+                uint? newCreatorId = groupChat.CreatorId;
+                var isCreatorLeaving = card.Comp.Number.Value == groupChat.CreatorId;
                 if (isCreatorLeaving)
                 {
                     if (admins.Count > 0)
@@ -362,8 +328,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
                 // Update the group for all remaining members
                 var updatedRecipient = newCreatorId != null
-                    ? recipient.Value with { Members = members, Admins = admins, CreatorId = newCreatorId }
-                    : recipient.Value with { Members = members, Admins = admins };
+                    ? groupChat with { Members = members, Admins = admins, CreatorId = newCreatorId }
+                    : groupChat with { Members = members, Admins = admins };
 
                 foreach (var memberNumber in members)
                 {
@@ -880,12 +846,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
-                name = name[..IdCardConsoleComponent.MaxFullNameLength];
+            if (name.Length > _maxNameLength)
+                name = name[.._maxNameLength];
         }
 
         // Generate a unique group number (surely unique I actually have no idea how to generate good unique numbers.)
-        var groupNumber = (uint) (HashCode.Combine(card.Comp.Number.Value, _timing.CurTime.Ticks) & 0x7FFFFFFF);
+        var groupNumber = (uint)(HashCode.Combine(card.Comp.Number.Value, _timing.CurTime.Ticks) & 0x7FFFFFFF);
 
         // This fucking sucks (fire emoji)
         while (_nanoChat.GetRecipient((card, card.Comp), groupNumber) != null)
