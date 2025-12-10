@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.StationEvents.Events;
+namespace Content.Shared._DV.StationEvents.Events;
 
 /// <summary>
 /// After every glimmer event, it'll raise this event.

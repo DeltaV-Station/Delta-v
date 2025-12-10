@@ -7,4 +7,3 @@ namespace Content.Shared._DV.Chat.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TelepathicRepeaterComponent : Component;
-
