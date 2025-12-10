@@ -5,7 +5,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
-using Content.Client._Funkystation.NanoChat
+using Content.Client._Funkystation.NanoChat;
 
 namespace Content.Client._DV.CartridgeLoader.Cartridges;
 

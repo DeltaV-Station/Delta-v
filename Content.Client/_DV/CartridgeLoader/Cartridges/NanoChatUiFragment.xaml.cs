@@ -59,7 +59,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         _newChatPopup = new(_maxNameLength, _maxIdJobLength);
         _editChatPopup = new(_maxNameLength, _maxIdJobLength);
-        _createGroupChatPopup = new();
+        _createGroupChatPopup = new(_maxNameLength);
         _inviteToGroupPopup = new();
         _groupMembersPopup = new();
         _emojiPickerPopup = new();
