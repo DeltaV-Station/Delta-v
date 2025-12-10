@@ -83,7 +83,13 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (!CanNPCHandleOrder(ent, args.BoundNPCs))
             return;
 
-        var location = _transform.ToCoordinates(args.User, args.Location);
+        var grid = _transform.GetGrid(ent.Owner);
+        if (!grid.HasValue)
+        {
+            return;
+        }
+
+        var location = _transform.ToCoordinates((grid.Value, null), args.Location);
         UpdateNPCOrders(ent,
             RemoteControlOrderType.TilePoint,
             () =>
