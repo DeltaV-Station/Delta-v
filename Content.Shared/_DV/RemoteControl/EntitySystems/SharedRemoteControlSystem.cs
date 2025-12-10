@@ -123,6 +123,15 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <param name="args">Args for the event.</param>
     private void OnGetRemoteControlActions(Entity<RemoteControlComponent> control, ref GetItemActionsEvent args)
     {
+        if (control.Comp.BoundNPCs.Contains(args.User))
+            return; // Bound entities don't get to control themselves.
+
+        // As a measure against entities having their own remote control, we don't allow a receiver with
+        // the same channel name as the control to get an action.
+        if (TryComp<RemoteControlRecieverComponent>(args.User, out var recieverComp) &&
+            recieverComp.ChannelName == control.Comp.ChannelName)
+            return;
+
         args.AddAction(ref control.Comp.ToggleActionEntid, control.Comp.ToggleAction);
         Dirty(control);
     }
