@@ -184,7 +184,7 @@
   suffix: Empty
   components:
   - type: Anchorable
-    flags: 
+    flags:
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
@@ -448,7 +448,9 @@
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleTool
+        - BorgModuleAdvancedTool # Delta V - replaced tool module
+        - BorgModuleCable # DeltaV
+        - BorgModuleConstruction # DeltaV
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
         - BorgModuleChameleonProjector # DeltaV
