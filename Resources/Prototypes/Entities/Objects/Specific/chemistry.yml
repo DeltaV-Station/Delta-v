@@ -398,10 +398,6 @@
   components:
   - type: Injector
     currentTransferAmount: 15
-    transferAmounts: # DeltaV - Don't include 1u injections on Syringes
-    - 5
-    - 10
-    - 15
   - type: Tag
     tags:
     - Syringe
@@ -510,10 +506,6 @@
   - type: Injector
     delay: 2.5
     injectOnly: false
-    transferAmounts: # DeltaV - Don't include 1u injections on Syringes
-    - 5
-    - 10
-    - 15
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: syringe
