@@ -39,12 +39,6 @@
   category: Godo
   sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/golove.png
 
-# Misc emotes
-- type: nanoChatEmoji
-  id: troll
-  category: Misc
-  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/troll.png
-
 # Character emotes
 - type: nanoChatEmoji
   id: bubble
@@ -171,29 +165,29 @@
   id: bee
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_h
+    sprite: /Textures/Objects/Fun/Plushies/bee.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: ratvar
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_ratvar
+    sprite: /Textures/Objects/Fun/Plushies/ratvar.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: penguin
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_penguin
+    sprite: /Textures/Objects/Fun/Plushies/penguin.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: moth
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_moth
+    sprite: /Textures/Objects/Fun/Plushies/moth.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: rouny
@@ -204,71 +198,71 @@
   id: lizard
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_lizard
+    sprite: /Textures/Objects/Fun/Plushies/lizard.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: spacelizard
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
+    sprite: /Textures/Objects/Fun/Plushies/lizard.rsi
     state: plushie_spacelizard
 
 - type: nanoChatEmoji
   id: hampter
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_hampter
+    sprite: /Textures/Objects/Fun/Plushies/hampter.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: arachnid
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_arachnid
+    sprite: /Textures/Objects/Fun/Plushies/arachnid.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: lamp
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_lamp
+    sprite: /Textures/Objects/Fun/Plushies/lamp.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: nukie
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_nuke
+    sprite: /Textures/Objects/Fun/Plushies/nukie.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: atmosian
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_atmosian
+    sprite: /Textures/Objects/Fun/Plushies/atmosian.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: slime
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_slime
+    sprite: /Textures/Objects/Fun/Plushies/slime.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: snake
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_snake
+    sprite: /Textures/Objects/Fun/Plushies/snake.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: vox
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_vox
+    sprite: /Textures/Objects/Fun/Plushies/vox.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: diona
@@ -279,21 +273,21 @@
   id: human
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_human
+    sprite: /Textures/Objects/Fun/Plushies/human.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: xeno
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: plushie_xeno
+    sprite: /Textures/Objects/Fun/Plushies/xeno.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: carp
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
+    sprite: /Textures/Objects/Fun/Plushies/carp.rsi
     state: carpplush
 
 - type: nanoChatEmoji
@@ -310,15 +304,8 @@
   id: nar
   category: Plushies
   sprite:
-    sprite: /Textures/Objects/Fun/toys.rsi
-    state: narplush
-
-- type: nanoChatEmoji
-  id: cirno
-  category: Plushies
-  sprite:
-    sprite: /Textures/_Funkystation/Objects/Fun/toys.rsi
-    state: plushie_cirno
+    sprite: /Textures/Objects/Fun/Plushies/narsie.rsi
+    state: icon
 
 - type: nanoChatEmoji
   id: mothroach
@@ -326,13 +313,6 @@
   sprite:
     sprite: /Textures/_Funkystation/Objects/Fun/toys.rsi
     state: plushie_mothroach
-
-- type: nanoChatEmoji
-  id: louie
-  category: Plushies
-  sprite:
-    sprite: /Textures/_Goobstation/Objects/Fun/toys.rsi
-    state: plushie_louie
 
 - type: nanoChatEmoji
   id: cosmic
