@@ -81,8 +81,8 @@ namespace Content.Server.Forensics
             }
 
             // Begin DeltaV changes - add Fiberprint to display
-            if (TryComp<FiberComponent>(args.Target, out var fiber) && fiber.Fiberprint != null)
-                StartScan(uid, args.User, args.Target.Value, component, string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-pad-fibers", ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint)) : Loc.GetString("forensic-pad-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint)));
+            if (TryComp<FiberComponent>(args.Target, out var fiber))
+                StartScan(uid, args.User, args.Target.Value, component, string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-pad-fibers", ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint ?? string.Empty)) : Loc.GetString("forensic-pad-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint ?? string.Empty)));
             // End DeltaV changes
         }
 
