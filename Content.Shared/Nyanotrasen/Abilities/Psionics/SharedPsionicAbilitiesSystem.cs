@@ -1,10 +1,7 @@
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Components.PsionicPowers;
-using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
@@ -67,10 +64,7 @@ public sealed partial class SharedPsionicAbilitiesSystem : EntitySystem
 
     private bool IsEligibleForPsionics(EntityUid psionic)
     {
-        if (TryComp<PsionicallyInsulatedComponent>(psionic, out var insulComp))
-            return insulComp.AllowsPsionicUsage && _mobStateSystem.IsAlive(psionic);
-
-        return _mobStateSystem.IsAlive(psionic);
+        return HasComp<PotentialPsionicComponent>(psionic) && _mobStateSystem.IsAlive(psionic);
     }
 
     public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)

@@ -1,13 +1,12 @@
-using Content.Server._DV.Psionics.Systems;
 using Content.Shared.Psionics;
 using Content.Shared.Eui;
 using Content.Server.EUI;
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared._DV.Psionics.Systems;
 
 namespace Content.Server._DV.Psionics.UI
 {
-    public sealed class AcceptPsionicsEui(Entity<PotentialPsionicComponent> potPsionic, PsionicSystem psionicsSystem) : BaseEui
+    public sealed class AcceptPsionicsEui(Entity<PotentialPsionicComponent> potPsionic, SharedPsionicSystem psionicsSystem, bool midRound = false) : BaseEui
     {
         public override void HandleMessage(EuiMessageBase message)
         {
@@ -20,7 +19,7 @@ namespace Content.Server._DV.Psionics.UI
                 return;
             }
 
-            psionicsSystem.AddRandomPsionicPower(potPsionic);
+            psionicsSystem.AddRandomPsionicPower(potPsionic, midRound);
             Close();
         }
     }

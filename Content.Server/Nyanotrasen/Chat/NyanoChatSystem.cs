@@ -16,6 +16,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Events;
 
 namespace Content.Server.Nyanotrasen.Chat
 {
@@ -48,7 +49,7 @@ namespace Content.Server.Nyanotrasen.Chat
         private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
         {
             var filtered = Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<OldPsionicInsulationComponent>(entity))
+                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && IsEligibleForTelepathy(entity))
                 .Recipients
                 .Select(p => p.Channel);
 
@@ -62,9 +63,10 @@ namespace Content.Server.Nyanotrasen.Chat
 
         private bool IsEligibleForTelepathy(EntityUid entity)
         {
-            return HasComp<PsionicComponent>(entity)
-                && !HasComp<PsionicsDisabledComponent>(entity)
-                && !HasComp<OldPsionicInsulationComponent>(entity)
+            var ev = new PsionicPowerUseAttemptEvent();
+            RaiseLocalEvent(entity, ref ev);
+
+            return ev.CanUsePower
                 && (!TryComp<MobStateComponent>(entity, out var mobstate) || mobstate.CurrentState == MobState.Alive);
         }
 
@@ -100,7 +102,7 @@ namespace Content.Server.Nyanotrasen.Chat
                 _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, false, GetDreamers(clients), Color.PaleVioletRed);
             }
 
-            foreach (var repeater in EntityQuery<TelepathicRepeaterComponent>())
+            foreach (var repeater in EntityQuery<Shared._DV.Chat.Components.TelepathicRepeaterComponent>())
             {
                 _chatSystem.TrySendInGameICMessage(repeater.Owner, message, InGameICChatType.Speak, false);
             }

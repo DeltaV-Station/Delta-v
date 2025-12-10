@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._DV.Psionics.Events; // DeltaV
 using Content.Shared.Chemistry;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -23,6 +24,7 @@ public abstract partial class SharedXenoArtifactSystem
         XATRelayLocalEvent<InteractHandEvent>();
         XATRelayLocalEvent<ReactionEntityEvent>();
         XATRelayLocalEvent<LandEvent>();
+        XATRelayLocalEvent<PsionicPowerDetectedEvent>(); // DeltaV
 
         // special case this one because we need to order the messages
         SubscribeLocalEvent<XenoArtifactComponent, ExaminedEvent>(OnExamined);
@@ -92,7 +94,7 @@ public abstract partial class SharedXenoArtifactSystem
         {
             // DeltaV - start of faster unlock effect
             if (
-                ent.Comp.UnlockCompleteDuration is {} completeDuration 
+                ent.Comp.UnlockCompleteDuration is {} completeDuration
                 && TryGetNodeFromUnlockState((ent.Owner, unlockingComp, ent.Comp), out var unlockingNode)
             )
             {

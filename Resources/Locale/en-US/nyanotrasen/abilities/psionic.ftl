@@ -14,9 +14,6 @@ glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has
 glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}Ψ.
 glimmer-event-awakened-prefix = awakened {$entity}
 
-noospheric-zap-seize = You seize up!
-noospheric-zap-seize-potential-regained = You seize up! Some mental block seems to have cleared, too.
-
 mindswap-trapped = Seems you're trapped in this vessel.
 
 telegnostic-trapped-entity-name = severed telegnostic projection

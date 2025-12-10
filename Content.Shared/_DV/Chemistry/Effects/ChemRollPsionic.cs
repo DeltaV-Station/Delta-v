@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DV.Chemistry.Effects;
 
 /// <summary>
-/// Rerolls psionics once.
+/// Rolls psionics once.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class ChemRollPsionic : EventEntityEffect<ChemRollPsionic>
@@ -14,7 +14,7 @@ public sealed partial class ChemRollPsionic : EventEntityEffect<ChemRollPsionic>
         => Loc.GetString("reagent-effect-guidebook-chem-roll-psionic", ("multiplier", BonusMultiplier));
 
     /// <summary>
-    /// Reroll multiplier.
+    /// Chance Multiplier.
     /// </summary>
     [DataField]
     public float BonusMultiplier = 1f;

@@ -7,6 +7,6 @@ reagent-effect-guidebook-chem-remove-psionic =
 reagent-effect-guidebook-chem-roll-psionic =
     Has a chance to grant another, different psionic power
     { $multiplier ->
-        [1] power
+        [1] {""}
         *[other] with a chance multiplier of {$multiplier}
     }

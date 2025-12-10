@@ -1,6 +1,7 @@
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Psionics.Components;
 
@@ -20,7 +21,7 @@ public sealed partial class PotentialPsionicComponent : Component
     /// Additive bonus for <see cref="BaseChance"/> from your role.
     /// </summary>
     /// <example>Command roles and the Chaplain get an additive bonus to being psionic.</example>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float JobBonusChance;
 
     /// <summary>
@@ -39,7 +40,13 @@ public sealed partial class PotentialPsionicComponent : Component
     public bool Rolled;
 
     /// <summary>
-    /// The available psionics to roll.
+    /// The Prototype ID of the table containing the available psionic powers to roll.
+    /// </summary>
+    [DataField]
+    public ProtoId<EntityTablePrototype>? PsionicPowerTableId = "PsionicPowerTable";
+
+    /// <summary>
+    /// The actual table.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityTableSelector? AvailablePsionics;

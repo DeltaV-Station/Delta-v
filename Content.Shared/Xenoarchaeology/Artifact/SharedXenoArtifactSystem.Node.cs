@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._DV.Xenoarchaeology.Artifact.Components; // DeltaV
+using Content.Shared._DV.Xenoarcheology.XenoArtifacts.Effects.Components; // DeltaV
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Xenoarchaeology.Artifact.Components;

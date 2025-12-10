@@ -3,3 +3,44 @@
   parent: GreyMatter
   name: reagent-name-sentient-grey-matter
   desc: reagent-desc-sentient-grey-matter
+
+- type: reagent
+  id: Nectar
+  name: reagent-name-nectar
+  group: Biological
+  desc: reagent-desc-nectar
+  flavor: enthralling
+  color: "#FFBF00"
+  physicalDesc: reagent-physical-desc-refreshing
+  allowedDepartments:
+  - Science
+  metabolisms:
+    Drink:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectShieldedFromPsionics
+        type: Add
+        time: 20
+        refresh: false
+      - !type:SatiateThirst
+        factor: 10 # A drink for the Gods after all.
+
+- type: reagent
+  id: Ambrosia
+  name: reagent-name-ambrosia
+  group: Biological
+  desc: reagent-desc-ambrosia
+  flavor: enthralling
+  color: "#FFBF00"
+  physicalDesc: reagent-physical-desc-thick
+  allowedDepartments:
+  - Science
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:Jitter
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.3
+        sprintSpeedModifier: 1.3
+      - !type:SatiateHunger
+        factor: 10 # A food for the Gods after all.
