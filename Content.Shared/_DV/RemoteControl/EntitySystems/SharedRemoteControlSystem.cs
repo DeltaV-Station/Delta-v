@@ -29,6 +29,8 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         SubscribeLocalEvent<RemoteControlComponent, GotEquippedEvent>(OnRemoteControlEquipped);
         SubscribeLocalEvent<RemoteControlComponent, GotUnequippedEvent>(OnRemoteControlUnequipped);
+
+        SubscribeLocalEvent<RemoteControlComponent, GotUnequippedHandEvent>(OnRemoteControlHandUnequipped);
     }
 
     /// <summary>
@@ -137,5 +139,19 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             _actions.SetToggled(control.Comp.ToggleActionEntid, false);
 
         RemComp<RemoteControlHolderComponent>(args.Equipee);
+    }
+
+    /// <summary>
+    /// Handles when a remote control is unequipped from a hand, clearing up any toggles and other components.
+    /// </summary>
+    /// <param name="control">Remote control that was unequipped.</param>
+    /// <param name="args">Args for the event, notably who unequipped it.</param>
+    private void OnRemoteControlHandUnequipped(Entity<RemoteControlComponent> control, ref GotUnequippedHandEvent args)
+    {
+        // Ensure the action and equipee are cleaned up
+        if (control.Comp.ToggleActionEntid != null)
+            _actions.SetToggled(control.Comp.ToggleActionEntid, false);
+
+        RemComp<RemoteControlHolderComponent>(args.User);
     }
 }
