@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Clothing;
@@ -17,6 +18,9 @@ public abstract partial class SharedPsionicSystem
 
     private void OnGrantingClothingEquipped(Entity<PsionicPowerDetectorComponent> detector, ref ClothingGotEquippedEvent args)
     {
+        if (!HasComp<PotentialPsionicComponent>(args.Wearer)) // IPCs and non-player organics shouldn't be able to use abilities.
+            return;
+
         detector.Comp.Wearer = args.Wearer;
         Dirty(detector);
     }
@@ -31,13 +35,10 @@ public abstract partial class SharedPsionicSystem
     {
         var coords = Transform(args.User).Coordinates;
 
-        foreach (var detectorPower in _lookupSystem.GetEntitiesInRange<PsionicPowerDetectorComponent>(coords, 10f))
+        foreach (var detector in _lookup.GetEntitiesInRange<PsionicPowerDetectorComponent>(coords, 10f).Select(detectorPower => detectorPower.Comp.Wearer ?? detectorPower.Owner))
         {
-            if (detectorPower.Owner == args.User
-                || Transform(detectorPower).ParentUid == args.User)
+            if (detector == args.User)
                 continue;
-
-            var detector = detectorPower.Comp.Wearer ?? detectorPower.Owner;
 
             var ev = new PsionicPowerUseAttemptEvent();
             RaiseLocalEvent(detector, ref ev);
@@ -48,7 +49,7 @@ public abstract partial class SharedPsionicSystem
             var detectEv = new PsionicPowerDetectedEvent(args.User, args.Power);
             RaiseLocalEvent(detector, ref detectEv);
 
-            _popupSystem.PopupEntity(Loc.GetString("psionic-power-metapsionic-power-detected", ("power", args.Power)), detector, detector, PopupType.LargeCaution);
+            Popup.PopupEntity(Loc.GetString("psionic-power-metapsionic-power-detected", ("power", args.Power)), detector, detector, PopupType.LargeCaution);
         }
 
         args.Handled = true;

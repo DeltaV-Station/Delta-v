@@ -19,6 +19,3 @@ reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and blo
 
 reagent-name-sanctussal = sanctus sal
 reagent-desc-sanctussal = A primitive mixture that wards off noöspheric influences. Historically a scam, but sourcing the holy water from a divine source yields factual results.
-
-reagent-name-lotophagoi-oil = lotophagoi oil
-reagent-desc-lotophagoi-oil = A divine drug sourced directly from the oracle. It temporarily tears into the patient's mind, reshaping it to suit the Noösphere.

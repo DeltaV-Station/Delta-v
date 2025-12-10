@@ -1,0 +1,15 @@
+﻿- type: reagent
+  id: Lernaea
+  name: reagent-name-lernaea
+  group: Toxins
+  desc: reagent-desc-lernaea
+  color: "#2E3E64"
+  physicalDesc: reagent-physical-desc-sickly
+  metabolisms:
+    Poison:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPsionicsDisabled
+        type: Add
+        time: 5
+        refresh: false

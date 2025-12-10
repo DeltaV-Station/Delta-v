@@ -76,7 +76,8 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
 
     protected void OnGrantingClothingEquipped(Entity<T> psionicClothing, ref GetItemActionsEvent args)
     {
-        if (args.SlotFlags is null or SlotFlags.POCKET)
+        if (args.SlotFlags is null or SlotFlags.POCKET
+            || !HasComp<PotentialPsionicComponent>(args.User)) // IPCs and non-player organics shouldn't be able to use abilities.
             return;
 
         args.AddAction(psionicClothing.Comp.ActionEntity);

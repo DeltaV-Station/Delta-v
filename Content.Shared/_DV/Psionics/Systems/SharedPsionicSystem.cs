@@ -1,5 +1,4 @@
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
@@ -18,12 +17,12 @@ public abstract partial class SharedPsionicSystem : EntitySystem
 {
     [Dependency] protected readonly ISharedPlayerManager PlayerManager = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly GlimmerSystem GlimmerSystem = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly SharedStutteringSystem  _stutteringSystem = default!;
+    [Dependency] protected readonly GlimmerSystem Glimmer = default!;
+    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedStutteringSystem  _stuttering = default!;
 
     public override void Initialize()
     {
@@ -41,11 +40,13 @@ public abstract partial class SharedPsionicSystem : EntitySystem
         if (!psionic.Comp.Removable)
             return;
 
-        GlimmerSystem.Glimmer -= Random.Next(50, 70);
-
-        _stutteringSystem.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
-        _stunSystem.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, false);
-        _jitteringSystem.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
+        Glimmer.Glimmer -= Random.Next(50, 70);
+        if (args.Stun)
+        {
+            _stuttering.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
+            _stun.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, drop: false);
+            _jittering.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
+        }
 
         RemComp<PsionicComponent>(psionic);
     }

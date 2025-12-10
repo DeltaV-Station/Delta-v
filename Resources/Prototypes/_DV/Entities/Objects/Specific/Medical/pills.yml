@@ -1,0 +1,13 @@
+﻿- type: entity
+  name: sanctus sal
+  parent: Pill
+  id: PillSanctusSal
+  description: A long-lasting drug which prevents and shields from psionic usage.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: SanctusSal
+          Quantity: 20

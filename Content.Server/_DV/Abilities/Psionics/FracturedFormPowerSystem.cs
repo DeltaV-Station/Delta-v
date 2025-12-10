@@ -159,10 +159,8 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
                 if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out var canBePsionic, Factory))
                 {
-                    var chance = canBePsionic.Chance;
+                    var chance = canBePsionic.BaseChance;
 
-                    if (speciesEntityPrototype.TryGetComponent<PsionicBonusChanceComponent>(out var bonusChance, Factory))
-                        chance = (chance * bonusChance.Multiplier) + bonusChance.FlatBonus;
 
                     if (chance > 0)
                         validSpecies.Add(proto.ID);

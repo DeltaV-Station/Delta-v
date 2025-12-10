@@ -14,6 +14,7 @@ using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Abilities.Psionics; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
@@ -121,14 +122,14 @@ public sealed partial class ZombieSystem
         RemComp<ComplexInteractionComponent>(target);
         RemComp<SentienceTargetComponent>(target);
 
-        if (TryComp<PsionicComponent>(target, out var psionic)) // DeltaV - Prevent psionic zombies
+        // DeltaV Start - Prevent Psionic Zombies
+        if (HasComp<PsionicComponent>(target))
         {
-            foreach (var power in psionic.PsionicPowersActionEntities)
-            {
-                _actions.RemoveAction(power);
-            }
-            RemComp<PsionicComponent>(target);
+            var mindBrokenEv = new PsionicMindBrokenEvent(stun: false);
+            RaiseLocalEvent(target, ref mindBrokenEv);
         }
+        RemComp<PotentialPsionicComponent>(target);
+        // DeltaV End - Prevent Psionic Zombies
 
         //funny voice
         var accentType = "zombie";

@@ -3,6 +3,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Psionics;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
@@ -69,18 +71,24 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
         List<EntityUid> psionicPool = new();
         List<EntityUid> psionicActors = new();
 
-        var query = EntityQueryEnumerator<OldPotentialPsionicComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out _))
         {
-            if (_mobStateSystem.IsAlive(psion) && !HasComp<OldPsionicInsulationComponent>(psion))
-            {
-                psionicPool.Add(psion);
+            if (!_mobStateSystem.IsAlive(psion))
+                continue;
 
-                if (HasComp<ActorComponent>(psion))
-                {
-                    // This is so we don't bother mindswapping NPCs with NPCs.
-                    psionicActors.Add(psion);
-                }
+            var ev = new TargetedByPsionicPowerEvent();
+            RaiseLocalEvent(psion, ref ev);
+
+            if (ev.IsShielded)
+                continue;
+
+            psionicPool.Add(psion);
+
+            if (HasComp<ActorComponent>(psion))
+            {
+                // This is so we don't bother mindswapping NPCs with NPCs.
+                psionicActors.Add(psion);
             }
         }
 

@@ -6,8 +6,6 @@
   flavor: enthralling
   color: "#FFBF00"
   physicalDesc: reagent-physical-desc-overpowering
-  allowedDepartments:
-  - Science
   metabolisms:
     Narcotic:
       metabolismRate: 0.2
@@ -29,3 +27,4 @@
         - !type:ReagentThreshold
           reagent: LotophagoiOil
           min: 20
+

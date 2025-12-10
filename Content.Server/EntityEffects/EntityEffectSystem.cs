@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -16,7 +15,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Psionics;
 using Content.Server.Speech.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
@@ -24,6 +22,7 @@ using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Zombies;
+using Content.Shared._DV.Psionics.Components; // DeltaV - Psionics Refactor
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
@@ -784,7 +783,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
         ghostRole = AddComp<GhostRoleComponent>(uid);
         EnsureComp<GhostTakeoverAvailableComponent>(uid);
-        EnsureComp<OldPotentialPsionicComponent>(uid); //Nyano - Summary:. Makes the animated body able to get psionics.
+        EnsureComp<PotentialPsionicComponent>(uid); //Nyano - Summary:. Makes the animated body able to get psionics.
 
         var entityData = Comp<MetaDataComponent>(uid);
         ghostRole.RoleName = entityData.EntityName;
