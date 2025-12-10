@@ -17,7 +17,7 @@
             targetKey: MovementTarget
             RangeKey: IdleRange
         - !type:HTNCompoundTask
-          task: IdleCompound
+          task: IdleSpinCompound
     - preconditions:
         - !type:HasOrdersPrecondition
           orders: enum.RemoteControlOrderType.SelfPoint
