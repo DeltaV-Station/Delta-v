@@ -35,7 +35,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry(":D", "chatsan-smiles-widely"),
         Entry("D:", "chatsan-frowns-deeply"),
         Entry(":O", "chatsan-surprised"),
-        Entry(":3", "chatsan-smiles"),
+        Entry(":3", "chatsan-smiles-mischievously"), //DeltaV
         Entry(":S", "chatsan-uncertain"),
         Entry(":>", "chatsan-grins"),
         Entry(":<", "chatsan-pouts"),
