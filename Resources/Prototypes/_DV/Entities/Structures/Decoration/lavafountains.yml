@@ -1,0 +1,87 @@
+- type: entity
+  parent: BaseStructure
+  id: LavaFountainLargeRound
+  name: large round lava fountain
+  description: A fountain full of yummy lavas's.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: FloorObjects
+    offset: "0.0,0.1"
+    sprite: _DV/Structures/Decoration/lavafountains.rsi
+    layers:
+      - state: large-round-base
+      - state: large-round-base-lava
+        shader: unshaded
+  - type: SolutionContainerManager
+    solutions:
+      fountain:
+        maxVol: 100
+  - type: SolutionRegeneration
+    solution: fountain
+    generated:
+      reagents:
+      - ReagentId: Phlogiston
+        Quantity: 100
+  - type: Drink
+    solution: fountain
+  - type: ExaminableSolution
+    solution: fountain
+  - type: InteractionOutline
+  - type: Prayable
+    sentMessage: prayer-popup-notify-fountainwish-sent
+    notificationPrefix: prayer-chat-notify-fountainwish
+    verb: prayer-verbs-fountainwish
+    verbImage: null
+  - type: PointLight
+    radius: 10
+    energy: 2.5
+    softness: 0.9
+    color: "#FF4500"
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+  - type: TileEntityEffect
+    effects:
+    - !type:FlammableReaction
+      multiplier: 3.75
+      multiplierOnExisting: 0.75
+    - !type:Ignite
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 400
+        layer:
+        - WallLayer
+      fix2:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.1
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+
+- type: entity
+  parent: BaseStructure
+  id: LavaFountainLargeRoundTop
+  name: large round lava fountain top
+  description: Sprinkel lava!
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    offset: "0.0,0.1"
+    sprite: _DV/Structures/Decoration/lavafountains.rsi
+    layers:
+      - state: large-round-top
+      - state: large-round-top-lava
+        shader: unshaded
+      - state: large-round-flows
+        shader: unshaded

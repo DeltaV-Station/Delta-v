@@ -42,3 +42,16 @@
       settings: default
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateHostageWarden
+
+- type: entity
+  parent: ReinforcementRadioSyndicateSyndiCat
+  id: ReinforcementRadioSyndicateYarn
+  name: suspicious yarn ball with wires
+  description: A chewed up yarn ball with two knitting needles sticking out of it...they appear to be blinking? Might attract an odd cat.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/communication.rsi
+    layers:
+    - state: syndicat-yarn
+  - type: GhostRole
+    description: ghost-role-information-DVSyndiCat-description

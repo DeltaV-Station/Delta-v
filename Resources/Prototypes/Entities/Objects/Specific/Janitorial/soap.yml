@@ -130,6 +130,7 @@
   - type: Slippery
     staminaDamage: 50
     slipData:
+      stunTime: 3 # DeltaV - buff slips
       knockdownTime: 3
       launchForwardsMultiplier: 3
   - type: Item
@@ -228,6 +229,7 @@
   - type: Slippery
     staminaDamage: 50
     slipData:
+      stunTime: 5.0 # DeltaV - buff slips
       knockdownTime: 5.0
       launchForwardsMultiplier: 3.0
   - type: Item

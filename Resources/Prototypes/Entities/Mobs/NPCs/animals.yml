@@ -3245,6 +3245,10 @@
   - type: HTN # DeltaV - make all cats eat mice
     rootTask:
       task: SimpleHostileCompound
+  - type: JumpAbility # DeltaV - Give cats a pounce :3
+    jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
+    jumpDistance: 3
+    action: ActionCatJump
   - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
@@ -3272,7 +3276,8 @@
   name: syndicat
   id: MobCatSyndy
   parent: MobCatSpace
-  description: Explosive kitten.
+  # description: Explosive kitten.
+  description: An adorable cat in a terrifying red suit, prepared to cause trouble. #DeltaV
   components:
   - type: Sprite
     layers:
@@ -3297,14 +3302,17 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: AutoImplant
-    implants:
-    - MicroBombImplant
+  #- type: AutoImplant  # DetlaV
+  #  implants:
+  #  - MicroBombImplant
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Inventory # DeltaV
+    templateId: nfcat
+    speciesId: cat
   - type: Access
     tags:
     - NuclearOperative

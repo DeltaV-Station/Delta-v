@@ -57,7 +57,7 @@
     size: Normal
   - type: FishingRod
     floatPrototype: FishingLureMakeshift
-    efficiency: 0.8
+    efficiency: 0.9
   - type: Construction
     graph: FishingRodMakeshift
     node: makeshiftRod
@@ -67,7 +67,7 @@
   id: FishingRodGolden
   parent: FishingRod
   name: golden fishing rod
-  description: Finally, you caught 250 fishes. Here's your trophey.
+  description: Finally, you caught 250 fishes. Here's your trophy.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/golden_rod.rsi

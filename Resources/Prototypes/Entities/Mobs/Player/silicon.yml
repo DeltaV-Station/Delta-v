@@ -19,6 +19,7 @@
     # Begin DeltaV additions
     - Justice
     - Prison
+    - Traffic
     # End DeltaV additions
   - type: ActiveRadio
     channels:
@@ -34,6 +35,7 @@
     # Begin DeltaV additions
     - Justice
     - Prison
+    - Traffic
     # End DeltaV additions
   - type: IgnoreUIRange
   - type: StationAiHeld
@@ -322,6 +324,13 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
+  # Begin DeltaV additions
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - HumanoidSilicon
+  # End DeltaV additions
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -411,7 +420,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+        - SyndicateNeuroling # DeltaV
       borg_module:
         - BorgModuleOperative
         - BorgModuleL6C
@@ -446,7 +455,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+        - SyndicateNeuroling # DeltaV
       borg_module:
         - BorgModuleTool
         - BorgModuleOperative
@@ -503,6 +512,8 @@
       - BorgModuleConstruction
       - BorgModuleRCD
       - BorgModuleCable
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -575,6 +586,8 @@
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
       - BorgModuleCustodial
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -612,6 +625,8 @@
       - BorgModuleChemical
       - BorgModuleTopicals
       - BorgModuleRescue
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -648,6 +663,8 @@
       - BorgModuleMining
       - BorgModuleTraversal
       - BorgModuleAppraisal
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipBorgAA
   - type: ItemSlots
     slots:
       cell_slot:
@@ -678,11 +695,13 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - PositronicBrain
+      - SyndicateNeuroling # DeltaV
       borg_module:
       - BorgModuleOperative
       - BorgModuleC20r
       - BorgModuleEsword
+      borg_id_chip: # DeltaV - borg id chips
+      - IdChipRoboNeuroticist # BorgAA doesn't make sense. This gives them externals and maintenence access to get into the station at least.
   - type: ItemSlots
     slots:
       cell_slot:

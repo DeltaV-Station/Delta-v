@@ -254,7 +254,7 @@
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
+    proto: RedLaser
     fireCost: 50 #Delta-V was 62.5
   - type: StaticPrice
     price: 420
@@ -270,6 +270,18 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
     fireCost: 62.5
+    # Start DeltaV additions
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_gun_practice.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/laser_gun_practice.rsi
+    # End DeltaV additions
 
 - type: entity
   name: pulse pistol

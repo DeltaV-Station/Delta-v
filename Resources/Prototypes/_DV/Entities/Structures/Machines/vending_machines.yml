@@ -77,3 +77,54 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+- type: entity
+  parent: VendingMachineMedicalBase
+  id: VendingMachineMedicaPublic
+  name: NanoMed Public
+  components:
+  - type: VendingMachine
+    pack: NanoMedPublicInventory
+    offState: off-civilian
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    ejectDelay: 0.6
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineFishing
+  name: Fishing Vendor
+  description: Exchange your fish for fishing points and purchase fishing supplies!
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/VendingMachines/fishing.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#4ba3ad"
+  - type: ShopVendor
+    pack: FishingVendorInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: FishingPointsVendor
+  - type: FishingVendor
+  - type: UserInterface
+    interfaces:
+      enum.VendingMachineUiKey.Key:
+        type: ShopVendorBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Wires
+    layoutId: ShopVendor

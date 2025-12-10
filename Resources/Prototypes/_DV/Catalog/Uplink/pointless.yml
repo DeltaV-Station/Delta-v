@@ -25,3 +25,14 @@
   - UplinkChemicals
   - UplinkPointless
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkMobCat
+  name: uplink-mobcat-microbomb-name
+  description: uplink-mobcat-desc
+  icon: { sprite: _DV/Objects/Devices/communication.rsi, state: syndicat-yarn}
+  productEntity: ReinforcementRadioSyndicateYarn
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless

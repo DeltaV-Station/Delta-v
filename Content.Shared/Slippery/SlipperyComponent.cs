@@ -56,7 +56,7 @@ namespace Content.Shared.Slippery
         /// How many seconds the mob will be stunned for.
         /// </summary>
         [DataField]
-        public TimeSpan StunTime = TimeSpan.FromSeconds(0.5);
+        public TimeSpan StunTime = TimeSpan.FromSeconds(1.5); // DeltaV - buff slips
 
         /// <summary>
         /// How many seconds the mob will be knocked down for.

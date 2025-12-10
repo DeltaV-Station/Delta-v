@@ -15,7 +15,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_seal.yml
         - type: StationCargoShuttle
-          path: /Maps/_DV/Shuttles/Cargo/cargo_model_b.yml
+          path: /Maps/_DV/Shuttles/Cargo/ntcs_express_model_b.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -44,7 +44,7 @@
             Surgeon: [ 1, 2 ]
           #security
             Brigmedic: [ 1, 1 ]
-            Detective: [ 1, 1 ]
+            Detective: [ 2, 2 ]
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 2, 3 ]
             PrisonGuard: [ 1, 1 ]

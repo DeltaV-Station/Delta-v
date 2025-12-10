@@ -63,6 +63,15 @@ public abstract partial class SharedXenoArtifactSystem
         if (!force && _timing.CurTime < ent.Comp.NextUnlockTime)
             return;
 
+        // DeltaV - start of node scanner overhaul
+        (Entity<XenoArtifactNodeComponent> node, int index)? parsedNode = 
+            (node == null) 
+            ? null 
+            : (node.Value, GetIndex(ent, node.Value));
+
+        bool partOfRelatedTriggersSet = true;
+        // DeltaV - end of node scanner overhaul
+
         if (!_unlockingQuery.TryGetComponent(ent, out var unlockingComp))
         {
             unlockingComp = EnsureComp<XenoArtifactUnlockingComponent>(ent);
@@ -73,23 +82,46 @@ public abstract partial class SharedXenoArtifactSystem
                 _popup.PopupEntity(Loc.GetString("artifact-unlock-state-begin"), ent);
             Dirty(ent);
         }
-        else if (node != null)
+        else if (parsedNode != null)
         {
-            var index = GetIndex(ent, node.Value);
+            // DeltaV - start of node scanner overhaul
 
-            var predecessorNodeIndices = GetPredecessorNodes((ent, ent), index);
-            var successorNodeIndices = GetSuccessorNodes((ent, ent), index);
-            if (unlockingComp.TriggeredNodeIndexes.Count == 0
-                || unlockingComp.TriggeredNodeIndexes.All(
-                    x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)
-                )
-               )
+            var relatedNodeIndices = GetRelatedNodes((ent, ent), parsedNode.Value.index);
+            partOfRelatedTriggersSet = unlockingComp.TriggeredNodeIndexesRelated.All(x => relatedNodeIndices.Contains(x));
+
+            // Checking for trigger "relatedness" is a much more accurate measurement 
+            //   of "is this locking phase going to fail" than upstream's predecessor/successor check.
+            // Upstream's version of this check had edge-cases where time would not add, even though the
+            //   unlocking phase ends up succeeding.
+            // See definition of GetRelatedNodes() for details on the concept of "relatedness".
+            if (
+                unlockingComp.TriggeredNodeIndexes.Count == unlockingComp.TriggeredNodeIndexesRelated.Count 
+                && partOfRelatedTriggersSet
+            )
                 // we add time on each new trigger, if it is not going to fail us
                 unlockingComp.EndTime += ent.Comp.UnlockStateIncrementPerNode;
+
+            // DeltaV - end of node scanner overhaul
         }
 
-        if (node != null && unlockingComp.TriggeredNodeIndexes.Add(GetIndex(ent, node.Value)))
+        if (parsedNode != null && unlockingComp.TriggeredNodeIndexes.Add(parsedNode.Value.index))
         {
+            // DeltaV - start of changes
+            // node scanner overhaul:
+            unlockingComp.TriggeredNodeIndexesOrdered.Add(parsedNode.Value.index);
+            if (partOfRelatedTriggersSet)
+                unlockingComp.TriggeredNodeIndexesRelated.Add(parsedNode.Value.index);
+
+            // faster unlock effect:
+            if (
+                ent.Comp.UnlockCompleteDuration is {} completeDuration 
+                && TryGetNodeFromUnlockState((ent.Owner, unlockingComp, ent.Comp), out var unlockingNode)
+            )
+            {
+                unlockingComp.EndTime = _timing.CurTime + completeDuration;
+            }
+            // DeltaV - end of changes
+
             Dirty(ent, unlockingComp);
         }
     }
