@@ -62,6 +62,7 @@ public sealed class CosmicRiftSystem : EntitySystem
 
             var pos = Transform(uid).Coordinates;
             Spawn(comp.PulseVFX, pos);
+            _mobs.Clear();
             _lookup.GetEntitiesInRange<MobStateComponent>(pos, comp.PulseRange, _mobs);
             _mobs.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target) || _colossiQuery.HasComp(target));
             foreach(var mob in _mobs)
