@@ -722,15 +722,8 @@
   id: FoodBurgerCarp
   description: Almost like a carp is yelling somewhere...
   components:
-  - type: FlavorProfile
-    flavors:
-      - bun
-      - fishy
   - type: Sprite
     state: fish
-  - type: Tag
-    tags:
-    - Meat
   - type: Item
     storedOffset: 0,1
     inhandVisuals:
@@ -750,8 +743,6 @@
     flavors:
       - bun
       - fishy
-  - type: Sprite
-    state: fish
   - type: Tag
     tags:
     - Meat
