@@ -56,7 +56,10 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
         var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, pointed);
         if (recipient.HasValue)
+        {
             RaiseLocalEvent(recipient.Value, ref ev);
+            _useDelay.TryResetDelay(holder.Comp.Control);
+        }
         else
             SendOrderToRecievers(control, ref ev);
 
@@ -85,7 +88,10 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
         var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, tile);
         if (recipient.HasValue)
+        {
             RaiseLocalEvent(recipient.Value, ref ev);
+            _useDelay.TryResetDelay(holder.Comp.Control);
+        }
         else
             SendOrderToRecievers(control, ref ev);
 
@@ -113,7 +119,10 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
         var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
         if (recipient.HasValue)
+        {
             RaiseLocalEvent(recipient.Value, ref ev);
+            _useDelay.TryResetDelay(holder.Comp.Control);
+        }
         else
             SendOrderToRecievers(control, ref ev);
 
@@ -141,7 +150,10 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
         var ev = new RemoteControlFreeUnitOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
         if (recipient.HasValue)
+        {
             RaiseLocalEvent(recipient.Value, ref ev);
+            _useDelay.TryResetDelay(holder.Comp.Control);
+        }
         else
             SendOrderToRecievers(control, ref ev);
 
