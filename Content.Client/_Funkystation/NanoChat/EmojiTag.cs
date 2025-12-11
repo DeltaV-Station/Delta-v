@@ -11,6 +11,7 @@ using Robust.Client.UserInterface.RichText;
 using Content.Shared._Funkystation.NanoChat;
 using Robust.Shared.Utility;
 using Content.Client._DV.NanoChat.UI; // DeltaV - Fix emoji alignment
+using Robust.Shared.Prototypes; // DeltaV - Emoji id for debugging
 
 namespace Content.Client._Funkystation.NanoChat;
 
@@ -33,23 +34,26 @@ public sealed class EmojiTag : IMarkupTagHandler
 
     // Begin DeltaV - Render invalid emoji as text
 
-    private static void GetEmoji(MarkupNode node, out string text, out SpriteSpecifier? emoji)
+    private static ProtoId<NanoChatEmojiPrototype>? GetEmoji(MarkupNode node, out string text, out SpriteSpecifier? emoji)
     {
         if (!node.Value.TryGetString(out var emojiName))
         {
             // If we don't have a value, then render nothing
             emoji = null;
             text = string.Empty;
+            return null;
         }
         else if (NanoChatEmojis.EmojiSpecifiers.TryGetValue(emojiName, out emoji))
         {
             // If we have a valid emoji, render the emoji, but no text
             text = string.Empty;
+            return emojiName;
         }
         else
         {
             // If we have an invalid emoji, render only text
             text = $":{emojiName}:";
+            return emojiName;
         }
     }
 
@@ -65,7 +69,7 @@ public sealed class EmojiTag : IMarkupTagHandler
     {
         control = default!;
 
-        GetEmoji(node, out _, out var maybeSpecifier);
+        var emojiId = GetEmoji(node, out _, out var maybeSpecifier);
         if (maybeSpecifier is not { } specifier)
         {
             return false;
@@ -93,16 +97,18 @@ public sealed class EmojiTag : IMarkupTagHandler
                 return false;
         }
 
-        control = new EmojiControl // DeltaV - Fix emoji alignment, replace TextureRect with EmojiControl
+        // Begin DeltaV - Fix emoji alignment, replace TextureRect with custom EmojiControl
+        control = new EmojiControl
         {
             Texture = texture,
             SetWidth = 32f,
             SetHeight = 32f,
-            Name = "Emoji",
+            Name = $"Emoji[{emojiId}]",
             // Evilly hard-coded Margin and Offset, don't ask me where they come from please
             Margin = new(5f, 0f, 2f, 0),
             Offset = new(5f, -5f),
         };
+        // End DeltaV
 
         return true;
     }
