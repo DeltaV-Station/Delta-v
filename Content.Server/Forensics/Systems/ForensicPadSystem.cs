@@ -82,7 +82,12 @@ namespace Content.Server.Forensics
 
             // Begin DeltaV changes - add Fiberprint to display
             if (TryComp<FiberComponent>(args.Target, out var fiber))
-                StartScan(uid, args.User, args.Target.Value, component, string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-pad-fibers", ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint ?? string.Empty)) : Loc.GetString("forensic-pad-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint ?? string.Empty)));
+            {
+                var text = Loc.GetString("forensic-pad-fibers", ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint ?? string.Empty));
+                if (!string.IsNullOrEmpty(fiber.FiberColor)) // If there are colored fibers, use that locale instead
+                    text = Loc.GetString("forensic-pad-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial), ("fiberprint", fiber.Fiberprint ?? string.Empty));
+                StartScan(uid, args.User, args.Target.Value, component, text);
+            }
             // End DeltaV changes
         }
 
