@@ -46,9 +46,15 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+        SubscribeLocalEvent<NanoChatCartridgeComponent, MapInitEvent>(OnMapInit);
 
         Subs.CVar(_cfg, CCVars.MaxNameLength, x => _maxNameLength = x, true);
         Subs.CVar(_cfg, CCVars.MaxIdJobLength, x => _maxIdJobLength = x, true);
+    }
+
+    private void OnMapInit(Entity<NanoChatCartridgeComponent> ent, ref MapInitEvent args)
+    {
+        UpdateUIForAllCards();
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
