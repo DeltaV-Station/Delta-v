@@ -536,7 +536,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
                 // Try to get sender name from contacts first, then recipients
                 if (_recipients.TryGetValue(message.SenderId, out var senderRecipient))
                 {
-                    senderName = senderRecipient.Name + $"#{message.SenderId:D4}";
+                    senderName = senderRecipient.Name;
                 }
 
                 // If not in recipients, try contacts list (station-wide directory)
