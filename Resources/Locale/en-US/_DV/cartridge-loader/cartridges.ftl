@@ -11,11 +11,12 @@ crime-assist-crimetype-grandfelony = Grand Felony
 crime-assist-crimetype-capital = Capital
 crime-assist-crime-innocent = No crime was committed
 crime-assist-mainmenu = Welcome to Crime Assist!
-crime-assist-sophont-explanation = A sophont is described as any entity with the capacity to display the following attributes:
-                                   • [bold]Sapience[/bold]: the entity possesses basic logic and problem-solving skills, or at a minimum some level of significant intelligence.
-                                   • [bold]Sentience[/bold]: the entity has the capacity to process an emotion or lack thereof, or at a minimum the ability to recognise its own pain.
-                                   • [bold]Self-awareness[/bold]: the entity is capable of altering its behaviour in a reasonable fashion as a result of stimuli, or at a minimum is capable of recognising its own sapience and sentience.
-                                   Any sophont is considered a legal person, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
+crime-assist-employee-explanation = The term "Employee" includes:
+                                        • All crew present on the Space Station.
+                                        • Any crewmate arriving from a different NanoTrasen Space Station.
+                                        • Any individuals imprisoned by Nanotrasen.
+                                        • Any and all members of NanoTrasen Central Command.
+                                    Any Employees fired by Station Command are still considered Employees until CentComm can confirm their contract termination.
 
 # Crimes
 crime-assist-crime-animalcruelty = Code 101: Animal Cruelty
@@ -52,7 +53,7 @@ crime-assist-crime-breachofcustody = Code 406: Breach of Custody
 # Questions
 crime-assist-question-isitterrorism = Did the suspect hold hostages, cause many deaths, or cause major destruction to force compliance from the crew?
 crime-assist-question-wassomeoneattacked = Was an entity attacked?
-crime-assist-question-wasitsophont = Was the victim in question a sophont?
+crime-assist-question-wasitemployee = Was the victim in question an employee of Nanotrasen?
 crime-assist-question-wasitvigilantism = Did the suspect perform the duties of security without official approval?
 crime-assist-question-didvictimdie = Did the victim die as a result of the attack?
 crime-assist-question-isvictimunrevivable = Did the suspect deliberately take actions to prevent the victim's revival through medical care?
@@ -62,7 +63,7 @@ crime-assist-question-forcedmindbreakertoxin = Did the suspect force someone to 
 crime-assist-question-didtamperwithnoosphere = Did the suspect maliciously tamper with noöspheric anomalies, entites, or other elements?
 crime-assist-question-didthreatenreality = Did the suspect deliberately threaten reality itself by raising glimmer or other anomalous reading levels?
 crime-assist-question-hadillicititem = Did the suspect have an illicit or controlled item, substance, or entity?
-crime-assist-question-wasitaperson = Did the suspect hold or confine another sophont against its will?
+crime-assist-question-wasitaperson = Did the suspect hold or confine an Employee against their will?
 crime-assist-question-wassuspectselling = Was the suspect selling or distributing the illicit items?
 crime-assist-question-wassuspectseentaking = Can it be proven that the suspect stole the item from another entity?
 crime-assist-question-isitcategorycde = Is the item in question a category C, D, or E controlled armament?
@@ -94,7 +95,7 @@ crime-assist-crimedetail-theft = To deprive an entity of an item in their lawful
 crime-assist-crimedetail-trespass = To enter into an area where one is not authorised nor invited.
 crime-assist-crimedetail-vandalism = To deface or superficially damage public property, or property belonging to another person.
 crime-assist-crimedetail-hooliganism = To intentionally and maliciously engage in disruptive conduct, where one refuses to cease.
-crime-assist-crimedetail-assault = To cause physical harm or to effect unwanted physical contact on a sophont, without the apparent intent to kill them, or to threaten such actions with both capability and intent to do so.
+crime-assist-crimedetail-assault = To cause physical harm or to effect unwanted physical contact on an Employee, without the apparent intent to kill them, or to threaten such actions with both capability and intent to do so.
 crime-assist-crimedetail-breakingandentering = To break and enter into a high security area where one is not authorised nor invited, with intent to commit a crime within.
 crime-assist-crimedetail-rioting = To partake in an unauthorised riotous, tumultuous, and disruptive public assembly that refuses to disperse after warning.
 crime-assist-crimedetail-endangerment = To recklessly abandon obligations involving the continued wellbeing and/or protection of life and property, through malpractice, action, or inaction.
@@ -103,18 +104,18 @@ crime-assist-crimedetail-obstructionofjustice = To wilfully disobey, interfere w
 crime-assist-crimedetail-perjuryfalsereport = To wilfully and maliciously tell an untruth either in court or in the process of making an actionable report to law enforcement.
 crime-assist-crimedetail-contemptofcourt = To conduct oneself disruptively and disrespectfully before the court.
 crime-assist-crimedetail-identitytheft=To maliciously assume the identity of an entity, such as through writing, attire, and/or speech.
-crime-assist-crimedetail-manslaughter = To act without malice in a manner which, directly or indirectly, leads to the death of a sophont.
-crime-assist-crimedetail-kidnapping = To unlawfully confine or restrict the free movement of an entity against its will.
+crime-assist-crimedetail-manslaughter = To act without malice in a manner which, directly or indirectly, leads to the death of an Employee.
+crime-assist-crimedetail-kidnapping = To unlawfully confine or restrict the free movement of an Employee against its will.
 crime-assist-crimedetail-grandpossession = To be in the possession of a Category C, D, or E Controlled Armament.
 crime-assist-crimedetail-noospherictampering = To maliciously tamper with or create noöspheric anomalies, entities, aberrations, or other elements; Or to otherwise deliberately perform actions that would raise Glimmer or other anomalous reading levels in a way that threatens normative reality.
 crime-assist-crimedetail-sabotage = To maliciously commit an act that, directly or indirectly, hinders the operation of a vessel of its part; or, to commit an act that modifies and/or damages technology or equipment one is not authorized to access.
 crime-assist-crimedetail-abuseofpower = To intentionally misuse or wrongfully exercise one’s own authority, influence, or control, resulting in harm, unjust treatment, or demonstratable loss to another entity.
 crime-assist-crimedetail-grandtheft = To deprive an entity of any Controlled Item in their lawful possession.
 crime-assist-crimedetail-blackmarketeering = To sell, distribute, or otherwise circulate Controlled Items to unauthorized entities.
-crime-assist-crimedetail-murder = To maliciously commit an act resulting in the death of a sophont, with reckless indifference to their life.
+crime-assist-crimedetail-murder = To maliciously commit an act resulting in the death of an Employee, with reckless indifference to their life.
 crime-assist-crimedetail-terrorism = To maliciously commit an act or take hostages with reckless indifference to life in order to provoke a state of terror in, intimidate, or otherwise compel an entity to act or abstain from acting.
 crime-assist-crimedetail-grandsabotage = To maliciously commit an act that, directly or indirectly, renders a vessel or its part uninhabitable or inoperable; or, to commit an act that causes irreversible damage to High Security Areas and/or systems of a vessel.
-crime-assist-crimedetail-preventionofrevival = To commit an act that prevents the revival of a sophont by standard medical care following their death.
+crime-assist-crimedetail-preventionofrevival = To commit an act that prevents the revival of an Employee by standard medical care following their death.
 crime-assist-crimedetail-sedition = To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
 crime-assist-crimedetail-breachofcustody = To escape the custody of law enforcement while serving a legal sentence, or awaiting trial for a capital offense.
 
