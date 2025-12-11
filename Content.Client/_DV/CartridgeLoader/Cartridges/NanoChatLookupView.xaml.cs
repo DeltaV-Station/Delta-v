@@ -71,6 +71,8 @@ public sealed partial class NanoChatLookupView : PanelContainer
         // Add contacts without departments at the end
         if (noDepartmentContacts.Count > 0)
         {
+            noDepartmentContacts.Sort();
+
             if (departmentGroups.Count > 0)
             {
                 ContactsList.AddChild(new Label
@@ -81,7 +83,7 @@ public sealed partial class NanoChatLookupView : PanelContainer
                 });
             }
 
-            foreach (var contact in noDepartmentContacts.Order())
+            foreach (var contact in noDepartmentContacts)
             {
                 var isEvenRow = rowIndex % 2 == 0;
                 var contactControl = new ContactContainer(contact, state, isEvenRow, OnStartChat);
