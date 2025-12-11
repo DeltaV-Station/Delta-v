@@ -207,10 +207,17 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         }
 
         // Add new recipient
-        var recipient = new NanoChatRecipient(msg.RecipientNumber.Value,
+        var recipient = new NanoChatRecipient(
+            msg.RecipientNumber.Value,
             name,
             jobTitle,
-            null); // Funky Station - Department Sorting: Department not needed for manual chat creation
+            null,
+            false,
+            false,
+            null,
+            null,
+            null
+        );
 
         // Initialize or update recipient
         _nanoChat.SetRecipient((card, card.Comp), msg.RecipientNumber.Value, recipient);
@@ -759,7 +766,17 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 // Funky Station End - Department Sorting
             }
 
-            return new NanoChatRecipient(number, name, jobTitle, department); // Funky Station - Department Sorting: Added department param
+            return new NanoChatRecipient(
+                number,
+                name,
+                jobTitle,
+                department,
+                false,
+                false,
+                null,
+                null,
+                null
+            );
         }
 
         return null;
@@ -790,11 +807,20 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                     string? department = null;
                     if (idCardComponent.JobDepartments is { } depts && depts.Count > 0)
                         department = depts[0].ToString();
-                    contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName, jobTitle, department));
-                    // Funky Station End - Department Sorting
+                    contacts.Add(new NanoChatRecipient(
+                        nanoChatNumber,
+                        fullName,
+                        jobTitle,
+                        department,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null
+                    ));
                 }
             }
-            contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
+            contacts.Sort();
         }
         else
         {
@@ -860,16 +886,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         }
 
         // Create group chat recipient
-        var members = new HashSet<uint> { card.Comp.Number.Value };
         var recipient = new NanoChatRecipient(
             groupNumber,
             name,
-            null, // jobTitle
-            null, // department // Funky Station - Department Sorting
-            false, // hasUnread
-            true, // isGroup
-            members,
-            card.Comp.Number.Value // creatorId
+            null,
+            null,
+            false,
+            true,
+            [card.Comp.Number.Value],
+            card.Comp.Number.Value,
+            null
         );
 
         _nanoChat.SetRecipient((card, card.Comp), groupNumber, recipient);

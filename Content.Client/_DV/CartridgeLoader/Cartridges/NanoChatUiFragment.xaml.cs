@@ -276,7 +276,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (_recipients.Count == 0)
             return;
 
-        var orderedRecipients = _recipients.OrderBy(r => r.Value.Name).Select(r => r.Key).ToArray();
+        var orderedRecipients = _recipients.OrderBy(r => r.Value).Select(r => r.Key).ToArray();
         var currentChatIndex = (direction, _currentChat) switch
         {
             (CycleDirection.Up, null) => _recipients.Count,

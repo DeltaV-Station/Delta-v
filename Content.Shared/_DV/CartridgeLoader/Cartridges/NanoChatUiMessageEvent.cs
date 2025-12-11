@@ -1,4 +1,5 @@
 using Content.Shared.CartridgeLoader;
+using Content.Shared.Roles;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.CartridgeLoader.Cartridges;
@@ -65,86 +66,99 @@ public enum NanoChatUiMessageType : byte
     DeadminUser, // Funky Station - Group Chats
 }
 
-// putting this here because i can
+/// <summary>
+///     Represents an actual NanoChat Chat
+///     Either a Group, if <paramref name="isGroup"/> is <see langword="true" />, else a normal user.
+/// </summary>
+/// <param name="number">The recipient's NanoChat number</param>
+/// <param name="name">The recipient's display name</param>
+/// <param name="jobTitle">Optional job title for the recipient</param>
+/// <param name="department">Optional department ID for the recipient</param> // Funky Station - Department Sorting
+/// <param name="hasUnread">Whether there are unread messages from this recipient</param>
+/// <param name="isGroup">Whether this is a group chat</param>
+/// <param name="members">For group chats: list of member NanoChat numbers</param>
+/// <param name="creatorId">For group chats: the creator's NanoChat number</param>
+/// <param name="admins">For group chats: set of admin NanoChat numbers</param>
 [Serializable, NetSerializable, DataRecord]
-public struct NanoChatRecipient
+public struct NanoChatRecipient(
+    uint number,
+    string name,
+    string? jobTitle,
+    string? department,
+    bool hasUnread,
+    bool isGroup,
+    HashSet<uint>? members,
+    uint? creatorId,
+    HashSet<uint>? admins
+) : IComparable<NanoChatRecipient>
 {
     /// <summary>
     ///     The recipient's unique NanoChat number.
     /// </summary>
-    public uint Number;
+    public uint Number = number;
 
     /// <summary>
     ///     The recipient's display name, typically from their ID card.
     /// </summary>
-    public string Name;
+    public string Name = name;
 
     /// <summary>
     ///     The recipient's job title, if available.
     /// </summary>
-    public string? JobTitle;
+    public string? JobTitle = jobTitle;
 
     /// <summary>
-    ///     The recipient's department ID, if available. // Funky Station - Department Sorting
+    ///     The recipient's department ID, if available.
     /// </summary>
-    public string? Department; // Funky Station - Department Sorting
+    public string? Department = department;
 
     /// <summary>
     ///     Whether this recipient has unread messages.
     /// </summary>
-    public bool HasUnread;
+    public bool HasUnread = hasUnread;
 
     /// <summary>
     ///     Whether this is a group chat.
     /// </summary>
-    public bool IsGroup; // Funky Station - Group Chats
+    public bool IsGroup = isGroup;
 
     /// <summary>
     ///     For group chats: list of member NanoChat numbers.
     /// </summary>
-    public HashSet<uint>? Members; // Funky Station - Group Chats
+    public HashSet<uint>? Members = members;
 
     /// <summary>
     ///     For group chats: the NanoChat number of the creator.
     /// </summary>
-    public uint? CreatorId; // Funky Station - Group Chats
+    public uint? CreatorId = creatorId;
 
     /// <summary>
     ///     For group chats: set of admin NanoChat numbers who can invite/kick.
     /// </summary>
-    public HashSet<uint>? Admins; // Funky Station - Group Chats
+    public HashSet<uint>? Admins = admins;
 
-    /// <summary>
-    ///     Creates a new NanoChat recipient.
-    /// </summary>
-    /// <param name="number">The recipient's NanoChat number</param>
-    /// <param name="name">The recipient's display name</param>
-    /// <param name="jobTitle">Optional job title for the recipient</param>
-    /// <param name="department">Optional department ID for the recipient</param> // Funky Station - Department Sorting
-    /// <param name="hasUnread">Whether there are unread messages from this recipient</param>
-    /// <param name="isGroup">Whether this is a group chat</param>
-    /// <param name="members">For group chats: list of member NanoChat numbers</param>
-    /// <param name="creatorId">For group chats: the creator's NanoChat number</param>
-    /// <param name="admins">For group chats: set of admin NanoChat numbers</param>
-    public NanoChatRecipient(uint number,
-        string name,
-        string? jobTitle = null,
-        string? department = null, // Funky Station - Department Sorting
-        bool hasUnread = false,
-        bool isGroup = false, // Funky Station - Group Chats
-        HashSet<uint>? members = null, // Funky Station - Group Chats
-        uint? creatorId = null, // Funky Station - Group Chats
-        HashSet<uint>? admins = null) // Funky Station - Group Chats
+    readonly int IComparable<NanoChatRecipient>.CompareTo(NanoChatRecipient other)
     {
-        Number = number;
-        Name = name;
-        JobTitle = jobTitle;
-        Department = department; // Funky Station - Department Sorting
-        HasUnread = hasUnread;
-        IsGroup = isGroup; // Funky Station - Group Chats
-        Members = members; // Funky Station - Group Chats
-        CreatorId = creatorId; // Funky Station - Group Chats
-        Admins = admins; // Funky Station - Group Chats
+        // Groups should go before normal users
+        if (IsGroup && !other.IsGroup)
+            return -1;
+        else if (!IsGroup && other.IsGroup)
+            return 1;
+
+        // FIXME: Order by Department?
+
+        // Order by name
+        var nameCompare = string.CompareOrdinal(Name, other.Name);
+        if (nameCompare != 0)
+            return nameCompare;
+
+        // Smaller number goes first
+        if (Number > other.Number)
+            return 1;
+        else if (Number < other.Number)
+            return -1;
+        else
+            return 0;
     }
 }
 
