@@ -38,8 +38,6 @@
     modifiers:
       coefficients:
         Radiation: 0.6
-        Blunt: 0.95
-        Heat: 0.9
         Caustic: 0.8 # Wouldn't want John Scientist getting obliterated by the funny caustic chem artifact.
   - type: ExplosionResistance
     damageCoefficient: 0.7 # Practically a budget bombsuit, so it absorbs a lot of explosion damage.
