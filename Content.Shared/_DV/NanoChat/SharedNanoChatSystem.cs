@@ -1,5 +1,7 @@
 using Content.Shared._DV.CartridgeLoader.Cartridges;
+using Content.Shared._Funkystation.NanoChat;
 using Content.Shared.Examine;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.NanoChat;
@@ -10,11 +12,13 @@ namespace Content.Shared._DV.NanoChat;
 public abstract class SharedNanoChatSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<NanoChatCardComponent, ExaminedEvent>(OnExamined);
+        _prototypeManager.PrototypesReloaded += (_) => NanoChatEmojis.ClearCache();
     }
 
     private void OnExamined(Entity<NanoChatCardComponent> ent, ref ExaminedEvent args)
