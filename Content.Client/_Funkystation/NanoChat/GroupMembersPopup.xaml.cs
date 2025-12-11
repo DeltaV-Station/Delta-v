@@ -183,7 +183,7 @@ public sealed partial class GroupMembersPopup : DefaultWindow
             {
                 var kickButton = new Button
                 {
-                    Text = isSelf ? "Leave" : "X",
+                    Text = isSelf ? Loc.GetString("nano-chat-leave") : "X",
                     HorizontalAlignment = HAlignment.Right,
                     MinSize = new Vector2(isSelf ? 64 : 32, 32),
                     MaxSize = new Vector2(isSelf ? 64 : 32, 32),
