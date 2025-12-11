@@ -35,7 +35,7 @@ public sealed partial class NanoChatMessageBubble : BoxContainer
         style.BackgroundColor = isOwnMessage ? OwnMessageColor : OtherMessageColor;
         style.BorderColor = BorderColor;
 
-        var contentWithEmoji = EmojiRegex.Replace(message.Content, "[emoji=\"$1\"]");
+        var contentWithEmoji = EmojiRegex.Replace(FormattedMessage.EscapeText(message.Content), "[emoji=\"$1\"]");
 
         MessageText.SetMessage(
             FormattedMessage.FromMarkupPermissive(contentWithEmoji),
