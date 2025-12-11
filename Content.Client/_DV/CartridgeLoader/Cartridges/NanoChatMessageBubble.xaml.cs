@@ -45,7 +45,7 @@ public sealed partial class NanoChatMessageBubble : BoxContainer
         SenderNameLabel.Visible = showSenderName && !string.IsNullOrEmpty(senderName);
         if (SenderNameLabel.Visible)
         {
-            SenderNameLabel.Text = senderName + $"#${message.SenderId:D4}";
+            SenderNameLabel.Text = senderName;
             SenderNameLabel.Modulate = TextColor;
         }
 
