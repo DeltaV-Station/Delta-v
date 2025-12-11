@@ -3,15 +3,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using System.Numerics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.RichText;
 using Content.Shared._Funkystation.NanoChat;
 using Robust.Shared.Utility;
+using Content.Client._DV.NanoChat.UI; // DeltaV - Fix emoji alignment
 
 namespace Content.Client._Funkystation.NanoChat;
 
@@ -32,21 +31,42 @@ public sealed class EmojiTag : IMarkupTagHandler
 
     public string Name => "emoji";
 
+    // Begin DeltaV - Render invalid emoji as text
+
+    private static void GetEmoji(MarkupNode node, out string text, out SpriteSpecifier? emoji)
+    {
+        if (!node.Value.TryGetString(out var emojiName))
+        {
+            // If we don't have a value, then render nothing
+            emoji = null;
+            text = string.Empty;
+        }
+        else if (NanoChatEmojis.EmojiSpecifiers.TryGetValue(emojiName, out emoji))
+        {
+            // If we have a valid emoji, render the emoji, but no text
+            text = string.Empty;
+        }
+        else
+        {
+            // If we have an invalid emoji, render only text
+            text = $":{emojiName}:";
+        }
+    }
+
+    string IMarkupTagHandler.TextBefore(MarkupNode node)
+    {
+        GetEmoji(node, out var text, out _);
+        return text;
+    }
+
+    // End DeltaV - Render invalid emoji as text
+
     public bool TryCreateControl(MarkupNode node, out Control control)
     {
         control = default!;
 
-        string? emojiName;
-
-        if (!node.Value.TryGetString(out emojiName))
-        {
-            if (!node.Attributes.TryGetValue("name", out var nameParam) || !nameParam.TryGetString(out emojiName))
-            {
-                return false;
-            }
-        }
-
-        if (!NanoChatEmojis.EmojiSpecifiers.TryGetValue(emojiName, out var specifier))
+        GetEmoji(node, out _, out var maybeSpecifier);
+        if (maybeSpecifier is not { } specifier)
         {
             return false;
         }
@@ -73,14 +93,15 @@ public sealed class EmojiTag : IMarkupTagHandler
                 return false;
         }
 
-        var emojiSize = new Vector2(32f, 32f);
-        control = new TextureRect
+        control = new EmojiControl // DeltaV - Fix emoji alignment, replace TextureRect with EmojiControl
         {
             Texture = texture,
-            Stretch = TextureRect.StretchMode.KeepAspect,
-            MinSize = emojiSize,
-            MaxSize = emojiSize,
-            Margin = new Thickness(0, -8, 0, 0),
+            SetWidth = 32f,
+            SetHeight = 32f,
+            Name = "Emoji",
+            // Evilly hard-coded Margin and Offset, don't ask me where they come from please
+            Margin = new(5f, 0f, 2f, 0),
+            Offset = new(5f, -5f),
         };
 
         return true;
