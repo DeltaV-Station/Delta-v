@@ -561,10 +561,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
             messageBubble.SetMessage(message, isOwnMessage, senderName, isGroupChat && !isOwnMessage);
 
-            MessageList.AddChild(messageBubble);
-
             // Add spacing between messages
-            MessageList.AddChild(new Control { MinSize = new Vector2(0, 4) });
+            if (MessageList.ChildCount > 0)
+                MessageList.AddChild(new Control { Name = "MessagePadding", MinSize = new Vector2(0, 4) });
+
+            MessageList.AddChild(messageBubble);
         }
 
         MessageList.InvalidateMeasure();
