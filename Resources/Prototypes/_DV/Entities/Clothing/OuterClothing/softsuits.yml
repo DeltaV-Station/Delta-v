@@ -22,3 +22,54 @@
   - type: ClothingSpeedModifier # Make em a bit more nimble so they can hide/Run
     walkModifier: 1
     sprintModifier: 1
+
+#Engineering Void Suit
+- type: entity
+  parent: [ClothingOuterEVASuitBase, BaseEngineeringContraband]
+  id: ClothingOuterVoidsuitEngineering
+  name: engineering void suit
+  description: A lightweight version of the standard engineering hardsuits. Allows for faster response time, at the cost of most of the protective plating.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Suits/engineering-light.rsi
+    state: icon
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Suits/engineering-light.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      outerClothing-harpy:
+      - state: equipped-OUTERCLOTHING-harpy
+      - state: equipped-OUTERCLOTHING-unshaded-harpy
+        shader: unshaded
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      - state: equipped-OUTERCLOTHING-unshaded-vox
+        shader: unshaded
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
+      - state: equipped-OUTERCLOTHING-unshaded-dog
+        shader: unshaded
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.95
+        Blunt: 0.90
+        Heat: 0.95
+        Slash: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetVoidsuitEngineering
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
+    - HidesHarpyWings
