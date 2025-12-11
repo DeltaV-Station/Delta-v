@@ -12,7 +12,7 @@ namespace Content.Client._DV.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class NanoChatMessageBubble : BoxContainer
 {
-    private static readonly Regex EmojiRegex = new(@":(\w+):", RegexOptions.Compiled); // Funky Station - Emoji Parsing
+    private static readonly Regex EmojiRegex = new(@":(\w+):", RegexOptions.Compiled);
 
     public static readonly Color OwnMessageColor = Color.FromHex("#173717d9"); // Dark green
     public static readonly Color OtherMessageColor = Color.FromHex("#252525d9"); // Dark gray
@@ -25,7 +25,6 @@ public sealed partial class NanoChatMessageBubble : BoxContainer
         RobustXamlLoader.Load(this);
     }
 
-    // Funky Station - Added senderName and showSenderName parameters
     public void SetMessage(NanoChatMessage message, bool isOwnMessage, string? senderName = null, bool showSenderName = false)
     {
         if (MessagePanel.PanelOverride is not StyleBoxFlat)

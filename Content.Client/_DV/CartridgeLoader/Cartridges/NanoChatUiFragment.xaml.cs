@@ -29,14 +29,14 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private int _maxNameLength;
-    private int _maxIdJobLength;
+    private readonly int _maxNameLength;
+    private readonly int _maxIdJobLength;
     private readonly NewChatPopup _newChatPopup;
     private readonly EditChatPopup _editChatPopup;
-    private readonly CreateGroupChatPopup _createGroupChatPopup; // Funky Station - Create Group Chat Popup
-    private readonly InviteToGroupPopup _inviteToGroupPopup; // Funky Station - Group Chat Invite Popup
-    private readonly GroupMembersPopup _groupMembersPopup; // Funky Station - Group Chat Members Popup
-    private readonly EmojiPickerPopup _emojiPickerPopup; // Funky Station - Emoji Picker
+    private readonly CreateGroupChatPopup _createGroupChatPopup;
+    private readonly InviteToGroupPopup _inviteToGroupPopup;
+    private readonly GroupMembersPopup _groupMembersPopup;
+    private readonly EmojiPickerPopup _emojiPickerPopup;
     private uint? _currentChat;
     private uint? _pendingChat;
     private uint _ownNumber;
@@ -45,7 +45,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     private Dictionary<uint, NanoChatRecipient> _recipients = [];
     private Dictionary<uint, List<NanoChatMessage>> _messages = [];
     private HashSet<uint> _mutedChats = [];
-    private List<NanoChatRecipient>? _contacts; // Funky Station - Used in order to show names for people not in recipients
+    private List<NanoChatRecipient>? _contacts; // Used in order to show names for people not in recipients
 
     public event Action<NanoChatUiMessageType, uint?, string?, string?>? OnMessageSent;
 
@@ -78,7 +78,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             OnMessageSent?.Invoke(NanoChatUiMessageType.EditChat, number, name, job);
         };
 
-        // Funky Station Start - Group Chat Handlers
         _createGroupChatPopup.OnGroupCreated += (name) =>
         {
             OnMessageSent?.Invoke(NanoChatUiMessageType.CreateGroupChat, null, name, null);
@@ -116,9 +115,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             OnMessageSent?.Invoke(NanoChatUiMessageType.DeadminUser, currentChat, number.ToString(), null);
         };
 
-        // Funky Station End - Group Chat Handlers
-
-        _emojiPickerPopup.OnEmojiSelected += InsertEmoji; // Funky Station - Emoji Picker
+        _emojiPickerPopup.OnEmojiSelected += InsertEmoji;
 
         NewChatButton.OnPressed += _ =>
         {
@@ -126,7 +123,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             _newChatPopup.OpenCentered();
         };
 
-        // Funky Station - Create Group Chat Button
         CreateGroupChatButton.OnPressed += _ =>
         {
             _createGroupChatPopup.ClearInputs();
@@ -203,14 +199,13 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         MessageInput.OnTextEntered += _ => SendMessage();
         SendButton.OnPressed += _ => SendMessage();
-        EmojiButton.OnPressed += _ => OpenEmojiPicker(); // Funky Station - Emoji Picker
+        EmojiButton.OnPressed += _ => OpenEmojiPicker();
         EditChatButton.OnPressed += _ => BeginEditChat();
         DeleteChatButton.OnPressed += _ => DeleteCurrentChat();
-        InviteToGroupButton.OnPressed += _ => OpenInvitePopup(); // Funky Station - Group Chat Invite Popup
-        ViewMembersButton.OnPressed += _ => OpenMembersPopup(); // Funky Station - Group Chat Members Popup
+        InviteToGroupButton.OnPressed += _ => OpenInvitePopup();
+        ViewMembersButton.OnPressed += _ => OpenMembersPopup();
     }
 
-    // Funky Station Start - Emoji Picker
     private void OpenEmojiPicker()
     {
         // Close any existing emoji picker to prevent duplicates (shouldn't be happening anyway but it sure did)
@@ -230,33 +225,19 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         MessageInput.CursorPosition = cursorPos + emoji.Length;
         MessageInput.GrabKeyboardFocus();
     }
-    // Funky Station End - Emoji Picker
 
-    // Funky Station Start - Clear Popups
     /// <summary>
     /// Closes all open popups. Called when switching apps or closing the PDA.
     /// </summary>
     public void CloseAllPopups()
     {
-        if (_emojiPickerPopup.IsOpen)
-            _emojiPickerPopup.Close();
-
-        if (_inviteToGroupPopup.IsOpen)
-            _inviteToGroupPopup.Close();
-
-        if (_groupMembersPopup.IsOpen)
-            _groupMembersPopup.Close();
-
-        if (_newChatPopup.IsOpen)
-            _newChatPopup.Close();
-
-        if (_editChatPopup.IsOpen)
-            _editChatPopup.Close();
-
-        if (_createGroupChatPopup.IsOpen)
-            _createGroupChatPopup.Close();
+        _emojiPickerPopup.Close();
+        _inviteToGroupPopup.Close();
+        _groupMembersPopup.Close();
+        _newChatPopup.Close();
+        _editChatPopup.Close();
+        _createGroupChatPopup.Close();
     }
-    // Funky Station End - Clear Popups
 
     private void ToggleView()
     {
@@ -372,7 +353,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         OnMessageSent?.Invoke(NanoChatUiMessageType.DeleteChat, activeChat, null, null);
     }
 
-    // Funky Station Start - Group Chat Popups
     private void OpenInvitePopup()
     {
         if (_currentChat is not uint currentChat ||
@@ -455,7 +435,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             }
         }
     }
-    // Funky Station End - Group Chat Popups
 
     private void BeginEditChat()
     {
@@ -499,7 +478,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         var activeChat = _pendingChat ?? _currentChat;
         var hasActiveChat = activeChat != null;
 
-        // Funky Station Start - Group Chats
         var isGroupChat = false;
         var canManageGroup = false;
         NanoChatRecipient recipient = default;
@@ -511,23 +489,22 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             isGroupChat = recipient.IsGroup;
             canManageGroup = isGroupChat && (recipient.CreatorId == _ownNumber || recipient.Admins?.Contains(_ownNumber) == true);
         }
-        // Funky Station End - Group Chats
 
         // Update UI state
         MessagesScroll.Visible = hasActiveChat;
         CurrentChatName.Visible = !hasActiveChat;
         MessageInputContainer.Visible = hasActiveChat;
         DeleteChatButton.Visible = hasActiveChat;
-        EditChatButton.Visible = hasActiveChat && !isGroupChat; // Funky Station - Edit chat button only available for non-group chats
+        EditChatButton.Visible = hasActiveChat && !isGroupChat;
         DeleteChatButton.Disabled = !hasActiveChat;
 
 
-        InviteToGroupButton.Visible = canManageGroup; // Funky Station - Show invite button only if can manage
-        ViewMembersButton.Visible = isGroupChat; // Funky Station - Show members button for group chats
+        InviteToGroupButton.Visible = canManageGroup;
+        ViewMembersButton.Visible = isGroupChat;
 
-        if (hasRecipient) // Funky Station - Changed this so we don't have to TryGetValue twice.
+        if (hasRecipient)
         {
-            if (isGroupChat) // Funky Station - Group chats don't need job titles
+            if (isGroupChat)
             {
                 CurrentChatName.Text = recipient.Name;
             }
@@ -551,11 +528,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (activeChat == null || !messages.TryGetValue(activeChat.Value, out var chatMessages))
             return;
 
-        var isGroupChat = _recipients.TryGetValue(activeChat.Value, out var recipient) && recipient.IsGroup;  // Funky Station - Group Chats
-
+        var isGroupChat = _recipients.TryGetValue(activeChat.Value, out var recipient) && recipient.IsGroup;
         foreach (var message in chatMessages)
         {
-            // Funky Station Start - Added sender name for group chats
             var messageBubble = new NanoChatMessageBubble();
             var isOwnMessage = message.SenderId == _ownNumber;
 
@@ -563,7 +538,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             string? senderName = null;
             if (isGroupChat && !isOwnMessage)
             {
-                // Funky Station - Try to get sender name from contacts first, then recipients
+                // Try to get sender name from contacts first, then recipients
                 if (_recipients.TryGetValue(message.SenderId, out var senderRecipient))
                 {
                     senderName = senderRecipient.Name;
@@ -580,12 +555,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
                 // Fallback to "Unknown" with number if name not found
                 if (senderName == null)
                 {
-                    senderName = $"{Loc.GetString("nano-chat-unknown-sender")}#{message.SenderId:D4}"; // Funky Station
+                    senderName = $"{Loc.GetString("nano-chat-unknown-sender")}#{message.SenderId:D4}";
                 }
             }
 
             messageBubble.SetMessage(message, isOwnMessage, senderName, isGroupChat && !isOwnMessage);
-            // Funky Station End - Added sender name for group chats
 
             MessageList.AddChild(messageBubble);
 
@@ -625,7 +599,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         _notificationsMuted = state.NotificationsMuted;
         _listNumber = state.ListNumber;
         _mutedChats = state.MutedChats;
-        _contacts = state.Contacts; // Funky Station - Used in order to show names for people not in recipients
+        _contacts = state.Contacts;
         OwnNumberLabel.Text = $"#{state.OwnNumber:D4}";
         UpdateMuteButton();
         UpdateListNumber();
@@ -650,14 +624,13 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (_pendingChat == null)
             _currentChat = state.CurrentChat;
 
-        // Funky Station - Update recipients first, then update UI that depends on it
+        // Update recipients first, then update UI that depends on it
         UpdateChatList(state.Recipients);
         UpdateMessages(state.Messages);
         UpdateCurrentChat();
         UpdateMuteChatButton();
         LookupView.UpdateContactList(state);
 
-        // Funky Station - Refresh any open popups
         RefreshOpenPopups();
     }
 }

@@ -58,12 +58,12 @@ public enum NanoChatUiMessageType : byte
     ToggleMute,
     ToggleMuteChat,
     ToggleListNumber,
-    CreateGroupChat, // Funky Station - Group Chats
-    InviteToGroup, // Funky Station - Group Chats
-    KickFromGroup, // Funky Station - Group Chats
-    ViewGroupMembers, // Funky Station - Group Chats
-    AdminUser, // Funky Station - Group Chats
-    DeadminUser, // Funky Station - Group Chats
+    CreateGroupChat,
+    InviteToGroup,
+    KickFromGroup,
+    ViewGroupMembers,
+    AdminUser,
+    DeadminUser,
 }
 
 /// <summary>
@@ -73,7 +73,7 @@ public enum NanoChatUiMessageType : byte
 /// <param name="number">The recipient's NanoChat number</param>
 /// <param name="name">The recipient's display name</param>
 /// <param name="jobTitle">Optional job title for the recipient</param>
-/// <param name="department">Optional department ID for the recipient</param> // Funky Station - Department Sorting
+/// <param name="department">Optional department ID for the recipient</param>
 /// <param name="hasUnread">Whether there are unread messages from this recipient</param>
 /// <param name="isGroup">Whether this is a group chat</param>
 /// <param name="members">For group chats: list of member NanoChat numbers</param>

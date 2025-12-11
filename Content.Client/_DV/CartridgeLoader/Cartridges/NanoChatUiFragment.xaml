@@ -60,7 +60,6 @@
                         Margin="0 0 4 0"
                         StyleClasses="OpenBoth"
                         ToolTip="{Loc nano-chat-new-chat}" />
-                <!-- Funky Station - Group Chats -->
                 <Button Name="CreateGroupChatButton"
                         MinSize="32 32"
                         MaxSize="32 32"
@@ -209,7 +208,6 @@
                                              MinSize="18 18" />
                             </Control>
                         </Button>
-                        <!-- Funky Station - Group Chats (Invite button) -->
                         <Button Name="InviteToGroupButton"
                                 MaxSize="32 32"
                                 Visible="False"
@@ -221,7 +219,6 @@
                                         Stretch="KeepAspectCentered"
                                         MinSize="18 18" />
                         </Button>
-                        <!-- Funky Station - Group Chats (Member List button) -->
                         <Button Name="ViewMembersButton"
                                 MaxSize="32 32"
                                 Visible="False"
@@ -238,7 +235,7 @@
                                   PlaceHolder="{Loc nano-chat-message-placeholder}"
                                   HorizontalExpand="True"
                                   StyleClasses="OpenRight" />
-                        <!-- Funky Station - Emoji Picker -->
+                        <!-- Emoji Picker -->
                         <Button Name="EmojiButton"
                                 MinSize="32 32"
                                 MaxSize="32 32"

@@ -44,8 +44,6 @@ public sealed partial class NanoChatEntry : BoxContainer
         JobLabel.Text = FormattedMessage.EscapeText(SharedNanoChatSystem.Truncate(recipient.JobTitle ?? string.Empty, _maxIdJobLength));
         JobLabel.Visible = !string.IsNullOrWhiteSpace(JobLabel.Text);
         UnreadIndicator.Visible = recipient.HasUnread;
-
-        // Funky Station - Show group icon for group chats
         GroupIcon.Visible = recipient.IsGroup;
 
         ChatButton.ModulateSelfOverride = isSelected ? NanoChatMessageBubble.OwnMessageColor : null;
