@@ -217,12 +217,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
     private void InsertEmoji(string emoji)
     {
-        var currentText = MessageInput.Text;
-        var cursorPos = MessageInput.CursorPosition;
-
-        var newText = currentText.Insert(cursorPos, emoji);
-        MessageInput.Text = newText;
-        MessageInput.CursorPosition = cursorPos + emoji.Length;
+        MessageInput.InsertAtCursor(emoji);
         MessageInput.GrabKeyboardFocus();
     }
 
