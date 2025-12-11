@@ -792,24 +792,32 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             var query = AllEntityQuery<NanoChatCardComponent, IdCardComponent>();
             while (query.MoveNext(out var entityId, out var nanoChatCard, out var idCardComponent))
             {
-                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName && _station.GetOwningStation(entityId) == station)
-                {
-                    var jobTitle = idCardComponent.LocalizedJobTitle;
-                    string? department = null;
-                    if (idCardComponent.JobDepartments is { } depts && depts.Count > 0)
-                        department = depts[0].ToString();
-                    contacts.Add(new NanoChatRecipient(
-                        nanoChatNumber,
-                        fullName,
-                        jobTitle,
-                        department,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null
-                    ));
-                }
+                if (!nanoChatCard.ListNumber)
+                    continue;
+                if (nanoChatCard.PdaUid is null)
+                    continue;
+                if (nanoChatCard.Number is not { } nanoChatNumber)
+                    continue;
+                if (idCardComponent.FullName is not { } fullName)
+                    continue;
+                if (_station.GetOwningStation(entityId) != station)
+                    continue;
+
+                string? department = null;
+                if (idCardComponent.JobDepartments is { } depts && depts.Count > 0)
+                    department = depts[0].ToString();
+
+                contacts.Add(new NanoChatRecipient(
+                    nanoChatNumber,
+                    fullName,
+                    idCardComponent.LocalizedJobTitle,
+                    department,
+                    false,
+                    false,
+                    null,
+                    null,
+                    null
+                ));
             }
             contacts.Sort();
         }
