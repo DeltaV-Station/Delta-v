@@ -61,7 +61,7 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     public float MeteorLifetime = 300f;
 
     /// <summary>
-    /// If true, a BiasRate proportion of meteors will be aligned to a randomly chosen approach angle, 
+    /// If true, a BiasRate proportion of meteors will be aligned to a randomly chosen approach angle,
     /// and (if TargetBiasEnabled) coordinated to a specific target impact point on the station.
     /// </summary>
     [DataField]
@@ -85,14 +85,14 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     public float BiasRate = 0.8f;
 
     /// <summary>
-    /// Standard deviation of biased meteors' approach angle - meteors will follow a normal distribution around a 
+    /// Standard deviation of biased meteors' approach angle - meteors will follow a normal distribution around a
     /// randomly-chosen coordinated swarm angle.
     /// </summary>
     /// <remarks>
-    /// e.g. by the 68-95-99 rule, 68% of biased meteors will approach the station at an angle 
+    /// e.g. by the 68-95-99 rule, 68% of biased meteors will approach the station at an angle
     /// within this many radians of the randomly-chosen coordinated swarm angle.
-    /// 
-    /// Note: if this deviation >= 1.0, the "default to uniform distribution" feature of the sampling will start to 
+    ///
+    /// Note: if this deviation >= 1.0, the "default to uniform distribution" feature of the sampling will start to
     /// noticeably affect randomness, artifically raising the BiasRate beyond the specified value.
     /// See the statistical implementation of MeteorSwarmRule.NextBiasedConstrainedFloat() for more context.
     /// </remarks>
@@ -100,7 +100,7 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     public float ApproachBiasDeviation = 0.6f;
 
     /// <summary>
-    /// Standard deviation of biased meteors' target impact point - meteors will target a normal distribution 
+    /// Standard deviation of biased meteors' target impact point - meteors will target a normal distribution
     /// around a coordinated swarm target impact point randomly-chosen from the station's perimeter.
     /// </summary>
     /// <remarks>

@@ -141,7 +141,7 @@ namespace Content.Server.StationEvents.Events
                 var protectedAreasThisMeteor =
                     protectedAreas.Where(protectedArea => RobustRandom.Prob(protectedArea.protectionRate)).ToList();
 
-                var biasThisMeteor = 
+                var biasThisMeteor =
                     component.BiasEnabled && RobustRandom.Prob(component.BiasRate)
                     ? component.SelectedBias
                     : null;
@@ -191,7 +191,7 @@ namespace Content.Server.StationEvents.Events
                         mapId
                     );
                     velocity = -spawnOffset.Normalized() * component.MeteorVelocity;
-                    
+
                     targetingSafe = true;
                     foreach (var protectedArea in protectedAreasThisMeteor)
                     {
@@ -252,12 +252,12 @@ namespace Content.Server.StationEvents.Events
         }
 
         /// <summary>
-        /// Samples from a gaussian distribution (range (-inf, inf), but biased towards center of (min, max)). 
+        /// Samples from a gaussian distribution (range (-inf, inf), but biased towards center of (min, max)).
         /// BUT if the sample is outside of the provided (min, max) range, instead just returns a uniform sample from (min, max)
         /// </summary>
         /// <remarks>
         /// This approach is SO much simpler than sampling a "real" biased and constrained distribution such as Beta.
-        /// Considering that the meteor biasing code that uses this function already does 
+        /// Considering that the meteor biasing code that uses this function already does
         /// "default to uniform" logic with BiasRate, this is an okay optimization.
         /// </remarks>
         private float NextBiasedConstrainedFloat(float min, float max, float biasDeviation)
