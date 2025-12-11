@@ -178,6 +178,18 @@
                                         Stretch="KeepAspectCentered"
                                         MinSize="18 18" />
                         </Button>
+                        <!-- View Members should take place of edit button in group chats, to avoid layout shift when moving between normal and group -->
+                        <Button Name="ViewMembersButton"
+                                MaxSize="32 32"
+                                Visible="False"
+                                StyleClasses="OpenBoth"
+                                Margin="0 0 4 0"
+                                ToolTip="{Loc nano-chat-view-members}">
+                            <TextureRect StyleClasses="ButtonSquare"
+                                        TexturePath="/Textures/_Funkystation/Interface/NanoChat/members.png"
+                                        Stretch="KeepAspectCentered"
+                                        MinSize="18 18" />
+                        </Button>
                         <Button Name="DeleteChatButton"
                                 MaxSize="32 32"
                                 Visible="False"
@@ -216,17 +228,6 @@
                                 ToolTip="{Loc nano-chat-invite-to-group}">
                             <TextureRect StyleClasses="ButtonSquare"
                                         TexturePath="/Textures/_Funkystation/Interface/NanoChat/invite.png"
-                                        Stretch="KeepAspectCentered"
-                                        MinSize="18 18" />
-                        </Button>
-                        <Button Name="ViewMembersButton"
-                                MaxSize="32 32"
-                                Visible="False"
-                                StyleClasses="OpenBoth"
-                                Margin="0 0 4 0"
-                                ToolTip="{Loc nano-chat-view-members}">
-                            <TextureRect StyleClasses="ButtonSquare"
-                                        TexturePath="/Textures/_Funkystation/Interface/NanoChat/members.png"
                                         Stretch="KeepAspectCentered"
                                         MinSize="18 18" />
                         </Button>
