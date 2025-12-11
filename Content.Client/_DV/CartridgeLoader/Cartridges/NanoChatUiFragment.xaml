@@ -95,12 +95,20 @@
             </BoxContainer>
         </controls:StripeBack>
 
+        <Label Name="NoIdLabel"
+               Text="{Loc 'nano-chat-no-id-card'}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               VerticalExpand="True"
+               HorizontalExpand="True"
+               Visible="True" />
         <!-- Main content split -->
         <BoxContainer Name="ChatView"
                       Orientation="Horizontal"
                       VerticalExpand="True"
                       HorizontalExpand="True"
-                      Margin="0 5 0 0">
+                      Margin="0 5 0 0"
+                      Visible="False">
             <!-- Left panel: Chat list -->
             <PanelContainer StyleClasses="AngleRect"
                             VerticalExpand="True"

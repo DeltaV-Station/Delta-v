@@ -188,6 +188,7 @@ nano-chat-title = NanoChat
 nano-chat-new-chat = New Chat
 nano-chat-contacts = CONTACTS
 nano-chat-no-chats = No active chats
+nano-chat-no-id-card = No ID card inserted
 nano-chat-select-chat = Select a chat to begin
 nano-chat-message-placeholder = Type a message...
 nano-chat-send = Send

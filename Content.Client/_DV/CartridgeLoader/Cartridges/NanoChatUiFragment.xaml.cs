@@ -589,6 +589,33 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             ListNumberButton.Pressed = _listNumber;
     }
 
+    private void CheckValidNumber()
+    {
+        if (_ownNumber == 0)
+        {
+            NoIdLabel.Visible = true;
+            ChatView.Visible = false;
+            LookupView.Visible = false;
+
+            MuteButton.Disabled = true;
+            NewChatButton.Disabled = true;
+            CreateGroupChatButton.Disabled = true;
+            LookupButton.Disabled = true;
+            ListNumberButton.Disabled = true;
+        }
+        else if (NoIdLabel.Visible)
+        {
+            NoIdLabel.Visible = false;
+            ToggleView();
+
+            MuteButton.Disabled = false;
+            NewChatButton.Disabled = false;
+            CreateGroupChatButton.Disabled = false;
+            LookupButton.Disabled = false;
+            ListNumberButton.Disabled = false;
+        }
+    }
+
     public void UpdateState(NanoChatUiState state)
     {
         _ownNumber = state.OwnNumber;
@@ -596,7 +623,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         _listNumber = state.ListNumber;
         _mutedChats = state.MutedChats;
         _contacts = state.Contacts;
-        OwnNumberLabel.Text = $"#{state.OwnNumber:D4}";
+        OwnNumberLabel.Text = $"#{_ownNumber:D4}";
         UpdateMuteButton();
         UpdateListNumber();
 
@@ -626,6 +653,8 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         UpdateCurrentChat();
         UpdateMuteChatButton();
         LookupView.UpdateContactList(state);
+
+        CheckValidNumber();
 
         RefreshOpenPopups();
     }
