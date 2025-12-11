@@ -24,7 +24,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 7.5
+    weight: 1.0
     minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
@@ -36,6 +36,89 @@
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
   - type: MeteorSwarmRule
+    # The standard fully-random meteor swarm profile.
+    meteorsPerWave: 6
+    minimumWaves: 4
+    maximumWaves: 9
+    minimumCooldown: 10
+    maximumCooldown: 60
+    meteorVelocity: 10
+    meteorLifetime: 300
+    targetingSpread: 1.05
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: MeteorSwarmUnidirectional
+  components:
+  - type: StationEvent  # matching the base MeteorSwarm, just changing the weight
+    earliestStart: 30
+    weight: 1.0
+    minimumPlayers: 10
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/meteors.ogg
+      params:
+        volume: -4
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
+  - type: MeteorSwarmRule
+    # A more steady "rain" of meteors coming from one direction.
+    # I imagine it as the station passing through a "stationary" cluster of asteroids.
+    # same duration and impact count as standard MeteorSwarm, just constant impacts rather than discrete waves
+    meteorsPerWave: 2
+    minimumWaves: 20
+    maximumWaves: 40
+    minimumCooldown: 4
+    maximumCooldown: 8
+    meteorVelocity: 7
+    meteorLifetime: 450
+    targetingSpread: 1.2  # area widened, so total meteor count increased to compensate for more misses
+    # line up all the meteors
+    biasEnabled: true
+    biasRate: 0.95  # some will come from other directions
+    approachBiasDeviation: 0.1
+    # but they are in a wide area -- they don't target one particular point
+    targetBiasEnabled: false
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: MeteorSwarmTargeted
+  components:
+  - type: StationEvent  # matching the base MeteorSwarm, just changing the weight
+    earliestStart: 30
+    weight: 3.0
+    minimumPlayers: 10
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/meteors.ogg
+      params:
+        volume: -4
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
+  - type: MeteorSwarmRule
+    # A variation of the standard MeteorSwarm that is pretty strongly biased towards hitting a specific area.
+    # (e.g. a specific outside-facing department, or a specific solar array)
+    # shorter time duration and fewer total impacts than the standard swarm (be gentle to the victims)
+    meteorsPerWave: 4
+    minimumCooldown: 10
+    maximumCooldown: 25
+    minimumWaves: 6
+    maximumWaves: 10
+    meteorVelocity: 10
+    meteorLifetime: 300
+    # focus most of the meteors on a specific area and a specific angle
+    targetingSpread: 0.95
+    biasEnabled: true
+    biasRate: 0.7  # a good chunk of meteors still hit randomly, so it doesn't feel *too* artifical/targeted
+    approachBiasDeviation: 0.4
+    targetBiasEnabled: true
+    targetBiasDeviation: 10  # 68-95-99 rule: 68% of biased meteors hit within 10 tiles of target, 95% within 20 tiles
+    
+
 # Xeno Vents
 - type: entity
   parent: BaseGameRule

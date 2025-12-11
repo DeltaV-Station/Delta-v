@@ -83,11 +83,35 @@ namespace Content.Server.StationEvents.Events
             }
 
             // spawn meteors on the space map periphery, so they have a chance to hit any space objects, not just the station
-            var minimumDistance = (playableArea.Value.TopRight - playableArea.Value.Center).Length() + 50f;
-            var maximumDistance = minimumDistance + component.SpawnDistanceVariation;
+            var spawnMinimumDistance = (playableArea.Value.TopRight - playableArea.Value.Center).Length() + 50f;
+            var spawnMaximumDistance = spawnMinimumDistance + component.SpawnDistanceVariation;
 
             (var target, var targetArea) = GetTarget();
-            var targetSpread = (targetArea.TopRight - targetArea.Center).Length() * component.TargetingSpread;
+            var targetAreaRadius = (targetArea.TopRight - targetArea.Center).Length();
+            var targetSpread = targetAreaRadius * component.TargetingSpread;
+
+            if (component.BiasEnabled && component.SelectedBias == null)
+            {
+                if (component.TargetBiasEnabled)
+                {
+                    var biasedTargetAngle = RobustRandom.NextAngle();
+
+                    // Average "radius" of the station is half of the distance to the corner of its bounding box.
+                    // (one of the worst approximations ever made in the history of mathematics)
+                    var targetRadius = targetAreaRadius * 0.5f;
+                    var biasedTargetOffset = new Angle(biasedTargetAngle).RotateVec(new Vector2(targetRadius, 0));
+
+                    // don't approach a point on the station perimeter from the opposite side of the station
+                    var approachAngle = RobustRandom.NextAngle(biasedTargetAngle - MathF.PI / 3f, biasedTargetAngle + MathF.PI / 3f);
+
+                    component.SelectedBias = (target.Position + biasedTargetOffset, approachAngle);
+                }
+                else
+                {
+                    var approachAngle = RobustRandom.NextAngle();
+                    component.SelectedBias = (target.Position, approachAngle);
+                }
+            }
 
             var protectedAreas = new List<(MapCoordinates center, float radiusSquared, float protectionRate)>();
 
@@ -117,6 +141,11 @@ namespace Content.Server.StationEvents.Events
                 var protectedAreasThisMeteor =
                     protectedAreas.Where(protectedArea => RobustRandom.Prob(protectedArea.protectionRate)).ToList();
 
+                var biasThisMeteor = 
+                    component.BiasEnabled && RobustRandom.Prob(component.BiasRate)
+                    ? component.SelectedBias
+                    : null;
+
                 MapCoordinates spawnPosition;
                 Vector2 velocity;
 
@@ -124,15 +153,45 @@ namespace Content.Server.StationEvents.Events
                 bool targetingSafe;
                 do
                 {
-                    var angle = new Angle(RobustRandom.NextFloat() * MathF.Tau);
-                    var offset = angle.RotateVec(new Vector2((maximumDistance - minimumDistance) * RobustRandom.NextFloat() + minimumDistance, 0));
+                    Angle approachAngleThisMeteor;
+                    if (biasThisMeteor is (var biasTarget, var biasApproachAngle)) // biasThisMeteor != null
+                    {
+                        approachAngleThisMeteor = new Angle(NextBiasedConstrainedFloat(
+                            (float)biasApproachAngle - MathF.PI,
+                            (float)biasApproachAngle + MathF.PI,
+                            component.ApproachBiasDeviation
+                        ));
+                    }
+                    else
+                    {
+                        approachAngleThisMeteor = RobustRandom.NextAngle();
+                    }
+
+                    Vector2 targetThisMeteor;
+                    Vector2 targetSpreadThisMeteor;
+                    if (biasThisMeteor is (var biasTarget_, var biasApproachAngle_) && component.TargetBiasEnabled) // biasThisMeteor != null
+                    {
+                        targetThisMeteor = biasTarget_;
+                        var targetSpreadAngle = RobustRandom.NextAngle();
+                        targetSpreadThisMeteor = targetSpreadAngle.RotateVec(new Vector2(NextBiasedConstrainedFloat(-targetSpread, targetSpread, component.TargetBiasDeviation), 0));
+                    }
+                    else
+                    {
+                        targetThisMeteor = target.Position;
+                        targetSpreadThisMeteor = new Vector2(
+                            targetSpread * RobustRandom.NextFloat(-1f, 1f),
+                            targetSpread * RobustRandom.NextFloat(-1f, 1f)
+                        );
+                    }
+
+                    var spawnOffset = approachAngleThisMeteor.RotateVec(new Vector2(RobustRandom.NextFloat(spawnMinimumDistance, spawnMaximumDistance), 0));
                     spawnPosition = new MapCoordinates(
-                        target.X + targetSpread * (2f * RobustRandom.NextFloat() - 1f) + offset.X,
-                        target.Y + targetSpread * (2f * RobustRandom.NextFloat() - 1f) + offset.Y,
+                        targetThisMeteor.X + targetSpreadThisMeteor.X + spawnOffset.X,
+                        targetThisMeteor.Y + targetSpreadThisMeteor.Y + spawnOffset.Y,
                         mapId
                     );
-                    velocity = -offset.Normalized() * component.MeteorVelocity;
-
+                    velocity = -spawnOffset.Normalized() * component.MeteorVelocity;
+                    
                     targetingSafe = true;
                     foreach (var protectedArea in protectedAreasThisMeteor)
                     {
@@ -150,7 +209,7 @@ namespace Content.Server.StationEvents.Events
 
                     targetingAttempts++;
                 }
-                while (!targetingSafe && targetingAttempts <= 3); // attempt to avoid the protected areas a few times
+                while (!targetingSafe && targetingAttempts <= 3); // rejection sampling - attempt to avoid the protected areas a few times
 
                 var meteor = Spawn(proto, spawnPosition);
                 var physics = EntityManager.GetComponent<PhysicsComponent>(meteor);
@@ -175,11 +234,11 @@ namespace Content.Server.StationEvents.Events
                 // DeltaV space maps are quite large so it can take 1-2 minutes for the meteors to arrive.
                 // Delay "meteor swarm finished" announcement until just after last meteor is scheduled to strike
                 component.IsEnding = true;
-                component.Cooldown += maxImpactTime + (5f * RobustRandom.NextFloat()) + 5f;
+                component.Cooldown += maxImpactTime + RobustRandom.NextFloat(5f, 10f);
             }
             else
             {
-                component.Cooldown += (component.MaximumCooldown - component.MinimumCooldown) * RobustRandom.NextFloat() + component.MinimumCooldown;
+                component.Cooldown += RobustRandom.NextFloat(component.MinimumCooldown, component.MaximumCooldown);
             }
         }
 
@@ -190,6 +249,24 @@ namespace Content.Server.StationEvents.Events
                 (approachPointRelativeToStartPoint.X * velocity.X + approachPointRelativeToStartPoint.Y * velocity.Y) /
                 (MathF.Pow(velocity.X, 2f) + MathF.Pow(velocity.Y, 2f))
             );
+        }
+
+        /// <summary>
+        /// Samples from a gaussian distribution (range (-inf, inf), but biased towards center of (min, max)). 
+        /// BUT if the sample is outside of the provided (min, max) range, instead just returns a uniform sample from (min, max)
+        /// </summary>
+        /// <remarks>
+        /// This approach is SO much simpler than sampling a "real" biased and constrained distribution such as Beta.
+        /// Considering that the meteor biasing code that uses this function already does 
+        /// "default to uniform" logic with BiasRate, this is an okay optimization.
+        /// </remarks>
+        private float NextBiasedConstrainedFloat(float min, float max, float biasDeviation)
+        {
+            var sample = (float)RobustRandom.NextGaussian((min + max) / 2f, biasDeviation);
+            if (sample >= min && sample < max)
+                return sample;
+
+            return RobustRandom.NextFloat(min, max);
         }
     }
 }

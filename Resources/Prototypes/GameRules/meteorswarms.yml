@@ -55,6 +55,16 @@
 
 # Event Schedulers
 
+# Begin DeltaV - add meteor rules table
+- type: entityTable
+  id: MeteorSwarmRulesTableDeltaV
+  table: !type:AllSelector
+    children:
+    - id: MeteorSwarm
+    - id: MeteorSwarmUnidirectional
+    - id: MeteorSwarmTargeted
+# End DeltaV - add meteor rules table
+
 - type: entity
   parent: BaseGameRule
   id: MeteorSwarmScheduler
@@ -64,10 +74,14 @@
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
-      min: 750 # 12.5 min
-      max: 930 # 17.5 min
-    scheduledGameRules: !type:EntSelector # DeltaV: use old event
-      id: MeteorSwarm
+      # Begin DeltaV changes
+      # min: 750 # 12.5 min
+      # max: 930 # 15.5 min
+      min: 1050 # 17.5 min
+      max: 1350 # 22.5 min
+    scheduledGameRules: !type:NestedSelector # DeltaV: use custom events
+      tableId: MeteorSwarmRulesTableDeltaV
+      # End DeltaV changes
 
 - type: entity
   parent: BaseGameRule
@@ -78,11 +92,15 @@
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
-      min: 750 # 12.5 min
-      max: 930 # 17.5 min
-    scheduledGameRules: !type:EntSelector # DeltaV: use old event but rarer (only used for allatonce so doesnt matter)
-      id: MeteorSwarm
+      # Begin DeltaV changes
+      # min: 750 # 12.5 min
+      # max: 930 # 15.5 min
+      min: 1050 # 17.5 min
+      max: 1500 # 22.5 min
+    scheduledGameRules: !type:NestedSelector # DeltaV: use custom events but rarer (only used for allatonce so doesnt matter)
+      tableId: MeteorSwarmRulesTableDeltaV
       prob: 0.25
+      # End DeltaV changes
 
 - type: entity
   parent: BaseGameRule
