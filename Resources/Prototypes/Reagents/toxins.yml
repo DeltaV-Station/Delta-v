@@ -525,16 +525,23 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Bloodsucker ] # DeltaV - Added bloodsucker
+          type: [ Animal, Vox, Plant, Bloodsucker ] # DeltaV - Added bloodsucker
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Bloodsucker ] # DeltaV - Added bloodsucker
+          type: [ Animal, Vox, Plant, Bloodsucker ] # DeltaV - Added bloodsucker
           inverted: true
         damage:
           types:
             Poison: 1
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
+        damage:
+          types:
+            Poison: .25
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
