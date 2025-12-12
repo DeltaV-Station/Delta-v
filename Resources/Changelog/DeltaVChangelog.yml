@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: Radezolid
   changes:
-  - message: Removed the administrative assistant.
-    type: Remove
-  - message: The administrative assistant clothes have been renamed into secretary
-      ones, find them at a clothesvend.
-    type: Tweak
-  id: 1453
-  time: '2025-06-10T20:53:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3857
-- author: Radezolid
-  changes:
   - message: Lobotomies are no longer a surgery option.
     type: Remove
   id: 1454
@@ -4258,3 +4248,10 @@
   id: 1952
   time: '2025-12-12T10:54:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4879
+- author: IRSMsoso
+  changes:
+  - message: Harpy flight no longer causes silent errors
+    type: Fix
+  id: 1953
+  time: '2025-12-12T11:05:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4952
