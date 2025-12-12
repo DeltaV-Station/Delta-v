@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/12/2025 18:58:09
-  entityCount: 26141
+  time: 12/12/2025 19:05:45
+  entityCount: 26142
 maps:
 - 1
 grids:
@@ -140292,6 +140292,17 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: hall, reporter
+  - uid: 26142
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 54.5,43.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: arrivals fishing
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 21308
