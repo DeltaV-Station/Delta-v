@@ -44,6 +44,7 @@
         ents: []
   - type: Psionic # DeltaV - sentient artifacts are psionic
   # These components are needed for certain triggers to work.
+  - type: PsionicPowerDetector # DeltaV - Required for PsionicPowerUsage Trigger.
   - type: RadiationReceiver
   - type: Reactive
     groups:
@@ -63,7 +64,7 @@
     useDelay: 300
   - type: InstantAction
     event: !type:ArtifactSelfActivateEvent
-    
+
 - type: entity
   id: SimpleXenoArtifact
   parent: ComplexXenoArtifact

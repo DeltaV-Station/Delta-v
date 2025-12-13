@@ -5,7 +5,7 @@
     - id: MundaneDischarge
     - id: NoosphericZap
     - id: NoosphericFry
-    - id: PsionicCatGotYourTongue
+    - id: NoosphericSilence
     - id: MassMindSwap
     - id: GlimmerWispSpawn
     - id: FreeProber
@@ -69,7 +69,7 @@
   - type: NoosphericFryRule
 
 - type: entity
-  id: PsionicCatGotYourTongue
+  id: NoosphericSilence
   parent: BaseGlimmerEvent
   components:
   - type: GlimmerEvent
@@ -77,7 +77,7 @@
     maximumGlimmer: 900
     glimmerBurnLower: 18
     glimmerBurnUpper: 40
-  - type: PsionicCatGotYourTongueRule
+  - type: NoosphericSilenceRule
 
 - type: entity
   id: MassMindSwap

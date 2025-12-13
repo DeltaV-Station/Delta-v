@@ -1,4 +1,4 @@
-using Content.Server._DV.StationEvents.Events;
+using Content.Server._DV.StationEvents.GameRules;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Prototypes;
 

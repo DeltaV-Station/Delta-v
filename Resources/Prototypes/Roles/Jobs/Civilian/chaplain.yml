@@ -17,8 +17,8 @@
     - type: BibleUser #Lets them heal with bibles
     - type: Condemned
       soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
-    - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
-      multiplier: 3
+  - !type:ModifyPsionicChanceSpecial # DeltaV - Chaplains are much more likely to be psionic.
+    jobBonusChance: 0.10 # Additional 5% chance.
 
 - type: startingGear
   id: ChaplainGear

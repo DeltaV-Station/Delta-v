@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -16,7 +15,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Psionics;
 using Content.Server.Speech.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
@@ -24,6 +22,7 @@ using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Zombies;
+using Content.Shared._DV.Psionics.Components; // DeltaV - Psionics Refactor
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
@@ -38,7 +37,6 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Flash;
 using Content.Shared.Maps;
 using Content.Shared.Mind.Components;
-using Content.Shared.Nyanotrasen.Chemistry.Effects;
 using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Xenoarchaeology.Artifact;
@@ -136,12 +134,6 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ActivateArtifact>>(OnActivateArtifact);
-
-        // Nyanotrasen
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRemovePsionic>>(OnChemRemovePsionic);
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRerollPsionic>>(OnChemRerollPsionic);
-        // Nyanotrasen end
-
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -1022,27 +1014,4 @@ public sealed class EntityEffectSystem : EntitySystem
             coordinates: Transform(args.Args.TargetEntity).Coordinates
         );
     }
-
-    // Nyanotrasen
-    private void OnChemRemovePsionic(ref ExecuteEntityEffectEvent<ChemRemovePsionic> args)
-    {
-        if (args.Args is EntityEffectReagentArgs reagentArgs)
-        {
-            if (reagentArgs.Scale != 1f)
-                return;
-        }
-
-        var psyAbilitiesSys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicAbilitiesSystem>();
-        psyAbilitiesSys.RemovePsionics(args.Args.TargetEntity);
-
-        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
-        psySys.GrantNewPsionicReroll(args.Args.TargetEntity);
-    }
-
-    private void OnChemRerollPsionic(ref ExecuteEntityEffectEvent<ChemRerollPsionic> args)
-    {
-        var psySys = args.Args.EntityManager.EntitySysManager.GetEntitySystem<PsionicsSystem>();
-        psySys.RerollPsionics(args.Args.TargetEntity, bonusMuliplier: args.Effect.BonusMuliplier);
-    }
-    // Nyanotrasen end
 }

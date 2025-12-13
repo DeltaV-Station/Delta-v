@@ -4,6 +4,7 @@ using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.StationEvents.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Radio;
@@ -65,7 +66,7 @@ public sealed partial class SophicScribeSystem : EntitySystem
         _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _glimmerSystem.Glimmer)), InGameICChatType.Speak, true);
     }
 
-    private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)
+    private void OnGlimmerEventEnded(ref GlimmerEventEndedEvent args)
     {
         var query = EntityQueryEnumerator<SophicScribeComponent>();
         while (query.MoveNext(out var scribe, out _))
