@@ -290,10 +290,15 @@
 - type: loadoutGroup
   id: CorpsmanEyewear
   name: loadout-group-corpsman-eyewear
-  minLimit: 0
   loadouts:
   - CorpsmanGlasses
   - PrescriptionCorpsmanGlasses
+  - MedicalHud
+  - MedicalEyePatchHud
+  - PrescriptionMedHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: BrigMedicBack
@@ -412,6 +417,20 @@
   loadouts:
   - SecurityClothingHandsGlovesColorBlack
   - SecurityClothingHandsGlovesFingerless
+
+## Security Glasses
+- type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-eyewear
+  loadouts:
+  - SecurityGlasses
+  - PrescriptionSecurityGlasses
+  - SecurityHud
+  - SecurityEyePatchHud
+  - PrescriptionSecurityHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 ## Security Officer
 - type: loadoutGroup
@@ -789,6 +808,9 @@
   - ClothingEyesHudDiagnostic
   - ClothingEyesPrescriptionDiagHud
   - ClothingEyesEyepatchHudDiag
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 # Command
 ## Captain
