@@ -214,6 +214,9 @@
     description: ghost-role-information-ifritDV-description
     rules: ghost-role-information-ifritDV-rules
     requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 90000 # 25 hours
     - !type:OverallPlaytimeRequirement
       time: 172800
     mindRoles:
