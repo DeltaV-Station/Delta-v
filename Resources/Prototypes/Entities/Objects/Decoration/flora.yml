@@ -327,6 +327,9 @@
       - id: PresentRandomCoal # naughty
         prob: 0.05
         orGroup: present
+      - id: PresentInfinitePresent # Delta V - silly
+        prob: 0.0025
+        orGroup: present
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason

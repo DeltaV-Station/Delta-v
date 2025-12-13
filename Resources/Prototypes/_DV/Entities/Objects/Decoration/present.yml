@@ -1,0 +1,20 @@
+- type: entity
+  id: PresentInfinitePresent
+  parent: [PresentBase, BaseItem]
+  suffix: Infinite, Do Not Map
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+      - id: PresentInfinitePresent
+        prob: .005
+      - id: PresentInfinitePresent
+        orGroup: GiftPool
+      - id: Present
+        prob: .01
+        orGroup: GiftPool
+      - id: PresentRandom
+        prob: .05
+        orGroup: GiftPool
+    sound:
+      path: /Audio/Effects/unwrap.ogg
