@@ -656,20 +656,8 @@
           - id: ToyNuke
           - id: ToyFigurinePassenger
           - id: ToyFigurineGriffin
-          - id: ToyHonk
           - id: ToyIan
-          - id: ToyMarauder
-          - id: ToyMauler
-          - id: ToyGygax
-          - id: ToyOdysseus
           - id: ToyFigurineOwlman
-          - id: ToyDeathRipley
-          - id: ToyPhazon
-          - id: ToyFireRipley
-          - id: ToyReticence
-          - id: ToyRipley
-          - id: ToySeraph
-          - id: ToyDurand
           - id: ToyFigurineSkeleton
           - id: FoamBlade
           - id: ClothingHeadHatBunny
@@ -682,6 +670,9 @@
             weight: 0.5
           - id: GoldenBikeHorn
             weight: 0.1
+          - !type:NestedSelector
+            tableId: AllFigurineMechsTable
+            weight: 6
 
 - type: entity
   parent: BoxCardboard
@@ -717,20 +708,8 @@
     - id: ToyNuke
     - id: ToyFigurinePassenger
     - id: ToyFigurineGriffin
-    - id: ToyHonk
     - id: ToyIan
-    - id: ToyMarauder
-    - id: ToyMauler
-    - id: ToyGygax
-    - id: ToyOdysseus
     - id: ToyFigurineOwlman
-    - id: ToyDeathRipley
-    - id: ToyPhazon
-    - id: ToyFireRipley
-    - id: ToyReticence
-    - id: ToyRipley
-    - id: ToySeraph
-    - id: ToyDurand
     - id: ToyFigurineSkeleton
     - id: FoamBlade
     - id: ClothingHeadHatBunny
@@ -745,6 +724,9 @@
       weight: 0.1
     - id: ToyRenault # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
     - id: ToySiobhan # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+    - !type:NestedSelector
+      tableId: AllFigurineMechsTable
+      weight: 6
 
 - type: entityTable
   id: HappyHonkToyUnsafeEntityTable
