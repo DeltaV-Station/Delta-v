@@ -81,6 +81,7 @@
     coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.2
+  - type: EyeProtection
   - type: Tag
     tags:
     - CorgiWearable
@@ -161,6 +162,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: EyeProtection
   - type: Tag
     tags:
     - CorgiWearable
@@ -524,6 +526,7 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: EyeProtection
   - type: Tag
     tags:
     - CorgiWearable
