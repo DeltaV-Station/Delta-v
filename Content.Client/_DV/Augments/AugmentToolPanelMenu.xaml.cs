@@ -38,15 +38,15 @@ public sealed partial class AugmentToolPanelMenu : RadialMenu
 
         foreach (var (entity, _) in storage.StoredItems)
         {
-            var button = new RadialMenuTextureButtonWithSector()
+            var button = new RadialMenuButtonWithSector()
             {
                 SetSize = new Vector2(64f, 64f),
             };
 
             button.AddChild(new SpriteView(entity, _entManager)
-                {
-                    Scale = new Vector2(3f, 3f),
-                });
+            {
+                Scale = new Vector2(3f, 3f),
+            });
             Main.AddChild(button);
 
             button.OnButtonUp += _ =>
@@ -56,7 +56,7 @@ public sealed partial class AugmentToolPanelMenu : RadialMenu
             };
         }
 
-        var nilButton = new RadialMenuTextureButtonWithSector()
+        var nilButton = new RadialMenuButtonWithSector()
         {
             SetSize = new Vector2(64f, 64f),
         };
