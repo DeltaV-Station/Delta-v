@@ -41,3 +41,12 @@ trait-depression-desc = No mechanical effect. The world is dark but there is a l
 
 trait-dysgraphia-name = Unable to write
 trait-dysgraphia-desc = You cannot write, whether because of a disability, your history, or by choice.
+
+trait-redshirt-name = Redshirt
+trait-redshirt-desc =
+    "They said this air would be breathable.
+    Get in, get out again, and no one gets hurt.
+    Something is pulling me up the hill.
+    I look down in my red shirt.
+    I look down in my red shirt."
+    Sets your death threshold to 100 damage.

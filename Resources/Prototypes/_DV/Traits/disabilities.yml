@@ -38,3 +38,17 @@
   category: Disabilities
   components:
   - type: BlockWriting
+
+- type: trait
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
+  category: Disabilities
+  components: []
+  overriddenComponents:
+  - type: Redshirt
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      99.9: Critical
+      100: Dead
