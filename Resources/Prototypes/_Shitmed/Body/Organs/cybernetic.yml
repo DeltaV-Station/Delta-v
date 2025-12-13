@@ -4,6 +4,8 @@
   id: BaseCyberneticEyes
   components:
   - type: Cybernetics
+  - type: Food # DeltaV - can't eat it no more
+    requiresSpecialDigestion: true 
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/IPC/organs.rsi
     state: "eyes"
