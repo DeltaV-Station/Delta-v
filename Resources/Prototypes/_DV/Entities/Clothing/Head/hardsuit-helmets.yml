@@ -283,3 +283,21 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+
+#Engineering Void Suit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitEngineering
+  id: ClothingHeadHelmetVoidsuitEngineering
+  name: engineering void suit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments. It's a lot lighter and flimsier than it looks...
+  components:
+  - type: PressureProtection # Using EVA pressure and temperature protections instead of hardsuits.
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.5
