@@ -15,3 +15,6 @@ reagent-desc-five-oclock = In space, even tea-time contains alcohol.
 
 reagent-name-mliko = Mliko
 reagent-desc-mliko = A bartender's sick idea of a joke. The entire glass is filled with beer foam!
+
+reagent-name-beastblood = Beast's Blood
+reagent-desc-beastblood = A potent drink made from a blend of blood, hyperzine, and sake. Boosts one's capability.
