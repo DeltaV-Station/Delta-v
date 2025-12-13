@@ -59,6 +59,9 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
             SendCartridgeUiReadyEvent(_activeProgram.Value);
         }
 
+        if (_activeCartridgeUI is IDisposable disposableUi) // Funky: Handle cleanup for popups and such.
+            disposableUi.Dispose();
+
         _activeCartridgeUI = ui;
         _activeUiFragment?.Dispose();
         _activeUiFragment = control;
@@ -121,8 +124,13 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
     {
         base.Dispose(disposing);
 
-        if (disposing)
+        if (disposing) // Funky: Handle cleanup for popups and such.
+        {
+            if (_activeCartridgeUI is IDisposable disposableUi)
+                disposableUi.Dispose();
+
             _activeUiFragment?.Dispose();
+        }
     }
 
     protected CartridgeComponent? RetrieveCartridgeComponent(EntityUid? cartridgeUid)

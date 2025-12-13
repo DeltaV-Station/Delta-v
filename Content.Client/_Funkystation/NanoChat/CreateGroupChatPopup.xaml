@@ -1,0 +1,38 @@
+<!--
+SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+
+SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc nano-chat-create-group-title}"
+               MinSize="300 150">
+    <PanelContainer StyleClasses="AngleRect">
+        <BoxContainer Orientation="Vertical" Margin="4">
+            <!-- Group Name input -->
+            <BoxContainer Orientation="Vertical" Margin="0 4">
+                <Label Text="{Loc nano-chat-group-name-label}"
+                       StyleClasses="LabelHeading" />
+                <PanelContainer StyleClasses="ButtonSquare">
+                    <LineEdit Name="GroupNameInput"
+                              PlaceHolder="{Loc nano-chat-group-name-placeholder}" />
+                </PanelContainer>
+            </BoxContainer>
+
+            <!-- Action buttons -->
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalAlignment="Right"
+                          Margin="0 8 0 0">
+                <Button Name="CancelButton"
+                        Text="{Loc nano-chat-cancel}"
+                        StyleClasses="OpenRight"
+                        MinSize="80 0" />
+                <Button Name="CreateButton"
+                        Text="{Loc nano-chat-create}"
+                        StyleClasses="OpenLeft"
+                        MinSize="80 0"
+                        Disabled="True" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>
