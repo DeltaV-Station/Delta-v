@@ -8,8 +8,6 @@
     PebbleStation:
       stationProto: StandardNanotrasenStation
       components:
-        - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_basu.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Pebble Station {1}'
           nameGenerator:
