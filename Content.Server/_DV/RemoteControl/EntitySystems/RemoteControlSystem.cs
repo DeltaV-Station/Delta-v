@@ -31,7 +31,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         SubscribeLocalEvent<RemoteControlHolderComponent, AfterPointedAtEvent>(OnPointedAtEntity);
         SubscribeLocalEvent<RemoteControlHolderComponent, AfterPointedAtTileEvent>(OnPointedAtTile);
 
-        InitializeRecieverEvents();
+        InitializeReceiverEvents();
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             _useDelay.TryResetDelay(holder.Comp.Control);
         }
         else
-            SendOrderToRecievers(control, ref ev);
+            SendOrderToReceivers(control, ref ev);
 
         return true;
     }
@@ -93,7 +93,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             _useDelay.TryResetDelay(holder.Comp.Control);
         }
         else
-            SendOrderToRecievers(control, ref ev);
+            SendOrderToReceivers(control, ref ev);
 
         return true;
     }
@@ -124,7 +124,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             _useDelay.TryResetDelay(holder.Comp.Control);
         }
         else
-            SendOrderToRecievers(control, ref ev);
+            SendOrderToReceivers(control, ref ev);
 
         return true;
     }
@@ -155,7 +155,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             _useDelay.TryResetDelay(holder.Comp.Control);
         }
         else
-            SendOrderToRecievers(control, ref ev);
+            SendOrderToReceivers(control, ref ev);
 
         return true;
     }
@@ -184,17 +184,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     }
 
     /// <summary>
-    /// Sends an order from the remote control to all possible recievers on that channel
+    /// Sends an order from the remote control to all possible Receivers on that channel
     /// </summary>
     /// <typeparam name="T">Type of the order event to send.</typeparam>
     /// <param name="control">Remote control sending this order.</param>
     /// <param name="ev">Order event being sent.</param>
-    private void SendOrderToRecievers<T>(Entity<RemoteControlComponent> control, ref T ev) where T : notnull
+    private void SendOrderToReceivers<T>(Entity<RemoteControlComponent> control, ref T ev) where T : notnull
     {
-        var query = EntityQueryEnumerator<RemoteControlRecieverComponent>();
-        while (query.MoveNext(out var ent, out var recieverComp))
+        var query = EntityQueryEnumerator<RemoteControlReceiverComponent>();
+        while (query.MoveNext(out var ent, out var receiverComp))
         {
-            if (recieverComp.ChannelName != control.Comp.ChannelName)
+            if (receiverComp.ChannelName != control.Comp.ChannelName)
                 continue; // Not on the same channel, ignore
 
             RaiseLocalEvent(ent, ref ev);
@@ -205,7 +205,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
     /// <summary>
     /// Checks whether an order can be sent by this remote control, used to limited
-    /// the amount of spam one can send to recievers.
+    /// the amount of spam one can send to Receivers.
     /// </summary>
     /// <param name="control">Remote control being used.</param>
     /// <returns>True if there is no use delay (cooldown) active for this remote control, false otherwise.</returns>

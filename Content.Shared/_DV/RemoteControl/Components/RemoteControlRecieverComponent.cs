@@ -7,7 +7,7 @@ namespace Content.Shared._DV.RemoteControl.Components;
 /// </summary>
 [RegisterComponent]
 [Access(typeof(SharedRemoteControlSystem))]
-public sealed partial class RemoteControlRecieverComponent : Component
+public sealed partial class RemoteControlReceiverComponent : Component
 {
     /// <summary>
     /// Whether this entity can understand the commands given by a remote control.

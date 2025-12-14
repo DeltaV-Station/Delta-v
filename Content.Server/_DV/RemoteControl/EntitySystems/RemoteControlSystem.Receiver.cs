@@ -24,22 +24,22 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <summary>
     /// Initializes event subscriptions for handling orders.
     /// </summary>
-    private void InitializeRecieverEvents()
+    private void InitializeReceiverEvents()
     {
-        SubscribeLocalEvent<RemoteControlRecieverComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<RemoteControlReceiverComponent, ComponentStartup>(OnComponentStartup);
 
-        SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlEntityPointOrderEvent>(OnEntityPointOrder);
-        SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlTilePointOrderEvent>(OnTilePointOrder);
-        SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlSelfPointOrderEvent>(OnSelfPointOrder);
-        SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlFreeUnitOrderEvent>(OnFreeUnitOrder);
+        SubscribeLocalEvent<RemoteControlReceiverComponent, RemoteControlEntityPointOrderEvent>(OnEntityPointOrder);
+        SubscribeLocalEvent<RemoteControlReceiverComponent, RemoteControlTilePointOrderEvent>(OnTilePointOrder);
+        SubscribeLocalEvent<RemoteControlReceiverComponent, RemoteControlSelfPointOrderEvent>(OnSelfPointOrder);
+        SubscribeLocalEvent<RemoteControlReceiverComponent, RemoteControlFreeUnitOrderEvent>(OnFreeUnitOrder);
     }
 
     /// <summary>
-    /// Handles when the Reciever component starts up, setting the unit to "Free control" immediately.
+    /// Handles when the Receiver component starts up, setting the unit to "Free control" immediately.
     /// </summary>
     /// <param name="ent">The entity where the component is starting up.</param>
     /// <param name="args">Args for the event.</param>
-    private void OnComponentStartup(Entity<RemoteControlRecieverComponent> ent, ref ComponentStartup args)
+    private void OnComponentStartup(Entity<RemoteControlReceiverComponent> ent, ref ComponentStartup args)
     {
         UpdateNPCOrders(ent,
             RemoteControlOrderType.FreeUnit,
@@ -52,7 +52,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// </summary>
     /// <param name="ent">Entity recieving the order.</param>
     /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnEntityPointOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlEntityPointOrderEvent args)
+    private void OnEntityPointOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlEntityPointOrderEvent args)
     {
         if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
             controlComp.ChannelName != ent.Comp.ChannelName)
@@ -83,7 +83,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// </summary>
     /// <param name="ent">Entity recieving the order.</param>
     /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnTilePointOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlTilePointOrderEvent args)
+    private void OnTilePointOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlTilePointOrderEvent args)
     {
         if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
             controlComp.ChannelName != ent.Comp.ChannelName)
@@ -117,7 +117,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// </summary>
     /// <param name="ent">Entity recieving the order.</param>
     /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnSelfPointOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlSelfPointOrderEvent args)
+    private void OnSelfPointOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlSelfPointOrderEvent args)
     {
         if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
             controlComp.ChannelName != ent.Comp.ChannelName)
@@ -150,7 +150,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// </summary>
     /// <param name="ent">Entity recieving the order.</param>
     /// <param name="args">Args for the event, notably sound and origin.</param>
-    private void OnFreeUnitOrder(Entity<RemoteControlRecieverComponent> ent, ref RemoteControlFreeUnitOrderEvent args)
+    private void OnFreeUnitOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlFreeUnitOrderEvent args)
     {
         if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
             controlComp.ChannelName != ent.Comp.ChannelName)
@@ -179,7 +179,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="ent">NPC entity to check for.</param>
     /// <param name="boundNPCs">List of Entities this order is bound to.</param>
     /// <returns>True if the NPC can understand the order, false otherwise.</returns>
-    private static bool CanNPCHandleOrder(Entity<RemoteControlRecieverComponent> ent, List<EntityUid> boundNPCs)
+    private static bool CanNPCHandleOrder(Entity<RemoteControlReceiverComponent> ent, List<EntityUid> boundNPCs)
     {
         if (!ent.Comp.CanUnderstand)
             return false; // Cannot understand this order, even as an NPC
@@ -230,7 +230,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="user">The user of the remote control.</param>
     /// <param name="control">The remote control entity that sent this order.</param>
     /// <param name="orderString">The localisation string to use for this order.</param>
-    private void HandleOrderEffects(Entity<RemoteControlRecieverComponent> ent,
+    private void HandleOrderEffects(Entity<RemoteControlReceiverComponent> ent,
         EntityUid user,
         Entity<RemoteControlComponent> control,
         RemoteControlOrderType orderType)

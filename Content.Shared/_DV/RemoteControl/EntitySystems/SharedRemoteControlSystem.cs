@@ -73,7 +73,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     private void OnRemoteControlEquipped(Entity<RemoteControlComponent> control, ref GotEquippedEvent args)
     {
         if (MetaData(args.Equipee).EntityLifeStage != EntityLifeStage.MapInitialized &&
-            !HasComp<RemoteControlRecieverComponent>(args.Equipee))
+            !HasComp<RemoteControlReceiverComponent>(args.Equipee))
             return;
 
         BindEntity(control.AsNullable(), args.Equipee);
@@ -128,8 +128,8 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         // As a measure against entities having their own remote control, we don't allow a receiver with
         // the same channel name as the control to get an action.
-        if (TryComp<RemoteControlRecieverComponent>(args.User, out var recieverComp) &&
-            recieverComp.ChannelName == control.Comp.ChannelName)
+        if (TryComp<RemoteControlReceiverComponent>(args.User, out var receiverComp) &&
+            receiverComp.ChannelName == control.Comp.ChannelName)
             return;
 
         args.AddAction(ref control.Comp.ToggleActionEntid, control.Comp.ToggleAction);
