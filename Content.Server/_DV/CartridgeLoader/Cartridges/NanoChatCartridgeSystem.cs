@@ -130,7 +130,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 HandleCloseChat(card);
                 break;
             case NanoChatUiMessageType.ToggleMute:
-                HandleToggleMute(card);
+                HandleToggleMute(card, msg);
                 break;
             case NanoChatUiMessageType.ToggleMuteChat:
                 HandleToggleMuteChat(card, msg);
@@ -142,7 +142,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 HandleSendMessage(ent, card, msg);
                 break;
             case NanoChatUiMessageType.ToggleListNumber:
-                HandleToggleListNumber(card);
+                HandleToggleListNumber(card, msg);
                 break;
             case NanoChatUiMessageType.CreateGroupChat:
                 HandleCreateGroupChat(card, msg);
@@ -228,7 +228,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} created new NanoChat conversation with #{msg.RecipientNumber:D4} ({name})");
+            $"{ToPrettyString(msg.Actor)} created new NanoChat conversation with #{msg.RecipientNumber:D4} ({name})");
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
@@ -364,7 +364,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} deleted NanoChat conversation with #{chatNumber:D4}");
+            $"{ToPrettyString(msg.Actor)} deleted NanoChat conversation with #{chatNumber:D4}");
 
         UpdateUIForCard(card);
     }
@@ -372,14 +372,14 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <summary>
     ///     Handles toggling notification mute state.
     /// </summary>
-    private void HandleToggleMute(Entity<NanoChatCardComponent> card)
+    private void HandleToggleMute(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
         var muted = _nanoChat.GetNotificationsMuted((card, card.Comp));
         _nanoChat.SetNotificationsMuted((card, card.Comp), !muted);
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(card):user} {(muted ? "un" : "")}muted their NanoChat app");
+            $"{ToPrettyString(msg.Actor)} {(muted ? "un" : "")}muted the NanoChat on {ToPrettyString(card)}");
 
         UpdateUIForCard(card);
     }
@@ -393,19 +393,19 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(card):user} toggled NanoChat notifcations for chat #{chat:D4}");
+            $"{ToPrettyString(msg.Actor)} toggled NanoChat notifcations for chat #{chat:D4} on {ToPrettyString(card)}");
 
         UpdateUIForCard(card);
     }
 
-    private void HandleToggleListNumber(Entity<NanoChatCardComponent> card)
+    private void HandleToggleListNumber(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
         var numberListed = _nanoChat.GetListNumber((card, card.Comp));
         _nanoChat.SetListNumber((card, card.Comp), !numberListed);
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(card):user} toggled their NanoChat listing {(numberListed ? "off" : "on")}");
+            $"{ToPrettyString(msg.Actor)} toggled the NanoChat listing of {ToPrettyString(card)} {(numberListed ? "off" : "on")}");
 
         UpdateUIForAllCards();
     }
@@ -469,7 +469,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
+            $"{ToPrettyString(msg.Actor)} sent NanoChat message to {recipientsText}: {content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
 
         var msgEv = new NanoChatMessageReceivedEvent(card);
         RaiseLocalEvent(ref msgEv);
@@ -919,7 +919,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} created group chat '{name}' (#{groupNumber:D4})");
+            $"{ToPrettyString(msg.Actor)} created group chat '{name}' (#{groupNumber:D4})");
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
@@ -978,7 +978,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} invited #{inviteeNumber:D4} to group chat #{groupNumber:D4}");
+            $"{ToPrettyString(msg.Actor)} invited #{inviteeNumber:D4} to group chat #{groupNumber:D4}");
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
@@ -1038,13 +1038,13 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         {
             _adminLogger.Add(LogType.Action,
                 LogImpact.Low,
-                $"{ToPrettyString(msg.Actor):user} left group chat #{groupNumber:D4}");
+                $"{ToPrettyString(msg.Actor)} left group chat #{groupNumber:D4}");
         }
         else
         {
             _adminLogger.Add(LogType.Action,
                 LogImpact.Low,
-                $"{ToPrettyString(msg.Actor):user} kicked #{kickeeNumber:D4} from group chat #{groupNumber:D4}");
+                $"{ToPrettyString(msg.Actor)} kicked #{kickeeNumber:D4} from group chat #{groupNumber:D4}");
         }
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
@@ -1114,7 +1114,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} promoted #{targetNumber:D4} to admin in group chat #{groupNumber:D4}");
+            $"{ToPrettyString(msg.Actor)} promoted #{targetNumber:D4} to admin in group chat #{groupNumber:D4}");
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
@@ -1180,7 +1180,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} removed admin from #{targetNumber:D4} in group chat #{groupNumber:D4}");
+            $"{ToPrettyString(msg.Actor)} removed admin from #{targetNumber:D4} in group chat #{groupNumber:D4}");
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
