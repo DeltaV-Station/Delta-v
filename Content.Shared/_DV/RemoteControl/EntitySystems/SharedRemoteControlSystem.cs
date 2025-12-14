@@ -1,12 +1,16 @@
+using System.Linq;
 using Content.Shared._DV.RemoteControl.Components;
 using Content.Shared._DV.RemoteControl.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
+using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.RemoteControl.EntitySystems;
 
@@ -16,6 +20,7 @@ namespace Content.Shared._DV.RemoteControl.EntitySystems;
 public abstract class SharedRemoteControlSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -31,6 +36,9 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         SubscribeLocalEvent<RemoteControlComponent, GotUnequippedEvent>(OnRemoteControlUnequipped);
 
         SubscribeLocalEvent<RemoteControlComponent, GotUnequippedHandEvent>(OnRemoteControlHandUnequipped);
+
+        SubscribeLocalEvent<RemoteControlComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
+        SubscribeLocalEvent<RemoteControlComponent, RemoteControlBindChangeDoAfterEvent>(OnBindChangeDoAfter);
     }
 
     /// <summary>
@@ -40,11 +48,23 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <param name="entity">The entity to bind.</param>
     public void BindEntity(Entity<RemoteControlComponent?> control, EntityUid entity)
     {
-        if (!Resolve(control, ref control.Comp))
+        if (!Resolve(control, ref control.Comp) ||
+            !TryComp<RemoteControlReceiverComponent>(entity, out var receiverComponent))
             return;
 
+        if (!control.Comp.AllowMultiple && control.Comp.BoundNPCs.Count > 0)
+        {
+            foreach (var ent in control.Comp.BoundNPCs)
+            {
+                UnbindEntity(control, ent);
+            }
+        }
+
         if (!control.Comp.BoundNPCs.Contains(entity))
+        {
             control.Comp.BoundNPCs.Add(entity);
+            receiverComponent.BoundController = control;
+        }
     }
 
     /// <summary>
@@ -55,14 +75,28 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <returns>True if the entity was unbound from the control, false otherwise.</returns>
     public bool UnbindEntity(Entity<RemoteControlComponent?> control, EntityUid entity)
     {
-        if (!Resolve(control, ref control.Comp))
+        if (!Resolve(control, ref control.Comp) ||
+            !TryComp<RemoteControlReceiverComponent>(entity, out var receiverComponent))
             return false;
+
+        if (receiverComponent.BoundController != control)
+            return false; // This entity is not bound to this controller
 
         if (!control.Comp.BoundNPCs.Remove(entity))
             return false;
 
+        receiverComponent.BoundController = null;
+
+        SetUnitFree((entity, receiverComponent));
+
         return true;
     }
+
+    /// <summary>
+    /// Sets a unit free, only implemented on server.
+    /// </summary>
+    /// <param name="entity">The entity to set free.</param>
+    protected abstract void SetUnitFree(Entity<RemoteControlReceiverComponent> entity);
 
     /// <summary>
     /// Handles when a remote control is equipped during map init of an parent entity and attempts to bind
@@ -162,5 +196,108 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             _actions.SetToggled(control.Comp.ToggleActionEntid, false);
 
         RemComp<RemoteControlHolderComponent>(args.User);
+    }
+
+    /// <summary>
+    /// Sets up a binding change doafter at the users' request, either binding or unbinding an entity
+    /// to a control.
+    /// </summary>
+    /// <param name="control">The control to bind to or unbind from.</param>
+    /// <param name="user">The current user of the control.</param>
+    /// <param name="target">The target to bind/unbind.</param>
+    /// <param name="binding">True if we are binding, false otherwise.</param>
+    private void AttemptStartBindChange(Entity<RemoteControlComponent> control, EntityUid user, EntityUid target, bool binding)
+    {
+        string message;
+        TimeSpan doAfterTime;
+
+        if (binding)
+        {
+            message = "remote-control-bind-popup-start";
+            doAfterTime = control.Comp.BindingTime;
+        }
+        else
+        {
+            message = "remote-control-unbind-popup-start";
+            doAfterTime = control.Comp.UnbindingTime;
+        }
+
+
+        Popup.PopupPredicted(Loc.GetString(message, ("user", user), ("target", target)),
+            user,
+            target,
+            PopupType.Medium);
+
+        var doargs = new DoAfterArgs(
+            EntityManager,
+            user,
+            doAfterTime,
+            new RemoteControlBindChangeDoAfterEvent(binding),
+            control,
+            target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+        };
+
+        _doAfter.TryStartDoAfter(doargs);
+    }
+
+    /// <summary>
+    /// Handles when a doafter for a binding change has occured, actually performing the binding/unbinding
+    /// as requested.
+    /// </summary>
+    /// <param name="control">The control which received the event.</param>
+    /// <param name="args">Args for the event, notably the target and whether to bind or not.</param>
+    private void OnBindChangeDoAfter(Entity<RemoteControlComponent> control, ref RemoteControlBindChangeDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Args.Target is not { } target)
+            return;
+
+        if (args.Binding)
+            BindEntity(control.AsNullable(), target);
+        else
+            UnbindEntity(control.AsNullable(), target);
+    }
+
+    /// <summary>
+    /// Handles when the verb system requests extra verbs for a remote control.
+    /// </summary>
+    /// <param name="control">The control being requested for.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnUtilityVerb(Entity<RemoteControlComponent> control, ref GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanInteract
+            || !TryComp<RemoteControlReceiverComponent>(args.Target, out var targetReceiver)
+            || targetReceiver.ChannelName != control.Comp.ChannelName)
+            return; // Not a receiver to be bound to, or not on the right channel
+
+        var user = args.User;
+        var target = args.Target;
+
+        if (control.Comp.BoundNPCs.Contains(target))
+        {
+            var unbindVerb = new UtilityVerb()
+            {
+                Act = () => AttemptStartBindChange(control, user, target, binding: false),
+                Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
+                Text = Loc.GetString("remote-control-unbind-verb-text"),
+                Message = Loc.GetString("remote-control-unbind-verb-message"),
+                DoContactInteraction = true
+            };
+            args.Verbs.Add(unbindVerb);
+        }
+        else
+        {
+            var bindVerb = new UtilityVerb()
+            {
+                Act = () => AttemptStartBindChange(control, user, target, binding: true),
+                Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
+                Text = Loc.GetString("remote-control-bind-verb-text"),
+                Message = Loc.GetString("remote-control-bind-verb-message"),
+                DoContactInteraction = true
+            };
+            args.Verbs.Add(bindVerb);
+        }
     }
 }

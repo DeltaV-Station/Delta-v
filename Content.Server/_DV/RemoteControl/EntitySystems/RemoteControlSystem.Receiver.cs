@@ -165,11 +165,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (!CanNPCHandleOrder(ent, args.BoundNPCs))
             return;
 
-        var origin = args.User;
-        UpdateNPCOrders(ent,
-            RemoteControlOrderType.FreeUnit,
-            () => true
-        );
+        SetUnitFree(ent);
     }
 
     /// <summary>
@@ -190,6 +186,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         return true;
     }
 
+    /// <summary>
+    /// Server side implementation of setting a unit free.
+    /// </summary>
+    /// <param name="entity">The entity to set free.</param>
+    protected override void SetUnitFree(Entity<RemoteControlReceiverComponent> entity)
+    {
+        UpdateNPCOrders(entity,
+            RemoteControlOrderType.FreeUnit,
+            () => true
+        );
+    }
 
     /// <summary>
     /// Checks whether the entity is an NPC or a player.

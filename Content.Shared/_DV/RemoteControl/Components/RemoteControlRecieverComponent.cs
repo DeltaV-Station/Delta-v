@@ -1,11 +1,12 @@
 using Content.Shared._DV.RemoteControl.EntitySystems;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.RemoteControl.Components;
 
 /// <summary>
 /// Marks that this entity can recieve, and optionally understand, remote control orders.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedRemoteControlSystem))]
 public sealed partial class RemoteControlReceiverComponent : Component
 {
@@ -27,4 +28,10 @@ public sealed partial class RemoteControlReceiverComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<RemoteControlOrderType, LocId> OrderStrings;
+
+    /// <summary>
+    /// Controller that can send orders to this entity.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? BoundController = null;
 }

@@ -53,6 +53,22 @@ public sealed partial class RemoteControlComponent : Component
     public List<EntityUid> BoundNPCs = new() { };
 
     /// <summary>
+    /// Whether this remote control can bind to many different receivers.
+    /// </summary>
+    [DataField]
+    public bool AllowMultiple = false;
+
+    /// <summary>
+    /// Time it takes to bind an entity to this control;
+    /// </summary>
+    public TimeSpan BindingTime = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Time it takes to unbind an entity from this control.
+    /// </summary>
+    public TimeSpan UnbindingTime = TimeSpan.FromSeconds(1);
+
+    /// <summary>
     /// Screeches are shown as a popup when a receiver is on the right channel but
     /// cannot understand the orders.
     /// </summary>
