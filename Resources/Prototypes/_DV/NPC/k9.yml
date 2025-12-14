@@ -31,7 +31,7 @@
           orders: enum.RemoteControlOrderType.FreeUnit
       tasks:
       - !type:HTNCompoundTask
-        task: IdleCompound
+        task: SimpleHostileCompound
 
 - type: htnCompound
   id: K9GrappleCompound
