@@ -374,7 +374,13 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// </summary>
     private void HandleToggleMute(Entity<NanoChatCardComponent> card)
     {
-        _nanoChat.SetNotificationsMuted((card, card.Comp), !_nanoChat.GetNotificationsMuted((card, card.Comp)));
+        var muted = _nanoChat.GetNotificationsMuted((card, card.Comp));
+        _nanoChat.SetNotificationsMuted((card, card.Comp), !muted);
+
+        _adminLogger.Add(LogType.Chat,
+            LogImpact.Low,
+            $"{ToPrettyString(card):user} {(muted ? "un" : "")}muted their NanoChat app");
+
         UpdateUIForCard(card);
     }
 
@@ -382,13 +388,25 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     {
         if (msg.RecipientNumber is not uint chat)
             return;
+
         _nanoChat.ToggleChatMuted((card, card.Comp), chat);
+
+        _adminLogger.Add(LogType.Chat,
+            LogImpact.Low,
+            $"{ToPrettyString(card):user} toggled NanoChat notifcations for chat #{chat:D4}");
+
         UpdateUIForCard(card);
     }
 
     private void HandleToggleListNumber(Entity<NanoChatCardComponent> card)
     {
-        _nanoChat.SetListNumber((card, card.Comp), !_nanoChat.GetListNumber((card, card.Comp)));
+        var numberListed = _nanoChat.GetListNumber((card, card.Comp));
+        _nanoChat.SetListNumber((card, card.Comp), !numberListed);
+
+        _adminLogger.Add(LogType.Chat,
+            LogImpact.Low,
+            $"{ToPrettyString(card):user} toggled their NanoChat listing {(numberListed ? "off" : "on")}");
+
         UpdateUIForAllCards();
     }
 
