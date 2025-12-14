@@ -25,10 +25,11 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
 
-// DeltaV - Medical Records
+// Begin DeltaV
 using Content.Server._DV.MedicalRecords;
 using Content.Shared._DV.MedicalRecords;
 using Content.Shared._DV.Traits.Assorted;
+// End DeltaV
 
 namespace Content.Server.Medical;
 
