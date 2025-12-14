@@ -95,6 +95,8 @@
     - map: [ "outerClothing" ]
     - map: ["enum.DamageStateVisualLayers.Tail"]
       state: tail_animated
+  - type: Loadout
+    prototypes: [ MobSecDogGear ]
   - type: DamageStateVisuals
     states:
       Alive:
