@@ -26,10 +26,25 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// </summary>
     private void InitializeRecieverEvents()
     {
+        SubscribeLocalEvent<RemoteControlRecieverComponent, ComponentStartup>(OnComponentStartup);
+
         SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlEntityPointOrderEvent>(OnEntityPointOrder);
         SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlTilePointOrderEvent>(OnTilePointOrder);
         SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlSelfPointOrderEvent>(OnSelfPointOrder);
         SubscribeLocalEvent<RemoteControlRecieverComponent, RemoteControlFreeUnitOrderEvent>(OnFreeUnitOrder);
+    }
+
+    /// <summary>
+    /// Handles when the Reciever component starts up, setting the unit to "Free control" immediately.
+    /// </summary>
+    /// <param name="ent">The entity where the component is starting up.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnComponentStartup(Entity<RemoteControlRecieverComponent> ent, ref ComponentStartup args)
+    {
+        UpdateNPCOrders(ent,
+            RemoteControlOrderType.FreeUnit,
+            () => true
+        );
     }
 
     /// <summary>
