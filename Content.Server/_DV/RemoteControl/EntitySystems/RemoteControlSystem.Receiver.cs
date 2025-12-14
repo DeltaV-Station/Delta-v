@@ -85,9 +85,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
         var grid = _transform.GetGrid(ent.Owner);
         if (!grid.HasValue)
-        {
             return;
-        }
 
         var location = _transform.ToCoordinates((grid.Value, null), args.Location);
         UpdateNPCOrders(ent,
