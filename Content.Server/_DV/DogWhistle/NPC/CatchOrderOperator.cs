@@ -31,12 +31,10 @@ public sealed partial class CatchOrderOperator : HTNOperator
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
         CancellationToken cancelToken)
     {
-        var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var target = blackboard.GetValue<EntityUid>(NPCBlackboard.CurrentOrderedTarget);
-
-        if (!_grappling.CanGrapple(owner, target))
-            return (false, null); // Likely not a grapple target
-
+        /*
+            Whether or not the target is grappable, we still need to move towards it.
+            The user might have pointed to a static entity on a tile, like an LV cable.
+        */
         return (true, null);
     }
 
