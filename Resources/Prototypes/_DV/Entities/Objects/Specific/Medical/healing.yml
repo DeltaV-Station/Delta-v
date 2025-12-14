@@ -343,3 +343,46 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: PurifyingSalts
+  id: PurifyingSalts1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  name: purifying salts
+  description: A canister of purifying salts for cleansing the body of metaphysical injuries
+  parent: BaseHealingItem
+  id: PurifyingSalts
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/purifyingsalts.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Medical/purifyingsalts.rsi
+  - type: Healing
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical
+    damage:
+      groups:
+        Metaphysical: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Stack
+    stackType: PurifyingSalts
+    count: 10
+  - type: StackPrice
+    price: 5
