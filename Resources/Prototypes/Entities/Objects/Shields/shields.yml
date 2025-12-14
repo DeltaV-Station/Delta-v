@@ -291,18 +291,17 @@
 
 - type: entity
   name: makeshift shield
-  parent: PaladinShield
+  parent: BaseShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
+# Begin of Harmony Change: Shield Rework -- Suit Storage Slot
     - type: Sprite
-      sprite: _Starlight/Objects/Weapons/Melee/makeshift_shield.rsi
+      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       state: icon
       #state: makeshift-icon
     - type: Item
-      sprite: _Starlight/Objects/Weapons/Melee/makeshift_shield.rsi
-    - type: Clothing
-      sprite: _Starlight/Objects/Weapons/Melee/makeshift_shield.rsi
+      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       size: Ginormous
       #heldPrefix: metal
     - type: Clothing
@@ -329,10 +328,6 @@
           Slash: 0.5
           Piercing: 0.5
           Heat: 1
-    - type: MeleeWeapon
-      damage:
-        types:
-          Blunt: 5
     - type: Construction
       graph: MakeshiftShield
       node: makeshiftShield
