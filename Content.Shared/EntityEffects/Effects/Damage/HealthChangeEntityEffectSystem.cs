@@ -6,7 +6,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects.Damage;
 
 /// <summary>
 /// Adjust the damages on this entity by specified amounts.
@@ -15,7 +15,7 @@ namespace Content.Shared.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<DamageableComponent, HealthChange>
 {
-    [Dependency] private readonly Damage.Systems.DamageableSystem _damageable = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<HealthChange> args)
     {
