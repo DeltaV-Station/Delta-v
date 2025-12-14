@@ -43,9 +43,7 @@
         map: [ "enum.GunVisualLayers.Base" ]
       - state: base-4
         map: [ "enum.GunVisualLayers.Mag" ]
-      - state: base-tip-4
-        map: [ "enum.GunVisualLayers.MagUnshaded" ]
-        color: "#717171"
+      # Unshaded tip layer removed to avoid missing state errors (no corresponding 'base-unshaded-*' states in RSI)
   - type: Construction
     graph: ImprovisedMagnumSpeedLoaderGraph
     node: shell

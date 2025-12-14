@@ -26,7 +26,7 @@
     slots:
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistolSP
+        startingItem: CartridgePistolSpent
         priority: 1
         whitelist:
           tags:
@@ -76,7 +76,7 @@
     angleDecay: 4
   - type: BallisticAmmoProvider
     capacity: 5
-    proto: CartridgePistolSP
+    proto: CartridgePistol
     whitelist:
       tags:
       - CartridgePistol
@@ -132,12 +132,12 @@
   - type: MagazineVisuals
     magState: mag
     steps: 3
-    zeroVisible: true  
+    zeroVisible: true
   - type: Item
     size: Small
     shape:
     - 0,0,1,0
-    - 0,1,1,1  
+    - 0,1,1,1
   - type: Gun
     fireRate: 4
     minAngle: 1

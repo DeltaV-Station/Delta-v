@@ -1,6 +1,6 @@
 - type: entity
   name: Makeshift Repeater Rifle
-  parent: [BaseWeaponSniper, BaseMinorContraband]
+  parent: BaseWeaponSniper
   id: WeaponSniperMakeshift
   description: It'll blow a hole in the guy you point this at, if it doesn't snap your wrist first.
   components:
@@ -19,12 +19,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
-  - type: KnockbackByUserTag
-    doestContain:
-      Resomi:
-        knockback: 1.5
-      Felionoid:
-        knockback: 0.5
   - type: BallisticAmmoProvider
     whitelist:
       tags:
