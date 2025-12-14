@@ -290,6 +290,8 @@
 - type: loadoutGroup
   id: CorpsmanEyewear
   name: loadout-group-corpsman-eyewear
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - CorpsmanGlasses
   - PrescriptionCorpsmanGlasses
@@ -422,6 +424,8 @@
 - type: loadoutGroup
   id: SecurityEyewear
   name: loadout-group-security-eyewear
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - SecurityGlasses
   - PrescriptionSecurityGlasses
