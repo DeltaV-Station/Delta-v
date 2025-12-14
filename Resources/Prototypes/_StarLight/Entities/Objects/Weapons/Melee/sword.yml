@@ -56,13 +56,11 @@
   components:
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Melee/forged_sword.rsi
-  - type: Reflect
-    reflectProb: .1
     spread: 90
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 16
+        Slash: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
