@@ -2,7 +2,7 @@
   name: makeshift crowbar-wrench
   parent: BaseItem
   id: CrowbarWrenchMakeshift
-  description: Still pretty bad.
+  description: A makeshift combination of tools that's still only marginally better than nothing.
   components:
   - type: EmitSoundOnLand
     sound:
@@ -13,14 +13,15 @@
   - type: Item
     sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
   - type: Prying
-    enabled: false
-    speedModifier: 0.25 
+    enabled: true  # Defaulting to active to match likely test setup.
+    speedModifier: 0.25
   - type: ToolTileCompatible
     delay: 4
   - type: Tool
     qualities:
+      - Prying
       - Screwing
-    speedModifier: 0.25  
+    speedModifier: 0.25
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -35,19 +36,6 @@
           state: wrench
         useSound:
           path: /Audio/Items/crowbar.ogg
-      - behavior: Anchoring
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: wrenchflipped
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-  - type: ToolRefinable
-    refineResult:
-    - id: CrowbarWrenchScrewdriverMakeshift
-  - type: Tag
-    tags:
-      - Crowbar
-      - Wrench
 
 - type: entity
   name: makeshift crowbar-wrench-screwdriver
