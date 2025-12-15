@@ -23,15 +23,6 @@
     speedModifier: 0.25
     useSound:
       path: /Audio/Items/crowbar.ogg
-      params:
-        variation: null
-        playOffsetSeconds: 0
-        loop: false
-        referenceDistance: 1
-        rolloffFactor: 1
-        maxDistance: 15
-        pitch: 1
-        volume: 0
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -71,15 +62,6 @@
           state: screwdriver
         useSound:
           path: /Audio/Items/crowbar.ogg
-        params:
-          variation: null
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 15
-          pitch: 1
-          volume: 0
       - behavior: Screwing
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
@@ -90,15 +72,6 @@
           state: screwdriverflipped
         useSound:
           path: /Audio/Items/ratchet.ogg
-          params:
-            variation: null
-            playOffsetSeconds: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxDistance: 15
-            pitch: 1
-            volume: 0
   - type: ToolRefinable
     refineResult:
     - id: OmnitoolMakeshift
@@ -137,30 +110,12 @@
           state: wirecutter
         useSound:
           path: /Audio/Items/crowbar.ogg
-          params:
-            variation: null
-            playOffsetSeconds: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxDistance: 15
-            pitch: 1
-            volume: 0
       - behavior: Cutting
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
           state: wirecutterside
         useSound:
           path: /Audio/Items/wirecutter.ogg
-          params:
-            variation: null
-            playOffsetSeconds: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxDistance: 15
-            pitch: 1
-            volume: 0
   - type: Tag
     tags:
       - Crowbar
@@ -372,9 +327,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5
@@ -396,9 +348,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5
@@ -421,9 +370,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5
@@ -445,9 +391,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5
@@ -478,9 +421,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5
@@ -496,14 +436,8 @@
           predictable: false
           soundActivate:
             collection: WelderOn
-            params:
-              variation: 0.125
-              volume: -5
           soundDeactivate:
             collection: WelderOff
-            params:
-              variation: 0.125
-              volume: -5
         - type: ItemToggleSize
           activatedSize: Large
         - type: ItemToggleHot
@@ -533,14 +467,8 @@
         - type: ItemToggleMeleeWeapon
           activatedSoundOnHit:
             path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-            params:
-              variation: 0.250
-              volume: -10
           activatedSoundOnHitNoDamage:
             path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-            params:
-              variation: 0.250
-              volume: -12
           deactivatedSoundOnHitNoDamage:
             collection: MetalThud
           activatedDamage:
@@ -623,9 +551,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 9 #one extra damage, as a treat
@@ -645,9 +570,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Slash: 7
@@ -668,9 +590,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Slash: 4
@@ -690,9 +609,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5.5
@@ -722,9 +638,6 @@
           wideAnimationRotation: -135
           soundHit:
             collection: MetalThud
-            params:
-              variation: 0.250
-              volume: -10
           damage:
             types:
               Blunt: 5
@@ -739,14 +652,8 @@
           predictable: false
           soundActivate:
             collection: WelderOn
-            params:
-              variation: 0.125
-              volume: -5
           soundDeactivate:
             collection: WelderOff
-            params:
-              variation: 0.125
-              volume: -5
         - type: ItemToggleSize
           activatedSize: Large
         - type: ItemToggleHot
@@ -775,14 +682,8 @@
         - type: ItemToggleMeleeWeapon
           activatedSoundOnHit:
             path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-            params:
-              variation: 0.250
-              volume: -10
           activatedSoundOnHitNoDamage:
             path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-            params:
-              variation: 0.250
-              volume: -12
           deactivatedSoundOnHitNoDamage:
             collection: MetalThud
           activatedDamage:
