@@ -17,11 +17,22 @@
     speedModifier: 0.25
   - type: ToolTileCompatible
     delay: 4
-  - type: Tool
-    qualities:
-      - Prying
-      - Screwing
-    speedModifier: 0.25
+- type: Tool
+  qualities:
+    - Prying
+    - Screwing
+  speedModifier: 0.25
+  useSound:
+    path: /Audio/Items/crowbar.ogg
+    params:
+      variation: null
+      playOffsetSeconds: 0
+      loop: False
+      referenceDistance: 1
+      rolloffFactor: 1
+      maxDistance: 15
+      pitch: 1
+      volume: 0
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -52,25 +63,43 @@
   - type: Sprite
     sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
     state: screwdriver
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Prying
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: screwdriver
-        useSound:
-          path: /Audio/Items/crowbar.ogg
-      - behavior: Screwing
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: screwdriverflipped
-      - behavior: Anchoring
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: screwdriverflipped
-        useSound:
-          path: /Audio/Items/ratchet.ogg
+- type: MultipleTool
+  statusShowBehavior: true
+  entries:
+    - behavior: Prying
+      sprite:
+        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+        state: screwdriver
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+        params:
+          variation: null
+          playOffsetSeconds: 0
+          loop: False
+          referenceDistance: 1
+          rolloffFactor: 1
+          maxDistance: 15
+          pitch: 1
+          volume: 0
+    - behavior: Screwing
+      sprite:
+        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+        state: screwdriverflipped
+    - behavior: Anchoring
+      sprite:
+        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+        state: screwdriverflipped
+      useSound:
+        path: /Audio/Items/ratchet.ogg
+        params:
+          variation: null
+          playOffsetSeconds: 0
+          loop: False
+          referenceDistance: 1
+          rolloffFactor: 1
+          maxDistance: 15
+          pitch: 1
+          volume: 0
   - type: ToolRefinable
     refineResult:
     - id: OmnitoolMakeshift
@@ -95,31 +124,39 @@
   - type: Sprite
     sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
     state: wirecutter
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Prying
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutter
-        useSound:
-          path: /Audio/Items/crowbar.ogg
-      - behavior: Screwing
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutterflipped
-      - behavior: Anchoring
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutterflipped
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-      - behavior: Cutting
-        sprite:
-          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutterside
-        useSound:
-          path: /Audio/Items/wirecutter.ogg
+- type: MultipleTool
+  statusShowBehavior: true
+  entries:
+    - behavior: Prying
+      sprite:
+        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+        state: wirecutter
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+        params:
+          variation: null
+          playOffsetSeconds: 0
+          loop: False
+          referenceDistance: 1
+          rolloffFactor: 1
+          maxDistance: 15
+          pitch: 1
+          volume: 0
+    - behavior: Cutting
+      sprite:
+        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+        state: wirecutterside
+      useSound:
+        path: /Audio/Items/wirecutter.ogg
+        params:
+          variation: null
+          playOffsetSeconds: 0
+          loop: False
+          referenceDistance: 1
+          rolloffFactor: 1
+          maxDistance: 15
+          pitch: 1
+          volume: 0
   - type: Tag
     tags:
       - Crowbar
