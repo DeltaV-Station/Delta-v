@@ -56,7 +56,6 @@
   components:
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Melee/forged_sword.rsi
-    spread: 90
   - type: MeleeWeapon
     damage:
       types:
@@ -96,9 +95,6 @@
   - type: PointLight
     enabled: false
     radius: 3
-  - type: Reflect
-    reflectProb: .1
-    spread: 90
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -169,7 +165,6 @@
   - type: DisarmMalus
   - type: Scalpel
   - type: SurgeryTool
-    successRate: 0.6
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
     endSound:
