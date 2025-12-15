@@ -242,7 +242,7 @@ namespace Content.IntegrationTests.Tests
                 "MapGrid",
                 "StationEvent",
                 "TimedDespawn",
-
+                "TimedDespawnDetailed", // DeltaV
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
             };

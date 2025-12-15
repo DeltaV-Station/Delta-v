@@ -1,9 +1,14 @@
 - type: entity
-  parent: HoloprojectorEngineering
-  id: HoloprojectorEngineeringEmpty
-  suffix: Empty
+  parent: Holoprojector
+  id: HoloprojectorEngineering
+  name: engineering holoprojector
+  description: Displays a warning sign.
   components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+  - type: ChargeHolosignProjector
+    signProto: HolosignEng
+    signComponentName: Holosign # Fuck it, these can pick up janitor signs.
+  - type: AutoRecharge
+    rechargeDuration: 180
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Holoprojectors/eng.rsi
+    state: icon

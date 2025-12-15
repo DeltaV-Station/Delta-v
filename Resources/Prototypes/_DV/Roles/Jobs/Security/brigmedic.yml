@@ -30,7 +30,7 @@
 - type: startingGear
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
-    eyes: ClothingEyesHudMedical
+    #eyes: ClothingEyesHudMedical # DeltaV - loadouts
     id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltCorpsmanWebbingFilled
@@ -39,11 +39,12 @@
     back:
     - EmergencyRollerBedSpawnFolded
     - BodyBagFolded
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - BurnAutoInjector
+    - BurnAutoInjector
+    belt:
     - Portafib
-    - BruteAutoInjector
-    - BruteAutoInjector
-    - BurnAutoInjector
-    - BurnAutoInjector
   #  - MagazinePistol # DeltaV - loadouts
 
 - type: chameleonOutfit

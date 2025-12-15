@@ -127,9 +127,21 @@
         - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           state: glow
           shader: unshaded
+    - type: Loadout
+      prototypes: [ MobSilviaGear ]
+    - type: Inventory
+      speciesId: silvia
+      templateId: silvia
+    - type: InventorySlots
+    - type: Strippable
+    - type: UserInterface
+      interfaces:
+        enum.StrippingUiKey.Key:
+          type: StrippableBoundUserInterface
     - type: FootstepModifier
       footstepSoundCollection:
         collection: FootstepSnake
+    - type: NoSlip
     - type: MobThresholds
       thresholds:
         0: Alive

@@ -18,6 +18,7 @@
     inHandsFillBaseName: -fill-
     inHandsMaxFillLevels: 2
   - type: MeleeWeapon
+    wideAnimationRotation: 45 # DeltaV: Added wideAnimationRotation
     damage:
       types:
         Blunt: 10
@@ -77,6 +78,7 @@
       inHandsFillBaseName: -fill-
       inHandsMaxFillLevels: 2
     - type: MeleeWeapon
+      wideAnimationRotation: 45 # DeltaV: Added wideAnimationRotation
       damage:
         types:
           Blunt: 10

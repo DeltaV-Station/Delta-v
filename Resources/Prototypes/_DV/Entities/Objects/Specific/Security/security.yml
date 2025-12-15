@@ -62,16 +62,3 @@
     - type: GuideHelp
       guides:
       - Security
-
-- type: entity
-  parent: HoloprojectorSecurity
-  id: HoloprojectorSecurityRecharging
-  suffix: Recharging, Do Not Map
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: ItemSlots
-      slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellMicroreactor
-          disableEject: true

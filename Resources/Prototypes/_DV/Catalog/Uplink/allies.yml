@@ -11,3 +11,17 @@
     Telecrystal: 3
   categories:
   - UplinkAllies
+
+- type: listing
+  id: UplinkMobCatC4
+  name: uplink-mobcat-C4-name
+  description: uplink-mobcat-C4-desc
+  productEntity: BoxSyndicateSydicatC4
+  icon: { sprite: _DV/Objects/Devices/communication.rsi, state: radio-syndicat}
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAllies

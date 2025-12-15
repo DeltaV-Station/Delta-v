@@ -33,6 +33,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
+    baseWeightlessModifier: 0.75 # DeltaV
+    baseWeightlessAcceleration: 1.25 # DeltaV
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
@@ -108,7 +110,7 @@
   #  doAfterDelay: 10
   #  allowSelfRepair: false
   - type: WeldingHealable
-    allowSelfHeal: false
+    allowSelfHeal: true # DeltaV - was false
   # End DeltaV Changes
   - type: BorgChassis
   - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
@@ -143,7 +145,7 @@
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
   - type: PowerCellDraw
-    drawRate: 0.6
+    drawRate: 0.4 # DeltaV - Was 0.6
   # no ToggleCellDraw since dont want to lose access when power is gone
   - type: ItemSlots
     slots:
@@ -191,7 +193,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 80 # DeltaV - Was 70
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -446,8 +448,9 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+    - Robotics # DeltaV - Allow robotics to open derelict syndicate borgs to update access
   - type: AccessReader
-    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
+    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ], [ "Robotics" ] ] # DeltaV - Added Robotics
   - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
     channels:
     - Binary #1984
