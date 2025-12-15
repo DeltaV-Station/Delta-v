@@ -1,6 +1,6 @@
 - type: emote
-  id: Mar
-  name: chat-emote-name-mar
+  id: Marr
+  name: chat-emote-name-marr
   category: Vocal
   whitelist:
     components:
@@ -8,10 +8,16 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-mar"]
+  chatMessages: ["chat-emote-msg-marr"]
   chatTriggers:
-    - mar
-    - mars
+    - marr
+    - marr.
+    - marr!
+    - marr?
+    - marrs
+    - marrs.
+    - marrs!
+    - marrs?
 
 - type: emote
   id: Wurble
