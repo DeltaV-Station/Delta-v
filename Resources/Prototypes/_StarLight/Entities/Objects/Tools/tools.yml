@@ -184,7 +184,7 @@
     attackRate: 1
     damage:
       types:
-        Slash: 6 #I don't care if base screwdriver does pierce, that's fucking dumb.
+        Slash: 6 # I don't care if base screwdriver does pierce, that's dumb.
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Tool
@@ -195,7 +195,7 @@
     speedModifier: 0.50
   - type: Tag
     tags:
-    - ImprovisedScrewdriver
+      - ImprovisedScrewdriver
 
 - type: entity
   name: improvised wirecutter
