@@ -81,25 +81,25 @@
           maxDistance: 15
           pitch: 1
           volume: 0
-    - behavior: Screwing
-      sprite:
-        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-        state: screwdriverflipped
-    - behavior: Anchoring
-      sprite:
-        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-        state: screwdriverflipped
-      useSound:
-        path: /Audio/Items/ratchet.ogg
-        params:
-          variation: null
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 15
-          pitch: 1
-          volume: 0
+      - behavior: Screwing
+        sprite:
+          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+          state: screwdriverflipped
+      - behavior: Anchoring
+        sprite:
+          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+          state: screwdriverflipped
+        useSound:
+          path: /Audio/Items/ratchet.ogg
+          params:
+            variation: null
+            playOffsetSeconds: 0
+            loop: False
+            referenceDistance: 1
+            rolloffFactor: 1
+            maxDistance: 15
+            pitch: 1
+            volume: 0
   - type: ToolRefinable
     refineResult:
     - id: OmnitoolMakeshift
