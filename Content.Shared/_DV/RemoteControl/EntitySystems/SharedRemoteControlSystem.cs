@@ -32,7 +32,6 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         SubscribeLocalEvent<RemoteControlComponent, ToggleRemoteControlEvent>(OnRemoteControlToggled);
         SubscribeLocalEvent<RemoteControlComponent, GetItemActionsEvent>(OnGetRemoteControlActions);
 
-        SubscribeLocalEvent<RemoteControlComponent, GotEquippedEvent>(OnRemoteControlEquipped);
         SubscribeLocalEvent<RemoteControlComponent, GotUnequippedEvent>(OnRemoteControlUnequipped);
 
         SubscribeLocalEvent<RemoteControlComponent, GotUnequippedHandEvent>(OnRemoteControlHandUnequipped);
@@ -54,9 +53,10 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         if (!control.Comp.AllowMultiple && control.Comp.BoundNPCs.Count > 0)
         {
-            foreach (var ent in control.Comp.BoundNPCs)
+            while (control.Comp.BoundNPCs.Count > 0)
             {
-                UnbindEntity(control, ent);
+                if (!UnbindEntity(control, control.Comp.BoundNPCs.First()))
+                    break;
             }
         }
 
@@ -97,21 +97,6 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// </summary>
     /// <param name="entity">The entity to set free.</param>
     protected abstract void SetUnitFree(Entity<RemoteControlReceiverComponent> entity);
-
-    /// <summary>
-    /// Handles when a remote control is equipped during map init of an parent entity and attempts to bind
-    /// the remote control to that entity.
-    /// </summary>
-    /// <param name="control">The remote control being equipped.</param>
-    /// <param name="args">Args for the event, notably the equipee.</param>
-    private void OnRemoteControlEquipped(Entity<RemoteControlComponent> control, ref GotEquippedEvent args)
-    {
-        if (MetaData(args.Equipee).EntityLifeStage != EntityLifeStage.MapInitialized &&
-            !HasComp<RemoteControlReceiverComponent>(args.Equipee))
-            return;
-
-        BindEntity(control.AsNullable(), args.Equipee);
-    }
 
     /// <summary>
     /// Handles when a player uses the toggle action for the remote control and updates the state.
