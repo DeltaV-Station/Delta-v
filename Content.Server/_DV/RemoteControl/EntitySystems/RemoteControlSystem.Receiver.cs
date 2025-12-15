@@ -244,7 +244,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     {
         var audioParams = new AudioParams
         {
-            MaxDistance = 300f, // Long distance, TODO: Configurable?
+            MaxDistance = 300f, // Long distance
             RolloffFactor = 0f // Hearable at the same volume across the station
         };
 
