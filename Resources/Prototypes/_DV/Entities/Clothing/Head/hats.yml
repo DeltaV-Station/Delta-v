@@ -2,7 +2,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatSecretary
   name: secretary hat
-  description: A hat for those dedicated to serve coffe and take notes.
+  description: A hat for those dedicated to serve coffee and take notes.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
@@ -84,7 +84,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapBlack
-  name: surgical cap
+  name: black surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapCyan
-  name: surgical cap
+  name: cyan surgical cap
   description: A cyan cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -106,7 +106,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapCybersun
-  name: surgical cap
+  name: cybersun surgical cap
   description: A surgical cap worn by members of Cybersun's Biotechnology division.
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapPink
-  name: surgical cap
+  name: pink surgical cap
   description: A pink cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -128,7 +128,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapRainbow
-  name: surgical cap
+  name: rainbow surgical cap
   description: A rainbow cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -139,7 +139,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapWhite
-  name: surgical cap
+  name: white surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -259,3 +259,94 @@
     sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatReindeer
+  name: reindeer headband
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/reindeer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/reindeer.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatRedRibbon
+  name: red ribbon
+  description: A little red ribbon.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/red_ribbon.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/red_ribbon.rsi
+    slots:
+    - HEAD
+    - neck
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFestiveHatRed
+  name: festive red hat
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/festive_red.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/festive_red.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFestiveHatGreen
+  name: festive green hat
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/festive_green.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/festive_green.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCandyCane
+  name: candy cane headband
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/candycane.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/candycane.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatStar
+  name: star topper headband
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/star.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/star.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFestiveLights
+  name: festive lights
+  description: Seems like you got tangled in these.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/festive_lights.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/festive_lights.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatElf
+  name: elf hat
+  description: Santa's little helper's hat.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/elf.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/elf.rsi

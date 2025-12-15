@@ -16,6 +16,7 @@ construction-graph-tag-corpsman-glasses = corpsman glasses
 construction-graph-tag-glasses = glasses
 construction-graph-tag-medhud = medical hud
 construction-graph-tag-sechud = security hud
+construction-graph-tag-diaghud = diagnostic hud
 construction-graph-tag-magboots = magboots
 
 # Nuke

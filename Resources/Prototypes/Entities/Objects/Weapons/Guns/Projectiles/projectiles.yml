@@ -897,7 +897,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 50
+    totalIntensity: 30 # Delta-V
     intensitySlope: 1
     maxIntensity: 5
     canCreateVacuum: false
@@ -905,8 +905,9 @@
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
-    fillPrototype: PelletClusterLessLethal
-    capacity: 30
+    fillPrototype: PelletClusterLethal # Delta-V
+    capacity: 15 # Delta-V
+    triggerKey: trigger # Delta-V
 
 - type: entity
   parent: BaseBulletTrigger
@@ -1283,7 +1284,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-       # - Impassable 
+       # - Impassable
        # - BulletImpassable
         - Opaque # Delta-V changed from impassable so that they can go through windows
       fly-by: *flybyfixture

@@ -14,12 +14,13 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelCentcom # Delta-V - Added CC satchel
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCentcom
     eyes: ClothingEyesGlassesCommand

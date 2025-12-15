@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingScarfBase
+  id: ClothingGenderScarfBase
+  abstract: true
+  components:
+  - type: ChameleonClothing
+    slot: Neck
+    requireTag: GenderScarf
+    affectedByEmp: false
+    windowTitleOverride: change-scarf-pattern
+    verbNameOverride: change-scarf-pattern
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade # for whatever reason, these tags aren't being inhereted from the parent
+    - WhitelistChameleon
+    - GenderScarf

@@ -29,9 +29,9 @@
 - type: listing
   id: UplinkMobCat
   name: uplink-mobcat-microbomb-name
-  description: uplink-mobcat-descc
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
-  productEntity: ReinforcementRadioSyndicateSyndiCatDV
+  description: uplink-mobcat-desc
+  icon: { sprite: _DV/Objects/Devices/communication.rsi, state: syndicat-yarn}
+  productEntity: ReinforcementRadioSyndicateYarn
   cost:
     Telecrystal: 2
   categories:
