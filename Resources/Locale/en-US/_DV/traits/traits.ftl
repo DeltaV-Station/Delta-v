@@ -41,3 +41,13 @@ trait-depression-desc = No mechanical effect. The world is dark but there is a l
 
 trait-dysgraphia-name = Unable to write
 trait-dysgraphia-desc = You cannot write, whether because of a disability, your history, or by choice.
+
+trait-amputee-left-arm-name = Left Arm Amputee
+trait-amputee-left-arm-desc = 
+    Your left arm is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-amputee-right-arm-name = Right Arm Amputee
+trait-amputee-right-arm-desc = 
+    Your right arm is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
