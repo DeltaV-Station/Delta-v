@@ -599,7 +599,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseJusticePDA # DeltaV - Added secwatch to justice. Was BaseSecurityPDA.
+  parent: BaseJusticePDA # DeltaV - Change from BaseSecurityPDA
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -622,6 +622,15 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
+  - type: CartridgeLoader # DeltaV - Add CrimeAssist and LogProbe cartridges
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - CrimeAssistCartridge
+    - LogProbeCartridge
 
 - type: entity
   parent: LawyerPDA
