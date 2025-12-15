@@ -47,7 +47,7 @@ public sealed class AmputeeSystem : EntitySystem
                 _bloodstream.TryModifyBleedAmount((ent, bloodstream), -10f);
 
             // goes unused for the purposes of the arm amputee traits, but might as well keep it in
-            if (ent.Comp.ProtoId is null)
+            if (ent.Comp.ProtoId is null || ent.Comp.SlotId == null)
                 continue;
 
             var newLimb = SpawnAtPosition(ent.Comp.ProtoId, xform.Coordinates);

@@ -19,5 +19,5 @@ public sealed partial class AmputeeComponent : Component
     public EntProtoId? ProtoId { get; private set; }
 
     [DataField]
-    public string SlotId { get; private set; } = "right arm";
+    public string? SlotId { get; private set; } = "left arm";
 }
