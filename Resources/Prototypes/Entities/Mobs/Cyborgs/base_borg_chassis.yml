@@ -105,13 +105,11 @@
     - Common
     - Science
   - type: ZombieImmune
-  # Begin DeltaV Changes - use IPC healing instead of 1 weld to heal everything
-  #- type: Repairable
-  #  doAfterDelay: 10
-  #  allowSelfRepair: false
-  - type: WeldingHealable
-    allowSelfHeal: true # DeltaV - was false
-  # End DeltaV Changes
+  - type: Repairable
+    damageValue: -10 # 10 seconds to repair from crit
+    doAfterDelay: 1
+    fuelCost: 0.5
+    allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
   - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
   - type: Fiber # DeltaV - borgs leave metal fibers
@@ -497,8 +495,6 @@
     - Mothership
     - Xenoborg
     - Binary
-  - type: Repairable
-    doAfterDelay: 13 # 25% more HP, so 30% more time to heal
   - type: BorgChassis
     maxModules: 0
     hasMindState: robot_e
