@@ -1,3 +1,4 @@
+using Content.Shared._DV.Movement.Components; // DeltaV - Jetpacks automatically toggle on.
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
@@ -11,7 +12,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Movement.Systems;
 
-public abstract class SharedJetpackSystem : EntitySystem
+public abstract partial class SharedJetpackSystem : EntitySystem // DeltaV - Made Partial
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -34,6 +35,7 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<WaitingJetpackUserComponent, EntParentChangedMessage>(OnWaitingJetpackEntParentChanged); // DeltaV - Jetpacks automatically toggle on.
     }
 
     private void OnJetpackUserWeightlessMovement(Entity<JetpackUserComponent> ent, ref RefreshWeightlessModifiersEvent args)
@@ -71,13 +73,17 @@ public abstract class SharedJetpackSystem : EntitySystem
 
     private void OnJetpackDropped(EntityUid uid, JetpackComponent component, DroppedEvent args)
     {
+        RemoveWaiter(component); // DeltaV - Jetpacks automatically toggle on.
         SetEnabled(uid, component, false, args.User);
     }
 
     private void OnJetpackMoved(Entity<JetpackComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         if (args.Container.Owner != ent.Comp.JetpackUser)
+        {
+            RemoveWaiter(ent.Comp); // DeltaV - Jetpacks automatically toggle on.
             SetEnabled(ent, ent.Comp, false, ent.Comp.JetpackUser);
+        }
     }
 
     private void OnJetpackUserCanWeightless(EntityUid uid, JetpackUserComponent component, ref CanWeightlessMoveEvent args)
@@ -125,20 +131,22 @@ public abstract class SharedJetpackSystem : EntitySystem
         _movementSpeedModifier.RefreshWeightlessModifiers(uid);
     }
 
-    private void OnJetpackToggle(EntityUid uid, JetpackComponent component, ToggleJetpackEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid))
-        {
-            _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
-
-            return;
-        }
-
-        SetEnabled(uid, component, !IsEnabled(uid));
-    }
+    /// DeltaV Start - Replaced with DeltaV method in <see cref="SharedJetpackSystem"/>
+    // private void OnJetpackToggle(EntityUid uid, JetpackComponent component, ToggleJetpackEvent args)
+    // {
+    //     if (args.Handled)
+    //         return;
+    //
+    //     if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid))
+    //     {
+    //         _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
+    //
+    //         return;
+    //     }
+    //
+    //     SetEnabled(uid, component, !IsEnabled(uid));
+    // }
+    // DeltaV End - Replaced with DeltaV method.
 
     private bool CanEnableOnGrid(EntityUid? gridUid)
     {
@@ -173,11 +181,14 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         if (enabled)
         {
+            RemComp<WaitingJetpackUserComponent>(user.Value); // DeltaV - Jetpacks automatically turn on when toggled.
             SetupUser(user.Value, uid, component);
             EnsureComp<ActiveJetpackComponent>(uid);
         }
         else
         {
+            if (component.AutomaticMode) // DeltaV - Jetpacks automatically turn on when toggled.
+                EnsureComp<WaitingJetpackUserComponent>(user.Value).Jetpack = uid;
             RemoveUser(user.Value, component);
             RemComp<ActiveJetpackComponent>(uid);
         }
