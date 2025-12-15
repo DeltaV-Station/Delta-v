@@ -63,15 +63,15 @@
   - type: Sprite
     sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
     state: screwdriver
-- type: MultipleTool
-  statusShowBehavior: true
-  entries:
-    - behavior: Prying
-      sprite:
-        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-        state: screwdriver
-      useSound:
-        path: /Audio/Items/crowbar.ogg
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+          state: screwdriver
+        useSound:
+          path: /Audio/Items/crowbar.ogg
         params:
           variation: null
           playOffsetSeconds: 0
