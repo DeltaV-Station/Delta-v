@@ -41,10 +41,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event.</param>
     private void OnComponentStartup(Entity<RemoteControlReceiverComponent> ent, ref ComponentStartup args)
     {
-        UpdateNPCOrders(ent,
-            RemoteControlOrderType.FreeUnit,
-            () => true
-        );
+        SetUnitFree(ent);
     }
 
     /// <summary>
