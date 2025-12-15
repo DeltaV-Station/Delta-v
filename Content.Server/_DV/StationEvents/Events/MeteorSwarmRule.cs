@@ -186,7 +186,7 @@ namespace Content.Server.StationEvents.Events
                         if (component.BiasTargetThisSwarm is {} biasTarget && thisMeteorBiased)
                         {
                             targetThisMeteor = biasTarget;
-                            targetingSpreadThisMeteor = 
+                            targetingSpreadThisMeteor =
                                 RobustRandom.NextAngle().RotateVec(new Vector2((float)RobustRandom.NextGaussian(0, component.BiasTargetDeviationTiles), 0));
                         }
                         else
@@ -269,8 +269,8 @@ namespace Content.Server.StationEvents.Events
 
 
         private record AntiMeteorZoneSummary (
-            MapCoordinates Center, 
-            float RadiusSquared, 
+            MapCoordinates Center,
+            float RadiusSquared,
             float ProtectionRate
         );
 
@@ -370,7 +370,7 @@ namespace Content.Server.StationEvents.Events
             //  = Distance between origin and relativeObjectPosition (p0)
             //  = Distance between origin and (p0 + velocity * t)
             //  = Magnitude of (p0 + v*t)
-            // 
+            //
             // We want the `t` that minimizes that magnitude. Calculus says: find the critical points.
             // (I'm lazy; let wolfram alpha do the calculus for us)
             // 1. derivative of magnitude:  https://www.wolframalpha.com/input?i=given+m+%3D+%28x_0+%2B+vt%29%5E2+%2B+%28y_0+%2B+ut%29%5E2+find+dm%2Fdt

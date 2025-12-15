@@ -81,15 +81,15 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     public Angle? BiasApproachAngleThisSwarm = null;
 
     /// <summary>
-    /// The level of coordination in the approach angle of the meteors. 
+    /// The level of coordination in the approach angle of the meteors.
     ///  (lower value = more aligned meteors)
     ///  (high value = meteors approaching from all angles)
-    /// 
+    ///
     /// Details:
-    /// An overall "swarm angle" will be randomly-chosen. 
-    /// Then, 68% * BiasRate% of meteors in the swarm will approach the station at an angle that's 
+    /// An overall "swarm angle" will be randomly-chosen.
+    /// Then, 68% * BiasRate% of meteors in the swarm will approach the station at an angle that's
     ///  within this many degrees of that "swarm angle".
-    /// 
+    ///
     /// (search google for the "68-95-99 rule" of statistics)
     /// </summary>
     [DataField]
@@ -113,15 +113,15 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     public MapCoordinates? BiasTargetThisSwarm = null;
 
     /// <summary>
-    /// The level of coordination in the impact points of the meteors. 
+    /// The level of coordination in the impact points of the meteors.
     ///  (lower value = more concentrated impacts)
     ///  (high value = impacts everywhere on the station perimeter)
-    /// 
+    ///
     /// Details:
     /// An overall "swarm target point" will be randomly-chosen on the station's perimeter.
     /// Then, 68% * BiasRate% of meteors in the swarm will aim at a point
     ///  within this many tiles of that "swarm target point".
-    /// 
+    ///
     /// (search google for the "68-95-99 rule" of statistics)
     /// </summary>
     [DataField]
