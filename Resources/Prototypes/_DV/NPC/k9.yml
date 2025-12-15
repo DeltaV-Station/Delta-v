@@ -5,12 +5,16 @@
         - !type:HasOrdersPrecondition
           orders: enum.RemoteControlOrderType.EntityPoint
       tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:K9TargetInfoOperator
         - !type:HTNCompoundTask
           task: K9GrappleCompound
     - preconditions:
         - !type:HasOrdersPrecondition
           orders: enum.RemoteControlOrderType.TilePoint
       tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:DropCatchOrderOperator
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
             pathfindInPlanning: true
@@ -30,13 +34,22 @@
         - !type:HasOrdersPrecondition
           orders: enum.RemoteControlOrderType.FreeUnit
       tasks:
-      - !type:HTNCompoundTask
-        task: SimpleHostileCompound
+        - !type:HTNPrimitiveTask
+          operator: !type:DropCatchOrderOperator
+        - !type:HTNCompoundTask
+          task: SimpleHostileCompound
 
 - type: htnCompound
   id: K9GrappleCompound
   branches:
-    - tasks:
+    - preconditions: # If it's a mob that we can grapple...
+        - !type:KeyBoolEqualsPrecondition
+          key: HasGrappleTarget
+          value: true
+        - !type:KeyBoolEqualsPrecondition
+          key: HasMobTarget
+          value: true
+      tasks:
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
             shutdownState: PlanFinished
@@ -47,3 +60,31 @@
             rangeKey: MeleeRange
         - !type:HTNPrimitiveTask
           operator: !type:CatchOrderOperator
+    - preconditions: # If it's a mob that we can't grapple...
+        - !type:KeyBoolEqualsPrecondition
+          key: HasGrappleTarget
+          value: false
+        - !type:KeyBoolEqualsPrecondition
+          key: HasMobTarget
+          value: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: OrderedTargets
+        - !type:HTNCompoundTask
+          task: MeleeAttackOrderedTargetCompound
+    - preconditions: # If it's not a mob at all...
+        - !type:KeyBoolEqualsPrecondition
+          key: HasGrappleTarget
+          value: false
+        - !type:KeyBoolEqualsPrecondition
+          key: HasMobTarget
+          value: false
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            targetKey: TargetCoordinates
+            RangeKey: IdleRange
+        - !type:HTNCompoundTask
+          task: IdleSpinCompound

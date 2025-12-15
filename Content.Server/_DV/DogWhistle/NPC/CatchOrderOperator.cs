@@ -1,5 +1,3 @@
-using System.Threading;
-using System.Threading.Tasks;
 using Content.Server._DV.Grappling.EntitySystems;
 using Content.Server.Interaction;
 
@@ -26,16 +24,6 @@ public sealed partial class CatchOrderOperator : HTNOperator
 
         _grappling = sysManager.GetEntitySystem<GrapplingSystem>();
         _interaction = sysManager.GetEntitySystem<InteractionSystem>();
-    }
-
-    public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
-        CancellationToken cancelToken)
-    {
-        /*
-            Whether or not the target is grappable, we still need to move towards it.
-            The user might have pointed to a static entity on a tile, like an LV cable.
-        */
-        return (true, null);
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
