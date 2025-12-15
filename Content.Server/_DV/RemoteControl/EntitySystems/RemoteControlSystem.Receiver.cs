@@ -61,7 +61,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.BoundNPCs))
+        if (!CanNPCHandleOrder(ent, args.Control, args.BoundNPCs))
             return;
 
         var target = args.Target;
@@ -92,7 +92,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.BoundNPCs))
+        if (!CanNPCHandleOrder(ent, args.Control, args.BoundNPCs))
             return;
 
         var grid = _transform.GetGrid(ent.Owner);
@@ -126,7 +126,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.BoundNPCs))
+        if (!CanNPCHandleOrder(ent, args.Control, args.BoundNPCs))
             return;
 
         var origin = args.User;
@@ -159,7 +159,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.BoundNPCs))
+        if (!CanNPCHandleOrder(ent, args.Control, args.BoundNPCs))
             return;
 
         SetUnitFree(ent);
@@ -172,10 +172,13 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="ent">NPC entity to check for.</param>
     /// <param name="boundNPCs">List of Entities this order is bound to.</param>
     /// <returns>True if the NPC can understand the order, false otherwise.</returns>
-    private static bool CanNPCHandleOrder(Entity<RemoteControlReceiverComponent> ent, List<EntityUid> boundNPCs)
+    private static bool CanNPCHandleOrder(Entity<RemoteControlReceiverComponent> ent, EntityUid control, List<EntityUid> boundNPCs)
     {
         if (!ent.Comp.CanUnderstand)
             return false; // Cannot understand this order, even as an NPC
+
+        if (ent.Comp.BoundController != control)
+            return false; // This isn't the control we think we're bound to
 
         if (!boundNPCs.Contains(ent.Owner))
             return false; // This order is not for this NPC
