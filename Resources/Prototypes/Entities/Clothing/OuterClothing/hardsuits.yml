@@ -1184,7 +1184,7 @@
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTEngineer
   categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT engineer's hardsuit
@@ -1236,7 +1236,7 @@
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTJanitor
   categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT janitor's hardsuit
