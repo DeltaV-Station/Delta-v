@@ -20,7 +20,6 @@
   - type: Tool
     qualities:
       - Prying
-      - Screwing
     speedModifier: 0.25
     useSound:
       path: /Audio/Items/crowbar.ogg
@@ -115,6 +114,11 @@
   id: OmnitoolMakeshift
   description: Who would've thought a red toolbox would have so many uses?
   components:
+  - type: Tool
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -124,39 +128,39 @@
   - type: Sprite
     sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
     state: wirecutter
-- type: MultipleTool
-  statusShowBehavior: true
-  entries:
-    - behavior: Prying
-      sprite:
-        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-        state: wirecutter
-      useSound:
-        path: /Audio/Items/crowbar.ogg
-        params:
-          variation: null
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 15
-          pitch: 1
-          volume: 0
-    - behavior: Cutting
-      sprite:
-        sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-        state: wirecutterside
-      useSound:
-        path: /Audio/Items/wirecutter.ogg
-        params:
-          variation: null
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 15
-          pitch: 1
-          volume: 0
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+          state: wirecutter
+        useSound:
+          path: /Audio/Items/crowbar.ogg
+          params:
+            variation: null
+            playOffsetSeconds: 0
+            loop: False
+            referenceDistance: 1
+            rolloffFactor: 1
+            maxDistance: 15
+            pitch: 1
+            volume: 0
+      - behavior: Cutting
+        sprite:
+          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+          state: wirecutterside
+        useSound:
+          path: /Audio/Items/wirecutter.ogg
+          params:
+            variation: null
+            playOffsetSeconds: 0
+            loop: False
+            referenceDistance: 1
+            rolloffFactor: 1
+            maxDistance: 15
+            pitch: 1
+            volume: 0
   - type: Tag
     tags:
       - Crowbar
