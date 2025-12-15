@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.StationEvents.Events;
+using Robust.Shared.Map;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -61,55 +62,68 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     public float MeteorLifetime = 300f;
 
     /// <summary>
-    /// If true, a BiasRate proportion of meteors will be aligned to a randomly chosen approach angle,
-    /// and (if TargetBiasEnabled) coordinated to a specific target impact point on the station.
+    /// Whether to coordinate the meteor trajectories in this swarm.
     /// </summary>
     [DataField]
     public bool BiasEnabled = false;
 
     /// <summary>
-    /// Whether biasing should ALSO target meteors at a specific target impact point on the perimeter of the station.
-    /// </summary>
-    /// <remarks>
-    /// - BiasEnabled false                         = approach and target are both random
-    /// - BiasEnabled true, TargetBiasEnabled false = approach coordinated, but target random
-    /// - BiasEnabled true, TargetBiasEnabled true  = approach coordinated, target coordinated
-    /// </remarks>
-    [DataField]
-    public bool TargetBiasEnabled = false;
-
-    /// <summary>
-    /// If BiasEnabled, proportion of meteors to bias towards a randomly-chosen swarm approach angle and target impact point.
+    /// Proportion of meteors that will roughly follow the coordinated swarm trajectory.
+    /// The remaining meteors will have totally-random trajectories.
     /// </summary>
     [DataField]
     public float BiasRate = 0.8f;
 
     /// <summary>
-    /// Standard deviation of biased meteors' approach angle - meteors will follow a normal distribution around a
-    /// randomly-chosen coordinated swarm angle.
+    /// Initialized automatically during the event -- a randomly-selected "swarm angle" that meteors will follow
     /// </summary>
-    /// <remarks>
-    /// e.g. by the 68-95-99 rule, 68% of biased meteors will approach the station at an angle
-    /// within this many radians of the randomly-chosen coordinated swarm angle.
-    ///
-    /// Note: if this deviation >= 1.0, the "default to uniform distribution" feature of the sampling will start to
-    /// noticeably affect randomness, artifically raising the BiasRate beyond the specified value.
-    /// See the statistical implementation of MeteorSwarmRule.NextBiasedConstrainedFloat() for more context.
-    /// </remarks>
     [DataField]
-    public float ApproachBiasDeviation = 0.6f;
+    public Angle? BiasApproachAngleThisSwarm = null;
 
     /// <summary>
-    /// Standard deviation of biased meteors' target impact point - meteors will target a normal distribution
-    /// around a coordinated swarm target impact point randomly-chosen from the station's perimeter.
+    /// The level of coordination in the approach angle of the meteors. 
+    ///  (lower value = more aligned meteors)
+    ///  (high value = meteors approaching from all angles)
+    /// 
+    /// Details:
+    /// An overall "swarm angle" will be randomly-chosen. 
+    /// Then, 68% * BiasRate% of meteors in the swarm will approach the station at an angle that's 
+    ///  within this many degrees of that "swarm angle".
+    /// 
+    /// (search google for the "68-95-99 rule" of statistics)
+    /// </summary>
+    [DataField]
+    public float BiasApproachAngleDeviationDegrees = 0.6f;
+
+    /// <summary>
+    /// Whether to ALSO coordinate the meteor target impact points in this swarm.
     /// </summary>
     /// <remarks>
-    /// e.g. by the 68-95-99 rule, 68% of biased meteors will impact the station within
-    /// this many tiles of the randomly-chosen coordinated swarm impact point.
+    /// * BiasEnabled false                             =  approach angle and impact point are both completely random for each meteor.
+    /// * BiasEnabled true, BiasEnabledForTarget false  =  approach angle coordinated, but each meteor has a random offset.
+    /// * BiasEnabled true, BiasEnabledForTarget true   =  approach angle coordinated, target impact point coordinated.
     /// </remarks>
     [DataField]
-    public float TargetBiasDeviation = 5f;
+    public bool BiasEnabledForTarget = false;
 
+    /// <summary>
+    /// Initialized automatically during the event -- a randomly-selected "swarm target point"
+    /// </summary>
     [DataField]
-    public (Vector2 target, Angle approachAngle)? SelectedBias = null;
+    public MapCoordinates? BiasTargetThisSwarm = null;
+
+    /// <summary>
+    /// The level of coordination in the impact points of the meteors. 
+    ///  (lower value = more concentrated impacts)
+    ///  (high value = impacts everywhere on the station perimeter)
+    /// 
+    /// Details:
+    /// An overall "swarm target point" will be randomly-chosen on the station's perimeter.
+    /// Then, 68% * BiasRate% of meteors in the swarm will aim at a point
+    ///  within this many tiles of that "swarm target point".
+    /// 
+    /// (search google for the "68-95-99 rule" of statistics)
+    /// </summary>
+    [DataField]
+    public float BiasTargetDeviationTiles = 5f;
 }
