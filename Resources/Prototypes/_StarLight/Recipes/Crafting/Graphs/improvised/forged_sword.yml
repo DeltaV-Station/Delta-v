@@ -22,5 +22,9 @@
           sprite: _Starlight/Objects/Misc/plasteel_hilt.rsi
           state: icon
         name: crafting-menu-name-PH
+
+  - node: tool
+    edges: [] # Add this tool node as an empty placeholder or connect it if needed.
+
   - node: sword
     entity: UnfinishedSwordForged
