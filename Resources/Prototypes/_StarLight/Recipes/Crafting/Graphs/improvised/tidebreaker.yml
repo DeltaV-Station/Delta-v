@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: sword
+    - to: tool
       steps:
       - tag: BladePlasteel
         icon:
@@ -27,6 +27,10 @@
       - material: Cloth
         amount: 8
         doAfter: 5
+  - node: tool
+    edges:
+    - to: sword
+      steps:
       - tag: HiltPlasteel
         icon:
           sprite: _Starlight/Objects/Misc/plasteel_hilt.rsi
