@@ -6,7 +6,7 @@
   components:
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Items/crowbar_drop.ogg  
+      path: /Audio/Items/crowbar_drop.ogg
   - type: Sprite
     sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
     state: wrench
@@ -17,28 +17,28 @@
     speedModifier: 0.25
   - type: ToolTileCompatible
     delay: 4
-- type: Tool
-  qualities:
-    - Prying
-    - Screwing
-  speedModifier: 0.25
-  useSound:
-    path: /Audio/Items/crowbar.ogg
-    params:
-      variation: null
-      playOffsetSeconds: 0
-      loop: False
-      referenceDistance: 1
-      rolloffFactor: 1
-      maxDistance: 15
-      pitch: 1
-      volume: 0
+  - type: Tool
+    qualities:
+      - Prying
+      - Screwing
+    speedModifier: 0.25
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+      params:
+        variation: null
+        playOffsetSeconds: 0
+        loop: False
+        referenceDistance: 1
+        rolloffFactor: 1
+        maxDistance: 15
+        pitch: 1
+        volume: 0
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
         Blunt: 9
-  - type: MultipleTool
+   - type: MultipleTool
     statusShowBehavior: true
     entries:
       - behavior: Prying
@@ -220,7 +220,7 @@
         Slash: 2 #WHY IS WIZ SO OBSESSED WITH PIERCE
     soundHit:
       path: "/Audio/Items/wirecutter.ogg"
-    attackRate: 2 
+    attackRate: 2
   - type: Item
     sprite: _Starlight/Objects/Tools/improvised_wirecutters.rsi
     storedRotation: -90
@@ -317,7 +317,7 @@
   components:
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Items/crowbar_drop.ogg  
+      path: /Audio/Items/crowbar_drop.ogg
   - type: Sprite
     sprite: _Starlight/Objects/Tools/improvised_omnitool.rsi
     layers:
@@ -569,7 +569,7 @@
   components:
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Items/crowbar_drop.ogg  
+      path: /Audio/Items/crowbar_drop.ogg
   - type: Sprite
     sprite: _Starlight/Objects/Tools/forged_omnitool.rsi
     layers:
