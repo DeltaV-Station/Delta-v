@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: AftrLite
-  changes:
-  - message: Hotfixed a cosmic cult finale bug.
-    type: Fix
-  id: 1458
-  time: '2025-06-14T05:03:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3948
 - author: HTMLSystem
   changes:
   - message: Arachnids and Moths now have species specific sprites for DeltaV eyewear.
@@ -4243,3 +4236,11 @@
   id: 1957
   time: '2025-12-13T19:18:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4965
+- author: kotobdev
+  changes:
+  - message: The Redshirt trait has been added, which causes you to immediately die
+      instead of going crit.
+    type: Add
+  id: 1958
+  time: '2025-12-16T01:34:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4974
