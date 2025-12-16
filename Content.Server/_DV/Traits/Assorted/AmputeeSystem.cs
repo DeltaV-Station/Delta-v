@@ -43,15 +43,14 @@ public sealed class AmputeeSystem : EntitySystem
             QueueDel(part.Id);
 
             // apparently chopping off limbs makes people bleed a lot. Who would have guessed?
-            if (TryComp(ent, out BloodstreamComponent? bloodstream))
-                _bloodstream.TryModifyBleedAmount((ent, bloodstream), -10f);
+            _bloodstream.TryModifyBleedAmount(ent.Owner, -10f);
 
             // goes unused for the purposes of the arm amputee traits, but might as well keep it in
             if (ent.Comp.ProtoId is null || ent.Comp.SlotId == null)
                 continue;
 
             var newLimb = SpawnAtPosition(ent.Comp.ProtoId, xform.Coordinates);
-            if (TryComp(newLimb, out BodyPartComponent? limbComp))
+            if (TryComp<BodyPartComponent>(newLimb, out var limbComp) && limbComp.Symmetry == ent.Comp.PartSymmetry)
                 _body.AttachPart(root.Value.Entity, ent.Comp.SlotId, newLimb, root.Value.BodyPart, limbComp);
         }
     }
