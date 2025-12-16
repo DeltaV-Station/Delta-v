@@ -40,7 +40,7 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
         private readonly UnborgableSystem _unborgable; // DeltaV
-        private readonly RedshirtSystem _redshirt;
+        private readonly RedshirtSystem _redshirt; // DeltaV
 
         // Shitmed Change Start
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
