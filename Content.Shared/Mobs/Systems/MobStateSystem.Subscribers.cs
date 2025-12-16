@@ -59,6 +59,13 @@ public partial class MobStateSystem
             args.Cancelled = true;
     }
 
+    private void Down(EntityUid target)
+    {
+        _standing.Down(target);
+        var ev = new DropHandItemsEvent();
+        RaiseLocalEvent(target, ref ev);
+    }
+
     private void CheckConcious(Entity<MobStateComponent> ent, ref ConsciousAttemptEvent args)
     {
         switch (ent.Comp.CurrentState)
@@ -103,25 +110,35 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
+            {
                 if (!TryComp(target, out BuckleComponent? buckle)
                     || !buckle.Buckled) // DeltaV - Stop buckled mobs from standing up.
                     _standing.Stand(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
+            }
             case MobState.Critical:
-                _standing.Down(target);
+            {
+                Down(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
+            }
             case MobState.Dead:
+            {
                 EnsureComp<CollisionWakeComponent>(target);
-                _standing.Down(target);
+                Down(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Dead);
                 break;
+            }
             case MobState.Invalid:
+            {
                 //unused;
                 break;
+            }
             default:
+            {
                 throw new NotImplementedException();
+            }
         }
     }
 
