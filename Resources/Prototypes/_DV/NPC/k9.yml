@@ -19,7 +19,7 @@
           operator: !type:MoveToOperator
             pathfindInPlanning: true
             targetKey: MovementTarget
-            RangeKey: IdleRange
+            rangeKey: IdleRange
         - !type:HTNCompoundTask
           task: IdleSpinCompound
     - preconditions:
@@ -85,6 +85,6 @@
           operator: !type:MoveToOperator
             pathfindInPlanning: true
             targetKey: TargetCoordinates
-            RangeKey: IdleRange
+            rangeKey: IdleRange
         - !type:HTNCompoundTask
           task: IdleSpinCompound
