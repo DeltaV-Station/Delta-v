@@ -357,22 +357,24 @@
   - type: Gun
     fireRate: 2.3
     minAngle: 0
-    maxAngle: 5
-    angleIncrease: 2.5
-    angleDecay: 2
+    maxAngle: 0
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/mk98fire.ogg
       params:
-        volume: -2
+        volume: -4
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/mk98empty.ogg
+  - type: UseDelay
+    delay: 0.5
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
     autoCycle: false
     soundRack:
-      path: /Audio/_DV/Weapons/Guns/Cock/mk98rack.ogg ##funny folder lmao
+      path: /Audio/_DV/Weapons/Guns/Cock/mk98rack.ogg 
       params:
-        volume: -1
+        volume: -4
   - type: ItemSlots
     slots:
       gun_magazine:
