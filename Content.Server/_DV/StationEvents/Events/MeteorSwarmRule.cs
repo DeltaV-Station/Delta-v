@@ -366,8 +366,8 @@ namespace Content.Server.StationEvents.Events
         private static float TimeUntilClosestApproach(MeteorTrajectory trajectory, MapCoordinates approachPoint)
         {
             // Mathematical derivation:
-            // The distance between approachPoint (a) and objectPosition (p)
-            //  = Distance between origin and relativeObjectPosition (p0)
+            // The distance between approachPoint (a_map) and objectPosition (p_map)
+            //  = Distance between origin and relativeObjectPosition (p)
             //  = Distance between origin and (p0 + velocity * t)
             //  = Magnitude of (p0 + v*t)
             //
