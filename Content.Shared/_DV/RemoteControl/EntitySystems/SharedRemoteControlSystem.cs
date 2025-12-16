@@ -210,7 +210,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         Popup.PopupPredicted(Loc.GetString(message, ("user", user), ("target", target)),
             user,
-            target,
+            user,
             PopupType.Medium);
 
         var doargs = new DoAfterArgs(
