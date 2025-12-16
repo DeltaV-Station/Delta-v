@@ -11,3 +11,21 @@
   id: PrescriptionSecurityGlasses
   equipment:
     eyes: ClothingEyesPrescriptionSecurityGlasses
+
+# Security Hud
+- type: loadout
+  id: SecurityHud
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+# Prescription Security Hud
+- type: loadout
+  id: PrescriptionSecurityHud
+  equipment:
+    eyes: ClothingEyesPrescriptionHudSecurity
+
+# Security Eyepatch Hud
+- type: loadout
+  id: SecurityEyePatchHud
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
