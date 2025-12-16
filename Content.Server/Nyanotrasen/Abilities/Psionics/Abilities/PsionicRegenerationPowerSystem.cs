@@ -18,6 +18,7 @@ using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
 using Robust.Shared.Timing;
 using Content.Server.Mind;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Server.Audio;
@@ -58,10 +59,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.PsionicRegenerationActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.PsionicRegenerationActionEntity);
             }
         }
 
@@ -92,7 +92,7 @@ namespace Content.Server.Abilities.Psionics
 
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.PsionicRegenerationActionEntity);
             }
         }
 

@@ -21,7 +21,6 @@
         reagents:
         - ReagentId: Ectoplasm
           Quantity: 15
-  - type: PotentialPsionic
   - type: Psionic
   - type: GlimmerSource
   - type: AmbientSound
@@ -72,7 +71,6 @@
   - type: MovementIgnoreGravity
   - type: Speech
   # powers
-  - type: PotentialPsionic
   - type: Psionic
     removable: false
   - type: NoosphericZapPower

@@ -1,3 +1,4 @@
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Bed.Sleep;
@@ -42,8 +43,8 @@ namespace Content.Shared.Abilities.Psionics
                 _actions.StartUseDelay(ent.Comp.MassSleepActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = ent.Comp.MassSleepActionEntity;
+            if (TryComp<PsionicComponent>(ent, out var psionic))
+                psionic.PsionicPowersActionEntities.Add(ent.Comp.MassSleepActionEntity);
         }
 
         private void OnShutdown(Entity<MassSleepPowerComponent> ent, ref ComponentShutdown args)
@@ -61,7 +62,7 @@ namespace Content.Shared.Abilities.Psionics
 
             foreach (var entity in _lookup.GetEntitiesInRange(args.Performer, ent.Comp.WarningRadius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<OldPsionicInsulationComponent>(entity))
                 {
                     _popup.PopupEntity(Loc.GetString("psionic-power-mass-sleep-warning"),
                         entity,
@@ -92,7 +93,7 @@ namespace Content.Shared.Abilities.Psionics
 
             foreach (var entity in _lookup.GetEntitiesInRange(args.User, ent.Comp.Radius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<OldPsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
                         _statusEffects.TryAddStatusEffect<ForcedSleepingStatusEffectComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);

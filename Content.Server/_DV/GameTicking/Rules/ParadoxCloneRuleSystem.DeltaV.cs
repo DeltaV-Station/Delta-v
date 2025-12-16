@@ -1,4 +1,5 @@
 using Content.Server.Psionics;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
@@ -26,6 +27,6 @@ public sealed partial class ParadoxCloneRuleSystem
     {
         // guaranteed psionic power
         var psi = EnsureComp<PotentialPsionicComponent>(mob);
-        _psionics.RollPsionics(mob, psi, false, 100);
+        // _psionics.RollPsionics(mob, psi, false, 100);
     }
 }

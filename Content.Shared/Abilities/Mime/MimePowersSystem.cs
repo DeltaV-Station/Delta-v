@@ -1,3 +1,4 @@
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Popups;
 using Content.Shared.Abilities.Psionics; //Nyano - Summary: Makes Mime psionic.
 using Content.Shared.Actions;
@@ -73,8 +74,8 @@ public sealed class MimePowersSystem : EntitySystem
         _actionsSystem.AddAction(ent, ref ent.Comp.InvisibleWallActionEntity, ent.Comp.InvisibleWallAction);
 
         //DeltaV - Summary: Add Psionic Ability to Mime.
-        if (TryComp<PsionicComponent>(ent.Owner, out var psionic) && psionic.PsionicAbility == null)
-            psionic.PsionicAbility = ent.Comp.InvisibleWallActionEntity;
+        if (TryComp<PsionicComponent>(ent.Owner, out var psionic))
+            psionic.PsionicPowersActionEntities.Add(ent.Comp.InvisibleWallActionEntity);
     }
 
     private void OnComponentShutdown(Entity<MimePowersComponent> ent, ref ComponentShutdown args)

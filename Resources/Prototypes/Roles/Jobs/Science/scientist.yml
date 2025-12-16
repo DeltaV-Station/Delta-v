@@ -13,8 +13,13 @@
   access:
   - Research
   - Maintenance
-  extendedAccess: # DeltaV - Scientists get robotics access on lowpop
+  # Begin DeltaV Additions
+  extendedAccess:
   - Robotics
+  special:
+  - !type:ModifyPsionicChanceSpecial # Scientists are much more likely to be psionic.
+    jobBonusChance: 0.05 # Additional 5% chance.
+  # End DeltaV Additions
 
 - type: startingGear
   id: ScientistGear

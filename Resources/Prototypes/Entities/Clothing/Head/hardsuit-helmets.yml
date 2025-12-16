@@ -903,9 +903,8 @@
     color: "#ffffff"
   # Begin DeltaV Additions
   - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
   - type: ClothingGrantPsionicPower
     power: DispelPower
   - type: GuideHelp

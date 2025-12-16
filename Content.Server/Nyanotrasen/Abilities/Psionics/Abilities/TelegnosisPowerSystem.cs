@@ -15,6 +15,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using System.Numerics;
+using Content.Shared._DV.Psionics.Components;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -46,10 +47,9 @@ namespace Content.Server.Abilities.Psionics
                 _actions.StartUseDelay(component.TelegnosisActionEntity);
             }
 
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.TelegnosisActionEntity;
-                psionic.ActivePowers.Add(component);
+                psionic.PsionicPowersActionEntities.Add(component.TelegnosisActionEntity);
             }
         }
 
@@ -58,7 +58,7 @@ namespace Content.Server.Abilities.Psionics
             _actions.RemoveAction(uid, component.TelegnosisActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.ActivePowers.Remove(component);
+                psionic.PsionicPowersActionEntities.Remove(component.TelegnosisActionEntity);
             }
         }
 
