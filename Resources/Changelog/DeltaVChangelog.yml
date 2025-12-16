@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: homerun bat no longer has a guaranteed stun
-    type: Tweak
-  id: 1462
-  time: '2025-06-15T15:49:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3959
 - author: HTMLSystem
   changes:
   - message: Fixed the suit storage UI for arachnids.
@@ -4247,3 +4240,13 @@
   id: 1961
   time: '2025-12-16T13:15:10.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4987
+- author: Stxcking
+  changes:
+  - message: Corpsman's inventory on spawn has been cleaned up. Most medical gear
+      has been moved to the corpsman. locker.
+    type: Tweak
+  - message: Corpsman uniforms are now available in the SecDrobe.
+    type: Tweak
+  id: 1962
+  time: '2025-12-16T13:24:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4979
