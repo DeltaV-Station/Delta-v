@@ -25,11 +25,9 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
 
-// Begin DeltaV
+// DeltaV - Medical Records
 using Content.Server._DV.MedicalRecords;
 using Content.Shared._DV.MedicalRecords;
-using Content.Shared._DV.Traits.Assorted;
-// End DeltaV
 
 namespace Content.Server.Medical;
 
@@ -305,8 +303,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 
-        var redshirt = TryComp<RedshirtComponent>(target, out _); // DeltaV - Redshirt
-
         // Shitmed Change Start
         Dictionary<TargetBodyPart, TargetIntegrity>? body = null;
         if (HasComp<TargetingComponent>(target))
@@ -323,8 +319,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             // Shitmed Change
             body,
             _medicalRecords.GetMedicalRecords(target), // DeltaV - Medical Records
-            part != null ? GetNetEntity(part) : null,
-            redshirt // DeltaV - Redshirt
+            part != null ? GetNetEntity(part) : null
         ));
     }
 }

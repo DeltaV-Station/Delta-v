@@ -3,7 +3,7 @@ using Content.Shared._DV.Traits.Assorted;
 
 namespace Content.Server._DV.Traits.Assorted;
 
-public sealed class RedshirtSystem : EntitySystem
+public sealed class RedshirtSystem : SharedRedshirtSystem
 {
     public override void Initialize()
     {
