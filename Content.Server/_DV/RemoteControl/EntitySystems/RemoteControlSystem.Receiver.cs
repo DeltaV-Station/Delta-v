@@ -7,6 +7,7 @@ using Content.Shared._DV.RemoteControl.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.RemoteControl.EntitySystems;
@@ -18,6 +19,7 @@ namespace Content.Server._DV.RemoteControl.EntitySystems;
 public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     private readonly string _targetKey = "TargetCoordinates";
     private readonly LocId _defaultLocString = "remote-control-order-default";
 
@@ -213,7 +215,9 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if they are an NPC, false otherwise.</returns>
     private bool IsNPC(EntityUid ent)
     {
-        return !_mind.TryGetMind(ent, out _, out _);
+        return !_mind.TryGetMind(ent, out _, out var mindComponent) || // No mind
+               !_player.TryGetSessionById(mindComponent.UserId, out var session) ||
+               session.AttachedEntity != ent; // Had a mind, but not attached the requested entity
     }
 
     /// <summary>
