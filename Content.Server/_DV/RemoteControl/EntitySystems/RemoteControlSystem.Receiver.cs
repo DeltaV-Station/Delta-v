@@ -55,14 +55,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             controlComp.ChannelName != ent.Comp.ChannelName)
             return;
 
+        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
+            return;
+
         if (!IsNPC(ent))
         {
             HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.EntityPoint);
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
+        if (!ent.Comp.CanUnderstand)
+            return; // NPC cannot understand the order
 
         var target = args.Target;
         UpdateNPCOrders(ent,
@@ -86,14 +89,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             controlComp.ChannelName != ent.Comp.ChannelName)
             return;
 
+        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
+            return;
+
         if (!IsNPC(ent))
         {
             HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.TilePoint);
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
+        if (!ent.Comp.CanUnderstand)
+            return; // NPC cannot understand the order
 
         var grid = _transform.GetGrid(ent.Owner);
         if (!grid.HasValue)
@@ -120,14 +126,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             controlComp.ChannelName != ent.Comp.ChannelName)
             return;
 
+        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
+            return;
+
         if (!IsNPC(ent))
         {
             HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.SelfPoint);
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
+        if (!ent.Comp.CanUnderstand)
+            return; // NPC cannot understand the order
 
         var origin = args.User;
         UpdateNPCOrders(ent,
@@ -153,35 +162,34 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             controlComp.ChannelName != ent.Comp.ChannelName)
             return;
 
+        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
+            return;
+
         if (!IsNPC(ent))
         {
             HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.FreeUnit);
             return;
         }
 
-        if (!CanNPCHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
+        if (!ent.Comp.CanUnderstand)
+            return; // NPC cannot understand the order
 
         SetUnitFree(ent);
     }
 
     /// <summary>
-    /// Checks whether this entity can understand this NPC order, either by understanding or
-    /// whether this order is meant for a specific entity.
+    /// Checks whether this order is valid for the specified entity.
     /// </summary>
-    /// <param name="ent">NPC entity to check for.</param>
+    /// <param name="ent">Entity to check for.</param>
     /// <param name="boundEntities">List of Entities this order is bound to.</param>
-    /// <returns>True if the NPC can understand the order, false otherwise.</returns>
-    private static bool CanNPCHandleOrder(Entity<RemoteControlReceiverComponent> ent, EntityUid control, List<EntityUid> boundEntities)
+    /// <returns>True if the entity can understand the order, false otherwise.</returns>
+    private static bool CanHandleOrder(Entity<RemoteControlReceiverComponent> ent, EntityUid control, List<EntityUid> boundEntities)
     {
-        if (!ent.Comp.CanUnderstand)
-            return false; // Cannot understand this order, even as an NPC
-
         if (ent.Comp.BoundController != control)
             return false; // This isn't the control we think we're bound to
 
         if (!boundEntities.Contains(ent.Owner))
-            return false; // This order is not for this NPC
+            return false; // This order is not for this entity
 
         return true;
     }
