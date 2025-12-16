@@ -45,7 +45,7 @@ trait-dysgraphia-desc = You cannot write, whether because of a disability, your 
 trait-redshirt-name = Redshirt
 trait-redshirt-desc =
     Sets your death threshold to 100 damage. You no longer have a critical state.
-    
+
     "They said this air would be breathable.
     Get in, get out again, and no one gets hurt.
     Something is pulling me up the hill.
