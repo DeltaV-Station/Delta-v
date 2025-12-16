@@ -1327,6 +1327,38 @@
             mobstate: Dead
 
 - type: reagent
+  id: Arcryox
+  name: reagent-name-arcryox
+  group: Medicine
+  desc: reagent-desc-arcryox
+  physicalDesc: reagent-physical-desc-arcryox
+  flavor: medicine
+  color: "#0cbfe9"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        - !type:TotalDamageCondition
+          min: 199.9
+        damage:
+          Brute: -2
+          Burn: -2
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        - !type:TotalDamageCondition
+          min: 500
+        damage:
+          Brute: -4
+          Burn: -4
+
+- type: reagent
   id: Necrosol
   name: reagent-name-necrosol
   group: Medicine
@@ -1344,18 +1376,20 @@
   metabolisms:
     Medicine:
       effects:
-        # Begin DeltaV additions
-        - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
+        - !type:EvenHealthChange
           conditions:
           - !type:TemperatureCondition
             max: 213.0
           damage:
-            Brute: -5 # Was -4 with HealthChange.
-            Burn: -5
-            Airloss: -5 # Added as a buff.
-            Toxin: -5 # Was -2 Poison with HealthChange.
-            Genetic: -2 # Added as a buff.
-        # End DeltaV additions
+            Brute: -3 # DeltaV - Was -2
+            Burn: -3 # DeltaV - Was -2
+        - !type:HealthChange
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          damage:
+            types:
+              Poison: -2
 
 - type: reagent
   id: Aloxadone
@@ -1369,13 +1403,12 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
+      - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
         damage:
-          Burn: -10 # DeltaV - Cryochems heal evenly.
-          # Previous values with HealthChange were: -4 Heat/Cold/Shock, -1.5 Caustic
+          Burn: -10 # DeltaV - was -4.5
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
