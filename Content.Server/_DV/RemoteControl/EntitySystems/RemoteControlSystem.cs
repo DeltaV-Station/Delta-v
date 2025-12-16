@@ -54,7 +54,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (!CanSendOrder(control))
             return false;
 
-        var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, pointed);
+        var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities, pointed);
         if (recipient.HasValue)
         {
             RaiseLocalEvent(recipient.Value, ref ev);
@@ -86,7 +86,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (!CanSendOrder(control))
             return false;
 
-        var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs, tile);
+        var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities, tile);
         if (recipient.HasValue)
         {
             RaiseLocalEvent(recipient.Value, ref ev);
@@ -117,7 +117,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (!CanSendOrder(control))
             return false;
 
-        var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
+        var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities);
         if (recipient.HasValue)
         {
             RaiseLocalEvent(recipient.Value, ref ev);
@@ -148,7 +148,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (!CanSendOrder(control))
             return false;
 
-        var ev = new RemoteControlFreeUnitOrderEvent(holder, holder.Comp.Control, controlComp.BoundNPCs);
+        var ev = new RemoteControlFreeUnitOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities);
         if (recipient.HasValue)
         {
             RaiseLocalEvent(recipient.Value, ref ev);

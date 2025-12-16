@@ -51,18 +51,18 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             !TryComp<RemoteControlReceiverComponent>(entity, out var receiverComponent))
             return;
 
-        if (!control.Comp.AllowMultiple && control.Comp.BoundNPCs.Count > 0)
+        if (!control.Comp.AllowMultiple && control.Comp.BoundEntities.Count > 0)
         {
-            while (control.Comp.BoundNPCs.Count > 0)
+            while (control.Comp.BoundEntities.Count > 0)
             {
-                if (!UnbindEntity(control, control.Comp.BoundNPCs.First()))
+                if (!UnbindEntity(control, control.Comp.BoundEntities.First()))
                     break;
             }
         }
 
-        if (!control.Comp.BoundNPCs.Contains(entity))
+        if (!control.Comp.BoundEntities.Contains(entity))
         {
-            control.Comp.BoundNPCs.Add(entity);
+            control.Comp.BoundEntities.Add(entity);
             receiverComponent.BoundController = control;
         }
     }
@@ -82,7 +82,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         if (receiverComponent.BoundController != control)
             return false; // This entity is not bound to this controller
 
-        if (!control.Comp.BoundNPCs.Remove(entity))
+        if (!control.Comp.BoundEntities.Remove(entity))
             return false;
 
         receiverComponent.BoundController = null;
@@ -142,7 +142,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <param name="args">Args for the event.</param>
     private void OnGetRemoteControlActions(Entity<RemoteControlComponent> control, ref GetItemActionsEvent args)
     {
-        if (control.Comp.BoundNPCs.Contains(args.User))
+        if (control.Comp.BoundEntities.Contains(args.User))
             return; // Bound entities don't get to control themselves.
 
         // As a measure against entities having their own remote control, we don't allow a receiver with
@@ -260,7 +260,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         var user = args.User;
         var target = args.Target;
 
-        if (control.Comp.BoundNPCs.Contains(target))
+        if (control.Comp.BoundEntities.Contains(target))
         {
             var unbindVerb = new UtilityVerb()
             {

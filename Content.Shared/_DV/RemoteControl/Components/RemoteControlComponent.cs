@@ -47,10 +47,10 @@ public sealed partial class RemoteControlComponent : Component
     public EntityUid? ToggleActionEntid = null;
 
     /// <summary>
-    /// The NPCs, if any, this remote control is bound to when handling orders.
+    /// The entities, if any, this remote control is bound to when handling orders.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<EntityUid> BoundNPCs = new() { };
+    public List<EntityUid> BoundEntities = new() { };
 
     /// <summary>
     /// Whether this remote control can bind to many different receivers.
