@@ -82,7 +82,10 @@ public sealed class StandingStateSystem : EntitySystem
         return !entity.Comp.Standing;
     }
 
-    public bool Down(EntityUid uid, bool playSound = true, bool dropHeldItems = true,
+    public bool Down(EntityUid uid,
+        bool playSound = true,
+        bool dropHeldItems = true,
+        bool force = false,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
         HandsComponent? hands = null)
@@ -96,25 +99,14 @@ public sealed class StandingStateSystem : EntitySystem
         if (!standingState.Standing)
             return true;
 
-        // This is just to avoid most callers doing this manually saving boilerplate
-        // 99% of the time you'll want to drop items but in some scenarios (e.g. buckling) you don't want to.
-        // We do this BEFORE downing because something like buckle may be blocking downing but we want to drop hand items anyway
-        // and ultimately this is just to avoid boilerplate in Down callers + keep their behavior consistent.
-        if (dropHeldItems && hands != null)
+        if (!force)
         {
-            var ev = new DropHandItemsEvent();
-            RaiseLocalEvent(uid, ref ev, false);
+            var msg = new DownAttemptEvent();
+            RaiseLocalEvent(uid, msg, false);
+
+            if (msg.Cancelled)
+                return false;
         }
-
-        // DeltaV - Unsure if this is needed after ripping out the old laying down system. Left it in in case.
-        //if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle))
-        //    return false;
-
-        var msg = new DownAttemptEvent();
-        RaiseLocalEvent(uid, msg, false);
-
-        if (msg.Cancelled)
-            return false;
 
         standingState.Standing = false;
         Dirty(uid, standingState);
