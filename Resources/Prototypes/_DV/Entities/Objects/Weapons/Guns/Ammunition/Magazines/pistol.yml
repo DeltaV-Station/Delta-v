@@ -125,3 +125,19 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazinePistolSpecial
+  id: MagazinePistolSpecialTranq
+  name: pistol magazine (.38 special tranquilizer)
+  description: 5-round single-stack magazine for the Mk98 pistol, compatible with the psi-breaker. Intended to hold non-lethal tranquilizer ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialTranq
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+      

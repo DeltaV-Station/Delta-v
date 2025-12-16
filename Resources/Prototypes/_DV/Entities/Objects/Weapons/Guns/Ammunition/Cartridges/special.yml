@@ -129,3 +129,30 @@
           Quantity: 9
   - type: SolutionTransfer
     maxTransferAmount: 9
+    
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialTranq
+  name: cartridge (.38 special tranqulizer)
+  description: A compact revolver cartridge lighter than its magnum cousin. Tranqulizer filled saboted darts allow for non-lethal takedowns.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialTranq
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#C0C0C0"
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 4.4
+        - ReagentId: ChloralHydrate
+          Quantity: 1.6
+  - type: SolutionTransfer
+    maxTransferAmount: 6
