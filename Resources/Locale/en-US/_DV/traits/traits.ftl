@@ -51,3 +51,13 @@ trait-amputee-right-arm-name = Amputee (Arm, Right)
 trait-amputee-right-arm-desc =
     Your right arm is missing!
     (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-redshirt-name = Redshirt
+trait-redshirt-desc =
+    Sets your death threshold to 100 damage. You no longer have a critical state.
+
+    "They said this air would be breathable.
+    Get in, get out again, and no one gets hurt.
+    Something is pulling me up the hill.
+    I look down in my red shirt.
+    I look down in my red shirt."

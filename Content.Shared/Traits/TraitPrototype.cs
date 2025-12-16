@@ -45,6 +45,12 @@ public sealed partial class TraitPrototype : IPrototype
     public ComponentRegistry Components { get; private set; } = default!;
 
     /// <summary>
+    /// DeltaV - Components that get added to the player, overriding any existing instances of the component if they exist.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry? OverriddenComponents { get; private set; }
+
+    /// <summary>
     /// Gear that is given to the player, when they pick this trait.
     /// </summary>
     [DataField]
