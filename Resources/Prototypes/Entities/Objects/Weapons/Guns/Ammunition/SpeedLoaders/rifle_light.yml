@@ -4,9 +4,6 @@
   name: "speed loader (.30 rifle)"
   description: 5-round 'stripper clip' for quickly reloading the Kardashev-Mosin. Intended to hold general-purpose kinetic ammunition.
   components:
-  - type: Tag
-    tags:
-      - SpeedLoaderRifle
   - type: SpeedLoader
   - type: Tag # DeltaV - Keep Tag
     tags:
@@ -15,7 +12,7 @@
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLightRifle
+      - CartridgeLightRifle
     capacity: 5
     proto: CartridgeLightRifle
   - type: Sprite
