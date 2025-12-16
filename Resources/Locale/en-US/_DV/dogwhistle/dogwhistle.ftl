@@ -1,6 +1,7 @@
 dog-whistle-order-catch = Catch
 dog-whistle-order-sit = Sit
 dog-whistle-order-comeback = Come Back
+dog-whistle-order-at-ease = At Ease
 
 dog-whistle-noise-1 = eeeeee
 dog-whistle-noise-2 = EEeeee
