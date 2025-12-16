@@ -265,7 +265,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             var unbindVerb = new UtilityVerb()
             {
                 Act = () => AttemptStartBindChange(control, user, target, binding: false),
-                Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/_DV/Interface/VerbIcons/remote_control_unbind.png")),
                 Text = Loc.GetString("remote-control-unbind-verb-text"),
                 Message = Loc.GetString("remote-control-unbind-verb-message"),
                 DoContactInteraction = true
@@ -277,7 +277,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             var bindVerb = new UtilityVerb()
             {
                 Act = () => AttemptStartBindChange(control, user, target, binding: true),
-                Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/_DV/Interface/VerbIcons/remote_control_bind.png")),
                 Text = Loc.GetString("remote-control-bind-verb-text"),
                 Message = Loc.GetString("remote-control-bind-verb-message"),
                 DoContactInteraction = true
