@@ -17,6 +17,14 @@
     - id: SkiaSpawn
     - id: RatKingSpawn
 
+- type: entityTable
+  id: MeteorSwarmRulesTableDeltaV
+  table: !type:AllSelector
+    children:
+    - id: MeteorSwarm
+    - id: MeteorSwarmUnidirectional
+    - id: MeteorSwarmTargeted
+
 # Replaces upstream meteor events until they're good
 - type: entity
   parent: BaseStationEventLongDelay
