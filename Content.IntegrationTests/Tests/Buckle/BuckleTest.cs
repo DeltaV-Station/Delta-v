@@ -317,10 +317,10 @@ namespace Content.IntegrationTests.Tests.Buckle
                 // he's not supposed to be buckled with the new falling down system
                 // do i just did this :trollface:
 
-                // Now with no item in any hand
+                // Still with items in hand
                 foreach (var hand in hands.Hands.Keys)
                 {
-                    Assert.That(handsSys.GetHeldItem((human, hands), hand), Is.Null);
+                    Assert.That(handsSys.GetHeldItem((human, hands), hand), Is.Not.Null);
                 }
 
                 buckleSystem.Unbuckle(human, human);
