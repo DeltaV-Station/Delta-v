@@ -105,5 +105,4 @@ namespace Content.Client.Access.UI
             return access.ID;
         }
     }
-    
 }
