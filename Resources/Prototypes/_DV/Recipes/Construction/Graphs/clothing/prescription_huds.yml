@@ -49,3 +49,29 @@
         doAfter: 5
   - node: prescsechud
     entity: ClothingEyesPrescriptionHudSecurity
+
+- type: constructionGraph
+  id: PrescriptionDiagHud
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: prescdiaghud
+      steps:
+      - tag: HudDiagnostic
+        name: construction-graph-tag-diaghud
+        icon:
+          sprite: Clothing/Eyes/Hud/diag.rsi
+          state: icon
+        doAfter: 5
+      - component: VisionCorrection
+        name: construction-graph-tag-glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/glasses.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: prescdiaghud
+    entity: ClothingEyesPrescriptionDiagHud

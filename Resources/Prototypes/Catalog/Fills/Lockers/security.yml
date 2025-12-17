@@ -129,15 +129,21 @@
       amount: 2
     #- id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
     - id: BoxSterileMask
-    - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret.
+    # - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret. # DeltaV - added corpsman uniform to secdrobe
     - id: ClothingHeadsetBrigmedic # DeltaV - add spare headset.
 #   - id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
-    - id: ClothingUniformJumpsuitBrigmedic
-    - id: ClothingUniformJumpskirtBrigmedic
+    # - id: ClothingUniformJumpsuitBrigmedic # DeltaV - added corpsman uniform to secdrobe
+    # - id: ClothingUniformJumpskirtBrigmedic # DeltaV - added corpsman uniform to secdrobe
     #- id: ClothingUniformJumpskirtOfLife # DeltaV - removed for incongruence
     #  prob: 0.1
+    # Begin DeltaV additions
     - id: ClothingBeltCorpsmanWebbing # DeltaV - added spare webbing
     - id: HandheldGPSBasic # Delta V - added it for tracking the implant tracker pop up.
+    - id: BoxBodyBag
+    - id: EmergencyRollerBedSpawnFolded
+    - id: MedkitCombatFilled
+    - id: Portafib
+    # End DeltaV additions
     - id: MedkitFilled
     - !type:GroupSelector
       prob: 0.7
