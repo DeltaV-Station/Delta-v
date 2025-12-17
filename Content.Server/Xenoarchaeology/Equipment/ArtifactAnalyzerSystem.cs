@@ -1,8 +1,8 @@
 using System; // DeltaV
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
+using Content.Shared.Administration.Logs; // DeltaV
+using Content.Shared.Database; // DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;// DeltaV
 using Content.Shared._DV.Xenoarchaeology.BUI;// DeltaV
@@ -24,7 +24,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; // DeltaV
     [Dependency] private readonly ArtifactAnalyzerSystem _analyzerSystem = default!; //DeltaV
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!; // DeltaV
 
     /// <inheritdoc/>
     public override void Initialize()
