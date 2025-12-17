@@ -1,13 +1,11 @@
+using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles; // DeltaV
-using Content.Shared.Roles.Jobs; // DeltaV
 using Content.Server.GameTicking.Rules;
-using Content.Server.Revolutionary.Components;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Random;
-using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -19,10 +17,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 {
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!; // DeltaV
-    [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {
@@ -34,6 +28,14 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
     private void OnSpecificPersonAssigned(Entity<PickSpecificPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(ent.Owner))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
         // invalid objective prototype
         if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
         {
@@ -63,6 +65,14 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
     private void OnRandomPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(ent.Owner))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
         // invalid objective prototype
         if (!TryComp<TargetObjectiveComponent>(ent, out var target))
         {
