@@ -77,7 +77,7 @@ public abstract partial class SharedXenoArtifactSystem
         {
             // DeltaV - start of research statistics admin logs
             _adminLogger.Add(
-                LogType.ArtifactNode,
+                LogType.ArtifactDetails,
                 LogImpact.Low,
                 $"{ToPrettyString(ent.Owner)} node {ToPrettyString(node.Value)} unlocked"
             );
@@ -95,7 +95,7 @@ public abstract partial class SharedXenoArtifactSystem
                 if (logNodePredecessors.Contains(node.Value) && logNodePredecessors.All(p => !p.Comp.Locked))
                 {
                     _adminLogger.Add(
-                        LogType.ArtifactNode,
+                        LogType.ArtifactDetails,
                         LogImpact.Low,
                         $"{ToPrettyString(ent.Owner)} node {ToPrettyString(logNode)} revealed"
                     );

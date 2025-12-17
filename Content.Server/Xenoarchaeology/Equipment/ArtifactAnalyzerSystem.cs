@@ -65,7 +65,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
                 // Log all the variables that affect research value (see UpdateNodeResearchValue).
                 var predecessors = _xenoArtifact.GetPredecessorNodes((artifact.Value, artifact.Value), node);
                 _adminLogger.Add(
-                    LogType.ArtifactNode,
+                    LogType.ArtifactDetails,
                     LogImpact.Low,
                     $"{ToPrettyString(ent.Owner)} extracted {research} points and {glimmer} glimmer from node {ToPrettyString(node)}. Details: base {node.Comp.BasePointValue}; predecessors {predecessors.Count}; durability {node.Comp.Durability}/{node.Comp.MaxDurability}; subtotal {subtotalResearch}; glimmerMultiplier {glimmerMultiplier}"
                 );

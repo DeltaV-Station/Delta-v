@@ -43,7 +43,7 @@ public sealed partial class XenoArtifactSystem : SharedXenoArtifactSystem
             }
 
             _adminLogger.Add(
-                LogType.ArtifactNode,
+                LogType.ArtifactDetails,
                 LogImpact.Low,
                 // note: effect type is already logged by ToPrettyString(node)
                 $"{ToPrettyString(ent.Owner)} spawned with node {ToPrettyString(node)} with depth {node.Comp.Depth}; effect status {effectStatusString}; {triggerStr.ToString()}"

@@ -396,6 +396,7 @@ public enum LogType
     ObjectiveSummary = 422, // DeltaV
     Glimmer = 423, // DeltaV
     Research = 424, // DeltaV
+    ArtifactDetails = 425, // DeltaV
 
     /// <summary>
     /// A client has sent too many chat messages recently and is temporarily blocked from sending more.
