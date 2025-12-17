@@ -905,9 +905,9 @@
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
-    fillPrototype: PelletClusterLethal # Delta-V
-    capacity: 15 # Delta-V
-    triggerKey: trigger # Delta-V
+    fillPrototype: PelletClusterLessLethal
+    capacity: 30
+    triggerKey: trigger # DeltaV
 
 - type: entity
   parent: BaseBulletTrigger

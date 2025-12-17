@@ -68,6 +68,6 @@
     deleteOnCollide: false
     damage:
       types:
-        Piercing: 5
+        Piercing: 15 # DeltaV
   - type: TimedDespawn
     lifetime: 0.25
