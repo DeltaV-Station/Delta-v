@@ -1,0 +1,12 @@
+- type: job
+  id: SecurityK9Officer
+  playTimeTracker: JobK9Officer
+  name: job-name-k9-officer
+  description: job-description-k9-officer
+  icon: JobIconSecurityOfficer # TODO(Barry): Make new icon
+  supervisors: job-supervisors-hos
+  access:
+  - Security
+  - Maintenance
+  - External
+  canBeAntag: false
