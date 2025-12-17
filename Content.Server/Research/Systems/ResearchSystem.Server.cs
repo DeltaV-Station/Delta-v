@@ -72,7 +72,7 @@ public sealed partial class ResearchSystem
                 _adminLogger.Add(
                     LogType.Research,
                     LogImpact.Low,
-                    $"{uid} collected {points} points from {sources.Count} sources over {time} seconds: {pointsStr}"
+                    $"{ToPrettyString(uid)} collected {points} points from {sources.Count} sources over {time} seconds: {pointsStr}"
                 );
             }
         }
