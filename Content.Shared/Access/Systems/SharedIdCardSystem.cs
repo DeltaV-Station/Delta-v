@@ -1,4 +1,5 @@
 using System.Globalization;
+using Content.Shared._DV.Access.Systems; // DeltaV - Subdermal ID Cards
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -25,6 +26,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedSubdermalIdCardSystem _subdermalId = default!; // DeltaV - Subdermal ID Cards
 
     // CCVar.
     private int _maxNameLength;
@@ -97,6 +99,11 @@ public abstract class SharedIdCardSystem : EntitySystem
         // check inventory slot?
         if (_inventorySystem.TryGetSlotEntity(uid, "id", out var idUid) && TryGetIdCard(idUid.Value, out idCard))
             return true;
+
+        // Begin DeltaV Additions - Subdermal ID cards
+        if (_subdermalId.TryGetIdCard(uid, out var idEntity) && TryGetIdCard(idEntity.Value, out idCard))
+            return true;
+        // End DeltaV Additions - Subdermal ID cards
 
         return false;
     }

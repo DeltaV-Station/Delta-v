@@ -16,6 +16,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._DV.Access.Systems; // DeltaV - Subdermal ID Cards
 
 namespace Content.Shared.Access.Systems;
 
@@ -30,6 +31,7 @@ public sealed class AccessReaderSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedStationRecordsSystem _recordsSystem = default!;
+    [Dependency] private readonly SharedSubdermalIdCardSystem _subdermalId = default!; // DeltaV - Subdermal ID Cards
 
     private static readonly ProtoId<TagPrototype> PreventAccessLoggingTag = "PreventAccessLogging";
 
@@ -633,6 +635,11 @@ public sealed class AccessReaderSystem : EntitySystem
         {
             items.Add(idUid.Value);
         }
+
+        // Begin DeltaV Additions - Subdermal ID chips
+        if (_subdermalId.TryGetIdCard(uid, out var idEntity))
+            items.Add(idEntity.Value);
+        // End DeltaV Additions - Subdermal ID chips
 
         return items.Any();
     }
