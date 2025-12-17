@@ -89,7 +89,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     {
         MusicList.Clear();
 
-        foreach (var entry in jukeboxProtos.OrderBy(x => x.Name))
+        foreach (var entry in jukeboxProtos.OrderBy(x => x.Name)) // DeltaV - Sort the jukebox list
         {
             MusicList.AddItem(entry.Name, metadata: entry.ID);
         }
