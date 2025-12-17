@@ -1,7 +1,9 @@
 using Content.Server.Anomaly.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Database;
 using Content.Shared.Power;
 using Content.Shared.Psionics.Glimmer;
 
@@ -14,6 +16,7 @@ namespace Content.Server.Psionics.Glimmer
     {
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         public override void Initialize()
         {
@@ -78,6 +81,11 @@ namespace Content.Server.Psionics.Glimmer
                     {
                         _glimmerSystem.Glimmer--;
                     }
+                    _adminLogger.Add(
+                        LogType.Glimmer,
+                        LogImpact.Low,
+                        $"{ToPrettyString(source.Owner)} {(source.AddToGlimmer ? "produced" : "drained")} 1 glimmer passively"
+                    );
                 }
             }
         }

@@ -2,6 +2,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Content.Shared._DV.CCVars;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.GameTicking;
 using Content.Server.CartridgeLoader.Cartridges;
@@ -18,6 +20,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly GlimmerMonitorCartridgeSystem _cartridgeSys = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         /// List of glimmer values spaced by minute.
         public List<int> GlimmerValues = new();
@@ -60,6 +63,14 @@ namespace Content.Server.Psionics.Glimmer
             var actualGlimmerLost = _random.Next(0, 1 + maxGlimmerLost);
 
             _glimmerSystem.Glimmer -= actualGlimmerLost;
+            if (actualGlimmerLost > 0)
+            {
+                _adminLogger.Add(
+                    LogType.Glimmer,
+                    LogImpact.Low,
+                    $"system drained {actualGlimmerLost} glimmer passively"
+                );
+            }
 
             _updateIncrementor++;
 
@@ -67,6 +78,12 @@ namespace Content.Server.Psionics.Glimmer
             if (_updateIncrementor == 10)
             {
                 GlimmerValues.Add(_glimmerSystem.Glimmer);
+
+                _adminLogger.Add(
+                    LogType.Glimmer,
+                    LogImpact.Low,
+                    $"current glimmer: {_glimmerSystem.Glimmer}"
+                );
 
                 _updateIncrementor = 0;
             }

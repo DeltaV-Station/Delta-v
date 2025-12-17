@@ -1,5 +1,7 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -23,6 +25,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedJitteringSystem _jittering = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         public override void Initialize()
         {
@@ -123,7 +126,13 @@ namespace Content.Server.Abilities.Psionics
                 }
             }
 
-            _glimmerSystem.Glimmer -= _random.Next(50, 70);
+            var glimmerBurned = _random.Next(50, 70);
+            _glimmerSystem.Glimmer -= glimmerBurned;
+            _adminLogger.Add(
+                LogType.Glimmer,
+                LogImpact.Low,
+                $"{ToPrettyString(uid)} drained {glimmerBurned} glimmer through mindbreaking"
+            );
 
             _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(1), false, "StutteringAccent");
             _statusEffectsSystem.TryAddStatusEffect(uid, "KnockedDown", TimeSpan.FromSeconds(3), false, "KnockedDown");

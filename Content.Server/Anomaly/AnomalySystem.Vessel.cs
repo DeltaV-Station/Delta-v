@@ -97,7 +97,10 @@ public sealed partial class AnomalySystem
         if (!this.IsPowered(uid, EntityManager) || component.Anomaly is not {} anomaly)
             return;
 
-        args.Points += (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier);
+        args.Sources.Add(new ResearchServerPointsPerSecondSource(
+            Source: uid,
+            PointsPerSecond: (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier)
+        ));
     }
 
     private void OnVesselAnomalyShutdown(ref AnomalyShutdownEvent args)

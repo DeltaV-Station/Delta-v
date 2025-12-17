@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Database;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -74,7 +75,30 @@ public abstract partial class SharedXenoArtifactSystem
         SoundSpecifier? soundEffect;
         if (TryGetNodeFromUnlockState(ent, out var node))
         {
+            _adminLogger.Add(
+                LogType.ArtifactNode,
+                LogImpact.Low,
+                $"{ToPrettyString(ent.Owner)} node {ToPrettyString(node.Value)} unlocked"
+            );
+
             SetNodeUnlocked((ent, artifactComponent), node.Value);
+
+            foreach (var logNode in GetAllNodes((ent, ent)))
+            {
+                if (!logNode.Comp.Locked)
+                    continue;
+
+                var logNodePredecessors = GetDirectPredecessorNodes((ent, ent), logNode);
+                if (logNodePredecessors.Contains(node.Value) && logNodePredecessors.All(p => !p.Comp.Locked))
+                {
+                    _adminLogger.Add(
+                        LogType.ArtifactNode,
+                        LogImpact.Low,
+                        $"{ToPrettyString(ent.Owner)} node {ToPrettyString(logNode)} revealed"
+                    );
+                }
+            }
+
             ActivateNode((ent, ent), (node.Value, node.Value), null, null, Transform(ent).Coordinates, false);
             unlockAttemptResultMsg = "artifact-unlock-state-end-success";
 

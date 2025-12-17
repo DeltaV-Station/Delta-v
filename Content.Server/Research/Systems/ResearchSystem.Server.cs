@@ -1,5 +1,7 @@
 using System.Linq;
+using System.Text;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Database;
 using Content.Shared.Research.Components;
 
 namespace Content.Server.Research.Systems;
@@ -49,7 +51,32 @@ public sealed partial class ResearchSystem
 
         if (!CanRun(uid))
             return;
-        ModifyServerPoints(uid, GetPointsPerSecond(uid, component) * time, component);
+        
+        int points = 0;
+        var sources = GetPointsPerSecond(uid, component);
+        if (sources.Count > 0)
+        {
+            var pointsStr = new StringBuilder();
+            foreach (var source in sources)
+            {
+                var sourcePoints = source.PointsPerSecond * time;
+                points += sourcePoints;
+                pointsStr.Append(sourcePoints);
+                pointsStr.Append(" points from ");
+                pointsStr.Append(ToPrettyString(source.Source));
+                pointsStr.Append(", ");
+            }
+            if (sources.Any(source => source.PointsPerSecond != 0))
+            {
+                _adminLogger.Add(
+                    LogType.Research,
+                    LogImpact.Low,
+                    $"{uid} collected {points} points from {sources.Count} sources over {time} seconds: {pointsStr}"
+                );
+            }
+        }
+        
+        ModifyServerPoints(uid, points, component);
     }
 
     /// <summary>
@@ -130,22 +157,22 @@ public sealed partial class ResearchSystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <returns></returns>
-    public int GetPointsPerSecond(EntityUid uid, ResearchServerComponent? component = null)
+    public List<ResearchServerPointsPerSecondSource> GetPointsPerSecond(EntityUid uid, ResearchServerComponent? component = null)
     {
-        var points = 0;
+        var sources = new List<ResearchServerPointsPerSecondSource>();
 
         if (!Resolve(uid, ref component))
-            return points;
+            return sources;
 
         if (!CanRun(uid))
-            return points;
+            return sources;
 
-        var ev = new ResearchServerGetPointsPerSecondEvent(uid, points);
+        var ev = new ResearchServerGetPointsPerSecondEvent(uid, sources);
         foreach (var client in component.Clients)
         {
             RaiseLocalEvent(client, ref ev);
         }
-        return ev.Points;
+        return ev.Sources;
     }
 
     /// <summary>
