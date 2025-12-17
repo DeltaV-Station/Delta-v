@@ -84,7 +84,10 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     // DeltaV
     private float GetGlimmerMultiplier(ArtifactAnalyzerComponent comp)
     {
-        return 1 + (MathF.Pow(_glimmerSystem.Glimmer / 1000f, 2f) * comp.PointGlimmerMultiplier);
+
+        //DeltaV - Prevents extreme glimmer multipliers
+        return 1 + Math.Clamp((MathF.Pow(_glimmerSystem.Glimmer / 1000f, 2f) * comp.PointGlimmerMultiplier), 0, 2);
+
     }
 }
 
