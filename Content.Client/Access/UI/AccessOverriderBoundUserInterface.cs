@@ -52,7 +52,7 @@ namespace Content.Client.Access.UI
             if (EntMan.TryGetComponent<AccessOverriderComponent>(Owner, out var accessOverrider))
             {
                 // DeltaV - Sort Better
-                accessLevels = [.. accessOverrider.AccessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? GetAccessLevelName(access) : x.Id)];
+                accessLevels = accessOverrider.AccessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? GetAccessLevelName(access) : x.Id).ToList();
             }
             else
             {
