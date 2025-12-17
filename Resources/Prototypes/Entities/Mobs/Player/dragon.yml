@@ -9,7 +9,10 @@
   - type: Body # Shitmed
     prototype: SpaceDragon
   - type: Bloodstream
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 650
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
