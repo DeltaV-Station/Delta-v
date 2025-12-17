@@ -1,3 +1,4 @@
+using System.Linq; // DeltaV
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -37,7 +38,8 @@ namespace Content.Client.Access.UI
 
             if (EntMan.TryGetComponent<IdCardConsoleComponent>(Owner, out var idCard))
             {
-                accessLevels = idCard.AccessLevels;
+                // DeltaV - Sort the access list
+                accessLevels = [.. idCard.AccessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? GetAccessLevelName(access) : x.Id)];
             }
             else
             {
@@ -89,5 +91,19 @@ namespace Content.Client.Access.UI
                 newAccessList,
                 newJobPrototype));
         }
+
+        /// <summary>
+        /// DeltaV - Used to get the localized access name for an access level. Used to sort the list.
+        /// </summary>
+        /// <param name="access">The access prototype to get the name of.</param>
+        /// <returns>The localized name of the access.</returns>
+        private string GetAccessLevelName(AccessLevelPrototype access)
+        {
+            if (access.Name is { } name)
+                return Loc.GetString(name);
+
+            return access.ID;
+        }
     }
+    
 }
