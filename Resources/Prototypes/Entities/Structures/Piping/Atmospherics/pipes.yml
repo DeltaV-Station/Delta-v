@@ -7,6 +7,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: EmitSoundOnLand # DeltaV
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
   - type: Visibility
     layer: 1
   - type: Item
@@ -152,6 +155,7 @@
     - 0,0,0,2
   - type: MeleeWeapon
     attackRate: 1
+    wideAnimationRotation: 1 # DeltaV
     damage:
       types:
         Blunt: 8
