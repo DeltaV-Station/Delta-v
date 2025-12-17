@@ -1,7 +1,7 @@
-using System.Text;
-using Content.Shared.Administration.Logs;
+using System.Text; // DeltaV
+using Content.Shared.Administration.Logs; // DeltaV
 using Content.Shared.Cargo;
-using Content.Shared.Database;
+using Content.Shared.Database; // DeltaV
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 
@@ -10,7 +10,7 @@ namespace Content.Server.Xenoarchaeology.Artifact;
 /// <inheritdoc cref="SharedXenoArtifactSystem"/>
 public sealed partial class XenoArtifactSystem : SharedXenoArtifactSystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!; // DeltaV - research statistics admin logs
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -26,6 +26,7 @@ public sealed partial class XenoArtifactSystem : SharedXenoArtifactSystem
         if (ent.Comp.IsGenerationRequired)
             GenerateArtifactStructure(ent);
 
+        // DeltaV - start of research statistics admin logs
         foreach (var node in GetAllNodes(ent))
         {
             var effectStatusString = node.Comp.LockedEffectTipHidden ? "Hidden" : node.Comp.LockedEffectTipVague ? "Vague" : "Specific";
@@ -48,6 +49,7 @@ public sealed partial class XenoArtifactSystem : SharedXenoArtifactSystem
                 $"{ToPrettyString(ent.Owner)} spawned with node {ToPrettyString(node)} with depth {node.Comp.Depth}; effect status {effectStatusString}; {triggerStr.ToString()}"
             );
         }
+        // DeltaV - end of research statistics admin logs
     }
 
     private void OnCalculatePrice(Entity<XenoArtifactComponent> ent, ref PriceCalculationEvent args)

@@ -1,7 +1,7 @@
 using System.Linq;
-using System.Text;
+using System.Text; // DeltaV
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Database;
+using Content.Shared.Database; // DeltaV
 using Content.Shared.Research.Components;
 
 namespace Content.Server.Research.Systems;
@@ -52,6 +52,7 @@ public sealed partial class ResearchSystem
         if (!CanRun(uid))
             return;
         
+        // DeltaV - start of research statistics admin logs
         int points = 0;
         var sources = GetPointsPerSecond(uid, component);
         if (sources.Count > 0)
@@ -77,6 +78,7 @@ public sealed partial class ResearchSystem
         }
         
         ModifyServerPoints(uid, points, component);
+        // DeltaV - end of research statistics admin logs
     }
 
     /// <summary>
@@ -157,22 +159,25 @@ public sealed partial class ResearchSystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <returns></returns>
+    /// <remarks>
+    /// DeltaV - changed return type as part of research statistics admin logs
+    /// </remarks>
     public List<ResearchServerPointsPerSecondSource> GetPointsPerSecond(EntityUid uid, ResearchServerComponent? component = null)
     {
-        var sources = new List<ResearchServerPointsPerSecondSource>();
+        var sources = new List<ResearchServerPointsPerSecondSource>(); // DeltaV - research statistics admin logs
 
         if (!Resolve(uid, ref component))
-            return sources;
+            return sources; // DeltaV - rename
 
         if (!CanRun(uid))
-            return sources;
+            return sources; // DeltaV - rename
 
-        var ev = new ResearchServerGetPointsPerSecondEvent(uid, sources);
+        var ev = new ResearchServerGetPointsPerSecondEvent(uid, sources); // DeltaV - rename
         foreach (var client in component.Clients)
         {
             RaiseLocalEvent(client, ref ev);
         }
-        return ev.Sources;
+        return ev.Sources; // DeltaV - rename
     }
 
     /// <summary>

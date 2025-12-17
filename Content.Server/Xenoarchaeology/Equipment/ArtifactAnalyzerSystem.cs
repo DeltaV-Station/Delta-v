@@ -55,7 +55,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             var research = _xenoArtifact.GetResearchValue(node);
             _xenoArtifact.SetConsumedResearchValue(node, node.Comp.ConsumedResearchValue + research);
 
-            // Begin DeltaV - Artifacts glimmer interaction
+            // Begin DeltaV - glimmer interaction & research statistics admin logs
             var subtotalResearch = research;
             research = (int)(subtotalResearch * glimmerMultiplier);
             var glimmer = (int)(subtotalResearch / (float)analyzer.Value.Comp.ExtractRatio);
@@ -80,7 +80,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             }
 
             sumGlimmer += glimmer;
-            // End DeltaV
+            // End DeltaV - glimmer interaction & research statistics admin logs
             sumResearch += research;
         }
         UpdateClientUI(ent, analyzer!.Value); // DeltaV

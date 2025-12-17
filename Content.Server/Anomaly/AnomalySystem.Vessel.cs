@@ -97,10 +97,12 @@ public sealed partial class AnomalySystem
         if (!this.IsPowered(uid, EntityManager) || component.Anomaly is not {} anomaly)
             return;
 
+        // DeltaV - start of research statistics admin logs
         args.Sources.Add(new ResearchServerPointsPerSecondSource(
             Source: uid,
             PointsPerSecond: (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier)
         ));
+        // DeltaV - end of research statistics admin logs
     }
 
     private void OnVesselAnomalyShutdown(ref AnomalyShutdownEvent args)
