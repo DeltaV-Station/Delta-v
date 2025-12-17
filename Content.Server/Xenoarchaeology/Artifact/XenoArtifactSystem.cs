@@ -33,7 +33,7 @@ public sealed partial class XenoArtifactSystem : SharedXenoArtifactSystem
 
             var triggerStr = new StringBuilder();
             var predecessors = GetPredecessorNodes((ent, ent), node);
-            triggerStr.Append(predecessors.Count);
+            triggerStr.Append(predecessors.Count + 1);
             triggerStr.Append(" triggers: ");
             triggerStr.Append(node.Comp.TriggerTip ?? "Unknown");
             foreach (var predecessor in predecessors)
