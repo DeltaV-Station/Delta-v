@@ -112,7 +112,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
                     : _solutionContainer.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
                 // END DeltaV
 
-                _bloodstream.TryAddToChemicals((patient.Value, bloodstream), solutionToInject);
+                _bloodstream.TryAddToBloodstream((patient.Value, bloodstream), solutionToInject);
                 _reactive.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
             }
         }
