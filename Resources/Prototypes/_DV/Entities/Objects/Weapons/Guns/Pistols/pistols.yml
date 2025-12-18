@@ -111,27 +111,37 @@
 
 - type: entity
   name: flintlock
-  suffix: "craftable"
-  parent: WeaponPistolFlintlock
-  id: WeaponPistolFlintlockCrafted
-  description: An old flintlock, feels like 1800s gang warfare. Uses musket cartridges.
+  id: WeaponPistolFlintlock
+  parent: BaseWeaponSniper
+  description: An old flintlock pistol, feels like 1800s gang warfare. Uses musket cartridges.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-5
+  - type: Tag
+    tags:
+    - Sidearm
+    - ConcealCarry
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: Construction
+    graph: WeaponPistolFlintlockGraph
+    node: flintlock
+  - type: Gun
+    fireRate: 4
+    minAngle: 15
+    maxAngle: 15
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
-  - type: Gun #Smoothbore
-    minAngle: 0
-    maxAngle: 30
-    fireRate: .125 #slow firerate
-    resetOnHandSelected: false #Dual Wielding Muskets
-  - type: Construction
-    graph: WeaponPistolFlintlockCraftedGraph
-    node: flintlock
-  - type: UseDelay
-    delay: 0 #Straight up doesn't work for guns
 
 - type: entity
   name: SLP-67 "Volk"
