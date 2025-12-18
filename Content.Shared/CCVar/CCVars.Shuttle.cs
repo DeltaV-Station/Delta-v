@@ -37,7 +37,7 @@ public sealed partial class CCVars
     ///     The map to use for the arrivals station.
     /// </summary>
     public static readonly CVarDef<string> ArrivalsMap =
-        CVarDef.Create("shuttle.arrivals_map", "/Maps/Misc/terminal.yml", CVar.SERVERONLY);
+        CVarDef.Create("shuttle.arrivals_map", "/Maps/_DV/transit_hub.yml", CVar.SERVERONLY); // DeltaV - Made arrival station DV specific, Was: /Maps/Misc/terminal.yml
 
     /// <summary>
     ///     Cooldown between arrivals departures. This should be longer than the FTL time or it will double cycle.
