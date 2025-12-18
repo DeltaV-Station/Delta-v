@@ -1,11 +1,7 @@
-using Content.Server._DV.Objectives.Components;
+using Content.Server._DV.Objectives.Components; // DeltaV
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles; // DeltaV
-using Content.Server.GameTicking.Rules;
-using Robust.Shared.Prototypes; // DeltaV
-using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -96,3 +92,4 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         _target.SetTarget(ent, picked, target);
     }
 }
+
