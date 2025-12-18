@@ -28,14 +28,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
     private void OnSpecificPersonAssigned(Entity<PickSpecificPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        // DeltaV - TargetObjectiveImmune
-        if (HasComp<TargetObjectiveImmuneComponent>(ent.Owner))
-        {
-            args.Cancelled = true;
-            return;
-        }
-        // END DeltaV
-
         // invalid objective prototype
         if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
         {
@@ -53,6 +45,14 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(target.Target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
         var user = args.Mind.OwnedEntity.Value;
         if (!TryComp<TargetOverrideComponent>(user, out var targetComp) || targetComp.Target == null)
         {
@@ -65,14 +65,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
     private void OnRandomPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        // DeltaV - TargetObjectiveImmune
-        if (HasComp<TargetObjectiveImmuneComponent>(ent.Owner))
-        {
-            args.Cancelled = true;
-            return;
-        }
-        // END DeltaV
-
         // invalid objective prototype
         if (!TryComp<TargetObjectiveComponent>(ent, out var target))
         {
@@ -90,6 +82,16 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
+
+        // DeltaV - TargetObjectiveImmune
+        // Pretty much just a back-up check. Ideally, we should have filtered out all the minds
+        // with this comp with the mind filter TargetObjectiveMindFilter.
+        if (HasComp<TargetObjectiveImmuneComponent>(picked))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
 
         _target.SetTarget(ent, picked, target);
     }
