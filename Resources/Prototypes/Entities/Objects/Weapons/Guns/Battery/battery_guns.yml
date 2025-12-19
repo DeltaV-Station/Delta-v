@@ -20,7 +20,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 1000
     startingCharge: 1000
   - type: StaticPrice
@@ -232,7 +232,7 @@
   - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 500
     startingCharge: 500
   - type: Tag
@@ -362,7 +362,7 @@
   - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 200
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 2000
     startingCharge: 2000
   - type: Tag
@@ -404,7 +404,7 @@
   - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 200
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 5000
     startingCharge: 5000
 
@@ -440,7 +440,7 @@
   - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 100
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 40000
     startingCharge: 40000
 
@@ -507,7 +507,7 @@
     - type: BatteryAmmoProvider
       proto: AntiParticlesProjectile
       fireCost: 500
-    - type: PredictedBattery
+    - type: Battery
       maxCharge: 10000
       startingCharge: 10000
 
@@ -740,7 +740,7 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 40
   - type: MagazineVisuals
     magState: mag
@@ -789,7 +789,7 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 30
   - type: MagazineVisuals
     magState: mag
@@ -888,7 +888,7 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
@@ -937,7 +937,7 @@
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 720 # Delta V - Was 480
     startingCharge: 720
   - type: BatterySelfRecharger #Delta V - Self recharging not removed
@@ -988,7 +988,7 @@
     - proto: BulletDisabler
       fireCost: 62.5
       pacifismAllowedMode: true
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 48
     autoRechargePauseTime: 10
 
@@ -1030,7 +1030,7 @@
       fireCost: 100
     - proto: BoltTempgunHot
       fireCost: 100
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 1000
     startingCharge: 1000
   - type: StaticPrice
