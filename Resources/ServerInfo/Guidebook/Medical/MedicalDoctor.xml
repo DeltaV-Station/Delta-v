@@ -2,12 +2,12 @@
 # Medical Doctor
 It's time to heal. Or at least, try to heal, anyway. Medical Doctors are the primary caretakers of every boo boo and ouchie crewmembers get on the station, be it a small scratch, or boiled skin.
 
-This guide will give you a basic outline of the treatment options you have available, triage, and other avenues of care.
+This guide provides a basic outline of the treatment options available, triage, and other avenues of care.
 
 ## The Basics
-There are two ways to tell what's ailing someone: Taking a scan (with a health analyzer or a medical PDA), or examining them, with a shift-click, and clicking the heart symbol.
+There are two ways to tell what's ailing someone: Taking a scan (with a health analyser or a medical PDA) or examining them with a shift-click and clicking the heart symbol.
 
-Using a health analyzer is often more powerful than examination, as some things (such as poison, or radiation) don't show up on examination. However, using an analyzer has its drawbacks, as it makes noise and uses up a battery. However, your PDA comes equipped with Medtek, and has infinite battery.
+Using a health analyser is often more powerful than an examination, as some substances (such as poisons or radiation) don't show up on examination. However, using an analyser has its drawbacks, as it generates noise and consumes battery power. However, your PDA comes equipped with Medtek and has an infinite battery.
 <Box>
 <GuideEntityEmbed Entity="SignExamroom" Caption="examine patient"/>
 <GuideEntityEmbed Entity="MedicalPDA"/>
@@ -16,17 +16,17 @@ Using a health analyzer is often more powerful than examination, as some things 
 </Box>
 
 ## Medication and Treatment Options
-Before we go any further, it's probably a good idea to go over damage types, and what will heal them. The wiki has more extensive info available, but these are commonly used.
+Before we go any further, it's probably a good idea to go over damage types and what will heal them. The wiki has more extensive info available, but these are commonly used.
 
-An important note: Most medication has an overdose level, which will cause harm to your patient. Chemicals also take time to metabolise in pill form, if you want things to act quickly, use a syringe.
+An important note: Most medication has an overdose level, which will cause harm to your patient. Chemicals also take time to metabolise in pill form. If you want things to act quickly, use a syringe.
 
 - Brute Damage: Bicaridine or Bruise Packs
 - Burn Damage: Dermaline or Ointment
 - Toxin (Poison): Dylovene
 - Toxin (Radiation) Hyronalin or Arithrazine
 - Airloss: Dexalin, Salbutamol, Inaprovaline, or Convermol
-- Bloodloss: Dexalin or Salbutamol (Examine the patient, if pale, they still need blood or iron.)
-- Bleeding: Tranexamic acid and Gauze (Bleeding can also be cauterized with burn damage.)
+- Blood loss: Dexalin or Salbutamol (Examine the patient; if pale, they still need blood or iron.)
+- Bleeding: Tranexamic acid and Gauze (Bleeding can also be cauterised with burn damage.)
 
 Many stations are stocked with kits in storage, and all medics have some equipment in their starting belt.
 
@@ -49,26 +49,26 @@ Many stations are stocked with kits in storage, and all medics have some equipme
 ## Basic Treatment and Triage
 Examine your patient, and note down the important details: Are they alive? Bleeding? What type of damage?
 
-If alive, treat them as best as you can. Patients are in critical condition at 100 damage, unless they have the redshirt trait; but at most, those without redshirt will die at 200 damage. Keep this in mind when choosing how to treat them. Emergency Pens and Epinephrine are often used to keep patients stable.
+If alive, treat them as best as you can. Patients are in critical condition at 100 damage, [color=#e29a6c][bold]unless they have the redshirt trait[/bold][/color]; but at most, those without redshirt will die at 200 damage. Keep this in mind when choosing how to treat them. [color=#abe057]Emergency Pens and Epinephrine[/color] are often used to stabilise patients. However, you may also do [color=#e84037]CPR[/color] to stabilise them.
 
-If possible, buckle them to a medical bed, if you need time to treat them, strap them to a stasis bed instead. Just keep in mind that metabolism (and by extension, healing chemicals) are slowed to a crawl when on stasis, they'll need to be taken off of it for the medicine to be effective. (But Blood Packs, Ointment, and Brute packs all work as normal.)
+If possible, buckle them to a medical bed; if you need time to treat them, strap them to a stasis bed instead. Just keep in mind that metabolism (and by extension, the production of healing chemicals) is slowed to a crawl when on stasis; it'll need to be taken off of it for the medicine to be effective. (But Blood Packs, Ointment, and Brute packs all work as normal.)
 <Box>
 <GuideEntityEmbed Entity="MedicalBed"/>
 <GuideEntityEmbed Entity="StasisBed"/>
 </Box>
 ## Assessing Corpses
-You can't save them all, sometimes, death happens. Depending on the [color=#a4885c]status[/color] of the body, there are a few things that can be done.
+You can't save them all; sometimes, death happens. Depending on the [color=#a4885c]status[/color] of the body, follow this checklist:
 
-1. Do they have a soul attached? You can tell if, when examining, the following phrase is displayed: "Their soul has departed." If this isn't displayed, there is still a player who can be revived.
+1. Do they have a soul attached? You can tell if, when examining, the following phrase is displayed: "[color=#8666c8] Their soul has departed and moved on.[/color]" If this isn't displayed, there is still a player who can be revived.
 
-2. Do they have the unrevivable trait? You can tell if your health scanner says they have a unique body structure. If so, your only option is to transplant their brain into a body donor. (or IPCs/Borgs if their brain is compatibile.)
-  
-3. Is the body rotting? If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as Opporozidone or Netinadone. A rotting body can't be brought back with a defibrillator, however cloning is also a great alternative!
+2. Do they have the [color=yellow]unrevivable trait[/color]? You can tell if your health scanner says "[color=yellow]Unique body composition detected![/color]" If so, your only option is to transplant their brain into a body donor. If you cannot see on your scanner: "[color=red]Patients' brain signatures are incompatible with MMI.[/color]", then it means their brain can be transplanted to be in a Borg or an IPC.
 
-4. If they have a soul, doesnt have the unrevivable trait and aren't rotten, it's possible to revive them. Consider storing the body in a morgue tray if you don't have enough time to revive someone, as the body will rot if you wait too long.
+3. Is the body rotting? If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as [color=#b5e36d]Opporozidone[/color] or [color=#e3d56d] Netinadone[/color]. A rotting body can't be brought back with a defibrillator; however, [textlink="cloning" link="Cloning"] is also a great alternative!
 
-## Revival
-Not counting airloss, Defibrillator's can be used to revive patients under 200 total damage. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
+4. If they have a soul, don't have the unrevivable trait and aren't rotten, it's possible to revive them. Consider storing the body in a morgue tray if you don't have enough time to revive someone, as the body will rot if you wait too long.
+
+## Reviving
+A Defibrillator can be used to revive patients with aspyhxiation damage, but will deal [color=red]5 shock damage[/color]. Patients need to be under 200 damage in order to be revived with a defib [color=#e29a6c](or under 100 with redshirt)[/color]. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>
@@ -77,3 +77,4 @@ Not counting airloss, Defibrillator's can be used to revive patients under 200 t
 </Box>
 
 </Document>
+
