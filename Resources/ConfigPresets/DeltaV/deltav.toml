@@ -83,6 +83,8 @@ space_wind = true
 
 [shuttle]
 arrivals = true
+arrivals_planet = false
+arrivals_map = "/Maps/_DV/transit_hub.yml"
 cooldown = 60 # 50 longer than the default
 startup_time = 10 # 4.5 seconds longer than the default
 travel_time = 5 # 15 seconds less than the default
