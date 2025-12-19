@@ -392,15 +392,17 @@
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-sleeper-module }
 
 - type: entity
-  parent: BaseBorgModuleSyndie
+  parent: [ BaseBorgModuleSyndicate, BaseSyndicateContraband ]
   id: BorgModuleCloakDeviceSyndicate
   name: syndicate cloaking device cyborg module
   description: A module with a device that allows the borg to become cloaked for a short amount of time.
   components:
   - type: Sprite
     layers:
-    - state: syndicate
-    - state: icon-syndicate
+    - sprite: Objects/Specific/Robotics/borgmodule.rsi
+      state: syndicate
+    - sprite: Objects/Specific/Robotics/borgmodule.rsi
+      state: icon-syndicate
   - type: ItemBorgModule
     hands:
     - item: CloakingDeviceSyndicateBorg
