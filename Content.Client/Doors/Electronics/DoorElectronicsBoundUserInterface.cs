@@ -48,7 +48,7 @@ public sealed class DoorElectronicsBoundUserInterface : BoundUserInterface
         }
 
         // DeltaV - Sort Better
-        accessLevels = accessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? GetAccessLevelName(access) : x.Id).ToList();
+        accessLevels = accessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? access.GetAccessLevelName() : x.Id).ToList();
 
         _window?.Reset(_prototypeManager, accessLevels);
     }
@@ -65,18 +65,5 @@ public sealed class DoorElectronicsBoundUserInterface : BoundUserInterface
     public void UpdateConfiguration(List<ProtoId<AccessLevelPrototype>> newAccessList)
     {
         SendMessage(new DoorElectronicsUpdateConfigurationMessage(newAccessList));
-    }
-
-    /// <summary>
-    /// DeltaV - Used to get the localized access name for an access level. Used to sort the list.
-    /// </summary>
-    /// <param name="access">The access prototype to get the name of.</param>
-    /// <returns>The localized name of the access.</returns>
-    private string GetAccessLevelName(AccessLevelPrototype access)
-    {
-        if (access.Name is { } name)
-            return Loc.GetString(name);
-
-        return access.ID;
     }
 }
