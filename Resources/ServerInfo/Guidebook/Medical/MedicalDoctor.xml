@@ -67,22 +67,25 @@ If possible, buckle them to a medical bed; if you need time to treat them, strap
 ## Assessing Corpses
 You can't save them all; sometimes, death happens. Depending on the [color=#a4885c]status[/color] of the body, follow this checklist:
 
-1. Do they have a soul attached? Their soul is attached to their [color=#ef7b77]Brain, and by extension their head.[/color] If they are decapitated, it will always say "[color=#8666c8]Their soul has departed and moved on.[/color]" upon examination...But dont let that fool you, they could still have their soul very much there! Reattach their head via [textlink="Surgery" link="PartManipulation"]. Then you can recheck to see [color=#8666c8]if they are truly gone.[/color]
+- First, check if they have a soul attached. Their soul is attached to their [color=#ef7b77]Brain, and by extension their head.[/color] If they are decapitated, it will always say "[color=#8666c8]Their soul has departed and moved on.[/color]" upon examination...But dont let that fool you, they could still have their soul very much there! Reattach their head via [textlink="Surgery" link="PartManipulation"]. Then you can recheck to see [color=#8666c8]if they are truly gone.[/color]
 
-2. Do they have the [color=yellow]unrevivable trait[/color]? You can tell if your health scanner says "[color=yellow]Unique body composition detected![/color]" If so, your only option is to transplant their brain into a body donor. If you cannot see on your scanner: "[color=red]Patients' brain signatures are incompatible with MMI.[/color]", then it means their brain can be transplanted to be in a Borg or an IPC.
+- Secondly, now check to see if they have a [color=yellow]unique body composition[/color]. You can tell if your health scanner says "[color=yellow]Unique body composition detected![/color]". If this happens, it means that their [color=#ef7b77]Brain[/color] will need to be transplanted into a body donor.
+(IPCs/Borgs are a possible body donor if a patients [color=#ef7b77]Brain[/color] is compatible with MMI technology. A patients brain WILL NOT be compatible if it says this on your health scanner: "[color=red]Patients' brain signatures are incompatible with MMI"[/color].)
 
-3. Is the body rotting? If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as [color=#b5e36d]Opporozidone[/color] or [color=#e3d56d]Netinadone[/color]. A rotting body can't be brought back with a defibrillator; however, [textlink="cloning" link="Cloning"] is also a great alternative!
+- [color=yellow][bold]If they do not have a unique body composition;[/bold][/color] check to see if their [color=orange]body is rotting[/color]. If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as [color=#b5e36d]Opporozidone[/color] or [color=#e3d56d]Netinadone[/color]. A rotting body can't be brought back unless you fix its rot, [textlink="cloning" link="Cloning"] is an alternative if you don't have cryogenic chemicals at your disposal.
 
-4. If they have a soul, don't have the unrevivable trait and aren't rotten, it's possible to revive them. Consider storing the body in a morgue tray if you don't have enough time to revive someone, as the body will rot if you wait too long.
+- And finally, [color=#2ce0dd]with their soul in their body[/color], [color=#56a854]their body being fresh[/color], and a [bold]normal body composition[/bold], proceed to reviving the patient.
 
 ## Reviving
-A Defibrillator can be used to revive patients with aspyhxiation damage, but will deal [color=red]5 shock damage[/color]. Patients need to be under 200 damage in order to be revived with a defib [color=#e29a6c](or under 100 with redshirt)[/color]. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
+The revival procedure uses a Defibrillator to restart the patients heart. The Defibrillator can be used to revive patients with aspyhxiation damage, but will deal [color=red]5 shock damage[/color]. Patients need to be under 200 damage in order to be revived with a defib [color=#e29a6c](or under 100 with redshirt)[/color]. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>
 <GuideEntityEmbed Entity="Defibrillator"/>
+<GuideEntityEmbed Entity="DefibrillatorCabinetFilled" Caption="Defib cabinet"/>
 <GuideEntityEmbed Entity="Ointment"/>
 </Box>
 
+Keep in mind that the defibrillator recharges while it is in its cabinet!
 </Document>
 
