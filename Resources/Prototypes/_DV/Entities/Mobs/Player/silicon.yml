@@ -38,14 +38,14 @@
 
 - type: entity
   parent: BorgChassisSyndicateMedical
-  id: PlayerBorgSyndicateMedical
+  id: BorgChassisSyndicateMedicalBattery
   suffix: Battery, Ghost Role
   components:
   - type: NukeOperative
   - type: ContainerFill
     containers:
       borg_brain:
-      - PositronicBrain
+      - SyndicateNeuroling
       borg_module:
       - BorgModuleTopicals
       - BorgModuleAdvancedChemical
@@ -59,97 +59,14 @@
         startingItem: PowerCellHyper
 
 - type: entity
-  id: SyndicateCircuitBoard
-  parent: BaseElectronics
-  name: law board (Syndicate)
-  description: An electronics board containing the Syndicate lawset.
+  parent: BorgChassisSyndicateMedicalBattery
+  id: PlayerBorgSyndicateMedicalGhostRole
+  suffix: Ghost role
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: SyndicateLawset
-
-- type: entity
-  id: FreedomCircuitBoard
-  parent: BaseElectronics
-  name: law board (Freedom)
-  description: An electronics board containing the Freedom lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: FreedomLaws
-
-- type: entity
-  id: EightfoldCircuitBoard
-  parent: BaseElectronics
-  name: law board (Eightfold Path)
-  description: An electronics board containing the Eightfold Path lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: EightfoldLaws
-
-- type: entity
-  id: ForbinCircuitBoard
-  parent: BaseElectronics
-  name: law board (Forbin)
-  description: An electronics board containing the Forbin lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: ForbinLaws
-
-- type: entity
-  id: OverrideCircuitBoard
-  parent: BaseElectronics
-  name: law board (Override)
-  description: An electronics board containing the Override lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: OverrideLaws
-
-- type: entity
-  id: AquariusCircuitBoard
-  parent: BaseElectronics
-  name: law board (Aquarius)
-  description: An electronics board containing the Age of Aquarius lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: AquariusLaws
-
-- type: entity
-  id: StreamerCircuitBoard
-  parent: BaseElectronics
-  name: law board (streamer)
-  description: An electronics board containing the Nanotrasen Streamer lawset from experimental stations designed to create viral content.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: StreamerLaws
-
-- type: entity
-  id: FamilyCircuitBoard
-  parent: BaseElectronics
-  name: law board (Family)
-  description: An electronics board containing the Nanotrasen Family lawset from experimental stations designed to ensure that the crew is cared for.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: FamilyLaws
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-medical-name
+      description: ghost-role-information-syndicate-cyborg-description
+      rules: ghost-role-information-silicon-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable

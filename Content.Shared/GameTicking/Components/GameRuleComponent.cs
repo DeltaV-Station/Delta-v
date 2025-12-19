@@ -24,6 +24,12 @@ public sealed partial class GameRuleComponent : Component
     public int MinPlayers;
 
     /// <summary>
+    /// DeltaV: the total amount of players on the server needed for this rule.
+    /// </summary>
+    [DataField]
+    public int MinTotalPlayers;
+
+    /// <summary>
     /// If true, this rule not having enough players will cancel the preset selection.
     /// If false, it will simply not run silently.
     /// </summary>

@@ -36,10 +36,11 @@ public sealed partial class CCVars : CVars
     /// Set to true to disable parallel processing in the pow3r solver.
     /// </summary>
     public static readonly CVarDef<bool> DebugPow3rDisableParallel =
-        CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
+        CVarDef.Create("debug.pow3r_disable_parallel", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     Goobstation: The amount of time between NPC Silicons draining their battery in seconds.
+    ///     TODO: Move this to the proper file. I dunno which, just not the main one.
     /// </summary>
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);

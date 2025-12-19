@@ -13,6 +13,8 @@
     graph: Blindfold
     node: blindfold
   - type: FlashImmunity
+  - type: IdentityBlocker # DeltaV
+    coverage: EYES
 
 - type: entity
   parent: ClothingHeadEyeBaseFlippable

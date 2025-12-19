@@ -1,0 +1,28 @@
+- type: entity
+  parent: PinpointerBase
+  name: core pull
+  description: You have an instinctual knowledge of the location of your core.
+  suffix: Station, Unremoveable
+  id: PinpointerAnomalite
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pinpointer.rsi # DeltaV - They were just using the impstation dragon pinpointer so I made them a custom one
+    layers:
+    - state: pinpointer-anomalite
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: _DV/Objects/Devices/pinpointer.rsi # DeltaV - They were just using the impstation dragon pinpointer so I made them a custom one
+    state: pinpointer-anomalite
+  - type: Pinpointer
+    targetName: your core
+    activateImmediately: true
+  - type: Unremoveable
+
+- type: startingGear
+  id: StartingGearAnomalitePinpointer
+  equipment:
+    pocket1: PinpointerAnomalite

@@ -1,0 +1,20 @@
+- type: entity
+  id: LockerArchivistFilled
+  suffix: Filled
+  parent: LockerArchivist
+  components:
+  - type: StorageFill
+    contents:
+    - id: BookRestorationKit
+    - id: LuxuryPen
+    - id: Paper
+      amount: 5
+    - id: BookRandom
+      amount: 3
+    - id: ClothingUniformJumpsuitLibrarian
+    - id: ClothingUniformJumpskirtLibrarian
+    - id: ClothingShoesBootsLaceup
+    - id: ClothingEyesGlasses
+    - id: ArtifactDisplayCaseMachineCircuitBoard
+      amount: 1
+      maxAmount: 3

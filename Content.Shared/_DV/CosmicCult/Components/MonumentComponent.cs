@@ -105,7 +105,7 @@ public sealed partial class MonumentComponent : Component
     };
 
     /// <summary>
-    /// wether or not there's a stage change queued
+    /// whether or not there's a stage change queued
     /// </summary>
     [DataField]
     public bool CanTierUp = true;

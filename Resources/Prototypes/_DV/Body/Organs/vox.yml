@@ -1,0 +1,27 @@
+- type: entity
+  id: OrganVoxBrain
+  parent: OrganHumanBrain
+  name: cortical stack
+  description: "A peculiarly advanced bio-electronic device that seems to hold the memories and identity of a Vox."
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: brain
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Vox/organs.rsi
+    state: cortical-stack
+  - type: Organ # Shitmed
+    slotId: brain
+  - type: Brain # Shitmed
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 5

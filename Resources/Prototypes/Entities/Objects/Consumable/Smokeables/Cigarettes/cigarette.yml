@@ -83,6 +83,16 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 30
+    # Begin DeltaV additions
+      omnizinecigarette:
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: Omnizine
+            Quantity: 3
+  - type: Extractable
+    grindableSolutionName: omnizinecigarette
+    # End DeltaV additions
 
 - type: entity
   id: CigaretteOmnizine

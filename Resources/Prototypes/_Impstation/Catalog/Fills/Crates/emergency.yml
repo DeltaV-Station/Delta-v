@@ -2,9 +2,9 @@
   parent: CrateCommandSecure
   id: EmergencyLaserCrate
   name: emergency lasers crate
-  description: A crate of four emergency laser rifles, for situations where getting clearance isn't an option.
+  description: A crate of five emergency laser rifles, the cheapest thing we can legally call a gun.
   components:
   - type: StorageFill
     contents:
     - id: EmergencyWeaponLaserCarbine
-      amount: 4
+      amount: 5 # DeltaV was 4

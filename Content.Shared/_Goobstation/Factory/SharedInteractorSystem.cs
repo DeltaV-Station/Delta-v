@@ -11,6 +11,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Throwing;
 using Robust.Shared.Containers;
@@ -26,6 +27,7 @@ public abstract class SharedInteractorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] protected readonly StartableMachineSystem Machine = default!;
+    [Dependency] protected readonly SharedHandsSystem Hands = default!;
 
     private EntityQuery<ActiveDoAfterComponent> _doAfterQuery;
     private EntityQuery<HandsComponent> _handsQuery;
@@ -131,11 +133,16 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     protected bool InteractWith(Entity<InteractorComponent> ent, EntityUid target)
     {
-        if (_handsQuery.CompOrNull(ent)?.ActiveHandEntity is not {} tool)
+        if (_handsQuery.CompOrNull(ent)?.ActiveHandId is not {} hand)
             return _interaction.InteractHand(ent, target);
 
         var coords = Transform(target).Coordinates;
-        return _interaction.InteractUsing(ent, tool, target, coords);
+        var tool = Hands.GetHeldItem((ent, _handsQuery.CompOrNull(ent)), hand);
+
+        if (tool == null)
+            return _interaction.InteractHand(ent, target);
+
+        return _interaction.InteractUsing(ent, tool.Value, target, coords);
     }
 
     protected void TryRemoveTarget(Entity<InteractorComponent> ent, EntityUid target)
@@ -169,9 +176,9 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     private void UpdateToolAppearance(EntityUid uid)
     {
-        var state = _handsQuery.CompOrNull(uid)?.ActiveHand?.IsEmpty == false
-            ? InteractorState.Inactive
-            : InteractorState.Empty;
+        var hands = _handsQuery.CompOrNull(uid);
+        var heldItem = Hands.GetHeldItem((uid, hands), hands?.ActiveHandId);
+        var state = heldItem != null ? InteractorState.Inactive : InteractorState.Empty;
         UpdateAppearance(uid, state);
     }
 

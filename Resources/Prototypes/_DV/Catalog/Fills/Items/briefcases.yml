@@ -23,3 +23,27 @@
     - id: UniformScrubsColorCybersun
     - id: ClothingOuterCoatCybersunWindbreaker
     - id: ClothingMaskNeckGaiter
+
+- type: entity
+  parent: CybersunBriefcase
+  id: BriefcaseRecruiterArmsdealer
+  suffix: Cybersun, Armsdealer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxFolderBlack
+        - id: BoxFolderRed
+        - id: SpaceCash2500
+        - id: SyndicateBusinessCard
+        - id: CyberPen
+        - id: RubberStampTrader
+        - id: RubberStampSyndicate
+        - id: BionicVoiceMaskImplanter
+        - id: EncryptionKeyCommon
+        - id: RagItem
+        - id: SoapSyndie
+        - id: Paper
+          amount: !type:RangeNumberSelector
+            range: 1, 3

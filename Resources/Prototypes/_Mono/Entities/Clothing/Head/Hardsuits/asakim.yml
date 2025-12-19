@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2025 Avalon
+# SPDX-FileCopyrightText: 2025 Coenx-flex
+# SPDX-FileCopyrightText: 2025 Cojoke
+# SPDX-FileCopyrightText: 2025 HungryCuban
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons] # DeltaV - no contraband
+  id: ClothingHelmetHardsuitAsakim
+  name: combat harness helmet # DeltaV - simple names
+  description: Part of an advanced combat harness. # DeltaV - no fracture
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 15
+  - type: ThermalVision
+    pulseTime: 1
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  #- type: NightVision # DeltaV - redundant, species already has it
+  #  flashDurationMultiplier: 0.85
+  #  isEquipment: true
+  #  color: "#1584e6"
+  - type: RadarConsole
+    maxRange: 1024
+    followEntity: true
+    #pannable: true # DeltaV - unimplemented
+  #- type: DetectionRangeMultiplier # upgraded thermal sensors # DeltaV - doesn't exist
+  #  infraredMultiplier: 1.5 # from 1
+  #  visualMultiplier: 8 # from 4
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

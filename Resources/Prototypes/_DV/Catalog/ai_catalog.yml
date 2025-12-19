@@ -1,7 +1,7 @@
 - type: listing
   id: AiRgbLighting
-  name: ai-rgb-lighting-name
-  description: ai-rgb-lighting-desc
+  name: ent-ActionStationAiRgbLighting
+  description: ent-ActionStationAiRgbLighting.desc
   productAction: ActionStationAiRgbLighting
   cost:
     AiMemory: 1
@@ -13,8 +13,8 @@
 
 - type: listing
   id: AiHolopointer
-  name: ai-holopointer-name
-  description: ai-holopointer-desc
+  name: ent-ActionStationAiHoloPointer
+  description: ent-ActionStationAiHoloPointer.desc
   productAction: ActionStationAiHoloPointer
   cost:
     AiMemory: 1
@@ -26,8 +26,8 @@
 
 - type: listing
   id: AiLightSynthesizer
-  name: ai-light-synthesizer-name
-  description: ai-light-synthesizer-desc
+  name: ent-ActionStationAiLightSynthesizer
+  description: ent-ActionStationAiLightSynthesizer.desc
   productAction: ActionStationAiLightSynthesizer
   cost:
     AiMemory: 1
@@ -39,8 +39,8 @@
 
 - type: listing
   id: AiBikeHorn
-  name: ai-bike-horn-name
-  description: ai-bike-horn-desc
+  name: ent-ActionStationAiBikeHorn
+  description: ent-ActionStationAiBikeHorn.desc
   productAction: ActionStationAiBikeHorn
   cost:
     AiMemory: 1
@@ -52,8 +52,8 @@
 
 - type: listing
   id: AiEmergencySealant
-  name: ai-emergency-sealant-name
-  description: ai-emergency-sealant-desc
+  name: ent-ActionStationAiEmergencySealant
+  description: ent-ActionStationAiEmergencySealant.desc
   productAction: ActionStationAiEmergencySealant
   cost:
     AiMemory: 2
@@ -65,8 +65,8 @@
 
 - type: listing
   id: AiRepairNanites
-  name: ai-repair-nanites-name
-  description: ai-repair-nanites-desc
+  name: ent-ActionStationAiRepairNanites
+  description: ent-ActionStationAiRepairNanites.desc
   productAction: ActionStationAiRepairNanites
   cost:
     AiMemory: 2

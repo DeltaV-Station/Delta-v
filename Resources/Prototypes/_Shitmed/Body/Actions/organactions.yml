@@ -5,8 +5,7 @@
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: EntityWorldTargetAction
-    raiseOnUser: true
+  - type: Action
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
       state: goliath_tentacle_spawn
@@ -15,6 +14,9 @@
       state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
-    event: !type:GoliathSummonTentacleAction
     useDelay: 80
+  - type: TargetAction
     range: 10
+  - type: WorldTargetAction
+    event: !type:GoliathSummonTentacleAction
+

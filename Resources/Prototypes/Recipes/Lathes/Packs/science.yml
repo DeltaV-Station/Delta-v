@@ -32,6 +32,7 @@
   - SignallerAdvanced
   - DeviceQuantumSpinInverter
   - DeviceDesynchronizer
+  # - ClothingBackpackHarmpack # DeltaV - HARMPACKS deemed harmful
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -39,6 +40,7 @@
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
   - ClothingShoesBootsSpeed
+  - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
@@ -50,6 +52,7 @@
   recipes:
   - PowerCellMicroreactor
   - PowerCellHigh
+  - PowerCellHyper
 
 - type: latheRecipePack
   id: ScienceWeapons
@@ -73,6 +76,7 @@
   - FauxTileJungleAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
+  - FauxTileMowedAstroSnow # DeltaV
   - FauxTileAstroAsteroidSand
 
 # Only contains parts for making basic modular grenades, no actual explosives

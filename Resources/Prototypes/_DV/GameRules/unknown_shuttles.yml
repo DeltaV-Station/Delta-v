@@ -4,6 +4,8 @@
     children:
     - id: SyndicateRecruiter
     - id: SynthesisSpecialist
+    - id: SyndicateArmsdealer
+    - id: AsakimShuttle
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -93,3 +95,46 @@
         - Syndicate
       mindRoles:
       - MindRoleSynthesis
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SyndicateArmsdealer
+  components:
+  - type: StationEvent
+    weight: 2
+    minimumPlayers: 25
+    maxOccurrences: 1
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-syndicate-armsdealer-result-message
+  - type: LoadMapRule
+    preloadedGrid: SyndieArmsdealerShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - ArmsdealerSurviveObjective
+    - ArmsdealerSaleObjective
+  - type: AntagSelection
+    agentName: armsdealer-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostArmsdealer
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateArmsdealerGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleArmsdealer

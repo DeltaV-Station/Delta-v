@@ -15,10 +15,6 @@
     bodyType: KinematicController # Same for all inheritors
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Stutter
     - Electrocution
   - type: Repairable
     doAfterDelay: 8
@@ -28,6 +24,7 @@
     tags:
     - DoorBumpOpener
     - SiliconEmotes
+    - SiliconOrIPCEmotes # DeltaV
     - Unimplantable
   - type: MobState
     allowedStates:
@@ -107,6 +104,7 @@
     tags:
     - DoorBumpOpener
     - SiliconEmotes
+    - SiliconOrIPCEmotes # DeltaV
     - Bot
     - Unimplantable
   - type: Body
@@ -160,8 +158,9 @@
     interactFailureString: petting-failure-firebot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Advertise
-    pack: FirebotAd
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: FirebotAd
 
 - type: entity
   parent: MobSiliconBase
@@ -371,8 +370,9 @@
     interactFailureString: petting-failure-medibot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Advertise
-    pack: MedibotAds
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: MedibotAds
   - type: Inventory
     templateId: medibot
   - type: DoAfter
@@ -476,6 +476,7 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - SiliconOrIPCEmotes # DeltaV
     - Bot
     - Unimplantable
   - type: ActiveRadio

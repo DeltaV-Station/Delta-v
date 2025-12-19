@@ -93,10 +93,8 @@ public sealed partial class ZombieComponent : Component
     [DataField("beforeZombifiedEyeColor")]
     public Color BeforeZombifiedEyeColor;
 
-    [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
-    public string? EmoteSoundsId = "Zombie";
-
-    public EmoteSoundsPrototype? EmoteSounds;
+    [DataField("emoteId")]
+    public ProtoId<EmoteSoundsPrototype>? EmoteSoundsId = "Zombie";
 
     [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextTick;
@@ -115,8 +113,10 @@ public sealed partial class ZombieComponent : Component
             { "Blunt", -0.4 },
             { "Slash", -0.2 },
             { "Piercing", -0.2 },
-            { "Heat", -0.02 },
-            { "Shock", -0.02 }
+            // DeltaV Start - Buff Zombies
+            { "Heat", -0.2 }, // Was -0.02
+            { "Shock", -0.2 } // Was -0.02
+            // DeltaV End - Buff Zombies
         }
     };
 

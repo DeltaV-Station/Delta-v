@@ -1,73 +1,78 @@
 # Actions
 - type: entity
+  parent: BaseMentalAction
   id: ActionStationAiOpenShop
   name: Choose programs
   description: Configure your installed programs
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: store
+  - type: InstantAction
     event: !type:StationAiShopActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionStationAiRgbLighting
-  name: ai-rgb-lighting-name
-  description: ai-rgb-lighting-desc
   components:
-  - type: EntityTargetAction
-    whitelist:
-      tags:
-      - LightFixture
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: rgb_lighting
-    range: -1
-    checkCanAccess: false
     checkCanInteract: false
     useDelay: 30
-    event: !type:StationAiRgbLightingActionEvent
-
-- type: entity
-  id: ActionStationAiLightSynthesizer
-  name: ai-light-synthesizer-name
-  description: ai-light-synthesizer-desc
-  components:
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
   - type: EntityTargetAction
     whitelist:
       tags:
       - LightFixture
+    event: !type:StationAiRgbLightingActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionStationAiLightSynthesizer
+  components:
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: light_synthesizer
-    range: -1
-    checkCanAccess: false
     checkCanInteract: false
     useDelay: 300
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: EntityTargetAction
+    whitelist:
+      tags:
+      - LightFixture
     event: !type:StationAiLightSynthesizerActionEvent
       bulbPrototype: LightBulb
       tubePrototype: LightTube
 
 - type: entity
+  parent: BaseAction
   id: ActionStationAiBikeHorn
-  name: ai-bike-horn-name
-  description: ai-bike-horn-desc
   components:
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - Holopad
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: bike_horn
-    range: -1
-    checkCanAccess: false
     checkCanInteract: false
     useDelay: 60
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Holopad
     event: !type:StationAiPlaySoundActionEvent
       sound:
         collection: BikeHorn
@@ -75,19 +80,20 @@
           variation: 0.125
 
 - type: entity
+  parent: BaseAction
   id: ActionStationAiHoloPointer
-  name: ai-holopointer-name
-  description: ai-holopointer-desc
   components:
-  - type: WorldTargetAction
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: holopointer
-    range: -1
-    checkCanAccess: false
     checkCanInteract: false
     useDelay: 15
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: WorldTargetAction
     event: !type:StationAiSpawnEntityActionEvent
       entity: StationAiHolopointer
 
@@ -113,22 +119,23 @@
   - type: Clickable
 
 - type: entity
+  parent: BaseAction
   id: ActionStationAiRepairNanites
-  name: ai-repair-nanites-name
-  description: ai-repair-nanites-desc
   components:
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - BorgChassis
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: nanites
-    range: -1
-    checkCanAccess: false
     checkCanInteract: false
     useDelay: 120
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - BorgChassis
     event: !type:StationAiHealthChangeActionEvent
       damage:
         groups:
@@ -137,18 +144,18 @@
 
 - type: entity
   id: ActionStationAiEmergencySealant
-  name: ai-emergency-sealant-name
-  description: ai-emergency-sealant-desc
   components:
-  - type: WorldTargetAction
+  - type: Action
     itemIconStyle: BigAction
     icon:
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: emergency_sealant
-    range: -1
-    checkCanAccess: false
     checkCanInteract: false
     useDelay: 300
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: WorldTargetAction
     event: !type:StationAiSmokeActionEvent
       duration: 10
       spreadAmount: 8

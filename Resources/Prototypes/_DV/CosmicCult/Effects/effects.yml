@@ -65,7 +65,7 @@
   - type: Sprite
     netsync: false
     drawdepth: Mobs
-    shader: unshaded
+    # shader: unshaded # Don't exist in the component
   - type: Tag
     tags:
     - HideContextMenu

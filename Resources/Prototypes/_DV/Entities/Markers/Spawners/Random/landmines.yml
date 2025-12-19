@@ -2,18 +2,36 @@
   parent: MarkerBase
   id: LandmineSpawner
   name: Landmine Random Spawner
+  placement:
+    mode: PlaceFree
   components:
+  - type: Transform
+    anchored: false
   - type: Sprite
     sprite: Objects/Misc/landmine.rsi
     layers:
     - state: landmine
   - type: EntityTableSpawner
-    offset: 0
-    table: !type:GroupSelector
+    table: !type:NestedSelector
+      tableId: LandmineTable
       prob: 0.90
-      children:
-      - id: LandMineShrapnel
-        weight: 10
-      - id: LandMineHE
-        weight: 2
-      - id: LandMineExplosive
+
+- type: entity
+  parent: LandmineSpawner
+  id: LandmineSpawner33
+  suffix: 33%
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: LandmineTable
+      prob: 0.33
+
+- type: entityTable
+  id: LandmineTable
+  table: !type:GroupSelector
+    children:
+    #- id: LandMineShrapnel Temporary disabled until fixed
+    #  weight: 10
+    - id: LandMineHE
+      weight: 2
+    - id: LandMineExplosive

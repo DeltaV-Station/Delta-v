@@ -12,7 +12,6 @@ namespace Content.Client.Clothing.UI;
 [UsedImplicitly]
 public sealed class ChameleonBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     private readonly ChameleonClothingSystem _chameleon;
     private readonly TagSystem _tag;
@@ -43,13 +42,13 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
         var targets = _chameleon.GetValidTargets(st.Slot);
         if (st.RequiredTag != null)
         {
-            var newTargets = new List<string>();
+            var newTargets = new List<EntProtoId>();
             foreach (var target in targets)
             {
                 if (string.IsNullOrEmpty(target) || !_proto.TryIndex(target, out EntityPrototype? proto))
                     continue;
 
-                if (!proto.TryGetComponent(out TagComponent? tag, _factory) || !_tag.HasTag(tag, st.RequiredTag))
+                if (!proto.TryGetComponent(out TagComponent? tag, EntMan.ComponentFactory) || !_tag.HasTag(tag, st.RequiredTag))
                     continue;
 
                 newTargets.Add(target);
@@ -59,6 +58,13 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
         {
             _menu?.UpdateState(targets, st.SelectedId);
         }
+
+    // Begin Delta-V: Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
+    if (_menu is { } menu && EntMan.TryGetComponent<ChameleonClothingComponent>(Owner, out var chameleon) && chameleon.WindowTitleOverride is { } titleOverride)
+        {
+            _menu.Title = Loc.GetString(titleOverride);
+        }
+    // End Delta-V
     }
 
     private void OnIdSelected(string selectedId)

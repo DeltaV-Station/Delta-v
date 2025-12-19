@@ -13,7 +13,7 @@
   - Security
   - Detective
   - Armory
-  #- Brig #Delta V Removed
+  # - Brig  # DeltaV removed
   - Lawyer
   - Engineering
   - Medical
@@ -56,3 +56,8 @@
   - Surgery
   - Funding
   # End DeltaV Additions
+
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance

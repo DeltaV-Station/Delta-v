@@ -1,0 +1,27 @@
+- type: polymorph
+  id: MobFrogPolymorph
+  configuration:
+    entity: MobFrog
+    forced: true
+    inventory: Transfer
+    transferName: true
+
+- type: polymorph
+  id: ShadowJaunt
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 4
+
+- type: polymorph
+  id: ShadowJauntPermanent
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+
+- type: polymorph
+  id: ShadowJaunt180
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 180

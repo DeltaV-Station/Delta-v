@@ -254,11 +254,37 @@
     - id: RubberStampGreytide # a disturbance in the rising grey water.
 
 - type: entity
-  parent: ClosetWallOrange
-  id: ClosetWallOrangeFilled
-  suffix: Filled
+  id: LockerWallChemical
+  parent: BaseWallLockerDeltaV
+  name: chemical wall locker
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: LockerFillPrisonerDeltaV
+  - type: EntityStorageVisuals
+    stateBaseClosed: chem
+    stateDoorClosed: chem_door
+    stateDoorOpen: chem_open
+  - type: AccessReader
+    access: [["Chemistry"]]
+
+- type: entity
+  id: LockerWallSurgeon
+  parent: BaseWallLockerDeltaV
+  name: surgeon wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: surg
+    stateDoorClosed: surg_door
+    stateDoorOpen: surg_open
+  - type: AccessReader
+    access: [["Surgery"]]
+
+- type: entity
+  id: LockerWallParamedic
+  parent: BaseWallLockerDeltaV
+  name: paramedic wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: para
+    stateDoorClosed: para_door
+    stateDoorOpen: surg_open
+  - type: AccessReader
+    access: [["Paramedic"]]

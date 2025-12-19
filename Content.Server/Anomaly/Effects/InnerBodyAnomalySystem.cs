@@ -96,8 +96,11 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         EntityManager.AddComponents(ent, injectedAnom.Components);
 
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
-        _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        if (!ent.Comp.SkipStun) // imp. added this check for anomalites
+        {
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
+            _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        }
 
         if (ent.Comp.StartSound is not null)
             _audio.PlayPvs(ent.Comp.StartSound, ent);
@@ -125,8 +128,10 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
     private void OnAnomalyPulse(Entity<InnerBodyAnomalyComponent> ent, ref AnomalyPulseEvent args)
     {
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
-        _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
+        if (!ent.Comp.SkipStun) { // imp. added this check for anomalites
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity));
+            _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration / 2 * args.Severity), true);
+        }
     }
 
     private void OnAnomalySupercritical(Entity<InnerBodyAnomalyComponent> ent, ref AnomalySupercriticalEvent args)
@@ -134,7 +139,8 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!TryComp<BodyComponent>(ent, out var body))
             return;
 
-        _body.GibBody(ent, true, body, splatModifier: 5f);
+        // DeltaV acidify: false preserves inventory items when anomaly goes supercritical
+        _body.GibBody(ent, false, body, splatModifier: 5f);
     }
 
     private void OnSeverityChanged(Entity<InnerBodyAnomalyComponent> ent, ref AnomalySeverityChangedEvent args)
@@ -213,7 +219,8 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (_proto.TryIndex(ent.Comp.InjectionProto, out var injectedAnom))
             EntityManager.RemoveComponents(ent, injectedAnom.Components);
 
-        _stun.TryParalyze(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
+        if (!ent.Comp.SkipStun) // imp. added this check for anomalites
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
 
         if (ent.Comp.EndMessage is not null &&
             _mind.TryGetMind(ent, out _, out var mindComponent) &&

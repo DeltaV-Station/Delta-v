@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseSword
+  id: SilverSword
+  name: silver sword
+  description: A beautiful sword made almost entirely of silver. It's blade is dull and can't hold an edge, but perhaps it could be something more...
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/silversword.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/silversword.rsi
+  - type: Construction
+    graph: RadiantSword
+    node: start
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    - belt
+  - type: Tag
+    tags:
+      - SilverSword
+
+- type: entity
+  parent: SilverSword
+  id: EmbeddedSword
+  name: bluespace embedded sword
+  description: you didn't think just adding bluespace would make this a workable weapon, did you?
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/silversword.rsi
+    state: bluespace_embedded
+  - type: Construction
+    graph: RadiantSword
+    node: embeddedsword
+
+
+- type: entity
+  parent: SilverSword
+  id: RadiantSword
+  name: radiant sword
+  description: A silver sword infused with the light of a Chaplain's faith. While it remains ineffective against the physical, it is a powerful tool against those from beyond the veil.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/radiantsword.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+        Holy: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/radiantsword.rsi
+  - type: Construction
+    graph: RadiantSword
+    node: radiantsword
+  - type: RevealRevenantOnCollide
+  - type: CollisionWake
+    enabled: false

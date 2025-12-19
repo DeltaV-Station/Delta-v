@@ -1,0 +1,16 @@
+- type: entity
+  id: HandheldAutopulserDisablerProjectile
+  name: disabling plasma projectile
+  parent: BulletDisablerSmg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 19
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    scale: 0.4, 0.4
+    layers:
+    - state: lightstun
+      shader: unshaded
+  - type: PointLight
+    color: "#00a6ff"

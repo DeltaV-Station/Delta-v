@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
+using Content.Server.Hands.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.GameTicking;
@@ -10,6 +11,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
@@ -23,11 +25,15 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ConstructionSystem _construction = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> CuttingQuality = "Cutting";
+    private static readonly ProtoId<ToolQualityPrototype> PulsingQuality = "Pulsing";
 
     // This is where all the wire layouts are stored.
     [ViewVariables] private readonly Dictionary<string, WireLayout> _layouts = new();
@@ -391,7 +397,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
     {
         var player = args.Actor;
 
-        if (!EntityManager.TryGetComponent(player, out HandsComponent? handsComponent))
+        if (!TryComp(player, out HandsComponent? handsComponent))
         {
             _popupSystem.PopupEntity(Loc.GetString("wires-component-ui-on-receive-message-no-hands"), uid, player);
             return;
@@ -403,19 +409,13 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
             return;
         }
 
-        var activeHand = handsComponent.ActiveHand;
-
-        if (activeHand == null)
+        if (!_hands.TryGetActiveItem((player, handsComponent), out var heldEntity))
             return;
 
-        if (activeHand.HeldEntity == null)
+        if (!TryComp(heldEntity, out ToolComponent? tool))
             return;
 
-        var activeHandEntity = activeHand.HeldEntity.Value;
-        if (!EntityManager.TryGetComponent(activeHandEntity, out ToolComponent? tool))
-            return;
-
-        TryDoWireAction(uid, player, activeHandEntity, args.Id, args.Action, component, tool);
+        TryDoWireAction(uid, player, heldEntity.Value, args.Id, args.Action, component, tool);
     }
 
     private void OnDoAfter(EntityUid uid, WiresComponent component, WireDoAfterEvent args)
@@ -445,8 +445,8 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
         if (!IsPanelOpen(uid))
             return;
 
-        if (Tool.HasQuality(args.Used, "Cutting", tool) ||
-            Tool.HasQuality(args.Used, "Pulsing", tool))
+        if (Tool.HasQuality(args.Used, CuttingQuality, tool) ||
+            Tool.HasQuality(args.Used, PulsingQuality, tool))
         {
             if (TryComp(args.User, out ActorComponent? actor))
             {
@@ -581,14 +581,14 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
     ///     Tries to get all the wires on this entity by the wire action type.
     /// </summary>
     /// <returns>Enumerator of all wires in this entity according to the given type.</returns>
-    public IEnumerable<Wire> TryGetWires<T>(EntityUid uid, WiresComponent? wires = null)
+    public IEnumerable<Wire> TryGetWires<T>(EntityUid uid, WiresComponent? wires = null) where T: IWireAction
     {
         if (!Resolve(uid, ref wires))
             yield break;
 
         foreach (var wire in wires.WiresList)
         {
-            if (wire.GetType() == typeof(T))
+            if (wire.Action?.GetType() == typeof(T))
             {
                 yield return wire;
             }
@@ -625,7 +625,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
         switch (action)
         {
             case WiresAction.Cut:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     return;
@@ -639,7 +639,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
 
                 break;
             case WiresAction.Mend:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     return;
@@ -653,7 +653,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
 
                 break;
             case WiresAction.Pulse:
-                if (!Tool.HasQuality(toolEntity, "Pulsing", tool))
+                if (!Tool.HasQuality(toolEntity, PulsingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-multitool"), user);
                     return;
@@ -712,7 +712,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
         switch (action)
         {
             case WiresAction.Cut:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     break;
@@ -733,7 +733,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
                 UpdateUserInterface(used);
                 break;
             case WiresAction.Mend:
-                if (!Tool.HasQuality(toolEntity, "Cutting", tool))
+                if (!Tool.HasQuality(toolEntity, CuttingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-wirecutters"), user);
                     break;
@@ -754,7 +754,7 @@ public sealed partial class WiresSystem : SharedWiresSystem // DeltaV - made par
                 UpdateUserInterface(used);
                 break;
             case WiresAction.Pulse:
-                if (!Tool.HasQuality(toolEntity, "Pulsing", tool))
+                if (!Tool.HasQuality(toolEntity, PulsingQuality, tool))
                 {
                     _popupSystem.PopupCursor(Loc.GetString("wires-component-ui-on-receive-message-need-multitool"), user);
                     break;

@@ -62,9 +62,9 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 4
     damage:
-      groups:
-        Brute: 3
       types:
+        Piercing: 1.5 # DeltaV: 3 brute changed to 1.5 piercing
+        Slash: 1.5 # DeltaV: 3 brute changed to 1.5 slash
         Structural: 15
   - type: ReverseEngineering # DeltaV
     difficulty: 2
@@ -88,11 +88,10 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 4
     damage:
-      groups:
-        Brute: 6
       types:
+        Piercing: 3 # DeltaV: 6 brute changed to 3 piercing
+        Slash: 3 # DeltaV: 6 brute changed to 3 slash
         Structural: 30
-
 
 - type: entity
   abstract: true
@@ -109,6 +108,9 @@
     color: "#ffeead"
     enabled: false
     radius: 4
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: ScytheCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -197,6 +199,21 @@
     malus: 0.225
   - type: ThrowingAngle
     angle: 225
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          radius: 0.01
+          vertices:
+          - -0.4,-0.2
+          - -0.2,-0.4
+          - 0.4,0.2
+          - 0.2,0.4
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 # Like a crusher... but better
 - type: entity

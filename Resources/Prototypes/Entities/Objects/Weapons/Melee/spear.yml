@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - Spear
+    - ScurretWearable
   - type: Fixtures
     fixtures:
       fix1:
@@ -116,6 +117,9 @@
     inHandsMaxFillLevels: 1
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SpearCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 
 - type: entity
@@ -217,7 +221,7 @@
 
 - type: entity
   name: sharkminnow tooth spear
-  parent: Spear 
+  parent: Spear
   id: SpearSharkMinnow
   description: A spear with a sharkminnow tooth as a tip.
   components:

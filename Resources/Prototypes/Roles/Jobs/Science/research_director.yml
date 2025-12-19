@@ -17,7 +17,6 @@
   requireAdminNotify: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
-  whitelisted: true # DeltaV
   access:
   - Research
   - Command
@@ -30,6 +29,7 @@
   - Chapel # Chaplain is in Epistemics
   - Robotics
   - External # Needed to access the AI satellite
+  - Library # moved librarian to epistemics
   # end DeltaV Additions
   special:
   - !type:AddImplantSpecial
@@ -51,4 +51,15 @@
   storage:
     back:
     - Flash
-    - CosmicCenser # DeltaV - Cosmic Cult
+
+- type: chameleonOutfit
+  id: ResearchDirectorChameleonOutfit
+  job: ResearchDirector
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckCloakRd
+    outerClothing: ClothingOuterCoatRD
+    gloves: ClothingHandsGlovesColorPurple

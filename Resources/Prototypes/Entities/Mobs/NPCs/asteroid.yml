@@ -19,13 +19,9 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - SlowedDown
-    - Stutter
-    - Stun
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: StandingState
   - type: Tag
@@ -74,7 +70,7 @@
     range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob #DeltaV - Changed to SalvageMob to not be friendly to Ovinia
   - type: HTN
     constantlyReplan: false
     rootTask:
@@ -108,11 +104,12 @@
       path: /Audio/Items/crowbar.ogg
 
 - type: entity
+  parent: BaseAction
   id: ActionGoliathTentacle
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: EntityWorldTargetAction
+  - type: Action
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -122,9 +119,11 @@
       state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
-    event: !type:GoliathSummonTentacleAction
     useDelay: 8
+  - type: TargetAction
     range: 10
+  - type: WorldTargetAction
+    event: !type:GoliathSummonTentacleAction
 
 - type: entity
   id: GoliathTentacle
@@ -243,7 +242,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -297,7 +296,7 @@
         acts: [ "Destruction" ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -380,12 +379,12 @@
       Dead:
         Base: basilisk_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 3.5
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      75: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -397,6 +396,7 @@
         Piercing: 5
   - type: Gun
     fireRate: 0.75
+    projectileSpeed: 10.0 # When we get predicted guns and projectiles this should be raised to like 15, 15 mis-predicts too much right now unfortunately.
     selectedMode: SemiAuto
     showExamineText: false
     availableModes: [ SemiAuto ]
@@ -414,7 +414,7 @@
     chemicalMaxVolume: 0
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: BasiliskCompound

@@ -54,6 +54,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+        CHANGELOG_FILE: "Resources/Changelog/DeltaVChangelog.yml"
+
+    - name: Publish maps changelog (Discord)
+      continue-on-error: true
+      run: Tools/actions_changelogs_since_last_run.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+        CHANGELOG_FILE: "Resources/Changelog/Maps.yml"
 
     - name: Publish changelog (RSS)
       continue-on-error: true

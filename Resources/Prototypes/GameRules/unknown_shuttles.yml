@@ -47,7 +47,7 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
     weight: 5 # DeltaV - was 10, all of these kinda suck
     reoccurrenceDelay: 30
     duration: 1

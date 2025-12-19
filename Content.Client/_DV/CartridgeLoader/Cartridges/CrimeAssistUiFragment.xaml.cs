@@ -59,10 +59,10 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
         {
             string question = $"\n[font size=15]{Loc.GetString(page.LocKey!)}[/font]";
 
-            if (question.ToLower().Contains("sophont"))
+            if (question.ToLower().Contains("employee"))
             {
-                string sophontExplanation = Loc.GetString("crime-assist-sophont-explanation");
-                question += $"\n[font size=8][color=#999999]{sophontExplanation}[/color][/font]";
+                string employeeExplanation = Loc.GetString("crime-assist-employee-explanation");
+                question += $"\n[font size=8][color=#999999]{employeeExplanation}[/color][/font]";
             }
 
             Title.SetMarkup(question);
@@ -78,6 +78,7 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
                 CrimeSeverity.Innocent => "#39a300",
                 CrimeSeverity.Misdemeanour => "#7b7b30",
                 CrimeSeverity.Felony => "#7b5430",
+                CrimeSeverity.GrandFelony => "#7b3730",
                 CrimeSeverity.Capital => "#7b2e30",
                 _ => "#ff00ff"
             };

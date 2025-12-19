@@ -3,22 +3,28 @@
 - type: loadout
   id: SecurityFirearmWeaponPistolPollock
   equipment:
-    pocket1: WeaponPistolPollockNonlethal
+    pocket1: WeaponPistolPollock
 
 - type: loadout
   id: SecurityFirearmWeaponPistolSLP57
   equipment:
-    pocket1: WeaponPistolSLP57Nonlethal
+    pocket1: WeaponPistolSLP57
 
 - type: loadout
   id: SecurityFirearmWeaponPistolMk58
   equipment:
-    pocket1: WeaponPistolMk58Nonlethal
+    pocket1: WeaponPistolMk58
 
 - type: loadout
   id: SecurityFirearmWeaponDisabler
   equipment:
     pocket1: WeaponDisabler
+
+- type: loadout
+  id: SecurityFirearmTruncheon
+  storage:
+    back:
+    - Truncheon
 
 # Ammo
 
@@ -78,6 +84,22 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecTurtle
 
+- type: loadout
+  id: SeniorSecOfficerFormalSuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecFormal
+
+- type: loadout
+  id: SeniorSecOfficerFormalSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecFormal
+
 # OuterClothing
 
 - type: loadout
@@ -106,3 +128,15 @@
   id: SecurityPoncho
   equipment:
     neck: ClothingNeckCWPSec
+
+# Gloves
+
+- type: loadout
+  id: SecurityClothingHandsGlovesColorBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: SecurityClothingHandsGlovesFingerless
+  equipment:
+    gloves: ClothingHandsGlovesFingerless

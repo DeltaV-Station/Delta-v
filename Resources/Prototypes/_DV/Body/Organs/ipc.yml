@@ -1,0 +1,9 @@
+- type: entity
+  parent: OrganIPCPump
+  id: OrganIPCSpacePump
+  name: pressurized micro pump
+  description: "A pressure-resistant micro pump, able to work even in the depths of space."
+  components:
+  - type: Organ
+    onAdd:
+    - type: PressureImmunity

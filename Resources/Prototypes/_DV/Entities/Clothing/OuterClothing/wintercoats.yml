@@ -1,13 +1,8 @@
 - type: entity
   abstract: true
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterArmoredWinterCoat
   components:
-  - type: TemperatureProtection
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1
-  - type: Item
-    size: Normal
   - type: Armor
     modifiers:
       coefficients:
@@ -15,21 +10,6 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.75
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-  - type: StaticPrice
-    price: 50
 
 - type: entity
   abstract: true

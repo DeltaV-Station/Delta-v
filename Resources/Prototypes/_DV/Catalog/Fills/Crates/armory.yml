@@ -68,3 +68,14 @@
     contents:
     - id: WatchdogImplanter
       amount: 3
+
+- type: entity
+  id: CrateNT3
+  parent: CrateWeaponSecure
+  name: NT-3 crate
+  description: Contains the refurbished NT-3, along with two magazine boxes filled with .40 anti-material ammunition and a blueprint for the ammunition.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: NT3Table

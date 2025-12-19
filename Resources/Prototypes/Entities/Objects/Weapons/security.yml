@@ -8,7 +8,7 @@
     sprite: Objects/Weapons/Melee/stunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 50
   - type: ItemToggle
@@ -63,8 +63,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: StaticPrice
@@ -138,12 +138,13 @@
       sprite: Objects/Weapons/Melee/flash.rsi
       layers:
       - state: flash
-        map: [ "enum.FlashVisuals.BaseLayer" ]
+        map: [ "enum.FlashVisualLayers.BaseLayer" ]
       - state: flashing
-        map: [ "enum.FlashVisuals.LightLayer" ]
+        map: [ "enum.FlashVisualLayers.LightLayer" ]
         visible: false
         shader: unshaded
     - type: Flash
+      flashingTime: 2 # DeltaV - serialize flashingTime variable here to line up with delay variable, which have to match
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon
@@ -155,16 +156,20 @@
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
+    - type: UseDelay
+      # DeltaV - Reduce delay from 4 to 2
+      delay: 2 # has to be the same as the FlashingTime datafield in FlashComponent
+    - type: UseDelayOnMeleeHit
     - type: StaticPrice
       price: 40
     - type: Appearance
     - type: GenericVisualizer
       visuals:
         enum.FlashVisuals.Burnt:
-          enum.FlashVisuals.BaseLayer:
+          enum.FlashVisualLayers.BaseLayer:
             True: {state: burnt}
         enum.FlashVisuals.Flashing:
-          enum.FlashVisuals.LightLayer:
+          enum.FlashVisualLayers.LightLayer:
             True: {visible: true}
             False: {visible: false}
     - type: GuideHelp
@@ -188,6 +193,7 @@
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:
     - type: EmitSoundOnTrigger
+      predicted: true
       sound:
         path: /Audio/Weapons/flash.ogg
     - type: FlashOnTrigger

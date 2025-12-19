@@ -1,0 +1,129 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_baked_whole.yml & food_baked_single.yml
+# Base
+
+# Tiered cakes
+
+- type: entity
+  name: incomplete cake
+  parent: FoodCakeBase
+  id: FoodCakeTieredBase
+  abstract: true
+  description: A frosted cake. Too large to eat in without slicing.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Sprite
+    sprite: _Floof/Objects/Consumable/Food/Baked/cake_tiered.rsi
+  - type: Food
+    requiresSpecialDigestion: true # Prevent eating huge cakes without slicing them.
+
+- type: entity
+  parent: FoodCakeTieredBase
+  id: FoodCakeTieredSingle
+  components:
+  - type: Construction
+    graph: CakeTiered
+    node: singleFrosted
+    defaultTarget: doubleFrosted
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Sprite
+    state: single
+
+- type: entity
+  parent: FoodCakeTieredBase
+  id: FoodCakeTieredDoubleUnfrosted
+  components:
+  - type: Construction
+    graph: CakeTiered
+    node: doubleUnfrosted
+    defaultTarget: doubleFrosted
+  - type: Sprite
+    state: double-unfrosted
+
+- type: entity
+  parent: FoodCakeTieredBase
+  id: FoodCakeTieredDouble
+  name: celebration cake
+  description: A huge cake for special occasions. Too large to eat without slicing.
+  components:
+  - type: Construction
+    graph: CakeTiered
+    node: doubleFrosted
+  - type: Sprite
+    state: double
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 130
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 72
+        - ReagentId: Sugar
+          Quantity: 36
+        - ReagentId: Vitamin
+          Quantity: 12
+  - type: SliceableFood
+    slice: FoodCakeTieredSlice
+    count: 12
+
+- type: entity
+  parent: FoodCakeTieredBase
+  id: FoodCakeTieredTripleUnfrosted
+  components:
+  - type: Construction
+    graph: CakeTiered
+    node: tripleUnfrosted
+    defaultTarget: tripleFrosted
+  - type: Sprite
+    state: triple-unfrosted
+
+- type: entity
+  parent: FoodCakeTieredBase
+  id: FoodCakeTieredTriple
+  name: wedding cake
+  description: A gargantuan decorated cake for weddings. Too large to eat without slicing.
+  components:
+  - type: Construction
+    graph: CakeTiered
+    node: tripleFrosted
+  - type: Sprite
+    state: triple
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 200
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 108
+        - ReagentId: Sugar
+          Quantity: 54
+        - ReagentId: Vitamin
+          Quantity: 18
+  - type: SliceableFood
+    slice: FoodCakeTieredSlice
+    count: 18
+
+- type: entity
+  name: slice of cake
+  parent: FoodCakeSliceBase
+  id: FoodCakeTieredSlice
+  components:
+  - type: Sprite
+    sprite: _Floof/Objects/Consumable/Food/Baked/cake_tiered.rsi
+    state: slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 1

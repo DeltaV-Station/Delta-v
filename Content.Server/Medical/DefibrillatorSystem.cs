@@ -202,7 +202,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         else
         {
             if (_mobState.IsDead(target, mob))
-                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
+                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid, canSever: false); // DeltaV - Stop Defibs from Nuggetizing people.
 
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&

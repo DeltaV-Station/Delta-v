@@ -19,5 +19,14 @@
   id: NyanoGladiatorGear
   equipment:
     id: GladiatorPDA
-    ears: ClothingHeadsetGrey
+    ears: ClothingHeadsetPrison
   #any other possessions, spawn in cell
+
+- type: chameleonOutfit
+  id: GladiatorChameleonOutfit
+  job: Gladiator
+  equipment:
+    id: GladiatorPDA
+    ears: ClothingHeadsetPrison
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    outerClothing: ClothingOuterArmorGladiator

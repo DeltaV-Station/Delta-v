@@ -3,7 +3,7 @@
   parent: BaseMail
   abstract: true
   id: BaseMailLarge
-  name: mail-large-item-name-unaddressed
+#  name: mail-large-item-name-unaddressed # DeltaV - use fluent attributes instead
   components:
   - type: Item
     size: Ginormous

@@ -10,3 +10,16 @@
     Telecrystal: 4 # 1 TC more expensive than regular due to disguise.
   categories:
   - UplinkExplosives
+
+- type: listing
+  id: UplinkMothroachGrenade
+  name: uplink-mothroach-grenade-name
+  description: uplink-mothroach-grenade-desc
+  productEntity: MothroachGrenade
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkExplosives

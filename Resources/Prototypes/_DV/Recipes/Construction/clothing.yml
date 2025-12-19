@@ -15,6 +15,14 @@
   objectType: Item
 
 - type: construction
+  id: ClothingEyesPrescriptionDiagHud
+  graph: PrescriptionDiagHud
+  startNode: start
+  targetNode: prescdiaghud
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
   id: ClothingEyesGlassesCorpsman
   graph: GlassesCorpsHUD
   startNode: start
@@ -43,5 +51,13 @@
   graph: SharkminnowShoes
   startNode: start
   targetNode: sharkminnowShoes
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: SkiaHoodie
+  graph: SkiaHoodie
+  startNode: start
+  targetNode: skiaHoodie
   category: construction-category-clothing
   objectType: Item

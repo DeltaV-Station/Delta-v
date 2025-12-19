@@ -23,6 +23,11 @@
       - Sheet
       - RawMaterial
       - Ingot
+  # Begin DeltaV Additions
+  - type: MaterialStorageMagnetPickup
+    magnetEnabled: True
+    range: 0.30
+  # End DeltaV Additions
   - type: AutomationSlots # Goobstation
     slots:
     - !type:AutomatedMaterialStorage

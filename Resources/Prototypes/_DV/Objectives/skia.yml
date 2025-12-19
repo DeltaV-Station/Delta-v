@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseObjective
+  id: SkiaReapObjective
+  name: Reap the damned soul.
+  description: Ensure this soul is released from its body at least once.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-skia
+    unique: false
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+  - type: RoleRequirement
+    roles:
+    - SkiaRole
+  - type: KillPersonCondition
+    requireDead: true
+  - type: TargetObjective
+    title: objective-condition-reap-soul-title
+  - type: PickRandomPerson
+    filters:
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+  - type: RerollAfterCompletion
+    rerollObjectivePrototype: SkiaReapObjective
+    rerollObjectiveMessage: objective-condition-reap-soul-reroll-message

@@ -1,5 +1,4 @@
-# like HolosignWetFloor but no sprite or crucially, TimedDespawn
-# this is so holofans can never run out
+# like HolosignWetFloor but no sprite.
 - type: entity
   abstract: true
   id: BaseHolosign
@@ -11,6 +10,12 @@
   - type: Physics
     bodyType: Static
     canCollide: false
+  - type: TimedDespawnDetailed
+    lifetime: 90
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: "#ffff00" # Yellow
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -21,3 +26,20 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseHolosign
+  id: HolosignEng
+  name: engineering caution sign
+  description: What's the worst that could lie beyond?
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Holo/eng.rsi
+    state: icon
+  - type: TimedDespawnDetailed
+    lifetime: 90
+  - type: Holosign
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: "#ffa500" # Orange

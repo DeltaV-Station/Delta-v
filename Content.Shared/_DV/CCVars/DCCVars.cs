@@ -95,10 +95,22 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.no_vision_filters", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables the fullscreen shader at 700+ glimmer.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableGlimmerShader =
+        CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// What year it is in the game. Actual value shown in game is server date + this value.
+    /// </summary>
+    public static readonly CVarDef<int> YearOffset =
+        CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
 
     /*
      * Feedback webhook
@@ -156,7 +168,7 @@ public sealed partial class DCCVars
         CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// A string containing a list of newline-separated strings to be highlighted in the chat.
+    /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
     /// </summary>
     public static readonly CVarDef<string> ChatHighlights =
         CVarDef.Create("deltav.chat.highlights",
@@ -167,6 +179,7 @@ public sealed partial class DCCVars
     /// <summary>
     /// An option to toggle the automatic filling of the highlights with the character's info, if available.
     /// </summary>
+    [Obsolete("Use CCVar.ChatAutoFillHighlights instead.")]
     public static readonly CVarDef<bool> ChatAutoFillHighlights =
         CVarDef.Create("deltav.chat.auto_fill_highlights",
             false,
@@ -176,6 +189,7 @@ public sealed partial class DCCVars
     /// <summary>
     /// The color in which the highlights will be displayed.
     /// </summary>
+    [Obsolete("Use CCVar.ChatHighlightsColor instead.")]
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("deltav.chat.highlights_color",
             "#17FFC1FF",
@@ -212,7 +226,7 @@ public sealed partial class DCCVars
     /// How much entropy a convert is worth towards the next monument tier.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultistEntropyValue =
-        CVarDef.Create("cosmiccult.cultist_entropy_value", 7, CVar.SERVER);
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 8, CVar.SERVER);
 
     /// <summary>
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.
@@ -233,20 +247,20 @@ public sealed partial class DCCVars
         CVarDef.Create("cosmiccult.steward_vote_delay", 25, CVar.SERVER);
 
     /// <summary>
-    /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
+    /// The delay between the monument getting upgraded to tier 2 and rifts starting to appear. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT2RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 180, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 30, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT3RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 100, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 180, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the finale starting.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
-        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 110, CVar.SERVER);
+        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 1, CVar.SERVER);
 }

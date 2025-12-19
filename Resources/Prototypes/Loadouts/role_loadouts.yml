@@ -65,12 +65,12 @@
   groups:
   - GroupTankHarness
   - BartenderHead
-  - BartenderGlasses # DeltaV - replaces Glasses
   - BartenderNeck # DeltaV
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
   - BartenderPDADelta # DeltaV
+  - BartenderGlasses # DeltaV - replaces Glasses
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -137,6 +137,7 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - ChaplainBible
   - Glasses
   - Survival
   - Trinkets
@@ -179,6 +180,7 @@
   groups:
   - GroupTankHarness
   - ClownHead
+  - ClownMask # DeltaV
   - Scarfs # DeltaV
   - ClownJumpsuit
   - ClownBackpack
@@ -276,6 +278,7 @@
   - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
+  - ChiefEngineerGloves # DeltaV
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
@@ -285,8 +288,10 @@
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
+  - StationEngineerNeck # DeltaV
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - StationEngineerShoes # DeltaV
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
@@ -309,7 +314,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - StationEngineerHead # DeltaV - Safety First!
+  - AtmosphericTechnicianHead # DeltaV
   - AtmosphericTechnicianNeck # DeltaV
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
@@ -377,6 +382,7 @@
   - SecurityBelt
   - HeadofSecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was HeadofSecurityOuterClothing
   - HeadofSecurityShoes # DeltaV - winter boots
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -393,7 +399,9 @@
   - SecurityBackpack
   - SecurityBelt
   - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
   - SecurityShoes
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -409,9 +417,11 @@
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was SecurityOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -428,6 +438,7 @@
   - SecurityBackpack
   - DetectiveOuterClothingDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveOuterClothing
   - SecurityShoes
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -440,9 +451,11 @@
   groups:
   - SecurityHead # DeltaV
   - SecurityNeck # DeltaV
+  - SecurityGloves # DeltaV - Security can start with gloves
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
+  - Glasses # DeltaV
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -555,7 +568,6 @@
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
-  - Glasses
   # Begin DeltaV additions
   - SurvivalMedical # Replaces Survival
   - PsychologistPDADelta
@@ -565,6 +577,7 @@
   - PsychologistShoes
   - PsychologistBelt
   # End DeltaV additions
+  - Glasses
   - Trinkets
   - GroupSpeciesBreathTool
 

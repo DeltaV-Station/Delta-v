@@ -1,10 +1,9 @@
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Damage; // DeltaV - EMP damage
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Emp;
-using Content.Shared.Examine;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Content.Shared._NF.Emp.Components; // Frontier
 using Robust.Server.GameStates; // Frontier: EMP Blast PVS
@@ -16,7 +15,6 @@ namespace Content.Server.Emp;
 public sealed class EmpSystem : SharedEmpSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!; // Frontier: EMP Blast PVS
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
@@ -25,13 +23,24 @@ public sealed class EmpSystem : SharedEmpSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<EmpOnTriggerComponent, TriggerEvent>(HandleEmpTrigger);
 
         SubscribeLocalEvent<EmpDisabledComponent, RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<EmpDisabledComponent, RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
         SubscribeLocalEvent<EmpDisabledComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreaker);
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
+    }
+
+    /// <summary>
+    /// DeltaV - Triggers an EMP pulse at the given location, by first raising an <see cref="EmpAttemptEvent"/>, then a raising <see cref="EmpPulseEvent"/> on all entities in range.
+    /// Shim for Upstream EmpPulse method.
+    /// </summary>
+    /// <param name="coordinates">The location to trigger the EMP pulse at.</param>
+    /// <param name="range">The range of the EMP pulse.</param>
+    /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
+    /// <param name="duration">The duration of the EMP effects.</param>
+    public override void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration)
+    {
+        this.EmpPulse(coordinates, range, energyConsumption, duration, null);
     }
 
     /// <summary>
@@ -41,11 +50,14 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="range">The range of the EMP pulse.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
-    public void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration)
+    /// <param name="damage">DeltaV - the damage dealt by the EMP to silicons instead of draining their power cells.</param>
+    public void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration, DamageSpecifier? damage = null)
     {
+        // TODO: AUM - Slightly refactor this
+        if (damage == null) damage = new() { DamageDict = new() { { "Ion", 80 } } }; // DeltaV - EMP damage
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
         {
-            TryEmpEffects(uid, energyConsumption, duration);
+            TryEmpEffects(uid, energyConsumption, duration, damage);
         }
 
         var empBlast = Spawn(EmpPulseEffectPrototype, coordinates); // Frontier: Added visual effect
@@ -59,19 +71,36 @@ public sealed class EmpSystem : SharedEmpSystem
     }
 
     /// <summary>
+    ///   Triggers an EMP pulse at the given location, by first raising an <see cref="EmpAttemptEvent"/>, then a raising <see cref="EmpPulseEvent"/> on all entities in range.
+    /// </summary>
+    /// <param name="coordinates">The location to trigger the EMP pulse at.</param>
+    /// <param name="range">The range of the EMP pulse.</param>
+    /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
+    /// <param name="duration">The duration of the EMP effects.</param>
+    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, float duration)
+    {
+        foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
+        {
+            TryEmpEffects(uid, energyConsumption, duration);
+        }
+        Spawn(EmpPulseEffectPrototype, coordinates);
+    }
+
+    /// <summary>
     ///    Attempts to apply the effects of an EMP pulse onto an entity by first raising an <see cref="EmpAttemptEvent"/>, followed by raising a <see cref="EmpPulseEvent"/> on it.
     /// </summary>
     /// <param name="uid">The entity to apply the EMP effects on.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
-    public void TryEmpEffects(EntityUid uid, float energyConsumption, float duration)
+    /// <param name="damage">DeltaV - the damage dealt by the EMP to silicons instead of draining their power cells.</param>
+    public void TryEmpEffects(EntityUid uid, float energyConsumption, float duration, DamageSpecifier? damage = null)
     {
         var attemptEv = new EmpAttemptEvent();
         RaiseLocalEvent(uid, attemptEv);
         if (attemptEv.Cancelled)
             return;
 
-        DoEmpEffects(uid, energyConsumption, duration);
+        DoEmpEffects(uid, energyConsumption, duration, damage); // DeltaV - EMP damage
     }
 
     /// <summary>
@@ -80,19 +109,21 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="uid">The entity to apply the EMP effects on.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
-    public void DoEmpEffects(EntityUid uid, float energyConsumption, float duration)
+    /// <param name="damage">DeltaV - the damage dealt by the EMP to silicons instead of draining their power cells.</param>
+    public void DoEmpEffects(EntityUid uid, float energyConsumption, float duration, DamageSpecifier? damage = null)
     {
+        if (damage == null) damage = new() { DamageDict = new() { { "Ion", 80 } } }; // DeltaV - EMP damage
         var ev = new EmpPulseEvent(energyConsumption, false, false, TimeSpan.FromSeconds(duration));
         RaiseLocalEvent(uid, ref ev);
+
         if (ev.Affected)
-        {
             Spawn(EmpDisabledEffectPrototype, Transform(uid).Coordinates);
-        }
-        if (ev.Disabled)
-        {
-            var disabled = EnsureComp<EmpDisabledComponent>(uid);
-            disabled.DisabledUntil = Timing.CurTime + TimeSpan.FromSeconds(duration);
-        }
+
+        if (!ev.Disabled)
+            return;
+
+        var disabled = EnsureComp<EmpDisabledComponent>(uid);
+        disabled.DisabledUntil = Timing.CurTime + TimeSpan.FromSeconds(duration);
     }
 
     public override void Update(float frameTime)
@@ -109,17 +140,6 @@ public sealed class EmpSystem : SharedEmpSystem
                 RaiseLocalEvent(uid, ref ev);
             }
         }
-    }
-
-    private void OnExamine(EntityUid uid, EmpDisabledComponent component, ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString("emp-disabled-comp-on-examine"));
-    }
-
-    private void HandleEmpTrigger(EntityUid uid, EmpOnTriggerComponent comp, TriggerEvent args)
-    {
-        EmpPulse(_transform.GetMapCoordinates(uid), comp.Range, comp.EnergyConsumption, comp.DisableDuration);
-        args.Handled = true;
     }
 
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
@@ -146,8 +166,9 @@ public sealed class EmpSystem : SharedEmpSystem
 /// <summary>
 /// Raised on an entity before <see cref="EmpPulseEvent"/>. Cancel this to prevent the emp event being raised.
 /// </summary>
-public sealed partial class EmpAttemptEvent : CancellableEntityEventArgs
+public sealed partial class EmpAttemptEvent(DamageSpecifier? damage = null) : CancellableEntityEventArgs // DeltaV - EMP damage
 {
+    public DamageSpecifier? Damage = (damage == null) ? new() { DamageDict = new() { { "Ion", 80 } } } : damage; // DeltaV - EMP damage;
 }
 
 [ByRefEvent]

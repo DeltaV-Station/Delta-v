@@ -21,6 +21,9 @@
           Piercing: 4
         groups:
           Burn: 3
+      catchingFailDamage:
+        types:
+          Blunt: 1
 # DeltaV - Commenting out the clown snore sound because I am not fond of it (it makes me itchy and feral). By "I", I mean Leonardo_DaBepis.
 #    - type: SleepEmitSound
 #      snore: /Audio/Voice/Misc/silly_snore.ogg
@@ -31,7 +34,7 @@
 - type: startingGear
   id: ClownGear
   equipment:
-    mask: ClothingMaskClown
+    #mask: ClothingMaskClown # DeltaV: different masks in loadouts
     pocket1: BikeHorn
     pocket2: ClownRecorder
     #id: ClownPDA # DeltaV: different PDAs in loadouts
@@ -40,3 +43,13 @@
     back:
     - RubberStampClown
     - CrayonRainbow
+
+- type: chameleonOutfit
+  id: ClownChameleonOutfit
+  job: Clown
+  equipment:
+    head: ClothingHeadHatXmasCrown
+    eyes: ClothingEyesGlassesCheapSunglasses
+    neck: ClothingHeadHatFlowerWreath
+    outerClothing: ClothingOuterClownPriest
+    gloves: ClothingHandsGlovesColorYellowBudget

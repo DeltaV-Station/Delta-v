@@ -1,11 +1,11 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.Popups;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared.Maps;
+using Content.Shared.Station.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -17,7 +17,7 @@ public sealed class CosmicMonumentSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly MonumentSystem _monument = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -43,12 +43,21 @@ public sealed class CosmicMonumentSystem : EntitySystem
     //actually might not want to fix it?
     //I've got the client stuff working well & this works out to making the ghost stay up so long as you consistently try (& fail) to place the monument
     //guess I should ask for specific feedback for this one tiny feature?
+    //they never asked for specific feedback for this one tiny feature and I can't be bothered fixing it. If it ain't broke, don't fix it.
     private void OnCosmicPlaceMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicPlaceMonument args)
     {
+        if (_cultRule.AssociatedGamerule(uid) is not {} cult)
+            return;
+
         if (!VerifyPlacement(uid, out var pos))
             return;
 
-        _actions.RemoveAction(uid, uid.Comp.CosmicMonumentPlaceActionEntity);
+        cult.Comp.MonumentPlaced = true;
+        var leadQuery = EntityQueryEnumerator<CosmicCultLeadComponent>(); // If there are ever multiple leaders for some reason, they all use the action once it's used.
+        while (leadQuery.MoveNext(out var lead, out var leadComp))
+        {
+            _actions.RemoveAction(lead, leadComp.CosmicMonumentPlaceActionEntity);
+        }
 
         Spawn(MonumentCollider, pos);
         var monument = Spawn(uid.Comp.MonumentPrototype, pos);
@@ -64,7 +73,12 @@ public sealed class CosmicMonumentSystem : EntitySystem
         if (!VerifyPlacement(uid, out var pos))
             return;
 
-        _actions.RemoveAction(uid, uid.Comp.CosmicMonumentMoveActionEntity);
+        cult.Comp.MonumentMoved = true;
+        var leadQuery = EntityQueryEnumerator<CosmicCultLeadComponent>(); // If there are ever multiple leaders for some reason, they all use the action once it's used.
+        while (leadQuery.MoveNext(out var lead, out var leadComp))
+        {
+            _actions.RemoveAction(lead, leadComp.CosmicMonumentMoveActionEntity);
+        }
 
         //delete all old monument colliders for 100% safety
         var colliderQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
@@ -111,7 +125,7 @@ public sealed class CosmicMonumentSystem : EntitySystem
         var worldPos = _transform.GetWorldPosition(xform);
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, spaceDistance)))
         {
-            if (tile.IsSpace(_tileDef))
+            if (_turf.IsSpace(tile))
             {
                 _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-space", ("DISTANCE", spaceDistance)), uid, uid);
                 return false;
@@ -124,7 +138,7 @@ public sealed class CosmicMonumentSystem : EntitySystem
         EntityUid? stationGrid = null;
 
         if (TryComp<StationDataComponent>(station, out var stationData))
-            stationGrid = _station.GetLargestGrid(stationData);
+            stationGrid = _station.GetLargestGrid((station.Value, stationData));
 
         if (stationGrid is not null && stationGrid != xform.GridUid)
         {

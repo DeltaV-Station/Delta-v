@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseAction
   id: ActionFoxfire
   name: Create Foxfire
   description: Form a cool, gently glowing wisp of flame
@@ -6,16 +7,19 @@
   - type: LimitedCharges
     maxCharges: 3
     disableWhenEmpty: false
-  - type: InstantAction
+  - type: Action
     icon: { sprite: _DV/Structures/Specific/Species/Kitsune/foxfire.rsi, state: icon }
+  - type: InstantAction
     event: !type:CreateFoxfireActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionKitsuneMorph
   name: Kitsune Shapeshift
   description: Shift into your fox form
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Mobs/Animals/fox.rsi, state: fox }
     useDelay: 2
+  - type: InstantAction
     event: !type:MorphIntoKitsune

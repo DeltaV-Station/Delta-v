@@ -6,6 +6,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
@@ -268,10 +269,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
             _appearance.SetData(ent, MonumentVisuals.FinaleReached, true);
     }
 
-    //note - these ar the thresholds for moving to the next tier
-    //so t1 -> 2 needs 20% of the crew
-    //t2 -> 3 needs 40%
-    //and t3 -> finale needs an extra 20 entropy
+    //note - these are the thresholds for moving to the next tier
+    //so t1 -> 2 needs 1/3 of CosmicCultTargetConversionPercent
+    //t2 -> 3 needs 2/3 of CosmicCultTargetConversionPercent
+    //and t3 -> finale needs full CosmicCultTargetConversionPercent
     public void UpdateMonumentReqsForTier(Entity<MonumentComponent> monument, int tier)
     {
         if (_cosmicRule.AssociatedGamerule(monument) is not { } cult)
@@ -283,15 +284,15 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             case 1:
                 monument.Comp.ProgressOffset = 0;
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 2:
-                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 3:
-                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
         }
     }
@@ -383,7 +384,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
-            _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
+            if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
+                _actions.AddAction(polyComp.Parent.Value, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent.Value);
+            else
+                _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
         }
 
         Dirty(uid);
@@ -413,8 +417,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
             EnsureComp<PressureImmunityComponent>(cultist);
             EnsureComp<TemperatureImmunityComponent>(cultist);
 
-            _damage.SetDamageContainerID(cultist, "BiologicalMetaphysical");
-
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
             {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
@@ -430,6 +432,8 @@ public sealed class MonumentSystem : SharedMonumentSystem
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
             _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
+            if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
+                _actions.RemoveAction(polyComp.Parent.Value, polyLeaderComp.CosmicMonumentMoveActionEntity);
         }
 
         Dirty(uid);

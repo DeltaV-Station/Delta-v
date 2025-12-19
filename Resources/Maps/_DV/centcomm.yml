@@ -2886,14 +2886,6 @@ entities:
     - type: Transform
       pos: 4.5448904,18.624214
       parent: 1668
-- proto: ActionToggleLight
-  entities:
-  - uid: 6997
-    components:
-    - type: Transform
-      parent: 6996
-    - type: InstantAction
-      container: 6996
 - proto: AirCanister
   entities:
   - uid: 3695
@@ -27968,22 +27960,8 @@ entities:
     - type: Transform
       pos: 19.321873,28.031559
       parent: 1668
-    - type: HandheldLight
-      toggleActionEntity: 6997
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6997
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
 - proto: LargeBeaker
   entities:
   - uid: 5066

@@ -100,13 +100,17 @@
   mapPath: /Maps/_DV/Salvage/DV-security-chunk.yml
   sizeString: salvage-map-wreck-size-large
 
-# TODO: make one for this from /Maps/Salvage/engineering-chunk.yml
-#- type: salvageMap
-#  id: DVEngineeringChunk
-#  mapPath: /Maps/_DV/Salvage/DV-engineering-chunk.yml
-#  sizeString: salvage-map-wreck-size-large
+- type: salvageMap
+  id: DVEngineeringChunk
+  mapPath: /Maps/_DV/Salvage/DV-engineering-chunk.yml
+  sizeString: salvage-map-wreck-size-large
 
 - type: salvageMap
   id: DVOutpostArm
   mapPath: /Maps/_DV/Salvage/DV-outpost-arm.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: DVAbandonedOutpost
+  mapPath: /Maps/_DV/Salvage/DV_abandoned_outpost.yml
   sizeString: salvage-map-wreck-size-large

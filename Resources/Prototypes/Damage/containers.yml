@@ -6,6 +6,8 @@
     - Toxin
     - Airloss
     - Genetic
+  supportedTypes: # DeltaV - add shadow damage
+    - Shadow
 
 - type: damageContainer
   id: Inorganic
@@ -28,6 +30,7 @@
   id: Silicon
   supportedGroups:
     - Brute
+    - Electronic # DeltaV
   supportedTypes:
     - Heat
     - Shock

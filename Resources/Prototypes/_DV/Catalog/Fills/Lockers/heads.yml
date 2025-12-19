@@ -5,7 +5,6 @@
   id: LockerFillQuarterMasterDeltaV
   table: !type:AllSelector
     children:
-    - id: SpaceCashLuckyBill # LO steal objective, see Resources/Prototypes/_DV/Entities/Objects/Misc/first_bill.yml
     - id: BoxPDACargo
     - id: QuartermasterIDCard
     - id: ClothingShoesBootsWinterLogisticsOfficer
@@ -87,6 +86,7 @@
     - id: EpistemicsTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
+    - id: CosmicCenser
 
 - type: entityTable
   id: LockerFillHeadOfSecurityDeltaV

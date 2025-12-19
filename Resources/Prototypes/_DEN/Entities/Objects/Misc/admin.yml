@@ -1,0 +1,69 @@
+# SPDX-FileCopyrightText: 2025 MajorMoth <61519600+MajorMoth@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
+  id: AdminToolbelt
+  parent: ClothingBeltChiefEngineer
+  name: admin toolbelt
+  description: A magical toolbelt that is NOT a shrunken chief engineer's toolbelt.
+  suffix: Admin
+  components:
+  - type: Item
+    size: Normal
+    shape: null
+  - type: StorageFill
+    contents:
+      - id: ToolDebug
+      - id: WelderExperimental
+      - id: Multitool
+      - id: HolofanProjector
+      - id: GasAnalyzer
+      - id: trayScanner
+      - id: OmnimedTool
+      - id: BaseUplinkRadioDebug
+      - id: LightReplacer
+      - id: SprayPainter
+      - id: GeigerCounter
+      - id: AccessConfiguratorUniversal
+      - id: AdminRCD
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    whitelist: null
+    maxItemSize: Normal
+
+- type: entity
+  id: AdminMaterialBox
+  parent: BoxCardboard
+  name: admin material box
+  description: A box of basic materials.
+  suffix: Admin
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlastic
+    - id: MaterialWoodPlank
+    - id: MaterialCloth
+    - id: PartRodMetal
+
+- type: entity
+  id: AdminRCD
+  parent: RCDExperimental
+  name: admin RCD
+  description: An RCD with a never-ending supply of compressed matter.
+  suffix: Admin
+  components:
+  - type: LimitedCharges
+    maxCharges: 100
+  - type: AutoRecharge
+    rechargeDuration: 0

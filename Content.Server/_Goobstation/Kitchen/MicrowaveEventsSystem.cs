@@ -23,6 +23,11 @@ public sealed class MicrowaveEventsSystem : EntitySystem
 
     private void OnRemoveAttempt(Entity<ActiveMicrowaveComponent> ent, ref ContainerIsRemovingAttemptEvent args)
     {
-        args.Cancel();
+        // DeltaV - start of microwave ejection bugfix
+        if (ent.Comp.LifeStage < ComponentLifeStage.Stopping) 
+        {
+            args.Cancel();
+        }
+        // DeltaV - end of microwave ejection bugfix
     }
 }

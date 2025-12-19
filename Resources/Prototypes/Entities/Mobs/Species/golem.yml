@@ -237,9 +237,9 @@
 #   - type: Golem
 #   - type: GenericVisualizer
 #     visuals:
-#       enum.ToggleVisuals.Toggled:
-#         enum.ToggleVisuals.Layer:
-#           True: { visible: true }
+#       enum.ToggleVisuals.Toggled:  // todo this needs to be migrated
+#         enum.ToggleVisuals.Layer:  // if this is ever re-enabled
+#           True: { visible: true }  // https://github.com/space-wizards/space-station-14/pull/35341
 #           False: { visible: false }
 #       enum.CreamPiedVisuals.Creamed:
 #         clownedon:
@@ -254,8 +254,8 @@
 #         toggleAction:
 #           name: action-name-show-laws
 #           description: action-description-show-laws
-#           icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
-#           iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
+#           icon: { sprite: Structures/Wallmounts/posters.rsi, state: poster11_legit } #someone wanna make new icons?
+#           iconOn: { sprite: Structures/Wallmounts/posters.rsi, state: poster11_legit }
 #           keywords: [ "AI", "console", "interface", "laws", "borg" ]
 #           priority: -3
 #           event: !type:ToggleIntrinsicUIEvent

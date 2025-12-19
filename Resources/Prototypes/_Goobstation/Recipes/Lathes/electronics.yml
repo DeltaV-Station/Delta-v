@@ -11,31 +11,39 @@
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: RoboticArmCircuitboard
-  icon:
-    sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
-    state: icon
+  # Begin DeltaV Removal - Use the circuit board icon instead
+  # icon:
+  #   sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
+  #   state: icon
+  # End DeltaV Removal
   result: RoboticArmCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: ConstructorCircuitboard
-  icon:
-    sprite: _Goobstation/Structures/Machines/constructor.rsi
-    state: icon
+  # Begin DeltaV Removal - Same as above
+  # icon:
+    # sprite: _Goobstation/Structures/Machines/constructor.rsi
+    # state: icon
+  # End DeltaV Removal
   result: ConstructorCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: StorageBinCircuitboard
-  icon:
-    sprite: _Goobstation/Structures/Machines/storage_bin.rsi
-    state: icon
+  # Begin DeltaV Removal - Same as above
+  # icon:
+    # sprite: _Goobstation/Structures/Machines/storage_bin.rsi
+    # state: icon
+  # End DeltaV Removal
   result: StorageBinCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: InteractorCircuitboard
-  icon:
-    sprite: _Goobstation/Structures/Machines/interactor.rsi
-    state: icon
+  # Begin DeltaV Removal - Same as above
+  # icon:
+    # sprite: _Goobstation/Structures/Machines/interactor.rsi
+    # state: icon
+  # End DeltaV Removal
   result: InteractorCircuitboard

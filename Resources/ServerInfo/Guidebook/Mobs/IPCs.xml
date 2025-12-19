@@ -52,14 +52,6 @@
     <GuideEntityEmbed Entity="SheetPlasma" Caption="Plasma Sheets"/>
     Plasma Sheets can be used to repair [color=green]Radiation[/color] damage.
   </Box>
-  <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
-    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
-  </Box>
-  <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
-    IPCs have no blood, but instead have [color=orange]Oil[/color]. Oil packs, which replenish their oil levels, can be ordered by Logistics and printed by Robotics or Engineering.
-  </Box>
   In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
 
   [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]

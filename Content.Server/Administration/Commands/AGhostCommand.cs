@@ -72,7 +72,7 @@ public sealed class AGhostCommand : LocalizedCommands
 
         var mindSystem = _entities.System<SharedMindSystem>();
         var metaDataSystem = _entities.System<MetaDataSystem>();
-        var ghostSystem = _entities.System<SharedGhostSystem>();
+        var ghostSystem = _entities.System<GhostSystem>(); // DeltaV - Was SharedGhostSystem, doesn't need to be
         var transformSystem = _entities.System<TransformSystem>();
         var gameTicker = _entities.System<GameTicker>();
 
@@ -118,5 +118,6 @@ public sealed class AGhostCommand : LocalizedCommands
 
         var comp = _entities.GetComponent<GhostComponent>(ghost);
         ghostSystem.SetCanReturnToBody((ghost, comp), canReturn);
+        ghostSystem.ApplyAdminOOCColor(ghost); // DeltaV
     }
 }

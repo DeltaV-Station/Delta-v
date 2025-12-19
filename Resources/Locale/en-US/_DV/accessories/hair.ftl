@@ -7,3 +7,6 @@ marking-HumanHairClassicLowFade = Fade (Low, Classic)
 marking-HumanHairClassicMedFade = Fade (Medium, Classic)
 marking-HumanHairClassicOmbre = Ombre Classic
 marking-HumanHairClassicLong = Long 1 (Classic)
+marking-HumanHairClassicBun = Classic Bun
+marking-HumanHairLooseBun = Loose Bun
+marking-HumanHairLowPonytail = Low Ponytail

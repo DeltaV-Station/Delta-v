@@ -14,6 +14,10 @@
           visible: false
         - state: biscuit_top
           map: [ "enum.BiscuitVisualLayers.Top" ]
+        - state: paper_stamp-generic
+          map: ["enum.PaperVisualLayers.Stamp"]
+          visible: false
+          sprite: Objects/Misc/bureaucracy.rsi
     - type: Item
       size: Small
     - type: Tag
@@ -77,6 +81,10 @@
         - state: biscuit_secret_top
           map: [ "enum.BiscuitVisualLayers.Top" ]
           visible: true
+        - state: paper_stamp-generic
+          map: ["enum.PaperVisualLayers.Stamp"]
+          visible: false
+          sprite: Objects/Misc/bureaucracy.rsi
 
 - type: entity
   parent: PaperBiscuitCorporate
@@ -122,6 +130,10 @@
         - state: slip_words
           map: [ "enum.PaperVisualLayers.Writing" ]
           visible: false
+        - state: paper_stamp-generic
+          map: ["enum.PaperVisualLayers.Stamp"]
+          visible: false
+          sprite: Objects/Misc/bureaucracy.rsi
     - type: Paper
     - type: ActivatableUI
       key: enum.PaperUiKey.Key
@@ -167,6 +179,10 @@
       - state: corpslip_words
         map: [ "enum.PaperVisualLayers.Writing" ]
         visible: false
+      - state: paper_stamp-generic
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+        sprite: Objects/Misc/bureaucracy.rsi
   - type: PaperVisuals
     backgroundImagePath: "/Textures/_DV/Interface/Paper/paper_background_corpcard.svg.96dpi.png"
     contentMargin: 70.0, 16.0, 70.0, 16.0

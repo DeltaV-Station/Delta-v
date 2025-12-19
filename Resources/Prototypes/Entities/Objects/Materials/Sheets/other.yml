@@ -12,7 +12,7 @@
   - type: Tag
     tags:
     - Sheet
-    - BorgMaterial # DeltaV
+    - ConstructionMaterial
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -118,7 +118,7 @@
   - type: Tag
     tags:
     - Sheet
-    - BorgMaterial # DeltaV
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -142,16 +142,6 @@
     count: 1
 
 - type: entity
-  parent: SheetPlasma
-  id: SheetPlasmaLingering0
-  name: plasma
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
@@ -161,7 +151,7 @@
     tags:
     - Plastic
     - Sheet
-    - BorgMaterial # DeltaV
+    - ConstructionMaterial
   - type: Material
   - type: PhysicalComposition
     materialComposition:

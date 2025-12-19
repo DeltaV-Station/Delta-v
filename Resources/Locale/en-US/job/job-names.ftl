@@ -25,7 +25,8 @@ job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Centcomm Agent
 job-name-reporter = Reporter
 job-name-musician = Musician
-job-name-librarian = Librarian
+# DeltaV - Changed Librarian to Archivist
+# job-name-librarian = Librarian
 # DeltaV - Changed Lawyer to Attorney
 # job-name-lawyer = Lawyer
 job-name-mime = Mime
@@ -52,6 +53,7 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+job-name-cluwne = Cluwne
 
 # unused jobs
 # these are required for the agent ID job icon tooltips

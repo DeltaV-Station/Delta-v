@@ -29,7 +29,8 @@ public sealed class EngraveableSystem : EntitySystem
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString(ent.Comp.EngravedMessage == string.Empty
             ? ent.Comp.NoEngravingText
-            : ent.Comp.HasEngravingText));
+            : ent.Comp.HasEngravingText,
+            ("item", ent.Owner))); //DeltaV - Engravable rings
 
         if (ent.Comp.EngravedMessage != string.Empty)
             msg.AddMarkupPermissive(Loc.GetString(ent.Comp.EngravedMessage));
@@ -66,7 +67,7 @@ public sealed class EngraveableSystem : EntitySystem
                             return;
 
                         ent.Comp.EngravedMessage = message;
-                        _popup.PopupEntity(Loc.GetString(ent.Comp.EngraveSuccessMessage),
+                        _popup.PopupEntity(Loc.GetString(ent.Comp.EngraveSuccessMessage, ("item", ent.Owner)), //DeltaV - Engravable rings
                             actor.PlayerSession.AttachedEntity.Value,
                             actor.PlayerSession,
                             PopupType.Medium);

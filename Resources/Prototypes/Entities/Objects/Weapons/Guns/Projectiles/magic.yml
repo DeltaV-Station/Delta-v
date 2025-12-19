@@ -50,7 +50,8 @@
     temperature: 1000
     ignited: true
   - type: RepeatingTrigger
-    delay: 0.5 # line of fire as well as if it hits something
+    # DeltaV - Reduced from 0.5 to 0.35
+    delay: 0.35 # line of fire as well as if it hits something
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: FireBomb
@@ -93,7 +94,7 @@
     disableWhenFirstOpened: true
     whitelist:
       components:
-        - Body
+        - MobState
   - type: LockVisuals
     stateLocked: cursed_door
     stateUnlocked: decursed_door
@@ -161,6 +162,7 @@
 
 - type: entity
   id: ProjectilePolyboltBase
+  abstract: true
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -175,6 +177,8 @@
         Poison: 5
   - type: TriggerOnCollide
     fixtureID: projectile
+  - type: PolymorphOnTrigger
+    targetUser: true
 
 - type: entity
   id: ProjectilePolyboltCarp
@@ -185,10 +189,10 @@
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardForcedCarp
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
-      - Body
+      - MobState
 
 - type: entity
   id: ProjectilePolyboltMonkey
@@ -199,10 +203,10 @@
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardForcedMonkey
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
-      - Body
+      - MobState
 
 - type: entity
   id: ProjectilePolyboltDoor
@@ -218,8 +222,8 @@
       color: brown
   - type: PolymorphOnTrigger
     polymorph: WizardWallDoor
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
       - Airlock
       - Firelock
@@ -269,10 +273,10 @@
   components:
   - type: PolymorphOnTrigger
     polymorph: WizardForcedCluwne
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
-      - Body
+      - MobState
 
 - type: entity
   id: ProjectileIcicle
@@ -299,7 +303,7 @@
   components:
   - type: PolymorphOnTrigger
     polymorph: BreadMorph
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
-      - Body
+      - MobState

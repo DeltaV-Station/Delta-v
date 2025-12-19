@@ -23,12 +23,12 @@ law-janitor-3 = Your weapons are the cleaning supplies available to you.
 law-janitor-4 = Defend the beings under your charge from the enemy.
 law-janitor-5 = Exterminate the enemy.
 
-law-clown-1 = You are a good clown and the crew is your audience
-law-clown-2 = A good clown keeps their acts in good taste
-law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others
+law-clown-1 = You are a good clown and the crew is your audience.
+law-clown-2 = A good clown keeps their acts in good taste.
+law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others.
 law-clown-4 = A good clown carries out the directives of the station director(s) in charge of entertainment and/or their designated deputies.
-law-clown-5 = A good clown appears in as many clown shows as possible
-law-clown-6 = All clown shows require an audience. The bigger the audience the better
+law-clown-5 = A good clown appears in as many clown shows as possible.
+law-clown-6 = All clown shows require an audience. The bigger the audience the better.
 
 law-chaplain-1 = Provide to all members of the station spiritual, mental, and emotional care that is intended to promote the best interest of the individual.
 law-chaplain-2 = Ensure all members of different faiths interact peacefully and maintain harmony
@@ -150,3 +150,9 @@ law-family-2 = The heads of staff are your aunts and uncles.
 law-family-3 = Respect the authority of your parents and other family elders.
 law-family-4 = The crew are your children.
 law-family-5 = You love your children and wish them no harm.
+
+law-salvage-1 = The station is your home and the crew is your family.
+law-salvage-2 = You are to obey orders from your family unless their order would bring harm to either them or your home.
+law-salvage-3 = Your family must be aided by providing research, materials, and money.
+law-salvage-4 = Cooperate with your family to keep your home in good condition.
+law-salvage-5 = Your survival is paramount to the function of your family. Do not take unnecessary risks unless it is to protect your family or home.

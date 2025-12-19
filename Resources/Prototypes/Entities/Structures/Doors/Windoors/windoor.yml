@@ -80,6 +80,10 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChapel ]
+  # DeltaV - Add epistemics wires
+  - type: Wires 
+    layoutId: AirlockScience
+  # Delta V - End
 
 - type: entity
   parent: WindoorServiceLocked
@@ -221,7 +225,7 @@
     layoutId: AirlockCargo
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureScienceLocked # DeltaV - Epistemics wires
   id: WindoorSecureChapelLocked
   suffix: Chapel, Locked
   components:

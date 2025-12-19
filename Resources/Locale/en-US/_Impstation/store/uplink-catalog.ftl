@@ -11,10 +11,10 @@ uplink-leviathan-name = Leviathan Bundle
 uplink-leviathan-desc = Sometimes, it really is the size that matters. Comes with a Leviathan, 3 explosive rockets, and 2 incendiary rockets.
 
 uplink-magazine-echion-name = Echion canister
-uplink-magazine-echion-desc = A special refueling canister containing 75 units of Echion. Compatible with the Adder and Akurra
+uplink-magazine-echion-desc = A special refueling canister containing 75 units of Echion. Compatible with the Adder and Akurra.
 
 uplink-echion-synth-name = Echion synthesizer
-uplink-echion-synth-desc = An advanced catalyser that produces Echion at a steady rate while powered. Compatible with the Adder and Akurra
+uplink-echion-synth-desc = An advanced catalyser that produces Echion at a steady rate while powered. Compatible with the Adder and Akurra.
 
 uplink-rocketexp-name = Leviathan explosive rocket bundle
 uplink-rocketexp-desc = A box containing 3 explosive rockets compatible with the Leviathan.

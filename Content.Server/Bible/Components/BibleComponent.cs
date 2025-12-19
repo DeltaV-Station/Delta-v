@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint; // Goobstation
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -38,6 +39,18 @@ namespace Content.Server.Bible.Components
         [DataField("damageOnUntrainedUse", required: true)]
         [ViewVariables(VVAccess.ReadWrite)]
         public DamageSpecifier DamageOnUntrainedUse = default!;
+
+        /// <summary>
+        /// How much damage to deal to the entity being smitten - Goob
+        /// </summary>
+        [DataField]
+        public DamageSpecifier SmiteDamage = new() { DamageDict = new Dictionary<string, FixedPoint2>() { { "Holy", 25 } } }; // Ungodly
+
+        /// <summary>
+        /// How long to stun the entity being smitten - Goob
+        /// </summary>
+        [DataField]
+        public TimeSpan SmiteStunDuration = TimeSpan.FromSeconds(8);
 
         /// <summary>
         /// Chance the bible will fail to heal someone with no helmet

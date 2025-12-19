@@ -70,13 +70,13 @@ public sealed class SharedPsionicAbilitiesSystem : EntitySystem
         if (component.PsionicAbility == null)
             return;
 
-        _actions.TryGetActionData( component.PsionicAbility, out var actionData );
-
-        if (actionData == null)
+        if (_actions.GetAction(component.PsionicAbility) is not { } actionData)
             return;
 
         _actions.SetEnabled(actionData.Owner, IsEligibleForPsionics(uid));
     }
+
+
 
     private bool IsEligibleForPsionics(EntityUid uid)
     {

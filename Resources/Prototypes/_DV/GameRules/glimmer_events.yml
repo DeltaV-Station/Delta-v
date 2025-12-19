@@ -12,8 +12,11 @@
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
+    - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
-    - id: LockProbers
+    #- id: LockProbers
+    - id: PsionicNosebleedEvent
+    - id: MinorMassMindSwap # Delta V
 
 - type: entity
   parent: BaseGameRule
@@ -87,6 +90,17 @@
   - type: MassMindSwapRule
 
 - type: entity
+  id: MinorMassMindSwap
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 750
+    glimmerBurnLower: 40
+    glimmerBurnUpper: 80
+  - type: MinorMassMindSwapRule
+    isTemporary: true
+
+- type: entity
   abstract: true
   parent: BaseGlimmerEvent
   id: BaseGlimmerSignaturesEvent
@@ -142,13 +156,21 @@
     duration: 1
     reoccurrenceDelay: 20
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg
   - type: GlimmerEvent
     minimumGlimmer: 300
     maximumGlimmer: 600
     glimmerBurnLower: 20
     glimmerBurnUpper: 60
   - type: RandomSentienceRule
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerRandomAnimation
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+  - type: RandomAnimationRule
 
 - type: entity
   parent: BaseGlimmerEvent
@@ -160,10 +182,18 @@
     glimmerBurnUpper: 70
   - type: ThavenMoodUpsetRule
 
+#- type: entity
+#  parent: BaseGlimmerEvent
+#  id: LockProbers
+#  components:
+#  - type: GlimmerEvent
+#    minimumGlimmer: 500
+#  - type: LockProbersRule
+
 - type: entity
   parent: BaseGlimmerEvent
-  id: LockProbers
+  id: PsionicNosebleedEvent
   components:
   - type: GlimmerEvent
-    minimumGlimmer: 500
-  - type: LockProbersRule
+    minimumGlimmer: 350
+  - type: PsionicNosebleedRule

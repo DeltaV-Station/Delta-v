@@ -7,7 +7,7 @@
     duration: 1
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-random-sentience-result-message
   - type: RandomSentienceRule

@@ -58,7 +58,7 @@ public sealed partial class StationExfiltrationComponent : Component
     /// The map to spawn for the shuttle
     /// </summary>
     [DataField]
-    public ResPath ShuttlePath = new("/Maps/_DV/Shuttles/exfiltration.yml");
+    public ResPath ShuttlePath = new("/Maps/_DV/Shuttles/Misc/exfiltration.yml");
 
     /// <summary>
     /// The spawned shuttle

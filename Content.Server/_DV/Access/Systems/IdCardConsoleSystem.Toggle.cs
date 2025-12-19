@@ -55,5 +55,7 @@ public sealed partial class IdCardConsoleSystem
         // TODO: only log changes when ejecting the id
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(user):user} has {verb} access level '{args.Id}' {prefix} {ToPrettyString(targetId):entity}");
+
+        UpdateUserInterface(ent.Owner, ent.Comp, args);
     }
 }

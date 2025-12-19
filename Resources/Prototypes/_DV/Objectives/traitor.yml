@@ -8,6 +8,16 @@
     stealGroup: SpaceCashLuckyBill
     # owner: job-name-qm
 
+- type: entity # Logistics Officer steal objective.
+  parent: BaseTraitorStealObjective
+  id: HardsuitRhinoStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: StealCondition
+    stealGroup: HardsuitRhino
+    # owner: job-name-qm
+
 - type: entity # Head of Personnel steal objective.
   parent: BaseTraitorStealObjective
   id: HoPBookIanDossierStealObjective
@@ -90,7 +100,16 @@
   - type: TargetObjective
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
-    onlyChoosableJobs: true
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
 
 # Kill fellow traitor objective
 - type: entity

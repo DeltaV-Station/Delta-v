@@ -26,28 +26,32 @@ fugitive-report-crime = - {$count ->
     [1] One count
     *[other] {$count} counts
 } of {$crime}
-fugitive-report-last-line = GALPOL prefers the fugitive to be returned alive so they may face trial at Central Command.
+fugitive-report-last-line = GALPOL are entrusting Nanotrasen with securing this individual and conducting a trial at Central Command.  Please ensure they are kept alive and brought to Central Command.
 
-# All (non erp) felonies and capital crimes in Space Law as of June 2024
+# All (non erp) felonies and capital crimes in Space Law as of August 2025
 fugitive-crime-1 = Murder
 fugitive-crime-2 = Terrorism
 fugitive-crime-3 = Grand Sabotage
-fugitive-crime-4 = Decorporealisation
-fugitive-crime-5 = Kidnapping
-fugitive-crime-6 = Sedition
+fugitive-crime-4 = Prevention of Revival
+fugitive-crime-5 = Sedition
+fugitive-crime-6 = Breach of Custody
 
 fugitive-crime-7 = Manslaughter
-fugitive-crime-8 = Grand Theft
-fugitive-crime-9 = Black Marketeering
-fugitive-crime-10 = Sabotage
-fugitive-crime-11 = Mindbreaking
-fugitive-crime-12 = Assault
-fugitive-crime-13 = Abuse of Power
-fugitive-crime-14 = Possession
-fugitive-crime-15 = Endangerment
+fugitive-crime-8 = Kidnapping
+fugitive-crime-9 = Grand Possession
+fugitive-crime-10 = Noöspheric Tampering
+fugitive-crime-11 = Sabotage
+fugitive-crime-12 = Abuse of Power
+fugitive-crime-13 = Grand Larceny
+fugitive-crime-14 = Black Marketeering
+
+fugitive-crime-15 = Assault
 fugitive-crime-16 = Breaking and Entering
 fugitive-crime-17 = Rioting
-fugitive-crime-18 = Contempt of Court
-fugitive-crime-19 = Perjury
-fugitive-crime-20 = False Report
-fugitive-crime-21 = Obstruction of Justice
+fugitive-crime-18 = Endangerment
+fugitive-crime-19 = Possession
+fugitive-crime-20 = Obstruction of Justice
+fugitive-crime-21 = Perjury
+fugitive-crime-22 = False Report
+fugitive-crime-23 = Contempt of Court
+fugitive-crime-24 = Identity Theft

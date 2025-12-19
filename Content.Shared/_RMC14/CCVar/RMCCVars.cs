@@ -7,5 +7,5 @@ namespace Content.Shared._RMC14.CCVar;
 public sealed partial class RMCCVars : CVars
 {
     public static readonly CVarDef<float> RMCEmoteCooldownSeconds =
-        CVarDef.Create("rmc.emote_cooldown_seconds", 5f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("rmc.emote_cooldown_seconds", 3f, CVar.SERVER | CVar.REPLICATED);
 }

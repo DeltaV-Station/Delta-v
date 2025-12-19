@@ -12,6 +12,9 @@
       iconStateSpent: torch_spent
       turnOnBehaviourID: turn_on
       fadeOutBehaviourID: fade_out
+      litRadius: 6.0 # DeltaV
+      litEnergy: 5.0 # DeltaV
+      fadeInDuration: 8.0 # DeltaV
       # Sounds legit nuff
       litSound:
         path: /Audio/Items/Flare/flare_on.ogg

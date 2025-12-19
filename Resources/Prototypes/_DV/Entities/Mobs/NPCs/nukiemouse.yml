@@ -29,8 +29,15 @@
     drawdepth: SmallMobs
     sprite: _DV/Mobs/Animals/nukiemouse.rsi
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mouse-moving
+    noMovementLayers:
+      movement:
+        state: mouse
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures

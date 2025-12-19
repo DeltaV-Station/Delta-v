@@ -1,7 +1,8 @@
-mail-large-item-name-unaddressed = package
+# DeltaV - use fluent attributes instead
+ent-BaseMailLarge = package
 mail-large-item-name-addressed = package ({$recipient})
 mail-large-desc-far = A large package.
-# DelaV - Removed "Last known location"
+# DeltaV - Removed "Last known location"
 mail-large-desc-close = A large package addressed to {CAPITALIZE($name)}, {$job}.
 
 ### Frontier: mailtestbulk

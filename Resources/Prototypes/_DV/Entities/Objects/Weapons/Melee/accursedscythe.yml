@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseItem
+  id: AccursedScythe
+  name: accursed scythe
+  description: a deadly scythe radiating terrible energy
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 2.5
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/evilscythe.rsi
+    state: icon
+  - type: Item
+    size: Large
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 1
+  - type: Gun
+    projectileSpeed: 8
+    soundGunshot: /Audio/_DV/Weapons/scytheshot.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+    rechargeSound:
+      path: /Audio/_DV/Weapons/shadowreload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: AccursedWave
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 8
+        Shadow: 10
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 4
+        Shadow: 8
+  - type: GunRequiresWield
+  - type: DisarmMalus
+  - type: Prying
+  - type: DashAbility
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 30

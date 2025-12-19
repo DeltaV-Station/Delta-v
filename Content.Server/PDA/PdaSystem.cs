@@ -7,16 +7,20 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
+using Content.Shared._DV.CCVars; // DeltaV - PDA date
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.Implants;
+using Content.Shared.Inventory;
 using Content.Shared.Light;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration; // DeltaV - PDA date
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -35,6 +39,9 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly IConfigurationManager _config = default!; // DeltaV
+
+        private static DateTime ServerDate; // DeltaV - PDA
 
         public override void Initialize()
         {
@@ -56,6 +63,21 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<StationRenamedEvent>(OnStationRenamed);
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
+            SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
+
+            // Begin DeltaV additions
+            Subs.CVar(_config,
+                DCCVars.YearOffset,
+                value => ServerDate = DateTime.Today.AddYears(value),
+                true);
+            // End DeltaV additions
+        }
+
+        private void ChameleonControllerOutfitItemSelected(Entity<PdaComponent> ent, ref InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent> args)
+        {
+            // Relay it to your ID so it can update as well.
+            if (ent.Comp.ContainedId != null)
+                RaiseLocalEvent(ent.Comp.ContainedId.Value, args);
         }
 
         private void OnEntityRenamed(ref EntityRenamedEvent ev)
@@ -179,6 +201,7 @@ namespace Content.Server.PDA
             var hasInstrument = HasComp<InstrumentComponent>(uid);
             var showUplink = HasComp<UplinkComponent>(uid) && IsUnlocked(uid);
 
+            pda.CurrentDate = pda.DateOverride ?? ServerDate; // DeltaV - PDA date
             UpdateStationName(uid, pda);
             UpdateAlertLevel(uid, pda);
             // TODO: Update the level and name of the station with each call to UpdatePdaUi is only needed for latejoin players.
@@ -201,6 +224,7 @@ namespace Content.Server.PDA
                     ActualOwnerName = pda.OwnerName,
                     IdOwner = id?.FullName,
                     JobTitle = id?.LocalizedJobTitle,
+                    CurrentDate = pda.CurrentDate, // DeltaV - PDA date
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor
                 },

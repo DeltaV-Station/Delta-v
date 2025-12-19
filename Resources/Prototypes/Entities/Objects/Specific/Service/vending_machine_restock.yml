@@ -87,6 +87,7 @@
   - type: VendingMachineRestock
     canRestock:
     - ChefvendInventory
+    - ChefvendUnlockedInventory # DeltaV - Make unlocked chefvend refillable
   - type: Sprite
     layers:
     - state: base
@@ -284,6 +285,9 @@
     canRestock:
     - NanoMedInventory
     - NanoMedPlusInventory
+    - NanoMedCivilianInventory
+    - NanoMedCivilianWallInventory
+    - NanoMedPublicInventory # DeltaV - Make DV NanoMed Civilian Inventory refillable
   - type: Sprite
     layers:
     - state: base

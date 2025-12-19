@@ -25,12 +25,17 @@
     tags:
     - StringInstrument
   - type: MeleeWeapon
+    wideAnimationRotation: -45
     soundHit:
       path: /Audio/_DV/Weapons/electricguitarhit.ogg
     damage:
       types:
-        Blunt: 7
-    bluntStaminaDamageFactor: 1.50 #13.5 stamina damage
+        Blunt: 8
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: Rickenbacker4003Instrument
@@ -40,15 +45,12 @@
   description: It's the climax!
   components:
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/_DV/Weapons/electricguitarhit.ogg
     bluntStaminaDamageFactor: 4.5
     attackRate: 1.25
     range: 1.85
     damage:
       types:
-        Blunt: 7
-  - type: Wieldable
+        Blunt: 8
   - type: IncreaseDamageOnWield
     damage:
       types:

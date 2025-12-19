@@ -1,0 +1,26 @@
+- type: alert
+  id: LightLevelDarkIcon
+  category: Light
+  icons:
+  - sprite: /Textures/_DV/Interface/Alerts/light_level.rsi
+    state: dark
+  name: alerts-light-level-dark-name
+  description: alerts-light-level-dark-desc
+
+- type: alert
+  id: LightLevelNeutralIcon
+  category: Light
+  icons:
+  - sprite: /Textures/_DV/Interface/Alerts/light_level.rsi
+    state: neutral
+  name: alerts-light-level-neutral-name
+  description: alerts-light-level-neutral-desc
+
+- type: alert
+  id: LightLevelBrightIcon
+  category: Light
+  icons:
+  - sprite: /Textures/_DV/Interface/Alerts/light_level.rsi
+    state: bright
+  name: alerts-light-level-bright-name
+  description: alerts-light-level-bright-desc

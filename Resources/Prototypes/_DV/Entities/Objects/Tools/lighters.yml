@@ -1,8 +1,8 @@
 - type: entity
   parent: FlippoLighter
-  id: SyndicateFlippo
+  id: SyndicateFlippoDV
   name: Blood-red flippo
-  description: "A 'Valid' choice in lighters. Capable of superheating welding fuel into incendiary shots when lit. Contains no copper."
+  description: "A 'Valid' choice in lighters. Contains no copper. This one seems to have a few extra features."
   components:
   - type: Sprite
     sprite: _DV/Objects/Tools/syndielighter.rsi
@@ -39,7 +39,7 @@
       showExamineText: false
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
@@ -52,7 +52,7 @@
         base:
           True: { visible: false }
           False: { visible: true }
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -61,6 +61,7 @@
       right:
       - state: inhand-right-lit
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     netsync: false
