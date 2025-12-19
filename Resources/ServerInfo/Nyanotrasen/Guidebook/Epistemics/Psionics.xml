@@ -13,9 +13,11 @@ All psionic entities have a shared telepathic communication channel. It's anonym
 ## Glimmer
 [color=#a4885c]Glimmer[/color] is a more colloquial term for [color=#a4885c]noöspheric pressure[/color], measured in [color=#a4885c]milli-Psi (mΨ)[/color]. The noösphere can be considered analogous to an atmosphere. In a localized area, everything will equalize towards a certain pressure that's based off of the total energy in the system.
 Note that unlike atmospheres, areas of noopsheric pressure do not operate by physical contigiousness, but mental. This means that areas with intertwined destinies will experience the same latent glimmer regardless of physical separation.
+High amounts of [color=#a4885c]Glimmer[/color] is to be met with a Code White when it exceeds over 550mΨ, unless there is another crisis affecting the station.
 
 <GuideEntityEmbed Entity="SophicScribe" />
-The [color=#a4885c]sophic scribe[/color] tracks glimmer.
+The [color=#a4885c]sophic scribe[/color] tracks glimmer. But it also occasionally broadcasts the current glimmer level, and also brodcasts changes in glimmer whenever a noöspheric discharge happens!
+You can also get the current glimmer level by interacting with the [color=#a4885c]sophic scribe[/color].
 
 <Box>
 <GuideEntityEmbed Entity="GlimmerProber"/>
@@ -53,7 +55,7 @@ Security has a more forcible option for insulative clothing.
 
 ## Handling Glimmer Emergencies
 <GuideEntityEmbed Entity="GlimmerProber"/>
-Probers should be turned off before glimmer exceeds 500 mΨ.
+Probers should be turned off before glimmer exceeds 500 mΨ. 
 
 <GuideEntityEmbed Entity="GlimmerDrain"/>
 Glimmer drains are quite effective at draining glimmer, taking it out as fast as a prober can put it in.
