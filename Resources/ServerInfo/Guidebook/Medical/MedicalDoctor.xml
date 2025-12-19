@@ -20,13 +20,13 @@ Before we go any further, it's probably a good idea to go over damage types and 
 
 An important note: Most medication has an [color=red]overdose level[/color], lookout for "[color=red]OD[/color]" if your chemist labels their chems. If the overdose threshold is met, it will cause harm to your patient. Chemicals also take time to metabolise in pill form. If you want things to act quickly, use a syringe.
 
-- Brute Damage: [color=#ffaa00]Bicaridine[/color], [color=#dba753]Bruise Packs[/color] or [color=#653b89]Medicated Satures.[/color]
-- Burn Damage: [color=#215263]Dermaline[/color], [color=#4bd87a]Ointment[/color] or [color=#c0f5f9]Regenerative Meshes.[/color]
+- Brute Damage: [color=#ffaa00]Bicaridine[/color], Bruise Packs or Medicated Satures.
+- Burn Damage: [color=#215263]Dermaline[/color], Ointment or Regenerative Meshes.
 - Toxin (Poison): [color=#6756c9]Dylovene[/color]
 - Toxin (Radiation) [color=#4cb580]Hyronalin[/color] or [color=#bd5902]Arithrazine.[/color]
 - Airloss: [color=#0041a8]Dexalin[/color], [color=#639cc7]Salbutamol[/color], [color=#731024]Inaprovaline[/color], or [color=#e80d7e]Convermol.[/color]
 - Blood loss: [color=#0041a8]Dexalin[/color] or [color=#639cc7]Salbutamol[/color] (Examine the patient; if pale, they still need blood or iron.)
-- Bleeding: [color=#ba7d7d]Tranexamic acid[/color], Gauze or [color=#653b89]Medicated Satures.[/color] (Bleeding can also be cauterised with burn damage.)
+- Bleeding: [color=#ba7d7d]Tranexamic acid[/color], Gauze or Medicated Satures. (Bleeding can also be cauterised with burn damage.)
 
 Many stations are stocked with kits in storage, and all medics have some equipment in their starting belt.
 
@@ -46,7 +46,7 @@ Many stations are stocked with kits in storage, and all medics have some equipme
 <GuideEntityEmbed Entity="Gauze"/>
 </Box>
 
-However, you may also ask your [color=#b18644]Logistics Department[/color] for Advanced First Aid kits! As they contain [color=#653b89]Medicated Satures[/color] and [color=#c0f5f9]Regenerative Meshes[/color]!
+However, you may also ask your [color=#b18644]Logistics Department[/color] for Advanced First Aid kits! As they contain Medicated Satures and Regenerative Meshes.
 
 <Box>
 <GuideEntityEmbed Entity="MedkitAdvancedFilled" Caption="Advanced First Aid kit"/>
@@ -57,7 +57,7 @@ However, you may also ask your [color=#b18644]Logistics Department[/color] for A
 ## Basic Treatment and Triage
 Examine your patient, and note down the important details: Are they alive? Bleeding? What type of damage?
 
-If alive, treat them as best as you can. Patients are in critical condition at 100 damage, [color=#e29a6c][bold]unless they have the redshirt trait[/bold][/color]; but at most, those without redshirt will die at 200 damage. Keep this in mind when choosing how to treat them. [color=#abe057]Emergency Pens and Epinephrine[/color] are often used to stabilise patients. However, you may also do [color=#e84037]CPR[/color] to stabilise them.
+If alive, treat them as best as you can. Patients are in critical condition at 100 damage, [bold]unless they have the redshirt trait[/bold]; but at most, those without redshirt will die at 200 damage. Keep this in mind when choosing how to treat them. Emergency Pens and [color=#c0f5f9]Epinephrine[/color] are often used to stabilise patients. However, you may also do [color=#e84037]CPR[/color] to stabilise them.
 
 If possible, buckle them to a medical bed; if you need time to treat them, strap them to a stasis bed instead. Just keep in mind that metabolism (and by extension, the production of healing chemicals) is slowed to a crawl when on stasis; it'll need to be taken off of it for the medicine to be effective. (But Blood Packs, Ointment, and Brute packs all work as normal.)
 <Box>
@@ -67,17 +67,17 @@ If possible, buckle them to a medical bed; if you need time to treat them, strap
 ## Assessing Corpses
 You can't save them all; sometimes, death happens. Depending on the [color=#a4885c]status[/color] of the body, follow this checklist:
 
-- First, check if they have a soul attached. Their soul is attached to their [color=#ef7b77]Brain, and by extension their head.[/color] If they are decapitated, it will always say "[color=#8666c8]Their soul has departed and moved on.[/color]" upon examination...But dont let that fool you, they could still have their soul very much there! Reattach their head via [textlink="Surgery" link="Surgery"]. Then you can recheck to see [color=#8666c8]if they are truly gone.[/color]
+- First, check if they have a soul attached. Their soul is attached to their brain, and by extension their head. If they are decapitated, it will always say "[color=#653b89]Their soul has departed and moved on.[/color]" upon examination...But dont let that fool you, they could still have their soul very much there! Reattach their head via [textlink="Surgery" link="Surgery"]. Then you can recheck to see if they are truly gone.
 
-- Secondly, now check to see if they have a [color=yellow]unique body composition[/color]. You can tell if your health scanner says "[color=yellow]Unique body composition detected![/color]". If this happens, it means that their [color=#ef7b77]Brain[/color] will need to be transplanted into a body donor via [textlink="Surgery" link="Surgery"].
-(IPCs/Borgs are a possible body donor if a patients [color=#ef7b77]Brain[/color] is compatible with MMI technology. A patients brain WILL NOT be compatible if it says this on your health scanner: "[color=red]Patients' brain signatures are incompatible with MMI"[/color].)
+- Secondly, now check to see if they have a [bold]unique body composition[/bold]. You can tell if your health scanner says "[color=yellow]Unique body composition detected![/color]". If this happens, it means that their Brain will need to be transplanted into a body donor via [textlink="Surgery" link="Surgery"].
+(IPCs/Borgs are a possible body donor if a patients Brain is compatible with MMI technology. A patients brain WILL NOT be compatible if it says this on your health scanner: "[color=red]Patients' brain signatures are incompatible with MMI[/color].)
 
-- [color=yellow][bold]If they do not have a unique body composition;[/bold][/color] check to see if their [color=orange]body is rotting[/color]. If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as [color=#b5e36d]Opporozidone[/color] or [color=#e3d56d]Netinadone[/color]. A rotting body can't be brought back unless you fix its rot, [textlink="cloning" link="Cloning"] is an alternative if you don't have cryogenic chemicals at your disposal.
+- [bold]If they do not have a unique body composition;[/bold] check to see if their body is rotting. If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as [color=#b5e36d]Opporozidone[/color] or [color=#e3d56d]Netinadone[/color]. A rotting body can't be brought back unless you fix its rot, [textlink="cloning" link="Cloning"] is an alternative if you don't have cryogenic chemicals at your disposal.
 
-- And finally, [color=#2ce0dd]with their soul in their body[/color], [color=#56a854]their body being fresh[/color], and a [bold]normal body composition[/bold], proceed to reviving the patient.
+- And finally, with their soul in their body, their body being fresh, and a [bold]normal body composition[/bold], proceed to reviving the patient.
 
 ## Reviving
-The revival procedure uses a Defibrillator to restart the patients heart. The Defibrillator can be used to revive patients with aspyhxiation damage, but will deal [color=red]5 shock damage[/color]. Patients need to be under 200 damage in order to be revived with a defib [color=#e29a6c](or under 100 with redshirt)[/color]. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
+The revival procedure uses a Defibrillator to restart the patients heart. The Defibrillator can be used to revive patients with aspyhxiation damage, but will deal [bold]5 shock damage[/bold]. Patients need to be under 200 damage in order to be revived with a defib (or under 100 with redshirt). Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>
@@ -86,6 +86,6 @@ The revival procedure uses a Defibrillator to restart the patients heart. The De
 <GuideEntityEmbed Entity="Ointment"/>
 </Box>
 
-Keep in mind that the defibrillator recharges while it is in its cabinet!
+[color=yellow]Keep in mind that the defibrillator recharges while it is in its cabinet![/color]
 </Document>
 
