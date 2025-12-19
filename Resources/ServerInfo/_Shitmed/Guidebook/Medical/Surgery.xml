@@ -19,8 +19,18 @@ You also need to wear protective gear such as a mask and gloves to prevent harmi
 <GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
 </Box>
 
+## Operating Tables
 
-  
+An operating table is a surgeons best friend.
+Although surgery can be preformed anywhere as long as the patient is lying down, it is recommended that all surgeries be done in a clean environment!
+<Box>
+<GuideEntityEmbed Entity="OperatingTable" Caption="Operating Table"/>
+<GuideEntityEmbed Entity="OperatingTableAdvanced" Caption="Advanced Operating Table"/>
+</Box>
+[color=cyan]Advanced Operating Tables[/color] can be researched by [color=#c96dbf]Epistemics[/color], its main benefits allows patients to go through surgery without needing to be sedated; while also increasing your surgical speed.
+
+As long as it has power applied.
+
 ## Getting Started
 
 To engage in surgery, you'll need a set of surgical tools.
@@ -49,7 +59,7 @@ You also have to keep your surgical equipment clean! You don't want to poison th
 <GuideEntityEmbed Entity="SoapNT" Caption="any soap"/>
 </Box>
 
-All surgical equipment has a bar at the bottom, if it turns red at any point, it means you are damaging the patient!
+All surgical equipment has a bar at the bottom, this shows you its dirtiness. If it gets too high, you will start damaging the patient with poison!
 
 ## Ghetto Surgery
 
