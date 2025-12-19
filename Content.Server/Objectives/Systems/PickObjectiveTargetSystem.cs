@@ -41,20 +41,20 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
-        // DeltaV - TargetObjectiveImmune
-        if (HasComp<TargetObjectiveImmuneComponent>(target.Target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-        // END DeltaV
-
         var user = args.Mind.OwnedEntity.Value;
         if (!TryComp<TargetOverrideComponent>(user, out var targetComp) || targetComp.Target == null)
         {
             args.Cancelled = true;
             return;
         }
+
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(targetComp.Target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
 
         _target.SetTarget(ent.Owner, targetComp.Target.Value);
     }
