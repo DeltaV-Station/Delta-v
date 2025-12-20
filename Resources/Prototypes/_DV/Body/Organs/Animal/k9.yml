@@ -1,0 +1,43 @@
+- type: entity
+  id: OrganK9ShockJaws
+  parent: BaseAugment
+  name: k9 shock jaws
+  components:
+    - type: Sprite
+      sprite: _DV/Objects/Augments/jaws.rsi
+      state: jaws
+    - type: AugmentJaws
+    - type: K9ShockJaws
+      flatModifier: 13 # Brings the total stamina damage up to 35
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+    - type: AugmentAction
+    - type: Organ
+      slotId: headImplant
+      onAdd:
+        # This lets us toggle the melee damage of the secdog.
+        - type: ItemToggleMeleeWeapon
+          activatedDamage:
+            types:
+              Shock: 5
+          activatedSoundOnHit:
+            path: /Audio/Weapons/egloves.ogg
+            params:
+              variation: 0.250
+          deactivatedSoundOnHit:
+            path: /Audio/Effects/bite.ogg
+    - type: Tag
+      tags:
+        - Organ
+    - type: ItemToggle
+      predictable: false
+      soundActivate:
+        collection: sparks
+        params:
+          variation: 0.250
+      soundDeactivate:
+        collection: sparks
+        params:
+          variation: 0.250
