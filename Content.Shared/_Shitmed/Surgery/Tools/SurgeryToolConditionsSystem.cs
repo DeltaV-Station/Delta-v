@@ -5,6 +5,7 @@ using Content.Shared.IgnitionSource.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Body.Organ;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 
@@ -26,6 +27,11 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
 
     private void OnToggleUsed(Entity<ItemToggleComponent> ent, ref SurgeryToolUsedEvent args)
     {
+        // Begin DeltaV additions
+        if (HasComp<OrganComponent>(ent))
+            return; // Don't need to turn on organs
+        // End DeltaV additions
+
         if (ent.Comp.Activated)
             return;
 
