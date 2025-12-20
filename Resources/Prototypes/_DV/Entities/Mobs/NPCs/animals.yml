@@ -151,10 +151,15 @@
     templateId: secdog
   - type: InventorySlots
   - type: Strippable
+  - type: Body
+    prototype: K9
+  - type: SurgeryTarget
   - type: UserInterface
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Butcherable
     spawned:
     - id: FoodMeat
