@@ -1,42 +1,32 @@
 <Document>
 # Medical Doctor
-It's time to heal. Or at least, try to heal, anyway. Medical Doctors are the primary caretakers of every boo boo and ouchie crewmembers get on the station, be it a small scratch, or boiled skin.
+"Medicine, the advanced technology of today."
 
-This guide provides a basic outline of the treatment options available, triage, and other avenues of care.
+The medical department is the backbone of keeping crew alive, wether that be a missing arm, bodies burnt to a crisp, severe lacerations...It's up to you to fix their oopsies and boo-boos!
+
+This guide states the basic outline of the treatment options and other avenues of care that you can take as a doctor.
 
 ## The Basics
-There are two ways to tell what's ailing someone: Taking a scan (with a health analyser or a medical PDA) or examining them with a shift-click and clicking the heart symbol.
 
-Using a health analyser is often more powerful than an examination, as some substances (such as poisons or radiation) don't show up on examination. However, using an analyser has its drawbacks, as it generates noise and consumes battery power. [color=yellow]However, your PDA comes equipped with Medtek and has an infinite battery.[/color]
+When you first recieve a patient, you first need to know what's wrong with them! There are two ways of doing this.
+
+- [bold]Using a health analyzer[/bold]. The health analyzer allows you to view [bold]all damage[/bold] that a patient has recieved, including their [bold]blood level[/bold]. Along with a coloured figure showing which part of their body is the most damaged. The health analyzer also categorises damages into their own categories for convenience.
+
+- [bold]By doing a basic health inspection[/bold]. You can do this by using [color=yellow][keybind="ExamineEntity"][/color] and clicking the heart icon. It will show you any 'obvious' wounds, like bruising, blood loss and burns. But will not show things like poison!
 <Box>
-<GuideEntityEmbed Entity="SignExamroom" Caption="examine patient"/>
 <GuideEntityEmbed Entity="MedicalPDA"/>
 <GuideEntityEmbed Entity="MedicalInternPDA" Caption="intern PDA"/>
-<GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
+<GuideEntityEmbed Entity="HandheldHealthAnalyzer" Caption="Handheld Health Analyzer"/>
 </Box>
 
-## Medication and Treatment Options
-Before we go any further, it's probably a good idea to go over damage types and what will heal them. The wiki has more extensive info available, but these are commonly used.
+It is important to note that the [bold]Handheld Health Analyzer[/bold] [italic]is the only one that requires a power cell[/italic].
 
-An important note: Most medication has an [color=red]overdose level[/color], lookout for "[color=red]OD[/color]" if your chemist labels their chems. If the overdose threshold is met, it will cause harm to your patient. Chemicals also take time to metabolise in pill form. If you want things to act quickly, use a syringe.
+## Common Damage Types and basic treatments
 
-- Brute Damage: [color=#ffaa00]Bicaridine[/color], Bruise Packs or Medicated Sutures.
-- Burn Damage: [color=#215263]Dermaline[/color], Ointment or Regenerative Meshes.
-- Toxin (Poison): [color=#6756c9]Dylovene[/color]
-- Toxin (Radiation) [color=#4cb580]Hyronalin[/color] or [color=#bd5902]Arithrazine.[/color]
-- Airloss: [color=#0041a8]Dexalin[/color], [color=#639cc7]Salbutamol[/color], [color=#731024]Inaprovaline[/color], or [color=#e80d7e]Convermol.[/color]
-- Blood loss: [color=#0041a8]Dexalin[/color] or [color=#639cc7]Salbutamol[/color] (Examine the patient; if pale, they still need blood or iron.)
-- Bleeding: [color=#ba7d7d]Tranexamic acid[/color], Gauze or Medicated Sutures. (Bleeding can also be cauterised with burn damage.)
+The damage types [bold]all affect the patients health the same way.[/bold] The only thing different is that all of them require a different treatment to heal.
 
-Many stations are stocked with kits in storage, and all medics have some equipment in their starting belt.
+Doctors come equipped with a [bold]medical belt[/bold] that contains medical tools to deal with the most common types of damages.
 
-<Box>
-<GuideEntityEmbed Entity="MedkitFilled"/>
-<GuideEntityEmbed Entity="MedkitBruteFilled" Caption="brute kit"/>
-<GuideEntityEmbed Entity="MedkitRadiationFilled" Caption="radiation kit"/>
-<GuideEntityEmbed Entity="MedkitBurnFilled" Caption="burn kit"/>
-<GuideEntityEmbed Entity="MedkitToxinFilled" Caption="toxin kit"/>
-</Box>
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>
@@ -46,13 +36,51 @@ Many stations are stocked with kits in storage, and all medics have some equipme
 <GuideEntityEmbed Entity="Gauze"/>
 </Box>
 
-However, you may also ask your [color=#b18644]Logistics Department[/color] for Advanced First Aid kits! As they contain Medicated Sutures and Regenerative Meshes.
+- [bold]Brutepacks[/bold] are for all types of Brute. This includes; slash, piercing, and bruises.
+- [bold]Ointments[/bold] are for all types of Burns. This includes eletrical shocks, heat and caustic.
+- [bold]Gauze[/bold] is to stop bleeding on a patient, it also works for slash and piercing!
+- [bold]Bloodpacks[/bold] is to refill a patients blood. This bloodpack works for every species. The patient will be pale if they require blood!
+- [bold]Emergency Medipens[/bold] are for when the patient is exceptionally close to deaths door. [bold]It will heal them from most types of damage while they are in critical condition[/bold] and buy you more time for life saving treatment!
+
+These are the most common type of damages that you can expect to see within all patients that arrive in medbay.
+If you ever run out these, you may refill your medical belt from medkits!
+
+### Medkits
+
+Many stations are stocked with medkits in medbay, and are a great source to restock if your medical belt runs dry on resources.
+Medkits can also be for specific damage types, be sure to read your [bold]Health Analyzer[/bold] for which medkit to use!
 
 <Box>
-<GuideEntityEmbed Entity="MedkitAdvancedFilled" Caption="Advanced First Aid kit"/>
-<GuideEntityEmbed Entity="MedicatedSuture" Caption="Medicated Suture"/>
-<GuideEntityEmbed Entity="RegenerativeMesh" Caption="Regenerative Mesh"/>
+<GuideEntityEmbed Entity="MedkitFilled"/>
+<GuideEntityEmbed Entity="MedkitBruteFilled" Caption="brute kit"/>
+<GuideEntityEmbed Entity="MedkitRadiationFilled" Caption="radiation kit"/>
+<GuideEntityEmbed Entity="MedkitBurnFilled" Caption="burn kit"/>
+<GuideEntityEmbed Entity="MedkitToxinFilled" Caption="toxin kit"/>
 </Box>
+
+If your department is running low on medkits, ask your [color=#b18644]Logistics Department[/color] for a restock!
+
+
+## Advanced Damage Types and medicine
+
+Although you are equipped to deal with the most common types of damage, you do not come equipped to deal with [italic]all[/italic] damage types by default.
+
+For that, you need to utilise medicine!
+
+Medicine is way more effective than the tools on your medical belt, and can treat more types of damage.
+
+
+
+
+- Brute Damage: [color=#ffaa00]Bicaridine[/color], Bruise Packs or Medicated Sutures.
+- Burn Damage: [color=#215263]Dermaline[/color], Ointment or Regenerative Meshes.
+- Toxin (Poison): [color=#6756c9]Dylovene[/color]
+- Toxin (Radiation) [color=#4cb580]Hyronalin[/color] or [color=#bd5902]Arithrazine.[/color]
+- Airloss: [color=#0041a8]Dexalin[/color], [color=#639cc7]Salbutamol[/color], [color=#731024]Inaprovaline[/color], or [color=#e80d7e]Convermol.[/color]
+- Blood loss: [color=#0041a8]Dexalin[/color] or [color=#639cc7]Salbutamol[/color] (Examine the patient; if pale, they still need blood or iron.)
+- Bleeding: [color=#ba7d7d]Tranexamic acid[/color], Gauze or Medicated Sutures. (Bleeding can also be cauterised with burn damage.)
+
+
 
 ## Basic Treatment and Triage
 Examine your patient, and note down the important details: Are they alive? Bleeding? What type of damage?
