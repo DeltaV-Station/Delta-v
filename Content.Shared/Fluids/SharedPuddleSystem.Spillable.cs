@@ -2,6 +2,7 @@ using Content.Shared._DV.Chemistry.Systems; // DeltaV - Beer Goggles Safe Throw
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Prototypes;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Database;
@@ -24,6 +25,7 @@ namespace Content.Shared.Fluids;
 public abstract partial class SharedPuddleSystem
 {
     private static readonly FixedPoint2 MeleeHitTransferProportion = 0.25;
+    [Dependency] private readonly InjectorSystem _injectorSystem = default!;
 
     [Dependency] protected readonly SafeSolutionThrowerSystem _safeSolutionThrower = default!; // DeltaV - Beer Goggles Safe Throw
 
@@ -72,6 +74,7 @@ public abstract partial class SharedPuddleSystem
         if (entity.Comp.SpillDelay == null)
         {
             var target = args.Target;
+            var user = args.User;
             verb.Act = () =>
             {
                 var puddleSolution = _solutionContainerSystem.SplitSolution(soln.Value, solution.Volume);
@@ -79,9 +82,21 @@ public abstract partial class SharedPuddleSystem
 
                 // TODO: Make this an event subscription once spilling puddles is predicted.
                 // Injectors should not be hardcoded here.
-                if (TryComp<InjectorComponent>(entity, out var injectorComp))
+                if (TryComp<InjectorComponent>(entity, out var injectorComp)
+                    && _prototypeManager.Resolve(injectorComp.ActiveModeProtoId, out var activeMode)
+                    && !activeMode.Behavior.HasFlag(InjectorBehavior.Draw))
                 {
-                    injectorComp.ToggleState = InjectorToggleMode.Draw;
+                    foreach (var mode in injectorComp.AllowedModes)
+                    {
+                        if (!_prototypeManager.Resolve(mode, out var protoMode))
+                            continue;
+
+                        if (protoMode.Behavior.HasAnyFlag(InjectorBehavior.Draw | InjectorBehavior.Dynamic))
+                        {
+                            _injectorSystem.ToggleMode((entity, injectorComp), user, protoMode);
+                            break;
+                        }
+                    }
                     Dirty(entity, injectorComp);
                 }
             };

@@ -586,12 +586,12 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         if (!_solutionContainerSystem.TryGetSolution(component.Owner, component.Solution.Name, out var solution))
             return;
 
-        _solutionTransferSystem.Transfer(user,
+        _solutionTransferSystem.Transfer(new SolutionTransferData(user,
             uid,
             solution.Value,
             heldItem.Value,
             heldSolution.Value,
-            transferAmount);
+            transferAmount));
 
         // UI update is not necessary here, because the solution change event handles it.
     }
