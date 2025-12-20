@@ -29,6 +29,9 @@ public sealed class AugmentActionSystem : EntitySystem
             var ev = new GetItemActionsEvent(_actionContainer, body, augment);
             RaiseLocalEvent(augment, ev);
 
+            // Ensure the augment can actually hold the actions properly
+            EnsureComp<ActionsContainerComponent>(augment.Owner);
+
             _actions.GrantActions(body, ev.Actions, augment.Owner);
         }
         else
