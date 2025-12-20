@@ -51,8 +51,8 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: Food # DeltaV: Prevent eating brains as borgs don't remember what happened to them
-    requiredStomachs: 20
+  - type: Edible # DeltaV - Prevent eating brains
+    requiresSpecialDigestion: true
   - type: Tag
     tags:
       - Meat

@@ -501,6 +501,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType # DeltaV
+            type: Bloodsucker
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -514,6 +517,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType # DeltaV
+            type: Bloodsucker
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -522,6 +528,9 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType # DeltaV
+          type: Bloodsucker
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -529,6 +538,8 @@
         conditions:
         - !type:OrganType
           type: Animal
+        - !type:OrganType # DeltaV
+          type: Bloodsucker 
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
