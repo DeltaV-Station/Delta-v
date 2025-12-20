@@ -378,7 +378,7 @@
 - type: entity
   parent: BaseBorgModuleSyndie
   id: BorgModuleSleeper
-  name: sleeper module
+  name: sleeper cyborg module
   description: "A module with a sleep hypo, for silently abducting victims"
   components:
   - type: Sprite
@@ -390,3 +390,30 @@
     - item: SyndicateNocturineHypo
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-sleeper-module }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleCloakDeviceSyndicate
+  name: syndicate cloaking device cyborg module
+  description: A module with a device that allows the borg to become cloaked for a short amount of time.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Objects/Specific/Robotics/borgmodule.rsi
+      state: syndicate
+    - sprite: Objects/Specific/Robotics/borgmodule.rsi
+      state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: CloakingDeviceSyndicateBorg
+  - type: BorgModuleIcon # Once branch is updated with the new syndicate sprites, this can be uncommented.
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-infiltrator-module }
+
+- type: entity
+  parent: CloakingDevice
+  id: CloakingDeviceSyndicateBorg
+  description: A device that allows the borg to become cloaked for a short amount of time. Will recharge after 30 seconds of non-use.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/access_breaker.rsi # Finally using this awesome icon
+    state: icon
