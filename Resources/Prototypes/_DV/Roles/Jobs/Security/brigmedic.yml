@@ -37,14 +37,14 @@
  #  pocket1: WeaponPistolMk58Nonlethal # DeltaV - loadouts
   storage:
     back:
-    - EmergencyRollerBedSpawnFolded
-    - BodyBagFolded
-    - BruteAutoInjector
-    - BruteAutoInjector
-    - BurnAutoInjector
-    - BurnAutoInjector
-    belt:
-    - Portafib
+    #- EmergencyRollerBedSpawnFolded # DeltaV - moved to locker
+    #- BodyBagFolded # DeltaV - moved to locker
+    #- BruteAutoInjector # DeltaV - removed in favor of combat medkit
+    #- BruteAutoInjector
+    #- BurnAutoInjector # DeltaV - removed in favor of combat medkit
+    #- BurnAutoInjector
+    #belt:
+    #- Portafib
   #  - MagazinePistol # DeltaV - loadouts
 
 - type: chameleonOutfit

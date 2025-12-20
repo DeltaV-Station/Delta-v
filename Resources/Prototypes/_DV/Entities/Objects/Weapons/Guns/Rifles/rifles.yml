@@ -188,33 +188,59 @@
 - type: entity
   name: musket
   id: WeaponRifleMusket
-  parent: [Musket, BaseGunWieldable]
-  suffix: "craftable"
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   description: An old flintlock musket. Uses musket cartridges.
   components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+    state: base
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 30
+    maxAngle: 30
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -25
+    maxAngle: -25
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
-  - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
-    state: base
-  - type: Gun #Smoothbore
-    fireRate: .125
-    resetOnHandSelected: false
-    minAngle: 22
-    maxAngle: 43
-  - type: Wieldable
-  - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -40
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 12
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Sharp
+    butcherDelayModifier: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
-  - type: UseDelay
-    delay: 0 #Straight up doesn't work for guns
 
 - type: entity
   parent: WeaponRifleLecter
