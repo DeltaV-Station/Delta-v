@@ -341,14 +341,19 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
+    - RoboticsStaticDeltaV # DeltaV
     - PowerAugments # DeltaV - augments
     - ToolAugments # DeltaV - augments
     - BorgDVModulesStatic # DeltaV - modules
+    - BorgModulesStaticShitmed # Shitmed
+    - BorgIdentificationStaticDeltaV # DeltaV - Borg IDs
     dynamicPacks:
     - Robotics
     - BorgModules
     - MechParts
     - MechEquipment
+    - RoboticsDeltaV # DeltaV
+    - BorgModulesDeltaV # DeltaV
     - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
     - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
     - PsionicProsthetics # DeltaV

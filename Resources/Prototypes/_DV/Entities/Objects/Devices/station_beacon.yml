@@ -142,11 +142,27 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconRestroom
-  suffix: Restroom
+  id: DefaultStationBeaconBoxing
+  suffix: Boxing Ring
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-restroom
+    defaultText: station-beacon-boxing-ring
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconBarbershop
+  suffix: Barbershop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-barbershop
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconZoo
+  suffix: Zoo
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-zoo
 
 #Surveilance
 - type: entity
@@ -158,13 +174,6 @@
     defaultText: station-beacon-camera-servers
 
 #General
-- type: entity
-  parent: DefaultStationBeacon
-  id: DefaultStationBeaconBoxing
-  suffix: Boxing Ring
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-boxing-ring
 
 - type: entity
   parent: DefaultStationBeacon
@@ -200,14 +209,6 @@
 
 - type: entity
   parent: DefaultStationBeacon
-  id: DefaultStationBeaconBarbershop
-  suffix: Barbershop
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-barbershop
-
-- type: entity
-  parent: DefaultStationBeacon
   id: DefaultStationBeaconArcade
   suffix: Arcade
   components:
@@ -216,11 +217,11 @@
 
 - type: entity
   parent: DefaultStationBeacon
-  id: DefaultStationBeaconZoo
-  suffix: Zoo
+  id: DefaultStationBeaconRestroom
+  suffix: Restroom
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-zoo
+    defaultText: station-beacon-restroom
 
 #Security
 - type: entity

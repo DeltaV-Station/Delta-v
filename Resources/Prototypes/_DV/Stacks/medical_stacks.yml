@@ -11,3 +11,10 @@
   icon: { sprite: "/Textures/_DV/Objects/Medical/Omnipatch.rsi", state: icon }
   spawn: OmniPatch
   maxCount: 10
+
+- type: stack
+  id: PurifyingSalts
+  name: stack-purifying-salts
+  icon: { sprite: "/Textures/_DV/Objects/Medical/purifyingsalts.rsi", state: icon }
+  spawn: PurifyingSalts
+  maxCount: 10

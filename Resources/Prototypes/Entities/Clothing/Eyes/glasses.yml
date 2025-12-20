@@ -257,13 +257,15 @@
   parent: [ClothingEyesBase, BaseMajorContraband]
   id: ClothingEyesVisorNinja
   name: ninja visor
-  description: An advanced visor protecting a ninja's eyes from flashing lights.
+  description: An advanced visor protecting a ninja's eyes from flashing lights while having an ability to see in the dark. # DeltaV
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+  - type: NightVision # DeltaV
+    isEquipment: true
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]

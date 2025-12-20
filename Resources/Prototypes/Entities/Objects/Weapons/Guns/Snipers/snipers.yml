@@ -42,7 +42,7 @@
   name: Kardashev-Mosin
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
   id: WeaponSniperMosin
-  description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
+  description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 5 rounds of .30 rifle. # DeltaV - Loads 5 rounds
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -51,6 +51,14 @@
     - state: base1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
+  # Start DeltaV additions
+  - type: BallisticAmmoProvider
+    capacity: 5
+    proto: CartridgeLightRifle
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+  # End DeltaV additions
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -127,75 +135,77 @@
   - type: StaticPrice
     price: 3500
 
-- type: entity
-  name: musket
-  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
-  id: Musket
-  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
-  components:
-  - type: Sharp
-  - type: Item
-    size: Large
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
-    state: base
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 8 #it's a musket
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
-    capacity: 1
-    proto: CartridgeMusket # DeltaV
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 15 #you fucking stab em
-        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-  - type: GunRequiresWield
+# Start DeltaV removals
+#- type: entity
+#  name: musket
+#  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
+#  id: Musket
+#  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
+#  components:
+#  - type: Sharp
+#  - type: Item
+#    size: Large
+#  - type: Sprite
+#    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+#    state: base
+#  - type: Clothing
+#    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+#  - type: Gun
+#    selectedMode: SemiAuto
+#    availableModes:
+#    - SemiAuto
+#  - type: UseDelayOnShoot
+#  - type: UseDelay
+#    delay: 8 #it's a musket
+#  - type: BallisticAmmoProvider
+#    whitelist:
+#      tags:
+#      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
+#    capacity: 1
+#    proto: CartridgeMusket # DeltaV
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Piercing: 15 #you fucking stab em
+#        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
+#    angle: 0
+#    animation: WeaponArcThrust
+#    soundHit:
+#      path: /Audio/Weapons/bladeslice.ogg
+#  - type: GunRequiresWield
 
-- type: entity
-  name: flintlock pistol
-  parent: [BaseWeaponSniper, BaseMajorContraband]
-  id: WeaponPistolFlintlock
-  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
-  components:
-  - type: Gun
-    minAngle: 0
-    maxAngle: 30 #miss him entirely because the barrel is smoothbore
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-    storedOffset: 0,-5
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 8 #it's a flintlock
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeMusket # DeltaV - musket instead of .45 magnum
-    capacity: 1
-    proto: CartridgeMusket # DeltaV
-  - type: StaticPrice
-    price: 0
+#- type: entity
+#  name: flintlock pistol
+#  parent: [BaseWeaponSniper, BaseMajorContraband]
+#  id: Flintlock # DeltaV
+#  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
+#  components:
+#  - type: Gun
+#    minAngle: 0
+#    maxAngle: 30 #miss him entirely because the barrel is smoothbore
+#  - type: Item
+#    size: Small
+#    shape:
+#    - 0,0,1,0
+#    - 0,1,0,1
+#    storedOffset: 0,-5
+#  - type: Sprite
+#    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+#  - type: Clothing
+#    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+#  - type: UseDelayOnShoot
+#  - type: UseDelay
+#    delay: 8 #it's a flintlock
+#  - type: BallisticAmmoProvider
+#    whitelist:
+#      tags:
+#      - CartridgeMusket # DeltaV - musket instead of .45 magnum
+#    capacity: 1
+#    proto: CartridgeMusket # DeltaV
+#  - type: StaticPrice
+#    price: 0
+# End DeltaV removals
 
 - type: entity
   parent: WeaponPistolFlintlock
