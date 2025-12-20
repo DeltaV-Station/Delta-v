@@ -67,6 +67,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetVoidsuitEngineering
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
     - CorgiWearable
