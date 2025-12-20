@@ -30,6 +30,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Body.Organ;
+using Content.Shared._DV.Surgery; // DeltaV - Block surgery steps
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -94,6 +95,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryCorticalBorerConditionComponent, SurgeryValidEvent>(OnCorticalBorerValid); // Mono
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeLocalEvent<BodyPartComponent, AccessibleOverrideEvent>(OnBodyPartAccessibleOverride); // Upstream Mege Changes
+        SubscribeLocalEvent<SurgeryComponent, SurgeryValidEvent>(OnSurgeryStepsValid); // DeltaV - Block surgery steps
 
         InitializeSteps();
 
@@ -321,6 +323,27 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (!results.Any(part => HasComp<BodyPartReattachedComponent>(part.Id)))
             args.Cancelled = true;
     }
+
+
+    // Begin DeltaV additions - Block surgery steps
+    /// <summary>
+    /// Allow some surgeries to blocked entirely based on the steps they perform.
+    /// </summary>
+    /// <param name="ent">Surgery being validated.</param>
+    /// <param name="args">Args for the event. Will be cancelled if the sugery is not valid.</param>
+    private void OnSurgeryStepsValid(Entity<SurgeryComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (HasComp<SurgeryBlockPartRemovalComponent>(args.Part))
+        {
+            // This part should never be removed from the body via a surgery.
+            foreach (var step in ent.Comp.Steps)
+            {
+                if (HasComp<SurgeryRemovePartStepComponent>(GetSingleton(step)))
+                    args.Cancelled = true;
+            }
+        }
+    }
+    // End DeltaV additions - Block surgery steps
 
     private void OnPartPresentConditionValid(Entity<SurgeryPartPresentConditionComponent> ent, ref SurgeryValidEvent args)
     {
