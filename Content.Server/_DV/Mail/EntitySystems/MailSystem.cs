@@ -318,7 +318,7 @@ public sealed class MailSystem : SharedMailSystem
         var accessReader = EnsureComp<AccessReaderComponent>(uid);
         foreach (var access in recipient.AccessTags)
         {
-            Access.AddAccess((uid, accessReader), access);
+            Access.TryAddAccess((uid, accessReader), access);
         }
 
         Dirty(uid, mailComp);
