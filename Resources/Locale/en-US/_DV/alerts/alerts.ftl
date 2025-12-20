@@ -14,3 +14,6 @@ alerts-light-level-bright-desc = You are in an area with bright light.
 
 alerts-resurrecting-name = Resurrecting
 alerts-resurrecting-desc = You are currently dead, but will resurrect soon.
+
+alerts-battery-provider-name = Battery Power
+alerts-battery-provider-desc = How much power is left in your battery.
