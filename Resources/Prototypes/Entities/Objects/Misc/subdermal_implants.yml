@@ -156,7 +156,7 @@
 
 - type: entity
   parent: BaseSubdermalImplant
-  id: RadioImplant
+  id: RadioSyndicateImplant # DeltaV - Renamed
   name: radio implant
   description: This implant grants access to the Syndicate channel without a headset.
   categories: [ HideSpawnMenu ]
@@ -395,9 +395,6 @@
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
-   - type: Tag
-     tags:
-       - MindShield
    - type: MindShieldImplant
 
 - type: entity

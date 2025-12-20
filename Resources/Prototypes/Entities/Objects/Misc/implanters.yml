@@ -45,7 +45,7 @@
     - DeathRattleImplant
     - MindShieldImplant
     - FakeMindShieldImplant
-    - RadioImplant
+    - RadioSyndicateImplant
     - ChameleonControllerImplant
     deimplantFailureDamage:
       types:
@@ -208,20 +208,13 @@
     implant: FreedomImplant
 
 - type: entity
-  id: SyndicateRadioImplanter # DeltaV
-  name: syndicate radio implanter
-  parent: BaseImplantOnlyImplanterSyndi
-  components:
-  - type: Implanter
-    implant: SyndicateRadioImplant # DeltaV
-
-- type: entity
-  id: RadioImplanter
+  id: RadioImplanterSyndicate # DeltaV - Renamed
+  name: syndicate radio implanter # DeltaV - added name
   suffix: radio Syndicate
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
-    implant: RadioImplant
+    implant: RadioSyndicateImplant
 
 - type: entity
   id: UplinkImplanter
