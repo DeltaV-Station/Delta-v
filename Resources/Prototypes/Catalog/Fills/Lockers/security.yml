@@ -56,7 +56,6 @@
     - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
     - id: ClothingNeckShockCollar
       amount: 2
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     # End DeltaV additions
 
 - type: entityTable
@@ -64,6 +63,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingMaskBreath
