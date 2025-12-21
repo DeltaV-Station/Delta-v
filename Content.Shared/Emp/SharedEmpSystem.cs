@@ -6,6 +6,11 @@ using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared._NF.Emp.Components;
+using Robust.Shared.GameStates;
+using Robust.Shared.Configuration; // Frontier
+using Robust.Shared;
+using Content.Shared.Damage; // Frontier
 
 namespace Content.Shared.Emp;
 
@@ -16,6 +21,8 @@ public abstract class SharedEmpSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // Frontier
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
     private HashSet<EntityUid> _entSet = new();
 
@@ -28,7 +35,7 @@ public abstract class SharedEmpSystem : EntitySystem
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
-    public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpPulse";
+    public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier - was EffectEmpPulse
     public static readonly EntProtoId EmpDisabledEffectPrototype = "EffectEmpDisabled";
     public static readonly SoundSpecifier EmpSound = new SoundPathSpecifier("/Audio/Effects/Lightning/lightningbolt.ogg");
 
@@ -47,8 +54,18 @@ public abstract class SharedEmpSystem : EntitySystem
             TryEmpEffects(uid, energyConsumption, duration, user);
         }
         // TODO: replace with PredictedSpawn once it works with animated sprites
+        // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
-            Spawn(EmpPulseEffectPrototype, mapCoordinates);
+        {
+            var emp = Spawn(EmpPulseEffectPrototype, mapCoordinates); // Frontier: Added visual effect
+            EnsureComp<EmpBlastComponent>(emp, out var empBlast); // Frontier
+            empBlast.VisualRange = range; // Frontier
+
+            if (range > _cfg.GetCVar(CVars.NetMaxUpdateRange)) // Frontier
+                _pvs.AddGlobalOverride(emp); // Frontier
+
+            Dirty(emp, empBlast); // Frontier
+        }
 
         var coordinates = _transform.ToCoordinates(mapCoordinates);
         _audio.PlayPredicted(EmpSound, coordinates, user);
@@ -72,7 +89,16 @@ public abstract class SharedEmpSystem : EntitySystem
         }
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
-            Spawn(EmpPulseEffectPrototype, coordinates);
+        {
+            var emp = Spawn(EmpPulseEffectPrototype, coordinates); // Frontier: Added visual effect
+            EnsureComp<EmpBlastComponent>(emp, out var empBlast); // Frontier
+            empBlast.VisualRange = range; // Frontier
+
+            if (range > _cfg.GetCVar(CVars.NetMaxUpdateRange)) // Frontier
+                _pvs.AddGlobalOverride(emp); // Frontier
+
+            Dirty(emp, empBlast); // Frontier
+        }
 
         _audio.PlayPredicted(EmpSound, coordinates, user);
     }
@@ -170,7 +196,7 @@ public record struct EmpAttemptEvent(bool Cancelled);
 /// <param name="User">The player that caused the EMP. For prediction purposes.</param>
 
 [ByRefEvent]
-public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User);
+public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User, DamageSpecifier? Damage = null); // DeltaV - Added Damage
 
 /// <summary>
 /// Raised on an entity after <see cref="EmpDisabledComponent"/> is removed.
