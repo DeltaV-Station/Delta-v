@@ -1,55 +1,34 @@
 <Document>
 # Medical Doctor
-"Medicine, the advanced technology of today."
+It's time to heal. Or at least, try to heal, anyway. Medical Doctors are the primary caretakers of every boo boo and ouchie crewmembers get on the station, be it a small scratch, or boiled skin.
 
-The medical department is the backbone of keeping crew alive, wether that be a missing arm, bodies burnt to a crisp, severe lacerations...It's up to you to fix their oopsies and boo-boos!
-
-This guide states the basic outline of the treatment options and other avenues of care that you can take as a doctor.
+This guide will give you a basic outline of the treatment options you have available, triage, and other avenues of care.
 
 ## The Basics
+There are two ways to tell what's ailing someone: Taking a scan (with a health analyzer or a medical PDA), or examining them, with a shift-click, and clicking the heart symbol.
 
-When you first recieve a patient, you first need to know what's wrong with them! There are two ways of doing this.
-
-- [bold]By doing a basic health inspection[/bold]. You can do this by hovering over a patient and using [color=yellow][keybind="ExamineEntity"][/color] and clicking the heart icon. It will show you any 'obvious' wounds, like bruising, blood loss and burns. But will not show things like poison!
-- [bold]Using a health analyzer[/bold]. All medical PDA's comes with [color=#4ba9bc]Medtek[/color], a health analyzer program. The health analyzer allows you to view [bold]all damage[/bold] that a patient has recieved, including their [bold]blood level[/bold]. Along with a coloured figure that shows if any body parts are damaged.
-
-To use a health analyzer, hold your PDA (or Handheld Health Analyzer) and then press [color=yellow][keybind="Use"][/color] when hovering over a patient.
+Using a health analyzer is often more powerful than examination, as some things (such as poison, or radiation) don't show up on examination. However, using an analyzer has its drawbacks, as it makes noise and uses up a battery.
 <Box>
+<GuideEntityEmbed Entity="SignExamroom" Caption="examine patient"/>
 <GuideEntityEmbed Entity="MedicalPDA"/>
 <GuideEntityEmbed Entity="MedicalInternPDA" Caption="intern PDA"/>
-<GuideEntityEmbed Entity="HandheldHealthAnalyzer" Caption="Handheld Health Analyzer"/>
+<GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
 </Box>
 
-It is important to note that the [bold]Handheld Health Analyzer[/bold] [italic]is the only one that requires a power cell[/italic]. Only use this if you do not have [color=#4ba9bc]Medtek[/color], or your PDA!
+## Medication and Treatment Options
+Before we go any further, it's probably a good idea to go over damage types, and what will heal them. The wiki has more extensive info available, but these are commonly used.
 
-## Common Damage Types and basic treatments
+An important note: Most medication has an overdose level, which will cause harm to your patient. Chemicals also take time to metabolise in pill form, if you want things to act quickly, use a syringe.
 
-The damage types [bold]all affect the patients health the same way.[/bold] The only thing different is that all of them require a different treatment to heal.
+- Brute Damage: Bicaridine or Bruise Packs
+- Burn Damage: Dermaline or Ointment
+- Toxin (Poison): Dylovene
+- Toxin (Radiation) Hyronalin or Arithrazine
+- Airloss: Dexaline or Inaprovaline
+- Bloodloss: Dexaline (Examine the patient, if pale, they still need blood or iron.)
+- Bleeding: Tranexamic acid and Gauze (Bleeding can also be cauterized with burn damage.)
 
-Doctors come equipped with a [bold]medical belt[/bold] that contains medical tools to deal with the most common types of damages. These are called [color=orange]Topicals.[/color]
-
-
-<Box>
-<GuideEntityEmbed Entity="Brutepack"/>
-<GuideEntityEmbed Entity="Ointment"/>
-<GuideEntityEmbed Entity="EmergencyMedipen"/>
-<GuideEntityEmbed Entity="Bloodpack"/>
-<GuideEntityEmbed Entity="Gauze"/>
-</Box>
-
-- [bold]Brutepacks[/bold] are for all types of Brute. This includes; slash, piercing, and bruises.
-- [bold]Ointments[/bold] are for all types of Burns. This includes eletrical shocks, heat and caustic.
-- [bold]Gauze[/bold] is to stop bleeding on a patient, it also works for slash and piercing!
-- [bold]Bloodpacks[/bold] is to refill a patients blood. This bloodpack works for every species. The patient will be pale if they require blood!
-- [bold]Emergency Medipens[/bold] are for when the patient is exceptionally close to deaths door. [bold]It will heal them from most types of damage while they are in critical condition[/bold] and buy you more time for life saving treatment!
-
-These are the most common type of damages that you can expect to see within all patients that arrive in medbay.
-If you ever run out these, you may refill your medical belt from medkits!
-
-### Medkits
-
-Many stations are stocked with medkits in medbay, and are a great source to restock if your medical belt runs dry on resources.
-Medkits can also be for specific damage types, be sure to read your [bold]Health Analyzer[/bold] for which medkit to use!
+Many stations are stocked with kits in storage, and all medics have some equipment in their starting belt.
 
 <Box>
 <GuideEntityEmbed Entity="MedkitFilled"/>
@@ -59,79 +38,40 @@ Medkits can also be for specific damage types, be sure to read your [bold]Health
 <GuideEntityEmbed Entity="MedkitToxinFilled" Caption="toxin kit"/>
 </Box>
 
-If your department is running low on medkits, ask your [color=#b18644]Logistics Department[/color] for a restock!
-
-
-## Advanced Damage Types and chemicals
-
-Although you are equipped to deal with the most common types of damage, you do not come equipped to deal with [italic]all[/italic] damage types by default.
-
-For that, [bold]you need to utilise chemicals![/bold]
-Chemicals are way more effective than the tools on your medical belt, and can treat more types of damage.
-
-To get started, find yourself a syringe.
 <Box>
-<GuideEntityEmbed Entity="Syringe"/>
-<GuideEntityEmbed Entity="SyringeBluespace"/>
-<GuideEntityEmbed Entity="Hypospray"/>
-<GuideEntityEmbed Entity="Jug" Caption="Chem container"/>
-</Box>
-Syringes have two modes, [bold]Draw[/bold] and [bold]Inject[/bold].
-- When you press [color=yellow][keybind="Use"][/color] while hovering over a chemical container in [bold]Draw[/bold] mode, it will gather chemicals from that container.
-- Then it will switch to [bold]Inject[/bold] mode. When you press [color=yellow][keybind="Use"][/color] while hovering over a patient, it will inject that chemical into their bloodstream. Then switches back to [bold]Draw[/bold] mode.
-
-You may also request for the chemicals to be in pill form if you wish.
-
-<Box>
-<GuideEntityEmbed Entity="PillCanister"/>
-<GuideEntityEmbed Entity="Pill" Caption="Any pill"/>
+<GuideEntityEmbed Entity="Brutepack"/>
+<GuideEntityEmbed Entity="Ointment"/>
+<GuideEntityEmbed Entity="EmergencyMedipen"/>
+<GuideEntityEmbed Entity="Bloodpack"/>
+<GuideEntityEmbed Entity="Gauze"/>
 </Box>
 
-But before you even start injecting chemicals into patients, you have to understand some important things.
-- Most chemicals have something called an "[color=red]Overdose rate[/color]". Overdose happens when the patients body has been injected with too many [italic]units[/italic] of that medicine. [bold]This can harm or kill the patient![/bold]
-- Your [textlink="Chemist" link="Chemist"] will be where you get your medicine from. Be sure to also ask them to [bold]label their chems[/bold]; as this will save you from having to memorise what medicine does what, especially their [color=red]Overdose rate[/color].
-- All chemicals are measured in [italic]units[/italic], as they are considered a liquid.
-- Chitnids can not be injected with normal syringes. [bold]Use a hypospray or pills.[/bold]
+## Basic Treatment and Triage
+Examine your patient, and note down the important details: Are they alive? Bleeding? What type of damage?
 
-With that out of the way, you are now free to inject chemicals into patients to save lives!
+If alive, treat them as best as you can. Patients are in critical condition at 100 damage, and dead at 200. Keep this in mind when choosing how to treat them. Emergency Pens and Epinephrine are often used to keep patients stable.
 
-If you wish to see how to make chemicals (because there is not a chemist), you may look at the common chemical recipes [textlink="here." link="FrequentlyUsedChemicals"]
-
-## How to assess patients
-As a doctor. You may be under quite a heavy workload, now that you know how to inject chemicals and use topicals.
-However, it generally follows this order:
-
-- First, once you recieve a patient, lay them on a [bold]medical bed[/bold]. Only use a [bold]stasis bed[/bold] if the patients death is imminent (or has died already).
-- Secondly, scan the patient with a health analyzer to check their damages.
-- Third, inject the patient with the correct chemical, or use Topicals to start treatment.
-- Fourth, discharge the patient once you confirm they are fully treated of their wounds.
-
+If possible, buckle them to a medical bed, if you need time to treat them, strap them to a stasis bed instead. Just keep in mind that metabolism (and by extension, healing chemicals) are slowed to a crawl when on stasis, they'll need to be taken off of it for the medicine to be effective. (But Blood Packs, Ointment, and Brute packs all work as normal.)
 <Box>
 <GuideEntityEmbed Entity="MedicalBed"/>
 <GuideEntityEmbed Entity="StasisBed"/>
 </Box>
+## Assessing Corpses
+You can't save them all, sometimes, death happens. Depending on the [color=#a4885c]status[/color] of the body, there are a few things that can be done.
 
-## Reviving dead patients
-Unfortunatley, there is some cases where death comes to a patient faster than you can react. However, this is not the end of the world!
+1. Do they have a soul attached? You can tell if, when examining, the following phrase is displayed: "Their soul has departed." If this isn't displayed, there is still a player who can be revived.
 
-The revival procedure uses a Defibrillator to restart the patients heart. But you need to do these things first:
+2. Is the body rotting? If it is, sadly, they'll have to be cloned. A rotting body can't be brought back with a defibrillator. (See Cloning)
 
-- Check if the patient has [bold]rotted[/bold]. You can not revive a rotting patient, and must morgue them.
-- If not rotting, put them on a [bold]stasis bed[/bold] to prevent further decomposition!
-- [bold]Get their current damage underneath 200.[/bold] You [color=orange]cannot use chems on the dead[/color] as it wont metabolise.
-- Once under 200 damage. Get your defibrillator from the cabinet, press [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color] to turn the defibrillator on in your main hand, and shout "Clear!"
-- Drag the patient off the [bold]stasis bed[/bold]. As chemicals metabolise slowly on cold temperatures. Then continue treatment as normal.
+3. If they have a soul, and aren't rotten, it's possible to revive them. Consider storing the body in a morgue tray if you don't have enough time to revive someone, as the body will rot if you wait too long.
+
+## Revival
+Not counting airloss, Defibrillator's can be used to revive patients under 200 total damage. Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>
 <GuideEntityEmbed Entity="Defibrillator"/>
-<GuideEntityEmbed Entity="DefibrillatorCabinetFilled" Caption="Defib cabinet"/>
 <GuideEntityEmbed Entity="Ointment"/>
 </Box>
 
-[color=yellow]Keep in mind that the defibrillator recharges while it is in its cabinet![/color]
-
-### Rotting patients
-Patients that are rotting arent a lost cause! As [textlink="Cloning" link="Cloning"] or [textlink="Cryogenics" link="Cryogenics"] are an option if you have them.
 </Document>
-
