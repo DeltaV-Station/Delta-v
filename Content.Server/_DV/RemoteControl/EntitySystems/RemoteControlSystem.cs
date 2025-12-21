@@ -159,6 +159,10 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     {
         if (holder.Owner == args.Pointed)
             SendSelfPointOrder(holder.AsNullable());
+        else if (
+            TryComp<RemoteControlReceiverComponent>(args.Pointed, out var reciever) &&
+            reciever.BoundController == holder.Comp.Control)
+            SendFreeUnitOrder(holder.AsNullable());
         else
             SendEntityPointOrder(holder.AsNullable(), args.Pointed);
     }
