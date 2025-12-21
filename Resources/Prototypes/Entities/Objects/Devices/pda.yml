@@ -1158,13 +1158,13 @@
   components:
   - type: Pda
     id: SyndiOperativeIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-syndi-operative
-  - type: Icon
-    state: pda-syndi-operative
+  #- type: Appearance # DeltaV - We don't have a specific operative sprite, so use SyndiPDA
+  #  appearanceDataInit:
+  #   enum.PdaVisuals.PdaType:
+  #     !type:String
+  #     pda-syndi-operative
+  #- type: Icon 
+  #  state: pda-syndi-operative
 
 
 - type: entity
@@ -1179,9 +1179,9 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-syndi-agent
+       pda-syndi-agent # DeltaV
   - type: Icon
-    state: pda-syndi-agent
+    state: pda-syndi-agent # DeltaV
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1198,13 +1198,13 @@
   components:
   - type: Pda
     id: SyndiCommanderIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-syndi-commander
-  - type: Icon
-    state: pda-syndi-commander
+  #- type: Appearance # DeltaV - We don't have a specific commander sprite so use SyndiPDA
+  #  appearanceDataInit:
+  #   enum.PdaVisuals.PdaType:
+  #     !type:String
+  #     pda-syndi-commander
+  #- type: Icon  
+  #   state: pda-syndi-commander
 
 - type: entity
   parent: BaseSecurityPDA
