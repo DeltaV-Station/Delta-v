@@ -33,19 +33,19 @@
     - id: Flash
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHandsGlovesCombat
-    - id: ClothingShoesBootsJack
+    #- id: ClothingShoesBootsJack # DeltaV - Moved to dresser
     #- id: ClothingOuterCoatWarden # DeltaV - removed for incongruence
     #- id: ClothingOuterWinterWarden # DeltaV - removed for incongruence
     - id: RubberStampWarden
     - id: DoorRemoteArmory
     - id: HoloprojectorSecurity
-    - id: BookSpaceLaw
+    #- id: BookSpaceLaw # DeltaV - Moved to dresser
     - id: ClothingBackpackElectropack
       amount: 2
-    - id: RemoteSignaller
-      amount: 2
-    - id: NetworkConfigurator
-    - id: Binoculars
+    #- id: RemoteSignaller # DeltaV - Moved to dresser
+    #  amount: 2
+    #- id: NetworkConfigurator # DeltaV - Moved to dresser
+    #- id: Binoculars # DeltaV - Moved to Dresser
     # Begin DeltaV additions
     - id: WeaponEnergyShotgun
     - id: BoxPDAPrisoner
@@ -54,8 +54,8 @@
       prob: 0.3
     - id: ClothingOuterVestPlateCarrierAdv
     - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
-    - id: ClothingNeckShockCollar
-      amount: 2
+    #- id: ClothingNeckShockCollar # DeltaV - Moved to dresser I guess?
+    #  amount: 2
     # End DeltaV additions
 
 - type: entityTable
