@@ -117,10 +117,10 @@
     - MindRoleLoneops
     requirements: # DeltaV
     - !type:OverallPlaytimeRequirement
-      time: 172800 # 48 hours overall
+      time: 48h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hours of sec
+      time: 10h
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -196,7 +196,7 @@
       settings: default
     requirements:
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 259200 # DeltaV - 72 hours
+      time: 72h
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -322,7 +322,7 @@
       settings: default
     requirements:
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 90000 # DeltaV - 25 hours
+      time: 25h
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
