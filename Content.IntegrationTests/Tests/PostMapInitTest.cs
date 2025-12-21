@@ -78,6 +78,7 @@ namespace Content.IntegrationTests.Tests
             "Micro", // DeltaV
             "Ovni", //DeltaV
             "Pebble", // DeltaV
+            "PebbleHiring", // DeltaV
             "Shoukou", // DeltaV
             "Submarine", //DeltaV
             "Terra", //DeltaV

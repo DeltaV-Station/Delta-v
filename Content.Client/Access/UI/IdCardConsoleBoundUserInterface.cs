@@ -1,3 +1,4 @@
+using System.Linq; // DeltaV
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -37,7 +38,8 @@ namespace Content.Client.Access.UI
 
             if (EntMan.TryGetComponent<IdCardConsoleComponent>(Owner, out var idCard))
             {
-                accessLevels = idCard.AccessLevels;
+                // DeltaV - Sort the access list
+                accessLevels = idCard.AccessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? access.GetAccessLevelName() : x.Id).ToList();
             }
             else
             {

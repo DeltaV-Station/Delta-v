@@ -186,7 +186,7 @@
   suffix: Empty
   components:
   - type: Anchorable
-    flags: 
+    flags:
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
@@ -457,9 +457,12 @@
       borg_brain:
         - SyndicateNeuroling # DeltaV
       borg_module:
-        - BorgModuleTool
+        - BorgModuleAdvancedTool # Delta V - replaced tool module
+        - BorgModuleCable # DeltaV
+        - BorgModuleConstruction # DeltaV
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
+        - BorgModuleCloakDeviceSyndicate # DeltaV
       borg_id_chip: # DeltaV - borg id chips
       - IdChipSyndie
   - type: ItemSlots

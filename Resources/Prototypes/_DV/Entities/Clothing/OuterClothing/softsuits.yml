@@ -23,6 +23,34 @@
     walkModifier: 1
     sprintModifier: 1
 
+# Departmental EVA Suits
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVAScience
+  name: Epistemics EVA Suit
+  description: A modified EVA suit padded with shock-absorbant airbags. Looks like it could take a pretty strong blast.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_epistemics.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Suits/eva_epistemics.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.6
+        Caustic: 0.8 # Wouldn't want John Scientist getting obliterated by the funny caustic chem artifact.
+  - type: ExplosionResistance
+    damageCoefficient: 0.7 # Practically a budget bombsuit, so it absorbs a lot of explosion damage.
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
+    - WhitelistChameleon
+    - HidesHarpyWings
+
 #Engineering Void Suit
 - type: entity
   parent: [ClothingOuterEVASuitBase, BaseEngineeringContraband]

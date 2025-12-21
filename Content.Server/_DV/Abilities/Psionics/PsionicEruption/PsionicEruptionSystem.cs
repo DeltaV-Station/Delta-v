@@ -216,7 +216,8 @@ public sealed class PsionicEruptionSystem : EntitySystem
             return;
 
         var pos = _transform.GetMapCoordinates(entity);
-        _body.GibBody(entity, acidify: true, body, launchGibs: true);
+        // acidify: false preserves inventory items when erupting
+        _body.GibBody(entity, acidify: false, body, launchGibs: true);
         int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
         {
             GlimmerTier.Minimal => 4,
