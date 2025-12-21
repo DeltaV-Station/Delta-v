@@ -27,6 +27,12 @@ public sealed partial class RemoteControlComponent : Component
     public string ChannelName;
 
     /// <summary>
+    /// Cooldown time between orders.
+    /// </summary>
+    [DataField]
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(3);
+
+    /// <summary>
     /// Action to use when this remote control is equipped by a user.
     /// </summary>
     [DataField]

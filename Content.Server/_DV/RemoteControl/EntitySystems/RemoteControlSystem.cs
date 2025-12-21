@@ -23,7 +23,6 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
     {
@@ -139,10 +138,15 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             return false;
 
         Entity<RemoteControlComponent> control = (holder.Comp.Control, controlComp);
-        if (_useDelay.IsDelayed(control.Owner))
+        var action = Actions.GetAction(control.Comp.ToggleActionEntid);
+        if (!action.HasValue)
             return false;
 
-        _useDelay.TryResetDelay(control.Owner);
+        if (Actions.IsCooldownActive(action.Value))
+            return false;
+
+        Actions.SetCooldown(control.Comp.ToggleActionEntid, control.Comp.Cooldown);
+        UseDelay.TryResetDelay(control.Owner);
 
         var ev = getEvent(control);
         if (recipient.HasValue)

@@ -7,6 +7,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
+using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -19,15 +20,18 @@ namespace Content.Shared._DV.RemoteControl.EntitySystems;
 /// </summary>
 public abstract class SharedRemoteControlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly UseDelaySystem UseDelay = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<RemoteControlComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<RemoteControlComponent, ToggleRemoteControlEvent>(OnRemoteControlToggled);
         SubscribeLocalEvent<RemoteControlComponent, GetItemActionsEvent>(OnGetRemoteControlActions);
@@ -38,6 +42,12 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         SubscribeLocalEvent<RemoteControlComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         SubscribeLocalEvent<RemoteControlComponent, RemoteControlBindChangeDoAfterEvent>(OnBindChangeDoAfter);
+    }
+
+    private void OnMapInit(Entity<RemoteControlComponent> ent, ref MapInitEvent args)
+    {
+        EnsureComp<UseDelayComponent>(ent);
+        UseDelay.SetLength(ent.Owner, ent.Comp.Cooldown);
     }
 
     /// <summary>
@@ -164,7 +174,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     {
         // Ensure the action and equipee are cleaned up
         if (control.Comp.ToggleActionEntid != null)
-            _actions.SetToggled(control.Comp.ToggleActionEntid, false);
+            Actions.SetToggled(control.Comp.ToggleActionEntid, false);
 
         RemComp<RemoteControlHolderComponent>(args.Equipee);
     }
@@ -178,7 +188,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     {
         // Ensure the action and equipee are cleaned up
         if (control.Comp.ToggleActionEntid != null)
-            _actions.SetToggled(control.Comp.ToggleActionEntid, false);
+            Actions.SetToggled(control.Comp.ToggleActionEntid, false);
 
         RemComp<RemoteControlHolderComponent>(args.User);
     }
