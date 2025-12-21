@@ -74,6 +74,13 @@ public sealed partial class RemoteControlComponent : Component
     /// </summary>
     [DataField]
     public List<string> Screeches = new() { };
+
+    /// <summary>
+    /// Dictionary of orders and their respective localised strings to show to the player.
+    /// If no order string exists for a given order, a default one will be applied.
+    /// </summary>
+    [DataField]
+    public Dictionary<RemoteControlOrderType, LocId> OrderStrings;
 }
 
 [Serializable, NetSerializable]

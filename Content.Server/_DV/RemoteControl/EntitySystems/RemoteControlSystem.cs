@@ -9,6 +9,7 @@ using Content.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Map;
+using System.Numerics;
 
 namespace Content.Server._DV.RemoteControl.EntitySystems;
 
@@ -46,6 +47,8 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     {
         return TrySendOrder(
             holder,
+            RemoteControlOrderType.EntityPoint,
+            new EntityCoordinates(pointed, Vector2.Zero),
             (control) => new RemoteControlEntityPointOrderEvent(holder, control.Owner, control.Comp.BoundEntities, pointed),
             recipient
         );
@@ -61,8 +64,15 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
     public bool SendTilePointOrder(Entity<RemoteControlHolderComponent?> holder, MapCoordinates tile, EntityUid? recipient = null)
     {
+        var grid = _transform.GetGrid(holder.Owner);
+        if (!grid.HasValue)
+            return false;
+
+        var location = _transform.ToCoordinates((grid.Value, null), tile);
         return TrySendOrder(
             holder,
+            RemoteControlOrderType.TilePoint,
+            location,
             (control) => new RemoteControlTilePointOrderEvent(holder, control.Owner, control.Comp.BoundEntities, tile),
             recipient
         );
@@ -73,12 +83,15 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// a single unit.
     /// </summary>
     /// <param name="holder">Entity holding the remote control.</param>
+    /// <param name="pointed">The entity pointed to by the holder.</param>
     /// <param name="recipient">Optional recipient, if set then only that specific entity will receive the order.</param>
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
-    public bool SendSelfPointOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid? recipient = null)
+    public bool SendSelfPointOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid pointed, EntityUid? recipient = null)
     {
         return TrySendOrder(
             holder,
+            RemoteControlOrderType.SelfPoint,
+            new EntityCoordinates(pointed, Vector2.Zero),
             (control) => new RemoteControlSelfPointOrderEvent(holder, control.Owner, control.Comp.BoundEntities),
             recipient
         );
@@ -89,12 +102,15 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// a single unit.
     /// </summary>
     /// <param name="holder">Entity holding the remote control.</param>
+    /// <param name="pointed">The entity pointed to by the holder.</param>
     /// <param name="recipient">Optional recipient, if set then only that specific entity will receive the order.</param>
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
-    public bool SendFreeUnitOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid? recipient = null)
+    public bool SendFreeUnitOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid pointed, EntityUid? recipient = null)
     {
         return TrySendOrder(
             holder,
+            RemoteControlOrderType.FreeUnit,
+            new EntityCoordinates(pointed, Vector2.Zero),
             (control) => new RemoteControlFreeUnitOrderEvent(holder, control.Owner, control.Comp.BoundEntities),
             recipient
         );
@@ -110,6 +126,8 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if the order was sent, otherwise false.</returns>
     private bool TrySendOrder<T>(
         Entity<RemoteControlHolderComponent?> holder,
+        RemoteControlOrderType orderType,
+        EntityCoordinates pointCoords,
         Func<Entity<RemoteControlComponent>, T> getEvent,
         EntityUid? recipient = null
     ) where T : notnull
@@ -147,6 +165,9 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             }
         }
 
+        var message = Loc.GetString(control.Comp.OrderStrings.GetValueOrDefault(orderType, _defaultLocString));
+        Popup.PopupCoordinates(message, pointCoords, holder, Shared.Popups.PopupType.Medium);
+
         return true;
     }
 
@@ -158,11 +179,11 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     private void OnPointedAtEntity(Entity<RemoteControlHolderComponent> holder, ref AfterPointedAtEvent args)
     {
         if (holder.Owner == args.Pointed)
-            SendSelfPointOrder(holder.AsNullable());
+            SendSelfPointOrder(holder.AsNullable(), args.Pointed);
         else if (
             TryComp<RemoteControlReceiverComponent>(args.Pointed, out var reciever) &&
             reciever.BoundController == holder.Comp.Control)
-            SendFreeUnitOrder(holder.AsNullable());
+            SendFreeUnitOrder(holder.AsNullable(), args.Pointed);
         else
             SendEntityPointOrder(holder.AsNullable(), args.Pointed);
     }
