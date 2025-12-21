@@ -33,18 +33,18 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillCaptainDeltaV
     #- id: CaptainIDCard # DeltaV - Replaced by the spare ID system
-    - id: CigarGoldCase
-      prob: 0.25
+    #- id: CigarGoldCase # DeltaV - Moved to dresser
+    #  prob: 0.25
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
     - id: BoxCaptainCircuitboards
     - id: DoorRemoteCustom
-    - id: MedalCase
+    #- id: MedalCase # DeltaV - Moved to dresser
     - id: NukeDisk
     - id: PinpointerNuclear
-    - id: PlushieNuke
-      prob: 0.1
+    #- id: PlushieNuke # DeltaV - Moved to dresser
+    #  prob: 0.1
     - id: RubberStampCaptain
     - id: SpaceCash1000
     - id: WeaponDisabler
@@ -116,16 +116,16 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    - id: AccessConfigurator
-    - id: BoxEncryptionKeyPassenger
-    - id: BoxEncryptionKeyService
-    - id: BoxHeadset
+    #- id: AccessConfigurator # DeltaV - Moved to PTech
+    #- id: BoxEncryptionKeyPassenger # DeltaV - PTech
+    #- id: BoxEncryptionKeyService # DeltaV - PTech
+    #- id: BoxHeadset # DeltaV - PTech
     - id: BoxHoPCircuitboards
     - id: BoxHoPStamps
-    - id: BoxID
-    - id: BoxPDA
-    - id: CigarGoldCase
-      prob: 0.25
+    #- id: BoxID # DeltaV - PTech
+    #- id: BoxPDA # DeltaV - PTech
+    #- id: CigarGoldCase # DeltaV - moved to Dresser
+    #  prob: 0.25
       # Fuck the HoP they don't deserve fucking cigars.
       # Yes they do fuck you.
     - id: ClothingBackpackIan
@@ -160,7 +160,7 @@
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
     - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesColorYellow
+    #- id: ClothingHandsGlovesColorYellow # DeltaV - Moved to dresser
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards
@@ -216,12 +216,12 @@
       tableId: LockerFillChiefMedicalOfficerDeltaV
     - id: BoxEncryptionKeyMedical
     - id: ClothingBackpackDuffelSurgeryFilled
-    - id: ClothingCloakCmo
+    #- id: ClothingCloakCmo # DeltaV - Moved to dresser
     - id: ClothingEyesHudMedical
-    - id: ClothingHandsGlovesNitrile
-    - id: ClothingHeadHatBeretCmo
+    #- id: ClothingHandsGlovesNitrile # DeltaV - Moved to dresser
+    #- id: ClothingHeadHatBeretCmo # DeltaV - Moved to dresser
     - id: ClothingHeadsetAltMedical
-    - id: ClothingMaskSterile
+    #- id: ClothingMaskSterile # DeltaV - Moved to ClothingBackpackDuffelSurgeryFilled
     - id: DoorRemoteMedical
     - id: HandheldCrewMonitor
     - id: Hypospray
@@ -229,8 +229,6 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
-    # Shitmed
-    #- id: MedicalBiofabMachineBoard #DeltaV - Replaced with a flatpack at Prototypes/_DV/Catalog/Fills/Lockers/heads.yml
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -328,16 +326,16 @@
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
     # - id: WeaponEnergyShotgun # DeltaV - Moved to warden locker
-    - id: BookSpaceLaw
+    #- id: BookSpaceLaw # DeltaV - Moved to dresser
     - id: BoxEncryptionKeySecurity
-    - id: CigarGoldCase
-      prob: 0.50
+    #- id: CigarGoldCase # DeltaV - Moved to dresser
+    #  prob: 0.50
     - id: ClothingBeltSecurityFilled
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
-    - id: ClothingMaskNeckGaiter
-    - id: ClothingOuterCoatHoSTrench
-    - id: ClothingShoesBootsJack
+    #- id: ClothingMaskNeckGaiter # DeltaV - Moved to dresser
+    #- id: ClothingOuterCoatHoSTrench # DeltaV - Moved to dresser
+    #- id: ClothingShoesBootsJack # DeltaV - Moved to dresser
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
     - id: RubberStampHos
