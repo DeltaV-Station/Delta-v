@@ -10,16 +10,17 @@ This guide states the basic outline of the treatment options and other avenues o
 
 When you first recieve a patient, you first need to know what's wrong with them! There are two ways of doing this.
 
-- [bold]Using a health analyzer[/bold]. The health analyzer allows you to view [bold]all damage[/bold] that a patient has recieved, including their [bold]blood level[/bold]. Along with a coloured figure showing which part of their body is the most damaged. The health analyzer also categorises damages into their own categories for convenience.
-
 - [bold]By doing a basic health inspection[/bold]. You can do this by using [color=yellow][keybind="ExamineEntity"][/color] and clicking the heart icon. It will show you any 'obvious' wounds, like bruising, blood loss and burns. But will not show things like poison!
+- [bold]Using a health analyzer[/bold]. All medical PDA's comes with [color=#4ba9bc]Medtek[/color], a health analyzer program. The health analyzer allows you to view [bold]all damage[/bold] that a patient has recieved, including their [bold]blood level[/bold]. Along with a coloured figure that shows if any body parts are damaged.
+
+To use a health analyzer, hold your PDA (or Handheld Health Analyzer) and then press [color=yellow][keybind="Use"][/color] when hovering over a patient.
 <Box>
 <GuideEntityEmbed Entity="MedicalPDA"/>
 <GuideEntityEmbed Entity="MedicalInternPDA" Caption="intern PDA"/>
 <GuideEntityEmbed Entity="HandheldHealthAnalyzer" Caption="Handheld Health Analyzer"/>
 </Box>
 
-It is important to note that the [bold]Handheld Health Analyzer[/bold] [italic]is the only one that requires a power cell[/italic].
+It is important to note that the [bold]Handheld Health Analyzer[/bold] [italic]is the only one that requires a power cell[/italic]. Only use this if you do not have [color=#4ba9bc]Medtek[/color], or your PDA!
 
 ## Common Damage Types and basic treatments
 
@@ -61,14 +62,38 @@ Medkits can also be for specific damage types, be sure to read your [bold]Health
 If your department is running low on medkits, ask your [color=#b18644]Logistics Department[/color] for a restock!
 
 
-## Advanced Damage Types and medicine
+## Advanced Damage Types and chemicals
 
 Although you are equipped to deal with the most common types of damage, you do not come equipped to deal with [italic]all[/italic] damage types by default.
 
-For that, you need to utilise medicine!
+For that, [bold]you need to utilise chemicals![/bold]
+Chemicals are way more effective than the tools on your medical belt, and can treat more types of damage.
 
-Medicine is way more effective than the tools on your medical belt, and can treat more types of damage.
+To get started, find yourself a syringe.
+<Box>
+<GuideEntityEmbed Entity="Syringe"/>
+<GuideEntityEmbed Entity="SyringeBluespace"/>
+<GuideEntityEmbed Entity="Hypospray"/>
+<GuideEntityEmbed Entity="Jug" Caption="Chem container"/>
+</Box>
+Syringes have two modes, [bold]Draw[/bold] and [bold]Inject[/bold].
+- When you press [color=yellow][keybind="Use"][/color] while hovering over a chemical container in [bold]Draw[/bold] mode, it will gather chemicals from that container.
+- Then it will switch to [bold]Inject[/bold] mode. When you press [color=yellow][keybind="Use"][/color] while hovering over a patient, it will inject that chemical into their bloodstream. Then switches back to [bold]Draw[/bold] mode.
 
+You may also request for the chemicals to be in pill form if you wish.
+
+<Box>
+<GuideEntityEmbed Entity="PillCanister"/>
+<GuideEntityEmbed Entity="Pill" Caption="Any pill"/>
+</Box>
+
+But before you even start injecting chemicals into patients, you have to understand some important things.
+- Most chemicals have something called an "[color=red]Overdose rate[/color]". Overdose happens when the patients body has been injected with too many [italic]units[/italic] of that medicine. [bold]This can harm or kill the patient![/bold]
+- Your [textlink="Chemist" link="Chemist"] will be where you get your medicine from. Be sure to also ask them to [bold]label their chems[/bold]; as this will save you from having to memorise what medicine does what, especially their [color=red]Overdose rate[/color].
+- All chemicals are measured in [italic]units[/italic], as they are considered a liquid.
+- Chitnids can not be injected with normal syringes. [bold]Use a hypospray or pills.[/bold]
+
+With that out of the way, you are now free to inject chemicals into patients to save lives!
 
 
 
