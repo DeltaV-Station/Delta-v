@@ -6,7 +6,6 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
 using Content.Shared._Shitmed.Body.Organ; // Shitmed
-using Content.Shared.Body.Systems; // Shitmed 
 
 namespace Content.Shared.Body.Systems;
 
