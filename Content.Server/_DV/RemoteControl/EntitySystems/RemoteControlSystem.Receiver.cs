@@ -144,17 +144,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             controlComp.ChannelName != receiver.Comp.ChannelName)
             return;
 
-        if (receiver.Comp.BoundController != args.Control)
-            return; // This isn't the control we think we're bound to
-
-        if (!args.BoundEntities.Contains(receiver.Owner))
-            return; // This order is not for this entity
-
         if (!IsNPC(receiver))
         {
             HandleOrderEffects(receiver, args.User, (args.Control, controlComp), orderType);
             return;
         }
+
+        if (receiver.Comp.BoundController != args.Control)
+            return; // This isn't the control we think we're bound to
+
+        if (!args.BoundEntities.Contains(receiver.Owner))
+            return; // This order is not for this entity
 
         if (!receiver.Comp.CanUnderstand)
             return;
