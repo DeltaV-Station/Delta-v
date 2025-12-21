@@ -76,7 +76,6 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             {
                 _npc.SetBlackboard(ent, NPCBlackboard.CurrentOrderedTarget, target);
                 _npc.SetBlackboard(ent, _targetKey, new EntityCoordinates(target, Vector2.Zero));
-                return true;
             });
     }
 
@@ -113,7 +112,6 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             () =>
             {
                 _npc.SetBlackboard(ent, NPCBlackboard.MovementTarget, location);
-                return true;
             });
     }
 
@@ -148,7 +146,6 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
                 _npc.SetBlackboard(ent,
                     NPCBlackboard.FollowTarget,
                     new EntityCoordinates(origin, Vector2.Zero));
-                return true;
             });
     }
 
@@ -204,7 +201,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     {
         UpdateNPCOrders(entity,
             RemoteControlOrderType.FreeUnit,
-            () => true
+            () => {}
         );
     }
 
@@ -227,7 +224,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="npc">NPC to update orders for.</param>
     /// <param name="order">The current order enum they should follow.</param>
     /// <param name="orderAction">A lambda that updates any blackboard information for the current order.</param>
-    private void UpdateNPCOrders(EntityUid npc, RemoteControlOrderType order, Func<bool> orderAction)
+    private void UpdateNPCOrders(EntityUid npc, RemoteControlOrderType order, Action orderAction)
     {
         _npc.SetBlackboard(npc, NPCBlackboard.CurrentOrders, order);
 
