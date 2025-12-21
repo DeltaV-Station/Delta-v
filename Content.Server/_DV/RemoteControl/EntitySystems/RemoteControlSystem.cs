@@ -44,26 +44,11 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
     public bool SendEntityPointOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid pointed, EntityUid? recipient = null)
     {
-        if (!Resolve(holder, ref holder.Comp))
-            return false;
-
-        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
-            return false;
-
-        var control = (holder.Comp.Control, controlComp);
-        if (!CanSendOrder(control))
-            return false;
-
-        var ev = new RemoteControlEntityPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities, pointed);
-        if (recipient.HasValue)
-        {
-            RaiseLocalEvent(recipient.Value, ref ev);
-            _useDelay.TryResetDelay(holder.Comp.Control);
-        }
-        else
-            SendOrderToReceivers(control, ref ev);
-
-        return true;
+        return TrySendOrder(
+            holder,
+            (control) => new RemoteControlEntityPointOrderEvent(holder, control.Owner, control.Comp.BoundEntities, pointed),
+            recipient
+        );
     }
 
     /// <summary>
@@ -76,26 +61,11 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
     public bool SendTilePointOrder(Entity<RemoteControlHolderComponent?> holder, MapCoordinates tile, EntityUid? recipient = null)
     {
-        if (!Resolve(holder, ref holder.Comp))
-            return false;
-
-        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
-            return false;
-
-        var control = (holder.Comp.Control, controlComp);
-        if (!CanSendOrder(control))
-            return false;
-
-        var ev = new RemoteControlTilePointOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities, tile);
-        if (recipient.HasValue)
-        {
-            RaiseLocalEvent(recipient.Value, ref ev);
-            _useDelay.TryResetDelay(holder.Comp.Control);
-        }
-        else
-            SendOrderToReceivers(control, ref ev);
-
-        return true;
+        return TrySendOrder(
+            holder,
+            (control) => new RemoteControlTilePointOrderEvent(holder, control.Owner, control.Comp.BoundEntities, tile),
+            recipient
+        );
     }
 
     /// <summary>
@@ -107,26 +77,11 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
     public bool SendSelfPointOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid? recipient = null)
     {
-        if (!Resolve(holder, ref holder.Comp))
-            return false;
-
-        if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
-            return false;
-
-        var control = (holder.Comp.Control, controlComp);
-        if (!CanSendOrder(control))
-            return false;
-
-        var ev = new RemoteControlSelfPointOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities);
-        if (recipient.HasValue)
-        {
-            RaiseLocalEvent(recipient.Value, ref ev);
-            _useDelay.TryResetDelay(holder.Comp.Control);
-        }
-        else
-            SendOrderToReceivers(control, ref ev);
-
-        return true;
+        return TrySendOrder(
+            holder,
+            (control) => new RemoteControlSelfPointOrderEvent(holder, control.Owner, control.Comp.BoundEntities),
+            recipient
+        );
     }
 
     /// <summary>
@@ -138,24 +93,59 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <returns>True if the order was sent successfuly, false otherwise.</returns>
     public bool SendFreeUnitOrder(Entity<RemoteControlHolderComponent?> holder, EntityUid? recipient = null)
     {
+        return TrySendOrder(
+            holder,
+            (control) => new RemoteControlFreeUnitOrderEvent(holder, control.Owner, control.Comp.BoundEntities),
+            recipient
+        );
+    }
+
+    /// <summary>
+    /// Attempts to send an order to all available receivers, or a single recipient.
+    /// </summary>
+    /// <typeparam name="T">The type of event to send.</typeparam>
+    /// <param name="holder">The entity currently holding/using the whistle.</param>
+    /// <param name="getEvent">A function providing the event to send to users.</param>
+    /// <param name="recipient">An optional recipient entity to receive this event.</param>
+    /// <returns>True if the order was sent, otherwise false.</returns>
+    private bool TrySendOrder<T>(
+        Entity<RemoteControlHolderComponent?> holder,
+        Func<Entity<RemoteControlComponent>, T> getEvent,
+        EntityUid? recipient = null
+    ) where T : notnull
+    {
         if (!Resolve(holder, ref holder.Comp))
             return false;
 
         if (!TryComp<RemoteControlComponent>(holder.Comp.Control, out var controlComp))
             return false;
 
-        var control = (holder.Comp.Control, controlComp);
-        if (!CanSendOrder(control))
+        Entity<RemoteControlComponent> control = (holder.Comp.Control, controlComp);
+        if (_useDelay.IsDelayed(control.Owner))
             return false;
 
-        var ev = new RemoteControlFreeUnitOrderEvent(holder, holder.Comp.Control, controlComp.BoundEntities);
+        _useDelay.TryResetDelay(control.Owner);
+
+        var ev = getEvent(control);
         if (recipient.HasValue)
         {
+            if (!TryComp<RemoteControlReceiverComponent>(recipient, out var receiverComp) ||
+                receiverComp.ChannelName != control.Comp.ChannelName)
+                return false;
+
             RaiseLocalEvent(recipient.Value, ref ev);
-            _useDelay.TryResetDelay(holder.Comp.Control);
         }
         else
-            SendOrderToReceivers(control, ref ev);
+        {
+            var query = EntityQueryEnumerator<RemoteControlReceiverComponent>();
+            while (query.MoveNext(out var ent, out var receiverComp))
+            {
+                if (receiverComp.ChannelName != control.Comp.ChannelName)
+                    continue; // Not on the same channel, ignore
+
+                RaiseLocalEvent(ent, ref ev);
+            }
+        }
 
         return true;
     }
@@ -181,36 +171,5 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     private void OnPointedAtTile(Entity<RemoteControlHolderComponent> holder, ref AfterPointedAtTileEvent args)
     {
         SendTilePointOrder(holder.AsNullable(), args.Pointed);
-    }
-
-    /// <summary>
-    /// Sends an order from the remote control to all possible Receivers on that channel
-    /// </summary>
-    /// <typeparam name="T">Type of the order event to send.</typeparam>
-    /// <param name="control">Remote control sending this order.</param>
-    /// <param name="ev">Order event being sent.</param>
-    private void SendOrderToReceivers<T>(Entity<RemoteControlComponent> control, ref T ev) where T : notnull
-    {
-        var query = EntityQueryEnumerator<RemoteControlReceiverComponent>();
-        while (query.MoveNext(out var ent, out var receiverComp))
-        {
-            if (receiverComp.ChannelName != control.Comp.ChannelName)
-                continue; // Not on the same channel, ignore
-
-            RaiseLocalEvent(ent, ref ev);
-        }
-
-        _useDelay.TryResetDelay(control.Owner);
-    }
-
-    /// <summary>
-    /// Checks whether an order can be sent by this remote control, used to limited
-    /// the amount of spam one can send to Receivers.
-    /// </summary>
-    /// <param name="control">Remote control being used.</param>
-    /// <returns>True if there is no use delay (cooldown) active for this remote control, false otherwise.</returns>
-    private bool CanSendOrder(Entity<RemoteControlComponent> control)
-    {
-        return !_useDelay.IsDelayed(control.Owner);
     }
 }
