@@ -38,6 +38,8 @@
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
+  - type: Loadout
+    prototypes: [ MobLaikaGear ]
   - type: Butcherable
     spawned:
     - id: FoodMeat
