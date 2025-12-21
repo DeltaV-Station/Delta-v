@@ -2,7 +2,7 @@ remote-control-order-default = Incomprehensible screeching
 
 remote-control-bind-verb-text = Bind to control
 remote-control-bind-verb-message = Bind this entity to the control.
-remote-control-bind-popup-start = {$user} attempting to bind {$target}.
+remote-control-bind-popup-start = {$user} is attempting to bind {$target}.
 
 remote-control-unbind-verb-text = Unbind from control
 remote-control-unbind-verb-message = Unbind this entity from the control.
