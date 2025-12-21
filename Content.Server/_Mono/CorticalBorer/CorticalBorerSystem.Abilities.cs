@@ -5,12 +5,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
-using Content.Server.Medical;
 using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Medical;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
