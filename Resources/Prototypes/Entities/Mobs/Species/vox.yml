@@ -42,7 +42,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 1500
+        damage: 25000 # DeltaV - lol
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
