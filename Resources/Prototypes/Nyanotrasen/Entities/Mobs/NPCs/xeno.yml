@@ -51,38 +51,47 @@
   parent: [MobXeno, BaseMobXenoPlayer]
   id: MobXenoPlayer
   name: Burrower
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoPraetorianNPC, BaseMobXenoPlayer]
   id: MobXenoPraetorian
   name: Praetorian
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoDroneNPC, BaseMobXenoPlayer]
   id: MobXenoDrone
   name: Drone
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoQueenNPC, BaseMobXenoPlayer]
   id: MobXenoQueen
   name: Queen
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoRavagerNPC, BaseMobXenoPlayer]
   id: MobXenoRavager
   name: Ravager
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoRunnerNPC, BaseMobXenoPlayer]
   id: MobXenoRunner
   name: Runner
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoRounyNPC, BaseMobXenoPlayer]
   id: MobXenoRouny
   name: Rouny
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
   parent: [MobXenoSpitterNPC, BaseMobXenoPlayer]
   id: MobXenoSpitter
   name: Spitter
+  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
+  
