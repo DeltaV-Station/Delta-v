@@ -1,3 +1,4 @@
+using Content.Shared._DV.Silicons;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emp;
 using Content.Shared.PowerCell.Components;
@@ -12,6 +13,8 @@ public abstract class SharedPowerCellSystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedSiliconEmpSystem _siliconEmp = default!;
+
 
     public override void Initialize()
     {
@@ -77,6 +80,10 @@ public abstract class SharedPowerCellSystem : EntitySystem
     private void OnCellEmpAttempt(EntityUid uid, PowerCellComponent component, EmpAttemptEvent args)
     {
         var parent = Transform(uid).ParentUid;
+
+        if (_siliconEmp.ShouldTakeDamageInsteadOfPowerDrain(parent)) // DeltaV - Silicon EMP
+            return;
+
         // relay the attempt event to the slot so it can cancel it
         if (HasComp<PowerCellSlotComponent>(parent))
             RaiseLocalEvent(parent, ref args);

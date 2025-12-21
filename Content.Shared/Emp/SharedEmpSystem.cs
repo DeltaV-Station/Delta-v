@@ -24,6 +24,8 @@ public abstract class SharedEmpSystem : EntitySystem
     [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // Frontier
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
+    private readonly DamageSpecifier? _defaultEmpDamage = new() { DamageDict = new() { { "Ion", 130 } } }; // DeltaV - EMP damage
+
     private HashSet<EntityUid> _entSet = new();
 
     public override void Initialize()
@@ -47,13 +49,13 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse. In Joule.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>
-    public void EmpPulse(MapCoordinates mapCoordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null)
+    public void EmpPulse(MapCoordinates mapCoordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
     {
         foreach (var uid in _lookup.GetEntitiesInRange(mapCoordinates, range))
         {
-            TryEmpEffects(uid, energyConsumption, duration, user);
+            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? _defaultEmpDamage); // DeltaV - Add Ion Damage
         }
-        // TODO: replace with PredictedSpawn once it works with animated sprites
+
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
         {
@@ -79,13 +81,13 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>
-    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null)
+    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
     {
         _entSet.Clear();
         _lookup.GetEntitiesInRange(coordinates, range, _entSet);
         foreach (var uid in _entSet)
         {
-            TryEmpEffects(uid, energyConsumption, duration, user);
+            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? _defaultEmpDamage); // DeltaV - Add Ion Damage
         }
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
@@ -111,14 +113,14 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the EMP. For prediction purposes.</param>
     /// <returns>If the entity was affected by the EMP.</returns>
-    public bool TryEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
+    public bool TryEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
     {
         var attemptEv = new EmpAttemptEvent();
         RaiseLocalEvent(uid, ref attemptEv);
         if (attemptEv.Cancelled)
             return false;
 
-        return DoEmpEffects(uid, energyConsumption, duration, user);
+        return DoEmpEffects(uid, energyConsumption, duration, user, damage); // DeltaV - Add Ion Damage
     }
 
     /// <summary>
@@ -129,9 +131,9 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the EMP. For prediction purposes.</param>
     /// <returns>If the entity was affected by the EMP.</returns>
-    public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
+    public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
     {
-        var ev = new EmpPulseEvent(energyConsumption, false, false, duration, user);
+        var ev = new EmpPulseEvent(energyConsumption, false, false, duration, user, damage); // DeltaV - Add Ion Damage
         RaiseLocalEvent(uid, ref ev);
 
         // TODO: replace with PredictedSpawn once it works with animated sprites
