@@ -27,7 +27,7 @@ public sealed partial class RemoteControlReceiverComponent : Component
     /// If no order string exists for a given order, a default one will be applied.
     /// </summary>
     [DataField]
-    public Dictionary<RemoteControlOrderType, LocId> OrderStrings;
+    public Dictionary<RemoteControlOrderType, LocId> OrderStrings = new();
 
     /// <summary>
     /// Controller that can send orders to this entity.
