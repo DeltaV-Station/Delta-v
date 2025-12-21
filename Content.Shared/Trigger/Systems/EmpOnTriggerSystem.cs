@@ -24,7 +24,7 @@ public sealed class EmpOnTriggerSystem : EntitySystem
         if (target == null)
             return;
 
-        _emp.EmpPulse(Transform(target.Value).Coordinates, ent.Comp.Range, ent.Comp.EnergyConsumption, ent.Comp.DisableDuration, args.User);
+        _emp.EmpPulse(Transform(target.Value).Coordinates, ent.Comp.Range, ent.Comp.EnergyConsumption, ent.Comp.DisableDuration, args.User, ent.Comp.Damage); // DeltaV - Silicon damage
         args.Handled = true;
     }
 }

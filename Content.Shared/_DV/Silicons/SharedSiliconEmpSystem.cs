@@ -8,6 +8,19 @@ public abstract class SharedSiliconEmpSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
+    /// <summary>
+    ///     If the entity has the <see cref="SiliconEmpComponent"/>, then it should take damage instead of draining its battery.
+    /// </summary>
+    /// <param name="entity">The entity to check</param>
+    /// <returns>true if the entity has <see cref="SiliconEmpComponent"/></returns>
+    public bool ShouldTakeDamageInsteadOfPowerDrain(Entity<SiliconEmpComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        return true;
+    }
+
     public override void Initialize()
     {
         base.Initialize();
@@ -17,7 +30,9 @@ public abstract class SharedSiliconEmpSystem : EntitySystem
 
     private void OnEmpPulse(Entity<SiliconEmpComponent> ent, ref EmpPulseEvent args)
     {
-        if (args.Damage is not { } damage) return;
-        _damageable.TryChangeDamage(ent, damage / 2, false); // Damage is divided by 2 because the event is raised twice (once from entity itself, and another is relayed from it's power cell) and I'm too lazy for an actual fix - NoElka | Make EMP not ignore armor.
+        if (args.Damage is not { } damage)
+            return;
+
+        _damageable.TryChangeDamage(ent, damage, false);
     }
 }
