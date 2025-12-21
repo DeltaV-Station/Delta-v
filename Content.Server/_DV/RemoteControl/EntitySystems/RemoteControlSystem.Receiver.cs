@@ -53,30 +53,17 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnEntityPointOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlEntityPointOrderEvent args)
     {
-        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
-            controlComp.ChannelName != ent.Comp.ChannelName)
-            return;
-
-        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
-
-        if (!IsNPC(ent))
-        {
-            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.EntityPoint);
-            return;
-        }
-
-        if (!ent.Comp.CanUnderstand)
-            return; // NPC cannot understand the order
-
         var target = args.Target;
-        UpdateNPCOrders(ent,
+        TryHandleOrder(
+            ent,
             RemoteControlOrderType.EntityPoint,
+            args,
             () =>
             {
                 _npc.SetBlackboard(ent, NPCBlackboard.CurrentOrderedTarget, target);
                 _npc.SetBlackboard(ent, _targetKey, new EntityCoordinates(target, Vector2.Zero));
-            });
+            }
+        );
     }
 
     /// <summary>
@@ -86,33 +73,20 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnTilePointOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlTilePointOrderEvent args)
     {
-        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
-            controlComp.ChannelName != ent.Comp.ChannelName)
-            return;
-
-        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
-
-        if (!IsNPC(ent))
-        {
-            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.TilePoint);
-            return;
-        }
-
-        if (!ent.Comp.CanUnderstand)
-            return; // NPC cannot understand the order
-
         var grid = _transform.GetGrid(ent.Owner);
         if (!grid.HasValue)
             return;
 
         var location = _transform.ToCoordinates((grid.Value, null), args.Location);
-        UpdateNPCOrders(ent,
+        TryHandleOrder(
+            ent,
             RemoteControlOrderType.TilePoint,
+            args,
             () =>
             {
                 _npc.SetBlackboard(ent, NPCBlackboard.MovementTarget, location);
-            });
+            }
+        );
     }
 
     /// <summary>
@@ -122,31 +96,18 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnSelfPointOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlSelfPointOrderEvent args)
     {
-        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
-            controlComp.ChannelName != ent.Comp.ChannelName)
-            return;
-
-        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
-
-        if (!IsNPC(ent))
-        {
-            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.SelfPoint);
-            return;
-        }
-
-        if (!ent.Comp.CanUnderstand)
-            return; // NPC cannot understand the order
-
         var origin = args.User;
-        UpdateNPCOrders(ent,
+        TryHandleOrder(
+            ent,
             RemoteControlOrderType.SelfPoint,
+            args,
             () =>
             {
                 _npc.SetBlackboard(ent,
                     NPCBlackboard.FollowTarget,
                     new EntityCoordinates(origin, Vector2.Zero));
-            });
+            }
+        );
     }
 
     /// <summary>
@@ -157,40 +118,52 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     /// <param name="args">Args for the event, notably sound and origin.</param>
     private void OnFreeUnitOrder(Entity<RemoteControlReceiverComponent> ent, ref RemoteControlFreeUnitOrderEvent args)
     {
-        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
-            controlComp.ChannelName != ent.Comp.ChannelName)
-            return;
-
-        if (!CanHandleOrder(ent, args.Control, args.BoundEntities))
-            return;
-
-        if (!IsNPC(ent))
-        {
-            HandleOrderEffects(ent, args.User, (args.Control, controlComp), RemoteControlOrderType.FreeUnit);
-            return;
-        }
-
-        if (!ent.Comp.CanUnderstand)
-            return; // NPC cannot understand the order
-
-        SetUnitFree(ent);
+        TryHandleOrder(
+            ent,
+            RemoteControlOrderType.FreeUnit,
+            args,
+            () => { }
+        );
     }
 
     /// <summary>
-    /// Checks whether this order is valid for the specified entity.
+    /// Attempts to handle an order given to this receiever.
     /// </summary>
-    /// <param name="ent">Entity to check for.</param>
-    /// <param name="boundEntities">List of Entities this order is bound to.</param>
-    /// <returns>True if the entity can understand the order, false otherwise.</returns>
-    private static bool CanHandleOrder(Entity<RemoteControlReceiverComponent> ent, EntityUid control, List<EntityUid> boundEntities)
+    /// <param name="receiver">The entity who has received the order.</param>
+    /// <param name="orderType">The type of order received.</param>
+    /// <param name="args">The args for the event.</param>
+    /// <param name="orderAction">A function for providing NPC instructions.</param>
+    private void TryHandleOrder(
+        Entity<RemoteControlReceiverComponent> receiver,
+        RemoteControlOrderType orderType,
+        BaseRemoteControlOrderEvent args,
+        Action orderAction
+    )
     {
-        if (ent.Comp.BoundController != control)
-            return false; // This isn't the control we think we're bound to
+        if (!TryComp<RemoteControlComponent>(args.Control, out var controlComp) ||
+            controlComp.ChannelName != receiver.Comp.ChannelName)
+            return;
 
-        if (!boundEntities.Contains(ent.Owner))
-            return false; // This order is not for this entity
+        if (receiver.Comp.BoundController != args.Control)
+            return; // This isn't the control we think we're bound to
 
-        return true;
+        if (!args.BoundEntities.Contains(receiver.Owner))
+            return; // This order is not for this entity
+
+        if (!IsNPC(receiver))
+        {
+            HandleOrderEffects(receiver, args.User, (args.Control, controlComp), orderType);
+            return;
+        }
+
+        if (!receiver.Comp.CanUnderstand)
+            return;
+
+        UpdateNPCOrders(
+            receiver,
+            orderType,
+            orderAction
+        );
     }
 
     /// <summary>
@@ -201,7 +174,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
     {
         UpdateNPCOrders(entity,
             RemoteControlOrderType.FreeUnit,
-            () => {}
+            () => { }
         );
     }
 
