@@ -52,16 +52,16 @@
     - MindRoleListeningPost
     requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
     - !type:OverallPlaytimeRequirement
-      time: 259200 # 72 hours
+      time: 72h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 40000 # 11.1 hours
+      time: 11.1h
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 40000 # 11.1 hours
+      time: 11.1h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 40000 # 11.1 hours
+      time: 11.1h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -78,7 +78,7 @@
     requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 3600 # 1 hour
+      time: 1h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -93,10 +93,10 @@
     - MindRoleRecruiter
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24h so you probably know some general lore or something
+      time: 24h
     - !type:RoleTimeRequirement
       role: JobLawyer
-      time: 3600 # 1h as lawyer so you maybe know how to paperwork
+      time: 1h
   - type: Sprite
     layers:
     - state: green
@@ -116,10 +116,10 @@
     - MindRoleSynthesis
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24h so you probably know some general lore or something
+      time: 24h
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 7200 # 2h chemist so you know how to make CH
+      time: 2h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -134,10 +134,10 @@
     - MindRoleRoboNeuroticist
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 172800 # 48h evil big antag lots of playtime
+      time: 48h
     - !type:RoleTimeRequirement
       role: JobRoboticist
-      time: 7200 # 2h roboticist so you know how to make robot
+      time: 2h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -153,7 +153,7 @@
     - MindRoleMenaceSkeleton
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 172800 # 48h
+      time: 48h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -169,7 +169,7 @@
     - MindRoleSkia
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 172800 # 24h
+      time: 24h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -182,13 +182,13 @@
     rules: ghost-role-information-armsdealer-rules
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 172800 # 48h overall (so you know some general lore and handling of the game)
+      time: 48h
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 43200 # 12h Securety Officer (so you know how to handle and use guns and such)
+      time: 12h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 43200 # 12h Command (so you know to handle the responsibility of an armsdealer)
+      time: 12h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -201,7 +201,7 @@
     rules: ghost-role-information-asakim-rules
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 172800 # 48 hours, same reasoning as SRN
+      time: 48h
 
 - type: entity
   id: SpawnPointGhostIfrit
@@ -218,7 +218,7 @@
       department: Epistemics
       time: 14400 # 4 hours
     - !type:OverallPlaytimeRequirement
-      time: 172800
+      time: 48h
     mindRoles:
     - MindRoleGhostRoleFamiliar
     raffle:
