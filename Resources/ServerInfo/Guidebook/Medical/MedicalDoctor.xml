@@ -10,7 +10,7 @@ This guide states the basic outline of the treatment options and other avenues o
 
 When you first recieve a patient, you first need to know what's wrong with them! There are two ways of doing this.
 
-- [bold]By doing a basic health inspection[/bold]. You can do this by using [color=yellow][keybind="ExamineEntity"][/color] and clicking the heart icon. It will show you any 'obvious' wounds, like bruising, blood loss and burns. But will not show things like poison!
+- [bold]By doing a basic health inspection[/bold]. You can do this by hovering over a patient and using [color=yellow][keybind="ExamineEntity"][/color] and clicking the heart icon. It will show you any 'obvious' wounds, like bruising, blood loss and burns. But will not show things like poison!
 - [bold]Using a health analyzer[/bold]. All medical PDA's comes with [color=#4ba9bc]Medtek[/color], a health analyzer program. The health analyzer allows you to view [bold]all damage[/bold] that a patient has recieved, including their [bold]blood level[/bold]. Along with a coloured figure that shows if any body parts are damaged.
 
 To use a health analyzer, hold your PDA (or Handheld Health Analyzer) and then press [color=yellow][keybind="Use"][/color] when hovering over a patient.
@@ -95,32 +95,32 @@ But before you even start injecting chemicals into patients, you have to underst
 
 With that out of the way, you are now free to inject chemicals into patients to save lives!
 
-If you wish to see how to make chemicals (because there is not a chemist), you may look at the []
+If you wish to see how to make chemicals (because there is not a chemist), you may look at the common chemical recipes [textlink="here." link="FrequentlyUsedChemicals"]
 
-## Basic Treatment and Triage
-Examine your patient, and note down the important details: Are they alive? Bleeding? What type of damage?
+## How to assess patients
+As a doctor. You may be under quite a heavy workload, now that you know how to inject chemicals and use topicals.
+However, it generally follows this order:
 
-If alive, treat them as best as you can. Patients are in critical condition at 100 damage, [bold]unless they have the redshirt trait[/bold]; but at most, those without redshirt will die at 200 damage. Keep this in mind when choosing how to treat them. Emergency Pens and [color=#c0f5f9]Epinephrine[/color] are often used to stabilise patients. However, you may also do [color=#e84037]CPR[/color] to stabilise them.
+- First, once you recieve a patient, lay them on a [bold]medical bed[/bold]. Only use a [bold]stasis bed[/bold] if the patients death is imminent (or has died already).
+- Secondly, scan the patient with a health analyzer to check their damages.
+- Third, inject the patient with the correct chemical, or use Topicals to start treatment.
+- Fourth, discharge the patient once you confirm they are fully treated of their wounds.
 
-If possible, buckle them to a medical bed; if you need time to treat them, strap them to a stasis bed instead. Just keep in mind that metabolism (and by extension, the production of healing chemicals) is slowed to a crawl when on stasis; it'll need to be taken off of it for the medicine to be effective. (But Blood Packs, Ointment, and Brute packs all work as normal.)
 <Box>
 <GuideEntityEmbed Entity="MedicalBed"/>
 <GuideEntityEmbed Entity="StasisBed"/>
 </Box>
-## Assessing Corpses
-You can't save them all; sometimes, death happens. Depending on the status of the body, follow this checklist:
 
-- First, check if they have a soul attached. Their soul is attached to their brain, and by extension their head. If they are decapitated, it will always say "[color=#653b89]Their soul has departed and moved on.[/color]" upon examination...But dont let that fool you, they could still have their soul very much there! Reattach their head via [textlink="Surgery" link="Surgery"]. Then you can recheck to see if they are truly gone.
+## Reviving dead patients
+Unfortunatley, there is some cases where death comes to a patient faster than you can react. However, this is not the end of the world!
 
-- Secondly, now check to see if they have a [bold]unique body composition[/bold]. You can tell if your health scanner says "[color=yellow]Unique body composition detected![/color]". If this happens, it means that their Brain will need to be transplanted into a body donor via [textlink="Surgery" link="Surgery"].
-(IPCs/Borgs are a possible body donor if a patients Brain is compatible with MMI technology. A patients brain WILL NOT be compatible if it says this on your health scanner: "[color=red]Patients' brain signatures are incompatible with MMI[/color]".)
+The revival procedure uses a Defibrillator to restart the patients heart. But you need to do these things first:
 
-- [bold]If they do not have a unique body composition;[/bold] check to see if their body is rotting. If it is, you will have to get your hands on a rot-healing cryogenic chemical, such as [color=#b5e36d]Opporozidone[/color] or [color=#e3d56d]Netinadone[/color]. A rotting body can't be brought back unless you fix its rot, [textlink="cloning" link="Cloning"] is an alternative if you don't have cryogenic chemicals at your disposal.
-
-- And finally, with their soul in their body, their body being fresh, and a [bold]normal body composition[/bold], proceed to reviving the patient.
-
-## Reviving
-The revival procedure uses a Defibrillator to restart the patients heart. The Defibrillator can be used to revive patients with aspyhxiation damage, but will deal [bold]5 shock damage[/bold]. Patients need to be under 200 damage in order to be revived with a defib (or under 100 with redshirt). Chemicals don't metabolise in the dead, but brute packs and ointment can still patch them up. Use them to bring their numbers down enough for revival.
+- Check if the patient has [bold]rotted[/bold]. You can not revive a rotting patient, and must morgue them.
+- If not rotting, put them on a [bold]stasis bed[/bold] to prevent further decomposition!
+- [bold]Get their current damage underneath 200.[/bold] You [color=orange]cannot use chems on the dead[/color] as it wont metabolise.
+- Once under 200 damage. Get your defibrillator from the cabinet, press [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color] to turn the defibrillator on in your main hand, and shout "Clear!"
+- Drag the patient off the [bold]stasis bed[/bold]. As chemicals metabolise slowly on cold temperatures. Then continue treatment as normal.
 
 <Box>
 <GuideEntityEmbed Entity="Brutepack"/>
@@ -130,5 +130,8 @@ The revival procedure uses a Defibrillator to restart the patients heart. The De
 </Box>
 
 [color=yellow]Keep in mind that the defibrillator recharges while it is in its cabinet![/color]
+
+### Rotting patients
+Patients that are rotting arent a lost cause! As [textlink="Cloning" link="Cloning"] or [textlink="Cryogenics" link="Cryogenics"] are an option if you have them.
 </Document>
 
