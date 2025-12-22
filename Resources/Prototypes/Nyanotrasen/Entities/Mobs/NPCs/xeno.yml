@@ -48,50 +48,42 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: [MobXeno, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXeno] #Delta-v - reverse order so suffix works
   id: MobXenoPlayer
   name: Burrower
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoPraetorianNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC] #Delta-v - reverse order so suffix works
   id: MobXenoPraetorian
   name: Praetorian
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoDroneNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoDroneNPC] #Delta-v - reverse order so suffix works
   id: MobXenoDrone
   name: Drone
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoQueenNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoQueenNPC] #Delta-v - reverse order so suffix works
   id: MobXenoQueen
   name: Queen
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoRavagerNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC] #Delta-v - reverse order so suffix works
   id: MobXenoRavager
   name: Ravager
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoRunnerNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC] #Delta-v - reverse order so suffix works
   id: MobXenoRunner
   name: Runner
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoRounyNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoRounyNPC] #Delta-v - reverse order so suffix works
   id: MobXenoRouny
   name: Rouny
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
 
 - type: entity
-  parent: [MobXenoSpitterNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] #Delta-v - reverse order so suffix works
   id: MobXenoSpitter
   name: Spitter
-  suffix: Ghostrole # Delta-v - xenovents change. Parented suffix doesn't work
   
