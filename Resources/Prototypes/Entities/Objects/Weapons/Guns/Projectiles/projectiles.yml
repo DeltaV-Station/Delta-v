@@ -897,8 +897,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 150 # DeltaV
-    intensitySlope: 2 # DeltaV
+    totalIntensity: 100 # DeltaV
+    intensitySlope: 1
     maxIntensity: 5
     canCreateVacuum: false
   - type: ContainerContainer
