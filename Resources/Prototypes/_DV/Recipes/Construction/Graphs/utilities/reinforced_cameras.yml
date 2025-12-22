@@ -21,6 +21,9 @@
             - material: CableMV
               amount: 1
               doAfter: 2
+            - material: ReinforcedGlass
+              amount: 1
+              doAfter: 2
         - to: start
           completed:
             - !type:GivePrototype

@@ -28,17 +28,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -47,8 +49,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameraeng 
@@ -83,17 +87,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -102,8 +108,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - camerasec
@@ -138,17 +146,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -157,8 +167,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - camerasci
@@ -193,17 +205,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -212,8 +226,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - camerasup
@@ -248,17 +264,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -267,8 +285,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameracom
@@ -303,17 +323,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -322,8 +344,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameraser
@@ -358,17 +382,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -377,8 +403,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameramed
@@ -413,17 +441,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -432,8 +462,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.50
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameragen
@@ -442,7 +474,7 @@
   parent: SurveillanceCameraBase
   id: ReinforcedSurveillanceCameraAI
   name: Reinforced camera
-  suffix: AI [80% resistance]
+  suffix: AI 80% resistance
   components:
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -468,17 +500,19 @@
       InUse: reinforced_camera_in_use
       Emp: reinforced_camera_emp
       Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -487,8 +521,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+  - type: Repairable
+    doAfterDelay: 4
   - type: ExplosionResistance 
-    damageCoefficient: 0.20
+    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameraai
@@ -556,17 +592,19 @@
        InUse: reinforced_camera_in_use
        Emp: reinforced_camera_emp
        Disabled: reinforced_camera_off
+    - type: Damageable
+      damageModifierSet: Electronic
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 450
+          damage: 400
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 275
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -575,8 +613,10 @@
               collection: MetalBreak
               params:
                 volume: -8
+    - type: Repairable
+      doAfterDelay: 4
     - type: ExplosionResistance 
-      damageCoefficient: 0.50
+      damageCoefficient: 0.25
     - type: Tag
       tags:
         - cameracon
