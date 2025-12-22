@@ -33,3 +33,5 @@ guide-entry-glimmer-creatures = Glimmer Creatures
 guide-entry-trade-station = Trade Station
 
 guide-entry-frequently-used-chemicals = Frequently Used Chemicals
+
+guide-entry-cargo = Logistics
