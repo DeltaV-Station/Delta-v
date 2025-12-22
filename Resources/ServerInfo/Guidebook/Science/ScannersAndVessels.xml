@@ -13,15 +13,13 @@ Scanning an anomaly shows the severity, general stability, approximate point out
 
 The anomaly vessel is a machine that generates points from anomalies. Use the anomaly scanner on an empty vessel, and the anomaly that was last scanned will be synced with the vessel.
 
-
-
 <Box>
 <GuideEntityEmbed Entity="MachineAnomalyVessel"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="MachineAnomalyVesselExperimental"/>
 </Box>
-
+<!--Delta V: Added the Experimental Anomaly Vessel to the above box, also reworded the below to account for it.  -->
 
 The amount of points a vessel generates per second is based on the severity, stability, and health of an anomaly. The higher each of these values, the higher the point output will be.
 
