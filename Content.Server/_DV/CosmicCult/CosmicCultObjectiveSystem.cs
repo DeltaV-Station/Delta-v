@@ -34,8 +34,9 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
             return;
 
         var warps = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent, WarpPointComponent>();
-        while (query.MoveNext(out var warpUid, out _, out var warp))
+        var query = EntityQueryEnumerator<WarpPointComponent>();
+        // TODO: Add a blacklist comp to this like ninja now has from upstream #40726
+        while (query.MoveNext(out var warpUid, out var warp))
         {
             if (warp.Location != null)
             {
