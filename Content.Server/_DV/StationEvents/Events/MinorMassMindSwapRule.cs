@@ -11,8 +11,6 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Content.Shared.Actions;
-using Content.Shared._DV.Abilities.Psionics;
 
 namespace Content.Server._DV.StationEvents.Events;
 
@@ -24,7 +22,6 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobstateSystem = default!;
 
