@@ -494,8 +494,3 @@ uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat en
 
 uplink-acolyte-armor-name = Acolyte Armor
 uplink-acolyte-armor-desc = The must have of any self respecting cult leader. An evil looking piece of armor, made of bones, and surprisingly resistant to damage.
-
-# Delta V Begin - Blood Red Super Synth
-uplink-blood-red-super-synth-name = Blood Red Super Synth
-uplink-blood-red-super-synth-desc = Play any kind of of songs while exploding anything in your path.
-# Delta V End - Blood Red Super Synth
