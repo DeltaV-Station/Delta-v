@@ -50,7 +50,7 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-      - !type:Addicted # Delta-V - Addictive
+      - !type:Addicting # Delta-V - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -215,7 +215,7 @@
         time: 16
         type: Add
       # Delta-V - Addictive
-      - !type:Addicted 
+      - !type:Addicting 
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -274,7 +274,7 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
-      - !type:Addicted # Delta-V - Addictive
+      - !type:Addicting # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -303,7 +303,7 @@
         - !type:ReagentCondition
           reagent: SpaceDrugs
           min: 15
-      - !type:Addicted # Delta-V - Addictive
+      - !type:Addicting # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
