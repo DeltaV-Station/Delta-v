@@ -13,7 +13,9 @@ public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSy
     [Dependency] private readonly SharedAddictionSystem _addiction = default!;
     protected override void Effect(Entity<AddictedComponent> entity, ref EntityEffectEvent<SuppressAddition> args)
     {
-        // Effect goes here.
+        var suppressionTime = args.Effect.Time * args.Scale;
+
+        _addiction.TrySuppressAddiction(entity.Owner, suppressionTime);
     }
 }
 
@@ -21,10 +23,10 @@ public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSy
 public sealed partial class SuppressAddition : EntityEffectBase<SuppressAddition>
 {
     /// <summary>
-    ///     Amount we're adjusting temperature by.
+    ///     Amount of time that 1u suppresses addiction.
     /// </summary>
     [DataField]
-    public float SuppressionTime = 30;
+    public float Time = 30f;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-addiction-suppression",
