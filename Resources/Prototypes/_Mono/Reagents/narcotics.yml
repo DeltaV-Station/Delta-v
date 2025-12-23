@@ -49,7 +49,7 @@
         - !type:ReagentThreshold
           max: 20
       - !type:Drunk
-        slurSpeech: true
+        #slurSpeech: true # DeltaV
         boozePower: 75
         # OD effects
       - !type:ChemVomit
