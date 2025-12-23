@@ -1,17 +1,19 @@
 ﻿using Content.Shared._DV.Pain;
 using Content.Shared.EntityEffects;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.EntityEffects.Effects;
 
+// TODO: When Pain is moved to new Status, make this use StatusEffectsContainerComponent.
 /// <summary>
-/// A brief summary of the effect.
+/// Supresses pain based on how much of the pain suppressing reagent is in the system.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
-public sealed partial class SuppressPainEntityEffectSystem : EntityEffectSystem<PainComponent, SuppressPain>
+public sealed partial class SuppressPainEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, SuppressPain>
 {
     [Dependency] private readonly SharedPainSystem _pain = default!;
-    protected override void Effect(Entity<PainComponent> entity, ref EntityEffectEvent<SuppressPain> args)
+    protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<SuppressPain> args)
     {
         var suppressionTime = args.Effect.Time * args.Scale;
 

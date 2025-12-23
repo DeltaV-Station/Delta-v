@@ -203,7 +203,7 @@
           min: 10
         reagent: Neurozenium
         amount: -7.5
-      - !type:Addicted
+      - !type:Addicting
         probability: 0.5 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -520,7 +520,7 @@
           min: 20
         reagent: Soretizone
         amount: 0.03
-      - !type:Addicted
+      - !type:Addicting
         probability: 0.7 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -570,7 +570,7 @@
           min: 1
         reagent: Agonolexyne
         amount: 0.04
-      - !type:Addicted
+      - !type:Addicting
         probability: 0.8 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition

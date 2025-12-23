@@ -1,17 +1,19 @@
 ﻿using Content.Shared._DV.Addictions;
 using Content.Shared.EntityEffects;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.EntityEffects.Effects;
 
+// TODO: When Addiction is moved to new Status, make this use StatusEffectsContainerComponent.
 /// <summary>
-/// A brief summary of the effect.
+/// Supresses addition for an amount of time based on how much of the suppressive reagent is in the system.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
-public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSystem<AddictedComponent, SuppressAddition>
+public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, SuppressAddition>
 {
     [Dependency] private readonly SharedAddictionSystem _addiction = default!;
-    protected override void Effect(Entity<AddictedComponent> entity, ref EntityEffectEvent<SuppressAddition> args)
+    protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<SuppressAddition> args)
     {
         var suppressionTime = args.Effect.Time * args.Scale;
 
