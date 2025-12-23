@@ -1,4 +1,4 @@
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Addictions;
@@ -7,34 +7,33 @@ public abstract class SharedAddictionSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
-    public ProtoId<StatusEffectPrototype> StatusEffectKey = "Addicted";
+    public EntProtoId AddictedStatusEffectProto = "Addicted";
 
     protected abstract void UpdateTime(EntityUid uid);
 
-    public virtual void TryApplyAddiction(EntityUid uid, float addictionTime, StatusEffectsComponent? status = null)
+    public virtual void TryApplyAddiction(Entity<AddictionComponent?> ent, float addictionTime)
     {
-        if (!Resolve(uid, ref status, false))
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
-        UpdateTime(uid);
+        UpdateTime(ent.Owner);
 
-        if (!_statusEffects.HasStatusEffect(uid, StatusEffectKey, status))
+        if (!_statusEffects.HasStatusEffect(ent.Owner, StatusEffectKey, ent.Comp))
         {
-            _statusEffects.TryAddStatusEffect<AddictedComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), true, status);
+            _statusEffects.TryAddStatusEffect<AddictedComponent>(ent.Owner, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), true, ent.Comp);
         }
         else
         {
-            _statusEffects.TryAddTime(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), status);
+            _statusEffects.TryAddTime(ent.Owner, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), ent.Comp);
         }
     }
 
-    public virtual void TrySuppressAddiction(EntityUid uid, float duration)
+    public virtual void TrySuppressAddiction(Entity<AddictedComponent?> ent, float duration)
     {
-        if (!TryComp<AddictedComponent>(uid, out var comp))
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
-        var ent = new Entity<AddictedComponent>(uid, comp);
-        UpdateAddictionSuppression(ent, duration);
+        UpdateAddictionSuppression((ent.Owner, ent.Comp), duration);
     }
 
     protected virtual void UpdateAddictionSuppression(Entity<AddictedComponent> ent, float duration)

@@ -12,7 +12,7 @@
       effects:
       - !type:EvenHealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         damage:
           Brute: -10 # DeltaV - Was -4
@@ -31,7 +31,7 @@
       effects:
       - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         damage:
           # Begin DeltaV additions

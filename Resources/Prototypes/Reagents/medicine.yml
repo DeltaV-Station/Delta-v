@@ -13,19 +13,19 @@
       metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
-        key: PsionicallyInsulated #Nyano - Summary: makes the user psionically insulated from effects.
-        component: PsionicInsulation #Nyano - Summary: see above.
-        type: Add
-      - !type:GenericStatusEffect
         key: ScrambledSpeech
         component: ScrambledAccent
-      - !type:GenericStatusEffect
-        key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
-        component: PsionicsDisabled #Nyano - Summary: see above.
-        type: Add
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSlurred
         time: 10.0 # DeltaV - 20 is ridiculous
+      - !type:GenericStatusEffect # DeltaV
+        key: PsionicsDisabled
+        component: PsionicsDisabled
+        type: Add
+      - !type:GenericStatusEffect # DeltaV
+        key: PsionicallyInsulated
+        component: PsionicInsulation
+        type: Add
 
 - type: reagent
   id: Dylovene
