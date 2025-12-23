@@ -55,9 +55,9 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         if (ent.Comp.StartOnMapInit)
         {
             ent.Comp.Enabled = true;
-            Dirty(ent);
+            Dirty(ent); // Delta V - Updates on/off in UI after mapinit
             UpdateAppearance(ent);
-            UpdateUi(ent);
+            UpdateUi(ent); // Delta V - Updates on/off in UI after mapinit
         }
     }
     // Frontier - End: Enable pumps at roundstart
