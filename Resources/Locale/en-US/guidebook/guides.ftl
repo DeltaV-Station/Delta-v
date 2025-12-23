@@ -73,12 +73,10 @@ guide-entry-brute = Advanced Brute Medication
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
-# Beginning of DeltaV changes
 guide-entry-science = Epistemics
-# End of DeltaV Changes
-guide-entry-altars = Altars
-guide-entry-psionics = Psionics
-guide-entry-reverse-engineering = Reverse Engineering
+# guide-entry-altars = Altars Moved to _DV
+# guide-entry-psionics = Psionics Moved to _DV
+# guide-entry-reverse-engineering = Reverse Engineering Moved to _DV
 guide-entry-technologies = Technologies
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels
