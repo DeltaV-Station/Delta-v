@@ -33,7 +33,7 @@
         probability: 0.1
     Medicine:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
           - !type:ReagentCondition
             reagent: Lean
@@ -72,7 +72,7 @@
         visualType: Medium
         messages: [ "generic-reagent-effect-damnation" ]
         probability: 0.2
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
         - !type:ReagentCondition
           reagent: HealthViolation

@@ -57,7 +57,7 @@
         emote: Cough
         showInChat: true
         probability: 0.33
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
         - !type:ReagentCondition
@@ -83,7 +83,7 @@
         emote: Cough
         showInChat: true
         probability: 0.33
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
         - !type:ReagentCondition
@@ -109,7 +109,7 @@
         emote: Cough
         showInChat: true
         probability: 0.33
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
         - !type:ReagentCondition

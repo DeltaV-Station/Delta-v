@@ -19,7 +19,7 @@
           - "reagent-effect-antidepressant-mild3"
           - "reagent-effect-antidepressant-mild4"
         probability: 0.035
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
           - !type:ReagentCondition # fairly safe overdose, safe to take with alcohol
@@ -68,7 +68,7 @@
         conditions:
           - !type:ReagentCondition
             regent: Neurozenium
-            max: 15.1
+            max: 15
       - !type:HealthChange
         conditions:
           - !type:ReagentCondition
@@ -96,12 +96,12 @@
         reagent: Neurozenium 
         amount: 0.15
       - !type:AdjustReagent
+        reagent: Serenitol
+        amount: -7.5
         conditions:
         - !type:ReagentCondition
           reagent: Serenitol # Purges Serenitol if dosage is too high.
           min: 10
-        reagent: Serenitol
-        amount: -7.5
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -454,7 +454,7 @@
           - "reagent-effect-painkiller-mild3"
           - "reagent-effect-painkiller-mild4"
         probability: 0.08
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.4
         conditions:
           - !type:ReagentCondition # makes you vomit if you OD
@@ -466,7 +466,7 @@
           - !type:ReagentCondition 
             reagent: Stubantazine
             min: 14
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.8
         conditions:
           - !type:ReagentCondition # alcohol causes vomiting

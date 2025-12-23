@@ -452,6 +452,15 @@
         factor: 4
     Gas:
       effects:
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: true
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        damage:
+          types:
+            Heat: 3
       # DeltaV - Begin changes (feroxi)
       - !type:Oxygenate
         conditions:
@@ -486,15 +495,6 @@
           CarbonDioxide: 0.5
           WaterVapor: -1.0
       # DeltaV - End changes
-      - !type:HealthChange
-        scaling: true
-        ignoreResistances: true
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-        damage:
-          types:
-            Heat: 3
 
 - type: reagent
   id: Ice
