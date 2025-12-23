@@ -37,22 +37,22 @@
         Cold: 80
   - type: Tool
     qualities: Censer
-  - type: Welder
-    fuelSolutionName: Censer
-    fuelReagent: MindbreakerToxin
-    fuelConsumption: 0.5
-  - type: RefillableSolution
-    solution: Censer
-  - type: SolutionContainerManager
-    solutions:
-      Censer:
-        reagents:
-        - ReagentId: MindbreakerToxin
-          Quantity: 50
-        maxVol: 50
+  #- type: Welder
+  #  fuelSolutionName: Censer
+  #  fuelReagent: MindbreakerToxin
+  #  fuelConsumption: 0.5
+  #- type: RefillableSolution
+  #  solution: Censer
+  #- type: SolutionContainerManager
+  #  solutions:
+  #    Censer:
+  #      reagents:
+  #      - ReagentId: MindbreakerToxin
+  #        Quantity: 50
+  #      maxVol: 50
   - type: ItemTogglePointLight
-  - type: Spillable
-    solution: Censer
+  #- type: Spillable
+  #  solution: Censer
   - type: ToggleableVisuals
     spriteLayer: flame
     inhandVisuals:
