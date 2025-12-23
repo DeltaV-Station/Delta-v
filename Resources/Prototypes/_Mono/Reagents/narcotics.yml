@@ -87,3 +87,6 @@
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
         probability: 0.5
+      - !type:SuppressPain # DeltaV
+        suppressionLevel: Strong
+        suppressionTime: 200
