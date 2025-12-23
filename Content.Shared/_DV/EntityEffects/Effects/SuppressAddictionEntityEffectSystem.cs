@@ -10,10 +10,10 @@ namespace Content.Shared._DV.EntityEffects.Effects;
 /// Supresses addition for an amount of time based on how much of the suppressive reagent is in the system.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
-public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, SuppressAddition>
+public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, SuppressAddiction>
 {
     [Dependency] private readonly SharedAddictionSystem _addiction = default!;
-    protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<SuppressAddition> args)
+    protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<SuppressAddiction> args)
     {
         var suppressionTime = args.Effect.Time * args.Scale;
 
@@ -22,7 +22,7 @@ public sealed partial class SuppressAddictionEntityEffectSystem : EntityEffectSy
 }
 
 /// <inheritdoc cref="EntityEffect"/>
-public sealed partial class SuppressAddition : EntityEffectBase<SuppressAddition>
+public sealed partial class SuppressAddiction : EntityEffectBase<SuppressAddiction>
 {
     /// <summary>
     ///     Amount of time that 1u suppresses addiction.

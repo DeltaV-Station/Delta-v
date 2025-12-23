@@ -13,7 +13,7 @@
       - !type:ReduceRotting
         seconds: 10
         conditions:
-        - !type:HasComponentCondition
+        - !type:HasComponent
           bodyPart: Torso
           explanation: reagent-explanation-netinadone-ribcage
           components:
