@@ -12,7 +12,4 @@ reagent-desc-unholy-water = Water treated with blood and sulfur. Just looking at
 reagent-name-anodynafil = anodynafil
 reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't interfere with consciousness, but results in prolonged pain suppression.
 
-reagent-name-trinoxadone = trinoxadone
-reagent-desc-trinoxadone = A complex cryogenics chemical. Treats most damage types in alive and critical patients at a slower metabolism rate, however, only offers limited tissue regeneration in dead patients.
-
 reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.
