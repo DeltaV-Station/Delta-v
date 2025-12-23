@@ -375,7 +375,7 @@
       - !type:AdjustReagent
         reagent: LotophagoiOil # DeltaV: prevent rapid remove/reroll/remove/reroll psionic loop
         amount: -100
-      - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u.
+      - !type:RemovePsionicAbilities # DeltaV - Remove Psionics at 20u
         conditions:
           - !type:ReagentCondition
             reagent: MindbreakerToxin

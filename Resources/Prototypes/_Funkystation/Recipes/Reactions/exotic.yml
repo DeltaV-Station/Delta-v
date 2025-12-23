@@ -130,7 +130,7 @@
     Water:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: MobCorgiPuppy
 
 # Exotic could make mats / explode, but the former's better a diff chem and a diff PR, and latter's better for a pyrotechnics rework. Expansion's mostly meds and toxins.
