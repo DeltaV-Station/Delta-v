@@ -51,6 +51,32 @@
 
 - type: entity
   parent: BaseKeyedInstrument
+  id: BloodRedSuperSynth
+  name: blood red super synthesizer
+  description: Covoered in red, fitting for a track calming track in some explosive missions.
+  components:
+  - type: ActivatableUI #Delta-V - Allows Super Synths to be played while being worn on the neck.
+    inHandsOnly: false
+    requireActiveHand: false
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    respectMidiLimits: true #Delta-V - Enables limits to prevent people from crashing the server with black midis.
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi
+    state: bloodredsynth
+  - type: Clothing # Delta-V - The straps on the super synth have a use now. Makes the blood red super synth wearable on the neck slot.
+    quickEquip: false
+    slots:
+    - neck
+    sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi
+  - type: Item
+    heldPrefix: bloodredsynth
+    size: Normal # Delta-V - Ensures that the sprite properly renders, had to add this because it wouldn't render properly on the ground and in UI/bag UI otherwise.
+    sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi
+
+- type: entity
+  parent: BaseKeyedInstrument
   id: AccordionInstrument
   name: accordion
   components:
