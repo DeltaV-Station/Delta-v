@@ -16,7 +16,7 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Storage.EntitySystems;
-using Content.Server.Temperature.Components;
+
 using Content.Server.Temperature.Systems;
 using Content.Server.UserInterface;
 using Content.Shared.Cargo;
@@ -47,6 +47,7 @@ using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
@@ -384,7 +385,8 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             //JJ Comment - not sure this works. Need to check if Reagent.ToString is correct.
             _prototypeManager.TryIndex<ReagentPrototype>(reagent.Reagent.ToString(), out var proto);
 
-            var effectsArgs = new EntityEffectReagentArgs(uid,
+            // TODO: October - Fix this
+            /*var effectsArgs = new EntityEffectReagentArgs(uid,
                 EntityManager,
                 null,
                 component.Solution,
@@ -392,12 +394,13 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
                 proto!,
                 null,
                 1f);
+
             foreach (var effect in component.UnsafeOilVolumeEffects)
             {
                 if (!effect.ShouldApply(effectsArgs, _random))
                     continue;
                 effect.Effect(effectsArgs);
-            }
+            }*/
         }
     }
 
