@@ -17,7 +17,7 @@ public sealed partial class MinorMassMindSwapRuleComponent : Component
     public TimeSpan Delay = TimeSpan.FromSeconds(60);
 
     [DataField]
-    public TimeSpan ReturnSwapCooldown = TimeSpan.FromSeconds(120);
+    public int ReturnSwapCooldown = 120;
 
     [DataField]
     public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");

@@ -76,14 +76,6 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         }
     }
 
-    private void StartSwapMindsCooldown(MinorMassMindSwapRuleComponent component, EntityUid target)
-    {
-        // Cooldown Solution just for this.
-        var targetMindPowerComp = Comp<MindSwappedComponent>(target);
-
-        _action.SetCooldown(targetMindPowerComp.MindSwapReturnActionEntity, component.ReturnSwapCooldown);
-    }
-
     private void SwapMinds(MinorMassMindSwapRuleComponent component)
     {
         List<EntityUid> psionicActors = new();
@@ -106,10 +98,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
             var target01 = _random.PickAndTake(psionicActors);
             var target02 = _random.PickAndTake(psionicActors);
 
-            _mindSwap.Swap(target01, target02);
-
-            StartSwapMindsCooldown(component, target01);
-            StartSwapMindsCooldown(component, target02);
+            _mindSwap.Swap(target01, target02, false, component.ReturnSwapCooldown);
 
             if (!component.IsTemporary)
             {
