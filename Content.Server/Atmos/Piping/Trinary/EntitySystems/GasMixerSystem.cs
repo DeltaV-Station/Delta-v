@@ -238,7 +238,6 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             args.DeviceFlipped = inletOne != null && inletTwo != null && inletOne.CurrentPipeDirection.ToDirection() == inletTwo.CurrentPipeDirection.ToDirection().GetClockwise90Degrees();
         }
 
-
         // Frontier - Start: Enable mixers at roundstart
         private void OnMapInit(EntityUid uid, GasMixerComponent mixer, MapInitEvent args) 
         {

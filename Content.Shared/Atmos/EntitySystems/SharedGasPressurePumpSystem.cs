@@ -61,6 +61,7 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         }
     }
     // Frontier - End: Enable pumps at roundstart
+
     private void OnInit(Entity<GasPressurePumpComponent> ent, ref ComponentInit args)
     {
         UpdateAppearance(ent);
