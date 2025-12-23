@@ -334,7 +334,7 @@
       # DeltaV - anesthesia changes
       - !type:GenericStatusEffect 
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NitrousOxide
           min: 1
         - !type:OrganType
