@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 mikusssssss
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: fentanyl crystal
+  parent: BaseItem # DeltaV - no BaseC3ChemContraband
+  id: FentanylSolidified
+  description: 5u of Fentanyl solidified with Tricordrazine. Worth a lot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/fentanyl.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 1250 # People can consistently pump out a million in less than an hour of fent production, fuck that.
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+    - bitter
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fentanyl
+          Quantity: 5
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  #- type: PirateBountyItem # DeltaV - unimplemented
+  #  id: FentanylCrystal
+  #- type: ItemTax # Mono # DeltaV - unimplemented
+  #  taxAccounts:
+  #    Medical: -0.05
+  #    nfsd: -0.1
+  #    BlackMarket: 0.25

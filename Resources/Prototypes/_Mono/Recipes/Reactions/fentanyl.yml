@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reaction
+  id: Fentanyl
+  impact: Low
+  minTemp: 475
+  reactants:
+    SpaceDrugs:
+      amount: 1
+    Desoxyephedrine:
+      amount: 2
+    Oil: # DeltaV - was Cognizine
+      amount: 1
+    SodiumHydroxide:
+      amount: 0.5
+    Phenol:
+      amount: 0.5
+    Kelotane:
+      amount: 0.5
+  products:
+    Fentanyl: 5.5
+
+- type: reaction # this reaction is to prevent people from mixing fent and dylo for combat meds, and to serve as something to prevent mass crystallization
+  id: FentanylIncompatibility
+  impact: High
+  reactants:
+    Fentanyl:
+      amount: 1
+    Dylovene:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default
+    maxIntensity: 100
+    intensityPerUnit: 0.65
+    intensitySlope: 5
+    maxTotalIntensity: 100
+
+- type: reaction
+  id: FentanylSolidification
+  impact: Low
+  minTemp: 310
+  reactants:
+    Fentanyl:
+      amount: 5
+    Tricordrazine:
+      amount: 1
+  products:
+    Tricordrazine: 1
+    Dylovene: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FentanylSolidified
