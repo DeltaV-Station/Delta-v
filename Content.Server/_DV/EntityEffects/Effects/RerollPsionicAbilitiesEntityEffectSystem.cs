@@ -7,9 +7,8 @@ using Content.Server.Psionics;
 
 namespace Content.Server._DV.EntityEffects.Effects;
 
-// TODO: When Pain is moved to new Status, make this use StatusEffectsContainerComponent.
 /// <summary>
-/// Supresses pain based on how much of the pain suppressing reagent is in the system.
+///     Rerolls psionic abilities when at least 1u of the reagent is in the system.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class RerollPsionicAbilitiesEntityEffectSystem : EntityEffectSystem<PotentialPsionicComponent, RerollPsionicAbilities>

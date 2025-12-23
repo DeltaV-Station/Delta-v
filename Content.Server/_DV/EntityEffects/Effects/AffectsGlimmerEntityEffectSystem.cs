@@ -8,9 +8,8 @@ using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server._DV.EntityEffects.Effects;
 
-// TODO: When Pain is moved to new Status, make this use StatusEffectsContainerComponent.
 /// <summary>
-/// Supresses pain based on how much of the pain suppressing reagent is in the system.
+///     Changes glimmer when reaction happens.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class AffectsGlimmerEntityEffectSystem : EntityEffectSystem<MetaDataComponent, AffectsGlimmer>
