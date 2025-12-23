@@ -56,7 +56,7 @@
         damage:
           groups:
             Toxin: 2
-      - !type:ChemRemovePsionic
+      - !type:RemovePsionicAbilities
         conditions:
         - !type:ReagentCondition
           reagent: SoulbreakerToxin
@@ -78,7 +78,7 @@
         effectProto: StatusEffectSeeingRainbow
         time: 5
         type: Add
-      - !type:ChemRerollPsionic
+      - !type:RerollPsionicAbilities
         bonusMultiplier: 4
         conditions:
         - !type:ReagentCondition

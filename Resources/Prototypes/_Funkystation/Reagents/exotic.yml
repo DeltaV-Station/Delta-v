@@ -130,7 +130,7 @@
   metabolisms:
     Poison:
       effects:
-      - !type:CreateEntityReactionEffect # DeltaV - was polymorph, just have a chance to spawn a corgi instead
+      - !type:SpawnEntity # DeltaV - was polymorph, just have a chance to spawn a corgi instead
         entity: MobCorgiPuppy
         probability: 0.25
         conditions:
