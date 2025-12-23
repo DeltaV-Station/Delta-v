@@ -444,7 +444,7 @@
       metabolismRate : 0.02
       effects:
       - !type:SuppressPain
-        suppressionLevel: Mild
+        level: Mild
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -502,7 +502,7 @@
       metabolismRate : 0.01
       effects:
       - !type:SuppressPain
-        suppressionLevel: Normal
+        level: Normal
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
@@ -550,7 +550,7 @@
       metabolismRate : 0.01
       effects:
       - !type:SuppressPain
-        suppressionLevel: Strong
+        level: Strong
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local

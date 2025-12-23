@@ -1,7 +1,11 @@
-# Blurs your vision and makes you randomly fall asleep
-- type: entity
-  parent: MobStatusEffectDebuff
-  id: StatusEffectAddicted
-  name: addicted
-  components:
-  - type: AddictedStatusEffect
+# TODO: Migrate the following OLD status effects
+
+# * addicted
+# * 
+
+#- type: entity
+#  parent: MobStatusEffectDebuff
+#  id: StatusEffectAddicted
+#  name: addicted
+#  components:
+#  - type: AddictedStatusEffect
