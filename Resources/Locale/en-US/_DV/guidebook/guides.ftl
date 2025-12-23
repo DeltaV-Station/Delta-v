@@ -36,5 +36,3 @@ guide-entry-reverse-engineering = Reverse Engineering
 guide-entry-trade-station = Trade Station
 
 guide-entry-frequently-used-chemicals = Frequently Used Chemicals
-
-
