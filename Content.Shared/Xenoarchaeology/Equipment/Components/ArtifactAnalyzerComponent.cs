@@ -17,6 +17,11 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
 
     /// <summary>
+    /// DeltaV - The ratio of research points per one glimmer.
+    /// </summary>
+    public int ExtractRatio = 1250;
+
+    /// <summary>
     /// The current artifact placed on this analyzer.
     /// Can be null if none are present.
     /// </summary>

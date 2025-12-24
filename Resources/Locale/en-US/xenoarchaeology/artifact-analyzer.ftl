@@ -34,8 +34,15 @@ analysis-console-progress-text = {$seconds ->
     *[other] T-{$seconds} seconds
 }
 
-analysis-console-extract-value = [font="Monospace" size=11][color=orange]Node {$id} (+{$value})[/color][/font]
-analysis-console-extract-none = [font="Monospace" size=11][color=orange] No unlocked nodes have any points left to extract [/color][/font]
-analysis-console-extract-sum = [font="Monospace" size=11][color=orange]Total Research: {$value}[/color][/font]
+#analysis-console-extract-value = [font="Monospace" size=11][color=orange]Node:{$id} Research:+{$value}[/color][/font]
+# DeltaV - modified analysis-console-glimmer-value - moved to DV file
+#analysis-console-glimmer-value = [font="Monospace" size=11][color=orange]Node:{$id} Glimmer:+{$value}[/color][/font]
+#analysis-console-extract-none = [font="Monospace" size=11][color=orange]No unlocked nodes have any points left to extract [/color][/font]
+# DeltaV - modified analysis-console-total-research-value - moved to DV file
+#analysis-console-extract-sum = [font="Monospace" size=11][color=orange]Total Research:{$value}[/color][/font]
+# DeltaV - modified analysis-console-total-glimmer-value - moved to DV file
+#analysis-console-glimmer-sum = [font="Monospace" size=11][color=orange]Total Glimmer:{$value}[/color][/font]
+# DeltaV - modified analysis-console-multiplier-value - moved to DV file
+#analysis-console-glimmer-mult = [font="Monospace" size=11][color=orange]Current Multiplier:{$value}[/color][/font]
 
 analyzer-artifact-extract-popup = Energy shimmers on the artifact's surface!

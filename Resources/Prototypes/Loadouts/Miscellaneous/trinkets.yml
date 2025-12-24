@@ -288,19 +288,18 @@
     - OffsetCaneNT
   groupBy: "canes"
 
-# DeltaV - Cane already available to everyone in loadout - Resources/Prototypes/_DV/Loadouts/Miscellaneous/trinkets.yml
-#- type: loadout
-#  id: Cane
-#  effects:
+- type: loadout
+  id: Cane
+#  effects: #DeltaV - Make this cane availible to everyone
 #  - !type:JobRequirementLoadoutEffect
 #    requirement:
 #      !type:RoleTimeRequirement
 #      role: JobLibrarian
 #      time: 3600 # 1hr same as Jamjar.
-#  storage:
-#    back:
-#    - Cane
-#  groupBy: "canes"
+  storage:
+    back:
+    - Cane
+  groupBy: "canes"
 
 # Towels
 - type: loadout

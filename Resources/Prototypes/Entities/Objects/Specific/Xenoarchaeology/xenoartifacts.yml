@@ -45,6 +45,7 @@
   - type: Psionic # DeltaV - sentient artifacts are psionic
   # These components are needed for certain triggers to work.
   - type: RadiationReceiver
+    selfSourceMultiplier: 0.1 # DeltaV - a radiation effect triggering a radiation trigger on the same artifact is often annoying
   - type: Reactive
     groups:
       Flammable: [Touch]
