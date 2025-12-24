@@ -1,7 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Nyanotrasen.StationEvents.Events;
 using Content.Server.Radio.EntitySystems;
-using Content.Server.StationEvents.Events;
+using Content.Shared.Chat;
 using Content.Shared._DV.Abilities.Psionics;
 using Content.Shared.Interaction;
 using Content.Shared.Psionics.Glimmer;
