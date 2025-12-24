@@ -66,14 +66,14 @@
           - "reagent-effect-antidepressant-normal4"
         probability: 0.045
         conditions:
-          - !type:ReagentCondition
-            regent: Neurozenium
-            max: 15
+        - !type:ReagentCondition
+          reagent: Neurozenium
+          max: 15.1
       - !type:HealthChange
         conditions:
-          - !type:ReagentCondition
-            reagent: Neurozenium
-            min: 15.1
+        - !type:ReagentCondition
+          reagent: Neurozenium
+          min: 15.1
         damage:
           types:
             Poison: 0.02
@@ -109,9 +109,9 @@
           - "reagent-effect-antidepressant-fade" # A decent chance to notify the player when their meds run out, but could happen silently.
         probability: 0.4
         conditions:
-          - !type:ReagentCondition
-            reagent: Neurozenium
-            max: 0.1
+        - !type:ReagentCondition
+          reagent: Neurozenium
+          max: 0.1
 
 - type: reagent
   id: Blissifylovene
@@ -325,7 +325,7 @@
           min: 1
         reagent: Tranquinase
         amount: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
         conditions:
@@ -394,23 +394,27 @@
           min: 6.7
         reagent: Histamine # causes allergy-like reaction on OD
         amount: 0.25
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.55
         sprintSpeedModifier: 0.55
         conditions:
         - !type:ReagentCondition
           reagent: Serenitol # wildly incompatable with antidepressants
           min: 5
-      - !type:Paralyze
+      - !type:ModifyParalysis
         conditions:
         - !type:ReagentCondition
           reagent: Neurozenium # wildly incompatable with antidepressants
           min: 5
-      - !type:Paralyze
+        time: 2
+        effect: Update
+      - !type:ModifyParalysis
         conditions:
         - !type:ReagentCondition
           reagent: Blissifylovene # wildly incompatable with antidepressants
           min: 3
+        time: 2
+        effect: Update
       - !type:AdjustReagent
         reagent: Neurozenium # purges Neurozenium so paralysis isn't too long
         amount: -0.5

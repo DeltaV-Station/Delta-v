@@ -721,14 +721,14 @@
       effects:
         - !type:SatiateThirst
           conditions: # DeltaV nerf of saline for Feroxi
-          - !type:OrganType
-            type: Feroxi
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Feroxi ]
+            inverted: true
           factor: 6
         - !type:SatiateThirst # DeltaV nerf of saline for Feroxi
           conditions:
-          - !type:OrganType
-            type: Feroxi
+          - !type:MetabolizerTypeCondition
+            type: [ Feroxi ]
           factor: 2
         - !type:ModifyBloodLevel
           amount: 6

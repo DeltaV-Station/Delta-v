@@ -93,7 +93,7 @@
 #     - reagents: [Water, SpaceCleaner]
 #       methods: [Touch]
 #       effects:
-#       - !type:WashCreamPieReaction
+#       - !type:WashCreamPie
 #   - type: Flashable
 #   - type: Polymorphable
 #   - type: Identity
@@ -377,7 +377,7 @@
 #     - reagents: [Water, SpaceCleaner]
 #       methods: [Touch]
 #       effects:
-#       - !type:WashCreamPieReaction
+#       - !type:WashCreamPie
 #   - type: Construction
 #     graph: GolemWood
 #     node: golem
