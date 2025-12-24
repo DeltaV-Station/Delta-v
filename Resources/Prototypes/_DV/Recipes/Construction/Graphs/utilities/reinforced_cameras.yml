@@ -13,17 +13,11 @@
     - node: assembly
       entity: ReinforcedSurveillanceCameraAssembly
       edges:
-        - to: wired
+        - to: Wire
           steps:
             - material: Cable
               amount: 2
               doAfter: 1
-            - material: CableMV
-              amount: 1
-              doAfter: 2
-            - material: ReinforcedGlass
-              amount: 1
-              doAfter: 2
         - to: start
           completed:
             - !type:GivePrototype
@@ -33,6 +27,40 @@
           steps:
             - tool: Welding
               doAfter: 2
+
+    - node: Wire
+      entity: ReinforcedSurveillanceCameraAssembly
+      edges:
+        - to: Glass
+          steps:
+            - material: CableMV
+              amount: 1
+              doAfter: 2
+        - to: assembly
+          completed:
+          - !type:GivePrototype
+            prototype: CableApcStack1
+            amount: 1
+          steps:
+          - tool: Cutting
+            doAfter: 1.5
+
+    - node: Glass
+      entity: ReinforcedSurveillanceCameraAssembly
+      edges:
+        - to: wired
+          steps:
+            - material: ReinforcedGlass
+              amount: 1
+              doAfter: 2
+        - to: Wire
+          completed:
+          - !type:GivePrototype
+            prototype: CableMVStack1
+            amount: 1
+          steps:
+          - tool: Cutting
+            doAfter: 2.5
 
     - node: wired
       entity: ReinforcedSurveillanceCameraAssembly
@@ -41,19 +69,19 @@
           steps:
             - tool: Screwing
               doAfter: 2
+        - to: Glass
+          completed:
+          - !type:GivePrototype
+            prototype: SheetRGlass1
+            amount: 1
+          steps:
+          - tool: Prying
+            doAfter: 2.5
 
-    #base note from cams
-
-    # once a camera is constructed, it will
-    # instead just require wire cutting + welding
-    # to immediately deconstruct
-
-    #base note from cams
-
-    # The extra nodes for eatch cam network type
-    # is because if i did not add them and you removed the panel it would revert to (ReinforcedSurveillanceCameraConstructed)
-    # witch in turn would remove that cam from that subnet and reclose the wire panel
-    # extra note this is all beacause of the (wirepanelsecurity) was added if you want to add wirepanelsecurity to normal cams good luck
+    # Extra nodes for eatch camera network type
+    # This is because if you do not add them and removed the panel it would revert to (ReinforcedSurveillanceCameraConstructed)
+    # Which in turn would remove that camera from that subnet and reclose the wire panel makeing you have to restart
+    # extra note this is all beacause (wirepanelsecurity) was added if you wish to add (wirepanelsecurity) to normal cams good luck
 
     #constructed
     - node: camera
@@ -62,18 +90,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -98,18 +121,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -134,18 +152,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -170,18 +183,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -206,18 +214,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -242,18 +245,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -278,18 +276,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -314,18 +307,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -350,18 +338,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
@@ -386,18 +369,13 @@
       - !type:SetWiresPanelSecurity
         wiresAccessible: true
       edges:
-        - to: start
+        - to: wired
           conditions:
             - !type:WirePanel {}
             - !type:AllWiresCut {}
-          completed:
-            - !type:GivePrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
           steps:
-            - tool: Welding
-              doAfter: 4
+            - tool: Prying
+              doAfter: 3
 
         - to: medSecurityUnfinished
           conditions:
