@@ -24,8 +24,8 @@ public sealed partial class ChitinidSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<ChitinidComponent, DamageableComponent, MobStateComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var damageable, out var mobState))
+        var query = EntityQueryEnumerator<ChitinidComponent, DamageableComponent, MobStateComponent, ItemCougherComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var damageable, out var mobState, out var itemCougher))
         {
             if (_timing.CurTime < comp.NextUpdate)
                 continue;
@@ -41,7 +41,7 @@ public sealed partial class ChitinidSystem : EntitySystem
             // damage healed is subtracted, so the delta is negative.
             comp.AmountAbsorbed -= delta.GetTotal();
             if (comp.AmountAbsorbed >= comp.MaximumAbsorbed)
-                _cougher.EnableAction(uid); // this is using a query so its slightly more fine, do all chitinids have ItemCougher?
+                _cougher.EnableAction((uid, itemCougher));
         }
     }
 
