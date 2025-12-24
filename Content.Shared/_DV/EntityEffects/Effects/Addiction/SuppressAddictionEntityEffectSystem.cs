@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Addictions;
+using Content.Shared._DV.Addictions;
 using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
