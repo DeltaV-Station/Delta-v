@@ -19,7 +19,7 @@
   - type: PresetIdCard
     job: ChiefJustice
 
-# Security and Prisoners 
+# Security and Prisoners
 - type: entity
   parent: IDCardStandard
   id: PrisonGuardIDCard
@@ -32,8 +32,8 @@
       color: &color-security-top "#39393c"
     - state: stripe_bottom
       color: &color-security-bottom "#262626"
-    - sprite: *icon-rsi-dv 
-      offset: 
+    - sprite: *icon-rsi-dv
+      offset:
       state: nyanoPrisonGuard
   - type: PresetIdCard
     job: PrisonGuard
@@ -104,7 +104,7 @@
       state: CargoAssistant
   - type: PresetIdCard
     job: CargoAssistant
-  
+
 # Medical
 
 - type: entity
@@ -287,4 +287,3 @@
   - type: MappingCategories
     categories:
     - Debug
-
