@@ -1,5 +1,5 @@
 - type: reagent
-  id: PsionicRegenerationEssence
+  id: Prometheum
   name: reagent-name-prometheum
   group: Biological
   desc: reagent-desc-prometheum
@@ -23,7 +23,7 @@
         factor: -3
       - !type:SatiateHunger
         factor: -3
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
       - !type:ModifyBloodLevel
         amount: 2
