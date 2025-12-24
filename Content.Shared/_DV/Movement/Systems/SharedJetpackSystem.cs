@@ -6,35 +6,37 @@ namespace Content.Shared.Movement.Systems;
 
 public abstract partial class SharedJetpackSystem
 {
-    private void OnJetpackToggle(EntityUid uid, JetpackComponent component, ToggleJetpackEvent args)
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private void OnJetpackToggle(Entity<JetpackComponent> jetpack, ref ToggleJetpackEvent args)
     {
         if (args.Handled)
             return;
 
-        component.AutomaticMode = !component.AutomaticMode;
-        component.WaitingUser = args.Performer;
-        Dirty(uid, component);
+        jetpack.Comp.AutomaticMode = !jetpack.Comp.AutomaticMode;
+        jetpack.Comp.AutomaticUser = args.Performer;
+        Dirty(jetpack);
 
-        if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid))
+        if (!CanEnableOnGrid(_transform.GetGrid(jetpack.Owner)))
         {
-            if (component.AutomaticMode)
-                EnsureComp<WaitingJetpackUserComponent>(args.Performer).Jetpack = uid;
+            if (jetpack.Comp.AutomaticMode)
+                EnsureComp<AutomaticJetpackUserComponent>(args.Performer).Jetpack = jetpack;
             else
-                RemComp<WaitingJetpackUserComponent>(args.Performer);
+                RemComp<AutomaticJetpackUserComponent>(args.Performer);
 
-            var message = component.AutomaticMode ? "jetpack-activated-on-grid" : "jetpack-deactivated";
-            _popup.PopupClient(Loc.GetString(message), uid, args.Performer);
+            var message = jetpack.Comp.AutomaticMode ? "jetpack-activated-on-grid" : "jetpack-deactivated";
+            _popup.PopupClient(Loc.GetString(message), jetpack, args.Performer);
             DirtyEntity(args.Performer);
             return;
         }
 
-        var messageOffGrid = component.AutomaticMode ? "jetpack-activated-off-grid" : "jetpack-deactivated";
-        _popup.PopupClient(Loc.GetString(messageOffGrid), uid, args.Performer);
+        var messageOffGrid = jetpack.Comp.AutomaticMode ? "jetpack-activated-off-grid" : "jetpack-deactivated";
+        _popup.PopupClient(Loc.GetString(messageOffGrid), jetpack, args.Performer);
 
-        SetEnabled(uid, component, !IsEnabled(uid));
+        SetEnabled(jetpack.Owner, jetpack.Comp, !IsEnabled(jetpack.Owner));
     }
 
-    private void OnWaitingJetpackEntParentChanged(Entity<WaitingJetpackUserComponent> jetpackUser, ref EntParentChangedMessage args)
+    private void OnAutomaticJetpackEntParentChanged(Entity<AutomaticJetpackUserComponent> jetpackUser, ref EntParentChangedMessage args)
     {
         if (!TryComp<JetpackComponent>(jetpackUser.Comp.Jetpack, out var jetpack)
             || args.Transform.GridUid != null)
@@ -44,11 +46,20 @@ public abstract partial class SharedJetpackSystem
         _popup.PopupClient(Loc.GetString("jetpack-activates-automatically"), args.Entity, args.Entity);
     }
 
-    private void RemoveWaiter(JetpackComponent component)
+    private void RemoveAutomaticJetpack(Entity<JetpackComponent> jetpack)
     {
-        component.AutomaticMode = false;
-        if (component.WaitingUser.HasValue)
-            RemComp<WaitingJetpackUserComponent>(component.WaitingUser.Value);
-        component.WaitingUser = null;
+        jetpack.Comp.AutomaticMode = false;
+        if (jetpack.Comp.AutomaticUser.HasValue)
+            RemComp<AutomaticJetpackUserComponent>(jetpack.Comp.AutomaticUser.Value);
+        jetpack.Comp.AutomaticUser = null;
+    }
+
+    private void RefreshAutomaticJetpack(Entity<JetpackComponent> jetpack, EntityUid user, bool jetpackEnabled)
+    {
+        if (jetpackEnabled)
+            RemComp<AutomaticJetpackUserComponent>(user);
+        if (jetpack.Comp.AutomaticMode) // DeltaV - Jetpacks automatically turn on when toggled.
+            EnsureComp<AutomaticJetpackUserComponent>(user).Jetpack = jetpack;
+
     }
 }

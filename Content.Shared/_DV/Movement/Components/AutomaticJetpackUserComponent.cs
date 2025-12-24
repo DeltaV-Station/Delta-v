@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Movement.Components;
 /// Added when someone holds a jetpack that is toggled active and waits to turn on.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class WaitingJetpackUserComponent : Component
+public sealed partial class AutomaticJetpackUserComponent : Component
 {
     /// <summary>
     /// The jetpack that will automatically activate.

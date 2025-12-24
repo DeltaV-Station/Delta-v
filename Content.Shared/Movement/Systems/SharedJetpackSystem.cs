@@ -35,7 +35,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem // DeltaV - Mad
 
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<WaitingJetpackUserComponent, EntParentChangedMessage>(OnWaitingJetpackEntParentChanged); // DeltaV - Jetpacks automatically toggle on.
+        SubscribeLocalEvent<AutomaticJetpackUserComponent, EntParentChangedMessage>(OnAutomaticJetpackEntParentChanged); // DeltaV - Jetpacks automatically toggle on.
     }
 
     private void OnJetpackUserWeightlessMovement(Entity<JetpackUserComponent> ent, ref RefreshWeightlessModifiersEvent args)
@@ -73,7 +73,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem // DeltaV - Mad
 
     private void OnJetpackDropped(EntityUid uid, JetpackComponent component, DroppedEvent args)
     {
-        RemoveWaiter(component); // DeltaV - Jetpacks automatically toggle on.
+        RemoveAutomaticJetpack((uid, component)); // DeltaV - Jetpacks automatically toggle on.
         SetEnabled(uid, component, false, args.User);
     }
 
@@ -81,7 +81,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem // DeltaV - Mad
     {
         if (args.Container.Owner != ent.Comp.JetpackUser)
         {
-            RemoveWaiter(ent.Comp); // DeltaV - Jetpacks automatically toggle on.
+            RemoveAutomaticJetpack(ent); // DeltaV - Jetpacks automatically toggle on.
             SetEnabled(ent, ent.Comp, false, ent.Comp.JetpackUser);
         }
     }
@@ -179,16 +179,15 @@ public abstract partial class SharedJetpackSystem : EntitySystem // DeltaV - Mad
             user = container.Owner;
         }
 
+        RefreshAutomaticJetpack((uid, component), user.Value, enabled); // DeltaV - Jetpacks automatically turn on when toggled.
+
         if (enabled)
         {
-            RemComp<WaitingJetpackUserComponent>(user.Value); // DeltaV - Jetpacks automatically turn on when toggled.
             SetupUser(user.Value, uid, component);
             EnsureComp<ActiveJetpackComponent>(uid);
         }
         else
         {
-            if (component.AutomaticMode) // DeltaV - Jetpacks automatically turn on when toggled.
-                EnsureComp<WaitingJetpackUserComponent>(user.Value).Jetpack = uid;
             RemoveUser(user.Value, component);
             RemComp<ActiveJetpackComponent>(uid);
         }

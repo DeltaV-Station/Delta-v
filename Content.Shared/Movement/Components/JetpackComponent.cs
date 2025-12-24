@@ -38,6 +38,6 @@ public sealed partial class JetpackComponent : Component
     /// The user whose jetpack is waiting to activate.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? WaitingUser;
+    public EntityUid? AutomaticUser;
     // DeltaV End - Jetpacks automatically toggle on.
 }
