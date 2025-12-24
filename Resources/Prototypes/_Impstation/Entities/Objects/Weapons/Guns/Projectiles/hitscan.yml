@@ -1,29 +1,29 @@
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EmergencyRedLaser
-  damage:
-    types:
-      Heat: 16 # DeltaV was 12
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 16 # DeltaV - was 12
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EchionLaser
-  damage:
-    types:
-      Heat: 18
-  muzzleFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: muzzle_synd
-  travelFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: beam_synd
-  impactFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: impact_synd
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_synd
+    travelFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_synd
+    impactFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_synd
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 18

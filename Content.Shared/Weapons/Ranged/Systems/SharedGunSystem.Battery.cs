@@ -44,8 +44,8 @@ public abstract partial class SharedGunSystem
         component.FireCost = state.FireCost;
         UpdateAmmoCount(uid, prediction: false);
 
-        if (component is HitscanBatteryAmmoProviderComponent hitscan && state.Prototype != null) // Shitmed Change
-            hitscan.Prototype = state.Prototype;
+        if (component is HitscanBatteryAmmoProviderComponent hitscan && state.Prototype is { } proto) // Shitmed Change
+            hitscan.HitscanEntityProto = proto;
     }
 
     private void OnBatteryGetState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentGetState args)
@@ -58,7 +58,7 @@ public abstract partial class SharedGunSystem
         };
 
         if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan)) // Shitmed Change
-           state.Prototype = hitscan.Prototype;
+            state.Prototype = hitscan.HitscanEntityProto;
 
         args.State = state; // Shitmed Change
     }
@@ -179,6 +179,6 @@ public abstract partial class SharedGunSystem
         public int Shots;
         public int MaxShots;
         public float FireCost;
-        public string? Prototype; // Shitmed Change
+        public EntProtoId? Prototype; // Shitmed Change
     }
 }
