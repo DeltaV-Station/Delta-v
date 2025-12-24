@@ -337,9 +337,9 @@
         - !type:ReagentCondition
           reagent: NitrousOxide
           min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         key: Anesthesia
         component: Anesthesia
         time: 200
