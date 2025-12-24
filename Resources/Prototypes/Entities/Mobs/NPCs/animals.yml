@@ -1804,10 +1804,11 @@
         Slash: 5
         Piercing: 4
   - type: Temperature
-    heatDamageThreshold: 360
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 285
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -2545,10 +2546,11 @@
     factions:
     - Passive
   - type: Temperature
-    heatDamageThreshold: 335
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 335
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -3244,13 +3246,14 @@
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -3460,6 +3463,7 @@
       Dead:
         Base: spacecat_dead
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Tag
