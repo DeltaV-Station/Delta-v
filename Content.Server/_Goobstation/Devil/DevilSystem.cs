@@ -16,7 +16,7 @@ using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Devil.Condemned;
 using Content.Shared._Goobstation.Exorcism;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
