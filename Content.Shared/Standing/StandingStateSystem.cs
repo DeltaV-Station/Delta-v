@@ -123,7 +123,7 @@ public sealed class StandingStateSystem : EntitySystem
         // Seemed like the best place to put it
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
         // Change collision masks to allow going under certain entities like flaps and tables
-        ChangeLayers((uid, standingState));
+        // ChangeLayers((uid, standingState));
 
         // check if component was just added or streamed to client
         // if true, no need to play sound - mob was down before player could seen that
