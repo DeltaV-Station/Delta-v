@@ -136,6 +136,44 @@
     - cawed
 
 - type: emote
+  id: HarpyQuack
+  name: delta-chat-emote-name-quack
+  icon: _DV/Interface/Emotes/caw.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [caws.]
+  chatTriggers:
+  - quack
+  - quacks
+  - quacking
+  - quacked
+
+- type: emote
+  id: HarpySquawk
+  name: delta-chat-emote-name-squawk
+  icon: _DV/Interface/Emotes/caw.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [caws.]
+  chatTriggers:
+  - squawk
+  - squawks
+  - squawking
+  - squawked
+
+- type: emote
   id: HarpySquish
   name: delta-chat-emote-name-harpysquish
   icon: Interface/Emotes/squish.png
