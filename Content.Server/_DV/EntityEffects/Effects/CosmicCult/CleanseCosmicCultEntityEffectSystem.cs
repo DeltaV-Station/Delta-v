@@ -1,11 +1,6 @@
-using Content.Shared._DV.Pain;
-using Content.Shared.EntityEffects;
-using Content.Shared.StatusEffect;
-using Robust.Shared.Prototypes;
-using Content.Server.Abilities.Psionics;
-using Content.Server.Psionics;
-using Content.Shared.Psionics.Glimmer;
+using Content.Shared._DV.EntityEffects.Effects.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.EntityEffects;
 
 namespace Content.Server._DV.EntityEffects.Effects;
 
@@ -21,11 +16,4 @@ public sealed partial class CleanseCosmicCultEntityEffectSystem : EntityEffectSy
         if (_ent.HasComponent<CosmicCultComponent>(entity))
             _ent.EnsureComponent<CleanseCultComponent>(entity); // We just slap them with the component and let the Deconversion system handle the rest.
     }
-}
-
-/// <inheritdoc cref="EntityEffect"/>
-public sealed partial class CleanseCosmicCult : EntityEffectBase<CleanseCosmicCult>
-{
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-cleanse-cultist", ("chance", Probability));
 }

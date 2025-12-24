@@ -3,7 +3,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._DV.EntityEffects.Effects;
+namespace Content.Shared._DV.EntityEffects.Effects.Pain;
 
 // TODO: When Pain is moved to new Status, make this use StatusEffectsContainerComponent.
 /// <summary>

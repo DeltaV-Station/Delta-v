@@ -1,11 +1,11 @@
-using Content.Shared._DV.Pain;
+using Content.Server.Psionics;
+using Content.Shared._DV.EntityEffects.Effects.Psionics;
 using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Prototypes;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Psionics;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server._DV.EntityEffects.Effects;
+namespace Content.Server._DV.EntityEffects.Effects.Psionics;
 
 /// <summary>
 ///     Rerolls psionic abilities when at least 1u of the reagent is in the system.
@@ -21,17 +21,4 @@ public sealed partial class RerollPsionicAbilitiesEntityEffectSystem : EntityEff
 
         _psionic.RerollPsionics(entity, bonusMuliplier: args.Effect.BonusMultiplier);
     }
-}
-
-/// <inheritdoc cref="EntityEffect"/>
-public sealed partial class RerollPsionicAbilities : EntityEffectBase<RerollPsionicAbilities>
-{
-    /// <summary>
-    ///     Reroll multiplier.
-    /// </summary>
-    [DataField("bonusMultiplier")]
-    public float BonusMultiplier = 1f;
-
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-chem-reroll-psionic", ("chance", Probability));
 }
