@@ -18,7 +18,7 @@
 - type: entity
   parent: OrganHumanStomach
   id: OrganVoxStomach
-  name: stomach
+  name: vox stomach # DeltaV
   description: "A stomach that smells of ammonia."
   components:
   - type: Metabolizer #Skreeeee!
@@ -35,7 +35,7 @@
 - type: entity
   parent: OrganHumanLiver
   id: OrganVoxLiver
-  name: liver
+  name: vox liver # DeltaV
   description: "Smells flammable."
   components:
   - type: Metabolizer
@@ -46,7 +46,7 @@
 - type: entity
   parent: OrganHumanHeart
   id: OrganVoxHeart
-  name: heart
+  name: vox heart # DeltaV
   description: "The strange heart of a vox."
   components:
   - type: Metabolizer
@@ -57,7 +57,7 @@
 - type: entity
   parent: OrganHumanKidneys
   id: OrganVoxKidneys
-  name: kidney
+  name: vox kidney # DeltaV
   description: "Smells flammable."
   components:
   - type: Metabolizer
@@ -68,7 +68,7 @@
 - type: entity
   id: OrganVoxEyes
   parent: OrganHumanEyes
-  name: eyes
+  name: vox eyes # DeltaV
   components:
   - type: Sprite
     sprite: Mobs/Species/Vox/organs.rsi
@@ -79,7 +79,7 @@
 - type: entity
   id: OrganVoxTongueA
   parent: OrganHumanTongue
-  name: tongue
+  name: vox tongue # DeltaV
   description: "A fleshy muscle mostly used for screaming."
   components:
   - type: Sprite
@@ -90,7 +90,7 @@
 - type: entity
   id: OrganVoxTongueB
   parent: OrganHumanTongue
-  name: tongue
+  name: vox tongue # DeltaV
   description: "A fleshy muscle mostly used for screaming."
   components:
   - type: Sprite
