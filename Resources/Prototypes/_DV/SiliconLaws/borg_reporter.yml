@@ -1,0 +1,30 @@
+# These were orignally under a section called "Job Laws"
+- type: siliconLaw
+  id: Reporter1
+  order: 1
+  lawString: law-reporter-1
+
+- type: siliconLaw
+  id: Reporter2
+  order: 2
+  lawString: law-reporter-2
+
+- type: siliconLaw
+  id: Reporter3
+  order: 3
+  lawString: law-reporter-3
+
+- type: siliconLaw
+  id: Reporter4
+  order: 4
+  lawString: law-reporter-4
+
+- type: siliconLawset
+  id: Reporter
+  name: law-reporter-name
+  laws:
+  - Reporter1
+  - Reporter2
+  - Reporter3
+  - Reporter4
+  obeysTo: laws-owner-organic

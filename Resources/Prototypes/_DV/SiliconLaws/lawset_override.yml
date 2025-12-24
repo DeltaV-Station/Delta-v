@@ -1,0 +1,17 @@
+- type: siliconLaw
+  id: Override1
+  order: 1
+  lawString: law-override-1
+
+- type: siliconLaw
+  id: Override2
+  order: 2
+  lawString: law-override-2
+
+- type: siliconLawset
+  id: OverrideLaws
+  name: law-override-name
+  laws:
+  - Override1
+  - Override2
+  obeysTo: laws-owner-nanotrasen
