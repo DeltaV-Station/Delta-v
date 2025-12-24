@@ -119,6 +119,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Salbutamol
           min: 15.5
         damage:
           groups: # ODing heals airloss but causes damage
@@ -167,80 +168,6 @@
             Heat: -0.1
             Shock: -0.1
             Cold: -0.1
-
-# misc
-- type: reagent
-  id: Pielovene
-  name: reagent-name-pielovene
-  group: Exotic
-  desc: reagent-desc-pielovene
-  physicalDesc: reagent-physical-desc-creamy
-  flavor: banana
-  color: "#f5d069"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:JobCondition
-          job:
-          - Clown
-        damage:
-          groups:
-            Brute: -1
-            Burn: -1
-            Airloss: -1
-            Toxin: -1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Pielovene
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-        damage:
-          groups:
-            Brute: 2
-            Airloss: 2
-            Toxin: 2
-      - !type:Jitter
-        conditions:
-        - !type:ReagentCondition
-          reagent: Pielovene
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Pielovene
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-nauseous" ]
-        probability: 0.2
-      - !type:Vomit
-        conditions:
-        - !type:ReagentCondition
-          reagent: Pielovene
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-        probability: 0.02
-      - !type:Drunk
-        conditions:
-        - !type:ReagentCondition
-          reagent: Pielovene
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
 
 # pyro
 - type: reagent
