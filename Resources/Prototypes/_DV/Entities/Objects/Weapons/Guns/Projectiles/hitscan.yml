@@ -38,7 +38,8 @@
     damage:
       types:
         Cold: 20
-  # TODO: HeatChange -50000
+  - type: HitscanTemperature
+    heatChange: -50000 # This shoots hitscans that make you cold
 
 - type: entity
   parent: BasicHitscan
