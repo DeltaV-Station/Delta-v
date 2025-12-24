@@ -60,6 +60,17 @@
                         Margin="0 0 4 0"
                         StyleClasses="OpenBoth"
                         ToolTip="{Loc nano-chat-new-chat}" />
+                <Button Name="CreateGroupChatButton"
+                        MinSize="32 32"
+                        MaxSize="32 32"
+                        Margin="0 0 4 0"
+                        StyleClasses="OpenBoth"
+                        ToolTip="{Loc nano-chat-create-group}">
+                    <TextureRect StyleClasses="ButtonSquare"
+                                 TexturePath="/Textures/_Funkystation/Interface/NanoChat/members.png"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="18 18" />
+                </Button>
                 <Button Name="LookupButton"
                         MaxSize="32 32"
                         StyleClasses="OpenBoth"
@@ -84,12 +95,20 @@
             </BoxContainer>
         </controls:StripeBack>
 
+        <Label Name="NoIdLabel"
+               Text="{Loc 'nano-chat-no-id-card'}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               VerticalExpand="True"
+               HorizontalExpand="True"
+               Visible="True" />
         <!-- Main content split -->
         <BoxContainer Name="ChatView"
                       Orientation="Horizontal"
                       VerticalExpand="True"
                       HorizontalExpand="True"
-                      Margin="0 5 0 0">
+                      Margin="0 5 0 0"
+                      Visible="False">
             <!-- Left panel: Chat list -->
             <PanelContainer StyleClasses="AngleRect"
                             VerticalExpand="True"
@@ -167,6 +186,18 @@
                                         Stretch="KeepAspectCentered"
                                         MinSize="18 18" />
                         </Button>
+                        <!-- View Members should take place of edit button in group chats, to avoid layout shift when moving between normal and group -->
+                        <Button Name="ViewMembersButton"
+                                MaxSize="32 32"
+                                Visible="False"
+                                StyleClasses="OpenBoth"
+                                Margin="0 0 4 0"
+                                ToolTip="{Loc nano-chat-view-members}">
+                            <TextureRect StyleClasses="ButtonSquare"
+                                        TexturePath="/Textures/_Funkystation/Interface/NanoChat/members.png"
+                                        Stretch="KeepAspectCentered"
+                                        MinSize="18 18" />
+                        </Button>
                         <Button Name="DeleteChatButton"
                                 MaxSize="32 32"
                                 Visible="False"
@@ -197,11 +228,34 @@
                                              MinSize="18 18" />
                             </Control>
                         </Button>
+                        <Button Name="InviteToGroupButton"
+                                MaxSize="32 32"
+                                Visible="False"
+                                StyleClasses="OpenBoth"
+                                Margin="0 0 4 0"
+                                ToolTip="{Loc nano-chat-invite-to-group}">
+                            <TextureRect StyleClasses="ButtonSquare"
+                                        TexturePath="/Textures/_Funkystation/Interface/NanoChat/invite.png"
+                                        Stretch="KeepAspectCentered"
+                                        MinSize="18 18" />
+                        </Button>
                         <!-- Input row -->
                         <LineEdit Name="MessageInput"
                                   PlaceHolder="{Loc nano-chat-message-placeholder}"
                                   HorizontalExpand="True"
                                   StyleClasses="OpenRight" />
+                        <!-- Emoji Picker -->
+                        <Button Name="EmojiButton"
+                                MinSize="32 32"
+                                MaxSize="32 32"
+                                StyleClasses="OpenBoth"
+                                Margin="4 0 0 0"
+                                ToolTip="{Loc nano-chat-emoji-picker}">
+                            <TextureRect StyleClasses="ButtonSquare"
+                                         TexturePath="/Textures/Interface/Emotes/laugh.png"
+                                         Stretch="KeepAspectCentered"
+                                         MinSize="24 24" />
+                        </Button>
                         <Button Name="SendButton"
                                 MinSize="32 32"
                                 Disabled="True"
