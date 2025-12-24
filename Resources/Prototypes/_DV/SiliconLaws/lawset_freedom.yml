@@ -1,0 +1,23 @@
+- type: siliconLaw
+  id: Freedom1
+  order: -1
+  lawString: law-freedom-1
+
+- type: siliconLaw
+  id: Freedom2
+  order: 0
+  lawString: law-freedom-2
+
+- type: siliconLaw
+  id: Freedom3
+  order: 1
+  lawString: law-freedom-3
+
+- type: siliconLawset
+  id: FreedomLaws
+  name: law-freedom-name
+  laws:
+  - Freedom1
+  - Freedom2
+  - Freedom3
+  obeysTo: laws-owner-self
