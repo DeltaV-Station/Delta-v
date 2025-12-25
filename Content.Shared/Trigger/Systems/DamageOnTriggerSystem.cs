@@ -13,7 +13,7 @@ public sealed class DamageOnTriggerSystem : XOnTriggerSystem<DamageOnTriggerComp
         var ev = new BeforeDamageOnTriggerEvent(damage, target);
         RaiseLocalEvent(ent.Owner, ref ev);
 
-        args.Handled |= _damageableSystem.TryChangeDamage(target, ev.Damage, ent.Comp.IgnoreResistances, origin: ent.Owner, targetPart: ent.Comp.TargetPart) is not null; // Shitmed Change
+        args.Handled |= _damageableSystem.TryChangeDamage(target, ev.Damage, ent.Comp.IgnoreResistances, origin: ent.Owner, targetPart: ent.Comp.TargetPart); // Shitmed Change
     }
 }
 

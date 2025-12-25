@@ -1,6 +1,7 @@
 using Content.Shared._DV.Abilities;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -35,11 +36,11 @@ public sealed partial class ChitinidSystem : EntitySystem
             if (comp.AmountAbsorbed >= comp.MaximumAbsorbed || _mobState.IsDead(uid, mobState))
                 continue;
 
-            if (_damageable.TryChangeDamage(uid, comp.Healing, damageable: damageable) is not {} delta)
+            if (!_damageable.TryChangeDamage(uid, comp.Healing))
                 continue;
 
             // damage healed is subtracted, so the delta is negative.
-            comp.AmountAbsorbed -= delta.GetTotal();
+            comp.AmountAbsorbed -= comp.Healing["Radiation"];
             if (comp.AmountAbsorbed >= comp.MaximumAbsorbed)
                 _cougher.EnableAction((uid, itemCougher));
         }

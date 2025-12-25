@@ -6,7 +6,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -124,7 +124,10 @@ public sealed class DeconversionSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcorrupted", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
             _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
             _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
-            _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
+
+            if (args.Target.HasValue)
+                _damageable.TryChangeDamage(args.Target.Value, censer.FailedDeconversionDamage, true);
+
             _stun.TryKnockdown(target.Value, TimeSpan.FromSeconds(2), true);
             if (_mind.TryGetMind(target.Value, out _, out var mind) && _playerMan.TryGetSessionById(mind.UserId, out var session))
             {

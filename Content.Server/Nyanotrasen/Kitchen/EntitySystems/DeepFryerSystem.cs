@@ -26,6 +26,8 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Construction;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
@@ -230,7 +232,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
                 CookingDamageAmount);
 
             var result = _damageableSystem.TryChangeDamage(item, damage, origin: uid);
-            if (result?.GetTotal() > FixedPoint2.Zero)
+            if (result)
             {
                 // TODO: Smoke, waste, sound, or some indication.
             }

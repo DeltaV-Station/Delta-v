@@ -1,6 +1,6 @@
 using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Timing;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;

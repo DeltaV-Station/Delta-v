@@ -19,6 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Network;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._Goobstation.Devil.CheatDeath;
 
