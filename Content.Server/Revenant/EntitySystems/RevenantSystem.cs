@@ -4,6 +4,7 @@ using Content.Server.GameTicking;
 using Content.Server.Mind; // Imp
 using Content.Server.Revenant.Components; // Imp
 using Content.Server.Store.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -48,6 +49,7 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly MindSystem _mind = default!; // Imp
     [Dependency] private readonly MetaDataSystem _meta = default!; // Imp
+    [Dependency] private readonly SharedActionsSystem _action = default!; // Imp
     [Dependency] private readonly TurfSystem _turf = default!;
 
     private readonly EntProtoId _revenantHaunt = "ActionRevenantHaunt"; // Imp
