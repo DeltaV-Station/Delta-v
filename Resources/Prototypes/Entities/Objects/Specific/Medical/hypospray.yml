@@ -164,11 +164,11 @@
     - AdvancedJetInjectorInjectMode
 
 - type: entity
+  parent: SyndiHypo
+  id: AdminHypo
   name: experimental hypospray
   suffix: Admeme
-  parent: SyndiHypo
   description: The ultimate application of bluespace technology and rapid chemical administration.
-  id: AdminHypo
   components:
     - type: SolutionContainerManager
       solutions:
