@@ -27,6 +27,8 @@ public partial class SharedBodySystem
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
     // [Dependency] private readonly InventorySystem _inventorySystem = default!; // Shitmed Change - Declared in SharedBodySystem.cs
 
+    private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
+
     private void InitializeParts()
     {
         // TODO: This doesn't handle comp removal on child ents.

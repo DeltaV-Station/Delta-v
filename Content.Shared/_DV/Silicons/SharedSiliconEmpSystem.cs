@@ -1,5 +1,7 @@
 using Content.Shared.Emp;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared._DV.Silicons.Components;
 
 namespace Content.Shared._DV.Silicons;
@@ -33,6 +35,6 @@ public abstract class SharedSiliconEmpSystem : EntitySystem
         if (args.Damage is not { } damage)
             return;
 
-        _damageable.TryChangeDamage(ent, damage, false);
+        _damageable.TryChangeDamage(ent.Owner, damage, false);
     }
 }

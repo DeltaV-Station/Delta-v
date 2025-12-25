@@ -146,7 +146,7 @@ public sealed partial class DamageableSystem
         if (doPartDamage) // DeltaV - Fix EvenHealing with Limbs.
         {
             var partDamage = new BeforePartDamageChangedEvent(damage, origin, targetPart, ignoreResistances, canSever, canEvade, partMultiplier); // DeltaV - Standardize PartDamage.
-            RaiseLocalEvent(uid.Value, ref partDamage);
+            RaiseLocalEvent(ent.Owner, ref partDamage);
 
             if (partDamage.Evaded || partDamage.Cancelled)
                 return damageDone; // TODO: October - Was null
@@ -158,13 +158,13 @@ public sealed partial class DamageableSystem
         {
             if (
                 ent.Comp.DamageModifierSetId != null &&
-                _prototypeManager.Resolve(ent.Comp.DamageModifierSetId, out var modifierSet, targetPart) // Shitmed Change - add targetPart
+                _prototypeManager.Resolve(ent.Comp.DamageModifierSetId, out var modifierSet)
             )
                 damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
 
             // TODO DAMAGE
             // byref struct event.
-            var ev = new DamageModifyEvent(damage, origin);
+            var ev = new DamageModifyEvent(damage, origin, targetPart: targetPart); // Shitmed - Add TargetPart
             RaiseLocalEvent(ent, ev);
             damage = ev.Damage;
 
@@ -264,15 +264,10 @@ public sealed partial class DamageableSystem
         OnEntityDamageChanged((ent, ent.Comp), new DamageSpecifier());
 
         // Shitmed Change Start
-        if (HasComp<TargetingComponent>(uid))
+        if (HasComp<TargetingComponent>(ent.Owner))
         {
-            foreach (var (part, _) in _body.GetBodyChildren(uid))
-            {
-                if (!TryComp(part, out DamageableComponent? damageComp))
-                    continue;
-
-                SetAllDamage(part, damageComp, newValue);
-            }
+            foreach (var (part, _) in _body.GetBodyChildren(ent.Owner))
+                SetAllDamage(part, newValue);
         }
         // Shitmed Change End
     }

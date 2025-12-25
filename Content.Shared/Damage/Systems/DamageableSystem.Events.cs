@@ -245,7 +245,8 @@ public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin 
 
     public readonly DamageSpecifier OriginalDamage = damage;
     public DamageSpecifier Damage = damage;
-    public readonly TargetBodyPart? TargetPart; // Shitmed Change
+    public EntityUid? Origin = origin; // DeltaV - Did upstream forget this?
+    public readonly TargetBodyPart? TargetPart = targetPart; // Shitmed Change
 }
 
 public sealed class DamageChangedEvent : EntityEventArgs

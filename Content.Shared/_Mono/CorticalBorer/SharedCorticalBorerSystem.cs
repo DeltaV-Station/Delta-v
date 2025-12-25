@@ -14,11 +14,14 @@ using Content.Shared.MedicalScanner;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
+
+
 
 namespace Content.Shared._Mono.CorticalBorer;
 
@@ -82,8 +85,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
                 RemCompDeferred(ent, compReg.Component.GetType());
         }
 
-        if (TryComp<DamageableComponent>(ent, out var damComp))
-            _damage.SetAllDamage(ent, damComp, 0);
+        _damage.SetAllDamage(ent.Owner, 0);
     }
 
     public bool TryEjectBorer(Entity<CorticalBorerComponent> ent)
