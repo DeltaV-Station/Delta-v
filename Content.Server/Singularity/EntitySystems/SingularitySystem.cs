@@ -7,6 +7,7 @@ using Content.Shared.Singularity.Events;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Timing; // DeltaV
 
 namespace Content.Server.Singularity.EntitySystems;
 
@@ -21,6 +22,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
 #region Dependencies
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
+    [Dependency] private readonly GameTiming _timing = default!; // DeltaV - Delete this when its not longer needed, idk
 #endregion Dependencies
 
     /// <summary>
