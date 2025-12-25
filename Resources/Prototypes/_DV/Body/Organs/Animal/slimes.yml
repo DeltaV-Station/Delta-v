@@ -10,8 +10,13 @@
     grindableSolutionName: organ
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
       organ:
         maxVol: 5
         reagents:
-        - ReagentId: SentientGreyMatter
+        - ReagentId: Slime
           Quantity: 5
