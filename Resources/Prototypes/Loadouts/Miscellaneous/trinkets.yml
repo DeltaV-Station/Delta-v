@@ -484,6 +484,7 @@
     requirement:
       !type:DepartmentTimeRequirement # DeltaV - Use Justice department time instead of Lawyer job time
       department: Justice
+      time: 100h
   storage:
     back:
     - TowelColorMaroon
