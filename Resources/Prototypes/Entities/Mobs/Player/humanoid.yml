@@ -100,13 +100,13 @@
       description: ghost-role-information-ert-leader-description
       rules: ghost-role-information-nonantagonist-rules
       # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 54000 #15 hrs
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 14400 #4 hrs
+      #requirements: # TODO: October
+      #- !type:DepartmentTimeRequirement
+      #  department: Security
+      #  time: 54000 #15 hrs
+      #- !type:DepartmentTimeRequirement
+      #  department: Command
+      #  time: 14400 #4 hrs
       # End DeltaV additions
       raffle:
         settings: short
@@ -199,13 +199,13 @@
       description: ghost-role-information-ert-chaplain-description
       rules: ghost-role-information-nonantagonist-rules
       # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Epistemics
-        time: 36000 #10 hrs
+      #requirements: # TODO: October
+      #- !type:DepartmentTimeRequirement
+      #  department: Security
+      #  time: 18000 #5 hrs
+      #- !type:DepartmentTimeRequirement
+      #  department: Epistemics
+      #  time: 36000 #10 hrs
       # End DeltaV additions
       raffle:
         settings: short
@@ -275,13 +275,13 @@
       description: ghost-role-information-ert-janitor-description
       rules: ghost-role-information-nonantagonist-rules
       # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:RoleTimeRequirement
-        role: JobJanitor
-        time: 18000 #5 hrs
+      #requirements: # TODO: October
+      #- !type:DepartmentTimeRequirement
+      #  department: Security
+      #  time: 18000 #5 hrs
+      #- !type:RoleTimeRequirement
+      #  role: JobJanitor
+      #  time: 18000 #5 hrs
       # End DeltaV additions
       raffle:
         settings: short
@@ -350,13 +350,13 @@
       description: ghost-role-information-ert-engineer-description
       rules: ghost-role-information-nonantagonist-rules
       # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Engineering
-        time: 36000 #10 hrs
+      # requirements: # TODO: October
+      # - !type:DepartmentTimeRequirement
+      #   department: Security
+      #   time: 18000 #5 hrs
+      # - !type:DepartmentTimeRequirement
+      #   department: Engineering
+      #   time: 36000 #10 hrs
       # End DeltaV additions
       raffle:
         settings: short
@@ -425,10 +425,10 @@
       description: ghost-role-information-ert-security-description
       rules: ghost-role-information-nonantagonist-rules
       # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 54000 #15 hrs
+      # requirements: # TODO: October
+      # - !type:DepartmentTimeRequirement
+      #   department: Security
+      #   time: 54000 #15 hrs
       # End DeltaV additions
       raffle:
         settings: short
@@ -520,13 +520,13 @@
       description: ghost-role-information-ert-medical-description
       rules: ghost-role-information-nonantagonist-rules
       # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 36000 #10 hrs
+      # requirements: # TODO: October
+      # - !type:DepartmentTimeRequirement
+      #   department: Security
+      #   time: 18000 #5 hrs
+      # - !type:DepartmentTimeRequirement
+      #   department: Medical
+      #   time: 36000 #10 hrs
       # End DeltaV additions
       raffle:
         settings: short

@@ -131,6 +131,9 @@
     allowedModes:
     - JetInjectorDynamicMode
     - JetInjectorInjectMode
+  - type: Tag
+    tags: 
+    - JetInjector
 
 - type: entity
   parent: JetInjector

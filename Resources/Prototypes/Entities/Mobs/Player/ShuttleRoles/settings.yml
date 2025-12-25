@@ -15,9 +15,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
-      requirements: # DeltaV
-      - !type:OverallPlaytimeRequirement
-        time: 20h
 
 - type: randomHumanoidSettings
   id: VisitorCaptain
