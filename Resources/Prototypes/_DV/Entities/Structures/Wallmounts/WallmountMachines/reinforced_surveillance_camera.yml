@@ -1,7 +1,54 @@
+
 - type: entity
   parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraBase
+  abstract: true
+  name: reinforced camera
+  description: A reinforced version of the surveillance camera. It's watching you. Kinda.
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+  - type: WiresPanelSecurity
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 400
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 275
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: Repairable
+    doAfterDelay: 4
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraEngineering]
   id: ReinforcedSurveillanceCameraEngineering
-  name: Reinforced camera
   suffix: Engineering
   components:
   - type: DeviceNetwork
@@ -10,57 +57,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
-  - type: WiresPanelSecurity
-    securityLevel: medSecurity
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_engineering
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
   - type: Tag
     tags:
       - cameraeng
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraSecurity]
   id: ReinforcedSurveillanceCameraSecurity
-  name: Reinforced camera
   suffix: Security
   components:
   - type: DeviceNetwork
@@ -69,57 +77,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_security
   - type: WiresPanelSecurity
     securityLevel: medSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - camerasec
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraScience] 
   id: ReinforcedSurveillanceCameraScience
-  name: Reinforced camera
   suffix: Epistemics
   components:
   - type: DeviceNetwork
@@ -128,57 +97,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_science
   - type: WiresPanelSecurity
     securityLevel: medSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - camerasci
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraSupply]
   id: ReinforcedSurveillanceCameraSupply
-  name: Reinforced camera
   suffix: Supply
   components:
   - type: DeviceNetwork
@@ -187,57 +117,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_supply
   - type: WiresPanelSecurity
     securityLevel: medSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - camerasup
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraCommand]
   id: ReinforcedSurveillanceCameraCommand
-  name: Reinforced camera
   suffix: Command
   components:
   - type: DeviceNetwork
@@ -246,57 +137,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_command
   - type: WiresPanelSecurity
     securityLevel: highSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameracom
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraService]
   id: ReinforcedSurveillanceCameraService
-  name: Reinforced camera
   suffix: Service
   components:
   - type: DeviceNetwork
@@ -305,55 +157,17 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_service
   - type: WiresPanelSecurity
     securityLevel: medSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameraser
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraMedical]
   id: ReinforcedSurveillanceCameraMedical
   name: Reinforced camera
   suffix: Medical
@@ -364,57 +178,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_medical
   - type: WiresPanelSecurity
     securityLevel: medSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameramed
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraGeneral]
   id: ReinforcedSurveillanceCameraGeneral
-  name: Reinforced camera
   suffix: General
   components:
   - type: DeviceNetwork
@@ -423,57 +198,18 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_general
   - type: WiresPanelSecurity
     securityLevel: medSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameragen
 
 - type: entity
-  parent: SurveillanceCameraBase
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraAI]
   id: ReinforcedSurveillanceCameraAI
-  name: Reinforced camera
   suffix: AI
   components:
   - type: DeviceNetwork
@@ -482,52 +218,40 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
-  - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-    layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: reinforced_camera
-        cycle: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
     node: camera_ai
   - type: WiresPanelSecurity
     securityLevel: highSecurity
-  - type: SurveillanceCameraVisuals
-    sprites:
-      Active: reinforced_camera
-      InUse: reinforced_camera_in_use
-      Emp: reinforced_camera_emp
-      Disabled: reinforced_camera_off
-  - type: Damageable
-    damageModifierSet: Electronic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Repairable
-    doAfterDelay: 4
-  - type: ExplosionResistance
-    damageCoefficient: 0.25
   - type: Tag
     tags:
       - cameraai
+
+- type: entity
+  parent: ReinforcedSurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraConstructed
+  suffix: Constructed
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wired
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+        - SurveillanceCameraEngineering
+        - SurveillanceCameraSecurity
+        - SurveillanceCameraService
+        - SurveillanceCameraSupply
+        - SurveillanceCameraScience
+        - SurveillanceCameraGeneral
+        - SurveillanceCameraMedical
+        - SurveillanceCameraCommand
+        - SurveillanceCameraAI
+    - type: Construction
+      graph: ReinforcedSurveillanceCameraGraph
+      node: camera
+    - type: Tag
+      tags:
+        - cameracon
 
 - type: entity
   id: ReinforcedSurveillanceCameraAssembly
@@ -554,69 +278,3 @@
     mode: SnapgridCenter
     snap:
       - Wallmount
-
-- type: entity
-  parent: SurveillanceCameraBase
-  id: ReinforcedSurveillanceCameraConstructed
-  name: Reinforced camera
-  suffix: Constructed
-  components:
-    - type: DeviceNetwork
-      deviceNetId: Wired
-      transmitFrequencyId: SurveillanceCamera
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-        - SurveillanceCameraEngineering
-        - SurveillanceCameraSecurity
-        - SurveillanceCameraService
-        - SurveillanceCameraSupply
-        - SurveillanceCameraScience
-        - SurveillanceCameraGeneral
-        - SurveillanceCameraMedical
-        - SurveillanceCameraCommand
-        - SurveillanceCameraAI
-    - type: Sprite
-      drawdepth: WallMountedItems
-      sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-      layers:
-       - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-         state: reinforced_camera
-         cycle: true
-    - type: Construction
-      graph: ReinforcedSurveillanceCameraGraph
-      node: camera
-    - type: WiresPanelSecurity
-    - type: SurveillanceCameraVisuals
-      sprites:
-       Active: reinforced_camera
-       InUse: reinforced_camera_in_use
-       Emp: reinforced_camera_emp
-       Disabled: reinforced_camera_off
-    - type: Damageable
-      damageModifierSet: Electronic
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-    - type: Repairable
-      doAfterDelay: 4
-    - type: ExplosionResistance
-      damageCoefficient: 0.25
-    - type: Tag
-      tags:
-        - cameracon
