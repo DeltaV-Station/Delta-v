@@ -28,7 +28,7 @@
 - type: entity
   id: OrganDionaBrain
   parent: [BaseDionaOrgan, OrganHumanBrain]
-  name: brain
+  name: diona brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
   - type: Item
@@ -60,7 +60,7 @@
 - type: entity
   id: OrganDionaEyes
   parent: BaseDionaOrgan
-  name: eyes
+  name: diona eyes
   description: "I see you!"
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 - type: entity
   id: OrganDionaStomach
   parent: BaseDionaOrgan
-  name: stomach
+  name: diona stomach
   description: "The diona's equivalent of a stomach, it reeks of asparagus and vinegar."
   components:
   - type: Sprite
@@ -114,14 +114,13 @@
 - type: entity
   id: OrganDionaLungs
   parent: BaseDionaOrgan
-  name: lungs
+  name: diona lungs
   description: "A spongy mess of slimy, leaf-like structures. Capable of breathing both carbon dioxide and oxygen."
   components:
   - type: Sprite
     state: lungs
   - type: Organ # Shitmed
     slotId: lungs
-  - type: Lung 
   - type: Item
     size: Small
     heldPrefix: lungs
@@ -155,7 +154,7 @@
   id: OrganDionaBrainNymph
   parent: OrganDionaBrain
   categories: [ HideSpawnMenu ]
-  name: brain
+  name: diona brain
   description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: Brain
@@ -169,7 +168,7 @@
   id: OrganDionaStomachNymph
   parent: OrganDionaStomach
   categories: [ HideSpawnMenu ]
-  name: stomach
+  name: diona stomach
   description: "Gross. This is hard to stomach."
   components:
   - type: Nymph
@@ -179,7 +178,7 @@
   id: OrganDionaLungsNymph
   parent: OrganDionaLungs
   categories: [ HideSpawnMenu ]
-  name: lungs
+  name: diona lungs
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Nymph

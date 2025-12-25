@@ -15,9 +15,7 @@
   parent: [BaseHypospray, BaseGrandTheftContraband]
   id: Hypospray
   name: hypospray
-  parent: [BaseItem, BaseGrandTheftContraband]
   description: A sterile injector for rapid administration of drugs to patients.
-  id: Hypospray
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -57,9 +55,7 @@
   parent: [BaseHypospray, BaseSyndicateContraband]
   id: SyndiHypo
   name: gorlex hypospray
-  parent: BaseItem
   description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.
-  id: SyndiHypo
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/syndihypo.rsi
@@ -83,10 +79,8 @@
 - type: entity
   parent: BaseHypospray
   id: BorgHypo
-  name: borghypo
-  parent: BaseItem
+  name: borg hypo
   description: A sterile injector for rapid administration of drugs to patients. A cheaper and more specialised version for medical borgs.
-  id: BorgHypo
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -122,9 +116,7 @@
   parent: BaseHypospray
   id: ChemicalMedipen
   name: chemical medipen
-  parent: BaseItem
   description: A sterile injector for rapid administration of drugs to patients. This one can't be refilled.
-  id: ChemicalMedipen
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
