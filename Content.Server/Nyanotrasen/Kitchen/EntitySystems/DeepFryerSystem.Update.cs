@@ -48,27 +48,6 @@ public sealed partial class DeepFryerSystem
 
                 if (oilVolume > FixedPoint2.Zero)
                 {
-                    //JJ Comment - this code block makes the Linter fail, and doesn't seem to be necessary with the changes I made.
-                    foreach (var reagent in component.Solution.Contents.ToArray())
-                    {
-                        _prototypeManager.TryIndex<ReagentPrototype>(reagent.Reagent.ToString(), out var proto);
-
-                        foreach (var effect in component.UnsafeOilVolumeEffects)
-                        {
-                            // TODO: October - Fix this
-                            /*effect.Effect(new EntityEffectReagentArgs(uid,
-                                EntityManager,
-                                null,
-                                component.Solution,
-                                reagent.Quantity,
-                                proto!,
-                                null,
-                                1f));
-                            */
-                        }
-
-                    }
-
                     component.Solution.RemoveAllSolution();
 
                     _popupSystem.PopupEntity(
