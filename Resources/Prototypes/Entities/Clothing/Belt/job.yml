@@ -184,11 +184,11 @@
       - SurgeryTool
       - Dropper
       - Vial # DeltaV
-      - Syringe # DeltaV
       components:
       - Injector
       - Pill
       - HandLabeler
+      - Defibrillator # DeltaV - Add PortaFib to EMT belt
       - SurgeryTool # Shitmed
   - type: ItemMapper
     sprite: *BeltOverlay
