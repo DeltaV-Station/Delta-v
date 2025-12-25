@@ -16,7 +16,7 @@
     - 0,0,2,2
   - type: Sprite
     sprite: _Floof/Objects/Consumable/Food/Baked/cake_tiered.rsi
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true # Prevent eating huge cakes without slicing them.
 
 - type: entity
