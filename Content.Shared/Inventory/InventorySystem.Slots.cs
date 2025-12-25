@@ -18,7 +18,6 @@ public partial class InventorySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
-    [Dependency] private readonly GameTiming _gameTiming = default!; // Shitmed Change
 
     private void InitializeSlots()
     {
@@ -347,7 +346,7 @@ public partial class InventorySystem : EntitySystem
             if (!TryGetSlotContainer(uid, slotName, out var container, out _, inventory))
                 break;
 
-            if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform) && _gameTiming.IsFirstTimePredicted)
+            if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform))
             {
                 _transform.AttachToGridOrMap(entityUid, transform);
                 _randomHelper.RandomOffset(entityUid, 0.5f);
