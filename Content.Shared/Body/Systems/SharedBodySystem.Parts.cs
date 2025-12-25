@@ -404,7 +404,7 @@ public partial class SharedBodySystem
         {
             // TODO BODY SYSTEM KILL : remove this when wounding and required parts are implemented properly
             var damage = new DamageSpecifier(Prototypes.Index(BloodlossDamageType), 300);
-            Damageable.ChangeDamage(bodyEnt.Owner, damage); // TODO: October - Do we need this? This was added.
+            Damageable.ChangeDamage(bodyEnt.Owner, damage);
         }
     }
 

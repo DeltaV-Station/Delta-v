@@ -382,28 +382,6 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         if (!solutionExisted)
             _sawmill.Warning(
                 $"{ToPrettyString(uid)} did not have a {component.SolutionName} solution container. It has been created.");
-        foreach (var reagent in component.Solution.Contents.ToArray())
-        {
-            //JJ Comment - not sure this works. Need to check if Reagent.ToString is correct.
-            _prototypeManager.TryIndex<ReagentPrototype>(reagent.Reagent.ToString(), out var proto);
-
-            // TODO: October - Fix this
-            /*var effectsArgs = new EntityEffectReagentArgs(uid,
-                EntityManager,
-                null,
-                component.Solution,
-                reagent.Quantity,
-                proto!,
-                null,
-                1f);
-
-            foreach (var effect in component.UnsafeOilVolumeEffects)
-            {
-                if (!effect.ShouldApply(effectsArgs, _random))
-                    continue;
-                effect.Effect(effectsArgs);
-            }*/
-        }
     }
 
     /// <summary>

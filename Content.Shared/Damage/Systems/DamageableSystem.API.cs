@@ -149,7 +149,7 @@ public sealed partial class DamageableSystem
             RaiseLocalEvent(ent.Owner, ref partDamage);
 
             if (partDamage.Evaded || partDamage.Cancelled)
-                return damageDone; // TODO: October - Was null
+                return damageDone;
         }
         // END Shitmed
 
@@ -173,7 +173,7 @@ public sealed partial class DamageableSystem
         }
 
         if (onlyDamageParts) // DeltaV - Fix EvenHealing with Limbs.
-            return damageDone; // TODO: October - Was null
+            return damageDone;
 
         if (!ignoreGlobalModifiers)
             damage = ApplyUniversalAllModifiers(damage);
