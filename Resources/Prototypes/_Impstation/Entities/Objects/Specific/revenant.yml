@@ -11,7 +11,10 @@
     heldPrefix: bloody
   - type: Crayon
     color: '#a70000'
-    capacity: 2147483647 # DeltaV
+  - type: LimitedCharges
+    maxCharges: 100
+  - type: AutoRecharge
+    rechargeDuration: 2
   - type: BloodCrayon
   - type: Tag
     tags:

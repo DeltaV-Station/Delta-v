@@ -116,6 +116,9 @@
 
 - type: Tag # prevents ID chips being used for an id computer privileged id
   id: IdChip
+  
+- type: Tag
+  id: JetInjector # Used to make the medical belt sprite show that a JetInjector is there.
 
 - type: Tag
   id: LightFixture
@@ -206,6 +209,9 @@
 
 - type: Tag
   id: K9 # Lets K9 units wear specialized clothing
+
+- type: Tag
+  id: Katana # Used to denote special swords that can be put in the ceremonial sheathe
 
 - type: Tag
   id: AncientBookDamagedCommon

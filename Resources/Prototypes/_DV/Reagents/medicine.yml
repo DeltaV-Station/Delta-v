@@ -73,13 +73,11 @@
       - !type:GenericStatusEffect
         key: Anesthesia
         component: Anesthesia
-        refresh: false
         time: 4.0
         type: Add
       - !type:GenericStatusEffect
         key: PainNumbness
         component: PainNumbness
-        refresh: false
         time: 8.0
         type: Add
       - !type:MovementSpeedModifier

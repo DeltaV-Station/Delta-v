@@ -181,7 +181,6 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-        refresh: false
       - !type:AdjustReagent
         conditions:
         - !type:ReagentCondition
@@ -407,14 +406,14 @@
           reagent: Neurozenium # wildly incompatable with antidepressants
           min: 5
         time: 2
-        effect: Update
+        type: Update
       - !type:ModifyParalysis
         conditions:
         - !type:ReagentCondition
           reagent: Blissifylovene # wildly incompatable with antidepressants
           min: 3
         time: 2
-        effect: Update
+        type: Update
       - !type:AdjustReagent
         reagent: Neurozenium # purges Neurozenium so paralysis isn't too long
         amount: -0.5

@@ -200,7 +200,8 @@
       hypo:
         whitelist:
           tags:
-          - Injector
+          - Hypospray
+          - JetInjector # DeltaV
       pill:
         whitelist:
           components:
@@ -424,7 +425,7 @@
           - Stunbaton
       gasgrenade:
         whitelist:
-          tags:
+          components:
           - FlashOnTrigger
       slp:
         whitelist:
