@@ -58,6 +58,12 @@ public sealed partial class MailComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsPriority;
 
+    /// <summary>
+    /// The time when this priority mail expires if Priority.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan? ExpiryTime;
+
     // Frontier Mail Port: large mail
     /// <summary>
     /// Whether this parcel is large.

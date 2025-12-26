@@ -1,4 +1,3 @@
-using Content.Server.Access.Systems;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Damage.Components;
@@ -13,7 +12,6 @@ using Content.Server.Radio.EntitySystems; // ImpStation - for radio notification
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
 using Content.Shared.Access;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -26,43 +24,32 @@ using Content.Shared.Radio; // ImpStation - for radio notifications of new mail
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
-using Content.Shared._DV.Cargo.Systems;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Power.EntitySystems;
-using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
     public sealed class MailSystem : SharedMailSystem
     {
-        [Dependency] private readonly AccessReaderSystem _access = default!;
         [Dependency] private readonly CargoSystem _cargo = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IdCardSystem _idCard = default!;
         [Dependency] private readonly MetaDataSystem _meta = default!;
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly RadioSystem _radio = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
-        [Dependency] private readonly LogisticStatsSystem _logisticsStats = default!;
         [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-        [Dependency] private readonly RadioSystem _radio = default!; // ImpStation - for radio notifications of new mail
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
         private EntityQuery<ApcPowerReceiverComponent> _powerQuery;
 
@@ -83,7 +70,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             base.Update(frameTime);
 
-            var curTime = _timing.CurTime;
+            var curTime = Timing.CurTime;
             var query = EntityQueryEnumerator<MailTeleporterComponent>();
             while (query.MoveNext(out var uid, out var mailTeleporter))
             {
@@ -144,17 +131,17 @@ namespace Content.Server._DV.Mail.EntitySystems
                 return;
 
             _chat.TrySendInGameICMessage(ent, Loc.GetString(localizationString, ("credits", ent.Comp.Penalty)), InGameICChatType.Speak, false);
-            _audio.PlayPvs(ent.Comp.PenaltySound, ent);
+            Audio.PlayPvs(ent.Comp.PenaltySound, ent);
 
             ent.Comp.IsProfitable = false;
 
             if (ent.Comp.IsPriority)
-                _appearance.SetData(ent, MailVisuals.IsPriorityInactive, true);
+                Appearance.SetData(ent, MailVisuals.IsPriorityInactive, true);
 
             var query = EntityQueryEnumerator<StationBankAccountComponent>();
             while (query.MoveNext(out var station, out var account))
             {
-                if (_station.GetOwningStation(ent) != station)
+                if (Station.GetOwningStation(ent) != station)
                     continue;
 
                 _cargo.UpdateBankAccount(
@@ -292,14 +279,16 @@ namespace Content.Server._DV.Mail.EntitySystems
             {
                 mailComp.Bounty += component.FragileBonus;
                 mailComp.Penalty += component.FragileMalus;
-                _appearance.SetData(uid, MailVisuals.IsFragile, true);
+                Appearance.SetData(uid, MailVisuals.IsFragile, true);
             }
 
             if (mailComp.IsPriority)
             {
                 mailComp.Bounty += component.PriorityBonus;
                 mailComp.Penalty += component.PriorityMalus;
-                _appearance.SetData(uid, MailVisuals.IsPriority, true);
+                Appearance.SetData(uid, MailVisuals.IsPriority, true);
+
+                mailComp.ExpiryTime = Timing.CurTime + component.PriorityDuration;
 
                 mailComp.PriorityCancelToken = new CancellationTokenSource();
 
@@ -310,7 +299,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                         ExecuteForEachLogisticsStats(uid,
                             (station, logisticStats) =>
                         {
-                            _logisticsStats.AddExpiredMailLosses(station,
+                            LogisticsStats.AddExpiredMailLosses(station,
                                 logisticStats,
                                 mailComp.IsProfitable ? mailComp.Penalty : 0);
                         });
@@ -320,7 +309,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                     mailComp.PriorityCancelToken.Token);
             }
 
-            _appearance.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
+            Appearance.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
             _meta.SetEntityName(uid,
                 Loc.GetString(mailEntityStrings.NameAddressed, // Frontier: move constant to MailEntityString
@@ -329,7 +318,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             foreach (var access in recipient.AccessTags)
             {
-                _access.AddAccess((uid, accessReader), access);
+                Access.AddAccess((uid, accessReader), access);
             }
 
             Dirty(uid, mailComp);
@@ -367,11 +356,11 @@ namespace Content.Server._DV.Mail.EntitySystems
         public bool TryGetMailTeleporterForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailTeleporterComponent? teleporterComponent, [NotNullWhen(true)] out EntityUid? teleporterUid)
         {
             var query = EntityQueryEnumerator<MailTeleporterComponent>();
-            var receiverStation = _station.GetOwningStation(receiverUid);
+            var receiverStation = Station.GetOwningStation(receiverUid);
 
             while (query.MoveNext(out var uid, out var mailTeleporter))
             {
-                var teleporterStation = _station.GetOwningStation(uid);
+                var teleporterStation = Station.GetOwningStation(uid);
                 if (receiverStation != teleporterStation)
                     continue;
                 teleporterComponent = mailTeleporter;
@@ -389,7 +378,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// </summary>
         public bool TryGetMailRecipientForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailRecipient? recipient)
         {
-            if (_idCard.TryFindIdCard(receiverUid, out var idCard)
+            if (IdCard.TryFindIdCard(receiverUid, out var idCard)
                 && TryComp<AccessComponent>(idCard.Owner, out var access)
                 && idCard.Comp.FullName != null)
             {
@@ -417,11 +406,11 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             var candidateList = new List<MailRecipient>();
             var query = EntityQueryEnumerator<MailReceiverComponent>();
-            var teleporterStation = _station.GetOwningStation(uid);
+            var teleporterStation = Station.GetOwningStation(uid);
 
             while (query.MoveNext(out var receiverUid, out _))
             {
-                var receiverStation = _station.GetOwningStation(receiverUid);
+                var receiverStation = Station.GetOwningStation(receiverUid);
                 if (receiverStation != teleporterStation)
                     continue;
 
@@ -508,13 +497,13 @@ namespace Content.Server._DV.Mail.EntitySystems
                 var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
                 SetupMail(mail, ent.Comp, candidate);
 
-                _tagSystem.AddTag(mail, MailTag); // Frontier
+                Tag.AddTag(mail, MailTag); // Frontier
             }
 
             if (_container.TryGetContainer(ent, "queued", out var queued))
                 _container.EmptyContainer(queued);
 
-            _audio.PlayPvs(ent.Comp.TeleportSound, ent);
+            Audio.PlayPvs(ent.Comp.TeleportSound, ent);
             if (ent.Comp.RadioNotification) // ImpStation - for radio notifications of new mail
                 Report(ent, ent.Comp.RadioChannel, ent.Comp.ShipmentReceivedMessage, ("timeLeft", ent.Comp.TeleportInterval));
         }

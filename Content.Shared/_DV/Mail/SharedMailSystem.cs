@@ -24,23 +24,25 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Mail;
 
 public abstract class SharedMailSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] protected readonly AccessReaderSystem Access = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly LogisticStatsSystem _logisticsStats = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly LogisticStatsSystem LogisticsStats = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly SharedCargoSystem _cargo = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] protected readonly SharedIdCardSystem IdCard = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] protected readonly SharedStationSystem Station = default!;
+    [Dependency] protected readonly TagSystem Tag = default!;
 
     private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
@@ -82,7 +84,7 @@ public abstract class SharedMailSystem : EntitySystem
 
         if (HasComp<PdaComponent>(args.Used)) // Can we find it in a PDA if the user is using that?
         {
-            _idCard.TryGetIdCard(args.Used, out var pdaId);
+            IdCard.TryGetIdCard(args.Used, out var pdaId);
             idCard = pdaId;
         }
 
@@ -101,7 +103,7 @@ public abstract class SharedMailSystem : EntitySystem
                 return;
             }
 
-            if (!_access.IsAllowed(ent, args.User))
+            if (!Access.IsAllowed(ent, args.User))
             {
                 _popup.PopupPredicted(Loc.GetString("mail-invalid-access"), ent, args.User);
                 return;
@@ -112,7 +114,7 @@ public abstract class SharedMailSystem : EntitySystem
         ExecuteForEachLogisticsStats(ent,
             (station, logisticStats) =>
             {
-                _logisticsStats.AddOpenedMailEarnings(station,
+                LogisticsStats.AddOpenedMailEarnings(station,
                     logisticStats,
                     ent.Comp.IsProfitable ? ent.Comp.Bounty : 0);
             });
@@ -131,7 +133,7 @@ public abstract class SharedMailSystem : EntitySystem
         var query = EntityQueryEnumerator<StationBankAccountComponent>();
         while (query.MoveNext(out var station, out var account))
         {
-            if (_station.GetOwningStation(ent) != station)
+            if (Station.GetOwningStation(ent) != station)
                 continue;
 
             UpdateBankAccount(
@@ -172,7 +174,7 @@ public abstract class SharedMailSystem : EntitySystem
             ExecuteForEachLogisticsStats(ent,
                 (station, logisticStats) =>
                 {
-                    _logisticsStats.AddTamperedMailLosses(station,
+                    LogisticsStats.AddTamperedMailLosses(station,
                         logisticStats,
                         ent.Comp.IsProfitable ? ent.Comp.Penalty : 0);
                 });
@@ -180,7 +182,7 @@ public abstract class SharedMailSystem : EntitySystem
             PenalizeStationFailedDelivery(ent, "mail-penalty-lock");
         }
 
-        if (!_tag.HasTag(ent, TrashTag))
+        if (!Tag.HasTag(ent, TrashTag))
             OpenMail(ent.AsNullable());
 
         UpdateAntiTamperVisuals(ent, false);
@@ -191,7 +193,7 @@ public abstract class SharedMailSystem : EntitySystem
     /// </summary>
     private void OnBreak(Entity<MailComponent> ent, ref BreakageEventArgs args)
     {
-        _appearance.SetData(ent, MailVisuals.IsBroken, true);
+        Appearance.SetData(ent, MailVisuals.IsBroken, true);
 
         if (!ent.Comp.IsFragile)
             return;
@@ -199,7 +201,7 @@ public abstract class SharedMailSystem : EntitySystem
         ExecuteForEachLogisticsStats(ent,
             (station, logisticStats) =>
             {
-                _logisticsStats.AddDamagedMailLosses(station,
+                LogisticsStats.AddDamagedMailLosses(station,
                     logisticStats,
                     ent.Comp.IsProfitable ? ent.Comp.Penalty : 0);
             });
@@ -228,7 +230,26 @@ public abstract class SharedMailSystem : EntitySystem
             args.PushMarkup(Loc.GetString("mail-desc-fragile"));
 
         if (ent.Comp.IsPriority)
-            args.PushMarkup(Loc.GetString(ent.Comp.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
+        {
+            if (ent.Comp.ExpiryTime != null && ent.Comp.IsProfitable)
+            {
+                var timeLeft = ent.Comp.ExpiryTime.Value - Timing.CurTime;
+                if (timeLeft > TimeSpan.Zero)
+                {
+                    args.PushMarkup(Loc.GetString("mail-desc-priority-timer",
+                        ("time", timeLeft.ToString(@"mm\:ss"))));
+                }
+                else
+                {
+                    args.PushMarkup(Loc.GetString("mail-desc-priority-inactive"));
+                }
+            }
+            else
+            {
+                // Handle the weird case of the timer not being set but mail being priority, if that ever happens
+                args.PushMarkup(Loc.GetString(ent.Comp.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
+            }
+        }
     }
 
     /// <summary>
@@ -243,7 +264,7 @@ public abstract class SharedMailSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("mail-unlocked-by-emag"), ent, args.UserUid);
 
-        _audio.PlayPredicted(ent.Comp.EmagSound, ent, args.UserUid, AudioParams.Default.WithVolume(4));
+        Audio.PlayPredicted(ent.Comp.EmagSound, ent, args.UserUid, AudioParams.Default.WithVolume(4));
         ent.Comp.IsProfitable = false;
         args.Handled = true;
         Dirty(ent);
@@ -254,7 +275,7 @@ public abstract class SharedMailSystem : EntitySystem
     /// </summary>
     private void OnUseInHand(Entity<MailComponent> ent, ref UseInHandEvent args)
     {
-        if (!_tag.HasTag(ent, TrashTag))
+        if (Tag.HasTag(ent, TrashTag))
             return;
 
         if (ent.Comp.IsLocked)
@@ -276,7 +297,7 @@ public abstract class SharedMailSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        _audio.PlayPredicted(ent.Comp.OpenSound, ent, user);
+        Audio.PlayPredicted(ent.Comp.OpenSound, ent, user);
 
         if (user != null)
             _hands.TryDrop((EntityUid)user);
@@ -289,8 +310,8 @@ public abstract class SharedMailSystem : EntitySystem
             _hands.PickupOrDrop(user, entity);
         }
 
-        _tag.AddTag(ent, TrashTag);
-        _tag.AddTag(ent, RecyclableTag);
+        Tag.AddTag(ent, TrashTag);
+        Tag.AddTag(ent, RecyclableTag);
         UpdateMailTrashState(ent, true);
     }
 
@@ -311,7 +332,7 @@ public abstract class SharedMailSystem : EntitySystem
 
         // The priority tape is visually considered to be a part of the
         // anti-tamper lock, so remove that too.
-        _appearance.SetData(ent, MailVisuals.IsPriority, false);
+        Appearance.SetData(ent, MailVisuals.IsPriority, false);
 
         // The examination code depends on this being false to not show
         // the priority tape description anymore.
@@ -324,12 +345,12 @@ public abstract class SharedMailSystem : EntitySystem
 
     private void UpdateAntiTamperVisuals(EntityUid uid, bool isLocked)
     {
-        _appearance.SetData(uid, MailVisuals.IsLocked, isLocked);
+        Appearance.SetData(uid, MailVisuals.IsLocked, isLocked);
     }
 
     private void UpdateMailTrashState(EntityUid uid, bool isTrash)
     {
-        _appearance.SetData(uid, MailVisuals.IsTrash, isTrash);
+        Appearance.SetData(uid, MailVisuals.IsTrash, isTrash);
     }
 
     /// <summary>
@@ -353,10 +374,10 @@ public abstract class SharedMailSystem : EntitySystem
     protected void ExecuteForEachLogisticsStats(EntityUid uid,
         Action<EntityUid, StationLogisticStatsComponent> action)
     {
-        var query = EntityQueryEnumerator<StationLogisticStatsComponent, TransformComponent>();
-        while (query.MoveNext(out var station, out var logisticStats, out var xform))
+        var query = EntityQueryEnumerator<StationLogisticStatsComponent>();
+        while (query.MoveNext(out var station, out var logisticStats))
         {
-            if (_station.GetOwningStation(uid, xform) != station)
+            if (Station.GetOwningStation(uid) != station)
                 continue;
             action(station, logisticStats);
         }
