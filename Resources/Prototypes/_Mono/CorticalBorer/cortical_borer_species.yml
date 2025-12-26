@@ -121,9 +121,6 @@
     name: cortical-borer-ghostrole-name
     description: cortical-borer-ghostrole-desc
     rules: ghost-role-information-freeagent-rules
-    #requirements:
-    #- !type:OverallPlaytimeRequirement
-    #  time: 10h
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostRoleMobSpawner

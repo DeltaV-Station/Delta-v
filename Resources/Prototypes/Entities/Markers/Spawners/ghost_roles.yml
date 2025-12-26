@@ -115,12 +115,6 @@
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleLoneops
-    #requirements: # DeltaV
-    #- !type:OverallPlaytimeRequirement
-    #  time: 48h
-    #- !type:DepartmentTimeRequirement
-    #  department: Security
-    #  time: 10h
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -317,9 +311,6 @@
     - MindRoleWizard
     raffle:
       settings: default
-    #requirements:
-    #- !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    #  time: 25h
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

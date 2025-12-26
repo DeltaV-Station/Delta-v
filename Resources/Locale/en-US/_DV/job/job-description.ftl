@@ -10,3 +10,11 @@ job-description-cargo-assistant = Learn the basics of the logistics department, 
 job-description-admin-assistant = Assist command in their day-to-day activities, grab the captain a coffee, answer faxes in the bridge.
 job-description-mime-delta = Entertain the crew while remaining silent, and engage with light rivalry with the clown.
 job-description-assistant = Get your space legs, assist people, ask a Command member to give you a job.
+
+# I dont know if these will ever be visible but I'll include them anyways.
+role-description-laika = "Bark! Bark! Grrr!"
+role-description-silvia = "Hiss!"
+role-description-ifrit = "Burn baby, burn!"
+role-description-carpy = "Grrr!"
+role-description-shiva = "Hsssss!"
+role-description-pun-pun = "Ook!"
