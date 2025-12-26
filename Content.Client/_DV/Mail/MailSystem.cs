@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Mail;
+using Content.Shared._DV.Mail;
 
 namespace Content.Client._DV.Mail;
 

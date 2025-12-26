@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared._DV.Cargo.Components;
 using Content.Shared._DV.Cargo.Systems;
 using Content.Shared.Access.Components;
