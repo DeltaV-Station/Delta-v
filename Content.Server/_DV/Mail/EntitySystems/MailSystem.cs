@@ -35,61 +35,71 @@ using System.Linq;
 using System.Threading;
 using Content.Shared._DV.Cargo.Systems;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Power.EntitySystems;
+using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
     public sealed class MailSystem : SharedMailSystem
     {
-        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
+        [Dependency] private readonly AccessReaderSystem _access = default!;
         [Dependency] private readonly CargoSystem _cargo = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-        [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly MetaDataSystem _meta = default!;
+        [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-        [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
-        [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
-        [Dependency] private readonly RadioSystem _radioSystem = default!; // ImpStation - for radio notifications of new mail
+        [Dependency] private readonly LogisticStatsSystem _logisticsStats = default!;
+        [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+        [Dependency] private readonly RadioSystem _radio = default!; // ImpStation - for radio notifications of new mail
+        [Dependency] private readonly IGameTiming _timing = default!;
+
+        private EntityQuery<ApcPowerReceiverComponent> _powerQuery;
 
         private static readonly ProtoId<TagPrototype> MailTag = "Mail";
 
+        /// <inheritdoc/>
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<PlayerSpawningEvent>(OnPlayerSpawning, after: new[] { typeof(SpawnPointSystem) });
+
+            _powerQuery = GetEntityQuery<ApcPowerReceiverComponent>();
         }
 
+        /// <inheritdoc/>
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
 
+            var curTime = _timing.CurTime;
             var query = EntityQueryEnumerator<MailTeleporterComponent>();
             while (query.MoveNext(out var uid, out var mailTeleporter))
             {
-                if (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
+                if (_powerQuery.TryComp(uid, out var power) && !_powerReceiver.IsPowered((uid, power)))
                     continue;
 
-                mailTeleporter.Accumulator += frameTime;
+                if (mailTeleporter.NextDelivery > curTime)
+                    continue;
 
-                if (mailTeleporter.Accumulator >= mailTeleporter.TeleportInterval.TotalSeconds)
-                {
-                    mailTeleporter.Accumulator -= (float)mailTeleporter.TeleportInterval.TotalSeconds;
-                    var timeUntilNextMail = TimeSpan.FromSeconds(double.Round(mailTeleporter.TeleportInterval.TotalSeconds - mailTeleporter.Accumulator));
-                    SpawnMail(uid, timeUntilNextMail, mailTeleporter);
-                }
+                SpawnMail((uid, mailTeleporter));
+
+                mailTeleporter.NextDelivery = curTime + mailTeleporter.TeleportInterval;
             }
         }
 
+        /// <inheritdoc/>
         protected override void UpdateBankAccount(
             Entity<StationBankAccountComponent?> ent,
             int balanceAdded,
@@ -99,7 +109,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         }
 
         /// <summary>
-        /// Dynamically add the MailReceiver component to appropriate entities.
+        /// Handle the <see cref="PlayerSpawningEvent"/> by giving them the <see cref="MailReceiverComponent"/>.
         /// </summary>
         private void OnPlayerSpawning(PlayerSpawningEvent args)
         {
@@ -128,31 +138,33 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// but this allows a delivery to fail for other reasons too
         /// while having a generic function to handle different messages.
         /// </remarks>
-        protected override void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
+        protected override void PenalizeStationFailedDelivery(Entity<MailComponent> ent, string localizationString)
         {
-            if (!component.IsProfitable)
+            if (!ent.Comp.IsProfitable)
                 return;
 
-            _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(localizationString, ("credits", component.Penalty)), InGameICChatType.Speak, false);
-            _audioSystem.PlayPvs(component.PenaltySound, uid);
+            _chat.TrySendInGameICMessage(ent, Loc.GetString(localizationString, ("credits", ent.Comp.Penalty)), InGameICChatType.Speak, false);
+            _audio.PlayPvs(ent.Comp.PenaltySound, ent);
 
-            component.IsProfitable = false;
+            ent.Comp.IsProfitable = false;
 
-            if (component.IsPriority)
-                _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
+            if (ent.Comp.IsPriority)
+                _appearance.SetData(ent, MailVisuals.IsPriorityInactive, true);
 
             var query = EntityQueryEnumerator<StationBankAccountComponent>();
             while (query.MoveNext(out var station, out var account))
             {
-                if (_stationSystem.GetOwningStation(uid) != station)
+                if (_station.GetOwningStation(ent) != station)
                     continue;
 
                 _cargo.UpdateBankAccount(
                     (station, account),
-                    component.Penalty,
+                    ent.Comp.Penalty,
                     _cargo.CreateAccountDistribution((station, account)));
                 return;
             }
+
+            Dirty(ent);
         }
 
 
@@ -204,13 +216,13 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             jobDepartment = null;
 
-            var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>();
+            var departments = _prototype.EnumeratePrototypes<DepartmentPrototype>();
 
             foreach (var department in departments)
             {
                 var foundJob = department.Roles
                     .Any(role =>
-                        _prototypeManager.TryIndex(role, out var jobPrototype)
+                        _prototype.TryIndex(role, out var jobPrototype)
                         && jobPrototype.LocalizedName == jobTitle);
 
                 if (!foundJob)
@@ -225,7 +237,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
         private bool TryMatchJobTitleToPrototype(string jobTitle, [NotNullWhen(true)] out JobPrototype? jobPrototype)
         {
-            jobPrototype = _prototypeManager
+            jobPrototype = _prototype
                 .EnumeratePrototypes<JobPrototype>()
                 .FirstOrDefault(job => job.LocalizedName == jobTitle);
 
@@ -242,10 +254,10 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             var mailComp = EnsureComp<MailComponent>(uid);
 
-            var container = _containerSystem.EnsureContainer<Container>(uid, "contents");
+            var container = _container.EnsureContainer<Container>(uid, "contents");
             foreach (var entity in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random).Select(item => EntityManager.SpawnEntity(item, Transform(uid).Coordinates)))
             {
-                if (!_containerSystem.Insert(entity, container))
+                if (!_container.Insert(entity, container))
                 {
                     Log.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
                     QueueDel(entity);
@@ -280,14 +292,14 @@ namespace Content.Server._DV.Mail.EntitySystems
             {
                 mailComp.Bounty += component.FragileBonus;
                 mailComp.Penalty += component.FragileMalus;
-                _appearanceSystem.SetData(uid, MailVisuals.IsFragile, true);
+                _appearance.SetData(uid, MailVisuals.IsFragile, true);
             }
 
             if (mailComp.IsPriority)
             {
                 mailComp.Bounty += component.PriorityBonus;
                 mailComp.Penalty += component.PriorityMalus;
-                _appearanceSystem.SetData(uid, MailVisuals.IsPriority, true);
+                _appearance.SetData(uid, MailVisuals.IsPriority, true);
 
                 mailComp.PriorityCancelToken = new CancellationTokenSource();
 
@@ -298,26 +310,26 @@ namespace Content.Server._DV.Mail.EntitySystems
                         ExecuteForEachLogisticsStats(uid,
                             (station, logisticStats) =>
                         {
-                            _logisticsStatsSystem.AddExpiredMailLosses(station,
+                            _logisticsStats.AddExpiredMailLosses(station,
                                 logisticStats,
                                 mailComp.IsProfitable ? mailComp.Penalty : 0);
                         });
 
-                        PenalizeStationFailedDelivery(uid, mailComp, "mail-penalty-expired");
+                        PenalizeStationFailedDelivery((uid, mailComp), "mail-penalty-expired");
                     },
                     mailComp.PriorityCancelToken.Token);
             }
 
-            _appearanceSystem.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
+            _appearance.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
-            _metaDataSystem.SetEntityName(uid,
+            _meta.SetEntityName(uid,
                 Loc.GetString(mailEntityStrings.NameAddressed, // Frontier: move constant to MailEntityString
                 ("recipient", recipient.Name)));
 
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             foreach (var access in recipient.AccessTags)
             {
-                _accessSystem.AddAccess((uid, accessReader), access);
+                _access.AddAccess((uid, accessReader), access);
             }
 
             Dirty(uid, mailComp);
@@ -355,11 +367,11 @@ namespace Content.Server._DV.Mail.EntitySystems
         public bool TryGetMailTeleporterForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailTeleporterComponent? teleporterComponent, [NotNullWhen(true)] out EntityUid? teleporterUid)
         {
             var query = EntityQueryEnumerator<MailTeleporterComponent>();
-            var receiverStation = _stationSystem.GetOwningStation(receiverUid);
+            var receiverStation = _station.GetOwningStation(receiverUid);
 
             while (query.MoveNext(out var uid, out var mailTeleporter))
             {
-                var teleporterStation = _stationSystem.GetOwningStation(uid);
+                var teleporterStation = _station.GetOwningStation(uid);
                 if (receiverStation != teleporterStation)
                     continue;
                 teleporterComponent = mailTeleporter;
@@ -377,12 +389,12 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// </summary>
         public bool TryGetMailRecipientForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailRecipient? recipient)
         {
-            if (_idCardSystem.TryFindIdCard(receiverUid, out var idCard)
+            if (_idCard.TryFindIdCard(receiverUid, out var idCard)
                 && TryComp<AccessComponent>(idCard.Owner, out var access)
                 && idCard.Comp.FullName != null)
             {
                 var accessTags = access.Tags;
-                var mayReceivePriorityMail = !(_mindSystem.GetMind(receiverUid) == null);
+                var mayReceivePriorityMail = !(_mind.GetMind(receiverUid) == null);
 
                 recipient = new MailRecipient(
                     idCard.Comp.FullName,
@@ -405,11 +417,11 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             var candidateList = new List<MailRecipient>();
             var query = EntityQueryEnumerator<MailReceiverComponent>();
-            var teleporterStation = _stationSystem.GetOwningStation(uid);
+            var teleporterStation = _station.GetOwningStation(uid);
 
             while (query.MoveNext(out var receiverUid, out _))
             {
-                var receiverStation = _stationSystem.GetOwningStation(receiverUid);
+                var receiverStation = _station.GetOwningStation(receiverUid);
                 if (receiverStation != teleporterStation)
                     continue;
 
@@ -423,18 +435,18 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// <summary>
         /// Handle the spawning of all the mail for a mail teleporter.
         /// </summary>
-        private void SpawnMail(EntityUid uid, TimeSpan timeUntilNextMail, MailTeleporterComponent? component = null)
+        private void SpawnMail(Entity<MailTeleporterComponent?> ent)
         {
-            if (!Resolve(uid, ref component))
+            if (!Resolve(ent, ref ent.Comp))
             {
-                Log.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
+                Log.Error($"Tried to SpawnMail on {ToPrettyString(ent)} without a valid MailTeleporterComponent!");
                 return;
             }
 
-            if (GetUndeliveredParcelCount(uid) >= component.MaximumUndeliveredParcels)
+            if (GetUndeliveredParcelCount(ent) >= ent.Comp.MaximumUndeliveredParcels)
                 return;
 
-            var candidateList = GetMailRecipientCandidates(uid);
+            var candidateList = GetMailRecipientCandidates(ent);
 
             if (candidateList.Count <= 0)
             {
@@ -442,13 +454,13 @@ namespace Content.Server._DV.Mail.EntitySystems
                 return;
             }
 
-            if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(component.MailPool, out var pool))
+            if (!_prototype.TryIndex<MailDeliveryPoolPrototype>(ent.Comp.MailPool, out var pool))
             {
-                Log.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
+                Log.Error($"Can't index {ToPrettyString(ent)}'s MailPool {ent.Comp.MailPool}!");
                 return;
             }
 
-            var deliveryCount = component.MinimumDeliveriesPerTeleport + candidateList.Count / component.CandidatesPerDelivery;
+            var deliveryCount = ent.Comp.MinimumDeliveriesPerTeleport + candidateList.Count / ent.Comp.CandidatesPerDelivery;
 
             for (var i = 0; i < deliveryCount; i++)
             {
@@ -492,19 +504,19 @@ namespace Content.Server._DV.Mail.EntitySystems
                     return;
                 }
 
-                var coordinates = Transform(uid).Coordinates;
+                var coordinates = Transform(ent).Coordinates;
                 var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
-                SetupMail(mail, component, candidate);
+                SetupMail(mail, ent.Comp, candidate);
 
                 _tagSystem.AddTag(mail, MailTag); // Frontier
             }
 
-            if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
-                _containerSystem.EmptyContainer(queued);
+            if (_container.TryGetContainer(ent, "queued", out var queued))
+                _container.EmptyContainer(queued);
 
-            _audioSystem.PlayPvs(component.TeleportSound, uid);
-            if (component.RadioNotification) // ImpStation - for radio notifications of new mail
-                Report(uid, component.RadioChannel, component.ShipmentReceivedMessage, ("timeLeft", timeUntilNextMail));
+            _audio.PlayPvs(ent.Comp.TeleportSound, ent);
+            if (ent.Comp.RadioNotification) // ImpStation - for radio notifications of new mail
+                Report(ent, ent.Comp.RadioChannel, ent.Comp.ShipmentReceivedMessage, ("timeLeft", ent.Comp.TeleportInterval));
         }
 
         /// <summary>
@@ -514,7 +526,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         private void Report(EntityUid source, ProtoId<RadioChannelPrototype> channel, string messageKey, params (string, object)[] args)
         {
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
-            _radioSystem.SendRadioMessage(source, message, channel, source);
+            _radio.SendRadioMessage(source, message, channel, source);
         }
     }
 

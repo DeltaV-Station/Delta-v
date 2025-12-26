@@ -29,17 +29,17 @@ namespace Content.Shared._DV.Mail;
 
 public abstract class SharedMailSystem : EntitySystem
 {
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly LogisticStatsSystem _logisticsStats = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedCargoSystem _cargo = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly LogisticStatsSystem _logisticsStats = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly SharedCargoSystem _cargo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
@@ -59,20 +59,23 @@ public abstract class SharedMailSystem : EntitySystem
         SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(FoodSystem), typeof(IngestionSystem) });
     }
 
-    private static void OnShutdown(EntityUid uid, MailComponent component, ComponentShutdown args)
+    /// <summary>
+    /// Handle the <see cref="ComponentShutdown"/> and cancel any pending CancellationTokenSources for priority mail.
+    /// </summary>
+    private static void OnShutdown(Entity<MailComponent> ent, ref ComponentShutdown args)
     {
-        component.PriorityCancelToken?.Cancel();
+        ent.Comp.PriorityCancelToken?.Cancel();
     }
 
     /// <summary>
     /// Handle the <see cref="AfterInteractEvent"/> by checking the ID against the mail.
     /// </summary>
-    private void OnAfterInteractUsing(EntityUid uid, MailComponent component, ref AfterInteractUsingEvent args)
+    private void OnAfterInteractUsing(Entity<MailComponent> ent, ref AfterInteractUsingEvent args)
     {
-        if (!args.CanReach || !component.IsLocked)
+        if (!args.CanReach || !ent.Comp.IsLocked)
             return;
 
-        if (!HasComp<AccessReaderComponent>(uid))
+        if (!HasComp<AccessReaderComponent>(ent))
             return;
 
         IdCardComponent? idCard = null; // We need an ID card.
@@ -90,62 +93,65 @@ public abstract class SharedMailSystem : EntitySystem
         if (idCard == null) // Return if we still haven't found an id card.
             return;
 
-        if (!HasComp<EmaggedComponent>(uid))
+        if (!HasComp<EmaggedComponent>(ent))
         {
-            if (idCard.FullName != component.Recipient || idCard.LocalizedJobTitle != component.RecipientJob)
+            if (idCard.FullName != ent.Comp.Recipient || idCard.LocalizedJobTitle != ent.Comp.RecipientJob)
             {
-                _popup.PopupPredicted(Loc.GetString("mail-recipient-mismatch"), uid, args.User);
+                _popup.PopupPredicted(Loc.GetString("mail-recipient-mismatch"), ent, args.User);
                 return;
             }
 
-            if (!_access.IsAllowed(uid, args.User))
+            if (!_access.IsAllowed(ent, args.User))
             {
-                _popup.PopupPredicted(Loc.GetString("mail-invalid-access"), uid, args.User);
+                _popup.PopupPredicted(Loc.GetString("mail-invalid-access"), ent, args.User);
                 return;
             }
         }
 
         // DeltaV - Add earnings to logistic stats
-        ExecuteForEachLogisticsStats(uid,
+        ExecuteForEachLogisticsStats(ent,
             (station, logisticStats) =>
             {
                 _logisticsStats.AddOpenedMailEarnings(station,
                     logisticStats,
-                    component.IsProfitable ? component.Bounty : 0);
+                    ent.Comp.IsProfitable ? ent.Comp.Bounty : 0);
             });
 
-        UnlockMail(uid, component);
+        UnlockMail(ent);
 
-        if (!component.IsProfitable)
+        if (!ent.Comp.IsProfitable)
         {
-            _popup.PopupPredicted(Loc.GetString("mail-unlocked"), uid, args.User);
+            _popup.PopupPredicted(Loc.GetString("mail-unlocked"), ent, args.User);
             return;
         }
 
-        _popup.PopupPredicted(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
-        component.IsProfitable = false;
+        _popup.PopupPredicted(Loc.GetString("mail-unlocked-reward", ("bounty", ent.Comp.Bounty)), ent, args.User);
+        ent.Comp.IsProfitable = false;
 
         var query = EntityQueryEnumerator<StationBankAccountComponent>();
         while (query.MoveNext(out var station, out var account))
         {
-            if (_station.GetOwningStation(uid) != station)
+            if (_station.GetOwningStation(ent) != station)
                 continue;
 
             UpdateBankAccount(
                 (station, account),
-                component.Bounty,
+                ent.Comp.Bounty,
                 _cargo.CreateAccountDistribution((station, account)));
         }
 
-        Dirty(uid, component);
+        Dirty(ent);
     }
 
-    private void OnDamageChanged(EntityUid uid, MailComponent component, DamageChangedEvent args)
+    /// <summary>
+    /// Handle the <see cref="DamageChangedEvent"/> and transfer damage to the contents.
+    /// </summary>
+    private void OnDamageChanged(Entity<MailComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta == null)
             return;
 
-        if (!_container.TryGetContainer(uid, "contents", out var contents))
+        if (!_container.TryGetContainer(ent, "contents", out var contents))
             return;
 
         // Transfer damage to the contents.
@@ -156,50 +162,57 @@ public abstract class SharedMailSystem : EntitySystem
         }
     }
 
-    private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
+    /// <summary>
+    /// Handle the <see cref="DestructionEventArgs"/>.
+    /// </summary>
+    private void OnDestruction(Entity<MailComponent> ent, ref DestructionEventArgs args)
     {
-        if (component.IsLocked)
+        if (ent.Comp.IsLocked)
         {
-            // DeltaV - Tampered mail recorded to logistic stats
-            ExecuteForEachLogisticsStats(uid,
+            ExecuteForEachLogisticsStats(ent,
                 (station, logisticStats) =>
                 {
                     _logisticsStats.AddTamperedMailLosses(station,
                         logisticStats,
-                        component.IsProfitable ? component.Penalty : 0);
+                        ent.Comp.IsProfitable ? ent.Comp.Penalty : 0);
                 });
 
-            PenalizeStationFailedDelivery(uid, component, "mail-penalty-lock");
+            PenalizeStationFailedDelivery(ent, "mail-penalty-lock");
         }
 
-        if (!_tag.HasTag(uid, TrashTag))
-            OpenMail(uid, component);
+        if (!_tag.HasTag(ent, TrashTag))
+            OpenMail(ent.AsNullable());
 
-        UpdateAntiTamperVisuals(uid, false);
+        UpdateAntiTamperVisuals(ent, false);
     }
 
-    private void OnBreak(EntityUid uid, MailComponent component, BreakageEventArgs args)
+    /// <summary>
+    /// Handle the <see cref="BreakageEventArgs"/>.
+    /// </summary>
+    private void OnBreak(Entity<MailComponent> ent, ref BreakageEventArgs args)
     {
-        _appearance.SetData(uid, MailVisuals.IsBroken, true);
+        _appearance.SetData(ent, MailVisuals.IsBroken, true);
 
-        if (!component.IsFragile)
+        if (!ent.Comp.IsFragile)
             return;
-        // DeltaV - Broken mail recorded to logistic stats
-        ExecuteForEachLogisticsStats(uid,
+
+        ExecuteForEachLogisticsStats(ent,
             (station, logisticStats) =>
             {
                 _logisticsStats.AddDamagedMailLosses(station,
                     logisticStats,
-                    component.IsProfitable ? component.Penalty : 0);
+                    ent.Comp.IsProfitable ? ent.Comp.Penalty : 0);
             });
 
-        PenalizeStationFailedDelivery(uid, component, "mail-penalty-fragile");
+        PenalizeStationFailedDelivery(ent, "mail-penalty-fragile");
     }
 
-
-    private void OnExamined(EntityUid uid, MailComponent component, ref ExaminedEvent args)
+    /// <summary>
+    /// Handle the <see cref="ExaminedEvent"/>.
+    /// </summary>
+    private void OnExamined(Entity<MailComponent> ent, ref ExaminedEvent args)
     {
-        var mailEntityStrings = component.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
+        var mailEntityStrings = ent.Comp.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
 
         if (!args.IsInDetailsRange)
         {
@@ -208,64 +221,67 @@ public abstract class SharedMailSystem : EntitySystem
         }
 
         args.PushMarkup(Loc.GetString(mailEntityStrings.DescClose,
-            ("name", component.Recipient),
-            ("job", component.RecipientJob)));
+            ("name", ent.Comp.Recipient),
+            ("job", ent.Comp.RecipientJob)));
 
-        if (component.IsFragile)
+        if (ent.Comp.IsFragile)
             args.PushMarkup(Loc.GetString("mail-desc-fragile"));
 
-        if (component.IsPriority)
-            args.PushMarkup(Loc.GetString(component.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
+        if (ent.Comp.IsPriority)
+            args.PushMarkup(Loc.GetString(ent.Comp.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
     }
 
     /// <summary>
     /// Handle the <see cref="GotEmaggedEvent"/> by unlocking the mail without giving cargo money.
     /// </summary>
-    private void OnEmagged(EntityUid uid, MailComponent component, ref GotEmaggedEvent args)
+    private void OnEmagged(Entity<MailComponent> ent, ref GotEmaggedEvent args)
     {
-        if (!component.IsLocked)
+        if (!ent.Comp.IsLocked)
             return;
 
-        UnlockMail(uid, component);
+        UnlockMail(ent);
 
-        _popup.PopupPredicted(Loc.GetString("mail-unlocked-by-emag"), uid, args.UserUid);
+        _popup.PopupPredicted(Loc.GetString("mail-unlocked-by-emag"), ent, args.UserUid);
 
-        _audio.PlayPredicted(component.EmagSound, uid, args.UserUid, AudioParams.Default.WithVolume(4));
-        component.IsProfitable = false;
+        _audio.PlayPredicted(ent.Comp.EmagSound, ent, args.UserUid, AudioParams.Default.WithVolume(4));
+        ent.Comp.IsProfitable = false;
         args.Handled = true;
-        Dirty(uid, component);
+        Dirty(ent);
     }
 
     /// <summary>
-    /// Try to open the mail.
+    /// Handle the <see cref="UseInHandEvent"/> and try to open the mail.
     /// </summary>
-    private void OnUseInHand(EntityUid uid, MailComponent component, ref UseInHandEvent args)
+    private void OnUseInHand(Entity<MailComponent> ent, ref UseInHandEvent args)
     {
-        if (!_tag.HasTag(uid, TrashTag))
+        if (!_tag.HasTag(ent, TrashTag))
             return;
 
-        if (component.IsLocked)
+        if (ent.Comp.IsLocked)
         {
-            _popup.PopupPredicted(Loc.GetString("mail-locked"), uid, args.User);
+            _popup.PopupPredicted(Loc.GetString("mail-locked"), ent, args.User);
             args.Handled = true;
             return;
         }
 
         args.Handled = true;
-        OpenMail(uid, component, args.User);
+        OpenMail(ent.AsNullable(), args.User);
     }
 
-    private void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
+    /// <summary>
+    /// Helper method for actually opening the mail.
+    /// </summary>
+    private void OpenMail(Entity<MailComponent?> ent, EntityUid? user = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(ent, ref ent.Comp))
             return;
 
-        _audio.PlayPredicted(component.OpenSound, uid, user);
+        _audio.PlayPredicted(ent.Comp.OpenSound, ent, user);
 
         if (user != null)
             _hands.TryDrop((EntityUid)user);
 
-        if (!_container.TryGetContainer(uid, "contents", out var contents))
+        if (!_container.TryGetContainer(ent, "contents", out var contents))
             return;
 
         foreach (var entity in contents.ContainedEntities.ToArray())
@@ -273,37 +289,37 @@ public abstract class SharedMailSystem : EntitySystem
             _hands.PickupOrDrop(user, entity);
         }
 
-        _tag.AddTag(uid, TrashTag);
-        _tag.AddTag(uid, RecyclableTag);
-        UpdateMailTrashState(uid, true);
+        _tag.AddTag(ent, TrashTag);
+        _tag.AddTag(ent, RecyclableTag);
+        UpdateMailTrashState(ent, true);
     }
 
     /// <summary>
     /// Handle logic similar between a normal mail unlock and an emag
     /// frying out the lock.
     /// </summary>
-    private void UnlockMail(EntityUid uid, MailComponent component)
+    private void UnlockMail(Entity<MailComponent> ent)
     {
-        component.IsLocked = false;
-        UpdateAntiTamperVisuals(uid, false);
+        ent.Comp.IsLocked = false;
+        UpdateAntiTamperVisuals(ent, false);
 
-        if (!component.IsPriority)
+        if (!ent.Comp.IsPriority)
             return;
 
         // This is a successful delivery. Keep the failure timer from triggering.
-        component.PriorityCancelToken?.Cancel();
+        ent.Comp.PriorityCancelToken?.Cancel();
 
         // The priority tape is visually considered to be a part of the
         // anti-tamper lock, so remove that too.
-        _appearance.SetData(uid, MailVisuals.IsPriority, false);
+        _appearance.SetData(ent, MailVisuals.IsPriority, false);
 
         // The examination code depends on this being false to not show
         // the priority tape description anymore.
-        component.IsPriority = false;
+        ent.Comp.IsPriority = false;
 
-        Dirty(uid, component);
+        Dirty(ent);
 
-        RemComp<StealTargetComponent>(uid);
+        RemComp<StealTargetComponent>(ent);
     }
 
     private void UpdateAntiTamperVisuals(EntityUid uid, bool isLocked)
@@ -316,6 +332,9 @@ public abstract class SharedMailSystem : EntitySystem
         _appearance.SetData(uid, MailVisuals.IsTrash, isTrash);
     }
 
+    /// <summary>
+    /// Implemented on the Server, this is a fancy wrapper for the Cargo API since it's not in Shared yet.
+    /// </summary>
     protected virtual void UpdateBankAccount(
         Entity<StationBankAccountComponent?> ent,
         int balanceAdded,
@@ -323,9 +342,10 @@ public abstract class SharedMailSystem : EntitySystem
     {
     }
 
-    protected virtual void PenalizeStationFailedDelivery(EntityUid uid,
-        MailComponent component,
-        string localizationString)
+    /// <summary>
+    /// Implemented on the Server side.
+    /// </summary>
+    protected virtual void PenalizeStationFailedDelivery(Entity<MailComponent> ent, string localizationString)
     {
     }
 
@@ -333,7 +353,6 @@ public abstract class SharedMailSystem : EntitySystem
     protected void ExecuteForEachLogisticsStats(EntityUid uid,
         Action<EntityUid, StationLogisticStatsComponent> action)
     {
-
         var query = EntityQueryEnumerator<StationLogisticStatsComponent, TransformComponent>();
         while (query.MoveNext(out var station, out var logisticStats, out var xform))
         {

@@ -2,6 +2,7 @@ using Content.Shared.Radio;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.Mail
 {
@@ -9,14 +10,18 @@ namespace Content.Shared._DV.Mail
     /// This is for the mail teleporter.
     /// Random mail will be teleported to this every few minutes.
     /// </summary>
-    [RegisterComponent, NetworkedComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
     public sealed partial class MailTeleporterComponent : Component
     {
+        /// <summary>
+        /// The TimeSpan of next Delivery
+        /// </summary>
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+        public TimeSpan NextDelivery = TimeSpan.Zero;
 
-        // Not starting accumulator at 0 so mail carriers have some deliveries to make shortly after roundstart.
-        [DataField]
-        public float Accumulator = 285f;
-
+        /// <summary>
+        /// The time between new deliveries.
+        /// </summary>
         [DataField]
         public TimeSpan TeleportInterval = TimeSpan.FromMinutes(5);
 
@@ -31,17 +36,23 @@ namespace Content.Shared._DV.Mail
         /// teleporter can deliver.
         /// </summary>
         [DataField]
-        public string MailPool = "RandomDeltaVMailDeliveryPool"; // Frontier / DeltaV: Mail rework
+        public string MailPool = "RandomDeltaVMailDeliveryPool";
 
         /// <summary>
-        /// Imp. Whether or not the telepad should output a message upon recieving mail.
+        /// Whether the telepad should output a message upon spawning mail.
         /// </summary>
         [DataField]
-        public bool RadioNotification = false;
+        public bool RadioNotification;
 
+        /// <summary>
+        /// <see cref="LocId"/> to send when spawning new mail.
+        /// </summary>
         [DataField]
         public LocId ShipmentReceivedMessage = "mail-received-message";
 
+        /// <summary>
+        /// <see cref="RadioChannelPrototype"/> to notify when spawning new mail.
+        /// </summary>
         [DataField]
         public ProtoId<RadioChannelPrototype> RadioChannel = "Supply";
 
@@ -120,18 +131,16 @@ namespace Content.Shared._DV.Mail
         [DataField]
         public int PriorityMalus = -250;
 
-        // Frontier: Large mail
         /// <summary>
         /// What's the bonus for delivering a large package intact?
         /// </summary>
         [DataField]
-        public int LargeBonus = 1500; // DeltaV; 5000 to 1500
+        public int LargeBonus = 1500;
 
         /// <summary>
         /// What's the malus for failing to deliver a large package?
         /// </summary>
         [DataField]
-        public int LargeMalus = -500; // DeltaV; -250 to -500
-        // End Frontier: Large mail
+        public int LargeMalus = -500;
     }
 }
