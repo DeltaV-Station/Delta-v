@@ -50,18 +50,6 @@
     rules: ghost-role-information-listeningop-rules
     mindRoles:
     - MindRoleListeningPost
-    #requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
-    #- !type:OverallPlaytimeRequirement
-    #  time: 72h
-    #- !type:DepartmentTimeRequirement
-    #  department: Security
-    #  time: 11.1h
-    #- !type:DepartmentTimeRequirement
-    #  department: Civilian
-    #  time: 11.1h
-    #- !type:DepartmentTimeRequirement
-    #  department: Command
-    #  time: 11.1h
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -173,12 +161,7 @@
     name: ghost-role-information-ifritDV-name
     description: ghost-role-information-ifritDV-description
     rules: ghost-role-information-ifritDV-rules
-    #requirements: # TODO: October
-    #- !type:DepartmentTimeRequirement
-    #  department: Epistemics
-    #  time: 14400 # 4 hours
-    #- !type:OverallPlaytimeRequirement
-    #  time: 48h
+    job: RoleIfrit # controls the playtime requirement
     mindRoles:
     - MindRoleGhostRoleFamiliar
     raffle:
