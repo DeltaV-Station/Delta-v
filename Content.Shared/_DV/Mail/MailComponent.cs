@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Mail;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // TODO: Access & PublicAPI for Commands
 public sealed partial class MailComponent : Component
 {
     [DataField, AutoNetworkedField]
