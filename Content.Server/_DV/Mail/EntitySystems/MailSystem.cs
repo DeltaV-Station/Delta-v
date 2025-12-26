@@ -1,17 +1,13 @@
 using Content.Server.Access.Systems;
-using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Damage.Components;
-using Content.Server._DV.Cargo.Components;
-using Content.Server._DV.Cargo.Systems;
 using Content.Server._DV.Mail.Components;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible;
 using Content.Server.Mind;
-using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Radio.EntitySystems; // ImpStation - for radio notifications of new mail
 using Content.Server.Spawners.EntitySystems;
@@ -23,40 +19,31 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared._DV.Mail;
-using Content.Shared.Destructible;
-using Content.Shared.Emag.Components;
-using Content.Shared.Emag.Systems;
-using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Objectives.Components;
-using Content.Shared.PDA;
 using Content.Shared.Radio; // ImpStation - for radio notifications of new mail
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
+using Content.Shared._DV.Cargo.Systems;
+using Content.Shared.Cargo.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
-    public sealed class MailSystem : EntitySystem
+    public sealed class MailSystem : SharedMailSystem
     {
         [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
-        [Dependency] private readonly CargoSystem _cargoSystem = default!;
+        [Dependency] private readonly CargoSystem _cargo = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -64,40 +51,22 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
-
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!; // ImpStation - for radio notifications of new mail
 
-        private ISawmill _sawmill = default!;
-
         private static readonly ProtoId<TagPrototype> MailTag = "Mail";
-        private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
-        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
         public override void Initialize()
         {
             base.Initialize();
 
-            _sawmill = Logger.GetSawmill("mail");
-
-            SubscribeLocalEvent<PlayerSpawningEvent>(OnSpawnPlayer, after: new[] { typeof(SpawnPointSystem) });
-
-            SubscribeLocalEvent<MailComponent, ComponentRemove>(OnRemove);
-            SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
-            SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
-            SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
-            SubscribeLocalEvent<MailComponent, DestructionEventArgs>(OnDestruction);
-            SubscribeLocalEvent<MailComponent, DamageChangedEvent>(OnDamage);
-            SubscribeLocalEvent<MailComponent, BreakageEventArgs>(OnBreak);
-            SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnMailEmagged);
+            SubscribeLocalEvent<PlayerSpawningEvent>(OnPlayerSpawning, after: new[] { typeof(SpawnPointSystem) });
         }
 
         public override void Update(float frameTime)
@@ -121,10 +90,18 @@ namespace Content.Server._DV.Mail.EntitySystems
             }
         }
 
+        protected override void UpdateBankAccount(
+            Entity<StationBankAccountComponent?> ent,
+            int balanceAdded,
+            Dictionary<ProtoId<CargoAccountPrototype>, double> accountDistribution)
+        {
+            _cargo.UpdateBankAccount(ent, balanceAdded, accountDistribution);
+        }
+
         /// <summary>
         /// Dynamically add the MailReceiver component to appropriate entities.
         /// </summary>
-        private void OnSpawnPlayer(PlayerSpawningEvent args)
+        private void OnPlayerSpawning(PlayerSpawningEvent args)
         {
             if (args.SpawnResult == null ||
                 args.Job == null ||
@@ -136,148 +113,8 @@ namespace Content.Server._DV.Mail.EntitySystems
             if (!HasComp<StationMailRouterComponent>(station))
                 return;
 
-            AddComp<MailReceiverComponent>(args.SpawnResult.Value);
+            EnsureComp<MailReceiverComponent>(args.SpawnResult.Value);
         }
-
-        private static void OnRemove(EntityUid uid, MailComponent component, ComponentRemove args)
-        {
-            component.PriorityCancelToken?.Cancel();
-        }
-
-        /// <summary>
-        /// Try to open the mail.
-        /// </summary>
-        private void OnUseInHand(EntityUid uid, MailComponent component, UseInHandEvent args)
-        {
-            if (!component.IsEnabled)
-                return;
-            if (component.IsLocked)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, args.User);
-                return;
-            }
-            OpenMail(uid, component, args.User);
-        }
-
-        /// <summary>
-        /// Handle logic similar between a normal mail unlock and an emag
-        /// frying out the lock.
-        /// </summary>
-        private void UnlockMail(EntityUid uid, MailComponent component)
-        {
-            component.IsLocked = false;
-            UpdateAntiTamperVisuals(uid, false);
-
-            if (!component.IsPriority)
-                return;
-
-            // This is a successful delivery. Keep the failure timer from triggering.
-            component.PriorityCancelToken?.Cancel();
-
-            // The priority tape is visually considered to be a part of the
-            // anti-tamper lock, so remove that too.
-            _appearanceSystem.SetData(uid, MailVisuals.IsPriority, false);
-
-            // The examination code depends on this being false to not show
-            // the priority tape description anymore.
-            component.IsPriority = false;
-
-            RemComp<StealTargetComponent>(uid);
-        }
-
-        /// <summary>
-        /// Check the ID against the mail's lock
-        /// </summary>
-        private void OnAfterInteractUsing(EntityUid uid, MailComponent component, AfterInteractUsingEvent args)
-        {
-            if (!args.CanReach || !component.IsLocked)
-                return;
-
-            if (!HasComp<AccessReaderComponent>(uid))
-                return;
-
-            IdCardComponent? idCard = null; // We need an ID card.
-
-            if (HasComp<PdaComponent>(args.Used)) // Can we find it in a PDA if the user is using that?
-            {
-                _idCardSystem.TryGetIdCard(args.Used, out var pdaId);
-                idCard = pdaId;
-            }
-            if (idCard == null && HasComp<IdCardComponent>(args.Used)) // If we still don't have an ID, check if the item itself is one
-                idCard = Comp<IdCardComponent>(args.Used);
-
-            if (idCard == null) // Return if we still haven't found an id card.
-                return;
-
-            if (!HasComp<EmaggedComponent>(uid))
-            {
-                if (idCard.FullName != component.Recipient || idCard.LocalizedJobTitle != component.RecipientJob)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, args.User);
-                    return;
-                }
-
-                if (!_accessSystem.IsAllowed(uid, args.User))
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
-                    return;
-                }
-            }
-
-            // DeltaV - Add earnings to logistic stats
-            ExecuteForEachLogisticsStats(uid,
-                (station, logisticStats) =>
-            {
-                _logisticsStatsSystem.AddOpenedMailEarnings(station,
-                    logisticStats,
-                    component.IsProfitable ? component.Bounty : 0);
-            });
-
-            UnlockMail(uid, component);
-
-            if (!component.IsProfitable)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, args.User);
-                return;
-            }
-
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
-            component.IsProfitable = false;
-
-            var query = EntityQueryEnumerator<StationBankAccountComponent>();
-            while (query.MoveNext(out var station, out var account))
-            {
-                if (_stationSystem.GetOwningStation(uid) != station)
-                    continue;
-
-                _cargoSystem.UpdateBankAccount(
-                    (station, account),
-                    component.Bounty,
-                    _cargoSystem.CreateAccountDistribution((station, account)));
-            }
-        }
-
-        private void OnExamined(EntityUid uid, MailComponent component, ExaminedEvent args)
-        {
-            var mailEntityStrings = component.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
-
-            if (!args.IsInDetailsRange)
-            {
-                args.PushMarkup(Loc.GetString(mailEntityStrings.DescFar));
-                return;
-            }
-
-            args.PushMarkup(Loc.GetString(mailEntityStrings.DescClose,
-                ("name", component.Recipient),
-                ("job", component.RecipientJob)));
-
-            if (component.IsFragile)
-                args.PushMarkup(Loc.GetString("mail-desc-fragile"));
-
-            if (component.IsPriority)
-                args.PushMarkup(Loc.GetString(component.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
-        }
-
 
         /// <summary>
         /// Penalize a station for a failed delivery.
@@ -291,7 +128,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// but this allows a delivery to fail for other reasons too
         /// while having a generic function to handle different messages.
         /// </remarks>
-        private void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
+        protected override void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
         {
             if (!component.IsProfitable)
                 return;
@@ -310,83 +147,14 @@ namespace Content.Server._DV.Mail.EntitySystems
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(
+                _cargo.UpdateBankAccount(
                     (station, account),
                     component.Penalty,
-                    _cargoSystem.CreateAccountDistribution((station, account)));
+                    _cargo.CreateAccountDistribution((station, account)));
                 return;
             }
         }
 
-        private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
-        {
-            if (component.IsLocked)
-            {
-                // DeltaV - Tampered mail recorded to logistic stats
-                ExecuteForEachLogisticsStats(uid,
-                    (station, logisticStats) =>
-                {
-                    _logisticsStatsSystem.AddTamperedMailLosses(station,
-                        logisticStats,
-                        component.IsProfitable ? component.Penalty : 0);
-                });
-
-                PenalizeStationFailedDelivery(uid, component, "mail-penalty-lock");
-            }
-
-            if (component.IsEnabled)
-                OpenMail(uid, component);
-
-            UpdateAntiTamperVisuals(uid, false);
-        }
-
-        private void OnDamage(EntityUid uid, MailComponent component, DamageChangedEvent args)
-        {
-            if (args.DamageDelta == null)
-                return;
-
-            if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
-                return;
-
-            // Transfer damage to the contents.
-            // This should be a general-purpose feature for all containers in the future.
-            foreach (var entity in contents.ContainedEntities.ToArray())
-            {
-                _damageableSystem.TryChangeDamage(entity, args.DamageDelta);
-            }
-        }
-
-        private void OnBreak(EntityUid uid, MailComponent component, BreakageEventArgs args)
-        {
-            _appearanceSystem.SetData(uid, MailVisuals.IsBroken, true);
-
-            if (!component.IsFragile)
-                return;
-            // DeltaV - Broken mail recorded to logistic stats
-            ExecuteForEachLogisticsStats(uid,
-                (station, logisticStats) =>
-                {
-                    _logisticsStatsSystem.AddDamagedMailLosses(station,
-                        logisticStats,
-                        component.IsProfitable ? component.Penalty : 0);
-                });
-
-            PenalizeStationFailedDelivery(uid, component, "mail-penalty-fragile");
-        }
-
-        private void OnMailEmagged(EntityUid uid, MailComponent component, ref GotEmaggedEvent args)
-        {
-            if (!component.IsLocked)
-                return;
-
-            UnlockMail(uid, component);
-
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, args.UserUid);
-
-            _audioSystem.PlayPvs(component.EmagSound, uid, AudioParams.Default.WithVolume(4));
-            component.IsProfitable = false;
-            args.Handled = true;
-        }
 
         /// <summary>
         /// Returns true if the given entity is considered fragile for delivery.
@@ -479,7 +247,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             {
                 if (!_containerSystem.Insert(entity, container))
                 {
-                    _sawmill.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
+                    Log.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
                     QueueDel(entity);
                 }
                 else if (!mailComp.IsFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
@@ -551,6 +319,8 @@ namespace Content.Server._DV.Mail.EntitySystems
             {
                 _accessSystem.AddAccess((uid, accessReader), access);
             }
+
+            Dirty(uid, mailComp);
         }
 
         /// <summary>
@@ -657,7 +427,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             if (!Resolve(uid, ref component))
             {
-                _sawmill.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
+                Log.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
                 return;
             }
 
@@ -668,13 +438,13 @@ namespace Content.Server._DV.Mail.EntitySystems
 
             if (candidateList.Count <= 0)
             {
-                _sawmill.Warning("List of mail candidates was empty!");
+                Log.Warning("List of mail candidates was empty!");
                 return;
             }
 
             if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(component.MailPool, out var pool))
             {
-                _sawmill.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
+                Log.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
                 return;
             }
 
@@ -683,29 +453,29 @@ namespace Content.Server._DV.Mail.EntitySystems
             for (var i = 0; i < deliveryCount; i++)
             {
                 var candidate = _random.Pick(candidateList);
-                var possibleParcels = new Dictionary<string, float>(pool.Everyone);
+                var possibleParcels = new Dictionary<EntProtoId, float>(pool.Everyone);
 
                 if (TryMatchJobTitleToPrototype(candidate.Job, out var jobPrototype)
                     && pool.Jobs.TryGetValue(jobPrototype.ID, out var jobParcels))
                 {
-                    possibleParcels = possibleParcels
-                        .Concat(jobParcels)
-                        .GroupBy(g => g.Key)
-                        .ToDictionary(pair => pair.Key, pair => pair.First().Value);
+                    foreach (var (key, value) in jobParcels)
+                    {
+                        possibleParcels[key] = value;
+                    }
                 }
 
                 if (TryMatchJobTitleToDepartment(candidate.Job, out var department)
                     && pool.Departments.TryGetValue(department, out var departmentParcels))
                 {
-                    possibleParcels = possibleParcels
-                        .Concat(departmentParcels)
-                        .GroupBy(g => g.Key)
-                        .ToDictionary(pair => pair.Key, pair => pair.First().Value);
+                    foreach (var (key, value) in departmentParcels)
+                    {
+                        possibleParcels[key] = value;
+                    }
                 }
 
                 var accumulated = 0f;
                 var randomPoint = _random.NextFloat(possibleParcels.Values.Sum());
-                string? chosenParcel = null;
+                EntProtoId? chosenParcel = null;
 
                 foreach (var parcel in possibleParcels)
                 {
@@ -718,7 +488,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
                 if (chosenParcel == null)
                 {
-                    _sawmill.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
+                    Log.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
                     return;
                 }
 
@@ -745,59 +515,6 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
             _radioSystem.SendRadioMessage(source, message, channel, source);
-        }
-
-        private void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
-        {
-            if (!Resolve(uid, ref component))
-                return;
-
-            _audioSystem.PlayPvs(component.OpenSound, uid);
-
-            if (user != null)
-                _handsSystem.TryDrop((EntityUid)user);
-
-            if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
-            {
-                // I silenced this error because it fails non deterministically in tests and doesn't seem to effect anything else.
-                // _sawmill.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
-                return;
-            }
-
-            foreach (var entity in contents.ContainedEntities.ToArray())
-            {
-                _handsSystem.PickupOrDrop(user, entity);
-            }
-
-            _tagSystem.AddTag(uid, TrashTag);
-            _tagSystem.AddTag(uid, RecyclableTag);
-            component.IsEnabled = false;
-            UpdateMailTrashState(uid, true);
-        }
-
-        private void UpdateAntiTamperVisuals(EntityUid uid, bool isLocked)
-        {
-            _appearanceSystem.SetData(uid, MailVisuals.IsLocked, isLocked);
-        }
-
-        private void UpdateMailTrashState(EntityUid uid, bool isTrash)
-        {
-            _appearanceSystem.SetData(uid, MailVisuals.IsTrash, isTrash);
-        }
-
-        // DeltaV - Helper function that executes for each StationLogisticsStatsComponent
-        // For updating MailMetrics stats
-        private void ExecuteForEachLogisticsStats(EntityUid uid,
-            Action<EntityUid, StationLogisticStatsComponent> action)
-        {
-
-            var query = EntityQueryEnumerator<StationLogisticStatsComponent>();
-            while (query.MoveNext(out var station, out var logisticStats))
-            {
-                if (_stationSystem.GetOwningStation(uid) != station)
-                    continue;
-                action(station, logisticStats);
-            }
         }
     }
 

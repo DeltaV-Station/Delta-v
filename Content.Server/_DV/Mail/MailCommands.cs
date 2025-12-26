@@ -6,6 +6,7 @@ using Content.Shared.Administration;
 using Content.Server.Administration;
 using Content.Server._DV.Mail.Components;
 using Content.Server._DV.Mail.EntitySystems;
+using Content.Shared._DV.Mail;
 
 namespace Content.Server._DV.Mail;
 

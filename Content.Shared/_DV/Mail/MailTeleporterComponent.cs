@@ -1,14 +1,15 @@
 using Content.Shared.Radio;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._DV.Mail.Components
+namespace Content.Shared._DV.Mail
 {
     /// <summary>
     /// This is for the mail teleporter.
     /// Random mail will be teleported to this every few minutes.
     /// </summary>
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent]
     public sealed partial class MailTeleporterComponent : Component
     {
 
