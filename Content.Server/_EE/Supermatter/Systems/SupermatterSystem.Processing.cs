@@ -2,8 +2,6 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
-using Content.Server.Ghost;
-using Content.Server.Light.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared._EE.CCVars;
 using Content.Shared._EE.Supermatter.Components;
@@ -697,7 +695,7 @@ public sealed partial class SupermatterSystem
         _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
         foreach (var light in lightLookup)
         {
-            if (!_rand.Prob(sm.LightFlickerChance))
+            if (!_random.Prob(sm.LightFlickerChance))
                 continue;
             _ghost.DoGhostBooEvent(light);
         }
@@ -724,7 +722,7 @@ public sealed partial class SupermatterSystem
 
             // Scramble thaven moods
             if (TryComp<ThavenMoodsComponent>(mob, out var moods))
-                _moods.RefreshMoods((mob, moods));
+                _moods.RefreshMoods(mob, moods);
 
             // Add effects to all mobs
             // TODO: change paracusia to actual hallucinations whenever those are real

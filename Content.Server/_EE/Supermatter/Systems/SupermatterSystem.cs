@@ -61,7 +61,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ThavenMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -263,7 +263,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (!TryComp<GravityWellComponent>(ent, out var gravityWell))
             return;
 
-        var nextPulse = 0.5f * _rand.NextFloat(1f, 30f);
+        var nextPulse = 0.5f * _random.NextFloat(1f, 30f);
         _gravityWell.SetPulsePeriod(ent, TimeSpan.FromSeconds(nextPulse), gravityWell);
 
         var audioParams = AudioParams.Default.WithMaxDistance(gravityWell.MaxRange);

@@ -17,23 +17,25 @@
     - id: PowerGridCheck
     - id: SolarFlare
     # teehee
-    - id: ChangelingAwakening
+    # - id: ChangelingAwakening # Delta-V - no teehee (event is not in delta-v)
     - id: GameRuleUristSwarm
     - id: GreytideVirus
     - id: ParadoxCloneSpawn
     # supermatter specials
-    - id: SupermatterSpiderSpawn
+    #- id: SupermatterSpiderSpawn # Delta-V - disabled (see below)
 
-- type: entity
-  id: SupermatterSpiderSpawn
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    minimumPlayers: 15
-    weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobSupermatterSpider
-      prob: 0.05
+## Delta-V - Disabled during porting (Do we want the spiders that erase people?)
+# - type: entity
+#  id: SupermatterSpiderSpawn
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    earliestStart: 20
+#    minimumPlayers: 15
+#    weight: 5
+#    duration: 60
+#  - type: VentCrittersRule
+#    entries:
+#    - id: MobSupermatterSpider
+#      prob: 0.05
+## End Delta-V
