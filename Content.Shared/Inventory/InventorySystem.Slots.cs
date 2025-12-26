@@ -348,7 +348,7 @@ public partial class InventorySystem : EntitySystem
 
             if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform))
             {
-                _transform.AttachToGridOrMap(entityUid, transform);
+                _transform.DropNextTo(entityUid, uid);
                 _randomHelper.RandomOffset(entityUid, 0.5f);
             }
 
