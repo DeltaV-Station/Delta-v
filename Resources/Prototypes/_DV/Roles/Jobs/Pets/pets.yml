@@ -7,7 +7,7 @@
   description: role-description-laika
   setPreference: false
   canBeAntag: false
-  playTimeTracker: Laika
+  playTimeTracker: RoleLaika
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
@@ -19,7 +19,7 @@
   description: role-description-shiva
   setPreference: false
   canBeAntag: false
-  playTimeTracker: Shiva
+  playTimeTracker: RoleShiva
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
@@ -31,7 +31,7 @@
   description: role-description-silvia
   setPreference: false
   canBeAntag: false
-  playTimeTracker: Silvia
+  playTimeTracker: RoleSilvia
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
@@ -43,7 +43,7 @@
   description: role-description-ifrit
   setPreference: false
   canBeAntag: false
-  playTimeTracker: Ifrit
+  playTimeTracker: RoleIfrit
   requirements:
   - !type:DepartmentTimeRequirement
     department: Epistemics
@@ -57,7 +57,7 @@
   description: role-description-carpy
   setPreference: false
   canBeAntag: false
-  playTimeTracker: Carpy
+  playTimeTracker: RoleCarpy
   requirements:
   - !type:DepartmentTimeRequirement
     department: Justice
@@ -68,7 +68,7 @@
   name: role-name-pun-pun
   description: role-description-pun-pun
   setPreference: false
-  playTimeTracker: Pun Pun
+  playTimeTracker: RolePunPun
   requirements:
   - !type:RoleTimeRequirement
     role: JobBartender
