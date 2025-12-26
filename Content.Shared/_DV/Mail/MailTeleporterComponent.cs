@@ -36,7 +36,7 @@ public sealed partial class MailTeleporterComponent : Component
     /// teleporter can deliver.
     /// </summary>
     [DataField]
-    public string MailPool = "RandomDeltaVMailDeliveryPool";
+    public ProtoId<MailDeliveryPoolPrototype> MailPool = "RandomDeltaVMailDeliveryPool";
 
     /// <summary>
     /// Whether the telepad should output a message upon spawning mail.
