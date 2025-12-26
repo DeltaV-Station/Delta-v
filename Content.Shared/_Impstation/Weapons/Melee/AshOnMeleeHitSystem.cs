@@ -43,7 +43,7 @@ public sealed class AshOnMeleeHitSystem : EntitySystem
 
     private void OnThrowHit(Entity<AshOnMeleeHitComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (args.Handled || HasComp<SupermatterImmuneComponent>(args.Target))
+        if (HasComp<SupermatterImmuneComponent>(args.Target))
             return;
 
         Ash(ent, args.Target);

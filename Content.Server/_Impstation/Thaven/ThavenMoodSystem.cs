@@ -379,9 +379,10 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         _actions.RemoveAction(ent, ent.Comp.Action);
     }
 
-    protected override void OnEmagged(Entity<ThavenMoodsComponent> ent, ref GotEmaggedEvent args)
+    protected override void OnEmagged(EntityUid uid, ThavenMoodsComponent comp, ref GotEmaggedEvent args)
     {
-        base.OnEmagged(ent, ref args);
+        base.OnEmagged(uid, comp, ref args);
+        
         if (!args.Handled)
             return;
 
