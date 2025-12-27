@@ -233,14 +233,18 @@ public sealed class ItemToggleSystem : EntitySystem
         if (predicted)
         {
             _audio.PlayPredicted(soundToPlay, uid, user);
+            // Begin DeltaV additions - $user in strings
             if (showPopup && ent.Comp.PopupActivate != null && user != null)
-                _popup.PopupClient(Loc.GetString(ent.Comp.PopupActivate), user.Value, user.Value);
+                _popup.PopupClient(Loc.GetString(ent.Comp.PopupActivate, ("user", user.Value)), user.Value, user.Value);
+            // End DeltaV additions - $user in strings
         }
         else
         {
             _audio.PlayPvs(soundToPlay, uid);
+            // Begin DeltaV additions - $user in strings
             if (showPopup && ent.Comp.PopupActivate != null && user != null)
-                _popup.PopupEntity(Loc.GetString(ent.Comp.PopupActivate), user.Value, user.Value);
+                _popup.PopupEntity(Loc.GetString(ent.Comp.PopupActivate, ("user", user.Value)), user.Value, user.Value);
+            // End DeltaV additions - $user in strings
         }
 
         comp.Activated = true;
@@ -261,14 +265,18 @@ public sealed class ItemToggleSystem : EntitySystem
         if (predicted)
         {
             _audio.PlayPredicted(soundToPlay, uid, user);
+            // Begin DeltaV additions - $user in strings
             if (showPopup && ent.Comp.PopupDeactivate != null && user != null)
-                _popup.PopupClient(Loc.GetString(ent.Comp.PopupDeactivate), user.Value, user.Value);
+                _popup.PopupClient(Loc.GetString(ent.Comp.PopupDeactivate, ("user", user.Value)), user.Value, user.Value);
+            // End DeltaV additions - $user in strings
         }
         else
         {
             _audio.PlayPvs(soundToPlay, uid);
+            // Begin DeltaV additions - $user in strings
             if (showPopup && ent.Comp.PopupDeactivate != null && user != null)
-                _popup.PopupEntity(Loc.GetString(ent.Comp.PopupDeactivate), user.Value, user.Value);
+                _popup.PopupEntity(Loc.GetString(ent.Comp.PopupDeactivate, ("user", user.Value)), user.Value, user.Value);
+            // End DeltaV additions - $user in strings
         }
 
         comp.Activated = false;
