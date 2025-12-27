@@ -33,26 +33,6 @@ public sealed partial class RemoteControlComponent : Component
     public TimeSpan Cooldown = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    /// Action to use when this remote control is equipped by a user.
-    /// </summary>
-    [DataField]
-    public EntProtoId ToggleAction = "ActionToggleRemoteControl";
-
-    /// <summary>
-    /// Base for the localisation string when toggling the remote control on and off via
-    /// the associated action.
-    /// Will have the {$user} variable replaced in the localised string.
-    /// </summary>
-    [DataField]
-    public string ToggleActionBase;
-
-    /// <summary>
-    /// Entity created for this action when equipped.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? ToggleActionEntid = null;
-
-    /// <summary>
     /// The entities, if any, this remote control is bound to when handling orders.
     /// </summary>
     [DataField, AutoNetworkedField]

@@ -6,9 +6,12 @@ using Content.Shared.Actions.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -26,6 +29,8 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
+    [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -33,8 +38,8 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         SubscribeLocalEvent<RemoteControlComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<RemoteControlComponent, ToggleRemoteControlEvent>(OnRemoteControlToggled);
-        SubscribeLocalEvent<RemoteControlComponent, GetItemActionsEvent>(OnGetRemoteControlActions);
+        SubscribeLocalEvent<RemoteControlComponent, ItemToggleActivateAttemptEvent>(OnToggleActivateAttempt);
+        SubscribeLocalEvent<RemoteControlComponent, ItemToggledEvent>(OnToggled);
 
         SubscribeLocalEvent<RemoteControlComponent, GotUnequippedEvent>(OnRemoteControlUnequipped);
 
@@ -109,60 +114,34 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     protected abstract void SetUnitFree(Entity<RemoteControlReceiverComponent> entity);
 
     /// <summary>
-    /// Handles when a player uses the toggle action for the remote control and updates the state.
+    /// Handles when a player attempts to toggle the remote control.
     /// </summary>
-    /// <param name="control">Remote control that was toggled.</param>
+    /// <param name="control">Remote control that is attempting to be toggled.</param>
     /// <param name="args">Args for the event, notably the performer.</param>
-    private void OnRemoteControlToggled(Entity<RemoteControlComponent> control, ref ToggleRemoteControlEvent args)
+    private void OnToggleActivateAttempt(Entity<RemoteControlComponent> control, ref ItemToggleActivateAttemptEvent args)
     {
-        if (control.Comp.ToggleActionEntid == null || _timing.ApplyingState)
-            return;
-
-        if (!TryComp<ActionComponent>(control.Comp.ToggleActionEntid, out var actionComp))
-            return;
-
-        var newState = !actionComp.Toggled;
-
-        string msg;
-        if (newState)
-        {
-            EnsureComp<RemoteControlHolderComponent>(args.Performer, out var holderComp);
-            holderComp.Control = control;
-            msg = $"{control.Comp.ToggleActionBase}-up";
-        }
-        else
-        {
-            RemComp<RemoteControlHolderComponent>(args.Performer);
-            msg = $"{control.Comp.ToggleActionBase}-down";
-        }
-
-        if (_net.IsServer)
-        {
-            Popup.PopupEntity(Loc.GetString(msg, ("user", args.Performer)), args.Performer, args.Performer);
-        }
-
-        args.Toggle = true;
-        args.Handled = true;
+        // TODO: Block toggles from working if no entities are bound
     }
 
     /// <summary>
-    /// Handles when a remote control is equipped and the inventory system queries for any actions associated with it.
+    /// Handles when a remote control was toggled by a player.
     /// </summary>
-    /// <param name="control">Remote control that was equipped.</param>
+    /// <param name="control">Remote control that has been toggled.</param>
     /// <param name="args">Args for the event.</param>
-    private void OnGetRemoteControlActions(Entity<RemoteControlComponent> control, ref GetItemActionsEvent args)
+    private void OnToggled(Entity<RemoteControlComponent> control, ref ItemToggledEvent args)
     {
-        if (control.Comp.BoundEntities.Contains(args.User))
-            return; // Bound entities don't get to control themselves.
-
-        // As a measure against entities having their own remote control, we don't allow a receiver with
-        // the same channel name as the control to get an action.
-        if (TryComp<RemoteControlReceiverComponent>(args.User, out var receiverComp) &&
-            receiverComp.ChannelName == control.Comp.ChannelName)
+        if (!_container.TryGetContainingContainer((control.Owner, null, null), out var container))
             return;
 
-        args.AddAction(ref control.Comp.ToggleActionEntid, control.Comp.ToggleAction);
-        Dirty(control);
+        if (args.Activated)
+        {
+            EnsureComp<RemoteControlHolderComponent>(container.Owner, out var holderComp);
+            holderComp.Control = control;
+        }
+        else
+        {
+            RemComp<RemoteControlHolderComponent>(container.Owner);
+        }
     }
 
     /// <summary>
@@ -172,10 +151,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <param name="args">Args for the event, notably who unequipped it.</param>
     private void OnRemoteControlUnequipped(Entity<RemoteControlComponent> control, ref GotUnequippedEvent args)
     {
-        // Ensure the action and equipee are cleaned up
-        if (control.Comp.ToggleActionEntid != null)
-            Actions.SetToggled(control.Comp.ToggleActionEntid, false);
-
+        _itemToggle.TryDeactivate(control.Owner, args.Equipee);
         RemComp<RemoteControlHolderComponent>(args.Equipee);
     }
 
@@ -186,10 +162,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <param name="args">Args for the event, notably who unequipped it.</param>
     private void OnRemoteControlHandUnequipped(Entity<RemoteControlComponent> control, ref GotUnequippedHandEvent args)
     {
-        // Ensure the action and equipee are cleaned up
-        if (control.Comp.ToggleActionEntid != null)
-            Actions.SetToggled(control.Comp.ToggleActionEntid, false);
-
+        _itemToggle.TryDeactivate(control.Owner, args.User);
         RemComp<RemoteControlHolderComponent>(args.User);
     }
 

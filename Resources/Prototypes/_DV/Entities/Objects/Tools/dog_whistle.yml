@@ -14,6 +14,14 @@
     sprite: Objects/Fun/whistles.rsi
     equippedPrefix: whistle
     slots: neck
+  - type: ItemToggle
+    popupActivate: dog-whistle-toggle-action-up
+    popupDeactivate: dog-whistle-toggle-action-down
+    onActivate: false  # do not toggle with E key nor right click context menu
+    onUse: false  # do not toggle with Z key
+  - type: ToggleClothing  # only toggle with the action granted by being clothing
+    action: ActionToggleDogWhistleOrderMode
+    mustEquip: false
   - type: RemoteControl
     channelName: CanineDogWhistle
     cooldown: 3
@@ -33,3 +41,15 @@
       TilePoint: "dog-whistle-order-sit"
       SelfPoint: "dog-whistle-order-comeback"
       FreeUnit: "dog-whistle-order-at-ease"
+
+- type: entity
+  id: ActionToggleDogWhistleOrderMode
+  name: Toggle dog whistle orders
+  description: Toggles whether pointing should send orders to bound dogs
+  components:
+  - type: Action
+    icon: Interface/Default/blocked.png
+    iconOn: { sprite: Objects/Fun/whistles.rsi, state: whistle }
+    useDelay: 1
+  - type: InstantAction
+    event: !type:ToggleActionEvent
