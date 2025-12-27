@@ -21,16 +21,12 @@ public sealed class PryingRequiresPowerSystem : EntitySystem
     private void OnPried(Entity<PryingRequiresPowerComponent> ent, ref PriedEvent args)
     {
         // Tool is a battery use its power
-        if (_battery.TryUseCharge(ent, ent.Comp.PowerCost))
+        if (_battery.TryUseCharge(ent.Owner, ent.Comp.PowerCost))
             return;
 
-        // Tool has a battery in a power cell slot use that power
-        if (_cell.TryGetBatteryFromSlot(ent, out var batteryEnt, out var batteryComp)
-            && batteryEnt is { } batteryUid)
-        {
-            _battery.TryUseCharge(batteryUid, ent.Comp.PowerCost, batteryComp);
+        // User has a battery
+        if (_battery.TryUseCharge(ent.Owner, ent.Comp.PowerCost))
             return;
-        }
     }
 
     private void OnBeforePry(Entity<PryingRequiresPowerComponent> ent, ref BeforePryEvent args)

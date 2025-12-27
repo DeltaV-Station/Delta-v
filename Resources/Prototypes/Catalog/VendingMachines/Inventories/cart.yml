@@ -3,7 +3,18 @@
   startingInventory:
     PassengerPDA: 5
     ClearPDA: 5
+    PassengerIDCard: 5
+    ClothingHeadsetGrey: 5
+    ClothingHeadsetService: 5 # Delta-V
+    RubberStampApproved: 1
+    RubberStampDenied: 1
+    BoxFolderPlasticClipboardEmpty: 2
+    Paper: 10
+    Envelope: 10
+    HandLabeler: 2
+    EncryptionKeyService: 3
 # Begin Delta-V additions
+    AccessConfigurator: 2
     ServiceWorkerPDA: 2
     ChefPDA: 2
     BotanistPDA: 2
@@ -18,15 +29,6 @@
     MimePDA: 1
     MusicianPDA: 1
 # End Delta-V additions
-    PassengerIDCard: 5
-    ClothingHeadsetGrey: 5
-    ClothingHeadsetService: 5 # Delta-V
-    RubberStampApproved: 1
-    RubberStampDenied: 1
-    BoxFolderPlasticClipboardEmpty: 2
-    Paper: 10
-    Envelope: 10
-    HandLabeler: 2
 # Begin Delta-V subtractions
   #  EncryptionKeyCargo: 2
   #  EncryptionKeyEngineering: 2
@@ -34,7 +36,6 @@
   #  EncryptionKeyScience: 2
   #  EncryptionKeySecurity: 1
 # End Delta-V subtractions
-    EncryptionKeyService: 3
   contrabandInventory:
     BalloonNT: 2
     LuxuryPen: 1

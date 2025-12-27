@@ -17,6 +17,8 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -26,6 +28,8 @@
     containers:
       smart_fridge_inventory: !type:Container
       smart_fridge_insertion: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
   - type: LitOnPowered
   - type: ApcPowerReceiver
     powerLoad: 200
@@ -61,33 +65,37 @@
         density: 200
   - type: Anchorable
     delay: 2
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: AccessReader
+  - type: AntiRottingContainer
   - type: InteractionOutline
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 300
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Dumpable
-  - type: AccessReader
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.1
+  - type: Machine
+    board: SmartFridgeCircuitboard
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+    - smart_fridge_inventory
+  - type: Airtight
 
 - type: entity
   parent: DVSmartFridge

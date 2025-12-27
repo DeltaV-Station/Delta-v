@@ -1,0 +1,36 @@
+- type: entity
+  name: stamp box [CJ]
+  parent: BoxCardboard
+  id: BoxCJStamps
+  description: A box filled with CJ's Stamps. Ready to dispense justice!
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+      - id: RubberStampApproved
+      - id: RubberStampDenied
+      - id: RubberStampChiefJustice
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    whitelist:
+      components:
+      - Stamp
+  - type: Sprite
+    layers:
+      - state: box
+      - state: stamp
+
+- type: entity
+  name: circuit tote [CJ]
+  parent: ToteBase
+  id: BoxCJCircuitboards
+  description: A Tote filled with CJ's Circuit boards.
+  components:
+  - type: StorageFill
+    contents:
+      - id: IDComputerCircuitboard
+      - id: CargoRequestJusticeComputerCircuitboard

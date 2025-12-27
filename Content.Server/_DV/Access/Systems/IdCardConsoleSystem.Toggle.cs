@@ -20,7 +20,7 @@ public sealed partial class IdCardConsoleSystem
     {
         if (ent.Comp.TargetIdSlot.Item is not {} targetId ||
             ent.Comp.PrivilegedIdSlot.Item is not {} privilegedId ||
-            !PrivilegedIdIsAuthorized(ent, ent) ||
+            !PrivilegedIdIsAuthorized(ent, ent, out _) ||
             // malf client
             !_prototype.HasIndex(args.Id))
         {

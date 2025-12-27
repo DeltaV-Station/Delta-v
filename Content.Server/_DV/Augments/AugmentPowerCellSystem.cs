@@ -1,4 +1,4 @@
-using Content.Server.Power.Components; // ough BatteryComponent why are you in server
+
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared._DV.Augments;
@@ -8,6 +8,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components; // ough BatteryComponent why are you in server
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._DV.Augments;

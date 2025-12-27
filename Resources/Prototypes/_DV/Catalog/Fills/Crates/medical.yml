@@ -1,13 +1,13 @@
-- type: entity
-  id: CrateGenericRadioImplants
-  parent: CrateMedical
-  name: radio implant crate
-  description: Communicate without having a pesky headset on your ear.
-  components:
-  - type: StorageFill
-    contents:
-    - id: GenericRadioImplanter
-      amount: 3
+#- type: entity # TODO: Re-make these
+#  id: CrateGenericRadioImplants
+#  parent: CrateMedical
+#  name: radio implant crate
+#  description: Communicate without having a pesky headset on your ear.
+#  components:
+#  - type: StorageFill
+#    contents:
+#    - id: GenericRadioImplanter
+#      amount: 3
 
 - type: entity
   id: CratePainkillerBottles

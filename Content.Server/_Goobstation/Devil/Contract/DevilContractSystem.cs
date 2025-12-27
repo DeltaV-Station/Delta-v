@@ -21,7 +21,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Implants;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Nutrition;

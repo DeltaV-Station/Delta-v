@@ -705,10 +705,7 @@
     name: ghost-role-information-Shiva-name
     description: ghost-role-information-Shiva-description
     rules: ghost-role-information-Shiva-rules
-    requirements: # Delta V - No raiders
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # DeltaV - 4 hours
+    job: RoleShiva # DeltaV - controls the playtime requirement, no raiders
   - type: GhostTakeoverAvailable # DeltaV
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
@@ -899,10 +896,7 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements: # Delta V - No raiders
-    - !type:RoleTimeRequirement
-      role: JobBartender
-      time: 14400 # Delta V - 4 hours
+    job: RolePunPun
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike

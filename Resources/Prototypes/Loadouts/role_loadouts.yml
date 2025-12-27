@@ -11,6 +11,7 @@
   - CaptainShoes # DeltaV
   - Survival
   - Trinkets
+  - CaptainJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -27,6 +28,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - HoPJobTrinkets
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -58,6 +60,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -73,6 +76,7 @@
   - BartenderGlasses # DeltaV - replaces Glasses
   - Survival
   - Trinkets
+  - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -86,6 +90,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -101,6 +106,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ChefJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -113,6 +119,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -125,6 +132,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -141,6 +149,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ChaplainJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -157,7 +166,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - JanitorPlunger
+  - JanitorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -172,6 +181,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -190,6 +200,7 @@
   - Glasses
   - Trinkets
   - SurvivalClown
+  - ClownJobTrinkets
 
 - type: roleLoadout
   id: JobMime
@@ -206,9 +217,11 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - MimeJobTrinkets
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MusicianJumpsuit
@@ -218,6 +231,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -235,6 +249,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -251,6 +266,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -266,6 +282,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -282,6 +299,7 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -294,6 +312,7 @@
   - StationEngineerShoes # DeltaV
   - SurvivalExtended
   - Trinkets
+  - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -309,6 +328,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -324,6 +344,7 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
+  - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 # Science
@@ -341,6 +362,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -358,6 +380,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -369,6 +392,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 # Security
@@ -385,7 +409,7 @@
   - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - SecurityAllFirearm # DeltaV - loadouts
   - SecurityAllAmmo # DeltaV - loadouts
@@ -404,7 +428,7 @@
   - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  - WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - SecurityAllFirearm # DeltaV - loadouts
   - SecurityAllAmmo # DeltaV - loadouts
@@ -424,7 +448,7 @@
   - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - SecurityFirearm # DeltaV - loadouts
   - SecurityFirearmAmmo # DeltaV - loadouts
@@ -441,7 +465,7 @@
   - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  - DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - SecurityRevolverFirearm # DeltaV - loadouts
   - SecurityRevolverAmmo # DeltaV - loadouts
@@ -457,6 +481,7 @@
   - SurvivalSecurity
   - Glasses # DeltaV
   - Trinkets
+  - SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -475,6 +500,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -493,6 +519,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -505,6 +532,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -521,6 +549,7 @@
   - ChemistShoes # DeltaV, replaces MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -538,6 +567,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -549,6 +579,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -560,6 +591,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - ReporterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -579,6 +611,7 @@
   # End DeltaV additions
   - Glasses
   - Trinkets
+  - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -591,6 +624,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - BoxerJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

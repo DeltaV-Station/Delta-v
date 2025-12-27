@@ -14,11 +14,14 @@ using Content.Shared.MedicalScanner;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
+
+
 
 namespace Content.Shared._Mono.CorticalBorer;
 
@@ -36,8 +39,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
 
     public bool CanUseAbility(Entity<CorticalBorerComponent> ent, EntityUid target)
     {
-        if (_statusEffects.HasStatusEffect(target,
-                    "CorticalBorerProtection")) // hardcoded the status effect because...
+        if (_statusEffects.HasStatusEffect(target, "CorticalBorerProtection")) // hardcoded the status effect because...
         {
             _popup.PopupEntity(Loc.GetString("cortical-borer-sugar-block"), ent.Owner, ent.Owner, PopupType.Medium);
             return false;
@@ -83,8 +85,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
                 RemCompDeferred(ent, compReg.Component.GetType());
         }
 
-        if (TryComp<DamageableComponent>(ent, out var damComp))
-            _damage.SetAllDamage(ent, damComp, 0);
+        _damage.SetAllDamage(ent.Owner, 0);
     }
 
     public bool TryEjectBorer(Entity<CorticalBorerComponent> ent)
@@ -101,8 +102,8 @@ public partial class SharedCorticalBorerSystem : EntitySystem
         // close all the UIs that relate to host
         if (TryComp<UserInterfaceComponent>(ent, out var uic))
         {
-            _ui.CloseUi((ent.Owner,uic), HealthAnalyzerUiKey.Key);
-            _ui.CloseUi((ent.Owner,uic), CorticalBorerDispenserUiKey.Key);
+            _ui.CloseUi((ent.Owner, uic), HealthAnalyzerUiKey.Key);
+            _ui.CloseUi((ent.Owner, uic), CorticalBorerDispenserUiKey.Key);
         }
 
         RemCompDeferred<CorticalBorerInfestedComponent>(ent.Comp.Host.Value);

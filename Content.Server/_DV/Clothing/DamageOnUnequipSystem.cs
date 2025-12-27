@@ -2,7 +2,8 @@ using Content.Server.Chat.Systems;
 using Content.Shared._DV.Clothing;
 using Content.Shared._DV.Clothing.Components;
 using Content.Shared.Clothing;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -41,6 +42,6 @@ public sealed class DamageOnUnequipSystem : SharedDamageOnUnequipSystem
             _jittering.DoJitter(args.Wearer, TimeSpan.FromSeconds(15), false);
         }
 
-        _damageable.TryChangeDamage(args.Wearer, ent.Comp.UnequipDamage, true, true, damageable);
+        _damageable.TryChangeDamage(args.Wearer, ent.Comp.UnequipDamage, true, true, canSever: false); // Shitmed
     }
 }

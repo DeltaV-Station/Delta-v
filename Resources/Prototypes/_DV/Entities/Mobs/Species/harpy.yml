@@ -118,7 +118,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'HarpySquish', 'Chitter', 'Chirp', 'Squeak', 'Click', 'Gnash', 'HarpyQuack', 'HarpySquawk', 'Moo', 'Baa']
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Honk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'Beep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Chirp', 'Squeak', 'Click', 'Gnash', 'HarpyQuack', 'HarpySquawk', 'Moo', 'Baa']
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale
@@ -157,7 +157,7 @@
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: Urist McHarpy
   parent: MobHumanDummy
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]

@@ -7,7 +7,8 @@ using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 //using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.Body.Part;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
@@ -52,6 +53,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // DeltaV: surgery can operate through some clothing
     [Dependency] private readonly SharedCorticalBorerSystem _corticalBorer = default!; // Mono
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     /// <summary>
     /// Cache of all surgery prototypes' singleton entities.
@@ -91,6 +93,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         //SubscribeLocalEvent<SurgeryRemoveLarvaComponent, SurgeryCompletedEvent>(OnRemoveLarva);
         SubscribeLocalEvent<SurgeryCorticalBorerConditionComponent, SurgeryValidEvent>(OnCorticalBorerValid); // Mono
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        SubscribeLocalEvent<BodyPartComponent, AccessibleOverrideEvent>(OnBodyPartAccessibleOverride); // Upstream Mege Changes
 
         InitializeSteps();
 
@@ -342,6 +345,27 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     {
         RemCompDeferred<VictimInfectedComponent>(ent);
     }*/
+
+    /// <summary>
+    /// DektaV - This is needed because https://github.com/space-wizards/space-station-14/pull/40299 added in
+    /// checking if the target is accessible but the target is a contained within the mob entity, so it
+    /// is technically not accessible, so we need to add an override to tell the interaction system that
+    /// it is accessible.
+    /// </summary>
+    /// <param name="ent">The body part entity that is being operated on.</param>
+    /// <param name="args"></param>
+    private void OnBodyPartAccessibleOverride(Entity<BodyPartComponent> ent, ref AccessibleOverrideEvent args)
+    {
+        if (args.Accessible)
+            return;
+
+        var xform = Transform(ent);
+        if (!_interaction.InRangeUnobstructed(args.User, xform.ParentUid))
+            return;
+
+        args.Accessible = true;
+        args.Handled = true;
+    }
 
     protected bool IsSurgeryValid(EntityUid body, EntityUid targetPart, EntProtoId surgery, EntProtoId stepId,
         EntityUid user, out Entity<SurgeryComponent> surgeryEnt, out EntityUid part, out EntityUid step)

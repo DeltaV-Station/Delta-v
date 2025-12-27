@@ -33,8 +33,8 @@
   result: Dropper
   completetime: 2
   materials:
-    Glass: 200
-    Plastic: 100
+    Glass: 50
+    Plastic: 50
 
 - type: latheRecipe
   id: Syringe
@@ -79,7 +79,7 @@
   result: ChemistryEmptyBottle01
   completetime: 2
   materials:
-    Glass: 50
+    Glass: 100
 
 # - type: latheRecipe # DeltaV - Disable the Vape
 #   id: Vape
@@ -97,8 +97,8 @@
   result: BaseChemistryEmptyVial
   completetime: 2
   materials:
-    Glass: 50
-    #Wood: 20 # DeltaV - chemists shouldn't have to loot maints
+    Glass: 100
+    # Wood: 20 # DeltaV - Why wood? Because of the cork? That's dumb.
 
 - type: latheRecipe
   id: ClothingEyesGlassesChemical

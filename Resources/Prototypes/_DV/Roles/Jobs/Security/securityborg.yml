@@ -5,10 +5,10 @@
   playTimeTracker: JobSecurityBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 216000 #60 hrs
+      time: 60h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 #20 hrs
+      time: 20h
   canBeAntag: false
   icon: JobIconSecurityBorg
   supervisors: job-supervisors-everyone

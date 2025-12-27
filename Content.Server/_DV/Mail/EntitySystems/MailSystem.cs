@@ -1,10 +1,10 @@
+using Content.Shared.Chat;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Damage.Components;
 using Content.Server._DV.Mail.Components;
 using Content.Server.Destructible.Thresholds.Behaviors;
-using Content.Server.Destructible.Thresholds.Triggers;
-using Content.Server.Destructible.Thresholds;
+using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Server.Destructible;
 using Content.Server.Mind;
 using Content.Server.Power.Components;
@@ -15,7 +15,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared._DV.Mail;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Nutrition.Components;
@@ -33,6 +33,7 @@ using System.Threading;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Power.EntitySystems;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Shared.Destructible;
 
 namespace Content.Server._DV.Mail.EntitySystems;
 
@@ -318,7 +319,7 @@ public sealed class MailSystem : SharedMailSystem
         var accessReader = EnsureComp<AccessReaderComponent>(uid);
         foreach (var access in recipient.AccessTags)
         {
-            Access.AddAccess((uid, accessReader), access);
+            Access.TryAddAccess((uid, accessReader), access);
         }
 
         Dirty(uid, mailComp);
