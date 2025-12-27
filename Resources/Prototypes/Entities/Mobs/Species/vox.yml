@@ -39,21 +39,21 @@
         damage: 400
       behaviors:
       - !type:GibBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 25000 # DeltaV - lol
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          FoodMeatChickenFriedVox:
-            min: 3
-            max: 5
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
+    #- trigger: # DeltaV - Sadly no KFV :(
+    #    !type:DamageTypeTrigger
+    #    damageType: Heat
+    #    damage: 25000 
+    #  behaviors:
+    #  - !type:SpawnEntitiesBehavior
+    #    spawnInContainer: true
+    #    spawn:
+    #      FoodMeatChickenFriedVox:
+    #        min: 3
+    #        max: 5
+    #  - !type:BurnBodyBehavior { }
+    #  - !type:PlaySoundBehavior
+    #    sound:
+    #      collection: MeatLaserImpact
     - trigger:
         !type:DamageTypeTrigger
         damageType: Radiation
