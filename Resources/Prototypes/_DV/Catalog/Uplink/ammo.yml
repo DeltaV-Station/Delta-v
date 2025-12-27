@@ -8,3 +8,20 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkTranqMag
+  name: uplink-tranqmag-name
+  description: uplink-tranqmag-desc
+  icon:
+    entity: MagazinePistolSpecialTranq
+  productEntity: MagazinePistolSpecialTranq
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink ##no access to the gun that uses it
