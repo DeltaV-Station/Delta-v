@@ -701,3 +701,28 @@
   components:
   - type: Pda
     id: RecruiterIDCard
+
+# Secborglogprobe
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: SecurityCyborgPDA
+  name: security cyborg PDA
+  description: A smaller PDA that allows security cyborg's to collect information. Even comes with Sec Watch!
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - SecWatchCartridge
+    - LogProbeCartridge
+    - NanoTaskCartridge
+    - CrimeAssistCartridge
+    - NotekeeperCartridge
+  - type: PdaBorderColor
+    borderColor: "#48484B"
+    accentVColor: "#5C1F2D"
+  - type: Pda
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-secborg
