@@ -58,7 +58,7 @@ public abstract partial class SharedJetpackSystem
     {
         if (jetpackEnabled)
             RemComp<AutomaticJetpackUserComponent>(user);
-        if (jetpack.Comp.AutomaticMode) // DeltaV - Jetpacks automatically turn on when toggled.
+        else if (jetpack.Comp.AutomaticMode) // DeltaV - Jetpacks automatically turn on when toggled.
             EnsureComp<AutomaticJetpackUserComponent>(user).Jetpack = jetpack;
 
     }
