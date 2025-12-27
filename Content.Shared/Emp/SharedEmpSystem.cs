@@ -28,7 +28,7 @@ public abstract class SharedEmpSystem : EntitySystem
     ///     DeltaV. Default damage of EMPs, as dertermined by direction. There's no good component to put
     ///     this on so its defined here.
     /// </summary>
-    private readonly DamageSpecifier? _defaultEmpDamage = new() { DamageDict = new() { { "Ion", 130 } } };
+    private static readonly DamageSpecifier? DefaultEmpDamage = new() { DamageDict = new() { { "Ion", 130 } } };
 
     private HashSet<EntityUid> _entSet = new();
 
@@ -58,7 +58,7 @@ public abstract class SharedEmpSystem : EntitySystem
     {
         foreach (var uid in _lookup.GetEntitiesInRange(mapCoordinates, range))
         {
-            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? _defaultEmpDamage); // DeltaV - Add Ion Damage
+            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? DefaultEmpDamage); // DeltaV - Add Ion Damage
         }
 
         // TODO: replace with PredictedSpawn once it works with animated sprites
@@ -93,7 +93,7 @@ public abstract class SharedEmpSystem : EntitySystem
         _lookup.GetEntitiesInRange(coordinates, range, _entSet);
         foreach (var uid in _entSet)
         {
-            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? _defaultEmpDamage); // DeltaV - Add Ion Damage
+            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? DefaultEmpDamage); // DeltaV - Add Ion Damage
         }
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
