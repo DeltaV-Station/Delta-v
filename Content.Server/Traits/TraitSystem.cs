@@ -2,7 +2,6 @@
 // using Content.Shared.Hands.Components;
 // using Content.Shared.Hands.EntitySystems;
 // using Content.Shared.Roles;
-// using Content.Shared.StatusEffectNew;
 // using Content.Shared.Traits;
 // using Content.Shared.Whitelist;
 // using Robust.Shared.Prototypes;
@@ -14,7 +13,6 @@
 //     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 //     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
 //     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-//     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 //
 //     public override void Initialize()
 //     {
@@ -56,11 +54,6 @@
 //                 special.AfterEquip(args.Mob);
 //             }
 //
-//             // Begin DeltaV - Add overridden components
-//             if(traitPrototype.OverriddenComponents != null)
-//                 EntityManager.AddComponents(args.Mob, traitPrototype.OverriddenComponents, true);
-//             // End DeltaV
-//
 //             // Add item required by the trait
 //             if (traitPrototype.TraitGear == null)
 //                 continue;
@@ -77,3 +70,4 @@
 //         }
 //     }
 // }
+//
