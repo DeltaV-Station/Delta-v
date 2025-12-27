@@ -17,6 +17,14 @@
     - id: SkiaSpawn
     - id: RatKingSpawn
 
+- type: entityTable
+  id: MeteorSwarmRulesTableDeltaV
+  table: !type:AllSelector
+    children:
+    - id: MeteorSwarm
+    - id: MeteorSwarmUnidirectional
+    - id: MeteorSwarmTargeted
+
 # Replaces upstream meteor events until they're good
 - type: entity
   parent: BaseStationEventLongDelay
@@ -24,7 +32,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 7.5
+    weight: 1.0
     minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
@@ -36,6 +44,90 @@
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
   - type: MeteorSwarmRule
+    # The standard fully-random meteor swarm profile.
+    meteorsPerWave: 6
+    minimumWaves: 4
+    maximumWaves: 9
+    minimumCooldown: 10
+    maximumCooldown: 60
+    meteorVelocity: 10
+    meteorLifetime: 300
+    targetingSpread: 1.05  # Allow for some near-miss fly-by meteors to jump-scare crew on EVAs.
+    biasEnabled: false
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: MeteorSwarmUnidirectional
+  components:
+  - type: StationEvent  # mostly matching the base MeteorSwarm
+    earliestStart: 30
+    weight: 1.0
+    minimumPlayers: 15  # targeted swarms are a bit more brutal if you don't have engineering staff
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/meteors.ogg
+      params:
+        volume: -4
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
+  - type: MeteorSwarmRule
+    # A more steady "rain" of meteors coming from one direction. (instead of waves)
+    # I imagine it as the station passing through a "stationary" cluster of asteroids.
+    # Same duration but slightly fewer impacts than the standard swarm.
+    targetingSpread: 1.2
+    meteorsPerWave: 2
+    minimumWaves: 15
+    maximumWaves: 30
+    minimumCooldown: 5
+    maximumCooldown: 10
+    meteorVelocity: 7
+    meteorLifetime: 450
+    # line up all the meteors:
+    biasEnabled: true
+    biasRate: 0.95  # a few will come from other directions
+    biasApproachAngleDeviationDegrees: 5
+    biasEnabledForTarget: false  # target a wide area, not one particular point
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: MeteorSwarmTargeted
+  components:
+  - type: StationEvent  # mostly matching the base MeteorSwarm
+    earliestStart: 30
+    weight: 3.0
+    minimumPlayers: 20  # targeted swarms are a bit more brutal if you don't have engineering staff
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/meteors.ogg
+      params:
+        volume: -4
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
+  - type: MeteorSwarmRule
+    # A variation of the standard MeteorSwarm that is pretty strongly biased towards hitting a specific area.
+    #  (e.g. a specific outside-facing department, or a specific solar array)
+    # Shorter time duration and much fewer total impacts than the standard swarm.
+    #  (targeting is pretty devastating - be nice to the victims by reducing meteor count)
+    meteorsPerWave: 3
+    minimumCooldown: 10
+    maximumCooldown: 40
+    minimumWaves: 3
+    maximumWaves: 9
+    meteorVelocity: 10
+    meteorLifetime: 300
+    # focus most of the meteors on a specific area:
+    targetingSpread: 1.0
+    biasEnabled: true
+    biasRate: 0.7  # a good chunk of meteors still hit randomly, so it doesn't feel *too* artifical/targeted
+    biasApproachAngleDeviationDegrees: 20
+    biasEnabledForTarget: true
+    biasTargetDeviationTiles: 10
+
+
 # Xeno Vents
 - type: entity
   parent: BaseGameRule
