@@ -76,7 +76,7 @@ public sealed partial class AACWindow : FancyWindow
 
     private void FilterSearch(LineEdit.LineEditEventArgs? obj)
     {
-        SearchResults.DisposeAllChildren();
+        SearchResults.RemoveAllChildren();
         _filteredPhrases.Clear();
 
         var emptySearch = string.IsNullOrEmpty(SearchBar.Text);
