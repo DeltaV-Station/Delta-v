@@ -165,9 +165,10 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
+    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSilicon
-    wilhelmProbability: 0
+    wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -519,9 +520,10 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
+    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSiliconXenoborg
-    wilhelmProbability: 0
+    wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
