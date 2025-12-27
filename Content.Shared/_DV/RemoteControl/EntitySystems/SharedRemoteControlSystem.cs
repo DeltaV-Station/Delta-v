@@ -250,6 +250,9 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             || targetReceiver.ChannelName != control.Comp.ChannelName)
             return; // Not a receiver to be bound to, or not on the right channel
 
+        if (!targetReceiver.Bindable)
+            return; // Not a target that can be bound to a remote control.
+
         var user = args.User;
         var target = args.Target;
 

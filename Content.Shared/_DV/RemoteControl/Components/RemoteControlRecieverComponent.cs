@@ -17,6 +17,12 @@ public sealed partial class RemoteControlReceiverComponent : Component
     public bool CanUnderstand = false;
 
     /// <summary>
+    /// Whether this entity is just aware of the commands but can never be bound to a control.
+    /// </summary>
+    [DataField]
+    public bool Bindable = true;
+
+    /// <summary>
     /// A string denoting which "Channel" kind this entity can receive on.
     /// </summary>
     [DataField(required: true)]
