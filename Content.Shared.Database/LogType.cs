@@ -394,6 +394,9 @@ public enum LogType
     BagOfHolding = 420, //Nyano - Summary: adds bag of holding.
     Psionics = 421, //Nyano - Summary: ads psionic as a log type.
     ObjectiveSummary = 422, // DeltaV
+    Glimmer = 423, // DeltaV
+    Research = 424, // DeltaV
+    ArtifactDetails = 425, // DeltaV
 
     /// <summary>
     /// A client has sent too many chat messages recently and is temporarily blocked from sending more.
