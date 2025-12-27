@@ -68,8 +68,7 @@
     icon:
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: mind_swap_return
-    startDelay: true # Delta V - Start Delay after Mind Swap
-    useDelay: 120 # Delta V - 20 => 120
+    useDelay: 20
     checkCanInteract: false
   - type: InstantAction
     event: !type:MindSwapPowerReturnActionEvent
