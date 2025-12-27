@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Toggleable;
+namespace Content.Shared._Starlight.Toggleable;
 
 public sealed partial class SwitchableActionEvent : InstantActionEvent;
 
