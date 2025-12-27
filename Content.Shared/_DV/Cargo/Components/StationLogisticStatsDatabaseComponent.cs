@@ -1,8 +1,7 @@
-using Content.Server._DV.Cargo.Systems;
-using Content.Shared.Cargo;
-using Content.Shared.CartridgeLoader.Cartridges;
+using Content.Shared._DV.Cargo.Systems;
+using Content.Shared._DV.CartridgeLoader.Cartridges;
 
-namespace Content.Server._DV.Cargo.Components;
+namespace Content.Shared._DV.Cargo.Components;
 
 /// <summary>
 /// Added to the abstract representation of a station to track stats related to mail delivery and income
@@ -11,5 +10,5 @@ namespace Content.Server._DV.Cargo.Components;
 public sealed partial class StationLogisticStatsComponent : Component
 {
     [DataField]
-    public MailStats Metrics { get; set; }
+    public MailStats Metrics;
 }

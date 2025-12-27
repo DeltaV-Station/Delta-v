@@ -1,16 +1,10 @@
-using Content.Server._DV.Cargo.Components;
-using Content.Shared.Cargo;
+using Content.Shared._DV.Cargo.Components;
 using JetBrains.Annotations;
 
-namespace Content.Server._DV.Cargo.Systems;
+namespace Content.Shared._DV.Cargo.Systems;
 
 public sealed partial class LogisticStatsSystem : EntitySystem
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     [PublicAPI]
     public void AddOpenedMailEarnings(EntityUid uid, StationLogisticStatsComponent component, int earnedMoney)
     {
@@ -55,14 +49,16 @@ public sealed partial class LogisticStatsSystem : EntitySystem
         UpdateLogisticsStats(uid);
     }
 
-    private void UpdateLogisticsStats(EntityUid uid) => RaiseLocalEvent(new LogisticStatsUpdatedEvent(uid));
+    private void UpdateLogisticsStats(EntityUid uid)
+    {
+        var ev = new LogisticStatsUpdatedEvent(uid);
+        RaiseLocalEvent(uid, ref ev);
+    }
 }
 
-public sealed class LogisticStatsUpdatedEvent : EntityEventArgs
+[ByRefEvent]
+public record struct LogisticStatsUpdatedEvent(EntityUid Station)
 {
-    public EntityUid Station;
-    public LogisticStatsUpdatedEvent(EntityUid station)
-    {
-        Station = station;
-    }
+    public EntityUid Station = Station;
+    public bool Handled = false;
 }
