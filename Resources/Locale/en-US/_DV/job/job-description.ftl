@@ -10,3 +10,4 @@ job-description-cargo-assistant = Learn the basics of the logistics department, 
 job-description-admin-assistant = Assist command in their day-to-day activities, grab the captain a coffee, answer faxes in the bridge.
 job-description-mime-delta = Entertain the crew while remaining silent, and engage with light rivalry with the clown.
 job-description-assistant = Get your space legs, assist people, ask a Command member to give you a job.
+job-description-k9-officer = Support the security team with your sharp nose and teeth.

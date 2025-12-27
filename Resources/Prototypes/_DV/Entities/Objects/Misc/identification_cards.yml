@@ -534,3 +534,18 @@
   - type: IdCard
     jobTitle: job-name-passenger
     jobIcon: JobIconPassenger
+
+# Security K9 Officer
+
+- type: entity
+  parent: SecurityIDCard
+  id: K9OfficerIDCard
+  name: K9 officer ID card
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idsecurityk9officer
+  - type: PresetIdCard
+    job: SecurityK9Officer
