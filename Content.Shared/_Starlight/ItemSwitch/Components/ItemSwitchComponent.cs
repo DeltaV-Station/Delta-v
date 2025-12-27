@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Item.ItemToggle.Components;
+namespace Content.Shared._Starlight.Item.ItemToggle.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class ItemSwitchComponent : Component
@@ -40,6 +40,7 @@ public sealed partial class ItemSwitchComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool Predictable = true;
 }
+
 [DataDefinition]
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 {
@@ -59,7 +60,7 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
     public bool RemoveComponents = true;
     
     [DataField]
-    public bool Hiden = false;
+    public bool Hidden = false;
 
     [DataField]
     public SpriteSpecifier? Sprite;
