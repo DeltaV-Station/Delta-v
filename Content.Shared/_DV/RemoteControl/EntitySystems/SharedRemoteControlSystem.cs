@@ -104,6 +104,12 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         SetUnitFree((entity, receiverComponent));
 
+        if (control.Comp.BoundEntities.Count == 0)
+        {
+            // If we've got no entities to control, we should just turn off.
+            _itemToggle.TryDeactivate(control.Owner);
+        }
+
         return true;
     }
 
@@ -120,7 +126,11 @@ public abstract class SharedRemoteControlSystem : EntitySystem
     /// <param name="args">Args for the event, notably the performer.</param>
     private void OnToggleActivateAttempt(Entity<RemoteControlComponent> control, ref ItemToggleActivateAttemptEvent args)
     {
-        // TODO: Block toggles from working if no entities are bound
+        if (control.Comp.BoundEntities.Count == 0)
+        {
+            args.Cancelled = true;
+            args.Popup = Loc.GetString(control.Comp.NoBoundEntitiesWarning);
+        }
     }
 
     /// <summary>

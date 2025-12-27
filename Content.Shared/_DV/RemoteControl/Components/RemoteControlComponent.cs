@@ -67,6 +67,13 @@ public sealed partial class RemoteControlComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<RemoteControlOrderType, LocId> OrderStrings;
+
+    /// <summary>
+    /// Localised string to show when a remote control is toggled without any entities
+    /// bound to it.
+    /// </summary>
+    [DataField]
+    public LocId NoBoundEntitiesWarning = "remote-control-no-bound-entities";
 }
 
 [Serializable, NetSerializable]

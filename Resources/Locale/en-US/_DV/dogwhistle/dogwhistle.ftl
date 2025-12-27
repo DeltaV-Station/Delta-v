@@ -13,3 +13,5 @@ dog-whistle-noise-6 = EEEEEE
 
 dog-whistle-toggle-action-up = {$user} pulls their dog whistle up
 dog-whistle-toggle-action-down = {$user} pulls their dog whistle down
+
+dog-whistle-no-bound-entities = Need to bind a dog to this whistle first!
