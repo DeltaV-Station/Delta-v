@@ -181,7 +181,7 @@ public sealed partial class AACWindow : FancyWindow
         {
             var text = Loc.GetString(phrase.Text);
             var button = CreatePhraseButton(text, phrase.StyleClass);
-            button.OnPressed += _ => OnPhraseButtonPressed(new ProtoId<QuickPhrasePrototype>(phrase.ID));
+            button.OnPressed += _ => OnPhraseButtonPressed(phrase);
             buttonContainer.AddChild(button);
         }
         return buttonContainer;
