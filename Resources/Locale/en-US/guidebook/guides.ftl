@@ -59,7 +59,7 @@ guide-entry-solarpanels = Solar Panels
 guide-entry-teg = Thermo-electric Generator (TEG)
 guide-entry-rtg = RTG
 guide-entry-jobs = Jobs
-guide-entry-cargo = Cargo
+# guide-entry-cargo = Logistics Moved to _DV
 guide-entry-cargo-bounties = Cargo Bounties
 guide-entry-salvage = Salvage
 guide-entry-survival = Survival
@@ -73,9 +73,10 @@ guide-entry-brute = Advanced Brute Medication
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
-# Beginning of DeltaV changes
-guide-entry-science = Epistemics
-# End of DeltaV Changes
+# guide-entry-science = Epistemics Moved to _DV
+# guide-entry-altars = Altars Moved to _DV
+# guide-entry-psionics = Psionics Moved to _DV
+# guide-entry-reverse-engineering = Reverse Engineering Moved to _DV
 guide-entry-technologies = Technologies
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels
