@@ -5,7 +5,7 @@ using Content.Shared.Interaction;
 
 namespace Content.Shared._DV.Augments;
 
-public sealed class AugmentSystem : EntitySystem
+public sealed partial class AugmentSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -16,6 +16,8 @@ public sealed class AugmentSystem : EntitySystem
         SubscribeLocalEvent<InstalledAugmentsComponent, AccessibleOverrideEvent>(OnAccessibleOverride);
 
         SubscribeLocalEvent<InstalledAugmentsComponent, ExaminedEvent>(OnExamined);
+
+        RegisterStaminaEvents();
     }
 
     private void OnExamined(Entity<InstalledAugmentsComponent> ent, ref ExaminedEvent args)
@@ -54,5 +56,19 @@ public sealed class AugmentSystem : EntitySystem
         // let the user interact with their installed augments
         args.Handled = true;
         args.Accessible = true;
+    }
+
+    /// <summary>
+    /// Forwards a specified event to all installed augments in the specified entity.
+    /// </summary>
+    /// <typeparam name="T">The event type to forward.</typeparam>
+    /// <param name="ent">The entity with the installed augments to forward to.</param>
+    /// <param name="ev">The event to forward.</param>
+    private void ForwardEventToAugments<T>(Entity<InstalledAugmentsComponent> ent, ref T ev) where T : notnull
+    {
+        foreach (var augment in ent.Comp.InstalledAugments)
+        {
+            RaiseLocalEvent(GetEntity(augment), ref ev);
+        }
     }
 }

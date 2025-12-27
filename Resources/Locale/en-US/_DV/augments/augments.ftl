@@ -3,3 +3,6 @@ augment-tool-panel-hand-full = There's something in your hand
 augment-tool-panel-cannot-pick-up = Your hand isn't capable of holding that
 augment-tool-panel-examine = Their arm seems augmented.
 augment-tool-panel-examine-multiple = Their arms seem augmented.
+
+augment-k9-shockjaws-no-provider = No batteries available
+augment-k9-shockjaws-low-charge = Insufficient charge
