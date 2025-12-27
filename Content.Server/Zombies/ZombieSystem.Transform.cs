@@ -13,6 +13,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Server._DV.Overlays; //DeltaV
 using Content.Shared.Abilities.Psionics; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
@@ -42,6 +43,12 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Movement.Pulling.Systems; // DeltaV
+using Content.Shared._DV.Body; // DeltaV
+using Content.Shared._DV.Light; //DeltaV
+using Content.Shared.FixedPoint; //DeltaV
+using Content.Shared._Goobstation.Overlays; //DeltaV
+
 
 namespace Content.Server.Zombies;
 
@@ -67,6 +74,8 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+
+    [Dependency] private readonly PullingSystem _puller = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -292,8 +301,46 @@ public sealed partial class ZombieSystem
 
         // Sloth: What the fuck?
         // How long until compregistry lmao.
-        RemComp<PullerComponent>(target);
+        // Delta-v changes start: i hate everything so much you can't even imagine
+        // It looks really bad to me too but i don't know better yet
+        // Wizden comments mention compregistry and i see something like that in repo. See if it's real and works
+        var pullerComp = EnsureComp<PullerComponent>(target);
+        _puller.ToggleNeedsHands(target, false);
 
+        var lightreactComp = AddComp<LightReactiveComponent>(target);
+
+        var lighthealthComp = AddComp<LightLevelHealthComponent>(target);
+        lighthealthComp.HealWhenDead = true;
+        lighthealthComp.DarkMovementSpeedMultiplier = 1.3f;
+        lighthealthComp.DarkThreshold = 0.3f;
+        lighthealthComp.LightThreshold = 0.7f;
+        lighthealthComp.DarkDamage = new()  // Is there a way to do this with damage groups?
+        { 
+            DamageDict = new Dictionary<string, FixedPoint2>() 
+            { 
+                { "Blunt", -0.6 },
+                { "Slash", -0.6 },
+                { "Piercing", -0.6 },
+                { "Heat", -0.1 },
+                { "Holy", -0.1 },
+                { "Cold", -0.6 },
+                { "Shock", -0.6 },
+                { "Asphyxiation", -1 } // They revive so if they give up and return later they need to heal asphyx
+            } 
+        };
+        lighthealthComp.LightDamage = new() // I don't want them to take damage or heal in the light but without anything there it crashes.
+        { 
+            DamageDict = new Dictionary<string, FixedPoint2>() 
+            { 
+                { "Shadow", -0.1 }
+            } 
+        };
+
+        var nightvisionComp = AddComp<NightVisionComponent>(target);
+        var ressurectComp = AddComp<ResurrectWhenAbleComponent>(target);
+        ressurectComp.TimeToResurrect = 30f;
+
+        //Delta-v changes end. For now. Later? who knows
         // No longer waiting to become a zombie:
         // Requires deferral because this is (probably) the event which called ZombifyEntity in the first place.
         RemCompDeferred<PendingZombieComponent>(target);
