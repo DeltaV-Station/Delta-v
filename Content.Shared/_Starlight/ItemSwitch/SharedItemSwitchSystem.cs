@@ -14,12 +14,7 @@ using Robust.Shared.Network;
 namespace Content.Shared._Starlight.ItemSwitch;
 
 public abstract class SharedItemSwitchSystem : EntitySystem
-<<<<<<< HEAD
-
-=======
 {
-{
->>>>>>> 5cdddb40021278547b4008812cbb79b18d96a128
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
