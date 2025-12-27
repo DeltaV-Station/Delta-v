@@ -25,7 +25,6 @@
   - type: RemoteControl
     channelName: CanineDogWhistle
     cooldown: 3
-    toggleActionBase: "dog-whistle-toggle-action"
     useSound: !type:SoundCollectionSpecifier
         collection: TrenchWhistle
     screeches:
