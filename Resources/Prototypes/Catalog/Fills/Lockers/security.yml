@@ -10,7 +10,7 @@
         - !type:NestedSelector
           tableId: FillLockerWarden
         - !type:NestedSelector
-          tableId: FillLockerWardenHarduit
+          tableId: FillLockerWardenHardsuit
 
 - type: entity
   id: LockerWardenFilled
@@ -55,11 +55,10 @@
     - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
     - id: ClothingNeckShockCollar
       amount: 2
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     # End DeltaV additions
 
 - type: entityTable
-  id: FillLockerWardenHarduit
+  id: FillLockerWardenHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.

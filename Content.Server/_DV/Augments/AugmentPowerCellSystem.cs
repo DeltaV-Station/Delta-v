@@ -5,6 +5,7 @@ using Content.Shared._DV.Augments;
 using Content.Shared.Alert;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
@@ -95,10 +96,10 @@ public sealed class AugmentPowerCellSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<HasAugmentPowerCellSlotComponent>();
-        while (query.MoveNext(out var owner, out _))
+        var query = EntityQueryEnumerator<HasAugmentPowerCellSlotComponent, MobStateComponent>();
+        while (query.MoveNext(out var owner, out _, out var mobState))
         {
-            if (_mobState.IsDead(owner))
+            if (_mobState.IsDead(owner, mobState))
                 continue;
 
             var powerCell = TryGetAugmentPowerCell(owner);
