@@ -1,17 +1,4 @@
 ﻿Entries:
-- author: Nesoryo
-  changes:
-  - message: Added new vulpkanin variants of fire helmets
-    type: Add
-  - message: Added new reptilian variant for regular fire helemt
-    type: Add
-  - message: Changed fire helmets to fit better heads.
-    type: Tweak
-  - message: Fire suits (base) now look thicker
-    type: Tweak
-  id: 1487
-  time: '2025-06-24T08:57:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3776
 - author: Stop-Signs
   changes:
   - message: SRN pirate revolver module has had it's damage reduced.
@@ -4243,3 +4230,49 @@
   id: 1986
   time: '2025-12-28T17:51:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5038
+- author: PureBreadBagel
+  changes:
+  - message: New players rejoice! The guidebooks got some love! Starting with 'Medical
+      Doctor', it has been completely rewritten!
+    type: Add
+  - message: Psionics entry now has extra information on how to track Glimmer!
+    type: Add
+  - message: Highlighted some important text in some entries.
+    type: Add
+  - message: Added some extra information regarding some traits in the "Creating Characters"
+      entry.
+    type: Tweak
+  - message: Cloning now states that those with the unrevivable trait are uncloneable,
+      along with some rewording.
+    type: Tweak
+  - message: The "Surgery" entry now contains information about cleaning surgical
+      tools.
+    type: Add
+  - message: Added Umbroxol and Holy water to the Specialty medications in the Medicine
+      entry.
+    type: Add
+  - message: Organ Manipulation now has better information about how to get limbs.
+    type: Tweak
+  - message: Removed mentions about golemancy in the guidebook.
+    type: Remove
+  - message: Part Manipulation now contains information regarding the exosuit fabricator
+      and IPC heads and torsos.
+    type: Tweak
+  - message: Fixed the Cultist Deconversion entry. The entry should no longer state
+      that the Ardent Censer uses Holy Water; instead, it should specify Mindbreaker
+      Toxin, along with a recipe.
+    type: Fix
+  - message: Anomalous Research mentions about anomalies that hijack hosts. (Anomalies
+      can move when its attached to someone!)
+    type: Tweak
+  - message: The Justice entry in Jobs now links to the Hearings section of the guidebook.
+      And removed the outdated trial procedure.
+    type: Fix
+  - message: Fixed the Command role names. Quarter Master and Research Director should
+      now be MystaGouge and Logistics Officer.
+    type: Fix
+  - message: And more!
+    type: Add
+  id: 1987
+  time: '2025-12-28T18:51:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5004
