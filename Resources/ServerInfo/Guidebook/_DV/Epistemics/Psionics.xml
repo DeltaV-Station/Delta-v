@@ -11,11 +11,25 @@ Many other creatures are much more in tune with it than humans, allowing them to
 All psionic entities have a shared telepathic communication channel. It's anonymized, so you never know who you are talking to. Statistically, it probably is not human.
 
 ## Glimmer
-[color=#a4885c]Glimmer[/color] is a more colloquial term for [color=#a4885c]noöspheric pressure[/color], measured in [color=#a4885c]milli-Psi (mΨ)[/color]. The noösphere can be considered analogous to an atmosphere. In a localized area, everything will equalize towards a certain pressure that's based off of the total energy in the system.
-Note that unlike atmospheres, areas of noopsheric pressure do not operate by physical contigiousness, but mental. This means that areas with intertwined destinies will experience the same latent glimmer regardless of physical separation.
+[bold]Glimmer[/bold] is the term we use for [color=#a4885c]noöspheric pressure[/color], measured in [color=#ea79cc]milli-Psi (mΨ)[/color]. The noösphere is unique; as that it will globally affect all of the station (and by extension, all sectors) with noöspheric discharge events! And also at our dismay, meeting [textlink="Glimmer-based entities." link="GlimmerCreatures"]
+When Glimmer is at dangerous levels, it is to be met with a [bold]Code White[/bold] unless there is another crisis affecting the station. So it is important that you keep [bold]Glimmer[/bold] low at all times during your work!
 
-<GuideEntityEmbed Entity="SophicScribe" />
-The [color=#a4885c]sophic scribe[/color] tracks glimmer.
+### Tracking Glimmer
+[italic]There are two ways to track glimmer.[/italic]
+
+<GuideEntityEmbed Entity="SophicScribe"/>
+The [color=#a4885c]sophic scribe[/color] is interconnected with the noösphere, giving us consistent updates for glimmer. It occasionally broadcasts the current glimmer level and also brodcasts changes in glimmer whenever a [bold]noöspheric discharge[/bold] happens!
+You can also get the current glimmer level by interacting with the [color=#a4885c]sophic scribe[/color].
+
+<Box>
+<GuideEntityEmbed Entity="SciencePDA" Caption="Any Epistemic PDA"/>
+<GuideEntityEmbed Entity="GlimmerMonitorCartridge"/>
+</Box>
+Epistemic PDAs come with the [color=#ea79cc]Glimmer Monitor[/color] program. You may access a graph of the Glimmer by interacting with your PDA and clicking the Glimmer Monitor program.
+The program will display a line-graph of the grimmer levels from 1 minute, 5 minutes or 10 minutes ago; along with the current glimmer.
+[bold]Make sure its synced often![/bold]
+
+## Controlling Glimmer
 
 <Box>
 <GuideEntityEmbed Entity="GlimmerProber"/>
@@ -23,9 +37,9 @@ The [color=#a4885c]sophic scribe[/color] tracks glimmer.
 </Box>
 
 Epistemics can build devices to interact with glimmer. These are usually the main determiners of where glimmer is going.
-[color=#a4885c]Glimmer probers[/color] will increase glimmer, but directly generate research points without further input. [color=#a4885c]Glimmer drains[/color] simply drain glimmer at the cost of electricity.
+[color=#a4885c]Glimmer probers[/color] will increase glimmer, but directly generate research points depending on how much glimmer there is. [color=#a4885c]Glimmer drains[/color] simply drain glimmer at the cost of electricity.
 
-Use of psionics will increase glimmer, as will [color=#a4885c]noöspheric storms[/color].
+Any use of psionic powers will increase glimmer, as will [color=#a4885c]noöspheric storms[/color].
 
 ## Discharges
 Glimmer will occasionally discharge if it's above 100 mΨ, causing a wide range of effects based on just how high it is. The most common is giving all entities with psionic potential a small seizure,
