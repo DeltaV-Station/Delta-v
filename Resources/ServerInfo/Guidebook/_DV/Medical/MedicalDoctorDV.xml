@@ -69,14 +69,17 @@ Although you are equipped to deal with the most common types of damage, you do n
 For that, [bold]you need to utilise chemicals![/bold]
 Chemicals are way more effective than the tools on your medical belt, and can treat more types of damage.
 
-To get started, find yourself a syringe.
+To get started, find yourself a jet injector or syringe.
 <Box>
-<GuideEntityEmbed Entity="Syringe"/>
+
+<GuideEntityEmbed Entity="JetInjector"/>
 <GuideEntityEmbed Entity="SyringeBluespace"/>
 <GuideEntityEmbed Entity="Hypospray"/>
 <GuideEntityEmbed Entity="Jug" Caption="Chem container"/>
 </Box>
-Syringes have two modes, [bold]Draw[/bold] and [bold]Inject[/bold].
+Jet injectors are the medical tool you will be likely using the most. They can be found in lockers or the NanoMed Plus. You can click on a jug of medicine with a jet injector and it will draw 5 units from the jug at a time. You can draw however much you need, then click on someone with the jet injector and it will automatically inject all of the medicine you've put into the jet injector into the patient.
+
+Syringes have two modes, [bold]Draw[/bold] and [bold]Inject[/bold]. They are a bit more cumbersome to use than jet injectors, but they can draw blood or other chemicals from things that jet injectors cannot.
 - When you press [color=yellow][keybind="Use"][/color] while hovering over a chemical container in [bold]Draw[/bold] mode, it will gather chemicals from that container.
 - Then it will switch to [bold]Inject[/bold] mode. When you press [color=yellow][keybind="Use"][/color] while hovering over a patient, it will inject that chemical into their bloodstream. Then switches back to [bold]Draw[/bold] mode.
 
