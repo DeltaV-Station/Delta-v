@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Starlight.Toggleable;
+namespace Content.Shared._Starlight.ItemSwitch.Visuals;
 
 public sealed partial class SwitchableActionEvent : InstantActionEvent;
 
@@ -9,9 +9,8 @@ public sealed partial class SwitchableActionEvent : InstantActionEvent;
 ///     Generic enum keys for toggle-visualizer appearance data & sprite layers.
 /// </summary>
 [Serializable, NetSerializable]
-public enum SwitchableVisuals : byte
+public enum ItemSwitchVisuals : byte
 {
     Switched,
     Layer
 }
-                            

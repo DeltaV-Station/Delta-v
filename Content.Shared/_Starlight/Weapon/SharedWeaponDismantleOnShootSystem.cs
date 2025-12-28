@@ -8,7 +8,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 
-namespace Content.Shared._Starlight.Weapon.Systems;
+namespace Content.Shared._Starlight.Weapon;
 
 public abstract partial class SharedWeaponDismantleOnShootSystem : EntitySystem
 {

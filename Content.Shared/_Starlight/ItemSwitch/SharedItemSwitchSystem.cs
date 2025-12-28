@@ -4,9 +4,9 @@ using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
-using Content.Shared._Starlight.Item.ItemToggle.Components;
+using Content.Shared._Starlight.ItemSwitch.Components;
 using Content.Shared.Popups;
-using Content.Shared._Starlight.Toggleable;
+using Content.Shared._Starlight.ItemSwitch.Visuals;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -48,9 +48,11 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled || !ent.Comp.OnUse || ent.Comp.States.Count == 0) return;
+        if (args.Handled || !ent.Comp.OnUse || ent.Comp.States.Count == 0) 
+            return;
+
         args.Handled = true;
-        
+
         if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
             return;
 
@@ -76,7 +78,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             });
             addedVerbs++;
         }
-        
+
         if (addedVerbs > 0)
             args.ExtraCategories.Add(VerbCategory.Switch);
     }
@@ -87,10 +89,10 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             return;
 
         args.Handled = true;
-        
+
         if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
             return;
-        
+
         Switch((ent.Owner, ent.Comp), Next(ent), args.User, predicted: ent.Comp.Predictable);
     }
 
@@ -180,7 +182,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     protected virtual void UpdateVisuals(Entity<ItemSwitchComponent> ent, string key)
     {
         if (TryComp(ent, out AppearanceComponent? appearance))
-            _appearance.SetData(ent, SwitchableVisuals.Switched, key, appearance);
+            _appearance.SetData(ent, ItemSwitchVisuals.Switched, key, appearance);
         _item.SetHeldPrefix(ent, key);
 
         VisualsChanged(ent, key);
