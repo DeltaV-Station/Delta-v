@@ -1,0 +1,96 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: CargoCart
+  parent: [BaseStructureDynamic, StructureWheeled]
+  name: cargo cart
+  description: Supplies, where you need them.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Objects/Specific/Cargo/cargocart.rsi
+    state: cart
+  - type: Appearance
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: ItemSlots
+    slots:
+      big_slot4:
+        whitelist:
+          tags:
+          - CardboardboxLarge
+        insertOnInteract: true
+        priority: 9
+      big_slot3:
+        whitelist:
+          tags:
+          - CardboardboxLarge
+        insertOnInteract: true
+        priority: 8
+      big_slot2:
+        whitelist:
+          tags:
+          - CardboardboxLarge
+        insertOnInteract: true
+        priority: 7
+      big_slot1:
+        whitelist:
+          tags:
+          - CardboardboxLarge
+        insertOnInteract: true
+        priority: 6
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+      big_slot4: !type:ContainerSlot { }
+      big_slot3: !type:ContainerSlot { }
+      big_slot2: !type:ContainerSlot { }
+      big_slot1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      big1:
+        minCount: 1
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      big2:
+        minCount: 2
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      big3:
+        minCount: 3
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      big4:
+        minCount: 4
+        whitelist:
+          tags:
+          - CardboardboxLarge
+    sprite: _Funkystation/Objects/Specific/Cargo/cargocart.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 250
+        layer:
+        - TableLayer
+        mask:
+        - TableMask
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+  - type: StaticPrice
+    price: 500
+  - type: DnaSubstanceTrace
