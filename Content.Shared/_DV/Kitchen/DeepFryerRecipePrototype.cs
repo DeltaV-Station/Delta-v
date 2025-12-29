@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Kitchen;
 using Robust.Shared.Prototypes;
 

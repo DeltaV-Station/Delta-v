@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Kitchen.Systems;
+using Content.Shared._DV.Kitchen.Systems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition;

@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Kitchen.Components;
+using Content.Shared._DV.Kitchen.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;

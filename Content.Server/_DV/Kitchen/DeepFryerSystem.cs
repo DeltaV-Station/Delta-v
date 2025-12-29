@@ -1,4 +1,4 @@
-﻿using Content.Server.Power.Components;
+using Content.Server.Power.Components;
 using Content.Shared._DV.Kitchen;
 using Content.Shared._DV.Kitchen.Components;
 using Content.Shared._DV.Kitchen.Systems;

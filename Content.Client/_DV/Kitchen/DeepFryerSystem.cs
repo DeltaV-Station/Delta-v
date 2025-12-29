@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Kitchen.Systems;
+using Content.Shared._DV.Kitchen.Systems;
 
 namespace Content.Client._DV.Kitchen;
 
