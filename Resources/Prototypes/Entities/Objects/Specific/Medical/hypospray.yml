@@ -10,6 +10,11 @@
     allowedModes:
     - HyposprayDynamicMode
     - HyposprayInjectMode
+  - type: Spillable
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Appearance
 
 - type: entity
   parent: [BaseHypospray, BaseGrandTheftContraband]
@@ -115,7 +120,7 @@
   - type: Item
     sprite: Objects/Specific/Medical/jetinjector.rsi
   - type: UseDelay
-    delay: 2.0
+    delay: 1.5
   - type: SolutionContainerManager
     solutions:
       hypospray:
