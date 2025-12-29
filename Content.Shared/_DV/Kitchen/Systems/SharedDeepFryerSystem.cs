@@ -21,7 +21,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] protected readonly SharedSolutionContainerSystem Solution = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
 
     public override void Initialize()
@@ -45,7 +45,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution) && solution.Volume <= 0)
+        if (Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution) && solution.Volume <= 0)
             return;
 
         var qualityLevel = GetOilQualityLevel(ent.Comp.OilQuality);
@@ -227,7 +227,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
     /// </summary>
     protected bool HasEnoughOil(Entity<DeepFryerComponent> ent)
     {
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
+        if (!Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
             return false;
 
         // Check if there's enough total volume
@@ -278,7 +278,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
     /// </summary>
     protected float CalculateOilDegradationMultiplier(Entity<DeepFryerComponent> ent)
     {
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
+        if (!Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
             return 1.0f;
 
         var maxVolume = solution.MaxVolume;

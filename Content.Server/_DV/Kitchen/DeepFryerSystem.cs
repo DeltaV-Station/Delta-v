@@ -504,6 +504,9 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         // Spawn the result (from the microwave recipe)
         var result = Spawn(microwaveRecipe.Result, coords);
 
+        // Transfer solution from fryer to food (includes oil AND any contaminants!)
+        TransferOilToFood(ent, result, deepFryerRecipe.OilConsumption);
+
         // Add flavors based on oil quality
         AddOilQualityFlavors(result, ent.Comp, qualityLevel);
 
@@ -617,5 +620,27 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
 
         // Mark as dirty to sync to clients
         Dirty(ent);
+    }
+
+    /// <summary>
+    /// Transfers solution from the fryer into the food solution.
+    /// Transfers ALL reagents proportionally - if someone added bleach to the fryer, enjoy your bleach-fried food!
+    /// </summary>
+    private void TransferOilToFood(Entity<DeepFryerComponent> ent, EntityUid food, FixedPoint2 amount)
+    {
+        // Get the fryer's solution
+        if (!Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var fryerSolution))
+            return;
+
+        // Get the food solution
+        if (!Solution.TryGetSolution(food, "food", out var foodSolutionEnt, out _))
+            return;
+
+        // Split the desired amount from the fryer - this takes ALL reagents proportionally!
+        // If the fryer has 80% oil and 20% bleach, the food gets 80% oil and 20% bleach too!
+        var transferredSolution = fryerSolution.SplitSolution(amount);
+
+        // Add the split solution to the food
+        Solution.AddSolution(foodSolutionEnt.Value, transferredSolution);
     }
 }
