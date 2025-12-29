@@ -27,6 +27,8 @@ public partial class SharedBodySystem
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
     // [Dependency] private readonly InventorySystem _inventorySystem = default!; // Shitmed Change - Declared in SharedBodySystem.cs
 
+    private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
+
     private void InitializeParts()
     {
         // TODO: This doesn't handle comp removal on child ents.
@@ -392,6 +394,18 @@ public partial class SharedBodySystem
     // Shitmed Change: made virtual, bleeding damage is done on server
     protected virtual void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
     {
+        if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
+            return;
+
+        if (!_timing.ApplyingState
+            && partEnt.Comp.IsVital
+            && !GetBodyChildrenOfType(bodyEnt, partEnt.Comp.PartType, bodyEnt.Comp).Any()
+        )
+        {
+            // TODO BODY SYSTEM KILL : remove this when wounding and required parts are implemented properly
+            var damage = new DamageSpecifier(Prototypes.Index(BloodlossDamageType), 300);
+            Damageable.ChangeDamage(bodyEnt.Owner, damage);
+        }
     }
 
     /// <summary>

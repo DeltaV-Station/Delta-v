@@ -8,7 +8,7 @@
   - Xenoarchaeology
   - Robotics
   - Psionics # Nyanotrasen - Psionics guidebook
-  - AltarsGolemancy # Nyanotrasen - Golemancy guidebook
+  - Altars # Nyanotrasen - Golemancy guidebook
   - ReverseEngineering # Nyanotrasen - Reverse Engineering guidebook
   - GlimmerCreatures # DeltaV
 
@@ -41,7 +41,18 @@
   name: guide-entry-xenoarchaeology
   text: "/ServerInfo/Guidebook/Science/Xenoarchaeology.xml"
   children:
-  - ArtifactReports
+    - AnalysisConsole
+    - XenoarchaeologyUnlockingNodes
+
+- type: guideEntry
+  id: XenoarchaeologyUnlockingNodes
+  name: guide-entry-xenoarchaeologyunlockingnodes
+  text: "/ServerInfo/Guidebook/Science/UnlockingNodes.xml"
+
+- type: guideEntry
+  id: AnalysisConsole
+  name: guide-entry-analysisconsole
+  text: "/ServerInfo/Guidebook/Science/AnalysisConsole.xml"
 
 - type: guideEntry
   id: Robotics
@@ -51,11 +62,10 @@
   - Cyborgs
 
 - type: guideEntry
-  id: ArtifactReports
-  name: guide-entry-artifact-reports
-  text: "/ServerInfo/Guidebook/Science/ArtifactReports.xml"
-
-- type: guideEntry
   id: Cyborgs
   name: guide-entry-cyborgs
   text: "/ServerInfo/Guidebook/Science/Cyborgs.xml"
+- type: guideEntry
+  id: GlimmerCreatures
+  name: guide-entry-glimmer-creatures
+  text: "/ServerInfo/Guidebook/_DV/Epistemics/GlimmerCreatures.xml"

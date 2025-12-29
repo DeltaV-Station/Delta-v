@@ -13,7 +13,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
 using Content.Shared.StatusEffect;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
 using Content.Shared.Mind;

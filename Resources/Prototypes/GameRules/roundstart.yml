@@ -408,7 +408,7 @@
       - type: InitialInfected
       - type: AutoImplant # DeltaV: Let them communicate to come up with a plan of action
         implants:
-        - SyndicateRadioImplant
+        - RadioSyndicateImplant
       mindRoles:
       - MindRoleInitialInfected
   - type: DynamicRuleCost
@@ -553,6 +553,7 @@
     - id: BasicTrashVariationPass
     - id: SolidWallRustingVariationPass
     - id: ReinforcedWallRustingVariationPass
+    - id: CutWireVariationPass
     - id: BasicPuddleMessVariationPass
       prob: 0.99
       orGroup: puddleMess

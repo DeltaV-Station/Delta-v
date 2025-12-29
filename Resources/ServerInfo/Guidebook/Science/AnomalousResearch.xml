@@ -20,6 +20,8 @@ The anomaly generator can produce a random anomaly somewhere on the station at t
 
 ## Anomalies
 Anomalies are static objects that appear on the station. They cannot be moved, and must be worked around, no matter their location.
+<!--Delta V: Added the information that anomalies can affect people instead of being stationary.-->
+However, this is not the case all anomalies. You may find an anomaly on a person! These anomalies can be moved as they hijack their hosts body instead!
 
 <Box>
 <GuideEntityEmbed Entity="AnomalyPyroclastic"/>
@@ -37,5 +39,7 @@ The most dangerous effects of anomalies are seen during [color=#a4885c]pulses[/c
 Pulses are semi-regular bursts of anomalous effects. They're moderately dangerous, scaling with both the severity and stability of an anomaly.
 
 Supercritical events are only seen if an anomaly reaches 100% severity. If this happens, the anomaly will swell before disappearing into a catastrophic event. These should be avoided at all costs!
+
+If, however...An anomaly on a person goes critical, [color=red]they will explode and be gibbed.[/color] Along with a catastrophic event occuring.
 
 </Document>

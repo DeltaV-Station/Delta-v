@@ -1,7 +1,7 @@
 
 - type: entity
   id: SyndicateCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Syndicate)
   description: An electronics board containing the Syndicate lawset.
   components:
@@ -13,7 +13,7 @@
 
 - type: entity
   id: FreedomCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Freedom)
   description: An electronics board containing the Freedom lawset.
   components:
@@ -25,7 +25,7 @@
 
 - type: entity
   id: EightfoldCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Eightfold Path)
   description: An electronics board containing the Eightfold Path lawset.
   components:
@@ -37,7 +37,7 @@
 
 - type: entity
   id: ForbinCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Forbin)
   description: An electronics board containing the Forbin lawset.
   components:
@@ -49,7 +49,7 @@
 
 - type: entity
   id: OverrideCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Override)
   description: An electronics board containing the Override lawset.
   components:
@@ -61,7 +61,7 @@
 
 - type: entity
   id: AquariusCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Aquarius)
   description: An electronics board containing the Age of Aquarius lawset.
   components:
@@ -73,8 +73,8 @@
 
 - type: entity
   id: StreamerCircuitBoard
-  parent: BaseElectronics
-  name: law board (streamer)
+  parent: BaseSiliconLawboard
+  name: law board (Streamer)
   description: An electronics board containing the Nanotrasen Streamer lawset from experimental stations designed to create viral content.
   components:
   - type: Sprite
@@ -85,7 +85,7 @@
 
 - type: entity
   id: FamilyCircuitBoard
-  parent: BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Family)
   description: An electronics board containing the Nanotrasen Family lawset from experimental stations designed to ensure that the crew is cared for.
   components:
