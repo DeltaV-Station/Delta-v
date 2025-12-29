@@ -64,7 +64,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-unknown-shuttle-cargo-lost-result-message
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/lost_cargo.yml
+    gridPath: /Maps/_DV/Shuttles/Event/lost_cargo_dv.yml # DeltaV - DV custom lost cargo shuttle, was /Maps/Shuttles/ShuttleEvent/lost_cargo.yml
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -76,7 +76,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/traveling_china_cuisine.yml
+    gridPath: /Maps/_DV/Shuttles/Event/traveling_cuisines_dv.yml # DeltaV - DV custom traveling cuisines shuttle, was /Maps/Shuttles/ShuttleEvent/traveling_china_cuisine.yml
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -110,7 +110,7 @@
     weight: 5 # lower because weird freelance roles
     maxOccurrences: 2
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml
+    gridPath: /Maps/_DV/Shuttles/Event/syndie_evacpod.yml # DeltaV - Switched to our version, was /Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml
 
 - type: entity
   id: UnknownShuttleNTQuark
