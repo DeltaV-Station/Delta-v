@@ -118,7 +118,7 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: StatusEffects
     allowed:
     - Electrocution
@@ -188,6 +188,9 @@
     factions:
     - NanoTrasen
   - type: CreamPied
+  - type: ParcelWrapOverride
+    parcelPrototype: WrappedParcelHumanoid
+    wrapDelay: 5
   - type: Stripping
   - type: UserInterface
     interfaces:
@@ -229,7 +232,6 @@
   - type: SurgeryTarget # Shitmed Change
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
-  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
   - type: GrappleTarget # DeltaV - Allow targets to be grappled
 
 - type: entity

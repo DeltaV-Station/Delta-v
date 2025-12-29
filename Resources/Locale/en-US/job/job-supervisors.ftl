@@ -13,3 +13,4 @@ job-supervisors-security = Security Officers, the Warden, and the Head of Securi
 job-supervisors-science = Scientists and the Mystagogue
 job-supervisors-hire = whoever hires you
 job-supervisors-everyone = absolutely everyone
+job-supervisors-nobody = nobody

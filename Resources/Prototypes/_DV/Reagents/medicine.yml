@@ -13,12 +13,12 @@
       - !type:ReduceRotting
         seconds: 10
         conditions:
-        - !type:HasComponent
+        - !type:HasComponentCondition
           bodyPart: Torso
           explanation: reagent-explanation-netinadone-ribcage
           components:
           - type: RibcageOpen
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 150.0
         - !type:MobStateCondition
           mobstate: Dead
@@ -73,50 +73,13 @@
       - !type:GenericStatusEffect
         key: Anesthesia
         component: Anesthesia
-        refresh: false
         time: 4.0
         type: Add
       - !type:GenericStatusEffect
         key: PainNumbness
         component: PainNumbness
-        refresh: false
         time: 8.0
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
-
-- type: reagent
-  id: Trinoxadone
-  name: reagent-name-trinoxadone
-  group: Medicine
-  desc: reagent-desc-trinoxadone
-  physicalDesc: reagent-physical-desc-cloudy
-  flavor: medicine
-  color: "#4f3670"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:EvenHealthChange
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        - !type:MultiMobStateCondition
-          states: [ Alive, Critical ]
-        damage:
-          Brute: -1.5
-          Burn: -1.5
-          Toxin: -2
-      - !type:EvenHealthChange
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        - !type:MobStateCondition
-          mobstate: Dead
-        - !type:TotalDamage
-          min: 210
-          max: 350
-        damage:
-          Brute: -2
-          Burn: -2

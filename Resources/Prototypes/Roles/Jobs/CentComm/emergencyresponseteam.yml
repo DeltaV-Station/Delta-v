@@ -9,6 +9,13 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirement
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 15h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 4h
   accessGroups:
   - AllAccess
   access:
@@ -81,7 +88,7 @@
     pocket1: MagazineRifle
     pocket2: MagazineRifle
   inhand:
-  - WeaponRifleLecter
+  - WeaponRifleLecterXL8
   storage:
     back:
     - WeaponDisabler
@@ -110,6 +117,13 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirement
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Epistemics
+    time: 5h
   accessGroups:
   - AllAccess
   access:
@@ -204,6 +218,13 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirements
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 5h
   accessGroups:
   - AllAccess
   access:
@@ -287,6 +308,10 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirements
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 15h
   accessGroups:
   - AllAccess
   access:
@@ -388,6 +413,13 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirements
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 10h
   accessGroups:
   - AllAccess
   access:
@@ -463,6 +495,13 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirements
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobJanitor
+    time: 2h
   accessGroups:
   - AllAccess
   access:

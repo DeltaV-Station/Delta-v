@@ -2,21 +2,21 @@
 - type: loadoutEffectGroup
   id: SeniorEngineering
   effects:
- # - !type:JobRequirementLoadoutEffect #DV - Remove Specific Role Timers
- #   requirement:
- #     !type:RoleTimeRequirement
- #     role: JobAtmosphericTechnician
- #     time: 21600 #6 hrs
- #  - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
- #   requirement:
- #     !type:RoleTimeRequirement
- #     role: JobStationEngineer
- #     time: 21600 #6 hrs
+  # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobAtmosphericTechnician
+  #     time: 6h
+  # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobStationEngineer
+  #     time: 6h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 216000 # 60 hrs
+      time: 60h
 
 
 # Head

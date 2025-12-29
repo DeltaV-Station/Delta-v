@@ -10,6 +10,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;

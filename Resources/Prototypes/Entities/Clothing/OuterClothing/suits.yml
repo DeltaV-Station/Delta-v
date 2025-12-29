@@ -143,7 +143,7 @@
       - HidesHarpyWings
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseHighlyIllegalContraband]
   id: ClothingOuterSuitSpaceNinja
   name: space ninja suit
   description: This black technologically advanced, cybernetically-enhanced suit provides many abilities like invisibility or teleportation.
@@ -284,6 +284,8 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: AddAccentClothing
+    accent: BarkAccent
 
 - type: entity
   parent: ClothingOuterBase

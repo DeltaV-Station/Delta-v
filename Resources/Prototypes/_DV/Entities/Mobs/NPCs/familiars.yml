@@ -107,10 +107,7 @@
     allowSpeech: true
     name: "Ifrit"
     description: ghost-role-information-ifritDV-description
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics
-      time: 14400 # DeltaV - 4 hours
+    job: RoleIfrit
 
 - type: entity
   parent: WelderExperimental

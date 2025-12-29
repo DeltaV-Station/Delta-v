@@ -105,10 +105,10 @@
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
+  - type: Rummager
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: Rummager # DeltaV: Make rummaging a generic component
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
@@ -316,7 +316,7 @@
     guides:
     - MinorAntagonists
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
-  - type: Food
+  - type: Edible
   # Begin DeltaV - Make them edible and grabbable
   - type: SolutionContainerManager
     solutions:
@@ -334,13 +334,20 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
 
-- type: weightedRandomEntity
+- type: entityTable
   id: RatKingLoot
-  weights: # DeltaV: Rebalanced for Rodentia rummaging because we don't have Rat King
-    RandomSpawner100: 70 #garbage
-    FoodCheeseSlice: 15 #food
-    RandomSnacks: 10
-    RandomFoodSingle: 5
+  table: !type:GroupSelector
+    children:
+    - id: RandomSpawner100
+      weight: 66
+    - id: FoodCheeseSlice # DeltaV
+      weight: 15 # DeltaV
+    - id: RandomSnacks # DeltaV
+      weight: 10 # DeltaV
+    - id: RandomFoodSingle # DeltaV
+      weight: 5
+    #- id: IngotGold1
+    #  weight: 5
 
 - type: entity
   parent: BaseAction
