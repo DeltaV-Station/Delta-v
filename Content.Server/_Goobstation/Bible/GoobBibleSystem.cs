@@ -49,7 +49,6 @@ public sealed partial class GoobBibleSystem : EntitySystem
         if (!TryComp<WeakToHolyComponent>(target, out var weakToHoly)
             || weakToHoly is { AlwaysTakeHoly: false }
             || !HasComp<BibleUserComponent>(performer)
-            || !_timing.IsFirstTimePredicted
             || _delay.IsDelayed(bible)
             || !_netManager.IsServer)
             return false;
