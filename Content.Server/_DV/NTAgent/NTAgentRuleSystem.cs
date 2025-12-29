@@ -14,7 +14,7 @@ public sealed class NTAgentRuleSystem : GameRuleSystem<NTAgentRuleComponent>
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NTAgentRoleComponent, GetBriefingEvent>(OnGetBriefing);
+        //SubscribeLocalEvent<NTAgentRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
 
     private void OnGetBriefing(Entity<NTAgentRoleComponent> ent, ref GetBriefingEvent args)
