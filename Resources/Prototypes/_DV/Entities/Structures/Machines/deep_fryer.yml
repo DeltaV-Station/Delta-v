@@ -24,6 +24,25 @@
     fillBaseName: off-
   - type: Rotatable
     rotateWhilePulling: false
+  - type: Explosive # Weak explosion in a very small radius. Ignites surrounding entities.
+    explosionType: FireBomb
+    totalIntensity: 25
+    intensitySlope: 5
+    maxIntensity: 3
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+    keysIn:
+    - reaction
+  - type: SmokeOnTrigger
+    keysIn:
+    - reaction
+    duration: 10
+    spreadAmount: 30
+    smokePrototype: TearGasSmokeWhite
+    solution:
+      reagents:
+      - ReagentId: TearGas # burning oil is probably toxic and not good for your eyes
+        Quantity: 20
   - type: Fixtures
     fixtures:
       fix1:

@@ -9,6 +9,8 @@ deep-fryer-eject-item = Eject {THE($item)}
 deep-fryer-eject-item-success = You eject {THE($item)} from the fryer.
 deep-fryer-item-finished = {CAPITALIZE(THE($item))} has finished cooking!
 deep-fryer-item-burned = {CAPITALIZE(THE($item))} burns to a crisp!
+deep-fryer-throw-miss = {CAPITALIZE(THE($item))} misses the fryer and bounces off!
+deep-fryer-throw-success = You toss {THE($item)} into the fryer!
 
 ## Oil quality
 deep-fryer-oil-quality-examine = The oil looks [color={$color}]{$state}[/color].

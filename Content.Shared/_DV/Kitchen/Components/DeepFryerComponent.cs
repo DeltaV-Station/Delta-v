@@ -129,6 +129,14 @@ public sealed partial class DeepFryerComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId BaseBurnedResult = "FoodBadRecipe";
+
+    /// <summary>
+    /// Chance (0.0 to 1.0) that a thrown item will miss the fryer and land nearby instead.
+    /// Professional chefs always have a 0% miss chance regardless of this value.
+    /// </summary>
+    /// <seealso cref="ProfessionalChefComponent"/>
+    [DataField]
+    public float MissChance = 0.25f;
 }
 
 /// <summary>

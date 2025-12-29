@@ -9,6 +9,8 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Throwing;
+using Content.Shared.Trigger.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -27,6 +29,12 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
+    /// <summary>
+    /// The trigger key used when non-frying oil reagents are added to the fryer
+    /// </summary>
+    public const string WrongReagentTriggerKey = "reaction";
 
     private readonly List<EntityUid> _itemsToComplete = new();
     private readonly List<EntityUid> _itemsToBurn = new();
@@ -40,6 +48,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         SubscribeLocalEvent<DeepFryerComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
         SubscribeLocalEvent<DeepFryerComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<DeepFryerComponent, SolutionTransferredEvent>(OnSolutionTransferred);
+        SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
     }
 
     private void OnSolutionTransferred(Entity<DeepFryerComponent> ent, ref SolutionTransferredEvent args)
@@ -47,6 +56,30 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         // Only restore quality when oil is being added TO the fryer (not removed from it)
         if (args.To != ent.Owner)
             return;
+
+        // Get the fryer's solution to check what reagents are now in it
+        if (Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
+        {
+            // Check if any reagents in the solution are NOT valid frying oils
+            var hasInvalidReagent = false;
+            foreach (var reagent in solution.Contents)
+            {
+                if (!ent.Comp.FryingOils.Contains(reagent.Reagent.Prototype))
+                {
+                    hasInvalidReagent = true;
+                    break;
+                }
+            }
+
+            // If we found an invalid reagent, trigger the reaction
+            if (hasInvalidReagent)
+            {
+                _trigger.Trigger(ent, args.User, WrongReagentTriggerKey);
+
+                // Don't restore oil quality if we're triggering an explosion
+                return;
+            }
+        }
 
         // Restore oil quality based on the amount transferred
         var qualityRestored = (float)args.Amount * ent.Comp.OilQualityRestorationPerUnit;
@@ -57,6 +90,23 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     private void OnPowerChanged(Entity<DeepFryerComponent> ent, ref PowerChangedEvent args)
     {
         UpdateAppearance(ent);
+    }
+
+    private void OnThrowHitBy(Entity<DeepFryerComponent> ent, ref ThrowHitByEvent args)
+    {
+        if (args.Component.Thrower is not { } thrower || !CanInsertItem(ent, args.Thrown, out _))
+            return;
+
+        if (!HasComp<ProfessionalChefComponent>(thrower) && _random.Prob(ent.Comp.MissChance))
+        {
+            // Item missed! Let it continue with normal throw physics
+            Popup.PopupEntity(Loc.GetString("deep-fryer-throw-miss", ("item", args.Thrown)), ent, thrower);
+            return;
+        }
+
+        // Success! Insert the item
+        if (TryInsertItem(ent, args.Thrown, thrower))
+            Popup.PopupEntity(Loc.GetString("deep-fryer-throw-success", ("item", args.Thrown)), ent, thrower);
     }
 
     private void OnItemInserted(Entity<DeepFryerComponent> ent, ref EntInsertedIntoContainerMessage args)
