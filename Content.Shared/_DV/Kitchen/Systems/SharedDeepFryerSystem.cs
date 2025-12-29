@@ -45,7 +45,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution) && solution?.Volume <= 0)
+        if (_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution) && solution.Volume <= 0)
             return;
 
         var qualityLevel = GetOilQualityLevel(ent.Comp.OilQuality);
