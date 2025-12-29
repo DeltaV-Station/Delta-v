@@ -67,7 +67,7 @@
       collection: VulpkaninGrowls
 
 - type: entity
-  parent: MobCarp
+  parent: MobCarpWithHands
   id: MobCarpLegal
   name: Carpy the Legal Carp
   description: Has a degree in fish law.
@@ -108,6 +108,32 @@
       department: Justice
       time: 3600 # 1 hours
   - type: GhostTakeoverAvailable
+  - type: InnateTool
+    tools:
+      - id: LuxuryPen
+      - id: RubberStampCarpy
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+- type: entity
+  name: legal carp stamp
+  parent: RubberStampBase
+  id: RubberStampCarpy
+  suffix: DO NOT MAP
+  description: A stamp specially designed for legal carps, to mark documents that aren't fishy.
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-carpy
+      stampedColor: "#a81f3d"
+      stampState: "paper_stamp-notary"
+    - type: Sprite
+      sprite: _DV/Objects/Misc/stamps.rsi
+      state: stamp-notary
+
 
 - type: entity
   name: Silvia
