@@ -217,7 +217,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = ntAgent,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Hands/Gloves/Color/black.rsi"), "icon"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Nanotrasen"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "NTAgent");
