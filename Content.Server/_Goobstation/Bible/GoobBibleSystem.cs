@@ -11,7 +11,7 @@ using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Exorcism;
 using Content.Shared._Goobstation.Religion;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;

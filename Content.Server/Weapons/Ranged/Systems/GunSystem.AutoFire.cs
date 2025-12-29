@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Server.Power.Components; // Frontier
 using Content.Server.Power.EntitySystems; // Frontier

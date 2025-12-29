@@ -9,7 +9,6 @@
   color: "#24591F"
   metabolisms:
     Food:
-      metabolismRate: 2 # DeltaV
       effects:
       - !type:SatiateHunger
   plantMetabolism:
@@ -29,7 +28,6 @@
   color: "#D3D3D3"
   metabolisms:
     Food: #This makes it not compete with medicines, a large bonus for something that can heal
-      metabolismRate: 2 # DeltaV
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -38,7 +36,7 @@
             Brute: -0.5
             Burn: -0.5
       # Helps you stop bleeding to an extent.
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.25
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
   # Lets plants benefit too
@@ -59,7 +57,6 @@
   color: "#FFFFE5"
   metabolisms:
     Food:
-      metabolismRate: 2 # DeltaV
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -82,19 +79,18 @@
   meltingPoint: 146.0
   metabolisms:
     Food:
-      metabolismRate: 2 # DeltaV
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:ReagentThreshold #Only satiates when eaten with nutriment
+        - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
         factor: 1
-      - !type:GenericStatusEffect # Mono change
-        key: CorticalBorerProtection
-        type: Add
-        time: 3 # May be too much, needs testing
-        refresh: false
+      #- !type:GenericStatusEffect # Mono change
+      #  key: CorticalBorerProtection
+      #  type: Add
+      #  time: 3 # May be too much, needs testing
+      #  refresh: false
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1

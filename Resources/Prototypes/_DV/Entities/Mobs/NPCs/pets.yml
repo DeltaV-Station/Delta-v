@@ -31,10 +31,7 @@
     allowMovement: true
     name: "Laika"
     description: "Security's resident she-dog. Badger the officers for headpats and nip at the heels of violent offenders."
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # DeltaV - 4 hours
+    job: RoleLaika # determines the playtime requirement
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -103,10 +100,7 @@
     allowMovement: true
     name: "Carpy the Legal Carp"
     description: "The real brains behind the Justice department. Your honour my client is not fishy!"
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Justice
-      time: 3600 # 1 hours
+    job: RoleCarpy
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -220,10 +214,7 @@
       name: ghost-role-information-silvia-name
       description: ghost-role-information-silvia-description
       rules: ghost-role-information-silvia-rules
-      requirements: #No raiders
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 14400 #4 hours
+      job: RoleSilvia # determines the playtime requirement
     - type: GhostTakeoverAvailable
     - type: InteractionPopup
       successChance: 0.65

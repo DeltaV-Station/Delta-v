@@ -1,0 +1,75 @@
+# Ensure that all setPreference are set to false here. Otherwise, they appear on the job select screen.
+# These are for ghost role play timers anyways
+
+- type: job
+  id: RoleLaika
+  name: role-name-laika
+  description: role-description-laika
+  setPreference: false
+  canBeAntag: false
+  playTimeTracker: RoleLaika
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 4h
+
+- type: job
+  id: RoleShiva
+  name: role-name-shiva
+  description: role-description-shiva
+  setPreference: false
+  canBeAntag: false
+  playTimeTracker: RoleShiva
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 4h
+
+- type: job
+  id: RoleSilvia
+  name: role-name-silvia
+  description: role-description-silvia
+  setPreference: false
+  canBeAntag: false
+  playTimeTracker: RoleSilvia
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 4h
+
+- type: job
+  id: RoleIfrit
+  name: role-name-ifrit
+  description: role-description-ifrit
+  setPreference: false
+  canBeAntag: false
+  playTimeTracker: RoleIfrit
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Epistemics
+    time: 4h
+  - !type:OverallPlaytimeRequirement
+    time: 48h
+
+- type: job
+  id: RoleCarpy
+  name: role-name-carpy
+  description: role-description-carpy
+  setPreference: false
+  canBeAntag: false
+  playTimeTracker: RoleCarpy
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Justice
+    time: 1h
+
+- type: job
+  id: RolePunPun
+  name: role-name-pun-pun
+  description: role-description-pun-pun
+  setPreference: false
+  playTimeTracker: RolePunPun
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobBartender
+    time: 1h
