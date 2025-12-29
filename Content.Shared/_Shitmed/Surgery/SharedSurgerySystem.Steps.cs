@@ -723,8 +723,6 @@ public abstract partial class SharedSurgerySystem
         }
     }
 
-
-
     /// <summary>
     /// Do a surgery step on a part, if it can be done.
     /// Returns true if it succeeded.
