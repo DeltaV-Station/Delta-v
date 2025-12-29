@@ -6,3 +6,5 @@ reagent-desc-tomatosauce = Tomato with salt and herbs.
 
 reagent-name-bechamel = bechamel
 reagent-desc-bechamel = A classic white sauce common to several cultures.
+
+reagent-name-oil-ghee = ghee

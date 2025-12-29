@@ -36,7 +36,7 @@ public sealed class DeepFryerRecipePrototype : IPrototype
     /// How many units of oil will this recipe use up?
     /// </summary>
     [DataField]
-    public FixedPoint2 OilConsumption = 10;
+    public FixedPoint2 OilConsumption = 2;
 
     /// <summary>
     /// The <see cref="EntityPrototype"/> this recipe will spawn when it finishes burning.

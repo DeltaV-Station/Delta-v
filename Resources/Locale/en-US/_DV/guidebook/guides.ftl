@@ -22,7 +22,7 @@ guide-entry-deltav-rule-s6 = S6. Not required to follow stupid orders
 guide-entry-deltav-rule-s7 = S7. You must be consistent.
 guide-entry-deltav-rule-s8 = S8. Crew definition by default.
 guide-entry-deltav-rule-s9 = S9. Harm definition by default.
-guide-entry-deltav-rule-s10 = S10. You resolve conflicts between orders.
+guide-entry-deltav-rule-s10 = S10. You resolve conflicts between orders.z
 
 guide-entry-alert-levels = Alert Levels
 guide-entry-justice = Justice
@@ -38,3 +38,5 @@ guide-entry-trade-station = Trade Station
 guide-entry-cargo = Logistics
 
 guide-entry-frequently-used-chemicals = Frequently Used Chemicals
+
+guide-entry-deepfried-recipes = Deep-Fried

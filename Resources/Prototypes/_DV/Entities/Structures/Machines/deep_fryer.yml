@@ -22,13 +22,8 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 8
     fillBaseName: off-
-  - type: Anchorable
-  - type: Pullable
   - type: Rotatable
     rotateWhilePulling: false
-  - type: Physics
-    bodyType: Static
-  - type: Climbable
   - type: Fixtures
     fixtures:
       fix1:
@@ -108,7 +103,7 @@
       - !type:ChangeConstructionNodeBehavior
         node: machineFrame
   - type: ApcPowerReceiver
-    powerLoad: 300
+    powerLoad: 2000
   - type: Machine
     board: DeepFryerMachineCircuitboard
   - type: EmptyOnMachineDeconstruct

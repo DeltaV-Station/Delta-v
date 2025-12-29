@@ -1358,6 +1358,7 @@
   result: FoodMealFries
   time: 15
   group: DeepFried
+  deepFried: true
   solids:
     FoodPotato: 1
 
@@ -1366,30 +1367,37 @@
   name: Deep Fried Fries
   baseRecipe: RecipeFries
   burnTime: 10
-  burnedResult: FoodBadRecipe
 
 - type: microwaveMealRecipe
   id: RecipeCheesyFries
   name: cheesy fries recipe
   result: FoodMealFriesCheesy
-  time: 15
-  group: Savory
-  reagents:
-    TableSalt: 5
+  time: 10
+  group: DeepFried
   solids:
     FoodPotato: 1
     FoodCheeseSlice: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeCheesyFries
+  name: Deep Fried Cheesy Fries
+  baseRecipe: RecipeCheesyFries
+  burnTime: 10
 
 - type: microwaveMealRecipe
   id: RecipeCarrotFries
   name: carrot fries recipe
   result: FoodMealFriesCarrot
   time: 15
-  group: Savory
-  reagents:
-    TableSalt: 5
+  group: DeepFried
   solids:
     FoodCarrot: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeCarrotFries
+  name: Deep Fried Carrot Fries
+  baseRecipe: RecipeCarrotFries
+  burnTime: 10
 
 - type: microwaveMealRecipe
   id: RecipeNachos

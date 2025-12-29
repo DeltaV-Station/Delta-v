@@ -84,6 +84,13 @@ flavor-complex-affogato = like boozy ice cream
 flavor-complex-five-oclock = like hard tea
 flavor-complex-mliko = like a prank
 
+## DeltaV deep fryer
+flavor-base-crispy = crispy
+flavor-base-stale = stale
+flavor-base-burnt = burnt
+flavor-base-rancid = rancid
+flavor-base-awful = awful
+
 candy-flavor-profile = This one is supposed to taste {$flavor}.
 candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.
 candy-flavor-profile-unknown = You have no idea what this one is supposed to taste like.

@@ -111,6 +111,24 @@ public sealed partial class DeepFryerComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<OilQuality, List<ProtoId<FlavorPrototype>>> OilQualityFlavors = new();
+
+    /// <summary>
+    /// Time tolerance for multi-ingredient recipes (ingredients must be inserted within this window)
+    /// </summary>
+    [DataField]
+    public TimeSpan CookingTolerance = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// The time it will take for ingredients to start burning if not a part of any recipe
+    /// </summary>
+    [DataField]
+    public TimeSpan BaseBurnTime = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// The default result for when something burns
+    /// </summary>
+    [DataField]
+    public EntProtoId BaseBurnedResult = "FoodBadRecipe";
 }
 
 /// <summary>

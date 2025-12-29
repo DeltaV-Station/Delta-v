@@ -1,9 +1,10 @@
-using Content.Server.Power.Components;
+using System.Linq;
 using Content.Shared._DV.Kitchen;
 using Content.Shared._DV.Kitchen.Components;
 using Content.Shared._DV.Kitchen.Systems;
 using Content.Shared.Audio;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -29,6 +30,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
 
     private readonly List<EntityUid> _itemsToComplete = new();
     private readonly List<EntityUid> _itemsToBurn = new();
+    private readonly HashSet<EntityUid> _processedItems = new();
 
     public override void Initialize()
     {
@@ -62,11 +64,18 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         if (args.Container.ID != ent.Comp.ContainerName)
             return;
 
-        // Try to find a matching deep fryer recipe for this item
-        var recipe = FindMatchingRecipe(args.Entity);
+        if (!_container.TryGetContainer(ent, ent.Comp.ContainerName, out var container))
+            return;
 
-        // Add to cooking items tracking with current time as start time
-        ent.Comp.CookingItems[args.Entity] = new CookingItem(recipe, _timing.CurTime);
+        // First, check if this new item completes any multi-ingredient recipes with items already in the fryer
+        var completedMultiRecipe = TryFindAndUpgradeToMultiRecipe(ent, container);
+
+        if (completedMultiRecipe == null)
+        {
+            // No multi-recipe was completed, so assign this item its best single-ingredient recipe
+            var singleRecipe = FindBestRecipeForItem(args.Entity);
+            ent.Comp.CookingItems[args.Entity] = new CookingItem(singleRecipe, _timing.CurTime);
+        }
 
         UpdateAppearance(ent);
     }
@@ -109,13 +118,17 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     }
 
     /// <summary>
-    /// Finds a deep fryer recipe that matches the given item
+    /// Finds the best recipe for a single item.
+    /// Prioritizes multi-ingredient recipes (returns null so item waits), then single-ingredient recipes.
+    /// Returns null if item is only in multi-ingredient recipes or has no recipe at all.
     /// </summary>
-    private ProtoId<DeepFryerRecipePrototype>? FindMatchingRecipe(EntityUid item)
+    private ProtoId<DeepFryerRecipePrototype>? FindBestRecipeForItem(EntityUid item)
     {
         var itemProto = MetaData(item).EntityPrototype?.ID;
         if (itemProto == null)
             return null;
+
+        ProtoId<DeepFryerRecipePrototype>? singleIngredientRecipe = null;
 
         // Look through all deep fryer recipes
         foreach (var deepFryerRecipe in _prototype.EnumeratePrototypes<DeepFryerRecipePrototype>())
@@ -124,35 +137,189 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
             if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
                 continue;
 
-            // Check if this recipe uses our item as a solid ingredient
-            foreach (var solid in microwaveRecipe.IngredientsSolids)
+            // Count total solid ingredients
+            FixedPoint2 totalIngredients = 0;
+            var hasThisItem = false;
+
+            foreach (var (ingredientId, count) in microwaveRecipe.IngredientsSolids)
             {
-                if (solid.Key == itemProto && solid.Value == 1)
-                {
-                    return deepFryerRecipe.ID;
-                }
+                totalIngredients += count;
+                if (ingredientId == itemProto)
+                    hasThisItem = true;
+            }
+
+            if (!hasThisItem)
+                continue;
+
+            if (totalIngredients == 1)
+            {
+                // This is a single-ingredient recipe
+                singleIngredientRecipe = deepFryerRecipe.ID;
             }
         }
 
+        // Return the single-ingredient recipe (may be null)
+        return singleIngredientRecipe;
+    }
+
+    /// <summary>
+    /// Checks if the newly inserted item completes any multi-ingredient recipe with existing items.
+    /// If so, upgrades all involved items to use that recipe.
+    /// Returns the recipe if one was found and upgraded, null otherwise.
+    /// </summary>
+    private ProtoId<DeepFryerRecipePrototype>? TryFindAndUpgradeToMultiRecipe(
+        Entity<DeepFryerComponent> ent,
+        BaseContainer container)
+    {
+        // Look through all multi-ingredient recipes to see if any are now complete
+        foreach (var deepFryerRecipe in _prototype.EnumeratePrototypes<DeepFryerRecipePrototype>())
+        {
+            // Get the base microwave recipe
+            if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+                continue;
+
+            // Count total solid ingredients
+            FixedPoint2 totalIngredients = 0;
+            foreach (var (_, count) in microwaveRecipe.IngredientsSolids)
+            {
+                totalIngredients += count;
+            }
+
+            // Skip single-ingredient recipes
+            if (totalIngredients <= 1)
+                continue;
+
+            // Check if all ingredients for this multi-ingredient recipe are present
+            var ingredients = GetIngredientsForRecipe(deepFryerRecipe.ID, container);
+            if (ingredients == null)
+                continue;
+
+            // Check if ingredients are within tolerance
+            if (!AreIngredientsWithinTolerance(ent, ingredients))
+                continue;
+
+            // We found a complete multi-ingredient recipe within tolerance!
+            // Upgrade all ingredients to use this recipe
+
+            // Find the earliest start time among all ingredients
+            var earliestTime = _timing.CurTime;
+            foreach (var (ingredientUid, _) in ingredients)
+            {
+                if (ent.Comp.CookingItems.TryGetValue(ingredientUid, out var existingItem))
+                {
+                    if (existingItem.TimeStarted < earliestTime)
+                        earliestTime = existingItem.TimeStarted;
+                }
+            }
+
+            // Assign the multi-ingredient recipe to all ingredients with synchronized start time
+            foreach (var (ingredientUid, _) in ingredients)
+            {
+                ent.Comp.CookingItems[ingredientUid] = new CookingItem(deepFryerRecipe.ID, earliestTime);
+            }
+
+            return deepFryerRecipe.ID;
+        }
+
         return null;
+    }
+
+    /// <summary>
+    /// Tries to get all ingredients needed for a specific recipe from the fryer.
+    /// Returns null if not all ingredients are present.
+    /// </summary>
+    private Dictionary<EntityUid, string>? GetIngredientsForRecipe(
+        ProtoId<DeepFryerRecipePrototype> recipeId,
+        BaseContainer container)
+    {
+        if (!_prototype.TryIndex(recipeId, out var deepFryerRecipe))
+            return null;
+
+        if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+            return null;
+
+        var neededIngredients = new Dictionary<string, FixedPoint2>();
+        foreach (var (ingredient, count) in microwaveRecipe.IngredientsSolids)
+        {
+            neededIngredients[ingredient] = count;
+        }
+
+        var foundIngredients = new Dictionary<EntityUid, string>();
+
+        // Check each item in the fryer
+        foreach (var itemUid in container.ContainedEntities)
+        {
+            var itemProto = MetaData(itemUid).EntityPrototype?.ID;
+            if (itemProto == null)
+                continue;
+
+            // If this item is one of the needed ingredients
+            if (neededIngredients.TryGetValue(itemProto, out var needed) && needed > 0)
+            {
+                foundIngredients[itemUid] = itemProto;
+                neededIngredients[itemProto] -= 1;
+            }
+        }
+
+        // Check if we found all required ingredients
+        foreach (var (_, count) in neededIngredients)
+        {
+            if (count > 0)
+                return null; // Missing some ingredients
+        }
+
+        return foundIngredients;
+    }
+
+    /// <summary>
+    /// Checks if all ingredients for a multi-ingredient recipe are within the cooking time tolerance
+    /// </summary>
+    private bool AreIngredientsWithinTolerance(
+        Entity<DeepFryerComponent> ent,
+        Dictionary<EntityUid, string> ingredients)
+    {
+        if (ingredients.Count <= 1)
+            return true;
+
+        TimeSpan? earliest = null;
+        TimeSpan? latest = null;
+
+        foreach (var (ingredientUid, _) in ingredients)
+        {
+            if (!ent.Comp.CookingItems.TryGetValue(ingredientUid, out var cookingItem))
+                continue;
+
+            if (earliest == null || cookingItem.TimeStarted < earliest)
+                earliest = cookingItem.TimeStarted;
+
+            if (latest == null || cookingItem.TimeStarted > latest)
+                latest = cookingItem.TimeStarted;
+        }
+
+        if (earliest == null || latest == null)
+            return false;
+
+        var timeDifference = latest.Value - earliest.Value;
+        return timeDifference <= ent.Comp.CookingTolerance;
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DeepFryerComponent, ApcPowerReceiverComponent>();
-        while (query.MoveNext(out var uid, out var fryer, out var power))
+        _itemsToComplete.Clear();
+        _itemsToBurn.Clear();
+
+        var curTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<DeepFryerComponent>();
+
+        while (query.MoveNext(out var uid, out var fryer))
         {
-            // Only cook if powered
-            if (!_power.IsPowered((uid, power)))
+            // Skip if not powered
+            if (!_power.IsPowered(uid))
                 continue;
 
-            // Skip if no items cooking
-            if (fryer.CookingItems.Count == 0)
-                continue;
-
-            // Check if we have enough oil using the shared method
+            // Skip if no oil
             if (!HasEnoughOil((uid, fryer)))
                 continue;
 
@@ -160,43 +327,99 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
             if (!_container.TryGetContainer(uid, fryer.ContainerName, out var container))
                 continue;
 
+            _processedItems.Clear();
+
             // Process each cooking item
-            _itemsToComplete.Clear();
-            _itemsToBurn.Clear();
-            var curTime = _timing.CurTime;
-
-            foreach (var (itemUid, cookingItem) in fryer.CookingItems)
+            foreach (var (itemUid, cookingItem) in fryer.CookingItems.ToList())
             {
-                // Skip items without recipes
-                if (cookingItem.Recipe == null)
+                // Skip if already processed as part of a multi-ingredient recipe
+                if (_processedItems.Contains(itemUid))
                     continue;
 
-                // Get the deep fryer recipe
-                if (!_prototype.TryIndex(cookingItem.Recipe.Value, out var deepFryerRecipe))
-                    continue;
-
-                // Calculate elapsed time
                 var elapsedTime = curTime - cookingItem.TimeStarted;
 
+                // If the item is already marked as burning
                 if (cookingItem.IsBurning)
                 {
-                    // Check if burning is complete
-                    if (elapsedTime >= deepFryerRecipe.BurnTime)
+                    if (cookingItem.Recipe is { } burningRecipe)
                     {
-                        _itemsToBurn.Add(itemUid);
+                        if (!_prototype.TryIndex(burningRecipe, out var deepFryerRecipe))
+                            continue;
+
+                        var burnTime = deepFryerRecipe.BurnTime;
+                        if (elapsedTime >= burnTime)
+                        {
+                            _itemsToBurn.Add(itemUid);
+                        }
+                    }
+                    continue;
+                }
+
+                // Item is cooking (not burning yet)
+                if (cookingItem.Recipe is { } recipe)
+                {
+                    if (!_prototype.TryIndex(recipe, out var deepFryerRecipe))
+                        continue;
+
+                    if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+                        continue;
+
+                    var cookTime = TimeSpan.FromSeconds(microwaveRecipe.CookTime);
+
+                    // Check if this is part of a multi-ingredient recipe
+                    var multiIngredients = GetIngredientsForRecipe(recipe, container);
+
+                    if (multiIngredients is { Count: > 1 })
+                    {
+                        // This is a multi-ingredient recipe
+                        // Check if all ingredients are still within tolerance
+                        if (!AreIngredientsWithinTolerance((uid, fryer), multiIngredients))
+                            continue;
+
+                        // Find the earliest start time
+                        var earliestStart = TimeSpan.MaxValue;
+                        foreach (var (ingredientUid, _) in multiIngredients)
+                        {
+                            // TryGetValue in Update my beloved
+                            // Only like one deep fryer per map so it's gonna be fine probably
+                            if (!fryer.CookingItems.TryGetValue(ingredientUid, out var ingredientCookingItem))
+                                continue;
+
+                            if (ingredientCookingItem.TimeStarted < earliestStart)
+                                earliestStart = ingredientCookingItem.TimeStarted;
+                        }
+
+                        // Check if enough time has passed since the earliest ingredient
+                        var earliestElapsed = curTime - earliestStart;
+                        if (earliestElapsed < cookTime)
+                            continue;
+                        {
+                            // Mark the first item for completion (it will handle all ingredients)
+                            _itemsToComplete.Add(itemUid);
+                            // Mark all ingredients as processed
+                            foreach (var (ingredientUid, _) in multiIngredients)
+                            {
+                                _processedItems.Add(ingredientUid);
+                            }
+                        }
+                        // Note: If ingredients are outside tolerance, they keep their current recipes
+                        // and will be handled individually (single-ingredient recipes will complete, items without recipes will burn)
+                    }
+                    else
+                    {
+                        // Single-ingredient recipe, proceed normally
+                        if (elapsedTime >= cookTime)
+                        {
+                            _itemsToComplete.Add(itemUid);
+                        }
                     }
                 }
                 else
                 {
-                    // Get the base microwave recipe for timing
-                    if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
-                        continue;
-
-                    // Check if cooking is complete
-                    if (elapsedTime >= TimeSpan.FromSeconds(microwaveRecipe.CookTime))
+                    // Item has no recipe assigned - it should burn after BaseBurnTime
+                    if (elapsedTime >= fryer.BaseBurnTime)
                     {
-                        _itemsToComplete.Add(itemUid);
-
+                        _itemsToBurn.Add(itemUid);
                     }
                 }
             }
@@ -207,51 +430,76 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
                 CompleteCooking((uid, fryer), itemUid, container);
             }
 
-            // Burn items that have been cooking too long
+            // Burn items that have been cooking too long or have no recipe
             foreach (var itemUid in _itemsToBurn)
             {
-                CompleteBurning((uid, fryer), itemUid, container);
+                BurnItem((uid, fryer), itemUid, container);
             }
         }
     }
 
     /// <summary>
-    /// Completes cooking for an item, transforming it into the result
+    /// Completes cooking for an item (or multi-ingredient recipe), transforming it into the result
     /// </summary>
     private void CompleteCooking(Entity<DeepFryerComponent> ent, EntityUid item, BaseContainer container)
     {
         if (!ent.Comp.CookingItems.TryGetValue(item, out var cookingItem))
             return;
 
-        if (cookingItem.Recipe == null)
+        if (cookingItem.Recipe is not { } recipe)
             return;
 
-        if (!_prototype.TryIndex(cookingItem.Recipe.Value, out var deepFryerRecipe))
+        if (!_prototype.TryIndex(recipe, out var deepFryerRecipe))
             return;
 
         // Get the base microwave recipe for result
         if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
             return;
 
+        // Get all ingredients for this recipe
+        var recipeIngredients = GetIngredientsForRecipe(recipe, container);
+        var isMultiIngredient = recipeIngredients is { Count: > 1 };
+
         // Check if we should burn the item due to foul oil
         var qualityLevel = GetOilQualityLevel(ent.Comp.OilQuality);
         if (qualityLevel == OilQuality.Foul && _random.Prob(ent.Comp.FoulOilBurnChance))
         {
-            // Force burn the item
-            CompleteBurning(ent, item, container);
+            // For multi-ingredient recipes, burn all ingredients
+            if (isMultiIngredient)
+            {
+                foreach (var (ingredientUid, _) in recipeIngredients!)
+                {
+                    BurnItemWithRecipe(ent, ingredientUid, recipe, container);
+                }
+                return;
+            }
+
+            // Force burn the single item
+            BurnItemWithRecipe(ent, item, recipe, container);
             return;
         }
 
         var xform = Transform(ent);
-
         var coords = Xform.GetMapCoordinates((ent, xform));
 
-        // Remove the item from tracking and container
-        ent.Comp.CookingItems.Remove(item);
-        _container.Remove(item, container);
-
-        // Delete the original item
-        QueueDel(item);
+        // For multi-ingredient recipes, remove ALL ingredients
+        if (isMultiIngredient)
+        {
+            // Delete all ingredients
+            foreach (var (ingredientUid, _) in recipeIngredients!)
+            {
+                ent.Comp.CookingItems.Remove(ingredientUid);
+                _container.Remove(ingredientUid, container);
+                QueueDel(ingredientUid);
+            }
+        }
+        else
+        {
+            // Single ingredient recipe
+            ent.Comp.CookingItems.Remove(item);
+            _container.Remove(item, container);
+            QueueDel(item);
+        }
 
         // Spawn the result (from the microwave recipe)
         var result = Spawn(microwaveRecipe.Result, coords);
@@ -275,22 +523,16 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         }
 
         // Show a popup
-        Popup.PopupEntity(Loc.GetString("deep-fryer-item-finished", ("item", item)), ent, PopupType.Medium);
+        Popup.PopupEntity(Loc.GetString("deep-fryer-item-finished", ("item", result)), ent, PopupType.Medium);
         _audio.PlayPvs(ent.Comp.FinishedCookingSound, ent);
     }
 
     /// <summary>
-    /// Burns an item that has been left in the fryer too long
+    /// Burns an item using its recipe's BurnedResult
     /// </summary>
-    private void CompleteBurning(Entity<DeepFryerComponent> ent, EntityUid item, BaseContainer container)
+    private void BurnItemWithRecipe(Entity<DeepFryerComponent> ent, EntityUid item, ProtoId<DeepFryerRecipePrototype> recipe, BaseContainer container)
     {
-        if (!ent.Comp.CookingItems.TryGetValue(item, out var cookingItem))
-            return;
-
-        if (cookingItem.Recipe == null)
-            return;
-
-        if (!_prototype.TryIndex(cookingItem.Recipe.Value, out var deepFryerRecipe))
+        if (!_prototype.TryIndex(recipe, out var deepFryerRecipe))
             return;
 
         // Remove the item from tracking and container
@@ -302,6 +544,35 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
 
         // Spawn the burned result on top of the fryer
         Spawn(deepFryerRecipe.BurnedResult, Xform.GetMoverCoordinates(ent));
+
+        // Degrade oil quality even when burning
+        DegradeOilQuality(ent);
+
+        // Show a danger popup
+        Popup.PopupEntity(Loc.GetString("deep-fryer-item-burned", ("item", item)), ent, PopupType.MediumCaution);
+        _audio.PlayPvs(ent.Comp.FinishedBurningSound, ent);
+    }
+
+    /// <summary>
+    /// Burns an item - uses recipe's BurnedResult if available, otherwise uses BaseBurnedResult
+    /// </summary>
+    private void BurnItem(Entity<DeepFryerComponent> ent, EntityUid item, BaseContainer container)
+    {
+        // Check if this item has a recipe
+        if (ent.Comp.CookingItems.TryGetValue(item, out var cookingItem) && cookingItem.Recipe != null)
+        {
+            // Use the recipe's burned result
+            BurnItemWithRecipe(ent, item, cookingItem.Recipe.Value, container);
+            return;
+        }
+
+        // No recipe - use base burned result
+        ent.Comp.CookingItems.Remove(item);
+        _container.Remove(item, container);
+        QueueDel(item);
+
+        // Spawn the base burned result
+        Spawn(ent.Comp.BaseBurnedResult, Xform.GetMoverCoordinates(ent));
 
         // Degrade oil quality even when burning
         DegradeOilQuality(ent);
