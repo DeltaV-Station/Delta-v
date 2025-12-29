@@ -46,9 +46,9 @@
         Slash: 10
         Piercing: 10
 
-  - type: entity
-    name: Carp with hands
-    id: MobCarpWithHands
-    parent: BaseMobCarp
-    components:
+- type: entity
+  id: MobCarpWithHands
+  name: Carp with hands
+  parent: BaseMobCarp
+  components:
     - type: Hands
