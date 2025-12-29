@@ -114,3 +114,18 @@
   - type: AsakimRole
   - type: RoleBriefing
     briefing: asakim-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleNTAgent
+  name: Internals Affairs Agent
+  components:
+  - type: MindRole
+    antagPrototype: NTAgent
+    exclusiveAntag: true
+    roleType: FreeAgent
+    subtype: role-subtype-ntagent
+  ##- type: NTAgentRole
+  - type: RoleBriefing
+    briefing: NTAgent-briefing
+

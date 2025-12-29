@@ -147,6 +147,9 @@
     minAmount: 1
     maxAmount: 3
 
+- type: entity
+  parent: BaseGameRule
+  id: NTAgent
 
 # Mid round antag spawns
 - type: entity
