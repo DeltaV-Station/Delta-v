@@ -147,9 +147,20 @@
     minAmount: 1
     maxAmount: 3
 
+
+# nt agent
 - type: entity
   parent: BaseGameRule
   id: NTAgent
+  components:
+  - type: GameRule
+  - type: AntagSelection
+    definitions:
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: blue
+    mindRoles:
+    - MindRoleNTAgent
 
 # Mid round antag spawns
 - type: entity
