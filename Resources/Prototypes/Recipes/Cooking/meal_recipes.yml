@@ -1341,16 +1341,32 @@
     FoodPotato: 1
     FoodCheeseSlice: 1
 
-- type: microwaveMealRecipe
+#- type: microwaveMealRecipe
+#  id: RecipeFries
+#  name: space fries recipe
+#  result: FoodMealFries
+#  time: 15
+#  group: Savory
+#  reagents:
+#    TableSalt: 5
+#  solids:
+#    FoodPotato: 1
+
+- type: microwaveMealRecipe # TODO: UNTOUCH
   id: RecipeFries
   name: space fries recipe
   result: FoodMealFries
   time: 15
-  group: Savory
-  reagents:
-    TableSalt: 5
+  group: DeepFried
   solids:
     FoodPotato: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeFries
+  name: Deep Fried Fries
+  baseRecipe: RecipeFries
+  burnTime: 10
+  burnedResult: FoodBadRecipe
 
 - type: microwaveMealRecipe
   id: RecipeCheesyFries
@@ -2458,4 +2474,3 @@
     Fiber: 10
   solids:
     FoodCakePlain: 1
-    

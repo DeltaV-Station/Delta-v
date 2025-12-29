@@ -1,11 +1,8 @@
-using Robust.Client.GameObjects;
-using Content.Client.Chemistry.Visualizers;
-using Content.Client.Kitchen.Components;
+﻿using Content.Shared._DV.Kitchen.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Kitchen.Components;
-using Content.Shared.Nyanotrasen.Kitchen.Components;
+using Robust.Client.GameObjects;
 
-namespace Content.Client.Kitchen.Visualizers;
+namespace Content.Client._DV.Kitchen;
 
 public sealed class DeepFryerVisualizerSystem : VisualizerSystem<DeepFryerComponent>
 {
@@ -22,4 +19,3 @@ public sealed class DeepFryerVisualizerSystem : VisualizerSystem<DeepFryerCompon
         scvComponent.FillBaseName = isBubbling ? "on-" : "off-";
     }
 }
-
