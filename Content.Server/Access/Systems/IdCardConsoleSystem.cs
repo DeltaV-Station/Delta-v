@@ -26,7 +26,7 @@ using Robust.Shared.Random;
 namespace Content.Server.Access.Systems;
 
 [UsedImplicitly]
-public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem // DeltaV - made partial
+public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly StationRecordsSystem _record = default!;
@@ -43,7 +43,6 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem // D
     public override void Initialize()
     {
         base.Initialize();
-        InitializeToggle(); // DeltaV
 
         SubscribeLocalEvent<IdCardConsoleComponent, WriteToTargetIdMessage>(OnWriteToTargetIdMessage);
 
@@ -147,14 +146,21 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem // D
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-        if (_prototype.Resolve(newJobProto, out var job)
+        // DeltaV - Don't throw server errors if job is an empty string
+        JobPrototype? jobProto = null;
+        if (!string.IsNullOrEmpty(newJobProto)
+            && _prototype.Resolve(newJobProto, out var job)
             && _prototype.Resolve(job.Icon, out var jobIcon))
         {
+            jobProto = job;
             _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
             _idCard.TryChangeJobDepartment(targetId, job);
+
         }
 
-        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);
+        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, jobProto);
+        // END DeltaV
+
         if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
             || !_record.TryGetRecord<GeneralStationRecord>(key, out _))
@@ -163,7 +169,6 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem // D
             Comp<IdCardComponent>(targetId).JobPrototype = newJobProto;
         }
 
-        return; // DeltaV - use custom access toggle message, stop here
         if (!newAccessList.TrueForAll(x => component.AccessLevels.Contains(x)))
         {
             _sawmill.Warning($"User {ToPrettyString(uid)} tried to write unknown access tag.");

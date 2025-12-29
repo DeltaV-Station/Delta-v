@@ -37,8 +37,6 @@ namespace Content.Client.Access.UI
         // The job that will be picked if the ID doesn't have a job on the station.
         private static ProtoId<JobPrototype> _defaultJob = "Passenger";
 
-        public event Action<ProtoId<AccessLevelPrototype>>? OnToggleAccess; // DeltaV
-
         public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
             List<ProtoId<AccessLevelPrototype>> accessLevels)
         {
@@ -99,13 +97,9 @@ namespace Content.Client.Access.UI
 
             foreach (var (id, button) in _accessButtons.ButtonsList)
             {
-                var copied = id; // DeltaV
-                button.OnPressed += _ => OnToggleAccess?.Invoke(id);
+                button.OnPressed += _ => SubmitData();
             }
         }
-
-        // DeltaV - removed as part of job preset access fix
-        // private void ClearAllAccess()
 
         /// <param name="enabled">If true, every individual access button will be pressed. If false, each will be depressed.</param>
         private void SetAllAccess(bool enabled)
@@ -138,28 +132,23 @@ namespace Content.Client.Access.UI
                 }
             }
 
-            // DeltaV - start of job preset access fix
-            SubmitData();
-
-            var targetAccesses = job.Access.ToHashSet();
             foreach (var group in job.AccessGroups)
             {
                 if (!_prototypeManager.Resolve(group, out AccessGroupPrototype? groupPrototype))
                 {
                     continue;
                 }
-                targetAccesses.UnionWith(groupPrototype.Tags);
-            }
 
-            // this is a sussy way to do this
-            foreach (var (id, button) in _accessButtons.ButtonsList)
-            {
-                if (!button.Disabled && button.Pressed != targetAccesses.Contains(id))
+                foreach (var access in groupPrototype.Tags)
                 {
-                    OnToggleAccess?.Invoke(id);
+                    if (_accessButtons.ButtonsList.TryGetValue(access, out var button) && !button.Disabled)
+                    {
+                        button.Pressed = true;
+                    }
                 }
             }
-            // DeltaV - end of job preset access fix
+
+            SubmitData();
         }
 
         public void UpdateState(IdCardConsoleBoundUserInterfaceState state)
@@ -233,7 +222,7 @@ namespace Content.Client.Access.UI
                 FullNameLineEdit.Text,
                 JobTitleLineEdit.Text,
                 // Iterate over the buttons dictionary, filter by `Pressed`, only get key from the key/value pair
-                [], // DeltaV - don't send list of accesses
+                _accessButtons.ButtonsList.Where(x => x.Value.Pressed).Select(x => x.Key).ToList(),
                 jobProtoDirty ? _jobPrototypeIds[JobPresetOptionButton.SelectedId] : string.Empty);
         }
     }
