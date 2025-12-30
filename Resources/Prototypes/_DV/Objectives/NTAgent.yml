@@ -1,26 +1,22 @@
 - type: entity
   abstract: true
-  parent: BaseObjective
+  parent: BaseSurviveObjective
   id: BaseNTAgentObjective
   components:
   - type: Objective
     issuer: objective-issuer-NTAgent
-    difficulty: 0
+    difficulty: 1
   - type: RoleRequirement
     roles:
-    - NTAgentRole
+    - MindRoleNTAgent
 
 - type: entity
-  parent: [BaseNTAgentObjective, BaseLivingObjective]
+  parent: BaseNTAgentObjective
   id: NTAgentObjective
   name: Do your task.
-  description: Complete the objectives you're given by your handler and make it back to Midpoint.
+  description: Complete the objectives given by your handler.
   components:
   - type: Objective
-    difficulty: 0
-    issuer:
-    unique: true
     icon:
       sprite: Clothing/Ears/Headsets/centcom.rsi
       state: icon
-  - type: EscapeShuttleCondition
