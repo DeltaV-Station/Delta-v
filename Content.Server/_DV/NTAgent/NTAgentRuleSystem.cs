@@ -1,4 +1,4 @@
-using Content.Server.GameTicking.Rules;
+/*using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Roles;
 using Content.Shared.Humanoid;
@@ -22,5 +22,5 @@ public sealed class NTAgentRuleSystem : GameRuleSystem<NTAgentRuleComponent>
         args.Append(Loc.GetString("NTAgent-role-greeting-human-deltav"));
     }
 }
-
+*/
 
