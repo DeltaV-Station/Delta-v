@@ -10,7 +10,7 @@
 # Off station
 - type: entity
   id: WarpPointEvacShuttle
-  parent: WarpPointNoBomb
+  parent: GhostWarpPoint
   suffix: Evac Shuttle
   components:
   - type: WarpPoint
