@@ -29,5 +29,5 @@ public sealed partial class GasPressurePumpComponent : Component
     /// Frontier - Start the pump with the map.
     /// </summary>
     [DataField]
-    public bool StartOnMapInit { get; set; }
+    public bool StartOnMapInit { get; set; } = false;
 }
