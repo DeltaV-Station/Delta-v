@@ -3,10 +3,13 @@ using Content.Shared._Starlight.Weapon.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.IoC;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared._Starlight.Weapon;
 
@@ -37,18 +40,19 @@ public abstract partial class SharedWeaponDismantleOnShootSystem : EntitySystem
         if (DismantleCheck(ent, ref args) == false)
             return;
 
-        //apply the damage to the shooter
-        //get the shooters damageable component
-        Damageable.TryChangeDamage(args.Shooter, ent.Comp.SelfDamage, origin: args.Shooter);
-
-        //we need the user past this point
+        // we need the user (shooter) to proceed
         if (!args.Shooter.HasValue)
             return;
 
-        Audio.PlayPredicted(ent.Comp.DismantleSound, args.Shooter.Value, args.Shooter.Value);
+        var shooter = args.Shooter.Value;
 
-        //get the users transform
-        var userPosition = Transform(args.Shooter.Value).Coordinates;
+        // apply the damage to the shooter (expects Entity<DamageableComponent?>)
+        Damageable.TryChangeDamage((shooter, null), ent.Comp.SelfDamage, origin: shooter);
+
+        Audio.PlayPredicted(ent.Comp.DismantleSound, shooter, shooter);
+
+        // get the user's transform
+        var userPosition = Transform(shooter).Coordinates;
 
         if (!TryComp<GunComponent>(ent, out var gunComponent))
             return;
@@ -84,7 +88,7 @@ public abstract partial class SharedWeaponDismantleOnShootSystem : EntitySystem
                 //rotate it by the random angle
                 direction = Angle.FromDegrees(randomAngle).RotateVec(direction);
 
-                var throwDirection = new EntityCoordinates(args.Shooter.Value, direction);
+                var throwDirection = new EntityCoordinates(shooter, direction);
 
                 Throwing.TryThrow(itemEntity, throwDirection, ent.Comp.DismantleDistance, compensateFriction: true);
             }
