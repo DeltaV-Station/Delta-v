@@ -83,12 +83,37 @@
     location: Detective
 
 - type: entity
+  id: WarpPointJail
+  parent: WarpPoint
+  suffix: Jail
+  components:
+  - type: WarpPoint
+    location: Jail
+
+# Justice
+- type: entity
   id: WarpPointCourt
   parent: WarpPoint
   suffix: Courtroom
   components:
   - type: WarpPoint
     location: Courtroom
+
+- type: entity
+  id: WarpPointJustice
+  parent: WarpPoint
+  suffix: Justice
+  components:
+  - type: WarpPoint
+    location: Justice
+
+- type: entity
+  id: WarpPointLawyer
+  parent: WarpPoint
+  suffix: Lawyer
+  components:
+  - type: WarpPoint
+    location: Lawyer
 
 #Medical
 - type: entity
@@ -107,6 +132,14 @@
   - type: WarpPoint
     location: Morgue
 
+- type: entity
+  id: WarpPointPsych
+  parent: WarpPoint
+  suffix: Psychologist
+  components:
+  - type: WarpPoint
+    location: Psychologist
+
 #Epistemics
 - type: entity
   id: WarpPointEpistemics
@@ -115,6 +148,38 @@
   components:
   - type: WarpPoint
     location: Epistemics
+
+- type: entity
+  id: WarpPointArtifactLab
+  parent: WarpPointNoBomb
+  suffix: Artifact Lab
+  components:
+  - type: WarpPoint
+    location: Artifact Lab
+
+- type: entity
+  id: WarpPointAnomalyLab
+  parent: WarpPointNoBomb
+  suffix: Anomaly Lab
+  components:
+  - type: WarpPoint
+    location: Anomaly Lab
+
+- type: entity
+  id: WarpPointChapel
+  parent: WarpPoint
+  suffix: Chapel
+  components:
+  - type: WarpPoint
+    location: Chapel
+
+- type: entity
+  id: WarpPointLibrary
+  parent: WarpPoint
+  suffix: Library
+  components:
+  - type: WarpPoint
+    location: Library
 
 #Logistics
 - type: entity
@@ -126,12 +191,28 @@
     location: Logistics
 
 - type: entity
+  id: WarpPointMail
+  parent: WarpPoint
+  suffix: Mail
+  components:
+  - type: WarpPoint
+    location: Mail
+
+- type: entity
   id: WarpPointSalvage
   parent: WarpPoint
   suffix: Salvage
   components:
   - type: WarpPoint
     location: Salvage
+
+- type: entity
+  id: WarpPointSalvageDock
+  parent: WarpPointNoBomb
+  suffix: Salvage Dock
+  components:
+  - type: WarpPoint
+    location: Salvage Dock
 
 #Engineering
 - type: entity
@@ -157,6 +238,22 @@
   components:
   - type: WarpPoint
     location: Atmos
+
+- type: entity
+  id: WarpPointAME
+  parent: WarpPoint
+  suffix: AME
+  components:
+  - type: WarpPoint
+    location: AME
+
+- type: entity
+  id: WarpPointTEG
+  parent: WarpPoint
+  suffix: TEG
+  components:
+  - type: WarpPoint
+    location: TEG
 
 #Service
 - type: entity
@@ -207,14 +304,6 @@
   - type: WarpPoint
     location: Reporter
 
-- type: entity
-  id: WarpPointLawyer
-  parent: WarpPoint
-  suffix: Lawyer
-  components:
-  - type: WarpPoint
-    location: Lawyer
-
 #Misc
 - type: entity
   id: WarpPointAI
@@ -247,22 +336,6 @@
   components:
   - type: WarpPoint
     location: Cryo
-
-- type: entity
-  id: WarpPointChapel
-  parent: WarpPoint
-  suffix: Chapel
-  components:
-  - type: WarpPoint
-    location: Chapel
-
-- type: entity
-  id: WarpPointLibrary
-  parent: WarpPoint
-  suffix: Library
-  components:
-  - type: WarpPoint
-    location: Library
 
 - type: entity
   id: WarpPointDorms
