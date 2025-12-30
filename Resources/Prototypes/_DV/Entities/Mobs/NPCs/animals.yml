@@ -68,9 +68,10 @@
 
 - type: entity
   parent: SimpleMobBase
-  id: MobSecDog
+  id: MobSecDogBase
   name: security dog
   description: Funnily enough, this pig is actually a dog.
+  categories: [ HideSpawnMenu ]
   components:
   - type: GhostRole
     makeSentient: true
@@ -188,6 +189,14 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
+
+# Split from MobSecDog for random names, allows Laika to be Laika
+- type: entity
+  parent: MobSecDogBase
+  id: MobSecDog
+  components:
+  - type: RandomMetadata
+    nameSegments: [NamesSecDogs]
 
 - type: entity
   parent: MobMouse
