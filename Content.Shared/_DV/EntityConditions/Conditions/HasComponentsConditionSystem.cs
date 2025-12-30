@@ -35,8 +35,8 @@ public sealed partial class HasComponentsConditionSystem : EntityConditionSystem
 
         var tested =
             args.Condition.ConsiderAll
-                ? args.Condition.Components.Values.All(c => _ent.HasComponent(entity, c.Component.GetType()))
-                : args.Condition.Components.Values.Any(c => _ent.HasComponent(entity, c.Component.GetType()));
+                ? args.Condition.Components.Values.All(c => _ent.HasComponent(targetEntity, c.Component.GetType()))
+                : args.Condition.Components.Values.Any(c => _ent.HasComponent(targetEntity, c.Component.GetType()));
 
         args.Result = tested ^ !args.Condition.ShouldHave;
     }
