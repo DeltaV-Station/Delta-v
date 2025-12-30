@@ -92,3 +92,6 @@ role-name-ifrit = Ifrit
 role-name-carpy = Carpy
 role-name-shiva = Shiva
 role-name-pun-pun = Pun Pun
+
+# Generic secdog
+role-name-k9-officer = K9 Officer
