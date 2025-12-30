@@ -1,5 +1,4 @@
 using Content.Server._DV.CosmicCult.Components; // DeltaV
-//using Content.Server._DV.NTAgent;
 using Content.Server._DV.GameTicking.Rules.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
@@ -211,7 +210,6 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
-
 
         var ntAgent = Loc.GetString("admin-verb-make-NTAgent");
         Verb agent = new()
