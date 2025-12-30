@@ -123,6 +123,10 @@ public sealed class SiliconChargeSystem : EntitySystem
                 drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
             }
 
+            // DeltaV - Sanity check
+            if (float.IsNaN(drainRateFinalAddi))
+                drainRateFinalAddi = 0f;
+
             // Ensures that the drain rate is at least 10% of normal,
             // and would allow at least 4 minutes of life with a max charge, to prevent cheese.
             drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
@@ -215,6 +219,10 @@ public sealed class SiliconChargeSystem : EntitySystem
         {
             return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
         }
+
+        // DeltaV - Prevent divide by zero errors, smh
+        if (movement.CurrentSprintSpeed == 0)
+            return 0;
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(
