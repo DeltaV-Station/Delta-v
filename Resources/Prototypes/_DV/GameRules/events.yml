@@ -166,8 +166,14 @@
       briefing:
         text: NTAgent-role-greeting-human
         color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
       mindRoles:
       - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+
 
 # Mid round antag spawns
 - type: entity
