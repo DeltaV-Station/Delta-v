@@ -174,8 +174,9 @@
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
+        prob: 0.2                           # Delta V - Decrease freaquency of loot
+        #rolls: !type:RangeNumberSelector
+        #  range: 0, 1
 
 - type: entity
   parent: ToiletDirtyWater
@@ -186,8 +187,9 @@
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
+        prob: 0.2                           # Delta V - Decrease freaquency of loot
+        #rolls: !type:RangeNumberSelector
+        #  range: 0, 1
 
 - type: entity
   parent: BaseToilet
