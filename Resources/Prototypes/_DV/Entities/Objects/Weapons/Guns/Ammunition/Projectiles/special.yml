@@ -110,13 +110,13 @@
   - type: SolutionContainerManager
     solutions:
       ammo:
-        maxVol: 6
+        maxVol: 6.5
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution
     solution: ammo
   - type: SolutionInjectOnProjectileHit
-    transferAmount: 6
+    transferAmount: 6.5
     blockSlots: NONE #shouldn't be blocked by a mask
     solution: ammo
   - type: InjectableSolution

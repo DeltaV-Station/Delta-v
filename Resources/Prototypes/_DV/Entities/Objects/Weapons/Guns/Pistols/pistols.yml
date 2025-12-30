@@ -350,7 +350,7 @@
   name: Mk98-S3 "Fox"
   parent: BaseWeaponPistol
   id: WeaponPistolTranqulizer
-  description: A integrally suppressed manual-action pistol used by the Syndicate intended for use with tranquilizer rounds, specifically designed for kidnapping targets without causing their early demise. Uses .38 special ammo.
+  description: A integrally suppressed manual-action pistol used by the Syndicate intended for use with tranquilizer rounds, specifically designed for kidnapping targets without causing suit-sensors to alarm their death. Uses .38 special ammo.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Pistols/fox.rsi
@@ -367,12 +367,12 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/mk98empty.ogg
   - type: UseDelay
-    delay: 0.5
+    delay: 0.6
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
     autoCycle: false
     soundRack:
-      path: /Audio/_DV/Weapons/Guns/Cock/mk98rack.ogg
+      path: /Audio/_DV/Weapons/Guns/Cock/mk98rack.ogg 
       params:
         volume: -4
   - type: ItemSlots
@@ -397,3 +397,4 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+
