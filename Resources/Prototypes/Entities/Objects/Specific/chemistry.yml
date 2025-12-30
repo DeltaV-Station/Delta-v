@@ -48,8 +48,11 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: beaker
+    destroyOnEmpty: false
+    utensil: None
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -145,8 +148,11 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: beaker
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -288,16 +294,12 @@
       injector:
         maxVol: 5
   - type: Injector
-    injectOnly: false
     ignoreMobs: true
     ignoreClosed: false
-    transferAmounts:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    currentTransferAmount: 1
+    activeModeProtoId: DropperDrawMode
+    allowedModes:
+    - DropperDrawMode
+    - DropperInjectMode
   - type: ExaminableSolution
     solution: dropper
     exactVolume: true
@@ -370,7 +372,10 @@
       injector:
         maxVol: 15
   - type: Injector
-    injectOnly: false
+    activeModeProtoId: SyringeDrawMode
+    allowedModes:
+    - SyringeDrawMode
+    - SyringeInjectMode
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
@@ -392,12 +397,6 @@
   parent: BaseSyringe
   id: Syringe
   components:
-  - type: Injector
-    currentTransferAmount: 15
-    transferAmounts: # DeltaV - Don't include 1u injections on Syringes
-    - 5
-    - 10
-    - 15
   - type: Tag
     tags:
     - Syringe
@@ -420,14 +419,6 @@
     solutions:
       injector:
         maxVol: 5
-  - type: Injector
-    transferAmounts:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    currentTransferAmount: 5
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: minisyringe
@@ -481,7 +472,7 @@
   id: PrefilledSyringe
   components:
   - type: Injector
-    toggleState: Inject
+    activeModeProtoId: SyringeInjectMode
 
 - type: entity
   id: SyringeBluespace
@@ -504,12 +495,10 @@
       injector:
         maxVol: 100
   - type: Injector
-    delay: 2.5
-    injectOnly: false
-    transferAmounts: # DeltaV - Don't include 1u injections on Syringes
-    - 5
-    - 10
-    - 15
+    activeModeProtoId: BluespaceSyringeDrawMode
+    allowedModes:
+    - BluespaceSyringeInjectMode
+    - BluespaceSyringeDrawMode
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: syringe
@@ -544,11 +533,10 @@
         maxVol: 10
         canReact: false
   - type: Injector
-    injectOnly: false
-    transferAmounts:
-    - 5
-    - 10
-    currentTransferAmount: 10
+    activeModeProtoId: CryostasisSyringeDrawMode
+    allowedModes:
+    - CryostasisSyringeInjectMode
+    - CryostasisSyringeDrawMode
   - type: Tag
     tags:
     - Syringe

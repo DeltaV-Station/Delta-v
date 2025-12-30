@@ -6,22 +6,14 @@
       tableId: LockerFillQuarterMasterDeltaV
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
-    - id: CargoBountyComputerCircuitboard
-    - id: CargoRequestComputerCircuitboard
-    - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleConsoleCircuitboard
-    - id: SalvageMagnetMachineCircuitboard
-    #- id: SalvageJobBoardComputerCircuitboard # DeltaV - unneeded mechanic with mining points vendor
+    - id: BoxQMCircuitboards
+    - id: BoxQMStamps
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampQm
     - id: AstroNavCartridge
     #- id: ClothingHandsKnuckleDustersQM # DeltaV - No weaponry for LO.
-    #- id: MailTeleporterMachineCircuitboard # DeltaV - upstream deliveries not ported yet
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -41,18 +33,18 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillCaptainDeltaV
     #- id: CaptainIDCard # DeltaV - Replaced by the spare ID system
-    - id: CigarGoldCase
-      prob: 0.25
+    #- id: CigarGoldCase # DeltaV - Moved to dresser
+    #  prob: 0.25
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
-    - id: CommsComputerCircuitboard
+    - id: BoxCaptainCircuitboards
     - id: DoorRemoteCustom
-    - id: MedalCase
+    #- id: MedalCase # DeltaV - Moved to dresser
     - id: NukeDisk
     - id: PinpointerNuclear
-    - id: PlushieNuke
-      prob: 0.1
+    #- id: PlushieNuke # DeltaV - Moved to dresser
+    #  prob: 0.1
     - id: RubberStampCaptain
     - id: SpaceCash1000
     - id: WeaponDisabler
@@ -124,14 +116,16 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    - id: AccessConfigurator
-    - id: BoxEncryptionKeyPassenger
-    - id: BoxEncryptionKeyService
-    - id: BoxHeadset
-    - id: BoxID
-    - id: BoxPDA
-    - id: CigarGoldCase
-      prob: 0.25
+    #- id: AccessConfigurator # DeltaV - Moved to PTech
+    #- id: BoxEncryptionKeyPassenger # DeltaV - PTech
+    #- id: BoxEncryptionKeyService # DeltaV - PTech
+    #- id: BoxHeadset # DeltaV - PTech
+    - id: BoxHoPCircuitboards
+    - id: BoxHoPStamps
+    #- id: BoxID # DeltaV - PTech
+    #- id: BoxPDA # DeltaV - PTech
+    #- id: CigarGoldCase # DeltaV - moved to Dresser
+    #  prob: 0.25
       # Fuck the HoP they don't deserve fucking cigars.
       # Yes they do fuck you.
     - id: ClothingBackpackIan
@@ -140,12 +134,6 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: IDComputerCircuitboard
-    # - id: FundingAllocationComputerCircuitboard # DeltaV - HoP doesn't get funding allocation
-    - id: CargoRequestServiceComputerCircuitboard
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampHop
     #- id: WeaponDisabler # DeltaV - There is no reason for the service head to have a disabler.
     - id: ClothingEyesHudCommand
 
@@ -172,11 +160,11 @@
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
     - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesColorYellow
+    #- id: ClothingHandsGlovesColorYellow # DeltaV - Moved to dresser
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    - id: CargoRequestEngineeringComputerCircuitboard
-    - id: RCDRecharging # DeltaV (Untell ce can get there own rcd agian)
+    - id: BoxCECircuitboards
+    - id: RCDRecharging # DeltaV - Replaces normal RCD
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
@@ -228,22 +216,19 @@
       tableId: LockerFillChiefMedicalOfficerDeltaV
     - id: BoxEncryptionKeyMedical
     - id: ClothingBackpackDuffelSurgeryFilled
-    - id: ClothingCloakCmo
+    #- id: ClothingCloakCmo # DeltaV - Moved to dresser
     - id: ClothingEyesHudMedical
-    - id: ClothingHandsGlovesNitrile
-    - id: ClothingHeadHatBeretCmo
+    #- id: ClothingHandsGlovesNitrile # DeltaV - Moved to dresser
+    #- id: ClothingHeadHatBeretCmo # DeltaV - Moved to dresser
     - id: ClothingHeadsetAltMedical
-    - id: ClothingMaskSterile
+    #- id: ClothingMaskSterile # DeltaV - Moved to ClothingBackpackDuffelSurgeryFilled
     - id: DoorRemoteMedical
     - id: HandheldCrewMonitor
     - id: Hypospray
-    - id: MedicalTechFabCircuitboard
-    - id: CargoRequestMedicalComputerCircuitboard
+    - id: BoxCMOCircuitboards
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
-    # Shitmed
-    #- id: MedicalBiofabMachineBoard #DeltaV - Replaced with a flatpack at Prototypes/_DV/Catalog/Fills/Lockers/heads.yml
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -289,14 +274,11 @@
       tableId: LockerFillResearchDirectorDeltaV
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    #- id: CircuitImprinterMachineCircuitboard # DeltaV
+    - id: BoxRDCircuitboards
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    #- id: ProtolatheMachineCircuitboard # DeltaV
-    - id: ResearchComputerCircuitboard
-    - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
     - id: BibleMystagogue  # DeltaV - steal objective and source of abilities
 
@@ -343,23 +325,24 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    # - id: WeaponEnergyShotgun # DeltaV - Moved to warden locker
-    - id: BookSpaceLaw
+    #- id: WeaponEnergyMagnum # DeltaV - PDX instead
+    #- id: BookSpaceLaw # DeltaV - Moved to dresser
     - id: BoxEncryptionKeySecurity
-    - id: CigarGoldCase
-      prob: 0.50
+    #- id: CigarGoldCase # DeltaV - Moved to dresser
+    #  prob: 0.50
     - id: ClothingBeltSecurityFilled
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
-    - id: ClothingMaskNeckGaiter
-    - id: ClothingOuterCoatHoSTrench
-    - id: ClothingShoesBootsJack
+    #- id: ClothingMaskNeckGaiter # DeltaV - Moved to dresser
+    #- id: ClothingOuterCoatHoSTrench # DeltaV - Moved to dresser
+    #- id: ClothingShoesBootsJack # DeltaV - Moved to dresser
+    - id: FlashlightSeclite
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
     - id: RubberStampHos
-    - id: SecurityTechFabCircuitboard
-    - id: CargoRequestSecurityComputerCircuitboard
+    - id: BoxHoSCircuitboards
     - id: WeaponDisabler
+    - id: WeaponTaser
     #- id: WantedListCartridge # DeltaV - replaced by secwatch
     - id: DrinkHosFlask
 
@@ -400,17 +383,24 @@
         - !type:NestedSelector
           tableId: FillHeadOfSecurityHardsuit
 
-- type: entity
-  id: LockerFreezerVaultFilled
-  suffix: Vault, Locked
-  parent: LockerFreezerBase
-  components:
-  - type: AccessReader
-    access: [ [ "Command" ] ]
-  - type: StorageFill
-    contents:
+- type: entityTable
+  id: LockerFillVault
+  table: !type:AllSelector
+    children:
     - id: WeaponRevolverDeckard
     - id: JetpackBlue
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+
+- type: entity
+  id: LockerFreezerVaultFilled
+  suffix: Vault, Filled
+  parent: LockerFreezerBase
+  components:
+  - type: AccessReader
+    access: [ [ "Command" ] ]
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillVault

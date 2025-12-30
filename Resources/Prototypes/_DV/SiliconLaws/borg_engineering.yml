@@ -1,0 +1,35 @@
+- type: siliconLaw
+  id: Engineer1
+  order: 1
+  lawString: law-engineer-1
+
+- type: siliconLaw
+  id: Engineer2
+  order: 2
+  lawString: law-engineer-2
+
+- type: siliconLaw
+  id: Engineer3
+  order: 3
+  lawString: law-engineer-3
+
+- type: siliconLaw
+  id: Engineer4
+  order: 4
+  lawString: law-engineer-4
+
+- type: siliconLaw
+  id: Engineer5
+  order: 5
+  lawString: law-engineer-5
+
+- type: siliconLawset
+  id: Engineer
+  name: law-engineer-name
+  laws:
+  - Engineer1
+  - Engineer2
+  - Engineer3
+  - Engineer4
+  - Engineer5
+  obeysTo: laws-owner-station-station

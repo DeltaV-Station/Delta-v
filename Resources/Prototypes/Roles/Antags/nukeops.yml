@@ -4,19 +4,19 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
-  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # DeltaV - 30 hours
+    time: 30h # DeltaV - was 5h
   - !type:DepartmentTimeRequirement # DeltaV - engi dept time requirement
     department: Engineering
-    time: 7200 # DeltaV - 2 hours
+    time: 2h
   - !type:RoleTimeRequirement # DeltaV - salvage time requirement
     role: JobSalvageSpecialist
-    time: 7200 # DeltaV - 2 hours
+    time: 2h
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 36000 # DeltaV - 10 hours
+    time: 10h
+  guides: [ NuclearOperatives ]
 
 - type: antag
   id: NukeopsMedic
@@ -24,13 +24,13 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-corpsman-objective # DeltaV
-  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # DeltaV - 30 hours
-  - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems
+    time: 30h # DeltaV - was 5h
+  - !type:RoleTimeRequirement # Delta V - they should be able to make basic chems
     role: JobChemist
-    time: 14400 # DeltaV - 4 hours
+    time: 4h # DeltaV
+  guides: [ NuclearOperatives ]
 
 - type: antag
   id: NukeopsCommander
@@ -41,13 +41,13 @@
   guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 216000 # DeltaV - 60 hours
+    time: 60h # DeltaV - was 5h
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 36000 # DeltaV - 10 hours, was 5
+    time: 10h # DeltaV - was 5h
   - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
     department: Command
-    time: 36000 # DeltaV - 10 hours
+    time: 10h
   - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   # should be changed to nukie playtime when thats tracked (wyci)
 
@@ -62,7 +62,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitSyndie
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDA
+    id: SyndiOperativePDA
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
@@ -94,6 +94,7 @@
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFull
   equipment:
+    id: SyndiCommanderPDA
     neck: SyndicateWhistle
     pocket2: CommanderUplinkRadio45TC # DeltaV - allows them to buy commander armor
     outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV - removal of armor
