@@ -404,3 +404,27 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/roboneuroticistpurple.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/roboneuroticistpurple.rsi
+
+# Seasonal
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtFestiveDressRed
+  name: festive red dress
+  description: A festive red dress with white fur trim, perfect for holiday parties.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/festive_red_dress.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/festive_red_dress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtElf
+  name: elf jumpskirt
+  description: An elf costume complete with a green skirt and red-and-white striped stockings.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/elf.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/elf.rsi

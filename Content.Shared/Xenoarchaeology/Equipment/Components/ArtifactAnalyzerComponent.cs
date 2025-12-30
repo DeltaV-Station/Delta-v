@@ -1,5 +1,6 @@
-using Robust.Shared.Audio;
+using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 
@@ -15,6 +16,11 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// DeltaV - The ratio of research points per one glimmer.
+    /// </summary>
+    public int ExtractRatio = 1250;
 
     /// <summary>
     /// The current artifact placed on this analyzer.
@@ -35,4 +41,10 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ReadyToPrint = false;
+
+    /// <summary>
+    /// The machine linking port for linking the analyzer with the console.
+    /// </summary>
+    [DataField]
+    public ProtoId<SinkPortPrototype> LinkingPort = "ArtifactAnalyzerReceiver";
 }

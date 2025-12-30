@@ -5,6 +5,7 @@ mail-desc-far = A parcel of mail. You can't make out who it's addressed to from 
 mail-desc-close = A parcel of mail addressed to {CAPITALIZE($name)}, {$job}.
 mail-desc-fragile = It has a [color=red]red fragile label[/color].
 mail-desc-priority = The anti-tamper lock's [color=yellow]yellow priority tape[/color] is active. Better deliver it on time!
+mail-desc-priority-timer = The anti-tamper lock's [color=yellow]yellow priority tape[/color] is active. Expires in: [color=yellow]{$time}[/color]
 mail-desc-priority-inactive = The anti-tamper lock's [color=#886600]yellow priority tape[/color] is inactive.
 mail-unlocked = Anti-tamper system unlocked.
 mail-unlocked-by-emag = Anti-tamper system *BZZT*.

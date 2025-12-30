@@ -1,15 +1,55 @@
-# For prisoner job, not to be confused with genpop prisoner ids
+# If an ID contains sprite component changes, put it here. Otherwise, put it in identification_cards_alt.yml
+
+# Command
 - type: entity
   parent: IDCardStandard
-  id: PrisonerJobIDCard
+  id: ChiefJusticeIDCard
+  name: chief justice ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: stripe_top
+      color: &color-justice-top "#641327"
+    - state: stripe_bottom
+      color: &color-justice-bottom "#4C0E1D"
+    - sprite: &icon-rsi-dv /Textures/_DV/Interface/Misc/job_icons.rsi
+      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      state: ChiefJustice
+  - type: PresetIdCard
+    job: ChiefJustice
+
+# Security and Prisoners
+- type: entity
+  parent: IDCardStandard
+  id: PrisonGuardIDCard
+  name: prison guard ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: &color-security-top "#39393c"
+    - state: stripe_bottom
+      color: &color-security-bottom "#262626"
+    - sprite: *icon-rsi-dv
+      offset:
+      state: nyanoPrisonGuard
+  - type: PresetIdCard
+    job: PrisonGuard
+
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerJobIDCard # Not to be confused with genpop prisoner ids
   name: prisoner ID card
   suffix: Job
   components:
   - type: Sprite
     layers:
     - state: orange
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanoprisoner
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Prisoner
   - type: PresetIdCard
     job: Prisoner
 
@@ -21,101 +61,13 @@
   - type: Sprite
     layers:
     - state: orange
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanogladiator
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: nyanoGladiator
   - type: PresetIdCard
     job: Gladiator
 
-- type: entity
-  parent: IDCardStandard
-  id: PrisonGuardIDCard
-  name: prison guard ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanoprisonguard
-  - type: PresetIdCard
-    job: PrisonGuard
-
-- type: entity
-  parent: CourierIDCard
-  id: MailCarrierIDCard
-  name: mail carrier ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanomailcarrier
-  - type: IdCard
-    jobTitle: job-alt-title-mail-carrier
-
-- type: entity
-  parent: IDCardStandard
-  id: MartialArtistIDCard
-  name: martial artist ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanomartialartist
-  - type: PresetIdCard
-    job: MartialArtist
-
-- type: entity
-  parent: IDCardStandard
-  id: ForensicMantisIDCard
-  name: psionic mantis ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanomantis
-  - type: PresetIdCard
-    job: ForensicMantis
-
-- type: entity
-  parent: IDCardStandard
-  id: ChiefJusticeIDCard
-  name: chief justice ID card
-  components:
-  - type: PresetIdCard
-    job: ChiefJustice
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idchiefjustice
-
-- type: entity
-  parent: IDCardStandard
-  id: ClerkIDCard
-  name: clerk ID card
-  components:
-  - type: PresetIdCard
-    job: Clerk
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idclerk
-
-- type: entity
-  parent: IDCardStandard
-  id: ProsecutorIDCard
-  name: presecutor ID card
-  components:
-  - type: PresetIdCard
-    job: Prosecutor
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idprosecutor
+# Cargo / Logistics
 
 - type: entity
   parent: IDCardStandard
@@ -125,8 +77,13 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: nyanomailcarrier
+    - state: stripe_top
+      color: &color-supply-top "#b18644"
+    - state: stripe_bottom
+      color: &color-supply-bottom "#5b4523"
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: nyanoMailCarrier
   - type: PresetIdCard
     job: Courier
 
@@ -138,158 +95,17 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idcargoassistant
+    - state: stripe_top
+      color: *color-supply-top
+    - state: stripe_bottom
+      color: *color-supply-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: CargoAssistant
   - type: PresetIdCard
     job: CargoAssistant
 
-## Alternate Job Titles
-
-# Passenger
-
-- type: entity
-  parent: PassengerIDCard
-  id: VisitorIDCardLoadout
-  name: visitor ID card
-  components:
-  - type: IdCard
-    jobTitle: job-title-visitor
-
-- type: entity
-  parent: PassengerIDCard
-  id: TouristIDCard
-  name: tourist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-tourist
-
-- type: entity
-  parent: PassengerIDCard
-  id: OffDutyCrewIDCard
-  name: off-duty crew ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-off-duty-crew
-
-- type: entity
-  parent: PassengerIDCard
-  id: StudentIDCard
-  name: student ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-student
-
-# Bartender
-
-- type: entity
-  parent: BartenderIDCard
-  id: MixologistIDCard
-  name: mixologist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-mixologist
-
-# Chef
-
-- type: entity
-  parent: ChefIDCard
-  id: BakerIDCard
-  name: baker ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-baker
-
-- type: entity
-  parent: ChefIDCard
-  id: ButcherIDCard
-  name: butcher ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-butcher
-
-- type: entity
-  parent: ChefIDCard
-  id: PizzaioloIDCard
-  name: pizzaiolo ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-pizzaiolo
-
-# Medical Intern
-
-- type: entity
-  parent: MedicalInternIDCard
-  id: PracticalNurseIDCard
-  name: practical nurse ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-practical-nurse
-
-- type: entity
-  parent: MedicalInternIDCard
-  id: ResidentIDCard
-  name: resident ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-resident
-
-# Medical Doctor
-
-- type: entity
-  parent: MedicalIDCard
-  id: ClinicianIDCard
-  name: clinician ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-clinician
-
-# Senior Physician
-
-- type: entity
-  parent: SeniorPhysicianIDCard
-  id: CryogenicsSpecialistIDCard
-  name: cryogenics specialist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-cryogenics-specialist
-
-# Chemist
-
-- type: entity
-  parent: ChemistIDCard
-  id: PharmacistIDCard
-  name: pharmacist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-pharmacist
-
-# Psychologist
-
-- type: entity
-  parent: PsychologistIDCard
-  id: PsychiatristIDCard
-  name: psychiatrist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-psychiatrist
-
-- type: entity
-  parent: PsychologistIDCard
-  id: TherapistIDCard
-  name: therapist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-therapist
-
-- type: entity
-  parent: PsychologistIDCard
-  id: SocialWorkerIDCard
-  name: social worker ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-social-worker
-
-# Surgeon
+# Medical
 
 - type: entity
   parent: MedicalIDCard
@@ -299,101 +115,36 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idsurgeon
+    - state: stripe_top
+      color: &color-medical-top "#68aed6"
+    - state: stripe_bottom
+      color: &color-medical-bottom "#325f7a"
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Surgeon
   - type: IdCard
     jobTitle: job-name-surgeon
     jobIcon: JobIconSurgeon
 
-# Atmospheric Technician
+# Science / Epi
 
 - type: entity
-  parent: AtmosIDCard
-  id: LifeSupportTechIDCard
-  name: life support technician ID card
+  parent: IDCardStandard
+  id: ForensicMantisIDCard
+  name: psionic mantis ID card
   components:
-  - type: IdCard
-    jobTitle: job-alt-title-life-support
-
-- type: entity
-  parent: AtmosIDCard
-  id: PlasmaScientistIDCard
-  name: plasma scientist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-plasma-scientist
-
-# Station Engineer
-
-- type: entity
-  parent: EngineeringIDCard
-  id: ElectricianIDCard
-  name: electrician ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-electrician
-
-- type: entity
-  parent: EngineeringIDCard
-  id: MechanicIDCard
-  name: mechanic ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-mechanic
-
-# Cargo Technician
-
-- type: entity
-  parent: CargoIDCard
-  id: DeckWorkerIDCard
-  name: deck worker ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-deck-worker
-
-- type: entity
-  parent: CargoIDCard
-  id: InventoryAssociateIDCard
-  name: inventory associate ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-inventory-associate
-
-# Salvage Specialist
-
-- type: entity
-  parent: SalvageIDCard
-  id: ProspectorIDCard
-  name: prospector ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-prospector
-
-- type: entity
-  parent: SalvageIDCard
-  id: ExcavatorIDCard
-  name: excavator ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-excavator
-
-# Scientist
-
-- type: entity
-  parent: ResearchIDCard
-  id: LabTechIDCard
-  name: lab technician ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-lab-technician
-
-- type: entity
-  parent: ResearchIDCard
-  id: XenoarchIDCard
-  name: xenoarchaeologist ID card
-  components:
-  - type: IdCard
-    jobTitle: job-alt-title-xenoarch
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: &color-science-top "#a53aaa"
+    - state: stripe_bottom
+      color: &color-science-bottom "#652368"
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: nyanoMantis
+  - type: PresetIdCard
+    job: ForensicMantis
 
 - type: entity
   parent: ResearchIDCard
@@ -403,52 +154,71 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idroboticist
+    - state: stripe_top
+      color: *color-science-top
+    - state: stripe_bottom
+      color: *color-science-bottom
+    - sprite: &icon-rsi /Textures/Interface/Misc/job_icons.rsi
+      offset: *icon-offset
+      state: Roboticist
   - type: PresetIdCard
     job: Roboticist
 
-# Clown
+# Justice
 
 - type: entity
-  parent: ClownIDCard
-  id: JesterIDCard
-  name: jester ID card
+  parent: IDCardStandard
+  id: ClerkIDCard
+  name: clerk ID card
   components:
-  - type: IdCard
-    jobTitle: job-alt-title-jester
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Clerk
+  - type: PresetIdCard
+    job: Clerk
 
 - type: entity
-  parent: ClownIDCard
-  id: FoolIDCard
-  name: fool ID card
+  parent: IDCardStandard
+  id: ProsecutorIDCard
+  name: presecutor ID card
   components:
-  - type: IdCard
-    jobTitle: job-alt-title-fool
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Prosecutor
+  - type: PresetIdCard
+    job: Prosecutor
 
-# Janitor
+# Other
 
 - type: entity
-  parent: JanitorIDCard
-  id: HygieneTechnicianIDCard
-  name: hygiene technician ID card
+  parent: IDCardStandard
+  id: MartialArtistIDCard
+  name: martial artist ID card
   components:
-  - type: IdCard
-    jobTitle: job-alt-title-hygiene-technician
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: nyanoMartialArtist
+  - type: PresetIdCard
+    job: MartialArtist
 
-# Robo-Neuroticisit
-
-- type: entity
-  parent: SyndicateIDCard
-  id: RoboNeuroticistIDCard
-  name: robo-neuroticist ID card
-  components:
-  - type: Access
-    tags:
-    - NuclearOperative
-    - SyndicateAgent
-    - External
-    - Robotics
-    - Maintenance
+# Admemes and all that
 
 - type: entity
   parent: IDCardStandard
@@ -458,10 +228,11 @@
   description: An ID card that can replace the accesses of what it touches with the ones on the card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: admin
-    - state: idwizard
+    - state: wizard
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Wizard
   - type: Clothing
     sprite: Objects/Misc/id_cards.rsi
   - type: Item
@@ -469,7 +240,7 @@
   - type: IdCard
     jobTitle: job-title-admeme-overwriting
     jobIcon: JobIconAdmin
-  - type: Tag #  Ignore Chameleon tags
+  - type: Tag # Ignore Chameleon tags
     tags:
     - DoorBumpOpener
   - type: ReverseAgentIDCard
@@ -501,7 +272,9 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: admin
-    - state: idpassenger
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Admin
   - type: Clothing
     sprite: Objects/Misc/id_cards.rsi
   - type: Item
@@ -514,23 +287,3 @@
   - type: MappingCategories
     categories:
     - Debug
-
-#Recruiter
-- type: entity
-  parent: SyndicateIDCard
-  id: RecruiterIDCard
-  suffix: Recruiter
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idpassenger
-  - type: Access
-    tags:
-    - NuclearOperative
-    - SyndicateAgent
-    - External
-    - Maintenance
-  - type: IdCard
-    jobTitle: job-name-passenger
-    jobIcon: JobIconPassenger

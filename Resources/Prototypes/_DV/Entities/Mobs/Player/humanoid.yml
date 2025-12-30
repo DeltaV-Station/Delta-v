@@ -3,7 +3,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderAmber
   name: ERT leader
-  suffix: ERTRole, Amber
+  suffix: DeltaV, Amber, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -27,13 +27,6 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: short
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 54000 #15 hrs
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 14400 #4 hrs
     job: ERTLeader
   - type: Loadout
     prototypes: [ ERTLeaderGearAmber ]
@@ -48,7 +41,7 @@
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTLeaderRed
   name: ERT leader
-  suffix: ERTRole, Red
+  suffix: DeltaV, Red, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -60,20 +53,6 @@
   parent: ERTLeaderAmber
   id: ERTLeaderRed
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-leader-name
-    description: ghost-role-information-ert-leader-description
-    rules: ghost-role-information-nonantagonist-rules
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 54000 #15 hrs
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 14400 #4 hrs
-    raffle:
-      settings: short
-    job: ERTLeader
   - type: Loadout
     prototypes: [ ERTLeaderGearRed ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -81,7 +60,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTLeaderGamma
-  suffix: ERTRole, Gamma
+  suffix: DeltaV, Gamma, ERTRole
   components:
   - type: RandomHumanoidSpawner
     settings: ERTLeaderGamma
@@ -93,13 +72,6 @@
   parent: ERTLeaderAmber
   id: ERTLeaderGamma
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-leader-name
-    description: ghost-role-information-ert-leader-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTLeader
   - type: Loadout
     prototypes: [ ERTLeaderGearGamma ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -110,7 +82,7 @@
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTChaplainAmber
   name: ERT chaplain
-  suffix: ERTRole, Amber
+  suffix: DeltaV, Amber, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -132,13 +104,6 @@
     name: ghost-role-information-ert-chaplain-name
     description: ghost-role-information-ert-chaplain-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Epistemics
-      time: 36000 #10 hrs
     raffle:
       settings: short
     job: ERTChaplain
@@ -155,7 +120,7 @@
   parent: RandomHumanoidSpawnerERTChaplainAmber
   id: RandomHumanoidSpawnerERTChaplainRed
   name: ERT chaplain
-  suffix: ERTRole, Red
+  suffix: DeltaV, Red, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -167,13 +132,6 @@
   parent: ERTChaplainAmber
   id: ERTChaplainRed
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-chaplain-name
-    description: ghost-role-information-ert-chaplain-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTChaplain
   - type: Loadout
     prototypes: [ ERTChaplainGearRed ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -183,7 +141,7 @@
   parent: RandomHumanoidSpawnerERTChaplainAmber
   id: RandomHumanoidSpawnerERTChaplainGamma
   name: ERT chaplain
-  suffix: ERTRole, Gamma
+  suffix: DeltaV, Gamma, ERTRole
   components:
   - type: Sprite
     sprite: _DV/Markers/jobs.rsi
@@ -195,13 +153,6 @@
   parent: ERTChaplainAmber
   id: ERTChaplainGamma
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-chaplain-name
-    description: ghost-role-information-ert-chaplain-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTChaplain
   - type: Loadout
     prototypes: [ ERTChaplainGearGamma ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -213,7 +164,7 @@
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTJanitorAmber
   name: ERT janitor
-  suffix: ERTRole, Amber
+  suffix: DeltaV, Amber, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -234,13 +185,7 @@
     name: ghost-role-information-ert-janitor-name
     description: ghost-role-information-ert-janitor-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs
-    - !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 18000 #5 hrs
+
     raffle:
       settings: short
     job: ERTJanitor
@@ -257,7 +202,7 @@
   parent: RandomHumanoidSpawnerERTJanitorAmber
   id: RandomHumanoidSpawnerERTJanitorRed
   name: ERT janitor
-  suffix: ERTRole, Red
+  suffix: DeltaV, Red, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -284,7 +229,7 @@
   parent: RandomHumanoidSpawnerERTJanitorAmber
   id: RandomHumanoidSpawnerERTJanitorGamma
   name: ERT janitor
-  suffix: ERTRole, Gamma
+  suffix: DeltaV, Gamma, ERTRole
   components:
   - type: Sprite
     sprite: _DV/Markers/jobs.rsi
@@ -313,7 +258,7 @@
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTEngineerAmber
   name: ERT engineer
-  suffix: ERTRole, Amber
+  suffix: DeltaV, Amber, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -334,13 +279,6 @@
     name: ghost-role-information-ert-engineer-name
     description: ghost-role-information-ert-engineer-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 #10 hrs
     raffle:
       settings: short
     job: ERTEngineer
@@ -357,7 +295,7 @@
   parent: RandomHumanoidSpawnerERTEngineerAmber
   id: RandomHumanoidSpawnerERTEngineerRed
   name: ERT engineer
-  suffix: ERTRole, Red
+  suffix: DeltaV, Red, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -369,13 +307,6 @@
   parent: ERTEngineerAmber
   id: ERTEngineerRed
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-engineer-name
-    description: ghost-role-information-ert-engineer-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTEngineer
   - type: Loadout
     prototypes: [ ERTEngineerGearRed ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -384,7 +315,7 @@
   parent: RandomHumanoidSpawnerERTEngineerAmber
   id: RandomHumanoidSpawnerERTEngineerGamma
   name: ERT engineer
-  suffix: ERTRole, Gamma
+  suffix: DeltaV, Gamma, ERTRole
   components:
   - type: Sprite
     sprite: _DV/Markers/jobs.rsi
@@ -396,13 +327,6 @@
   parent: ERTEngineerAmber
   id: ERTEngineerGamma
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-engineer-name
-    description: ghost-role-information-ert-engineer-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTEngineer
   - type: Loadout
     prototypes: [ ERTEngineerGearGamma ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -413,7 +337,7 @@
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTSecurityAmber
   name: ERT security
-  suffix: ERTRole, Amber
+  suffix: DeltaV, Amber, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -434,10 +358,6 @@
     name: ghost-role-information-ert-security-name
     description: ghost-role-information-ert-security-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 54000 #15 hrs
     raffle:
       settings: short
     job: ERTSecurity
@@ -454,7 +374,7 @@
   parent: RandomHumanoidSpawnerERTSecurityAmber
   id: RandomHumanoidSpawnerERTSecurityRed
   name: ERT security
-  suffix: ERTRole, Red
+  suffix: DeltaV, Red, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -466,13 +386,6 @@
   parent: ERTSecurityAmber
   id: ERTSecurityRed
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-security-name
-    description: ghost-role-information-ert-security-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTSecurity
   - type: Loadout
     prototypes: [ ERTSecurityGearRed ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -480,7 +393,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityAmber
   id: RandomHumanoidSpawnerERTSecurityGamma
-  suffix: ERTRole, Gamma
+  suffix: DeltaV, Gamma, ERTRole
   components:
   - type: Sprite
     sprite: _DV/Markers/jobs.rsi
@@ -492,13 +405,6 @@
   parent: ERTSecurityAmber
   id: ERTSecurityGamma
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-security-name
-    description: ghost-role-information-ert-security-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTSecurity
   - type: Loadout
     prototypes: [ ERTSecurityGearGamma ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -509,7 +415,7 @@
   parent: RandomHumanoidSpawnerERTLeaderAmber
   id: RandomHumanoidSpawnerERTMedicalAmber
   name: ERT medic
-  suffix: ERTRole, Amber
+  suffix: DeltaV, Amber, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -530,13 +436,6 @@
     name: ghost-role-information-ert-medical-name
     description: ghost-role-information-ert-medical-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs
     raffle:
       settings: short
     job: ERTMedical
@@ -553,7 +452,7 @@
   parent: RandomHumanoidSpawnerERTMedicalAmber
   id: RandomHumanoidSpawnerERTMedicalRed
   name: ERT medic
-  suffix: ERTRole, Red
+  suffix: DeltaV, Red, ERTRole
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -565,13 +464,6 @@
   parent: ERTMedicalAmber
   id: ERTMedicalRed
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-medical-name
-    description: ghost-role-information-ert-medical-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTMedical
   - type: Loadout
     prototypes: [ ERTMedicalGearRed ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -580,7 +472,7 @@
   parent: RandomHumanoidSpawnerERTMedicalAmber
   id: RandomHumanoidSpawnerERTMedicalGamma
   name: ERT medic
-  suffix: ERTRole, Gamma
+  suffix: DeltaV, Gamma, ERTRole
   components:
   - type: Sprite
     sprite: _DV/Markers/jobs.rsi
@@ -592,13 +484,6 @@
   parent: ERTMedicalAmber
   id: ERTMedicalGamma
   components:
-  - type: GhostRole
-    name: ghost-role-information-ert-medical-name
-    description: ghost-role-information-ert-medical-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERTMedical
   - type: Loadout
     prototypes: [ ERTMedicalGearGamma ]
     roleLoadout: [ RoleSurvivalEVA ]
@@ -612,11 +497,3 @@
   - type: Loadout
     prototypes: [CBURNGearDeltaV]
     roleLoadout: [ RoleSurvivalEVA ]
-  - type: GhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10 hrs
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # 5 hrs

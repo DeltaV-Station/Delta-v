@@ -7,7 +7,7 @@
   guides: [ Zombies ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 43200 # DeltaV - was 3600, 12 hours
+    time: 12h # DeltaV - was 1h
   - !type:SpeciesRequirement # DeltaV
     inverted: true
     species:

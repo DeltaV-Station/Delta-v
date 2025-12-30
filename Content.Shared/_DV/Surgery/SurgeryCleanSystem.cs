@@ -155,7 +155,7 @@ public sealed class SurgeryCleanSystem : EntitySystem
     public void AddDirt(EntityUid uid, FixedPoint2 amount)
     {
         var comp = EnsureComp<SurgeryDirtinessComponent>(uid);
-        comp.Dirtiness += amount;
+        comp.Dirtiness += amount * 0.1f;
         Dirty(uid, comp);
     }
 

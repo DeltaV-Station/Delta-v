@@ -1,3 +1,4 @@
+using Content.Shared._EE.Flight; // DeltaV - Harpy Flight
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
 using Content.Shared.Throwing;
@@ -16,6 +17,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedFlightSystem _flight = default!; // DeltaV - Harpy Flight
 
     public static readonly ProtoId<AlertPrototype> WeightlessAlert = "Weightless";
 
@@ -68,6 +70,9 @@ public abstract partial class SharedGravitySystem : EntitySystem
 
         if (entity.Comp2.BodyType is BodyType.Static or BodyType.Kinematic)
             return false;
+
+        if (_flight.IsFlying(entity.Owner)) // DeltaV - Harpy Flight
+            return true;
 
         // Check if something other than the grid or map is overriding our gravity
         var ev = new IsWeightlessEvent();
@@ -132,9 +137,9 @@ public abstract partial class SharedGravitySystem : EntitySystem
     private void OnWeightlessnessChanged(Entity<AlertsComponent> entity, ref WeightlessnessChangedEvent args)
     {
         if (args.Weightless)
-            _alerts.ShowAlert(entity, WeightlessAlert);
+            _alerts.ShowAlert(entity.AsNullable(), WeightlessAlert);
         else
-            _alerts.ClearAlert(entity, WeightlessAlert);
+            _alerts.ClearAlert(entity.AsNullable(), WeightlessAlert);
     }
 
     private void OnEntParentChanged(Entity<GravityAffectedComponent> entity, ref EntParentChangedMessage args)
@@ -202,12 +207,12 @@ public abstract partial class SharedGravitySystem : EntitySystem
             _alerts.ClearAlert(ev.Euid, WeightlessAlert);
     }
 
-    private void OnAlertsParentChange(EntityUid uid, AlertsComponent component, ref EntParentChangedMessage args)
+    private void OnAlertsParentChange(Entity<AlertsComponent> entity, ref EntParentChangedMessage args)
     {
-        if (IsWeightless(uid))
-            _alerts.ShowAlert(uid, WeightlessAlert);
+        if (IsWeightless(entity.Owner))
+            _alerts.ShowAlert(entity.AsNullable(), WeightlessAlert);
         else
-            _alerts.ClearAlert(uid, WeightlessAlert);
+            _alerts.ClearAlert(entity.AsNullable(), WeightlessAlert);
     }
 
     private void OnGridInit(GridInitializeEvent ev)
@@ -228,12 +233,12 @@ public abstract partial class SharedGravitySystem : EntitySystem
 
     private void OnThrowerImpulse(Entity<GravityAffectedComponent> entity, ref ThrowerImpulseEvent args)
     {
-        args.Push = true;
+        args.Push |= IsWeightless((entity.Owner, entity.Comp));
     }
 
     private void OnShooterImpulse(Entity<GravityAffectedComponent> entity, ref ShooterImpulseEvent args)
     {
-        args.Push = true;
+        args.Push |= IsWeightless((entity.Owner, entity.Comp));
     }
 }
 

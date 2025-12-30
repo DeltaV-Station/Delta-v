@@ -6,6 +6,10 @@
   abstract: true
   components:
   - type: HarpySinger
+  - type: Flight # EE - Flight
+    isLayerAnimated: true
+    layer: "/Textures/_EE/Mobs/Customization/Harpy/harpy_wings.rsi"
+    animationKey: "Flap"
   - type: Instrument
     allowPercussion: false
     program: 52
@@ -114,11 +118,11 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'HarpySquish', 'Chitter', 'Chirp', 'Squeak', 'Click', 'Gnash']
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Honk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'Beep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Chirp', 'Squeak', 'Click', 'Gnash', 'HarpyQuack', 'HarpySquawk', 'Moo', 'Baa']
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
+      Male: SoundsHarpyMale
+      Female: SoundsHarpyFemale
       Unsexed: SoundsHarpy
   - type: InstrumentVisuals
   - type: GenericVisualizer
@@ -146,13 +150,14 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+    - OviniaEmotes
   - type: FootPrints # DeltaV port from EE, blood splatter
     leftBarePrint: "footprint-left-bare-lizard" # DeltaV port from EE, blood splatter
     rightBarePrint: "footprint-right-bare-lizard" # DeltaV port from EE, blood splatter
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: Urist McHarpy
   parent: MobHumanDummy
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]
@@ -236,5 +241,16 @@
   - type: Action
     icon: _DV/Interface/Actions/harpy_syrinx.png
     itemIconStyle: BigAction
+
+- type: entity
+  id: ActionToggleFlight
+  name: Fly
+  description: Make use of your wings to fly. Beat the flightless bird allegations.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon: { sprite: _EE/Interface/Actions/flight.rsi, state: flight_off }
+    iconOn: { sprite : _EE/Interface/Actions/flight.rsi, state: flight_on }
+    checkCanInteract: false
   - type: InstantAction
-    event: !type:VoiceMaskSetNameEvent
+    event: !type:ToggleFlightEvent

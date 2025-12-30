@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Light.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;

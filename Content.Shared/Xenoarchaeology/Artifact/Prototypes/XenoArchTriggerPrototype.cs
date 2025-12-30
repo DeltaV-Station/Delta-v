@@ -26,6 +26,12 @@ public sealed partial class XenoArchTriggerPrototype : IPrototype
     public EntityWhitelist? Whitelist;
 
     /// <summary>
+    /// DeltaV - Triggers that CANNOT appear on the same artifact as this trigger.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<XenoArchTriggerPrototype>>? TriggerBlacklist;
+
+    /// <summary>
     /// List of components that represent ways to trigger node.
     /// </summary>
     [DataField]
