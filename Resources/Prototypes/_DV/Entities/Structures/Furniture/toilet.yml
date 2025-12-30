@@ -1,0 +1,10 @@
+- type: entity
+  parent: ToiletDirtyWaterFilled
+  id: ToiletDirtyWaterFilledPerma
+  suffix: Perma
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      stash: !type:NestedSelector
+        tableId: ToiletCisternLoot
+        prob: 0.2

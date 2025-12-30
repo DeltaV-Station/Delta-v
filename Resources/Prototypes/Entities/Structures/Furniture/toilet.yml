@@ -174,7 +174,7 @@
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
-        prob: 0.2                           # Delta V - Decrease freaquency of loot
+        prob: 0.33                           # Delta V - Decrease freaquency of loot
         #rolls: !type:RangeNumberSelector
         #  range: 0, 1
 
@@ -187,7 +187,7 @@
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
-        prob: 0.2                           # Delta V - Decrease freaquency of loot
+        prob: 0.33                           # Delta V - Decrease freaquency of loot
         #rolls: !type:RangeNumberSelector
         #  range: 0, 1
 
