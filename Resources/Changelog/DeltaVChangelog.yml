@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: HTMLSystem
   changes:
-  - message: Made the felinid guidebook more accurate.
-    type: Tweak
-  id: 1494
-  time: '2025-06-28T13:59:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3935
-- author: HTMLSystem
-  changes:
   - message: Feroxi and Kitsune now have 4 marking points for their arms and legs
     type: Tweak
   id: 1495
@@ -4462,4 +4455,25 @@
   id: 1993
   time: '2025-12-30T13:24:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5053
+- author: ShepardToTheStars
+  changes:
+  - message: Added missing tools to medical and security techfabs.
+    type: Fix
+  - message: Jugs are once again as big as a felinid.
+    type: Fix
+  - message: Mantles no longer have a time requirement to be chosen as part of your
+      loadout.
+    type: Fix
+  - message: The oracle can no longer be eaten.
+    type: Fix
+  - message: IPCs can be wrapped up in parcel paper now, just like everyone else.
+    type: Fix
+  - message: Batteries (hopefully) should not run into any more NaN% issues when the
+      battery gets fully drained.
+    type: Fix
+  - message: Netinadone once again works.
+    type: Fix
+  id: 1994
+  time: '2025-12-30T16:28:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5066
 Order: 1
