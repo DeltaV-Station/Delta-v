@@ -38,7 +38,7 @@
     entity: WeaponRifleMusket
 
 - type: constructionGraph
-  id: WeaponPistolFlintlockCraftedGraph
+  id: WeaponPistolFlintlockGraph
   start: start
   graph:
   - node: start
@@ -74,4 +74,4 @@
         amount: 2
         doAfter: 10
   - node: flintlock
-    entity: WeaponPistolFlintlockCrafted
+    entity: WeaponPistolFlintlock

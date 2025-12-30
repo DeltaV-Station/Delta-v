@@ -145,7 +145,8 @@ public sealed class PsionicEruptionSystem : EntitySystem
         var query = EntityQueryEnumerator<PsionicEruptionPowerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            ShowWarning(new(uid, comp)); // I'm a bad coder.
+            // All of the timespan data should really get moved out of the system
+            ShowWarning((uid, comp)); // I'm a bad coder.
             if (comp.DoAfter != null)
             {
                 if (t > comp.NextSpark)
@@ -216,7 +217,8 @@ public sealed class PsionicEruptionSystem : EntitySystem
             return;
 
         var pos = _transform.GetMapCoordinates(entity);
-        _body.GibBody(entity, acidify: true, body, launchGibs: true);
+        // acidify: false preserves inventory items when erupting
+        _body.GibBody(entity, acidify: false, body, launchGibs: true);
         int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
         {
             GlimmerTier.Minimal => 4,

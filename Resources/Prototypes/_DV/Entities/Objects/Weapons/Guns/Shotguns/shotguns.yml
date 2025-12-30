@@ -1,20 +1,55 @@
 - type: entity
   name: adjutant
-  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  parent: [BaseItem, BaseGunWieldable]
   id: WeaponShotgunAdjutant
-  description: Sold as a "riot" shotgun, this shotgun has a special gas-operated mechanism that makes it highly effective for CQC and suppressive fire.
+  description: A semi-automatic magazine-fed shotgun manufactured by Nanotrasen. trading firerate for a compact and user-friendly design.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-  - type: Clothing
-    sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     size: Large
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
   - type: GunRequiresWield
   - type: Gun
     fireRate: 1.5
-  - type: BallisticAmmoProvider
-    capacity: 6
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShotgun
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShotgun
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
 
 - type: entity
   parent: WeaponShotgunKammerer

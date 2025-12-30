@@ -164,19 +164,19 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (HasComp<CosmicCultLeadComponent>(ent))
             return;
 
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (_prototype.Resolve(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 
     private void GetCosmicCultLeadIcon(Entity<CosmicCultLeadComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (_prototype.Resolve(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 
     private void GetCosmicSSDIcon(Entity<CosmicBlankComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (_prototype.Resolve(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
     #endregion

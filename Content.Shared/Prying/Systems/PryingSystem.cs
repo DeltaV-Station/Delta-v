@@ -143,13 +143,9 @@ public sealed class PryingSystem : EntitySystem
         var modEv = new GetPryTimeModifierEvent(user);
 
         RaiseLocalEvent(target, ref modEv);
+        RaiseLocalEvent(user, ref modEv); // DeltaV - Also raise an event for users to modifiy the time to pry
 
-        // Begin DeltaV additions
-        // Also raise an event for users to modifiy the time to pry
-        RaiseLocalEvent(user, ref modEv);
-        // End DeltaV additions
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(modEv.BaseTime * modEv.PryTimeModifier / toolModifier), new DoorPryDoAfterEvent(), target, target, tool)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, modEv.BaseTime * modEv.PryTimeModifier / toolModifier, new DoorPryDoAfterEvent(), target, target, tool)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
