@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: Stasis is no longer a valid sentence
-    type: Remove
-  - message: Summary Stasis has been replaced with summary Exfiltration
-    type: Tweak
-  id: 1496
-  time: '2025-06-28T14:15:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4009
 - author: Radezolid
   changes:
   - message: Made CBURN's loadout actually useful to fight zombies.
@@ -4476,4 +4467,11 @@
   id: 1995
   time: '2025-12-30T16:31:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5065
+- author: Toby222
+  changes:
+  - message: The grinder no longer produces infinite resources
+    type: Fix
+  id: 1996
+  time: '2025-12-30T17:39:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5080
 Order: 1
