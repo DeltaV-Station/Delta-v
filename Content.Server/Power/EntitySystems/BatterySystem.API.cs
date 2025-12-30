@@ -12,9 +12,6 @@ public sealed partial class BatterySystem
 
         var newValue = Math.Clamp(ent.Comp.CurrentCharge + amount, 0, ent.Comp.MaxCharge);
 
-        if (float.IsNaN(newValue)) // DeltaV - Recover from NaN
-            newValue = 0;
-
         var delta = newValue - ent.Comp.CurrentCharge;
         ent.Comp.CurrentCharge = newValue;
 
@@ -49,9 +46,6 @@ public sealed partial class BatterySystem
 
         var oldCharge = ent.Comp.CurrentCharge;
 
-        if (float.IsNaN(oldCharge)) // DeltaV - Recover from NaN
-            oldCharge = 0;
-
         ent.Comp.CurrentCharge = MathHelper.Clamp(value, 0, ent.Comp.MaxCharge);
         if (MathHelper.CloseTo(ent.Comp.CurrentCharge, oldCharge) &&
             !(oldCharge != ent.Comp.CurrentCharge && ent.Comp.CurrentCharge == ent.Comp.MaxCharge))
@@ -70,9 +64,6 @@ public sealed partial class BatterySystem
         var old = ent.Comp.MaxCharge;
         ent.Comp.MaxCharge = Math.Max(value, 0);
         ent.Comp.CurrentCharge = Math.Min(ent.Comp.CurrentCharge, ent.Comp.MaxCharge);
-
-        if (float.IsNaN(ent.Comp.CurrentCharge)) // DeltaV - Recover from NaN
-            ent.Comp.CurrentCharge = 0;
 
         if (MathHelper.CloseTo(ent.Comp.MaxCharge, old))
             return;
