@@ -1,7 +1,16 @@
+- type: entity
+  id: WarpPointNoBomb
+  parent: WarpPoint
+  suffix: No Bomb Target
+  components:
+  - type: Tag
+    tags:
+    - NinjaBombingTargetBlocker
+
 # Off station
 - type: entity
   id: WarpPointEvacShuttle
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Evac Shuttle
   components:
   - type: WarpPoint
@@ -9,7 +18,7 @@
 
 - type: entity
   id: WarpPointShuttle
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Shuttle
   components:
   - type: WarpPoint
@@ -17,7 +26,7 @@
 
 - type: entity
   id: WarpPointDebris
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Space Debris
   components:
   - type: WarpPoint
@@ -25,7 +34,7 @@
 
 - type: entity
   id: WarpPointRuin
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Space Ruin
   components:
   - type: WarpPoint
@@ -84,7 +93,7 @@
 #Medical
 - type: entity
   id: WarpPointMedical
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Medical
   components:
   - type: WarpPoint
@@ -101,7 +110,7 @@
 #Epistemics
 - type: entity
   id: WarpPointEpistemics
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Epistemics
   components:
   - type: WarpPoint
@@ -217,7 +226,7 @@
 
 - type: entity
   id: WarpPointArrivals
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Arrivals
   components:
   - type: WarpPoint
@@ -225,7 +234,7 @@
 
 - type: entity
   id: WarpPointEvac
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Evac
   components:
   - type: WarpPoint
@@ -233,7 +242,7 @@
 
 - type: entity
   id: WarpPointCryo
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Cryo
   components:
   - type: WarpPoint
