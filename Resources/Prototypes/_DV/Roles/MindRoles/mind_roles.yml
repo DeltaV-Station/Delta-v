@@ -121,10 +121,10 @@
   name: Internals Affairs Agent
   components:
   - type: MindRole
-    antagPrototype: NTAgent
-    exclusiveAntag: true
     roleType: FreeAgent
     subtype: role-subtype-ntagent
+    antagPrototype: NTAgentRole
+    exclusiveAntag: true
   - type: NTAgentRole
   - type: RoleBriefing
     briefing: NTAgent-briefing

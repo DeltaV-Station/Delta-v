@@ -1,6 +1,6 @@
 - type: entity
-  abstract: true
   parent: BaseSurviveObjective
+  abstract: true
   id: BaseNTAgentObjective
   components:
   - type: Objective
@@ -8,7 +8,7 @@
     difficulty: 1
   - type: RoleRequirement
     roles:
-    - NTAgent
+    - NTAgentRole
 
 - type: entity
   parent: BaseNTAgentObjective
