@@ -152,12 +152,37 @@
   - type: ItemBorgModule
     hands:
       - item: ForensicScanner
-      - item: HandLabeler
-      - item: BoxFolderBlackEmpty
-      - item: LuxuryPen
-      - item: Syringe
-      - item: Soap
       - item: SecurityCyborgPDA
+      - item: HandLabeler
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: HandLabeler
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: BoxFolderBlackEmpty
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: BoxFolderBlackEmpty
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: LuxuryPen
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: LuxuryPen
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
       - hand:
           emptyLabel: borg-slot-forensic-empty
           emptyRepresentative: ForensicReportPaper
@@ -165,6 +190,19 @@
             tags:
             - Document
             - Write
+            - Folder
+            - HandLabeler
+      - hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: ForensicPad
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: Syringe
+      - item: Soap
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: detective-module }
 
