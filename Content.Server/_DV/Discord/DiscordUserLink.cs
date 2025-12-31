@@ -57,7 +57,7 @@ public sealed partial class DiscordUserLink : EntitySystem
 
     private void OnVerifyCommandRun(CommandReceivedEventArgs args)
     {
-        if (args.Arguments.StartsWith("confirm") && _readDisclaimer.Contains(args.Message.Author.Id))
+        if (args.Arguments.Find(s => s.Equals("confirm")) != string.Empty && _readDisclaimer.Contains(args.Message.Author.Id))
         {
             if (!IsDirectMessage(args))
             {
