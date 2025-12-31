@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Net.Sockets;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -125,7 +124,7 @@ public sealed partial class DamageableSystem
         // If you deal 0.0 of some damage type, Empty will be false!
         newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers,
             canSever: canSever, canEvade: canEvade, partMultiplier: partMultiplier, targetPart: targetPart, doPartDamage: doPartDamage, onlyDamageParts: onlyDamageParts); // Shitmed
-        return !damage.Empty;
+        return !newDamage.Empty;
     }
 
     /// <summary>
