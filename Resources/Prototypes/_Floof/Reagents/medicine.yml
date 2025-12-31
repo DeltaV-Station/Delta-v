@@ -1,0 +1,42 @@
+- type: reagent
+  id: Traumoxadone
+  name: reagent-name-traumoxadone
+  group: Medicine
+  desc: reagent-desc-traumoxadone
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: medicine
+  color: "#69304D"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        damage:
+          Brute: -10 # DeltaV - Was -4
+
+- type: reagent
+  id: Stelloxadone
+  name: reagent-name-stelloxadone
+  group: Medicine
+  desc: reagent-desc-stelloxadone
+  physicalDesc: reagent-physical-desc-murky
+  flavor: medicine
+  color: "#FFC683"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        damage:
+          # Begin DeltaV additions
+          # Previous values with HealthChange were: +3 Brute, +1 Genetic, -6 Poison, -3 Radiation
+          Brute: 3
+          Genetic: 1
+          Toxin: -10 # Was -6 Poison and -3 Radiation.
+          # End DeltaV additions

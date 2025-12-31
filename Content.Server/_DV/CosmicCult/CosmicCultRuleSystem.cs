@@ -13,7 +13,6 @@ using Content.Server.Ghost;
 using Content.Server.Objectives.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs;
@@ -30,7 +29,8 @@ using Content.Shared.Alert;
 using Content.Shared.Audio;
 using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -43,6 +43,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Parallax;
 using Content.Shared.Popups;
+using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Stunnable;
@@ -776,35 +777,35 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         UpdateCultData(cult.Comp.MonumentInGame);
     }
 
-    private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
+    private void OnComponentShutdown(Entity<CosmicCultComponent> ent, ref ComponentShutdown args)
     {
-        if (AssociatedGamerule(uid) is not { } cult)
+        if (AssociatedGamerule(ent) is not { } cult)
             return;
-        if (TerminatingOrDeleted(uid))
+        if (TerminatingOrDeleted(ent))
             return;
         var cosmicGamerule = cult.Comp;
 
-        if(TryComp<CrawlerComponent>(uid, out var crawlerComp))
-            _stun.TryCrawling((uid, crawlerComp), TimeSpan.FromSeconds(2), refresh: true);
+        if(TryComp<CrawlerComponent>(ent, out var crawlerComp))
+            _stun.TryCrawling((ent, crawlerComp), TimeSpan.FromSeconds(2), refresh: true);
 
-        foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
+        foreach (var actionEnt in ent.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
-        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
+        if (TryComp<IntrinsicRadioTransmitterComponent>(ent, out var transmitter))
             transmitter.Channels.Remove("CosmicRadio");
-        if (TryComp<ActiveRadioComponent>(uid, out var radio))
+        if (TryComp<ActiveRadioComponent>(ent, out var radio))
             radio.Channels.Remove("CosmicRadio");
-        RemComp<CosmicCultLeadComponent>(uid);
-        RemComp<InfluenceVitalityComponent>(uid);
-        RemComp<InfluenceStrideComponent>(uid);
-        RemComp<PressureImmunityComponent>(uid);
-        RemComp<TemperatureImmunityComponent>(uid);
-        RemComp<CosmicStarMarkComponent>(uid);
-        RemComp<CosmicSubtleMarkComponent>(uid);
+        RemComp<CosmicCultLeadComponent>(ent);
+        RemComp<InfluenceVitalityComponent>(ent);
+        RemComp<InfluenceStrideComponent>(ent);
+        RemComp<PressureImmunityComponent>(ent);
+        RemComp<TemperatureImmunityComponent>(ent);
+        RemComp<CosmicStarMarkComponent>(ent);
+        RemComp<CosmicSubtleMarkComponent>(ent);
 
-        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
-        _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
+        _antag.SendBriefing(ent, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
+        _antag.SendBriefing(ent, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
 
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+        if (!_mind.TryGetMind(ent, out var mindId, out var mind))
             return;
 
         _mind.ClearObjectives(mindId, mind);
@@ -814,13 +815,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
         }
-        _eye.SetVisibilityMask(uid, 1);
-        _alerts.ClearAlert(uid, uid.Comp.EntropyAlert);
+        _eye.SetVisibilityMask(ent, 1);
+
+        _alerts.ClearAlert(ent.Owner, ent.Comp.EntropyAlert);
         cosmicGamerule.TotalCult--;
-        cosmicGamerule.Cultists.Remove(uid);
+        cosmicGamerule.Cultists.Remove(ent);
         AdjustCultObjectiveConversion(-1);
         UpdateCultData(cosmicGamerule.MonumentInGame);
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
     }
     #endregion
 }

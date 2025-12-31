@@ -11,6 +11,7 @@ using Content.Server.Materials;
 using Content.Shared.Database;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.Chat;
 
 namespace Content.Server.Roboisseur.Roboisseur
 {

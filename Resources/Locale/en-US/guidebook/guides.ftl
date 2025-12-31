@@ -25,6 +25,7 @@ guide-entry-mixingandfiltering = Mixing and Filtering
 guide-entry-gascanisters = Gas Canisters
 guide-entry-thermomachines = Thermomachines
 guide-entry-gascondensing = Gas Condensing
+guide-entry-gasrecycling = Gas Recycling
 guide-entry-radiators = Radiators
 guide-entry-atmosphericssystems = Atmospherics Systems
 guide-entry-pipenetworks = Pipe Networks
@@ -59,7 +60,8 @@ guide-entry-solarpanels = Solar Panels
 guide-entry-teg = Thermo-electric Generator (TEG)
 guide-entry-rtg = RTG
 guide-entry-jobs = Jobs
-guide-entry-cargo = Cargo
+# Replaced in _DV
+# guide-entry-cargo = Cargo
 guide-entry-cargo-bounties = Cargo Bounties
 guide-entry-salvage = Salvage
 guide-entry-survival = Survival
@@ -73,14 +75,15 @@ guide-entry-brute = Advanced Brute Medication
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
-# Beginning of DeltaV changes
-guide-entry-science = Epistemics
-# End of DeltaV Changes
+# Replaced in _DV
+# guide-entry-science = Science
 guide-entry-technologies = Technologies
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels
 guide-entry-ape = A.P.E.
 guide-entry-xenoarchaeology = Xenoarchaeology
+guide-entry-xenoarchaeologyunlockingnodes = Unlocking Nodes
+guide-entry-analysisconsole = Analysis Console
 guide-entry-artifact-reports = Artifact Reports
 guide-entry-traversal-distorter = Traversal Distorter
 guide-entry-machine-upgrading = Machine Upgrading
@@ -131,6 +134,7 @@ guide-entry-salad-recipes = Salads
 guide-entry-medicinal-recipes = Medicinal
 guide-entry-other-recipes = Other
 guide-entry-secret-recipes = Secret
+guide-entry-lawsets = Silicon Lawsets
 
 guide-entry-antagonists = Antagonists
 guide-entry-nuclear-operatives = Nuclear Operatives

@@ -1,6 +1,7 @@
 using Content.Shared._DV.Armor.Components;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Verbs;
