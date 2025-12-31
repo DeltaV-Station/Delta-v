@@ -184,6 +184,7 @@
   components:
   - type: AccessReader
     access: [["StationAi"], ["Command"]]
+  - type: StationAiTurret #DeltaV
   - type: TurretTargetSettings
     exemptAccessLevels:
     - Command

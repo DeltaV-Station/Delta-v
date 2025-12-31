@@ -120,8 +120,11 @@
   name: mime duffel bag
   description: A large duffel bag for holding... mime... stuff.
   components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/mime.rsi
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/mime.rsi
+  - type: Storage
+    storageOpenSound: null
+    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpackDuffel

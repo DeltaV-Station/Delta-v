@@ -1,9 +1,9 @@
 ## Static
 
 - type: latheRecipePack
+  parent:
+  - IPCPartsStatic # Shitmed
   id: RoboticsStaticDeltaV
-  recipes:
-  - IdChipBasic
 
 - type: latheRecipePack
   id: RoboticsEmagStatic
@@ -44,6 +44,15 @@
   recipes:
   - BorgModuleDecoration
 
+
+# If you add anything to this, know that the SyndicateExosuitFabricator does not
+# get this pack due to IdChipBorgAA not being available to SRNs. Probably should
+# seperate the chip out if we ever add anything to this static pack.
+- type: latheRecipePack
+  id: BorgIdentificationStaticDeltaV
+  recipes:
+  - IdChipBorgAA
+
 ## Dynamic
 
 - type: latheRecipePack
@@ -51,8 +60,10 @@
   recipes:
   - ClothingEyesHudDiagnostic
 
-#- type: latheRecipePack
-#  id: BorgModulesDeltaV
+- type: latheRecipePack
+  parent:
+  - BorgModulesShitmed # Shitmed
+  id: BorgModulesDeltaV
 
 - type: latheRecipePack
   id: BorgModulesSecurityDeltaV

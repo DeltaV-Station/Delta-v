@@ -8,6 +8,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._EE.Silicon.EmitBuzzOnCrit;
 

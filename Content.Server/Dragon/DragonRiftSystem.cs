@@ -2,16 +2,14 @@ using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
-using Content.Shared.Damage;
 using Content.Shared.Dragon;
 using Content.Shared.Examine;
 using Content.Shared.Sprite;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
 using System.Numerics;
-using Robust.Shared.Audio;
+using Content.Shared.Damage.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -90,7 +88,16 @@ public sealed class DragonRiftSystem : EntitySystem
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
-                var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
+                //Begin DeltaV - Elite spawns on dragon rifts
+                comp.SpawnEliteAccumulator += 1;
+                var entSpawnPrototype = comp.SpawnPrototype;
+                if (comp.SpawnElites && comp.SpawnEliteAccumulator >= comp.SpawnEliteFrequency)
+                {
+                    comp.SpawnEliteAccumulator -= comp.SpawnEliteFrequency;
+                    entSpawnPrototype = comp.SpawnElitePrototype;
+                }
+                //End DeltaV - Elite spawns on dragon rifts
+                var ent = Spawn(entSpawnPrototype, xform.Coordinates); //Delta-v change: comp.SpawnPrototype -> entSpawnPrototype
 
                 // Update their look to match the leader.
                 if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))

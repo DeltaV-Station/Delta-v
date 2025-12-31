@@ -165,9 +165,6 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     [DataField]
     public FixedPoint2 SafeOilVolume = 10f;
 
-    [DataField]
-    public List<EntityEffect> UnsafeOilVolumeEffects = new();
-
     /// <summary>
     /// What is the temperature of the vat when the deep fryer is powered?
     /// </summary>

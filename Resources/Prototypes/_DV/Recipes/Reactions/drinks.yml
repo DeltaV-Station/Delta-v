@@ -140,3 +140,75 @@
       amount: 1
   products:
     LemonLimeBitters: 10
+
+- type: reaction
+  id: OldFashioned
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Whiskey:
+      amount: 5
+    Angobitters:
+      amount: 2
+    Sugar:
+      amount: 2
+    JuiceOrange:
+      amount: 1
+  products:
+    OldFashioned: 10
+
+- type: reaction
+  id: MnatsaCollins
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Cognac:
+      amount: 5
+    SodaWater:
+      amount: 5
+    JuiceLemon:
+      amount: 2
+    Sugar:
+      amount: 2
+    Angobitters:
+      amount: 1
+  products:
+    MnatsaCollins: 15
+
+- type: reaction
+  id: Affogato
+  reactants:
+    IceCream:
+      amount: 5
+    Cognac:
+      amount: 2
+    CoffeeLiqueur:
+      amount: 2
+    Angobitters:
+      amount: 1
+  products:
+    Affogato: 10
+
+- type: reaction
+  id: FiveOClock
+  reactants:
+    Tea:
+      amount: 5
+    Cognac:
+      amount: 2
+    JuiceLemon:
+      amount: 2
+    Angobitters:
+      amount: 1
+  products:
+    FiveOClock: 10
+
+- type: reaction
+  id: Mliko
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Beer:
+      amount: 1
+  products:
+    Mliko: 3

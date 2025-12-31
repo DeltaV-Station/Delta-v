@@ -30,7 +30,7 @@
       amount: 5
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: CrystalNormality
-    - !type:ChangeGlimmerReactionEffect
-      count: -10
+    - !type:AffectsGlimmer
+      amount: -10

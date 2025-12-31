@@ -367,6 +367,12 @@
   - type: InnerBodyAnomaly
     injectionProto: AnomalyInjectionFlesh
     skipStun: true
+  - type: Tag # Delta-v - add flesh to flesh anomalite so it isn't damaged by meat anomaly kudzu
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost # this is potentially really funny. if not, or if it causes problems, we can remove it.
+    - Flesh
 
 # Rock
 - type: entity
