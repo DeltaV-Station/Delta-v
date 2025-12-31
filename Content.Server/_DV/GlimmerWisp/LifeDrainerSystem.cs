@@ -1,5 +1,5 @@
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared._DV.Carrying;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;

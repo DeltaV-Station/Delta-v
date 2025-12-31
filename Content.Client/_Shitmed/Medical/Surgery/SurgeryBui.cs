@@ -97,9 +97,9 @@ public sealed class SurgeryBui : BoundUserInterface
             };
         }
 
-        _window.Surgeries.DisposeAllChildren();
-        _window.Steps.DisposeAllChildren();
-        _window.Parts.DisposeAllChildren();
+        _window.Surgeries.RemoveAllChildren();
+        _window.Steps.RemoveAllChildren();
+        _window.Parts.RemoveAllChildren();
         View(ViewType.Parts);
 
         var oldSurgery = _surgery;
@@ -191,7 +191,7 @@ public sealed class SurgeryBui : BoundUserInterface
         _isBody = _entities.HasComponent<BodyComponent>(_part);
         _surgery = (surgery, surgeryId);
 
-        _window.Steps.DisposeAllChildren();
+        _window.Steps.RemoveAllChildren();
 
         // This apparently does not consider if theres multiple surgery requirements in one surgery. Maybe thats fine.
         if (surgery.Comp.Requirement is { } requirementId && _system.GetSingleton(requirementId) is { } requirement)
@@ -228,7 +228,7 @@ public sealed class SurgeryBui : BoundUserInterface
         _part = _entities.GetEntity(netPart);
         _isBody = _entities.HasComponent<BodyComponent>(_part);
         var body = _entities.GetComponent<BodyPartComponent>(_part.Value).Body!.Value; // DeltaV
-        _window.Surgeries.DisposeAllChildren();
+        _window.Surgeries.RemoveAllChildren();
 
         var surgeries = new List<(Entity<SurgeryComponent> Ent, EntProtoId Id, string Name)>();
         foreach (var surgeryId in surgeryIds)

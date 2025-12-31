@@ -15,10 +15,10 @@ public sealed class LongRangeCrewMonitorSystem : EntitySystem
     {
         // also requiring MapGrid incase StationMember gets used for non-grids in the future
         (EntityUid?, int) biggest_grid = (null, 0);
-        var query = EntityQueryEnumerator<StationMemberComponent, MapGridComponent>();
-        while (query.MoveNext(out var grid, out _, out var mapgrid))
+        var query = EntityQueryEnumerator<StationMemberComponent, MapGridComponent, TransformComponent>();
+        while (query.MoveNext(out var grid, out _, out var mapgrid, out var xform))
         {
-            if (Transform(grid).MapID == map && mapgrid.ChunkCount > biggest_grid.Item2)
+            if (xform.MapID == map && mapgrid.ChunkCount > biggest_grid.Item2)
                 biggest_grid = (grid, mapgrid.ChunkCount);
         }
         return biggest_grid.Item1;

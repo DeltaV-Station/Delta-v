@@ -88,5 +88,8 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory Adjust =
             new("verb-categories-adjust", "/Textures/Interface/VerbIcons/screwdriver.png");
+
+        // Used by Starlight item switching verbs
+        public static readonly VerbCategory Switch = new("verb-categories-switch", null);
     }
 }
