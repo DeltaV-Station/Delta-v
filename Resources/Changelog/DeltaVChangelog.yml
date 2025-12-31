@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: whatston3
-  changes:
-  - message: Harpies should no longer have their bare shoulder showing when facing
-      East.
-    type: Fix
-  - message: The harpy sprite for the spationaut hardsuit actually hides their wings
-      now.
-    type: Fix
-  id: 1501
-  time: '2025-06-29T08:01:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3933
 - author: Avalon-Proto
   changes:
   - message: Colossi are no longer effected by stamina damage
@@ -4472,4 +4461,11 @@
   id: 2000
   time: '2025-12-31T18:36:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5008
+- author: EmberAstra
+  changes:
+  - message: Fixed the exposed harpy wings in salvage's hardsuits.
+    type: Fix
+  id: 2001
+  time: '2025-12-31T18:37:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5032
 Order: 1
