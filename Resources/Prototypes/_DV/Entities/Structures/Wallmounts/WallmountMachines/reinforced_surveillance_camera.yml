@@ -169,7 +169,6 @@
 - type: entity
   parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraMedical]
   id: ReinforcedSurveillanceCameraMedical
-  name: Reinforced camera
   suffix: Medical
   components:
   - type: DeviceNetwork
@@ -255,7 +254,7 @@
 
 - type: entity
   id: ReinforcedSurveillanceCameraAssembly
-  name: Reinforced camera
+  name: reinforced camera
   description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
   components:
     - type: Clickable
