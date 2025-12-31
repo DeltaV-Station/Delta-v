@@ -68,7 +68,7 @@ book-text-ancientbookcommon-1 = the text seems to shift and move, rendering it c
 
 book-text-ancientbookuncommon-1 = In this part we move onto the more dangerous kinds of psionic abilities.
 
-    Firstly we have noospheric zap. This is a pretty simple ability, but it still very useful to those who have it. The user shoots out what is basically a lighting bolt to wherever they desire, and if it hits somebody, that's about the voltage of a taser spread out across your entire body. In practice this ability can drop someone to the ground before they even know it, useful for arresting criminals.. or aiding criminals in an escape.
+    Firstly we have noospheric zap. This is a pretty simple ability, but it still very useful to those who have it. The user shoots out what is basically a lighting bolt to wherever they desire, and if it hits somebody, it fills their body with a debilitating zap. In practice this ability can drop someone to the ground before they even know it, useful for arresting criminals.. or aiding criminals in an escape.
     How to counter noospheric zap. The counter is pretty simple, it's just insulated gloves! Surprisingly the zap will gravitate towards the hands, and if you're wearing insuls, the effect is nullified!
 
     Now we have mindswap. A very dangerous ability for anybody to have, evil intentions or not. This ability will swap the consciousness of the user and their target. The swap can be reversed by the target after a short period, but if the target is killed by somebody, user or not, then they are both trapped in the swapped bodies. BEWARE. If the glimmer of a certain area gets too high, then it can occur a MASS mindswap, swapping a large amount of people's minds with zero way to revert it.

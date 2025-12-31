@@ -10,7 +10,7 @@
         - !type:NestedSelector
           tableId: FillLockerWarden
         - !type:NestedSelector
-          tableId: FillLockerWardenHarduit
+          tableId: FillLockerWardenHardsuit
 
 - type: entity
   id: LockerWardenFilled
@@ -28,38 +28,38 @@
     children:
     - id: FlashlightSeclite
     - id: WeaponDisabler
+    - id: WeaponTaser
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHandsGlovesCombat
-    - id: ClothingShoesBootsJack
+    #- id: ClothingShoesBootsJack # DeltaV - Moved to dresser
     #- id: ClothingOuterCoatWarden # DeltaV - removed for incongruence
     #- id: ClothingOuterWinterWarden # DeltaV - removed for incongruence
     - id: RubberStampWarden
     - id: DoorRemoteArmory
     - id: HoloprojectorSecurity
-    - id: BookSpaceLaw
+    #- id: BookSpaceLaw # DeltaV - Moved to dresser
     - id: ClothingBackpackElectropack
       amount: 2
-    - id: RemoteSignaller
-      amount: 2
-    - id: NetworkConfigurator
-    - id: Binoculars
-    # Begin DeltaV additions
+    #- id: RemoteSignaller # DeltaV - Moved to dresser
+    #  amount: 2
+    #- id: NetworkConfigurator # DeltaV - Moved to dresser
+    #- id: Binoculars # DeltaV - Moved to Dresser
     - id: WeaponEnergyShotgun
+    # Begin DeltaV additions
     - id: BoxPDAPrisoner
     - id: BoxEncryptionKeyPrisoner
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
     - id: ClothingOuterVestPlateCarrierAdv
     - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
-    - id: ClothingNeckShockCollar
-      amount: 2
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
+    #- id: ClothingNeckShockCollar # DeltaV - Moved to dresser I guess?
+    #  amount: 2
     # End DeltaV additions
 
 - type: entityTable
-  id: FillLockerWardenHarduit
+  id: FillLockerWardenHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
@@ -85,6 +85,7 @@
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
+    - id: WeaponTaser
     #- id: ClothingUniformJumpsuitSecGrey # DeltaV - remove uniforms from sec lockers
     #  prob: 0.3
     - id: ClothingHeadHelmetBasic
@@ -123,6 +124,7 @@
   id: FillLockerBrigmedic
   table: !type:AllSelector
     children:
+    - id: WeaponTaser
     - id: ClothingEyesGlassesCorpsman
     - id: WeaponDisabler
     - id: TrackingImplanter

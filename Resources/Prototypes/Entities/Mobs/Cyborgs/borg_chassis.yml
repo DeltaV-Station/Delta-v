@@ -320,6 +320,15 @@
       - BorgModuleMedical
     hasMindState: medical_e
     noMindState: medical_e_r
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
 
 - type: entity
   parent: BaseBorgChassisDerelict
