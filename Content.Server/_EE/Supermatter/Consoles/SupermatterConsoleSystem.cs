@@ -7,7 +7,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using System.Linq;
 
-namespace Content.Server._EE.Supermatter.Console.Systems;
+namespace Content.Server._EE.Supermatter.Consoles;
 
 public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 {

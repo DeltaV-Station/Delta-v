@@ -116,7 +116,7 @@ public sealed partial class SupermatterSystem
         else
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
-        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
+        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 150))))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor = Math.Clamp(
             1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(EECVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
