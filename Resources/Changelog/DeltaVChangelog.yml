@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: 0vrseer
-  changes:
-  - message: Light Synthesizer properly replaces small lights.
-    type: Fix
-  id: 1508
-  time: '2025-07-03T14:08:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4032
 - author: NoElkaTheGod
   changes:
   - message: Corruption caused by malign rifts now looks 7% nicer.
@@ -4469,4 +4462,19 @@
   id: 2007
   time: '2025-12-31T20:18:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4990
+- author: BunglesnortBoss
+  changes:
+  - message: GalPol has funded NT's R&D team to make a detective module for cyborgs!
+    type: Add
+  - message: Added Security Cyborg PDA. Available to Sec Borgs round start in their
+      mods.
+    type: Add
+  - message: New NT Security Cyborgs can take a bit more hits! Increased health from
+      80 to 100. Finally a good egg.
+    type: Tweak
+  - message: New NT Security Cyborgs can fit a extra module!
+    type: Tweak
+  id: 2008
+  time: '2025-12-31T21:53:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5005
 Order: 1
