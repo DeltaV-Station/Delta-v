@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: YeenJunk
-  changes:
-  - message: Cult tile conversion no longer removes artwork
-    type: Fix
-  id: 1507
-  time: '2025-07-03T03:39:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4027
 - author: 0vrseer
   changes:
   - message: Light Synthesizer properly replaces small lights.
@@ -4468,4 +4461,12 @@
   id: 2006
   time: '2025-12-31T20:08:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4984
+- author: SirWarock
+  changes:
+  - message: Jetpacks now automatically turn on when leaving a grid, if you have toggled
+      them on!
+    type: Tweak
+  id: 2007
+  time: '2025-12-31T20:18:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4990
 Order: 1
