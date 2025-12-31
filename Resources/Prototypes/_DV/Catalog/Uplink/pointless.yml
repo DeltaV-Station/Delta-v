@@ -36,3 +36,18 @@
     Telecrystal: 2
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkBloodRedSuperSynth
+  name: uplink-blood-red-super-synth-name
+  description: uplink-blood-red-super-synth-desc
+  productEntity: BloodRedSuperSynth
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkPointless
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
