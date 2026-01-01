@@ -43,6 +43,9 @@ public sealed partial class IdCardConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
+        // DeltaV note: make sure any additions to this list are also added to both:
+        //  1. AllAccess in  Resources\Prototypes\Access\misc.yml
+        //  2. ComputerIdAdmeme in  Resources\Prototypes\_DV\Entities\Structures\Machines\computers.yml
         "Armory",
         "Atmospherics",
         "Bar",
@@ -59,8 +62,11 @@ public sealed partial class IdCardConsoleComponent : Component
         "Corpsman", // DeltaV - Add Corpsman access
         "Command",
         "Cryogenics",
+        "EmergencyShuttleRepealAll", // DeltaV - fix mismatch with Access/misc.yml
         "Engineering",
         "External",
+        "GenpopEnter", // DeltaV - fix mismatch with Access/misc.yml
+        "GenpopLeave", // DeltaV - fix mismatch with Access/misc.yml
         "HeadOfPersonnel",
         "HeadOfSecurity",
         "Hydroponics",
