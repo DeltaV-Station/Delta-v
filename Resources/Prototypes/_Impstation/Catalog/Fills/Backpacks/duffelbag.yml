@@ -4,11 +4,13 @@
   name: Akurra bundle
   description: "A fearsome liquid-ammo plasma rifle, bundled with 4 canisters of its proprietary fuel."
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponPlasmaAkurra
-    - id: EchionCanister
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaAkurra
+        - id: EchionCanister
+          amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -16,10 +18,12 @@
   name: Leviathan bundle
   description: "A massive, heavy-duty bazooka, bundled with 3 explosive rockets, and 2 incendiary rockets."
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponLauncherBazooka
-    - id: CartridgeBazookaExp
-      amount: 3
-    - id: CartridgeBazookaInc
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLauncherBazooka
+        - id: CartridgeBazookaExp
+          amount: 3
+        - id: CartridgeBazookaInc
+          amount: 2

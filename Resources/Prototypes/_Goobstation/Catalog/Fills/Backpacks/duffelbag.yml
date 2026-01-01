@@ -4,10 +4,12 @@
   name: cybersun stealthsuit bundle
   description: "An advanced cybersun stealth hardsuit bundle."
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitCybersunStealth
-    - id: ClothingMaskGasSyndicate
-    - id: ClothingHandsGlovesCombat
-    - id: DoubleEmergencyOxygenTankFilled
-    - id: DoubleEmergencyNitrogenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitCybersunStealth
+        - id: ClothingMaskGasSyndicate
+        - id: ClothingHandsGlovesCombat
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled
