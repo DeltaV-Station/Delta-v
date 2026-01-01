@@ -1,7 +1,7 @@
 - type: entity
   parent: Truncheon
   id: AdvancedTruncheon
-  name: Advanced Truncheon
+  name: advanced truncheon
   description: A longer, rigid, steel-studded baton, meant to harm more!
   components:
   - type: Sprite
@@ -12,7 +12,7 @@
     damage:
       types:
         Blunt: 22.5
-    bluntStaminaDamageFactor: 1.60 # 36 stamina damage
+    bluntStaminaDamageFactor: 1.2 # Before resists, 27 stamina damage, 36 while wielded, 48.6 when wielded by an Oni
 #  - type: MeleeStaminaCost
 #    swing: 10
 #    wieldCoefficient: 0.35 #if wielded you will only consume 3.5 stam its a weapon after all
@@ -20,7 +20,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 7.5
+        Blunt: 7.5 # 30 when wielded, 40.5 when wielded by an Oni
   - type: Clothing
     sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
     quickEquip: false
