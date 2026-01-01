@@ -284,7 +284,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void StewardVote()
     {
-        // If there's already an entity with steward, don't hold a vote. This allows admins to add the Cosmic Cult rule a 2nd time 
+        // If there's already an entity with steward, don't hold a vote. This allows admins to add the Cosmic Cult rule a 2nd time
         // in the case that there is only one cultist and they've been chosen as the steward already.
         var stewardExists = false;
         var stewardQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
