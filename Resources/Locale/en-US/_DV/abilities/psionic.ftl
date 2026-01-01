@@ -93,4 +93,4 @@ fractured-form-sleepy = You feel very sleepy... You should find somewhere to res
 fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
 fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
 
-glimmer-restyle-event = You feel your hair suddenly change!
+glimmer-restyle-event = You feel like something changed about your looks...
