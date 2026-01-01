@@ -321,8 +321,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         // If there are no cultists, don't hold a vote, or the server will crash.
         if (cultists.Count == 0)
         {
-            Log.Warning($"There are no cultists present for the steward vote. Voting is cancelled to prevent the server crashing.");
-            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are no cultists for the steward vote. Steward vote is cancelled to prevent the server crashing.");
+            Log.Warning($"There are no cosmic cultists present for the steward vote. Voting is cancelled to prevent the server crashing.");
+            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are no cosmic cultists for the steward vote. Steward vote is cancelled to prevent the server crashing.");
             return;
         }
 
@@ -335,8 +335,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         // Holding a vote with zero options crashes the server.
         if (options.Options.Count == 0)
         {
-            Log.Warning($"There are {cultists.Count} cultists but no options for the steward vote. Voting is cancelled to prevent the server crashing.");
-            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are {cultists.Count} cultists but no options for the steward vote. Steward vote is cancelled to prevent the server crashing.");
+            Log.Warning($"There are {cultists.Count} cosmic cultists but no options for the steward vote. Voting is cancelled to prevent the server crashing.");
+            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are {cultists.Count} cosmic cultists but no options for the steward vote. Steward vote is cancelled to prevent the server crashing.");
             return;
         }
 
