@@ -287,6 +287,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var cultists = new List<(string, EntityUid)>();
 
         var cultQuery = EntityQueryEnumerator<CosmicCultComponent, MetaDataComponent>();
+
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
             var playerInfo = metadata.EntityName;
@@ -304,9 +305,26 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             VoterEligibility = VoteManager.VoterEligibility.CosmicCult
         };
 
+        // If there are no cultists, don't hold a vote, or the server will crash.
+        if (cultists.Count == 0)
+        {
+            Log.Warning($"There are no cultists present for the steward vote. Voting is cancelled to prevent the server crashing.");
+            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are no cultists for the steward vote. Steward vote is cancelled to prevent the server crashing.");
+            return;
+        }
+
         foreach (var (name, ent) in cultists)
         {
             options.Options.Add((Loc.GetString(name), ent));
+        }
+
+        // If somehow there are cultists but no options, still don't hold a vote.
+        // Holding a vote with zero options crashes the server.
+        if (options.Options.Count == 0)
+        {
+            Log.Warning($"There are {cultists.Count} cultists but no options for the steward vote. Voting is cancelled to prevent the server crashing.");
+            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are {cultists.Count} cultists but no options for the steward vote. Steward vote is cancelled to prevent the server crashing.");
+            return;
         }
 
         var vote = _votes.CreateVote(options);
