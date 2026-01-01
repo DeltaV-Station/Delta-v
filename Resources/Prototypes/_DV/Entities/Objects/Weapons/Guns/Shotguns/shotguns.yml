@@ -86,10 +86,10 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 400
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: PelletShotgunBeanbag
     fireCost: 100
   - type: AmmoCounter

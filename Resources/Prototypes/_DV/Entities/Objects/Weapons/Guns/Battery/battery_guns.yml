@@ -26,10 +26,10 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -79,10 +79,10 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1000
     startingCharge: 1000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 25
   - type: EnergyGun
@@ -145,10 +145,10 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 500
     startingCharge: 500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -198,10 +198,10 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 900
     startingCharge: 900
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -258,10 +258,10 @@
     availableModes:
       - SemiAuto
       - FullAuto
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 3000
     startingCharge: 3000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
   - type: MagazineVisuals
@@ -290,7 +290,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ColdLaser
     fireCost: 100
 
@@ -316,10 +316,10 @@
     selectedMode: FullAuto
     fireRate: 15
     availableModes: FullAuto
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 3000
     startingCharge: 3000
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BeamLaser
     fireCost: 10
   - type: MagazineVisuals
@@ -352,10 +352,10 @@
     availableModes: FullAuto
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BeamDev
     fireCost: 1200
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 300000
     startingCharge: 300000
   - type: Tag
@@ -383,7 +383,7 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -392,7 +392,7 @@
       fireCost: 100
     - proto: BulletDisabler
       fireCost: 50
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
@@ -421,10 +421,10 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunMediumImmolator
     fireCost: 100
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 800
     startingCharge: 800
   - type: GunRequiresWield
@@ -451,7 +451,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunHeavyImmolator
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -460,7 +460,7 @@
       fireCost: 100
     - proto: BulletEnergyGunLightImmolatorSpread
       fireCost: 100
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 800
     startingCharge: 800
   - type: GunRequiresWield
@@ -536,10 +536,10 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBuccaneer
     fireCost: 100
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 400
     startingCharge: 400
   - type: BatterySelfRecharger
@@ -577,7 +577,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 50
   - type: Tag
@@ -651,7 +651,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletRadiation
     fireCost: 100
   - type: Appearance

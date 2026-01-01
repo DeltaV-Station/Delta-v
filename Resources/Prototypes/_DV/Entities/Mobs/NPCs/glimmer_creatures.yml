@@ -138,12 +138,12 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WispLash
     fireCost: 1
     # TODO: implement upstream or make it use a proper thing, maybe copy dragon
     #examinable: false
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger

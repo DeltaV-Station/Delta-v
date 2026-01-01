@@ -19,10 +19,10 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 600
     startingCharge: 300
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFrag
     fireCost: 300
   - type: BatterySelfRecharger
@@ -53,10 +53,10 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 600
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFlash
     fireCost: 200
   - type: BatterySelfRecharger
@@ -96,10 +96,10 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: AmmoCounter
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 600
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeCleanade
     fireCost: 100
   - type: BatterySelfRecharger
@@ -128,10 +128,10 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 750
     startingCharge: 750
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CannonBall
     fireCost: 750
   - type: BatterySelfRecharger
