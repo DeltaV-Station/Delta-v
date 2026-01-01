@@ -132,7 +132,8 @@
     - Back
     - Belt
   - type: DisarmMalus
-  - tags: # DeltaV so it can fit in katana sheath
+  - type: Tag
+    tags:
     - Katana
 
 - type: entity
