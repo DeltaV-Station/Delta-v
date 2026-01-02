@@ -20,20 +20,30 @@ public sealed class StationPowerTests
     /// </summary>
     private const float MinimumPowerDurationSeconds = 10 * 60;
 
+    // Begin DeltaV Additions - DeltaV maps for testing
     private static readonly string[] GameMaps =
     [
-        "Amber",
-        "Bagel",
-        "Box",
-        "Elkridge",
-        "Fland",
-        "Marathon",
-        "Oasis",
-        "Packed",
-        "Plasma",
-        "Reach",
-        "Exo",
+        "Academy",
+        "Arena",
+        "Asterisk",
+        "Byoin",
+        "Chibi",
+        "Division",
+        "Edge",
+        "Elegance",
+        "Glacier",
+        "Hammurabi",
+        "TheHive",
+        "Lighthouse",
+        "Micro",
+        "Ovni",
+        "Pebble",
+        "Shoukou",
+        "Submarine",
+        "Terra",
+        "Tortuga",
     ];
+    // Begin DeltaV Additions - DeltaV maps for testing
 
     [Explicit]
     [Test, TestCaseSource(nameof(GameMaps))]
