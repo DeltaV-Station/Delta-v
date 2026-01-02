@@ -38,6 +38,9 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
 
         foreach (var (entity, humanoid) in potentialTargets)
         {
+            if(HasComp<SSDIndicatorComponent>(entity))
+                continue;
+        
             if (targetsToRestyle-- <= 0)
                 break;
 
