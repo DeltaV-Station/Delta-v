@@ -536,6 +536,10 @@
     blacklist:
       components:
       - PowerCell
+      # Begin DeltaV Additions - Laser tag gun bounties
+      tags:
+      - Taser # Stops the bounty from allowing Laser Tag guns
+      # End DeltaV Additions - Laser tag gun bounties
 
 - type: cargoBounty
   id: BountyFood
