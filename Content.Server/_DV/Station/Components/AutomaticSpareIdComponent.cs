@@ -81,12 +81,12 @@ public sealed partial class AutomaticSpareIdComponent : Component
     public TimeSpan WarOpsUnlockDelay = TimeSpan.FromSeconds(15);
 
     /// <summary>
-    /// The amount of time in which that the spare ID will unlock after nuclear operatives declare war.
+    /// Message that will be displayed to the station when there is no captain and war ops is declared.
     /// </summary>
     public LocId WarOpsUnlockedMessageACO = "spare-id-warops-no-captain";
 
     /// <summary>
-    /// The amount of time in which that the spare ID will unlock after nuclear operatives declare war.
+    /// Message that will be displayed to the station when there is a captain and war ops is declared.
     /// </summary>
     public LocId WarOpsUnlockedMessageCaptain = "spare-id-warops-captain";
 }
