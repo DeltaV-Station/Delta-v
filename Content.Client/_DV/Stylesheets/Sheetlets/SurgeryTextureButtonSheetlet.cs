@@ -8,6 +8,7 @@ namespace Content.Client._DV.Stylesheets.Sheetlets;
 [CommonSheetlet]
 public sealed class SurgeryTextureButtonSheetlet <T> : Sheetlet<T> where T : PalettedStylesheet
 {
+    private readonly Color _dollColor = Color.FromHex("#639bff");
     public override StyleRule[] GetRules(T sheet, object config)
     {
         return
@@ -23,7 +24,7 @@ public sealed class SurgeryTextureButtonSheetlet <T> : Sheetlet<T> where T : Pal
             E<TextureButton>()
                 .Identifier("SurgeryTextureButton")
                 .PseudoNormal()
-                .Modulate(Color.FromHex("#639bff")),
+                .Modulate(_dollColor),
 
             E<TextureButton>()
                 .Identifier("OpenIncision")
