@@ -1,11 +1,14 @@
 using Content.Client._Shitmed.Choice.UI;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts; // DeltaV - New UI
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
+using Content.Shared.Humanoid;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
+using Robust.Client.UserInterface.Controls; // DeltaV - New UI
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -24,6 +27,7 @@ public sealed class SurgeryBui : BoundUserInterface
     private bool _isBody;
     private (EntityUid Ent, EntProtoId Proto)? _surgery;
     private readonly List<EntProtoId> _previousSurgeries = new();
+    private (EntityUid Ent, TextureButton)? _previousPart; // DeltaV - New UI
     public SurgeryBui(EntityUid owner, Enum uiKey) : base(owner, uiKey) => _system = _entities.System<SurgerySystem>();
 
     protected override void ReceiveMessage(BoundUserInterfaceMessage message)
@@ -64,6 +68,7 @@ public sealed class SurgeryBui : BoundUserInterface
                 _isBody = false;
                 _surgery = null;
                 _previousSurgeries.Clear();
+                DeactivateOtherParts(); // DeltaV - New UI
                 View(ViewType.Parts);
             };
 
@@ -138,16 +143,37 @@ public sealed class SurgeryBui : BoundUserInterface
             return GetScore(a.PartType) - GetScore(b.PartType);
         });
 
-        foreach (var (netEntity, entity, partName, _) in options)
+        // DeltaV Start - New UI
+        foreach (var textureButton in _window.Buttons)
+        {
+            textureButton.Visible = false;
+            textureButton.StyleIdentifier = "SurgeryTextureButton";
+        }
+        // DeltaV End - New UI
+
+        foreach (var (netEntity, entity, partName, bodyPartType) in options) // DeltaV - New UI
         {
             //var netPart = _entities.GetNetEntity(part.Owner);
             var surgeries = state.Choices[netEntity];
-            var partButton = new ChoiceControl();
 
-            partButton.Set(partName, null);
-            partButton.Button.OnPressed += _ => OnPartPressed(netEntity, surgeries);
+            // Delta Start - New UI
+            var button = GetBodyPartTextureButton(entity, bodyPartType);
+            if (button != null)
+            {
+                button.Visible = true;
+                button.OnPressed += _ => OnPartPressed(netEntity, surgeries);
+                if (_entities.HasComponent<IncisionOpenComponent>(entity))
+                    button.StyleIdentifier = "OpenIncision";
+            }
+            else
+            {
+                var partButton = new ChoiceControl();
 
-            _window.Parts.AddChild(partButton);
+                partButton.Set(partName, null);
+                partButton.Button.OnPressed += _ => OnPartPressed(netEntity, surgeries);
+                _window.Parts.AddChild(partButton);
+            }
+            // Delta End - New UI
 
             foreach (var surgeryId in surgeries)
             {
@@ -227,7 +253,35 @@ public sealed class SurgeryBui : BoundUserInterface
 
         _part = _entities.GetEntity(netPart);
         _isBody = _entities.HasComponent<BodyComponent>(_part);
-        var body = _entities.GetComponent<BodyPartComponent>(_part.Value).Body!.Value; // DeltaV
+        // DeltaV Start - New UI
+        var bodyPart = _entities.GetComponent<BodyPartComponent>(_part.Value);
+        var body = bodyPart.Body!.Value;
+
+        if (_previousPart != null)
+        {
+            (var previousEnt, var previousButton) = _previousPart.Value;
+            if (!_entities.HasComponent<IncisionOpenComponent>(previousEnt))
+                previousButton.StyleIdentifier = "SurgeryTextureButton";
+        }
+
+        var button = GetBodyPartTextureButton(_part.Value, bodyPart.PartType);
+        if (button != null && button.Pressed)
+        {
+            _previousPart = (_part.Value, button);
+            DeactivateOtherParts(button);
+        }
+        else if (button != null && !button.Pressed)
+        {
+            _part = null;
+            _isBody = false;
+            _surgery = null;
+            _previousSurgeries.Clear();
+            View(ViewType.Parts);
+
+            return;
+        }
+        // DeltaV End - New UI
+
         _window.Surgeries.RemoveAllChildren();
 
         var surgeries = new List<(Entity<SurgeryComponent> Ent, EntProtoId Id, string Name)>();
@@ -276,6 +330,78 @@ public sealed class SurgeryBui : BoundUserInterface
         RefreshUI();
         View(ViewType.Surgeries);
     }
+
+    // DeltaV Start - New UI
+    private TextureButton? GetBodyPartTextureButton(EntityUid entity, BodyPartType? partType)
+    {
+        if (_window == null)
+            return null;
+
+        switch (partType)
+        {
+            case BodyPartType.Other:
+                return null;
+            case BodyPartType.Torso:
+                if (!_entities.TryGetComponent(entity, out BodyPartComponent? torso))
+                    return null;
+                if (!_entities.HasComponent<HumanoidAppearanceComponent>(torso.Body))
+                    return _window.CarpButton;
+                return _window.ChestButton;
+            case BodyPartType.Head:
+                return _window.HeadButton;
+            case BodyPartType.Arm:
+                if (!_entities.TryGetComponent(entity, out BodyPartComponent? arm))
+                    return null;
+                if (arm.Symmetry == BodyPartSymmetry.Left)
+                    return _window.LArmButton;
+                return _window.RArmButton;
+            case BodyPartType.Hand:
+                if (!_entities.TryGetComponent(entity, out BodyPartComponent? hand))
+                    return null;
+                if (hand.Symmetry == BodyPartSymmetry.Left)
+                    return _window.LHandButton;
+                return _window.RHandButton;
+            case BodyPartType.Leg:
+                if (!_entities.TryGetComponent(entity, out BodyPartComponent? leg))
+                    return null;
+                if (leg.Symmetry == BodyPartSymmetry.Left)
+                    return _window.LLegButton;
+                return _window.RLegButton;
+            case BodyPartType.Foot:
+                if (!_entities.TryGetComponent(entity, out BodyPartComponent? foot))
+                    return null;
+                if (foot.Symmetry == BodyPartSymmetry.Left)
+                    return _window.LFootButton;
+                return _window.RFootButton;
+            case BodyPartType.Tail:
+                break;
+            case null:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(partType), partType, null);
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Deactivates all other buttons that are currently active.
+    /// </summary>
+    /// <param name="activatedButton">The button that should be the only active button.</param>
+    private void DeactivateOtherParts(TextureButton? activatedButton = null)
+    {
+        if (_window == null)
+            return;
+
+        foreach (var button  in _window.Buttons)
+        {
+            if (activatedButton == button)
+                continue;
+
+            button.Pressed = false;
+        }
+    }
+    // DeltaV End - New UI
 
     private void RefreshUI()
     {
