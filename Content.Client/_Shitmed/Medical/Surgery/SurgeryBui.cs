@@ -334,47 +334,30 @@ public sealed class SurgeryBui : BoundUserInterface
     // DeltaV Start - New UI
     private TextureButton? GetBodyPartTextureButton(EntityUid entity, BodyPartType? partType)
     {
-        if (_window == null)
+        if (_window == null
+            || !_entities.TryGetComponent(entity, out BodyPartComponent? bodyPart))
             return null;
+
+        var isLeftPart = bodyPart.Symmetry.HasFlag(BodyPartSymmetry.Left);
 
         switch (partType)
         {
             case BodyPartType.Other:
-                return null;
+                break;
             case BodyPartType.Torso:
-                if (!_entities.TryGetComponent(entity, out BodyPartComponent? torso))
-                    return null;
-                if (!_entities.HasComponent<HumanoidAppearanceComponent>(torso.Body))
-                    return _window.CarpButton;
-                return _window.ChestButton;
+                var isHumanoid = _entities.HasComponent<HumanoidAppearanceComponent>(bodyPart.Body);
+                return isHumanoid ? _window.ChestButton : _window.CarpButton;
             case BodyPartType.Head:
                 return _window.HeadButton;
             case BodyPartType.Arm:
-                if (!_entities.TryGetComponent(entity, out BodyPartComponent? arm))
-                    return null;
-                if (arm.Symmetry == BodyPartSymmetry.Left)
-                    return _window.LArmButton;
-                return _window.RArmButton;
+                return isLeftPart ? _window.LArmButton : _window.RArmButton;
             case BodyPartType.Hand:
-                if (!_entities.TryGetComponent(entity, out BodyPartComponent? hand))
-                    return null;
-                if (hand.Symmetry == BodyPartSymmetry.Left)
-                    return _window.LHandButton;
-                return _window.RHandButton;
+                return isLeftPart ? _window.LHandButton : _window.RHandButton;
             case BodyPartType.Leg:
-                if (!_entities.TryGetComponent(entity, out BodyPartComponent? leg))
-                    return null;
-                if (leg.Symmetry == BodyPartSymmetry.Left)
-                    return _window.LLegButton;
-                return _window.RLegButton;
+                return isLeftPart ? _window.LLegButton : _window.RLegButton;
             case BodyPartType.Foot:
-                if (!_entities.TryGetComponent(entity, out BodyPartComponent? foot))
-                    return null;
-                if (foot.Symmetry == BodyPartSymmetry.Left)
-                    return _window.LFootButton;
-                return _window.RFootButton;
+                return isLeftPart ? _window.LFootButton : _window.RFootButton;
             case BodyPartType.Tail:
-                break;
             case null:
                 break;
             default:
