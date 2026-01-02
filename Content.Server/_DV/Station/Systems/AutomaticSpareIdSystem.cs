@@ -155,9 +155,9 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
     ///     Unlocks all spare ID cabinets, giving access to a certain access prototype and displays a message to the station.
     /// </summary>
     /// <param name="ent">The station entity that has the <see cref="AutomaticSpareIdComponent"/>.</param>
-    /// <param name="overrideAccess">The access to give to the spare ID cabinet. If not specified or null, will default to ent.Comp.GrantAccessToCommand</param>
+    /// <param name="newSpareIdAccess">The access to give to the spare ID cabinet. If not specified or null, will default to ent.Comp.GrantAccessToCommand</param>
     /// <param name="overrideUnlockMessage">The message to display to the station upon unlocking the spare ID. If not specified or null, will default to ent.Comp.UnlockedMessage</param>
-    private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent, ProtoId<AccessLevelPrototype>? overrideAccess = null, LocId? overrideUnlockMessage = null)
+    private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent, ProtoId<AccessLevelPrototype>? newSpareIdAccess = null, LocId? unlockMessageLocId = null)
     {
         DebugTools.Assert(ent.Comp.State is AutomaticSpareIdState.AwaitingUnlock, $"Spare ID state has unexpected state {ent.Comp.State} on unlocking");
 
@@ -171,20 +171,18 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
             if (accesses.Count <= 0)
                 continue;
 
-            var grantedAccess = ent.Comp.GrantAccessToCommand;
-            if (overrideAccess.HasValue)
-                grantedAccess = overrideAccess.Value;
+            if (!newSpareIdAccess.HasValue)
+                newSpareIdAccess = ent.Comp.GrantAccessToCommand; // Default to command if no access is specified
 
-            accesses.Add([grantedAccess]);
+            accesses.Add([newSpareIdAccess.Value]);
             Dirty(uid, accessReader);
             RaiseLocalEvent(uid, new AccessReaderConfigurationChangedEvent());
         }
 
-        var unlockedMessage = ent.Comp.UnlockedMessage;
-        if (overrideUnlockMessage.HasValue)
-            unlockedMessage = overrideUnlockMessage.Value;
+        if (!unlockMessageLocId.HasValue)
+            unlockMessageLocId = ent.Comp.UnlockedMessage; // Default message if nothing is specified
 
-        _chat.DispatchStationAnnouncement(ent, Loc.GetString(unlockedMessage), colorOverride: Color.Red);
+        _chat.DispatchStationAnnouncement(ent, Loc.GetString(unlockMessageLocId), colorOverride: Color.Red);
     }
 
     private void MoveToCaptainPresent(Entity<AutomaticSpareIdComponent> ent)
