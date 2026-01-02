@@ -151,6 +151,12 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.AwaitingUnlockMessage, ("minutes", _unlockDelay.TotalMinutes)), colorOverride: Color.Gold);
     }
 
+    /// <summary>
+    ///     Unlocks all spare ID cabinets, giving access to a certain access prototype and displays a message to the station.
+    /// </summary>
+    /// <param name="ent">The station entity that has the <see cref="AutomaticSpareIdComponent"/>.</param>
+    /// <param name="overrideAccess">The access to give to the spare ID cabinet. If not specified or null, will default to ent.Comp.GrantAccessToCommand</param>
+    /// <param name="overrideUnlockMessage">The message to display to the station upon unlocking the spare ID. If not specified or null, will default to ent.Comp.UnlockedMessage</param>
     private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent, ProtoId<AccessLevelPrototype>? overrideAccess = null, LocId? overrideUnlockMessage = null)
     {
         DebugTools.Assert(ent.Comp.State is AutomaticSpareIdState.AwaitingUnlock, $"Spare ID state has unexpected state {ent.Comp.State} on unlocking");
