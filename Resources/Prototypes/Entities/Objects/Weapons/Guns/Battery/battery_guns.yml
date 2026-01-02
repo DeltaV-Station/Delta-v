@@ -664,7 +664,7 @@
     - Belt
   - type: Gun
     fireRate: 0.1 # DeltaV - No taser spam, was 0.5
-    resetOnHandSelected: false
+    resetOnHandSelected: false # DeltaV - Makes it so you dont have to wait 10 seconds to shoot a taser after pulling it out
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
