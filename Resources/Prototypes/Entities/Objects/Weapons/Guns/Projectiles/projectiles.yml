@@ -240,9 +240,9 @@
     lifetime: 0.170 # Very short range
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun baton
+    knockdownAmount: 1.5 # Enough to subdue and follow up with a stun baton # DeltaV - Was 2.5 
     drop: false #Ranged KD and item drop are too strong in one package
-    slowdownAmount: 2.5
+    slowdownAmount: 1.5 # DeltaV - Was 2.5 
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
 

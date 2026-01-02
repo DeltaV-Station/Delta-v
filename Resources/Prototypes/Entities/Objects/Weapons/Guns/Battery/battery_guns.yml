@@ -663,7 +663,8 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.1 # DeltaV - No taser spam, was 0.5
+    resetOnHandSelected: false
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
@@ -676,6 +677,10 @@
     zeroVisible: true
   - type: Appearance
   - type: PacifismAllowedGun
+  - type: UseDelayOnShoot # DeltaV - No taser spam (provides a cooldown indicator)
+  - type: UseDelay # DeltaV - No taser spam (provides a cooldown indicator)
+    delay: 10
+    
 
 - type: entity
   name: elite taser
