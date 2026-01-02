@@ -3,13 +3,18 @@ using Content.Server._DV.Cabinet;
 using Content.Server._DV.Station.Components;
 using Content.Server._DV.Station.Events;
 using Content.Server.Chat.Systems;
+using Content.Server.NukeOps;
 using Content.Server.Station.Components;
 using Content.Shared._DV.CCVars;
 using Content.Shared.Access.Components;
 using Content.Shared.Access;
+using Content.Shared.NukeOps;
 using Robust.Shared.Configuration;
+
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
+
 
 namespace Content.Server._DV.Station.Systems;
 
@@ -30,6 +35,7 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         SubscribeLocalEvent<AutomaticSpareIdComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AutomaticSpareIdComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<AutomaticSpareIdComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
+        SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
 
         Subs.CVar(_cfg, DCCVars.SpareIdAutoUnlock, a => _autoUnlock = a, true);
         Subs.CVar(_cfg, DCCVars.SpareIdAlertDelay, a => _alertDelay = a, true);
@@ -62,6 +68,19 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         else if (ent.Comp.State is AutomaticSpareIdState.AwaitingUnlock)
         {
             MoveToUnlocked(ent);
+        }
+        else if (ent.Comp.State is AutomaticSpareIdState.WarOps)
+        {
+            // Default to these, then check if there is a captain
+            var message = ent.Comp.WarOpsUnlockedMessageACO;
+            var accessGranted = ent.Comp.GrantAccessToCommand;
+            if (HasCaptain(ent))
+            {
+                message = ent.Comp.WarOpsUnlockedMessageCaptain;
+                accessGranted = ent.Comp.GrantAccessToCaptain;
+            }
+            ent.Comp.State = AutomaticSpareIdState.AwaitingUnlock;
+            MoveToUnlocked(ent, accessGranted, message);
         }
         else
         {
@@ -102,6 +121,18 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         MoveToAlerted(ent);
     }
 
+    private void OnWarDeclared(ref WarDeclaredEvent args)
+    {
+        if (args.Status == WarConditionStatus.YesWar)
+        {
+            foreach (var spareId in EntityQuery<AutomaticSpareIdComponent>())
+            {
+                spareId.Timeout = _timing.CurTime + spareId.WarOpsUnlockDelay;
+                spareId.State = AutomaticSpareIdState.WarOps;
+            }
+        }
+    }
+
     private bool HasCaptain(Entity<AutomaticSpareIdComponent> ent)
     {
         if (!TryComp<StationJobsComponent>(ent, out var stationJobs))
@@ -120,7 +151,7 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.AwaitingUnlockMessage, ("minutes", _unlockDelay.TotalMinutes)), colorOverride: Color.Gold);
     }
 
-    private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent)
+    private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent, ProtoId<AccessLevelPrototype>? overrideAccess = null, LocId? overrideUnlockMessage = null)
     {
         DebugTools.Assert(ent.Comp.State is AutomaticSpareIdState.AwaitingUnlock, $"Spare ID state has unexpected state {ent.Comp.State} on unlocking");
 
@@ -134,12 +165,20 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
             if (accesses.Count <= 0)
                 continue;
 
-            accesses.Add([ent.Comp.GrantAccessTo]);
+            var grantedAccess = ent.Comp.GrantAccessToCommand;
+            if (overrideAccess.HasValue)
+                grantedAccess = overrideAccess.Value;
+
+            accesses.Add([grantedAccess]);
             Dirty(uid, accessReader);
             RaiseLocalEvent(uid, new AccessReaderConfigurationChangedEvent());
         }
 
-        _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.UnlockedMessage), colorOverride: Color.Red);
+        var unlockedMessage = ent.Comp.UnlockedMessage;
+        if (overrideUnlockMessage.HasValue)
+            unlockedMessage = overrideUnlockMessage.Value;
+
+        _chat.DispatchStationAnnouncement(ent, Loc.GetString(unlockedMessage), colorOverride: Color.Red);
     }
 
     private void MoveToCaptainPresent(Entity<AutomaticSpareIdComponent> ent)
