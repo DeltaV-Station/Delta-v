@@ -39,5 +39,5 @@ public sealed partial class GlimmerFoxfireSpawnRuleComponent : Component
     /// Available colors for the foxfire's light.
     /// </summary>
     [DataField]
-    public List<Color> RandomColorList = new();
+    public List<Color>? RandomColorList = new();
 }
