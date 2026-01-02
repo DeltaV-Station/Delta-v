@@ -65,8 +65,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "EmergencyShuttleRepealAll", // DeltaV - fix mismatch with Access/misc.yml
         "Engineering",
         "External",
-        "GenpopEnter", // DeltaV - fix mismatch with Access/misc.yml
-        "GenpopLeave", // DeltaV - fix mismatch with Access/misc.yml
+        "GenpopEnter",
+        "GenpopLeave",
         "HeadOfPersonnel",
         "HeadOfSecurity",
         "Hydroponics",
