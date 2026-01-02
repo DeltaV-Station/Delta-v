@@ -50,7 +50,7 @@ public sealed class GlimmerFoxfireSpawnRule : StationEventSystem<GlimmerFoxfireS
 
             var color = Color.GhostWhite;
             if (comp.RandomColorList != null && comp.RandomColorList.Count != 0)
-                color = RobustRandom.Pick(comp.RandomColorList)
+                color = RobustRandom.Pick(comp.RandomColorList);
 
             var fireEnt = Spawn(comp.FoxfirePrototype, spawnLocation);
             _light.SetColor(fireEnt, color);
