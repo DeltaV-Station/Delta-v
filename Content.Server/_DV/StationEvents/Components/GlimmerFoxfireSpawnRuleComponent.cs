@@ -14,13 +14,13 @@ public sealed partial class GlimmerFoxfireSpawnRuleComponent : Component
     /// Minimum+ amounts of foxfires to spawn.
     /// </summary>
     [DataField]
-    public int MinimumSpawned = 1;
+    public int MinimumSpawned = 10;
 
     /// <summary>
     /// Maximum amounts of foxfires to spawn.
     /// </summary>
     [DataField]
-    public int MaximumSpawned = 5;
+    public int MaximumSpawned = 20;
 
     /// <summary>
     /// Maximum distance from the Oracle or Sophic Grammateus in which the
