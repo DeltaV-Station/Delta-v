@@ -342,8 +342,6 @@ public sealed class SurgeryBui : BoundUserInterface
 
         switch (partType)
         {
-            case BodyPartType.Other:
-                break;
             case BodyPartType.Torso:
                 var isHumanoid = _entities.HasComponent<HumanoidAppearanceComponent>(bodyPart.Body);
                 return isHumanoid ? _window.ChestButton : _window.CarpButton;
@@ -358,13 +356,12 @@ public sealed class SurgeryBui : BoundUserInterface
             case BodyPartType.Foot:
                 return isLeftPart ? _window.LFootButton : _window.RFootButton;
             case BodyPartType.Tail:
+            case BodyPartType.Other:
             case null:
-                break;
+                return null;
             default:
                 throw new ArgumentOutOfRangeException(nameof(partType), partType, null);
         }
-
-        return null;
     }
 
     /// <summary>
