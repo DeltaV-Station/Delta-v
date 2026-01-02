@@ -78,7 +78,7 @@ public sealed partial class AutomaticSpareIdComponent : Component
     /// <summary>
     /// The amount of time in which that the spare ID will unlock after nuclear operatives declare war.
     /// </summary>
-    public TimeSpan WarOpsUnlockDelay = TimeSpan.FromSeconds(10);
+    public TimeSpan WarOpsUnlockDelay = TimeSpan.FromSeconds(15);
 
     /// <summary>
     /// The amount of time in which that the spare ID will unlock after nuclear operatives declare war.
