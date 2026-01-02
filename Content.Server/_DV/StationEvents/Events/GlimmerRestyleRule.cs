@@ -45,32 +45,30 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
             if (targetsToRestyle-- <= 0)
                 break;
 
-            var changedHair = ApplyRestyle(humanoid, MarkingCategories.Hair, comp.BaldChance);
-            var changedFacialHair = ApplyRestyle(humanoid, MarkingCategories.FacialHair, comp.CleanShavenChance);
+            var changedHair = TryApplyRestyle((entity, humanoid), MarkingCategories.Hair, comp.BaldChance);
+            var changedFacialHair = TryApplyRestyle((entity, humanoid), MarkingCategories.FacialHair, comp.CleanShavenChance);
             if (changedHair || changedFacialHair)
-            {
                 _popup.PopupEntity(Loc.GetString("glimmer-restyle-event"), entity, entity, PopupType.Medium);
                 Dirty(entity, humanoid);
-            }
         }
     }
 
-    private bool ApplyRestyle(HumanoidAppearanceComponent humanoid, MarkingCategories category, float baldChance)
+    private bool TryApplyRestyle(Entity<HumanoidAppearanceComponent> ent, MarkingCategories category, float noMarkingsChance)
     {
-        var newHairColor = new Color(_random.NextFloat(), _random.NextFloat(), _random.NextFloat());
-        var hairStyles = _markingManager.MarkingsByCategoryAndSpecies(category, humanoid.Species);
+        var newMarkingColor = new Color(_random.NextFloat(), _random.NextFloat(), _random.NextFloat());
+        var hairStyles = _markingManager.MarkingsByCategoryAndSpecies(category, ent.Comp.Species);
         if (hairStyles.Count == 0)
             return false;
 
-        humanoid.MarkingSet.RemoveCategory(category);
-        if (_random.Prob(baldChance))
+        ent.Comp.MarkingSet.RemoveCategory(category);
+        if (_random.Prob(noMarkingsChance))
             return true;
 
-        var newHair = _random.Pick(hairStyles.Values.ToList()).AsMarking();
-        newHair.SetColor(newHairColor);
+        var newMarking = _random.Pick(hairStyles.Values.ToList()).AsMarking();
+        newMarking.SetColor(newMarkingColor);
 
-        humanoid.MarkingSet.AddCategory(category);
-        humanoid.MarkingSet.AddFront(category, newHair);
+        ent.Comp.MarkingSet.AddCategory(category);
+        ent.Comp.MarkingSet.AddFront(category, newMarking);
         return true;
     }
 }
