@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._DV.StationEvents.Components;
+using Content.Server.Psionics;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
@@ -29,7 +30,7 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
 
         while (query.MoveNext(out var entity, out var humanoid, out var mobState))
         {
-            if (!_mob.IsAlive(entity, mobState) || HasComp<PsionicInsulationComponent>(entity))
+            if (!_mob.IsAlive(entity, mobState) || HasComp<PsionicInsulationComponent>(entity) || !HasComp<PotentialPsionicComponent>(entity))
                 continue;
             potentialTargets.Add((entity, humanoid));
         }
@@ -49,7 +50,7 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
             var changedFacialHair = TryApplyRestyle((entity, humanoid), MarkingCategories.FacialHair, comp.CleanShavenChance);
             if (changedHair || changedFacialHair)
                 _popup.PopupEntity(Loc.GetString("glimmer-restyle-event"), entity, entity, PopupType.Medium);
-                Dirty(entity, humanoid);
+            Dirty(entity, humanoid);
         }
     }
 
