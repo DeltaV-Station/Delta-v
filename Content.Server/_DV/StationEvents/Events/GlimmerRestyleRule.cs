@@ -41,7 +41,7 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
         {
             if(HasComp<SSDIndicatorComponent>(entity))
                 continue;
-        
+
             if (targetsToRestyle-- <= 0)
                 break;
 
