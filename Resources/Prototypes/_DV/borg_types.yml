@@ -6,7 +6,7 @@
   dummyPrototype: BorgChassisSecurity
 
   # Functional
-  extraModuleCount: 2
+  extraModuleCount: 3
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -27,7 +27,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical # -20 to Crit Threshold
+      100: Critical
       200: Dead
     stateAlertDict:
       Alive: BorgHealth

@@ -907,6 +907,10 @@
   - type: Battery
     maxCharge: 480
     startingCharge: 480
+  - type: BatterySelfRecharger #Delta V - Self recharging not removed
+    autoRecharge: true
+    autoRechargeRate: 10
+    autoRechargePauseTime: 30
 
 - type: entity
   name: energy magnum

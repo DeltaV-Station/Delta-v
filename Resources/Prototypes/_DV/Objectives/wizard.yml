@@ -94,6 +94,10 @@
         components:
         - CommandStaff
         - KillPersonCondition # Should also choose those who have targets on their heads by other antags :3
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - TargetObjectiveImmune
 
 - type: entity
   parent: [BaseWizardObjective, BaseKillObjective]
@@ -113,6 +117,7 @@
       blacklist:
         components:
         - KillPersonCondition
+        - TargetObjectiveImmune
   - type: KillPersonCondition
     requireDead: true
 
