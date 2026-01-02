@@ -941,7 +941,6 @@
     maxCharge: 720 # Delta V - Was 480
     startingCharge: 720
   - type: BatterySelfRecharger #Delta V - Self recharging not removed
-    autoRecharge: true
     autoRechargeRate: 72 # Delta V - Was 10
     autoRechargePauseTime: 30
 

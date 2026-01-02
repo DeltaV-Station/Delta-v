@@ -86,7 +86,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 400
     startingCharge: 200
   - type: BatteryAmmoProvider
@@ -94,7 +94,6 @@
     fireCost: 100
   - type: AmmoCounter
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 20
 
 - type: entity

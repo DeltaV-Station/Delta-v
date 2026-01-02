@@ -259,7 +259,7 @@ public struct SearchForBatteryEvent
 {
     public EntityUid? Uid;
 
-    public PredictedBatteryComponent? Component;
+    public BatteryComponent? Component;
 
     public bool Handled;
 }

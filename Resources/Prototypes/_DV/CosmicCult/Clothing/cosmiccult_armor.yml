@@ -77,11 +77,10 @@
         # minValue: 0.1 # These don't exist in the component
         # maxValue: 2.0
         isLooped: true
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 100
     startingCharge: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5
 
 # COSMIC CULT HARDSUIT HELMET

@@ -28,7 +28,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly SiliconChargeSystem _siliconChargeSystem = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

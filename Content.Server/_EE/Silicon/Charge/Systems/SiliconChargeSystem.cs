@@ -37,7 +37,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
-    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -45,7 +45,7 @@ public sealed class SiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out Entity<PredictedBatteryComponent>? batteryComp)
+    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out Entity<BatteryComponent>? batteryComp)
     {
         batteryComp = null;
         if (!HasComp<SiliconComponent>(silicon))
@@ -53,7 +53,7 @@ public sealed class SiliconChargeSystem : EntitySystem
 
 
         // try get a battery directly on the inserted entity
-        if (TryComp<PredictedBatteryComponent>(silicon, out var comp))
+        if (TryComp<BatteryComponent>(silicon, out var comp))
         {
             batteryComp = (silicon, comp);
             return true;

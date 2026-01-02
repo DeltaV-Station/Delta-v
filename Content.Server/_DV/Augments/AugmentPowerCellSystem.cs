@@ -7,7 +7,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Power.Components; // ough BatteryComponent why are you in server
+using Content.Shared.Power.Components;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Power.EntitySystems;
 
@@ -16,7 +16,7 @@ namespace Content.Server._DV.Augments;
 public sealed class AugmentPowerCellSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -41,7 +41,7 @@ public sealed class AugmentPowerCellSystem : EntitySystem
         }
     }
 
-    public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<PredictedBatteryComponent>? Battery)? TryGetAugmentPowerCell(EntityUid body)
+    public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<BatteryComponent>? Battery)? TryGetAugmentPowerCell(EntityUid body)
     {
         foreach (var organ in _body.GetBodyOrganEntityComps<AugmentPowerCellSlotComponent>(body))
         {
@@ -59,7 +59,7 @@ public sealed class AugmentPowerCellSystem : EntitySystem
         return null;
     }
 
-    public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<PredictedBatteryComponent>? Battery)? TryGetAugmentPowerCellFromAugment(EntityUid augment)
+    public (Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent> Organ, Entity<BatteryComponent>? Battery)? TryGetAugmentPowerCellFromAugment(EntityUid augment)
     {
         if (!TryComp<OrganComponent>(augment, out var organ) || organ.Body is not {} uid)
             return null;
