@@ -156,7 +156,7 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The station entity that has the <see cref="AutomaticSpareIdComponent"/>.</param>
     /// <param name="newSpareIdAccess">The access to give to the spare ID cabinet. If not specified or null, will default to ent.Comp.GrantAccessToCommand</param>
-    /// <param name="overrideUnlockMessage">The message to display to the station upon unlocking the spare ID. If not specified or null, will default to ent.Comp.UnlockedMessage</param>
+    /// <param name="unlockMessageLocId">The message to display to the station upon unlocking the spare ID. If not specified or null, will default to ent.Comp.UnlockedMessage</param>
     private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent, ProtoId<AccessLevelPrototype>? newSpareIdAccess = null, LocId? unlockMessageLocId = null)
     {
         DebugTools.Assert(ent.Comp.State is AutomaticSpareIdState.AwaitingUnlock, $"Spare ID state has unexpected state {ent.Comp.State} on unlocking");
