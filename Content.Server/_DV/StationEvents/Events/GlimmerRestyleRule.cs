@@ -61,9 +61,10 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
         if (hairStyles.Count == 0)
             return false;
 
+        var hadCategoryBefore = ent.Comp.MarkingSet.TryGetCategory(category, out _);
         ent.Comp.MarkingSet.RemoveCategory(category);
         if (_random.Prob(noMarkingsChance))
-            return true;
+            return hadCategoryBefore; //Do not show the popup if you go from no markings to no markings.
 
         var newMarking = _random.Pick(hairStyles.Values.ToList()).AsMarking();
         newMarking.SetColor(newMarkingColor);
