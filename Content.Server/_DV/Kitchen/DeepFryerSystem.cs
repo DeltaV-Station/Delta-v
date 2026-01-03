@@ -184,7 +184,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         foreach (var deepFryerRecipe in _prototype.EnumeratePrototypes<DeepFryerRecipePrototype>())
         {
             // Get the base microwave recipe
-            if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+            if (!_prototype.Resolve(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
                 continue;
 
             // Count total solid ingredients
@@ -225,7 +225,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         foreach (var deepFryerRecipe in _prototype.EnumeratePrototypes<DeepFryerRecipePrototype>())
         {
             // Get the base microwave recipe
-            if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+            if (!_prototype.Resolve(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
                 continue;
 
             // Count total solid ingredients
@@ -285,7 +285,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         if (!_prototype.TryIndex(recipeId, out var deepFryerRecipe))
             return null;
 
-        if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+        if (!_prototype.Resolve(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
             return null;
 
         var neededIngredients = new Dictionary<string, FixedPoint2>();
@@ -411,7 +411,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
                     if (!_prototype.TryIndex(recipe, out var deepFryerRecipe))
                         continue;
 
-                    if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+                    if (!_prototype.Resolve(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
                         continue;
 
                     var cookTime = TimeSpan.FromSeconds(microwaveRecipe.CookTime);
@@ -503,7 +503,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
             return;
 
         // Get the base microwave recipe for result
-        if (!_prototype.TryIndex(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
+        if (!_prototype.Resolve(deepFryerRecipe.BaseRecipe, out var microwaveRecipe))
             return;
 
         // Get all ingredients for this recipe

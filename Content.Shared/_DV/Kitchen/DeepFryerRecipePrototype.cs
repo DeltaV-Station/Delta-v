@@ -23,7 +23,7 @@ public sealed class DeepFryerRecipePrototype : IPrototype
     /// <summary>
     /// The <see cref="FoodRecipePrototype"/> to inherit from
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public ProtoId<FoodRecipePrototype> BaseRecipe;
 
     /// <summary>
