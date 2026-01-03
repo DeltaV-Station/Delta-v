@@ -1,23 +1,80 @@
-<controls:SurgeryWindow
+<controls:FancyWindow
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Shitmed.Medical.Surgery"
-    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:customcontrols="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:ui="clr-namespace:Content.Client._Shitmed.Medical.Surgery"
     MinSize="400 400">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 10">
-            <Button Name="PartsButton" Access="Public" Text="{Loc 'surgery-ui-window-parts'}"
-                    HorizontalExpand="True" StyleClasses="OpenBoth" />
-            <Button Name="SurgeriesButton" Access="Public" Text="{Loc 'surgery-ui-window-surgeries'}"
-                    HorizontalExpand="True" StyleClasses="OpenBoth" />
-            <Button Name="StepsButton" Access="Public" Text="{Loc 'surgery-ui-window-steps'}"
-                    HorizontalExpand="True" StyleClasses="OpenBoth" />
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" MinSize="570, 336">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="False" VerticalExpand="False" MinSize="264, 408">
+            <TextureRect Name="Texture" TextureScale="6 6"
+                         TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUIBackground.png" Access="Public"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Stretch="KeepAspectCentered" StyleClasses="">
+                <PanelContainer>
+                    <TextureButton
+                        Name="CarpButton" Scale="8 8" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 11"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUICarp.png" Access="Public"/>
+                    <TextureButton
+                        Name="ChestButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 11"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUITorso.png" Access="Public"/>
+                    <TextureButton
+                        Name="HeadButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUIHead.png" Access="Public"/>
+                    <TextureButton
+                        Name="RArmButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30 0 0 47"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUIRArm.png" Access="Public"/>
+                    <TextureButton
+                        Name="RHandButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30 61 0 0"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUIRHand.png" Access="Public"/>
+                    <TextureButton
+                        Name="RLegButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="78 0 0 42"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUIRLeg.png" Access="Public"/>
+                    <TextureButton
+                        Name="RFootButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="54 0 0 30"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUIRFoot.png" Access="Public"/>
+                    <TextureButton
+                        Name="LArmButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 30 47"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUILArm.png" Access="Public"/>
+                    <TextureButton
+                        Name="LHandButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 61 30 0"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUILHand.png" Access="Public"/>
+                    <TextureButton
+                        Name="LLegButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 78 42"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUILLeg.png" Access="Public"/>
+                    <TextureButton
+                        Name="LFootButton" Scale="6 6" ToggleMode="True" StyleIdentifier="SurgeryTextureButton" Visible="False"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 54 30"
+                        TexturePath="/Textures/_Shitmed/Interface/SurgeryUI/surgeryUILFoot.png" Access="Public"/>
+                </PanelContainer>
+            </TextureRect>
         </BoxContainer>
-        <cc:HSeparator />
-        <ScrollContainer VScrollEnabled="True" HorizontalExpand="True" VerticalExpand="True">
-            <BoxContainer Name="Parts" Access="Public" Orientation="Vertical" Visible="False" />
-            <BoxContainer Name="Surgeries" Access="Public" Orientation="Vertical" Visible="False" />
-            <BoxContainer Name="Steps" Access="Public" Orientation="Vertical" Visible="False" />
-        </ScrollContainer>
+        <customcontrols:VSeparator StyleClasses="LowDivider" />
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 10">
+                <Button Name="PartsButton" Access="Public" Text="{Loc 'surgery-ui-window-parts'}"
+                        HorizontalExpand="True" StyleClasses="OpenBoth" />
+                <Button Name="SurgeriesButton" Access="Public" Text="{Loc 'surgery-ui-window-surgeries'}"
+                        HorizontalExpand="True" StyleClasses="OpenBoth" />
+                <Button Name="StepsButton" Access="Public" Text="{Loc 'surgery-ui-window-steps'}"
+                        HorizontalExpand="True" StyleClasses="OpenBoth" />
+            </BoxContainer>
+            <customcontrols:HSeparator />
+            <ScrollContainer VScrollEnabled="True" HorizontalExpand="True" VerticalExpand="True">
+                <BoxContainer Name="Parts" Access="Public" Orientation="Vertical" Visible="False" />
+                <BoxContainer Name="Surgeries" Access="Public" Orientation="Vertical" Visible="False" />
+                <BoxContainer Name="Steps" Access="Public" Orientation="Vertical" Visible="False" />
+            </ScrollContainer>
+        </BoxContainer>
     </BoxContainer>
-</controls:SurgeryWindow>
+</controls:FancyWindow>
