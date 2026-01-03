@@ -1,0 +1,304 @@
+﻿using Content.Shared._EE.Flight;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Inventory;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Standing;
+using Content.Shared.Tag;
+using Robust.Shared.Map;
+using Robust.Shared.Random;
+using Robust.Shared.Configuration;
+using Content.Shared._DV.CCVars;
+
+namespace Content.Shared._EE.FootPrint.Systems;
+
+/// <summary>
+/// Handles creation of footprints as entities move.
+/// </summary>
+public sealed class FootPrintsSystem : EntitySystem
+{
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private EntityQuery<AppearanceComponent> _appearanceQuery;
+    private EntityQuery<FlightComponent> _flightQuery;
+    private EntityQuery<GridFootPrintsComponent> _gridFootPrintsQuery;
+    private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
+    private EntityQuery<StandingStateComponent> _standingQuery;
+    private EntityQuery<TransformComponent> _transformQuery;
+
+    private const string HardsuitTag = "Hardsuit";
+
+    private int _maxPerTile;
+    private int _maxPerGrid;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _appearanceQuery = GetEntityQuery<AppearanceComponent>();
+        _flightQuery = GetEntityQuery<FlightComponent>();
+        _gridFootPrintsQuery = GetEntityQuery<GridFootPrintsComponent>();
+        _mobThresholdQuery = GetEntityQuery<MobThresholdsComponent>();
+        _standingQuery = GetEntityQuery<StandingStateComponent>();
+        _transformQuery = GetEntityQuery<TransformComponent>();
+
+        SubscribeLocalEvent<FootPrintsComponent, ComponentStartup>(OnStartupComponent);
+        SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<FootPrintComponent, ComponentRemove>(OnFootPrintRemoved);
+
+        // Subscribe to CVar changes
+        Subs.CVar(_cfg, DCCVars.MaxFootPrintsPerTile, value => _maxPerTile = value, true);
+        Subs.CVar(_cfg, DCCVars.MaxFootPrintsPerGrid, value => _maxPerGrid = value, true);
+    }
+
+    private void OnStartupComponent(Entity<FootPrintsComponent> ent, ref ComponentStartup args)
+    {
+        // Add slight random variation to step size for more natural-looking prints
+        ent.Comp.StepSize = Math.Max(0f, ent.Comp.StepSize + _random.NextFloat(-0.05f, 0.05f));
+        DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.StepSize));
+    }
+
+    private void OnMove(Entity<FootPrintsComponent> ent, ref MoveEvent args)
+    {
+        // Don't create footprints if flying
+        if (_flightQuery.HasComp(ent))
+            return;
+
+        // Don't create footprints if color is fully transparent
+        if (ent.Comp.PrintsColor.A <= 0f)
+            return;
+
+        if (!_transformQuery.TryComp(ent, out var transform))
+            return;
+
+        if (!_mobThresholdQuery.TryComp(ent, out var mobThresholds))
+            return;
+
+        // Check if entity is being dragged (critical or dead)
+        var isCrit = mobThresholds.CurrentThresholdState is MobState.Critical or MobState.Dead;
+        var dragging = isCrit || _standingQuery.TryComp(ent, out var standingComp) && _standing.IsDown((ent, standingComp));
+
+        // Calculate distance traveled since last footprint
+        var distance = (transform.LocalPosition - ent.Comp.StepPos).Length();
+        var stepSize = dragging ? ent.Comp.DragSize : ent.Comp.StepSize;
+
+        // Not enough distance traveled yet - MOST COMMON EARLY RETURN
+        if (distance <= stepSize)
+            return;
+
+        // Need to be on a grid to leave footprints
+        if (!_map.TryFindGridAt(_transform.GetMapCoordinates((ent, transform)), out var gridUid, out var grid))
+            return;
+
+        // Calculate spawn coordinates
+        var coords = CalcCoords(gridUid, ent.Comp, transform, dragging);
+
+        // Get the tile position for limit checking
+        if (!_mapSystem.TryGetTileRef(gridUid, grid, coords, out var tileRef))
+            return;
+
+        var tilePos = tileRef.GridIndices;
+
+        // Check per-tile limit BEFORE spawning
+        // Use TryComp instead of EnsureComp to avoid adding component in hot path
+        if (_maxPerTile > 0 && _gridFootPrintsQuery.TryComp(gridUid, out var gridFootPrints))
+        {
+            if (gridFootPrints.FootPrintsByTile.TryGetValue(tilePos, out var existingFootPrints)
+                && existingFootPrints.Count >= _maxPerTile)
+            {
+                // Tile is full, don't spawn
+                return;
+            }
+        }
+
+        // Alternate feet
+        ent.Comp.RightStep = !ent.Comp.RightStep;
+        DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.RightStep));
+
+        // Spawn the footprint entity
+        var entity = EntityManager.PredictedSpawnAtPosition(ent.Comp.StepProtoId.Id, coords);
+
+        // Update appearance with current color and state
+        if (_appearanceQuery.TryComp(entity, out var appearance))
+        {
+            _appearance.SetData(entity, FootPrintVisualState.State, PickState(ent, dragging), appearance);
+            _appearance.SetData(entity, FootPrintVisualState.Color, ent.Comp.PrintsColor, appearance);
+        }
+
+        // Set rotation
+        if (_transformQuery.TryComp(entity, out var stepTransform))
+        {
+            stepTransform.LocalRotation = dragging
+                ? (transform.LocalPosition - ent.Comp.StepPos).ToAngle() + Angle.FromDegrees(-90f)
+                : transform.LocalRotation + Angle.FromDegrees(180f);
+        }
+
+        if (!TryComp<FootPrintComponent>(entity, out var footPrintComponent))
+            return;
+
+        // Set the owner reference
+        footPrintComponent.PrintOwner = ent;
+        Dirty(entity, footPrintComponent);
+        
+        // Track the footprint on the grid
+        TrackFootPrint(gridUid, GetNetEntity(ent), tilePos);
+
+        // Reduce color alpha for next footprint
+        ent.Comp.PrintsColor = ent.Comp.PrintsColor.WithAlpha(
+            Math.Max(0f, ent.Comp.PrintsColor.A - ent.Comp.ColorReduceAlpha));
+        DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.PrintsColor));
+
+        // Update last step position
+        ent.Comp.StepPos = transform.LocalPosition;
+        DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.StepPos));
+
+        // Handle reagent transfer
+        if (!string.IsNullOrWhiteSpace(ent.Comp.ReagentToTransfer))
+        {
+            TryTransferReagent(entity, footPrintComponent, ent.Comp.ReagentToTransfer);
+        }
+    }
+
+    private void OnFootPrintRemoved(Entity<FootPrintComponent> ent, ref ComponentRemove args)
+    {
+        // Clean up tracking when footprint is deleted
+        if (!_transformQuery.TryComp(ent, out var transform))
+            return;
+
+        if (transform.GridUid == null)
+            return;
+
+        UntrackFootPrint(transform.GridUid.Value, GetNetEntity(ent));
+    }
+
+    private void TrackFootPrint(EntityUid gridUid, NetEntity footPrintUid, Vector2i tile)
+    {
+        // Ensure grid has tracking component
+        var gridFootPrints = EnsureComp<GridFootPrintsComponent>(gridUid);
+
+        // Add to tile tracking
+        if (!gridFootPrints.FootPrintsByTile.TryGetValue(tile, out var tileFootPrints))
+        {
+            tileFootPrints = new List<NetEntity>();
+            gridFootPrints.FootPrintsByTile[tile] = tileFootPrints;
+        }
+
+        tileFootPrints.Add(footPrintUid);
+        gridFootPrints.TotalFootPrints++;
+
+        // Enforce global limit only (per-tile limit is checked before spawning)
+        if (_maxPerGrid > 0 && gridFootPrints.TotalFootPrints > _maxPerGrid)
+        {
+            RemoveOldestFootPrint(gridFootPrints);
+        }
+
+        Dirty(gridUid, gridFootPrints);
+    }
+
+    private void UntrackFootPrint(EntityUid gridUid, NetEntity footPrintUid)
+    {
+        if (!_gridFootPrintsQuery.TryComp(gridUid, out var gridFootPrints))
+            return;
+
+        // Find and remove from tile tracking
+        foreach (var (tile, footPrints) in gridFootPrints.FootPrintsByTile)
+        {
+            if (footPrints.Remove(footPrintUid))
+            {
+                gridFootPrints.TotalFootPrints--;
+
+                // Clean up empty tile entries
+                if (footPrints.Count == 0)
+                    gridFootPrints.FootPrintsByTile.Remove(tile);
+
+                Dirty(gridUid, gridFootPrints);
+                break;
+            }
+        }
+    }
+
+    private void RemoveOldestFootPrint(GridFootPrintsComponent gridFootPrints)
+    {
+        // Find the first non-empty tile list and remove its oldest footprint
+        foreach (var (tile, footPrints) in gridFootPrints.FootPrintsByTile)
+        {
+            if (footPrints.Count > 0)
+            {
+                var toRemove = footPrints[0];
+                footPrints.RemoveAt(0);
+                QueueDel(GetEntity(toRemove));
+                gridFootPrints.TotalFootPrints--;
+
+                // Clean up empty tile entries
+                if (footPrints.Count == 0)
+                    gridFootPrints.FootPrintsByTile.Remove(tile);
+
+                return;
+            }
+        }
+    }
+
+    private void TryTransferReagent(EntityUid entity, FootPrintComponent footPrintComponent, string reagentId)
+    {
+        if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutionContainer))
+            return;
+
+        if (!_solution.ResolveSolution((entity, solutionContainer),
+                footPrintComponent.SolutionName,
+            ref footPrintComponent.Solution,
+                out var solution))
+            return;
+
+        // Don't overfill
+        if (solution.Volume >= 1)
+            return;
+
+        // Transfer a small amount of reagent
+        _solution.TryAddReagent(footPrintComponent.Solution.Value, reagentId, 0.01, out _);
+    }
+
+    private EntityCoordinates CalcCoords(EntityUid gridUid,
+        FootPrintsComponent component,
+        TransformComponent transform,
+        bool dragging)
+    {
+        // For dragging, place footprint at center
+        if (dragging)
+            return new EntityCoordinates(gridUid, transform.LocalPosition);
+
+        // For walking, offset left or right based on which foot
+        var offset = component.RightStep
+            ? new Angle(Angle.FromDegrees(180f) + transform.LocalRotation).RotateVec(component.OffsetPrint)
+            : new Angle(transform.LocalRotation).RotateVec(component.OffsetPrint);
+
+        return new EntityCoordinates(gridUid, transform.LocalPosition + offset);
+    }
+
+    private FootPrintVisuals PickState(Entity<FootPrintsComponent> ent, bool dragging)
+    {
+        // If dragging, always use drag marks
+        if (dragging)
+            return FootPrintVisuals.Dragging;
+
+        // Check for shoes
+        if (_inventory.TryGetSlotEntity(ent, "shoes", out _))
+            return FootPrintVisuals.ShoesPrint;
+
+        // Check for hardsuit
+        if (_inventory.TryGetSlotEntity(ent, "outerClothing", out var suit) && _tag.HasTag(suit.Value, HardsuitTag))
+            return FootPrintVisuals.SuitPrint;
+
+        // Default to bare feet
+        return FootPrintVisuals.BareFootPrint;
+    }
+}

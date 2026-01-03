@@ -1,0 +1,118 @@
+﻿using System.Linq;
+using Content.Shared._EE.Flight;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Fluids;
+using Content.Shared.Fluids.Components;
+using Robust.Shared.Physics.Events;
+
+namespace Content.Shared._EE.FootPrint.Systems;
+
+/// <summary>
+/// Handles transferring puddle colors and reagents to entities with footprints when they step in puddles.
+/// </summary>
+public sealed class PuddleFootPrintsSystem : EntitySystem
+{
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+
+    private EntityQuery<FlightComponent> _flightQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _flightQuery = GetEntityQuery<FlightComponent>();
+
+        SubscribeLocalEvent<PuddleFootPrintsComponent, EndCollideEvent>(OnEndCollide);
+    }
+
+    private void OnEndCollide(Entity<PuddleFootPrintsComponent> puddle, ref EndCollideEvent args)
+    {
+        var tripper = args.OtherEntity;
+
+        // Don't process if the tripper is flying
+        if (_flightQuery.HasComp(tripper))
+            return;
+
+        // Only process entities that can leave footprints
+        if (!TryComp<FootPrintsComponent>(tripper, out var footPrints))
+            return;
+
+        // Get puddle appearance and solution data
+        if (!TryComp<AppearanceComponent>(puddle, out var appearance))
+            return;
+
+        if (!TryComp<PuddleComponent>(puddle, out var puddleComp))
+            return;
+
+        if (!TryComp<SolutionContainerManagerComponent>(puddle, out var solutionManager))
+            return;
+
+        if (!_solutionContainer.ResolveSolution((puddle, solutionManager),
+                puddleComp.SolutionName,
+            ref puddleComp.Solution,
+                out var solution))
+            return;
+
+        // Calculate total solution quantity and water percentage
+        var totalSolutionQuantity = solution.Contents.Sum(sol => (float)sol.Quantity);
+
+        if (totalSolutionQuantity <= 0 || solution.Contents.Count <= 0)
+            return;
+
+        var waterQuantity = solution.Contents
+            .Where(sol => sol.Reagent.Prototype == "Water")
+            .Sum(sol => (float)sol.Quantity);
+
+        var waterPercent = (waterQuantity / totalSolutionQuantity) * 100f;
+
+        // If puddle is mostly water, don't transfer color
+        if (waterPercent > puddle.Comp.OffPercent)
+            return;
+
+        // Find the reagent with the highest quantity to transfer
+        var primaryReagent = solution.Contents
+            .OrderByDescending(sol => sol.Quantity)
+            .FirstOrDefault();
+
+        if (primaryReagent.Reagent.Prototype == null)
+            return;
+
+        // Set the reagent to transfer
+        footPrints.ReagentToTransfer = primaryReagent.Reagent.Prototype;
+
+        // Transfer color from puddle to footprints
+        if (_appearance.TryGetData(puddle, PuddleVisuals.SolutionColor, out var colorValue, appearance)
+            && _appearance.TryGetData(puddle, PuddleVisuals.CurrentVolume, out var volumeValue, appearance))
+        {
+            if (colorValue is Color color && volumeValue is float volume)
+            {
+                AddColor(color, volume * puddle.Comp.SizeRatio, footPrints);
+                Dirty(tripper, footPrints);
+            }
+        }
+
+        // Remove small amount of reagent from puddle
+        _solutionContainer.RemoveEachReagent(puddleComp.Solution.Value, 0.01);
+    }
+
+    private void AddColor(Color color, float quantity, FootPrintsComponent component)
+    {
+        // If no color yet, use the puddle's color directly
+        if (component.ColorQuantity == 0f)
+        {
+            component.PrintsColor = color;
+        }
+        else
+        {
+            // Interpolate between current color and new color
+            component.PrintsColor = Color.InterpolateBetween(
+                component.PrintsColor,
+                color,
+                component.ColorInterpolationFactor);
+        }
+
+        component.ColorQuantity += quantity;
+    }
+}

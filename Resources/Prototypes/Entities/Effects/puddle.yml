@@ -199,6 +199,8 @@
   - type: EdgeSpreader
     id: Puddle
   - type: StepTrigger
+    active: true
+    stepOn: true
   - type: Edible
     edible: Drink
     delay: 3
@@ -256,6 +258,10 @@
   - type: Appearance
   - type: SpawnOnDespawn
     prototype: PuddleSparkle
+  - type: SpeedModifierContacts
+    ignoreWhitelist:
+      components:
+      - FootPrints
   - type: TimedDespawn
     lifetime: 60 # DeltaV End updates from EE Blood Puddle
 
