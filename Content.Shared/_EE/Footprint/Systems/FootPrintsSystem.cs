@@ -149,7 +149,7 @@ public sealed class FootPrintsSystem : EntitySystem
         // Set the owner reference
         footPrintComponent.PrintOwner = ent;
         Dirty(entity, footPrintComponent);
-        
+
         // Track the footprint on the grid
         TrackFootPrint(gridUid, GetNetEntity(ent), tilePos);
 
