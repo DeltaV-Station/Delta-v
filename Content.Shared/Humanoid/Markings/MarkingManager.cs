@@ -65,6 +65,11 @@ namespace Content.Shared.Humanoid.Markings
             var markingPoints = _prototypeManager.Index(speciesProto.MarkingPoints);
             var res = new Dictionary<string, MarkingPrototype>();
 
+            // Begin DeltaV addition - prevents errors when category is missing
+            if (!markingPoints.Points.ContainsKey(category))
+                return res;
+            // End DeltaV addition
+
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
                 if ((markingPoints.OnlyWhitelisted || markingPoints.Points[category].OnlyWhitelisted) && marking.SpeciesRestrictions == null)
