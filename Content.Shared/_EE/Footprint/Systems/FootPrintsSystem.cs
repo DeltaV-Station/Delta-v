@@ -10,8 +10,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Shared._DV.CCVars;
-using Robust.Shared.GameStates;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._EE.FootPrint.Systems;
 
