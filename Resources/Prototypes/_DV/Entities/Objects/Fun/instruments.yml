@@ -56,3 +56,22 @@
       types:
         Blunt: 7
         Shock: 2
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: BloodRedSuperSynth
+  name: blood red super synthesizer
+  description: Covered in red, fitting for a track calming track in some explosive missions.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi
+    state: bloodredsynth
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck
+    sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi
+  - type: Item
+    heldPrefix: bloodredsynth
+    size: Normal
+    sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi

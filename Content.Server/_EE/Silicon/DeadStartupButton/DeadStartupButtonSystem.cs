@@ -13,6 +13,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._EE.Silicon.DeadStartupButton;
 

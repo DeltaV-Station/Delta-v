@@ -6,7 +6,7 @@
   objective: roles-antag-space-ninja-objective
   requirements:
   - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    time: 259200 # DeltaV - 72 hours
+    time: 72h
   guides: [ SpaceNinja ]
 
 #Ninja Gear
@@ -22,7 +22,7 @@
     outerClothing: ClothingOuterSuitSpaceNinja
     shoes: ClothingShoesSpaceNinja
     id: AgentIDCard
-    ears: ClothingHeadsetGrey
+    ears: ClothingHeadsetNinja
     pocket1: SpiderCharge
     pocket2: PinpointerStation
     belt: EnergyKatana

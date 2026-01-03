@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/12/2025 13:20:44
-  entityCount: 19491
+  time: 12/07/2025 12:55:57
+  entityCount: 19485
 maps:
 - 1
 grids:
@@ -17249,6 +17249,20 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 22.5,51.5
+      parent: 2
+- proto: BenchSteelLeft
+  entities:
+  - uid: 6166
+    components:
+    - type: Transform
+      pos: 4.5,0.5
+      parent: 2
+- proto: BenchSteelRight
+  entities:
+  - uid: 6167
+    components:
+    - type: Transform
+      pos: 5.5,0.5
       parent: 2
 - proto: BikeHorn
   entities:
@@ -54314,6 +54328,11 @@ entities:
       parent: 2
 - proto: DrinkCubaLibreGlass
   entities:
+  - uid: 8352
+    components:
+    - type: Transform
+      pos: 4.4681363,-8.246241
+      parent: 2
   - uid: 18329
     components:
     - type: Transform
@@ -54325,43 +54344,6 @@ entities:
     components:
     - type: Transform
       pos: 4.9845715,-20.463278
-      parent: 2
-- proto: DrinkEggnog
-  entities:
-  - uid: 5971
-    components:
-    - type: Transform
-      pos: 4.649524,-6.536621
-      parent: 2
-  - uid: 5972
-    components:
-    - type: Transform
-      pos: 4.338421,-8.091736
-      parent: 2
-  - uid: 5973
-    components:
-    - type: Transform
-      pos: 4.619671,-7.763611
-      parent: 2
-  - uid: 6166
-    components:
-    - type: Transform
-      pos: 4.604046,-8.388611
-      parent: 2
-  - uid: 6168
-    components:
-    - type: Transform
-      pos: 4.635296,-7.1386113
-      parent: 2
-  - uid: 8352
-    components:
-    - type: Transform
-      pos: 4.385296,-7.4667363
-      parent: 2
-  - uid: 19488
-    components:
-    - type: Transform
-      pos: 4.354046,-6.8417363
       parent: 2
 - proto: DrinkEnergyDrinkCan
   entities:
@@ -54752,6 +54734,16 @@ entities:
       parent: 2
 - proto: DrinkRootBeerFloatGlass
   entities:
+  - uid: 5971
+    components:
+    - type: Transform
+      pos: 4.5618863,-7.3868656
+      parent: 2
+  - uid: 5972
+    components:
+    - type: Transform
+      pos: 4.6087613,-6.6056156
+      parent: 2
   - uid: 10235
     components:
     - type: Transform
@@ -60336,13 +60328,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraTreeChristmas02
-  entities:
-  - uid: 757
-    components:
-    - type: Transform
-      pos: 5.0070004,0.27024364
-      parent: 2
 - proto: FoamCutlass
   entities:
   - uid: 18559
@@ -60635,12 +60620,12 @@ entities:
     - type: Transform
       pos: 12.504484,10.481821
       parent: 2
-- proto: FoodCakeChristmas
+- proto: FoodCakeApple
   entities:
-  - uid: 6167
+  - uid: 5973
     components:
     - type: Transform
-      pos: 9.480102,-7.3886113
+      pos: 9.504482,-7.4609003
       parent: 2
 - proto: FoodCakeClown
   entities:
@@ -60664,13 +60649,6 @@ entities:
     components:
     - type: Transform
       pos: 53.46954,22.651531
-      parent: 2
-- proto: FoodCakeTieredDouble
-  entities:
-  - uid: 19489
-    components:
-    - type: Transform
-      pos: 9.495727,-6.3886113
       parent: 2
 - proto: FoodCarrot
   entities:
@@ -61017,16 +60995,6 @@ entities:
     components:
     - type: Transform
       pos: 12.520109,10.559946
-      parent: 2
-  - uid: 19490
-    components:
-    - type: Transform
-      pos: 9.480102,-6.3417363
-      parent: 2
-  - uid: 19491
-    components:
-    - type: Transform
-      pos: 9.464477,-7.2479863
       parent: 2
 - proto: FoodPlatePlastic
   entities:
@@ -110280,6 +110248,11 @@ entities:
       parent: 2
 - proto: SpawnPointPassenger
   entities:
+  - uid: 757
+    components:
+    - type: Transform
+      pos: 5.5,0.5
+      parent: 2
   - uid: 1276
     components:
     - type: Transform
@@ -110314,6 +110287,11 @@ entities:
     components:
     - type: Transform
       pos: 36.5,-28.5
+      parent: 2
+  - uid: 6168
+    components:
+    - type: Transform
+      pos: 4.5,0.5
       parent: 2
   - uid: 6178
     components:
@@ -110404,16 +110382,6 @@ entities:
     components:
     - type: Transform
       pos: 23.5,34.5
-      parent: 2
-  - uid: 19486
-    components:
-    - type: Transform
-      pos: 3.5,-1.5
-      parent: 2
-  - uid: 19487
-    components:
-    - type: Transform
-      pos: 4.5,-1.5
       parent: 2
 - proto: SpawnPointPrisoner
   entities:

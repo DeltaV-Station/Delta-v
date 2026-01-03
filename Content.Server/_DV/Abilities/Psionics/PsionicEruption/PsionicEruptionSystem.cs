@@ -145,7 +145,8 @@ public sealed class PsionicEruptionSystem : EntitySystem
         var query = EntityQueryEnumerator<PsionicEruptionPowerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            ShowWarning(new(uid, comp)); // I'm a bad coder.
+            // All of the timespan data should really get moved out of the system
+            ShowWarning((uid, comp)); // I'm a bad coder.
             if (comp.DoAfter != null)
             {
                 if (t > comp.NextSpark)

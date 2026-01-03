@@ -54,22 +54,22 @@
   - type: VentCrittersRule
     table: !type:GroupSelector
       children:
-      - id: MobXeno
-        weight: 0.55
+      - id: MobXenoPlayer
+        weight: 0.20
       - id: MobXenoRouny
         weight: 0.01
       - id: MobXenoDrone
-        weight: 0.25
+        weight: 0.35
       - id: MobXenoSpitter
-        weight: 0.05
+        weight: 0.14
       - id: MobXenoRunner
-        weight: 0.08
+        weight: 0.14
       - id: MobXenoPraetorian
-        weight: 0.03
+        weight: 0.08
       - id: MobXenoRavager
-        weight: 0.02
+        weight: 0.05
       - id: MobXenoQueen
-        weight: 0.01
+        weight: 0.03
 # Mothroaches
 - type: entity
   parent: BaseGameRule
@@ -348,3 +348,29 @@
           sound: /Audio/_DV/Effects/creepyshriek.ogg
         - type: BreakLightsOnSpawn
           radius: 10
+
+# nt agent (admeme)
+- type: entity
+  parent: BaseGameRule
+  id: NTAgent
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - NTAgentObjective
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - min: 1
+      max: 1
+      pickPlayer: true
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm

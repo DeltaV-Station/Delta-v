@@ -18,3 +18,15 @@
     - id: ArtifactDisplayCaseMachineCircuitBoard
       amount: 1
       maxAmount: 3
+
+# Epistemics EVA Suit
+- type: entity
+  id: LockerScienceFilledSoftsuit
+  suffix: Filled, Softsuit
+  parent: LockerScienceFilled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitEVAScience
+    - id: ClothingHeadHelmetEVAScience
+    - id: AirTankFilled

@@ -24,7 +24,7 @@ public sealed partial class TechnokineticPulseAbilityComponent : Component
     /// The duration for which devices are disabled.
     /// </summary>
     [DataField]
-    public float DisableDuration = 20f;
+    public TimeSpan DisableDuration = TimeSpan.FromSeconds(20f);
 
     /// <summary>
     /// The action that triggers the technokinetic pulse ability.
