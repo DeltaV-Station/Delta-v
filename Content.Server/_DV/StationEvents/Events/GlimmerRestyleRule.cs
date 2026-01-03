@@ -57,8 +57,8 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
     private bool TryApplyRestyle(Entity<HumanoidAppearanceComponent> ent, MarkingCategories category, float noMarkingsChance)
     {
         var newMarkingColor = new Color(_random.NextFloat(), _random.NextFloat(), _random.NextFloat());
-        var hairStyles = _markingManager.MarkingsByCategoryAndSpecies(category, ent.Comp.Species);
-        if (hairStyles.Count == 0)
+        var availableMarkings = _markingManager.MarkingsByCategoryAndSpecies(category, ent.Comp.Species);
+        if (availableMarkings.Count == 0)
             return false;
 
         var hadCategoryBefore = ent.Comp.MarkingSet.TryGetCategory(category, out _);
@@ -66,7 +66,7 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
         if (_random.Prob(noMarkingsChance))
             return hadCategoryBefore; //Do not show the popup if you go from no markings to no markings.
 
-        var newMarking = _random.Pick(hairStyles.Values.ToList()).AsMarking();
+        var newMarking = _random.Pick(availableMarkings.Values.ToList()).AsMarking();
         newMarking.SetColor(newMarkingColor);
 
         ent.Comp.MarkingSet.AddCategory(category);
