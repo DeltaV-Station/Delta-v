@@ -32,8 +32,6 @@ public sealed class PsionicProducingArtifactSystem : EntitySystem
 
         // Pick first active node
         var node = _artifact.GetActiveNodes(artifactEntity).FirstOrDefault();
-        if (node == null)
-            return;
 
         // Track psionic usage using ConsumedResearchValue
         var currentAmount = _artifact.GetResearchValue(node);
