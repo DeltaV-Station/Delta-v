@@ -165,7 +165,7 @@
   - type: InstantAction
     event: !type:ToggleGhostHearingActionEvent
 
-- type: entity # DeltaV 
+- type: entity # DeltaV
   parent: BaseMentalAction
   id: ActionToggleMassScanner
   name: Mass Scanner
@@ -176,5 +176,3 @@
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent
       key: enum.RadarConsoleUiKey.Key
-
-
