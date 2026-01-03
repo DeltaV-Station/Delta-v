@@ -8,15 +8,16 @@
   category: Medical
   group: market
 
-- type: cargoProduct
-  id: RadioImplantCrate
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateGenericRadioImplants
-  cost: 1500
-  category: Medical
-  group: market
+# TODO: Add back in but allows you to insert a key before injection
+#- type: cargoProduct
+#  id: RadioImplantCrate
+#  icon:
+#    sprite: Objects/Specific/Medical/implanter.rsi
+#    state: implanter0
+#  product: CrateGenericRadioImplants
+#  cost: 1500
+#  category: Medical
+#  group: market
 
 - type: cargoProduct
   id: PainkillerCrate

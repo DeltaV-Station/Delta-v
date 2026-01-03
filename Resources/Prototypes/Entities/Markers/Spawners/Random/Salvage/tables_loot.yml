@@ -104,7 +104,7 @@
       rolls: !type:RangeNumberSelector
         range: 1, 2
     - !type:NestedSelector
-      tableId: RandomInstrumentTable
+      tableId: SalvageInstrumentTable
     - id: AncientBookDamagedCommon # DeltaV
 
 - type: entityTable
@@ -265,6 +265,7 @@
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: ChemistryBottleOmnizine
+    - id: ClothingShoesRealJordans # DeltaV
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled

@@ -20,12 +20,14 @@
   - type: Speech
     speechSounds: Tenor
     speechVerb: Feroxi
-    allowedEmotes: [ "Gnash" ]
+    allowedEmotes: [ "Gnash", "Thump" ]
   - type: Vocal
     sounds:
       Male: MaleFeroxi
       Female: FemaleFeroxi
       Unsexed: MaleFeroxi
+  - type: BodyEmotes
+    soundsId: FeroxiBodyEmotes
   - type: Sprite
     netsync: false
     noRot: true
@@ -96,6 +98,10 @@
     hydratedMetabolizer: Feroxi
     dehydratedMetabolizer: FeroxiDehydrated
     dehydrationThreshold: 150
+  - type: SharkVision
+    pulseTime: 5
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: MobHumanDummy
@@ -107,3 +113,30 @@
   components:
   - type: HumanoidAppearance
     species: Feroxi
+
+- type: entity
+  id: ActionSharkVisionToggle
+  name: Toggle Blood in the Water
+  description: Enables you to sense blood and those who are bleeding.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    useDelay: 1
+    icon:
+      sprite: /Textures/Interface/Alerts/bleed.rsi
+      state: bleed10
+  - type: InstantAction
+    event: !type:ToggleSharkVisionEvent
+
+- type: entity
+  id: ActionSharkVisionPulse
+  parent: ActionSharkVisionToggle
+  name: Sense Blood in the Water
+  description: Enables you to sense blood and those who are bleeding.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+  - type: InstantAction

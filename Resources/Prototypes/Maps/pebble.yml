@@ -2,8 +2,8 @@
   id: Pebble
   mapName: 'Pebble'
   mapPath: /Maps/pebble.yml
-  minPlayers: 0
-  maxPlayers: 35
+  minPlayers: 5
+  maxPlayers: 55
   stations:
     PebbleStation:
       stationProto: StandardNanotrasenStation
@@ -45,14 +45,13 @@
             Paramedic: [ 1, 1 ]
             Surgeon: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
-            MedicalBorg: [ 1, 1 ]
           #science
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
             Scientist: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
-            Borg: [ 1, 1 ]
+            Borg: [ 2, 2 ]
             Roboticist: [ 1, 1 ]
           #security
             HeadOfSecurity: [ 1, 1 ]

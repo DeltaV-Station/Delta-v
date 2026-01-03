@@ -64,7 +64,13 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 10
+        Piercing: 3 # DeltaV: 10 Piercing changed to 3
+    # Start DeltaV additions
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: 90
+    attackRate: 4
+    # End DeltaV additions
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: StaticPrice
@@ -192,6 +198,13 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
     heldPrefix: laser
+  # Start DeltaV additions
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4
+        Heat: 4
+  # End DeltaV additions
   - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions
@@ -315,6 +328,7 @@
     size: Small
     heldPrefix: improv
   - type: MeleeWeapon
+    wideAnimationRotation: 90 # DeltaV: Added wideAnimationRotation
     damage:
       groups:
         Brute: 10
@@ -338,9 +352,17 @@
     size: Normal
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
   - type: MeleeWeapon
+    # Start DeltaV additions
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: 90
+    attackRate: 4
+    # End DeltaV additions
     damage:
-      groups:
-        Brute: 15
+      types:
+        Slash: 2 # DeltaV: 15 brute changed to 2 slash
+        Piercing: 2 # DeltaV: 15 brute changed to 2 piercing
+        Structural: 10 # DeltaV: Added 10 structural damage
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
@@ -364,7 +386,11 @@
     storedRotation: 90
     heldPrefix: advanced
   - type: MeleeWeapon
-    attackRate: 1.5
+    damage:
+      types:
+        Slash: 4 # DeltaV: 15 brute changed to 4 slash
+        Piercing: 4 # DeltaV: 15 brute changed 4 piercing
+        Structural: 20 # DeltaV: Added 20 structural damage
   - type: Tool
     speedModifier: 2.0
   - type: BoneSaw # Shitmed
@@ -395,10 +421,11 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 45 # DeltaV: Added wideAnimationRotation
     damage:
       types:
-        Piercing: 10
-        Heat: 1
+        Piercing: 6 # DeltaV: Changed from 10 to 6
+        Heat: 6 # DeltaV: Changed from 1 to 6
   - type: Cautery
     speed: 1.5
   - type: Drill
@@ -429,8 +456,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Heat: 1
+        Slash: 6 # DeltaV: Changed from 10 to 6
+        Heat: 6 # DeltaV: Changed from 1 to 6
   - type: Scalpel
     speed: 1.5
   - type: BoneSaw
@@ -459,10 +486,16 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
   - type: MeleeWeapon
+    # Start DeltaV additions
+    wideAnimationRotation: -90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    # End DeltaV additions
     damage:
       types:
-        Slash: 6.5
-        Heat: 1
+        Slash: 4 # DeltaV: Changed to 4
+        Heat: 2 # DeltaV: Increased by 1
+
   - type: Hemostat
     speed: 1.5
   - type: Retractor

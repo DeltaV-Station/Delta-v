@@ -4,8 +4,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Administration;
 using Content.Server.Administration;
-using Content.Server._DV.Mail.Components;
 using Content.Server._DV.Mail.EntitySystems;
+using Content.Shared._DV.Mail;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Mail;
 
@@ -19,6 +20,7 @@ public sealed class MailToCommand : IConsoleCommand
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private const string BlankMailPrototype = "MailAdminFun";
     private const string BlankLargeMailPrototype = "MailLargeAdminFun"; // Frontier: large mail
@@ -124,7 +126,7 @@ public sealed class MailToCommand : IConsoleCommand
 
         var teleporterQueue = containerSystem.EnsureContainer<Container>((EntityUid)teleporterUid, "queued");
         containerSystem.Insert(mailUid, teleporterQueue);
-        shell.WriteLine(Loc.GetString("command-mailto-success", ("timeToTeleport", teleporterComponent.TeleportInterval.TotalSeconds - teleporterComponent.Accumulator)));
+        shell.WriteLine(Loc.GetString("command-mailto-success", ("timeToTeleport", teleporterComponent.NextDelivery - _timing.CurTime)));
     }
 }
 
@@ -136,12 +138,13 @@ public sealed class MailNowCommand : IConsoleCommand
     public string Help => Loc.GetString("command-mailnow-help", ("command", Command));
 
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         foreach (var mailTeleporter in _entityManager.EntityQuery<MailTeleporterComponent>())
         {
-            mailTeleporter.Accumulator += (float) mailTeleporter.TeleportInterval.TotalSeconds - mailTeleporter.Accumulator;
+            mailTeleporter.NextDelivery = _timing.CurTime;
         }
 
         shell.WriteLine(Loc.GetString("command-mailnow-success"));

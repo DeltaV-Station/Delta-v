@@ -11,7 +11,10 @@
     heldPrefix: bloody
   - type: Crayon
     color: '#a70000'
-    infinite: true
+  - type: LimitedCharges
+    maxCharges: 100
+  - type: AutoRecharge
+    rechargeDuration: 2
   - type: BloodCrayon
   - type: Tag
     tags:
