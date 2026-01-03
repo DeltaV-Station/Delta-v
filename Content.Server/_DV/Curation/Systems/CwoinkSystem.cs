@@ -54,7 +54,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private static partial Regex DiscordRegex();
 
     private string _webhookUrl = string.Empty;
-    private WebhookData? _webhookData;
+    private WebhookData? _webhookData = null;
 
     private readonly HttpClient _httpClient = new();
 
