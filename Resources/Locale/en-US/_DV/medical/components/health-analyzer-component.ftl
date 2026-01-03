@@ -1,6 +1,7 @@
 health-analyzer-window-entity-unborgable-text = [color=red]Patient's brain signatures are incompatible with MMI technology![/color]
 health-analyzer-window-entity-redshirt-text = [color=red]Patient lacks recoverable critical state; damage must be under 100 points for defibrillation.[/color]
 health-analyzer-window-triage-claim = Claim Patient
+health-analyzer-window-triage-unclaim = Claimed by: {$claimedBy}
 health-analyzer-window-triage-status-None = None
     .ToolTip = Patient with no injuries
 health-analyzer-window-triage-status-Minor = Minor

@@ -272,7 +272,18 @@ namespace Content.Client.HealthAnalyzer.UI
                 return;
             }
 
+            TriageControls.Visible = true;
             _triageControls[records.Status].Pressed = true;
+
+            // Update claim button based on claimed status
+            if (records.ClaimedName != null)
+            {
+                ClaimButton.Text = Loc.GetString("health-analyzer-window-triage-unclaim", ("claimedBy", records.ClaimedName));
+            }
+            else
+            {
+                ClaimButton.Text = Loc.GetString("health-analyzer-window-triage-claim");
+            }
             // End DeltaV - Medical Records
         }
         // Shitmed Change End

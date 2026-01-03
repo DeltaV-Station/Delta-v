@@ -1,7 +1,9 @@
 using Content.Shared._DV.MedicalRecords;
 using Content.Shared.Access.Systems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.MedicalRecords;
 
@@ -9,6 +11,9 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 {
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private const float ExpirationTime = 300f; // 5 minutes in seconds
 
     public override void Initialize()
     {
@@ -39,7 +44,15 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
         foreach (var key in keys)
         {
             if (_records.TryGetRecord<MedicalRecord>(key, out var record))
+            {
+                // Check if expired when accessed
+                if (record.LastUpdated != null && (_timing.CurTime - record.LastUpdated.Value).TotalSeconds >= ExpirationTime)
+                {
+                    record = record with { Status = TriageStatus.None, ClaimedName = null, LastUpdated = null };
+                    SetStatus(key, record);
+                }
                 return record;
+            }
         }
         foreach (var key in keys)
         {
@@ -70,7 +83,7 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
     {
         if (_records.TryGetRecord<MedicalRecord>(patient, out var record) && status != TriageStatus.None)
         {
-            SetStatus(patient, record with { Status = status });
+            SetStatus(patient, record with { Status = status, LastUpdated = _timing.CurTime });
         }
         else
         {
@@ -80,18 +93,17 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 
     public void ClaimPatient(StationRecordKey patient, EntityUid claimer)
     {
-        _access.FindStationRecordKeys(claimer, out var keys);
-        foreach (var key in keys)
-        {
-            var name = _records.RecordName(key);
-            if (name == string.Empty)
-                continue;
+        var claimerName = Identity.Name(claimer, EntityManager);
+        if (string.IsNullOrEmpty(claimerName))
+            return;
 
-            if (!_records.TryGetRecord<MedicalRecord>(patient, out var record) || record.ClaimedName == name)
-                continue;
+        if (!_records.TryGetRecord<MedicalRecord>(patient, out var record))
+            return;
 
-            SetStatus(patient, record with { ClaimedName = name });
-            break;
-        }
+        // Makes claim patient toggleable
+        var newClaim = record.ClaimedName == claimerName ? null : claimerName;
+        var newTime = newClaim != null ? (TimeSpan?)_timing.CurTime : null;
+
+        SetStatus(patient, record with { ClaimedName = newClaim, LastUpdated = newTime });
     }
 }
