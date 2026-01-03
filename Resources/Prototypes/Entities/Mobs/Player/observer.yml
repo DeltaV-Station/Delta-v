@@ -89,6 +89,17 @@
   - type: Tag
     tags: # BAD: Intentional removal of inherited tag
     - AllowGhostShownByEvent
+  - type: RadarConsole # DeltaV
+    maxRange: 256
+    followEntity: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionToggleMassScanner
 
 - type: entity
   parent: BaseMentalAction
@@ -153,3 +164,17 @@
     iconOn: Interface/Actions/ghostHearingToggled.png
   - type: InstantAction
     event: !type:ToggleGhostHearingActionEvent
+
+- type: entity # DeltaV 
+  parent: BaseMentalAction
+  id: ActionToggleMassScanner
+  name: Mass Scanner
+  description: View the handheld mass scanner interface.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent
+      key: enum.RadarConsoleUiKey.Key
+
+
