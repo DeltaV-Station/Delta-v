@@ -261,7 +261,7 @@ public sealed class ExecutionSystem : EntitySystem
                 break;
 
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new InvalidOperationException($"Unknown shootable type [{ev.Ammo[0].Shootable}]");
         }
 
         // Clumsy people have a chance to shoot themselves (not in the head)
