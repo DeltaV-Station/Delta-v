@@ -29,25 +29,33 @@
   name: super synthesizer
   description: Blasting the ghetto with Touhou MIDIs since 2020.
   components:
-  - type: ActivatableUI #Delta-V - Allows Super Synths to be played while being worn on the neck.
+  - type: ActivatableUI #DeltaV - Allows Super Synths to be played while being worn on the neck.
     inHandsOnly: false
     requireActiveHand: false
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true
-    respectMidiLimits: true #Delta-V - Enables limits to prevent people from crashing the server with black midis.
+    respectMidiLimits: true # DeltaV - Enables limits to prevent people from crashing the server with black midis.
   - type: Sprite
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
     state: supersynth
-  - type: Clothing #Delta-V - The straps on the super synth have a use now. Makes the super synth wearable on the neck slot.
+  - type: Clothing #DeltaV - The straps on the super synth have a use now. Makes the super synth wearable on the neck slot.
     quickEquip: false
     slots:
     - neck
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
   - type: Item
     heldPrefix: super
-    size: Normal #Delta-V - Ensures that the sprite properly renders, had to add this because it wouldn't render properly on the ground and in UI/bag UI otherwise.
+    size: Normal #DeltaV - Ensures that the sprite properly renders, had to add this because it wouldn't render properly on the ground and in UI/bag UI otherwise.
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
+
+- type: entity
+  parent: SuperSynthesizerInstrument
+  id: SuperSynthesizerNoLimitInstrument
+  suffix: NoLimits
+  components:
+  - type: Instrument
+    respectMidiLimits: false
 
 - type: entity
   parent: BaseKeyedInstrument

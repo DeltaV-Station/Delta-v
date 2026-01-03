@@ -25,4 +25,19 @@ public sealed partial class JetpackComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("weightlessModifier")]
     public float WeightlessModifier = 1.2f;
+
+    // DeltaV Start - Jetpacks automatically toggle on.
+    /// <summary>
+    /// When toggling the jetpack, this will turn true/false.
+    /// Upon leaving a grid, this will determine if the jetpack activates.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AutomaticMode;
+
+    /// <summary>
+    /// The user whose jetpack is waiting to activate.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? AutomaticUser;
+    // DeltaV End - Jetpacks automatically toggle on.
 }

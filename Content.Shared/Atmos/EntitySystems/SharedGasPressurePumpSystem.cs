@@ -31,6 +31,7 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
 
         SubscribeLocalEvent<GasPressurePumpComponent, AtmosDeviceDisabledEvent>(OnPumpLeaveAtmosphere);
         SubscribeLocalEvent<GasPressurePumpComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<GasPressurePumpComponent, MapInitEvent>(OnMapInit); // Frontier
     }
 
     private void OnExamined(Entity<GasPressurePumpComponent> ent, ref ExaminedEvent args)
@@ -47,6 +48,19 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
             args.PushMarkup(str);
         }
     }
+
+    // Frontier - Start: Enable pumps at roundstart
+    private void OnMapInit(Entity<GasPressurePumpComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.StartOnMapInit)
+        {
+            ent.Comp.Enabled = true;
+            Dirty(ent); // Delta V - Updates on/off in UI after mapinit
+            UpdateAppearance(ent);
+            UpdateUi(ent); // Delta V - Updates on/off in UI after mapinit
+        }
+    }
+    // Frontier - End: Enable pumps at roundstart
 
     private void OnInit(Entity<GasPressurePumpComponent> ent, ref ComponentInit args)
     {

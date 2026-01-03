@@ -90,6 +90,8 @@
           Log:
             min: 2
             max: 8
+  - type: TypingIndicator # Add diona typing indicator here so that diona players keep the same typing bubble when polymorphed into a tree.
+    proto: diona
 
 - type: entity
   parent: BaseTree
@@ -333,6 +335,38 @@
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason
+    # Start Delta V - Add Christmas kobold mob spawn. Plan to remove when we have our own tree variant
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 2
+            max: 8
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MobChristmasKobold:
+            min: 4
+            max: 8
+      # End Delta V - Spawn Christmas kobold.
 
 - type: entity
   parent: FloraTreeChristmas02

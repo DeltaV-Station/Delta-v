@@ -306,11 +306,6 @@
   id: HarpyCaws
   files:
   - /Audio/_DV/Voice/Harpy/caw1.ogg
-  - /Audio/Animals/chicken_cluck_happy.ogg
-  - /Audio/Animals/duck_quack_happy.ogg
-  - /Audio/Animals/goose_honk.ogg
-  - /Audio/Animals/parrot_raught.ogg
-  - /Audio/Animals/penguin_squawk.ogg
 
 - type: soundCollection
   id: HarpyChirps
@@ -319,6 +314,11 @@
   - /Audio/Voice/Talk/pai.ogg
   - /Audio/Voice/Talk/pai_ask.ogg
   - /Audio/Voice/Talk/pai_exclaim.ogg
+  - /Audio/Animals/chicken_cluck_happy.ogg
+  - /Audio/Animals/duck_quack_happy.ogg
+  - /Audio/Animals/goose_honk.ogg
+  - /Audio/Animals/parrot_raught.ogg
+  - /Audio/Animals/penguin_squawk.ogg
 
 - type: soundCollection
   id: HarpyGasp
@@ -334,3 +334,16 @@
   files:
   - /Audio/Voice/Human/female_yawn_1.ogg
   - /Audio/Voice/Human/male_yawn_1.ogg
+
+- type: soundCollection
+  id: HarpyQuacks
+  files:
+  - /Audio/Animals/duck_quack_happy.ogg
+  - /Audio/Animals/goose_honk.ogg
+
+- type: soundCollection
+  id: HarpySquawks
+  files:
+  - /Audio/Animals/chicken_cluck_happy.ogg
+  - /Audio/Animals/parrot_raught.ogg
+  - /Audio/Animals/penguin_squawk.ogg

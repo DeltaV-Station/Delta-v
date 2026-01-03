@@ -12,12 +12,12 @@
 - type: guideEntry
   id: MedicalDoctor
   name: guide-entry-medicaldoctor
-  text: "/ServerInfo/Guidebook/Medical/MedicalDoctor.xml"
+  text: "/ServerInfo/Guidebook/_DV/Medical/MedicalDoctorDV.xml" # DeltaV - we basically re-did the whole page
 
 - type: guideEntry
   id: Cloning
   name: guide-entry-cloning
-  text: "/ServerInfo/Guidebook/Medical/Cloning.xml"
+  text: "/ServerInfo/Guidebook/_DV/Medical/CloningDV.xml" # DeltaV - We also added Unrevivable = Uncloneable.
 
 - type: guideEntry
   id: Cryogenics

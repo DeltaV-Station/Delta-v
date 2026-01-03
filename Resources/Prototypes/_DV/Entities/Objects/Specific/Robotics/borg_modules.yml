@@ -36,7 +36,6 @@
         color: "#7B0F12"
 
 # Security Modules
-
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
@@ -51,6 +50,8 @@
     - item: FlashlightSecliteRecharging
     - item: HoloprojectorSecurity
     - item: SecurityWhistle
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: patrol-module }
 
 - type: entity
   id: BorgModuleSecurityBastion # Research Locked - AdvancedRiotControl
@@ -66,6 +67,8 @@
     - item: FlashRecharging
     - item: WeaponLauncherNonLethal
     - item: SecurityWhistle
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: bastion-module }
 
 
 - type: entity
@@ -97,6 +100,8 @@
         whitelist:
           tags:
           - Handcuffs
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: deescalation-module }
 
 - type: entity
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
@@ -114,6 +119,8 @@
     - item: CombatKnife # Anti-fauna for blunt resistant slimes
     - item: WeaponRiotShotgunBorg
     - item: SecurityWhistle
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: escalation-module }
 
 - type: entity
   id: BorgModuleSecurityChase # Research Locked - NonLethalAmmunition
@@ -129,6 +136,74 @@
     - item: WeaponDisablerSelfCharge
     - item: FlashlightSecliteRecharging
     - item: SecurityWhistle
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: chase-module }
+
+- type: entity
+  id: BorgModuleSecurityDetective
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detective cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detective
+  - type: ItemBorgModule
+    hands:
+      - item: ForensicScanner
+      - item: SecurityCyborgPDA
+      - item: HandLabeler
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: HandLabeler
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: BoxFolderBlackEmpty
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: BoxFolderBlackEmpty
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: LuxuryPen
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: LuxuryPen
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: ForensicReportPaper
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: ForensicPad
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: Syringe
+      - item: Soap
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: detective-module }
 
 # Salvage modules
 
@@ -200,26 +275,32 @@
   abstract: true
   components:
   - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
     inhandVisuals:
       left:
-      - state: base-icon-inhand-left
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-icon-inhand-left
         color: "#FF0000"
-      - state: base-module-inhand-left
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-module-inhand-left
         color: "#891417"
-      - state: base-part-inhand-left
-      - state: base-stripes-inhand-left
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-part-inhand-left
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-stripes-inhand-left
         color: "#7B0F12"
       right:
-      - state: base-icon-inhand-right
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-icon-inhand-right
         color: "#FF0000"
-      - state: base-module-inhand-right
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-module-inhand-right
         color: "#891417"
-      - state: base-part-inhand-right
-      - state: base-stripes-inhand-right
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-part-inhand-right
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-stripes-inhand-right
         color: "#7B0F12"
 
 - type: entity
@@ -236,18 +317,21 @@
     defaultTarget: live
 
 - type: entity
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndie, BaseProviderBorgModule ]
   id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
   description: "A module that comes with a recharging radio jammer."
   name: radio jammer cyborg module
   components:
   - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: syndicate
-    - state: icon-syndicate
+    - state: icon-jammer
   - type: ItemBorgModule
     hands:
     - item: RechargingRadioJammer
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-jammer-module }
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -255,9 +339,15 @@
   name: Experimental C.H.I.M.P. cyborg module
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon. Cheap and disposable."
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-chimp
   - type: ItemBorgModule
     hands:
     - item: WeaponPistolCHIMPUpgraded
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-chimp-module }
 
 - type: entity
   parent: [ BaseBorgModuleSyndie, ClothingEyesHudSyndicate]
@@ -265,6 +355,10 @@
   name: syndicate radio cyborg module
   description: "A module that comes with a syndicate handheld radio and pinpointer to the shuttle"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-radio
   - type: ItemBorgModule
     hands:
     - item: RadioHandheldSyndicate
@@ -275,6 +369,8 @@
     damageContainers:
     - Biological
     - BiologicalMetaphysical # DeltaV - Kitsune
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-radio-module }
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -282,10 +378,16 @@
   name: infiltrator module
   description: "A module that comes with a crew monitor and camera bug, perfect for spying."
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-infiltrator
   - type: ItemBorgModule
     hands:
     - item: SyndiCrewMonitorRecharging
     - item: CameraBug
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-infiltrator-module }
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -293,9 +395,15 @@
   name: chameleon projector module
   description: "A module used to create a hard-light replica of any object around you."
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-chameleon
   - type: ItemBorgModule
     hands:
     - item: ChameleonProjector
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-chameleon-module }
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -303,9 +411,15 @@
   name: cannon cyborg module
   description: "A special module for pirating, come with a cannon with 3 types of shot"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-cannon
   - type: ItemBorgModule
     hands:
     - item: WeaponLauncherPirateCannonBorg
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-cannon-module }
 
 - type: entity
   parent: BaseBorgModuleSyndie
@@ -313,19 +427,58 @@
   name: buccaneer cyborg module
   description: "A module containing a grappling hook, material bag, a cutlass, and a pirate's sidearm"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-buccaneer
   - type: ItemBorgModule
     hands:
     - item: WeaponGrapplingGun
     - item: MaterialBag
     - item: Cutlass
     - item: WeaponBorgBuccaneersRevolver
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-buccaneer-module }
 
 - type: entity
   parent: BaseBorgModuleSyndie
   id: BorgModuleSleeper
-  name: sleeper module
+  name: sleeper cyborg module
   description: "A module with a sleep hypo, for silently abducting victims"
   components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-sleeper
   - type: ItemBorgModule
     hands:
     - item: SyndicateNocturineHypo
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-sleeper-module }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleCloakDeviceSyndicate
+  name: syndicate cloaking device cyborg module
+  description: A module with a device that allows the borg to become cloaked for a short amount of time.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Objects/Specific/Robotics/borgmodule.rsi
+      state: syndicate
+    - sprite: Objects/Specific/Robotics/borgmodule.rsi
+      state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: CloakingDeviceSyndicateBorg
+  - type: BorgModuleIcon # Once branch is updated with the new syndicate sprites, this can be uncommented.
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-infiltrator-module }
+
+- type: entity
+  parent: CloakingDevice
+  id: CloakingDeviceSyndicateBorg
+  description: A device that allows the borg to become cloaked for a short amount of time. Will recharge after 30 seconds of non-use.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/access_breaker.rsi # Finally using this awesome icon
+    state: icon
