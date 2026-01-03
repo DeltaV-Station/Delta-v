@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Null Glare now ignores flash protection if the user is empowered.
-    type: Tweak
-  - message: Null glare duration while empowered 10 -> 6 seconds.
-    type: Tweak
-  id: 1519
-  time: '2025-07-12T14:58:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4048
 - author: kotobdev
   changes:
   - message: Glimmer seizures will now only occur above 450 glimmer.
@@ -4476,4 +4467,17 @@
   id: 2018
   time: '2026-01-03T13:27:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5107
+- author: EmberAstra
+  changes:
+  - message: 'New Glimmer event: the Oracle and Sophic Grammateus will now occasionally
+      attract foxfire!'
+    type: Add
+  - message: 'New Glimmer event: the Noosphere is coming for your hair, and its fashion
+      sense is... random.'
+    type: Add
+  - message: Using barber scissors on kobolds no longer causes massive errors.
+    type: Fix
+  id: 2019
+  time: '2026-01-03T13:56:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5102
 Order: 1
