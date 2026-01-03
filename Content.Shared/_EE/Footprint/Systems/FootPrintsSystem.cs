@@ -10,13 +10,15 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Shared._DV.CCVars;
+using Robust.Shared.GameStates;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._EE.FootPrint.Systems;
 
 /// <summary>
 /// Handles creation of footprints as entities move.
 /// </summary>
-public sealed class FootPrintsSystem : EntitySystem
+public sealed partial class FootPrintsSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IMapManager _map = default!;
@@ -55,6 +57,8 @@ public sealed class FootPrintsSystem : EntitySystem
         SubscribeLocalEvent<FootPrintsComponent, ComponentStartup>(OnStartupComponent);
         SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<FootPrintComponent, ComponentRemove>(OnFootPrintRemoved);
+
+        InitializeStateHandling();
 
         // Subscribe to CVar changes
         Subs.CVar(_cfg, DCCVars.MaxFootPrintsPerTile, value => _maxPerTile = value, true);
@@ -183,7 +187,6 @@ public sealed class FootPrintsSystem : EntitySystem
 
     private void TrackFootPrint(EntityUid gridUid, NetEntity footPrintUid, Vector2i tile)
     {
-        // Ensure grid has tracking component
         var gridFootPrints = EnsureComp<GridFootPrintsComponent>(gridUid);
 
         // Add to tile tracking
@@ -196,7 +199,12 @@ public sealed class FootPrintsSystem : EntitySystem
         tileFootPrints.Add(footPrintUid);
         gridFootPrints.TotalFootPrints++;
 
-        // Enforce global limit only (per-tile limit is checked before spawning)
+        // DELTA TRACKING: Mark tile as dirty
+        gridFootPrints.DirtyTiles.Add(tile);
+        // Remove from removed set if it was there
+        gridFootPrints.RemovedTiles.Remove(tile);
+
+        // Enforce global limit
         if (_maxPerGrid > 0 && gridFootPrints.TotalFootPrints > _maxPerGrid)
         {
             RemoveOldestFootPrint(gridFootPrints);
@@ -217,9 +225,19 @@ public sealed class FootPrintsSystem : EntitySystem
             {
                 gridFootPrints.TotalFootPrints--;
 
-                // Clean up empty tile entries
+                // DELTA TRACKING
                 if (footPrints.Count == 0)
+                {
+                    // Tile is now empty
                     gridFootPrints.FootPrintsByTile.Remove(tile);
+                    gridFootPrints.RemovedTiles.Add(tile);
+                    gridFootPrints.DirtyTiles.Remove(tile);
+                }
+                else
+                {
+                    // Tile still has footprints, just modified
+                    gridFootPrints.DirtyTiles.Add(tile);
+                }
 
                 Dirty(gridUid, gridFootPrints);
                 break;
@@ -229,7 +247,6 @@ public sealed class FootPrintsSystem : EntitySystem
 
     private void RemoveOldestFootPrint(GridFootPrintsComponent gridFootPrints)
     {
-        // Find the first non-empty tile list and remove its oldest footprint
         foreach (var (tile, footPrints) in gridFootPrints.FootPrintsByTile)
         {
             if (footPrints.Count > 0)
@@ -239,9 +256,17 @@ public sealed class FootPrintsSystem : EntitySystem
                 QueueDel(GetEntity(toRemove));
                 gridFootPrints.TotalFootPrints--;
 
-                // Clean up empty tile entries
+                // DELTA TRACKING
                 if (footPrints.Count == 0)
+                {
                     gridFootPrints.FootPrintsByTile.Remove(tile);
+                    gridFootPrints.RemovedTiles.Add(tile);
+                    gridFootPrints.DirtyTiles.Remove(tile);
+                }
+                else
+                {
+                    gridFootPrints.DirtyTiles.Add(tile);
+                }
 
                 return;
             }
