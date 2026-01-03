@@ -25,6 +25,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
     private const int SuppressionDuration = 10;
 
     private EntityQuery<AddictedComponent> _addicted;
+    private readonly string _datasetId = "AddictionEffects";
 
     public override void Initialize()
     {
@@ -86,7 +87,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
 
     private string GetRandomPopup()
     {
-        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("AddictionEffects").Values));
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(_datasetId).Values));
     }
 
     private void DoAddictionEffect(EntityUid uid)
