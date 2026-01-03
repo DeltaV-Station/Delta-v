@@ -23,6 +23,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedFlightSystem _flight = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -73,7 +74,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
     private void OnMove(Entity<FootPrintsComponent> ent, ref MoveEvent args)
     {
         // Don't create footprints if flying
-        if (_flightQuery.HasComp(ent))
+        if (_flightQuery.TryComp(ent, out var flight) && _flight.IsFlying((ent, flight)))
             return;
 
         // Don't create footprints if color is fully transparent
