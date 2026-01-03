@@ -4,6 +4,7 @@ using Content.Server.Psionics;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 
+namespace Content.Server._DV.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 public sealed class PsionicProducingArtifactSystem : EntitySystem
 {
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
