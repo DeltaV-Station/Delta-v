@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: AlgisAlphonse
-  changes:
-  - message: 'Added a short range materials magnet to the logistics techlathe. Cargo
-      Technicians rejoice! WARNING: This does not fix the existing bug with diamonds
-      being stuck in lathes. Use with caution.'
-    type: Add
-  id: 1516
-  time: '2025-07-08T14:05:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4011
 - author: NoElkaTheGod
   changes:
   - message: Energy shield price reduced from 16 to 12 telecrystals.
@@ -4477,4 +4468,12 @@
   id: 2015
   time: '2026-01-03T00:42:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5081
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed a server-crashing bug where the server would crash if there were
+      zero cosmic cultists and it would try to hold a steward vote with zero options.
+    type: Fix
+  id: 2016
+  time: '2026-01-03T00:47:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5097
 Order: 1
