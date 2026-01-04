@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: SirrRequiem
-  changes:
-  - message: Oh my god! Shoes! Sec gets combat boots in their loadouts
-    type: Add
-  id: 1521
-  time: '2025-07-14T02:23:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4056
 - author: deltanedas
   changes:
   - message: The Listening Post's crew monitoring console now shows the station instead
@@ -4480,4 +4473,13 @@
   id: 2020
   time: '2026-01-04T00:15:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5116
+- author: MilonPL
+  changes:
+  - message: Footprints will no longer despawn after 60 seconds.
+    type: Tweak
+  - message: Footprints are now limited to two per tile.
+    type: Tweak
+  id: 2021
+  time: '2026-01-04T16:37:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5111
 Order: 1
