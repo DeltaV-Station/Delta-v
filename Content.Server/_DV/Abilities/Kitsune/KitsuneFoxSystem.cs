@@ -19,7 +19,7 @@ public sealed class KitsuneFoxSystem : EntitySystem
 
     private void OnStunned(Entity<KitsuneFoxComponent> ent, ref StunnedEvent args)
     {
-        if (!TryComp<PolymorphedEntityComponent>(ent, out var _))
+        if (!HasComp<PolymorphedEntityComponent>(ent))
             return;
 
         _polymorph.Revert(ent.Owner);
