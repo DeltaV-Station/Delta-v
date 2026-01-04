@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: The Listening Post's crew monitoring console now shows the station instead
-      of the post.
-    type: Tweak
-  id: 1522
-  time: '2025-07-18T15:12:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4015
 - author: kotobdev
   changes:
   - message: Listening Post Operatives now get records tablets.
@@ -4482,4 +4474,11 @@
   id: 2021
   time: '2026-01-04T16:37:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5111
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed people getting randomly deleted when there were too many footprints.
+    type: Fix
+  id: 2022
+  time: '2026-01-04T19:25:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5128
 Order: 1
