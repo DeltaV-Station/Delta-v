@@ -917,7 +917,7 @@
   - type: ItemBorgModule
     hands:
     - item: HandheldHealthAnalyzerUnpowered
-    - item: JetInjector
+    - item: JetInjector # DeltaV
     - item: Syringe
     - item: BorgDropper
     - item: BaseChemistryEmptyVial
@@ -941,7 +941,7 @@
         whitelist:
           components:
           - FitsInDispenser
-    # DeltaV - Add Borg Pills
+    # DeltaV - Add Borg Pill Administering
     - hand:
         emptyLabel: borg-slot-pill-empty
         emptyRepresentative: PillTricordrazine
