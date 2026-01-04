@@ -1,0 +1,8 @@
+- type: entity
+  id: HandheldCrewMonitorUnpowered
+  parent: HandheldCrewMonitor
+  suffix: Unpowered
+  components:
+  - type: ItemSlots
+  - type: PowerCellDraw
+    useRate: 0
