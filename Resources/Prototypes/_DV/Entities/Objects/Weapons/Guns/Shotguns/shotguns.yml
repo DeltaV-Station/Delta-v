@@ -104,3 +104,29 @@
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary
+
+- type: entity
+  name: forged sawn-off double-barrel shotgun
+  parent: [BaseWeaponShotgun, BaseMinorContraband]
+  id: WeaponShotgunForgedSawn
+  description: Decently made double-barrel shotgun, with the barrel crudely sawn off to make it smaller. Why make the barrels in the first place?
+  components:
+  - type: Item
+    sprite: _DV/Objects/Weapons/Guns/Shotguns
+/forged_shotgun_sawn.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: Gun
+    fireRate: 3
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/forged_shotgun_sawn.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/forged_shotgun_sawn.rsi
+  - type: BallisticAmmoProvider
+    capacity: 2
+    proto: null
+  - type: Construction
+    graph: ShotgunForgedSawn
+    node: shotgunforgedsawn
+    deconstructionTarget: null
