@@ -25,7 +25,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
     private const int SuppressionDuration = 10;
 
     private EntityQuery<AddictedComponent> _addicted;
-    private readonly string _datasetId = "AddictionEffects";
+    private readonly ProtoId<LocalizedDatasetPrototype> _datasetId = "AddictionEffects";
 
     public override void Initialize()
     {
