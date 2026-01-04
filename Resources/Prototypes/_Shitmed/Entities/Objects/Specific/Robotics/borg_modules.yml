@@ -44,31 +44,38 @@
     - item: HandheldHealthAnalyzerUnpowered # DeltaV - Add Scanners to Surgery Modules.
     - item: EnergyScalpel
       hand:
-        emptyLabel: borg-slot-surgery-tool
+        emptyLabel: borg-slot-surgery-tool-empty
         emptyRepresentative: EnergyScalpel
         whitelist:
           components:
           - MedicalSurgeryTool
     - item: EnergyCautery
       hand:
-        emptyLabel: borg-slot-surgery-tool
+        emptyLabel: borg-slot-surgery-tool-empty
         emptyRepresentative: EnergyCautery
         whitelist:
           components:
           - MedicalSurgeryTool
     - item: AdvancedRetractor
       hand:
-        emptyLabel: borg-slot-surgery-tool
+        emptyLabel: borg-slot-surgery-tool-empty
         emptyRepresentative: AdvancedRetractor
         whitelist:
           components:
           - MedicalSurgeryTool
     - item: BoneGel
       hand:
-        emptyLabel: borg-slot-surgery-tool
+        emptyLabel: borg-slot-surgery-tool-empty
         emptyRepresentative: BoneGel
         whitelist:
           components:
           - MedicalSurgeryTool
+    - item: SoapNT
+      hand:
+        emptyLabel: borg-slot-soap-empty
+        emptyRepresentative: SoapNT
+        whitelist:
+          tags:
+          - Soap
   - type: BorgModuleIcon
     icon: { sprite: _Shitmed/Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
