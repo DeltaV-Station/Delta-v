@@ -131,32 +131,32 @@ public sealed partial class FootPrintsSystem : EntitySystem
         DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.RightStep));
 
         // Spawn the footprint entity
-        var entity = EntityManager.PredictedSpawnAtPosition(ent.Comp.StepProtoId.Id, coords);
+        var footprint = EntityManager.PredictedSpawnAtPosition(ent.Comp.StepProtoId.Id, coords);
 
         // Update appearance with current color and state
-        if (_appearanceQuery.TryComp(entity, out var appearance))
+        if (_appearanceQuery.TryComp(footprint, out var appearance))
         {
-            _appearance.SetData(entity, FootPrintVisualState.State, PickState(ent, dragging), appearance);
-            _appearance.SetData(entity, FootPrintVisualState.Color, ent.Comp.PrintsColor, appearance);
+            _appearance.SetData(footprint, FootPrintVisualState.State, PickState(ent, dragging), appearance);
+            _appearance.SetData(footprint, FootPrintVisualState.Color, ent.Comp.PrintsColor, appearance);
         }
 
         // Set rotation
-        if (_transformQuery.TryComp(entity, out var stepTransform))
+        if (_transformQuery.TryComp(footprint, out var stepTransform))
         {
             stepTransform.LocalRotation = dragging
                 ? (transform.LocalPosition - ent.Comp.StepPos).ToAngle() + Angle.FromDegrees(-90f)
                 : transform.LocalRotation + Angle.FromDegrees(180f);
         }
 
-        if (!TryComp<FootPrintComponent>(entity, out var footPrintComponent))
+        if (!TryComp<FootPrintComponent>(footprint, out var footPrintComponent))
             return;
 
         // Set the owner reference
         footPrintComponent.PrintOwner = ent;
-        Dirty(entity, footPrintComponent);
+        Dirty(footprint, footPrintComponent);
 
         // Track the footprint on the grid
-        TrackFootPrint(gridUid, GetNetEntity(ent), tilePos);
+        TrackFootPrint(gridUid, GetNetEntity(footprint), tilePos);
 
         // Reduce color alpha for next footprint
         ent.Comp.PrintsColor = ent.Comp.PrintsColor.WithAlpha(
@@ -170,7 +170,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
         // Handle reagent transfer
         if (ent.Comp.ReagentToTransfer is { } reagent)
         {
-            TryTransferReagent((entity, footPrintComponent), ent, reagent);
+            TryTransferReagent((footprint, footPrintComponent), ent, reagent);
         }
     }
 
