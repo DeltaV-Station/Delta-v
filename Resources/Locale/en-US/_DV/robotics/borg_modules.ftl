@@ -1,5 +1,6 @@
 borg-slot-surgery-tool-empty = Surgery tools
 borg-slot-pill-empty = Pills and pill canisters
+borg-slot-organ-empty = Organs
 
 borg-slot-handcuffs-empty = Handcuffs and zipties
 

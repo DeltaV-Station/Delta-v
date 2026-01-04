@@ -25,6 +25,12 @@
         whitelist:
           tags:
           - Soap
+    - hand: 
+        emptyLabel: borg-slot-organ-empty
+        emptyRepresentative: OrganHumanBrain
+        whitelist:
+          components:
+          - Organ
   - type: BorgModuleIcon
     icon: { sprite: _Shitmed/Interface/Actions/actions_borg.rsi, state: surgery-module }
 
@@ -77,5 +83,11 @@
         whitelist:
           tags:
           - Soap
+    - hand: 
+        emptyLabel: borg-slot-organ-empty
+        emptyRepresentative: OrganHumanBrain
+        whitelist:
+          components:
+          - Organ
   - type: BorgModuleIcon
     icon: { sprite: _Shitmed/Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
