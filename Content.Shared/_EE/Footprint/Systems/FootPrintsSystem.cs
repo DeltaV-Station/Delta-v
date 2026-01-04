@@ -10,6 +10,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Shared._DV.CCVars;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EE.FootPrint.Systems;
 
@@ -166,9 +168,9 @@ public sealed partial class FootPrintsSystem : EntitySystem
         DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.StepPos));
 
         // Handle reagent transfer
-        if (!string.IsNullOrWhiteSpace(ent.Comp.ReagentToTransfer))
+        if (ent.Comp.ReagentToTransfer is { } reagent)
         {
-            TryTransferReagent(entity, footPrintComponent, ent.Comp.ReagentToTransfer);
+            TryTransferReagent((entity, footPrintComponent), ent, reagent);
         }
     }
 
@@ -272,14 +274,14 @@ public sealed partial class FootPrintsSystem : EntitySystem
         }
     }
 
-    private void TryTransferReagent(EntityUid entity, FootPrintComponent footPrintComponent, string reagentId)
+    private void TryTransferReagent(Entity<FootPrintComponent> ent, Entity<FootPrintsComponent> tripper, ProtoId<ReagentPrototype> reagentId)
     {
-        if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutionContainer))
+        if (!TryComp<SolutionContainerManagerComponent>(ent, out var solutionContainer))
             return;
 
-        if (!_solution.ResolveSolution((entity, solutionContainer),
-                footPrintComponent.SolutionName,
-            ref footPrintComponent.Solution,
+        if (!_solution.ResolveSolution((ent, solutionContainer),
+                ent.Comp.SolutionName,
+            ref ent.Comp.Solution,
                 out var solution))
             return;
 
@@ -288,7 +290,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
             return;
 
         // Transfer a small amount of reagent
-        _solution.TryAddReagent(footPrintComponent.Solution.Value, reagentId, 0.01, out _);
+        _solution.TryAddReagent(ent.Comp.Solution.Value, reagentId, tripper.Comp.AmountToTransfer, out _);
     }
 
     private EntityCoordinates CalcCoords(EntityUid gridUid,

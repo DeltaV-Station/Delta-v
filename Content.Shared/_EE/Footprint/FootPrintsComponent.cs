@@ -1,5 +1,7 @@
 ﻿using System.Numerics;
 using Content.Shared._EE.FootPrint.Systems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -53,6 +55,12 @@ public sealed partial class FootPrintsComponent : Component
     public EntProtoId<FootPrintComponent> StepProtoId = "Footstep";
 
     /// <summary>
+    /// The amount of solution to transfer with each footprint when stepping into a puddle.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 AmountToTransfer = 0.01;
+
+    /// <summary>
     /// Current color of footprints being left. Alpha channel determines visibility.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -88,7 +96,7 @@ public sealed partial class FootPrintsComponent : Component
     /// The reagent ID to transfer to footprint entities, set when stepping in puddles.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string? ReagentToTransfer;
+    public ProtoId<ReagentPrototype>? ReagentToTransfer;
 
     /// <summary>
     /// Offset applied to footprints perpendicular to movement direction.

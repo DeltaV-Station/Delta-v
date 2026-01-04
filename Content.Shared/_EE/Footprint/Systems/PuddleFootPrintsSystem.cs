@@ -2,9 +2,11 @@
 using Content.Shared._EE.Flight;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EE.FootPrint.Systems;
 
@@ -18,6 +20,8 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     private EntityQuery<FlightComponent> _flightQuery;
+
+    private static readonly ProtoId<ReagentPrototype> WaterPrototype = "Water";
 
     public override void Initialize()
     {
@@ -63,7 +67,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
             return;
 
         var waterQuantity = solution.Contents
-            .Where(sol => sol.Reagent.Prototype == "Water")
+            .Where(sol => sol.Reagent.Prototype == WaterPrototype)
             .Sum(sol => (float)sol.Quantity);
 
         var waterPercent = (waterQuantity / totalSolutionQuantity) * 100f;
@@ -95,7 +99,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         }
 
         // Remove small amount of reagent from puddle
-        _solutionContainer.RemoveEachReagent(puddleComp.Solution.Value, 0.01);
+        _solutionContainer.RemoveEachReagent(puddleComp.Solution.Value, footPrints.AmountToTransfer);
     }
 
     private void AddColor(Color color, float quantity, FootPrintsComponent component)
