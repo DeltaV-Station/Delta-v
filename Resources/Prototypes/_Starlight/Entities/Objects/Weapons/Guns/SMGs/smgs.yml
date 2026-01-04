@@ -49,9 +49,6 @@
         whitelist:
           tags:
             - CartridgePistolImprovised
-  - type: Construction
-    graph: MakeshiftSMGGraph
-    node: shotgun
   - type: WeaponDismantleOnShoot
     dismantleChance: 0.03 #Very low to account for automatic weapon fire, if entire mag is shot 3/10 SMGs will survive
     selfDamage:
