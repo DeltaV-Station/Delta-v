@@ -74,7 +74,10 @@
     - dumpentities
     - fuckrules # DeltaV: move fuckrules to DEBUG
     - showaccessreaders
-    - adminoverlay # DeltaV: add adminoverlay command
+
+- Flags: ADMIN # DeltaV
+  Commands:
+    - adminoverlay
 
 - Flags: MAPPING
   Commands:
