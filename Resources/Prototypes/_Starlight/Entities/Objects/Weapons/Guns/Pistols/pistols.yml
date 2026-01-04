@@ -31,6 +31,7 @@
         whitelist:
           tags:
             - CartridgePistol
+            - CartridgePistolImprovised
   - type: Construction
     graph: MakeshiftPistolCraftedGraph
     node: shotgun
@@ -80,6 +81,7 @@
     whitelist:
       tags:
       - CartridgePistol
+      - CartridgePistolImprovised
   - type: Item
     size: Small #Magazine location makes it bigger but should still fit in a pocket. (This basically serves to keep people from putting it in a boot/stacking them as easily)
     shape:
