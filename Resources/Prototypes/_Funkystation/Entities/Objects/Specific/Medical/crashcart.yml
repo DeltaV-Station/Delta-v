@@ -20,7 +20,7 @@
       defib_slot1:
         whitelist:
           tags:
-          - DefibrillatorCompact
+          - Defibrillator
         insertOnInteract: true
         priority: 9
       tank_slot1:
@@ -31,7 +31,6 @@
           - NitrousOxideTank
           - PlasmaTank
           - ClownEmergencyOxygenTank
-          - ExtendedEmergencyNitrogenTank
           - AirTank
         insertOnInteract: true
         priority: 8
@@ -74,11 +73,12 @@
         whitelist:
           tags:
           - AirTank
+          - WaterVaporTank # TODO: DeltaV - Sprite WaterVaporTank. This is the closest at the moment.
       defib:
         minCount: 1
         whitelist:
           tags:
-          - DefibrillatorCompact
+          - Defibrillator
     sprite: _Funkystation/Objects/Specific/Medical/crashcart.rsi
   - type: Fixtures
     fixtures:
