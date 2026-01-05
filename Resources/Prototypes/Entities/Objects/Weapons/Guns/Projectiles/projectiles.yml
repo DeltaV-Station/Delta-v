@@ -1215,7 +1215,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 28
+        Heat: 32 #DeltaV was 28
 
 - type: entity
   name : disabler bolt
@@ -1231,12 +1231,13 @@
     - state: mediumstun # imp
       shader: unshaded
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 40 #DeltaV
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Heat: 0
+        Ion: 20 # DeltaV
     soundHit:
       collection: WeakHit
     forceSound: true

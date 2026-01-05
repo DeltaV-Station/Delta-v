@@ -168,3 +168,30 @@
     Slash: 40
     Piercing: 15
     Heat: 10
+
+- type: damageModifierSet
+  id: Retracted
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Heat: 1.0 # does not work
+    Shock: 1.2
+    Structural: 0.7
+  flatReductions:
+    Blunt: 10
+    Slash: 10
+    Piercing: 5
+    Heat: 100
+
+- type: damageModifierSet
+  id: Deployed
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.6
+    Piercing: 0.7
+    Heat: 1.0 # does not work
+    Shock: 1.2
+    Structural: 0.3
+  flatReductions:
+    Heat: 100
