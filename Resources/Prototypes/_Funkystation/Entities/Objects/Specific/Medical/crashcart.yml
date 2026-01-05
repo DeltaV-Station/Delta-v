@@ -19,7 +19,7 @@
     slots:
       defib_slot1:
         whitelist:
-          tags:
+          components:
           - Defibrillator
         insertOnInteract: true
         priority: 9
