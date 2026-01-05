@@ -254,7 +254,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
             {
                 var toRemove = footPrints[0];
                 footPrints.RemoveAt(0);
-                QueueDel(GetEntity(toRemove));
+                PredictedQueueDel(GetEntity(toRemove));
                 gridFootPrints.TotalFootPrints--;
 
                 // DELTA TRACKING
