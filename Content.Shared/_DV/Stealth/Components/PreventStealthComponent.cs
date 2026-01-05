@@ -1,4 +1,4 @@
-﻿using Content.Shared.Stealth;
+using Content.Shared.Stealth;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Stealth.Components;
