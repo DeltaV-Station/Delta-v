@@ -268,6 +268,8 @@
     - type: GuideHelp
       guides:
       - Thermomachines
+    - type: ApcPowerReceiver # Delta V - Temporarily reduce power draw until roundstart power draw is fixed.
+      powerLoad: 100
 
 - type: entity
   parent: BaseGasThermoMachine
