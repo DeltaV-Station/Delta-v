@@ -1,0 +1,10 @@
+# Engineering Void Suit
+- type: entity
+  id: LockerEngineerFilledVoidsuit
+  suffix: Filled, Void suit
+  parent: LockerEngineerFilled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterVoidsuitEngineering
+    - id: OxygenTankFilled

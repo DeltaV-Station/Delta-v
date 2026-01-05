@@ -172,8 +172,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobLibrarian
-  name: librarian lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a librarian. The color of the plushie has faded from years of desk-watching.
+  name: archivist lizard plushie # DeltaV - renamed from librarian
+  description: An adorable stuffed toy that resembles a lizardperson as an archivist. The color of the plushie has faded from years of desk-watching. # DeltaV - renamed from librarian
   components:
   - type: Sprite
     state: librarian
@@ -241,8 +241,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobPassenger
-  name: passenger lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a passenger. Its eyes look at you, a little bit more beady than the rest.
+  name: assistant lizard plushie # DeltaV - renamed from passenger
+  description: An adorable stuffed toy that resembles a lizardperson as an assistant. Its eyes look at you, a little bit more beady than the rest. # DeltaV - renamed from passenger
   components:
   - type: Sprite
     state: passenger
@@ -259,8 +259,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobQuartermaster
-  name: quartermaster lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as the quartermaster. Its covered in sticky residue left behind from thousands of shipment invoices.
+  name: logistics officer lizard plushie # DeltaV - renamed from QM
+  description: An adorable stuffed toy that resembles a lizardperson as the logistics officer. Its covered in sticky residue left behind from thousands of shipment invoices. # DeltaV - renamed from QM
   components:
   - type: Sprite
     state: quartermaster
@@ -286,8 +286,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobResearchdirector
-  name: research director lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as the research director. There's a few burn marks on the plushie.
+  name: mystagouge lizard plushie # DeltaV - renamed from RD
+  description: An adorable stuffed toy that resembles a lizardperson as the mystagouge. There's a few burn marks on the plushie. # DeltaV - renamed from RD
   components:
   - type: Sprite
     state: researchdirector

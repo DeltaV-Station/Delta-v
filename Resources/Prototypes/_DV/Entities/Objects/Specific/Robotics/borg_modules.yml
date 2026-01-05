@@ -36,7 +36,6 @@
         color: "#7B0F12"
 
 # Security Modules
-
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
@@ -139,6 +138,72 @@
     - item: SecurityWhistle
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: chase-module }
+
+- type: entity
+  id: BorgModuleSecurityDetective
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detective cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detective
+  - type: ItemBorgModule
+    hands:
+      - item: ForensicScanner
+      - item: SecurityCyborgPDA
+      - item: HandLabeler
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: HandLabeler
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: BoxFolderBlackEmpty
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: BoxFolderBlackEmpty
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: LuxuryPen
+        hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: LuxuryPen
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: ForensicReportPaper
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - hand:
+          emptyLabel: borg-slot-forensic-empty
+          emptyRepresentative: ForensicPad
+          whitelist:
+            tags:
+            - Document
+            - Write
+            - Folder
+            - HandLabeler
+      - item: Syringe
+      - item: Soap
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: detective-module }
 
 # Salvage modules
 
