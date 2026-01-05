@@ -1,13 +1,18 @@
+using Content.Shared._DV.Stealth; // DeltaV - Make certain items unable to stealth.
+using Content.Shared._DV.Stealth.Components; // DeltaV - Make certain items unable to stealth.
 using Content.Shared.Examine;
+using Content.Shared.Hands; // DeltaV - Make certain items unable to stealth.
+using Content.Shared.Inventory; // DeltaV - Make certain items unable to stealth.
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stealth.Components;
+using Robust.Shared.Containers; // DeltaV - Make certain items unable to stealth.
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
 
-public abstract class SharedStealthSystem : EntitySystem
+public abstract partial class SharedStealthSystem : EntitySystem // DeltaV - Made Partial.
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -25,6 +30,15 @@ public abstract class SharedStealthSystem : EntitySystem
         SubscribeLocalEvent<StealthComponent, ExamineAttemptEvent>(OnExamineAttempt);
         SubscribeLocalEvent<StealthComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StealthComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        // DeltaV Start - Items can disable Stealth.
+        SubscribeLocalEvent<StealthComponent, StealthModifiedEvent>(OnStealthModified);
+        SubscribeLocalEvent<PreventStealthComponent, EntGotRemovedFromContainerMessage>(OnRemoval);
+        SubscribeLocalEvent<PreventStealthComponent, EntGotInsertedIntoContainerMessage>(OnInsertion);
+        SubscribeLocalEvent<PreventStealthComponent, StealthAddedEvent>(OnStealthAdded);
+        SubscribeLocalEvent<PreventStealthComponent, HeldRelayedEvent<StealthAddedEvent>>(OnStealthAdded);
+        SubscribeLocalEvent<PreventStealthComponent, InventoryRelayedEvent<StealthAddedEvent>>(OnStealthAdded);
+        // DeltaV End - Items can disable Stealth.
     }
 
     private void OnExamineAttempt(EntityUid uid, StealthComponent component, ExamineAttemptEvent args)
@@ -94,6 +108,10 @@ public abstract class SharedStealthSystem : EntitySystem
             return;
 
         component.LastUpdated = _timing.CurTime;
+        // DeltaV Start - Items can disable Stealth.
+        var ev = new StealthAddedEvent(CloakedEntity: uid);
+        RaiseLocalEvent(uid, ref ev);
+        // DeltaV End - Items can disable Stealth.
     }
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
