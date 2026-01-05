@@ -58,3 +58,70 @@
   id: PrescriptionCorpsmanGlasses
   equipment:
     eyes: ClothingEyesPrescriptionCorpsmanGlasses
+
+# Injectors
+- type: loadout
+  id: brute auto-injector1
+  storage:
+    back:
+    - BruteAutoInjector
+
+- type: loadout
+  id: brute auto-injector2
+  storage:
+    back:
+    - BruteAutoInjector
+
+- type: loadout
+  id: burn auto-injector1
+  storage:
+    back:
+    - BurnAutoInjector
+
+- type: loadout
+  id: burn auto-injector2
+  storage:
+    back:
+    - BurnAutoInjector
+
+- type: loadout
+  id: puncturase auto-injector1
+  storage:
+    back:
+    - PunctAutoInjector
+
+- type: loadout
+  id: puncturase auto-injector2
+  storage:
+    back:
+    - PunctAutoInjector
+
+- type: loadout
+  id: pyrazine auto-injector1
+  storage:
+    back:
+    - PyraAutoInjector
+
+- type: loadout
+  id: pyrazine auto-injector2
+  storage:
+    back:
+    - PyraAutoInjector
+
+- type: loadout
+  id: airloss auto-injector
+  storage:
+    back:
+    - AirlossAutoInjector
+
+- type: loadout
+  id: poison auto-injector
+  storage:
+    back:
+    - AntiPoisonMedipen
+
+- type: loadout
+  id: rad auto-injector
+  storage:
+    back:
+    - RadAutoInjector

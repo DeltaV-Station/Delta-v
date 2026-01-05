@@ -329,6 +329,25 @@
   loadouts:
   - LoadoutSpeciesBreathToolCorpsman
 
+- type: loadoutGroup
+  id: CorpsmanInjectors
+  name: loadout-group-corpsman-injectors
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  - brute auto-injector1
+  - brute auto-injector2
+  - burn auto-injector1
+  - burn auto-injector2
+  - puncturase auto-injector1
+  - puncturase auto-injector2
+  - pyrazine auto-injector1
+  - pyrazine auto-injector2
+  - airloss auto-injector
+  - poison auto-injector
+  - rad auto-injector
+
+
 ## Security Cadet
 - type: loadoutGroup
   id: SecurityCadetHead
