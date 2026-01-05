@@ -91,6 +91,7 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasBinaryBase
@@ -164,6 +165,7 @@
     - type: GuideHelp
       guides:
       - Pumps
+    - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasBinaryBase
@@ -225,6 +227,7 @@
   - type: GuideHelp
     guides:
     - PressureRegulator
+  - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasBinaryBase
@@ -505,6 +508,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
