@@ -83,12 +83,12 @@
     location: Detective
 
 - type: entity
-  id: WarpPointJail
+  id: WarpPointBrig
   parent: WarpPoint
-  suffix: Jail
+  suffix: Brig
   components:
   - type: WarpPoint
-    location: Jail
+    location: Brig
 
 - type: entity
   id: WarpPointSecurityCheckpoint
@@ -116,12 +116,12 @@
     location: Justice
 
 - type: entity
-  id: WarpPointLawyer
+  id: WarpPointAttorney
   parent: WarpPoint
-  suffix: Lawyer
+  suffix: Attorney
   components:
   - type: WarpPoint
-    location: Lawyer
+    location: Attorney
 
 #Medical
 - type: entity
@@ -158,12 +158,12 @@
     location: Epistemics
 
 - type: entity
-  id: WarpPointArtifactLab
+  id: WarpPointXenoarchaeologyLab
   parent: WarpPointNoBomb
-  suffix: Artifact Lab
+  suffix: Xenoarchaeology Lab
   components:
   - type: WarpPoint
-    location: Artifact Lab
+    location: Xenoarchaeology Lab
 
 - type: entity
   id: WarpPointAnomalyLab
