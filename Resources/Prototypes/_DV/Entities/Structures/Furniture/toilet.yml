@@ -29,3 +29,67 @@
     - !type:NestedSelector
       weight: 1 # no change
       tableId: ToiletCisternSyndicateTable
+
+# Toilet reagent fill
+- type: weightedRandomFillSolution
+  id: RandomFillToiletMisc
+  fills:
+  - quantity: 20
+    reagents:
+    # 1:5 chance of clean water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - water
+    # Cleaners
+    - SpaceCleaner
+    - SoapReagent
+    - Bleach
+    - Chlorine
+    # Funny
+    - SpaceLube
+    - Laughter
+    - Happiness
+    - Holywater
+    - WeldingFuel
+    - Mopwata
+    # Puke n stuff
+    - Toxin
+    - Vomit
+    - VentCrud
+    - UncookedAnimalProteins
+    - ToxinTrash
+    - GastroToxin
+    # Foods
+    - Mold
+    - Cornoil
+    - Hotsauce
+    - Ketchup
+    - Mayo
+    - Beer
+    - MilkSpoiled
+    - HotRamen
+    - Tequila
+    # Chems & drugs
+    - Honk
+    - Nausium
+    - LotophagoiOil
+    - Enzyme
+    - SpaceDrugs
+    - Diphenhydramine
+    - Cognizine
+    - Nocturine
+    - UnstableMutagen
+    - Romerol
+    # Blood
+    - Blood
+    - Slime
+    - ZombieBlood
+    - Ichor
+    - SynthBlood
