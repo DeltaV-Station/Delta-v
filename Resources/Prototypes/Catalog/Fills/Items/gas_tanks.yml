@@ -91,8 +91,7 @@
       temperature: 293.15
   - type: Tag
     tags:
-    - GasTank
-    - ExtendedEmergencyNitrogenTank
+    - NitrogenTank
 
 
 - type: entity
@@ -159,7 +158,6 @@
       temperature: 293.15
   - type: Tag
     tags:
-    - GasTank
     - AirTank
 
 - type: entity
@@ -177,7 +175,6 @@
       temperature: 293.15
   - type: Tag
     tags:
-    - GasTank
     - NitrogenTank
 
 - type: entity
@@ -222,5 +219,4 @@
       temperature: 293.15
   - type: Tag
     tags:
-    - GasTank
     - PlasmaTank

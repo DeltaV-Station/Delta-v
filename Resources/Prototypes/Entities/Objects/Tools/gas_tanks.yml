@@ -71,7 +71,6 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Tag # Funkystation - Crash Carts
     tags:
-    - GasTank
     - OxygenTank
 
 - type: entity
@@ -214,7 +213,7 @@
     sprite: Objects/Tanks/emergency_clown.rsi
   - type: Tag # Funkystation - Crash Carts
     tags:
-    - ClownEmergencyOxygenTank
+    - ClownOxygenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -244,7 +243,6 @@
     sprite: Objects/Tanks/anesthetic.rsi
   - type: Tag # Funkystation - Crash Carts
     tags:
-    - GasTank
     - NitrousOxideTank
 
 - type: entity

@@ -56,7 +56,7 @@
         minCount: 1
         whitelist:
           tags:
-          - ClownEmergencyOxygenTank
+          - ClownOxygenTank
       front_slp:
         minCount: 1
         whitelist:
@@ -111,6 +111,7 @@
         damage: 400
   - type: StaticPrice
     price: 500
+
 - type: entity
   parent: CrashCart
   id: CrashCartFilled
@@ -124,7 +125,6 @@
     - id: Gauze
     - id: Ointment
     - id: Bloodpack
-      amount: 1
     - id: SyringeSaline
       amount: 2
     - id: EmergencyMedipen
@@ -132,10 +132,8 @@
     - id: AntiPoisonMedipen
       amount: 2
     - id: ChemistryBottleDexalin
-      amount: 1
     - id: Syringe
     - id: NitrogenTankFilled
-      amount: 1
 
 
 
