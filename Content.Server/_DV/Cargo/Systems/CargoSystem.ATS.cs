@@ -89,7 +89,7 @@ public sealed partial class CargoSystem
         {
             Components =
             [
-                Factory.GetComponentName(typeof(CargoShuttleComponent))
+                Factory.GetComponentName<CargoShuttleComponent>()
             ]
         };
 
