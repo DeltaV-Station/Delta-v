@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: All jobs, again, now get the same starting TC.
-    type: Tweak
-  id: 1527
-  time: '2025-07-21T22:04:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4064
 - author: AlgisAlphonse
   changes:
   - message: Magnet pull time has been increased from 6 min to 9 min.
@@ -4483,4 +4476,15 @@
   id: 2026
   time: '2026-01-06T15:59:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5149
+- author: MilonPL
+  changes:
+  - message: Reworked the deep fryer! It can now be used to make new recipes, check
+      out the guidebook for more info!
+    type: Tweak
+  - message: Be careful about putting liquids that aren't cooking oils in the deep
+      fryer! It could start a grease fire!
+    type: Add
+  id: 2027
+  time: '2026-01-06T18:41:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5043
 Order: 1
