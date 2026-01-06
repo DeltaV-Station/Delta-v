@@ -40,7 +40,7 @@ namespace Content.Server.Power.EntitySystems
             _provQuery = GetEntityQuery<ApcPowerProviderComponent>();
         }
 
-        private void OnReceiverStartup(Entity<ApcPowerReceiverComponent> ent, ref ComponentStartup args)
+        private void OnReceiverStartup(Entity<ApcPowerReceiverComponent> ent, ref ComponentStartup args) // Early merge of #42260
         {
             ent.Comp.PowerDisabled = ent.Comp.StartingPowerDisabled;
         }
