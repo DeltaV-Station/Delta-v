@@ -21,7 +21,7 @@ namespace Content.Server.Power.EntitySystems
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentStartup>(OnReceiverStartup);
+            SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentStartup>(OnReceiverStartup); // Early merge of #42260
             SubscribeLocalEvent<ApcPowerReceiverComponent, ExaminedEvent>(OnExamined);
 
             SubscribeLocalEvent<ApcPowerReceiverComponent, ExtensionCableSystem.ProviderConnectedEvent>(OnProviderConnected);
