@@ -1,4 +1,4 @@
-﻿# Mail-related commands
+# Mail-related commands
 
 ## mailto
 cmd-mailto-hint-recipient = Recipient EntityUid (must have MailReceiverComponent)
