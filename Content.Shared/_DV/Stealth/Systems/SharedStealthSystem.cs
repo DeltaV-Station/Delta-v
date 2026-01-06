@@ -9,6 +9,16 @@ namespace Content.Shared.Stealth;
 
 public abstract partial class SharedStealthSystem
 {
+    private void InitializeDeltaStealthSystem()
+    {
+        SubscribeLocalEvent<StealthComponent, StealthModifiedEvent>(OnStealthModified);
+        SubscribeLocalEvent<PreventStealthComponent, EntGotRemovedFromContainerMessage>(OnRemoval);
+        SubscribeLocalEvent<PreventStealthComponent, EntGotInsertedIntoContainerMessage>(OnInsertion);
+        SubscribeLocalEvent<PreventStealthComponent, StealthAddedEvent>(OnStealthAdded);
+        SubscribeLocalEvent<PreventStealthComponent, HeldRelayedEvent<StealthAddedEvent>>(OnStealthAdded);
+        SubscribeLocalEvent<PreventStealthComponent, InventoryRelayedEvent<StealthAddedEvent>>(OnStealthAdded);
+    }
+
     private void OnStealthModified(Entity<StealthComponent> stealth, ref StealthModifiedEvent args)
     {
         var comp = stealth.Comp;

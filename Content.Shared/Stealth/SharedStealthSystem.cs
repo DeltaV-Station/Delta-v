@@ -31,14 +31,7 @@ public abstract partial class SharedStealthSystem : EntitySystem // DeltaV - Mad
         SubscribeLocalEvent<StealthComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StealthComponent, MobStateChangedEvent>(OnMobStateChanged);
 
-        // DeltaV Start - Items can disable Stealth.
-        SubscribeLocalEvent<StealthComponent, StealthModifiedEvent>(OnStealthModified);
-        SubscribeLocalEvent<PreventStealthComponent, EntGotRemovedFromContainerMessage>(OnRemoval);
-        SubscribeLocalEvent<PreventStealthComponent, EntGotInsertedIntoContainerMessage>(OnInsertion);
-        SubscribeLocalEvent<PreventStealthComponent, StealthAddedEvent>(OnStealthAdded);
-        SubscribeLocalEvent<PreventStealthComponent, HeldRelayedEvent<StealthAddedEvent>>(OnStealthAdded);
-        SubscribeLocalEvent<PreventStealthComponent, InventoryRelayedEvent<StealthAddedEvent>>(OnStealthAdded);
-        // DeltaV End - Items can disable Stealth.
+        InitializeDeltaStealthSystem(); // DeltaV - Items can disable Stealth.
     }
 
     private void OnExamineAttempt(EntityUid uid, StealthComponent component, ExamineAttemptEvent args)
