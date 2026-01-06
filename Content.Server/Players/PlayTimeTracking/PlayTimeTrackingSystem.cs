@@ -278,6 +278,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
+        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
         var requirements = _roles.GetRoleRequirements(antag);
         return JobRequirements.TryRequirementsMet(
             requirements,
@@ -286,7 +287,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             EntityManager,
             _prototypes,
             (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter,
+            isWhitelisted: isWhitelisted);
     }
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)

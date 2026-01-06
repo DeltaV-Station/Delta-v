@@ -43,7 +43,7 @@ public static class JobRequirements
         IEntityManager entManager,
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile,
-        bool isWhitelisted = false)
+        bool isWhitelisted = false) // DeltaV
     {
         reason = null;
         if (requirements == null)
