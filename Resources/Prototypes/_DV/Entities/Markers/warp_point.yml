@@ -90,6 +90,14 @@
   - type: WarpPoint
     location: Jail
 
+- type: entity
+  id: WarpPointSecurityCheckpoint
+  parent: WarpPoint
+  suffix: Security Checkpoint
+  components:
+  - type: WarpPoint
+    location: Security Checkpoint
+
 # Justice
 - type: entity
   id: WarpPointCourt
@@ -180,6 +188,14 @@
   components:
   - type: WarpPoint
     location: Library
+
+- type: entity
+  id: WarpPointRobotics
+  parent: WarpPoint
+  suffix: Robotics
+  components:
+  - type: WarpPoint
+    location: Robotics
 
 #Logistics
 - type: entity
@@ -304,6 +320,14 @@
   - type: WarpPoint
     location: Reporter
 
+- type: entity
+  id: WarpPointBoxing
+  parent: WarpPoint
+  suffix: Boxing Ring
+  components:
+  - type: WarpPoint
+    location: Boxing Ring
+
 #Misc
 - type: entity
   id: WarpPointAI
@@ -352,3 +376,19 @@
   components:
   - type: WarpPoint
     location: Disposals
+
+- type: entity
+  id: WarpPointPark
+  parent: WarpPoint
+  suffix: Park
+  components:
+  - type: WarpPoint
+    location: Park
+
+- type: entity
+  id: WarpPointArcade
+  parent: WarpPoint
+  suffix: Arcade
+  components:
+  - type: WarpPoint
+    location: Arcade
