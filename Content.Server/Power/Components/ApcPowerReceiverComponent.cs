@@ -49,7 +49,7 @@ namespace Content.Server.Power.Components
             set => NetworkLoad.Enabled = !value;
         }
 
-        [DataField("powerDisabled"), ViewVariables(VVAccess.ReadOnly)]
+        [DataField("powerDisabled"), ViewVariables(VVAccess.ReadOnly)] // Early merge of #42260
         public bool StartingPowerDisabled = false;
 
         [ViewVariables]
