@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Stealth;
+using Content.Shared._DV.Stealth;
 using Content.Shared._DV.Stealth.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
