@@ -150,8 +150,8 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         var isBubbling = false;
 
         // Check if the fryer is powered and has items
-        if (_power.IsPowered(ent.Owner) 
-            && ent.Comp.CookingItems.Count > 0 
+        if (_power.IsPowered(ent.Owner)
+            && ent.Comp.CookingItems.Count > 0
             && HasEnoughOil(ent))
         {
             isBubbling = true;
