@@ -267,14 +267,12 @@ public sealed class MailSystem : SharedMailSystem
         mailComp.RecipientJob = recipient.Job;
         mailComp.Recipient = recipient.Name;
 
-        // Frontier: Large mail bonus
         var mailEntityStrings = mailComp.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
         if (mailComp.IsLarge)
         {
             mailComp.Bounty += component.LargeBonus;
             mailComp.Penalty += component.LargeMalus;
         }
-        // End Frontier
 
         if (mailComp.IsFragile)
         {
@@ -296,7 +294,6 @@ public sealed class MailSystem : SharedMailSystem
             Timer.Spawn((int)component.PriorityDuration.TotalMilliseconds,
                 () =>
                 {
-                    // DeltaV - Expired mail recorded to logistic stats
                     ExecuteForEachLogisticsStats(uid,
                         (station, logisticStats) =>
                         {
@@ -313,7 +310,7 @@ public sealed class MailSystem : SharedMailSystem
         Appearance.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
         _meta.SetEntityName(uid,
-            Loc.GetString(mailEntityStrings.NameAddressed, // Frontier: move constant to MailEntityString
+            Loc.GetString(mailEntityStrings.NameAddressed,
                 ("recipient", recipient.Name)));
 
         var accessReader = EnsureComp<AccessReaderComponent>(uid);
@@ -449,7 +446,7 @@ public sealed class MailSystem : SharedMailSystem
             var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
             SetupMail(mail, ent.Comp, candidate);
 
-            Tag.AddTag(mail, MailTag); // Frontier
+            Tag.AddTag(mail, MailTag);
         }
 
         if (_container.TryGetContainer(ent, "queued", out var queued))

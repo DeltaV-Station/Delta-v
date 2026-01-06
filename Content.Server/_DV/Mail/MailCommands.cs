@@ -14,8 +14,8 @@ namespace Content.Server._DV.Mail;
 public sealed class MailToCommand : LocalizedEntityCommands
 {
     public override string Command => "mailto";
-    public override string Description => Loc.GetString("command-mailto-description", ("requiredComponent", nameof(MailReceiverComponent)));
-    public override string Help => Loc.GetString("command-mailto-help", ("command", Command));
+    public override string Description => Loc.GetString("cmd-mailto-description", ("requiredComponent", nameof(MailReceiverComponent)));
+    public override string Help => Loc.GetString("cmd-mailto-help", ("command", Command));
 
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -28,6 +28,28 @@ public sealed class MailToCommand : LocalizedEntityCommands
     private const string Container = "storagebase";
     private const string MailContainer = "contents";
 
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 =>
+                CompletionResult.FromHintOptions(
+                    CompletionHelper.Components<MailReceiverComponent>(args[0], EntityManager),
+                    Loc.GetString("cmd-mailto-hint-recipient")),
+            2 =>
+                CompletionResult.FromHintOptions(CompletionHelper.NetEntities(args[1], EntityManager),
+                    Loc.GetString("cmd-mailto-hint-container")),
+            3 =>
+                CompletionResult.FromHintOptions(CompletionHelper.Booleans,
+                    Loc.GetString("cmd-mailto-hint-fragile")),
+            4 =>
+                CompletionResult.FromHintOptions(CompletionHelper.Booleans,
+                    Loc.GetString("cmd-mailto-hint-priority")),
+            5 =>
+                CompletionResult.FromHintOptions(CompletionHelper.Booleans, Loc.GetString("cmd-mailto-hint-large")),
+            _ => CompletionResult.Empty
+        };
+    }
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -59,31 +81,31 @@ public sealed class MailToCommand : LocalizedEntityCommands
 
         if (!EntityManager.HasComponent<MailReceiverComponent>(recipientUid))
         {
-            shell.WriteLine(Loc.GetString("command-mailto-no-mailreceiver", ("requiredComponent", nameof(MailReceiverComponent))));
+            shell.WriteLine(Loc.GetString("cmd-mailto-no-mailreceiver", ("requiredComponent", nameof(MailReceiverComponent))));
             return;
         }
 
         if (!_prototype.HasIndex<EntityPrototype>(mailPrototype))
         {
-            shell.WriteLine(Loc.GetString("command-mailto-no-blankmail", ("blankMail", mailPrototype)));
+            shell.WriteLine(Loc.GetString("cmd-mailto-no-blankmail", ("blankMail", mailPrototype)));
             return;
         }
 
         if (!_container.TryGetContainer(containerUid, Container, out var targetContainer))
         {
-            shell.WriteLine(Loc.GetString("command-mailto-invalid-container", ("requiredContainer", Container)));
+            shell.WriteLine(Loc.GetString("cmd-mailto-invalid-container", ("requiredContainer", Container)));
             return;
         }
 
         if (!_sharedMail.TryGetMailRecipientForReceiver(recipientUid, out var recipient))
         {
-            shell.WriteLine(Loc.GetString("command-mailto-unable-to-receive"));
+            shell.WriteLine(Loc.GetString("cmd-mailto-unable-to-receive"));
             return;
         }
 
         if (!_sharedMail.TryGetMailTeleporterForReceiver(recipientUid, out var teleporterComponent, out var teleporterUid))
         {
-            shell.WriteLine(Loc.GetString("command-mailto-no-teleporter-found"));
+            shell.WriteLine(Loc.GetString("cmd-mailto-no-teleporter-found"));
             return;
         }
 
@@ -92,7 +114,7 @@ public sealed class MailToCommand : LocalizedEntityCommands
 
         if (!EntityManager.TryGetComponent<MailComponent>(mailUid, out var mailComponent))
         {
-            shell.WriteLine(Loc.GetString("command-mailto-bogus-mail", ("blankMail", mailPrototype), ("requiredMailComponent", nameof(MailComponent))));
+            shell.WriteLine(Loc.GetString("cmd-mailto-bogus-mail", ("blankMail", mailPrototype), ("requiredMailComponent", nameof(MailComponent))));
             return;
         }
 
@@ -109,7 +131,7 @@ public sealed class MailToCommand : LocalizedEntityCommands
 
         var teleporterQueue = _container.EnsureContainer<Container>((EntityUid)teleporterUid, "queued");
         _container.Insert(mailUid, teleporterQueue);
-        shell.WriteLine(Loc.GetString("command-mailto-success", ("timeToTeleport", teleporterComponent.NextDelivery - _timing.CurTime)));
+        shell.WriteLine(Loc.GetString("cmd-mailto-success", ("timeToTeleport", teleporterComponent.NextDelivery - _timing.CurTime)));
     }
 }
 
@@ -117,8 +139,8 @@ public sealed class MailToCommand : LocalizedEntityCommands
 public sealed class MailNowCommand : LocalizedEntityCommands
 {
     public override string Command => "mailnow";
-    public override string Description => Loc.GetString("command-mailnow");
-    public override string Help => Loc.GetString("command-mailnow-help", ("command", Command));
+    public override string Description => Loc.GetString("cmd-mailnow");
+    public override string Help => Loc.GetString("cmd-mailnow-help", ("command", Command));
 
     [Dependency] private readonly MailSystem _mail = default!;
 
@@ -130,6 +152,6 @@ public sealed class MailNowCommand : LocalizedEntityCommands
             _mail.DeliverNow((uid, mailTeleporter));
         }
 
-        shell.WriteLine(Loc.GetString("command-mailnow-success"));
+        shell.WriteLine(Loc.GetString("cmd-mailnow-success"));
     }
 }
