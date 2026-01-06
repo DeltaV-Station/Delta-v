@@ -1,74 +1,86 @@
-job-name-warden = Warden
-job-name-security = Security Officer
-job-name-cadet = Security Cadet
-job-name-hos = Head of Security
-job-name-detective = Detective
-job-name-brigmedic = Corpsman
-job-name-borg = Cyborg
-job-name-scientist = Scientist
-job-name-research-assistant = Research Assistant
-job-name-rd = Mystagogue
-job-name-psychologist = Psychologist
-job-name-intern = Medical Intern
-job-name-doctor = Medical Doctor
-job-name-paramedic = Paramedic
-job-name-cmo = Chief Medical Officer
-job-name-chemist = Chemist
-job-name-technical-assistant = Technical Assistant
-job-name-engineer = Station Engineer
 job-name-atmostech = Atmospheric Technician
-job-name-hop = Head of Personnel
-job-name-captain = Captain
-job-name-serviceworker = Service Worker
-job-name-centcomoff = CentComm Official
-job-name-cburn = Centcomm Quarantine Officer
-job-name-deathsquad = Centcomm Agent
-job-name-reporter = Reporter
-job-name-musician = Musician
-# DeltaV - Changed Librarian to Archivist
-# job-name-librarian = Librarian
-# DeltaV - Changed Lawyer to Attorney
-# job-name-lawyer = Lawyer
-job-name-mime = Mime
-job-name-ce = Chief Engineer
-job-name-janitor = Janitor
-job-name-chaplain = Chaplain
-job-name-botanist = Botanist
 job-name-bartender = Bartender
-# DeltaV - Changes Passenger to Assistant. job-name-passenger is used in a dozen other places as the default job so we dont want to change that overly much.
-job-name-passenger = Assistant
-job-name-salvagespec = Salvage Specialist
-job-name-station-ai = Station AI
-# DeltaV - Hopefully makes LO maintaining easier
-# job-name-qm = Quartermaster
+job-name-borg = Cyborg
+job-name-botanist = Botanist
+# DeltaV - Changed Brigmedic to Corpsman
+#job-name-brigmedic = Brigmedic
+job-name-cadet = Security Cadet
+job-name-captain = Captain
 job-name-cargotech = Cargo Technician
+job-name-cburn = CentComm Quarantine Officer
+job-name-ce = Chief Engineer
+job-name-centcommoff = CentComm Official
 job-name-chef = Chef
+job-name-chaplain = Chaplain
+job-name-chemist = Chemist
 job-name-clown = Clown
-job-name-ertleader = ERT Leader
+job-name-cluwne = Cluwne
+job-name-cmo = Chief Medical Officer
+job-name-deathsquad = Death Squad
+job-name-detective = Detective
+job-name-doctor = Medical Doctor
+job-name-engineer = Station Engineer
 job-name-ertchaplain = ERT Chaplain
 job-name-ertengineer = ERT Engineer
-job-name-ertsecurity = ERT Security
-job-name-ertmedic = ERT Medic
 job-name-ertjanitor = ERT Janitor
+job-name-ertleader = ERT Leader
+job-name-ertmedic = ERT Medic
+job-name-ertsecurity = ERT Security
+job-name-hop = Head of Personnel
+job-name-hos = Head of Security
+job-name-intern = Medical Intern
+job-name-janitor = Janitor
+# DeltaV - Changed Lawyer to Attorney
+#job-name-lawyer = Lawyer
+# DeltaV - Changed Librarian to Archivist
+#job-name-librarian = Librarian
+job-name-mime = Mime
+job-name-musician = Musician
+job-name-paramedic = Paramedic
+# DeltaV - Changes Passenger to Assistant. job-name-passenger is used in a dozen other places as the default job so we dont want to change that overly much.
+job-name-passenger = Assistant
+job-name-psychologist = Psychologist
+# DeltaV - Hopefully makes LO maintaining easier
+# job-name-qm = Quartermaster
+# DeltaV - Changed RD to Mystagogue
+# job-name-rd = Research Director
+job-name-reporter = Reporter
+job-name-research-assistant = Research Assistant
+job-name-salvagespec = Salvage Specialist
+job-name-scientist = Scientist
+job-name-security = Security Officer
+job-name-serviceworker = Service Worker
+job-name-station-ai = Station AI
+job-name-technical-assistant = Technical Assistant
 job-name-visitor = Visitor
-job-name-cluwne = Cluwne
+job-name-warden = Warden
 
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
 job-name-geneticist = Geneticist
+#job-name-boxer = Boxer # DeltaV - Keeping boxer/Zookeper job
 job-name-no-id = No ID
 job-name-prisoner = Prisoner
 job-name-roboticist = Roboticist
-job-name-syndicate = Syndicate
 job-name-unknown = Unknown
 job-name-virologist = Virologist
+#job-name-zookeeper = Zookeeper # DeltaV - Keeping Boxer/Zookeper job
+
+# antagonist jobs
+job-name-ninja = Ninja
+job-name-syndicate = Syndicate
+job-name-syndicate-commander = Syndicate Commander
+job-name-syndicate-corpsman = Syndicate Corpsman
+job-name-syndicate-operative = Syndicate Operative
+job-name-pirate = Pirate
+job-name-wizard = Wizard
 job-name-zombie = Zombie
 
 # Job titles
-job-title-visitor = Visitor
 job-title-cluwne = Cluwne
 job-title-universal = Universal
+job-title-visitor = Visitor
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
