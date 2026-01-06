@@ -75,6 +75,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
         {
             BreakOnMove = true,
             BreakOnDamage = true,
+            BlockDuplicate = true,
             NeedHand = true
         };
 

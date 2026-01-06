@@ -150,12 +150,11 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         var isBubbling = false;
 
         // Check if the fryer is powered and has items
-        if (_power.IsPowered(ent.Owner))
+        if (_power.IsPowered(ent.Owner) 
+            && ent.Comp.CookingItems.Count > 0 
+            && HasEnoughOil(ent))
         {
-            if (ent.Comp.CookingItems.Count > 0 && HasEnoughOil(ent))
-            {
-                isBubbling = true;
-            }
+            isBubbling = true;
         }
 
         UpdateAmbience(ent, isBubbling);
@@ -519,13 +518,13 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
             {
                 foreach (var (ingredientUid, _) in recipeIngredients!)
                 {
-                    BurnItemWithRecipe(ent, ingredientUid, recipe, container);
+                    BurnItem(ent, ingredientUid, container, recipe: recipe);
                 }
                 return;
             }
 
             // Force burn the single item
-            BurnItemWithRecipe(ent, item, recipe, container);
+            BurnItem(ent, item, container, recipe: recipe);
             return;
         }
 
@@ -581,12 +580,23 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     }
 
     /// <summary>
-    /// Burns an item using its recipe's BurnedResult
+    /// Burns an item - uses recipe's BurnedResult if available, otherwise uses BaseBurnedResult
     /// </summary>
-    private void BurnItemWithRecipe(Entity<DeepFryerComponent> ent, EntityUid item, ProtoId<DeepFryerRecipePrototype> recipe, BaseContainer container)
+    private void BurnItem(Entity<DeepFryerComponent> ent, EntityUid item, BaseContainer container, ProtoId<DeepFryerRecipePrototype>? recipe = null)
     {
-        if (!_prototype.TryIndex(recipe, out var deepFryerRecipe))
-            return;
+
+        EntProtoId? burnedEntity = null;
+        // If we were never explicitly given a recipe, then see if there's one
+        if (!recipe.HasValue && ent.Comp.CookingItems.TryGetValue(item, out var cookingItem) && cookingItem.Recipe is { } foundRecipe)
+            recipe = foundRecipe;
+
+        // Try to get the recipe, if we were given one or if we found one
+        if (_prototype.TryIndex(recipe, out var deepFryerRecipe))
+            burnedEntity = deepFryerRecipe.BurnedResult;
+
+        // finally, if we don't have a BurnedResult from a recipe, just default to BaseBurnedResult
+        if (!burnedEntity.HasValue)
+            burnedEntity = ent.Comp.BaseBurnedResult;
 
         // Remove the item from tracking and container
         ent.Comp.CookingItems.Remove(item);
@@ -596,36 +606,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         QueueDel(item);
 
         // Spawn the burned result on top of the fryer
-        Spawn(deepFryerRecipe.BurnedResult, Xform.GetMoverCoordinates(ent));
-
-        // Degrade oil quality even when burning
-        DegradeOilQuality(ent);
-
-        // Show a danger popup
-        Popup.PopupEntity(Loc.GetString("deep-fryer-item-burned", ("item", item)), ent, PopupType.MediumCaution);
-        _audio.PlayPvs(ent.Comp.FinishedBurningSound, ent);
-    }
-
-    /// <summary>
-    /// Burns an item - uses recipe's BurnedResult if available, otherwise uses BaseBurnedResult
-    /// </summary>
-    private void BurnItem(Entity<DeepFryerComponent> ent, EntityUid item, BaseContainer container)
-    {
-        // Check if this item has a recipe
-        if (ent.Comp.CookingItems.TryGetValue(item, out var cookingItem) && cookingItem.Recipe != null)
-        {
-            // Use the recipe's burned result
-            BurnItemWithRecipe(ent, item, cookingItem.Recipe.Value, container);
-            return;
-        }
-
-        // No recipe - use base burned result
-        ent.Comp.CookingItems.Remove(item);
-        _container.Remove(item, container);
-        QueueDel(item);
-
-        // Spawn the base burned result
-        Spawn(ent.Comp.BaseBurnedResult, Xform.GetMoverCoordinates(ent));
+        Spawn(burnedEntity, Xform.GetMoverCoordinates(ent));
 
         // Degrade oil quality even when burning
         DegradeOilQuality(ent);
