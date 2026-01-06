@@ -173,7 +173,7 @@
   - type: EntityTableContainerFill
     containers:
       stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
+        tableId: ToiletCisternLootPublic     # Delta V - Make better loot more common
         prob: 0.33                           # Delta V - Decrease freaquency of loot
         #rolls: !type:RangeNumberSelector
         #  range: 0, 1
@@ -186,7 +186,7 @@
   - type: EntityTableContainerFill
     containers:
       stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
+        tableId: ToiletCisternLootPublic     # Delta V - Make better loot more common
         prob: 0.33                           # Delta V - Decrease freaquency of loot
         #rolls: !type:RangeNumberSelector
         #  range: 0, 1

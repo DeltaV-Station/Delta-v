@@ -8,3 +8,24 @@
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
         prob: 0.2
+
+# For public toilets
+- type: entityTable
+  id: ToiletCisternLootPublic
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 10 # from 8
+      tableId: ToiletCisternRareToolsTable
+    - !type:NestedSelector
+      weight: 8 # from 5
+      tableId: ToiletCisternUtilityTable
+    - !type:NestedSelector
+      weight: 4 # from 25
+      tableId: ToiletCisternCommonToolsTable
+    - !type:NestedSelector
+      weight: 3 # no change
+      tableId: ToiletCisternWeaponsTable
+    - !type:NestedSelector
+      weight: 1 # no change
+      tableId: ToiletCisternSyndicateTable
