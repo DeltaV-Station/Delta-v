@@ -21,3 +21,7 @@ phrase-location-northeast = northeast
 phrase-location-southeast = southeast
 phrase-location-southwest = southwest
 phrase-location-northwest = northwest
+phrase-location-up = up
+phrase-location-down = down
+phrase-location-left = left
+phrase-location-right = right
