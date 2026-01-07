@@ -289,6 +289,9 @@
       head-reptilian:
       - state: equipped-head-reptilian
         shader: unshaded
+      head-feroxi: # DeltaV - Feroxi
+      - state: equipped-head-reptilian # This seems to match up
+        shader: unshaded
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
@@ -305,6 +308,11 @@
       head-reptilian:
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
+        shader: unshaded
+      head-feroxi: # DeltaV - Feroxi
+      - sprite: _DV/Clothing/Head/Hardsuits/goliathhelm.rsi
+        state: equipped-head-feroxi
+      - state: equipped-head-unshaded-reptilian # This seems to match up
         shader: unshaded
       head-dog:
       - state: equipped-head-dog
