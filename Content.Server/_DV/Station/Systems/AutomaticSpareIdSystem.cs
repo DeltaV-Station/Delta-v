@@ -77,7 +77,7 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
             MoveToAlerted(ent);
     }
 
-    private void RoundStartCaptain(Entity<AutomaticSpareIdComponent> ent)
+    private static void RoundStartCaptain(Entity<AutomaticSpareIdComponent> ent)
     {
         ent.Comp.State = AutomaticSpareIdState.CaptainPresent;
         ent.Comp.Timeout = null;

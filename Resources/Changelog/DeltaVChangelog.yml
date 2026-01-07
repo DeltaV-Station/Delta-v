@@ -1,85 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Re-added the Turtlenecks to the Winterdrobe - Stay fashionable and warm
-      on Glacier!
-    type: Fix
-  id: 1524
-  time: '2025-07-19T15:59:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4039
-- author: HTMLSystem
-  changes:
-  - message: Added a lot more clothes to assistant loadouts!
-    type: Add
-  id: 1525
-  time: '2025-07-21T00:05:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3554
-- author: deltanedas
-  changes:
-  - message: Fixed empowered cosmic cultists taking temperature damage.
-    type: Fix
-  id: 1526
-  time: '2025-07-21T19:35:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4054
-- author: kotobdev
-  changes:
-  - message: All jobs, again, now get the same starting TC.
-    type: Tweak
-  id: 1527
-  time: '2025-07-21T22:04:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4064
-- author: AlgisAlphonse
-  changes:
-  - message: Magnet pull time has been increased from 6 min to 9 min.
-    type: Tweak
-  - message: Magnet release warning message time has been increased from 30 seconds
-      to 59 seconds.
-    type: Tweak
-  - message: Magnet offer refresh time has been decreased from 3 min to 2 min.
-    type: Tweak
-  - message: Probability of wrecks for the salvage magnet has been increased, and
-      probability of asteroids has been decreased.
-    type: Tweak
-  - message: Lowered the cost to pull wrecks from 1000 mining points to 500 mining
-      points, to put in line with nerfs to ore output and improved materials from
-      recycling scrap.
-    type: Tweak
-  - message: Time for a fulton to teleport has been decreased from 45 seconds to 30
-      seconds.
-    type: Tweak
-  id: 1528
-  time: '2025-07-22T12:15:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3944
-- author: Colin-Tel, Pikepeicrer
-  changes:
-  - message: Wizards have been spotted around stations!
-    type: Add
-  id: 1529
-  time: '2025-07-22T14:42:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4066
-- author: AlgisAlphonse
-  changes:
-  - message: The Plant Analyzer has been imported from the Frontier Sector. It tells
-      you detailed information about plants and their seeds, such as mutations, tolerances
-      and more! Available from a service techfab after a tier 2 civilian research.
-    type: Add
-  id: 1530
-  time: '2025-07-23T13:52:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4061
-- author: Colin-Tel
-  changes:
-  - message: Wizards have been doing more exciting things on NT stations!
-    type: Tweak
-  id: 1531
-  time: '2025-07-23T14:44:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4069
-- author: YeenJunk
-  changes:
-  - message: Admin Ghosts can see the crew monitor again.
-    type: Fix
-  id: 1532
-  time: '2025-07-24T04:38:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4072
 - author: Lyndomen
   changes:
   - message: Menace Skeletons are now rising from their graves, and will roll for
@@ -4481,4 +4400,81 @@
   id: 2023
   time: '2026-01-04T19:26:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5127
+- author: Stxcking
+  changes:
+  - message: Medical borgs now have access to a crew monitor as part of the rescue
+      cyborg module!
+    type: Add
+  id: 2024
+  time: '2026-01-06T01:31:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5117
+- author: ShepardToTheStars
+  changes:
+  - message: The Santa anomalies have been removed from the anomaly pool (until next
+      December)!
+    type: Remove
+  id: 2025
+  time: '2026-01-06T05:27:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5145
+- author: Stxcking
+  changes:
+  - message: Added some missing feroxi mask/helm sprites. In total, 10 bandanas, 2
+      hard suit helms (Goliath + Paramedic Void), 15 masks!
+    type: Add
+  id: 2026
+  time: '2026-01-06T15:59:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5149
+- author: MilonPL
+  changes:
+  - message: Reworked the deep fryer! It can now be used to make new recipes, check
+      out the guidebook for more info!
+    type: Tweak
+  - message: Be careful about putting liquids that aren't cooking oils in the deep
+      fryer! It could start a grease fire!
+    type: Add
+  id: 2027
+  time: '2026-01-06T18:41:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5043
+- author: ShepardToTheStars
+  changes:
+  - message: Secure crates from Logistics once again have a 75% chance of acidifying
+      the contents inside.
+    type: Tweak
+  id: 2028
+  time: '2026-01-06T21:57:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5152
+- author: PureBreadBagel, ShepardToTheStars
+  changes:
+  - message: Added the medical Crashcart from funkystation! It holds life-saving equipment
+      and has a slot for a defibrillator and a gas tank!
+    type: Add
+  id: 2029
+  time: '2026-01-07T04:01:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5140
+- author: MilonPL
+  changes:
+  - message: AAC tablet UI looks slightly better now.
+    type: Tweak
+  id: 2030
+  time: '2026-01-07T15:57:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5153
+- author: ShepardToTheStars
+  changes:
+  - message: The colossus should no longer get objectives to put the effigy on non-station
+      locations, such as evac shuttle or space debris.
+    type: Fix
+  id: 2031
+  time: '2026-01-07T16:35:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5160
+- author: IamVelcroboy
+  changes:
+  - message: Lowered the chance of toilet cisterns containing loot but improved the
+      loot table of the loot that spawned.
+    type: Tweak
+  - message: Dirty toilets may now contain something better or even perhaps worse
+      than just water or gastrotoxin.
+    type: Tweak
+  id: 2032
+  time: '2026-01-07T17:52:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5064
 Order: 1
