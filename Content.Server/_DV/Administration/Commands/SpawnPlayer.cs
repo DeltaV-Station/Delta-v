@@ -24,8 +24,6 @@ public sealed class SpawnPlayer : LocalizedEntityCommands
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly TraitSystem _trait = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
 
     public override string Command => "spawnplayer";
 

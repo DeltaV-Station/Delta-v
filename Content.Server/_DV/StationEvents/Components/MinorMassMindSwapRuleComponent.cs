@@ -10,7 +10,7 @@ public sealed partial class MinorMassMindSwapRuleComponent : Component
     /// <summary>
     /// The mind swap is only temporary if true.
     /// </summary>
-    [DataField("isTemporary")]
+    [DataField]
     public bool IsTemporary = false;
 
     [DataField]
