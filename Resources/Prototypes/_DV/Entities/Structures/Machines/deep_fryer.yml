@@ -1,0 +1,137 @@
+- type: entity
+  id: KitchenDeepFryer
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: deep fryer
+  description: An industrial deep fryer. A big hit at state fairs!
+  components:
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Structures/Machines/deep_fryer.rsi
+    layers:
+    - state: off-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: off-1
+  - type: AmbientSound
+    volume: -4
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Nyanotrasen/Ambience/Objects/deepfryer_sizzling.ogg
+  - type: SolutionContainerVisuals
+    maxFillLevels: 8
+    fillBaseName: off-
+  - type: Rotatable
+    rotateWhilePulling: false
+  - type: Explosive # Weak explosion in a very small radius. Ignites surrounding entities.
+    explosionType: FireBomb
+    totalIntensity: 25
+    intensitySlope: 5
+    maxIntensity: 3
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+    keysIn:
+    - reaction
+  - type: SmokeOnTrigger
+    keysIn:
+    - reaction
+    duration: 10
+    spreadAmount: 30
+    smokePrototype: TearGasSmokeWhite
+    solution:
+      reagents:
+      - ReagentId: TearGas # burning oil is probably toxic and not good for your eyes
+        Quantity: 20
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.30,-0.25,0.30,0.45"
+        density: 600
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: DeepFryer
+    blacklist:
+      components:
+      - NukeDisk
+      - Stack
+      - Openable
+    whitelist:
+      components:
+      - Edible
+    solution: vat_oil
+    fryingOils:
+    - Cornoil
+    - OilGhee
+    - OilOlive
+    containerName: fryer_basket
+    minimumOilVolume: 25
+    oilQuality: 1.0
+    oilDegradationPerRecipe: 0.05
+    foulOilBurnChance: 0.3
+    oilQualityFlavors:
+      Pristine:
+      - savory
+      - crispy
+      Clean:
+      - oily
+      Used:
+      - oily
+      - stale
+      Dirty:
+      - burnt
+      - bitter
+      - rancid
+      Foul:
+      - burnt
+      - bitter
+      - rancid
+      - awful
+  - type: SolutionContainerManager
+    solutions:
+      vat_oil:
+        maxVol: 100
+  - type: DrainableSolution
+    solution: vat_oil
+  - type: ExaminableSolution
+    solution: vat_oil
+  - type: InjectableSolution
+    solution: vat_oil
+  - type: RefillableSolution
+    solution: vat_oil
+  - type: Edible
+    edible: Drink
+    solution: vat_oil
+  - type: Appearance
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpillBehavior
+        solution: vat_oil
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: Machine
+    board: DeepFryerMachineCircuitboard
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - fryer_basket
+  - type: ContainerContainer
+    containers:
+      fryer_basket: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: PowerSwitch
