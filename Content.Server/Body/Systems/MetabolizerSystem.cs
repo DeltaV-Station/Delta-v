@@ -157,8 +157,13 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
             }
 
             // we're done here entirely if this is true
-            if (reagents >= ent.Comp1.MaxReagentsProcessable)
+            // DeltaV - start of null limit allowed
+            if (
+                ent.Comp1.MaxReagentsProcessable is { } maxReagentsProcessable 
+                && reagents >= maxReagentsProcessable
+            )
                 return;
+            // DeltaV - end of null limit allowed
 
 
             // loop over all our groups and see which ones apply

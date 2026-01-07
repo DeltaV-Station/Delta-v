@@ -72,8 +72,11 @@ namespace Content.Server.Body.Components
         ///     Used to nerf 'stacked poisons' where having 5+ different poisons in a syringe, even at low
         ///     quantity, would be muuuuch better than just one poison acting.
         /// </summary>
+        /// <remarks>
+        /// DeltaV - changed from an `int` to an `int?` to support lungs not having a limit
+        /// </remarks>
         [DataField("maxReagents")]
-        public int MaxReagentsProcessable = 3;
+        public int? MaxReagentsProcessable = 3;
 
         /// <summary>
         ///     A list of metabolism groups that this metabolizer will act on, in order of precedence.

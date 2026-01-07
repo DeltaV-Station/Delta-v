@@ -9,6 +9,10 @@
     sprite: Mobs/Species/Vox/organs.rsi
   - type: Metabolizer
     metabolizerTypes: [ Vox ]
+    # DeltaV - All lungs should process all gas types on every update. Players are not likely to abuse poison stacking with gases.
+    # On the other hand, limiting the reagent count causes the Metabolic Roll Asphyxiation bug: 
+    # Oxygen is occasionally randomly excluded from being processed when many gas types are present
+    maxReagents: null
   - type: Lung
     alert: LowNitrogen
   - type: Item
