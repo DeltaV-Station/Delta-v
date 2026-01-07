@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Wizards have been doing more exciting things on NT stations!
-    type: Tweak
-  id: 1531
-  time: '2025-07-23T14:44:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4069
 - author: YeenJunk
   changes:
   - message: Admin Ghosts can see the crew monitor again.
@@ -4472,4 +4465,12 @@
   id: 2030
   time: '2026-01-07T15:57:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5153
+- author: ShepardToTheStars
+  changes:
+  - message: The colossus should no longer get objectives to put the effigy on non-station
+      locations, such as evac shuttle or space debris.
+    type: Fix
+  id: 2031
+  time: '2026-01-07T16:35:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5160
 Order: 1
