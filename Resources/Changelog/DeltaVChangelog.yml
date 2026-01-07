@@ -1,146 +1,4 @@
 ﻿Entries:
-- author: Avalon-Proto
-  changes:
-  - message: Chitinids can now use their 2nd set of arms to drag crates and other
-      items
-    type: Tweak
-  id: 1513
-  time: '2025-07-06T05:54:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4029
-- author: Field Command, SubspaceEmber
-  changes:
-  - message: Add laser tag guns that can be requested at the cargo console. Watch
-      out, some laser tag guns may be rigged to be more dangerous than you'd expect.
-    type: Add
-  id: 1514
-  time: '2025-07-06T10:25:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3963
-- author: kotobdev
-  changes:
-  - message: Xenomorph raffle timer is now 10 seconds, down from 30.
-    type: Tweak
-  id: 1515
-  time: '2025-07-06T22:07:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4042
-- author: AlgisAlphonse
-  changes:
-  - message: 'Added a short range materials magnet to the logistics techlathe. Cargo
-      Technicians rejoice! WARNING: This does not fix the existing bug with diamonds
-      being stuck in lathes. Use with caution.'
-    type: Add
-  id: 1516
-  time: '2025-07-08T14:05:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4011
-- author: NoElkaTheGod
-  changes:
-  - message: Energy shield price reduced from 16 to 12 telecrystals.
-    type: Tweak
-  id: 1517
-  time: '2025-07-11T15:31:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4045
-- author: YomieI
-  changes:
-  - message: Sticks of butter and butter slices are now grindable
-    type: Tweak
-  id: 1518
-  time: '2025-07-12T10:46:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4050
-- author: NoElkaTheGod
-  changes:
-  - message: Null Glare now ignores flash protection if the user is empowered.
-    type: Tweak
-  - message: Null glare duration while empowered 10 -> 6 seconds.
-    type: Tweak
-  id: 1519
-  time: '2025-07-12T14:58:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4048
-- author: kotobdev
-  changes:
-  - message: Glimmer seizures will now only occur above 450 glimmer.
-    type: Tweak
-  id: 1520
-  time: '2025-07-13T22:29:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4049
-- author: SirrRequiem
-  changes:
-  - message: Oh my god! Shoes! Sec gets combat boots in their loadouts
-    type: Add
-  id: 1521
-  time: '2025-07-14T02:23:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4056
-- author: deltanedas
-  changes:
-  - message: The Listening Post's crew monitoring console now shows the station instead
-      of the post.
-    type: Tweak
-  id: 1522
-  time: '2025-07-18T15:12:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4015
-- author: kotobdev
-  changes:
-  - message: Listening Post Operatives now get records tablets.
-    type: Add
-  id: 1523
-  time: '2025-07-18T15:30:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4030
-- author: SirWarock
-  changes:
-  - message: Re-added the Turtlenecks to the Winterdrobe - Stay fashionable and warm
-      on Glacier!
-    type: Fix
-  id: 1524
-  time: '2025-07-19T15:59:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4039
-- author: HTMLSystem
-  changes:
-  - message: Added a lot more clothes to assistant loadouts!
-    type: Add
-  id: 1525
-  time: '2025-07-21T00:05:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3554
-- author: deltanedas
-  changes:
-  - message: Fixed empowered cosmic cultists taking temperature damage.
-    type: Fix
-  id: 1526
-  time: '2025-07-21T19:35:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4054
-- author: kotobdev
-  changes:
-  - message: All jobs, again, now get the same starting TC.
-    type: Tweak
-  id: 1527
-  time: '2025-07-21T22:04:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4064
-- author: AlgisAlphonse
-  changes:
-  - message: Magnet pull time has been increased from 6 min to 9 min.
-    type: Tweak
-  - message: Magnet release warning message time has been increased from 30 seconds
-      to 59 seconds.
-    type: Tweak
-  - message: Magnet offer refresh time has been decreased from 3 min to 2 min.
-    type: Tweak
-  - message: Probability of wrecks for the salvage magnet has been increased, and
-      probability of asteroids has been decreased.
-    type: Tweak
-  - message: Lowered the cost to pull wrecks from 1000 mining points to 500 mining
-      points, to put in line with nerfs to ore output and improved materials from
-      recycling scrap.
-    type: Tweak
-  - message: Time for a fulton to teleport has been decreased from 45 seconds to 30
-      seconds.
-    type: Tweak
-  id: 1528
-  time: '2025-07-22T12:15:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3944
-- author: Colin-Tel, Pikepeicrer
-  changes:
-  - message: Wizards have been spotted around stations!
-    type: Add
-  id: 1529
-  time: '2025-07-22T14:42:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4066
 - author: AlgisAlphonse
   changes:
   - message: The Plant Analyzer has been imported from the Frontier Sector. It tells
@@ -4477,4 +4335,143 @@
   id: 2012
   time: '2026-01-02T07:02:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4996
+- author: Coryler
+  changes:
+  - message: Remove Telegnosis having a two minute cooldown to return
+    type: Fix
+  id: 2013
+  time: '2026-01-02T19:00:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5013
+- author: EmberAstra
+  changes:
+  - message: added Engineering Void Suits! Lighter but less protected than the standard
+      model.
+    type: Add
+  id: 2014
+  time: '2026-01-02T23:54:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4944
+- author: Halo3moth
+  changes:
+  - message: Advanced plate carrier's heat, slash, and blunt resistance nerfed from
+      40% to 30%. Shock nerfed from 30% to 20%
+    type: Tweak
+  id: 2015
+  time: '2026-01-03T00:42:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5081
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed a server-crashing bug where the server would crash if there were
+      zero cosmic cultists and it would try to hold a steward vote with zero options.
+    type: Fix
+  id: 2016
+  time: '2026-01-03T00:47:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5097
+- author: Velcroboy
+  changes:
+  - message: Fixed potted plants not being easy to grab
+    type: Fix
+  id: 2017
+  time: '2026-01-03T00:48:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5052
+- author: SirWarock
+  changes:
+  - message: Surgery now has a new, better UI!
+    type: Tweak
+  id: 2018
+  time: '2026-01-03T13:27:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5107
+- author: EmberAstra
+  changes:
+  - message: 'New Glimmer event: the Oracle and Sophic Grammateus will now occasionally
+      attract foxfire!'
+    type: Add
+  - message: 'New Glimmer event: the Noosphere is coming for your hair, and its fashion
+      sense is... random.'
+    type: Add
+  - message: Using barber scissors on kobolds no longer causes massive errors.
+    type: Fix
+  id: 2019
+  time: '2026-01-03T13:56:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5102
+- author: EmberAstra
+  changes:
+  - message: Advanced Cleaning Modules now come with an Hydra again!
+    type: Fix
+  id: 2020
+  time: '2026-01-04T00:15:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5116
+- author: MilonPL
+  changes:
+  - message: Footprints will no longer despawn after 60 seconds.
+    type: Tweak
+  - message: Footprints are now limited to two per tile.
+    type: Tweak
+  id: 2021
+  time: '2026-01-04T16:37:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5111
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed people getting randomly deleted when there were too many footprints.
+    type: Fix
+  id: 2022
+  time: '2026-01-04T19:25:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5128
+- author: Stxcking
+  changes:
+  - message: Fixes electronic damage missing icon.
+    type: Fix
+  id: 2023
+  time: '2026-01-04T19:26:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5127
+- author: Stxcking
+  changes:
+  - message: Medical borgs now have access to a crew monitor as part of the rescue
+      cyborg module!
+    type: Add
+  id: 2024
+  time: '2026-01-06T01:31:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5117
+- author: ShepardToTheStars
+  changes:
+  - message: The Santa anomalies have been removed from the anomaly pool (until next
+      December)!
+    type: Remove
+  id: 2025
+  time: '2026-01-06T05:27:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5145
+- author: Stxcking
+  changes:
+  - message: Added some missing feroxi mask/helm sprites. In total, 10 bandanas, 2
+      hard suit helms (Goliath + Paramedic Void), 15 masks!
+    type: Add
+  id: 2026
+  time: '2026-01-06T15:59:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5149
+- author: MilonPL
+  changes:
+  - message: Reworked the deep fryer! It can now be used to make new recipes, check
+      out the guidebook for more info!
+    type: Tweak
+  - message: Be careful about putting liquids that aren't cooking oils in the deep
+      fryer! It could start a grease fire!
+    type: Add
+  id: 2027
+  time: '2026-01-06T18:41:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5043
+- author: ShepardToTheStars
+  changes:
+  - message: Secure crates from Logistics once again have a 75% chance of acidifying
+      the contents inside.
+    type: Tweak
+  id: 2028
+  time: '2026-01-06T21:57:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5152
+- author: PureBreadBagel, ShepardToTheStars
+  changes:
+  - message: Added the medical Crashcart from funkystation! It holds life-saving equipment
+      and has a slot for a defibrillator and a gas tank!
+    type: Add
+  id: 2029
+  time: '2026-01-07T04:01:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5140
 Order: 1
