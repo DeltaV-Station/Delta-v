@@ -16,46 +16,46 @@ public sealed partial class MeteorSwarmRuleComponent : Component
     [DataField("waves")]
     public int? WaveCounter = null;
 
-    [DataField("minimumWaves")]
+    [DataField]
     public int MinimumWaves = 3;
 
-    [DataField("maximumWaves")]
+    [DataField]
     public int MaximumWaves = 8;
 
-    [DataField("minimumCooldown")]
+    [DataField]
     public float MinimumCooldown = 10f;
 
-    [DataField("maximumCooldown")]
+    [DataField]
     public float MaximumCooldown = 60f;
 
-    [DataField("meteorsPerWave")]
+    [DataField]
     public int MeteorsPerWave = 5;
 
-    [DataField("meteorVelocity")]
+    [DataField]
     public float MeteorVelocity = 10f;
 
-    [DataField("maxAngularVelocity")]
+    [DataField]
     public float MaxAngularVelocity = 2f;
 
-    [DataField("minAngularVelocity")]
+    [DataField]
     public float MinAngularVelocity = -2f;
 
     /// <summary>
     /// Stagger the spawns a bit, but not too much so they still come in waves
     /// </summary>
-    [DataField("spawnDistanceVariation")]
+    [DataField]
     public float SpawnDistanceVariation = 50f;
 
     /// <summary>
     /// Percentage of the station area to target. Allow for some near-miss fly-by meteors to jump-scare crew on EVAs.
     /// Stations aren't perfect rectangles like the targeting area, so even 1.0 will still have some near-misses.
     /// </summary>
-    [DataField("targetingSpread")]
+    [DataField]
     public float TargetingSpread = 1.05f;
 
     /// <summary>
     /// How long before a meteor despawns (in case it missed everything).
     /// </summary>
-    [DataField("meteorLifetime")]
+    [DataField]
     public float MeteorLifetime = 300f;
 }
