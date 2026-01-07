@@ -1,4 +1,3 @@
-using Content.Shared._DV.Revenant.Components;
 using Content.Shared.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -47,12 +46,6 @@ public sealed class SolutionSpikerSystem : EntitySystem
             || !Resolve(target, ref spikableTarget, ref managerTarget, false)
             || !_solution.TryGetRefillableSolution((target, spikableTarget, managerTarget), out var targetSoln, out var targetSolution)
             || !_solution.TryGetSolution((source, managerSource), spikableSource.SourceSolution, out _, out var sourceSolution))
-        {
-            return false;
-        }
-
-        // DeltaV - Add InvalidSpikeSourceComponent
-        if (HasComp<InvalidSpikeSourceComponent>(source))
         {
             return false;
         }
