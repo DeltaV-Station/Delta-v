@@ -147,3 +147,15 @@
       amount: 2
     - id: BoxShotgunPractice
       amount: 2
+
+- type: entity
+  parent: GunSafeBaseSecure
+  id: GunSafePLACEHOLDERSubMachineGun
+  name: PLACEHOLDER safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunPLACEHOLDER
+      amount: 2
+    - id: MagazinePistolHighCapacity
+      amount: 4
