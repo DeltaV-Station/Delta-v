@@ -663,7 +663,7 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.1 # DeltaV - No taser spam, was 0.5
+    fireRate: 0.2 # DeltaV - No taser spam, was 0.5
     resetOnHandSelected: false # DeltaV - Makes it so you dont have to wait 10 seconds to shoot a taser after pulling it out
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
@@ -679,7 +679,7 @@
   - type: PacifismAllowedGun
   - type: UseDelayOnShoot # DeltaV - No taser spam (provides a cooldown indicator)
   - type: UseDelay # DeltaV - No taser spam (provides a cooldown indicator)
-    delay: 10
+    delay: 5
     
 
 - type: entity
