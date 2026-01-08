@@ -314,7 +314,7 @@ accent-anglish-words-105 = completely
 accent-anglish-replacement-105 = outright
 
 accent-anglish-words-106 = computer
-accent-anglish-replacement-106 = circlewyrd
+accent-anglish-replacement-106 = upthinker
 
 accent-anglish-words-107 = conference
 accent-anglish-replacement-107 = gathering
@@ -560,7 +560,7 @@ accent-anglish-words-187 = enchant
 accent-anglish-replacement-187 = bewitch
 
 accent-anglish-words-188 = evac
-accent-anglish-replacement-188 = empty
+accent-anglish-replacement-188 = outway
 
 accent-anglish-words-189 = frezon
 accent-anglish-replacement-189 = coldstuff
@@ -1214,10 +1214,10 @@ accent-anglish-words-405 = what the fuck
 accent-anglish-replacement-405 = by all that's unholy, what
 
 accent-anglish-words-406 = whiskey
-accent-anglish-replacement-406 = quick water
+accent-anglish-replacement-406 = quickwater
 
 accent-anglish-words-407 = whisky
-accent-anglish-replacement-407 = quick water
+accent-anglish-replacement-407 = quickwater
 
 accent-anglish-words-408 = window
 accent-anglish-replacement-408 = eyedoor
@@ -1517,7 +1517,7 @@ accent-anglish-words-505 = internal
 accent-anglish-replacement-505 = inland
 
 accent-anglish-words-506 = internals
-accent-anglish-replacement-506 = airworks
+accent-anglish-replacement-506 = breathworks
 
 accent-anglish-words-507 = EVA
 accent-anglish-replacement-507 = spacewalk
@@ -3081,3 +3081,339 @@ accent-anglish-replacement-1029 = uneking
 
 accent-anglish-words-1030 = additionally
 accent-anglish-replacement-1030 = yet
+
+accent-anglish-words-1031 = taste
+accent-anglish-replacement-1031 = smack
+
+accent-anglish-words-1032 = tasted
+accent-anglish-replacement-1032 = smacked
+
+accent-anglish-words-1033 = tasty
+accent-anglish-replacement-1033 = smacky
+
+accent-anglish-words-1034 = tax
+accent-anglish-replacement-1034 = tithe
+
+accent-anglish-words-1035 = taxes
+accent-anglish-replacement-1035 = tithes
+
+accent-anglish-words-1036 = taxation
+accent-anglish-replacement-1036 = tithing
+
+accent-anglish-words-1037 = task
+accent-anglish-replacement-1037 = chore
+
+accent-anglish-words-1038 = tasks
+accent-anglish-replacement-1038 = chores
+
+accent-anglish-words-1039 = target
+accent-anglish-replacement-1039 = mark
+
+accent-anglish-words-1040 = airlock
+accent-anglish-replacement-1040 = breathlock
+
+accent-anglish-words-1041 = airlocks
+accent-anglish-replacement-1041 = breathlocks
+
+accent-anglish-words-1042 = certain
+accent-anglish-replacement-1042 = wis
+
+accent-anglish-words-1043 = certainly
+accent-anglish-replacement-1043 = wisly
+
+accent-anglish-words-1044 = certainty
+accent-anglish-replacement-1044 = wishood
+
+accent-anglish-words-1045 = chair
+accent-anglish-replacement-1045 = seat
+
+accent-anglish-words-1046 = chairs
+accent-anglish-replacement-1046 = seats
+
+accent-anglish-words-1047 = chaos
+accent-anglish-replacement-1047 = mess
+
+accent-anglish-words-1048 = chaotic
+accent-anglish-replacement-1048 = messy
+
+accent-anglish-words-1049 = based
+accent-anglish-replacement-1049 = grounded
+
+accent-anglish-words-1050 = oracle
+accent-anglish-replacement-1050 = godspeaker
+
+accent-anglish-words-1051 = vessel
+accent-anglish-replacement-1051 = vat
+
+accent-anglish-words-1052 = toilet
+accent-anglish-replacement-1052 = potty
+
+accent-anglish-words-1053 = evidence
+accent-anglish-replacement-1053 = witness
+
+accent-anglish-words-1054 = implant
+accent-anglish-replacement-1054 = insetment
+
+accent-anglish-words-1055 = charge
+accent-anglish-replacement-1055 = fill
+
+accent-anglish-words-1056 = charge!
+accent-anglish-replacement-1056 = ongripe!
+
+accent-anglish-words-1057 = charger
+accent-anglish-replacement-1057 = filler
+
+accent-anglish-words-1058 = recharger
+accent-anglish-replacement-1058 = refiller
+
+accent-anglish-words-1059 = defib
+accent-anglish-replacement-1059 = heart-starter
+
+accent-anglish-words-1060 = defibrillator
+accent-anglish-replacement-1060 = heart-jolt kit
+
+accent-anglish-words-1061 = because
+accent-anglish-replacement-1061 = owing to
+
+accent-anglish-words-1062 = expensive
+accent-anglish-replacement-1062 = unthrifty
+
+accent-anglish-words-1063 = chili
+accent-anglish-replacement-1063 = hot pepper
+
+accent-anglish-words-1064 = wiggle
+accent-anglish-replacement-1064 = shake
+
+accent-anglish-words-1065 = character
+accent-anglish-replacement-1065 = selfhood
+
+accent-anglish-words-1066 = taco
+accent-anglish-replacement-1066 = foldwich
+
+accent-anglish-words-1067 = tacos
+accent-anglish-replacement-1067 = foldwiches
+
+accent-anglish-words-1068 = checkers
+accent-anglish-replacement-1068 = drafts
+
+accent-anglish-words-1069 = chess
+accent-anglish-replacement-1069 = king's game
+
+accent-anglish-words-1070 = chessboard
+accent-anglish-replacement-1070 = king's board
+
+accent-anglish-words-1071 = cheese
+accent-anglish-replacement-1071 = milkcurd
+
+accent-anglish-words-1072 = cathedral
+accent-anglish-replacement-1072 = headchurch
+
+accent-anglish-words-1073 = disabler
+accent-anglish-replacement-1073 = crippler
+
+accent-anglish-words-1074 = disable
+accent-anglish-replacement-1074 = cripple
+
+accent-anglish-words-1075 = disabled
+accent-anglish-replacement-1075 = crippled
+
+accent-anglish-words-1076 = filter
+accent-anglish-replacement-1076 = sieve
+
+accent-anglish-words-1077 = filtered
+accent-anglish-replacement-1077 = sifted
+
+accent-anglish-words-1078 = fireplace
+accent-anglish-replacement-1078 = hearth
+
+accent-anglish-words-1079 = firm
+accent-anglish-replacement-1079 = unyielding
+
+accent-anglish-words-1080 = file
+accent-anglish-replacement-1080 = binder
+
+accent-anglish-words-1081 = fiction
+accent-anglish-replacement-1081 = playtruth
+
+accent-anglish-words-1082 = naive
+accent-anglish-replacement-1082 = craftless
+
+accent-anglish-words-1083 = interrogation
+accent-anglish-replacement-1083 = fraising
+
+accent-anglish-words-1084 = interrogate
+accent-anglish-replacement-1084 = befrain
+
+accent-anglish-words-1085 = interrogator
+accent-anglish-replacement-1085 = asker
+
+accent-anglish-words-1086 = intoxicated
+accent-anglish-replacement-1086 = bedrunken
+
+accent-anglish-words-1087 = invade
+accent-anglish-replacement-1087 = overrun
+
+accent-anglish-words-1088 = invader
+accent-anglish-replacement-1088 = overrunner
+
+accent-anglish-words-1089 = invasion
+accent-anglish-replacement-1089 = inslaught
+
+accent-anglish-words-1090 = invincible
+accent-anglish-replacement-1090 = unbeatsome
+
+accent-anglish-words-1091 = baton
+accent-anglish-replacement-1091 = club
+
+accent-anglish-words-1092 = nice
+accent-anglish-replacement-1092 = kind
+
+accent-anglish-words-1093 = armed
+accent-anglish-replacement-1093 = weaponed
+
+accent-anglish-words-1094 = argue
+accent-anglish-replacement-1094 = squabble
+
+accent-anglish-words-1095 = argument
+accent-anglish-replacement-1095 = flite
+
+accent-anglish-words-1096 = argued
+accent-anglish-replacement-1096 = squabbled
+
+accent-anglish-words-1097 = arguing
+accent-anglish-replacement-1097 = squabbling
+
+accent-anglish-words-1098 = armor
+accent-anglish-replacement-1098 = helmcladding
+
+accent-anglish-words-1099 = armored
+accent-anglish-replacement-1099 = helmclad
+
+accent-anglish-words-1100 = around
+accent-anglish-replacement-1100 = about
+
+accent-anglish-words-1101 = arsenal
+accent-anglish-replacement-1101 = weaponhoard
+
+accent-anglish-words-1102 = art
+accent-anglish-replacement-1102 = handiwork
+
+accent-anglish-words-1103 = attack
+accent-anglish-replacement-1103 = onslaught
+
+accent-anglish-words-1104 = attacked
+accent-anglish-replacement-1104 = struck
+
+accent-anglish-words-1105 = assault
+accent-anglish-replacement-1105 = onrush
+
+accent-anglish-words-1106 = assaulted
+accent-anglish-replacement-1106 = onrushed
+
+accent-anglish-words-1107 = attempt
+accent-anglish-replacement-1107 = whirl
+
+accent-anglish-words-1108 = attempted
+accent-anglish-replacement-1108 = had a go at
+
+accent-anglish-words-1109 = attempting
+accent-anglish-replacement-1109 = bidding
+
+accent-anglish-words-1110 = authority
+accent-anglish-replacement-1110 = headship
+
+accent-anglish-words-1111 = cheers
+accent-anglish-replacement-1111 = to your health
+
+accent-anglish-words-1112 = necessary
+accent-anglish-replacement-1112 = needed
+
+accent-anglish-words-1113 = necessarily
+accent-anglish-replacement-1113 = needfully
+
+accent-anglish-words-1114 = via
+accent-anglish-replacement-1114 = by way of
+
+accent-anglish-words-1115 = violent
+accent-anglish-replacement-1115 = wrathful
+
+accent-anglish-words-1116 = violence
+accent-anglish-replacement-1116 = wrathfulness
+
+accent-anglish-words-1117 = violently
+accent-anglish-replacement-1117 = wrathfully
+
+accent-anglish-words-1118 = vial
+accent-anglish-replacement-1118 = slimglass
+
+accent-anglish-words-1119 = salute
+accent-anglish-replacement-1119 = hail
+
+accent-anglish-words-1120 = yessir
+accent-anglish-replacement-1120 = forsooth, sir
+
+accent-anglish-words-1121 = cultist
+accent-anglish-replacement-1121 = lesserbeliever
+
+accent-anglish-words-1122 = cultists
+accent-anglish-replacement-1122 = lesserbelievers
+
+accent-anglish-words-1123 = hatchet
+accent-anglish-replacement-1123 = smallaxe
+
+accent-anglish-words-1124 = dagger
+accent-anglish-replacement-1124 = dirk
+
+accent-anglish-words-1125 = inaction
+accent-anglish-replacement-1125 = unwork
+
+accent-anglish-words-1126 = dude
+accent-anglish-replacement-1126 = friend
+
+accent-anglish-words-1127 = bro
+accent-anglish-replacement-1127 = kin
+
+accent-anglish-words-1128 = mystagogue
+accent-anglish-replacement-1128 = soul-foreteller
+
+accent-anglish-words-1129 = mysta
+accent-anglish-replacement-1129 = soul-foreteller
+
+accent-anglish-words-1130 = reserve
+accent-anglish-replacement-1130 = hoard
+
+accent-anglish-words-1131 = reserves
+accent-anglish-replacement-1131 = hoards
+
+accent-anglish-words-1132 = reserved
+accent-anglish-replacement-1132 = withdrawn
+
+accent-anglish-words-1133 = allowed
+accent-anglish-replacement-1133 = let
+
+accent-anglish-words-1134 = permit
+accent-anglish-replacement-1134 = go-ahead
+
+accent-anglish-words-1135 = permits
+accent-anglish-replacement-1135 = go-aheads
+
+accent-anglish-words-1136 = permitted
+accent-anglish-replacement-1136 = given the go-ahead
+
+accent-anglish-words-1137 = ifrit
+accent-anglish-replacement-1137 = hellwight
+
+accent-anglish-words-1138 = holoparasite
+accent-anglish-replacement-1138 = strongghost
+
+accent-anglish-words-1139 = injector
+accent-anglish-replacement-1139 = inshooter
+
+accent-anglish-words-1140 = inject
+accent-anglish-replacement-1140 = needleprick
+
+accent-anglish-words-1141 = injecting
+accent-anglish-replacement-1141 = jabbing
+
+accent-anglish-words-1142 = injected
+accent-anglish-replacement-1142 = shot

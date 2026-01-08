@@ -63,4 +63,4 @@ trait-redshirt-desc =
     I look down in my red shirt."
 
 trait-anglish-name = Anglish tung
-trait-anglish-desc = Your tung is of the saxons, and say unlike others aboard this skyship.
+trait-anglish-desc = Your tung is of the Saxons, and say unlike others aboard this skyship.
