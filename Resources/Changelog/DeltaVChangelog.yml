@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: Lyndomen
-  changes:
-  - message: Menace Skeletons are now rising from their graves, and will roll for
-      random objectives.
-    type: Add
-  - message: Removed Closet Skeletons in favor of Menace Skeleton.
-    type: Remove
-  id: 1533
-  time: '2025-07-24T16:49:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/3660
 - author: TJohnson
   changes:
   - message: Whitelist requirements for Command and Security roles are now in place!
@@ -4477,4 +4467,11 @@
   id: 2032
   time: '2026-01-07T17:52:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5064
+- author: ShepardToTheStars
+  changes:
+  - message: The taser now has a 5 second cooldown between shots.
+    type: Tweak
+  id: 2033
+  time: '2026-01-08T15:53:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5106
 Order: 1
