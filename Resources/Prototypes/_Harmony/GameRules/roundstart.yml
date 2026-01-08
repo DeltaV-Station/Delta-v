@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseGameRule
+  id: Conspirators
+  components:
+  - type: GameRule
+    minPlayers: 28 # minimum of 4 conspirators
+  - type: ConspiratorRule
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Conspirator ]
+      min: 4
+      max: 7
+      playerRatio: 7
+      briefing:
+        text: conspirator-role-greeting
+        color: "#724F29"
+        sound: /Audio/_Harmony/Misc/conspirator_greeting.ogg
+      components:
+      - type: Conspirator
+      - type: AutoImplant
+        implants:
+        - RadioImplantConspiracy
+      mindRoles:
+      - MindRoleConspirator
