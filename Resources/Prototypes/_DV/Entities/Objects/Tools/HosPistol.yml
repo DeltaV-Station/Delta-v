@@ -1,0 +1,14 @@
+- type: entity
+  id: HosBriefcase
+  name: Hos's Sidearm Briefcase
+  description: A brief case containing the hos's prefered Sidearm
+  parent: ToolboxThief
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/HosBriefcase.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack
+    storedRotation: 90
+    possibleSets:
+    - X01bundle
+    - Energymagnumbundle
