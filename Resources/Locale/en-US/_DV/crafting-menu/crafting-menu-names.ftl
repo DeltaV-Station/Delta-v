@@ -1,3 +1,5 @@
+# Delta V - Added crafting menu names for any (item) variants for the recipes of makeshift items.
+
 crafting-menu-name-any-multitool = Any Multitool
 
 crafting-menu-name-any-wrench = Any Wrench
