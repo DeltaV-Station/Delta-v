@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: YeenJunk
-  changes:
-  - message: IPCs no longer lose Astral Murmur when unlocking and locking their panels.
-    type: Fix
-  id: 1535
-  time: '2025-07-24T19:17:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4075
 - author: Proxysseia
   changes:
   - message: Updated Alert Procedure, go read it again.
@@ -4472,4 +4465,12 @@
   id: 2034
   time: '2026-01-08T17:11:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5163
+- author: ShepardToTheStars
+  changes:
+  - message: Redrock spawns a bit further out until we can figure out why its spawning
+      inside the station.
+    type: Tweak
+  id: 2035
+  time: '2026-01-08T20:53:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5166
 Order: 1
