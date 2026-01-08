@@ -6,31 +6,31 @@
     edges:
     - to: tool
       steps:
-      - tag: Multitool
+      - tag: Multitool # Delta V - Changed to be any type of multi tool accepted.
         icon:
           sprite: _Starlight/Objects/Tools/improvised_multitool.rsi
           state: icon
-        name: Any Multitool # Delta V - Changed to be any type of multi tool accepted.
-      - tag: Wrench
+        name: crafting-menu-name-aMUL
+      - tag: Wrench # Delta V - Changed to be any type of wrench accepted.
         icon:
           sprite: _Starlight/Objects/Tools/improvised_wrench.rsi
           state: icon
-        name: Any Wrench # Delta V - Changed to be any type of wrench accepted.
-      - tag: Wirecutter
+        name: crafting-menu-name-aWRE
+      - tag: Wirecutter # Delta V - Changed to be any type of Wirecutters accepted.
         icon:
           sprite: _Starlight/Objects/Tools/improvised_wirecutters.rsi
           state: cutters
-        name: Any Wirecutters # Delta V - Changed to be any type of Wirecutters accepted.
-      - tag: Screwdriver
+        name: crafting-menu-name-aWIR
+      - tag: Screwdriver # Delta V - Changed to be any type of screwdriver accepted.
         icon:
           sprite: _Starlight/Objects/Tools/improvised_screwdriver.rsi
           state: screwdriver
-        name: Any Screwdrivers # Delta V - Changed to be any type of screwdriver accepted.
-      - tag: Crowbar
+        name: crafting-menu-name-aSCR
+      - tag: Crowbar # Delta V - Changed to be any type of crowbar accepted.
         icon:
           sprite: _Starlight/Objects/Tools/improvised_crowbar.rsi
           state: icon
-        name: Any Crowbar # Delta V - Changed to be any type of crowbar accepted.
+        name: crafting-menu-name-aCRO
       - tag: EmergencyWelder
         icon:
           sprite: Objects/Tools/welder_mini.rsi

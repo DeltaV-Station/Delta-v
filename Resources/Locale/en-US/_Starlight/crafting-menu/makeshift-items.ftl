@@ -170,17 +170,19 @@ crafting-menu-text-PVTH = The best a tidersmith can offer, no holy crusade is fi
 
 crafting-menu-name-ETX = emergency toolbox
 
-crafting-menu-name-MUL = multitool
+# Delta V - added Any (item) localisation
 
-crafting-menu-name-WRE = wrench
+crafting-menu-name-aMUL = Any Multitool
 
-crafting-menu-name-WIR = wirecutter
+crafting-menu-name-aWRE = Any Wrench
 
-crafting-menu-name-SCR = screwdriver
+crafting-menu-name-aWIR = Any Wirecutter
 
-crafting-menu-name-CRO = crowbar
+crafting-menu-name-aSCR = Any Screwdriver
 
-crafting-menu-name-EXOXY = extended-capacity emergency oxygen tank
+crafting-menu-name-aCRO = Any Crowbar
+
+crafting-menu-name-aGT = Any Gas Tank
 
 crafting-menu-name-CGREN = green crayon
 
