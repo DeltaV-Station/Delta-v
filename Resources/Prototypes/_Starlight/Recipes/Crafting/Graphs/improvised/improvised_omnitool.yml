@@ -10,27 +10,27 @@
         icon:
           sprite: _Starlight/Objects/Tools/improvised_multitool.rsi
           state: icon
-        name: crafting-menu-name-IM
+        name: Any Multitool # Delta V - Changed to be any type of multi tool accepted.
       - tag: Wrench
         icon:
           sprite: _Starlight/Objects/Tools/improvised_wrench.rsi
           state: icon
-        name: crafting-menu-name-IWR
+        name: Any Wrench # Delta V - Changed to be any type of wrench accepted.
       - tag: Wirecutter
         icon:
           sprite: _Starlight/Objects/Tools/improvised_wirecutters.rsi
           state: cutters
-        name: crafting-menu-name-IW
+        name: Any Wirecutters # Delta V - Changed to be any type of Wirecutters accepted.
       - tag: Screwdriver
         icon:
           sprite: _Starlight/Objects/Tools/improvised_screwdriver.rsi
           state: screwdriver
-        name: crafting-menu-name-ISC
+        name: Any Screwdrivers # Delta V - Changed to be any type of screwdriver accepted.
       - tag: Crowbar
         icon:
-          sprite: _Starlight/Objects/Tools/improvised_screwdriver.rsi
+          sprite: _Starlight/Objects/Tools/improvised_crowbar.rsi
           state: icon
-        name: crafting-menu-name-IC
+        name: Any Crowbar # Delta V - Changed to be any type of crowbar accepted.
       - tag: EmergencyWelder
         icon:
           sprite: Objects/Tools/welder_mini.rsi

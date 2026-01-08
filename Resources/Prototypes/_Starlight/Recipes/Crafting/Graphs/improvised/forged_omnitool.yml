@@ -41,11 +41,11 @@
           sprite: Objects/Power/power_cells.rsi
           state: small
         name: construction-graph-tag-power-cell-small
-      - tag: GasTank
+      - component: GasTank # Delta V - Changed to look for the gasTank component.
         icon:
-          sprite: Objects/Tanks/emergency_extended.rsi
+          sprite: Objects/Tanks/oxygen.rsi
           state: icon
-        name: crafting-menu-name-EXOXY
+        name: Any type of Gas Tank # Delta V - Any type of gas tank is accepted.
       - material: Cable
         amount: 3
         doAfter: 5
