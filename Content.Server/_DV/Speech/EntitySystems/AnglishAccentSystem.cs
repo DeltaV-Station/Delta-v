@@ -28,10 +28,10 @@ public sealed class AnglishAccentSystem : EntitySystem
 
         msg = _replacement.ApplyReplacements(msg, "anglish");
 
-        // replaces th with an "eth" at the start of words.
-        msg = RegexThLowercase.Replace(msg, "ð");
-        msg = RegexThUppercaseShort.Replace(msg, "Ð");
-        msg = RegexThUppercaseLong.Replace(msg, "Ð");
+        // replaces th with a "thorn"
+        msg = RegexThLowercase.Replace(msg, "þ");
+        msg = RegexThUppercaseShort.Replace(msg, "Þ");
+        msg = RegexThUppercaseLong.Replace(msg, "Þ");
 
         return msg;
     }

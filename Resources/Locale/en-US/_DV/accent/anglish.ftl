@@ -3417,3 +3417,9 @@ accent-anglish-replacement-1141 = jabbing
 
 accent-anglish-words-1142 = injected
 accent-anglish-replacement-1142 = shot
+
+accent-anglish-words-1143 = ovnia
+accent-anglish-replacement-1143 = rotherkin
+
+accent-anglish-words-1144 = avali
+accent-anglish-replacement-1144 = gleedkin
