@@ -10,27 +10,27 @@
         icon:
           sprite: Objects/Tools/multitool.rsi
           state: icon
-        name: crafting-menu-name-any-multitool
+        name: crafting-menu-name-any-multitool # Delta V - Changed the name as it accepts any multi tool
       - tag: Wrench
         icon:
           sprite: Objects/Tools/wrench.rsi
           state: icon
-        name: crafting-menu-name-any-wrench
+        name: crafting-menu-name-any-wrench # Delta V - Changed the name as it accepts any wrench
       - tag: Wirecutter
         icon:
           sprite: Objects/Tools/wirecutters.rsi
           state: cutters-map
-        name: crafting-menu-name-any-wirecutter
+        name: crafting-menu-name-any-wirecutter # Delta V - Changed the name as it accepts any wire cutter
       - tag: Screwdriver
         icon:
           sprite: Objects/Tools/screwdriver.rsi
           state: screwdriver-map
-        name: crafting-menu-name-any-screwdriver
+        name: crafting-menu-name-any-screwdriver # Delta V - Changed the name as it accepts any screwdriver
       - tag: Crowbar
         icon:
           sprite: Objects/Tools/crowbar.rsi
           state: storage
-        name: crafting-menu-name-any-crowbar
+        name: crafting-menu-name-any-crowbar # Delta V - Changed the name as it accepts any crowbar
       - tag: EmergencyWelder
         icon:
           sprite: Objects/Tools/welder_mini.rsi
@@ -45,7 +45,7 @@
         icon:
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
-        name: crafting-menu-name-any-gas-tank
+        name: crafting-menu-name-any-gas-tank # Delta V - Changed the name as it accepts any gas tank
       - material: Cable
         amount: 3
         doAfter: 5
