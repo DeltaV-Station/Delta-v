@@ -67,13 +67,6 @@
         reagents:
         - ReagentId: SpaceCleaner
           Quantity: 5000
-  - type: SolutionRegeneration # Delta-v - refill wall dispenser 1 full bottle per minute.
-    solution: tank
-    generated:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 100
-    duration: 60
 
 - type: entity
   parent: BaseDispenser

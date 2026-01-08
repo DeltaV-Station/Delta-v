@@ -119,13 +119,6 @@
         reagents:
         - ReagentId: SpaceCleaner
           Quantity: 200
-  - type: SolutionRegeneration # Delta-V - Refill borg's spray 1 full use per 10 seconds
-    solution: spray
-    generated:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 10
-    duration: 10
 
 - type: entity
   parent: MegaSprayBottle
