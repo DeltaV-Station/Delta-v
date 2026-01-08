@@ -1391,7 +1391,7 @@ accent-anglish-words-463 = silent
 accent-anglish-replacement-463 = hushed
 
 accent-anglish-words-464 = sir
-accent-anglish-replacement-464 = m'lord
+accent-anglish-replacement-464 = lief
 
 accent-anglish-words-465 = ma'am
 accent-anglish-replacement-465 = m'lady
@@ -3350,7 +3350,7 @@ accent-anglish-words-1119 = salute
 accent-anglish-replacement-1119 = hail
 
 accent-anglish-words-1120 = yessir
-accent-anglish-replacement-1120 = forsooth, sir
+accent-anglish-replacement-1120 = forsooth, lief
 
 accent-anglish-words-1121 = cultist
 accent-anglish-replacement-1121 = lesserbeliever
