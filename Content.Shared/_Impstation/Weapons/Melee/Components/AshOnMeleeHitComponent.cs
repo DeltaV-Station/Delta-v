@@ -22,7 +22,7 @@ public sealed partial class AshOnMeleeHitComponent : Component
     /// The sound played upon ashing.
     /// </summary>
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg");
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/supermatter.ogg");
 
     /// <summary>
     /// Whether the entity deletes itself after ashing something.
