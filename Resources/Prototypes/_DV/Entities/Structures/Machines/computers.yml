@@ -5,6 +5,18 @@
   description: Used to purchase shuttles for the station.
   components:
   - type: ShipyardConsole
+    categories:
+    - Transport
+    - Shipping
+    - Medical
+    - Mining
+    - Civilian
+    - Research
+    - Military
+    - Experimental
+    - Small
+    - Medium
+    - Large
   - type: AccessReader
     access: [[ Captain ]]
   - type: ActivatableUI
@@ -39,7 +51,21 @@
   - type: ShipyardConsole
     channel: CentCom
     useStationFunds: false
-    defaultCategory: Medical
+    categories:
+    - CentComm
+    - ERT
+    - Transport
+    - Shipping
+    - Medical
+    - Mining
+    - Civilian
+    - Research
+    - Military
+    - Experimental
+    - Small
+    - Medium
+    - Large
+    defaultCategory: ERT # Probably switch to CentComm once we have ships in that category
   - type: AccessReader
     access: [[ CentralCommand ]]
 

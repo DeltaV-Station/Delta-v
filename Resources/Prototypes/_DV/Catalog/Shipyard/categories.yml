@@ -1,35 +1,55 @@
 # class
 - type: vesselCategory
   id: Civilian
+  name: vessel-cat-civilian
 
 - type: vesselCategory
   id: Military
+  name: vessel-cat-military
 
 - type: vesselCategory
   id: Experimental
+  name: vessel-cat-experimental
 
 # size
 - type: vesselCategory
   id: Small
+  name: vessel-cat-small
 
 - type: vesselCategory
   id: Medium
+  name: vessel-cat-medium
 
 - type: vesselCategory
   id: Large
+  name: vessel-cat-large
 
 # purpose
 - type: vesselCategory
   id: Medical
+  name: vessel-cat-medical
 
 - type: vesselCategory
   id: Mining
+  name: vessel-cat-mining
 
 - type: vesselCategory
   id: Research
+  name: vessel-cat-research
 
 - type: vesselCategory
   id: Shipping
+  name: vessel-cat-shipping
 
 - type: vesselCategory
   id: Transport
+  name: vessel-cat-transport
+
+# admin
+- type: vesselCategory
+  id: CentComm
+  name: vessel-cat-centcomm
+
+- type: vesselCategory
+  id: ERT
+  name: vessel-cat-ert

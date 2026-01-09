@@ -2,6 +2,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Popups;
 using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.Prototypes;
 using Content.Shared.Whitelist;
@@ -44,12 +45,17 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
         {
             bankAccount = GetBankAccount(ent);
             if (!bankAccount.HasValue)
+            {
+                var popup = Loc.GetString("shipyard-console-error-bank");
+                Popup.PopupEntity(popup, ent, user, PopupType.SmallCaution);
+                Audio.PlayPvs(ent.Comp.DenySound, ent);
                 return;
+            }
 
             if (bankAccount.Value.Comp.Accounts[bankAccount.Value.Comp.PrimaryAccount] < vessel.Price)
             {
                 var popup = Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price));
-                Popup.PopupEntity(popup, ent, user);
+                Popup.PopupEntity(popup, ent, user, PopupType.SmallCaution);
                 Audio.PlayPvs(ent.Comp.DenySound, ent);
                 return;
             }
@@ -61,7 +67,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
             || !_shipyard.TrySendShuttle(grid, vessel.Path, out var shuttle))
         {
             var popup = Loc.GetString("shipyard-console-error");
-            Popup.PopupEntity(popup, ent, user);
+            Popup.PopupEntity(popup, ent, user, PopupType.SmallCaution);
             Audio.PlayPvs(ent.Comp.DenySound, ent);
             return;
         }

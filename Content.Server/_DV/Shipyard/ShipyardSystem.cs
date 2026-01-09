@@ -1,8 +1,6 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Systems;
 using Content.Shared._DV.CCVars;
-using Content.Shared.Station.Components;
 using Content.Shared.Tag;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Configuration;
@@ -22,7 +20,6 @@ public sealed class ShipyardSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
 
     public ProtoId<TagPrototype> DockTag = "DockShipyard";
 
