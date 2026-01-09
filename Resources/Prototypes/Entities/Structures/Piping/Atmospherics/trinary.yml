@@ -78,7 +78,6 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
-    - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasFilter
@@ -126,7 +125,6 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
-  - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasTrinaryBase
@@ -179,7 +177,6 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
-    - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasMixer
@@ -223,7 +220,6 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
-  - type: StationAiWhitelist #DeltaV
 
 - type: entity
   parent: GasPipeBase
