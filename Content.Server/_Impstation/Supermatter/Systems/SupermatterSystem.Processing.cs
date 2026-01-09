@@ -348,18 +348,14 @@ public sealed partial class SupermatterSystem
         // Absorbed gas from surrounding area
         var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
         
-        // Delta-V - same as in ProcessAtmos.
-        var absorbedGas = mix.Clone();
-        absorbedGas.Multiply(gasEfficiency);
-        
-        var moles = absorbedGas.TotalMoles;
+        var moles = mix.TotalMoles * gasEfficiency;
 
         var totalDamage = 0f;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold);
 
         // Temperature start to have a positive effect on damage after 350
-        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
+        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * mix.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
         totalDamage += tempDamage;
 
@@ -375,7 +371,7 @@ public sealed partial class SupermatterSystem
         if (moles < _config.GetCVar(ImpCCVars.SupermatterMolePenaltyThreshold))
         {
             // Only has a net positive effect when the temp is below 313.15, heals up to 2 damage. Psychologists increase this temp min by up to 45
-            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            sm.HeatHealing = Math.Min(mix.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else
@@ -445,7 +441,7 @@ public sealed partial class SupermatterSystem
         var integrity = GetIntegrity(sm).ToString("0.00");
 
         // Instantly announce delamination
-        if (sm.Delamming && !sm.DelamAnnounced)
+        if (sm.IsDelaminating && !sm.IsDelaminationAnnounced)
         {
             var sb = new StringBuilder();
             var loc = sm.PreferredDelamType switch
@@ -461,7 +457,7 @@ public sealed partial class SupermatterSystem
 
             message = sb.ToString();
             global = true;
-            sm.DelamAnnounced = true;
+            sm.IsDelaminationAnnounced = true;
             sm.YellTimer = TimeSpan.FromSeconds(sm.DelamTimer / 2);
 
             SendSupermatterAnnouncement(uid, sm, message, global);
@@ -473,10 +469,10 @@ public sealed partial class SupermatterSystem
             return;
 
         // Recovered after the delamination point
-        if (sm.Damage < sm.DamageDelaminationPoint && sm.DelamAnnounced)
+        if (sm.Damage < sm.DamageDelaminationPoint && sm.IsDelaminationAnnounced)
         {
             message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
-            sm.DelamAnnounced = false;
+            sm.IsDelaminationAnnounced = false;
             sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.SupermatterYellTimer));
             global = true;
 
@@ -485,7 +481,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Oh god oh fuck
-        if (sm.Delamming && sm.DelamAnnounced)
+        if (sm.IsDelaminating && sm.IsDelaminationAnnounced)
         {
             var seconds = Math.Ceiling(sm.DelamEndTime.TotalSeconds - _timing.CurTime.TotalSeconds);
 
@@ -535,7 +531,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Ignore the 0% integrity alarm
-        if (sm.Delamming)
+        if (sm.IsDelaminating)
             return;
 
         // We are not taking consistent damage, Engineers aren't needed
@@ -650,16 +646,16 @@ public sealed partial class SupermatterSystem
 
         sm.PreferredDelamType = ChooseDelamType(uid, sm);
 
-        if (!sm.Delamming)
+        if (!sm.IsDelaminating)
         {
-            sm.Delamming = true;
+            sm.IsDelaminating = true;
             sm.DelamEndTime = _timing.CurTime + TimeSpan.FromSeconds(sm.DelamTimer);
             AnnounceCoreDamage(uid, sm);
         }
 
-        if (sm.Damage < sm.DamageDelaminationPoint && sm.Delamming)
+        if (sm.Damage < sm.DamageDelaminationPoint && sm.IsDelaminating)
         {
-            sm.Delamming = false;
+            sm.IsDelaminating = false;
             AnnounceCoreDamage(uid, sm);
         }
 
@@ -781,7 +777,7 @@ public sealed partial class SupermatterSystem
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
         var psyDiff = -0.007f;
-        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 20f);
+        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, sm.HallucinationRange);
 
         foreach (var mob in lookup)
         {

@@ -10,7 +10,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Supermatter.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent][NetworkedComponent][AutoGenerateComponentState]
 public sealed partial class SupermatterComponent : Component
 {
     #region Base
@@ -24,7 +24,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The supermatter's internal gas storage
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)]
     public GasMixture? GasStorage;
 
     [DataField]
@@ -34,7 +34,7 @@ public sealed partial class SupermatterComponent : Component
     public Color LightColorDelam = Color.FromHex("#ff5555");
 
     [DataField]
-    public float HallucinationRange = 6f;
+    public float HallucinationRange = 20f;
 
     #endregion
 
@@ -138,7 +138,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The internal energy of the supermatter
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float Power;
 
     /// <summary>
@@ -150,7 +150,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// Affects the amount of oxygen and plasma that is released during supermatter reactions, as well as the heat generated
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float HeatModifier;
 
     /// <summary>
@@ -162,32 +162,32 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float PowerlossInhibitor = 1;
 
     /// <summary>
     /// Based on CO2 percentage, this slowly moves between 0 and 1.
     /// We use it to calculate <see cref="PowerlossInhibitor"/>.
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float PowerlossDynamicScaling;
 
     /// <summary>
     /// Affects the amount of damage and minimum point at which the SM takes heat damage
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float DynamicHeatResistance = 1;
 
     /// <summary>
     /// More moles of gases are harder to heat than fewer, so let's scale heat damage around them
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float MoleHeatPenaltyThreshold;
 
     /// <summary>
     /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public float PsyCoefficient;
 
     /// <summary>
@@ -300,18 +300,18 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The amount of damage taken
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public float Damage = 0f;
 
     /// <summary>
     /// The damage from before this cycle.
     /// Used to limit the damage we can take each cycle, and for safe alert.
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float DamageArchived = 0f;
 
     /// <summary>
-    /// Is multiplied by ExplosionPoint to cap evironmental damage per cycle
+    /// The maximum amount of damage the supermatter can take in a single tick, proportional to <see cref="DamageDelaminationPoint"/>
     /// </summary>
     [DataField]
     public float DamageHardcap = 0.002f;
@@ -359,9 +359,12 @@ public sealed partial class SupermatterComponent : Component
     public int DamageDelamAlertPoint = 300;
 
     [DataField]
-    public bool Delamming;
+    public bool IsDelaminating;
 
-    [DataField]
+    /// <summary>
+    /// The expected delamination type to occur.
+    /// </summary>
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public DelamType PreferredDelamType = DelamType.Explosion;
 
     #endregion
@@ -369,13 +372,13 @@ public sealed partial class SupermatterComponent : Component
     #region Announcements
 
     [DataField]
-    public bool DelamAnnounced;
+    public bool IsDelaminationAnnounced;
 
     /// <summary>
     /// The radio channel for supermatter alerts
     /// </summary>
     [DataField]
-    public bool SuppressAnnouncements = false;
+    public bool SuppressAnnouncements;
 
 
     /// <summary>
@@ -428,19 +431,19 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The power decay of the supermatter, to be displayed on the monitoring console
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float PowerLoss;
 
     /// <summary>
     /// The low temperature healing of the supermatter, to be displayed on the monitoring console
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float HeatHealing;
 
     /// <summary>
     /// The true value of <see cref="HeatModifier"/> without a lower bound, to be displayed on the monitoring console
     /// </summary>
-    [DataField]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float GasHeatModifier;
 
     #endregion

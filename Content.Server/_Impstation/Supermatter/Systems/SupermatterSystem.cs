@@ -122,7 +122,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         ProcessAtmos(uid, sm, args.dt);
         HandleDamage(uid, sm);
 
-        if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
+        if (sm.Damage >= sm.DamageDelaminationPoint || sm.IsDelaminating)
             HandleDelamination(uid, sm);
 
         HandleLight(uid, sm);
@@ -349,7 +349,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (mix is not { })
             return SupermatterStatusType.Error;
 
-        if (sm.Delamming || sm.Damage >= sm.DamageDelaminationPoint)
+        if (sm.IsDelaminating || sm.Damage >= sm.DamageDelaminationPoint)
             return SupermatterStatusType.Delaminating;
 
         if (sm.Damage >= sm.DamagePenaltyPoint)
