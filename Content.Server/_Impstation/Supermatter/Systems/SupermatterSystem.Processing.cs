@@ -47,9 +47,8 @@ public sealed partial class SupermatterSystem
         // Divide the gas efficiency by the grace modifier if the supermatter is unpowered
         var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
 
-        // Delta-V - we do not need to remove the gas from the tile for the below calculations - so don't modify the containing mixture yet.
-        sm.GasStorage = mix.Clone(); 
-        sm.GasStorage.Multiply(gasEfficiency);
+        // Delta-V - Use RemoveRatio instead of Remove.
+        sm.GasStorage = mix.RemoveRatio(gasEfficiency); 
         
         var moles = sm.GasStorage.TotalMoles;
 
@@ -92,7 +91,6 @@ public sealed partial class SupermatterSystem
             if (consumedMiasma > 0)
             {
                 sm.GasStorage.AdjustMoles(Gas.Ammonia, -consumedMiasma);
-                mix.AdjustMoles(Gas.Ammonia, -consumedMiasma); // Delta-V - Gas storage isn't being directly released - directly affect the mix here. 
                 sm.MatterPower += consumedMiasma * _config.GetCVar(ImpCCVars.SupermatterAmmoniaPowerGain);
             }
         }
@@ -159,10 +157,7 @@ public sealed partial class SupermatterSystem
         // Keep in mind we are only adding this temperature to (efficiency)% of the one tile the rock is on.
         // An increase of 4°C at 25% efficiency here results in an increase of 1°C / (#tilesincore) overall.
         // Power * 0.55 * 1.5~23 / 5
-        var gasReleased = new GasMixture(sm.GasStorage.Volume) // Delta-V - This gas mixture should only contain waste gases.
-        {
-            Temperature = sm.GasStorage.Temperature
-        };
+        var gasReleased = sm.GasStorage.Clone();
 
         gasReleased.Temperature += energy * sm.HeatModifier / _config.GetCVar(ImpCCVars.SupermatterThermalReleaseModifier);
         gasReleased.Temperature = Math.Max(0,
