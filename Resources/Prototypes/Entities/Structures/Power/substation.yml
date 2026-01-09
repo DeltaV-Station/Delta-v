@@ -25,7 +25,14 @@
     supplyRampTolerance: 5000
     supplyRampRate: 1000
   - type: StationInfiniteBatteryTarget
-  - type: StationAiWhitelist #DeltaV
+  # Begin DeltaV additions
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-substation
+    layoutId: SubStation
+  - type: StationAiWhitelist
+  # End DeltaV additions
 
   # Interface
   - type: BatteryInterface
@@ -37,6 +44,8 @@
     interfaces:
       enum.BatteryUiKey.Key:
         type: BatteryBoundUserInterface
+      enum.WiresUiKey.Key: #DeltaV
+        type: WiresBoundUserInterface #DeltaV
   - type: ActivatableUI
     key: enum.BatteryUiKey.Key
 

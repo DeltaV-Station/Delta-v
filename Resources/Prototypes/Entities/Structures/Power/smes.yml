@@ -97,7 +97,12 @@
       - PowerStorage
       - VoltageNetworks
       - Power
-    - type: StationAiWhitelist #DeltaV
+    # Begin DeltaV additions
+    - type: Wires
+      boardName: wires-board-name-smes
+      layoutId: SMES
+    - type: StationAiWhitelist
+    # End DeltaV additions
 
     # Interface
     - type: BatteryInterface
@@ -109,6 +114,8 @@
       interfaces:
         enum.BatteryUiKey.Key:
           type: BatteryBoundUserInterface
+        enum.WiresUiKey.Key: #DeltaV
+          type: WiresBoundUserInterface #DeltaV
     - type: ActivatableUI
       key: enum.BatteryUiKey.Key
 
