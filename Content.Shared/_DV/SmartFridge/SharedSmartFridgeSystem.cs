@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.SmartFridge;
 
-public sealed class SmartFridgeSystem : EntitySystem
+public abstract class SharedSmartFridgeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
@@ -25,7 +25,9 @@ public sealed class SmartFridgeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<SmartFridgeComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
         SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
+        SubscribeLocalEvent<SmartFridgeComponent, AfterAutoHandleStateEvent>((ent, ref _) => UpdateUI(ent));
 
         Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
             sub =>
@@ -119,6 +121,24 @@ public sealed class SmartFridgeSystem : EntitySystem
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
     }
 
+    private void OnItemInserted(Entity<SmartFridgeComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != ent.Comp.Container || _timing.ApplyingState)
+            return;
+
+        var key = new SmartFridgeEntry(Identity.Name(args.Entity, EntityManager));
+        if (!ent.Comp.Entries.Contains(key))
+            ent.Comp.Entries.Add(key);
+
+        ent.Comp.ContainedEntries.TryAdd(key, new());
+        var entries = ent.Comp.ContainedEntries[key];
+        if (!entries.Contains(GetNetEntity(args.Entity)))
+            entries.Add(GetNetEntity(args.Entity));
+
+        Dirty(ent);
+        UpdateUI(ent);
+    }
+
     private void OnItemRemoved(Entity<SmartFridgeComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         var key = new SmartFridgeEntry(Identity.Name(args.Entity, EntityManager));
@@ -129,6 +149,7 @@ public sealed class SmartFridgeSystem : EntitySystem
         }
 
         Dirty(ent);
+        UpdateUI(ent);
     }
 
     private bool Allowed(Entity<SmartFridgeComponent> machine, EntityUid user)
@@ -162,6 +183,7 @@ public sealed class SmartFridgeSystem : EntitySystem
             contained.Remove(item);
             ent.Comp.EjectEnd = _timing.CurTime + ent.Comp.EjectCooldown;
             Dirty(ent);
+            UpdateUI(ent);
             return;
         }
 
@@ -181,5 +203,10 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         ent.Comp.Entries.Remove(args.Entry);
         Dirty(ent);
+    }
+
+    protected virtual void UpdateUI(Entity<SmartFridgeComponent> ent)
+    {
+
     }
 }
