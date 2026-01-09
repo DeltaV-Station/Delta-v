@@ -2,7 +2,7 @@
   parent: BaseComputer
   id: ComputerShipyard
   name: shipyard console
-  description: Used to purchase and sell shuttles
+  description: Used to purchase shuttles for the station.
   components:
   - type: ShipyardConsole
   - type: AccessReader
@@ -29,6 +29,19 @@
       state: request
     - map: ["computerLayerKeys"]
       state: tech_key
+
+- type: entity
+  parent: ComputerShipyard
+  id: ComputerShipyardAdmin
+  name: central command shipyard console
+  description: Used to purchase shuttles for CentComm personnel and agents to use. The costs are heavily subsidized and small amounts of funds are laundered from all of NanoTrasen's stations, making ships purchased here essentially free.
+  components:
+  - type: ShipyardConsole
+    channel: CentCom
+    useStationFunds: false
+    defaultCategory: Medical
+  - type: AccessReader
+    access: [[ CentralCommand ]]
 
 - type: entity
   abstract: true

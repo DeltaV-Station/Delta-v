@@ -28,4 +28,16 @@ public sealed partial class ShipyardConsoleComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<RadioChannelPrototype> Channel = "Command";
+
+    /// <summary>
+    /// If false, shuttles won't use the station's bank and will be available at no cost.
+    /// </summary>
+    [DataField]
+    public bool UseStationFunds = true;
+
+    /// <summary>
+    /// If not null, will attempt to set the category when opening the shipyard console.
+    /// </summary>
+    [DataField]
+    public string? DefaultCategory = null;
 }

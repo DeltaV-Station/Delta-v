@@ -12,7 +12,7 @@ public sealed partial class VesselRow : PanelContainer
 {
     public event Action? OnPurchasePressed;
 
-    public VesselRow(VesselPrototype vessel, bool access)
+    public VesselRow(VesselPrototype vessel, bool access = false)
     {
         RobustXamlLoader.Load(this);
 
@@ -24,6 +24,6 @@ public sealed partial class VesselRow : PanelContainer
         Purchase.Disabled = !access;
         Purchase.OnPressed += _ => OnPurchasePressed?.Invoke();
 
-        Price.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", vessel.Price));
+        Purchase.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", vessel.Price));
     }
 }

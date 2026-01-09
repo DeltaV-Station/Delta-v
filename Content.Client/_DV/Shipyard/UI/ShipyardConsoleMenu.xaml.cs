@@ -39,6 +39,11 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
             if (whitelist.IsWhitelistPassOrNull(vessel.Whitelist, console))
                 _vessels.Add(vessel);
         }
+
+        // If ships are free, set the prices to $0
+        if (!Console.Comp.UseStationFunds)
+            _vessels.ForEach(x => x.Price = 0);
+
         _vessels.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
 
         // only list categories in said ships
@@ -54,7 +59,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         _categories.Sort();
         // inserting here and not adding at the start so it doesn't get affected by sort
         _categories.Insert(0, Loc.GetString("cargo-console-menu-populate-categories-all-text"));
-        PopulateCategories();
+        PopulateCategories(Console.Comp.DefaultCategory);
 
         SearchBar.OnTextChanged += _ => PopulateProducts();
         Categories.OnItemSelected += args =>
@@ -63,6 +68,8 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
             Categories.SelectId(args.Id);
             PopulateProducts();
         };
+
+        PopulateProducts();
     }
 
     /// <summary>
@@ -72,7 +79,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     {
         Vessels.RemoveAllChildren();
 
-        var access = _player.LocalSession?.AttachedEntity is {} player
+        var access = _player.LocalSession?.AttachedEntity is { } player
             && _access.IsAllowed(player, Console);
 
         var search = SearchBar.Text.Trim().ToLowerInvariant();
@@ -92,12 +99,24 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     /// <summary>
     ///     Populates the list categories that will actually be shown, using the current filters.
     /// </summary>
-    private void PopulateCategories()
+    private void PopulateCategories(string? selectedCategory = null)
     {
         Categories.Clear();
-        foreach (var category in _categories)
+        // Guh, there's gotta be an easier way to select a category by default...
+        var selectedId = -1;
+        for (int i = 0; i < _categories.Count; i++)
         {
-            Categories.AddItem(category);
+            Categories.AddItem(_categories[i], i);
+
+            if (selectedCategory != null && selectedCategory.Equals(_categories[i], StringComparison.CurrentCultureIgnoreCase))
+                selectedId = i;
+        }
+
+        // Set the default category if one has been found
+        if (selectedId >= 0 && selectedId < _categories.Count)
+        {
+            _category = _categories[selectedId];
+            Categories.SelectId(selectedId);
         }
     }
 
