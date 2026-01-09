@@ -113,7 +113,7 @@
   - type: Hands
   - type: InnateTool
     tools:
-      - id: LuxuryPen
+      - id: LuxuryPenCarpy
       - id: RubberStampCarpy
   - type: UserInterface
     interfaces:
@@ -135,6 +135,22 @@
     - type: Sprite
       sprite: _DV/Objects/Misc/stamps.rsi
       state: stamp-notary
+
+- type: entity
+  name: legal carp pen
+  parent: LuxuryPen
+  id: LuxuryPenCarpy
+  description: The pen is mightier than the sword. This pen is also sharper thank to its carp tooth nib!
+  components:
+  - type: MeleeWeapon
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+        Slash: 10
+    animation: WeaponArcBite
 
 
 - type: entity
