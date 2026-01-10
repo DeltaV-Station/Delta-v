@@ -222,9 +222,9 @@
           reagent: THC
           min: 0.25
       - !type:SuppressAddiction
-      - !type:ModifyStatusEffect # Suppresses Chronic Pain mildly
+      - !type:ModifyStatusEffect # suppresses chronic pain mildly
         effectProto: StatusEffectChronicPainSuppressed
-        time: 10
+        time: 25 # 4.16 minutes of pain suppression per 5u (5u / 0.5 * 25 / 60)
         type: Add
       # END DeltaV
 

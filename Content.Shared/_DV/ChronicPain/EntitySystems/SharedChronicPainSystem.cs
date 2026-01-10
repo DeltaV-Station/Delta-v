@@ -50,35 +50,41 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
         return StatusEffects.TryAddStatusEffectDuration(entity.Owner, ChronicPainStatusEffect, duration.Value);
     }
 
-    protected void OnMapInit(Entity<ChronicPainComponent> ent, ref MapInitEvent args)
+    protected void OnMapInit(Entity<ChronicPainComponent> entity, ref MapInitEvent args)
     {
-        ent.Comp.NextUpdateTime = _timing.CurTime;
-        ent.Comp.NextPopupTime = _timing.CurTime;
+        entity.Comp.NextUpdateTime = _timing.CurTime;
+        entity.Comp.NextPopupTime = _timing.CurTime;
     }
 
-    protected virtual void OnChronicPainInit(Entity<ChronicPainComponent> ent, ref ComponentInit args)
+    protected virtual void OnChronicPainInit(Entity<ChronicPainComponent> entity, ref ComponentInit args)
     {
-        // Used by the client
+        // Give the player a bit of time before they have to take a pill
+        if (TrySuppressChronicPain((entity.Owner, entity.Comp), entity.Comp.DefaultSuppressionTimeOnInit))
+            entity.Comp.NextUpdateTime = _timing.CurTime + entity.Comp.DefaultSuppressionTimeOnInit;
     }
 
-    protected virtual void OnChronicPainShutdown(Entity<ChronicPainComponent> ent, ref ComponentShutdown args)
+    protected virtual void OnChronicPainShutdown(Entity<ChronicPainComponent> entity, ref ComponentShutdown args)
     {
-        // Used by the client
+        StatusEffects.TryRemoveStatusEffect(entity, ChronicPainStatusEffect);
     }
 
-    protected virtual void OnPlayerAttached(Entity<ChronicPainComponent> ent, ref LocalPlayerAttachedEvent args)
+    protected virtual void OnPlayerAttached(Entity<ChronicPainComponent> entity, ref LocalPlayerAttachedEvent args)
     {
-        // Used by the client
+        // Used by the client to add the overlay if not suppressed
     }
 
-    protected virtual void OnPlayerDetached(Entity<ChronicPainComponent> ent, ref LocalPlayerDetachedEvent args)
+    protected virtual void OnPlayerDetached(Entity<ChronicPainComponent> entity, ref LocalPlayerDetachedEvent args)
     {
-        // Used by the client
+        // Used by the client to get rid of the overlay
     }
 
-    protected void ShowPainPopup(Entity<ChronicPainComponent> ent)
+    protected void ShowPainPopup(Entity<ChronicPainComponent> entity)
     {
-        if (!ProtoManager.TryIndex(ent.Comp.DatasetPrototype, out var dataset))
+         // Don't notify 
+        if (IsChronicPainSuppressed((entity.Owner, entity.Comp)))
+            return;
+
+        if (!ProtoManager.TryIndex(entity.Comp.DatasetPrototype, out var dataset))
             return;
 
         var effects = dataset.Values;
@@ -86,11 +92,11 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
             return;
 
         var effect = RobustRandom.Pick(effects);
-        Popup.PopupPredicted(Loc.GetString(effect), ent, ent);
+        Popup.PopupPredicted(Loc.GetString(effect), entity, entity);
 
         // Set next popup time
-        var delay = RobustRandom.NextFloat(ent.Comp.MinimumPopupDelay, ent.Comp.MaximumPopupDelay);
-        ent.Comp.NextPopupTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
+        var delay = RobustRandom.NextFloat(entity.Comp.MinimumPopupDelay, entity.Comp.MaximumPopupDelay);
+        entity.Comp.NextPopupTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
     }
 
     public override void Update(float frameTime)
@@ -105,13 +111,10 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
             if (curTime < component.NextUpdateTime)
                 continue;
 
-            if (IsChronicPainSuppressed((uid, component)))
-                continue;
-
             if (curTime >= component.NextPopupTime)
                 ShowPainPopup((uid, component));
 
-            component.NextUpdateTime = curTime + TimeSpan.FromSeconds(1);
+            component.NextUpdateTime = curTime + TimeSpan.FromSeconds(5);
         }
     }
 }

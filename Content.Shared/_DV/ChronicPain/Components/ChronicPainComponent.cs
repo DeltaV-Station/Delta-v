@@ -21,6 +21,12 @@ public sealed partial class ChronicPainComponent : Component
     public TimeSpan DefaultSuppressionTime = TimeSpan.FromSeconds(30);
 
     /// <summary>
+    /// The default suppression time on map init, so people don't have to eat a pilll right away.
+    /// </summary>
+    [DataField]
+    public TimeSpan DefaultSuppressionTimeOnInit = TimeSpan.FromMinutes(5);
+
+    /// <summary>
     /// When to next update this component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]

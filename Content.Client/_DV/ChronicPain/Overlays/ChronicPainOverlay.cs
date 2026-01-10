@@ -1,7 +1,6 @@
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Content.Shared._DV.ChronicPain.EntitySystems;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -35,6 +34,7 @@ public sealed partial class ChronicPainOverlay : Overlay
     {
         if (ScreenTexture is null)
             return;
+
         _painShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 
         var worldHandle = args.WorldHandle;

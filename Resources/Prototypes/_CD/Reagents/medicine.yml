@@ -448,8 +448,8 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
-        time: 20 # slightly less effective than soretizone
-        type: Add
+        time: 2 # less effective than soretizone - 8.3 minutes of pain suppression per 5u (5u / 0.02 * 2 / 60)
+        type: Update
       - !type:PopupMessage
         type: Local
         visualType: Small
@@ -508,7 +508,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
-        time: 30
+        time: 1.5 # 12.5 minutes of pain suppression per 5u (5u / 0.01 * 1.5 / 60)
         type: Add
       - !type:SuppressAddiction
       - !type:PopupMessage
@@ -558,8 +558,8 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
-        time: 60 # More effective than soretizone
-        type: Add
+        time: 3 # More effective than soretizone - 25 minutes of pain suppression per 5u (5u / 0.01 * 3 / 60)
+        type: Update
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
