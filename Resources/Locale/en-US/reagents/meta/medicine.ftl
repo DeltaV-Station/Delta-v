@@ -13,9 +13,9 @@ reagent-desc-arithrazine = A mildly unstable medication used for the most extrem
 reagent-name-bicaridine = bicaridine
 reagent-desc-bicaridine = An analgesic which is highly effective at treating brute damage. It's useful for stabilizing people who have been severely beaten, as well as treating less life-threatening injuries.
 
-reagent-name-cryoxadone = cryoxadone
-reagent-desc-cryoxadone = Required for the proper function of cryogenics. Used to treat bloodloss and asphyxiation, as well as to restore bodily fluids such as blood. It can treat and rejuvenate plants when applied in small doses. Patient needs to be alive.
-# Delta V - Changed "Works regardless of the patient being alive or dead." to "Pateint needs to be alive."
+# Delta V - moved to _DV file, removed as cryox in dv needs patients to be alive
+#reagent-name-cryoxadone = cryoxadone
+#reagent-desc-cryoxadone = Required for the proper function of cryogenics. Used to treat bloodloss and asphyxiation, as well as to restore bodily fluids such as blood. It can treat and rejuvenate plants when applied in small doses. Works regardless of the patient being alive or dead.
 
 reagent-name-doxarubixadone = doxarubixadone
 reagent-desc-doxarubixadone = A cryogenics chemical. Heals cellular damage caused by dangerous gasses and chemicals.

@@ -13,3 +13,6 @@ reagent-name-anodynafil = anodynafil
 reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't interfere with consciousness, but results in prolonged pain suppression.
 
 reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.
+
+reagent-name-cryoxadone = cryoxadone
+reagent-desc-cryoxadone = Required for the proper function of cryogenics. Used to treat bloodloss and asphyxiation, as well as to restore bodily fluids such as blood. It can treat and rejuvenate plants when applied in small doses. Patient needs to be alive.
