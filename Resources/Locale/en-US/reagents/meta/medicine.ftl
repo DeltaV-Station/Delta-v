@@ -15,6 +15,7 @@ reagent-desc-bicaridine = An analgesic which is highly effective at treating bru
 
 reagent-name-cryoxadone = cryoxadone
 reagent-desc-cryoxadone = Required for the proper function of cryogenics. Used to treat bloodloss and asphyxiation, as well as to restore bodily fluids such as blood. It can treat and rejuvenate plants when applied in small doses. Patient needs to be alive.
+# Delta V - Changed "Works regardless of the patient being alive or dead." to "Pateint needs to be alive."
 
 reagent-name-doxarubixadone = doxarubixadone
 reagent-desc-doxarubixadone = A cryogenics chemical. Heals cellular damage caused by dangerous gasses and chemicals.
