@@ -3,11 +3,11 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._DV.Pain;
+namespace Content.Shared._DV.ChronicPain;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class PainComponent : Component
+public sealed partial class ChronicPainComponent : Component
 {
     /// <summary>
     /// Whether pain effects are currently suppressed by painkillers

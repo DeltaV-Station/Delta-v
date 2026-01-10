@@ -1,5 +1,5 @@
-using Content.Shared._DV.Pain;
+using Content.Shared._DV.ChronicPain;
 
 namespace Content.Client._DV.Pain;
 
-public sealed class PainSystem : SharedPainSystem;
+public sealed class PainSystem : SharedChronicPainSystem;

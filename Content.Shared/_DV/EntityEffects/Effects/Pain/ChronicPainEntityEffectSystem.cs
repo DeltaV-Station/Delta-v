@@ -1,4 +1,4 @@
-using Content.Shared._DV.Pain;
+using Content.Shared._DV.ChronicPain;
 using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
@@ -10,10 +10,10 @@ namespace Content.Shared._DV.EntityEffects.Effects.Pain;
 /// Applies the pain status effect for an amount of time based on how much of the painful reagent is in the system.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
-public sealed partial class InPainEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, InPain>
+public sealed partial class ChronicPainEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, ChronicPain>
 {
-    [Dependency] private readonly SharedPainSystem _pain = default!;
-    protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<InPain> args)
+    [Dependency] private readonly SharedChronicPainSystem _pain = default!;
+    protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<ChronicPain> args)
     {
         var painTime = args.Effect.Time * args.Scale;
 
@@ -22,7 +22,7 @@ public sealed partial class InPainEntityEffectSystem : EntityEffectSystem<Status
 }
 
 /// <inheritdoc cref="EntityEffect"/>
-public sealed partial class InPain : EntityEffectBase<InPain>
+public sealed partial class ChronicPain : EntityEffectBase<ChronicPain>
 {
     /// <summary>
     /// How long should the addiction be per 1u of the reagent.

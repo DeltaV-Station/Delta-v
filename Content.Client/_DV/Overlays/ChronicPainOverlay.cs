@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._DV.Pain;
+using Content.Shared._DV.ChronicPain;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.Overlays;
 
-public sealed partial class PainOverlay : Overlay
+public sealed partial class ChronicPainOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -18,7 +18,7 @@ public sealed partial class PainOverlay : Overlay
     private readonly ShaderInstance _painShader;
     private readonly ProtoId<ShaderPrototype> _shaderProto = "ChromaticAberration";
 
-    public PainOverlay()
+    public ChronicPainOverlay()
     {
         IoCManager.InjectDependencies(this);
         _painShader = _prototype.Index(_shaderProto).Instance().Duplicate();
@@ -27,7 +27,7 @@ public sealed partial class PainOverlay : Overlay
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
         if (_player.LocalEntity is not { Valid: true } player
-            || !_entity.HasComponent<PainComponent>(player))
+            || !_entity.HasComponent<ChronicPainComponent>(player))
         {
             return false;
         }

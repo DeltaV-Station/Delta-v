@@ -1,4 +1,4 @@
-using Content.Shared._DV.Pain;
+using Content.Shared._DV.ChronicPain;
 using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
@@ -12,7 +12,7 @@ namespace Content.Shared._DV.EntityEffects.Effects.Pain;
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class SuppressPainEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, SuppressPain>
 {
-    [Dependency] private readonly SharedPainSystem _pain = default!;
+    [Dependency] private readonly SharedChronicPainSystem _pain = default!;
     protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<SuppressPain> args)
     {
         var suppressionTime = args.Effect.Time * args.Scale;
