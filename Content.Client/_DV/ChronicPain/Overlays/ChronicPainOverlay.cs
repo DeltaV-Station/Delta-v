@@ -1,17 +1,16 @@
 using System.Numerics;
-using Content.Shared._DV.ChronicPain;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Content.Shared._DV.ChronicPain.EntitySystems;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._DV.Overlays;
+namespace Content.Client._DV.ChronicPain.Overlays;
 
 public sealed partial class ChronicPainOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -21,16 +20,13 @@ public sealed partial class ChronicPainOverlay : Overlay
     public ChronicPainOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _painShader = _prototype.Index(_shaderProto).Instance().Duplicate();
+        _painShader = _prototype.Index(_shaderProto).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (_player.LocalEntity is not { Valid: true } player
-            || !_entity.HasComponent<ChronicPainComponent>(player))
-        {
+        if (_player.LocalEntity is not { Valid: true } player)
             return false;
-        }
 
         return base.BeforeDraw(in args);
     }
@@ -39,7 +35,6 @@ public sealed partial class ChronicPainOverlay : Overlay
     {
         if (ScreenTexture is null)
             return;
-
         _painShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 
         var worldHandle = args.WorldHandle;
