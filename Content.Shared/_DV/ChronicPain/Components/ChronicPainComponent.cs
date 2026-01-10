@@ -7,7 +7,7 @@ namespace Content.Shared._DV.ChronicPain.Components;
 
 /// <summary>
 /// This component is used to mark people who have the chronic pain trait.
-/// 
+///
 /// If someone is currently the chronic pain status effect // TODO
 /// </summary>
 [RegisterComponent, NetworkedComponent]
