@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Coolgamer06
-  changes:
-  - message: Added unique description to LO's bedsheet.
-    type: Tweak
-  id: 1540
-  time: '2025-07-26T09:58:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4084
 - author: AlgisAlphonse
   changes:
   - message: Ported Goobstation automation, including a guidebook entry! Featuring
@@ -4469,4 +4462,12 @@
   id: 2039
   time: '2026-01-10T21:43:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5179
+- author: FaintSpeaker
+  changes:
+  - message: Fix for one error possibly causing replays to fail to load. Continue
+      to report any broken replays after this fix!
+    type: Fix
+  id: 2040
+  time: '2026-01-10T21:44:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5173
 Order: 1
