@@ -106,8 +106,11 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVapor # DeltaV
+  # Begin DeltaV additions
+  - EmergencyIPCBox
+  - EmergencyWaterVapor
+  - EmergencyLowTemperature
+  # End DeltaV additions
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -117,7 +120,10 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
-  - LoadoutSpeciesEVAWaterVapor # DeltaV
+  # Begin deltav additions
+  - LoadoutSpeciesEVAWaterVapor
+  - LoadoutSpeciesEVALowTemperature
+  # End DeltaV additions
 
 # vox get a nitrogen tank, other species get nothing
 - type: loadoutGroup
@@ -134,7 +140,10 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
-  - LoadoutSpeciesPocketDoubleWaterVapor # DeltaV
+  # Begin DeltaV additions
+  - LoadoutSpeciesPocketDoubleWaterVapor
+  - LoadoutSpeciesPocketDoubleLowTemperature
+  # End DeltaV additions
 
 # Command
 - type: loadoutGroup
@@ -759,8 +768,11 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporClown # DeltaV
+  # Begin DeltaV addtions
+  - EmergencyIPCBox
+  - EmergencyWaterVaporClown
+  - EmergencyLowTemperatureClown
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: ClownJobTrinkets
@@ -828,8 +840,11 @@
   - EmergencyOxygenMime
   - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporMime # DeltaV
+  # Begin DeltaV additions
+  - EmergencyIPCBox
+  - EmergencyWaterVaporMime
+  - EmergencyLowTemperature
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: MimeJobTrinkets
@@ -1225,8 +1240,11 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporExtended # DeltaV
+  # Begin DeltaV additions
+  - EmergencyIPCBox
+  - EmergencyWaterVaporExtended
+  - EmergencyLowTemperatureExtended
+  # End DeltaV additions
 
 # Science
 - type: loadoutGroup
@@ -1624,8 +1642,11 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporSecurity # DeltaV
+  # Begin DeltaV additions
+  - EmergencyIPCBox
+  - EmergencyWaterVaporSecurity
+  - EmergencyLowTemperatureSecurity
+  # End DeltaV additions
 
 # Medical
 - type: loadoutGroup
@@ -1866,8 +1887,11 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporMedical # DeltaV
+  # Begin DeltaV additions
+  - EmergencyIPCBox
+  - EmergencyWaterVaporMedical
+  - EmergencyLowTemperatureMedical
+  # End DeltaV additions
 
 # Wildcards
 - type: loadoutGroup
@@ -1940,8 +1964,11 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
-  - EmergencyIPCBox # DeltaV
-  - EmergencyWaterVaporSyndicate # DeltaV
+  # Begin DeltaV additions
+  - EmergencyIPCBox
+  - EmergencyWaterVaporSyndicate
+  - EmergencyLowTemperatureSyndicate
+  # End DeltaV additions
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

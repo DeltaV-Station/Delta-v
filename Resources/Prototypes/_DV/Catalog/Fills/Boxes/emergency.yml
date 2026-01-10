@@ -42,6 +42,7 @@
     - id: CableApcStack10
     - id: WelderMini
 
+# Water Vapor Breather Boxes
 - type: entity
   parent: BoxSurvivalBrigmedic
   id: BoxSurvivalBrigmedicWaterVapor
@@ -177,3 +178,132 @@
     - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
+
+# Low-Temperature Species Boxes
+- type: entity
+  parent: BoxSurvivalBrigmedic
+  id: BoxSurvivalBrigmedicAvali
+  suffix: MedSec Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedicalSecurity
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    -
+    - id: Flare
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalAvali
+  suffix: Standard Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxSurvivalEngineering
+  id: BoxSurvivalEngineeringAvali
+  suffix: Extended Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxSurvivalSecurity
+  id: BoxSurvivalSecurityAvali
+  suffix: Security Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxSurvivalMedical
+  id: BoxSurvivalMedicalAvali
+  suffix: Medical Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxHug
+  id: BoxHugAvali
+  suffix: Emergency Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxSurvivalAvali
+  id: BoxMimeAvali
+  suffix: Mime, Emergency Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodBreadNutriBatard
+    - id: DrinkWaterBottleFull
+    - id: ClothingMaskBreath
+  - type: Label
+    currentLabel: species-name-avali
+
+- type: entity
+  parent: BoxSurvivalSyndicate
+  id: BoxSurvivalSyndicateAvali
+  suffix: Syndicate Avali
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: FoodPSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: species-name-avali

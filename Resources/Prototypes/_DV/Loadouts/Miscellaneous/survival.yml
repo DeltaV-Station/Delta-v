@@ -6,6 +6,13 @@
     species:
     - Feroxi
 
+- type: loadoutEffectGroup
+  id: LowTemperature
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Avali
+
 # Basic
 - type: loadout
   id: EmergencyWaterVapor
@@ -15,6 +22,15 @@
   storage:
     back:
     - BoxSurvivalWaterVapor
+
+- type: loadout
+  id: EmergencyLowTemperature
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxSurvivalAvali
 
 # Clown
 - type: loadout
@@ -26,6 +42,14 @@
     back:
     - BoxHugWaterVapor
 
+- type: loadout
+  id: EmergencyLowTemperatureClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxHugAvali
 # Mime
 - type: loadout
   id: EmergencyWaterVaporMime
@@ -35,6 +59,15 @@
   storage:
     back:
     - BoxMimeWaterVapor
+
+- type: loadout
+  id: EmergencyLowTemperatureMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxMimeAvali
 
 # Engineering / Extended
 - type: loadout
@@ -46,6 +79,15 @@
     back:
     - BoxSurvivalEngineeringWaterVapor
 
+- type: loadout
+  id: EmergencyLowTemperatureExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxSurvivalEngineeringAvali
+
 # Medical
 - type: loadout
   id: EmergencyWaterVaporMedical
@@ -55,6 +97,15 @@
   storage:
     back:
     - BoxSurvivalMedicalWaterVapor
+
+- type: loadout
+  id: EmergencyLowTemperatureMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxSurvivalMedicalAvali
 
 # Security
 - type: loadout
@@ -66,6 +117,15 @@
     back:
     - BoxSurvivalSecurityWaterVapor
 
+- type: loadout
+  id: EmergencyLowTemperatureSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxSurvivalSecurityAvali
+
 # Syndicate
 - type: loadout
   id: EmergencyWaterVaporSyndicate
@@ -76,6 +136,15 @@
     back:
     - BoxSurvivalWaterVapor
 
+- type: loadout
+  id: EmergencyLowTemperatureSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  storage:
+    back:
+    - BoxSurvivalSyndicateAvali
+
 # Full EVA Tank, Any Species
 - type: loadout
   id: LoadoutSpeciesEVAWaterVapor
@@ -85,6 +154,14 @@
   equipment:
     suitstorage: WaterVaporTankFilled
 
+- type: loadout
+  id: LoadoutSpeciesEVALowTemperature
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  equipment:
+    suitstorage: OxygenTankFilled
+
 # Species-appropriate Double Emergency Tank in Pocket 1
 - type: loadout
   id: LoadoutSpeciesPocketDoubleWaterVapor
@@ -93,6 +170,14 @@
     proto: WaterBreather
   equipment:
     pocket1: DoubleEmergencyWaterVaporTankFilled
+
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleLowTemperature
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  equipment:
+    pocket1: DoubleEmergencyOxygenTankFilled
 
 # Corpsman
 - type: loadout
@@ -122,6 +207,14 @@
     mask: BoxSurvivalBrigmedicWaterVapor
 
 - type: loadout
+  id: EmergencyLowTemperatureCorpsman
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LowTemperature
+  equipment:
+    mask: BoxSurvivalBrigmedicAvali
+
+- type: loadout
   id: LoadoutSpeciesBreathToolCorpsman
   effects:
   - !type:GroupLoadoutEffect
@@ -129,6 +222,7 @@
   equipment:
     mask: ClothingMaskBreathMedicalSecurity
 
+# IPC
 - type: loadoutEffectGroup
   id: HumanoidSilicon
   effects:
