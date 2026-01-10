@@ -1,17 +1,4 @@
 ﻿Entries:
-- author: AlgisAlphonse
-  changes:
-  - message: Ported Goobstation automation, including a guidebook entry! Featuring
-      the robotic arm, interactor, constructor and filters! Also the automation upgrade
-      kit! Note, at the moment automation is limited - you can't automate lathe production,
-      only inserting materials into the lathe. Nonetheless, have fun!
-    type: Add
-  - message: Added a guidebook entry for automation. Mostly based on the Goobstation
-      entry, with some rewriting. If you spot error, please report them!
-    type: Add
-  id: 1541
-  time: '2025-07-27T12:31:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4035
 - author: TehFlaminTaco
   changes:
   - message: Modified Glimmer Probers, they now generate more Glimmer and Research
@@ -4470,4 +4457,12 @@
   id: 2040
   time: '2026-01-10T21:44:55.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5173
+- author: snowywinters
+  changes:
+  - message: The station AI is now better integrated into the station allowing use
+      of fabs and substations/SMES
+    type: Add
+  id: 2041
+  time: '2026-01-10T21:58:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5132
 Order: 1
