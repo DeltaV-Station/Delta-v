@@ -221,7 +221,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     
     private void OnSupermatterDamaged(EntityUid uid, SupermatterComponent sm, SupermatterDamagedEvent args)
     {   
-        if (sm.Damage >= sm.DamageDelaminationPoint && !sm.IsDelaminating)
+        if (sm.Damage >= sm.DamageDelaminationThreshold && !sm.IsDelaminating)
         {
             // Start the delamination process
             sm.IsDelaminating = true;
@@ -230,7 +230,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             var ev = new SupermatterDelaminationStartedEvent();
             RaiseLocalEvent(uid, ref ev);
         }
-        else if (sm.Damage < sm.DamageDelaminationPoint && sm.IsDelaminating)
+        else if (sm.Damage < sm.DamageDelaminationThreshold && sm.IsDelaminating)
         {
             // Cancel the delamination process
             sm.IsDelaminating = false;
@@ -516,7 +516,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             return;
 
         // Your criminal actions will not go unnoticed
-        sm.Damage += sm.DamageDelaminationPoint / 10.0f;
+        sm.Damage += sm.DamageDelaminationThreshold / 10.0f;
 
         var integrity = GetIntegrity(sm).ToString("0.00");
         SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)));
@@ -618,13 +618,13 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (mix is not { })
             return SupermatterStatusType.Error;
 
-        if (ent.Comp.IsDelaminating || ent.Comp.Damage >= ent.Comp.DamageDelaminationPoint)
+        if (ent.Comp.IsDelaminating || ent.Comp.Damage >= ent.Comp.DamageDelaminationThreshold)
             return SupermatterStatusType.Delaminating;
 
         if (ent.Comp.Damage >= ent.Comp.DamageEmergencyThreshold)
             return SupermatterStatusType.Emergency;
 
-        if (ent.Comp.Damage >= ent.Comp.DamageDelamAlertPoint)
+        if (ent.Comp.Damage >= ent.Comp.DamageDangerThreshold)
             return SupermatterStatusType.Danger;
 
         if (ent.Comp.Damage >= ent.Comp.DamageWarningThreshold)

@@ -370,7 +370,7 @@ public sealed partial class SupermatterSystem
             }
         }
 
-        var damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DamageDelaminationPoint, sm.Damage + totalDamage);
+        var damage = Math.Min(sm.DamageArchived + sm.MaximumDamagePerCycle * sm.DamageDelaminationThreshold, sm.Damage + totalDamage);
         
         // Prevent it from going negative
         sm.Damage = Math.Clamp(damage, 0, float.PositiveInfinity);
@@ -408,7 +408,7 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public static float GetIntegrity(SupermatterComponent sm)
     {
-        var integrity = sm.Damage / sm.DamageDelaminationPoint;
+        var integrity = sm.Damage / sm.DamageDelaminationThreshold;
         integrity = (float)Math.Round(100 - integrity * 100, 2);
         integrity = integrity < 0 ? 0 : integrity;
         return integrity;
