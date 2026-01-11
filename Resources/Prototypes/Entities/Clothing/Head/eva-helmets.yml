@@ -92,6 +92,9 @@
       head-vulpkanin: # DeltaV - add modified vulp helmet
       - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
         state: equipped-head-light-vulpkanin
+      head-feroxi: # DeltaV - add modified feroxi helmet
+      - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+        state: equipped-head-light-feroxi
       head-dog:
       - state: equipped-head-light-dog
   - type: Clothing
@@ -103,6 +106,9 @@
       head-vulpkanin: # DeltaV - add modified vulp helmet
       - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
         state: equipped-head-vulpkanin
+      head-feroxi: # DeltaV - add modified feroxi helmet
+      - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+        state: equipped-head-feroxi
       head-dog:
       - state: equipped-head-dog
   - type: TemperatureProtection

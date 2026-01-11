@@ -25,6 +25,7 @@
       blacklist:
         components:
         - KillPersonCondition
+        - TargetObjectiveImmune
   - type: RerollAfterCompletion
     rerollObjectivePrototype: SkiaReapObjective
     rerollObjectiveMessage: objective-condition-reap-soul-reroll-message

@@ -1,0 +1,59 @@
+- type: constructionGraph
+  id: ForgedOmnitoolGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: tool
+      steps:
+      - tag: Multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        name: crafting-menu-name-any-multitool # Delta V - Changed the name as it accepts any multi tool
+      - tag: Wrench
+        icon:
+          sprite: Objects/Tools/wrench.rsi
+          state: icon
+        name: crafting-menu-name-any-wrench # Delta V - Changed the name as it accepts any wrench
+      - tag: Wirecutter
+        icon:
+          sprite: Objects/Tools/wirecutters.rsi
+          state: cutters-map
+        name: crafting-menu-name-any-wirecutter # Delta V - Changed the name as it accepts any wire cutter
+      - tag: Screwdriver
+        icon:
+          sprite: Objects/Tools/screwdriver.rsi
+          state: screwdriver-map
+        name: crafting-menu-name-any-screwdriver # Delta V - Changed the name as it accepts any screwdriver
+      - tag: Crowbar
+        icon:
+          sprite: Objects/Tools/crowbar.rsi
+          state: storage
+        name: crafting-menu-name-any-crowbar # Delta V - Changed the name as it accepts any crowbar
+      - tag: EmergencyWelder
+        icon:
+          sprite: Objects/Tools/welder_mini.rsi
+          state: icon
+        name: crafting-menu-name-EW
+      - tag: PowerCellSmall
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        name: construction-graph-tag-power-cell-small
+      - component: GasTank # Delta V - Changed to look for the gasTank component, so any gas tanks are accepted.
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        name: crafting-menu-name-any-gas-tank # Delta V - Changed the name as it accepts any gas tank
+      - material: Cable
+        amount: 3
+        doAfter: 5
+      - material: Steel
+        amount: 10
+        doAfter: 20
+      - material: Plasteel
+        amount: 5
+        doAfter: 30
+  - node: tool
+    entity: UnfinishedForgedOmnitool
