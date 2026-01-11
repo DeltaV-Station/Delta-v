@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: Proxysseia, NoElkaTheGod
-  changes:
-  - message: "Replaced 304: Mindbreaking with 304: No\xF6spheric Tampering"
-    type: Tweak
-  - message: Term "mindbreaking" has been replaced with "mindwiping", and now also
-      includes deconverting cultists.
-    type: Tweak
-  id: 1545
-  time: '2025-07-28T14:07:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4052
 - author: Colin-Tel
   changes:
   - message: Added Division Station to DeltaV, with a minimum population of 20 and
@@ -4454,4 +4444,11 @@
   id: 2044
   time: '2026-01-10T23:06:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5159
+- author: MilonPL
+  changes:
+  - message: Fixed emergency jaws of life not draining their battery when prying doors.
+    type: Fix
+  id: 2045
+  time: '2026-01-11T15:34:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5189
 Order: 1
