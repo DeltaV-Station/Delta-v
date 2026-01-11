@@ -20,6 +20,8 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<ChronicPainComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChronicPainComponent, ComponentInit>(OnChronicPainInit);
         SubscribeLocalEvent<ChronicPainComponent, ComponentShutdown>(OnChronicPainShutdown);
