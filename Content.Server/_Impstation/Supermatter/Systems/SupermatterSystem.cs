@@ -20,6 +20,7 @@ using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared._Impstation.Thaven.Components;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
@@ -61,11 +62,9 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
-    [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
@@ -89,6 +88,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        
+        Log.Level = LogLevel.Verbose;
 
         SubscribeLocalEvent<SupermatterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SupermatterComponent, AtmosDeviceUpdateEvent>(OnSupermatterUpdated);
@@ -104,22 +105,25 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, SupermatterDamagedEvent>(OnSupermatterDamaged);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationStartedEvent>(OnSupermatterDelaminationStarted);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationCancelledEvent>(OnSupermatterDelaminationCancelled);
-        
+        SubscribeLocalEvent<SupermatterComponent, SupermatterStatusChangedEvent>(OnSupermatterStatusChanged);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationEvent>(OnSupermatterDelamination);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterAnnouncementEvent>(OnSupermatterAnnouncement);
     }
-
+    
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
-
-        var query = EntityManager.EntityQueryEnumerator<SupermatterComponent>();
+        var query = EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var uid, out var sm))
         {
-            AnnounceCoreDamage(uid, sm);
-            
             if (sm.DelaminationTime.HasValue && sm.DelaminationTime <= _timing.CurTime)
             {
                 var ev = new SupermatterDelaminationEvent();
+                RaiseLocalEvent(uid, ref ev, true);
+            }
+            
+            if(sm.AnnounceNext.HasValue && sm.AnnounceNext.Value <= _timing.CurTime)
+            {
+                var ev = new SupermatterAnnouncementEvent();
                 RaiseLocalEvent(uid, ref ev, true);
             }
         }
@@ -127,30 +131,87 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
-        // Set the yell timer
-        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.SupermatterYellTimer));
-
+        RefreshNextAnnouncement(sm);
+        
         // Set the sound
         _ambient.SetAmbience(uid, true);
-
-        // Add air to the initialized SM in the map so it doesn't delam on its own
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
-        mix?.AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesStandard - mix.GetMoles(Gas.Oxygen));
-        mix?.AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesStandard - mix.GetMoles(Gas.Nitrogen));
 
         // Send the inactive port for any linked devices
         if (HasComp<DeviceLinkSourceComponent>(uid))
             _link.InvokePort(uid, sm.PortInactive);
+    }
+    
+    private void OnSupermatterAnnouncement(EntityUid uid, SupermatterComponent sm, SupermatterAnnouncementEvent args)
+    {
+        if (sm.SuppressAnnouncements)
+            return;
+        
+        // We do not need to send any announcements if the supermatter is not damaged.
+        if (MathHelper.CloseTo(sm.Damage, 0.0f, 0.05f))
+            return;
+        
+        var integrity = GetIntegrity(sm).ToString("0.00");
+        var isHealing = sm.Damage < sm.DamageArchived;
+        var isTakingDamage = sm.Damage > sm.DamageArchived;
+        
+        switch (sm.Status)
+        {
+            case SupermatterStatusType.Delaminating when sm.IsDelaminationAnnounced && sm.DelaminationTime.HasValue:
+            {
+                var seconds = Math.Ceiling(sm.DelaminationTime.Value.TotalSeconds - _timing.CurTime.TotalSeconds);
+                var message = Loc.GetString(seconds > 5 ? "supermatter-seconds-before-delam-countdown" : "supermatter-seconds-before-delam-imminent", ("seconds", seconds));
+                if (seconds < 5 && TryComp<SpeechComponent>(uid, out var speech))
+                    speech.SoundCooldownTime = 4.5f;
+            
+                SendSupermatterAnnouncement(uid, sm, message, true);
+                break;
+            }
+            case >= SupermatterStatusType.Warning when isHealing:
+            {
+                var message = Loc.GetString("supermatter-healing", ("integrity", integrity));
+                var global = sm.Status >= SupermatterStatusType.Emergency;
+
+                if (TryComp<SpeechComponent>(uid, out var speech))
+                    // Reset speech cooldown after healing is started
+                    speech.SoundCooldownTime = 0.0f;
+            
+                SendSupermatterAnnouncement(uid, sm, message, global);
+                break;
+            }
+            case >= SupermatterStatusType.Warning when isTakingDamage && !sm.IsDelaminating:
+            {
+                // We don't want to send the 0% integrity message, and we only want to emit the warning if the supermatter is taking damage. 
+                var isEmergency = sm.Damage >= sm.DamageEmergencyThreshold;
+                var message = Loc.GetString( isEmergency? "supermatter-emergency" : "supermatter-warning", ("integrity", integrity));
+                SendSupermatterAnnouncement(uid, sm, message, isEmergency);
+
+                if (sm.Power >= _config.GetCVar(ImpCCVars.SupermatterPowerPenaltyThreshold))
+                {
+                    SendSupermatterAnnouncement(uid, sm, Loc.GetString(sm.PowerlossInhibitor >= 0.5 ? "supermatter-threshold-power" : "supermatter-threshold-powerloss"));
+                }
+                
+                if (sm.GasStorage != null && sm.GasStorage.TotalMoles >= _config.GetCVar(ImpCCVars.SupermatterMolePenaltyThreshold))
+                {
+                    message = Loc.GetString("supermatter-threshold-mole");
+                    SendSupermatterAnnouncement(uid, sm, message);
+                }
+                
+                break;
+            }
+        }
+        
+        RefreshNextAnnouncement(sm);
     }
 
     private void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
         ProcessAtmos(uid, sm, args.dt);
         HandleDamage(uid, sm);
-
+        
+        UpdateSupermatterStatus((uid, sm));
+        
         HandleLight(uid, sm);
         HandleVision(uid, sm);
-        HandleStatus(uid, sm);
         HandleSoundLoop(uid, sm);
         HandleAccent(uid, sm);
 
@@ -163,6 +224,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     
     private void OnSupermatterDamaged(EntityUid uid, SupermatterComponent sm, SupermatterDamagedEvent args)
     {
+        Log.Debug("Supermatter damaged: {Damage} damage ({delta} change)", sm.Damage, args.Damage);
+        
         if (sm.Damage >= sm.DamageDelaminationPoint && !sm.IsDelaminating)
         {
             // Start the delamination process
@@ -181,56 +244,100 @@ public sealed partial class SupermatterSystem : EntitySystem
             var ev = new SupermatterDelaminationCancelledEvent();
             RaiseLocalEvent(uid, ref ev);
         }
-
-        var integrity = GetIntegrity(sm).ToString("0.00");
+    }
+    
+    private void OnSupermatterStatusChanged(EntityUid uid, SupermatterComponent sm, SupermatterStatusChangedEvent args)
+    {
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} status changed to {sm.Status}");
         
-        if (args.Damage < 0) // Crystal is healing.
+        // Adjust the supermatter's sprite
+        if (TryComp<AppearanceComponent>(uid, out var appearance))
         {
-            var message = Loc.GetString("supermatter-healing", ("integrity", integrity));
-            var global = sm.Status >= SupermatterStatusType.Emergency;
-            
-            if (TryComp<SpeechComponent>(uid, out var speech))
-                // Reset speech cooldown after healing is started
-                speech.SoundCooldownTime = 0.0f;
-
-            SendSupermatterAnnouncement(uid, sm, message, global);
-        }
-        else if (sm.Damage >= sm.DamageWarningThreshold)
-        {
-            var message = Loc.GetString("supermatter-warning", ("integrity", integrity));
-            var global = false;
-            
-            if (sm.Damage >= sm.DamageEmergencyThreshold)
+            var visual = SupermatterCrystalState.Normal;
+            if (sm.Damage > 0 && sm.Damage > sm.DamageArchived) // Damaged and not healing
             {
-                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
-                global = true;
+                visual = sm.Status switch
+                {
+                    SupermatterStatusType.Delaminating => SupermatterCrystalState.GlowDelam,
+                    >= SupermatterStatusType.Emergency => SupermatterCrystalState.GlowEmergency,
+                    _ => SupermatterCrystalState.Glow
+                };
             }
-            
-            SendSupermatterAnnouncement(uid, sm, message, global);
+
+            _appearance.SetData(uid, SupermatterVisuals.Crystal, visual, appearance);
+        }
+
+        // Update linked devices
+        if (HasComp<DeviceLinkSourceComponent>(uid))
+        {
+            var port = sm.Status switch
+            {
+                SupermatterStatusType.Normal => sm.PortNormal,
+                SupermatterStatusType.Caution => sm.PortCaution,
+                SupermatterStatusType.Warning => sm.PortWarning,
+                SupermatterStatusType.Danger => sm.PortDanger,
+                SupermatterStatusType.Emergency => sm.PortEmergency,
+                SupermatterStatusType.Delaminating => sm.PortDelaminating,
+                _ => sm.PortInactive
+            };
+
+            _link.InvokePort(uid, port);
+        }
+        
+        // Update speech sounds
+        if (TryComp<SpeechComponent>(uid, out var speech))
+        {
+            // Supermatter is healing, so don't play speech sounds
+            if (sm.Damage < sm.DamageArchived && sm.Status != SupermatterStatusType.Delaminating)
+            {
+                sm.StatusCurrentSound = sm.StatusSilentSound;
+                speech.SpeechSounds = sm.StatusSilentSound;
+                return;
+            }
+
+            sm.StatusCurrentSound = sm.Status switch
+            {
+                SupermatterStatusType.Warning => sm.StatusWarningSound,
+                SupermatterStatusType.Danger => sm.StatusDangerSound,
+                SupermatterStatusType.Emergency => sm.StatusEmergencySound,
+                SupermatterStatusType.Delaminating => sm.StatusDelamSound,
+                _ => sm.StatusSilentSound
+            };
+
+            if (sm.Status == SupermatterStatusType.Warning)
+                speech.AudioParams = AudioParams.Default.AddVolume(7.5f);
+            else
+                speech.AudioParams = AudioParams.Default.AddVolume(10f);
+
+            speech.SpeechSounds = sm.StatusCurrentSound;
         }
     }
     
     private void OnSupermatterDelaminationStarted(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationStartedEvent args)
     {
         var sb = new StringBuilder();
-        sm.PreferredDelamination = ChooseDelamType(uid, sm);
+        sm.PreferredDelamination ??= ChooseDelamType(uid, sm);
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination?.ID ?? "None"}");
+        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination?.ID ?? "None"}");
 
         sb.AppendLine(Loc.GetString(sm.PreferredDelamination?.Message ?? "supermatter-delam-generic"));
-        sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelaminationDelay)));
+        sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelaminationDelay))); //todo change for timespan instead of seconds
 
         sm.IsDelaminationAnnounced = true;
-        sm.YellTimer = TimeSpan.FromSeconds(15); // PORT TODO: Replace with paused timespan stuff.
-
         SendSupermatterAnnouncement(uid, sm, sb.ToString(), true);
+        
+        RefreshNextAnnouncement(sm);
     }
     
     private void OnSupermatterDelaminationCancelled(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationCancelledEvent args)
     {
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination cancelled");
+
         sm.IsDelaminationAnnounced = false;
-        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.SupermatterYellTimer));
+        sm.PreferredDelamination = null;
+        RefreshNextAnnouncement(sm);
         
         var integrity = GetIntegrity(sm).ToString("0.00");
-        
         SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-delam-cancel", ("integrity", integrity)), true);
     }
     
@@ -238,10 +345,16 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         if (sm.PreferredDelamination is null)
         {
+            _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} failed to choose a delamination type and was deleted at {Transform(uid).Coordinates:coordinates}");
+            _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} failed to choose a delamination type and was deleted");
+            
             // No delamination type was chosen, and no default was specified. Just delete the supermatter.
             QueueDel(uid);
             return;
         }
+        
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination.ID} at {Transform(uid).Coordinates:coordinates}");
+        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination.ID} at {Transform(uid).Coordinates:coordinates}");
         
         var xform = Transform(uid);
         var mapId = xform.MapID;
@@ -301,6 +414,10 @@ public sealed partial class SupermatterSystem : EntitySystem
         }
         
         _effects.ApplyEffects(uid, sm.PreferredDelamination.SupermatterEffects);
+        
+        // Not every delamination will automatically destroy the supermatter.
+        // So we're going to queue it for deletion just to be sure.
+        QueueDel(uid);
     }
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
@@ -507,29 +624,29 @@ public sealed partial class SupermatterSystem : EntitySystem
         sm.HasBeenPowered = true;
     }
 
-    private SupermatterStatusType GetStatus(EntityUid uid, SupermatterComponent sm)
+    private SupermatterStatusType GetStatus(Entity<SupermatterComponent> ent)
     {
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+        var mix = _atmosphere.GetContainingMixture(ent.Owner, true, true);
 
         if (mix is not { })
             return SupermatterStatusType.Error;
 
-        if (sm.IsDelaminating || sm.Damage >= sm.DamageDelaminationPoint)
+        if (ent.Comp.IsDelaminating || ent.Comp.Damage >= ent.Comp.DamageDelaminationPoint)
             return SupermatterStatusType.Delaminating;
 
-        if (sm.Damage >= sm.DamagePenaltyPoint)
+        if (ent.Comp.Damage >= ent.Comp.DamageEmergencyThreshold)
             return SupermatterStatusType.Emergency;
 
-        if (sm.Damage >= sm.DamageDelamAlertPoint)
+        if (ent.Comp.Damage >= ent.Comp.DamageDelamAlertPoint)
             return SupermatterStatusType.Danger;
 
-        if (sm.Damage >= sm.DamageWarningThreshold)
+        if (ent.Comp.Damage >= ent.Comp.DamageWarningThreshold)
             return SupermatterStatusType.Warning;
 
         if (mix.Temperature > Atmospherics.T0C + _config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold) * 0.8)
             return SupermatterStatusType.Caution;
 
-        if (sm.Power > 5)
+        if (ent.Comp.Power > 5)
             return SupermatterStatusType.Normal;
 
         return SupermatterStatusType.Inactive;
@@ -558,5 +675,42 @@ public sealed partial class SupermatterSystem : EntitySystem
             return false;
         
         return true;
+    }
+    
+    private TimeSpan GetAnnouncementDelay(SupermatterComponent sm)
+    {
+        if (sm.IsDelaminating && sm.DelaminationTime.HasValue)
+        {
+            return (sm.DelaminationTime.Value.TotalSeconds - _timing.CurTime.TotalSeconds) switch
+            {
+                > 30 => TimeSpan.FromSeconds(10),
+                > 5 => TimeSpan.FromSeconds(5),
+                <= 5 => TimeSpan.FromSeconds(1),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
+
+        return sm.AnnounceInterval;
+    }
+
+    public void RefreshNextAnnouncement(SupermatterComponent sm)
+    {
+        sm.AnnounceNext = _timing.CurTime + GetAnnouncementDelay(sm);
+    }
+    
+    /// <summary>
+    /// Checks the supermatter's status and updates it accordingly, then raises a status changed event if it has changed.
+    /// </summary>
+    private void UpdateSupermatterStatus(Entity<SupermatterComponent> ent)
+    {
+        var currentStatus = GetStatus(ent);
+
+        // Send port updates out for any linked devices
+        if (ent.Comp.Status != currentStatus)
+        {
+            ent.Comp.Status = currentStatus;
+            var ev = new SupermatterStatusChangedEvent();
+            RaiseLocalEvent(ent, ref ev);
+        }
     }
 }

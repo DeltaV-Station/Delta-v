@@ -7,33 +7,6 @@ namespace Content.Shared._Impstation.CCVar;
 public sealed partial class ImpCCVars
 {
     /// <summary>
-    ///     With completely default supermatter values, Singuloose delamination will occur if engineers inject at least 900 moles of coolant per tile
-    ///     in the crystal chamber. For reference, a gas canister contains 1800 moles of air. This Cvar directly multiplies the amount of moles required to singuloose.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterSingulooseMolesModifier =
-        CVarDef.Create("supermatter.singuloose_moles_modifier", 1f, CVar.SERVER);
-
-    /// <summary>
-    ///     Toggles whether or not Singuloose delaminations can occur. If both Singuloose and Tesloose are disabled, it will always delam into a Nuke.
-    /// </summary>
-    public static readonly CVarDef<bool> SupermatterDoSingulooseDelam =
-        CVarDef.Create("supermatter.do_singuloose", true, CVar.SERVER);
-
-    /// <summary>
-    ///     By default, Supermatter will "Tesloose" if the conditions for Singuloose are not met, and the core's power is at least 4000.
-    ///     The actual reasons for being at least this amount vary by how the core was screwed up, but traditionally it's caused by "The core is on fire".
-    ///     This Cvar multiplies said power threshold for the purpose of determining if the delam is a Tesloose.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterTesloosePowerModifier =
-        CVarDef.Create("supermatter.tesloose_power_modifier", 1f, CVar.SERVER);
-
-    /// <summary>
-    ///     Toggles whether or not Tesloose delaminations can occur. If both Singuloose and Tesloose are disabled, it will always delam into a Nuke.
-    /// </summary>
-    public static readonly CVarDef<bool> SupermatterDoTeslooseDelam =
-        CVarDef.Create("supermatter.do_tesloose", true, CVar.SERVER);
-
-    /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around, and delaminating into a tesla.
     ///     The supermatter will also spawn anomalies, and gains +2 bolts of electricity.
     /// </summary>
@@ -162,10 +135,4 @@ public sealed partial class ImpCCVars
     /// </summary>
     public static readonly CVarDef<float> SupermatterThermalReleaseModifier =
         CVarDef.Create("supermatter.thermal_release_modifier", 5f, CVar.SERVER);
-
-    /// <summary>
-    ///     How often the supermatter should announce its status.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterYellTimer =
-        CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
 }

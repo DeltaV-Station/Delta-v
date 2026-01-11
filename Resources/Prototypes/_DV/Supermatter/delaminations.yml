@@ -9,15 +9,15 @@
   - !type:IonStorm
 
 - type: supermatterDelamination
-  id: ExplosionSupermatterDelamination
   parent: BaseSupermatterDelamination
+  id: ExplosionSupermatterDelamination
   message: supermatter-delam-explosion
   supermatterEffects:
   - !type:Explode
 
 - type: supermatterDelamination
-  id: SingularitySupermatterDelamination
   parent: BaseSupermatterDelamination
+  id: SingularitySupermatterDelamination
   message: supermatter-delam-overmass
   requirements:
     minMoles: 600
@@ -26,8 +26,8 @@
     entity: Singularity
 
 - type: supermatterDelamination
-  id: TeslaSupermatterDelamination
   parent: BaseSupermatterDelamination
+  id: TeslaSupermatterDelamination
   message: supermatter-delam-tesla
   requirements:
     minPower: 5000
@@ -36,8 +36,8 @@
     entity: TeslaEnergyBall
 
 - type: supermatterDelamination
-  id: GlimmerSupermatterDelamination
   parent: BaseSupermatterDelamination
+  id: GlimmerSupermatterDelamination
   message: supermatter-delam-glimmer
   requirements:
     minGlimmer: 800
@@ -55,6 +55,6 @@
     radius: 10
 
 - type: supermatterDelamination
-  id: CascadeSupermatterDelamination
   parent: BaseSupermatterDelamination
+  id: CascadeSupermatterDelamination
   message: supermatter-delam-cascade

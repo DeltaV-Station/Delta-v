@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
@@ -144,7 +145,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The internal energy of the supermatter
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
+    [DataField][AutoNetworkedField]
     public float Power;
 
     /// <summary>
@@ -254,17 +255,11 @@ public sealed partial class SupermatterComponent : Component
 
     #region Timing
 
-    /// <summary>
-    /// We yell if over 50 damage every YellTimer Seconds
-    /// </summary>
-    [DataField]
-    public TimeSpan YellTimer;
-
-    /// <summary>
-    /// Last time the supermatter's damage was announced
-    /// </summary>
-    [DataField]
-    public TimeSpan YellLast;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))] [AutoNetworkedField] [AutoPausedField]
+    public TimeSpan? AnnounceNext;
+    
+    [DataField][AutoNetworkedField]
+    public TimeSpan AnnounceInterval = TimeSpan.FromSeconds(60);
 
     /// <summary>
     /// Time when the delamination will occur
@@ -275,7 +270,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public TimeSpan DelaminationDelay = TimeSpan.FromSeconds(30);
 
     /// <summary>
@@ -364,11 +359,17 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public int DamageDelamAlertPoint = 300;
 
+    /// <summary>
+    /// Whether the SM is currently in the delaminating process. 
+    /// </summary>
+    /// <remarks>
+    /// <para>This can be false while the <see cref="Status"/> is <see cref="SupermatterStatusType.Delaminating"/>, such as when the crystal is just entering the delamination process. If you don't need the distinction, use Status instead.</para>
+    /// </remarks>
     [DataField]
     public bool IsDelaminating;
 
     /// <summary>
-    /// The expected delamination type to occur.
+    /// The selected delamination type to occur.
     /// </summary>
     [DataField]
     public SupermatterDelaminationPrototype? PreferredDelamination;
@@ -377,11 +378,14 @@ public sealed partial class SupermatterComponent : Component
 
     #region Announcements
 
+    /// <summary>
+    /// Whether the current delamination process has been announced.
+    /// </summary>
     [DataField]
     public bool IsDelaminationAnnounced;
 
     /// <summary>
-    /// The radio channel for supermatter alerts
+    /// Whether to suppress announcements for this supermatter.
     /// </summary>
     [DataField]
     public bool SuppressAnnouncements;
@@ -609,3 +613,6 @@ public record struct SupermatterDelaminationEvent;
 
 [ByRefEvent]
 public record struct SupermatterAnnouncementEvent;
+
+[ByRefEvent]
+public record struct SupermatterStatusChangedEvent;
