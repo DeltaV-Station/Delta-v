@@ -79,9 +79,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamEffectsPrototype = "SupermatterDelamEffects";
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
-
+    [DataField]
+    public List<ProtoId<SupermatterDelaminationPrototype>> EnabledDelaminations = new();
+    
+    [DataField]
+    public ProtoId<SupermatterDelaminationPrototype> DefaultDelamination = "SupermatterDelaminationExplosion";
+    
     #endregion
 
     #region Sounds
@@ -367,8 +370,8 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The expected delamination type to occur.
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
-    public DelamType PreferredDelamType = DelamType.Explosion;
+    [DataField]
+    public SupermatterDelaminationPrototype? PreferredDelamination;
 
     #endregion
 
@@ -603,3 +606,6 @@ public record struct SupermatterDelaminationCancelledEvent;
 /// </summary>
 [ByRefEvent]
 public record struct SupermatterDelaminationEvent;
+
+[ByRefEvent]
+public record struct SupermatterAnnouncementEvent;

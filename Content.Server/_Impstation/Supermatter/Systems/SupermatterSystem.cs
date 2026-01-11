@@ -18,6 +18,7 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
+using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
@@ -25,6 +26,7 @@ using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
+using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -33,6 +35,7 @@ using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
 using Content.Shared.Storage.Components;
@@ -80,6 +83,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
 
     public override void Initialize()
     {
@@ -138,13 +143,10 @@ public sealed partial class SupermatterSystem : EntitySystem
             _link.InvokePort(uid, sm.PortInactive);
     }
 
-    public void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
+    private void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
         ProcessAtmos(uid, sm, args.dt);
         HandleDamage(uid, sm);
-
-        if (sm.Damage >= sm.DamageDelaminationPoint || sm.IsDelaminating)
-            HandleDelamination(uid, sm);
 
         HandleLight(uid, sm);
         HandleVision(uid, sm);
@@ -211,15 +213,9 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnSupermatterDelaminationStarted(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationStartedEvent args)
     {
         var sb = new StringBuilder();
-        var loc = sm.PreferredDelamType switch
-        {
-            DelamType.Cascade => "supermatter-delam-cascade",
-            DelamType.Singulo => "supermatter-delam-overmass",
-            DelamType.Tesla => "supermatter-delam-tesla",
-            _ => "supermatter-delam-explosion"
-        };
-        
-        sb.AppendLine(Loc.GetString(loc));
+        sm.PreferredDelamination = ChooseDelamType(uid, sm);
+
+        sb.AppendLine(Loc.GetString(sm.PreferredDelamination?.Message ?? "supermatter-delam-generic"));
         sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelaminationDelay)));
 
         sm.IsDelaminationAnnounced = true;
@@ -240,12 +236,19 @@ public sealed partial class SupermatterSystem : EntitySystem
     
     private void OnSupermatterDelamination(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationEvent args)
     {
+        if (sm.PreferredDelamination is null)
+        {
+            // No delamination type was chosen, and no default was specified. Just delete the supermatter.
+            QueueDel(uid);
+            return;
+        }
+        
         var xform = Transform(uid);
         var mapId = xform.MapID;
         var mapFilter = Filter.BroadcastMap(mapId);
         var message = Loc.GetString("supermatter-delam-player");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-
+        
         // Send the reality distortion message to every player on the map
         _chatManager.ChatMessageToManyFiltered(mapFilter,
             ChatChannel.Server,
@@ -259,14 +262,11 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Play the reality distortion sound for every player on the map
         _audio.PlayGlobal(sm.DistortSound, mapFilter, true);
 
-        // Give effects to every mob on the map, except those in EntityStorage (lockers, etc)
-        var mobLookup = new HashSet<Entity<MobStateComponent>>();
-        _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
-        mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
-
+        // TODO: Move this to a GameRule
         // Scramble the thaven shared mood
         _moods.NewSharedMoods();
-
+        
+        // TODO: Move this to a GameRule
         // Flickers all powered lights on the map
         var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
         _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
@@ -276,55 +276,31 @@ public sealed partial class SupermatterSystem : EntitySystem
                 continue;
             _ghost.DoGhostBooEvent(light);
         }
+        
+        foreach (var gameRule in sm.PreferredDelamination.GameRules)
+        {
+            // delamination game rules
+            var gameRuleEnt = _gameTicker.AddGameRule(gameRule);
+            _gameTicker.StartGameRule(gameRuleEnt);
+        }
 
-        // Add post-delamination event scheduler
-        var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
-        _gameTicker.StartGameRule(gamerule);
-
+        
+        // Give effects to every mob on the map, except those in EntityStorage (lockers, etc)
+        var mobLookup = new HashSet<Entity<MobStateComponent>>();
+        _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
+        mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
+        
         var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
-
         foreach (var mob in mobLookup)
         {
-            // Scramble laws for silicons, then ignore other effects
-            if (TryComp<SiliconLawBoundComponent>(mob, out var law))
-            {
-                var target = EnsureComp<IonStormTargetComponent>(mob); // they hit the fucking ai
-                var oldChance = target.Chance;
-                target.Chance = 1f;
-                _ionStorm.IonStormTarget((mob.Owner, law, target));
-                target.Chance = oldChance; // hacky fucking code. whatever. don't look at me
-
-                continue;
-            }
-
-            // Scramble thaven moods
-            if (TryComp<ThavenMoodsComponent>(mob, out var moods))
-                _moods.RefreshMoods(mob, moods);
-
+            _effects.ApplyEffects(mob, sm.PreferredDelamination.MobEffects);
+            
             // Add effects to all mobs
             // TODO: change paracusia to actual hallucinations whenever those are real
             EntityManager.AddComponents(mob, effects, false);
         }
-
-        switch (sm.PreferredDelamType)
-        {
-            case DelamType.Cascade:
-                // one day...
-                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Singulo:
-                Spawn(sm.SingularitySpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Tesla:
-                Spawn(sm.TeslaSpawnPrototype, xform.Coordinates);
-                break;
-
-            default:
-                _explosion.TriggerExplosive(uid);
-                break;
-        }
+        
+        _effects.ApplyEffects(uid, sm.PreferredDelamination.SupermatterEffects);
     }
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
@@ -557,5 +533,30 @@ public sealed partial class SupermatterSystem : EntitySystem
             return SupermatterStatusType.Normal;
 
         return SupermatterStatusType.Inactive;
+    }
+
+    private bool CheckDelaminationRequirements(SupermatterDelaminationRequirements req, GasMixture? mix, SupermatterComponent sm)
+    {
+        if (req.MinPower.HasValue && sm.Power < req.MinPower.Value)
+            return false;
+        
+        if (req.MaxPower.HasValue && sm.Power > req.MaxPower.Value)
+            return false;
+
+        var absorbedMoles = mix is null ? 0 : mix.TotalMoles * GetGasEfficiency(sm);
+        
+        if (req.MinMoles.HasValue && absorbedMoles < req.MinMoles.Value)
+            return false;
+        
+        if (req.MaxMoles.HasValue && absorbedMoles > req.MaxMoles.Value)
+            return false;
+        
+        if (req.MinGlimmer.HasValue && _glimmer.Glimmer < req.MinGlimmer.Value)
+            return false;
+        
+        if (req.MaxGlimmer.HasValue && _glimmer.Glimmer > req.MaxGlimmer.Value)
+            return false;
+        
+        return true;
     }
 }

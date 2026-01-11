@@ -5,6 +5,7 @@ using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using System.Linq;
+using Content.Server._Impstation.Supermatter.Systems;
 using Content.Shared._Impstation.CCVar;
 
 namespace Content.Server._Impstation.Supermatter.Consoles;
@@ -14,6 +15,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly SupermatterSystem _supermatter = default!;
 
     public override void Initialize()
     {
@@ -172,7 +174,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             gases = sm.GasStorage;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold);
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
+        var gasEfficiency = _supermatter.GetGasEfficiency(sm);
 
         return new SupermatterFocusData(
             GetNetEntity(focusSupermatter.Value),

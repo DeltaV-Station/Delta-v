@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server.Singularity.Components;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
+using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
@@ -22,6 +23,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 
@@ -40,7 +42,7 @@ public sealed partial class SupermatterSystem
             return;
 
         // Divide the gas efficiency by the grace modifier if the supermatter is unpowered
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
+        var gasEfficiency = GetGasEfficiency(sm);
 
         // Delta-V - Use RemoveRatio instead of Remove.
         sm.GasStorage = mix.RemoveRatio(gasEfficiency); 
@@ -341,8 +343,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Absorbed gas from surrounding area
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
-        
+        var gasEfficiency = GetGasEfficiency(sm);
         var moles = mix.TotalMoles * gasEfficiency;
 
         var totalDamage = 0f;
@@ -564,34 +565,36 @@ public sealed partial class SupermatterSystem
         integrity = integrity < 0 ? 0 : integrity;
         return integrity;
     }
+    
+    public float GetGasEfficiency(SupermatterComponent sm)
+    {
+        return sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
+    }
 
     /// <summary>
     /// Decide on how to delaminate.
     /// </summary>
-    public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
+    private SupermatterDelaminationPrototype? ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(ImpCCVars.SupermatterDoForceDelam))
-            return _config.GetCVar(ImpCCVars.SupermatterForcedDelamType);
-
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
-
-        if (mix is { })
+        _proto.Resolve(sm.DefaultDelamination, out var defaultDelam);
+        
+        if (sm.EnabledDelaminations.Count == 0)
         {
-            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-            var moles = absorbedGas.TotalMoles;
-
-            if (_config.GetCVar(ImpCCVars.SupermatterDoSingulooseDelam)
-                && moles >= _config.GetCVar(ImpCCVars.SupermatterMolePenaltyThreshold) * _config.GetCVar(ImpCCVars.SupermatterSingulooseMolesModifier))
-                return DelamType.Singulo;
+            return defaultDelam;
+        }
+        
+        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+        
+        foreach (var protoId in sm.EnabledDelaminations)
+        {
+            if (!_proto.Resolve(protoId, out var delam))
+                continue;
+            
+            if (CheckDelaminationRequirements(delam.Requirements, mix, sm))
+                return delam;
         }
 
-        if (_config.GetCVar(ImpCCVars.SupermatterDoTeslooseDelam)
-            && sm.Power >= _config.GetCVar(ImpCCVars.SupermatterPowerPenaltyThreshold) * _config.GetCVar(ImpCCVars.SupermatterTesloosePowerModifier))
-            return DelamType.Tesla;
-
-        //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
-
-        return DelamType.Explosion;
+        return defaultDelam;
     }
 
     /// <summary>
@@ -599,7 +602,6 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleDelamination(EntityUid uid, SupermatterComponent sm)
     {
-        sm.PreferredDelamType = ChooseDelamType(uid, sm);
     }
 
     /// <summary>

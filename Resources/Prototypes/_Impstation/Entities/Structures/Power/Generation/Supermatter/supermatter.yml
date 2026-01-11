@@ -100,6 +100,10 @@
     energy: 10000
   - type: Appearance
   - type: Supermatter
+    defaultDelamination: ExplosionSupermatterDelamination
+    enabledDelaminations:
+    - SingularitySupermatterDelamination
+    - TeslaSupermatterDelamination
   - type: AtmosDevice
     requireAnchored: false
     joinSystem: true
@@ -128,10 +132,14 @@
   description: A strangely translucent and iridescent crystal. It lacks the NanoTrasen integrated delamination detection announcement system.
   suffix: no announcement
   components:
-    - type: Speech
-      enabled: false
-    - type: Supermatter
-      suppressAnnouncements: true
-    - type: EmitSoundOnSpawn
-      sound:
-        path: /Audio/Effects/teleport_arrival.ogg
+  - type: Speech
+    enabled: false
+  - type: Supermatter
+    defaultDelamination: ExplosionSupermatterDelamination
+    enabledDelaminations:
+    - SingularitySupermatterDelamination
+    - TeslaSupermatterDelamination
+    suppressAnnouncements: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/teleport_arrival.ogg

@@ -77,18 +77,6 @@ public sealed partial class ImpCCVars
         CVarDef.Create("supermatter.ammonia_power_gain", 30f, CVar.SERVER);
 
     /// <summary>
-    ///     When true, bypass the normal checks to determine delam type, and instead use the type chosen by supermatter.forced_delam_type
-    /// </summary>
-    public static readonly CVarDef<bool> SupermatterDoForceDelam =
-        CVarDef.Create("supermatter.do_force_delam", false, CVar.SERVER);
-
-    /// <summary>
-    ///     If supermatter.do_force_delam is true, this determines the delamination type, bypassing the normal checks.
-    /// </summary>
-    public static readonly CVarDef<DelamType> SupermatterForcedDelamType =
-        CVarDef.Create("supermatter.forced_delam_type", DelamType.Singulo, CVar.SERVER);
-
-    /// <summary>
     ///     Maximum safe operational temperature in degrees Celsius.
     ///     Supermatter begins taking damage above this temperature.
     /// </summary>
