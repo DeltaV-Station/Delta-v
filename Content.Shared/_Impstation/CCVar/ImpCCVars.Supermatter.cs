@@ -20,12 +20,6 @@ public sealed partial class ImpCCVars
         CVarDef.Create("supermatter.power_penalty_threshold_severe", 7000f, CVar.SERVER);
 
     /// <summary>
-    ///     Above this, the supermatter spawns pyro anomalies at an increased rate, and gains +1 bolt of electricity.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterCriticalPowerPenaltyThreshold =
-        CVarDef.Create("supermatter.power_penalty_threshold_critical", 9000f, CVar.SERVER);
-
-    /// <summary>
     ///     The minimum pressure for a pure ammonia atmosphere to begin being consumed.
     /// </summary>
     public static readonly CVarDef<float> SupermatterAmmoniaConsumptionPressure =

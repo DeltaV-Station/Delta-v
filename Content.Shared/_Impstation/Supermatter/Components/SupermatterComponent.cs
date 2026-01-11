@@ -45,25 +45,7 @@ public sealed partial class SupermatterComponent : Component
     #region Prototypes
 
     [DataField]
-    public EntProtoId[] LightningPrototypes =
-    {
-        "SupermatterLightning",
-        "SupermatterLightningCharged",
-        "SupermatterLightningSupercharged"
-    };
-
-    [DataField]
     public EntProtoId SliverPrototype = "SupermatterSliver";
-
-    [DataField]
-    public EntProtoId SingularitySpawnPrototype = "Singularity";
-
-    [DataField]
-    public EntProtoId TeslaSpawnPrototype = "TeslaEnergyBall";
-
-    // one day...
-    // [DataField]
-    // public EntProtoId KudzuSpawnPrototype = "SupermatterKudzu";
 
     [DataField]
     public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
@@ -130,9 +112,6 @@ public sealed partial class SupermatterComponent : Component
     public ProtoId<SpeechSoundsPrototype> StatusDelamSound = "SupermatterDelaminating";
 
     [DataField]
-    public ProtoId<SpeechSoundsPrototype>? StatusCurrentSound;
-
-    [DataField]
     public SoundSpecifier GainParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambidanger.ogg");
 
     [DataField]
@@ -196,12 +175,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField][AutoNetworkedField]
     public float PsyCoefficient;
-
-    /// <summary>
-    /// The chance for supermatter lightning to strike random coordinates instead of an entity
-    /// </summary>
-    [DataField]
-    public float ZapHitCoordinatesChance = 0.75f;
 
     /// <summary>
     /// The lifetime of a supermatter-spawned anomaly.
@@ -284,9 +257,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float AccentMinCooldown = 2f;
-
-    [DataField]
-    public TimeSpan ZapLast;
 
     #endregion
 
@@ -459,14 +429,6 @@ public sealed partial class SupermatterComponent : Component
     #endregion
 }
 
-public enum DelamType : int
-{
-    Explosion = 0,
-    Singulo = 1,
-    Tesla = 2,
-    Cascade = 3
-}
-
 [Serializable, NetSerializable]
 public struct SupermatterGasFact
 {
@@ -576,9 +538,7 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class SupermatterSpriteUpdateEvent(NetEntity uid, string state) : EntityEventArgs
@@ -611,8 +571,14 @@ public record struct SupermatterDelaminationCancelledEvent;
 [ByRefEvent]
 public record struct SupermatterDelaminationEvent;
 
+/// <summary>
+/// Raised when the supermatter should announce its status.
+/// </summary>
 [ByRefEvent]
 public record struct SupermatterAnnouncementEvent;
 
+/// <summary>
+/// Raised when the supermatter's status changes.
+/// </summary>
 [ByRefEvent]
 public record struct SupermatterStatusChangedEvent;

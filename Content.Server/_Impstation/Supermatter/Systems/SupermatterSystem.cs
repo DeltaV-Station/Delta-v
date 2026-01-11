@@ -6,21 +6,16 @@ using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Examine;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
-using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
-using Content.Server.Silicons.Laws;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Prototypes;
-using Content.Shared._Impstation.Thaven.Components;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
@@ -37,7 +32,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
@@ -65,7 +59,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -84,12 +77,12 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
     [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    
+    protected override string SawmillName => "supermatter";
 
     public override void Initialize()
     {
         base.Initialize();
-        
-        Log.Level = LogLevel.Verbose;
 
         SubscribeLocalEvent<SupermatterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SupermatterComponent, AtmosDeviceUpdateEvent>(OnSupermatterUpdated);
@@ -123,6 +116,8 @@ public sealed partial class SupermatterSystem : EntitySystem
             
             if(sm.AnnounceNext.HasValue && sm.AnnounceNext.Value <= _timing.CurTime)
             {
+                SetNextAnnouncementTime(sm);
+                
                 var ev = new SupermatterAnnouncementEvent();
                 RaiseLocalEvent(uid, ref ev, true);
             }
@@ -131,8 +126,6 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
-        RefreshNextAnnouncement(sm);
-        
         // Set the sound
         _ambient.SetAmbience(uid, true);
 
@@ -159,7 +152,14 @@ public sealed partial class SupermatterSystem : EntitySystem
             case SupermatterStatusType.Delaminating when sm.IsDelaminationAnnounced && sm.DelaminationTime.HasValue:
             {
                 var seconds = Math.Ceiling(sm.DelaminationTime.Value.TotalSeconds - _timing.CurTime.TotalSeconds);
-                var message = Loc.GetString(seconds > 5 ? "supermatter-seconds-before-delam-countdown" : "supermatter-seconds-before-delam-imminent", ("seconds", seconds));
+                
+                var message = seconds switch
+                {
+                    > 60 => Loc.GetString("supermatter-time-before-delam", ("time", sm.DelaminationTime.Value)),
+                    < 5 => Loc.GetString("supermatter-seconds-before-delam-imminent", ("seconds", seconds)),
+                    _ => Loc.GetString("supermatter-seconds-before-delam-countdown", ("seconds", seconds)),
+                };
+                
                 if (seconds < 5 && TryComp<SpeechComponent>(uid, out var speech))
                     speech.SoundCooldownTime = 4.5f;
             
@@ -199,8 +199,6 @@ public sealed partial class SupermatterSystem : EntitySystem
                 break;
             }
         }
-        
-        RefreshNextAnnouncement(sm);
     }
 
     private void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
@@ -217,15 +215,12 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (sm.Power > _config.GetCVar(ImpCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
         {
-            SupermatterZap(uid, sm);
             GenerateAnomalies(uid, sm);
         }
     }
     
     private void OnSupermatterDamaged(EntityUid uid, SupermatterComponent sm, SupermatterDamagedEvent args)
-    {
-        Log.Debug("Supermatter damaged: {Damage} damage ({delta} change)", sm.Damage, args.Damage);
-        
+    {   
         if (sm.Damage >= sm.DamageDelaminationPoint && !sm.IsDelaminating)
         {
             // Start the delamination process
@@ -287,30 +282,23 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Update speech sounds
         if (TryComp<SpeechComponent>(uid, out var speech))
         {
-            // Supermatter is healing, so don't play speech sounds
-            if (sm.Damage < sm.DamageArchived && sm.Status != SupermatterStatusType.Delaminating)
+            speech.SpeechSounds = sm.Status switch
             {
-                sm.StatusCurrentSound = sm.StatusSilentSound;
-                speech.SpeechSounds = sm.StatusSilentSound;
-                return;
-            }
-
-            sm.StatusCurrentSound = sm.Status switch
-            {
+                < SupermatterStatusType.Delaminating when sm.Damage < sm.DamageArchived => sm.StatusSilentSound,
+                
                 SupermatterStatusType.Warning => sm.StatusWarningSound,
                 SupermatterStatusType.Danger => sm.StatusDangerSound,
                 SupermatterStatusType.Emergency => sm.StatusEmergencySound,
                 SupermatterStatusType.Delaminating => sm.StatusDelamSound,
+                
                 _ => sm.StatusSilentSound
             };
-
-            if (sm.Status == SupermatterStatusType.Warning)
-                speech.AudioParams = AudioParams.Default.AddVolume(7.5f);
-            else
-                speech.AudioParams = AudioParams.Default.AddVolume(10f);
-
-            speech.SpeechSounds = sm.StatusCurrentSound;
         }
+        
+        // We should give the supermatter a chance to announce a few seconds after the status changes.
+        // Only do this for less than delaminating status so we don't clobber the ominous countdown.
+        if(sm.Status < SupermatterStatusType.Delaminating)
+            SetNextAnnouncementTime(sm, TimeSpan.FromSeconds(5));
     }
     
     private void OnSupermatterDelaminationStarted(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationStartedEvent args)
@@ -321,12 +309,12 @@ public sealed partial class SupermatterSystem : EntitySystem
         _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination?.ID ?? "None"}");
 
         sb.AppendLine(Loc.GetString(sm.PreferredDelamination?.Message ?? "supermatter-delam-generic"));
-        sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelaminationDelay))); //todo change for timespan instead of seconds
+        sb.Append(Loc.GetString("supermatter-time-before-delam", ("time", sm.DelaminationDelay)));
 
         sm.IsDelaminationAnnounced = true;
         SendSupermatterAnnouncement(uid, sm, sb.ToString(), true);
         
-        RefreshNextAnnouncement(sm);
+        SetNextAnnouncementTime(sm);
     }
     
     private void OnSupermatterDelaminationCancelled(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationCancelledEvent args)
@@ -335,7 +323,6 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         sm.IsDelaminationAnnounced = false;
         sm.PreferredDelamination = null;
-        RefreshNextAnnouncement(sm);
         
         var integrity = GetIntegrity(sm).ToString("0.00");
         SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-delam-cancel", ("integrity", integrity)), true);
@@ -686,14 +673,20 @@ public sealed partial class SupermatterSystem : EntitySystem
                 > 30 => TimeSpan.FromSeconds(10),
                 > 5 => TimeSpan.FromSeconds(5),
                 <= 5 => TimeSpan.FromSeconds(1),
-                _ => throw new ArgumentOutOfRangeException()
+                _ => TimeSpan.FromSeconds(10)
             };
         }
 
-        return sm.AnnounceInterval;
+        return sm.AnnounceInterval.TotalSeconds >= 1.0 ? sm.AnnounceInterval : TimeSpan.FromSeconds(1);
+
     }
 
-    public void RefreshNextAnnouncement(SupermatterComponent sm)
+    public void SetNextAnnouncementTime(SupermatterComponent sm, TimeSpan delay)
+    {
+        sm.AnnounceNext = _timing.CurTime + delay ;
+    }
+
+    public void SetNextAnnouncementTime(SupermatterComponent sm)
     {
         sm.AnnounceNext = _timing.CurTime + GetAnnouncementDelay(sm);
     }

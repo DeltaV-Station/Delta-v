@@ -7,7 +7,6 @@ using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
-using Content.Shared.DeviceLinking;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -15,7 +14,6 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Speech;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -23,7 +21,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 
@@ -185,38 +182,7 @@ public sealed partial class SupermatterSystem
         if (sm.Power > 0 && !sm.HasBeenPowered)
             LogFirstPower(uid, sm, mix);
     }
-
-    /// <summary>
-    /// Shoot lightning bolts depending on accumulated power.
-    /// </summary>
-    private void SupermatterZap(EntityUid uid, SupermatterComponent sm)
-    {
-        var zapPower = 0;
-        var zapCount = 0;
-        var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
-
-        if (_random.Prob(0.05f))
-            zapCount += 1;
-
-        if (sm.Power >= _config.GetCVar(ImpCCVars.SupermatterPowerPenaltyThreshold))
-            zapCount += 2;
-
-        if (sm.Power >= _config.GetCVar(ImpCCVars.SupermatterSeverePowerPenaltyThreshold))
-        {
-            zapPower += 1;
-            zapCount += 1;
-        }
-
-        if (sm.Power >= _config.GetCVar(ImpCCVars.SupermatterCriticalPowerPenaltyThreshold))
-        {
-            zapPower += 1;
-            zapCount += 1;
-        }
-
-        if (zapCount >= 1)
-            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance);
-    }
-
+    
     /// <summary>
     /// Generate temporary anomalies depending on accumulated power.
     /// </summary>

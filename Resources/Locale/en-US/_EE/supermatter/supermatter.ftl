@@ -18,8 +18,8 @@ supermatter-delam-cancel =
     Crystalline hyperstructure returning to safe operating parameters. Failsafe has been disengaged. Integrity: {$integrity}%.
 supermatter-delam-player =
     You feel reality distort for a moment...
-supermatter-seconds-before-delam =
-    Estimated time before delamination: {$seconds} seconds.
+supermatter-time-before-delam =
+    Estimated time until delamination: {$time}.
 supermatter-seconds-before-delam-countdown =
     {$seconds} seconds remain before causality stabilization.
 supermatter-seconds-before-delam-imminent =

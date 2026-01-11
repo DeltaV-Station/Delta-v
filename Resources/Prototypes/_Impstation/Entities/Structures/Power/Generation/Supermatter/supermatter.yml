@@ -48,6 +48,8 @@
     speechSounds: SupermatterSilent
     speechVerb: Supermatter
     soundCooldownTime: 0
+    audioParams:
+      volume: 5
     suffixSpeechVerbs:
       chat-speech-verb-suffix-exclamation-strong: Supermatter
       chat-speech-verb-suffix-exclamation: Supermatter
@@ -104,6 +106,21 @@
     enabledDelaminations:
     - SingularitySupermatterDelamination
     - TeslaSupermatterDelamination
+  - type: SupermatterLightning
+    lightningPrototype: SupermatterLightning
+    damageThresholds:
+      550:
+        zaps: 1
+        chance: 0.05
+    powerThresholds:
+      5000:
+        zaps: 2
+      7000:
+        zaps: 1
+        lightningPrototype: SupermatterLightningCharged
+      9000:
+        zaps: 1
+        lightningPrototype: SupermatterLightningSupercharged
   - type: AtmosDevice
     requireAnchored: false
     joinSystem: true
