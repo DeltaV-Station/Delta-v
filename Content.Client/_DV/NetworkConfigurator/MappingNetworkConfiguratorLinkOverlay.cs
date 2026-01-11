@@ -34,7 +34,7 @@ public sealed class MappingNetworkConfiguratorLinkOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        var query = _entityManager.EntityQueryEnumerator<DeviceNetworkComponent>();
+        var query = _entityManager.AllEntityQueryEnumerator<DeviceNetworkComponent>();
         while (query.MoveNext(out var uid, out _))
         {
             if (_entityManager.Deleted(uid) || !_entityManager.TryGetComponent(uid, out DeviceListComponent? deviceList))
