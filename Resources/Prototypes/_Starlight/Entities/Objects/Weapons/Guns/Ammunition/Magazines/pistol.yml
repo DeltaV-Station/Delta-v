@@ -8,6 +8,10 @@
   - type: BallisticAmmoProvider
     proto: null
     capacity: 6
+    whitelist:
+      tags:
+        - CartridgePistol
+        - CartridgePistolImprovised
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/improvised_pistol_magazine.rsi
     layers:

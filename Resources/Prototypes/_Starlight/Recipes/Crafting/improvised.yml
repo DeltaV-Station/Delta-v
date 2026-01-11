@@ -9,16 +9,6 @@
   description: crafting-menu-text-FDB
 
 - type: construction
-  name: crafting-menu-name-MP
-  id: WeaponPistolMakeshiftCrafted
-  graph: MakeshiftPistolCraftedGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-MP
-
-- type: construction
   name: crafting-menu-name-IP
   id: WeaponPistolImprovised
   graph: ImprovisedPistolGraph
@@ -57,16 +47,6 @@
   category: construction-category-weapons
   objectType: Item
   description: crafting-menu-text-IPM
-
-- type: construction
-  name: crafting-menu-name-MR
-  id: WeaponRevolverMakeshift
-  graph: MakeshiftRevolverGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-MR
 
 - type: construction
   name: crafting-menu-name-IR
@@ -119,26 +99,6 @@
   description: crafting-menu-text-MB
 
 - type: construction
-  name: crafting-menu-name-MSH
-  id: WeaponShotgunMakeshift
-  graph: MakeshiftShotgunGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-MSH
-
-- type: construction
-  name: crafting-menu-name-MS
-  id: WeaponSMGMakeshift
-  graph: MakeshiftSMGGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-MS
-
-- type: construction
   name: crafting-menu-name-IS
   id: WeaponSubMachineGunImprovised
   graph: ImprovisedSMGGraph
@@ -167,16 +127,6 @@
   category: construction-category-weapons
   objectType: Item
   description: crafting-menu-text-ISM
-
-- type: construction
-  name: crafting-menu-name-MRR
-  id: WeaponSniperMakeshift
-  graph: MakeshiftSniperGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-MRR
 
 - type: construction
   name: crafting-menu-name-IRR
@@ -484,7 +434,7 @@
   graph: ClothingOuterArmorMakeshiftGraph
   startNode: start
   targetNode: vest
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-MVT
 
@@ -494,7 +444,7 @@
   graph: ClothingOuterArmorImprovisedGraph
   startNode: start
   targetNode: vest
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-IVT
 
@@ -504,7 +454,7 @@
   graph: ClothingOuterArmorForgedGraph
   startNode: start
   targetNode: vest
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-FVT
 
@@ -514,7 +464,7 @@
   graph: ClothingOuterArmorPaladinGraph
   startNode: start
   targetNode: vest
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-PVT
 
@@ -524,7 +474,7 @@
   graph: ClothingHeadHelmetMakeshiftGraph
   startNode: start
   targetNode: helmet
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-MVTH
 
@@ -534,7 +484,7 @@
   graph: ClothingHeadHelmetImprovisedGraph
   startNode: start
   targetNode: helmet
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-IVTH
 
@@ -544,7 +494,7 @@
   graph: ClothingHeadHelmetForgedGraph
   startNode: start
   targetNode: helmet
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-FVTH
 
@@ -554,6 +504,6 @@
   graph: ClothingHeadHelmetPaladinGraph
   startNode: start
   targetNode: helmet
-  category: construction-category-weapons
+  category: construction-category-clothing
   objectType: Item
   description: crafting-menu-text-PVTH
