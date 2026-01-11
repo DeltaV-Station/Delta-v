@@ -374,3 +374,12 @@
       - type: AutoImplant
         implants:
         - RadioImplantCentcomm
+
+- type: entity
+  parent: BaseGameRule
+  id: ThavenMoodShuffle
+  components:
+  - type: GameRule
+  - type: ThavenMoodUpsetRule
+    newSharedMoods: true
+    refreshPersonalMoods: true

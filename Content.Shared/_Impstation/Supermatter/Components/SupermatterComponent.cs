@@ -426,7 +426,6 @@ public sealed partial class SupermatterComponent : Component
     #endregion
 }
 
-[Serializable, NetSerializable]
 public struct SupermatterGasFact
 {
     /// <summary>
@@ -458,7 +457,6 @@ public struct SupermatterGasFact
     }
 }
 
-[Serializable, NetSerializable]
 public static class SupermatterGasData
 {
     public static readonly Dictionary<Gas, SupermatterGasFact> GasData = new()

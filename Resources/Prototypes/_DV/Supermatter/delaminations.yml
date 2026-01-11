@@ -3,9 +3,9 @@
   message: supermatter-delam-generic
   gameRules:
   - SupermatterDelamEventScheduler
+  - ThavenMoodShuffle
   mobEffects:
   - !type:Jitter
-  - !type:ThavenRefreshMoods
   - !type:IonStorm
 
 - type: supermatterDelamination
