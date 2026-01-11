@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: SirrRequiem
-  changes:
-  - message: Terra Station
-    type: Add
-  - message: NTES Evac Yggdrasil shuttle
-    type: Add
-  id: 1547
-  time: '2025-07-30T06:30:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4005
 - author: TehFlaminTaco
   changes:
   - message: Telegnosis can now cause suffocation if overused
@@ -4451,4 +4442,12 @@
   id: 2046
   time: '2026-01-11T15:38:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5182
+- author: ShepardToTheStars
+  changes:
+  - message: The spare ID will always unlock 15 seconds after nukies declare war,
+      even if there is a captain.
+    type: Tweak
+  id: 2047
+  time: '2026-01-11T15:40:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5104
 Order: 1
