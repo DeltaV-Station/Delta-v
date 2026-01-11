@@ -1,3 +1,4 @@
+using System.Text;
 using Content.Server._Impstation.Thaven;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
@@ -17,8 +18,10 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
+using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
+using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
@@ -26,9 +29,13 @@ using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Speech;
+using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -88,6 +95,12 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
+        
+        SubscribeLocalEvent<SupermatterComponent, SupermatterDamagedEvent>(OnSupermatterDamaged);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationStartedEvent>(OnSupermatterDelaminationStarted);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationCancelledEvent>(OnSupermatterDelaminationCancelled);
+        
+        SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationEvent>(OnSupermatterDelamination);
     }
 
     public override void Update(float frameTime)
@@ -96,7 +109,15 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         var query = EntityManager.EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var uid, out var sm))
+        {
             AnnounceCoreDamage(uid, sm);
+            
+            if (sm.DelaminationTime.HasValue && sm.DelaminationTime <= _timing.CurTime)
+            {
+                var ev = new SupermatterDelaminationEvent();
+                RaiseLocalEvent(uid, ref ev, true);
+            }
+        }
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
@@ -135,6 +156,174 @@ public sealed partial class SupermatterSystem : EntitySystem
         {
             SupermatterZap(uid, sm);
             GenerateAnomalies(uid, sm);
+        }
+    }
+    
+    private void OnSupermatterDamaged(EntityUid uid, SupermatterComponent sm, SupermatterDamagedEvent args)
+    {
+        if (sm.Damage >= sm.DamageDelaminationPoint && !sm.IsDelaminating)
+        {
+            // Start the delamination process
+            sm.IsDelaminating = true;
+            sm.DelaminationTime = _timing.CurTime + sm.DelaminationDelay;
+
+            var ev = new SupermatterDelaminationStartedEvent();
+            RaiseLocalEvent(uid, ref ev);
+        }
+        else if (sm.Damage < sm.DamageDelaminationPoint && sm.IsDelaminating)
+        {
+            // Cancel the delamination process
+            sm.IsDelaminating = false;
+            sm.DelaminationTime = null;
+
+            var ev = new SupermatterDelaminationCancelledEvent();
+            RaiseLocalEvent(uid, ref ev);
+        }
+
+        var integrity = GetIntegrity(sm).ToString("0.00");
+        
+        if (args.Damage < 0) // Crystal is healing.
+        {
+            var message = Loc.GetString("supermatter-healing", ("integrity", integrity));
+            var global = sm.Status >= SupermatterStatusType.Emergency;
+            
+            if (TryComp<SpeechComponent>(uid, out var speech))
+                // Reset speech cooldown after healing is started
+                speech.SoundCooldownTime = 0.0f;
+
+            SendSupermatterAnnouncement(uid, sm, message, global);
+        }
+        else if (sm.Damage >= sm.DamageWarningThreshold)
+        {
+            var message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+            var global = false;
+            
+            if (sm.Damage >= sm.DamageEmergencyThreshold)
+            {
+                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                global = true;
+            }
+            
+            SendSupermatterAnnouncement(uid, sm, message, global);
+        }
+    }
+    
+    private void OnSupermatterDelaminationStarted(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationStartedEvent args)
+    {
+        var sb = new StringBuilder();
+        var loc = sm.PreferredDelamType switch
+        {
+            DelamType.Cascade => "supermatter-delam-cascade",
+            DelamType.Singulo => "supermatter-delam-overmass",
+            DelamType.Tesla => "supermatter-delam-tesla",
+            _ => "supermatter-delam-explosion"
+        };
+        
+        sb.AppendLine(Loc.GetString(loc));
+        sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelaminationDelay)));
+
+        sm.IsDelaminationAnnounced = true;
+        sm.YellTimer = TimeSpan.FromSeconds(15); // PORT TODO: Replace with paused timespan stuff.
+
+        SendSupermatterAnnouncement(uid, sm, sb.ToString(), true);
+    }
+    
+    private void OnSupermatterDelaminationCancelled(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationCancelledEvent args)
+    {
+        sm.IsDelaminationAnnounced = false;
+        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.SupermatterYellTimer));
+        
+        var integrity = GetIntegrity(sm).ToString("0.00");
+        
+        SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-delam-cancel", ("integrity", integrity)), true);
+    }
+    
+    private void OnSupermatterDelamination(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationEvent args)
+    {
+        var xform = Transform(uid);
+        var mapId = xform.MapID;
+        var mapFilter = Filter.BroadcastMap(mapId);
+        var message = Loc.GetString("supermatter-delam-player");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+        // Send the reality distortion message to every player on the map
+        _chatManager.ChatMessageToManyFiltered(mapFilter,
+            ChatChannel.Server,
+            message,
+            wrappedMessage,
+            uid,
+            false,
+            true,
+            Color.Red);
+
+        // Play the reality distortion sound for every player on the map
+        _audio.PlayGlobal(sm.DistortSound, mapFilter, true);
+
+        // Give effects to every mob on the map, except those in EntityStorage (lockers, etc)
+        var mobLookup = new HashSet<Entity<MobStateComponent>>();
+        _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
+        mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
+
+        // Scramble the thaven shared mood
+        _moods.NewSharedMoods();
+
+        // Flickers all powered lights on the map
+        var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
+        _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
+        foreach (var light in lightLookup)
+        {
+            if (!_random.Prob(sm.LightFlickerChance))
+                continue;
+            _ghost.DoGhostBooEvent(light);
+        }
+
+        // Add post-delamination event scheduler
+        var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
+        _gameTicker.StartGameRule(gamerule);
+
+        var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
+
+        foreach (var mob in mobLookup)
+        {
+            // Scramble laws for silicons, then ignore other effects
+            if (TryComp<SiliconLawBoundComponent>(mob, out var law))
+            {
+                var target = EnsureComp<IonStormTargetComponent>(mob); // they hit the fucking ai
+                var oldChance = target.Chance;
+                target.Chance = 1f;
+                _ionStorm.IonStormTarget((mob.Owner, law, target));
+                target.Chance = oldChance; // hacky fucking code. whatever. don't look at me
+
+                continue;
+            }
+
+            // Scramble thaven moods
+            if (TryComp<ThavenMoodsComponent>(mob, out var moods))
+                _moods.RefreshMoods(mob, moods);
+
+            // Add effects to all mobs
+            // TODO: change paracusia to actual hallucinations whenever those are real
+            EntityManager.AddComponents(mob, effects, false);
+        }
+
+        switch (sm.PreferredDelamType)
+        {
+            case DelamType.Cascade:
+                // one day...
+                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
+                break;
+
+            case DelamType.Singulo:
+                Spawn(sm.SingularitySpawnPrototype, xform.Coordinates);
+                break;
+
+            case DelamType.Tesla:
+                Spawn(sm.TeslaSpawnPrototype, xform.Coordinates);
+                break;
+
+            default:
+                _explosion.TriggerExplosive(uid);
+                break;
         }
     }
 
@@ -255,7 +444,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         Spawn(sm.SliverPrototype, Transform(args.User).Coordinates);
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 
-        sm.DelamTimer /= 2;
+        sm.DelaminationDelay /= 2;
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)

@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
@@ -7,10 +9,11 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.Supermatter.Components;
 
-[RegisterComponent][NetworkedComponent][AutoGenerateComponentState]
+[RegisterComponent][NetworkedComponent][AutoGenerateComponentState][AutoGenerateComponentPause]
 public sealed partial class SupermatterComponent : Component
 {
     #region Base
@@ -263,14 +266,14 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// Time when the delamination will occur
     /// </summary>
-    [DataField]
-    public TimeSpan DelamEndTime;
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))][AutoNetworkedField][AutoPausedField]
+    public TimeSpan? DelaminationTime;
 
     /// <summary>
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 30f;
+    public TimeSpan DelaminationDelay = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -576,3 +579,27 @@ public sealed partial class SupermatterSpriteUpdateEvent(NetEntity uid, string s
     public NetEntity Entity = uid;
     public string State = state;
 }
+
+/// <summary>
+/// Raised when the supermatter takes damage, with the amount of damage taken.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDamagedEvent(float Damage);
+
+/// <summary>
+/// Raised when the supermatter starts the delamination process.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDelaminationStartedEvent;
+
+/// <summary>
+/// Raised when the supermatter cancels the delamination process.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDelaminationCancelledEvent;
+
+/// <summary>
+/// Raised when the supermatter finishes the delamination timer.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDelaminationEvent;

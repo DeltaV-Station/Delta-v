@@ -1,16 +1,13 @@
 using System.Linq;
 using System.Numerics;
-using System.Text;
 using Content.Server.Singularity.Components;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
-using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Light.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
@@ -18,7 +15,6 @@ using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
-using Content.Shared.Storage.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -26,7 +22,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 
@@ -404,9 +399,20 @@ public sealed partial class SupermatterSystem
         }
 
         var damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DamageDelaminationPoint, sm.Damage + totalDamage);
-
+        
         // Prevent it from going negative
         sm.Damage = Math.Clamp(damage, 0, float.PositiveInfinity);
+        
+        var actualDamage = sm.Damage - sm.DamageArchived;
+        
+        // Check if the actual damage is close to zero
+        if(MathHelper.CloseTo(actualDamage, 0f, float.Epsilon))
+            return;
+
+        var ev = new SupermatterDamagedEvent(actualDamage);
+        
+        // trigger the damaged event
+        RaiseLocalEvent(uid, ref ev);
 
         // Adjust the supermatter's sprite
         if (TryComp<AppearanceComponent>(uid, out var appearance))
@@ -440,50 +446,17 @@ public sealed partial class SupermatterSystem
 
         var integrity = GetIntegrity(sm).ToString("0.00");
 
-        // Instantly announce delamination
-        if (sm.IsDelaminating && !sm.IsDelaminationAnnounced)
-        {
-            var sb = new StringBuilder();
-            var loc = sm.PreferredDelamType switch
-            {
-                DelamType.Cascade => "supermatter-delam-cascade",
-                DelamType.Singulo => "supermatter-delam-overmass",
-                DelamType.Tesla => "supermatter-delam-tesla",
-                _ => "supermatter-delam-explosion"
-            };
-
-            sb.AppendLine(Loc.GetString(loc));
-            sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
-
-            message = sb.ToString();
-            global = true;
-            sm.IsDelaminationAnnounced = true;
-            sm.YellTimer = TimeSpan.FromSeconds(sm.DelamTimer / 2);
-
-            SendSupermatterAnnouncement(uid, sm, message, global);
-            return;
-        }
-
         // Only announce every YellTimer seconds
         if (_timing.CurTime < sm.YellLast + sm.YellTimer)
             return;
 
-        // Recovered after the delamination point
-        if (sm.Damage < sm.DamageDelaminationPoint && sm.IsDelaminationAnnounced)
-        {
-            message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
-            sm.IsDelaminationAnnounced = false;
-            sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.SupermatterYellTimer));
-            global = true;
-
-            SendSupermatterAnnouncement(uid, sm, message, global);
-            return;
-        }
-
         // Oh god oh fuck
         if (sm.IsDelaminating && sm.IsDelaminationAnnounced)
         {
-            var seconds = Math.Ceiling(sm.DelamEndTime.TotalSeconds - _timing.CurTime.TotalSeconds);
+            if(!sm.DelaminationTime.HasValue)
+                return;
+            
+            var seconds = Math.Ceiling(sm.DelaminationTime.Value.TotalSeconds - _timing.CurTime.TotalSeconds);
 
             if (seconds <= 0)
                 return;
@@ -509,22 +482,6 @@ public sealed partial class SupermatterSystem
 
             message = Loc.GetString(loc, ("seconds", seconds));
             global = true;
-
-            SendSupermatterAnnouncement(uid, sm, message, global);
-            return;
-        }
-
-        // We're safe
-        if (sm.Damage < sm.DamageArchived && sm.Status >= SupermatterStatusType.Warning)
-        {
-            message = Loc.GetString("supermatter-healing", ("integrity", integrity));
-
-            if (sm.Status >= SupermatterStatusType.Emergency)
-                global = true;
-
-            if (TryComp<SpeechComponent>(uid, out var speech))
-                // Reset speech cooldown after healing is started
-                speech.SoundCooldownTime = 0.0f;
 
             SendSupermatterAnnouncement(uid, sm, message, global);
             return;
@@ -581,7 +538,7 @@ public sealed partial class SupermatterSystem
         if (sm.SuppressAnnouncements)
             return;
 
-        if (message == String.Empty)
+        if (string.IsNullOrEmpty(message))
             return;
 
         var channel = sm.Channel;
@@ -642,110 +599,7 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleDelamination(EntityUid uid, SupermatterComponent sm)
     {
-        var xform = Transform(uid);
-
         sm.PreferredDelamType = ChooseDelamType(uid, sm);
-
-        if (!sm.IsDelaminating)
-        {
-            sm.IsDelaminating = true;
-            sm.DelamEndTime = _timing.CurTime + TimeSpan.FromSeconds(sm.DelamTimer);
-            AnnounceCoreDamage(uid, sm);
-        }
-
-        if (sm.Damage < sm.DamageDelaminationPoint && sm.IsDelaminating)
-        {
-            sm.IsDelaminating = false;
-            AnnounceCoreDamage(uid, sm);
-        }
-
-        if (_timing.CurTime < sm.DelamEndTime)
-            return;
-
-        var mapId = Transform(uid).MapID;
-        var mapFilter = Filter.BroadcastMap(mapId);
-        var message = Loc.GetString("supermatter-delam-player");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-
-        // Send the reality distortion message to every player on the map
-        _chatManager.ChatMessageToManyFiltered(mapFilter,
-            ChatChannel.Server,
-            message,
-            wrappedMessage,
-            uid,
-            false,
-            true,
-            Color.Red);
-
-        // Play the reality distortion sound for every player on the map
-        _audio.PlayGlobal(sm.DistortSound, mapFilter, true);
-
-        // Give effects to every mob on the map, except those in EntityStorage (lockers, etc)
-        var mobLookup = new HashSet<Entity<MobStateComponent>>();
-        _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
-        mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
-
-        // Scramble the thaven shared mood
-        _moods.NewSharedMoods();
-
-        // Flickers all powered lights on the map
-        var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
-        _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
-        foreach (var light in lightLookup)
-        {
-            if (!_random.Prob(sm.LightFlickerChance))
-                continue;
-            _ghost.DoGhostBooEvent(light);
-        }
-
-        // Add post-delamination event scheduler
-        var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
-        _gameTicker.StartGameRule(gamerule);
-
-        var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
-
-        foreach (var mob in mobLookup)
-        {
-            // Scramble laws for silicons, then ignore other effects
-            if (TryComp<SiliconLawBoundComponent>(mob, out var law))
-            {
-                var target = EnsureComp<IonStormTargetComponent>(mob); // they hit the fucking ai
-                var oldChance = target.Chance;
-                target.Chance = 1f;
-                _ionStorm.IonStormTarget((mob.Owner, law, target));
-                target.Chance = oldChance; // hacky fucking code. whatever. don't look at me
-
-                continue;
-            }
-
-            // Scramble thaven moods
-            if (TryComp<ThavenMoodsComponent>(mob, out var moods))
-                _moods.RefreshMoods(mob, moods);
-
-            // Add effects to all mobs
-            // TODO: change paracusia to actual hallucinations whenever those are real
-            EntityManager.AddComponents(mob, effects, false);
-        }
-
-        switch (sm.PreferredDelamType)
-        {
-            case DelamType.Cascade:
-                // one day...
-                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Singulo:
-                Spawn(sm.SingularitySpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Tesla:
-                Spawn(sm.TeslaSpawnPrototype, xform.Coordinates);
-                break;
-
-            default:
-                _explosion.TriggerExplosive(uid);
-                break;
-        }
     }
 
     /// <summary>
