@@ -27,7 +27,7 @@ public sealed class BibleUserSystem : EntitySystem
     /// Puts the usage of the Bible on cooldown.
     /// </summary>
     /// <param name="entity">The entity that may have the BibleUserComponent to put on cooldown.</param>
-    /// <param name="cooldown">If specified, the amount of time that the bible will be on cooldown. 
+    /// <param name="cooldown">If specified, the amount of time that the bible will be on cooldown.
     /// If null, <see cref="BibleUserComponent.Cooldown"/> will be used.</param>
     [PublicAPI]
     public void StartBibleCooldown(Entity<BibleUserComponent?> entity, TimeSpan? cooldown = null)
