@@ -1,4 +1,4 @@
-﻿using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._DV.Vision.Components;
 
@@ -25,33 +25,33 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     /// </summary>
     [DataField][AutoNetworkedField]
     public float SoothedMaximum = 1.0f;
-    
+
     /// <summary>
     /// The minimum amount of soothing this receiver can have.
     /// </summary>
     [DataField][AutoNetworkedField]
     public float SoothedMinimum = 0f;
-    
+
     /// <summary>
     /// The amount of soothing subtracted from the receiver every <see cref="SootheInterval"/>.
     /// </summary>
     [DataField][AutoNetworkedField]
     public float RateDecay = 0.01f;
-    
+
     /// <summary>
     /// The amount of soothing added to the receiver every <see cref="SootheInterval"/> while in unobstructed range of a provider.
     /// </summary>
     [DataField][AutoNetworkedField]
     public float RateGrowth = 0.01f;
-    
+
     /// <summary>
     /// The next game time at which the receiver will process soothing.
     /// </summary>
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))][AutoPausedField][AutoNetworkedField]
     public TimeSpan? SootheNext;
-    
+
     /// <summary>
-    /// The interval at which the receiver will process soothing. 
+    /// The interval at which the receiver will process soothing.
     /// </summary>
     [DataField][AutoNetworkedField]
     public TimeSpan SootheInterval = TimeSpan.FromSeconds(1);

@@ -1,4 +1,4 @@
-﻿using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 namespace Content.Shared._DV.EntityEffects.Effects.Silicon;
 

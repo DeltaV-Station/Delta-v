@@ -1,4 +1,4 @@
-﻿using Content.Server.Silicons.Laws;
+using Content.Server.Silicons.Laws;
 using Content.Shared._DV.EntityEffects.Effects.Silicon;
 using Content.Shared.EntityEffects;
 using Content.Shared.Silicons.Laws.Components;
@@ -12,7 +12,7 @@ public sealed class IonStormEffectSystem : EntityEffectSystem<IonStormTargetComp
     {
         if (!TryComp<SiliconLawBoundComponent>(entity, out var laws))
             return;
-        
+
         _ionStorm.IonStormTarget((entity.Owner, laws, entity.Comp));
     }
 }

@@ -1,4 +1,4 @@
-﻿using Content.Server._Impstation.Thaven;
+using Content.Server._Impstation.Thaven;
 using Content.Shared._DV.EntityEffects.Effects.Thaven;
 using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.EntityEffects;

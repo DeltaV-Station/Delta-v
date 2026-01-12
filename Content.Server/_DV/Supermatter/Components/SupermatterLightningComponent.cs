@@ -1,4 +1,4 @@
-﻿using System.Collections.Frozen;
+using System.Collections.Frozen;
 using Content.Shared._Impstation.Supermatter.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -19,7 +19,7 @@ public sealed partial class SupermatterLightningComponent : Component
     /// </summary>
     [DataField]
     public float ZapHitCoordinatesChance = 0.75f;
-    
+
     /// <summary>
     /// The interval at which the supermatter will shoot lightning.
     /// </summary>
@@ -31,7 +31,7 @@ public sealed partial class SupermatterLightningComponent : Component
     /// </summary>
     [DataField]
     public float ZapIntervalVariance = 2f;
-    
+
     /// <summary>
     /// The next time the supermatter will shoot lightning.
     /// </summary>
@@ -43,22 +43,22 @@ public sealed partial class SupermatterLightningComponent : Component
 
     [DataField]
     public float LightningRangeMin = 2;
-    
+
     [DataField]
     public float LightningRangeMax = 7;
 
     [DataField]
     public EntProtoId LightningPrototype;
-    
+
     [DataField]
     public bool EnableDamageThreshold = true;
-    
+
     [DataField]
     public SortedDictionary<float, SupermatterLightningDamageThreshold> DamageThresholds;
 
     [DataField]
     public bool EnablePowerThresholds = true;
-    
+
     [DataField]
     public SortedDictionary<float, SupermatterLightningPowerThreshold> PowerThresholds;
 }
@@ -68,10 +68,10 @@ public partial record struct SupermatterLightningPowerThreshold
 {
     [DataField]
     public int Zaps;
-    
+
     [DataField]
     public float? Chance;
-    
+
     [DataField]
     public EntProtoId? LightningPrototype;
 }
@@ -81,7 +81,7 @@ public partial record struct SupermatterLightningDamageThreshold
 {
     [DataField]
     public int Zaps;
-    
+
     [DataField]
     public float? Chance;
 };

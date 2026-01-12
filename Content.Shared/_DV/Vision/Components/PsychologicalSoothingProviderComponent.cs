@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Vision.Components;
+namespace Content.Shared._DV.Vision.Components;
 
 /// <summary>
 /// This is used for providing psychological soothing to receivers.
@@ -11,7 +11,7 @@ public sealed partial class PsychologicalSoothingProviderComponent : Component
     /// </summary>
     [DataField]
     public float Range = 20f;
-    
+
     /// <summary>
     /// The <see cref="PsychologicalSoothingReceiverComponent.RateGrowth"/> is multiplied by this value.
     /// </summary>

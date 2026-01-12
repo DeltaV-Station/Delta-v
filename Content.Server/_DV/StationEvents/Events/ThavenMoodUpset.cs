@@ -24,8 +24,8 @@ public sealed class ThavenMoodUpset : StationEventSystem<ThavenMoodUpsetRuleComp
         {
             if(comp.RefreshPersonalMoods)
                 _thavenMoods.RefreshMoods(thavenUid, thavenComp);
-            
-            if(comp.AddWildcardMood) 
+
+            if(comp.AddWildcardMood)
                 _thavenMoods.AddWildcardMood((thavenUid, thavenComp));
         }
     }

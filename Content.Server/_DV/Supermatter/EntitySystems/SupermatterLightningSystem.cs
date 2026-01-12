@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server._DV.Supermatter.Components;
 using Content.Server.Lightning;
 using Content.Shared._Impstation.Supermatter.Components;
@@ -15,25 +15,25 @@ public sealed class SupermatterLightningSystem : EntitySystem
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    
+
     protected override string SawmillName => "supermatter.lightning";
 
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<SupermatterLightningComponent, SupermatterComponent>();
-        
+
         while (query.MoveNext(out var uid, out var lightningComp, out var supermatter))
         {
             if(!lightningComp.Enabled)
                 continue;
-            
+
             var isDamageValid = lightningComp.EnableDamageThreshold && lightningComp.DamageThresholds.Any(kvp => kvp.Key <= supermatter.Damage);
             var isPowerValid = lightningComp.EnablePowerThresholds && lightningComp.PowerThresholds.Any(kvp => kvp.Key <= supermatter.Power);
 
             if (!isDamageValid && !isPowerValid)
             {
                 if(lightningComp.NextZapTime.HasValue) lightningComp.NextZapTime = null;
-                
+
                 continue;
             }
 
@@ -53,28 +53,28 @@ public sealed class SupermatterLightningSystem : EntitySystem
     {
         var zapCount = 0;
         var zapRange = Math.Clamp(sm.Power / comp.LightningRangePowerScaling, comp.LightningRangeMin, comp.LightningRangeMax);
-        
+
         var lightningPrototype = comp.LightningPrototype;
-        
+
         foreach (var (threshold, data) in comp.DamageThresholds)
         {
             if (threshold > sm.Damage) break;
-            
+
             if(data.Chance.HasValue && !_random.Prob(data.Chance.Value))
                 continue;
 
             zapCount += data.Zaps;
         }
-        
+
         foreach (var (threshold, data) in comp.PowerThresholds)
         {
             if (threshold > sm.Power) break;
-            
+
             if(data.Chance.HasValue && !_random.Prob(data.Chance.Value))
                 continue;
 
             zapCount += data.Zaps;
-            
+
             if(data.LightningPrototype.HasValue)
                 lightningPrototype = data.LightningPrototype.Value;
         }

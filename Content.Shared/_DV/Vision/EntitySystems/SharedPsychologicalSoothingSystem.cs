@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Vision.Components;
+using Content.Shared._DV.Vision.Components;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -13,7 +13,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    
+
     /// <summary>
     /// This is used to exclude dead mobs from this system.
     /// </summary>
@@ -23,10 +23,10 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
     {
         base.Initialize();
         _mobStateQuery = GetEntityQuery<MobStateComponent>();
-        
+
         SubscribeLocalEvent<PsychologicalSoothingReceiverComponent, ComponentInit>(OnComponentInit);
     }
-    
+
     private void OnComponentInit(Entity<PsychologicalSoothingReceiverComponent> ent, ref ComponentInit args)
     {
         ent.Comp.SootheNext = _timing.CurTime + ent.Comp.SootheInterval;
@@ -35,7 +35,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var receiverQuery = EntityQueryEnumerator<PsychologicalSoothingReceiverComponent>();
-        
+
         while (receiverQuery.MoveNext(out var entReceiver, out var receiver))
         {
             var providerQuery = _entityLookup.GetEntitiesInRange<PsychologicalSoothingProviderComponent>(Transform(entReceiver).Coordinates, receiver.Range);
@@ -44,12 +44,12 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
             {
                 continue;
             }
-            
+
             if (!receiver.SootheNext.HasValue || _timing.CurTime < receiver.SootheNext)
             {
                 continue;
             }
-            
+
             receiver.SootheNext = _timing.CurTime + receiver.SootheInterval;
             DirtyField<PsychologicalSoothingReceiverComponent>(entReceiver, nameof(PsychologicalSoothingReceiverComponent.SootheNext));
 
@@ -62,9 +62,9 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
                 {
                     continue;
                 }
-                
+
                 var provider = entProvider.Comp;
-                
+
                 // Not in line of sight, not soothing.
                 if (!_examine.InRangeUnOccluded(entReceiver, entProvider, Math.Min(receiver.Range, provider.Range)))
                     continue;
@@ -76,7 +76,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
 
             if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f))
                 continue;
-            
+
             receiver.SoothedCurrent = updatedSoothed;
             DirtyField<PsychologicalSoothingReceiverComponent>(entReceiver, nameof(PsychologicalSoothingReceiverComponent.SoothedCurrent));
         }

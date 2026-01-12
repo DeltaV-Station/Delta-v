@@ -10,7 +10,7 @@ public sealed partial class ThavenMoodUpsetRuleComponent : Component
 
     [DataField]
     public bool NewSharedMoods = false;
-    
+
     [DataField]
     public bool RefreshPersonalMoods = false;
 }
