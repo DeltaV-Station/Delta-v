@@ -4,6 +4,8 @@
   description: A handmade pistol bullet, uses phosphorus as a propellent instead of gunpowder which makes it much less effective. 
   parent: BaseCartridgePistol
   components:
+  - type: CartridgeAmmo
+    proto: BulletPistolImprovised
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Guns/Ammunition/Casings/improvised_casing.rsi
     layers:
