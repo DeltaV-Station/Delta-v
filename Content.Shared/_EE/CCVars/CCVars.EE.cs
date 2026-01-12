@@ -1,5 +1,3 @@
-using Content.Shared._Impstation.Supermatter.Components;
-using Content.Shared.Atmos;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._EE.CCVars;

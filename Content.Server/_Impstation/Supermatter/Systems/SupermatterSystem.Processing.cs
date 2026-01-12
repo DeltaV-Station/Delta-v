@@ -1,19 +1,15 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.Singularity.Components;
-using Content.Shared._DV.Vision.Components;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
-using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
@@ -402,7 +398,7 @@ public sealed partial class SupermatterSystem
     /// Sends the given message to local chat and a radio channel
     /// </summary>
     /// <param name="global">If true, sends the message to the common radio</param>
-    public void SendSupermatterAnnouncement(EntityUid uid, SupermatterComponent sm, string message, bool global = false)
+    private void SendSupermatterAnnouncement(EntityUid uid, SupermatterComponent sm, string message, bool global = false)
     {
         if (sm.SuppressAnnouncements)
             return;
@@ -419,7 +415,7 @@ public sealed partial class SupermatterSystem
     /// <summary>
     /// Returns the integrity rounded to hundreds, e.g. 100.00%
     /// </summary>
-    public static float GetIntegrity(SupermatterComponent sm)
+    private static float GetIntegrity(SupermatterComponent sm)
     {
         var integrity = sm.Damage / sm.DamageDelaminationThreshold;
         integrity = (float)Math.Round(100 - integrity * 100, 2);
@@ -427,7 +423,7 @@ public sealed partial class SupermatterSystem
         return integrity;
     }
     
-    public float GetGasEfficiency(SupermatterComponent sm)
+    private float GetGasEfficiency(SupermatterComponent sm)
     {
         return sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
     }

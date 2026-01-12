@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._DV.Supermatter.EntitySystems;
 
 /// <summary>
-/// This handles...
+/// This handles generating lightning strikes caused as side effects of a supermatter crystal.
 /// </summary>
 public sealed class SupermatterLightningSystem : EntitySystem
 {
@@ -70,13 +70,13 @@ public sealed class SupermatterLightningSystem : EntitySystem
         {
             if (threshold > sm.Power) break;
 
+            if(data.LightningPrototype.HasValue)
+                lightningPrototype = data.LightningPrototype.Value;
+
             if(data.Chance.HasValue && !_random.Prob(data.Chance.Value))
                 continue;
 
             zapCount += data.Zaps;
-
-            if(data.LightningPrototype.HasValue)
-                lightningPrototype = data.LightningPrototype.Value;
         }
 
         if (zapCount >= 1)

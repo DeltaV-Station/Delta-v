@@ -137,7 +137,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     private EntityQuery<MobStateComponent> _mobStateQuery = default!;
     
     /// <summary>
-    /// This is used to let ghosts see the integrity of the supermatter, and to make sure we don't consume any items held by ghosts.
+    /// This is used to let ghosts see the integrity of the supermatter and to make sure we don't consume any items held by ghosts.
     /// </summary>
     private EntityQuery<GhostComponent> _ghostQuery = default!;
     
