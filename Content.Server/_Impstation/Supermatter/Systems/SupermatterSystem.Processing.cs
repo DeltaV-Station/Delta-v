@@ -415,7 +415,7 @@ public sealed partial class SupermatterSystem
     /// <summary>
     /// Returns the integrity rounded to hundreds, e.g. 100.00%
     /// </summary>
-    private static float GetIntegrity(SupermatterComponent sm)
+    public static float GetIntegrity(SupermatterComponent sm)
     {
         var integrity = sm.Damage / sm.DamageDelaminationThreshold;
         integrity = (float)Math.Round(100 - integrity * 100, 2);
@@ -423,7 +423,7 @@ public sealed partial class SupermatterSystem
         return integrity;
     }
     
-    private float GetGasEfficiency(SupermatterComponent sm)
+    public float GetGasEfficiency(SupermatterComponent sm)
     {
         return sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
     }

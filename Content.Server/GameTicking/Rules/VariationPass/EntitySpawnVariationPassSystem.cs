@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Storage;
+using Content.Shared.Tag;
 using Robust.Shared.Random;
 
 namespace Content.Server.GameTicking.Rules.VariationPass;
@@ -9,6 +10,7 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntitySpawnVariationPassComponent>
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!; // imp edit
+    [Dependency] private readonly TagSystem _tags = default!;
 
     protected override void ApplyVariation(Entity<EntitySpawnVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
@@ -22,26 +24,24 @@ public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntityS
             if (!TryFindRandomTileOnStation(args.Station, out _, out _, out var coords))
                 continue;
 
-            // imp edit
+            // Delta-V: Entity spawn variation tag blacklist
             var valid = true;
 
-            if (ent.Comp.ComponentBlacklist != null)
+            if (ent.Comp.TagsBlacklist != null && ent.Comp.TagsBlacklist.Length > 0)
             {
                 foreach (var otherEnt in _lookup.GetEntitiesIntersecting(coords))
                 {
-                    foreach (var comp in ent.Comp.ComponentBlacklist.Values.Where(comp => HasComp(otherEnt, comp.Component.GetType())))
-                    {
-                        if (!valid)
-                            continue;
-
-                        valid = false;
-                    }
+                    if (!_tags.HasAnyTag(otherEnt, ent.Comp.TagsBlacklist))
+                        continue;
+                    
+                    valid = false;
+                    break;
                 }
             }
 
             if (!valid)
                 continue;
-            // end imp edit
+            // Delta-V
 
             var ents = EntitySpawnCollection.GetSpawns(ent.Comp.Entities, Random);
             foreach (var spawn in ents)
