@@ -56,9 +56,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public EntProtoId DelamEffectsPrototype = "SupermatterDelamEffects";
-
     [DataField]
     public List<ProtoId<SupermatterDelaminationPrototype>> EnabledDelaminations = new();
     
@@ -251,12 +248,6 @@ public sealed partial class SupermatterComponent : Component
     #region Damage
 
     /// <summary>
-    /// The chance for lights across the station to flicker on a delamination
-    /// </summary>
-    [DataField]
-    public float LightFlickerChance = 0.33f;
-
-    /// <summary>
     /// The amount of damage taken
     /// </summary>
     [DataField]
@@ -291,7 +282,7 @@ public sealed partial class SupermatterComponent : Component
     /// The point at which the SM begins shooting lightning.
     /// </summary>
     [DataField]
-    public int DamagePenaltyPoint = 550;
+    public float DamagePenaltyPoint = 550;
 
     /// <summary>
     /// The point at which we should start sending radio messages about the damage.
@@ -303,7 +294,7 @@ public sealed partial class SupermatterComponent : Component
     /// The point at which the SM begins showing warning signs.
     /// </summary>
     [DataField]
-    public int DamageDangerThreshold = 300;
+    public float DamageDangerThreshold = 300;
 
     /// <summary>
     /// The point at which we start sending station announcements about the damage.
@@ -315,7 +306,7 @@ public sealed partial class SupermatterComponent : Component
     /// The point at which the SM begins delaminating.
     /// </summary>
     [DataField]
-    public int DamageDelaminationThreshold = 900;
+    public float DamageDelaminationThreshold = 900;
 
     /// <summary>
     /// Whether the SM is currently in the delaminating process. 

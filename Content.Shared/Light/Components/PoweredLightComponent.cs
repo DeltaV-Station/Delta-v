@@ -33,7 +33,7 @@ namespace Content.Shared.Light.Components
         [DataField, AutoNetworkedField]
         public bool On = true;
 
-        [DataField]
+        [DataField, AutoNetworkedField] // Delta-V - Flickering lights event
         public bool IgnoreGhostsBoo;
 
         [DataField]

@@ -1,0 +1,32 @@
+﻿- type: entity
+  parent: BaseGameRule
+  id: BaseDelaminationRule
+
+- type: entity
+  parent: BaseDelaminationRule
+  id: DelaminationThavenMoodShuffle
+  components:
+  - type: ThavenMoodUpsetRule
+    newSharedMoods: true
+    refreshPersonalMoods: true
+
+- type: entity
+  parent: BaseDelaminationRule
+  id: DelaminationFlickeringLights
+  components:
+  - type: StationEvent
+    duration: 5
+    maxDuration: 10
+  - type: FlickeringLightsRule
+    chance: 0.33
+
+- type: entity
+  parent: BaseDelaminationRule
+  id: DelaminationHallucinations
+  components:
+  - type: MassHallucinationsRule
+    minTimeBetweenIncidents: 30
+    maxTimeBetweenIncidents: 300
+    maxSoundDistance: 7
+    sounds:
+      collection: Paracusia

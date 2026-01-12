@@ -3,9 +3,10 @@
   message: supermatter-delam-generic
   gameRules:
   - SupermatterDelamEventScheduler
-  - ThavenMoodShuffle
+  - DelaminationThavenMoodShuffle
+  - DelaminationFlickeringLights # this will always hit the station regardless of where the supermatter was
+  - DelaminationHallucinations
   mobEffects:
-  - !type:Jitter
   - !type:IonStorm
 
 - type: supermatterDelamination

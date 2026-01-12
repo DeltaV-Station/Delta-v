@@ -81,80 +81,80 @@ public sealed partial class SupermatterSystem : EntitySystem
     /// <summary>
     /// Psychological soothing is used to increase the maximum temperature at which the supermatter can operate without overheating, as well as decreasing waste production.
     /// </summary>
-    private EntityQuery<PsychologicalSoothingReceiverComponent> _psyReceiversQuery = default!;
+    private EntityQuery<PsychologicalSoothingReceiverComponent> _psyReceiversQuery;
     
     /// <summary>
     /// This is used for speech sounds
     /// TODO: This can probably be moved to a shared system?
     /// </summary>
-    private EntityQuery<SpeechComponent> _speechQuery = default!;
+    private EntityQuery<SpeechComponent> _speechQuery;
     
     /// <summary>
     /// This is used for ambient sounds.
     /// TODO: This can probably be moved to a shared system?
     /// </summary>
-    private EntityQuery<AmbientSoundComponent> _ambientQuery = default!;
+    private EntityQuery<AmbientSoundComponent> _ambientQuery;
 
     /// <summary>
     /// Controls the appearance of the supermatter.
     /// TODO: This can probably be moved to a shared system?
     /// </summary>
-    private EntityQuery<AppearanceComponent> _appearanceQuery = default!;
+    private EntityQuery<AppearanceComponent> _appearanceQuery;
     
     /// <summary>
     /// This is used for the gravitational disturbances produced by the supermatter.
     /// </summary>
-    private EntityQuery<GravityWellComponent> _gravityWellQuery = default!;
+    private EntityQuery<GravityWellComponent> _gravityWellQuery;
     
     /// <summary>
     /// This is used for the radiation levels produced by the supermatter.
     /// </summary>
-    private EntityQuery<RadiationSourceComponent> _radiationSourceQuery = default!;
+    private EntityQuery<RadiationSourceComponent> _radiationSourceQuery;
     
     /// <summary>
     /// This is used for device linking and signals.
     /// </summary>
-    private EntityQuery<DeviceLinkSourceComponent> _linkQuery = default!;
+    private EntityQuery<DeviceLinkSourceComponent> _linkQuery;
     
     /// <summary>
     /// This is used to determine if an entity is immune to being consumed by the supermatter.
     /// </summary>
-    private EntityQuery<SupermatterImmuneComponent> _immuneQuery = default!;
+    private EntityQuery<SupermatterImmuneComponent> _immuneQuery;
     
     /// <summary>
     /// This is used to consume both the entity and the item if an otherwise undroppable item is used on the supermatter.
     /// </summary>
-    private EntityQuery<UnremoveableComponent> _unremoveableQuery = default!;
+    private EntityQuery<UnremoveableComponent> _unremoveableQuery;
     
     /// <summary>
     /// This is used to convert projectile damage into supermatter power.
     /// </summary>
-    private EntityQuery<ProjectileComponent> _projectileQuery = default!;
+    private EntityQuery<ProjectileComponent> _projectileQuery;
     
     /// <summary>
     /// This is used for consuming mobs bumping into the supermatter
     /// </summary>
-    private EntityQuery<MobStateComponent> _mobStateQuery = default!;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
     
     /// <summary>
     /// This is used to let ghosts see the integrity of the supermatter and to make sure we don't consume any items held by ghosts.
     /// </summary>
-    private EntityQuery<GhostComponent> _ghostQuery = default!;
+    private EntityQuery<GhostComponent> _ghostQuery;
     
     /// <summary>
     /// This is used to avoid consuming entities with godmode.
     /// </summary>
-    private EntityQuery<GodmodeComponent> _godmodeQuery = default!;
+    private EntityQuery<GodmodeComponent> _godmodeQuery;
     
     /// <summary>
     /// This is used to get the mass of items touching the supermatter.
     /// </summary>
-    private EntityQuery<PhysicsComponent> _physicsQuery = default!;
+    private EntityQuery<PhysicsComponent> _physicsQuery;
     
     /// <summary>
     /// This is used to get the energy value of items tagged as supermatter food.
     /// </summary>
-    private EntityQuery<SupermatterFoodComponent> _foodQuery = default!;
+    private EntityQuery<SupermatterFoodComponent> _foodQuery;
     
     protected override string SawmillName => "supermatter";
 
@@ -477,17 +477,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Play the reality distortion sound for every player on the map
         _audio.PlayGlobal(sm.DistortSound, mapFilter, true);
         
-        // TODO: Move this to a GameRule
-        // Flickers all powered lights on the map
-        var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
-        _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
-        foreach (var light in lightLookup)
-        {
-            if (!_random.Prob(sm.LightFlickerChance))
-                continue;
-            _ghost.DoGhostBooEvent(light);
-        }
-        
         foreach (var gameRule in sm.PreferredDelamination.GameRules)
         {
             // delamination game rules
@@ -499,16 +488,12 @@ public sealed partial class SupermatterSystem : EntitySystem
         var mobLookup = new HashSet<Entity<MobStateComponent>>();
         _entityLookup.GetEntitiesOnMap(mapId, mobLookup);
         var insideEntityStorageQuery = GetEntityQuery<InsideEntityStorageComponent>();
-        mobLookup.RemoveWhere(x => insideEntityStorageQuery.HasComp(x));
         
-        var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
         foreach (var mob in mobLookup)
         {
-            _effects.ApplyEffects(mob, sm.PreferredDelamination.MobEffects);
+            if (insideEntityStorageQuery.HasComp(mob)) continue;
             
-            // Add effects to all mobs
-            // TODO: change paracusia to actual hallucinations whenever those are real
-            EntityManager.AddComponents(mob, effects, false);
+            _effects.ApplyEffects(mob, sm.PreferredDelamination.MobEffects);
         }
         
         _effects.ApplyEffects(uid, sm.PreferredDelamination.SupermatterEffects);
