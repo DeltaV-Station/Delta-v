@@ -12,6 +12,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
+using Content.Shared._DV.Vision.Components;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Prototypes;
@@ -104,6 +105,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<SupermatterComponent>();
+        
         while (query.MoveNext(out var uid, out var sm))
         {
             if (sm.DelaminationTime.HasValue && sm.DelaminationTime <= _timing.CurTime)
@@ -119,6 +121,9 @@ public sealed partial class SupermatterSystem : EntitySystem
                 var ev = new SupermatterAnnouncementEvent();
                 RaiseLocalEvent(uid, ref ev, true);
             }
+            
+            if(TryComp<PsychologicalSoothingReceiverComponent>(uid, out var psyReceiver) && TryComp<AppearanceComponent>(uid, out var appearance))
+                _appearance.SetData(uid, SupermatterVisuals.Psy, psyReceiver.SoothedCurrent, appearance);
         }
     }
 

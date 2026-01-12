@@ -168,12 +168,6 @@ public sealed partial class SupermatterComponent : Component
     public float MoleHeatPenaltyThreshold;
 
     /// <summary>
-    /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby
-    /// </summary>
-    [DataField]
-    public float PsyCoefficient;
-
-    /// <summary>
     /// The lifetime of a supermatter-spawned anomaly.
     /// </summary>
     [DataField]

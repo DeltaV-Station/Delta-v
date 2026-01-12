@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Singularity.Components;
+using Content.Shared._DV.Vision.Components;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Prototypes;
@@ -142,11 +143,17 @@ public sealed partial class SupermatterSystem
 
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
         }
+        
+        // Psychological soothing can reduce the energy used for waste gasses and temperatures by up to 20%.
+        
+        var psyCoefficient = 1f;
+        if(TryComp<PsychologicalSoothingReceiverComponent>(uid, out var psyReceiver))
+            psyCoefficient = 1f - psyReceiver.SoothedCurrent * 0.2f;
 
         // Power * 0.55 * a value between 1 and 0.8
         // This has to be differentiated with respect to time, since its going to be interacting with systems
         // that also differentiate. Basically, if we don't multiply by 2 * frameTime, the supermatter will explode faster if your server's tickrate is higher.
-        var energy = sm.Power * _config.GetCVar(ImpCCVars.SupermatterReactionPowerModifier) * (1f - sm.PsyCoefficient * 0.2f) * 2 * frameTime;
+        var energy = sm.Power * _config.GetCVar(ImpCCVars.SupermatterReactionPowerModifier) * psyCoefficient * 2 * frameTime;
 
         // Keep in mind we are only adding this temperature to (efficiency)% of the one tile the rock is on.
         // An increase of 4°C at 25% efficiency here results in an increase of 1°C / (#tilesincore) overall.
@@ -337,8 +344,14 @@ public sealed partial class SupermatterSystem
         // Healing damage
         if (moles < _config.GetCVar(ImpCCVars.SupermatterMolePenaltyThreshold))
         {
-            // Only has a net positive effect when the temp is below 313.15, heals up to 2 damage. Psychologists increase this temp min by up to 45
-            sm.HeatHealing = Math.Min(mix.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            // Only has a net positive effect when the temp is below 313.15, heals up to 2 damage.
+            // Psychologists increase this temp min by up to 45 
+            var soothingValue = 0f;
+            
+            if(TryComp<PsychologicalSoothingReceiverComponent>(uid, out var psyReceiver))
+                soothingValue = psyReceiver.SoothedCurrent;
+            
+            sm.HeatHealing = Math.Min(mix.Temperature - (tempThreshold + 45f * soothingValue), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else
@@ -473,7 +486,6 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
-        var psyDiff = -0.007f;
         var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, sm.HallucinationRange);
 
         foreach (var mob in lookup)
@@ -482,11 +494,7 @@ public sealed partial class SupermatterSystem
             if (!_examine.InRangeUnOccluded(uid, mob, 20f) ||
                 mob.Comp.CurrentState == MobState.Dead)
                 continue;
-
-            // Someone (generally a psychologist), when looking at the supermatter within hallucination range, makes it easier to manage.
-            if (HasComp<SupermatterSootherComponent>(mob))
-                psyDiff = 0.007f;
-
+            
             if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
                 HasComp<SiliconLawBoundComponent>(mob) ||                // Silicons don't get supermatter hallucinations
                 HasComp<PermanentBlindnessComponent>(mob) ||             // Blind people don't get supermatter hallucinations
@@ -511,12 +519,6 @@ public sealed partial class SupermatterSystem
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
             }
         }
-
-        sm.PsyCoefficient = Math.Clamp(sm.PsyCoefficient + psyDiff, 0f, 1f);
-
-        // Adjust the opacity of the supermatter's psychologist overlay based on the coefficient
-        if (TryComp<AppearanceComponent>(uid, out var appearance))
-            _appearance.SetData(uid, SupermatterVisuals.Psy, sm.PsyCoefficient, appearance);
     }
 
     // This currently has some audio clipping issues: this is likely an issue with AmbientSoundComponent or the engine

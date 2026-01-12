@@ -49,7 +49,7 @@
     speechVerb: Supermatter
     soundCooldownTime: 0
     audioParams:
-      volume: 5
+      volume: 5 # Delta-V - just put it in the comp instead of updating it in the system 
     suffixSpeechVerbs:
       chat-speech-verb-suffix-exclamation-strong: Supermatter
       chat-speech-verb-suffix-exclamation: Supermatter
@@ -101,8 +101,9 @@
   - type: SinguloFood
     energy: 10000
   - type: Appearance
+  # Delta-V - Supermatter Customizations
   - type: Supermatter
-    defaultDelamination: ExplosionSupermatterDelamination
+    defaultDelamination: ExplosionSupermatterDelamination 
     enabledDelaminations:
     - SingularitySupermatterDelamination
     - TeslaSupermatterDelamination
@@ -121,6 +122,10 @@
       9000:
         zaps: 1
         lightningPrototype: SupermatterLightningSupercharged
+  - type: PsychologicalSoothingReceiver
+    rateDecay: 0.0016 # about 10 minutes to decay
+    rateGrowth: 0.0083 # about 2 minutes to soothe
+  # Delta-V - End Changes
   - type: AtmosDevice
     requireAnchored: false
     joinSystem: true
