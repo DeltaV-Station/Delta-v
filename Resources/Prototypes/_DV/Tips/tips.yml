@@ -1,0 +1,112 @@
+﻿# Example tip prototypes
+# Place in Resources/Prototypes/_DV/Tips/tips.yml
+
+# Basic tip shown to everyone
+- type: tip
+  id: WelcomeTip
+  title: tip-welcome-title
+  description: tip-welcome-description
+  delay: 5
+  priority: 0
+
+# Tip with custom sound
+- type: tip
+  id: ChatTip
+  title: tip-chat-title
+  description: tip-chat-description
+  delay: 30
+  priority: 10
+  sound: /Audio/Effects/adminhelp.ogg
+
+# Tip for new players (less than 60 minutes total playtime)
+- type: tip
+  id: NewPlayerTip
+  title: tip-newplayer-title
+  description: tip-newplayer-description
+  delay: 10
+  priority: 1
+  conditions:
+  - !type:MaxPlaytimeCondition
+    tracker: Overall
+    minutes: 60
+
+# Tip for players who understand sign language # TODO placeholder
+#- type: tip
+#  id: SignLanguageTip
+#  title: tip-signlanguage-title
+#  description: tip-signlanguage-description
+#  delay: 15
+#  priority: 5
+#  conditions:
+#  - !type:HasCompCondition
+#    comp: UnderstandsSignLanguageComponent
+
+# Security job tip
+- type: tip
+  id: SecurityTip
+  title: tip-security-title
+  description: tip-security-description
+  delay: 10
+  priority: 5
+  conditions:
+  - !type:HasJobCondition
+    job: SecurityOfficer
+
+# Security cadet tip for players new to security (both conditions must pass)
+- type: tip
+  id: SecurityCadetTip
+  title: tip-cadet-title
+  description: tip-cadet-description
+  delay: 8
+  priority: 3
+  conditions:
+  - !type:HasJobCondition
+    job: SecurityCadet
+  - !type:MaxPlaytimeCondition
+    tracker: JobSecurityCadet
+    minutes: 120
+
+# Medical job tip
+- type: tip
+  id: MedicalTip
+  title: tip-medical-title
+  description: tip-medical-description
+  delay: 10
+  priority: 5
+  conditions:
+  - !type:HasJobCondition
+    job: MedicalDoctor
+
+# Tip for traitors
+- type: tip
+  id: TraitorTip
+  title: tip-traitor-title
+  description: tip-traitor-description
+  delay: 20
+  priority: 2
+  conditions:
+  - !type:HasRoleTypeCondition
+    roleType: SoloAntagonist
+
+# Tip for experienced players (more than 600 minutes = 10 hours)
+- type: tip
+  id: VeteranTip
+  title: tip-veteran-title
+  description: tip-veteran-description
+  delay: 60
+  priority: 100
+  conditions:
+  - !type:MinPlaytimeCondition
+    tracker: Overall
+    minutes: 600
+
+# Example with inverted condition: show to everyone EXCEPT traitors
+- type: tip
+  id: NonAntagTip
+  title: tip-nonantag-title
+  description: tip-nonantag-description
+  delay: 15
+  priority: 50
+  conditions:
+  - !type:HasRoleTypeCondition
+    roleType: Neutral
