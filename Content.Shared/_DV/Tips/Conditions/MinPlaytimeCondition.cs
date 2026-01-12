@@ -1,4 +1,4 @@
-﻿using Content.Shared.Players.PlayTimeTracking;
+using Content.Shared.Players.PlayTimeTracking;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Tips.Conditions;

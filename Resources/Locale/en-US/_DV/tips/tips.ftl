@@ -1,4 +1,4 @@
-﻿# Tip popup UI strings
+# Tip popup UI strings
 tip-popup-okay-button = Okay
 tip-popup-dont-show-again = Don't show this again
 

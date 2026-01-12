@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Tips;
+using Content.Shared._DV.Tips;
 using Content.Shared._DV.Trigger.Components.Effects;
 using Content.Shared.Trigger;
 using Robust.Shared.Player;

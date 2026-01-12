@@ -1,4 +1,4 @@
-﻿using Content.Client._DV.Tips.UI;
+using Content.Client._DV.Tips.UI;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Tips;
 using JetBrains.Annotations;

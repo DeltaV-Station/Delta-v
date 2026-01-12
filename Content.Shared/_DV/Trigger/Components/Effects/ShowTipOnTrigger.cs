@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Tips;
+using Content.Shared._DV.Tips;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

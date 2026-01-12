@@ -1,4 +1,4 @@
-﻿using Content.Server.Database;
+using Content.Server.Database;
 using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Roles.Jobs;
