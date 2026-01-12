@@ -16,7 +16,7 @@
   description: tip-chat-description
   delay: 30
   priority: 10
-  sound: /Audio/Effects/adminhelp.ogg
+#  sound: /Audio/Effects/adminhelp.ogg # not actually bwoinking people because heart attack but you can do that
 
 # Tip for new players (less than 60 minutes total playtime)
 - type: tip
@@ -75,7 +75,7 @@
   priority: 5
   conditions:
   - !type:HasJobCondition
-    job: MedicalDoctor
+    job: MedicalIntern
 
 # Tip for traitors
 - type: tip
@@ -99,14 +99,3 @@
   - !type:MinPlaytimeCondition
     tracker: Overall
     minutes: 600
-
-# Example with inverted condition: show to everyone EXCEPT traitors
-- type: tip
-  id: NonAntagTip
-  title: tip-nonantag-title
-  description: tip-nonantag-description
-  delay: 15
-  priority: 50
-  conditions:
-  - !type:HasRoleTypeCondition
-    roleType: Neutral
