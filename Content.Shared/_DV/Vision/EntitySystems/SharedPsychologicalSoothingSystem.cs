@@ -13,10 +13,16 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    
+    /// <summary>
+    /// This is used to exclude dead mobs from this system.
+    /// </summary>
+    private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
         
         SubscribeLocalEvent<PsychologicalSoothingReceiverComponent, ComponentInit>(OnComponentInit);
     }
@@ -28,14 +34,13 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var mobState = GetEntityQuery<MobStateComponent>();
         var receiverQuery = EntityQueryEnumerator<PsychologicalSoothingReceiverComponent>();
         
         while (receiverQuery.MoveNext(out var entReceiver, out var receiver))
         {
             var providerQuery = _entityLookup.GetEntitiesInRange<PsychologicalSoothingProviderComponent>(Transform(entReceiver).Coordinates, receiver.Range);
 
-            if (mobState.TryComp(entReceiver, out var mobStateSelf) && mobStateSelf.CurrentState == MobState.Dead)
+            if (_mobStateQuery.TryComp(entReceiver, out var mobStateSelf) && mobStateSelf.CurrentState == MobState.Dead)
             {
                 continue;
             }
@@ -53,7 +58,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
 
             foreach (var entProvider in  providerQuery)
             {
-                if (mobState.TryComp(entProvider, out var mobStateOther) && mobStateOther.CurrentState == MobState.Dead)
+                if (_mobStateQuery.TryComp(entProvider, out var mobStateOther) && mobStateOther.CurrentState == MobState.Dead)
                 {
                     continue;
                 }

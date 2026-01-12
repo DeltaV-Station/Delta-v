@@ -32,6 +32,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Radiation.Components;
 using Content.Shared.Speech;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
@@ -77,11 +78,105 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
     [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
     
+    /// <summary>
+    /// Psychological soothing is used to increase the maximum temperature at which the supermatter can operate without overheating, as well as decreasing waste production.
+    /// </summary>
+    private EntityQuery<PsychologicalSoothingReceiverComponent> _psyReceiversQuery = default!;
+    
+    /// <summary>
+    /// This is used for speech sounds
+    /// TODO: This can probably be moved to a shared system?
+    /// </summary>
+    private EntityQuery<SpeechComponent> _speechQuery = default!;
+    
+    /// <summary>
+    /// This is used for ambient sounds.
+    /// TODO: This can probably be moved to a shared system?
+    /// </summary>
+    private EntityQuery<AmbientSoundComponent> _ambientQuery = default!;
+
+    /// <summary>
+    /// Controls the appearance of the supermatter.
+    /// TODO: This can probably be moved to a shared system?
+    /// </summary>
+    private EntityQuery<AppearanceComponent> _appearanceQuery = default!;
+    
+    /// <summary>
+    /// This is used for the gravitational disturbances produced by the supermatter.
+    /// </summary>
+    private EntityQuery<GravityWellComponent> _gravityWellQuery = default!;
+    
+    /// <summary>
+    /// This is used for the radiation levels produced by the supermatter.
+    /// </summary>
+    private EntityQuery<RadiationSourceComponent> _radiationSourceQuery = default!;
+    
+    /// <summary>
+    /// This is used for device linking and signals.
+    /// </summary>
+    private EntityQuery<DeviceLinkSourceComponent> _linkQuery = default!;
+    
+    /// <summary>
+    /// This is used to determine if an entity is immune to being consumed by the supermatter.
+    /// </summary>
+    private EntityQuery<SupermatterImmuneComponent> _immuneQuery = default!;
+    
+    /// <summary>
+    /// This is used to consume both the entity and the item if an otherwise undroppable item is used on the supermatter.
+    /// </summary>
+    private EntityQuery<UnremoveableComponent> _unremoveableQuery = default!;
+    
+    /// <summary>
+    /// This is used to convert projectile damage into supermatter power.
+    /// </summary>
+    private EntityQuery<ProjectileComponent> _projectileQuery = default!;
+    
+    /// <summary>
+    /// This is used for consuming mobs bumping into the supermatter
+    /// </summary>
+    private EntityQuery<MobStateComponent> _mobStateQuery = default!;
+    
+    /// <summary>
+    /// This is used to let ghosts see the integrity of the supermatter, and to make sure we don't consume any items held by ghosts.
+    /// </summary>
+    private EntityQuery<GhostComponent> _ghostQuery = default!;
+    
+    /// <summary>
+    /// This is used to avoid consuming entities with godmode.
+    /// </summary>
+    private EntityQuery<GodmodeComponent> _godmodeQuery = default!;
+    
+    /// <summary>
+    /// This is used to get the mass of items touching the supermatter.
+    /// </summary>
+    private EntityQuery<PhysicsComponent> _physicsQuery = default!;
+    
+    /// <summary>
+    /// This is used to get the energy value of items tagged as supermatter food.
+    /// </summary>
+    private EntityQuery<SupermatterFoodComponent> _foodQuery = default!;
+    
     protected override string SawmillName => "supermatter";
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _psyReceiversQuery = GetEntityQuery<PsychologicalSoothingReceiverComponent>();
+        _speechQuery = GetEntityQuery<SpeechComponent>();
+        _appearanceQuery = GetEntityQuery<AppearanceComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _gravityWellQuery = GetEntityQuery<GravityWellComponent>();
+        _foodQuery = GetEntityQuery<SupermatterFoodComponent>();
+        _linkQuery = GetEntityQuery<DeviceLinkSourceComponent>();
+        _immuneQuery = GetEntityQuery<SupermatterImmuneComponent>();
+        _godmodeQuery = GetEntityQuery<GodmodeComponent>();
+        _unremoveableQuery = GetEntityQuery<UnremoveableComponent>();
+        _projectileQuery = GetEntityQuery<ProjectileComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
+        _ghostQuery = GetEntityQuery<GhostComponent>();
+        _ambientQuery = GetEntityQuery<AmbientSoundComponent>();
+        _radiationSourceQuery = GetEntityQuery<RadiationSourceComponent>();
 
         SubscribeLocalEvent<SupermatterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SupermatterComponent, AtmosDeviceUpdateEvent>(OnSupermatterUpdated);
@@ -122,7 +217,7 @@ public sealed partial class SupermatterSystem : EntitySystem
                 RaiseLocalEvent(uid, ref ev, true);
             }
             
-            if(TryComp<PsychologicalSoothingReceiverComponent>(uid, out var psyReceiver) && TryComp<AppearanceComponent>(uid, out var appearance))
+            if(_psyReceiversQuery.TryComp(uid, out var psyReceiver) && _appearanceQuery.TryComp(uid, out var appearance))
                 _appearance.SetData(uid, SupermatterVisuals.Psy, psyReceiver.SoothedCurrent, appearance);
         }
     }
@@ -133,7 +228,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         _ambient.SetAmbience(uid, true);
 
         // Send the inactive port for any linked devices
-        if (HasComp<DeviceLinkSourceComponent>(uid))
+        if (_linkQuery.HasComp(uid))
             _link.InvokePort(uid, sm.PortInactive);
     }
     
@@ -163,7 +258,7 @@ public sealed partial class SupermatterSystem : EntitySystem
                     _ => Loc.GetString("supermatter-seconds-before-delam-countdown", ("seconds", seconds)),
                 };
                 
-                if (seconds < 5 && TryComp<SpeechComponent>(uid, out var speech))
+                if (seconds < 5 && _speechQuery.TryComp(uid, out var speech))
                     speech.SoundCooldownTime = 4.5f;
             
                 SendSupermatterAnnouncement(uid, sm, message, true);
@@ -174,7 +269,7 @@ public sealed partial class SupermatterSystem : EntitySystem
                 var message = Loc.GetString("supermatter-healing", ("integrity", integrity));
                 var global = sm.Status >= SupermatterStatusType.Emergency;
 
-                if (TryComp<SpeechComponent>(uid, out var speech))
+                if (_speechQuery.TryComp(uid, out var speech))
                     // Reset speech cooldown after healing is started
                     speech.SoundCooldownTime = 0.0f;
             
@@ -213,7 +308,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         
         HandleLight(uid, sm);
         HandleVision(uid, sm);
-        HandleSoundLoop(uid, sm);
         HandleAccent(uid, sm);
 
         if (sm.Power > _config.GetCVar(ImpCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
@@ -249,7 +343,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} status changed to {sm.Status}");
         
         // Adjust the supermatter's sprite
-        if (TryComp<AppearanceComponent>(uid, out var appearance))
+        if (_appearanceQuery.TryComp(uid, out var appearance))
         {
             var visual = SupermatterCrystalState.Normal;
             if (sm.Damage > 0 && sm.Damage > sm.DamageArchived) // Damaged and not healing
@@ -266,7 +360,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         }
 
         // Update linked devices
-        if (HasComp<DeviceLinkSourceComponent>(uid))
+        if (_linkQuery.HasComp(uid))
         {
             var port = sm.Status switch
             {
@@ -283,7 +377,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         }
         
         // Update speech sounds
-        if (TryComp<SpeechComponent>(uid, out var speech))
+        if (_speechQuery.TryComp(uid, out var speech))
         {
             speech.SpeechSounds = sm.Status switch
             {
@@ -297,7 +391,25 @@ public sealed partial class SupermatterSystem : EntitySystem
                 _ => sm.StatusSilentSound
             };
         }
-        
+
+        if (_ambientQuery.TryComp(uid, out var ambient))
+        {
+
+            var volume = (float) Math.Round(Math.Clamp(sm.Power / 50 - 5, -5, 5));
+
+            _ambient.SetVolume(uid, volume);
+
+            switch (sm.Status)
+            {
+                case >= SupermatterStatusType.Danger when ambient.Sound != sm.DelamLoopSound:
+                    _ambient.SetSound(uid, sm.DelamLoopSound, ambient);
+                    break;
+                case < SupermatterStatusType.Danger when ambient.Sound != sm.CalmLoopSound:
+                    _ambient.SetSound(uid, sm.CalmLoopSound, ambient);
+                    break;
+            }
+        }
+
         // We should give the supermatter a chance to announce a few seconds after the status changes.
         // Only do this for less than delaminating status so we don't clobber the ominous countdown.
         if(sm.Status < SupermatterStatusType.Delaminating)
@@ -385,8 +497,9 @@ public sealed partial class SupermatterSystem : EntitySystem
         
         // Give effects to every mob on the map, except those in EntityStorage (lockers, etc)
         var mobLookup = new HashSet<Entity<MobStateComponent>>();
-        _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
-        mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
+        _entityLookup.GetEntitiesOnMap(mapId, mobLookup);
+        var insideEntityStorageQuery = GetEntityQuery<InsideEntityStorageComponent>();
+        mobLookup.RemoveWhere(x => insideEntityStorageQuery.HasComp(x));
         
         var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
         foreach (var mob in mobLookup)
@@ -419,14 +532,15 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         var target = args.User;
 
-        if (HasComp<SupermatterImmuneComponent>(target) || HasComp<GodmodeComponent>(target))
+        if (_immuneQuery.HasComp(target) || _godmodeQuery.HasComp(target))
             return;
 
         if (!sm.HasBeenPowered)
             LogFirstPower(uid, sm, target);
 
         var power = 200f;
-        if (TryComp<PhysicsComponent>(target, out var physics))
+        
+        if (_physicsQuery.TryComp(target, out var physics))
             power += physics.Mass;
 
         sm.MatterPower += power;
@@ -452,23 +566,23 @@ public sealed partial class SupermatterSystem : EntitySystem
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
         if (args.Handled ||
-            HasComp<GhostComponent>(target) ||
-            HasComp<SupermatterImmuneComponent>(item) ||
-            HasComp<GodmodeComponent>(item))
+            _ghostQuery.HasComp(target) ||
+            _immuneQuery.HasComp(item) ||
+            _godmodeQuery.HasComp(item))
             return;
 
         // TODO: supermatter scalpel
-        if (HasComp<UnremoveableComponent>(item))
+        if (_unremoveableQuery.HasComp(item))
         {
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, target);
 
             var power = 200f;
 
-            if (TryComp<PhysicsComponent>(target, out var targetPhysics))
+            if (_physicsQuery.TryComp(target, out var targetPhysics))
                 power += targetPhysics.Mass;
 
-            if (TryComp<PhysicsComponent>(item, out var itemPhysics))
+            if (_physicsQuery.TryComp(item, out var itemPhysics))
                 power += itemPhysics.Mass;
 
             sm.MatterPower += power;
@@ -481,7 +595,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             AddComp<SupermatterImmuneComponent>(target);
             AddComp<SupermatterImmuneComponent>(item);
 
-            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and was destroyed at {Transform(uid).Coordinates:coordinates}");
+            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and both were destroyed at {Transform(uid).Coordinates:coordinates}");
             EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
             EntityManager.QueueDeleteEntity(target);
             EntityManager.QueueDeleteEntity(item);
@@ -491,7 +605,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, item);
 
-            if (TryComp<PhysicsComponent>(item, out var physics))
+            if (_physicsQuery.TryComp(item, out var physics))
                 sm.MatterPower += physics.Mass;
 
             _popup.PopupEntity(Loc.GetString("supermatter-collide-insert", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);
@@ -527,7 +641,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)
     {
-        if (!TryComp<GravityWellComponent>(ent, out var gravityWell))
+        if (!_gravityWellQuery.TryComp(ent, out var gravityWell))
             return;
 
         var nextPulse = 0.5f * _random.NextFloat(1f, 30f);
@@ -540,7 +654,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnExamine(EntityUid uid, SupermatterComponent sm, ref ExaminedEvent args)
     {
         // For ghosts: alive players can use the console
-        if (HasComp<GhostComponent>(args.Examiner) && args.IsInDetailsRange)
+        if (_ghostQuery.HasComp(args.Examiner) && args.IsInDetailsRange)
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
     }
 
@@ -550,19 +664,19 @@ public sealed partial class SupermatterSystem : EntitySystem
             return;
 
         if (targetPhysics.BodyType == BodyType.Static && checkStatic ||
-            HasComp<SupermatterImmuneComponent>(target) ||
-            HasComp<GodmodeComponent>(target) ||
+            _immuneQuery.HasComp(target) ||
+            _godmodeQuery.HasComp(target) ||
             _container.IsEntityInContainer(uid))
             return;
 
         if (!sm.HasBeenPowered)
             LogFirstPower(uid, sm, target);
 
-        if (!HasComp<ProjectileComponent>(target))
+        if (!_projectileQuery.HasComp(target))
         {
             var popup = "supermatter-collide";
 
-            if (HasComp<MobStateComponent>(target))
+            if (_mobStateQuery.HasComp(target))
             {
                 popup = "supermatter-collide-mob";
                 EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
@@ -585,14 +699,14 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         EntityManager.QueueDeleteEntity(target);
 
-        if (TryComp<SupermatterFoodComponent>(target, out var food))
+        if (_foodQuery.TryComp(target, out var food))
             sm.Power += food.Energy;
-        else if (TryComp<ProjectileComponent>(target, out var projectile))
+        else if (_projectileQuery.TryComp(target, out var projectile))
             sm.Power += (float)projectile.Damage.GetTotal();
         else
             sm.Power++;
 
-        sm.MatterPower += HasComp<MobStateComponent>(target) ? 200 : 0;
+        sm.MatterPower += _mobStateQuery.HasComp(target) ? 200 : 0;
     }
 
     private void LogFirstPower(EntityUid uid, SupermatterComponent sm, EntityUid target)

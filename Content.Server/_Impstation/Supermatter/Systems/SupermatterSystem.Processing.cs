@@ -132,7 +132,7 @@ public sealed partial class SupermatterSystem
         sm.Power = Math.Max(sm.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
 
         // Irradiate stuff
-        if (TryComp<RadiationSourceComponent>(uid, out var rad))
+        if (_radiationSourceQuery.TryComp(uid, out var rad))
         {
             rad.Intensity =
                 _config.GetCVar(ImpCCVars.SupermatterRadsBase) +
@@ -147,7 +147,7 @@ public sealed partial class SupermatterSystem
         // Psychological soothing can reduce the energy used for waste gasses and temperatures by up to 20%.
         
         var psyCoefficient = 1f;
-        if(TryComp<PsychologicalSoothingReceiverComponent>(uid, out var psyReceiver))
+        if(_psyReceiversQuery.TryComp(uid, out var psyReceiver))
             psyCoefficient = 1f - psyReceiver.SoothedCurrent * 0.2f;
 
         // Power * 0.55 * a value between 1 and 0.8
@@ -182,7 +182,7 @@ public sealed partial class SupermatterSystem
         sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
         // Adjust the gravity pull range
-        if (TryComp<GravityWellComponent>(uid, out var gravityWell))
+        if (_gravityWellQuery.TryComp(uid, out var gravityWell))
             gravityWell.MaxRange = Math.Clamp(sm.Power / 850f, 0.5f, 3f);
 
         // Log the first powering of the supermatter
@@ -348,7 +348,7 @@ public sealed partial class SupermatterSystem
             // Psychologists increase this temp min by up to 45 
             var soothingValue = 0f;
             
-            if(TryComp<PsychologicalSoothingReceiverComponent>(uid, out var psyReceiver))
+            if(_psyReceiversQuery.TryComp(uid, out var psyReceiver))
                 soothingValue = psyReceiver.SoothedCurrent;
             
             sm.HeatHealing = Math.Min(mix.Temperature - (tempThreshold + 45f * soothingValue), 0f) / 150f;
@@ -519,29 +519,6 @@ public sealed partial class SupermatterSystem
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
             }
         }
-    }
-
-    // This currently has some audio clipping issues: this is likely an issue with AmbientSoundComponent or the engine
-    /// <summary>
-    /// Swaps out ambience sounds when the SM is delamming or not.
-    /// </summary>
-    private void HandleSoundLoop(EntityUid uid, SupermatterComponent sm)
-    {
-        if (!TryComp<AmbientSoundComponent>(uid, out var ambient))
-            return;
-
-        var volume = (float)Math.Round(Math.Clamp(sm.Power / 50 - 5, -5, 5));
-
-        _ambient.SetVolume(uid, volume);
-
-        if (sm.Status >= SupermatterStatusType.Danger && sm.CurrentSoundLoop != sm.DelamLoopSound)
-            sm.CurrentSoundLoop = sm.DelamLoopSound;
-
-        else if (sm.Status < SupermatterStatusType.Danger && sm.CurrentSoundLoop != sm.CalmLoopSound)
-            sm.CurrentSoundLoop = sm.CalmLoopSound;
-
-        if (ambient.Sound != sm.CurrentSoundLoop)
-            _ambient.SetSound(uid, sm.CurrentSoundLoop!, ambient);
     }
 
     /// <summary>

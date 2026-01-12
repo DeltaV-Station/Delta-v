@@ -85,9 +85,6 @@ public sealed partial class SupermatterComponent : Component
     public SoundSpecifier DelamLoopSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/delamming.ogg");
 
     [DataField]
-    public SoundSpecifier? CurrentSoundLoop;
-
-    [DataField]
     public SoundSpecifier CalmAccent = new SoundCollectionSpecifier("SupermatterAccentNormal");
 
     [DataField]
