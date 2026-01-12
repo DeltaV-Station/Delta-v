@@ -216,6 +216,15 @@ binds:
 - function: OpenEmotesMenu
   type: State
   key: Y
+- function: OpenSignLanguageMenu # DeltaV
+  type: State
+  key: J
+- function: SignLanguageSubmit # DeltaV
+  type: State
+  key: Return
+- function: SignLanguageCancel # DeltaV
+  type: State
+  key: Escape
 - function: TextCursorSelect
   # TextCursorSelect HAS to be above ExamineEntity
   # So that LineEdit receives it correctly.
