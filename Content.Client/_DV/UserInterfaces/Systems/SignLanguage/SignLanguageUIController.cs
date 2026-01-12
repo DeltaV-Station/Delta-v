@@ -146,7 +146,12 @@ public sealed class SignLanguageUIController : UIController, IOnStateChanged<Gam
         {
             // Check if the player has at least one free hand
             var player = _player.LocalEntity;
+
             if (player == null)
+                return;
+
+            // Needs to known sign language to open the menu
+            if (!EntityManager.HasComponent<KnowsSignLanguageComponent>(player))
                 return;
 
             if (!HasFreeHand())

@@ -45,3 +45,12 @@
   cost: 2 # Changed weight to 2 in accordance with other accents
   components:
     - type: IrishAccent
+
+- type: trait
+  id: KnowsSignLanguage
+  name: trait-knows-sign-language-name
+  description: trait-knows-sign-language-desc
+  category: Quirks
+  # cost: 2 # TODO: port EE traits so this has an actual cost
+  components:
+  - type: KnowsSignLanguage

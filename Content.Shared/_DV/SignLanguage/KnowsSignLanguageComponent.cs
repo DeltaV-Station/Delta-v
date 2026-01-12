@@ -8,4 +8,4 @@ namespace Content.Shared._DV.SignLanguage;
 /// Entities without this component will only see generic "makes hand signs" messages.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class UnderstandsSignLanguageComponent : Component;
+public sealed partial class KnowsSignLanguageComponent : Component;

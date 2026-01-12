@@ -61,3 +61,6 @@ trait-redshirt-desc =
     Something is pulling me up the hill.
     I look down in my red shirt.
     I look down in my red shirt."
+
+trait-knows-sign-language-name = Silent communicator
+trait-knows-sign-language-desc = You are fluent in sign language, allowing you to communicate silently with others who understand it.

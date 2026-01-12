@@ -3,8 +3,10 @@ using Content.Shared._DV.SignLanguage;
 using Content.Shared._DV.SignLanguage.Prototypes;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -41,11 +43,11 @@ public sealed class SignLanguageSystem : EntitySystem
 
     private void OnPerformSignLanguage(PerformSignLanguageMessage msg, EntitySessionEventArgs args)
     {
-        var player = args.SenderSession.AttachedEntity;
-        if (!player.HasValue)
+        if (args.SenderSession.AttachedEntity is not { } signer)
             return;
 
-        var signer = player.Value;
+        if (!HasComp<KnowsSignLanguageComponent>(signer))
+            return;
 
         // Verify the signer has at least one free hand
         if (_hands.CountFreeHands(signer) < 1)
@@ -90,8 +92,12 @@ public sealed class SignLanguageSystem : EntitySystem
             if (!_examine.InRangeUnOccluded(signerPos, observerPos, SignLanguageRange, null, true, _ent))
                 continue;
 
+            // You're blind, duh
+            if (HasComp<PermanentBlindnessComponent>(uid) || HasComp<TemporaryBlindnessComponent>(uid))
+                return;
+
             // Determine if observer understands sign language
-            var understands = HasComp<UnderstandsSignLanguageComponent>(uid);
+            var understands = HasComp<KnowsSignLanguageComponent>(uid);
 
             string message;
             string wrappedMessage;
