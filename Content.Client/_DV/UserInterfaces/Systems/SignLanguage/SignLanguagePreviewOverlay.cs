@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Shared._DV.SignLanguage.Prototypes;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

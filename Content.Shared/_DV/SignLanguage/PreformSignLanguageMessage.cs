@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.SignLanguage.Prototypes;
+using Content.Shared._DV.SignLanguage.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 

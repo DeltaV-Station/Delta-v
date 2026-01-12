@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client._DV.UserInterfaces.Systems.SignLanguage;
 using Content.Client.Chat.TypingIndicator;
 using Content.Client.Gameplay;

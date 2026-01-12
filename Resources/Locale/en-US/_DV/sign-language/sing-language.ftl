@@ -1,4 +1,4 @@
-﻿# Sign Language Localization Strings
+# Sign Language Localization Strings
 
 # ========================================
 # Menu Category Labels

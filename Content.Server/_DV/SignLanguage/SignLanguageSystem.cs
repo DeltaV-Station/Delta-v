@@ -1,4 +1,4 @@
-﻿using Content.Server.Chat.Managers;
+using Content.Server.Chat.Managers;
 using Content.Shared._DV.SignLanguage;
 using Content.Shared._DV.SignLanguage.Prototypes;
 using Content.Shared.Chat;
