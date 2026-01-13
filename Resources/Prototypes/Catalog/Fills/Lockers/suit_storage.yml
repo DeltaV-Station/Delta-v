@@ -172,10 +172,10 @@
   suffix: Security
   categories: [ HideSpawnMenu ] # DeltaV
   components:
-  #- type: EntityTableContainerFill # Delta V - We have our own suits, wont need this one
-  #  containers:
-  #    entity_storage: !type:NestedSelector
-  #      tableId: FillSuitStorageSecurity
+  - type: EntityTableContainerFill # Delta V - We have our own suits, wont need this one
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageSecurity
   - type: AccessReader
     access: [["Security"]]
 
@@ -186,7 +186,6 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitSecurity
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     - id: ClothingMaskBreath
 
 #CE's hardsuit
