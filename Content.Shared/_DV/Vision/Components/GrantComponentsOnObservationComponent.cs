@@ -1,4 +1,4 @@
-﻿using Content.Shared.Popups;
+using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -17,10 +17,10 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public HashSet<EntityUid> AffectedEntities = new();
-    
+
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))][AutoPausedField][AutoNetworkedField]
     public TimeSpan? NextGrantAttempt;
-    
+
     /// <summary>
     /// The interval at which observers will be checked.
     /// </summary>
@@ -32,7 +32,7 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
     /// </summary>
     [DataField][AutoNetworkedField]
     public float Range = 20f;
-    
+
     /// <summary>
     /// If true, this will affect entities with silicon.
     /// </summary>
@@ -56,7 +56,7 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
     /// </summary>
     [DataField]
     public bool AffectSelf;
-    
+
     /// <summary>
     /// The components to grant.
     /// </summary>
@@ -74,7 +74,7 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? SoundObserver;
-    
+
     /// <summary>
     /// The sound played for the observer from the position of the owner.
     /// </summary>
@@ -86,7 +86,7 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
     /// </summary>
     [DataField]
     public string? Message;
-    
+
     /// <summary>
     /// The size of the popup message displayed to the observer when the components are granted.
     /// </summary>
@@ -105,7 +105,7 @@ public sealed partial class ObserverGrantedComponents(EntityUid source, EntityUi
     /// The <see cref="EntityUid"/> of the <see cref="GrantComponentsOnObservationComponent"/> owner.
     /// </summary>
     public EntityUid? Source = source;
-    
+
     /// <summary>
     /// The <see cref="EntityUid"/> of the observing mob.
     /// </summary>

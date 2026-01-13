@@ -79,7 +79,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
 
             var ev = new PsychologicalSoothingChanged(updatedSoothed, receiver.SoothedCurrent); // Create the ev before updating the current value so the ev can have current and previous.
             receiver.SoothedCurrent = updatedSoothed;
-            
+
             RaiseLocalEvent(entReceiver, ref ev);
             DirtyField(entReceiver, receiver, nameof(PsychologicalSoothingReceiverComponent.SoothedCurrent));
         }

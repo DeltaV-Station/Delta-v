@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Vision.Components;
+using Content.Shared._DV.Vision.Components;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Mobs;
@@ -22,42 +22,42 @@ public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    
+
     /// <summary>
     /// Used for processing <see cref="GrantComponentsOnObservationComponent.AffectInContainers"/>.
     /// </summary>
     private EntityQuery<InsideEntityStorageComponent> _insideStorageQuery;
-    
+
     /// <summary>
     /// Used for processing <see cref="GrantComponentsOnObservationComponent.AffectSilicons"/>.
     /// </summary>
     private EntityQuery<SiliconLawBoundComponent> _siliconLawBoundQuery;
-    
+
     /// <summary>
     /// Used for processing <see cref="GrantComponentsOnObservationComponent.AffectBlinded"/>.
     /// </summary>
     private EntityQuery<TemporaryBlindnessComponent> _temporaryBlindnessQuery;
-    
+
     /// <summary>
     /// Used for processing <see cref="GrantComponentsOnObservationComponent.AffectBlinded"/>.
     /// </summary>
     private EntityQuery<PermanentBlindnessComponent> _permanentBlindnessQuery;
-    
+
     /// <summary>
     /// Used to resolve <see cref="GrantComponentsOnObservationComponent"/> in API calls.
     /// </summary>
     private EntityQuery<GrantComponentsOnObservationComponent> _grantComponentsQuery;
-    
+
     /// <summary>
     /// Used to process target mobs.
     /// </summary>
     private EntityQuery<MobStateComponent> _mobStateQuery;
-    
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-        
+
         _insideStorageQuery = GetEntityQuery<InsideEntityStorageComponent>();
         _siliconLawBoundQuery = GetEntityQuery<SiliconLawBoundComponent>();
         _temporaryBlindnessQuery = GetEntityQuery<TemporaryBlindnessComponent>();
@@ -72,58 +72,58 @@ public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<GrantComponentsOnObservationComponent>();
-        
+
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Grant is null || comp.Grant.Count == 0) 
+            if (comp.Grant is null || comp.Grant.Count == 0)
                 continue;
-            
+
             if (comp.NextGrantAttempt.HasValue && comp.NextGrantAttempt.Value > _gameTiming.CurTime)
                 continue;
-            
+
             comp.NextGrantAttempt = _gameTiming.CurTime + comp.Interval;
-            
+
             if (!comp.AffectInContainers && _insideStorageQuery.HasComp(uid))
                 continue;
-            
-            
+
+
             var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, comp.Range);
 
             foreach (var mob in lookup)
             {
-                if(!CanEntityAffectTarget((uid, comp), mob.AsNullable())) 
+                if(!CanEntityAffectTarget((uid, comp), mob.AsNullable()))
                     continue;
-                
+
                 GrantComponents((uid, comp), mob);
             }
         }
     }
-    
+
     protected virtual void GrantComponents(Entity<GrantComponentsOnObservationComponent> entity, Entity<MobStateComponent> target)
     {
         if(entity.Comp.Grant is null || entity.Comp.Grant.Count == 0) return;
-        
+
         var ev = new ObserverGrantedComponents(entity, target);
         RaiseLocalEvent(target.Owner, ev);
-        
+
         if(ev.Cancelled) return;
-        
+
         entity.Comp.AffectedEntities.Add(target.Owner);
-        
-        if(entity.Comp.SoundObserver != null) 
+
+        if(entity.Comp.SoundObserver != null)
             _audio.PlayEntity(entity.Comp.SoundObserver, target, target);
-        
+
         if(entity.Comp.SoundOwner != null)
             _audio.PlayEntity(entity.Comp.SoundOwner, target, entity);
-        
+
         EntityManager.AddComponents(target.Owner, entity.Comp.Grant, entity.Comp.RemoveExisting);
-        
+
         if (!string.IsNullOrWhiteSpace(entity.Comp.Message))
             _popup.PopupClient(Loc.GetString(entity.Comp.Message), target.Owner, PopupType.LargeCaution);
-        
+
         DirtyField(entity.Owner, entity.Comp, nameof(GrantComponentsOnObservationComponent.AffectedEntities));
     }
-    
+
     /// <summary>
     /// Checks if the entity has granted components to a target mob.
     /// </summary>
@@ -135,7 +135,7 @@ public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
     {
         return _grantComponentsQuery.Resolve(entity, ref entity.Comp) && entity.Comp.AffectedEntities.Contains(target);
     }
-    
+
     /// <summary>
     /// Checks if an entity can affect a target mob.
     /// </summary>
@@ -147,23 +147,23 @@ public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
     {
         if (!_grantComponentsQuery.Resolve(entity, ref entity.Comp) || !_mobStateQuery.Resolve(target, ref target.Comp))
             return false;
-        
-        if (entity.Comp.AffectedEntities.Contains(target.Owner)) 
+
+        if (entity.Comp.AffectedEntities.Contains(target.Owner))
             return false;
-        
-        if (!entity.Comp.AffectSelf && target.Owner == entity.Owner) 
+
+        if (!entity.Comp.AffectSelf && target.Owner == entity.Owner)
             return false;
-        
+
         if (target.Comp.CurrentState >= MobState.Critical)
             return false;
 
-        if (!entity.Comp.AffectInContainers && _insideStorageQuery.HasComp(target)) 
+        if (!entity.Comp.AffectInContainers && _insideStorageQuery.HasComp(target))
             return false;
-                
-        if (!entity.Comp.AffectSilicons && _siliconLawBoundQuery.HasComp(target)) 
+
+        if (!entity.Comp.AffectSilicons && _siliconLawBoundQuery.HasComp(target))
             return false;
-                
-        if (!entity.Comp.AffectBlinded && _temporaryBlindnessQuery.HasComp(target) || _permanentBlindnessQuery.HasComp(target)) 
+
+        if (!entity.Comp.AffectBlinded && _temporaryBlindnessQuery.HasComp(target) || _permanentBlindnessQuery.HasComp(target))
             return false;
 
         return _examine.InRangeUnOccluded(entity, target, entity.Comp.Range);
