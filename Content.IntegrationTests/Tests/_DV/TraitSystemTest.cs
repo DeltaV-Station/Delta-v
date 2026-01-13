@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Reflection;
 using Content.Server._DV.Traits;
 using Content.Shared._DV.Traits;
