@@ -11,6 +11,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Configuration; // Frontier
 using Robust.Shared;
 using Content.Shared.Damage; // Frontier
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Emp;
 
@@ -39,6 +40,9 @@ public abstract class SharedEmpSystem : EntitySystem
         SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
+
+        SubscribeLocalEvent<EmpResistanceComponent, EmpAttemptEvent>(OnResistEmpAttempt);
+        SubscribeLocalEvent<EmpResistanceComponent, EmpPulseEvent>(OnResistEmpPulse);
     }
 
     public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier - was EffectEmpPulse
@@ -191,6 +195,23 @@ public abstract class SharedEmpSystem : EntitySystem
     private void OnRejuvenate(Entity<EmpDisabledComponent> ent, ref RejuvenateEvent args)
     {
         RemCompDeferred<EmpDisabledComponent>(ent);
+    }
+
+    private void OnResistEmpAttempt(Entity<EmpResistanceComponent> ent, ref EmpAttemptEvent args)
+    {
+        if (ent.Comp.Resistance >= 1)
+            args.Cancelled = true;
+    }
+
+    private void OnResistEmpPulse(Entity<EmpResistanceComponent> ent, ref EmpPulseEvent args)
+    {
+        var empStrengthMultiplier = 1 - ent.Comp.Resistance;
+
+        if (empStrengthMultiplier <= 0)
+            return;
+
+        args.Duration *= (float) empStrengthMultiplier;
+        args.EnergyConsumption *= (float) empStrengthMultiplier;
     }
 }
 
