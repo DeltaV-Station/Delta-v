@@ -5,6 +5,9 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   category: Disabilities
+  conditions:
+  - !type:HasCompCondition
+    component: Blindable
   effects:
   - !type:AddCompsEffect
     components:
@@ -17,6 +20,9 @@
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
   category: Disabilities
+  conditions:
+  - !type:HasCompCondition
+    component: Blindable
   effects:
   - !type:AddCompsEffect
     components:

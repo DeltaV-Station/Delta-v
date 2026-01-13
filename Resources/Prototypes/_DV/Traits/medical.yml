@@ -91,6 +91,16 @@
   name: trait-synth-name
   description: trait-synth-desc
   category: Medical
+  conditions:
+  - !type:HasCompCondition
+    component: Silicon
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
