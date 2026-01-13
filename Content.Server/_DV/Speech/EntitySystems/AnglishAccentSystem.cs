@@ -26,12 +26,11 @@ public sealed class AnglishAccentSystem : EntitySystem
     {
         var msg = message;
 
-        msg = _replacement.ApplyReplacements(msg, "anglish");
-
-        // replaces th with a "thorn"
-        msg = RegexThLowercase.Replace(msg, "þ");
-        msg = RegexThUppercaseShort.Replace(msg, "Þ");
-        msg = RegexThUppercaseLong.Replace(msg, "Þ");
+        msg = _replacement
+            .ApplyReplacements(msg, "anglish")
+            .Replace("th", "þ")
+            .Replace("Th", "Þ")
+            .Replace("TH", "Þ");
 
         return msg;
     }

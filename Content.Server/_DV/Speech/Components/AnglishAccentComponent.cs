@@ -7,4 +7,4 @@ namespace Content.Server.Speech.Components;
 /// </summary>
 [RegisterComponent]
 [Access(typeof(AnglishAccentSystem))]
-public sealed partial class AnglishAccentComponent : Component {}
+public sealed partial class AnglishAccentComponent : Component;
