@@ -28,21 +28,21 @@ public sealed partial class TraitSystemTest
 # Test Trait Categories
 - type: traitCategory
   id: TestCategoryUnlimited
-  name: Test Unlimited
+  name: trait-dysgraphia-name
   maxTraits: null
   maxPoints: null
 
 - type: traitCategory
   id: TestCategoryLimited
-  name: Test Limited
+  name: trait-dysgraphia-name
   maxTraits: 2
   maxPoints: 10
 
 # Test Traits - Conditions
 - type: trait
   id: TestTraitHasComp
-  name: trait-test-has-comp
-  description: trait-test-has-comp-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   conditions:
@@ -57,8 +57,8 @@ public sealed partial class TraitSystemTest
 # Test Traits - Effects
 - type: trait
   id: TestTraitAddComps
-  name: trait-test-add-comps
-  description: trait-test-add-comps-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   effects:
@@ -69,8 +69,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitOverrideComps
-  name: trait-test-override-comps
-  description: trait-test-override-comps-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   effects:
@@ -80,8 +80,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitRemComps
-  name: trait-test-rem-comps
-  description: trait-test-rem-comps-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   effects:
@@ -92,8 +92,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitSpawnItem
-  name: trait-test-spawn-item
-  description: trait-test-spawn-item-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   effects:
@@ -103,8 +103,8 @@ public sealed partial class TraitSystemTest
 # Test Traits - Validation
 - type: trait
   id: TestTraitConflictA
-  name: trait-test-conflict-a
-  description: trait-test-conflict-a-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   conflicts:
@@ -116,8 +116,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitConflictB
-  name: trait-test-conflict-b
-  description: trait-test-conflict-b-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
   effects:
@@ -127,8 +127,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitLimited1
-  name: trait-test-limited-1
-  description: trait-test-limited-1-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryLimited
   cost: 5
   effects:
@@ -138,8 +138,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitLimited2
-  name: trait-test-limited-2
-  description: trait-test-limited-2-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryLimited
   cost: 5
   effects:
@@ -149,8 +149,8 @@ public sealed partial class TraitSystemTest
 
 - type: trait
   id: TestTraitLimited3
-  name: trait-test-limited-3
-  description: trait-test-limited-3-desc
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-name
   category: TestCategoryLimited
   cost: 5
   effects:
