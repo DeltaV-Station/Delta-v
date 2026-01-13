@@ -11,10 +11,6 @@ public sealed class AnglishAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
-    private static readonly Regex RegexThLowercase = new(@"th");
-    private static readonly Regex RegexThUppercaseShort = new(@"Th");
-    private static readonly Regex RegexThUppercaseLong = new(@"TH");
-
     public override void Initialize()
     {
         base.Initialize();
