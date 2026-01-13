@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Traits.Assorted; // DV
 
 namespace Content.Server.Cloning;
 
@@ -45,6 +46,9 @@ public sealed partial class CloningSystem : SharedCloningSystem
         clone = null;
         if (!_prototype.Resolve(settingsId, out var settings))
             return false; // invalid settings
+
+        if (HasComp<UncloneableComponent>(original)) // DV - Uncloneable
+            return false;
 
         if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid))
             return false; // whatever body was to be cloned, was not a humanoid

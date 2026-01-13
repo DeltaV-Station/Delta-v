@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._CD.Records; // CD - Character Records
 using Content.Shared._CD.Records; // CD - Character Records
+using Content.Shared._DV.Traits; // DV - Traits
 
 namespace Content.Server.Database
 {

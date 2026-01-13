@@ -132,6 +132,22 @@ public sealed partial class DCCVars
     public static readonly CVarDef<int> MaxFootPrintsPerGrid =
         CVarDef.Create("footprints.max_per_grid", 1000, CVar.REPLICATED);
 
+    /*
+     * Traits
+     */
+
+    /// <summary>
+    /// Maximum number of traits that can be selected globally.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitCount =
+        CVarDef.Create("traits.max_count", 5, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum trait points available to spend.
+    /// Traits with positive cost consume points, negative cost traits grant points.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitPoints =
+        CVarDef.Create("traits.max_points", 10, CVar.SERVER | CVar.REPLICATED);
 
     /*
      * Feedback webhook
