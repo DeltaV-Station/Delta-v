@@ -1,4 +1,4 @@
-﻿using JetBrains.Annotations;
+using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Traits.Effects;

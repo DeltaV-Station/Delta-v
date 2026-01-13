@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Traits.Conditions;
+using Content.Shared._DV.Traits.Conditions;
 using Content.Shared._DV.Traits.Effects;
 using Robust.Shared.Prototypes;
 

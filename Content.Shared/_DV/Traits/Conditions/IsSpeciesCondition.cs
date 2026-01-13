@@ -1,4 +1,4 @@
-﻿using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Traits.Conditions;

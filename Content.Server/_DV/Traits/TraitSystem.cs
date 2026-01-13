@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.CCVars;
+using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
 using Content.Shared._DV.Traits.Effects;

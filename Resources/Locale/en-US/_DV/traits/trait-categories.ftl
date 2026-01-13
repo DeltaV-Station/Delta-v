@@ -1,4 +1,4 @@
-﻿trait-category-disabilities = Disabilities
+trait-category-disabilities = Disabilities
 trait-category-disabilities-desc = Permanent physical or sensory impairments affecting basic functioning.
 
 trait-category-medical = Medical

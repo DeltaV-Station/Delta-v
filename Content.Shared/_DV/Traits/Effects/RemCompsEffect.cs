@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Shared._DV.Traits.Effects;
