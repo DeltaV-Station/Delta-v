@@ -10,7 +10,7 @@ namespace Content.Shared._DV.Traits.Conditions;
 public sealed partial class HasCompCondition : TraitCondition
 {
     /// <summary>
-    /// The component name to check for (e.g., "PacifismComponent").
+    /// The component name to check for (e.g., "Pacifism").
     /// </summary>
     [DataField(required: true, customTypeSerializer: typeof(ComponentNameSerializer))]
     public string Component = string.Empty;
@@ -25,9 +25,10 @@ public sealed partial class HasCompCondition : TraitCondition
             var compType = ctx.CompFactory.GetRegistration(Component).Type;
             return ctx.EntMan.HasComponent(ctx.Player, compType);
         }
-        catch
+        catch (Exception)
         {
-            // Component type not found
+            // Log the actual error instead of silently catching
+            ctx.LogMan.GetSawmill("traits").Error($"Failed to get component registration for '{Component}'");
             return false;
         }
     }

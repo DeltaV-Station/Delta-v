@@ -122,11 +122,21 @@ public sealed class TraitSystem : EntitySystem
 
             // Check conflicts with already selected traits
             var hasConflict = false;
-            foreach (var conflict in trait.Conflicts)
+            foreach (var validTraitId in validTraits)
             {
-                if (validTraits.Contains(conflict))
+                // Check if current trait conflicts with valid trait
+                if (trait.Conflicts.Contains(validTraitId))
                 {
-                    Log.Warning($"Trait {traitId} rejected: conflicts with {conflict}");
+                    Log.Warning($"Trait {traitId} rejected: conflicts with {validTraitId}");
+                    hasConflict = true;
+                    break;
+                }
+
+                // Check if valid trait conflicts with current trait
+                if (_prototype.TryIndex(validTraitId, out var validTrait) &&
+                    validTrait.Conflicts.Contains(traitId))
+                {
+                    Log.Warning($"Trait {traitId} rejected: {validTraitId} conflicts with it");
                     hasConflict = true;
                     break;
                 }
