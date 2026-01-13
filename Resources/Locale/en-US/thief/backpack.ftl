@@ -1,5 +1,4 @@
-# Delta V: Too many prototypes use the theiving kit changed from "thieving kit" to "Undetermined bundle"
-thief-backpack-window-title = Undetermined Bundle
+thief-backpack-window-title = thieving kit
 
 thief-backpack-window-description =
     Inside are your tools of the trade, which will dissolve when you're ready.
