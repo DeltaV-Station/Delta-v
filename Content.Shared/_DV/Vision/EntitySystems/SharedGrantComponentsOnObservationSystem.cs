@@ -91,7 +91,8 @@ public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
 
             foreach (var mob in lookup)
             {
-                if(!CanEntityAffectTarget((uid, comp), mob.AsNullable())) continue;
+                if(!CanEntityAffectTarget((uid, comp), mob.AsNullable())) 
+                    continue;
                 
                 GrantComponents((uid, comp), mob);
             }

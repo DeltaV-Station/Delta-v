@@ -5,13 +5,14 @@ using Content.Shared.DoAfter;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.Supermatter.Components;
 
-[RegisterComponent][AutoGenerateComponentPause]
+[RegisterComponent][AutoGenerateComponentPause][NetworkedComponent][AutoGenerateComponentState(true, true)]
 public sealed partial class SupermatterComponent : Component
 {
     #region Base
@@ -19,13 +20,13 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The current status of the singularity, used for alert sounds and the monitoring console
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
 
     /// <summary>
     /// The supermatter's internal gas storage
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public GasMixture? GasStorage;
 
     [DataField]
@@ -106,7 +107,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The internal energy of the supermatter
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public float Power;
 
     /// <summary>
@@ -204,7 +205,7 @@ public sealed partial class SupermatterComponent : Component
 
     #region Timing
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))][AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))][AutoPausedField][AutoNetworkedField]
     public TimeSpan? AnnounceNext;
     
     [DataField]
@@ -213,19 +214,19 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// Time when the delamination will occur
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))][AutoPausedField]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))][AutoPausedField][AutoNetworkedField]
     public TimeSpan? DelaminationTime;
 
     /// <summary>
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public TimeSpan DelaminationDelay = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public TimeSpan AccentLastTime;
 
     /// <summary>
@@ -241,14 +242,14 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The amount of damage taken
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public float Damage = 0f;
 
     /// <summary>
     /// The damage from before this cycle.
     /// Used to limit the damage we can take each cycle, and for safe alert.
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float DamageArchived = 0f;
 
     /// <summary>
@@ -305,7 +306,7 @@ public sealed partial class SupermatterComponent : Component
     /// <remarks>
     /// <para>This can be false while the <see cref="Status"/> is <see cref="SupermatterStatusType.Delaminating"/>, such as when the crystal is just entering the delamination process. If you don't need the distinction, use Status instead.</para>
     /// </remarks>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public bool IsDelaminating;
 
     /// <summary>
@@ -381,19 +382,19 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The power decay of the supermatter, to be displayed on the monitoring console
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float PowerLoss;
 
     /// <summary>
     /// The low temperature healing of the supermatter, to be displayed on the monitoring console
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float HeatHealing;
 
     /// <summary>
     /// The true value of <see cref="HeatModifier"/> without a lower bound, to be displayed on the monitoring console
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)]
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float GasHeatModifier;
 
     #endregion
@@ -508,12 +509,11 @@ public enum SupermatterVisuals : byte
 [Serializable, NetSerializable]
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent;
 
-[Serializable, NetSerializable]
-public sealed partial class SupermatterSpriteUpdateEvent(NetEntity uid, string state) : EntityEventArgs
-{
-    public NetEntity Entity = uid;
-    public string State = state;
-}
+/// <summary>
+/// Raised after the supermatter updates.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterUpdatedEvent;
 
 /// <summary>
 /// Raised when the supermatter takes damage, with the amount of damage taken.

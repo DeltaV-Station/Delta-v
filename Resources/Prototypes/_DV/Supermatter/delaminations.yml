@@ -3,11 +3,12 @@
   message: supermatter-delam-generic
   gameRules:
   - SupermatterDelamEventScheduler
-  - DelaminationThavenMoodShuffle
+  - DelaminationNewSharedThavenMood
   - DelaminationFlickeringLights # this will always hit the station regardless of where the supermatter was
   - DelaminationHallucinations
   mobEffects:
   - !type:IonStorm
+  - !type:ThavenRefreshMoods
 
 - type: supermatterDelamination
   parent: BaseSupermatterDelamination

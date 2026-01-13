@@ -1,9 +1,10 @@
+using Robust.Shared.GameStates;
 namespace Content.Shared._DV.Vision.Components;
 
 /// <summary>
 /// This is used for providing psychological soothing to receivers.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent][NetworkedComponent]
 public sealed partial class PsychologicalSoothingProviderComponent : Component
 {
     /// <summary>

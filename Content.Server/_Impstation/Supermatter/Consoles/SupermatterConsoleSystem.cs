@@ -174,7 +174,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             gases = sm.GasStorage;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold);
-        var gasEfficiency = _supermatter.GetGasEfficiency(sm);
+        var gasEfficiency = _supermatter.GetGasEfficiency((focusSupermatter.Value, sm));
 
         return new SupermatterFocusData(
             GetNetEntity(focusSupermatter.Value),

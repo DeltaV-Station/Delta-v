@@ -11,8 +11,11 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     /// <summary>
     /// The maximum range a provider can be from this receiver to provide soothing.
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public float Range = 20f;
+
+    [DataField][AutoNetworkedField]
+    public bool Decaying = true;
 
     /// <summary>
     /// The current amount of soothing this receiver has.
@@ -23,25 +26,25 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     /// <summary>
     /// The maximum amount of soothing this receiver can have.
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public float SoothedMaximum = 1.0f;
 
     /// <summary>
     /// The minimum amount of soothing this receiver can have.
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public float SoothedMinimum = 0f;
 
     /// <summary>
     /// The amount of soothing subtracted from the receiver every <see cref="SootheInterval"/>.
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public float RateDecay = 0.01f;
 
     /// <summary>
     /// The amount of soothing added to the receiver every <see cref="SootheInterval"/> while in unobstructed range of a provider.
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public float RateGrowth = 0.01f;
 
     /// <summary>
@@ -53,6 +56,9 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     /// <summary>
     /// The interval at which the receiver will process soothing.
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public TimeSpan SootheInterval = TimeSpan.FromSeconds(1);
 }
+
+[ByRefEvent]
+public readonly record struct PsychologicalSoothingChanged(float Current, float Previous);

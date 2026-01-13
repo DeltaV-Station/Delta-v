@@ -51,7 +51,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
             }
 
             receiver.SootheNext = _timing.CurTime + receiver.SootheInterval;
-            DirtyField<PsychologicalSoothingReceiverComponent>(entReceiver, nameof(PsychologicalSoothingReceiverComponent.SootheNext));
+            DirtyField(entReceiver, receiver, nameof(PsychologicalSoothingReceiverComponent.SootheNext));
 
             var psyDiff = 0f;
             var isBeingSoothed = false;
@@ -74,11 +74,14 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
             }
             var updatedSoothed = Math.Clamp( receiver.SoothedCurrent + (isBeingSoothed ? psyDiff : -receiver.RateDecay), receiver.SoothedMinimum, receiver.SoothedMaximum );
 
-            if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f))
+            if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f)) // If the soothing isn't changing, then just skip.
                 continue;
 
+            var ev = new PsychologicalSoothingChanged(updatedSoothed, receiver.SoothedCurrent); // Create the ev before updating the current value so the ev can have current and previous.
             receiver.SoothedCurrent = updatedSoothed;
-            DirtyField<PsychologicalSoothingReceiverComponent>(entReceiver, nameof(PsychologicalSoothingReceiverComponent.SoothedCurrent));
+            
+            RaiseLocalEvent(entReceiver, ref ev);
+            DirtyField(entReceiver, receiver, nameof(PsychologicalSoothingReceiverComponent.SoothedCurrent));
         }
     }
 }

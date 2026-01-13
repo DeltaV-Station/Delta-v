@@ -4,11 +4,10 @@
 
 - type: entity
   parent: BaseDelaminationRule
-  id: DelaminationThavenMoodShuffle
+  id: DelaminationNewSharedThavenMood
   components:
   - type: ThavenMoodUpsetRule
     newSharedMoods: true
-    refreshPersonalMoods: true
 
 - type: entity
   parent: BaseDelaminationRule
