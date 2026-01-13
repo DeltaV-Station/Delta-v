@@ -4,12 +4,13 @@ lobbyenabled = false
 # Dev map for faster loading & convenience
 map = "Dev"
 role_timers = false
+admin_job_tracking = true
+role_loadout_timers = false
 
 contraband_examine = false # DeltaV
 secret_weight_prototype = "SecretDeltaV" # DeltaV
 role_timer_override = "DeltaV" # DeltaV
 showgreentext = false # DeltaV
-role_loadout_timers = false
 
 [events]
 enabled = false
