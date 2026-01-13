@@ -193,3 +193,6 @@ chatsan-replacement-67 = all good
 # Delta V - Replaced idk to do /me shrugs as per issue 5151
 # chatsan-word-68 = idk
 # chatsan-replacement-68 = i don't know
+
+chatsan-word-69 = wya
+chatsan-replacement-69 = where you at
