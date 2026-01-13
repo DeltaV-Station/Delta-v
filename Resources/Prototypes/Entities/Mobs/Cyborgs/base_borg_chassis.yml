@@ -120,7 +120,6 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -277,6 +276,11 @@
       groups:
         Electronic: -0.5
   - type: SiliconEmp # DeltaV - EMP damage
+  - type: BypassLock
+  - type: BypassLockRequiresMobState
+    requiredMobState:
+    - Critical
+    - Dead
 
 - type: entity
   abstract: true
@@ -401,6 +405,8 @@
     color: "#dd200b"
   - type: Fiber # DeltaV - syndiborgs have black plasteel fibers
     fiberColor: fibers-black
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -462,6 +468,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
@@ -587,3 +595,5 @@
   - type: Fiber # DeltaV - xenoborgs have replicated plasteel fibers
     fiberMaterial: fibers-replicated-plasteel
   - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
