@@ -34,9 +34,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public Color LightColorDelam = Color.FromHex("#ff5555");
 
-    [DataField]
-    public float HallucinationRange = 20f;
-
     #endregion
 
     #region Prototypes
@@ -101,12 +98,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public ProtoId<SpeechSoundsPrototype> StatusDelamSound = "SupermatterDelaminating";
-
-    [DataField]
-    public SoundSpecifier GainParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambidanger.ogg");
-
-    [DataField]
-    public SoundSpecifier GiveParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambireebe3.ogg");
 
     #endregion
 

@@ -128,6 +128,20 @@
   - type: PsychologicalSoothingReceiver
     rateDecay: 0.0016 # about 10 minutes to decay
     rateGrowth: 0.0083 # about 2 minutes to soothe
+  - type: GrantComponentsOnObservation
+    message: supermatter-paracusia-player-message
+    visualType: LargeCaution
+    soundObserver: !type:SoundPathSpecifier
+      path: /Audio/Ambience/ambidanger.ogg
+    soundOwner: !type:SoundPathSpecifier
+      path: /Audio/Ambience/ambireebe3.ogg
+    grant:
+    - type: Paracusia # TODO: change to hallucinations
+      minTimeBetweenIncidents: 0.1
+      maxTimeBetweenIncidents: 300
+      maxSoundDistance: 7
+      sounds:
+        collection: Paracusia
   # Delta-V - End Changes
   - type: AtmosDevice
     requireAnchored: false

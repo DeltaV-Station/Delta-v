@@ -5,15 +5,8 @@ using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Popups;
-using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -475,46 +468,6 @@ public sealed partial class SupermatterSystem
         _light.SetEnergy(uid, 2f * scalar, light);
         _light.SetRadius(uid, 10f * scalar, light);
         _light.SetColor(uid, Color.FromHsv(hsvFinal), light);
-    }
-
-    /// <summary>
-    /// Checks whether a mob can see the supermatter, then applies hallucinations and psychologist coefficient
-    /// </summary>
-    private void HandleVision(EntityUid uid, SupermatterComponent sm)
-    {
-        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, sm.HallucinationRange);
-
-        foreach (var mob in lookup)
-        {
-            // Not in line of sight, or is dead
-            if (!_examine.InRangeUnOccluded(uid, mob, 20f) ||
-                mob.Comp.CurrentState == MobState.Dead)
-                continue;
-            
-            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
-                HasComp<SiliconLawBoundComponent>(mob) ||                // Silicons don't get supermatter hallucinations
-                HasComp<PermanentBlindnessComponent>(mob) ||             // Blind people don't get supermatter hallucinations
-                HasComp<TemporaryBlindnessComponent>(mob))               // Neither do blinded people
-                continue;
-
-            // Everyone else gets hallucinations
-            // These values match the paracusia disability, since we can't double up on paracusia
-            // TODO: change this from paracusia to actual hallucinations whenever those are real
-            var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
-            var paracusiaMinTime = 0.1f;
-            var paracusiaMaxTime = 300f;
-            var paracusiaDistance = 7f;
-
-            if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
-            {
-                _popup.PopupEntity(Loc.GetString("supermatter-paracusia-player-message"), mob, mob, PopupType.LargeCaution);
-                _audio.PlayEntity(sm.GainParacusiaSound, mob, mob);
-                _audio.PlayEntity(sm.GiveParacusiaSound, mob, uid);
-                _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
-                _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
-                _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
-            }
-        }
     }
 
     /// <summary>

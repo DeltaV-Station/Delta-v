@@ -6,7 +6,6 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Examine;
 using Content.Server.GameTicking;
-using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Singularity.Components;
@@ -27,7 +26,6 @@ using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -58,7 +56,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
     [Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
@@ -156,6 +153,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     /// </summary>
     private EntityQuery<SupermatterFoodComponent> _foodQuery;
     
+    private EntityQuery<SupermatterComponent> _supermatterQuery;
+    
     protected override string SawmillName => "supermatter";
 
     public override void Initialize()
@@ -177,6 +176,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         _ghostQuery = GetEntityQuery<GhostComponent>();
         _ambientQuery = GetEntityQuery<AmbientSoundComponent>();
         _radiationSourceQuery = GetEntityQuery<RadiationSourceComponent>();
+        _supermatterQuery = GetEntityQuery<SupermatterComponent>();
 
         SubscribeLocalEvent<SupermatterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SupermatterComponent, AtmosDeviceUpdateEvent>(OnSupermatterUpdated);
@@ -195,8 +195,10 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, SupermatterStatusChangedEvent>(OnSupermatterStatusChanged);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationEvent>(OnSupermatterDelamination);
         SubscribeLocalEvent<SupermatterComponent, SupermatterAnnouncementEvent>(OnSupermatterAnnouncement);
+
+        SubscribeLocalEvent<SupermatterHallucinationImmuneComponent, ObserverGrantedComponents>(OnObserverGrantedComponents);
     }
-    
+
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<SupermatterComponent>();
@@ -230,6 +232,21 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Send the inactive port for any linked devices
         if (_linkQuery.HasComp(uid))
             _link.InvokePort(uid, sm.PortInactive);
+    }
+    
+    /// <summary>
+    /// Prevents the observing mob from being granted components by a <see cref="GrantComponentsOnObservationComponent"/> if the source is a supermatter.
+    /// TODO: Move to a shared system.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnObserverGrantedComponents(Entity<SupermatterHallucinationImmuneComponent> ent, ref ObserverGrantedComponents args)
+    {
+        if (args.Cancelled || !_supermatterQuery.HasComp(args.Source))
+            // We are already canceled, or the source is not a supermatter.
+            return;
+        
+        args.Cancel();
     }
     
     private void OnSupermatterAnnouncement(EntityUid uid, SupermatterComponent sm, SupermatterAnnouncementEvent args)
@@ -307,7 +324,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         UpdateSupermatterStatus((uid, sm));
         
         HandleLight(uid, sm);
-        HandleVision(uid, sm);
         HandleAccent(uid, sm);
 
         if (sm.Power > _config.GetCVar(ImpCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)

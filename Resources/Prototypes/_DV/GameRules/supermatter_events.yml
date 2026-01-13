@@ -25,7 +25,7 @@
   id: DelaminationHallucinations
   components:
   - type: MassHallucinationsRule
-    minTimeBetweenIncidents: 30
+    minTimeBetweenIncidents: 0.1
     maxTimeBetweenIncidents: 300
     maxSoundDistance: 7
     sounds:
