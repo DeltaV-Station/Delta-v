@@ -1,4 +1,5 @@
-thief-backpack-window-title = thieving kit
+# Delta V: Too many prototypes use the theiving kit changed from "thieving kit" to "Undetermined bundle"
+thief-backpack-window-title = Undetermined Bundle
 
 thief-backpack-window-description =
     Inside are your tools of the trade, which will dissolve when you're ready.
@@ -25,7 +26,7 @@ thief-backpack-category-chameleon-description =
 thief-backpack-category-tools-name = breacher kit
 # Delta V: C4 replaced with breaching charges and description changed
 thief-backpack-category-tools-description =
-    What's that sound? A few stolen breachin' charges knockin' at their door. 
+    What's that sound? A few stolen breachin' charges knockin' at their door.
     No obstacle can stop you!
     Includes: Three breaching charges, a multitool, remote signaller, jaws of life,
     advanced welder, engineering goggles, and insulated gloves.

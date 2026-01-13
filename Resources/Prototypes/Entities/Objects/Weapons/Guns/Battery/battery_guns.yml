@@ -939,7 +939,7 @@
     - HighRiskItem
     - Sidearm
   - type: StealTarget
-    stealGroup: WeaponEnergyMagnum
+    stealGroup: HosSidearm # Delta V - to work along side the X-01
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -950,7 +950,7 @@
     fireModes:
     - proto: BulletLaserMagnum
       fireCost: 150
-    - proto: BulletLaserWindowPiercingMagnum
+    - proto: BulletEnergyGunLaser #Delta V - Energy guns pierce by default 
       fireCost: 150
     - proto: BulletDisabler
       fireCost: 62.5

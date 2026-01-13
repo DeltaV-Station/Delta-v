@@ -1,19 +1,23 @@
 - type: thiefBackpackSet
   id: Energymagnumbundle
-  name: fugitive-set-saboteur-name
-  description: fugitive-set-saboteur-description
+  name: Energy-magnum-bundle-name
+  description: Energy-magnum-bundle-description
   sprite:
-    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
     state: icon
   content:
   - WeaponEnergyMagnum
+  - ClothingShoesBootsCowboyBlack
+  - ClothingBeltHolster
 
 - type: thiefBackpackSet
   id: X01bundle
-  name: fugitive-set-saboteur-name
-  description: fugitive-set-saboteur-description
+  name: X01-bundle-name
+  description: X01-bundle-description
   sprite:
-    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: icon
   content:
   - WeaponEnergyGunMultiphase
+  - SyndicateWhistle
+  - BookSpaceLaw
