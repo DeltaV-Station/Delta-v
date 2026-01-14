@@ -25,7 +25,7 @@
   conditions:
   - !type:MaxPlaytimeCondition
     tracker: Overall
-    time: 60m
+    time: 1h
 
 # Tip for players who understand sign language # TODO placeholder
 #- type: tip
@@ -62,7 +62,7 @@
     job: SecurityCadet
   - !type:MaxPlaytimeCondition
     tracker: JobSecurityCadet
-    time: 120m
+    time: 2h
 
 # Medical Intern job tip
 - type: tip
@@ -96,4 +96,4 @@
 #  conditions:
 #  - !type:MinPlaytimeCondition
 #    tracker: Overall
-#    minutes: 600
+#    time: 10h
