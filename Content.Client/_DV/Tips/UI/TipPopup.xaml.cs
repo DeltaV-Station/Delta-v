@@ -47,11 +47,13 @@ public sealed partial class TipPopup : Control
         var description = Loc.GetString(_tip.Description);
         DescriptionLabel.SetMessage(FormattedMessage.FromMarkupPermissive(description),
             tagsAllowed:
-            typeof(ItalicTag),
-            typeof(ColorTag),
-            typeof(BoldTag),
-            typeof(BoldItalicTag),
-            typeof(KeyBindTag));
+            [
+                typeof(ItalicTag),
+                typeof(ColorTag),
+                typeof(BoldTag),
+                typeof(BoldItalicTag),
+                typeof(KeyBindTag),
+            ]);
 
         ApplyTransparentStyle();
     }
