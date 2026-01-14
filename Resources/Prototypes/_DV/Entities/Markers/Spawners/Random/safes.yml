@@ -86,7 +86,7 @@
   parent: BaseGunSafeSpawner
   id: SubMachineGunSafeSpawner
   suffix: SubMachineGun
-  components:
+  components:  
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
