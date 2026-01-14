@@ -72,14 +72,14 @@ namespace Content.Server.Database
                 .IsRequired();
             // End CD - CD Character Data
 
-            // DV - Tips
+            // DeltaV - Tips
             modelBuilder.Entity<DVModel.SeenTip>()
                 .HasOne<Player>()
                 .WithMany()
                 .HasForeignKey(s => s.PlayerUserId)
                 .HasPrincipalKey(p => p.UserId)
                 .IsRequired();
-            // End DV
+            // End DeltaV
 
             modelBuilder.Entity<Antag>()
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})
