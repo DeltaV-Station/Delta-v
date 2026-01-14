@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.FixedPoint; // DeltaV
 using Content.Shared.Ninja.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -54,4 +55,10 @@ public sealed partial class SpaceNinjaComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> SuitPowerAlert = "SuitPower";
+
+    /// <summary>
+    /// DeltaV - The minimum damage to reveal the ninja on damage. Should be positive, since negative values are considered healing.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 MinimumRevealDamage = 5;
 }
