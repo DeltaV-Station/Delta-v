@@ -100,23 +100,19 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
     private void OnNinjaAttacked(Entity<SpaceNinjaComponent> ent, ref DamageChangedEvent args)
     {
         // If there's no damage delta, just return
-        if (args.DamageDelta is not { })
+        if (args.DamageDelta is not { } damage)
             return;
 
-        // Don't reveal on healing
+        // Don't reveal on (most) healing
         if (!args.DamageIncreased)
             return;
 
         // If the damage doesn't have a source, we need to check the type, in case it 
         // was a grenade or explosion. We want to ignore airloss and toxin damage types.
-        if (!args.Origin.HasValue && args.DamageDelta is { } damage)
+        if (!args.Origin.HasValue)
         {
-            // If there are any negative values, its probably natual or chem healing, so don't reveal
+            // If there are any negative values, its probably natual or chem healing, so don't reveal. It might be an OD from medicine.
             if (!damage.AnyPositive())
-                return;
-
-            // Only reveal on damage greater than the minumum. This prevents tiny ticks of damage (e.g. from malign rifts pulses)
-            if (damage.GetTotal() < ent.Comp.MinimumRevealDamage)
                 return;
 
             // Check the damage types for damage types that should reveal (brute, burns)
@@ -125,6 +121,10 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
             if (!damageGroups.ContainsKey("Brute") && !damageGroups.ContainsKey("Burn")) // This feels a bit dirty, oh well.
                 return;
         }
+
+        // Only reveal on damage greater than the minumum. This prevents tiny ticks of damage (e.g. from malign rifts pulses)
+        if (damage.GetTotal() <= ent.Comp.MinimumRevealDamage)
+            return;
 
         // Yea, now reveal that son of a bitch >:3
         TryRevealNinja(ent, disable: true);

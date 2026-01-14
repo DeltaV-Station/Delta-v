@@ -58,7 +58,8 @@ public sealed partial class SpaceNinjaComponent : Component
 
     /// <summary>
     /// DeltaV - The minimum damage to reveal the ninja on damage. Should be positive, since negative values are considered healing.
+    /// Note that the ninja suit has 20% brute resist and punches deal 5 damage, so 4 should be enough to reveal.
     /// </summary>
     [DataField]
-    public FixedPoint2 MinimumRevealDamage = 5;
+    public FixedPoint2 MinimumRevealDamage = 4;
 }
