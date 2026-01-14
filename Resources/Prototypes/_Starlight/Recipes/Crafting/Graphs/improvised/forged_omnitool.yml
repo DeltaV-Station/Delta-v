@@ -10,27 +10,27 @@
         icon:
           sprite: Objects/Tools/multitool.rsi
           state: icon
-        name: crafting-menu-name-MUL
+        name: crafting-menu-name-any-multitool # Delta V - Changed the name as it accepts any multi tool
       - tag: Wrench
         icon:
           sprite: Objects/Tools/wrench.rsi
           state: icon
-        name: crafting-menu-name-WRE
+        name: crafting-menu-name-any-wrench # Delta V - Changed the name as it accepts any wrench
       - tag: Wirecutter
         icon:
           sprite: Objects/Tools/wirecutters.rsi
           state: cutters-map
-        name: crafting-menu-name-WIR
+        name: crafting-menu-name-any-wirecutter # Delta V - Changed the name as it accepts any wire cutter
       - tag: Screwdriver
         icon:
           sprite: Objects/Tools/screwdriver.rsi
           state: screwdriver-map
-        name: crafting-menu-name-SCR
+        name: crafting-menu-name-any-screwdriver # Delta V - Changed the name as it accepts any screwdriver
       - tag: Crowbar
         icon:
           sprite: Objects/Tools/crowbar.rsi
           state: storage
-        name: crafting-menu-name-CRO
+        name: crafting-menu-name-any-crowbar # Delta V - Changed the name as it accepts any crowbar
       - tag: EmergencyWelder
         icon:
           sprite: Objects/Tools/welder_mini.rsi
@@ -41,11 +41,11 @@
           sprite: Objects/Power/power_cells.rsi
           state: small
         name: construction-graph-tag-power-cell-small
-      - tag: GasTank
+      - component: GasTank # Delta V - Changed to look for the gasTank component, so any gas tanks are accepted.
         icon:
-          sprite: Objects/Tanks/emergency_extended.rsi
+          sprite: Objects/Tanks/oxygen.rsi
           state: icon
-        name: crafting-menu-name-EXOXY
+        name: crafting-menu-name-any-gas-tank # Delta V - Changed the name as it accepts any gas tank
       - material: Cable
         amount: 3
         doAfter: 5
