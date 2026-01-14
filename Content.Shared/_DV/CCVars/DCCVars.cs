@@ -101,6 +101,18 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables all tips for a player.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTips =
+        CVarDef.Create("game.disable_tips", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Disables all tips for ALL PLAYERS.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTipsGlobal =
+        CVarDef.Create("game.disable_tips_global", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =

@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._CD.Records; // CD - Character Records
 using Content.Shared._CD.Records; // CD - Character Records
+using Content.Shared._DV.Tips; // DV - Tips
 using Content.Shared._DV.Traits; // DV - Traits
 
 namespace Content.Server.Database
@@ -1846,6 +1847,82 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             await db.DbContext.SaveChangesAsync();
             return true;
+        }
+
+        #endregion
+
+        #region DV - Seen Tips
+
+        public async Task<HashSet<string>> GetSeenTips(Guid player, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var seenTips = await db.DbContext.DVSeenTips
+                .Where(s => s.PlayerUserId == player)
+                .Select(s => s.TipProtoId)
+                .ToListAsync(cancel);
+
+            return seenTips.ToHashSet();
+        }
+
+        public async Task<bool> HasSeenTip(Guid player, ProtoId<TipPrototype> tip)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.DVSeenTips
+                .Where(s => s.PlayerUserId == player)
+                .Where(s => s.TipProtoId == tip.Id)
+                .AnyAsync();
+        }
+
+        public async Task<bool> MarkTipSeen(Guid player, ProtoId<TipPrototype> tip)
+        {
+            await using var db = await GetDb();
+
+            var exists = await db.DbContext.DVSeenTips
+                .Where(s => s.PlayerUserId == player)
+                .Where(s => s.TipProtoId == tip.Id)
+                .AnyAsync();
+
+            if (exists)
+                return false;
+
+            var seenTip = new DVModel.SeenTip
+            {
+                PlayerUserId = player,
+                TipProtoId = tip.Id,
+                DismissedAt = DateTime.UtcNow
+            };
+
+            db.DbContext.DVSeenTips.Add(seenTip);
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> ResetSeenTip(Guid player, ProtoId<TipPrototype> tip)
+        {
+            await using var db = await GetDb();
+
+            var entry = await db.DbContext.DVSeenTips
+                .Where(s => s.PlayerUserId == player)
+                .Where(s => s.TipProtoId == tip.Id)
+                .SingleOrDefaultAsync();
+
+            if (entry == null)
+                return false;
+
+            db.DbContext.DVSeenTips.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<int> ResetAllSeenTips(Guid player)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.DVSeenTips
+                .Where(s => s.PlayerUserId == player)
+                .ExecuteDeleteAsync();
         }
 
         #endregion

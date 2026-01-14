@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: HTMLSystem
-  changes:
-  - message: Gave bluespace ore a new sprite.
-    type: Tweak
-  id: 1555
-  time: '2025-07-31T18:15:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4024
-- author: Radezolid
-  changes:
-  - message: Moved the energy shotgun to the warden's locker.
-    type: Tweak
-  id: 1556
-  time: '2025-08-01T08:12:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4089
 - author: kotobdev
   changes:
   - message: The Mantis' psibreaker pistol actually removes psionics now.
@@ -4455,4 +4441,23 @@
   id: 2054
   time: '2026-01-13T05:00:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5167
+- author: Pharaz4
+  changes:
+  - message: Syndicate Assault, Medical, and Saboteur borgs now get names.
+    type: Add
+  - message: Fixed SRN Saboteur borg not being able to fit Engineering module
+    type: Fix
+  id: 2055
+  time: '2026-01-14T13:23:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5197
+- author: MilonPL
+  changes:
+  - message: Added a dynamic tip system that shows contextual tips to players based
+      on their job, playtime, and more.
+    type: Add
+  - message: Tips can be disabled or reset in the Options menu under DeltaV.
+    type: Add
+  id: 2056
+  time: '2026-01-14T20:23:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5199
 Order: 1
