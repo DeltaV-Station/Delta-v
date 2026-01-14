@@ -15,7 +15,6 @@ namespace Content.Client._DV.Tips;
 /// </summary>
 public sealed class TipSystem : SharedTipSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -44,7 +43,12 @@ public sealed class TipSystem : SharedTipSystem
 
     private void OnShowTip(ShowTipEvent ev)
     {
-        if (_cfg.GetCVar(DCCVars.DisableTips) || _cfg.GetCVar(DCCVars.DisableTipsGlobal))
+        // Return if tips are disabled globally
+        if (_cfg.GetCVar(DCCVars.DisableTipsGlobal))
+            return;
+
+        // Return if tips are disabled locally and IgnoreCvar is the default value
+        if (_cfg.GetCVar(DCCVars.DisableTips) && !ev.IgnoreCvar)
             return;
 
         _tipQueue.Enqueue(ev);
@@ -63,7 +67,7 @@ public sealed class TipSystem : SharedTipSystem
 
             var tipEvent = _tipQueue.Dequeue();
 
-            if (!_prototype.TryIndex(tipEvent.TipId, out var tipProto))
+            if (!Prototype.TryIndex(tipEvent.TipId, out var tipProto))
             {
                 Log.Warning($"Received tip event for unknown prototype: {tipEvent.TipId}");
                 continue;

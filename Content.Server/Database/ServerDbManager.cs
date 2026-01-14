@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
-using Content.Shared._DV.Tips;
+using Content.Shared._DV.Tips; // DeltaV - Tips
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
@@ -344,7 +344,7 @@ namespace Content.Server.Database
 
         #endregion
 
-        #region DV - Seen Tips
+        #region DeltaV - Seen Tips
 
         Task<HashSet<string>> GetSeenTips(Guid player, CancellationToken cancel = default);
         Task<bool> HasSeenTip(Guid player, ProtoId<TipPrototype> tip);
@@ -1063,7 +1063,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
 
-        #region DV - Seen Tips
+        #region DeltaV - Seen Tips
 
         public Task<HashSet<string>> GetSeenTips(Guid player, CancellationToken cancel = default)
         {

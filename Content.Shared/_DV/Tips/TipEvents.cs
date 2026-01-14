@@ -8,7 +8,7 @@ namespace Content.Shared._DV.Tips;
 /// Server-to-client message to display a tip popup.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class ShowTipEvent(ProtoId<TipPrototype> tipId, SoundSpecifier sound) : EntityEventArgs
+public sealed class ShowTipEvent(ProtoId<TipPrototype> tipId, SoundSpecifier? sound, bool ignoreCvar = false) : EntityEventArgs
 {
     /// <summary>
     /// The prototype ID of the tip to show.
@@ -19,7 +19,12 @@ public sealed class ShowTipEvent(ProtoId<TipPrototype> tipId, SoundSpecifier sou
     /// The sound to play when showing the tip.
     /// Sent separately since SoundSpecifier may not serialize well across network.
     /// </summary>
-    public SoundSpecifier Sound = sound;
+    public SoundSpecifier? Sound = sound;
+
+    /// <summary>
+    /// Whether to ignore the DisableTips CCvar on the client
+    /// </summary>
+    public bool IgnoreCvar = ignoreCvar;
 }
 
 

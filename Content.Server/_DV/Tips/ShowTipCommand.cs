@@ -54,7 +54,7 @@ public sealed class ShowTipCommand : LocalizedEntityCommands
             return;
         }
 
-        _tip.ShowTip(player, proto);
+        _tip.ShowTip(player, proto, true);
 
         shell.WriteLine(Loc.GetString("shell-command-success"));
     }

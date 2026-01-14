@@ -42,7 +42,7 @@ public sealed partial class TipPrototype : IPrototype
     /// Sound to play when the tip is shown.
     /// </summary>
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Effects/voteding.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Effects/voteding.ogg");
 
     /// <summary>
     /// Conditions that must ALL be met for this tip to be shown.

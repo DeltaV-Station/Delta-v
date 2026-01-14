@@ -46,7 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
-        public DbSet<DVModel.SeenTip> DVSeenTips { get; set; } = null!; // DeltaV
+        public DbSet<DVModel.SeenTip> DVSeenTips { get; set; } = null!; // DeltaV - Tips
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

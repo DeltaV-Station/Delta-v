@@ -1,4 +1,4 @@
-﻿// File to store DV-specific database models
+﻿// File to store DeltaV-specific database models
 
 using System;
 using System.ComponentModel.DataAnnotations;

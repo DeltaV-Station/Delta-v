@@ -23,10 +23,8 @@ public sealed class TipSystem : SharedTipSystem
 {
     [Dependency] private readonly IComponentFactory _component = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playtime = default!;
 
     /// <summary>
@@ -81,7 +79,7 @@ public sealed class TipSystem : SharedTipSystem
                     continue;
 
                 // Re-check conditions at show time in case state changed
-                if (_prototype.TryIndex(scheduled.TipId, out var tipProto) &&
+                if (Prototype.TryIndex(scheduled.TipId, out var tipProto) &&
                     CheckConditions(scheduled.PlayerEntity, session, tipProto))
                 {
                     ShowTip(session, tipProto);
@@ -203,7 +201,7 @@ public sealed class TipSystem : SharedTipSystem
         var currentTime = _timing.CurTime;
         var tips = new List<ScheduledTip>();
 
-        foreach (var tipProto in _prototype.EnumeratePrototypes<TipPrototype>())
+        foreach (var tipProto in Prototype.EnumeratePrototypes<TipPrototype>())
         {
             // Skip tips the player has already dismissed with "Don't show again"
             if (HasSeenTip(session.UserId, tipProto.ID))
@@ -227,8 +225,8 @@ public sealed class TipSystem : SharedTipSystem
         // Sort by priority then show time
         tips.Sort((a, b) =>
         {
-            var protoA = _prototype.Index(a.TipId);
-            var protoB = _prototype.Index(b.TipId);
+            var protoA = Prototype.Index(a.TipId);
+            var protoB = Prototype.Index(b.TipId);
             var priorityCompare = protoA.Priority.CompareTo(protoB.Priority);
             return priorityCompare != 0 ? priorityCompare : a.ShowTime.CompareTo(b.ShowTime);
         });
@@ -284,7 +282,7 @@ public sealed class TipSystem : SharedTipSystem
 
     private bool EvaluateHasJob(EntityUid player, HasJobCondition condition)
     {
-        if (!_job.MindTryGetJobId(_mind.GetMind(player), out var jobId))
+        if (!_job.MindTryGetJobId(Mind.GetMind(player), out var jobId))
             return false;
 
         return jobId == condition.Job;
@@ -292,7 +290,7 @@ public sealed class TipSystem : SharedTipSystem
 
     private bool EvaluateHasRoleType(EntityUid player, HasRoleTypeCondition condition)
     {
-        if (!_mind.TryGetMind(player, out _, out var mind))
+        if (!Mind.TryGetMind(player, out _, out var mind))
             return false;
 
         foreach (var role in mind.MindRoleContainer.ContainedEntities)
@@ -312,7 +310,7 @@ public sealed class TipSystem : SharedTipSystem
         if (!_playtime.TryGetTrackerTime(session, condition.Tracker, out var time))
             return false;
 
-        return time.Value.TotalMinutes >= condition.Minutes;
+        return time.Value >= condition.Time;
     }
 
     private bool EvaluateMaxPlaytime(ICommonSession session, MaxPlaytimeCondition condition)
@@ -320,7 +318,7 @@ public sealed class TipSystem : SharedTipSystem
         if (!_playtime.TryGetTrackerTime(session, condition.Tracker, out var time))
             return true; // No time tracked = 0 minutes, which is less than any positive max
 
-        return time.Value.TotalMinutes < condition.Minutes;
+        return time.Value < condition.Time;
     }
 
     /// <summary>

@@ -17,11 +17,11 @@ public sealed partial class MaxPlaytimeCondition : TipCondition
     public ProtoId<PlayTimeTrackerPrototype> Tracker;
 
     /// <summary>
-    /// Maximum playtime allowed in minutes on this tracker.
+    /// Maximum playtime allowed on this tracker.
     /// Player must have less than this to pass.
     /// </summary>
     [DataField(required: true)]
-    public int Minutes;
+    public TimeSpan Time;
 
     protected override bool EvaluateImplementation(TipConditionContext ctx)
     {

@@ -16,10 +16,10 @@ public sealed partial class MinPlaytimeCondition : TipCondition
     public ProtoId<PlayTimeTrackerPrototype> Tracker;
 
     /// <summary>
-    /// Minimum playtime required in minutes on this tracker.
+    /// Minimum playtime required on this tracker.
     /// </summary>
     [DataField(required: true)]
-    public int Minutes;
+    public TimeSpan Time;
 
     protected override bool EvaluateImplementation(TipConditionContext ctx)
     {
