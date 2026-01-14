@@ -1,11 +1,11 @@
 - type: entity
-  id: HosBriefcase
+  id: HoSBriefcase
   name: head of security's sidearm briefcase
   description: "A brief case containing the head of security's prefered sidearm."
   parent: ToolboxThief
   components:
   - type: Sprite
-    sprite: _DV/Objects/Tools/HosBriefcase.rsi
+    sprite: _DV/Objects/Tools/HoSBriefcase.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
