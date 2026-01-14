@@ -150,12 +150,12 @@
 
 - type: entity
   parent: GunSafeBaseSecure
-  id: GunSafePLACEHOLDERSubMachineGun
-  name: PLACEHOLDER safe
+  id: GunSafePatosSubMachineGun
+  name: patos safe
   components:
   - type: StorageFill
     contents:
-    - id: WeaponSubMachineGunPLACEHOLDER
+    - id: WeaponSubMachineGunPatos
       amount: 2
     - id: MagazinePistolHighCapacity
       amount: 4

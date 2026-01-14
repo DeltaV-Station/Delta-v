@@ -50,13 +50,13 @@
   - type: Appearance
 
 - type: entity
-  name: PLACEHOLDER
+  name: Patos
   parent: BaseWeaponSubMachineGun
-  id: WeaponSubMachineGunPLACEHOLDER
-  description: PLACEHOLDER
+  id: WeaponSubMachineGunPatos
+  description: A compact and lightweight personal defense weapon, with an aggressive compensator. Uses .35 auto ammo.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/SMGs/placeholder.rsi
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -67,7 +67,7 @@
     shape:
     - 0,0,1,1
   - type: Clothing
-    sprite: _DV/Objects/Weapons/Guns/SMGs/placeholder.rsi
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
     slots:
     - Back
     - suitStorage
@@ -76,7 +76,7 @@
     maxAngle: 24
     fireRate: 7
     angleIncrease: 4.5
-    angleDecay: 20  
+    angleDecay: 24  
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
