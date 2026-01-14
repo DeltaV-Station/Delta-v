@@ -16,7 +16,7 @@ jobs:
       with:
         username: ${{ github.actor }}
         team: "maintainers"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # I don't know if this token has the permissions for this but it *should* in dV's case
+        GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
     - if: ${{ steps.checkUserMember.outputs.isTeamMember == 'true' }}
       uses: actions-ecosystem/action-add-labels@v1
       with:
