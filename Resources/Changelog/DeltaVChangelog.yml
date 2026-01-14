@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Radezolid
-  changes:
-  - message: Moved the energy shotgun to the warden's locker.
-    type: Tweak
-  id: 1556
-  time: '2025-08-01T08:12:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4089
 - author: kotobdev
   changes:
   - message: The Mantis' psibreaker pistol actually removes psionics now.
@@ -4457,4 +4450,14 @@
   id: 2055
   time: '2026-01-14T13:23:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5197
+- author: MilonPL
+  changes:
+  - message: Added a dynamic tip system that shows contextual tips to players based
+      on their job, playtime, and more.
+    type: Add
+  - message: Tips can be disabled or reset in the Options menu under DeltaV.
+    type: Add
+  id: 2056
+  time: '2026-01-14T20:23:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5199
 Order: 1
