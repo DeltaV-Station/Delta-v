@@ -24,23 +24,23 @@
     damageModifierSet: Electronic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 275
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 275
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
   - type: Repairable
     doAfterDelay: 4
   - type: ExplosionResistance
@@ -231,48 +231,48 @@
   id: ReinforcedSurveillanceCameraConstructed
   suffix: Constructed
   components:
-    - type: DeviceNetwork
-      deviceNetId: Wired
-      transmitFrequencyId: SurveillanceCamera
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-        - SurveillanceCameraEngineering
-        - SurveillanceCameraSecurity
-        - SurveillanceCameraService
-        - SurveillanceCameraSupply
-        - SurveillanceCameraScience
-        - SurveillanceCameraGeneral
-        - SurveillanceCameraMedical
-        - SurveillanceCameraCommand
-        - SurveillanceCameraAI
-    - type: Construction
-      graph: ReinforcedSurveillanceCameraGraph
-      node: camera
-    - type: Tag
-      tags:
-        - cameracon
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      - SurveillanceCameraSecurity
+      - SurveillanceCameraService
+      - SurveillanceCameraSupply
+      - SurveillanceCameraScience
+      - SurveillanceCameraGeneral
+      - SurveillanceCameraMedical
+      - SurveillanceCameraCommand
+      - SurveillanceCameraAI
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
+  - type: Tag
+    tags:
+      - cameracon
 
 - type: entity
   id: ReinforcedSurveillanceCameraAssembly
   name: reinforced camera
   description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
   components:
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Construction
-      graph: ReinforcedSurveillanceCameraGraph
-      node: assembly
-    - type: WallMount
-    - type: Transform
-      anchored: true
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: Metallic
-    - type: Sprite
-      drawdepth: WallMountedItems
-      sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
-      layers:
-        - state: reinforced_camera_off
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: assembly
+  - type: WallMount
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV\Structures\Wallmounts\Reinforced_camera.rsi
+    layers:
+      - state: reinforced_camera_off
   placement:
     mode: SnapgridCenter
     snap:
