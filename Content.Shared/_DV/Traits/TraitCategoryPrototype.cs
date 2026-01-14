@@ -28,7 +28,7 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// Display order priority. Lower values appear first.
     /// </summary>
     [DataField]
-    public int Priority;
+    public int Priority = 1;
 
     /// <summary>
     /// Maximum number of traits that can be selected from this category.
@@ -48,7 +48,7 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// Color hex for the category header accent.
     /// </summary>
     [DataField]
-    public string AccentColor = "#4a9eff";
+    public Color AccentColor = Color.FromHex("#4a9eff");
 
     /// <summary>
     /// Whether this category starts expanded or collapsed.

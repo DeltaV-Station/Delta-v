@@ -182,11 +182,6 @@ public sealed partial class TraitCategory : BoxContainer
     /// </summary>
     public bool TraitMeetsConditions(ProtoId<TraitPrototype> traitId)
     {
-        if (_traitEntries.TryGetValue(traitId, out var entry))
-        {
-            return entry.MeetsConditions;
-        }
-
-        return false;
+        return _traitEntries.TryGetValue(traitId, out var entry) && entry.MeetsConditions;
     }
 }

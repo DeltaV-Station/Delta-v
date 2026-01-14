@@ -235,8 +235,6 @@ public sealed partial class TraitsTab : BoxContainer
 
     private void OnProgressBarParentResized()
     {
-        // Unsubscribe to avoid repeated calls
-        // control.OnResized -= OnProgressBarParentResized;
         _awaitingLayoutUpdate = false;
         UpdateGlobalStats();
     }
