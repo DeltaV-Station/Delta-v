@@ -127,7 +127,7 @@
       - !type:AllWiresCut {}
       steps:
       - tool: Prying
-      doAfter: 3
+        doAfter: 3
 
     - to: medSecurityUnfinished
       conditions:
