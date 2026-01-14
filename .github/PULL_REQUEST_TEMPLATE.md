@@ -19,7 +19,7 @@ Small fixes/refactors are exempt. -->
 - [ ] I have added media to this PR or it does not require an in-game showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
-### Optional
+## Licensing
 <!-- This is for the benefit of other forks wishing to port features from DeltaV
 Our repository is AGPL, meaning projects using the MIT license would have to ask for permission from the PR author (ideally that's you, reading this) before being allowed to port it over
 This just saves them the trouble -->
