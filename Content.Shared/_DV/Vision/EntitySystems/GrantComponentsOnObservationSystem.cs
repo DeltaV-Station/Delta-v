@@ -15,7 +15,7 @@ namespace Content.Shared._DV.Vision.EntitySystems;
 /// <summary>
 /// This handles granting components to mobs when they observe an entity with the <see cref="GrantComponentsOnObservationComponent"/>.
 /// </summary>
-public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
+public sealed class GrantComponentsOnObservationSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
@@ -99,7 +99,7 @@ public abstract class SharedGrantComponentsOnObservationSystem : EntitySystem
         }
     }
 
-    protected virtual void GrantComponents(Entity<GrantComponentsOnObservationComponent> entity, Entity<MobStateComponent> target)
+    private void GrantComponents(Entity<GrantComponentsOnObservationComponent> entity, Entity<MobStateComponent> target)
     {
         if(entity.Comp.Grant is null || entity.Comp.Grant.Count == 0) return;
 
