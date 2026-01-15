@@ -4,6 +4,8 @@
   description: A handmade rifle bullet, uses phosphorus as a propellent instead of gunpowder. 
   parent: BaseCartridgeLightRifle
   components:
+  - type: CartridgeAmmo
+    proto: BulletLightRifleImprovised
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Guns/Ammunition/Casings/improvised_casing.rsi
     layers:
