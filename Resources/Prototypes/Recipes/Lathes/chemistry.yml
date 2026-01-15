@@ -93,12 +93,20 @@
 #     Steel: 250
 
 - type: latheRecipe
-  id: BaseChemistryEmptyVial
-  result: BaseChemistryEmptyVial
+  id: ChemistryEmptyVial
+  result: ChemistryEmptyVial
   completetime: 2
   materials:
     Glass: 100
     # Wood: 20 # DeltaV - Why wood? Because of the cork? That's dumb.
+
+- type: latheRecipe
+  id: ChemistryEmptyVialSmall
+  result: ChemistryEmptyVialSmall
+  completetime: 2
+  materials:
+    Glass: 50
+    Wood: 20
 
 - type: latheRecipe
   id: ClothingEyesGlassesChemical
