@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: kotobdev
   changes:
-  - message: The Mantis' psibreaker pistol actually removes psionics now.
-    type: Fix
-  id: 1557
-  time: '2025-08-01T08:13:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4119
-- author: kotobdev
-  changes:
   - message: Random objects may become animated at high glimmer levels.
     type: Add
   id: 1558
@@ -4460,4 +4453,11 @@
   id: 2056
   time: '2026-01-14T20:23:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5199
+- author: Velcroboy
+  changes:
+  - message: Fixed bomb and effigy targets being on grids off the station sometimes.
+    type: Fix
+  id: 2057
+  time: '2026-01-15T07:29:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5213
 Order: 1
