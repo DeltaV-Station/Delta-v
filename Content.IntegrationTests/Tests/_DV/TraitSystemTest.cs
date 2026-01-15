@@ -577,7 +577,7 @@ public sealed partial class TraitSystemTest
     #region Validation Tests
 
     [Test]
-    public async Task TraitSystem_RespectsConflicts()
+    public async Task RespectsConflicts()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
@@ -616,7 +616,7 @@ public sealed partial class TraitSystemTest
     }
 
     [Test]
-    public async Task TraitSystem_RespectsCategoryLimits()
+    public async Task RespectsCategoryLimits()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
@@ -650,7 +650,7 @@ public sealed partial class TraitSystemTest
     }
 
     [Test]
-    public async Task TraitSystem_RespectsCategoryPointLimits()
+    public async Task RespectsCategoryPointLimits()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
@@ -684,7 +684,7 @@ public sealed partial class TraitSystemTest
     }
 
     [Test]
-    public async Task TraitSystem_ChecksConditionsOnSpawn()
+    public async Task ChecksConditionsOnSpawn()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
@@ -717,7 +717,7 @@ public sealed partial class TraitSystemTest
     }
 
     [Test]
-    public async Task TraitSystem_RejectsTraitsWithUnmetConditions()
+    public async Task RejectsTraitsWithUnmetConditions()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
@@ -739,7 +739,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null });
+                new object[] { player, selectedTraits, null, null, null });
 
             Assert.That(validTraits?.Contains("TestTraitHasComp"),
                 Is.False,

@@ -69,7 +69,7 @@ public sealed class TraitSystem : EntitySystem
     private HashSet<ProtoId<TraitPrototype>> ValidateTraits(
         EntityUid player,
         IReadOnlySet<ProtoId<TraitPrototype>> selectedTraits,
-        ICommonSession session,
+        ICommonSession? session,
         string? jobId,
         string? speciesId)
     {
