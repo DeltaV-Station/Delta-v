@@ -4,7 +4,6 @@ using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared.Audio;
 using Content.Shared.Speech;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 namespace Content.Shared._Impstation.Supermatter.Systems;
 
 public abstract partial class SharedSupermatterSystem
@@ -15,12 +14,12 @@ public abstract partial class SharedSupermatterSystem
     [Dependency] protected readonly SharedPointLightSystem Light = default!;
 
     /// <summary>
-    /// This is used for ambient sounds.
+    /// This is used for setting ambient sounds and volume.
     /// </summary>
     protected EntityQuery<AmbientSoundComponent> AmbientQuery;
 
     /// <summary>
-    /// Controls the appearance of the supermatter.
+    /// This is used for setting appearance data, such as psychological soothing or supermatter state.
     /// </summary>
     protected EntityQuery<AppearanceComponent> AppearanceQuery;
 
@@ -30,38 +29,15 @@ public abstract partial class SharedSupermatterSystem
     protected EntityQuery<SpeechComponent> SpeechQuery;
 
     /// <summary>
-    /// Initializes the system's cosmetic-related properties.
+    /// Initializes the system's cosmetic-related fields and events.
     /// </summary>
-    protected virtual void InitializeCosmetic()
+    protected void InitializeCosmetic()
     {
         AmbientQuery = GetEntityQuery<AmbientSoundComponent>();
         AppearanceQuery = GetEntityQuery<AppearanceComponent>();
         SpeechQuery = GetEntityQuery<SpeechComponent>();
         
         SubscribeLocalEvent<SupermatterComponent, PsychologicalSoothingChanged>(OnPsychologicalSoothingChanged);
-    }
-
-    /// <summary>
-    /// Plays normal/delam sounds at a rate determined by power and damage
-    /// </summary>
-    protected void UpdateAccent(Entity<SupermatterComponent> ent)
-    {
-        if (ent.Comp.AccentLastTime >= Timing.CurTime || !Random.Prob(0.05f))
-            return;
-
-        var aggression = Math.Min((ent.Comp.Damage / 800) * (ent.Comp.Power / 2500), 1) * 100;
-        var nextSound = Math.Max(Math.Round((100 - aggression) * 5), ent.Comp.AccentMinCooldown);
-        var sound = ent.Comp.CalmAccent;
-
-        if (ent.Comp.AccentLastTime + TimeSpan.FromSeconds(nextSound) > Timing.CurTime)
-            return;
-
-        if (ent.Comp.Status >= SupermatterStatusType.Danger)
-            sound = ent.Comp.DelamAccent;
-
-        ent.Comp.AccentLastTime = Timing.CurTime;
-        DirtyField(ent, ent.Comp, nameof(SupermatterComponent.AccentLastTime));
-        Audio.PlayPvs(sound, Transform(ent).Coordinates);
     }
 
     protected void UpdateAmbient(Entity<SupermatterComponent> ent)
@@ -109,13 +85,9 @@ public abstract partial class SharedSupermatterSystem
             return;
 
         if (PsyReceiversQuery.TryComp(ent, out var psyReceiver))
-        {
             Appearance.SetData(ent, SupermatterVisuals.Psy, psyReceiver.SoothedCurrent, ent.Comp2);
-        }
-        else if (Appearance.TryGetData(ent, SupermatterVisuals.Psy, out _))
-        {
+        else if (Appearance.TryGetData(ent, SupermatterVisuals.Psy, out _, ent.Comp2))
             Appearance.RemoveData(ent, SupermatterVisuals.Psy, ent.Comp2);
-        }
     }
 
     /// <summary>

@@ -22,14 +22,8 @@ public sealed class PsychologicalSoothingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         _mobStateQuery = GetEntityQuery<MobStateComponent>();
-
-        SubscribeLocalEvent<PsychologicalSoothingReceiverComponent, ComponentInit>(OnComponentInit);
-    }
-
-    private void OnComponentInit(Entity<PsychologicalSoothingReceiverComponent> ent, ref ComponentInit args)
-    {
-        ent.Comp.SootheNext = _timing.CurTime + ent.Comp.SootheInterval;
     }
 
     public override void Update(float frameTime)
@@ -38,20 +32,19 @@ public sealed class PsychologicalSoothingSystem : EntitySystem
 
         while (receiverQuery.MoveNext(out var entReceiver, out var receiver))
         {
+            if (Paused(entReceiver))
+                continue;
+            
             var providerQuery = _entityLookup.GetEntitiesInRange<PsychologicalSoothingProviderComponent>(Transform(entReceiver).Coordinates, receiver.Range);
-
+            
             if (_mobStateQuery.TryComp(entReceiver, out var mobStateSelf) && mobStateSelf.CurrentState == MobState.Dead)
-            {
                 continue;
-            }
 
-            if (!receiver.SootheNext.HasValue || _timing.CurTime < receiver.SootheNext)
-            {
+            if (receiver.NextPulse is { } next && _timing.CurTime < next)
                 continue;
-            }
 
-            receiver.SootheNext = _timing.CurTime + receiver.SootheInterval;
-            DirtyField(entReceiver, receiver, nameof(PsychologicalSoothingReceiverComponent.SootheNext));
+            receiver.NextPulse = _timing.CurTime + receiver.Interval;
+            DirtyField(entReceiver, receiver, nameof(PsychologicalSoothingReceiverComponent.NextPulse));
 
             var psyDiff = 0f;
             var isBeingSoothed = false;
@@ -59,9 +52,7 @@ public sealed class PsychologicalSoothingSystem : EntitySystem
             foreach (var entProvider in  providerQuery)
             {
                 if (_mobStateQuery.TryComp(entProvider, out var mobStateOther) && mobStateOther.CurrentState == MobState.Dead)
-                {
                     continue;
-                }
 
                 var provider = entProvider.Comp;
 
@@ -75,7 +66,8 @@ public sealed class PsychologicalSoothingSystem : EntitySystem
 
             var updatedSoothed = Math.Clamp( receiver.SoothedCurrent + (isBeingSoothed ? psyDiff : -receiver.RateDecay), receiver.SoothedMinimum, receiver.SoothedMaximum );
 
-            if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f)) // If the soothing isn't changing, then just skip.
+            // If the soothing isn't changing, then we're done.
+            if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f))
                 continue;
 
             var ev = new PsychologicalSoothingChanged(updatedSoothed, receiver.SoothedCurrent); // Create the ev before updating the current value so the ev can have current and previous.

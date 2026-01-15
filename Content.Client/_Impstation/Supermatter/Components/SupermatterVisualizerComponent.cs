@@ -8,5 +8,5 @@ namespace Content.Client._Impstation.Supermatter.Components;
 public sealed partial class SupermatterVisualsComponent : Component
 {
     [DataField("crystal", required: true)]
-    public Dictionary<SupermatterCrystalState, PrototypeLayerData> CrystalVisuals = default!;
+    public Dictionary<SupermatterCrystalState, PrototypeLayerData> CrystalVisuals = new();
 }

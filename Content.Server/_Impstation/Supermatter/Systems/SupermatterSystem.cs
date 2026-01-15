@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -21,6 +22,7 @@ using Content.Shared.Physics;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -40,7 +42,6 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
 
     /// <summary>
@@ -86,8 +87,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             return;
         }
 
-        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination.ID} at {Transform(uid).Coordinates:coordinates}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination.ID} at {Transform(uid).Coordinates:coordinates}");
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination} at {Transform(uid).Coordinates:coordinates}");
+        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination} at {Transform(uid).Coordinates:coordinates}");
 
         var xform = Transform(uid);
         var mapId = xform.MapID;
@@ -148,25 +149,31 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     /// <summary>
     /// Decide on how to delaminate.
     /// </summary>
-    private SupermatterDelaminationPrototype? ChooseDelamType(EntityUid uid, SupermatterComponent sm)
+    private bool TryChooseDelaminationPrototype(EntityUid uid, SupermatterComponent sm, [NotNullWhen(true)] out ProtoId<SupermatterDelaminationPrototype>? protoId, [NotNullWhen(true)] out SupermatterDelaminationPrototype? proto)
     {
-        _proto.Resolve(sm.DefaultDelamination, out var defaultDelam);
-        
-        if (sm.EnabledDelaminations.Count == 0)
+        foreach (var id in sm.EnabledDelaminations)
         {
-            return defaultDelam;
-        }
-
-        foreach (var protoId in sm.EnabledDelaminations)
-        {
-            if (!_proto.Resolve(protoId, out var delam))
+            if (!PrototypeManager.Resolve(id, out var delam))
                 continue;
             
             if (CheckDelaminationRequirements((uid, sm), delam.Requirements))
-                return delam;
+            {
+                protoId = id;
+                proto = delam;
+                return true;
+            }
         }
 
-        return defaultDelam;
+        if (PrototypeManager.Resolve(sm.DefaultDelamination, out var defaultDelam))
+        {
+            protoId = sm.DefaultDelamination;
+            proto = defaultDelam;
+            return true;
+        }
+
+        protoId = null;
+        proto = null;
+        return false;
     }
 
     /// <summary>
@@ -415,22 +422,37 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination cancelled");
 
         sm.IsDelaminationAnnounced = false;
-        sm.PreferredDelamination = null;
-        DirtyField(uid, sm, nameof(SupermatterComponent.PreferredDelamination));
-        
+
+        if (!sm.PreferredDelaminationIsForced)
+        {
+            // An admin or curator has not ticked the "Force Preferred Delamination" checkbox in VV.
+            // So we should reset the preferred delamination so a new one can be chosen the next time
+            // engineers neglect the crystal.
+            
+            sm.PreferredDelamination = null;
+            sm.PreferredDelaminationProtoId = null;
+            DirtyField(uid, sm, nameof(SupermatterComponent.PreferredDelaminationProtoId));
+        }
+
         var integrity = GetIntegrity((uid, sm)).ToString("0.00");
         SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-delam-cancel", ("integrity", integrity)), true);
     }
 
     private void OnSupermatterDelaminationStarted(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationStartedEvent args)
     {
-        var sb = new StringBuilder();
-        sm.PreferredDelamination ??= ChooseDelamType(uid, sm);
-        DirtyField(uid, sm, nameof(SupermatterComponent.PreferredDelamination));
-        
-        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination?.ID ?? "None"}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination?.ID ?? "None"}");
 
+        if (sm.PreferredDelamination == null && TryChooseDelaminationPrototype(uid, sm, out var delamId, out var delam))
+        {
+            // Set the preferred delamination.
+            sm.PreferredDelamination = delam;
+            sm.PreferredDelaminationProtoId = delamId;
+            DirtyField(uid, sm, nameof(SupermatterComponent.PreferredDelaminationProtoId));
+        }
+        
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination}");
+        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelamination}");
+
+        var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString(sm.PreferredDelamination?.Message ?? "supermatter-delam-generic"));
         sb.Append(Loc.GetString("supermatter-time-before-delam", ("time", sm.DelaminationDelay)));
 
@@ -484,5 +506,51 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         ent.Comp.Status = currentStatus;
         var ev = new SupermatterStatusChangedEvent();
         RaiseLocalEvent(ent, ref ev);
+    }
+
+    /// <summary>
+    /// Plays normal/delam sounds at a rate determined by power and damage
+    /// </summary>
+    private void UpdateAccent(Entity<SupermatterComponent> ent)
+    {
+        if (ent.Comp.AccentLastTime >= Timing.CurTime || !Random.Prob(0.05f))
+            return;
+
+        var aggression = Math.Min((ent.Comp.Damage / 800) * (ent.Comp.Power / 2500), 1) * 100;
+        var nextSound = Math.Max(Math.Round((100 - aggression) * 5), ent.Comp.AccentMinCooldown.TotalSeconds);
+        
+        var sound = ent.Comp.CalmAccent;
+
+        if (ent.Comp.AccentLastTime + TimeSpan.FromSeconds(nextSound) > Timing.CurTime)
+            return;
+
+        if (ent.Comp.Status >= SupermatterStatusType.Danger)
+            sound = ent.Comp.DelamAccent;
+
+        ent.Comp.AccentLastTime = Timing.CurTime;
+        Audio.PlayPvs(sound, Transform(ent).Coordinates);
+    }
+
+    /// <summary>
+    /// Trigger the linked port for the current status.
+    /// </summary>
+    /// <param name="ent"></param>
+    private void UpdateLinkedPorts(Entity<SupermatterComponent> ent)
+    {
+        if (!LinkQuery.HasComp(ent))
+            return;
+        
+        var port = ent.Comp.Status switch
+        {
+            SupermatterStatusType.Normal => ent.Comp.PortNormal,
+            SupermatterStatusType.Caution => ent.Comp.PortCaution,
+            SupermatterStatusType.Warning => ent.Comp.PortWarning,
+            SupermatterStatusType.Danger => ent.Comp.PortDanger,
+            SupermatterStatusType.Emergency => ent.Comp.PortEmergency,
+            SupermatterStatusType.Delaminating => ent.Comp.PortDelaminating,
+            _ => ent.Comp.PortInactive
+        };
+
+        Link.InvokePort(ent, port);
     }
 }

@@ -21,18 +21,29 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         
         SubscribeLocalEvent<SupermatterComponent, AfterAutoHandleStateEvent>(OnConfigurationState);
     }
-    
+
     private void OnConfigurationState(Entity<SupermatterComponent> ent, ref AfterAutoHandleStateEvent args)
     {
+        switch (args.State)
+        {
+            case SupermatterComponent.SupermatterComponent_AutoState autoState:
+                PrototypeManager.Resolve(autoState.PreferredDelaminationProtoId, out ent.Comp.PreferredDelamination);
+                break;
+            
+            case SupermatterComponent.PreferredDelaminationProtoId_FieldComponentState preferredDelaminationId:
+                PrototypeManager.Resolve(preferredDelaminationId.PreferredDelaminationProtoId, out ent.Comp.PreferredDelamination);
+                break;
+        }
+
         if(AppearanceQuery.TryComp(ent, out var appearance))
         {
             UpdateAppearanceFromState((ent, ent.Comp, appearance));
             UpdateAppearanceFromPsychologicalSoothing((ent, ent.Comp, appearance));
         }
-        
-        UpdateLinkedPorts(ent);
+
         UpdateSpeech(ent);
         UpdateAmbient(ent);
+        
         if (_lightQuery.TryComp(ent, out var light))
             UpdateLight(ent, light);
     }
@@ -51,7 +62,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     
     protected override void OnSupermatterDelamination(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationEvent args)
     {
-        // We can partially predict delamination because it's based on a timer, and an event fired in the shared system.
+        // We can partially predict delamination because it's based on a timer, and the event is fired from the shared system.
         Log.Info("Predicting delamination!");
         
         if (sm.PreferredDelamination is null)
@@ -78,7 +89,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             
             Effects.ApplyEffects(mob, sm.PreferredDelamination.MobEffects);
         }
-
         
         Effects.ApplyEffects(uid, sm.PreferredDelamination.SupermatterEffects);
         

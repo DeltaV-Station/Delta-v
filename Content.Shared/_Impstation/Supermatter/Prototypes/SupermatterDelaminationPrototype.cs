@@ -49,6 +49,9 @@ public sealed class SupermatterDelaminationPrototype : IPrototype, IInheritingPr
     [DataField][AlwaysPushInheritance]
     public EntityEffect[] MobEffects = [];
 
+    /// <summary>
+    /// The message that the supermatter will say when this delamination is announced.
+    /// </summary>
     [DataField]
     public string? Message;
 }

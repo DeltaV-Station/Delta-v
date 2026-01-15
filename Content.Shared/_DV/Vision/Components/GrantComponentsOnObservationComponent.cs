@@ -18,7 +18,7 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
     public HashSet<EntityUid> AffectedEntities = new();
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))][AutoPausedField][AutoNetworkedField]
-    public TimeSpan? NextGrantAttempt;
+    public TimeSpan? NextPulse;
 
     /// <summary>
     /// The interval at which observers will be checked.

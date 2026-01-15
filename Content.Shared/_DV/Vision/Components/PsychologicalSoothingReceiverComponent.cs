@@ -33,13 +33,13 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     public float SoothedMinimum;
 
     /// <summary>
-    /// The amount of soothing subtracted from the receiver every <see cref="SootheInterval"/>.
+    /// The amount of soothing subtracted from the receiver every <see cref="Interval"/>.
     /// </summary>
     [DataField]
     public float RateDecay = 0.01f;
 
     /// <summary>
-    /// The amount of soothing added to the receiver every <see cref="SootheInterval"/> while in unobstructed range of a provider.
+    /// The amount of soothing added to the receiver every <see cref="Interval"/> while in unobstructed range of a provider.
     /// </summary>
     [DataField]
     public float RateGrowth = 0.01f;
@@ -48,13 +48,13 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     /// The next game time at which the receiver will process soothing.
     /// </summary>
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))][AutoPausedField][AutoNetworkedField]
-    public TimeSpan? SootheNext;
+    public TimeSpan? NextPulse;
 
     /// <summary>
     /// The interval at which the receiver will process soothing.
     /// </summary>
     [DataField]
-    public TimeSpan SootheInterval = TimeSpan.FromSeconds(1);
+    public TimeSpan Interval = TimeSpan.FromSeconds(1);
 }
 
 [ByRefEvent]

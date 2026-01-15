@@ -19,16 +19,16 @@ public sealed partial class SupermatterLightningComponent : Component
     public float ZapHitCoordinatesChance = 0.75f;
 
     /// <summary>
-    /// The interval at which the supermatter will shoot lightning.
+    /// The minimum interval at which the supermatter will shoot lightning.
     /// </summary>
     [DataField]
-    public TimeSpan ZapInterval = TimeSpan.FromSeconds(5);
+    public TimeSpan ZapIntervalMin = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    /// The variance in the interval at which the supermatter will shoot lightning.
+    /// The maximum interval at which the supermatter will shoot lightning.
     /// </summary>
     [DataField]
-    public float ZapIntervalVariance = 2f;
+    public TimeSpan ZapIntervalMax = TimeSpan.FromSeconds(7);
 
     /// <summary>
     /// The next time the supermatter will shoot lightning.

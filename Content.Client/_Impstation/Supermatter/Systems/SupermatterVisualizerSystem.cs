@@ -8,7 +8,7 @@ public sealed class SupermatterVisualizerSystem : VisualizerSystem<SupermatterVi
 {
     protected override void OnAppearanceChange(EntityUid uid, SupermatterVisualsComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null)
+        if (args.Sprite is null)
             return;
         
         Entity<SpriteComponent?> ent = (uid, args.Sprite);

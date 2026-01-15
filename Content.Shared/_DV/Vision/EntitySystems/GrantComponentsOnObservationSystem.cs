@@ -64,6 +64,13 @@ public sealed class GrantComponentsOnObservationSystem : EntitySystem
         _permanentBlindnessQuery = GetEntityQuery<PermanentBlindnessComponent>();
         _grantComponentsQuery = GetEntityQuery<GrantComponentsOnObservationComponent>();
         _mobStateQuery = GetEntityQuery<MobStateComponent>();
+
+        SubscribeLocalEvent<GrantComponentsOnObservationComponent, ComponentInit>(OnComponentInit);
+    }
+
+    private void OnComponentInit(Entity<GrantComponentsOnObservationComponent> ent, ref ComponentInit args)
+    {
+        ent.Comp.NextPulse = _gameTiming.CurTime + ent.Comp.Interval;
     }
 
     /// <inheritdoc/>
@@ -75,13 +82,16 @@ public sealed class GrantComponentsOnObservationSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Grant is null || comp.Grant.Count == 0)
+            if (Paused(uid))
+                continue;
+            
+            if (comp.Grant is not { Count: > 0 })
                 continue;
 
-            if (comp.NextGrantAttempt.HasValue && comp.NextGrantAttempt.Value > _gameTiming.CurTime)
+            if (comp.NextPulse is not { } next || _gameTiming.CurTime < next)
                 continue;
 
-            comp.NextGrantAttempt = _gameTiming.CurTime + comp.Interval;
+            comp.NextPulse = _gameTiming.CurTime + comp.Interval;
 
             if (!comp.AffectInContainers && _insideStorageQuery.HasComp(uid))
                 continue;

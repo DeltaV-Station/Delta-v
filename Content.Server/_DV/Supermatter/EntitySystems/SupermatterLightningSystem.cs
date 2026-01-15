@@ -24,25 +24,24 @@ public sealed class SupermatterLightningSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var lightningComp, out var supermatter))
         {
+            if (Paused(uid))
+                continue;
+            
             if(!lightningComp.Enabled)
+                continue;
+            
+            if (lightningComp.NextZapTime is { } next && _timing.CurTime < next)
                 continue;
 
             var isDamageValid = lightningComp.EnableDamageThreshold && lightningComp.DamageThresholds.Any(kvp => kvp.Key <= supermatter.Damage);
             var isPowerValid = lightningComp.EnablePowerThresholds && lightningComp.PowerThresholds.Any(kvp => kvp.Key <= supermatter.Power);
 
             if (!isDamageValid && !isPowerValid)
-            {
-                if(lightningComp.NextZapTime.HasValue) lightningComp.NextZapTime = null;
-
                 continue;
-            }
 
-            if (!lightningComp.NextZapTime.HasValue || _timing.CurTime > lightningComp.NextZapTime.Value)
-            {
-                ShootLightning(uid, lightningComp, supermatter);
+            ShootLightning(uid, lightningComp, supermatter);
 
-                lightningComp.NextZapTime = _timing.CurTime + lightningComp.ZapInterval + TimeSpan.FromSeconds(_random.NextFloat(-lightningComp.ZapIntervalVariance, lightningComp.ZapIntervalVariance));
-            }
+            lightningComp.NextZapTime = _timing.CurTime + _random.Next(lightningComp.ZapIntervalMin, lightningComp.ZapIntervalMax);
         }
     }
 
@@ -58,7 +57,8 @@ public sealed class SupermatterLightningSystem : EntitySystem
 
         foreach (var (threshold, data) in comp.DamageThresholds)
         {
-            if (threshold > sm.Damage) break;
+            if (threshold > sm.Damage)
+                break;
 
             if(data.Chance.HasValue && !_random.Prob(data.Chance.Value))
                 continue;
@@ -68,7 +68,8 @@ public sealed class SupermatterLightningSystem : EntitySystem
 
         foreach (var (threshold, data) in comp.PowerThresholds)
         {
-            if (threshold > sm.Power) break;
+            if (threshold > sm.Power)
+                break;
 
             if(data.LightningPrototype.HasValue)
                 lightningPrototype = data.LightningPrototype.Value;

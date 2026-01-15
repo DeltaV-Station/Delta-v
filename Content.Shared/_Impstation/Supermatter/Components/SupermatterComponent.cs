@@ -251,20 +251,20 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public TimeSpan DelaminationDelay = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
     /// </summary>
-    [DataField][AutoNetworkedField]
+    [DataField]
     public TimeSpan AccentLastTime;
 
     /// <summary>
     /// Minimum time in seconds between supermatter accent sounds
     /// </summary>
     [DataField]
-    public float AccentMinCooldown = 2f;
+    public TimeSpan AccentMinCooldown = TimeSpan.FromSeconds(2);
 
     #endregion
 
@@ -341,10 +341,28 @@ public sealed partial class SupermatterComponent : Component
     public bool IsDelaminating;
 
     /// <summary>
+    /// This field only exists to facilitate networking the delamination prototype to clients.
+    /// </summary>
+    [DataField][AutoNetworkedField][ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<SupermatterDelaminationPrototype>? PreferredDelaminationProtoId;
+    
+    /// <summary>
     /// The selected delamination type to occur.
     /// </summary>
+    /// <remarks>
+    /// Changing this after the SM has started delaminating will cause mispredictions in clients, as the chosen prototype ID is only sent to clients when the delamination process starts.
+    /// </remarks>
     [DataField]
     public SupermatterDelaminationPrototype? PreferredDelamination;
+
+    /// <summary>
+    /// If this is true, the SM will not change the preferred delamination type once it is set. This exists only to be used for admemes.
+    /// </summary>
+    /// <remarks>
+    /// The naming of this property is intentional to keep it adjacent to <see cref="PreferredDelamination"/> in VV.
+    /// </remarks>
+    [DataField]
+    public bool PreferredDelaminationIsForced;
 
     #endregion
 
@@ -361,7 +379,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public bool SuppressAnnouncements;
-
 
     /// <summary>
     /// The radio channel for supermatter alerts

@@ -11,6 +11,7 @@ using Content.Shared.Psionics.Glimmer;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 namespace Content.Shared._Impstation.Supermatter.Systems;
@@ -29,6 +30,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     [Dependency] protected readonly SharedMapSystem Map = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
 
     /// <summary>
     /// This is used to let ghosts see the integrity of the supermatter and to make sure we don't consume any items held by ghosts.
@@ -46,7 +48,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     protected EntityQuery<PsychologicalSoothingReceiverComponent> PsyReceiversQuery;
 
     /// <summary>
-    /// This is used for the system's API.
+    /// This is used for this system's API.
     /// </summary>
     protected EntityQuery<SupermatterComponent> SupermatterQuery;
 
@@ -55,10 +57,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     [PublicAPI]
     public SupermatterStatusType CalculateSupermatterStatus(Entity<SupermatterComponent?> ent)
     {
-        if (!SupermatterQuery.Resolve( ent, ref ent.Comp))
-            return SupermatterStatusType.Error;
-        
-        if (ent.Comp.GasStorage is null)
+        if (!SupermatterQuery.Resolve( ent, ref ent.Comp) || ent.Comp.GasStorage is null)
             return SupermatterStatusType.Error;
 
         if (ent.Comp.IsDelaminating || ent.Comp.Damage >= ent.Comp.DamageDelaminationThreshold)
@@ -87,7 +86,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     {
         if (!SupermatterQuery.Resolve(ent, ref ent.Comp))
             return 0f;
-        
+
         return ent.Comp.GasEfficiency / (ent.Comp.Power > 0 ? 1 : Config.GetCVar(ImpCCVars.SupermatterGasEfficiencyGraceModifier));
     }
 
@@ -134,7 +133,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         {
             if(Paused(uid)) continue;
             
-            if (sm.DelaminationTime.HasValue && sm.DelaminationTime <= Timing.CurTime)
+            if (sm.DelaminationTime is { } delaminationTime && delaminationTime <= Timing.CurTime)
             {
                 var ev = new SupermatterDelaminationEvent();
                 RaiseLocalEvent(uid, ref ev, true);
@@ -193,18 +192,19 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
             return TimeSpan.Zero;
 
-        if (entity.Comp.IsDelaminating && entity.Comp.DelaminationTime.HasValue)
+        if (entity.Comp.DelaminationTime is not { } delamTime)
+            return entity.Comp.AnnounceInterval;
+        
+        var secondsRemaining = delamTime.TotalSeconds - Timing.CurTime.TotalSeconds;
+            
+        return secondsRemaining switch
         {
-            return (entity.Comp.DelaminationTime.Value.TotalSeconds - Timing.CurTime.TotalSeconds) switch
-            {
-                > 30 => TimeSpan.FromSeconds(10),
-                > 5 => TimeSpan.FromSeconds(5),
-                <= 5 => TimeSpan.FromSeconds(1),
-                _ => TimeSpan.FromSeconds(10)
-            };
-        }
+            > 30 => TimeSpan.FromSeconds(10),
+            > 5 => TimeSpan.FromSeconds(5),
+            <= 5 => TimeSpan.FromSeconds(1),
+            _ => entity.Comp.AnnounceInterval
+        };
 
-        return entity.Comp.AnnounceInterval.TotalSeconds >= 1.0 ? entity.Comp.AnnounceInterval : TimeSpan.FromSeconds(1);
     }
 
     protected void SetNextAnnouncementTime(Entity<SupermatterComponent?> entity, TimeSpan delay)
@@ -225,38 +225,18 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         DirtyField(entity, entity.Comp, nameof(SupermatterComponent.AnnounceNext));
     }
 
-    protected void UpdateLinkedPorts(Entity<SupermatterComponent> ent)
-    {
-        if (!LinkQuery.HasComp(ent))
-            return;
-        
-        var port = ent.Comp.Status switch
-        {
-            SupermatterStatusType.Normal => ent.Comp.PortNormal,
-            SupermatterStatusType.Caution => ent.Comp.PortCaution,
-            SupermatterStatusType.Warning => ent.Comp.PortWarning,
-            SupermatterStatusType.Danger => ent.Comp.PortDanger,
-            SupermatterStatusType.Emergency => ent.Comp.PortEmergency,
-            SupermatterStatusType.Delaminating => ent.Comp.PortDelaminating,
-            _ => ent.Comp.PortInactive
-        };
-
-        Link.InvokePort(ent, port);
-    }
-
     private void OnExamine(EntityUid uid, SupermatterComponent sm, ref ExaminedEvent args)
     {
-        // For ghosts: alive players can use the console
+        // This is for ghosts only, because alive players should just use the console.
         if (GhostQuery.HasComp(args.Examiner) && args.IsInDetailsRange)
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity((uid, sm)).ToString("0.00"))));
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
-        // Set the sound
         Ambient.SetAmbience(uid, true);
 
-        // Send the inactive port for any linked devices
+        // Invoke the inactive port on map init for any pre-mapped setups.
         if (LinkQuery.HasComp(uid))
             Link.InvokePort(uid, sm.PortInactive);
     }
@@ -264,14 +244,12 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     /// <summary>
     /// Prevents the observing mob from being granted components by a <see cref="GrantComponentsOnObservationComponent"/> if the source is a supermatter.
     /// </summary>
-    /// <param name="ent"></param>
-    /// <param name="args"></param>
     private void OnObserverGrantedComponents(Entity<SupermatterHallucinationImmuneComponent> ent, ref ObserverGrantedComponents args)
     {
+        // We are already canceled, or the source is not a supermatter. Either case we don't need to intervene.
         if (args.Cancelled || !SupermatterQuery.HasComp(args.Source))
-            // We are already canceled, or the source is not a supermatter.
             return;
-        
+
         args.Cancel();
     }
 }

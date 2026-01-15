@@ -4,7 +4,6 @@ using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Light.Components;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 namespace Content.Server._DV.StationEvents.Events;
 
 /// <summary>
