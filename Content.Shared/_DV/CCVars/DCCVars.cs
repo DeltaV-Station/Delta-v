@@ -125,27 +125,6 @@ public sealed partial class DCCVars
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
 
     /*
-     * Footprints
-     */
-
-    /// <summary>
-    /// Maximum number of footprints allowed per tile.
-    /// Won't allow for new footprints to spawn on the tile once reached.
-    /// Set to 0 to disable per-tile limiting.
-    /// </summary>
-    public static readonly CVarDef<int> MaxFootPrintsPerTile =
-        CVarDef.Create("footprints.max_per_tile", 2, CVar.REPLICATED);
-
-    /// <summary>
-    /// Maximum total number of footprints allowed on a single grid.
-    /// When this limit is reached, the oldest footprint on the grid will be deleted.
-    /// Set to 0 to disable global limiting.
-    /// </summary>
-    public static readonly CVarDef<int> MaxFootPrintsPerGrid =
-        CVarDef.Create("footprints.max_per_grid", 1000, CVar.REPLICATED);
-
-
-    /*
      * Feedback webhook
      */
 
