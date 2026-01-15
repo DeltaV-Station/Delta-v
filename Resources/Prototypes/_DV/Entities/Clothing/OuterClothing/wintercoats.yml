@@ -140,3 +140,26 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
+
+- type: entity
+  parent: ClothingOuterArmoredWinterCoat
+  id: ClothingOuterWinterCapArmored
+  name: captain's armored winter coat
+  description: A sturdy, utilitarian winter coat with a built in carapace designed to protect a captain from any station-bound threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cap_armored_winter_coat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cap_armored_winter_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.4
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance # DeltaV
+    damageCoefficient: 0.5
