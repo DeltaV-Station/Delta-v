@@ -134,7 +134,7 @@ public sealed partial class SupermatterSystem
         var tempFactor = powerRatio > 0.8 ? 50f : 30f;
 
         // If there is more frezon and N2 than anything else, we receive no power increase from heat
-        ent.Comp.Power += ent.Comp.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio; // port todo We can probably predict this
+        ent.Comp.Power += ent.Comp.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio;
         
         ProcessRadiation(ent, gasComposition);
 
@@ -148,7 +148,7 @@ public sealed partial class SupermatterSystem
 
         // After this point power is lowered
         // This wraps around to the begining of the function
-        ent.Comp.PowerLoss = Math.Min(powerReduction * ent.Comp.PowerlossInhibitor, ent.Comp.Power * 0.83f * ent.Comp.PowerlossInhibitor); // port todo we can absolutely predict this.
+        ent.Comp.PowerLoss = Math.Min(powerReduction * ent.Comp.PowerlossInhibitor, ent.Comp.Power * 0.83f * ent.Comp.PowerlossInhibitor);
         ent.Comp.Power = Math.Max(ent.Comp.Power - ent.Comp.PowerLoss, 0f);
         DirtyFields(ent.Owner, ent.Comp, MetaData(ent.Owner), nameof(SupermatterComponent.Power), nameof(SupermatterComponent.PowerLoss));
 
