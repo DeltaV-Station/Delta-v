@@ -31,7 +31,7 @@ public sealed partial class TraitCategory : BoxContainer
         _isExpanded = category.DefaultExpanded;
 
         CategoryNameLabel.Text = Loc.GetString(category.Name);
-        SetAccentColor(Color.FromHex(category.AccentColor));
+        SetAccentColor(category.AccentColor);
 
         HeaderButton.OnPressed += _ => ToggleExpanded();
 
