@@ -172,26 +172,22 @@
 - type: damageModifierSet
   id: RetractedAITurret
   coefficients:
-    Blunt: 0.7
-    Slash: 0.7
-    Piercing: 0.7
-    Heat: 1.0 # does not work
-    Shock: 1.2
-    Structural: 0.7
+    Blunt: 0.3
+    Slash: 0.3
+    Piercing: 0.3
+    Heat: 0 
+    Shock: 0
+    Structural: 0.3
   flatReductions:
-    Blunt: 10
-    Slash: 10
+    Blunt: 5
+    Slash: 5
     Piercing: 5
-    Heat: 100
 
 - type: damageModifierSet
   id: DeployedAITurret
   coefficients:
-    Blunt: 0.7
-    Slash: 0.6
-    Piercing: 0.7
-    Heat: 1.0 # does not work
-    Shock: 1.2
-    Structural: 0.3
-  flatReductions:
-    Heat: 100
+    Blunt: 0.3
+    Slash: 0.3
+    Piercing: 0.3
+    Heat: 0
+    Shock: 0
