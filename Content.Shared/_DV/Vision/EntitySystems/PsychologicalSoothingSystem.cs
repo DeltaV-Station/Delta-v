@@ -72,7 +72,7 @@ public sealed class PsychologicalSoothingSystem : EntitySystem
                 psyDiff +=  provider.Strength * receiver.RateGrowth;
                 isBeingSoothed = true;
             }
-            
+
             var updatedSoothed = Math.Clamp( receiver.SoothedCurrent + (isBeingSoothed ? psyDiff : -receiver.RateDecay), receiver.SoothedMinimum, receiver.SoothedMaximum );
 
             if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f)) // If the soothing isn't changing, then just skip.
