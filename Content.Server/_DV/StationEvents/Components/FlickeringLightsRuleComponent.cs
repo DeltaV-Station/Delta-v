@@ -5,7 +5,7 @@ namespace Content.Server._DV.StationEvents.Components;
 /// <summary>
 /// This is used to configure the flickering lights game rule.
 /// </summary>
-[RegisterComponent][AutoGenerateComponentPause]
+[RegisterComponent]
 public sealed partial class FlickeringLightsRuleComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadOnly)]

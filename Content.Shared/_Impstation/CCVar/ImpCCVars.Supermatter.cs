@@ -1,5 +1,4 @@
-﻿using Content.Shared._Impstation.Supermatter.Components;
-using Content.Shared.Atmos;
+﻿using Content.Shared.Atmos;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._Impstation.CCVar;
@@ -105,18 +104,6 @@ public sealed partial class ImpCCVars
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleBoostThreshold =
         CVarDef.Create("supermatter.powerloss_inhibition_mole_boost_threshold", 150f, CVar.SERVER);
-
-    /// <summary>
-    ///     Base amount of radiation that the supermatter emits.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterRadsBase =
-        CVarDef.Create("supermatter.rads_base", 4f, CVar.SERVER);
-
-    /// <summary>
-    ///     Directly multiplies the amount of rads put out by the supermatter. Be VERY conservative with this.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterRadsModifier =
-        CVarDef.Create("supermatter.rads_modifier", 1f, CVar.SERVER);
 
     /// <summary>
     ///     Multiplier on the overall power produced during supermatter atmospheric reactions.

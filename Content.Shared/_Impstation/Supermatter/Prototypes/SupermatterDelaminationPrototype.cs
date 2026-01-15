@@ -10,7 +10,7 @@ namespace Content.Shared._Impstation.Supermatter.Prototypes;
 /// This is a prototype for Supermatter Delaminations
 /// </summary>
 [Prototype]
-public sealed partial class SupermatterDelaminationPrototype : IPrototype, IInheritingPrototype
+public sealed class SupermatterDelaminationPrototype : IPrototype, IInheritingPrototype
 {
     /// <inheritdoc/>
     [IdDataField]

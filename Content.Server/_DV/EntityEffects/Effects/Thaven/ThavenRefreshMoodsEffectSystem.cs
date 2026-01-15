@@ -5,7 +5,7 @@ using Content.Shared.EntityEffects;
 
 namespace Content.Server._DV.EntityEffects.Effects.Thaven;
 
-public sealed partial class ThavenRefreshMoodsEffectSystem : EntityEffectSystem<ThavenMoodsComponent, ThavenRefreshMoods>
+public sealed class ThavenRefreshMoodsEffectSystem : EntityEffectSystem<ThavenMoodsComponent, ThavenRefreshMoods>
 {
     [Dependency] private readonly ThavenMoodsSystem _moods = default!;
 
