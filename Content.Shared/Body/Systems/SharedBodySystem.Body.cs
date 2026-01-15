@@ -40,7 +40,6 @@ public partial class SharedBodySystem
      */
 
     // [Dependency] private readonly InventorySystem _inventory = default!; // Shitmed - Declared in SharedBodySystem.cs
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
 
     private const float GibletLaunchImpulse = 8;
