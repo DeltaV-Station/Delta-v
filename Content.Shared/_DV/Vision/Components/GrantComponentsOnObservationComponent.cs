@@ -2,7 +2,6 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._DV.Vision.Components;
 
@@ -99,7 +98,7 @@ public sealed partial class GrantComponentsOnObservationComponent : Component
 /// </summary>
 /// <param name="source">The <see cref="EntityUid"/> of the <see cref="GrantComponentsOnObservationComponent"/> owner.</param>
 /// <param name="target">The <see cref="EntityUid"/> of the observing mob.</param>
-public sealed partial class ObserverGrantedComponents(EntityUid source, EntityUid target) : CancellableEntityEventArgs
+public sealed class ObserverGrantedComponents(EntityUid source, EntityUid target) : CancellableEntityEventArgs
 {
     /// <summary>
     /// The <see cref="EntityUid"/> of the <see cref="GrantComponentsOnObservationComponent"/> owner.

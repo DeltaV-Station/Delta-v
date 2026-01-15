@@ -8,7 +8,7 @@ namespace Content.Shared._DV.Vision.EntitySystems;
 /// <summary>
 ///     This system allows entities to receive soothing from providers based on their proximity.
 /// </summary>
-public sealed class SharedPsychologicalSoothingSystem : EntitySystem
+public sealed class PsychologicalSoothingSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
@@ -17,7 +17,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
     /// <summary>
     /// This is used to exclude dead mobs from this system.
     /// </summary>
-    private EntityQuery<MobStateComponent> _mobStateQuery = default!;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
 
     public override void Initialize()
     {
@@ -72,6 +72,7 @@ public sealed class SharedPsychologicalSoothingSystem : EntitySystem
                 psyDiff +=  provider.Strength * receiver.RateGrowth;
                 isBeingSoothed = true;
             }
+            
             var updatedSoothed = Math.Clamp( receiver.SoothedCurrent + (isBeingSoothed ? psyDiff : -receiver.RateDecay), receiver.SoothedMinimum, receiver.SoothedMaximum );
 
             if (MathHelper.CloseTo(receiver.SoothedCurrent, updatedSoothed, 0.00001f)) // If the soothing isn't changing, then just skip.

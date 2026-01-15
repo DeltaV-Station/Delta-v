@@ -14,14 +14,11 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     [DataField]
     public float Range = 20f;
 
-    [DataField][AutoNetworkedField]
-    public bool Decaying = true;
-
     /// <summary>
     /// The current amount of soothing this receiver has.
     /// </summary>
     [DataField][AutoNetworkedField]
-    public float SoothedCurrent = 0.0f;
+    public float SoothedCurrent;
 
     /// <summary>
     /// The maximum amount of soothing this receiver can have.
@@ -33,7 +30,7 @@ public sealed partial class PsychologicalSoothingReceiverComponent : Component
     /// The minimum amount of soothing this receiver can have.
     /// </summary>
     [DataField]
-    public float SoothedMinimum = 0f;
+    public float SoothedMinimum;
 
     /// <summary>
     /// The amount of soothing subtracted from the receiver every <see cref="SootheInterval"/>.
