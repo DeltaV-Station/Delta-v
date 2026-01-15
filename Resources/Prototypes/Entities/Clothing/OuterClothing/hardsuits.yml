@@ -356,14 +356,14 @@
   - type: Armor
     modifiers: #DeltaV
       coefficients:
-        Blunt: 0.5 # was 0.8
-        Slash: 0.5 # was 0.8
+        Blunt: 0.6 # was 0.8
+        Slash: 0.6 # was 0.8
         Piercing: 0.5 # was 0.6
         Heat: 0.4 # was 0.5
         Radiation: 0.4 # was 0.5
         Caustic: 0.5 # was 0.6
-        Holy: 0.80 # DeltaV
-        Shadow: 0.80 #DeltaV
+        Holy: 0.7 # DeltaV
+        Shadow: 0.7 #DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
