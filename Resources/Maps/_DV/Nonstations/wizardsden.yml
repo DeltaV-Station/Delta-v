@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/14/2026 20:50:10
-  entityCount: 759
+  time: 01/15/2026 00:43:18
+  entityCount: 763
 maps:
 - 411
 grids:
@@ -354,7 +354,7 @@ entities:
             0: 65295
           -1,0:
             0: 2286
-            2: 1536
+            1: 1536
           0,1:
             0: 65535
           -1,1:
@@ -371,7 +371,7 @@ entities:
             0: 54608
           1,2:
             0: 4573
-            1: 49152
+            2: 49152
           1,0:
             0: 3822
           1,-1:
@@ -380,20 +380,20 @@ entities:
             0: 48
           2,1:
             0: 4368
-            1: 17408
+            2: 17408
           2,2:
-            1: 612
+            2: 612
           -3,1:
-            1: 16384
+            2: 16384
           -3,2:
-            1: 2244
+            2: 2244
           -2,0:
             0: 3327
           -2,1:
             0: 30576
           -2,2:
             0: 102
-            1: 24576
+            2: 24576
           -2,-1:
             0: 60417
           -1,-1:
@@ -430,15 +430,15 @@ entities:
             Oxygen: 21.824879
             Nitrogen: 82.10312
         - volume: 2500
+          temperature: 293.15
+          moles:
+            Nitrogen: 6666.982
+        - volume: 2500
           immutable: True
           temperature: 293.2
           moles:
             Oxygen: 21.824879
             Nitrogen: 82.10312
-        - volume: 2500
-          temperature: 293.15
-          moles:
-            Nitrogen: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
@@ -992,6 +992,26 @@ entities:
     components:
     - type: Transform
       pos: 8.5,5.5
+      parent: 1
+  - uid: 760
+    components:
+    - type: Transform
+      pos: 0.5,-6.5
+      parent: 1
+  - uid: 761
+    components:
+    - type: Transform
+      pos: 0.5,-5.5
+      parent: 1
+  - uid: 762
+    components:
+    - type: Transform
+      pos: 0.5,-4.5
+      parent: 1
+  - uid: 763
+    components:
+    - type: Transform
+      pos: 0.5,-7.5
       parent: 1
 - proto: CableHV
   entities:
