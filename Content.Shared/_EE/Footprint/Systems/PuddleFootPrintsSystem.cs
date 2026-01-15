@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Shared._EE.Flight;
+using Content.Shared._EE.Footprint;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -85,7 +86,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
             return;
 
         // Set the reagent to transfer
-        footPrints.ReagentToTransfer = primaryReagent.Reagent.Prototype;
+        // footPrints.ReagentToTransfer = primaryReagent.Reagent.Prototype;
 
         // Transfer color from puddle to footprints
         if (_appearance.TryGetData(ent, PuddleVisuals.SolutionColor, out var colorValue, appearance)
