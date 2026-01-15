@@ -88,13 +88,14 @@
       sprite: Objects/Weapons/Melee/stunbaton.rsi
       state: stunbaton_off
 
-- type: entity
-  parent: BaseConspiratorObjective
-  id: ConspiratorCameraObjective
-  name: Dismantle the surveillance state
-  description: Bring back the right to privacy for Nanotrasen employees.
-  components:
-  - type: Objective
-    icon:
-      sprite: Mobs/Silicon/station_ai.rsi
-      state: ai_camera
+# DeltaV - Remove objective
+# - type: entity
+#   parent: BaseConspiratorObjective
+#   id: ConspiratorCameraObjective
+#   name: Dismantle the surveillance state
+#   description: Bring back the right to privacy for Nanotrasen employees.
+#   components:
+#   - type: Objective
+#     icon:
+#       sprite: Mobs/Silicon/station_ai.rsi
+#       state: ai_camera
