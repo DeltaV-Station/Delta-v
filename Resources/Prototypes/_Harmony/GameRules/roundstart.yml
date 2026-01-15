@@ -1,5 +1,14 @@
 - type: entity
   parent: BaseGameRule
+  id: ThiefChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+
+- type: entity
+  parent: BaseGameRule
   id: Conspirators
   components:
   - type: GameRule
