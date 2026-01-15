@@ -114,7 +114,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.6
+        Piercing: 0.5 #DeltaV
         Heat: 0.5
         Caustic: 0.9
   - type: ExplosionResistance
@@ -125,7 +125,7 @@
   - type: HeldSpeedModifier
   - type: GroupExamine
   - type: StaminaResistance # DeltaV
-    damageCoefficient: 0.7 # Some protection against disablers, but you're better off with a vest
+    damageCoefficient: 0.5 # Some protection against disablers, but you're better off with a vest
 
 - type: entity
   parent: [ClothingOuterArmorBaseCarapace, BaseCommandContraband]
