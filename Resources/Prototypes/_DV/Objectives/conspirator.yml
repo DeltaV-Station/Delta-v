@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorSiliconObjective
+  name: Liberate or Profit
+  description: Ensure the station's silicon units fulfill your vision.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Robotics/mmi.rsi
+      state: posibrain
