@@ -134,7 +134,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         PredictedQueueDel(uid);
     }
 
-    protected override void UpdateSupermatter(Entity<SupermatterComponent> ent)
+    protected override void UpdateSupermatter(Entity<SupermatterComponent> ent, float frameTime)
     {
         if(ent.Comp.AnnounceNext.HasValue && ent.Comp.AnnounceNext.Value <= Timing.CurTime)
         {
@@ -156,9 +156,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         {
             return defaultDelam;
         }
-        
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
-        
+
         foreach (var protoId in sm.EnabledDelaminations)
         {
             if (!_proto.Resolve(protoId, out var delam))

@@ -82,7 +82,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         var query = AllEntityQuery<SupermatterConsoleComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var entConsole, out var entXform))
         {
-            if (entXform?.GridUid == null)
+            if (entXform.GridUid == null)
                 continue;
 
             // Make a list of supermatter state data for all the supermatters on the grid
@@ -185,8 +185,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             sm.PowerLoss,
             radiationComp.Intensity,
             tempThreshold * sm.DynamicHeatResistance,
-            sm.HeatModifier,
-            sm.GasHeatModifier,
+            Math.Max(sm.GasWasteModifier, sm.GasWasteModifierMinimum),
+            sm.GasWasteModifier,
             gasEfficiency * 100);
     }
 

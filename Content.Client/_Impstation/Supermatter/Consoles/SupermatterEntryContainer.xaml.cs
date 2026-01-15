@@ -139,7 +139,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         #endregion
 
         // Load values and set base labels
-        _radiationBase = _config.GetCVar(ImpCCVars.SupermatterRadsBase);
+        _radiationBase = 4; // port todo this comes from the sm component now.
         _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold);
         _wasteBase = 1f;
 

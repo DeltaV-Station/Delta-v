@@ -35,16 +35,23 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         UpdateAmbient(ent);
         if (_lightQuery.TryComp(ent, out var light))
             UpdateLight(ent, light);
-        
     }
 
-    protected override void UpdateSupermatter(Entity<SupermatterComponent> ent)
+    protected override void UpdateSupermatter(Entity<SupermatterComponent> ent, float frameTime)
     {
-        // The client doesn't have a lot to do here yet.
+        // We can't predict damage because atmos isn't predicted
+        
+        // We could predict based on the GasStorage, but it would be inaccurate if gasses wildly change from tick to tick.
+        // Even then, it also wouldn't be "in sync" because we'd have to predict it using a timer instead of the AtmosDeviceUpdateEvent.
+        
+        // We could probably make power, matterpower, and powerloss tick up/down every tick but the RealAtmosTime function only exists
+        // in the server, so we'd have to network that to the client in some way. 
+        // If we did that, we could predict radiation and gravity well systems.
     }
     
     protected override void OnSupermatterDelamination(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationEvent args)
     {
+        // We can partially predict delamination because it's based on a timer, and an event fired in the shared system.
         Log.Info("Predicting delamination!");
         
         if (sm.PreferredDelamination is null)

@@ -1,3 +1,4 @@
+using System.Collections.Frozen;
 using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
@@ -113,20 +114,26 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// Takes the energy that supermatter collision generates and slowly turns it into actual power
     /// </summary>
-    [DataField]
+    [DataField][AutoNetworkedField]
     public float MatterPower;
-
+    
     /// <summary>
-    /// Affects the amount of oxygen and plasma that is released during supermatter reactions, as well as the heat generated
+    /// The percentage of the gas on the supermatter's tile that is absorbed and evaluated each atmos tick. The absorbed gasses are stored in <see cref="GasStorage"/> until the next atmos tick.
     /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)]
-    public float HeatModifier;
-
-    /// <summary>
-    /// The percentage of the gas on the supermatter's tile that is absorbed each atmos tick.
-    /// </summary>
+    /// <remarks>Waste gasses are added to the evaluated gas mixture, and the new mixture is released after processing.</remarks>
     [DataField]
     public float GasEfficiency = 0.05f;
+
+    /// <summary>
+    /// The proportion of the absorbed gas to void. The gas is voided from the tile mixture rather than the gas storage
+    /// to preserve the accuracy of the gas storage for other functions. 
+    /// </summary>
+    /// <remarks>
+    /// In EE and Impstation, the supermatter voids gas due to an undocumented feature or bug where the absorbed gas was
+    /// being removed a second time during the damage step, and was never re-added.
+    /// </remarks>
+    [DataField]
+    public float GasVoidProportion;
 
     /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions
@@ -201,6 +208,30 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AnomalyPyroChance = 2500f;
 
+    /// <summary>
+    /// The base number of rads produced by the crystal.
+    /// </summary>
+    [DataField]
+    public float RadsBase = 4.0f;
+
+    /// <summary>
+    /// The multiplier used to scale the bonus rads produced by the supermatter.
+    /// </summary>
+    [DataField]
+    public float RadsModifier = 1.0f;
+
+    /// <summary>
+    /// The waste modifier without the <see cref="GasWasteModifierMinimum"/> applied.
+    /// </summary>
+    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
+    public float GasWasteModifier;
+
+    /// <summary>
+    /// The minimum functional value of <see cref="GasWasteModifier"/>.
+    /// </summary>
+    [DataField]
+    public float GasWasteModifierMinimum = 0.5f;
+
     #endregion
 
     #region Timing
@@ -243,14 +274,14 @@ public sealed partial class SupermatterComponent : Component
     /// The amount of damage taken
     /// </summary>
     [DataField][AutoNetworkedField]
-    public float Damage = 0f;
+    public float Damage;
 
     /// <summary>
     /// The damage from before this cycle.
     /// Used to limit the damage we can take each cycle, and for safe alert.
     /// </summary>
     [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
-    public float DamageArchived = 0f;
+    public float DamageArchived;
 
     /// <summary>
     /// The maximum amount of damage the supermatter can take in a single cycle, proportional to <see cref="DamageDelaminationThreshold"/>
@@ -259,10 +290,10 @@ public sealed partial class SupermatterComponent : Component
     public float MaximumDamagePerCycle = 0.002f;
 
     /// <summary>
-    /// Environmental damage is scaled by this
+    /// Supermatter Damage is multiplied by this value.
     /// </summary>
     [DataField]
-    public float DamageIncreaseMultiplier = 0.25f;
+    public float DamageMultiplier = 0.25f;
 
     /// <summary>
     /// Max space damage the SM will take per cycle
@@ -391,49 +422,35 @@ public sealed partial class SupermatterComponent : Component
     [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
     public float HeatHealing;
 
-    /// <summary>
-    /// The true value of <see cref="HeatModifier"/> without a lower bound, to be displayed on the monitoring console
-    /// </summary>
-    [DataField][ViewVariables(VVAccess.ReadOnly)][AutoNetworkedField]
-    public float GasHeatModifier;
-
     #endregion
 }
 
-public struct SupermatterGasFact
+public readonly record struct SupermatterGasFact(float TransmitModifier, float WasteModifier, float PowerMixRatio, float HeatResistance)
 {
     /// <summary>
     /// Multiplied with the supermatter's power to determine rads
     /// </summary>
-    public float TransmitModifier;
+    public readonly float TransmitModifier = TransmitModifier;
 
     /// <summary>
     /// Affects the amount of oxygen and plasma that is released during supermatter reactions, as well as the heat generated
     /// </summary>
-    public float HeatPenalty;
+    public readonly float WasteModifier = WasteModifier;
 
     /// <summary>
     /// Affects the amount of power generated by the supermatter
     /// </summary>
-    public float PowerMixRatio;
+    public readonly float PowerMixRatio = PowerMixRatio;
 
     /// <summary>
     /// Affects the supermatter's resistance to temperature
     /// </summary>
-    public float HeatResistance;
-
-    public SupermatterGasFact(float transmitModifier, float heatPenalty, float powerMixRatio, float heatResistance)
-    {
-        TransmitModifier = transmitModifier;
-        HeatPenalty = heatPenalty;
-        PowerMixRatio = powerMixRatio;
-        HeatResistance = heatResistance;
-    }
+    public readonly float HeatResistance = HeatResistance;
 }
 
 public static class SupermatterGasData
 {
-    public static readonly Dictionary<Gas, SupermatterGasFact> GasData = new()
+    public static readonly FrozenDictionary<Gas, SupermatterGasFact> GasData = new Dictionary<Gas, SupermatterGasFact>()
     {
         { Gas.Oxygen,        new(1.5f, 1f,    1f,  1f) },
         { Gas.Nitrogen,      new(0f,   -1.5f, -1f, 1f) },
@@ -444,36 +461,36 @@ public static class SupermatterGasData
         { Gas.Ammonia,       new(0f,   1f,    1f , 1f) },
         { Gas.NitrousOxide,  new(0f,   -5f,   -1f, 6f) },
         { Gas.Frezon,        new(3f,   -10f,  -1f, 1f) }
-    };
+    }.ToFrozenDictionary();
 
-    public static float CalculateGasMixModifier(GasMixture mix, Func<SupermatterGasFact, float> getModifier)
+    private static float CalculateGasMixModifier(Dictionary<Gas, float> ratios, Func<SupermatterGasFact, float> getModifier)
     {
-        var modifier = 0f;
-
-        foreach (var gasId in Enum.GetValues<Gas>())
-            modifier += mix.GetMoles(gasId) * getModifier(GasData.GetValueOrDefault(gasId));
-
+        float modifier = 0;
+        
+        foreach (var (gas, ratio) in ratios)
+            modifier += ratio * getModifier(GasData[gas]);
+        
         return modifier;
     }
 
-    public static float GetTransmitModifiers(GasMixture mix)
+    public static float GetTransmitModifiers(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.TransmitModifier);
+        return CalculateGasMixModifier(ratios, data => data.TransmitModifier);
     }
 
-    public static float GetHeatPenalties(GasMixture mix)
+    public static float GetMixWastePenalty(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.HeatPenalty);
+        return CalculateGasMixModifier(ratios, data => data.WasteModifier);
     }
 
-    public static float GetPowerMixRatios(GasMixture mix)
+    public static float GetPowerMixRatios(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.PowerMixRatio);
+        return CalculateGasMixModifier(ratios, data => data.PowerMixRatio);
     }
 
-    public static float GetHeatResistances(GasMixture mix)
+    public static float GetHeatResistances(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.HeatResistance);
+        return CalculateGasMixModifier(ratios, data => data.HeatResistance);
     }
 }
 
@@ -510,16 +527,10 @@ public enum SupermatterVisuals : byte
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent;
 
 /// <summary>
-/// Raised after the supermatter updates.
-/// </summary>
-[ByRefEvent]
-public record struct SupermatterUpdatedEvent;
-
-/// <summary>
 /// Raised when the supermatter takes damage, with the amount of damage taken.
 /// </summary>
 [ByRefEvent]
-public record struct SupermatterDamagedEvent(float Damage);
+public record struct SupermatterDamagedEvent;
 
 /// <summary>
 /// Raised when the supermatter starts the delamination process.

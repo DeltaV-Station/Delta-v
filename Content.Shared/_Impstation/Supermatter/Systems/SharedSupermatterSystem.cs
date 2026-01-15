@@ -3,13 +3,11 @@ using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
-using Content.Shared.Audio;
 using Content.Shared.DeviceLinking;
 using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Speech;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -134,22 +132,24 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         
         while (query.MoveNext(out var uid, out var sm))
         {
+            if(Paused(uid)) continue;
+            
             if (sm.DelaminationTime.HasValue && sm.DelaminationTime <= Timing.CurTime)
             {
                 var ev = new SupermatterDelaminationEvent();
                 RaiseLocalEvent(uid, ref ev, true);
                 continue;
             }
-            
-            UpdateSupermatter((uid, sm));
+
+            UpdateSupermatter((uid, sm), frameTime);
         }
         
         base.Update(frameTime);
     }
-
+    
     protected abstract void OnSupermatterDelamination(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationEvent args);
 
-    protected abstract void UpdateSupermatter(Entity<SupermatterComponent> ent);
+    protected abstract void UpdateSupermatter(Entity<SupermatterComponent> ent, float frameTime);
 
     protected bool CheckDelaminationRequirements(Entity<SupermatterComponent> ent, SupermatterDelaminationRequirements req) 
     {
