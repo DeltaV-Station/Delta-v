@@ -493,6 +493,11 @@
         ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
+      - !type:Oxygenate # DeltaV - Harpy sensitive to air quality
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Harpy ]
+        factor: -1
       # DeltaV - End changes
 
 - type: reagent
