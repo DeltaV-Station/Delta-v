@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: Mass Sleep now has a cast time and visual warning.
-    type: Tweak
-  id: 1559
-  time: '2025-08-01T20:40:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4067
 - author: NoElkaTheGod
   changes:
   - message: 'Cosmic cult''s weapons are now created slightly differently: entropic
@@ -4460,4 +4453,17 @@
   id: 2058
   time: '2026-01-15T15:44:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5175
+- author: Halo3moth
+  changes:
+  - message: The hos locker will now spawn with a briefcase that allows them to pick
+      between sidearms.
+    type: Add
+  - message: The energy magnum now also works for the hos steal objective.
+    type: Tweak
+  - message: Energy magnum standard bolt from 20 heat to 24 and magnum bolt from 30
+      heat to 24 heat and 11 pierce.
+    type: Tweak
+  id: 2059
+  time: '2026-01-16T17:46:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5203
 Order: 1
