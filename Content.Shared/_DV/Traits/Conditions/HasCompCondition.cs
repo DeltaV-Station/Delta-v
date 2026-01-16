@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Traits.Conditions;
 /// Condition that checks if the player has a specific component.
 /// Use Invert = true to check if the player does NOT have the component.
 /// </summary>
-public sealed partial class HasCompCondition : TraitCondition
+public sealed partial class HasCompCondition : BaseTraitCondition
 {
     /// <summary>
     /// The component name to check for (e.g., "Pacifism").

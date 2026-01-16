@@ -1,4 +1,4 @@
-// using Robust.Shared.Prototypes;
+// using Robust.Shared.Prototypes; // DeltaV - Traits rework
 //
 // namespace Content.Shared.Traits;
 //

@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Traits.Effects;
 /// Effect that spawns an item and attempts to place it in the player's hand.
 /// If the player cannot hold the item, it is spawned at their feet.
 /// </summary>
-public sealed partial class SpawnItemInHandEffect : TraitEffect
+public sealed partial class SpawnItemInHandEffect : BaseTraitEffect
 {
     /// <summary>
     /// The entity prototype to spawn.

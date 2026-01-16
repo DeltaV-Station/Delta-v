@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Traits.Effects;
 /// <summary>
 /// Effect that removes components from the player entity if they exist.
 /// </summary>
-public sealed partial class RemCompsEffect : TraitEffect
+public sealed partial class RemCompsEffect : BaseTraitEffect
 {
     /// <summary>
     /// The component names to remove from the entity.

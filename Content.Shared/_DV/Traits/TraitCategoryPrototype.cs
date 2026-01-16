@@ -19,16 +19,10 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     public LocId Name;
 
     /// <summary>
-    /// Localization key for the category's description/flavor text.
-    /// </summary>
-    [DataField]
-    public LocId? Description;
-
-    /// <summary>
     /// Display order priority. Lower values appear first.
     /// </summary>
     [DataField]
-    public int Priority = 1;
+    public int Priority;
 
     /// <summary>
     /// Maximum number of traits that can be selected from this category.

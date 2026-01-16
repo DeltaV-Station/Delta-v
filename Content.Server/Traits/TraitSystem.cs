@@ -1,4 +1,4 @@
-// using Content.Shared.GameTicking;
+// using Content.Shared.GameTicking; // DeltaV - Traits rework
 // using Content.Shared.Hands.Components;
 // using Content.Shared.Hands.EntitySystems;
 // using Content.Shared.Roles;

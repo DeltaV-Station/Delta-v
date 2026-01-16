@@ -78,6 +78,8 @@
   name: trait-amputee-left-arm-name
   description: trait-amputee-left-arm-desc
   category: Disabilities
+  conflicts:
+  - ArmAmputeeRight # TODO: AmputeeComponent doesn't stack, should be an effect instead
   effects:
   - !type:AddCompsEffect
     components:
@@ -90,6 +92,8 @@
   name: trait-amputee-right-arm-name
   description: trait-amputee-right-arm-desc
   category: Disabilities
+  conflicts:
+  - ArmAmputeeLeft
   effects:
   - !type:AddCompsEffect
     components:

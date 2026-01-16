@@ -1,5 +1,4 @@
-// using Content.Shared._DV.Traits;
-// using Content.Shared.Whitelist;
+// using Content.Shared.Whitelist; // DeltaV - Traits rework
 // using Robust.Shared.Prototypes;
 // using Content.Shared.Humanoid.Prototypes; // DeltaV - Trait species hiding
 //

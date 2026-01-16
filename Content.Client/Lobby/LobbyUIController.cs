@@ -123,7 +123,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
                 _profileEditor.RefreshSpecies();
             }
 
-            // if (obj.WasModified<TraitPrototype>()) // DeltaV
+            // if (obj.WasModified<TraitPrototype>()) // DeltaV - Refreshed in TraitsTab
             // {
             //     _profileEditor.RefreshTraits();
             // }

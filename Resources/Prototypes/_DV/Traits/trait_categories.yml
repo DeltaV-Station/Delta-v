@@ -1,21 +1,18 @@
 - type: traitCategory
   id: Disabilities
   name: trait-category-disabilities
-  description: trait-category-disabilities-desc
   priority: 0
   accentColor: "#64748b"  # Slate / muted gray
 
 - type: traitCategory
   id: Mental
   name: trait-category-mental
-  description: trait-category-mental-desc
   priority: 20
   accentColor: "#a855f7"  # Purple
 
 - type: traitCategory
   id: Accents
   name: trait-category-accents
-  description: trait-category-accents-desc
   priority: 30
   maxTraits: 3
   maxPoints: 2
@@ -24,6 +21,5 @@
 - type: traitCategory
   id: Medical
   name: trait-category-medical
-  description: trait-category-medical-desc
   priority: 40
   accentColor: "#ef4444"  # Red

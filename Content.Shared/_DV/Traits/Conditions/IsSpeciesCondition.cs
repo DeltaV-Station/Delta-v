@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Traits.Conditions;
 /// Condition that checks if the player is a specific species.
 /// Use Invert = true to check if the player is NOT the species.
 /// </summary>
-public sealed partial class IsSpeciesCondition : TraitCondition
+public sealed partial class IsSpeciesCondition : BaseTraitCondition
 {
     /// <summary>
     /// The species ID to check for.

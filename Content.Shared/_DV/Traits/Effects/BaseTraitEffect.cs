@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Traits.Effects;
 /// Base class for trait effects. Implementations apply modifications to an entity when a trait is selected.
 /// </summary>
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
-public abstract partial class TraitEffect
+public abstract partial class BaseTraitEffect
 {
     /// <summary>
     /// Applies the effect to the target entity.

@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Traits.Conditions;
 /// Condition that checks if the player has a specific job.
 /// Use Invert = true to check if the player does NOT have the job.
 /// </summary>
-public sealed partial class HasJobCondition : TraitCondition
+public sealed partial class HasJobCondition : BaseTraitCondition
 {
     /// <summary>
     /// The job prototype ID to check for.

@@ -18,19 +18,19 @@ public sealed partial class TraitPrototype : IPrototype
     /// Localization key for the trait's display name.
     /// </summary>
     [DataField(required: true)]
-    public LocId Name = string.Empty;
+    public LocId Name;
 
     /// <summary>
     /// Localization key for the trait's description.
     /// </summary>
     [DataField(required: true)]
-    public LocId Description = string.Empty;
+    public LocId Description;
 
     /// <summary>
     /// The category this trait belongs to.
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<TraitCategoryPrototype> Category = string.Empty;
+    public ProtoId<TraitCategoryPrototype> Category;
 
     /// <summary>
     /// How many trait points this trait costs (positive) or grants (negative).
@@ -43,14 +43,14 @@ public sealed partial class TraitPrototype : IPrototype
     /// All conditions must pass for the trait to be valid.
     /// </summary>
     [DataField]
-    public List<TraitCondition> Conditions = new();
+    public List<BaseTraitCondition> Conditions = new();
 
     /// <summary>
     /// Effects to apply to the entity when this trait is selected.
     /// Effects are applied in order.
     /// </summary>
     [DataField]
-    public List<TraitEffect> Effects = new();
+    public List<BaseTraitEffect> Effects = new();
 
     /// <summary>
     /// Other traits that are mutually exclusive with this one.

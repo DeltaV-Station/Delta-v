@@ -8,7 +8,7 @@ namespace Content.Shared._DV.Traits.Conditions;
 /// Base class for trait conditions. Implementations check if a trait can be applied to a player.
 /// </summary>
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
-public abstract partial class TraitCondition
+public abstract partial class BaseTraitCondition
 {
     /// <summary>
     /// If true, inverts the result of the condition.

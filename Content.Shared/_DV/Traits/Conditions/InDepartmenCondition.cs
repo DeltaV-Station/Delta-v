@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Traits.Conditions;
 /// Condition that checks if the player's job is in a specific department.
 /// Use Invert = true to check if the player is NOT in the department.
 /// </summary>
-public sealed partial class InDepartmentCondition : TraitCondition
+public sealed partial class InDepartmentCondition : BaseTraitCondition
 {
     /// <summary>
     /// The department prototype ID to check for.

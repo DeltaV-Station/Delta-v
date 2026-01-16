@@ -19,7 +19,7 @@ public sealed partial class TraitPreferenceSelector : Control
 
     public event Action<bool>? PreferenceChanged;
 
-    // DV - This whole control is generally unused but the compiler wouldn't compile if I removed it
+    // DeltaV - This whole control is generally unused but the compiler wouldn't compile if I removed it
     // So I'm just gonna comment this part out
     // public TraitPreferenceSelector(TraitPrototype trait)
     // {
