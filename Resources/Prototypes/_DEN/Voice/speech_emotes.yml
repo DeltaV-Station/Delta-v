@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 Tabitha
+# SPDX-FileCopyrightText: 2025 TheOneTrueWolfio
+# SPDX-FileCopyrightText: 2025 juniwoofs
+# SPDX-FileCopyrightText: 2025 mart
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+# SPDX-FileCopyrightText: 2025 wheelwrightt
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+- type: emote
+  id: Moo
+  name: chat-emote-name-cowmoo
+  category: Vocal
+  icon: _DEN/Interface/Emotes/moo.png
+  whitelist:
+    tags:
+    - OviniaEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ moos ]
+  chatTriggers:
+    - moos
+    - moo
+
+- type: emote
+  id: Baa
+  name: chat-emote-name-baa
+  category: Vocal
+  icon: _DEN/Interface/Emotes/baa.png
+  whitelist:
+    tags:
+    - OviniaEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ baas ]
+  chatTriggers:
+    - baas
+    - baa
+    - baahs
+    - baah
+    - baahed
+    - baah'd
+    - baahing
+    - bah
+    - bahs
+    - bahed
+    - bah'd
+    - bleat
+    - bleats
+    - bleated

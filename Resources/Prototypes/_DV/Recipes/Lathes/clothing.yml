@@ -449,6 +449,19 @@
     Plastic: 400
     Plasma: 600
 
+- type: latheRecipe
+  parent: BaseHardsuitRecipe
+  id: ClothingOuterVoidsuitEngineering
+  result: ClothingOuterVoidsuitEngineering
+  materials:
+    Plasteel: 500
+    Durathread: 500
+    Steel: 400
+    Glass: 500
+    Plastic: 400
+    Plasma: 600
+    Gold: 400
+
 ## Security
 - type: latheRecipe
   parent: BaseHardsuitArmoredRecipe

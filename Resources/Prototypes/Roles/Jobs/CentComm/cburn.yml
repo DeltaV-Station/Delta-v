@@ -8,13 +8,20 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements: # DeltaV - Playtime requirements
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 5h
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: CBURNGear

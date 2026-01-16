@@ -1,0 +1,111 @@
+- type: entity
+  parent: BaseItem
+  id: BaseMagazineBoxImprovised
+  name: improvised ammunition box
+  description: This looks suspiciously like a .20 magazine box with a crude bullet drawing ontop. Mixing ammo is not advised.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+        - CartridgePistolImprovised
+        - CartridgeMagnum
+        - CartridgeMagnumImprovised
+        - CartridgeLightRifle
+        - CartridgeLightRifleImprovised
+        - ShellShotgun
+        - ShellShotgunImprovised
+    proto: null
+    capacity: 40
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Ammunition/Boxes/improvised.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+  - type: Construction
+    graph: ImprovisedMagazineBoxGraph
+    node: shell
+  - type: Tag
+    tags:
+    - ImprovisedAmmoBox
+
+- type: entity
+  parent: BaseMagazineBoxImprovised
+  id: MagazineBoxImprovisedPistol
+  name: improvised ammunition box (.35 auto improvised)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolImprovised
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - type: Construction
+      graph: ImprovisedMagazineBoxGraph
+      node: pistol
+
+- type: entity
+  parent: BaseMagazineBoxImprovised
+  id: MagazineBoxImprovisedRifle
+  name: improvised ammunition box (.30 rifle improvised)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleImprovised
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - type: Construction
+      graph: ImprovisedMagazineBoxGraph
+      node: rifle
+
+- type: entity
+  parent: BaseMagazineBoxImprovised
+  id: MagazineBoxImprovisedMagnum
+  name: improvised ammunition box (.45 magnum improvised)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumImprovised
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - type: Construction
+      graph: ImprovisedMagazineBoxGraph
+      node: magnum
+
+- type: entity
+  parent: BaseMagazineBoxImprovised
+  id: MagazineBoxImprovisedShotgun
+  name: improvised ammunition box (.50 shotgun improvised)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunImprovised
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - type: Construction
+      graph: ImprovisedMagazineBoxGraph
+      node: shotgun

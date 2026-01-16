@@ -45,7 +45,7 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
             var newTargets = new List<EntProtoId>();
             foreach (var target in targets)
             {
-                if (string.IsNullOrEmpty(target) || !_proto.TryIndex(target, out EntityPrototype? proto))
+                if (string.IsNullOrEmpty(target) || !_proto.Resolve(target, out EntityPrototype? proto))
                     continue;
 
                 if (!proto.TryGetComponent(out TagComponent? tag, EntMan.ComponentFactory) || !_tag.HasTag(tag, st.RequiredTag))
@@ -58,6 +58,13 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
         {
             _menu?.UpdateState(targets, st.SelectedId);
         }
+
+    // Begin Delta-V: Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
+    if (_menu is { } menu && EntMan.TryGetComponent<ChameleonClothingComponent>(Owner, out var chameleon) && chameleon.WindowTitleOverride is { } titleOverride)
+        {
+            _menu.Title = Loc.GetString(titleOverride);
+        }
+    // End Delta-V
     }
 
     private void OnIdSelected(string selectedId)

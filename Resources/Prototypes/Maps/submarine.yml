@@ -2,7 +2,7 @@
   id: Submarine
   mapName: 'Submarine'
   mapPath: /Maps/submarine.yml
-  minPlayers: 90
+  minPlayers: 80
   stations:
     Submarine:
       stationProto: StandardNanotrasenStation
@@ -15,7 +15,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_propeller.yml
         - type: StationCargoShuttle
-          path: /Maps/_DV/Shuttles/Cargo/cargo_model_b.yml
+          path: /Maps/_DV/Shuttles/Cargo/ntcs_express_model_b.yml
         - type: StationJobs
           availableJobs:
           #civilian

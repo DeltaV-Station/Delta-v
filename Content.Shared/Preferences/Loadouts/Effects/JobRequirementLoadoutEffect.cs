@@ -1,7 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Players;
+using Content.Shared.CCVar;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -18,7 +20,10 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
 
     public override bool Validate(HumanoidCharacterProfile profile, RoleLoadout loadout, ICommonSession? session, IDependencyCollection collection, [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        if (session == null)
+        var configurationManager = collection.Resolve<IConfigurationManager>();
+        var timersDisabled = !configurationManager.GetCVar(CCVars.GameRoleLoadoutTimers);
+
+        if (session == null || timersDisabled)
         {
             reason = FormattedMessage.Empty;
             return true;

@@ -8,15 +8,16 @@
   category: Medical
   group: market
 
-- type: cargoProduct
-  id: RadioImplantCrate
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateGenericRadioImplants
-  cost: 1500
-  category: Medical
-  group: market
+# TODO: Add back in but allows you to insert a key before injection
+#- type: cargoProduct
+#  id: RadioImplantCrate
+#  icon:
+#    sprite: Objects/Specific/Medical/implanter.rsi
+#    state: implanter0
+#  product: CrateGenericRadioImplants
+#  cost: 1500
+#  category: Medical
+#  group: market
 
 - type: cargoProduct
   id: PainkillerCrate
@@ -35,5 +36,15 @@
     state: jug
   product: CrateViralCarePackage
   cost: 10000
+  category: Medical
+  group: market
+
+- type: cargoProduct
+  id: CrashCartCrate
+  icon:
+    sprite: _Funkystation/Objects/Specific/Medical/crashcart.rsi
+    state: cart
+  product: CrateCrashCart
+  cost: 1000
   category: Medical
   group: market

@@ -353,6 +353,16 @@
     Gold: 500
     Wood: 300
 
+# .40 Anti-materiel Ammo for the NT-3
+
+- type: latheRecipe
+  id: MagazineBoxLMGAntiMateriel
+  result: MagazineBoxLMGAntiMateriel
+  completetime: 4
+  materials:
+    Steel: 1000
+    Uranium: 250
+
 - type: latheRecipe
   id: PyroLeftArm
   result: PyroLeftArm

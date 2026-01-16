@@ -6,3 +6,30 @@
 
 - type: npcFaction
   id: Hostage
+
+- type: npcFaction
+  id: CosmicCult
+  hostile:
+  - SimpleHostile
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+  - PetsNT
+  - AnimalFriend
+  - Passive
+  - NanoTrasen
+  - SalvageMob
+
+- type: npcFaction
+  id: AnimalFriend
+  hostile:
+  - Syndicate
+  - Xeno
+  - Zombie
+  - AllHostile
+  - SalvageMob

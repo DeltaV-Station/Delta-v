@@ -1,12 +1,14 @@
 ﻿- type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseChameleon]
   id: ClothingUniformJumpsuitChameleon
   name: black jumpsuit
   description: A generic black jumpsuit with no rank markings.
   suffix: Chameleon
   components:
     - type: Tag
-      tags:
+      tags: # ignore "WhitelistChameleon" tag
+      - ClothMade
+      - Recyclable
       - Skirt # Delta-V : Overwrites null tag so Harpies can wear chameleon suit #[] # ignore "WhitelistChameleon" tag
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/color.rsi
@@ -37,7 +39,3 @@
     - type: ChameleonClothing
       slot: [innerclothing]
       default: ClothingUniformJumpsuitColorBlack
-    - type: UserInterface
-      interfaces:
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface

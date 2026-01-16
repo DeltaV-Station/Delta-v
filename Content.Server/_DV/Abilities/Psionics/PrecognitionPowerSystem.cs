@@ -10,6 +10,7 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
 using Content.Shared.StatusEffect;
@@ -26,7 +27,6 @@ public sealed class PrecognitionPowerSystem : EntitySystem
 {
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -34,9 +34,10 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+
 
     /// <summary>
     /// A map between game rule prototypes and their results to give.
@@ -83,7 +84,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
 
         // A custom shader for seeing visions would be nice but this will do for now.
         _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, "TemporaryBlindness", component.UseDelay, true);
-        _statusEffects.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", component.UseDelay, true);
+        _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.PsionicSlowdown, component.UseDelay, 0.5f);
 
         _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
         component.DoAfter = doAfterId;

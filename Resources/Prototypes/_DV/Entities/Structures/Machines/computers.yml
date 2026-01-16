@@ -2,9 +2,21 @@
   parent: BaseComputer
   id: ComputerShipyard
   name: shipyard console
-  description: Used to purchase and sell shuttles
+  description: Used to purchase shuttles for the station.
   components:
   - type: ShipyardConsole
+    categories:
+    - Transport
+    - Shipping
+    - Medical
+    - Mining
+    - Civilian
+    - Research
+    - Military
+    - Experimental
+    - Small
+    - Medium
+    - Large
   - type: AccessReader
     access: [[ Captain ]]
   - type: ActivatableUI
@@ -29,6 +41,33 @@
       state: request
     - map: ["computerLayerKeys"]
       state: tech_key
+
+- type: entity
+  parent: ComputerShipyard
+  id: ComputerShipyardAdmin
+  name: central command shipyard console
+  description: Used to purchase shuttles for CentComm personnel and agents to use. The costs are heavily subsidized and small amounts of funds are laundered from all of NanoTrasen's stations, making ships purchased here essentially free.
+  components:
+  - type: ShipyardConsole
+    channel: CentCom
+    useStationFunds: false
+    categories:
+    - CentComm
+    - ERT
+    - Transport
+    - Shipping
+    - Medical
+    - Mining
+    - Civilian
+    - Research
+    - Military
+    - Experimental
+    - Small
+    - Medium
+    - Large
+    defaultCategory: ERT # Probably switch to CentComm once we have ships in that category
+  - type: AccessReader
+    access: [[ CentralCommand ]]
 
 - type: entity
   abstract: true
@@ -163,6 +202,9 @@
     - EmergencyShuttleRepealAll
     - Engineering
     - External
+    - Funding
+    - GenpopEnter
+    - GenpopLeave
     - HeadOfPersonnel
     - HeadOfSecurity
     - Hydroponics
@@ -178,6 +220,7 @@
     - Mime
     - Musician
     - NuclearOperative
+    - Orders
     - Paramedic
     - Prosecutor
     - Psychologist

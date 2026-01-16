@@ -1,0 +1,41 @@
+<Control xmlns="https://spacestation14.io"
+         HorizontalAlignment="Left"
+         VerticalAlignment="Top"
+         Margin="80 100 0 0">
+    <PanelContainer Name="BackgroundPanel"
+                    MinWidth="320"
+                    MaxWidth="420">
+        <BoxContainer Orientation="Vertical"
+                      Margin="15">
+            <!-- Title at the top, centered -->
+            <Label Name="TitleLabel"
+                   StyleClasses="LabelBig"
+                   HorizontalAlignment="Center"
+                   Margin="0 0 0 10" />
+
+            <!-- Description in a flexible vertical container -->
+            <PanelContainer StyleClasses="BackgroundDark"
+                            Margin="0 0 0 12">
+                <BoxContainer Orientation="Vertical"
+                              Margin="10">
+                    <RichTextLabel Name="DescriptionLabel"
+                                   HorizontalAlignment="Left"
+                                   VerticalExpand="True" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- Bottom controls -->
+            <BoxContainer Orientation="Vertical"
+                          HorizontalAlignment="Center">
+                <CheckBox Name="DontShowAgainCheckBox"
+                          Text="{Loc 'tip-popup-dont-show-again'}"
+                          HorizontalAlignment="Center"
+                          Margin="0 0 0 8" />
+                <Button Name="OkayButton"
+                        Text="{Loc 'tip-popup-okay-button'}"
+                        HorizontalAlignment="Center"
+                        MinWidth="100" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</Control>

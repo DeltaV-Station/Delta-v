@@ -8,10 +8,10 @@
   metabolisms:
     Food:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.9
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nausium
           min: 5
       - !type:PopupMessage
@@ -19,6 +19,6 @@
         messages: [ "disease-sick-stomach" ]
         probability: 0.25
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nausium
           min: 2.5

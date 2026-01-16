@@ -117,7 +117,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       state: icon
-      #state: riot_laser-icon 
+      #state: riot_laser-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       size: Ginormous
@@ -148,7 +148,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       state: icon
-      #state: riot_bullet-icon 
+      #state: riot_bullet-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       size: Ginormous
@@ -157,7 +157,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
 # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -238,6 +238,58 @@
       price: 150
 
 - type: entity
+  name: cardboard shield
+  parent: BaseShield
+  id: CardShield
+  description: A shield made of cardboard. Won't protect you from much.
+  components:
+    - type: Sprite
+      state: cardshield-icon
+    - type: Item
+      heldPrefix: cardshield
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 2
+          Piercing: 0.6
+          Heat: 3
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 1.8
+          Piercing: 0.5
+          Heat: 2.5
+        flatReductions:
+          Blunt: 0.5
+    - type: Construction
+      graph: CardShield
+      node: cardShield
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 10 #Very very weak shield
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound: /Audio/Items/Toys/ToyFall2.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialCardboard:
+              min: 2
+              max: 4
+    - type: StaticPrice
+      price: 20
+
+- type: entity
   name: makeshift shield
   parent: BaseShield
   id: MakeshiftShield
@@ -245,7 +297,7 @@
   components:
 # Begin of Harmony Change: Shield Rework -- Suit Storage Slot
     - type: Sprite
-      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi 
+      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       state: icon
       #state: makeshift-icon
     - type: Item
@@ -256,7 +308,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
   # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -301,6 +353,8 @@
                 SheetSteel:
                   min: 1
                   max: 2
+
+#Starlight Changes End
 
 - type: entity
   name: web shield

@@ -81,7 +81,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// Method of skin coloration used by the species.
     /// </summary>
     [DataField(required: true)]
-    public HumanoidSkinColor SkinColoration { get; private set; }
+    public ProtoId<SkinColorationPrototype> SkinColoration { get; private set; }
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> MaleFirstNames { get; private set; } = "NamesFirstMale";
@@ -108,13 +108,13 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     Characters younger than this appear young.
     /// </summary>
     [DataField]
-    public int YoungAge = 30;
+    public int YoungAge = 40; // DeltaV - up from 30
 
     /// <summary>
     ///     Characters older than this appear old. Characters in between young and old age appear middle aged.
     /// </summary>
     [DataField]
-    public int OldAge = 60;
+    public int OldAge = 70; // DeltaV - up from 60
 
     /// <summary>
     ///     Characters cannot be older than this. Only used for restrictions...

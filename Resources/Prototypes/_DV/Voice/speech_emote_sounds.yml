@@ -15,7 +15,7 @@
     Yawn:
       collection: HarpyYawns
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh
     Crying:
       collection: HarpyCry
     Whistle:
@@ -32,13 +32,13 @@
       collection: HarpyPurrs
     HarpyRing:
       collection: HarpyRings
-    HarpyHonk:
+    Honk:
       collection: HarpyHonks
     HarpyPew:
       collection: HarpyPews
     HarpyBang:
       collection: HarpyBangs
-    HarpyBeep:
+    Beep:
       collection: HarpyBeeps
     HarpyRev:
       collection: HarpyRevs
@@ -50,7 +50,7 @@
       collection: HarpySqueak
     HarpyCaw:
       collection: HarpyCaws
-    HarpySquish:
+    Squish:
       collection: Squishes
     Chirp:
       collection: HarpyChirps
@@ -74,6 +74,178 @@
       collection: HarpyGasp
     DefaultDeathgasp:
       collection: DeathGasp
+
+- type: emoteSounds
+  id: SoundsHarpyMale
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: HarpyScreamsMale
+    Laugh:
+      collection: HarpyLaughMale
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: HarpyCryMale
+    Whistle:
+      collection: Whistles
+    Hiss:
+      collection: HarpyHisses
+    Meow:
+      collection: HarpyMeows
+    Mew:
+      collection: HarpyMews
+    Growl:
+      collection: HarpyGrowls
+    Purr:
+      collection: HarpyPurrs
+    HarpyRing:
+      collection: HarpyRings
+    Honk:
+      collection: HarpyHonks
+    HarpyPew:
+      collection: HarpyPews
+    HarpyBang:
+      collection: HarpyBangs
+    Beep:
+      collection: HarpyBeeps
+    HarpyRev:
+      collection: HarpyRevs
+    Click:
+      collection: HarpyClicks
+    Chitter:
+      collection: HarpyChitter
+    Squeak:
+      collection: HarpySqueak
+    HarpyCaw:
+      collection: HarpyCaws
+    Squish:
+      collection: Squishes
+    Chirp:
+      collection: HarpyChirps
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Awoo:
+      collection: VulpkaninHowls
+    #    Honk:
+    #      collection: BikeHorn
+    Weh:
+      collection: Weh
+    Gnash:
+      collection: FeroxiGnashes
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+    HarpyQuack:
+      collection: HarpyQuacks
+    HarpySquawk:
+      collection: HarpySquawks
+    Moo:
+      collection: Moo
+    Baa:
+      collection: OviniaBaa
+
+- type: emoteSounds
+  id: SoundsHarpyFemale
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: HarpyScreamsFemale
+    Laugh:
+      collection: HarpyLaughFemale
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: HarpyCryFemale
+    Whistle:
+      collection: Whistles
+    Hiss:
+      collection: HarpyHisses
+    Meow:
+      collection: HarpyMeows
+    Mew:
+      collection: HarpyMews
+    Growl:
+      collection: HarpyGrowls
+    Purr:
+      collection: HarpyPurrs
+    HarpyRing:
+      collection: HarpyRings
+    Honk:
+      collection: HarpyHonks
+    HarpyPew:
+      collection: HarpyPews
+    HarpyBang:
+      collection: HarpyBangs
+    Beep:
+      collection: HarpyBeeps
+    HarpyRev:
+      collection: HarpyRevs
+    Click:
+      collection: HarpyClicks
+    Chitter:
+      collection: HarpyChitter
+    Squeak:
+      collection: HarpySqueak
+    HarpyCaw:
+      collection: HarpyCaws
+    Squish:
+      collection: Squishes
+    Chirp:
+      collection: HarpyChirps
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Awoo:
+      collection: VulpkaninHowls
+    #    Honk:
+    #      collection: BikeHorn
+    Weh:
+      collection: Weh
+    Gnash:
+      collection: FeroxiGnashes
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+    HarpyQuack:
+      collection: HarpyQuacks
+    HarpySquawk:
+      collection: HarpySquawks
+    Moo:
+      collection: Moo
+    Baa:
+      collection: OviniaBaa
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -118,6 +290,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -162,6 +336,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: MobDog
@@ -214,6 +390,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: FemaleRodentia
@@ -248,6 +426,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: UnisexChitinid
@@ -282,6 +462,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: MaleFeroxi
@@ -318,6 +500,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: FemaleFeroxi
@@ -354,6 +538,28 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+
+- type: emoteSounds
+  id: FeroxiBodyEmotes
+  sounds:
+    Thump:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Blink:
+      collection: Blinks
 
 - type: emoteSounds
   id: MaleKitsune
@@ -390,6 +596,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: FemaleKitsune
@@ -426,6 +634,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: WhimperletSounds

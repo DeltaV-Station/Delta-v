@@ -6,19 +6,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 4h
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -43,9 +43,9 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    #shoes: ClothingShoesBootsLaceup - DeltaV - Commented out for loadout options
-    eyes: ClothingEyesGlassesSunglasses
-    #gloves: ClothingHandsGlovesCaptain - DeltaV - Commented out for loadout options
+    #shoes: ClothingShoesBootsLaceup # DeltaV - Commented out for loadout options
+    eyes: ClothingEyesGlassesCommand
+    #gloves: ClothingHandsGlovesCaptain # DeltaV - Commented out for loadout options
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
   storage:

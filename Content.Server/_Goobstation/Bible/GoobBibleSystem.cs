@@ -11,7 +11,7 @@ using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Exorcism;
 using Content.Shared._Goobstation.Religion;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
@@ -49,7 +49,6 @@ public sealed partial class GoobBibleSystem : EntitySystem
         if (!TryComp<WeakToHolyComponent>(target, out var weakToHoly)
             || weakToHoly is { AlwaysTakeHoly: false }
             || !HasComp<BibleUserComponent>(performer)
-            || !_timing.IsFirstTimePredicted
             || _delay.IsDelayed(bible)
             || !_netManager.IsServer)
             return false;
@@ -69,7 +68,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
             _popupSystem.PopupPredicted(popup, target, performer, PopupType.LargeCaution);
             _audio.PlayPvs(bibleComp.SizzleSoundPath, target);
             _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible, targetPart: TargetBodyPart.All);
-            _stun.TryParalyze(target, bibleComp.SmiteStunDuration * multiplier, false);
+            _stun.TryAddParalyzeDuration(target, bibleComp.SmiteStunDuration * multiplier);
             _delay.TryResetDelay((bible, useDelay));
         }
         else if (isDevil && HasComp<BibleUserComponent>(performer))

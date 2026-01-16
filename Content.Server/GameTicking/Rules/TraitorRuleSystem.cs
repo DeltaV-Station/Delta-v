@@ -1,19 +1,16 @@
-using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
-using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
-using Content.Shared.Database;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
 using Robust.Shared.Prototypes;
@@ -21,6 +18,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Content.Shared._DV.Tips;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -38,6 +36,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private readonly SharedTipSystem _tips = default!; // DeltaV - Tips
 
     public override void Initialize()
     {
@@ -146,6 +145,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Finished");
+        _tips.ShowTip(traitor, new ProtoId<TipPrototype>("TraitorTip")); // DeltaV - Tips
         return true;
     }
 
@@ -174,11 +174,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
                 return (code, briefing);
             }
+
+            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
         }
         else if (pda is null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+        }
+        else
+        {
+            Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
         }
 
         return (null, briefing);

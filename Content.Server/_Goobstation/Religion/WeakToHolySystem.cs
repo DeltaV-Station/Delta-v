@@ -11,7 +11,8 @@
 using System.Linq;
 using Content.Shared._Goobstation.Religion;
 using Content.Server._Goobstation.Bible;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Physics.Events;

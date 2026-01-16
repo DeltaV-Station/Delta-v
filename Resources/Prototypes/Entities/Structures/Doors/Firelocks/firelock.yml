@@ -5,6 +5,10 @@
   name: firelock
   description: Apply crowbar.
   components:
+    - type: Anchorable
+      flags:
+      - Anchorable
+    - type: Rotatable
     - type: AtmosAlarmable
       syncWith:
         - FireAlarm
@@ -135,6 +139,7 @@
     - type: DoorBolt # DeltaV - Revert fire-fighting door remote removal.
     - type: AccessReader
       access: [ [ "Engineering" ] ]
+      examinationText: access-reader-examination-functionality-restricted
     - type: PryUnpowered
       pryModifier: 0.5
     - type: PointLight

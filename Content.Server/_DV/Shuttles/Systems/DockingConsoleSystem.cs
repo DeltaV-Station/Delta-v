@@ -1,7 +1,6 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Shuttles;
 using Content.Shared._DV.Shuttles.Components;
@@ -18,7 +17,6 @@ namespace Content.Server._DV.Shuttles.Systems;
 public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -132,7 +130,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (_station.GetStationInMap(map) is {} station)
         {
             // prevent picking vgroid and stuff
-            return _station.GetLargestGrid(Comp<StationDataComponent>(station));
+            return _station.GetLargestGrid(station); // May need to get the StationDataComponent if this doesn't work
         }
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();

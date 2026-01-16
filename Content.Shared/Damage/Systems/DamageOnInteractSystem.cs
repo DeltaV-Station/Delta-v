@@ -94,10 +94,10 @@ public sealed class DamageOnInteractSystem : EntitySystem
             };
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart);
+        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart);
         // Shitmed Change End
 
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (totalDamage.AnyPositive())
         {
             // Record this interaction and determine when a user is allowed to interact with this entity again
             entity.Comp.LastInteraction = _gameTiming.CurTime;
@@ -112,7 +112,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
 
             // Attempt to paralyze the user after they have taken damage
             if (_random.Prob(entity.Comp.StunChance))
-                _stun.TryParalyze(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds), true);
+                _stun.TryUpdateParalyzeDuration(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds));
         }
         // Check if the entity's Throw bool is false, or if the entity has the PullableComponent, then if the entity is currently being pulled.
         // BeingPulled must be checked because the entity will be spastically thrown around without this.

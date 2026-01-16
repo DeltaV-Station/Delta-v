@@ -32,9 +32,6 @@
   id: Cutlass
   description: A wickedly curved blade, often seen in the hands of space pirates.
   components:
-  - type: Tag
-    tags:
-    - Machete
   - type: Sprite
     sprite: Objects/Weapons/Melee/cutlass.rsi
   - type: MeleeWeapon
@@ -57,9 +54,6 @@
   id: Machete
   description: A large, vicious looking blade.
   components:
-  - type: Tag
-    tags:
-    - Machete
   - type: Sprite
     sprite: Objects/Weapons/Melee/machete.rsi
   - type: MeleeWeapon
@@ -117,9 +111,6 @@
   id: Katana
   description: Ancient craftwork made with not so ancient plasteel.
   components:
-  - type: Tag
-    tags:
-    - Katana
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/katana.rsi # DeltaV
   - type: MeleeWeapon
@@ -141,6 +132,9 @@
     - Back
     - Belt
   - type: DisarmMalus
+  - type: Tag
+    tags:
+    - Katana
 
 - type: entity
   name: energy katana
@@ -148,6 +142,8 @@
   id: EnergyKatana
   description: A katana infused with strong energy.
   components:
+  - type: Contraband
+    severity: HighlyIllegal
   - type: Sprite
     sprite: Objects/Weapons/Melee/energykatana.rsi
   - type: MeleeWeapon

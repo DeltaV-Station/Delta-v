@@ -33,6 +33,10 @@ namespace Content.Client.Lathe.UI
             };
 
             _menu.OnClaimMiningPoints += () => SendMessage(new LatheClaimMiningPointsMessage()); // DeltaV
+            _menu.QueueDeleteAction += index => SendMessage(new LatheDeleteRequestMessage(index));
+            _menu.QueueMoveUpAction += index => SendMessage(new LatheMoveRequestMessage(index, -1));
+            _menu.QueueMoveDownAction += index => SendMessage(new LatheMoveRequestMessage(index, 1));
+            _menu.DeleteFabricatingAction += () => SendMessage(new LatheAbortFabricationMessage());
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

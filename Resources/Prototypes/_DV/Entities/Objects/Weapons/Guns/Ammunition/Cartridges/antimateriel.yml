@@ -1,0 +1,21 @@
+- type: entity
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  id: CartridgeLMGAntiMateriel
+  name: cartridge (.40 anti-materiel)
+  description: A expensive, heavy cartridge used by special LMGs. Structural-piercing kinetic ammunition is useful for when you don't care about what's between you and your target.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeLMGAntiMateriel
+  - type: CartridgeAmmo
+    proto: BulletLMGAntiMateriel
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

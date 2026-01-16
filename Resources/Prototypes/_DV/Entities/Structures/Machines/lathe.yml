@@ -136,9 +136,6 @@
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
   - type: LatheAnnouncing
     channels: [Supply]
 
@@ -169,6 +166,7 @@
     - LightsStatic
     - ServiceStatic
     - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
+    - SimpleToolsStaticDeltaV
     - SimpleElectronicsStatic
     - EVASuit
     dynamicPacks:

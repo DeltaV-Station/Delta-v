@@ -221,12 +221,15 @@
     enabled: false
     radius: 1.0
     color: orange
+  - type: Tag
+    tags:
+      - EmergencyWelder #Starlight, distinction needed for use in crafting recipies.
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]
   id: RefuelingWelder
-  name: refuling welding tool
-  description: "An slow welder that can refuel itself over time."
+  name: refueling welding tool
+  description: "A slow welder that can refuel itself over time."
   components:
   - type: Tool
     speedModifier: 0.5

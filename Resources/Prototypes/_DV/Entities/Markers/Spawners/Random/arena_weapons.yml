@@ -1,0 +1,57 @@
+- type: entity
+  parent: MarkerBase
+  id: ArenaGladiatorWeaponSpawner
+  name: Gladiator Weapon Spawner
+  suffix: Do Not Map
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/claymore.rsi
+    layers:
+    - state: icon
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: FireAxe
+      - id: Chainsaw
+      - id: CombatKnife
+      - id: Machete
+      - !type:GroupSelector
+        children:
+        - id: Katana
+        - id: Claymore
+        - id: Cutlass
+      - !type:GroupSelector
+        children:
+        - id: Spear
+        - id: SpearReinforced
+          weight: 2
+        - id: SpearPlasma
+        - id: SpearUranium
+        - id: SpearBone
+      #Ranged
+      - !type:GroupSelector
+        children:
+        - id: Bola
+        - id: ThrowingStar
+          amount: !type:RangeNumberSelector
+            range: 5, 10
+        - !type:AllSelector
+          children:
+          - id: BowImprovised
+          - id: ClothingBeltQuiver
+          - !type:GroupSelector
+            rolls: 16
+            children:
+            - id: ArrowRegular
+              prob: 0.8
+            - id: ArrowImprovised
+              prob: 0.9
+            - id: ArrowImprovisedPlasma
+              prob: 0.7
+            - id: ArrowImprovisedUranium
+              prob: 0.6

@@ -2,7 +2,7 @@ using System.Numerics;
 using Content.Server.Bible.Components;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stunnable;
@@ -63,7 +63,7 @@ public sealed class CosmicNovaSystem : EntitySystem
         if (_cosmicCult.EntityIsCultist(args.OtherEntity) || HasComp<BibleUserComponent>(args.OtherEntity) || !HasComp<MobStateComponent>(args.OtherEntity))
             return;
         if (uid.Comp.DoStun)
-            _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2f), false);
+            _stun.TryUpdateParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(2f));
         _damageable.TryChangeDamage(args.OtherEntity, uid.Comp.CosmicNovaDamage); // This'll probably trigger two or three times because of how collision works. I'm not being lazy here, it's a feature (kinda /s)
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.OtherEntity }, Filter.Pvs(args.OtherEntity, entityManager: EntityManager));
     }

@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
@@ -113,7 +113,7 @@ namespace Content.Server.Abilities.Psionics
             //Pretty sure this DOESN'T work as intended.
             _actions.RemoveAction(uid, component.PsionicInvisibilityUsedActionEntity);
 
-            _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+            _stunSystem.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(8));
             DirtyEntity(uid);
         }
 

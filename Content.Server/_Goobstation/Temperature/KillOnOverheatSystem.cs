@@ -1,4 +1,4 @@
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

@@ -16,6 +16,9 @@
     - id: ThavenMoodUpset
     #- id: LockProbers
     - id: PsionicNosebleedEvent
+    - id: MinorMassMindSwap # Delta V
+    - id: GlimmerFoxfireSpawn
+    - id: GlimmerRestyle
 
 - type: entity
   parent: BaseGameRule
@@ -87,6 +90,17 @@
     glimmerBurnLower: 50
     glimmerBurnUpper: 110
   - type: MassMindSwapRule
+
+- type: entity
+  id: MinorMassMindSwap
+  parent: BaseGlimmerEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 750
+    glimmerBurnLower: 40
+    glimmerBurnUpper: 80
+  - type: MinorMassMindSwapRule
+    isTemporary: true
 
 - type: entity
   abstract: true
@@ -185,3 +199,37 @@
   - type: GlimmerEvent
     minimumGlimmer: 350
   - type: PsionicNosebleedRule
+
+- type: entity
+  parent: BaseGlimmerEvent
+  id: GlimmerFoxfireSpawn
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 100
+    maximumGlimmer: 500
+  - type: GlimmerFoxfireSpawnRule
+    randomColorList:
+    - aqua
+    - betterviolet
+    - blue
+    - chartreuse
+    - cyan
+    - deeppink
+    - fuchsia
+    - green
+    - indigo
+    - lime
+    - pink
+    - red
+    - silver
+    - yellow
+
+
+- type: entity
+  id: GlimmerRestyle
+  parent: BaseGlimmerSignaturesEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 300
+    maximumGlimmer: 700
+  - type: GlimmerRestyleRule

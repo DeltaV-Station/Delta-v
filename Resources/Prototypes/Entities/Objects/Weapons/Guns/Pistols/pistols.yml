@@ -16,6 +16,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+    storedOffset: 0,-4
   - type: Tag
     tags:
     - Sidearm
@@ -139,7 +140,6 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: AmmoCounter
 
@@ -209,6 +209,8 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+  - type: Item
+    storedOffset: 0,-2
   - type: Gun
     fireRate: 5
     availableModes:
