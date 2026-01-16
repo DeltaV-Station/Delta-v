@@ -82,7 +82,7 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
 
     protected void ShowPainPopup(Entity<ChronicPainComponent> entity)
     {
-         // Don't notify
+        // Don't notify
         if (IsChronicPainSuppressed((entity.Owner, entity.Comp)))
             return;
 

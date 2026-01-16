@@ -24,7 +24,7 @@ public sealed partial class ChronicPainOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (_player.LocalEntity is not { Valid: true } player)
+        if (_player.LocalEntity is not { Valid: true })
             return false;
 
         return base.BeforeDraw(in args);
