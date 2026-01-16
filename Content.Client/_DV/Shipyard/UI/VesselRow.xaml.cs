@@ -25,7 +25,7 @@ public sealed partial class VesselRow : PanelContainer
         Purchase.OnPressed += _ => OnPurchasePressed?.Invoke();
 
         if (isFree)
-            Purchase.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", 0));
+            Purchase.Text = Loc.GetString("shipyard-console-price-free");
         else
             Purchase.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", vessel.Price));
     }
