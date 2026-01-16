@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: Proxysseia
   changes:
-  - message: dispensations are now tied to your personal access instead of your departments
-      access
-    type: Tweak
-  - message: dispensations now cover items printed by your departments lathe
-    type: Tweak
-  id: 1573
-  time: '2025-08-07T19:58:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4141
-- author: Proxysseia
-  changes:
   - message: Security Hardsuits are no longer insulated
     type: Remove
   id: 1574
@@ -4463,4 +4453,11 @@
   id: 2072
   time: '2026-01-16T18:58:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4430
+- author: Proxysseia
+  changes:
+  - message: Prison Knives no longer spawn in Prison Lockers
+    type: Remove
+  id: 2073
+  time: '2026-01-16T18:59:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4934
 Order: 1
