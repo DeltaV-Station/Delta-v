@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: 'Cosmic cult''s weapons are now created slightly differently: entropic
-      blade can be made from any sword or knife (including shivs), while vacous lances
-      can be created from spears.'
-    type: Tweak
-  - message: Cosmic cultists can now examine an item to see if it can be used for
-      transmutation.
-    type: Tweak
-  - message: Astral razor, a new cult weapon, has been finally added! It works not
-      unlike a crusher, and can be created from one using glyph of blades.
-    type: Add
-  id: 1560
-  time: '2025-08-01T22:14:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4114
 - author: Field Command
   changes:
   - message: 'Shuttles: Changed out traveling cuisines and recruiter shuttles for
@@ -4466,4 +4451,11 @@
   id: 2059
   time: '2026-01-16T17:46:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5203
+- author: mnva0
+  changes:
+  - message: Ovinia now start with a emergency survival box.
+    type: Fix
+  id: 2060
+  time: '2026-01-16T17:55:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5207
 Order: 1
