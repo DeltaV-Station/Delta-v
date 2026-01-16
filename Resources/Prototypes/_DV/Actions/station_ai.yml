@@ -139,8 +139,8 @@
     event: !type:StationAiHealthChangeActionEvent
       damage:
         groups:
-          Burn: -30
-          Brute: -30
+          Burn: -50
+          Brute: -50
 
 - type: entity
   id: ActionStationAiEmergencySealant
