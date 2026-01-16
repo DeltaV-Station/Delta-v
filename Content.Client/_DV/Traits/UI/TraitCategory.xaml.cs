@@ -83,21 +83,24 @@ public sealed partial class TraitCategory : BoxContainer
             .Where(e => e.IsSelected)
             .Sum(e => e.TraitCost);
 
-        var statsText = $"{SelectedCount}";
         if (_category.MaxTraits.HasValue)
         {
-            statsText += $" / {_category.MaxTraits.Value}";
+            CategoryStatsLabel.Text = Loc.GetString("trait-category-traits",
+                ("selected", SelectedCount),
+                ("max", _category.MaxTraits.Value));
         }
-
-        statsText += " " + Loc.GetString("trait-category-traits-suffix");
-
-        CategoryStatsLabel.Text = statsText;
+        else
+        {
+            CategoryStatsLabel.Text = Loc.GetString("trait-category-traits-unlimited",
+                ("selected", SelectedCount));
+        }
 
         if (_category.MaxPoints.HasValue)
         {
             CategoryPointsLabel.Visible = true;
-            CategoryPointsLabel.Text = $"({PointsSpent} / {_category.MaxPoints.Value} " +
-                                        Loc.GetString("trait-category-points-suffix") + ")";
+            CategoryPointsLabel.Text = Loc.GetString("trait-category-points",
+                ("selected", PointsSpent),
+                ("max", _category.MaxPoints.Value));
         }
         else
         {

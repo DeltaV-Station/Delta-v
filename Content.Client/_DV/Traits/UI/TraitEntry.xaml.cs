@@ -63,8 +63,8 @@ public sealed partial class TraitEntry : PanelContainer
 
         if (tooltips.Count > 0)
         {
-            var requirementsHeader = Loc.GetString("trait-conditions-header");
-            var tooltipText = $"{requirementsHeader}\n" + string.Join("\n", tooltips);
+            var tooltipText = Loc.GetString("trait-conditions-tooltip",
+                ("requirements", string.Join("\n", tooltips)));
 
             TooltipSupplier = _ => CreateMarkupTooltip(tooltipText);
         }
@@ -167,8 +167,8 @@ public sealed partial class TraitEntry : PanelContainer
             // Update tooltip to show failed conditions
             if (_failedConditionTooltips.Count > 0)
             {
-                var header = Loc.GetString("trait-conditions-not-met-header");
-                var tooltipText = $"{header}\n" + string.Join("\n", _failedConditionTooltips);
+                var tooltipText = Loc.GetString("trait-conditions-not-met-tooltip",
+                    ("requirements", string.Join("\n", _failedConditionTooltips)));
 
                 TooltipSupplier = _ => CreateMarkupTooltip(tooltipText);
             }
