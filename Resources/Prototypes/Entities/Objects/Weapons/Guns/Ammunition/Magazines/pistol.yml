@@ -45,7 +45,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 20 # Delta-V, 16 -> 20
+    capacity: 20 # Delta-V, was 16
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -461,7 +461,7 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazinePistolHighCapacityUranium 
+  id: MagazinePistolHighCapacityUranium
   name: machine pistol magazine (.35 auto uranium)
   parent: BaseMagazinePistolHighCapacity
   components:

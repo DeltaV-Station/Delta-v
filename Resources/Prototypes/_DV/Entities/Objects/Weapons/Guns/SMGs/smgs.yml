@@ -97,7 +97,7 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolHighCapacity
+          - MagazinePistolHighCapacity
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
@@ -105,7 +105,7 @@
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
   - type: MagazineVisuals
     magState: mag
     steps: 5
