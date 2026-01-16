@@ -21,7 +21,7 @@ public sealed partial class ChronicPainComponent : Component
     public TimeSpan DefaultSuppressionTime = TimeSpan.FromSeconds(30);
 
     /// <summary>
-    /// The default suppression time on map init, so people don't have to eat a pilll right away.
+    /// The default suppression time on map init, so people don't have to eat a pill right away.
     /// </summary>
     [DataField]
     public TimeSpan DefaultSuppressionTimeOnInit = TimeSpan.FromMinutes(5);
@@ -35,7 +35,7 @@ public sealed partial class ChronicPainComponent : Component
     public TimeSpan NextUpdateTime;
 
     /// <summary>
-    /// When to show the next pain effect popup
+    /// When to show the next pain effect popup.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
@@ -43,20 +43,20 @@ public sealed partial class ChronicPainComponent : Component
     public TimeSpan NextPopupTime;
 
     /// <summary>
-    /// The dataset of pain effect messages to display
+    /// The dataset of pain effect messages to display.
     /// </summary>
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> DatasetPrototype = "PainEffects";
 
     /// <summary>
-    /// Minimum time between pain popups in seconds
+    /// Minimum time between pain popups.
     /// </summary>
     [DataField]
-    public float MinimumPopupDelay = 5f;
+    public TimeSpan MinimumPopupDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// Maximum time between pain popups in seconds
+    /// Maximum time between pain popups.
     /// </summary>
     [DataField]
-    public float MaximumPopupDelay = 40f;
+    public TimeSpan MaximumPopupDelay = TimeSpan.FromSeconds(40);
 }
