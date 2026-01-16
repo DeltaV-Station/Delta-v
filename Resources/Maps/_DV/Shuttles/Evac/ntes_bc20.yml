@@ -12940,15 +12940,13 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: WarpPoint
+- proto: WarpPointEvacShuttle
   entities:
   - uid: 2084
     components:
     - type: Transform
       pos: -1.5,-12.5
       parent: 1
-    - type: WarpPoint
-      location: Evac Shuttle
 - proto: WaterTankHighCapacity
   entities:
   - uid: 2040
