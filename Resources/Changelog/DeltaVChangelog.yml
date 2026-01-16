@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Null fragmentation is now instantaneous.
-    type: Tweak
-  id: 1572
-  time: '2025-08-09T13:30:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4102
 - author: Proxysseia
   changes:
   - message: dispensations are now tied to your personal access instead of your departments
@@ -4462,4 +4455,12 @@
   id: 2071
   time: '2026-01-16T18:41:11.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5222
+- author: cmorley191
+  changes:
+  - message: The Oracle will no longer request items that are "very" far away from
+      being researched.
+    type: Tweak
+  id: 2072
+  time: '2026-01-16T18:58:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4430
 Order: 1
