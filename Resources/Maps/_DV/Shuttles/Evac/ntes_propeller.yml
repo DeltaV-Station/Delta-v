@@ -15779,7 +15779,7 @@ entities:
     - type: Transform
       pos: 1.5,-27.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointEvacShuttle
   entities:
   - uid: 968
     components:
@@ -15787,8 +15787,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-5.5
       parent: 1
-    - type: WarpPoint
-      location: Emergency Shuttle
 - proto: WaterCooler
   entities:
   - uid: 763
