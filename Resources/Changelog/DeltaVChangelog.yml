@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: self experimentation is legal again
-    type: Tweak
-  id: 1569
-  time: '2025-08-07T20:12:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4132
 - author: Cepelinas1
   changes:
   - message: You can now engrave rings.
@@ -4460,4 +4453,13 @@
   id: 2068
   time: '2026-01-16T18:29:14.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5169
+- author: cmorley191
+  changes:
+  - message: Harpies are now reliably more sensitive to pollutant gases than other
+      species. For example, 0.4% of CO2 will make harpies start gasping, while humans
+      are okay up to 1.1% CO2
+    type: Add
+  id: 2069
+  time: '2026-01-16T18:32:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5158
 Order: 1
