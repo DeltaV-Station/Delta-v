@@ -99,5 +99,5 @@ public readonly partial record struct SupermatterDelaminationRequirements
     /// The minimum moles of each gas required for this delamination to occur. If null, there is no minimum.
     /// </summary>
     [DataField]
-    public Dictionary<Gas, float>? GasMoles { get; init; }
+    public Dictionary<Gas, float>? GasRatio { get; init; }
 }

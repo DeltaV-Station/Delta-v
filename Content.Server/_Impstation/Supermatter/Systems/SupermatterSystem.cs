@@ -137,7 +137,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
 
     protected override void UpdateSupermatter(Entity<SupermatterComponent> ent, float frameTime)
     {
-        if(ent.Comp.AnnounceNext.HasValue && ent.Comp.AnnounceNext.Value <= Timing.CurTime)
+        if (ent.Comp.AnnounceNext is {} next && Timing.CurTime >= next)
         {
             SetNextAnnouncementTime(ent.AsNullable());
                 
@@ -358,6 +358,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                 SendSupermatterAnnouncement(uid, sm, message, true);
                 break;
             }
+            
             case >= SupermatterStatusType.Warning when isHealing:
             {
                 var message = Loc.GetString("supermatter-healing", ("integrity", integrity));
@@ -370,6 +371,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                 SendSupermatterAnnouncement(uid, sm, message, global);
                 break;
             }
+            
             case >= SupermatterStatusType.Warning when isTakingDamage && !sm.IsDelaminating:
             {
                 // We don't want to send the 0% integrity message, and we only want to emit the warning if the supermatter is taking damage. 
@@ -469,10 +471,10 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         UpdateSpeech(ent);
         UpdateAmbient(ent);
 
-        // We should give the supermatter a chance to announce a few seconds after the status changes.
+        // We should have the supermatter announce itself after its status changes
         // Only do this for less than delaminating status so we don't clobber the ominous countdown.
         if(ent.Comp.Status < SupermatterStatusType.Delaminating)
-            SetNextAnnouncementTime(ent.AsNullable(), TimeSpan.FromSeconds(5));
+            SetNextAnnouncementTime(ent.AsNullable(), TimeSpan.FromSeconds(1));
     }
 
     /// <summary>
@@ -492,7 +494,44 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
         _radio.SendRadioMessage(uid, message, channel, uid);
     }
+    
+    private void SetNextAnnouncementTime(Entity<SupermatterComponent?> entity, TimeSpan delay)
+    {
+        if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
+            return;
+        
+        entity.Comp.AnnounceNext = Timing.CurTime + delay ;
+        DirtyField(entity, entity.Comp, nameof(SupermatterComponent.AnnounceNext));
+    }
 
+    private void SetNextAnnouncementTime(Entity<SupermatterComponent?> entity)
+    {
+        if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
+            return;
+        
+        entity.Comp.AnnounceNext = Timing.CurTime + GetAnnouncementDelay(entity);
+        DirtyField(entity, entity.Comp, nameof(SupermatterComponent.AnnounceNext));
+    }
+
+    private TimeSpan GetAnnouncementDelay(Entity<SupermatterComponent?> entity)
+    {
+        if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
+            return TimeSpan.Zero;
+
+        if (entity.Comp.DelaminationTime is not { } delamTime)
+            return entity.Comp.AnnounceInterval;
+        
+        var secondsRemaining = delamTime.TotalSeconds - Timing.CurTime.TotalSeconds;
+            
+        return secondsRemaining switch
+        {
+            > 30 => TimeSpan.FromSeconds(10),
+            > 5 => TimeSpan.FromSeconds(5),
+            <= 5 => TimeSpan.FromSeconds(1),
+            _ => entity.Comp.AnnounceInterval
+        };
+    }
+    
     /// <summary>
     /// Checks the supermatter's status and updates it accordingly, then raises a status changed event if it has changed.
     /// </summary>
@@ -540,16 +579,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         if (!LinkQuery.HasComp(ent))
             return;
         
-        var port = ent.Comp.Status switch
-        {
-            SupermatterStatusType.Normal => ent.Comp.PortNormal,
-            SupermatterStatusType.Caution => ent.Comp.PortCaution,
-            SupermatterStatusType.Warning => ent.Comp.PortWarning,
-            SupermatterStatusType.Danger => ent.Comp.PortDanger,
-            SupermatterStatusType.Emergency => ent.Comp.PortEmergency,
-            SupermatterStatusType.Delaminating => ent.Comp.PortDelaminating,
-            _ => ent.Comp.PortInactive
-        };
+        if (!ent.Comp.SignalPorts.TryGetValue(ent.Comp.Status, out var port))
+            return;
 
         Link.InvokePort(ent, port);
     }

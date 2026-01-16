@@ -1,4 +1,5 @@
-﻿using Content.Shared._DV.Vision.Components;
+﻿using System.Linq;
+using Content.Shared._DV.Vision.Components;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.Supermatter.Prototypes;
@@ -152,77 +153,54 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
 
     protected bool CheckDelaminationRequirements(Entity<SupermatterComponent> ent, SupermatterDelaminationRequirements req) 
     {
-        if (req.MinPower.HasValue && ent.Comp.Power < req.MinPower.Value)
+        if (req.MinPower is {} minPower && ent.Comp.Power < minPower)
+            return false;
+        
+        if (req.MaxPower is {} maxPower && ent.Comp.Power > maxPower)
             return false;
 
-        if (req.MaxPower.HasValue && ent.Comp.Power > req.MaxPower.Value)
+        if (req.MinGlimmer is {} minGlimmer && Glimmer.Glimmer < minGlimmer)
             return false;
 
-        if (req.MinGlimmer.HasValue && Glimmer.Glimmer < req.MinGlimmer.Value)
-            return false;
-
-        if (req.MaxGlimmer.HasValue && Glimmer.Glimmer > req.MaxGlimmer.Value)
+        if (req.MaxGlimmer is {} maxGlimmer && Glimmer.Glimmer > maxGlimmer)
             return false;
 
         var absorbedMoles = ent.Comp.GasStorage?.TotalMoles ?? 0;
 
-        if (req.MinMoles.HasValue && absorbedMoles < req.MinMoles.Value)
+        if (req.MinMoles is {} minMoles && absorbedMoles < minMoles)
             return false;
 
-        if (req.MaxMoles.HasValue && absorbedMoles > req.MaxMoles.Value)
+        if (req.MaxMoles is {} maxMoles && absorbedMoles > maxMoles)
             return false;
 
-        if (req.GasMoles != null && req.GasMoles.Count > 0)
+        if (req.GasRatio is { Count: > 0 })
         {
-            if (ent.Comp.GasStorage == null)
+            if (ent.Comp.GasStorage is null)
                 return false;
 
-            foreach (var (gas, minMoles) in req.GasMoles)
+            var ratio = GetGasRatio(ent.Comp.GasStorage);
+
+            foreach (var (gas, minRatio) in req.GasRatio)
             {
-                if (ent.Comp.GasStorage.GetMoles(gas) < minMoles)
+                if (ratio[gas] < minRatio)
                     return false;
             }
         }
         
         return true;
     }
-
-    protected TimeSpan GetAnnouncementDelay(Entity<SupermatterComponent?> entity)
+    
+    protected Dictionary<Gas, float> GetGasRatio(GasMixture? mix)
     {
-        if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
-            return TimeSpan.Zero;
+        if (mix is null)
+            return new();
 
-        if (entity.Comp.DelaminationTime is not { } delamTime)
-            return entity.Comp.AnnounceInterval;
+        var totalMoles = mix.TotalMoles;
         
-        var secondsRemaining = delamTime.TotalSeconds - Timing.CurTime.TotalSeconds;
-            
-        return secondsRemaining switch
-        {
-            > 30 => TimeSpan.FromSeconds(10),
-            > 5 => TimeSpan.FromSeconds(5),
-            <= 5 => TimeSpan.FromSeconds(1),
-            _ => entity.Comp.AnnounceInterval
-        };
-
-    }
-
-    protected void SetNextAnnouncementTime(Entity<SupermatterComponent?> entity, TimeSpan delay)
-    {
-        if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
-            return;
-        
-        entity.Comp.AnnounceNext = Timing.CurTime + delay ;
-        DirtyField(entity, entity.Comp, nameof(SupermatterComponent.AnnounceNext));
-    }
-
-    protected void SetNextAnnouncementTime(Entity<SupermatterComponent?> entity)
-    {
-        if (!SupermatterQuery.Resolve(entity, ref entity.Comp))
-            return;
-        
-        entity.Comp.AnnounceNext = Timing.CurTime + GetAnnouncementDelay(entity);
-        DirtyField(entity, entity.Comp, nameof(SupermatterComponent.AnnounceNext));
+        return mix.ToDictionary(
+            pair => pair.gas,
+            pair => Math.Clamp(pair.moles / totalMoles, 0f, 1f)
+        );
     }
 
     private void OnExamine(EntityUid uid, SupermatterComponent sm, ref ExaminedEvent args)
@@ -237,8 +215,8 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         Ambient.SetAmbience(uid, true);
 
         // Invoke the inactive port on map init for any pre-mapped setups.
-        if (LinkQuery.HasComp(uid))
-            Link.InvokePort(uid, sm.PortInactive);
+        if (LinkQuery.HasComp(uid) && sm.SignalPorts.TryGetValue(SupermatterStatusType.Inactive, out var port))
+            Link.InvokePort(uid, port);
     }
 
     /// <summary>

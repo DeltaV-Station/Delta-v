@@ -39,7 +39,7 @@
 
 - type: supermatterDelamination
   parent: BaseSupermatterDelamination
-  id: GlimmerSupermatterDelamination
+  id: GlimmerSupermatterDelamination # This is just here for an example of a custom "new" delamination
   message: supermatter-delam-glimmer
   requirements:
     minGlimmer: 800
@@ -58,5 +58,9 @@
 
 - type: supermatterDelamination
   parent: BaseSupermatterDelamination
-  id: CascadeSupermatterDelamination
+  id: CascadeSupermatterDelamination # Resonance Cascade WYCI
   message: supermatter-delam-cascade
+  requirements:
+    gasRatio: # these are only here as an example for a gas ratio requirement
+      Tritium: 0.40
+      Frezon: 0.40

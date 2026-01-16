@@ -61,6 +61,8 @@ public sealed partial class SupermatterSystem
         var gasEfficiency = GetGasEfficiency(ent.AsNullable());
 
         ent.Comp.GasStorage = mix.RemoveRatio(gasEfficiency); // Delta-V - Use RemoveRatio instead of Remove.
+        // Delta-V - Use RemoveRatio instead of Remove.
+        ent.Comp.GasStorage = mix.RemoveRatio(gasEfficiency);
         
         // TotalMoles actually does a horizontal add so we can just store that value instead of recalculating it 5+ times
         var absorbedMoles = ent.Comp.GasStorage.TotalMoles;
@@ -77,10 +79,7 @@ public sealed partial class SupermatterSystem
         if (absorbedMoles < Atmospherics.GasMinMoles)
             return;
 
-        var gasComposition = ent.Comp.GasStorage.ToDictionary(
-            pair => pair.gas,
-            pair => Math.Clamp(pair.moles / absorbedMoles, 0f, 1f)
-        );
+        var gasComposition = GetGasRatio(ent.Comp.GasStorage);
 
         // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
         var powerRatio = Math.Clamp(SupermatterGasData.GetPowerMixRatios(gasComposition), 0.0f, 1.0f);

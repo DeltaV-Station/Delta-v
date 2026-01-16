@@ -122,7 +122,7 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     /// <remarks>Waste gasses are added to the evaluated gas mixture, and the new mixture is released after processing.</remarks>
     [DataField]
-    public float GasEfficiency = 0.05f;
+    public float GasEfficiency = 0.15f;
 
     /// <summary>
     /// The proportion of the absorbed gas to void. The gas is voided from the tile mixture rather than the gas storage
@@ -133,7 +133,7 @@ public sealed partial class SupermatterComponent : Component
     /// being removed a second time during the damage step, and was never re-added.
     /// </remarks>
     [DataField]
-    public float GasVoidProportion;
+    public float GasVoidProportion = 1.0f;
 
     /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions
@@ -400,30 +400,21 @@ public sealed partial class SupermatterComponent : Component
 
     #endregion
 
-    #region Signal Ports
-
+    /// <summary>
+    /// Mapping used with <see cref="Status"/> to determine which device linking port to invoke.
+    /// </summary>
     [DataField]
-    public ProtoId<SourcePortPrototype> PortInactive = "SupermatterInactive";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortNormal = "SupermatterNormal";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortCaution = "SupermatterCaution";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortWarning = "SupermatterWarning";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortDanger = "SupermatterDanger";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortEmergency = "SupermatterEmergency";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortDelaminating = "SupermatterDelaminating";
-
-    #endregion
+    public Dictionary<SupermatterStatusType, ProtoId<SourcePortPrototype>> SignalPorts = new()
+    {
+        { SupermatterStatusType.Error, "SupermatterInactive" },
+        { SupermatterStatusType.Inactive, "SupermatterInactive" },
+        { SupermatterStatusType.Normal, "SupermatterNormal" },
+        { SupermatterStatusType.Caution, "SupermatterCaution" },
+        { SupermatterStatusType.Warning, "SupermatterWarning" },
+        { SupermatterStatusType.Danger, "SupermatterDanger" },
+        { SupermatterStatusType.Emergency, "SupermatterEmergency" },
+        { SupermatterStatusType.Delaminating, "SupermatterDelaminating" }
+    };
 
     #region Console-Only Values
 
