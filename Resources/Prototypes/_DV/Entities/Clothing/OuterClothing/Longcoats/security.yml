@@ -19,13 +19,6 @@
     sprite: _Floof/Clothing/OuterClothing/Longcoats/security.rsi
   - type: Clothing
     sprite: _Floof/Clothing/OuterClothing/Longcoats/security.rsi
-  - type: Armor # Same as ClothingOuterWinterSec. Can't just parent because of ClothingOuterWinterCoatToggleable.
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
 
 - type: entity
   parent: [ClothingOuterCoatStasecCorpsman, BaseSecurityContraband]
