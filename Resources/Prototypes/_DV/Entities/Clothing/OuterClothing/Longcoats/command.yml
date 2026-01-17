@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterArmorCaptainCarapace, ClothingOuterWinterCoat, BaseCommandContraband]
+  parent: [ClothingOuterArmorCaptainCarapace, BaseCommandContraband]
   id: ClothingLongcoatCaptain
   name: captain's armored longcoat
   description: A navy blue double-breasted longcoat with gold embelleshments, specifically designed for the captain. It's been reinforced with a special alloy for some added protection.
@@ -8,6 +8,9 @@
     sprite: _DV/Clothing/OuterClothing/Longcoats/captain.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Longcoats/captain.rsi
+  - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
 
 - type: entity
   parent: [ClothingOuterWinterCoat, BaseCommandContraband]
