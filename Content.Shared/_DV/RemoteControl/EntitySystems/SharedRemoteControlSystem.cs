@@ -66,6 +66,15 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             !TryComp<RemoteControlReceiverComponent>(entity, out var receiverComponent))
             return;
 
+        if (receiverComponent.BoundControl is { } existingControl)
+        {
+            if (existingControl == control.Owner)
+                return; // We're already bound to this control
+
+            if (!UnbindEntity((existingControl, null), entity))
+                return; // Remove this entity from the existing controls' bound entities
+        }
+
         if (!control.Comp.AllowMultiple && control.Comp.BoundEntities.Count > 0)
         {
             foreach (var boundEntity in control.Comp.BoundEntities.ToList())
