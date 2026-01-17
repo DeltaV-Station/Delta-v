@@ -1561,7 +1561,7 @@ accent-anglish-replacement-519 = manhue
 accent-anglish-words-520 = announce
 accent-anglish-replacement-520 = forthspell
 
-accent-anglish-words-521 = annoncement
+accent-anglish-words-521 = announcement
 accent-anglish-replacement-521 = oncouthing
 
 accent-anglish-words-522 = chamber
@@ -3423,3 +3423,6 @@ accent-anglish-replacement-1143 = rotherkin
 
 accent-anglish-words-1144 = avali
 accent-anglish-replacement-1144 = gleedkin
+
+accent-anglish-words-1145 = state
+accent-anglish-replacement-1145 = put forth
