@@ -16,7 +16,6 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
 
     private const string IDCardContainerName = "subdermalIdCard";
-    private const string ImplantContainerName = "implant";
 
     public override void Initialize()
     {
@@ -33,7 +32,7 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
     /// <param name="args">Args for the event, notably the container the implant was inserted into.</param>
     private void OnImplantInserted(Entity<SubdermalIdCardComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != ImplantContainerName)
+        if (args.Container.ID != ImplanterComponent.ImplantSlotId)
             return; // We weren't inserted into an implant container on the entity, do nothing.
 
         if (!TryComp<SubdermalImplantComponent>(ent, out var subdermalComponent) ||
