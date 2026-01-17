@@ -21,4 +21,9 @@ public sealed partial class SubdermalIdCardComponent : Component
     /// </summary>
     [DataField]
     public bool UpdateName = true;
+
+    /// <summary>
+    /// Name for the container, inside the subdermal implant, where the ID card will be spawned.
+    /// </summary>
+    public const string IDCardContainerName = "subdermalIdCard";
 };

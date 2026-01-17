@@ -15,8 +15,6 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
 
-    private const string IDCardContainerName = "subdermalIdCard";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -39,7 +37,7 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
             !subdermalComponent.ImplantedEntity.HasValue)
             return; // We require a subdermal implant inside an entity.
 
-        if (!_container.TryGetContainer(ent, IDCardContainerName, out var container))
+        if (!_container.TryGetContainer(ent, SubdermalIdCardComponent.IDCardContainerName, out var container))
             return; // No valid container for the IDCard to be stored in.
 
         var idCard = Spawn(ent.Comp.IdCardProto);
