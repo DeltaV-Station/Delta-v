@@ -36,8 +36,8 @@ public sealed partial class RemoteControlReceiverComponent : Component
     public Dictionary<RemoteControlOrderType, LocId> OrderStrings = new();
 
     /// <summary>
-    /// Controller that can send orders to this entity.
+    /// Control that a holder can use to send orders to this entity.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? BoundController = null;
+    public EntityUid? BoundControl = null;
 }

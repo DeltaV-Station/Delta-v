@@ -153,7 +153,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             return;
         }
 
-        if (receiver.Comp.BoundController != args.Control)
+        if (receiver.Comp.BoundControl != args.Control)
             return; // This isn't the control we think we're bound to
 
         if (!args.BoundEntities.Contains(receiver.Owner))

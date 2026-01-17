@@ -78,7 +78,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         if (!control.Comp.BoundEntities.Contains(entity))
         {
             control.Comp.BoundEntities.Add(entity);
-            receiverComponent.BoundController = control;
+            receiverComponent.BoundControl = control;
         }
     }
 
@@ -94,13 +94,13 @@ public abstract class SharedRemoteControlSystem : EntitySystem
             !TryComp<RemoteControlReceiverComponent>(entity, out var receiverComponent))
             return false;
 
-        if (receiverComponent.BoundController != control)
+        if (receiverComponent.BoundControl != control)
             return false; // This entity is not bound to this controller
 
         if (!control.Comp.BoundEntities.Remove(entity))
             return false;
 
-        receiverComponent.BoundController = null;
+        receiverComponent.BoundControl = null;
 
         SetUnitFree((entity, receiverComponent));
 
