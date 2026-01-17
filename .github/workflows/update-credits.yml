@@ -61,7 +61,7 @@ jobs:
           GH_TOKEN: ${{secrets.CREDITS_TOKEN}}
         run: |
           gh pr merge ${{ steps.cpr.outputs.pull-request-number }} \
-            --merge \
+            --squash \
             --admin \
             --delete-branch \
             --repo ${{ github.repository }}
