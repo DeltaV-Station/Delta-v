@@ -1,0 +1,23 @@
+- type: thiefBackpackSet
+  id: EnergyMagnumBundle
+  name: energy-magnum-bundle-name
+  description: energy-magnum-bundle-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    state: icon
+  content:
+  - WeaponEnergyMagnum
+  - ClothingShoesBootsCowboyBlack
+  - ClothingBeltHolster
+
+- type: thiefBackpackSet
+  id: X01bundle
+  name: x01-bundle-name
+  description: x01-bundle-description
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    state: icon
+  content:
+  - WeaponEnergyGunMultiphase
+  - SyndicateWhistle
+  - BookSpaceLaw

@@ -101,6 +101,18 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables all tips for a player.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTips =
+        CVarDef.Create("game.disable_tips", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Disables all tips for ALL PLAYERS.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTipsGlobal =
+        CVarDef.Create("game.disable_tips_global", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
@@ -111,27 +123,6 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> YearOffset =
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
-
-    /*
-     * Footprints
-     */
-
-    /// <summary>
-    /// Maximum number of footprints allowed per tile.
-    /// Won't allow for new footprints to spawn on the tile once reached.
-    /// Set to 0 to disable per-tile limiting.
-    /// </summary>
-    public static readonly CVarDef<int> MaxFootPrintsPerTile =
-        CVarDef.Create("footprints.max_per_tile", 2, CVar.REPLICATED);
-
-    /// <summary>
-    /// Maximum total number of footprints allowed on a single grid.
-    /// When this limit is reached, the oldest footprint on the grid will be deleted.
-    /// Set to 0 to disable global limiting.
-    /// </summary>
-    public static readonly CVarDef<int> MaxFootPrintsPerGrid =
-        CVarDef.Create("footprints.max_per_grid", 1000, CVar.REPLICATED);
-
 
     /*
      * Feedback webhook
@@ -216,15 +207,6 @@ public sealed partial class DCCVars
             "#17FFC1FF",
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "The color in which the highlights will be displayed.");
-
-    /* Laying down combat */
-
-    /// <summary>
-    /// Modifier to apply to all melee attacks when laying down.
-    /// Don't increase this above 1...
-    /// </summary>
-    public static readonly CVarDef<float> LayingDownMeleeMod =
-        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
 
     /// <summary>
     ///    Maximum number of characters in objective summaries.

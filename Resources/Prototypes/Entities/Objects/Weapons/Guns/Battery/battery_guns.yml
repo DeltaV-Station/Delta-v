@@ -663,7 +663,8 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.2 # DeltaV - No taser spam, was 0.5
+    resetOnHandSelected: false # DeltaV - Makes it so you dont have to wait 10 seconds to shoot a taser after pulling it out
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
@@ -676,6 +677,10 @@
     zeroVisible: true
   - type: Appearance
   - type: PacifismAllowedGun
+  - type: UseDelayOnShoot # DeltaV - No taser spam (provides a cooldown indicator)
+  - type: UseDelay # DeltaV - No taser spam (provides a cooldown indicator)
+    delay: 5
+    
 
 - type: entity
   name: elite taser
@@ -939,7 +944,7 @@
     - HighRiskItem
     - Sidearm
   - type: StealTarget
-    stealGroup: WeaponEnergyMagnum
+    stealGroup: HoSSidearm # Delta V - to work along side the X-01
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -950,7 +955,7 @@
     fireModes:
     - proto: BulletLaserMagnum
       fireCost: 150
-    - proto: BulletLaserWindowPiercingMagnum
+    - proto: BulletEnergyGunLaser #Delta V - Energy guns pierce by default
       fireCost: 150
     - proto: BulletDisabler
       fireCost: 62.5

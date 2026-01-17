@@ -108,7 +108,7 @@ public sealed class DockTest : ContentUnitTest
         {
             mapGrid = entManager.AddComponent<MapGridComponent>(map.MapUid);
             entManager.DeleteEntity(map.Grid);
-            var path = new ResPath("/Maps/Shuttles/emergency.yml");
+            var path = new ResPath("/Maps/_DV/Shuttles/Evac/ntes_dart.yml"); // DeltaV - Made evac DV specific, Was: /Maps/Shuttles/emergency.yml
             Assert.That(entManager.System<MapLoaderSystem>().TryLoadGrid(otherMap.MapId, path, out var grid));
             shuttle = grid!.Value.Owner;
 

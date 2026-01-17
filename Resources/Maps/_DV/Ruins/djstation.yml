@@ -2711,15 +2711,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-9.5
       parent: 2
-- proto: WarpPoint
+- proto: WarpPointRuin
   entities:
   - uid: 342
     components:
     - type: Transform
       pos: -0.5,-5.5
       parent: 2
-    - type: WarpPoint
-      location: Space Ruin
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 296
