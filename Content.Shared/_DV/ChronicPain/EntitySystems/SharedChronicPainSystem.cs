@@ -97,8 +97,8 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
         Popup.PopupPredicted(Loc.GetString(effect), entity, entity);
 
         // Set next popup time
-        var delay = RobustRandom.Next(entity.Comp.MinimumPopupDelay.Seconds, entity.Comp.MaximumPopupDelay.Seconds);
-        entity.Comp.NextPopupTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
+        var delay = RobustRandom.Next(entity.Comp.MinimumPopupDelay, entity.Comp.MaximumPopupDelay);
+        entity.Comp.NextPopupTime = _timing.CurTime + delay;
     }
 
     public override void Update(float frameTime)
