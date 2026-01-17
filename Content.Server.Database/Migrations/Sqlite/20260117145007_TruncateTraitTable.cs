@@ -2,21 +2,24 @@
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations.Postgres
+namespace Content.Server.Database.Migrations.Sqlite
 {
     /// <inheritdoc />
-    public partial class TrunanceTraitTable : Migration
+    public partial class TruncateTraitTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("TRUNCATE TABLE trait RESTART IDENTITY;");
+            migrationBuilder.Sql(@"
+                DELETE FROM trait;
+                DELETE FROM sqlite_sequence WHERE name='trait';
+            ");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            // Not like truncate operations can be reversed
+            // Cannot reverse
         }
     }
 }
