@@ -18,11 +18,9 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
-using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.Physics;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -45,8 +43,6 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
-
-    private ProtoId<TagPrototype> _grappleTargetId = "GrappleTarget";
 
     public override void Initialize()
     {
