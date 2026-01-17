@@ -23,5 +23,26 @@ public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> ordered
         return session != null;
     }
 
+    // DeltaV - Add function
+    public bool TryPickAndTakeConditional(IRobustRandom random, [NotNullWhen(true)] out ICommonSession? session, Func<ICommonSession, bool> condition)
+    {
+        session = null;
+
+        foreach (var pool in orderedPools)
+        {
+            if (pool.Count == 0)
+                continue;
+
+            var filtered = pool.Where(condition).ToList();
+            if (filtered.Count == 0)
+                continue;
+
+            session = random.PickAndTake(filtered);
+            break;
+        }
+
+        return session != null;
+    }
+
     public int Count => orderedPools.Sum(p => p.Count);
 }

@@ -12,15 +12,23 @@
   id: Conspirators
   components:
   - type: GameRule
-    minPlayers: 28 # minimum of 4 conspirators
+    # DeltaV - minPlayers now set on Preset
+    # minPlayers: 28 # minimum of 4 conspirators
+    delay: # DeltaV - add delay
+      min: 60
+      max: 120
   - type: ConspiratorRule
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
+    selectionTime: PostPlayerSpawn # DeltaV - previously IntraPlayerSpawn
     definitions:
     - prefRoles: [ Conspirator ]
       min: 4
       max: 7
       playerRatio: 7
+      departmentDistribution: true # DeltaV - previously unset
+      blacklist: # DeltaV - Blacklist AntagImmune
+        components:
+        - AntagImmune
       briefing:
         text: conspirator-role-greeting
         color: "#724F29"

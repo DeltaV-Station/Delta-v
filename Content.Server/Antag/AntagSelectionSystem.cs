@@ -286,12 +286,27 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             picking = false;
         }
 
+        ProtoId<DepartmentPrototype>? lastDepartment = null; // DeltaV
         for (var i = 0; i < count; i++)
         {
             var session = (ICommonSession?)null;
             if (picking)
             {
-                if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
+                // DeltaV - Added DepartmentDistribution
+                if (def.DepartmentDistribution)
+                {
+                    if (playerPool.TryPickAndTakeConditional(RobustRandom,
+                            out session,
+                            sess => lastDepartment == null || GetDepartment(sess) != lastDepartment))
+                    {
+                        lastDepartment = GetDepartment(session);
+                    }
+                    else
+                    {
+                        Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule} using department distribution, falling back to regular behavior.");
+                    }
+                }
+                if (session == null && !playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner) // DeltaV - Added session null-check for fallback to regular behavior.
                 {
                     Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule}, no longer choosing antags for this definition");
                     break;
@@ -316,6 +331,22 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
     }
+
+    // DeltaV - Add method
+    private ProtoId<DepartmentPrototype>? GetDepartment(ICommonSession session)
+    {
+        if (!_mind.TryGetMind(session, out var mindId, out _))
+            return null;
+
+        if (!_jobs.MindTryGetJob(mindId, out var job))
+            return null;
+
+        if (!_jobs.TryGetPrimaryDepartment(job.ID, out var department))
+            return null;
+
+        return department;
+    }
+
 
     /// <summary>
     /// Assigns antag roles to sessions selected for it.

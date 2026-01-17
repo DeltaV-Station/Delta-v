@@ -6,6 +6,7 @@
   name: conspiracy-title
   description: conspiracy-description
   showInVote: false # secret
+  minPlayers: 28 # DeltaV - Added attribute to preset since selection method changed
   rules:
   - Conspirators
   - ThiefChance
