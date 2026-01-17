@@ -215,13 +215,13 @@ public sealed class AccessReaderSystem : EntitySystem
         if (!IsAllowed(access, stationKeys, target, reader))
             return false;
 
-        if (!_tag.HasTag(user, PreventAccessLoggingTag))
-            LogAccess((target, reader), user);
-
         // Begin DeltaV Additions - Mind only access
         if (HasComp<MindOnlyAccessComponent>(user) && !_mindSystem.TryGetMind(user, out _, out _))
             return false;
         // End DeltaV Additions - Mind only access
+
+        if (!_tag.HasTag(user, PreventAccessLoggingTag))
+            LogAccess((target, reader), user);
 
         return true;
     }
