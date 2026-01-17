@@ -1,6 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Shared._DV.Access.Components;
 using Content.Shared._DV.Access.Systems;
+using Content.Shared._DV.NanoChat;
 using Content.Shared.Implants.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
@@ -14,6 +15,7 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
 {
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
+    [Dependency] private readonly SharedNanoChatSystem _nanochat = default!;
 
     public override void Initialize()
     {
@@ -48,6 +50,9 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
             QueueDel(idCard);
             return;
         }
+
+        // Ensure subdermal IDCards do not get listed as nanochat targets
+        _nanochat.SetListNumber(idCard, false);
 
         if (ent.Comp.UpdateName)
         {
