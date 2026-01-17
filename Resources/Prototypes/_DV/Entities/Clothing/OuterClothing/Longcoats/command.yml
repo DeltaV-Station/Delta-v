@@ -1,6 +1,6 @@
 - type: entity
   parent: [ClothingOuterArmorCaptainCarapace, BaseCommandContraband]
-  id: ClothingLongcoatCaptain
+  id: ClothingLongcoatCaptainArmored
   name: captain's armored longcoat
   description: A navy blue double-breasted longcoat with gold embelleshments, specifically designed for the captain. It's been reinforced with a special alloy for some added protection.
   components:
@@ -94,7 +94,7 @@
 
 - type: entity
   parent: [ClothingOuterArmorBaseCarapace, ClothingOuterWinterCoat, BaseCentcommContraband]
-  id: ClothingLongcoatCentComm
+  id: ClothingLongcoatCentCommArmored
   categories: [ DoNotMap ]
   name: central command armored longcoat
   description: A royal green double-breasted longcoat with gold embellishments, specifically designed for a central command agent. Longcoats are fairly robust, offering some protection from the elements. It's been reinforced with a special alloy for some added protection.
