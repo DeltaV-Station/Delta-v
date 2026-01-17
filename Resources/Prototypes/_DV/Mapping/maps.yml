@@ -5,8 +5,15 @@
   map: /Maps/_DV/centcomm.yml
   allowed:
   - Centcomm
-  - Stamps # no CC official locker to put the btamp in
+  - Stamps # no CC official locker to put the stamp in
 
+- type: mapCategories
+  id: Midpoint
+  map: /Maps/_DV/midpoint.yml
+  allowed:
+  - Centcomm
+  - Stamps # no CC official locker to put the stamp in
+  
 # Stations
 
 - type: mapCategories
