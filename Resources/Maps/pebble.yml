@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/08/2026 12:48:23
-  entityCount: 27895
+  time: 01/17/2026 02:12:08
+  entityCount: 27896
 maps:
 - 1
 grids:
@@ -136137,6 +136137,13 @@ entities:
     components:
     - type: Transform
       pos: -24.347538,-8.3466425
+      parent: 2
+- proto: PhoneInstrument
+  entities:
+  - uid: 27896
+    components:
+    - type: Transform
+      pos: -6.166363,-22.410946
       parent: 2
 - proto: PianoInstrument
   entities:
