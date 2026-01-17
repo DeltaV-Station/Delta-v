@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._DV.Access.Systems; // DeltaV - Subdermal ID Cards
 using Content.Server.Administration.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
@@ -58,6 +59,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!; // Imp
+    [Dependency] private readonly SubdermalIdCardSystem _subdermalId = default!; // DeltaV - Subdermal ID Cards
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
@@ -867,6 +869,11 @@ public sealed partial class AdminVerbSystem
                 }
             }
         }
+
+        // Begin DeltaV Additions - Subdermal ID chips
+        if (_subdermalId.TryGetIdCard(target, out var idEntity))
+            return idEntity;
+        // End DeltaV Additions - Subdermal ID chips
 
         return null;
     }
