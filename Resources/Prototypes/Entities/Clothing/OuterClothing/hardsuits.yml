@@ -354,16 +354,14 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
-    modifiers: #DeltaV
+    modifiers:
       coefficients:
-        Blunt: 0.5 # was 0.8
-        Slash: 0.5 # was 0.8
-        Piercing: 0.5 # was 0.6
-        Heat: 0.4 # was 0.5
-        Radiation: 0.4 # was 0.5
-        Caustic: 0.5 # was 0.6
-        Holy: 0.80 # DeltaV
-        Shadow: 0.80 #DeltaV
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.6
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.6
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -372,8 +370,8 @@
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 #DeltaV (was 0.8)
-    sprintModifier: 0.9 #DeltaV (was 0.8)
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
