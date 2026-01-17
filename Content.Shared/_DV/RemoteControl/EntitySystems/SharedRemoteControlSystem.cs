@@ -68,11 +68,14 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         if (!control.Comp.AllowMultiple && control.Comp.BoundEntities.Count > 0)
         {
-            while (control.Comp.BoundEntities.Count > 0)
+            foreach (var boundEntity in control.Comp.BoundEntities.ToList())
             {
-                if (!UnbindEntity(control, control.Comp.BoundEntities.First()))
-                    break;
+                if (!UnbindEntity(control, boundEntity))
+                    Log.Warning($"Unable to unbind [{boundEntity}] from [{control.Owner}]");
             }
+
+            if (control.Comp.BoundEntities.Count > 0)
+                return; // Failed to unbind, don't bother trying to bind something new
         }
 
         if (!control.Comp.BoundEntities.Contains(entity))
