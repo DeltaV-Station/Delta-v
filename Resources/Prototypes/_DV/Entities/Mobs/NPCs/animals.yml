@@ -188,6 +188,12 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
+  - type: Grappler
+    handDisabling: SingleActive
+    grapplingPart: grapple-part-jaws
+    proneOnGrapple: true # Make sure Secdogs aren't shot by sprays
+    grappleSound:
+      collection: VulpkaninGrowls
 
 - type: entity
   parent: MobMouse
