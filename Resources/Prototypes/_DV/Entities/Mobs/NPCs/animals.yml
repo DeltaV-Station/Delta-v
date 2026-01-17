@@ -68,10 +68,10 @@
 
 - type: entity
   parent: SimpleMobBase
+  abstract: true
   id: MobSecDogBase
   name: security dog
   description: Funnily enough, this pig is actually a dog.
-  categories: [ HideSpawnMenu ]
   components:
   - type: GhostRole
     makeSentient: true
