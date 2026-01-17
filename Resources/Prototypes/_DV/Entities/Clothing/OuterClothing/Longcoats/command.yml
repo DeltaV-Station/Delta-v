@@ -5,9 +5,9 @@
   description: A navy blue double-breasted longcoat with gold embelleshments, specifically designed for the captain. It's been reinforced with a special alloy for some added protection.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/captain.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/captain.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/captain.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/captain.rsi
   - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
@@ -19,9 +19,9 @@
   description: A saturated brown double-breasted longcoat with mossy trim, specifically designed for the logistics officer. Longcoats are fairly robust, offering some protection from the elements.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/logstics-officer.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/logstics-officer.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/logstics-officer.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/logstics-officer.rsi
 
 - type: entity
   parent: [ClothingOuterWinterCoat, ClothingUniformFoldableBase, BaseCommandContraband]
@@ -30,9 +30,9 @@
   description: A pure white double-breasted longcoat with a purple stripe, specifically designed for the mystagogue. Longcoats are fairly robust, offering some protection from the elements.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/mystagogue.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/mystagogue.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/mystagogue.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/mystagogue.rsi
 
 - type: entity
   parent: [ClothingOuterWinterCoat, BaseCommandContraband]
@@ -41,9 +41,9 @@
   description: A double-breasted longcoat with a green cross, specifically designed for the chief medical officer. Longcoats are fairly robust, offering some protection from the elements.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/chief-medical-officer.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-medical-officer.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/chief-medical-officer.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-medical-officer.rsi
   - type: Armor # Same as ClothingOuterWinterCMO, can't just parent because of ClothingOuterWinterCoatToggleable
     modifiers:
       coefficients:
@@ -58,9 +58,9 @@
   description: A dark green double-breasted with LED strip trim, specifically designed for the chief engineer. Longcoats are fairly robust, offering some protection from the elements.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/chief-engineer.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-engineer.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/chief-engineer.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-engineer.rsi
 
 - type: entity
   parent: [ClothingOuterWinterCoat, BaseCommandContraband]
@@ -69,9 +69,9 @@
   description: A navy blue double-breasted longcoat with red shoulderpads, specifically designed for the head of personnel. Longcoats are fairly robust, offering some protection from the elements.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/head-of-personnel.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-personnel.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/head-of-personnel.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-personnel.rsi
 
 - type: entity
   parent: [ClothingOuterCoatStasecHoS, BaseSecurityCommandContraband]
@@ -80,9 +80,9 @@
   description: A black double-breasted longcoat with gold buttons and gray sleeves with velvet trim along the whole outfit, specifically designed for the head of security. Security longcoats sport protective plates underneath, but are fairly heavy.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/head-of-security.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-security.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/head-of-security.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-security.rsi
   - type: Armor # Same as ClothingOuterWinterHoS, can't use as parent because ClothingOuterArmoredWinterCoatToggleable
     modifiers:
       coefficients:
@@ -100,6 +100,6 @@
   description: A royal green double-breasted longcoat with gold embellishments, specifically designed for a central command agent. Longcoats are fairly robust, offering some protection from the elements. It's been reinforced with a special alloy for some added protection.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/centcomm.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/centcomm.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/centcomm.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/centcomm.rsi

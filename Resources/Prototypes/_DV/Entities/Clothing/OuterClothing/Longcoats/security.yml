@@ -5,9 +5,9 @@
   description: A black double-breasted longcoat with silver buttons and red band and cuffs, specifically designed for the warden. Security longcoats sport protective plates underneath, but are fairly heavy.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/warden.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/warden.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/warden.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/warden.rsi
 
 - type: entity
   parent: [ ClothingOuterCoatStasec, BaseSecurityContraband ] # Same as ClothingOuterWinterSec, without ClothingOuterWinterCoatToggleable
@@ -16,9 +16,9 @@
   description: A black double-breasted longcoat with silver buttons and red bands, specifically designed for security personnel. Security longcoats sport protective plates underneath, but are fairly heavy.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/security.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/security.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/security.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/security.rsi
   - type: Armor # Same as ClothingOuterWinterSec. Can't just parent because of ClothingOuterWinterCoatToggleable.
     modifiers:
       coefficients:
@@ -34,6 +34,6 @@
   description: A black double-breasted longcoat with silver buttons, blue bands, and sterile fabric cuffs, specifically designed for the corpsman. Security longcoats sport protective plates underneath, though this one comes with lighter plates that traditional security longcoats.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Longcoats/corpsman.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/corpsman.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Longcoats/corpsman.rsi
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/corpsman.rsi
