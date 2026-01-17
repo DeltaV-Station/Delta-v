@@ -241,7 +241,6 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
             case HandDisabling.SingleRandom:
                 var randomHand = _random.Next(0, hands.Count);
                 var handName = hands.SortedHands[randomHand];
-                var handComp = hands.Hands[handName];
                 toBlock.Add(handName);
                 break;
             case HandDisabling.SingleActive:
