@@ -4,14 +4,14 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DV.Access.Components;
 
 /// <summary>
-///
+/// A subdermal id card implant (entities with this component should also have <see cref="SubdermalImplantComponent"/>).
 /// </summary>
 [RegisterComponent]
 [Access(typeof(SharedSubdermalIdCardSystem))]
 public sealed partial class SubdermalIdCardComponent : Component
 {
     /// <summary>
-    /// The IDCard to spawn into the implant's container.
+    /// The IDCard to spawn into the implant's id card container.
     /// </summary>
     [DataField(required: true)]
     public EntProtoId IdCardProto;
