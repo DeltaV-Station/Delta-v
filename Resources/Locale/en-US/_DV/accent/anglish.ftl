@@ -3426,3 +3426,33 @@ accent-anglish-replacement-1144 = gleedkin
 
 accent-anglish-words-1145 = state
 accent-anglish-replacement-1145 = put forth
+
+accent-anglish-words-1146 = generator
+accent-anglish-replacement-1146 = streener
+
+accent-anglish-words-1147 = teleport
+accent-anglish-replacement-1147 = farferry
+
+accent-anglish-words-1148 = teleporter
+accent-anglish-replacement-1148 = farferrier
+
+accent-anglish-words-1149 = generate
+accent-anglish-replacement-1149 = streen
+
+accent-anglish-words-1150 = regenerate
+accent-anglish-replacement-1150 = make anew
+
+accent-anglish-words-1151 = regenerated
+accent-anglish-replacement-1151 = made anew
+
+accent-anglish-words-1152 = cryo
+accent-anglish-replacement-1152 = freezing
+
+accent-anglish-words-1153 = cryonics
+accent-anglish-replacement-1153 = coldlybehandling
+
+accent-anglish-words-1154 = cryosleep
+accent-anglish-replacement-1154 = frozen leave
+
+accent-anglish-words-1155 = cryopod
+accent-anglish-replacement-1155 = freezerpod
