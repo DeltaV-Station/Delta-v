@@ -178,18 +178,18 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         // Joint the two together so both the grappler and the victim can't be tugged away from one another.
         _joint.CreateDistanceJoint(grappler, victim, id: grappler.Comp.PullJointId);
 
-        _popup.PopupEntity(
+        _popup.PopupClient(
             Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
             victim,
             grappler,
             PopupType.MediumCaution);
-        _popup.PopupEntity(
+        _popup.PopupClient(
             Loc.GetString("grapple-start-victim", ("part", grappler.Comp.GrapplingPart), ("grappler", grappler)),
             victim,
             victim,
             PopupType.MediumCaution);
 
-        _audio.PlayPvs(grappler.Comp.GrappleSound, victim);
+        _audio.PlayPredicted(grappler.Comp.GrappleSound, victim, null);
 
         _alerts.ShowAlert(grappler.Owner, grappler.Comp.GrappledAlert);
         _alerts.ShowAlert(victim, grappler.Comp.GrappledAlert);
@@ -344,11 +344,11 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
 
         grappled.Comp.DoAfterId = doAfterId;
 
-        _popup.PopupEntity(Loc.GetString("grapple-start-escaping", ("victim", grappled)),
+        _popup.PopupClient(Loc.GetString("grapple-start-escaping", ("victim", grappled)),
             grappled,
             grappled.Comp.Grappler,
             PopupType.MediumCaution);
-        _popup.PopupEntity(Loc.GetString("grapple-start-escaping-victim", ("part", grappler.GrapplingPart)),
+        _popup.PopupClient(Loc.GetString("grapple-start-escaping-victim", ("part", grappler.GrapplingPart)),
             grappled,
             grappled,
             PopupType.MediumCaution);
@@ -476,12 +476,12 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
                 _doAfter.Cancel(victim.Comp.DoAfterId.Value);
             }
 
-            _popup.PopupEntity(
+            _popup.PopupClient(
                 Loc.GetString("grapple-manual-release", ("victim", victim), ("part", grappler.Comp.GrapplingPart)),
                 victim,
                 grappler,
                 PopupType.Medium);
-            _popup.PopupEntity(Loc.GetString("grapple-manual-release-victim",
+            _popup.PopupClient(Loc.GetString("grapple-manual-release-victim",
                     ("grappler", grappler),
                     ("part", grappler.Comp.GrapplingPart)),
                 victim,
@@ -490,13 +490,13 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         }
         else
         {
-            _popup.PopupEntity(Loc.GetString("grapple-finished-escaping",
+            _popup.PopupClient(Loc.GetString("grapple-finished-escaping",
                     ("victim", victim),
                     ("part", grappler.Comp.GrapplingPart)),
                 victim,
                 grappler,
                 PopupType.MediumCaution);
-            _popup.PopupEntity(
+            _popup.PopupClient(
                 Loc.GetString("grapple-finished-escaping-victim", ("part", grappler.Comp.GrapplingPart)),
                 victim,
                 victim,
