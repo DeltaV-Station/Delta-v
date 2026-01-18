@@ -231,37 +231,35 @@
 - type: Tag # Ovinia, allows them to use specified emotes
   id: OviniaEmotes
 
-#reinforced cams start
 - type: Tag
-  id: cameracon
+  id: ReinforcedCameraAI # Reinforced Cameras - AI
 
 - type: Tag
-  id: cameraeng
+  id: ReinforcedCameraCommand # Reinforced Cameras - Command
 
 - type: Tag
-  id: camerasec
+  id: ReinforcedCameraConstructed # Reinforced Cameras - Constructed
 
 - type: Tag
-  id: camerasci
+  id: ReinforcedCameraEngineering # Reinforced Cameras - Engineering
 
 - type: Tag
-  id: camerasup
+  id: ReinforcedCameraGeneral # Reinforced Cameras - General
 
 - type: Tag
-  id: cameracom
+  id: ReinforcedCameraMedical # Reinforced Cameras - Medical
 
 - type: Tag
-  id: cameraser
+  id: ReinforcedCameraScience # Reinforced Cameras - Epistemics
 
 - type: Tag
-  id: cameramed
+  id: ReinforcedCameraSecurity # Reinforced Cameras - Security
 
 - type: Tag
-  id: cameragen
+  id: ReinforcedCameraService # Reinforced Cameras - Service
 
 - type: Tag
-  id: cameraai
-#reinforced cams end
+  id: ReinforcedCameraSupply # Reinforced Cameras - Logistics
 - type: Tag
   id: GenderScarf
 
