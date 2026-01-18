@@ -57,6 +57,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         SubscribeLocalEvent<GrappledComponent, GrappledEscapeDoAfter>(OnEscapeDoAfter);
         SubscribeLocalEvent<GrappledComponent, EscapeGrappleAlertEvent>(OnEscapeGrappledAlert);
         SubscribeLocalEvent<GrappledComponent, EntInsertedIntoContainerMessage>(OnCuffsInsertedIntoContainer);
+        SubscribeLocalEvent<GrappledComponent, StandUpAttemptEvent>(OnGrappledStandUp);
         SubscribeLocalEvent<GrappledComponent, StandAttemptEvent>(OnGrappledStand);
         SubscribeLocalEvent<GrappledComponent, UpdateCanMoveEvent>(OnGrappleCanMoveQuery);
     }
@@ -538,6 +539,16 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     private void OnGrappledStand(Entity<GrappledComponent> grappled, ref StandAttemptEvent args)
     {
         args.Cancel(); // Can't stand while being grappled
+    }
+
+    /// <summary>
+    /// Handles when a grappled target attempts to stand up and blocks it.
+    /// </summary>
+    /// <param name="grappled">Grappled entity attempting to stand.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnGrappledStandUp(Entity<GrappledComponent> grappled, ref StandUpAttemptEvent args)
+    {
+        args.Cancelled = true; // Can't stand while being grappled
     }
 
     /// <summary>
