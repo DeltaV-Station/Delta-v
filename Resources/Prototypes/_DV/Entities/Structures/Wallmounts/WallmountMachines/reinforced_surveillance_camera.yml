@@ -144,7 +144,7 @@
     securityLevel: highSecurity
   - type: Tag
     tags:
-      - cameracom
+      - ReinforcedCameraCommand
 
 - type: entity
   parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraService]
@@ -164,7 +164,7 @@
     securityLevel: medSecurity
   - type: Tag
     tags:
-      - cameraser
+      - ReinforcedCameraService
 
 - type: entity
   parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraMedical]
@@ -184,7 +184,7 @@
     securityLevel: medSecurity
   - type: Tag
     tags:
-      - cameramed
+      - ReinforcedCameraMedical
 
 - type: entity
   parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraGeneral]
