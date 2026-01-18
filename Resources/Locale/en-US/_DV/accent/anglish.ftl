@@ -3456,3 +3456,6 @@ accent-anglish-replacement-1154 = frozen leave
 
 accent-anglish-words-1155 = cryopod
 accent-anglish-replacement-1155 = freezerpod
+
+accent-anglish-words-1156 = bruh
+accent-anglish-replacement-1156 = my brother
