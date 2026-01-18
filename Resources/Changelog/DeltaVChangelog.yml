@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: Proxysseia
   changes:
-  - message: dispensations are now tied to your personal access instead of your departments
-      access
-    type: Tweak
-  - message: dispensations now cover items printed by your departments lathe
-    type: Tweak
-  id: 1579
-  time: '2025-08-07T19:58:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4141
-- author: Proxysseia
-  changes:
   - message: Security Hardsuits are no longer insulated
     type: Remove
   id: 1580
@@ -4466,4 +4456,14 @@
   id: 2078
   time: '2026-01-18T04:40:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5238
+- author: snowywinters
+  changes:
+  - message: Reinforced cameras can now be built! They have additional HP and are
+      more resistant to explosions and meteors.
+    type: Add
+  - message: The AI has its own section in the security cameras console.
+    type: Add
+  id: 2079
+  time: '2026-01-18T17:18:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5027
 Order: 1
