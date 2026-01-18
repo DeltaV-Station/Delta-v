@@ -9,7 +9,5 @@
       storagebase: !type:AllSelector
         children:
         - id: ClothingOuterHardsuitCybersunStealth
-        - id: ClothingMaskGasSyndicate
-        - id: ClothingHandsGlovesCombat
-        - id: DoubleEmergencyOxygenTankFilled
-        - id: DoubleEmergencyNitrogenTankFilled
+        - !type:NestedSelector
+          tableId: SyndicateHardsuitExtrasEntityTable
