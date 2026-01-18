@@ -104,7 +104,7 @@
     securityLevel: medSecurity
   - type: Tag
     tags:
-      - camerasci
+      - ReinforcedCameraScience
 
 - type: entity
   parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraSupply]
@@ -124,7 +124,7 @@
     securityLevel: medSecurity
   - type: Tag
     tags:
-      - camerasup
+      - ReinforcedCameraSupply
 
 - type: entity
   parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraCommand]
