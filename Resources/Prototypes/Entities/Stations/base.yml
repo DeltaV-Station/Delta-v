@@ -64,6 +64,8 @@
         salvageShuttle: !type:GridSpawnGroup # DeltaV - salvage gets their own ship
           paths:
           - /Maps/_DV/Shuttles/Misc/reclaimer_mk2.yml
+          nameGrid: true
+          name: Reclaimer Mk2
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
