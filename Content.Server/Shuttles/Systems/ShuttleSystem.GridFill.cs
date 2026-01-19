@@ -147,9 +147,7 @@ public sealed partial class ShuttleSystem
 
                 // DeltaV - Allow grid names to be specified
                 if (!string.IsNullOrWhiteSpace(group.Name))
-                {
                     name = group.Name;
-                }
 
                 _metadata.SetEntityName(grid.Value, name);
             }
