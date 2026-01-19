@@ -122,8 +122,8 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
                 return;
         }
 
-        // Only reveal on damage greater than the minumum. This prevents tiny ticks of damage (e.g. from malign rifts pulses)
-        if (damage.GetTotal() <= ent.Comp.MinimumRevealDamage)
+        // Only reveal on damage at least the minumum. This prevents tiny ticks of damage (e.g. from malign rifts pulses)
+        if (damage.GetTotal() < ent.Comp.MinimumRevealDamage)
             return;
 
         // Yea, now reveal that son of a bitch >:3
