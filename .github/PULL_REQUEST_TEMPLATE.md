@@ -25,7 +25,7 @@ Our repository is AGPL, meaning projects using the MIT license would have to ask
 This just saves them the trouble -->
 - [ ] I confirm that I am the creator of the content in this PR, and allow licensing it under the following license(s), or that the original author has given me permission to do so:
   - [X] AGPL (https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-AGPLv3.txt) <!-- This one is required to contribute to DeltaV -->
-  - [ ] MIT (https://choosealicense.com/licenses/mit/)
+  - [ ] MIT (https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-MIT.txt)
     <!-- Feel free to add more licenses as you see fit -->
 
 **Changelog**
