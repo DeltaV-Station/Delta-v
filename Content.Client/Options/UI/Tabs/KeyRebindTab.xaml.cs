@@ -225,6 +225,9 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OpenCHelp); // DeltaV
             AddButton(ContentKeyFunctions.OpenActionsMenu);
             AddButton(ContentKeyFunctions.OpenEmotesMenu);
+            AddButton(ContentKeyFunctions.OpenSignLanguageMenu); // DeltaV
+            AddButton(ContentKeyFunctions.SignLanguageSubmit); // DeltaV
+            AddButton(ContentKeyFunctions.SignLanguageCancel); // DeltaV
             AddButton(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
             AddButton(ContentKeyFunctions.OpenEntitySpawnWindow);
             AddButton(ContentKeyFunctions.OpenSandboxWindow);

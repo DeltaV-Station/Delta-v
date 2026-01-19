@@ -1,0 +1,129 @@
+# Sign Language Intent Prototypes
+# Menu 3: "What do you want to do?"
+# Mostly universal across topics
+
+- type: signIntent
+  id: SignIntentFix
+  name: sign-intent-fix
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: fix
+
+- type: signIntent
+  id: SignIntentNow
+  name: sign-intent-now
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: now
+
+- type: signIntent
+  id: SignIntentEvacuate
+  name: sign-intent-evacuate
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: evacuate
+
+- type: signIntent
+  id: SignIntentFollowMe
+  name: sign-intent-follow-me
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: follow-me
+
+- type: signIntent
+  id: SignIntentNeedHelp
+  name: sign-intent-need-help
+  priority: 4
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: need-help
+
+- type: signIntent
+  id: SignIntentWait
+  name: sign-intent-wait
+  priority: 5
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: wait
+
+- type: signIntent
+  id: SignIntentStop
+  name: sign-intent-stop
+  priority: 6
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: stop
+
+- type: signIntent
+  id: SignIntentAvoid
+  name: sign-intent-avoid
+  priority: 7
+  icon:
+    sprite: Interface/SignLanguage/intents.rsi
+    state: avoid
+
+# ========================================
+# Sign Language Intensity Prototypes
+# Optional Menu 4: "How is it signed?"
+# Affects animation + text formatting
+# ========================================
+
+- type: signIntensity
+  id: SignIntensityNeutral
+  name: sign-intensity-neutral
+  priority: 0
+  isDefault: true
+  nonFluentDescription: sign-intensity-neutral-nonfluent
+  textFormatting: ""
+  icon:
+    sprite: Interface/SignLanguage/intensity.rsi
+    state: neutral
+
+- type: signIntensity
+  id: SignIntensityUrgent
+  name: sign-intensity-urgent
+  priority: 1
+  isDefault: false
+  nonFluentDescription: sign-intensity-urgent-nonfluent
+  textFormatting: "!"
+  icon:
+    sprite: Interface/SignLanguage/intensity.rsi
+    state: urgent
+
+- type: signIntensity
+  id: SignIntensityCalm
+  name: sign-intensity-calm
+  priority: 2
+  isDefault: false
+  nonFluentDescription: sign-intensity-calm-nonfluent
+  textFormatting: "..."
+  icon:
+    sprite: Interface/SignLanguage/intensity.rsi
+    state: calm
+
+- type: signIntensity
+  id: SignIntensityPanic
+  name: sign-intensity-panic
+  priority: 3
+  isDefault: false
+  nonFluentDescription: sign-intensity-panic-nonfluent
+  textFormatting: "!!"
+  boldMessage: true
+  icon:
+    sprite: Interface/SignLanguage/intensity.rsi
+    state: panic
+
+- type: signIntensity
+  id: SignIntensityRepeat
+  name: sign-intensity-repeat
+  priority: 4
+  isDefault: false
+  nonFluentDescription: sign-intensity-repeat-nonfluent
+  textFormatting: " [REPEAT]"
+  icon:
+    sprite: Interface/SignLanguage/intensity.rsi
+    state: repeat

@@ -1,0 +1,191 @@
+# Sign Language Event Prototypes
+# Menu 2: "What is happening?"
+# Contextual - changes based on Topic category
+
+# ========================================
+# PEOPLE Category Events
+# ========================================
+
+- type: signEvent
+  id: SignEventInjured
+  name: sign-event-injured
+  applicableCategories:
+  - People
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: injured
+
+- type: signEvent
+  id: SignEventCrit
+  name: sign-event-crit
+  applicableCategories:
+  - People
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: crit
+
+- type: signEvent
+  id: SignEventDead
+  name: sign-event-dead
+  applicableCategories:
+  - People
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: dead
+
+- type: signEvent
+  id: SignEventTrapped
+  name: sign-event-trapped
+  applicableCategories:
+  - People
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: trapped
+
+- type: signEvent
+  id: SignEventMissing
+  name: sign-event-missing
+  applicableCategories:
+  - People
+  priority: 4
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: missing
+
+- type: signEvent
+  id: SignEventBleeding
+  name: sign-event-bleeding
+  applicableCategories:
+  - People
+  priority: 5
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: bleeding
+
+# ========================================
+# LOCATIONS Category Events
+# ========================================
+
+- type: signEvent
+  id: SignEventFire
+  name: sign-event-fire
+  applicableCategories:
+  - Locations
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: fire
+
+- type: signEvent
+  id: SignEventDamaged
+  name: sign-event-damaged
+  applicableCategories:
+  - Locations
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: damaged
+
+- type: signEvent
+  id: SignEventFlooded
+  name: sign-event-flooded
+  applicableCategories:
+  - Locations
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: flooded
+
+- type: signEvent
+  id: SignEventDangerous
+  name: sign-event-dangerous
+  applicableCategories:
+  - Locations
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: dangerous
+
+- type: signEvent
+  id: SignEventSecure
+  name: sign-event-secure
+  applicableCategories:
+  - Locations
+  priority: 4
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: secure
+
+# ========================================
+# GENERAL Category Events
+# ========================================
+
+- type: signEvent
+  id: SignEventSafe
+  name: sign-event-safe
+  applicableCategories:
+  - General
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: safe
+
+- type: signEvent
+  id: SignEventNotSafe
+  name: sign-event-not-safe
+  applicableCategories:
+  - General
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: not-safe
+
+- type: signEvent
+  id: SignEventConfused
+  name: sign-event-confused
+  applicableCategories:
+  - General
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: confused
+
+- type: signEvent
+  id: SignEventProblem
+  name: sign-event-problem
+  applicableCategories:
+  - General
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: problem
+
+# ========================================
+# OBJECTS Category Events
+# Note: Objects can use location events or we can add specific ones
+# For now, allowing objects to use the location events
+# ========================================
+
+- type: signEvent
+  id: SignEventBroken
+  name: sign-event-broken
+  applicableCategories:
+  - Objects
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: broken
+
+- type: signEvent
+  id: SignEventMalfunctioning
+  name: sign-event-malfunctioning
+  applicableCategories:
+  - Objects
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/events.rsi
+    state: malfunctioning

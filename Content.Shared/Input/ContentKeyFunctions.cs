@@ -31,6 +31,10 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction NanoChatNavigateDown = "NanoChatNavigateDown";
         public static readonly BoundKeyFunction NanoChatNavigateUpUnread = "NanoChatNavigateUpUnread";
         public static readonly BoundKeyFunction NanoChatNavigateDownUnread = "NanoChatNavigateDownUnread";
+        public static readonly BoundKeyFunction OpenSignLanguageMenu = "OpenSignLanguageMenu";
+        public static readonly BoundKeyFunction SignLanguageSubmit = "SignLanguageSubmit";
+        public static readonly BoundKeyFunction SignLanguageCancel = "SignLanguageCancel";
+
         // End DeltaV Additions
         public static readonly BoundKeyFunction OpenCharacterMenu = "OpenCharacterMenu";
         public static readonly BoundKeyFunction OpenEmotesMenu = "OpenEmotesMenu";

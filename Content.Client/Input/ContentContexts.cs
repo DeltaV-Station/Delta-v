@@ -70,6 +70,9 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             human.AddFunction(ContentKeyFunctions.OpenCharacterMenu);
             human.AddFunction(ContentKeyFunctions.OpenEmotesMenu);
+            human.AddFunction(ContentKeyFunctions.OpenSignLanguageMenu); // DeltaV
+            human.AddFunction(ContentKeyFunctions.SignLanguageSubmit); // DeltaV
+            human.AddFunction(ContentKeyFunctions.SignLanguageCancel); // DeltaV
             human.AddFunction(ContentKeyFunctions.ActivateItemInWorld);
             human.AddFunction(ContentKeyFunctions.ThrowItemInHand);
             human.AddFunction(ContentKeyFunctions.AltActivateItemInWorld);

@@ -12,7 +12,12 @@ ui-options-function-nano-chat-navigate-up-unread = Navigate up to next unread
 ui-options-function-nano-chat-navigate-down-unread = Navigate down to next unread
 
 ## DeltaV Curator Chat
-ui-options-function-open-c-help = Open curator help
+ui-options-function-open-a-help-curator-chat = Open curator help
+
+## Sign Language Keybinds
+ui-options-function-open-sign-language-menu = Open sign language menu
+ui-options-function-sign-language-submit = Send a sign message
+ui-options-function-sign-language-cancel = Cancel a sign message
 
 ## DeltaV Tips
 ui-options-delta-tips = Tips

@@ -1,0 +1,207 @@
+# Sign Language Topic Prototypes
+# Menu 1: "What is this about?"
+
+# ========================================
+# PEOPLE Category
+# ========================================
+
+- type: signTopic
+  id: SignTopicMe
+  name: sign-topic-me
+  category: People
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: me
+
+- type: signTopic
+  id: SignTopicYou
+  name: sign-topic-you
+  category: People
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: you
+
+- type: signTopic
+  id: SignTopicPerson
+  name: sign-topic-person
+  category: People
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: person
+
+- type: signTopic
+  id: SignTopicCrew
+  name: sign-topic-crew
+  category: People
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: crew
+
+- type: signTopic
+  id: SignTopicSomeone
+  name: sign-topic-someone
+  category: People
+  priority: 4
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: someone
+
+# ========================================
+# LOCATIONS Category
+# ========================================
+
+- type: signTopic
+  id: SignTopicMedbay
+  name: sign-topic-medbay
+  category: Locations
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: medbay
+
+- type: signTopic
+  id: SignTopicBridge
+  name: sign-topic-bridge
+  category: Locations
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: bridge
+
+- type: signTopic
+  id: SignTopicSecurity
+  name: sign-topic-security
+  category: Locations
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: security
+
+- type: signTopic
+  id: SignTopicCargo
+  name: sign-topic-cargo
+  category: Locations
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: cargo
+
+- type: signTopic
+  id: SignTopicEVA
+  name: sign-topic-eva
+  category: Locations
+  priority: 4
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: eva
+
+- type: signTopic
+  id: SignTopicMaint
+  name: sign-topic-maint
+  category: Locations
+  priority: 5
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: maint
+
+- type: signTopic
+  id: SignTopicHallway
+  name: sign-topic-hallway
+  category: Locations
+  priority: 6
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: hallway
+
+# ========================================
+# OBJECTS Category
+# ========================================
+
+- type: signTopic
+  id: SignTopicAirlock
+  name: sign-topic-airlock
+  category: Objects
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: airlock
+
+- type: signTopic
+  id: SignTopicConsole
+  name: sign-topic-console
+  category: Objects
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: console
+
+- type: signTopic
+  id: SignTopicAPC
+  name: sign-topic-apc
+  category: Objects
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: apc
+
+- type: signTopic
+  id: SignTopicMachine
+  name: sign-topic-machine
+  category: Objects
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: machine
+
+# ========================================
+# GENERAL Category
+# ========================================
+
+- type: signTopic
+  id: SignTopicThis
+  name: sign-topic-this
+  category: General
+  priority: 0
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: this
+
+- type: signTopic
+  id: SignTopicThat
+  name: sign-topic-that
+  category: General
+  priority: 1
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: that
+
+- type: signTopic
+  id: SignTopicThere
+  name: sign-topic-there
+  category: General
+  priority: 2
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: there
+
+- type: signTopic
+  id: SignTopicProblem
+  name: sign-topic-problem
+  category: General
+  priority: 3
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: problem
+
+- type: signTopic
+  id: SignTopicUnknown
+  name: sign-topic-unknown
+  category: General
+  priority: 4
+  icon:
+    sprite: Interface/SignLanguage/topics.rsi
+    state: unknown
