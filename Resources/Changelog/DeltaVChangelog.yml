@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Censer now deals more damage if you use it on a non-cultist.
-    type: Tweak
-  id: 1583
-  time: '2025-08-10T22:03:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4111
-- author: NoElkaTheGod
-  changes:
   - message: ACO procedure is now automatic on apoapsis.
     type: Tweak
   id: 1584
@@ -4469,4 +4462,14 @@
   id: 2082
   time: '2026-01-20T11:49:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5219
+- author: Eternally-Confused
+  changes:
+  - message: (TEST MERGE) Space pens now contain a chemical called Stabilizine instead
+      of Leporazine, which is better at stabilizing body temperature.
+    type: Tweak
+  - message: Avali no longer die from space pens.
+    type: Tweak
+  id: 2083
+  time: '2026-01-20T21:15:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5181
 Order: 1
