@@ -1,0 +1,279 @@
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraBase
+  abstract: true
+  name: reinforced camera
+  description: A reinforced version of the surveillance camera. It's watching you. Kinda.
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV/Structures/Wallmounts/Reinforced_camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: reinforced_camera
+        cycle: true
+  - type: WiresPanelSecurity
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: reinforced_camera
+      InUse: reinforced_camera_in_use
+      Emp: reinforced_camera_emp
+      Disabled: reinforced_camera_off
+  - type: Damageable
+    damageModifierSet: Electronic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 275
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+  - type: Repairable
+    doAfterDelay: 4
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraEngineering]
+  id: ReinforcedSurveillanceCameraEngineering
+  suffix: Engineering
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraEngineering
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_engineering
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraEngineering
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraSecurity]
+  id: ReinforcedSurveillanceCameraSecurity
+  suffix: Security
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_security
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraSecurity
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraScience]
+  id: ReinforcedSurveillanceCameraScience
+  suffix: Epistemics
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraScience
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_science
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraScience
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraSupply]
+  id: ReinforcedSurveillanceCameraSupply
+  suffix: Supply
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraSupply
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_supply
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraSupply
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraCommand]
+  id: ReinforcedSurveillanceCameraCommand
+  suffix: Command
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraCommand
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_command
+  - type: WiresPanelSecurity
+    securityLevel: highSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraCommand
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraService]
+  id: ReinforcedSurveillanceCameraService
+  suffix: Service
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraService
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_service
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraService
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraMedical]
+  id: ReinforcedSurveillanceCameraMedical
+  suffix: Medical
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraMedical
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_medical
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraMedical
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraGeneral]
+  id: ReinforcedSurveillanceCameraGeneral
+  suffix: General
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraGeneral
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_general
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraGeneral
+
+- type: entity
+  parent: [ReinforcedSurveillanceCameraBase, SurveillanceCameraAI]
+  id: ReinforcedSurveillanceCameraAI
+  suffix: AI
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraAI
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_ai
+  - type: WiresPanelSecurity
+    securityLevel: highSecurity
+  - type: Tag
+    tags:
+      - ReinforcedCameraAI
+
+- type: entity
+  parent: ReinforcedSurveillanceCameraBase
+  id: ReinforcedSurveillanceCameraConstructed
+  suffix: Constructed
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      - SurveillanceCameraSecurity
+      - SurveillanceCameraService
+      - SurveillanceCameraSupply
+      - SurveillanceCameraScience
+      - SurveillanceCameraGeneral
+      - SurveillanceCameraMedical
+      - SurveillanceCameraCommand
+      - SurveillanceCameraAI
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera
+  - type: Tag
+    tags:
+      - ReinforcedCameraConstructed
+
+- type: entity
+  id: ReinforcedSurveillanceCameraAssembly
+  name: reinforced camera
+  description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: assembly
+  - type: WallMount
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV/Structures/Wallmounts/Reinforced_camera.rsi
+    layers:
+      - state: reinforced_camera_off
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wallmount
