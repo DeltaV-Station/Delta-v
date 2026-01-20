@@ -92,7 +92,7 @@ public sealed partial class FootPrintsComponent : Component
     public string PrintDecal = "footprint-shoes";
 
     /// <summary>
-    /// The decal to spawn for footprints.
+    /// The decal to spawn for being dragged.
     /// </summary>
     [DataField]
     public string[] DraggingDecals = ["smear-1", "smear-2", "smear-3", "smear-4", "smear-5"];
