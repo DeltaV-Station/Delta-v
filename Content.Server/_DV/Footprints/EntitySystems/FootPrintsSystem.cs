@@ -55,10 +55,10 @@ public sealed partial class FootPrintsSystem : EntitySystem
             return;
 
         var isCrit = mobThresholds.CurrentThresholdState is MobState.Critical or MobState.Dead;
-        var dragging = isCrit || _standingQuery.TryComp(ent, out var standingComp) && _standing.IsDown((ent, standingComp));
+        var beingDragged = isCrit || _standingQuery.TryComp(ent, out var standingComp) && _standing.IsDown((ent, standingComp));
 
         var distance = (transform.LocalPosition - ent.Comp.LastPrintPosition).Length();
-        var stepSize = dragging ? ent.Comp.DragSize : ent.Comp.StepSize;
+        var stepSize = beingDragged ? ent.Comp.DragSize : ent.Comp.StepSize;
 
         if (distance <= stepSize)
             return;
@@ -68,12 +68,12 @@ public sealed partial class FootPrintsSystem : EntitySystem
             return;
 
         // Calculate spawn coordinates
-        var coords = CalcCoords(gridUid, ent.Comp, transform, dragging);
-        var angle = dragging
+        var coords = CalcCoords(gridUid, ent.Comp, transform, beingDragged);
+        var angle = beingDragged
             ? (transform.LocalPosition - ent.Comp.LastPrintPosition).ToAngle() + Angle.FromDegrees(-90f)
             : transform.LocalRotation + Angle.FromDegrees(180f);
 
-        var decal = dragging ? _random.Pick(ent.Comp.DraggingDecals) : ent.Comp.PrintDecal;
+        var decal = beingDragged ? _random.Pick(ent.Comp.DraggingDecals) : ent.Comp.PrintDecal;
         if (!_decalSystem.TryAddDecal(decal, coords, out _, color: ent.Comp.PrintsColor, rotation: angle, cleanable: true))
             return;
 
