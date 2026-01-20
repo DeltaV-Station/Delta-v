@@ -3459,3 +3459,24 @@ accent-anglish-replacement-1155 = freezerpod
 
 accent-anglish-words-1156 = bruh
 accent-anglish-replacement-1156 = my brother
+
+accent-anglish-words-1157 = prison
+accent-anglish-replacement-1157 = quartern
+
+accent-anglish-words-1158 = HOS
+accent-anglish-replacement-1158 = Headward
+
+accent-anglish-words-1159 = CMO
+accent-anglish-replacement-1159 = Headman of Leechcraft
+
+accent-anglish-words-1160 = HOP
+accent-anglish-replacement-1160 = Headman of Thaning
+
+accent-anglish-words-1161 = CE
+accent-anglish-replacement-1161 = Head Sareman
+
+accent-anglish-words-1162 = hostage
+accent-anglish-replacement-1162 = gisel
+
+accent-anglish-words-1163 = hostages
+accent-anglish-replacement-1163 = gisels
