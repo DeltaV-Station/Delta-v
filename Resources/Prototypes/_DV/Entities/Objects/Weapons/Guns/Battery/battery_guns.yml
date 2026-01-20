@@ -119,7 +119,7 @@
   - type: StaticPrice
     price: 750
   - type: StealTarget
-    stealGroup: WeaponEnergyGunMultiphase
+    stealGroup: HoSSidearm
 
 - type: entity
   name: miniature energy gun
@@ -620,3 +620,38 @@
         Firemode:
           Disabler: { state: mode-disabler }
           Lethal: { state: mode-lethal }
+
+- type: entity
+  name: microwave emitter
+  parent: BaseWeaponBatterySmall
+  id: WeaponMicrowaveEmitter
+  description: A handheld device emitting concentrated, low-intensity radiation. Does not cook your food.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/microwave_emitter.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Item
+    shape:
+    - 0,0,1,1
+    size: Small
+    sprite: _DV/Objects/Weapons/Guns/Battery/microwave_emitter.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 5
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletRadiation
+    fireCost: 100
+  - type: Appearance

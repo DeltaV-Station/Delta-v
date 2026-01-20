@@ -102,6 +102,50 @@
     description: "The real brains behind the Justice department. Your honour my client is not fishy!"
     job: RoleCarpy
   - type: GhostTakeoverAvailable
+  -  type: Body
+     prototype: Human
+  - type: Hands
+  - type: InnateTool
+    tools:
+      - id: LuxuryPenCarpy
+      - id: RubberStampCarpy
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+- type: entity
+  name: legal carp stamp
+  parent: RubberStampBase
+  id: RubberStampCarpy
+  description: A stamp specially designed for legal carps, to mark documents that aren't fishy.
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-carpy
+      stampedColor: "#a81f3d"
+      stampState: "paper_stamp-notary"
+    - type: Sprite
+      sprite: _DV/Objects/Misc/stamps.rsi
+      state: stamp-notary
+
+- type: entity
+  name: legal carp pen
+  parent: LuxuryPen
+  id: LuxuryPenCarpy
+  description: The pen is mightier than the sword. This pen is also sharper thank to its carp tooth nib!
+  components:
+  - type: MeleeWeapon
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+        Slash: 10
+    animation: WeaponArcBite
+
 
 - type: entity
   name: Silvia

@@ -34,9 +34,6 @@
   - type: Item
     size: Small
     sprite: _Starlight/Objects/Weapons/Guns/Shotguns/makeshift_shotgun.rsi
-  - type: Construction
-    graph: MakeshiftShotgunGraph
-    node: shotgun
   - type: WeaponDismantleOnShoot
     dismantleChance: 0.50
     selfDamage:
