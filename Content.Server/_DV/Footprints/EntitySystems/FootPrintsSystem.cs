@@ -24,7 +24,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
     private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
 
     // CrayonSystem uses a hardcoded offset of [-0.5, -0.5] for clicks
-    private static Vector2 _baseDecalOffset = new(-0.5f, -0.5f);
+    private static readonly Vector2 BaseDecalOffset = new(-0.5f, -0.5f);
 
     public override void Initialize()
     {
@@ -92,13 +92,13 @@ public sealed partial class FootPrintsSystem : EntitySystem
     {
         // For dragging, place footprint at center
         if (dragging)
-            return new EntityCoordinates(gridUid, transform.LocalPosition + _baseDecalOffset);
+            return new EntityCoordinates(gridUid, transform.LocalPosition + BaseDecalOffset);
 
         // For walking, offset left or right based on which foot
         var footOffset = footPrints.RightStep
             ? new Angle(Angle.FromDegrees(180f) + transform.LocalRotation).RotateVec(footPrints.OffsetPrint)
             : new Angle(transform.LocalRotation).RotateVec(footPrints.OffsetPrint);
 
-        return new EntityCoordinates(gridUid, transform.LocalPosition + _baseDecalOffset + footOffset);
+        return new EntityCoordinates(gridUid, transform.LocalPosition + BaseDecalOffset + footOffset);
     }
 }
