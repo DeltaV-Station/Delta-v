@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Decals;
 using Content.Shared._EE.Flight;
 using Content.Shared._EE.Footprint;
@@ -21,6 +22,9 @@ public sealed partial class FootPrintsSystem : EntitySystem
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<StandingStateComponent> _standingQuery;
     private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
+
+    // CrayonSystem uses a hardcoded offset of [-0.5, -0.5] for clicks
+    private static Vector2 _baseDecalOffset = new(-0.5f, -0.5f);
 
     public override void Initialize()
     {
@@ -88,13 +92,13 @@ public sealed partial class FootPrintsSystem : EntitySystem
     {
         // For dragging, place footprint at center
         if (dragging)
-            return new EntityCoordinates(gridUid, transform.LocalPosition);
+            return new EntityCoordinates(gridUid, transform.LocalPosition + _baseDecalOffset);
 
         // For walking, offset left or right based on which foot
-        var offset = footPrints.RightStep
+        var footOffset = footPrints.RightStep
             ? new Angle(Angle.FromDegrees(180f) + transform.LocalRotation).RotateVec(footPrints.OffsetPrint)
             : new Angle(transform.LocalRotation).RotateVec(footPrints.OffsetPrint);
 
-        return new EntityCoordinates(gridUid, transform.LocalPosition + offset);
+        return new EntityCoordinates(gridUid, transform.LocalPosition + _baseDecalOffset + footOffset);
     }
 }
