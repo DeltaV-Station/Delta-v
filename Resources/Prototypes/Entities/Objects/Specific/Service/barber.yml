@@ -12,6 +12,11 @@
       state: storage
       sprite: Objects/Tools/scissors.rsi
   - type: MagicMirror
+    organs:
+    - Head
+    layers:
+    - Hair
+    - FacialHair
     addSlotTime: 20
     removeSlotTime: 20
     selectSlotTime: 20
