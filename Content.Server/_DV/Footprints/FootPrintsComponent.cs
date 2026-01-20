@@ -2,47 +2,40 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._EE.Footprint;
+namespace Content.Server._DV.Footprints;
 
 /**
  * <summary>
  * Attach to entities that should be able to make footprints after leaving a puddle.
  * </summary>
  */
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent]
 public sealed partial class FootPrintsComponent : Component
 {
     /// <summary>
     /// Current color of footprints being left. Alpha channel determines visibility.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Color PrintsColor = Color.FromHex("#00000000");
 
     /// <summary>
     /// The position of the last footprint in local coordinates.
     /// Used to determine when enough distance has been traveled for the next print.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Vector2 LastPrintPosition = Vector2.Zero;
 
     /// <summary>
     /// The size scaling factor for footprint steps. Must be positive.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float StepSize = 0.7f;
 
     /// <summary>
     /// The size scaling factor for drag marks. Must be positive.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public float DragSize = 0.5f;
-
-    /// <summary>
-    /// The factor by which the alpha channel is reduced with each footprint.
-    /// Higher values = faster fading.
-    /// </summary>
     [DataField]
-    public float ColorBaseAlpha = 10f;
+    public float DragSize = 0.5f;
 
     /// <summary>
     /// The factor by which the alpha channel is reduced with each footprint.
@@ -54,7 +47,7 @@ public sealed partial class FootPrintsComponent : Component
     /// <summary>
     /// Tracks which foot should make the next print. True for right foot, false for left.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool RightStep = true;
 
     /// <summary>
@@ -76,7 +69,7 @@ public sealed partial class FootPrintsComponent : Component
     /// The total amount of color accumulated from stepping in puddles.
     /// Used to determine when color should start fading.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float ColorQuantity;
 
     /// <summary>

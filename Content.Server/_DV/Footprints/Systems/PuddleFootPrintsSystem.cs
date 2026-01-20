@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Content.Shared._EE.Flight;
-using Content.Shared._EE.Footprint;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -9,7 +8,7 @@ using Content.Shared.Fluids.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._EE.FootPrint.Systems;
+namespace Content.Server._DV.Footprints.Systems;
 
 /// <summary>
 /// Handles transferring puddle colors and reagents to entities with footprints when they step in puddles.
@@ -84,7 +83,6 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
             if (colorValue is Color color && volumeValue is float volume)
             {
                 AddColor(color, volume * ent.Comp.SizeRatio, footPrints);
-                Dirty(tripper, footPrints);
             }
         }
 

@@ -1,14 +1,13 @@
 using System.Numerics;
 using Content.Server.Decals;
 using Content.Shared._EE.Flight;
-using Content.Shared._EE.Footprint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
-namespace Content.Server._DV.Footprints.EntitySystems;
+namespace Content.Server._DV.Footprints.Systems;
 
 public sealed partial class FootPrintsSystem : EntitySystem
 {
@@ -81,11 +80,9 @@ public sealed partial class FootPrintsSystem : EntitySystem
 
         // Alternate feet
         ent.Comp.RightStep = !ent.Comp.RightStep;
-        DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.RightStep));
 
         ent.Comp.PrintsColor = ent.Comp.PrintsColor.WithAlpha(
             Math.Max(0f, ent.Comp.PrintsColor.A - ent.Comp.ColorReduceAlpha));
-        DirtyField(ent.AsNullable(), nameof(FootPrintsComponent.PrintsColor));
     }
 
     private EntityCoordinates CalcCoords(EntityUid gridUid,
