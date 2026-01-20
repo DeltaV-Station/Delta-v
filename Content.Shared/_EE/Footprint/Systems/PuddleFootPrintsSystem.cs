@@ -77,17 +77,6 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         if (waterPercent > ent.Comp.OffPercent)
             return;
 
-        // Find the reagent with the highest quantity to transfer
-        var primaryReagent = solution.Contents
-            .OrderByDescending(sol => sol.Quantity)
-            .FirstOrDefault();
-
-        if (primaryReagent.Reagent.Prototype == null)
-            return;
-
-        // Set the reagent to transfer
-        // footPrints.ReagentToTransfer = primaryReagent.Reagent.Prototype;
-
         // Transfer color from puddle to footprints
         if (_appearance.TryGetData(ent, PuddleVisuals.SolutionColor, out var colorValue, appearance)
             && _appearance.TryGetData(ent, PuddleVisuals.CurrentVolume, out var volumeValue, appearance))
