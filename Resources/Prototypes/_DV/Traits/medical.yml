@@ -1,0 +1,107 @@
+## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+
+- type: trait
+  id: Narcolepsy
+  name: trait-narcolepsy-name
+  description: trait-narcolepsy-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Narcolepsy
+      maxTimeBetweenIncidents: 600
+      minTimeBetweenIncidents: 300
+      maxDurationOfIncident: 30
+      minDurationOfIncident: 10
+
+- type: trait
+  id: InPain
+  name: trait-inpain-name
+  description: trait-inpain-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Pain
+  - !type:SpawnItemInHandEffect
+    item: PillCanisterSoretizone
+
+- type: trait
+  id: LightweightDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LightweightDrunk
+      boozeStrengthMultiplier: 2
+
+- type: trait
+  id: Unrevivable
+  name: trait-unrevivable-name
+  description: trait-unrevivable-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Unrevivable
+      cloneable: true
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Unrevivable
+      cloneable: false
+
+- type: trait
+  id: Unborgable
+  name: trait-unborgable-name
+  description: trait-unborgable-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Unborgable
+
+- type: trait
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Redshirt
+  - !type:OverrideCompsEffect
+    components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        99.9: Critical
+        100: Dead
+
+- type: trait
+  id: Synthetic
+  name: trait-synth-name
+  description: trait-synth-desc
+  category: Medical
+  conditions:
+  - !type:HasCompCondition
+    component: Silicon
+    invert: true
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Synth
