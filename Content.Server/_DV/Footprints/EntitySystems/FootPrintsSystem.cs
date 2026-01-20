@@ -6,6 +6,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Server._DV.Footprints.EntitySystems;
 
@@ -17,6 +18,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
     [Dependency] private readonly SharedFlightSystem _flight = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private EntityQuery<FlightComponent> _flightQuery;
     private EntityQuery<TransformComponent> _transformQuery;
@@ -71,7 +73,8 @@ public sealed partial class FootPrintsSystem : EntitySystem
             ? (transform.LocalPosition - ent.Comp.LastPrintPosition).ToAngle() + Angle.FromDegrees(-90f)
             : transform.LocalRotation + Angle.FromDegrees(180f);
 
-        if (!_decalSystem.TryAddDecal(ent.Comp.PrintDecal, coords, out _, color: ent.Comp.PrintsColor, rotation: angle, cleanable: true))
+        var decal = dragging ? _random.Pick(ent.Comp.DraggingDecals) : ent.Comp.PrintDecal;
+        if (!_decalSystem.TryAddDecal(decal, coords, out _, color: ent.Comp.PrintsColor, rotation: angle, cleanable: true))
             return;
 
         ent.Comp.LastPrintPosition = transform.LocalPosition;
