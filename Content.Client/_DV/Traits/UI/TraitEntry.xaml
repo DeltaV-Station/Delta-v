@@ -1,0 +1,38 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                StyleClasses="TraitsEntryPanel"
+                HorizontalExpand="True"
+                Margin="0 0 0 4">
+
+    <BoxContainer Orientation="Horizontal"
+                  HorizontalExpand="True"
+                  Margin="10 8">
+
+        <!-- Checkbox / Toggle -->
+        <CheckBox Name="TraitCheckbox"
+                  StyleClasses="TraitsEntryCheckbox"
+                  VerticalAlignment="Top"
+                  Margin="0 2 10 0"/>
+
+        <!-- Trait Info -->
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      VerticalAlignment="Center"
+                      Name="TraitInfo">
+
+            <!-- Name and Cost Row -->
+            <BoxContainer Orientation="Horizontal">
+                <Label Name="TraitNameLabel"
+                       StyleClasses="TraitsEntryNameLabel"/>
+                <Control HorizontalExpand="True"/>
+                <Label Name="TraitCostLabel"
+                       StyleClasses="TraitsEntryCostLabel"/>
+            </BoxContainer>
+
+            <!-- Description -->
+            <RichTextLabel Name="TraitDescriptionLabel"
+                           StyleClasses="TraitsEntryDescriptionLabel"
+                           HorizontalExpand="True"
+                           Margin="0 4 0 0"/>
+        </BoxContainer>
+    </BoxContainer>
+</PanelContainer>

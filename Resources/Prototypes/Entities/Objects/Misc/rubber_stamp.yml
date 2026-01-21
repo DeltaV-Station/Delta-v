@@ -288,6 +288,8 @@
     stampState: "paper_stamp-greytide"
   - type: Sprite
     state: stamp-greytide
+  - type: MappingCategories # DeltaV - This can spawn in maints lockers
+    categories: []
 
 - type: entity
   name: psychologist's rubber stamp

@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Shared._DV.Tips; // DeltaV - Tips
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
@@ -340,6 +341,16 @@ namespace Content.Server.Database
         Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
         Task<IPIntelCache?> GetIPIntelCache(IPAddress ip);
         Task<bool> CleanIPIntelCache(TimeSpan range);
+
+        #endregion
+
+        #region DeltaV - Seen Tips
+
+        Task<HashSet<string>> GetSeenTips(Guid player, CancellationToken cancel = default);
+        Task<bool> HasSeenTip(Guid player, ProtoId<TipPrototype> tip);
+        Task<bool> MarkTipSeen(Guid player, ProtoId<TipPrototype> tip);
+        Task<bool> ResetSeenTip(Guid player, ProtoId<TipPrototype> tip);
+        Task<int> ResetAllSeenTips(Guid player);
 
         #endregion
 
@@ -1051,6 +1062,40 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
+
+        #region DeltaV - Seen Tips
+
+        public Task<HashSet<string>> GetSeenTips(Guid player, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetSeenTips(player, cancel));
+        }
+
+        public Task<bool> HasSeenTip(Guid player, ProtoId<TipPrototype> tip)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.HasSeenTip(player, tip));
+        }
+
+        public Task<bool> MarkTipSeen(Guid player, ProtoId<TipPrototype> tip)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.MarkTipSeen(player, tip));
+        }
+
+        public Task<bool> ResetSeenTip(Guid player, ProtoId<TipPrototype> tip)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ResetSeenTip(player, tip));
+        }
+
+        public Task<int> ResetAllSeenTips(Guid player)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ResetAllSeenTips(player));
+        }
+
+        #endregion
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

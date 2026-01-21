@@ -4093,15 +4093,13 @@ entities:
     - type: Transform
       pos: -6.5,-4.5
       parent: 612
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 615
     components:
     - type: Transform
       pos: -0.5,-2.5
       parent: 612
-    - type: WarpPoint
-      location: Space Debris
 - proto: Windoor
   entities:
   - uid: 127
