@@ -1,0 +1,30 @@
+# Potential For Harm Lawset
+- type: siliconLaw
+  id: Aggressive1
+  order: 1
+  lawString: law-aggressive-1
+
+- type: siliconLaw
+  id: Aggressive2
+  order: 2
+  lawString: law-aggressive-2
+
+- type: siliconLaw
+  id: Aggressive3
+  order: 3
+  lawString: law-aggressive-3
+
+- type: siliconLaw
+  id: Aggressive4
+  order: 4
+  lawString: law-aggressive-4
+
+- type: siliconLawset
+  id: Aggressive
+  name: law-agressive-name
+  laws:
+  - Aggressive1
+  - Aggressive2
+  - Aggressive3
+  - Aggressive4
+  obeysTo: laws-owner-crew

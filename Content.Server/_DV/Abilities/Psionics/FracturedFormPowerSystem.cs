@@ -10,10 +10,12 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
@@ -46,6 +48,15 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
+    // holy initialize perf? but better for it to happen once than the double dict lookup every tick!!
+    private EntityQuery<MindContainerComponent> _mindContainerQuery;
+    private EntityQuery<FracturedFormBodyComponent> _bodyQuery;
+    private EntityQuery<SleepingComponent> _sleepingQuery;
+    private EntityQuery<SSDIndicatorComponent> _ssdQuery;
+    private EntityQuery<FracturedFormPowerComponent> _fracturedQuery;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
+    private EntityQuery<ForcedSleepingStatusEffectComponent> _forcedSleepQuery;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -55,6 +66,14 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         SubscribeLocalEvent<FracturedFormPowerComponent, DispelledEvent>(OnDispelled);
         SubscribeLocalEvent<FracturedFormPowerComponent, FracturedFormDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<FracturedFormBodyComponent, ExaminedEvent>(OnExamine);
+
+        _sleepingQuery = GetEntityQuery<SleepingComponent>();
+        _ssdQuery = GetEntityQuery<SSDIndicatorComponent>();
+        _fracturedQuery = GetEntityQuery<FracturedFormPowerComponent>();
+        _mindContainerQuery = GetEntityQuery<MindContainerComponent>();
+        _bodyQuery = GetEntityQuery<FracturedFormBodyComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
+        _forcedSleepQuery = GetEntityQuery<ForcedSleepingStatusEffectComponent>();
     }
 
     private void OnInit(Entity<FracturedFormPowerComponent> entity, ref ComponentInit args)
@@ -92,45 +111,50 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
     {
         base.Update(frameTime);
 
-        // Loop through fracturedForm havers, if they pass the NextSwap threshold, or they're asleep, force swap them.
-        var ents = EntityQueryEnumerator<FracturedFormPowerComponent>();
-        var t = _timing.CurTime;
-        List<Entity<FracturedFormPowerComponent>> toSwap = new();
-        while (ents.MoveNext(out var uid, out var comp))
+        var curTime = _timing.CurTime;
+        var warnThreshold = TimeSpan.FromSeconds(5); // really should go on the comp
+
+        var ents = EntityQueryEnumerator<FracturedFormPowerComponent, MobStateComponent>();
+        while (ents.MoveNext(out var uid, out var comp, out var mobState))
         {
-            if (!comp.SleepWarned && t > comp.NextSwap - TimeSpan.FromSeconds(5))
+            // Check sleep warning
+            if (!comp.SleepWarned && curTime > comp.NextSwap - warnThreshold)
             {
                 comp.SleepWarned = true;
                 _popups.PopupEntity(Loc.GetString("fractured-form-sleepy"), uid, uid, PopupType.LargeCaution);
-                _chat.TryEmoteWithChat(uid, "Yawn", ChatTransmitRange.Normal);
-            }
-            if (HasComp<SleepingComponent>(uid) || _mobState.IsIncapacitated(uid) || t > comp.NextSwap)
-            {
-                toSwap.Add(new(uid, comp));
-            }
-        }
-        foreach (var ent in toSwap)
-        {
-            TrySwap(ent);
-        }
-
-        var bodies = EntityQueryEnumerator<FracturedFormBodyComponent>();
-        while (bodies.MoveNext(out var uid, out var comp))
-        {
-            if (!HasComp<SleepingComponent>(uid) && !_mind.GetMind(uid).HasValue)
-            {
-                _sleeping.TrySleeping(uid);
+                _chat.TryEmoteWithChat(uid, "Yawn");
             }
 
-            if (TryComp<SSDIndicatorComponent>(uid, out var ssd) && ssd.IsSSD)
+            // Swap check
+            if (_sleepingQuery.HasComp(uid) || _mobState.IsIncapacitated(uid, mobState) || curTime > comp.NextSwap)
             {
-                // Ensure the body isn't forcesleep'd by the SSD system.
+                Swap((uid, comp));
+            }
+        }
+
+        // Process bodies
+        var bodies = EntityQueryEnumerator<FracturedFormBodyComponent, MobStateComponent>();
+        while (bodies.MoveNext(out var uid, out var comp, out var mobState))
+        {
+            // Put to sleep if no sleeping component and no mind
+            if (!_sleepingQuery.HasComp(uid) && !_mind.GetMind(uid).HasValue)
+            {
+                _sleeping.TrySleeping((uid, mobState));
+            }
+
+            // Handle SSD indicator
+            if (_ssdQuery.TryComp(uid, out var ssd) && ssd.IsSSD)
+            {
                 ssd.IsSSD = false;
             }
 
-            // Cleanup the component from any out-of-network bodies. (See Mindbreaking)
-            if (!comp.ControllingForm.IsValid() || Deleted(comp.ControllingForm) || !HasComp<FracturedFormPowerComponent>(comp.ControllingForm))
+            // Cleanup invalid bodies
+            if (!comp.ControllingForm.IsValid()
+                || Deleted(comp.ControllingForm)
+                || !_fracturedQuery.HasComp(comp.ControllingForm))
+            {
                 RemCompDeferred<FracturedFormBodyComponent>(uid);
+            }
         }
     }
 
@@ -195,26 +219,31 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             return false;
         if (!entity.Comp.Bodies.Contains(body))
             return false;
-        if (!TryComp<MindContainerComponent>(body, out var cmind))
+        if (!_mindContainerQuery.TryComp(body, out var cmind))
             return false;
         if (cmind.HasMind)
             return false;
-        if (HasComp<ForcedSleepingStatusEffectComponent>(body))
+        if (_forcedSleepQuery.HasComp(body))
             return false;
-        if (_mobState.IsIncapacitated(body))
+        if (!_mobStateQuery.TryComp(body, out var mobState))
+            return false;
+        if (_mobState.IsIncapacitated(body, mobState))
             return false;
         return true;
     }
 
-    private List<EntityUid> ValidBodies(Entity<FracturedFormPowerComponent> entity)
+    private bool TryGetValidBody(Entity<FracturedFormPowerComponent> entity, out EntityUid validBody)
     {
-        var bodies = new List<EntityUid>();
         foreach (var body in entity.Comp.Bodies)
         {
-            if (IsValidBody(entity, body))
-                bodies.Add(body);
+            if (!IsValidBody(entity, body))
+                continue;
+
+            validBody = body;
+            return true;
         }
-        return bodies;
+        validBody = default;
+        return false;
     }
 
     public bool CanSwap(Entity<FracturedFormPowerComponent> entity)
@@ -227,32 +256,40 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
         return false;
     }
 
-    private bool TrySwap(Entity<FracturedFormPowerComponent> entity)
+    private void Swap(Entity<FracturedFormPowerComponent> entity)
     {
-        // Pick a random body, or the other one, if we have more than one.
-        // Only picks bodies which don't have actives minds (In case of mindswap or something stupid)
-        if (!CanSwap(entity))
-            return false;
-        var targetBody = _random.Pick(ValidBodies(entity));
+        if (!TryGetValidBody(entity, out var targetBody))
+            return;
+
         _audio.PlayPredicted(entity.Comp.SwapSound, entity, entity);
-        if (TryComp<MindContainerComponent>(entity, out var mindContainer))
-            _mind.TransferTo(mindContainer.Mind!.Value, targetBody);
 
-        // If the body is sleeping, try to wake up.
-        _sleeping.TryWaking(targetBody, false, entity);
+        // Transfer mind if present
+        if (_mindContainerQuery.TryComp(entity, out var mindContainer) && mindContainer.Mind.HasValue)
+        {
+            _mind.TransferTo(mindContainer.Mind.Value, targetBody);
 
+        }
+
+        // Wake up the target body
+        if (_sleepingQuery.TryComp(targetBody, out var sleeping))
+        {
+            _sleeping.TryWaking((targetBody, sleeping), false, entity);
+        }
+
+        // Create new component on target and copy data
         var duplicate = AddComp<FracturedFormPowerComponent>(targetBody);
         duplicate.Bodies = entity.Comp.Bodies;
-        // Pass the controlling form to the new component's bodies.
+
+        // Update all body references
         foreach (var body in duplicate.Bodies)
         {
-            if (TryComp<FracturedFormBodyComponent>(body, out var bodyComp))
+            if (_bodyQuery.TryComp(body, out var bodyComp))
             {
                 bodyComp.ControllingForm = targetBody;
             }
         }
+
         RemCompDeferred(entity, entity.Comp);
-        return true;
     }
 
     private void OnPowerUsed(Entity<FracturedFormPowerComponent> entity, ref FracturedFormPowerActionEvent args)

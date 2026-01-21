@@ -977,8 +977,11 @@
     - Carpetium
     - JuiceThatMakesYouWeh
     - ExoticReagent # Funkychem - base for exotic chems
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: anomaly
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: DrainableSolution
     solution: anomaly
   - type: DrawableSolution

@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Shared.Body.Part;
 using Content.Server.Popups;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 // Begin DeltaV Additions
 using Content.Shared._DV.Surgery;

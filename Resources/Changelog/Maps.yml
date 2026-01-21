@@ -539,4 +539,160 @@
   id: 63
   time: '2025-12-17T18:41:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/4999
-Order: 1
+- author: Velcroboy
+  changes:
+  - message: 'Arena: Winter has finally come to the station. Fire up the snowblowers!'
+    type: Tweak
+  id: 64
+  time: '2025-12-24T03:59:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5020
+- author: biddygelson
+  changes:
+  - message: 'Academy: Cargo has complaint dock with bit of extra space. Robo has
+      IPC medbay. Wintermas is over but still cold outside baby.'
+    type: Tweak
+  - message: 'Academy: Robo has locked doors, justice intercom in law office, surgeon
+      hall has power, psych''s maint door is psych access.'
+    type: Fix
+  id: 65
+  time: '2025-12-31T06:48:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5036
+- author: FieldCommand
+  changes:
+  - message: 'Byoin: Festive times are over, back to work.'
+    type: Tweak
+  id: 66
+  time: '2025-12-31T06:50:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5039
+- author: FieldCommand
+  changes:
+  - message: 'Pebble: Festive times are over, back to work.'
+    type: Tweak
+  - message: added a medical request computer and some cell chargers plus some other
+      fixes.
+    type: Fix
+  id: 67
+  time: '2025-12-31T06:52:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5041
+- author: Velcroboy
+  changes:
+  - message: Added enabled versions of atmos pumps, filters, and mixers
+    type: Add
+  id: 68
+  time: '2025-12-31T18:35:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5015
+- author: FieldCommand
+  changes:
+  - message: 'Midpoint: Festive times are over, back to work.'
+    type: Tweak
+  id: 69
+  time: '2026-01-03T00:12:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5040
+- author: Vape
+  changes:
+  - message: 'Glacier: Removed "holidays"'
+    type: Remove
+  id: 70
+  time: '2026-01-05T21:05:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5139
+- author: Velcroboy
+  changes:
+  - message: 'Tortuga: Removed the Christmas Spirit'
+    type: Remove
+  id: 71
+  time: '2026-01-06T16:59:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5147
+- author: Velcroboy
+  changes:
+  - message: 'Arena: Added robotics and AI restoration consoles. Added public accessible
+      intercoms to every department'
+    type: Add
+  - message: 'Arena: Waste and Distro networks start enabled at roundstart. Gas condenser
+      was moved to atmos'
+    type: Tweak
+  - message: 'Arena: Removed winter'
+    type: Remove
+  - message: 'Arena: Fixed most of sec and parts of the service area not having emergency
+      lights'
+    type: Fix
+  id: 72
+  time: '2026-01-07T02:37:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5085
+- author: ThisIsNotGray
+  changes:
+  - message: Elegance; Elegance is no longer jolly. Billions must grinch.
+    type: Remove
+  id: 73
+  time: '2026-01-08T16:12:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5162
+- author: FieldCommand
+  changes:
+  - message: 'Asterisk: Winter map removed'
+    type: Remove
+  id: 74
+  time: '2026-01-08T16:15:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5156
+- author: SirRequiem
+  changes:
+  - message: 'Terra: All the snow got stolen!!'
+    type: Tweak
+  id: 75
+  time: '2026-01-12T09:13:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5089
+- author: Velcroboy
+  changes:
+  - message: 'The Hive: Added robotics and AI restoration consoles.'
+    type: Add
+  - message: 'The Hive: Waste and Distro networks start enabled at roundstart. Gas
+      condenser was moved to atmos'
+    type: Tweak
+  - message: 'The Hive: Removed winter'
+    type: Remove
+  id: 76
+  time: '2026-01-13T17:23:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5143
+- author: FieldCommand
+  changes:
+  - message: 'NTES Dart: Dart is now the newest EVAC ship in CentCom arsenal and is
+      being mass-produced to fill all needs.'
+    type: Add
+  id: 77
+  time: '2026-01-15T07:14:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4970
+- author: FieldCommand
+  changes:
+  - message: 'ATS: The ATS has been refurbished.'
+    type: Tweak
+  id: 78
+  time: '2026-01-15T13:52:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4825
+- author: ThisIsNotGray
+  changes:
+  - message: 'Elegance: Elegance''s cryogenics lab is no longer a black hole for  the
+      distro line.'
+    type: Fix
+  - message: 'Elegance: People will late join at cryosleep again instead of the nukie
+      outpost. Third or fourth time this has been fixed...'
+    type: Fix
+  id: 79
+  time: '2026-01-17T16:52:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5198
+- author: turtlemutt
+  changes:
+  - message: 'Lighthouse: Made some tweaks to Lighthouse. Fishers rejoice!'
+    type: Tweak
+  id: 80
+  time: '2026-01-19T02:21:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5154
+- author: Colin-Tel
+  changes:
+  - message: 'Division: Lowered surgeon count to 1 from 2.'
+    type: Tweak
+  - message: 'Division: Adjusted warp points to be in line with new requirements.'
+    type: Fix
+  - message: 'Chibi: Adjusted warp points to be in line with new requirements.'
+    type: Fix
+  id: 81
+  time: '2026-01-20T23:30:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5241
+Order: 3

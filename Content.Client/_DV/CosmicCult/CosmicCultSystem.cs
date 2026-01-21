@@ -76,9 +76,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (args.Alert.ID != ent.Comp.EntropyAlert)
             return;
         var entropy = Math.Clamp(ent.Comp.EntropyStored, 0, 14);
-        var sprite = args.SpriteViewEnt.Comp;
-        _sprite.LayerSetRsiState((ent, sprite), AlertVisualLayers.Base, $"base{entropy}");
-        _sprite.LayerSetRsiState((ent, sprite), CultAlertVisualLayers.Counter, $"num{entropy}");
+        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), AlertVisualLayers.Base, $"base{entropy}");
+        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), CultAlertVisualLayers.Counter, $"num{entropy}");
     }
     #endregion
 
@@ -164,19 +163,19 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (HasComp<CosmicCultLeadComponent>(ent))
             return;
 
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (_prototype.Resolve(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 
     private void GetCosmicCultLeadIcon(Entity<CosmicCultLeadComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (_prototype.Resolve(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 
     private void GetCosmicSSDIcon(Entity<CosmicBlankComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (_prototype.Resolve(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
     #endregion

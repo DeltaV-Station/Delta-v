@@ -25,7 +25,7 @@
     - id: SubWizard
       prob: 0.05
     - id: Devil # Goob
-      prob: 0.02
+      prob: 0.05 # DeltaV - Was 0.02
 
 - type: entity
   parent: BaseGameRule
@@ -36,7 +36,7 @@
     - id: Thief
       prob: 0.5
     - id: Devil # Goob
-      prob: 0.02
+      prob: 0.05 # DeltaV - Was 0.02
 
 - type: entity
   parent: BaseGameRule
@@ -118,8 +118,8 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 10 # DeltaV - was 20
-    minTotalPlayers: 35 # DeltaV
+    minPlayers: 20
+    minTotalPlayers: 40 # DeltaV
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: NukieOperation # DeltaV - Nukie operations!
@@ -408,7 +408,7 @@
       - type: InitialInfected
       - type: AutoImplant # DeltaV: Let them communicate to come up with a plan of action
         implants:
-        - SyndicateRadioImplant
+        - RadioSyndicateImplant
       mindRoles:
       - MindRoleInitialInfected
   - type: DynamicRuleCost
@@ -553,6 +553,7 @@
     - id: BasicTrashVariationPass
     - id: SolidWallRustingVariationPass
     - id: ReinforcedWallRustingVariationPass
+    - id: CutWireVariationPass
     - id: BasicPuddleMessVariationPass
       prob: 0.99
       orGroup: puddleMess

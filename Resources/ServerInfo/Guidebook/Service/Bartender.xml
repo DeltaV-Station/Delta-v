@@ -1,8 +1,11 @@
 <Document>
+
 # Bartender
-The bartender has a pretty simple job: serve drinks. People will come up to you and request drinks, and your job is just to hand it to them.
+The bartender is the one that listens to the crews stories about their tradegies and gets the perfect excuse to produce a plethora of cocktails and alchoholic beverages. Their job is to handle any drink requests that come their way when requested!
 
 [textlink="Click here to see a complete list of drinks." link="Drinks"]
+
+<!-- Delta V: Rewrote the Bartender section for better info. -->
 
 <Box>
 The materials for these drinks can be found in various places:
@@ -24,4 +27,16 @@ Don't forget containers to serve them in!
 </Box>
 
 You can find a list of every drink that can be requested under the Reference Tables entry.
+
+# Restocking
+
+The bartender does not have infinite juice, unlike water. Sometimes your booze-o-mat will no longer have the ingredients you require.
+
+In this case, head down to [color=#b18644]Logistics[/color] and request for a booze-o-mat restock box!
+<!--Delta V: Added a Restocking Section! You cant dispense booze without the booze! -->
+
+<Box>
+<GuideEntityEmbed Entity="Screwdriver" Caption="Screwdriver"/>
+<GuideEntityEmbed Entity="VendingMachineRestockBooze" Caption="Booze-O-mat restock box"/>
+</Box>
 </Document>

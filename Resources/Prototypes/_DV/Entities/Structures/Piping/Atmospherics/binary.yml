@@ -1,0 +1,53 @@
+# Pressure Pumps
+- type: entity
+  parent: GasPressurePump
+  id: GasPressurePumpEnabled
+  suffix: Enabled
+  components:
+  - type: GasPressurePump
+    startOnMapInit: true
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressurePumpEnabled
+      Secondary: GasPressurePumpEnabledAlt1
+      Tertiary: GasPressurePumpEnabledAlt2
+
+- type: entity
+  parent: GasPressurePumpEnabled
+  id: GasPressurePumpEnabledStandard
+  suffix: Enabled, 310 kPa
+  components:
+  - type: GasPressurePump
+    targetPressure: 310
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressurePumpEnabledStandard
+      Secondary: GasPressurePumpEnabledStandardAlt1
+      Tertiary: GasPressurePumpEnabledStandardAlt2
+
+- type: entity
+  parent: GasPressurePumpEnabled
+  id: GasPressurePumpEnabledMax
+  suffix: Enabled, Max
+  components:
+  - type: GasPressurePump
+    targetPressure: 4500
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressurePumpEnabledMax
+      Secondary: GasPressurePumpEnabledMaxAlt1
+      Tertiary: GasPressurePumpEnabledMaxAlt2
+
+# Volume Pumps
+- type: entity
+  parent: GasVolumePump
+  id: GasVolumePumpEnabled
+  suffix: Enabled
+  components:
+  - type: GasVolumePump
+    startOnMapInit: true
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasVolumePumpEnabled
+      Secondary: GasVolumePumpEnabledAlt1
+      Tertiary: GasVolumePumpEnabledAlt2

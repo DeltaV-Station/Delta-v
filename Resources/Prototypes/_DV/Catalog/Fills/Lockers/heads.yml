@@ -7,12 +7,7 @@
     children:
     - id: BoxPDACargo
     - id: QuartermasterIDCard
-    - id: ClothingShoesBootsWinterLogisticsOfficer
-    - id: MiningShuttleConsoleCircuitboard
     - id: StockTradingCartridge
-    - id: LogisticsTechFabCircuitboard
-    - id: SalvageExpeditionsComputerCircuitboard
-    - id: FundingAllocationComputerCircuitboard # To be removed when it's in techvault on all maps
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -20,10 +15,6 @@
   id: LockerFillCaptainDeltaV
   table: !type:AllSelector
     children:
-    - id: ClothingHeadHatBeretCap
-    - id: ClothingShoesLeather # fancy shoes for HoP and cap TODO: move to dresser
-    - id: ClothingShoesMiscWhite
-    - id: ClothingShoesBootsWinterCap
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -32,21 +23,9 @@
   table: !type:AllSelector
     children:
     - id: ClothingOuterCoatHoPArmored
-    - id: ClothingOuterArmorDuraVest # replaced(???) HoP's armoured coat with a standard stabproof, pending HoPcoat resprite
-    - id: ClothingOuterCoatHoPFormal
     - id: BookIanDossier # HoP steal objective, see Resources/Prototypes/_DV/Entities/Objects/Misc/ian_dossier.yml
-    - id: ClothingHandsGlovesInspection
-    - id: ClothingUniformJumpsuitHoPMess
-    - id: ClothingUniformJumpskirtHoPMess
-    - id: ClothingUniformJumpsuitBoatswain
-    - id: ClothingUniformJumpsuitHoPFormal
-    - id: ClothingUniformJumpskirtHoPFormal
-    - id: ClothingShoesBootsLaceup
-    - id: ClothingShoesMiscWhite
-    - id: ClothingShoesBootsWinterHeadOfPersonel
-    - id: ServiceTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
-      prob: 0.3
+      prob: 0.8
 
 - type: entityTable
   id: LockerFillChiefEngineerDeltaV
@@ -54,8 +33,6 @@
     children:
     - id: BoxPDAEngineering
     - id: CEIDCard
-    - id: ClothingShoesBootsWinterChiefEngineer
-    - id: EngineeringTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -63,17 +40,11 @@
   id: LockerFillChiefMedicalOfficerDeltaV
   table: !type:AllSelector
     children:
-    - id: RubberStampPsychologist # TODO: make a psych locker and move this to it, or just remove this since psych spawns with it.
     - id: BoxPDAMedical
     - id: ClothingBeltMilitaryWebbingCMO # add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
     - id: CMOIDCard
-    - id: ClothingShoesBootsWinterChiefMedicalOfficer
     - id: LunchboxCommandFilledRandom
       prob: 0.3
-    - id: MedBioFabricatorFlatpack # Replaced the shitmed board
-    - id: AutoclaveFlatpack # Make sure surgeons have access to an autoclave
-    - id: Multitool # Ensure the flatpacks can be used without having to beg a tool
-    - id: Screwdriver # Quality of life for chemvend / nanomed restocks
 
 - type: entityTable
   id: LockerFillResearchDirectorDeltaV
@@ -82,8 +53,6 @@
     - id: BoxPDAScience
     - id: RDIDCard
     - id: BoxFolderRdClipboard
-    - id: ClothingShoesBootsWinterMystagogue
-    - id: EpistemicsTechFabCircuitboard
     - id: LunchboxCommandFilledRandom
       prob: 0.3
     - id: CosmicCenser
@@ -93,7 +62,7 @@
   table: !type:AllSelector
     children:
     - id: BoxPDASecurity
-    - id: WeaponEnergyGunMultiphase
+    - id: HoSBriefcase
     - id: HoSIDCard
     - id: ClothingOuterVestPlateCarrierAdv
     - id: SecWatchCartridge

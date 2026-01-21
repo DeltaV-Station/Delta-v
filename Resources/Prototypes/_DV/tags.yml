@@ -109,10 +109,16 @@
   id: HidesHarpyWings
 
 - type: Tag
+  id: HudDiagnostic
+
+- type: Tag
   id: HudMedicalSecurity #Craftable Corpsman Glasses
 
 - type: Tag # prevents ID chips being used for an id computer privileged id
   id: IdChip
+
+- type: Tag
+  id: JetInjector # Used to make the medical belt sprite show that a JetInjector is there.
 
 - type: Tag
   id: LightFixture
@@ -205,6 +211,9 @@
   id: K9 # Lets K9 units wear specialized clothing
 
 - type: Tag
+  id: Katana # Used to denote special swords that can be put in the ceremonial sheathe
+
+- type: Tag
   id: AncientBookDamagedCommon
 
 - type: Tag
@@ -222,6 +231,35 @@
 - type: Tag # Ovinia, allows them to use specified emotes
   id: OviniaEmotes
 
+- type: Tag
+  id: ReinforcedCameraAI # Reinforced Cameras - AI
+
+- type: Tag
+  id: ReinforcedCameraCommand # Reinforced Cameras - Command
+
+- type: Tag
+  id: ReinforcedCameraConstructed # Reinforced Cameras - Constructed
+
+- type: Tag
+  id: ReinforcedCameraEngineering # Reinforced Cameras - Engineering
+
+- type: Tag
+  id: ReinforcedCameraGeneral # Reinforced Cameras - General
+
+- type: Tag
+  id: ReinforcedCameraMedical # Reinforced Cameras - Medical
+
+- type: Tag
+  id: ReinforcedCameraScience # Reinforced Cameras - Epistemics
+
+- type: Tag
+  id: ReinforcedCameraSecurity # Reinforced Cameras - Security
+
+- type: Tag
+  id: ReinforcedCameraService # Reinforced Cameras - Service
+
+- type: Tag
+  id: ReinforcedCameraSupply # Reinforced Cameras - Logistics
 - type: Tag
   id: GenderScarf
 

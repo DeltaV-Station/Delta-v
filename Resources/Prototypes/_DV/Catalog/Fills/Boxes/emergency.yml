@@ -42,6 +42,7 @@
     - id: CableApcStack10
     - id: WelderMini
 
+# Water Vapor Breather Boxes
 - type: entity
   parent: BoxSurvivalBrigmedic
   id: BoxSurvivalBrigmedicWaterVapor
@@ -156,8 +157,9 @@
     - id: EmergencyWaterVaporTankFilled
     - id: EmergencyMedipen
     - id: Flare
-    - id: FoodBreadBaguette
+    - id: FoodBreadNutriBatard
     - id: DrinkWaterBottleFull
+    - id: ClothingMaskBreath
   - type: Label
     currentLabel: reagent-name-water
 

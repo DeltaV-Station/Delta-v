@@ -165,9 +165,10 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
+    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSilicon
-    wilhelmProbability: 0
+    wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -272,7 +273,6 @@
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
-  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
   - type: PassiveDamage # DeltaV - electric damage disappears over time
     allowedStates:
     - Alive
@@ -519,9 +519,10 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
+    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSiliconXenoborg
-    wilhelmProbability: 0
+    wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier

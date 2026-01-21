@@ -159,7 +159,7 @@
   id: BorgChassisSyndicateSaboteur
   parent: BaseBorgChassisSyndicate
   name: syndicate saboteur cyborg
-  description: A streamlined engineering cyborg, equipped with covert modules. Its chameleon projector lets it disguise itself as a Nanotrasen cyborg.
+  description: A streamlined engineering cyborg, equipped with a cloaking device and light weaponry. # DeltaV
   components:
     - type: Sprite
       layers:
@@ -173,7 +173,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 7 # Delta V - Given additional modules, +1 for SRN's Engi module
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -320,6 +320,15 @@
       - BorgModuleMedical
     hasMindState: medical_e
     noMindState: medical_e_r
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
 
 - type: entity
   parent: BaseBorgChassisDerelict

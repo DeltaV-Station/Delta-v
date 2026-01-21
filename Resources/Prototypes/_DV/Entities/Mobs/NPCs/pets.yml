@@ -31,10 +31,7 @@
     allowMovement: true
     name: "Laika"
     description: "Security's resident she-dog. Badger the officers for headpats and nip at the heels of violent offenders."
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # DeltaV - 4 hours
+    job: RoleLaika # determines the playtime requirement
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -103,11 +100,52 @@
     allowMovement: true
     name: "Carpy the Legal Carp"
     description: "The real brains behind the Justice department. Your honour my client is not fishy!"
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Justice
-      time: 3600 # 1 hours
+    job: RoleCarpy
   - type: GhostTakeoverAvailable
+  -  type: Body
+     prototype: Human
+  - type: Hands
+  - type: InnateTool
+    tools:
+      - id: LuxuryPenCarpy
+      - id: RubberStampCarpy
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+- type: entity
+  name: legal carp stamp
+  parent: RubberStampBase
+  id: RubberStampCarpy
+  description: A stamp specially designed for legal carps, to mark documents that aren't fishy.
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-carpy
+      stampedColor: "#a81f3d"
+      stampState: "paper_stamp-notary"
+    - type: Sprite
+      sprite: _DV/Objects/Misc/stamps.rsi
+      state: stamp-notary
+
+- type: entity
+  name: legal carp pen
+  parent: LuxuryPen
+  id: LuxuryPenCarpy
+  description: The pen is mightier than the sword. This pen is also sharper thank to its carp tooth nib!
+  components:
+  - type: MeleeWeapon
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+        Slash: 10
+    animation: WeaponArcBite
+
 
 - type: entity
   name: Silvia
@@ -220,10 +258,7 @@
       name: ghost-role-information-silvia-name
       description: ghost-role-information-silvia-description
       rules: ghost-role-information-silvia-rules
-      requirements: #No raiders
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 14400 #4 hours
+      job: RoleSilvia # determines the playtime requirement
     - type: GhostTakeoverAvailable
     - type: InteractionPopup
       successChance: 0.65

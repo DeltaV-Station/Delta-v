@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseBorgModule
   parent: BaseItem
   name: borg module
@@ -51,6 +51,7 @@
 - type: entity
   parent: BaseAction
   id: ActionBorgSwapModule
+  # Name and description will normally be changed by BorgSystem
   name: Swap Module
   description: Select this module, enabling you to use the tools it provides.
   components:
@@ -473,6 +474,23 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
 
 - type: entity
+  id: BorgModuleArtistry
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: artistry cyborg module
+  description: A module for arts & crafts whilst the station burns!
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-artistry
+  - type: ItemBorgModule
+    hands:
+    - item: SprayPainterBorg
+    - item: CrayonBorg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: artistry-module }
+
+- type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: thruster cyborg module
@@ -796,14 +814,15 @@
     - item: BorgMegaSprayBottle
     - item: WireBrush # DeltaV
     - item: HoloprojectorBorg
+    - item: WeaponLauncherHydraBorg # DeltaV
     - item: BorgDropper
     - item: Beaker
       hand:
         emptyLabel: borg-slot-beakers-empty
         emptyRepresentative: Beaker
         whitelist:
-          tags:
-          - GlassBeaker
+          components:
+          - FitsInDispenser
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
@@ -880,6 +899,7 @@
     hands:
     - item: HandheldHealthAnalyzerUnpowered
     - item: DefibrillatorOneHandedUnpowered
+    - item: HandheldCrewMonitorUnpowered # DeltaV
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
     - item: HandLabeler
@@ -898,6 +918,7 @@
   - type: ItemBorgModule
     hands:
     - item: HandheldHealthAnalyzerUnpowered
+    - item: JetInjector # DeltaV
     - item: Syringe
     - item: BorgDropper
     - item: BaseChemistryEmptyVial
@@ -921,6 +942,32 @@
         whitelist:
           components:
           - FitsInDispenser
+    # DeltaV - Add Borg Pill Administering
+    - hand:
+        emptyLabel: borg-slot-pill-empty
+        emptyRepresentative: PillTricordrazine
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+    - hand:
+        emptyLabel: borg-slot-pill-empty
+        emptyRepresentative: PillCanister
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+    - hand:
+        emptyLabel: borg-slot-pill-empty
+        emptyRepresentative: PillCanister
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+    # END DeltaV
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
@@ -1298,7 +1345,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleC20r
-  name: C20-r ROW cyborg module
+  name: C-20r ROW cyborg module
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite

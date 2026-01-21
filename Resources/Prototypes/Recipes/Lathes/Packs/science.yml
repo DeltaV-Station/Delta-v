@@ -10,13 +10,6 @@
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
 
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
 ## Dynamic
 
 - type: latheRecipePack
@@ -67,17 +60,7 @@
   #- WeaponTetherGun
   # End DeltaV Removals
   - WeaponGauntletGorilla
-
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileMowedAstroSnow # DeltaV
-  - FauxTileAstroAsteroidSand
+  - WeaponMicrowaveEmitter # DeltaV - Microwave emitter
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack

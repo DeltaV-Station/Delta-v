@@ -9,8 +9,6 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
 public sealed class ArtifactMetapsionicTriggerSystem : BaseXATSystem<ArtifactMetapsionicTriggerComponent>
 {
-    [Dependency] private readonly XenoArtifactSystem _artifact = default!;
-
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
 
     public override void Initialize()
@@ -32,7 +30,7 @@ public sealed class ArtifactMetapsionicTriggerSystem : BaseXATSystem<ArtifactMet
         if (node.Attached == null)
             return;
 
-        var artifact = _xenoArtifactQuery.Get(GetEntity(node.Attached.Value));
+        var artifact = _xenoArtifactQuery.Get(node.Attached.Value);
 
         if (!CanTrigger(artifact, (ent.Owner, node)))
             return;
@@ -48,7 +46,7 @@ public sealed class ArtifactMetapsionicTriggerSystem : BaseXATSystem<ArtifactMet
             if (node.Attached == null)
                 continue;
 
-            var artifact = _xenoArtifactQuery.Get(GetEntity(node.Attached.Value));
+            var artifact = _xenoArtifactQuery.Get(node.Attached.Value);
 
             if (!CanTrigger(artifact, (uid, node)))
                 continue;
