@@ -3480,3 +3480,9 @@ accent-anglish-replacement-1162 = gisel
 
 accent-anglish-words-1163 = hostages
 accent-anglish-replacement-1163 = gisels
+
+accent-anglish-words-1164 = chem
+accent-anglish-replacement-1164 = blendlore
+
+accent-anglish-words-1165 = chems
+accent-anglish-replacement-1165 = salves

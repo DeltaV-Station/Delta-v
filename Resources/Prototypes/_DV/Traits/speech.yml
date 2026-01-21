@@ -172,3 +172,14 @@
   - !type:AddCompsEffect
     components:
     - type: Hushed
+
+- type: trait
+  id: AnglishTung
+  name: trait-anglish-name
+  description: trait-anglish-desc
+  category: Accents
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: AnglishAccent
