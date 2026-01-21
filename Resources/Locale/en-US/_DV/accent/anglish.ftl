@@ -3486,3 +3486,9 @@ accent-anglish-replacement-1164 = blendlore
 
 accent-anglish-words-1165 = chems
 accent-anglish-replacement-1165 = salves
+
+accent-anglish-words-1166 = update
+accent-anglish-replacement-1166 = anwarden
+
+accent-anglish-words-1167 = updated
+accent-anglish-replacement-1167 = anwardened
