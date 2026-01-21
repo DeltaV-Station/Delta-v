@@ -247,6 +247,7 @@
 - type: entity
   id: MagazinePistolHighCapacityEmpty
   name: machine pistol magazine (.35 auto any)
+  description: 20-round double-stack single feed magazine for machine pistols. #Delta V
   suffix: empty
   parent: BaseMagazinePistolHighCapacity
   components:
@@ -268,6 +269,7 @@
 - type: entity
   id: MagazinePistolHighCapacity
   name: machine pistol magazine (.35 auto)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold general-purpose kinetic ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -292,6 +294,7 @@
 - type: entity
   id: MagazinePistolHighCapacityPractice
   name: machine pistol magazine (.35 auto practice)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold non-harmful chalk ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -316,6 +319,7 @@
 - type: entity
   id: MagazinePistolHighCapacityRubber
   name: machine pistol magazine (.35 auto rubber)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold less-lethal rubber ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -449,6 +453,7 @@
 - type: entity
   id: MagazinePistolHighCapacityIncendiary
   name: machine pistol magazine (.35 auto incendiary)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold self-igniting incendiary ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -463,6 +468,7 @@
 - type: entity
   id: MagazinePistolHighCapacityUranium
   name: machine pistol magazine (.35 auto uranium)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold exotic uranium-core ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
