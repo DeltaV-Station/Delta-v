@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Cosmic cultists can now absorb a rift again after expending their empowerment.
-    type: Tweak
-  id: 1588
-  time: '2025-08-13T11:28:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4166
-- author: NoElkaTheGod
-  changes:
   - message: Entropic colossus' Slumber Shell now has infinite charges, longer hybernation
       time (20s -> 30s), and a confirmation popup.
     type: Tweak
@@ -4477,4 +4470,13 @@
   id: 2087
   time: '2026-01-21T14:18:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5217
+- author: Toby222
+  changes:
+  - message: FTL times have been adjusted. Startup is shorter, travel is longer.
+    type: Tweak
+  - message: The FTL startup sound now lines up with the duration of startup again!!!
+    type: Fix
+  id: 2088
+  time: '2026-01-21T14:50:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5257
 Order: 1
