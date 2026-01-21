@@ -61,3 +61,6 @@ trait-redshirt-desc =
     Something is pulling me up the hill.
     I look down in my red shirt.
     I look down in my red shirt."
+
+trait-anglish-name = Anglish tung
+trait-anglish-desc = Your tung is of the Saxons, and say unlike others aboard this skyship.
