@@ -1,22 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Chaplain and mystagogue no longer spawn with a censer in their bag. Instead,
-      it can be found in their respective locker/vendor.
-    type: Tweak
-  - message: Censer now uses mindbreaker toxin instead of holy water as fuel, but
-      at a lower rate.
-    type: Tweak
-  - message: Censer's damage when used on a non-cultist has been decreased.
-    type: Tweak
-  - message: Using a censer now wipes the target's memory, regardless of whether or
-      not they were a cultist. There's ROE on mindwiping for a reason.
-    type: Tweak
-  id: 1590
-  time: '2025-08-13T11:34:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4171
-- author: NoElkaTheGod
-  changes:
   - message: Malign rifts can now randomly spawn even outside of cosmic cult rounds.
     type: Add
   - message: Cosmic cult's presence is now less obvious early in the round. Announcements
@@ -4480,4 +4464,11 @@
   id: 2089
   time: '2026-01-21T16:23:14.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5235
+- author: Apachito
+  changes:
+  - message: Made tide breaker actually craftable
+    type: Fix
+  id: 2090
+  time: '2026-01-21T16:28:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5239
 Order: 1
