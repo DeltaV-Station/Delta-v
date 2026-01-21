@@ -918,6 +918,7 @@
   - type: ItemBorgModule
     hands:
     - item: HandheldHealthAnalyzerUnpowered
+    - item: JetInjector # DeltaV
     - item: Syringe
     - item: BorgDropper
     - item: BaseChemistryEmptyVial
@@ -941,6 +942,32 @@
         whitelist:
           components:
           - FitsInDispenser
+    # DeltaV - Add Borg Pill Administering
+    - hand:
+        emptyLabel: borg-slot-pill-empty
+        emptyRepresentative: PillTricordrazine
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+    - hand:
+        emptyLabel: borg-slot-pill-empty
+        emptyRepresentative: PillCanister
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+    - hand:
+        emptyLabel: borg-slot-pill-empty
+        emptyRepresentative: PillCanister
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+    # END DeltaV
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 

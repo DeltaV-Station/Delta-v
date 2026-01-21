@@ -159834,71 +159834,41 @@ entities:
     - type: Transform
       pos: -26.5,18.5
       parent: 2
-- proto: WarpPointBombing
+- proto: WarpPointCourt
   entities:
   - uid: 24948
     components:
     - type: Transform
       pos: -0.5,-37.5
       parent: 2
-    - type: WarpPoint
-      location: Courtroom
-  - uid: 24949
-    components:
-    - type: Transform
-      pos: -13.5,-19.5
-      parent: 2
-    - type: WarpPoint
-      location: Virology
+- proto: WarpPointBrig
+  entities:
   - uid: 24950
     components:
     - type: Transform
       pos: 42.5,-20.5
       parent: 2
-    - type: WarpPoint
-      location: Genpop
-  - uid: 24951
-    components:
-    - type: Transform
-      pos: 17.5,2.5
-      parent: 2
-    - type: WarpPoint
-      location: Chemistry
-  - uid: 24952
-    components:
-    - type: Transform
-      pos: -12.5,25.5
-      parent: 2
-    - type: WarpPoint
-      location: Barber Shop
+- proto: WarpPointLibrary
+  entities:
   - uid: 24953
     components:
     - type: Transform
       pos: -26.5,36.5
       parent: 2
-    - type: WarpPoint
-      location: Library
+- proto: WarpPointRobotics
+  entities:
   - uid: 24954
     components:
     - type: Transform
       pos: 6.5,40.5
       parent: 2
-    - type: WarpPoint
-      location: Robotics
-  - uid: 24955
-    components:
-    - type: Transform
-      pos: -24.5,2.5
-      parent: 2
-    - type: WarpPoint
-      location: Theatre
+- proto: WarpPointTEG
+  entities:
   - uid: 24956
     components:
     - type: Transform
       pos: 44.5,-49.5
       parent: 2
-    - type: WarpPoint
-      location: TEG
 - proto: WarpPointBridge
   entities:
   - uid: 24957

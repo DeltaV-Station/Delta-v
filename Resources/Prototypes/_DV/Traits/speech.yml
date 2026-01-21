@@ -1,11 +1,174 @@
+## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+
+- type: trait
+  id: PirateAccent
+  name: trait-pirate-accent-name
+  description: trait-pirate-accent-desc
+  category: Accents
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: PirateAccent
+
+- type: trait
+  id: SouthernAccent
+  name: trait-southern-name
+  description: trait-southern-desc
+  category: Accents
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SouthernAccent
+
+- type: trait
+  id: CowboyAccent
+  name: trait-cowboy-name
+  description: trait-cowboy-desc
+  category: Accents
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ReplacementAccent
+      accent: cowboy
+
+- type: trait
+  id: ItalianAccent
+  name: trait-italian-name
+  description: trait-italian-desc
+  category: Accents
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ReplacementAccent
+      accent: italian
+
+- type: trait
+  id: Muted
+  name: trait-muted-name
+  description: trait-muted-desc
+  category: Accents
+  cost: 2
+  conditions:
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Muted
+
+- type: trait
+  id: FrenchAccent
+  name: trait-french-accent-name
+  description: trait-french-accent-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: FrenchAccent
+
+- type: trait
+  id: SpanishAccent
+  name: trait-spanish-accent-name
+  description: trait-spanish-accent-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SpanishAccent
+
+- type: trait
+  id: IrishAccent
+  name: trait-irish-accent-name
+  description: trait-irish-accent-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: IrishAccent
+
+- type: trait
+  id: MobsterAccent
+  name: trait-mobster-accent-name
+  description: trait-mobster-accent-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: MobsterAccent
+
+- type: trait
+  id: ScottishAccent
+  name: trait-scottish-accent-name
+  description: trait-scottish-accent-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ScottishAccent
+
+- type: trait
+  id: Accentless
+  name: trait-accentless-name
+  description: trait-accentless-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Accentless
+      removes:
+      - type: LizardAccent
+      - type: MothAccent
+      - type: ReplacementAccent
+        accent: dwarf
+
+- type: trait
+  id: SocialAnxiety
+  name: trait-socialanxiety-name
+  description: trait-socialanxiety-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: StutteringAccent
+      matchRandomProb: 0.1
+      fourRandomProb: 0
+      threeRandomProb: 0
+      cutRandomProb: 0
+
+- type: trait
+  id: FrontalLisp
+  name: trait-frontal-lisp-name
+  description: trait-frontal-lisp-desc
+  category: Accents
+  cost: 0
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: FrontalLisp
+
 - type: trait
   id: Hushed
   name: trait-hushed-name
   description: trait-hushed-desc
-  category: SpeechTraits
+  category: Accents
   cost: 0
-  blacklist:
+  conditions:
+  - !type:HasCompCondition
+    component: BorgChassis
+    invert: true
+  effects:
+  - !type:AddCompsEffect
     components:
-    - BorgChassis
-  components:
-  - type: Hushed
+    - type: Hushed

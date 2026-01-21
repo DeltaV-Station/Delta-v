@@ -1303,15 +1303,15 @@
         hard: false
         mask:
         - Opaque
-        - Impassable
-        #- BulletImpassable # DeltaV - Still shoot through windows
+      # - Impassable DeltaV allows pierces windows
+      # - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10 # DeltaV changed from 13 to 10
+        Heat: 10 # Delta V was 13
 
 - type: entity
   name: wide laser barrage

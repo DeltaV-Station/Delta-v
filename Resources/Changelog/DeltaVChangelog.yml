@@ -1,49 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: self experimentation is legal again
-    type: Tweak
-  id: 1578
-  time: '2025-08-07T20:12:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4132
-- author: Proxysseia
-  changes:
-  - message: dispensations are now tied to your personal access instead of your departments
-      access
-    type: Tweak
-  - message: dispensations now cover items printed by your departments lathe
-    type: Tweak
-  id: 1579
-  time: '2025-08-07T19:58:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4141
-- author: Proxysseia
-  changes:
-  - message: Security Hardsuits are no longer insulated
-    type: Remove
-  id: 1580
-  time: '2025-08-07T12:05:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4144
-- author: Cepelinas1
-  changes:
-  - message: You can now engrave rings.
-    type: Add
-  id: 1581
-  time: '2025-08-07T01:29:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4103
-- author: kotobdev
-  changes:
-  - message: Warops is back, albeit optional this time.
-    type: Add
-  id: 1582
-  time: '2025-08-07T00:36:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4107
-- author: NoElkaTheGod
-  changes:
-  - message: Censer now deals more damage if you use it on a non-cultist.
-    type: Tweak
-  id: 1583
-  time: '2025-08-10T22:03:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4111
 - author: NoElkaTheGod
   changes:
   - message: ACO procedure is now automatic on apoapsis.
@@ -4466,4 +4421,55 @@
   id: 2077
   time: '2026-01-18T01:54:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5130
+- author: DisposableCrewmember42
+  changes:
+  - message: You can no longer drink the deep fryer.
+    type: Fix
+  id: 2078
+  time: '2026-01-18T04:40:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5238
+- author: snowywinters
+  changes:
+  - message: Reinforced cameras can now be built! They have additional HP and are
+      more resistant to explosions and meteors.
+    type: Add
+  - message: The AI has its own section in the security cameras console.
+    type: Add
+  id: 2079
+  time: '2026-01-18T17:18:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5027
+- author: Dorragon
+  changes:
+  - message: Ready Manifest added to the lobby
+    type: Add
+  id: 2080
+  time: '2026-01-18T18:47:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5187
+- author: MilonPL
+  changes:
+  - message: Added a new traits system, supporting conditions and new effects. Make
+      sure to check out the Traits tab in the character editor!
+    type: Add
+  - message: All character traits have been reset.
+    type: Remove
+  id: 2081
+  time: '2026-01-20T11:49:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5208
+- author: pootslap
+  changes:
+  - message: You can now examine character descriptions from much further away.
+    type: Tweak
+  id: 2082
+  time: '2026-01-20T11:49:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5219
+- author: Eternally-Confused
+  changes:
+  - message: (TEST MERGE) Space pens now contain a chemical called Stabilizine instead
+      of Leporazine, which is better at stabilizing body temperature.
+    type: Tweak
+  - message: Avali no longer die from space pens.
+    type: Tweak
+  id: 2083
+  time: '2026-01-20T21:15:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5181
 Order: 1
