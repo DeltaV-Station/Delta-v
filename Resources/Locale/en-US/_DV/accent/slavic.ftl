@@ -50,10 +50,10 @@ accent-slavic-words-14-2 = thanks
 accent-slavic-words-replace-14 = spasibo
 
 accent-slavic-words-15 = good
-accent-slavic-words-replace-15 = khorosho
+accent-slavic-words-replace-15 = dobro
 
-accent-slavic-words-16 = very
-accent-slavic-words-replace-16 = ochen
+accent-slavic-words-16 = fuck
+accent-slavic-words-replace-16 = kurwa
 
 accent-slavic-words-17 = beautiful
 accent-slavic-words-replace-17 = krasivaya
@@ -86,4 +86,15 @@ accent-slavic-words-24-2 = father
 accent-slavic-words-replace-24 = papa
 
 accent-slavic-words-25 = bye
-accent-slavic-words-replace-25 = poka
+accent-slavic-words-replace-25 = ciao
+
+accent-slavic-words-26 = small
+accent-slavic-words-replace-26 = maly
+
+accent-slavic-words-27 = big
+accent-slavic-words-27-2 = large
+accent-slavic-words-replace-27 = veliky
+
+accent-slavic-words-28 = oh my
+accent-slavic-words-replace-28 = bozhe moy
+
