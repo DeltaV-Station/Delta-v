@@ -55,6 +55,7 @@
   parent: ChemDispenserEmpty
   components:
   - type: ReagentDispenser
+    canAutoLabel: true
   - type: StorageFill
     contents:
       - id: JugAluminium
