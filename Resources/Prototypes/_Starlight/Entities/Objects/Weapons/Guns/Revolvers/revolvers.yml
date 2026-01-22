@@ -19,9 +19,6 @@
     capacity: 1
     chambers: [ null]
     ammoSlots: [ null]
-  - type: Construction
-    graph: MakeshiftRevolverGraph
-    node: shotgun
   - type: WeaponDismantleOnShoot
     dismantleChance: 0.30
     selfDamage:

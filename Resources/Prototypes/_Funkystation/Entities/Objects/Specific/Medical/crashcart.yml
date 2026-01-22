@@ -1,0 +1,141 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: CrashCart
+  parent: [BaseStructureDynamic, StructureWheeled]
+  name: crash cart
+  description: Meds on the move for when the patient decides to tombstone.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Objects/Specific/Medical/crashcart.rsi
+    state: cart
+  - type: Appearance
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: ItemSlots
+    slots:
+      defib_slot1:
+        whitelist:
+          components:
+          - Defibrillator
+        insertOnInteract: true
+        priority: 9
+      tank_slot1:
+        whitelist:
+          tags:
+          - OxygenTank
+          - NitrogenTank
+          - NitrousOxideTank
+          - PlasmaTank
+          - ClownOxygenTank
+          - AirTank
+          - WaterVaporTank
+        insertOnInteract: true
+        priority: 8
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      tank_slot1: !type:ContainerSlot {}
+      defib_slot1: !type:ContainerSlot {}
+  - type: ItemMapper
+    mapLayers:
+      front_oxy:
+        minCount: 1
+        whitelist:
+          tags:
+          - OxygenTank
+      front_nit:
+        minCount: 1
+        whitelist:
+          tags:
+          - NitrogenTank
+      front_fun:
+        minCount: 1
+        whitelist:
+          tags:
+          - ClownOxygenTank
+      front_slp:
+        minCount: 1
+        whitelist:
+          tags:
+          - NitrousOxideTank
+      front_plasma:
+        minCount: 1
+        whitelist:
+          tags:
+          - PlasmaTank
+      front_plain:
+        minCount: 1
+        whitelist:
+          tags:
+          - AirTank
+          - WaterVaporTank # TODO: DeltaV - Sprite WaterVaporTank. This is the closest at the moment.
+      defib:
+        minCount: 1
+        whitelist:
+          components:
+          - Defibrillator
+    sprite: _Funkystation/Objects/Specific/Medical/crashcart.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 250
+        layer:
+        - TableLayer
+        mask:
+        - TableMask
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,1
+    - 0,3,5,4
+    - 0,6,5,7
+    - 0,9,5,10
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: CrashCart
+  id: CrashCartFilled
+  name: crash cart
+  description: Meds on the move for when the patient decides to tombstone.
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Brutepack
+    - id: Gauze
+    - id: Ointment
+    - id: Bloodpack
+    - id: SyringeSaline
+      amount: 2
+    - id: EmergencyMedipen
+      amount: 2
+    - id: AntiPoisonMedipen
+      amount: 2
+    - id: ChemistryBottleDexalin
+    - id: Syringe
+    - id: NitrogenTankFilled
+
+
+
+

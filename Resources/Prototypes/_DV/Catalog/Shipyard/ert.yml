@@ -1,0 +1,12 @@
+# Ships put in here still need to have a price associated with them due to the arbitrage tests.
+# The CentComm console won't charge for them so just put like a million spesos or something
+# in the case that the station does see it in their console (could be a random bug, idk!)
+
+- type: vessel
+  id: Ares
+  name: NT-Ares
+  description: A small ship, outfitted with some combat supplies for those extra dangerous ERT situations. Combat supplies include a Hristov, 4 hyperzine injectors, a handheld crew monitor, and an experimenal RCD.
+  price: 1000000
+  path: /Maps/Shuttles/AdminSpawn/ERT-Small-Deathsquad.yml
+  categories:
+  - ERT

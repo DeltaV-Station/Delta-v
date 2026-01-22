@@ -1303,15 +1303,15 @@
         hard: false
         mask:
         - Opaque
-        - Impassable
-        #- BulletImpassable # DeltaV - Still shoot through windows
+      # - Impassable DeltaV allows pierces windows
+      # - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10 # DeltaV changed from 13 to 10
+        Heat: 10 # Delta V was 13
 
 - type: entity
   name: wide laser barrage
@@ -1347,7 +1347,7 @@
     spread: 9
 
 - type: entity
-  name: magnum laser bolt
+  name: magnum bolt #Delta V - does not fuction like a laser bolt
   id: BulletLaserMagnum
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1362,9 +1362,10 @@
     color: "#ff4300"
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
-    damage:
+    damage: #Delta V - was 30 heat
       types:
-        Heat: 30
+        Heat: 24
+        Piercing: 11
 
 - type: entity
   name: magnum window-piercing bolt

@@ -702,7 +702,7 @@
       - state: SEC-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
-  - type: Armor # DeltaV - adds resists to coat
+  - type: Armor # DeltaV - adds resists to coat. Make sure to update ClothingLongcoatSecurity if these values change.
     modifiers:
       coefficients:
         Blunt: 0.85
