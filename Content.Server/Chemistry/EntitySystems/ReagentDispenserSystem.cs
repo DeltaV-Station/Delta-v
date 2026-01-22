@@ -20,6 +20,7 @@ using Content.Shared.Chemistry.Reagent; // Frontier
 using Content.Server.Labels; // Frontier
 using Content.Shared.Verbs; // Frontier
 using Content.Shared.Examine; // Frontier
+using Content.Shared.Labels.EntitySystems; // Frontier
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -65,7 +66,7 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(ent);
         }
 
-        // Frontier: auto-label on insert
+        // Begin Frontier additions
         private void OnEntInserted(Entity<ReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage ev)
         {
             if (ent.Comp.AutoLabel && _solutionContainerSystem.TryGetDrainableSolution(ev.Entity, out _, out var sol))
@@ -121,7 +122,7 @@ namespace Content.Server.Chemistry.EntitySystems
             else
                 args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-off"));
         }
-        // End Frontier
+        // End Frontier additions
 
         private void UpdateUiState(Entity<ReagentDispenserComponent> reagentDispenser)
         {
@@ -259,7 +260,7 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             _itemSlotsSystem.AddItemSlot(ent.Owner, SharedReagentDispenser.OutputSlotName, ent.Comp.BeakerSlot);
 
-            component.AutoLabel = component.CanAutoLabel; // Frontier: set auto-labeller
+            ent.Comp.AutoLabel = ent.Comp.CanAutoLabel; // Frontier: set auto-labeller
         }
     }
 }
