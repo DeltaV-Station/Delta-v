@@ -64,3 +64,6 @@ trait-redshirt-desc =
 
 trait-anglish-name = Anglish tung
 trait-anglish-desc = Your tung is of the Saxons, and say unlike others aboard this skyship.
+
+trait-slavic-name = Slavic accent
+trait-slavic-desc = You come from the East, and speak vith strong Slavic accent!
