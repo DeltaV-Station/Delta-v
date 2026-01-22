@@ -177,6 +177,7 @@
   name: loadout-group-captain-outerclothing
   loadouts:
   - CaptainOuterClothing
+  - CaptainLongcoat # DeltaV - Longcoats
   - CaptainWintercoat
   - CaptainWintercoatArmored #DeltaV
 
@@ -241,6 +242,7 @@
   - HoPFormalCoat
   - HoPArmoredCoat
   - DuraVest
+  - HoPLongcoat
   # End DeltaV additions
   - HoPWintercoat
 
@@ -377,6 +379,9 @@
   loadouts:
   - PassengerWintercoat
   # Begin DeltaV additions
+  - LongcoatBlack
+  - LongcoatBrown
+  - LongcoatNanoTrasen
   - BlackWinterCoat
   - PurpleWinterCoat
   - RedWinterCoat
@@ -934,6 +939,7 @@
   name: loadout-group-quartermaster-outerclothing
   minLimit: 0
   loadouts:
+  - QuartermasterLongcoat # DeltaV - Longcoats
   - QuartermasterWintercoat
 
 - type: loadoutGroup
@@ -1066,6 +1072,7 @@
   name: loadout-group-chief-engineer-outerclothing
   minLimit: 0
   loadouts:
+  - ChiefEngineerLongcoat # DeltaV - Longcoats
   - ChiefEngineerWintercoat
 
 - type: loadoutGroup
@@ -1265,6 +1272,7 @@
   loadouts:
   - ResearchDirectorLabCoat
   - MystaLabCoat # DeltaV
+  - ResearchDirectorLongcoat # DeltaV - Longcoats
   - ResearchDirectorWintercoat
 
 - type: loadoutGroup
@@ -1472,6 +1480,7 @@
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
+  - WardenLongcoat # DeltaV - Longcoats
   - WardenCoat
   - WardenArmoredWinterCoat
 
@@ -1652,6 +1661,7 @@
   minLimit: 0
   loadouts:
   - ChiefMedicalOfficerLabCoat
+  - ChiefMedicalOfficerLongcoat # DeltaV - Longcoats
   - ChiefMedicalOfficerWintercoat
 
 - type: loadoutGroup

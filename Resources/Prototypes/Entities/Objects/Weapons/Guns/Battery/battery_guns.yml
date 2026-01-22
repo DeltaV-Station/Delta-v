@@ -910,11 +910,11 @@
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
-    maxCharge: 480
-    startingCharge: 480
+    maxCharge: 720 # Delta V - Was 480
+    startingCharge: 720
   - type: BatterySelfRecharger #Delta V - Self recharging not removed
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 72 # Delta V - Was 10
     autoRechargePauseTime: 30
 
 - type: entity
@@ -944,7 +944,7 @@
     - HighRiskItem
     - Sidearm
   - type: StealTarget
-    stealGroup: WeaponEnergyMagnum
+    stealGroup: HoSSidearm # Delta V - to work along side the X-01
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -955,7 +955,7 @@
     fireModes:
     - proto: BulletLaserMagnum
       fireCost: 150
-    - proto: BulletLaserWindowPiercingMagnum
+    - proto: BulletEnergyGunLaser #Delta V - Energy guns pierce by default
       fireCost: 150
     - proto: BulletDisabler
       fireCost: 62.5
