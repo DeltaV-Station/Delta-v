@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stop-Signs
-  changes:
-  - message: Adjusted the survival scheduler.
-    type: Tweak
-  id: 1593
-  time: '2025-08-14T10:04:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4180
 - author: Proxysseia
   changes:
   - message: reduced the emote cooldown to 3s from 5s
@@ -4476,4 +4469,12 @@
   id: 2092
   time: '2026-01-23T19:31:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5227
+- author: pootslap
+  changes:
+  - message: Listening Post Operatives only have the ability to hear binary comms
+      now. They can no longer talk on binary.
+    type: Tweak
+  id: 2093
+  time: '2026-01-23T19:35:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5243
 Order: 1
