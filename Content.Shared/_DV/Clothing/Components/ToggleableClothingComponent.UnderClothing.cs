@@ -4,8 +4,8 @@ namespace Content.Shared.Clothing.Components;
 
 /// <summary>
 ///     Extends upstream's ToggleableClothingComponent.
-/// 
-///     This portion of the ToggleableClothingComponent stores the clothing item under the toggled piece. 
+///
+///     This portion of the ToggleableClothingComponent stores the clothing item under the toggled piece.
 ///     Currently only supports a single piece of clothing, but pretty much all entities with ToggleableClothing
 ///     are just hardsuit helmets.
 /// </summary>

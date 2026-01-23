@@ -4,14 +4,14 @@ namespace Content.Shared.Clothing.EntitySystems;
 
 /// <summary>
 /// Extends upstream's ToggleableClothingSystem.
-/// 
-/// Provides methods that store and re-equip clothing when toggleable clothing is put on or taken off. 
+///
+/// Provides methods that store and re-equip clothing when toggleable clothing is put on or taken off.
 /// Sidenote; god, I hate naming things.
 /// </summary>
 public sealed partial class ToggleableClothingSystem : EntitySystem
 {
     /// <summary>
-    ///     Tries to store clothing in <see cref="ToggleableClothingComponent.UnderClothingContainer"/> 
+    ///     Tries to store clothing in <see cref="ToggleableClothingComponent.UnderClothingContainer"/>
     /// </summary>
     /// <param name="clothing">The clothing to be stored.</param>
     /// <param name="component">The ToggleableClothingComponent to store the clothing in.</param>
