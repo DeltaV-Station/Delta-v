@@ -16,8 +16,8 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Labels.Components;
 using Content.Shared.Storage;
 using Content.Server.Hands.Systems;
+using Content.Server.Popups; // Frontier
 using Content.Shared.Chemistry.Reagent; // Frontier
-using Content.Server.Labels; // Frontier
 using Content.Shared.Verbs; // Frontier
 using Content.Shared.Examine; // Frontier
 using Content.Shared.Labels.EntitySystems; // Frontier
@@ -40,6 +40,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
         [Dependency] private readonly LabelSystem _label = default!; // Frontier
+        [Dependency] private readonly PopupSystem _popup = default!; // Frontier
 
         public override void Initialize()
         {
@@ -51,7 +52,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
             SubscribeLocalEvent<ReagentDispenserComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
-            SubscribeLocalEvent<ReagentDispenserComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternateVerb); // Frontier
+            SubscribeLocalEvent<ReagentDispenserComponent, GetVerbsEvent<ExamineVerb>>(OnExamineVerb); // Frontier
             SubscribeLocalEvent<ReagentDispenserComponent, ExaminedEvent>(OnExamined); // Frontier
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserSetDispenseAmountMessage>(OnSetDispenseAmountMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
@@ -69,29 +70,37 @@ namespace Content.Server.Chemistry.EntitySystems
         // Begin Frontier additions
         private void OnEntInserted(Entity<ReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage ev)
         {
-            if (ent.Comp.AutoLabel && _solutionContainerSystem.TryGetDrainableSolution(ev.Entity, out _, out var sol))
-            {
-                ReagentId? reagentId = sol.GetPrimaryReagentId();
-                if (reagentId != null && _prototypeManager.TryIndex<ReagentPrototype>(reagentId.Value.Prototype, out var reagent))
-                {
-                    var reagentQuantity = sol.GetReagentQuantity(reagentId.Value);
-                    var totalQuantity = sol.Volume;
-                    if (reagentQuantity == totalQuantity)
-                        _label.Label(ev.Entity, reagent.LocalizedName);
-                    else
-                        _label.Label(ev.Entity, Loc.GetString("reagent-dispenser-component-impure-auto-label", ("reagent", reagent.LocalizedName), ("purity", 100.0f * reagentQuantity / totalQuantity)));
-                }
-            }
+            if (!ent.Comp.CanAutoLabel)
+                return;
+
+            if (!ent.Comp.AutoLabel)
+                return;
+
+            if (!_solutionContainerSystem.TryGetDrainableSolution(ev.Entity, out _, out var sol))
+                return;
+
+            if (sol.GetPrimaryReagentId() is not { } reagentProtoId)
+                return;
+
+            if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
+                return;
+
+            var reagentQuantity = sol.GetReagentQuantity(reagentProtoId);
+            var totalQuantity = sol.Volume;
+            if (reagentQuantity == totalQuantity)
+                _label.Label(ev.Entity, reagent.LocalizedName);
+            else
+                _label.Label(ev.Entity, Loc.GetString("reagent-dispenser-component-impure-auto-label", ("reagent", reagent.LocalizedName), ("purity", 100.0f * reagentQuantity / totalQuantity)));
 
             UpdateUiState(ent);
         }
 
-        private void OnAlternateVerb(Entity<ReagentDispenserComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+        private void OnExamineVerb(Entity<ReagentDispenserComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
         {
             if (!ent.Comp.CanAutoLabel)
                 return;
 
-            args.Verbs.Add(new AlternativeVerb()
+            args.Verbs.Add(new ExamineVerb()
             {
                 Act = () =>
                 {
@@ -101,6 +110,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 Loc.GetString("reagent-dispenser-component-set-auto-label-off-verb")
                 : Loc.GetString("reagent-dispenser-component-set-auto-label-on-verb"),
                 Priority = -1, //Not important, low priority.
+                CloseMenu = true
             });
         }
 
@@ -110,6 +120,11 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             ent.Comp.AutoLabel = autoLabel;
+
+            var popupMessage = autoLabel ? Loc.GetString("reagent-dispenser-component-verb-auto-label-turn-on")
+                : Loc.GetString("reagent-dispenser-component-verb-auto-label-turn-off");
+
+            _popup.PopupEntity(popupMessage, ent.Owner);
         }
 
         private void OnExamined(Entity<ReagentDispenserComponent> ent, ref ExaminedEvent args)
@@ -259,8 +274,6 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnMapInit(Entity<ReagentDispenserComponent> ent, ref MapInitEvent args)
         {
             _itemSlotsSystem.AddItemSlot(ent.Owner, SharedReagentDispenser.OutputSlotName, ent.Comp.BeakerSlot);
-
-            ent.Comp.AutoLabel = ent.Comp.CanAutoLabel; // Frontier: set auto-labeller
         }
     }
 }

@@ -25,11 +25,11 @@ namespace Content.Server.Chemistry.Components
 
         // Frontier: whether or not this entity can auto-label items
         [DataField]
-        public bool CanAutoLabel;
+        public bool CanAutoLabel = true;
 
         // Frontier: whether or not this entity is currently auto-labeling items
         [ViewVariables]
-        public bool AutoLabel;
+        public bool AutoLabel = true;
 
 
     }
