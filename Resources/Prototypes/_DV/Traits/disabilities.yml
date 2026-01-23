@@ -117,9 +117,9 @@
   description: trait-painnumbness-desc
   category: Disabilities
   effects:
-  - !type:AddCompsEffect
-    components:
-    - type: PainNumbness
+  - !type:ApplyStatusEffect
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
 
 - type: trait
   id: Hemophilia
