@@ -15,14 +15,14 @@
       minDurationOfIncident: 10
 
 - type: trait
-  id: InPain
-  name: trait-inpain-name
-  description: trait-inpain-desc
+  id: ChronicPain
+  name: trait-chronic-pain-name
+  description: trait-chronic-pain-desc
   category: Medical
   effects:
   - !type:AddCompsEffect
     components:
-    - type: Pain
+    - type: ChronicPain
   - !type:SpawnItemInHandEffect
     item: PillCanisterSoretizone
 
