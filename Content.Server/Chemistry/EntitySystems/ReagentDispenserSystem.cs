@@ -16,11 +16,6 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Labels.Components;
 using Content.Shared.Storage;
 using Content.Server.Hands.Systems;
-using Content.Server.Popups; // Frontier
-using Content.Shared.Chemistry.Reagent; // Frontier
-using Content.Shared.Verbs; // Frontier
-using Content.Shared.Examine; // Frontier
-using Content.Shared.Labels.EntitySystems; // Frontier
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -29,7 +24,7 @@ namespace Content.Server.Chemistry.EntitySystems
     /// <seealso cref="ReagentDispenserComponent"/>
     /// </summary>
     [UsedImplicitly]
-    public sealed class ReagentDispenserSystem : EntitySystem
+    public sealed partial class ReagentDispenserSystem : EntitySystem // Frontier - Made Partial, Auto-Label
     {
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
@@ -39,8 +34,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
-        [Dependency] private readonly LabelSystem _label = default!; // Frontier
-        [Dependency] private readonly PopupSystem _popup = default!; // Frontier
 
         public override void Initialize()
         {
@@ -49,95 +42,21 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, ComponentStartup>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(OnEntInserted); // Frontier: SubscribeUpdateUiState < OnEntInserted
-            SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
+            //SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]); // Frontier - Auto-Label
             SubscribeLocalEvent<ReagentDispenserComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
-            SubscribeLocalEvent<ReagentDispenserComponent, GetVerbsEvent<ExamineVerb>>(OnExamineVerb); // Frontier
-            SubscribeLocalEvent<ReagentDispenserComponent, ExaminedEvent>(OnExamined); // Frontier
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserSetDispenseAmountMessage>(OnSetDispenseAmountMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserEjectContainerMessage>(OnEjectReagentMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
 
             SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[] { typeof(ItemSlotsSystem) });
+            InitializeAutoLabeling(); // Frontier - Auto-Label
         }
-
         private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
         {
             UpdateUiState(ent);
         }
-
-        // Begin Frontier additions
-        private void OnEntInserted(Entity<ReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage ev)
-        {
-            if (!ent.Comp.CanAutoLabel)
-                return;
-
-            if (!ent.Comp.AutoLabel)
-                return;
-
-            if (!_solutionContainerSystem.TryGetDrainableSolution(ev.Entity, out _, out var sol))
-                return;
-
-            if (sol.GetPrimaryReagentId() is not { } reagentProtoId)
-                return;
-
-            if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
-                return;
-
-            var reagentQuantity = sol.GetReagentQuantity(reagentProtoId);
-            var totalQuantity = sol.Volume;
-            if (reagentQuantity == totalQuantity)
-                _label.Label(ev.Entity, reagent.LocalizedName);
-            else
-                _label.Label(ev.Entity, Loc.GetString("reagent-dispenser-component-impure-auto-label", ("reagent", reagent.LocalizedName), ("purity", 100.0f * reagentQuantity / totalQuantity)));
-
-            UpdateUiState(ent);
-        }
-
-        private void OnExamineVerb(Entity<ReagentDispenserComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
-        {
-            if (!ent.Comp.CanAutoLabel)
-                return;
-
-            args.Verbs.Add(new ExamineVerb()
-            {
-                Act = () =>
-                {
-                    SetAutoLabel(ent, !ent.Comp.AutoLabel);
-                },
-                Text = ent.Comp.AutoLabel ?
-                Loc.GetString("reagent-dispenser-component-set-auto-label-off-verb")
-                : Loc.GetString("reagent-dispenser-component-set-auto-label-on-verb"),
-                Priority = -1, //Not important, low priority.
-                CloseMenu = true
-            });
-        }
-
-        private void SetAutoLabel(Entity<ReagentDispenserComponent> ent, bool autoLabel)
-        {
-            if (!ent.Comp.CanAutoLabel)
-                return;
-
-            ent.Comp.AutoLabel = autoLabel;
-
-            var popupMessage = autoLabel ? Loc.GetString("reagent-dispenser-component-verb-auto-label-turn-on")
-                : Loc.GetString("reagent-dispenser-component-verb-auto-label-turn-off");
-
-            _popup.PopupEntity(popupMessage, ent.Owner);
-        }
-
-        private void OnExamined(Entity<ReagentDispenserComponent> ent, ref ExaminedEvent args)
-        {
-            if (!args.IsInDetailsRange || !ent.Comp.CanAutoLabel)
-                return;
-
-            if (ent.Comp.AutoLabel)
-                args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-on"));
-            else
-                args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-off"));
-        }
-        // End Frontier additions
 
         private void UpdateUiState(Entity<ReagentDispenserComponent> reagentDispenser)
         {
