@@ -68,6 +68,7 @@ accent-slavic-words-18-6 = son of a bitch
 accent-slavic-words-replace-18 = cyka blyat
 
 accent-slavic-words-19 = oh my
+accent-slavic-words-19-2 = oh my god
 accent-slavic-words-replace-19 = bozhe moy
 
 accent-slavic-words-20 = oh no
