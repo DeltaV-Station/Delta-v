@@ -28,18 +28,12 @@ public sealed class SlavicAccentSystem : EntitySystem
 
     // Grammar replacement regexes
     private static readonly Regex TheLowercaseRegex = new(@"\bthe\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex TheCapitalRegex = new(@"\bThe\b", RegexOptions.Compiled);
     private static readonly Regex ALowercaseRegex = new(@"\ba\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex ACapitalRegex = new(@"\bA\b", RegexOptions.Compiled);
     private static readonly Regex AnLowercaseRegex = new(@"\ban\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex AnCapitalRegex = new(@"\bAn\b", RegexOptions.Compiled);
     private static readonly Regex IsLowercaseRegex = new(@"\bis\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex IsCapitalRegex = new(@"\bIs\b", RegexOptions.Compiled);
     private static readonly Regex AreLowercaseRegex = new(@"\bare\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex AreCapitalRegex = new(@"\bAre\b", RegexOptions.Compiled);
     private static readonly Regex IAmLowercaseRegex = new(@"\bI am\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-    private static readonly Regex IAmCapitalRegex = new(@"\bI Am\b", RegexOptions.Compiled);
-    private static readonly Regex WhitespaceRegex = new(@"\s+", RegexOptions.Compiled);
+    private static readonly Regex WhitespaceRegex = new(@" +", RegexOptions.Compiled);
 
     private static readonly Regex TovarischRegex = new(@"\btovarisch\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
@@ -164,22 +158,16 @@ public sealed class SlavicAccentSystem : EntitySystem
         {
             // Apply regex replacements for articles elsewhere in the message
             result = TheLowercaseRegex.Replace(result, "");
-            result = TheCapitalRegex.Replace(result, "");
             result = ALowercaseRegex.Replace(result, "");
-            result = ACapitalRegex.Replace(result, "");
             result = AnLowercaseRegex.Replace(result, "");
-            result = AnCapitalRegex.Replace(result, "");
         }
 
         // Remove verbs
         result = IsLowercaseRegex.Replace(result, "");
-        result = IsCapitalRegex.Replace(result, "");
         result = AreLowercaseRegex.Replace(result, "");
-        result = AreCapitalRegex.Replace(result, "");
 
         // Simplify "I am" to "I"
         result = IAmLowercaseRegex.Replace(result, "I");
-        result = IAmCapitalRegex.Replace(result, "I");
 
         // Clean up whitespace
         result = WhitespaceRegex.Replace(result.Trim(), " ");
