@@ -2211,7 +2211,7 @@
   - type: VendingMachine
     pack: TankDispenserEVAInventory
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
+    sprite: _DV\Structures\Machines\VendingMachines\tankdispenser.rsi #TODO add visualiser for remaining tanks as layers # Delta V - Changed Sprites
     state: dispenser
 
 - type: entity
@@ -2224,9 +2224,39 @@
   - type: VendingMachine
     pack: TankDispenserEngineeringInventory
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
+    sprite: _DV\Structures\Machines\VendingMachines\tankdispenser.rsi #TODO add visualiser for remaining tanks as layers # Delta V - Changed Sprites
     layers:
     - state: dispenser
+    - state: dispensereng
+    
+# New Gas Tank Dispenser
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineTankDispenserEVA_New
+  suffix: EVA [O2, N2, H2O] # DeltaV - Added H2O.
+  name: gas tank dispenser
+  description: A vendor for dispensing gas tanks.
+  components:
+  - type: VendingMachine
+    pack: TankDispenserEVAInventory
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/newtankdispenser.rsi
+    state: dispensernew
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineTankDispenserEngineering_New
+  suffix: ENG [O2, Plasma, H2O] # DeltaV - Added H2O.
+  name: gas tank dispenser
+  description: A vendor for dispensing gas tanks. This one has an engineering livery.
+  components:
+  - type: VendingMachine
+    pack: TankDispenserEngineeringInventory
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/newtankdispenser.rsi
+    layers:
+    - state: dispensernew
     - state: dispensereng
 
 - type: entity
