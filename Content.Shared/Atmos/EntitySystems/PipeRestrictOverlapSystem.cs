@@ -1,29 +1,32 @@
 using System.Linq;
-using Content.Server.Atmos.Components;
-using Content.Server.NodeContainer;
-using Content.Server.NodeContainer.Nodes;
-using Content.Server.Popups;
-using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Construction.Components;
 using Content.Shared.NodeContainer;
+using Content.Shared.Popups;
+using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 
-namespace Content.Server.Atmos.EntitySystems;
+namespace Content.Shared.Atmos.EntitySystems;
 
 /// <summary>
 /// This handles restricting pipe-based entities from overlapping outlets/inlets with other entities.
 /// </summary>
 public sealed class PipeRestrictOverlapSystem : EntitySystem
 {
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     private readonly List<EntityUid> _anchoredEntities = new();
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
+
+    public readonly record struct ProposedPipe(
+
+        PipeDirection Direction,
+
+        AtmosPipeLayer Layer,
+
+        Angle Rotation = default);
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -116,10 +119,62 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         {
             foreach (var node in pipe.Comp1.Nodes.Values)
             {
-                // we need to rotate the pipe manually like this because the rotation doesn't update for pipes that are unanchored.
-                if (node is PipeNode pipeNode)
-                    yield return (pipeNode.OriginalPipeDirection.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.CurrentPipeLayer);
+                if (node is IPipeNode pipeNode)
+                    yield return (pipeNode.Direction.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.Layer);
             }
+        }
+    }
+
+    /// <summary>
+    /// Checks if placing a new pipe with the given direction and layer on the specified tile would conflict
+    /// with any existing anchored pipe on the same tile, same layer and overlapping direction.
+    /// Returns the EntityUid of the first conflicting pipe found, or null if no conflict.
+    /// </summary>
+    public EntityUid? CheckIfWouldConflict(EntityUid gridUid,
+        Vector2i tileIndices,
+        ProposedPipe proposed,
+        EntityUid? ignoreEntity = null)
+    {
+        if (!TryComp<MapGridComponent>(gridUid, out var gridComp))
+            return null;
+
+        // Pre-calculate the absolute direction of the proposed pipe
+        var proposedDirAbs = proposed.Direction.RotatePipeDirection(proposed.Rotation);
+
+        _anchoredEntities.Clear();
+        _map.GetAnchoredEntities((gridUid, gridComp), tileIndices, _anchoredEntities);
+
+        foreach (var otherEnt in _anchoredEntities)
+        {
+            if (otherEnt == ignoreEntity)
+                continue;
+
+            if (!_nodeContainerQuery.TryComp(otherEnt, out var otherNodeComp))
+                continue;
+
+            var otherXform = Transform(otherEnt);
+
+            // Compare against the existing pipe's actual rotated nodes
+            foreach (var (existingDir, existingLayer) in GetPipeNodeData((otherEnt, otherNodeComp, otherXform)))
+            {
+                // Conflict occurs if they share a layer AND any directional bit
+                if (proposed.Layer == existingLayer && (proposedDirAbs & existingDir) != 0)
+                    return otherEnt;
+            }
+        }
+
+        return null;
+    }
+
+    private static IEnumerable<(PipeDirection RotatedDirection, AtmosPipeLayer Layer)> GetPipeNodeData(
+        Entity<NodeContainerComponent, TransformComponent> pipe)
+    {
+        var rotation = pipe.Comp2.LocalRotation;
+
+        foreach (var node in pipe.Comp1.Nodes.Values)
+        {
+            if (node is IPipeNode pipeNode)
+                yield return (pipeNode.Direction.RotatePipeDirection(rotation), pipeNode.Layer);
         }
     }
 }

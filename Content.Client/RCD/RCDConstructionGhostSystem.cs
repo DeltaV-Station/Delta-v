@@ -1,11 +1,15 @@
 using Content.Client.Hands.Systems;
+using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using Robust.Shared.Input;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
+using Content.Client.Atmos; //DeltaV - RPD
 
 namespace Content.Client.RCD;
 
@@ -15,6 +19,7 @@ namespace Content.Client.RCD;
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
     private const string PlacementMode = nameof(AlignRCDConstruction);
+    private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers);
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
@@ -22,6 +27,49 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
 
     private Direction _placementDirection = default;
+    private bool _useMirrorPrototype = false;
+    public event EventHandler? FlipConstructionPrototype;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        // bind key
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.EditorFlipObject,
+                new PointerInputCmdHandler(HandleFlip, outsidePrediction: true))
+            .Register<RCDConstructionGhostSystem>();
+    }
+
+    public override void Shutdown()
+    {
+        CommandBinds.Unregister<RCDConstructionGhostSystem>();
+        base.Shutdown();
+    }
+
+    private bool HandleFlip(in PointerInputCmdHandler.PointerInputCmdArgs args)
+    {
+        if (args.State == BoundKeyState.Down)
+        {
+            if (!_placementManager.IsActive || _placementManager.Eraser)
+                return false;
+
+            var placerEntity = _placementManager.CurrentPermission?.MobUid;
+
+            if (!TryComp<RCDComponent>(placerEntity, out var rcd) ||
+                string.IsNullOrEmpty(rcd.CachedPrototype.MirrorPrototype))
+                return false;
+
+            _useMirrorPrototype = !rcd.UseMirrorPrototype;
+
+            // tell the server
+
+            RaiseNetworkEvent(new RCDConstructionGhostFlipEvent(GetNetEntity(placerEntity.Value), _useMirrorPrototype));
+        }
+
+        return true;
+    }
+
 
     public override void Update(float frameTime)
     {
@@ -55,7 +103,17 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
             return;
         }
-        var prototype = _protoManager.Index(rcd.ProtoId);
+
+        // Determine if mirrored
+        var cachedProto = rcd.CachedPrototype;
+        var wantMirror = _useMirrorPrototype && !string.IsNullOrEmpty(cachedProto.MirrorPrototype);
+        var prototype = wantMirror ? cachedProto.MirrorPrototype : cachedProto.Prototype;
+
+        bool isLayered = rcd.IsRpd
+            && _protoManager.TryIndex<RCDPrototype>(cachedProto.ID, out var rcdProto)
+            && rcdProto.HasLayers;
+
+        var desiredMode = isLayered ? RpdPlacementMode : PlacementMode;
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
@@ -65,17 +123,19 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         }
 
         // If the placer has not changed, exit
-        if (heldEntity == placerEntity && prototype.Prototype == placerProto)
+        if (heldEntity == placerEntity &&
+            prototype == placerProto &&
+            _placementManager.CurrentPermission?.PlacementOption == desiredMode)
             return;
 
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
-            PlacementOption = PlacementMode,
-            EntityType = prototype.Prototype,
+            PlacementOption = desiredMode,
+            EntityType = prototype,
             Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (prototype.Mode == RcdMode.ConstructTile),
+            IsTile = (cachedProto.Mode == RcdMode.ConstructTile),
             UseEditorContext = false,
         };
 

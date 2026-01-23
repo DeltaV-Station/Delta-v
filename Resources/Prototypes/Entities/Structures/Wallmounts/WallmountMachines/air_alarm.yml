@@ -69,6 +69,11 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+  - type: RCDDeconstructable
+    cost: 15
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite

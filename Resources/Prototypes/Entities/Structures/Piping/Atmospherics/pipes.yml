@@ -23,6 +23,11 @@
   - type: CollideOnAnchor
   - type: Anchorable
   - type: Rotatable
+  - type: RCDDeconstructable
+    cost: 5
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
   - type: Destructible
     thresholds:
     - trigger: # for nukes
@@ -410,6 +415,3 @@
     navMapBlip: GasPipeManifold
     showAbsentConnections: false
   - type: AtmosDevice
-  - type: Tag
-    tags:
-    - Unstackable

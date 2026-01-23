@@ -1,6 +1,6 @@
-using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Atmos.EntitySystems;
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Shared.Atmos.Components;
 
 /// <summary>
 /// This is used for restricting anchoring pipes so that they do not overlap.
