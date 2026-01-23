@@ -41,7 +41,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             SubscribeLocalEvent<ReagentDispenserComponent, ComponentStartup>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
-            SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(OnEntInserted); // Frontier: SubscribeUpdateUiState < OnEntInserted
+            SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
             //SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]); // Frontier - Auto-Label
             SubscribeLocalEvent<ReagentDispenserComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
