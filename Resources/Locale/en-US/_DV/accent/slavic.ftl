@@ -53,6 +53,7 @@ accent-slavic-words-15 = good
 accent-slavic-words-replace-15 = dobro
 
 accent-slavic-words-16 = fuck
+accent-slavic-words-16-2 = bitch
 accent-slavic-words-replace-16 = kurwa
 
 accent-slavic-words-17 = beautiful
@@ -64,8 +65,10 @@ accent-slavic-words-18-3 = shit fuck
 accent-slavic-words-18-4 = what the fuck
 accent-slavic-words-18-5 = motherfucker
 accent-slavic-words-18-6 = son of a bitch
-accent-slavic-words-18-7 = bitch
 accent-slavic-words-replace-18 = cyka blyat
+
+accent-slavic-words-19 = oh my
+accent-slavic-words-replace-19 = bozhe moy
 
 accent-slavic-words-20 = oh no
 accent-slavic-words-20-2 = uh oh
@@ -95,6 +98,5 @@ accent-slavic-words-27 = big
 accent-slavic-words-27-2 = large
 accent-slavic-words-replace-27 = veliky
 
-accent-slavic-words-28 = oh my
-accent-slavic-words-replace-28 = bozhe moy
+
 
