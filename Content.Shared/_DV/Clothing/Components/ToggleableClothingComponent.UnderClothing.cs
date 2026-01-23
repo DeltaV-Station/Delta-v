@@ -11,7 +11,7 @@ namespace Content.Shared.Clothing.Components;
 /// </summary>
 public sealed partial class ToggleableClothingComponent : Component
 {
-    public const string DefaultUnderneathClothingContainerId = "under-clothing";
+    public const string DefaultUnderneathClothingContainerId = "toggleable-under-clothing";
 
     /// <summary>
     ///     The container ID of <see cref="UnderClothingContainer"/>.
