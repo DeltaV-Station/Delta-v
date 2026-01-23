@@ -97,6 +97,3 @@ accent-slavic-words-replace-26 = maly
 accent-slavic-words-27 = big
 accent-slavic-words-27-2 = large
 accent-slavic-words-replace-27 = veliky
-
-
-
