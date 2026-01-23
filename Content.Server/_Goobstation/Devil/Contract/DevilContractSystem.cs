@@ -35,6 +35,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared._EE.Silicon.Components;
+using Content.Shared.StatusEffectNew; // DeltaV - Clause status effects
 
 namespace Content.Server._Goobstation.Devil.Contract;
 
@@ -51,6 +52,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
     [Dependency] private readonly ExplosionSystem _explosion = null!;
     [Dependency] private readonly MindSystem _mind = null!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = null!; // DeltaV - Clause status effects
 
     public override void Initialize()
     {
@@ -363,6 +365,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         OverrideComponents(target, clause); // DeltaV - Fix component modifications
 
+        ApplyStatusEffect(target, clause); // DeltaV - Clause status effects
+
         ChangeDamageModifier(target, clause);
 
         AddImplants(target, clause);
@@ -413,6 +417,16 @@ public sealed partial class DevilContractSystem : EntitySystem
         EntityManager.AddComponents(target, clause.OverriddenComponents, true);
     }
     // End DeltaV Addition
+
+    // Begin DeltaV Addition - Devil clause status effects
+    private void ApplyStatusEffect(EntityUid target, DevilClausePrototype clause)
+    {
+        foreach (var effect in clause.StatusEffects)
+        {
+            _statusEffects.TrySetStatusEffectDuration(target, effect);
+        }
+    }
+    // End DeltaV Addition - Devil clause status effects
 
     private void SpawnItems(EntityUid target, DevilClausePrototype clause)
     {

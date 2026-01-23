@@ -28,6 +28,9 @@ public sealed class DevilClausePrototype : IPrototype
     public ComponentRegistry? OverriddenComponents; // DeltaV - Added overridden components
 
     [DataField]
+    public HashSet<EntProtoId> StatusEffects = new(); // DeltaV - Add status effects to clauses
+
+    [DataField]
     public string? DamageModifierSet;
 
     [DataField]
