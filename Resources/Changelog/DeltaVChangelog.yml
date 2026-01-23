@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Malign rifts can now randomly spawn even outside of cosmic cult rounds.
-    type: Add
-  - message: Cosmic cult's presence is now less obvious early in the round. Announcements
-      have been moved to later stages.
-    type: Tweak
-  id: 1591
-  time: '2025-08-14T09:57:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4179
 - author: troytroy400
   changes:
   - message: 'Three new hairstyles: Classic Bun, Loose Bun and Low Ponytail'
@@ -4471,4 +4461,17 @@
   id: 2090
   time: '2026-01-21T16:28:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5239
+- author: ShepardToTheStars
+  changes:
+  - message: Certain painkillers are more long-lasting than others, based on how strong
+      they are.
+    type: Tweak
+  - message: Players with the chronic pain trait start with ~5 minutes of suppressed
+      pain before they start feeling the effects.
+    type: Tweak
+  - message: Fixed chronic pain's effects from pulsing continuously.
+    type: Fix
+  id: 2091
+  time: '2026-01-23T10:24:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5180
 Order: 1
