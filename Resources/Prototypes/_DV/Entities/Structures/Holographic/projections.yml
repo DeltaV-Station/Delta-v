@@ -28,6 +28,23 @@
             acts: [ "Destruction" ]
 
 - type: entity
+  parent: BaseHolosign
+  id: HolosignEng
+  name: engineering caution sign
+  description: What's the worst that could lie beyond?
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Holo/eng.rsi
+    state: icon
+  - type: TimedDespawnDetailed
+    lifetime: 90
+  - type: Holosign
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: "#ffa500" # Orange
+
+- type: entity
   id: HoloTape
   parent: BaseHolosign
   name: holotape
