@@ -56,8 +56,7 @@
   effects:
   - !type:AddCompsEffect
     components:
-    - type: Unrevivable
-      cloneable: false
+    - type: Uncloneable
 
 - type: trait
   id: Unborgable
