@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Traits.Assorted;
+using Content.Shared._DV.Traits.Assorted;
 using Content.Shared.Cloning.Events;
 
 namespace Content.Shared._DV.Medical;
