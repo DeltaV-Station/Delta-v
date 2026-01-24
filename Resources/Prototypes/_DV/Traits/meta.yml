@@ -1,0 +1,17 @@
+﻿- type: trait
+  id: MarkedAsProtected
+  name: trait-protected-name
+  description: trait-protected-desc
+  category: Meta
+  conditions:
+  - !type:InDepartmentCondition
+    department: Command
+    invert: true
+  - !type:InDepartmentCondition
+    department: Security
+    invert: true
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: TargetObjectiveImmune
+
