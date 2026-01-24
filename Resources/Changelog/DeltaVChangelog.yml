@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: Blinking is now an emote, and plays a silly noise.
-    type: Add
-  id: 1595
-  time: '2025-08-14T20:57:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4155
 - author: Quanteey
   changes:
   - message: Merged upstream until June 20.
@@ -4477,4 +4470,12 @@
   id: 2094
   time: '2026-01-24T20:55:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5275
+- author: MilonPL
+  changes:
+  - message: The uncloneable trait no longer prevents your character from getting
+      revived by defibrillators.
+    type: Fix
+  id: 2095
+  time: '2026-01-24T21:29:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5273
 Order: 1
