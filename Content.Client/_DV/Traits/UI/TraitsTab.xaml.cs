@@ -207,7 +207,7 @@ public sealed partial class TraitsTab : BoxContainer
             // If parent width is 0 (not laid out yet), defer until layout happens
             if (parentWidth > 0)
             {
-                GlobalPointsBar.SetWidth = (int)(parentWidth * percentage);
+                GlobalPointsBar.SetWidth = (int)((parentWidth - 2 ) * percentage);
                 _awaitingLayoutUpdate = false;
             }
             else if (!_awaitingLayoutUpdate)
