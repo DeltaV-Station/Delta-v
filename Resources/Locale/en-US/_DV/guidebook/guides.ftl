@@ -38,3 +38,5 @@ guide-entry-trade-station = Trade Station
 guide-entry-cargo = Logistics
 
 guide-entry-frequently-used-chemicals = Frequently Used Chemicals
+
+guide-entry-deepfried-recipes = Deep-Fried

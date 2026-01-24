@@ -162,8 +162,13 @@
         reagents:
         - ReagentId: Water
           Quantity: 180
-        - ReagentId: GastroToxin
-          Quantity: 20
+# Delta V - Begin: Add random reagent to water
+        #- ReagentId: GastroToxin
+        #  Quantity: 20
+  - type: RandomFillSolution
+    solution: tank
+    weightedRandomId: RandomFillToiletMisc
+# Delta V - End: Add random reagent to water
 
 - type: entity
   parent: ToiletEmpty
@@ -173,9 +178,10 @@
   - type: EntityTableContainerFill
     containers:
       stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
+        tableId: ToiletCisternLootPublic     # Delta V - Make better loot more common
+        prob: 0.33                           # Delta V - Decrease freaquency of loot
+        #rolls: !type:RangeNumberSelector
+        #  range: 0, 1
 
 - type: entity
   parent: ToiletDirtyWater
@@ -185,9 +191,10 @@
   - type: EntityTableContainerFill
     containers:
       stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
+        tableId: ToiletCisternLootPublic     # Delta V - Make better loot more common
+        prob: 0.33                           # Delta V - Decrease freaquency of loot
+        #rolls: !type:RangeNumberSelector
+        #  range: 0, 1
 
 - type: entity
   parent: BaseToilet
@@ -243,5 +250,10 @@
           Quantity: 160
         - ReagentId: Gold
           Quantity: 20
-        - ReagentId: GastroToxin
-          Quantity: 20
+# Delta V - Begin: Add random reagent to water
+        #- ReagentId: GastroToxin
+        #  Quantity: 20
+  - type: RandomFillSolution
+    solution: tank
+    weightedRandomId: RandomFillToiletMisc
+# Delta V - End: Add random reagent to water

@@ -1,6 +1,9 @@
 - type: accessGroup
   id: AllAccess
   tags:
+  # DeltaV note: make sure any additions to this list are also added to both:
+  #  1. AccessLevels in  Content.Shared\Access\Components\IdCardConsoleComponent.cs
+  #  2. ComputerIdAdmeme in  Resources\Prototypes\_DV\Entities\Structures\Machines\computers.yml
   - EmergencyShuttleRepealAll
   - Captain
   - HeadOfPersonnel
