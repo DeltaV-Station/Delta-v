@@ -61,6 +61,8 @@
           bounds: "-0.5,-0.5,0.5,0.5"
   - type: Transform
     noRot: true
+  - type: TimedDespawnDetailed
+    lifetime: 300
   - type: Holotape
   - type: PointLight
     enabled: true
