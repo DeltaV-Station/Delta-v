@@ -12,7 +12,9 @@
   - type: Edible
     trash:
     - FoodBowlBig
-    utensil: Spoon
+    utensil: 
+    - Spoon
+    - Fork
   - type: SolutionContainerManager
     solutions:
       food:
