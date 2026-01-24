@@ -28,18 +28,24 @@
             acts: [ "Destruction" ]
 
 - type: entity
+  id: HoloTape
   parent: BaseHolosign
-  id: HolosignEng
-  name: engineering caution sign
-  description: What's the worst that could lie beyond?
+  name: holotape
+  description: A projection of holographic caution tape. Maybe don't wander past.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Holo/eng.rsi
+    sprite: _DV/Structures/Holo/holotape.rsi
     state: icon
-  - type: TimedDespawnDetailed
-    lifetime: 90
-  - type: Holosign
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+  - type: Transform
+    noRot: true
+  - type: Holotape
   - type: PointLight
     enabled: true
-    radius: 3
-    color: "#ffa500" # Orange
+    radius: 2
+    color: orange

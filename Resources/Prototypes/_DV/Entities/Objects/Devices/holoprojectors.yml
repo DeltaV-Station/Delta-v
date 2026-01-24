@@ -1,14 +1,23 @@
 - type: entity
-  parent: Holoprojector
-  id: HoloprojectorEngineering
-  name: engineering holoprojector
-  description: Displays a warning sign.
+  parent: BaseItem
+  id: HolotapeProjector
+  name: holotape projector
+  description: A handy way to cordon off a particularly hazardous area - let everyone know they shouldn't wander in without a hardhat.
   components:
   - type: ChargeHolosignProjector
-    signProto: HolosignEng
-    signComponentName: Holosign # Fuck it, these can pick up janitor signs.
-  - type: AutoRecharge
-    rechargeDuration: 180
+    signProto: HoloTape
+    signComponentName: Holotape
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Devices/Holoprojectors/eng.rsi
+    sprite: _Funkystation/Objects/Devices/Holoprojectors/holotape.rsi
     state: icon
+  - type: Item
+    storedRotation: -90
+  - type: LimitedCharges
+    maxCharges: 8
+    charges: 8
+  - type: ContainerContainer
+    containers:
+      signs: !type:Container
+  - type: Tag
+    tags:
+    - HolofanProjector
