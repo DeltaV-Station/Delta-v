@@ -1,8 +1,8 @@
-using Content.Server.Objectives.Components;
+using Content.Server._DV.Objectives.Components;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Components;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server._DV.Objectives.Systems;
 
 /// <summary>
 /// Handles checking the job blacklist for this objective.
