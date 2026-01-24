@@ -83,3 +83,24 @@
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
+
+- type: reagent
+  id: Photoxadone
+  name: reagent-name-photoxadone
+  desc: reagent-desc-photoxadone
+  flavor: clean
+  color: "#A695AD"
+  physicalDesc: reagent-physical-desc-enigmatic
+  group: Medicine
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        damage:
+          types:
+            Shadow: -2
+            Holy: -2

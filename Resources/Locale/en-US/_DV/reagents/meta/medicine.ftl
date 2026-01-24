@@ -13,3 +13,6 @@ reagent-name-anodynafil = anodynafil
 reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't interfere with consciousness, but results in prolonged pain suppression.
 
 reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.
+
+reagent-name-photoxadone = photoxadone
+reagent-desc-photoxadone = a strange, faintly glowing cryogenics chemical. Seems to have some effect on damages deeper than physical, even affecting the dead.
