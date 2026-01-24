@@ -127,6 +127,6 @@
   description: trait-hemophilia-desc
   category: Disabilities
   effects:
-  - !type:AddCompsEffect
-    components:
-    - type: Hemophilia
+  - !type:ApplyStatusEffect
+    statusEffects:
+    - StatusEffectHemophiliaTrait
