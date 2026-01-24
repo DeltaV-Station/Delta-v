@@ -154,8 +154,5 @@ reagent-desc-potassium-iodide = Will reduce the damaging effects of radiation by
 reagent-name-haloperidol = haloperidol
 reagent-desc-haloperidol = Removes most stimulating and hallucinogenic drugs. Reduces druggy effects and jitteriness. Causes drowsiness.
 
-reagent-name-stelloxadone = stelloxadone
-reagent-desc-stelloxadone = A cryogenics chemical. Used to aggressively dissolve toxins from the body. Works regardless of the patient being alive or dead.
-
 reagent-name-warfarin = warfarin
 reagent-desc-warfarin = Commonly used as an anticoagulant medication. Causes blood to have difficulty forming clots. Can cause internal bleeding when overdosed.
