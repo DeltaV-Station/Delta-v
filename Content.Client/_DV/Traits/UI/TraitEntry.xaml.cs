@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
 using Content.Shared.Humanoid.Prototypes;
@@ -91,7 +92,7 @@ public sealed partial class TraitEntry : PanelContainer
     /// <summary>
     /// Updates whether conditions are met based on current job/species.
     /// </summary>
-    public void UpdateConditionsMet(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId)
+    public void UpdateConditionsMet(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
     {
         _failedConditionTooltips.Clear();
         MeetsConditions = true;
@@ -104,7 +105,8 @@ public sealed partial class TraitEntry : PanelContainer
                 HasJobCondition jobCond => CheckJobCondition(jobCond, jobId),
                 InDepartmentCondition deptCond => CheckDepartmentCondition(deptCond, jobId),
                 HasCompCondition compCond => !compCond.Invert, // can't check in lobby but screws with the inversion logic
-                AnyOfCondition anyOfCond => CheckAnyOfCondition(anyOfCond, jobId, speciesId),
+                IsAntagEligibleCondition antagEligibleCond => CheckAntagEligibleCondition(antagEligibleCond, antagPreferences),
+                AnyOfCondition anyOfCond => CheckAnyOfCondition(anyOfCond, jobId, speciesId, antagPreferences),
                 _ => true,
             };
 
@@ -150,7 +152,15 @@ public sealed partial class TraitEntry : PanelContainer
         return department.Roles.Contains(job);
     }
 
-    private bool CheckAnyOfCondition(AnyOfCondition condition, ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId)
+    private bool CheckAntagEligibleCondition(IsAntagEligibleCondition condition, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
+    {
+        if (antagPreferences is null)
+            return false;
+
+        return antagPreferences.Contains(condition.Antag);
+    }
+
+    private bool CheckAnyOfCondition(AnyOfCondition condition, ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
     {
         if (condition.Conditions.Count == 0)
             return false;
@@ -164,7 +174,8 @@ public sealed partial class TraitEntry : PanelContainer
                 HasJobCondition jobCond => CheckJobCondition(jobCond, jobId),
                 InDepartmentCondition deptCond => CheckDepartmentCondition(deptCond, jobId),
                 HasCompCondition compCond => !compCond.Invert, // can't check in lobby
-                AnyOfCondition nestedAnyOf => CheckAnyOfCondition(nestedAnyOf, jobId, speciesId), // Recursive!
+                AnyOfCondition nestedAnyOf => CheckAnyOfCondition(nestedAnyOf, jobId, speciesId, antagPreferences), // Recursive!
+                IsAntagEligibleCondition antagEligibleCond => CheckAntagEligibleCondition(antagEligibleCond, antagPreferences),
                 _ => true,
             };
 

@@ -10,6 +10,15 @@
   - !type:InDepartmentCondition
     department: Security
     invert: true
+  - !type:IsAntagEligibleCondition
+    antag: Thief
+    invert: true
+  - !type:IsAntagEligibleCondition
+    antag: Traitor
+    invert: true
+  - !type:IsAntagEligibleCondition
+    antag: TraitorSleeper
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
