@@ -5,6 +5,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Examine;
 using Content.Server.Popups;
 using Content.Shared.Labels.EntitySystems;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -15,36 +16,15 @@ public sealed partial class ReagentDispenserSystem : EntitySystem
 
     private void InitializeAutoLabeling()
     {
-        SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(OnEntInserted, after: [typeof(SharedStorageSystem)]);
         SubscribeLocalEvent<ReagentDispenserComponent, GetVerbsEvent<ExamineVerb>>(OnExamineVerb);
         SubscribeLocalEvent<ReagentDispenserComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnEntInserted(Entity<ReagentDispenserComponent> ent, ref EntInsertedIntoContainerMessage ev)
     {
-        if (!ent.Comp.CanAutoLabel)
-            return;
-
-        if (!ent.Comp.AutoLabelToggle)
-            return;
-
-        if (!_solutionContainerSystem.TryGetDrainableSolution(ev.Entity, out _, out var sol))
-            return;
-
-        if (sol.GetPrimaryReagentId() is not { } reagentProtoId)
-            return;
-
-        if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
-            return;
-
-        var reagentQuantity = sol.GetReagentQuantity(reagentProtoId);
-        var totalQuantity = sol.Volume;
-        if (reagentQuantity == totalQuantity)
-            _label.Label(ev.Entity, reagent.LocalizedName);
-        else
-            _label.Label(ev.Entity, Loc.GetString("reagent-dispenser-component-impure-auto-label", ("reagent", reagent.LocalizedName), ("purity", 100.0f * reagentQuantity / totalQuantity)));
-
-        UpdateUiState(ent);
+        TryApplyAutoLabel(ent, ev.Entity);
+        SubscribeUpdateUiState(ent, ref ev);
     }
 
     private void OnExamineVerb(Entity<ReagentDispenserComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
@@ -66,6 +46,17 @@ public sealed partial class ReagentDispenserSystem : EntitySystem
         });
     }
 
+    private void OnExamined(Entity<ReagentDispenserComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange || !ent.Comp.CanAutoLabel)
+            return;
+
+        if (ent.Comp.AutoLabelToggle)
+            args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-on"));
+        else
+            args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-off"));
+    }
+
     private void SetAutoLabel(Entity<ReagentDispenserComponent> ent, bool autoLabel)
     {
         if (!ent.Comp.CanAutoLabel)
@@ -79,14 +70,28 @@ public sealed partial class ReagentDispenserSystem : EntitySystem
         _popup.PopupEntity(popupMessage, ent.Owner);
     }
 
-    private void OnExamined(Entity<ReagentDispenserComponent> ent, ref ExaminedEvent args)
+    private void TryApplyAutoLabel(Entity<ReagentDispenserComponent> dispenser, EntityUid insertedEntity)
     {
-        if (!args.IsInDetailsRange || !ent.Comp.CanAutoLabel)
+        if (!dispenser.Comp.CanAutoLabel)
             return;
 
-        if (ent.Comp.AutoLabelToggle)
-            args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-on"));
+        if (!dispenser.Comp.AutoLabelToggle)
+            return;
+
+        if (!_solutionContainerSystem.TryGetDrainableSolution(insertedEntity, out _, out var sol))
+            return;
+
+        if (sol.GetPrimaryReagentId() is not { } reagentProtoId)
+            return;
+
+        if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
+            return;
+
+        var reagentQuantity = sol.GetReagentQuantity(reagentProtoId);
+        var totalQuantity = sol.Volume;
+        if (reagentQuantity == totalQuantity)
+            _label.Label(insertedEntity, reagent.LocalizedName);
         else
-            args.PushMarkup(Loc.GetString("reagent-dispenser-component-examine-auto-label-off"));
+            _label.Label(insertedEntity, Loc.GetString("reagent-dispenser-component-impure-auto-label", ("reagent", reagent.LocalizedName), ("purity", 100.0f * reagentQuantity / totalQuantity)));
     }
 }
