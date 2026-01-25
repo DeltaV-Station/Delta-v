@@ -97,6 +97,7 @@
   - !type:HasCompCondition
     component: BorgChassis
     invert: true
+    tooltip: trait-condition-borg-not
   - !type:IsSpeciesCondition
     species: IPC
     invert: true
