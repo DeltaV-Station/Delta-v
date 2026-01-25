@@ -82,7 +82,7 @@ public sealed partial class DisabledTraitsPopup : FancyWindow
     private void InitializeEvents()
     {
         OnClose += SaveSkipState;
-        CloseButton.OnPressed += OnClosePressed;
+        ButtonClose.OnPressed += OnClosePressed;
     }
 
     private void SaveSkipState()

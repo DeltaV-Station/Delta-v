@@ -8,7 +8,7 @@ trait-editor-footer-info = Negative costs grant bonus points
 ## Disabled Traits Popup
 disabled-traits-popup-title = Traits Disabled
 disabled-traits-popup-label = Traits Disabled
-disabled-traits-popup-message = Some of your selected traits could not be applied because they did not meet the required conditions for your current role and species.
+disabled-traits-popup-message = Some of your selected traits could not be applied because they did not meet the required conditions.
 disabled-traits-popup-list-header = The following traits were disabled:
 disabled-traits-popup-reason = • {$reason}
 disabled-traits-popup-skip-checkbox = Don't show this again

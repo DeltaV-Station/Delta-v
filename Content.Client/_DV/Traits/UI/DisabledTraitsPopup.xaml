@@ -7,7 +7,8 @@
         <!-- Header -->
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
             <TextureRect TexturePath="/Textures/Interface/info.svg.192dpi.png"
-                         TextureScale="2 2"
+                         TextureScale="0.5 0.5"
+                         VerticalAlignment="Center"
                          Margin="0 0 10 0" />
             <Label Name="TitleLabel"
                    StyleClasses="LabelHeading"
@@ -23,7 +24,7 @@
                StyleClasses="LabelSubText"
                Margin="0 0 0 5" />
 
-        <PanelContainer StyleClasses="AngleRect" VerticalExpand="True">
+        <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
             <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
                 <BoxContainer Name="DisabledTraitsContainer"
                               Orientation="Vertical"
@@ -34,9 +35,10 @@
         <!-- Footer with checkbox and close button -->
         <BoxContainer Orientation="Vertical" Margin="0 10 0 0">
             <CheckBox Name="SkipCheckBox"
-                      Text="{Loc disabled-traits-popup-skip-checkbox}" />
+                      Text="{Loc disabled-traits-popup-skip-checkbox}"
+                      HorizontalAlignment="Center" />
 
-            <Button Name="CloseButton"
+            <Button Name="ButtonClose"
                     Text="{Loc disabled-traits-popup-close-button}"
                     HorizontalAlignment="Center"
                     Margin="0 10 0 0"
