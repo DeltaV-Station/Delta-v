@@ -317,21 +317,6 @@
         color: "#ea5800"
 
 - type: entity
-  id: MagazinePistolHighCapacityRubber
-  name: machine pistol magazine (.35 auto rubber)
-  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold less-lethal rubber ammunition. #Delta V
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolRubber # DeltaV: upstream still has this for some reason but not using rubber
-  - type: Sprite
-    layers:
-    - state: rubber
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
   id: MagazinePistolSubMachineGun
   name: SMG magazine (.35 auto)
   parent: BaseMagazinePistolSubMachineGun
@@ -447,37 +432,3 @@
       - state: inhand-left-mag
       right:
       - state: inhand-right-mag
-
-#Delta-V additons
-
-- type: entity
-  id: MagazinePistolHighCapacityIncendiary
-  name: machine pistol magazine (.35 auto incendiary)
-  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold self-igniting incendiary ammunition. #Delta V
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolIncendiary
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: MagazinePistolHighCapacityUranium
-  name: machine pistol magazine (.35 auto uranium)
-  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold exotic uranium-core ammunition. #Delta V
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolUranium
-  - type: Sprite
-    layers:
-    - state: uranium
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-#end of Delta-V additions
