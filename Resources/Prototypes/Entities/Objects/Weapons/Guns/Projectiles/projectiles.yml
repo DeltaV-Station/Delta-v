@@ -1366,6 +1366,16 @@
       types:
         Heat: 24
         Piercing: 11
+  - type: Fixtures # Delta V - ensures that it doesnt pierce windows
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: true 
+        mask:
+        - Impassable
+        - BulletImpassable
 
 - type: entity
   name: magnum window-piercing bolt

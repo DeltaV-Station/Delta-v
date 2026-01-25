@@ -22,6 +22,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {}
       storagebase: !type:Container
         ents: []
 
@@ -140,3 +141,17 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
+
+- type: entity
+  parent: [ClothingOuterArmorCaptainCarapace, BaseCommandContraband]
+  id: ClothingOuterWinterCapArmored
+  name: captain's armored winter coat
+  description: A sturdy, utilitarian winter coat with a built-in carapace designed to protect a captain from any station-bound threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cap_armored_winter_coat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cap_armored_winter_coat.rsi
+  - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
