@@ -65,7 +65,8 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
+    radius: 1.7
+    falloff: 3
     softness: 5
     autoRot: true
   - type: Ringer
@@ -599,7 +600,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseJusticePDA # DeltaV - Added secwatch to justice. Was BaseSecurityPDA.
+  parent: BaseJusticePDA # DeltaV - Change from BaseSecurityPDA
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -622,6 +623,15 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
+  - type: CartridgeLoader # DeltaV - Add CrimeAssist and LogProbe cartridges
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - CrimeAssistCartridge
+    - LogProbeCartridge
 
 - type: entity
   parent: LawyerPDA
@@ -1142,6 +1152,62 @@
       - NanoChatCartridge # DeltaV
 
 - type: entity
+  parent: [ SyndiPDA, BaseSyndicateContraband ]
+  id: SyndiOperativePDA
+  name: syndicate operative PDA
+  description: Death to NT!
+  components:
+  - type: Pda
+    id: SyndiOperativeIDCard
+  #- type: Appearance # DeltaV - We don't have a specific operative sprite, so use SyndiPDA
+  #  appearanceDataInit:
+  #   enum.PdaVisuals.PdaType:
+  #     !type:String
+  #     pda-syndi-operative
+  #- type: Icon 
+  #  state: pda-syndi-operative
+
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiAgentPDA # DeltaV
+  name: syndicate agent PDA
+  description: Commander... I need to cook!
+  components:
+  - type: Pda
+    id: SyndiAgentIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi-agent # DeltaV
+  - type: Icon
+    state: pda-syndi-agent # DeltaV
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - MedTekCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiCommanderPDA
+  name: syndicate commander PDA
+  description: So what are we, some kind of Nukie squad?
+  components:
+  - type: Pda
+    id: SyndiCommanderIDCard
+  #- type: Appearance # DeltaV - We don't have a specific commander sprite so use SyndiPDA
+  #  appearanceDataInit:
+  #   enum.PdaVisuals.PdaType:
+  #     !type:String
+  #     pda-syndi-commander
+  #- type: Icon  
+  #   state: pda-syndi-commander
+
+- type: entity
   parent: BaseSecurityPDA
   id: ERTLeaderPDA
   name: ERT Leader PDA
@@ -1505,32 +1571,7 @@
     state: pda-pirate
 
 - type: entity
-  parent: [ BaseMedicalPDA, BaseSyndicateContraband ]
-  id: SyndiAgentPDA
-  name: syndicate corpsman PDA
-  description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
-  components:
-  - type: Pda
-    id: SyndicateIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-syndi-agent
-  - type: PdaBorderColor
-    borderColor: "#891417"
-  - type: Icon
-    state: pda-syndi-agent
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - MedTekCartridge
-      - NanoChatCartridge # DeltaV
-
-- type: entity
-  parent: BasePDA
+  parent: [BasePDA, SelectableLock]
   id: ChameleonPDA
   name: passenger PDA
   description: Why isn't it gray?

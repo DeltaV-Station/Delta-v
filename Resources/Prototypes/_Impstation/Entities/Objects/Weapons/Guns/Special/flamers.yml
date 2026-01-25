@@ -25,7 +25,7 @@
     size: Ginormous
   - type: GunRequiresWield
   - type: Gun
-    projectileSpeed: 5
+    projectileSpeed: 6.5 # DeltaV - was 5
     clumsyProof: false
     cameraRecoilScalar: 0
     fireRate: 8
@@ -39,12 +39,12 @@
       chamber:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 960
-        maxVol: 960 # 1 minute of fuel
+          Quantity: 600
+        maxVol: 600
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletFlamethrower
-    fireCost: 2
+    fireCost: 2 # DeltaV - was 3
   - type: SolutionItemStatus
     solution: chamber
   - type: SolutionRefuel

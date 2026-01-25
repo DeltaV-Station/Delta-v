@@ -136,6 +136,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: Tag
@@ -143,7 +144,7 @@
       - HidesHarpyWings
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseHighlyIllegalContraband]
   id: ClothingOuterSuitSpaceNinja
   name: space ninja suit
   description: This black technologically advanced, cybernetically-enhanced suit provides many abilities like invisibility or teleportation.
@@ -166,6 +167,7 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.8
+        Ion: 0 # DeltaV - I love self gibbing as ninja IPC!!
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak
@@ -254,6 +256,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
@@ -274,6 +277,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
   - type: Construction
     graph: ClothingOuterSuitIan
     node: suit
@@ -283,6 +287,8 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: AddAccentClothing
+    accent: BarkAccent
 
 - type: entity
   parent: ClothingOuterBase
@@ -305,6 +311,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
 
 - type: entity
   parent: ClothingOuterSuitCarp

@@ -1,8 +1,8 @@
-using Content.Server.Objectives.Components;
+using Content.Server._DV.Objectives.Components;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server._DV.Objectives.Systems;
 
 /// <summary>
 /// Handles checking the job blacklist for this objective.
@@ -27,7 +27,7 @@ public sealed class NotJobsRequirementSystem : EntitySystem
 
         foreach (var forbidJob in ent.Comp.Jobs)
         {
-            foreach (var roleId in args.Mind.MindRoles)
+            foreach (var roleId in args.Mind.MindRoleContainer.ContainedEntities)
             {
                 if (_query.CompOrNull(roleId)?.JobPrototype == forbidJob)
                     args.Cancelled = true;

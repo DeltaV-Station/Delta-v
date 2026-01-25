@@ -15,8 +15,11 @@
 - type: entity
   parent: BaseXenoArtifactEffect
   id: XenoArtifactRaiseGlimmer
-  description: Noöspheric shift
+  categories: [ HideSpawnMenu ]
   components:
+  - type: XAEDetails
+    specificTip: xenoarch-effect-tip-specific-glimmer
+    vagueTip: xenoarch-effect-tip-vague-energy-manipulation
   - type: GlimmerArtifact
     range:
       min: 0
@@ -26,6 +29,7 @@
 - type: entity
   parent: XenoArtifactRaiseGlimmer
   id: XenoArtifactRaiseGlimmerLarge
+  categories: [ HideSpawnMenu ]
   components:
   - type: GlimmerArtifact
     range:
@@ -36,6 +40,7 @@
 - type: entity
   parent: XenoArtifactRaiseGlimmer
   id: XenoArtifactLowerGlimmer
+  categories: [ HideSpawnMenu ]
   components:
   - type: GlimmerArtifact
     range:
@@ -46,7 +51,10 @@
 - type: entity
   parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactMakePsionic
-  description: Psionic imprinting
+  categories: [ HideSpawnMenu ]
   components:
+  - type: XAEDetails
+    specificTip: xenoarch-effect-tip-specific-psionic
+    vagueTip: xenoarch-effect-tip-vague-energy-manipulation
   - type: PsionicProducingArtifact
     range: 5

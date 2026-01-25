@@ -7,19 +7,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 9000 # 2.5 hours
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 9000 # 2.5 hours
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 9000 # 2.5 hours
+      time: 2.5h
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -78,8 +78,9 @@
     #shoes: ClothingShoesLeather # DeltaV - Commented for Loadouts
     id: HoPPDA
     #gloves: ClothingHandsGlovesHop # DeltaV - Commented for Loadouts
-    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
-    belt: BoxFolderClipboard
+    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces ClothingHeadsetAltCommand headset.
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash

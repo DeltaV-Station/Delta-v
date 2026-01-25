@@ -285,6 +285,9 @@
     canRestock:
     - NanoMedInventory
     - NanoMedPlusInventory
+    - NanoMedCivilianInventory
+    - NanoMedCivilianWallInventory
+    - NanoMedPublicInventory # DeltaV - Make DV NanoMed Civilian Inventory refillable
   - type: Sprite
     layers:
     - state: base

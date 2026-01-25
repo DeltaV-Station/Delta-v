@@ -20,6 +20,12 @@
   equipment:
     pocket1: WeaponDisabler
 
+- type: loadout
+  id: SecurityFirearmTruncheon
+  storage:
+    back:
+    - Truncheon
+
 # Ammo
 
 - type: loadout
@@ -116,9 +122,26 @@
   equipment:
     outerClothing: ClothingOuterCoatStasec
 
+- type: loadout
+  id: LongcoatSecurity
+  equipment:
+    outerClothing: ClothingLongcoatSecurity
+
 # Neck
 
 - type: loadout
   id: SecurityPoncho
   equipment:
     neck: ClothingNeckCWPSec
+
+# Gloves
+
+- type: loadout
+  id: SecurityClothingHandsGlovesColorBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: SecurityClothingHandsGlovesFingerless
+  equipment:
+    gloves: ClothingHandsGlovesFingerless

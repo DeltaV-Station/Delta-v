@@ -5,6 +5,8 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clumsy;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Execution;
@@ -14,6 +16,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -37,7 +40,6 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -235,9 +237,7 @@ public sealed class ExecutionSystem : EntitySystem
                 var prototype = _prototypeManager.Index<EntityPrototype>(cartridge.Prototype);
                 prototype.TryGetComponent<ProjectileComponent>(out var projectileA, _componentFactory); // sloth forgive me
                 if (projectileA != null)
-                {
                     damage = projectileA.Damage;
-                }
 
                 // Expend the cartridge
                 cartridge.Spent = true;
@@ -248,24 +248,25 @@ public sealed class ExecutionSystem : EntitySystem
 
             case AmmoComponent newAmmo:
                 if (TryComp<ProjectileComponent>(ammoUid, out var projectileB))
-                {
                     damage = projectileB.Damage;
-                }
+
                 Del(ammoUid);
                 break;
 
-            case HitscanPrototype hitscan:
-                damage = hitscan.Damage!;
+            case HitscanAmmoComponent hitscan:
+                if (TryComp<HitscanBasicDamageComponent>(ammoUid, out var hitscanDamage))
+                    damage = hitscanDamage.Damage;
+
+                Del(ammoUid); // Im guessing we delete this too?
                 break;
 
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new InvalidOperationException($"Unknown shootable type [{ev.Ammo[0].Shootable}]");
         }
 
         // Clumsy people have a chance to shoot themselves (not in the head)
         if (!component.ClumsyProof &&
-            TryComp<ClumsyComponent>(attacker, out var clumsy) &&
-            _random.Prob(1f/3f))
+            TryComp<ClumsyComponent>(attacker, out var clumsy) && _random.Prob(1f / 3f))
         {
             ShowExecutionPopup("execution-popup-gun-clumsy-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
             ShowExecutionPopup("execution-popup-gun-clumsy-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);

@@ -1,0 +1,114 @@
+- type: microwaveMealRecipe
+  id: RecipeFries
+  name: space fries recipe
+  result: FoodMealFries
+  secretRecipe: true
+  time: 15
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodPotato: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeFries
+  baseRecipe: RecipeFries
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeCheesyFries
+  name: cheesy fries recipe
+  result: FoodMealFriesCheesy
+  secretRecipe: true
+  time: 10
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodPotato: 1
+    FoodCheeseSlice: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeCheesyFries
+  baseRecipe: RecipeCheesyFries
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeCarrotFries
+  name: carrot fries recipe
+  result: FoodMealFriesCarrot
+  secretRecipe: true
+  time: 15
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodCarrot: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeCarrotFries
+  baseRecipe: RecipeCarrotFries
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeNachos # Renamed to tortilla chips (nachos have cheese)
+  name: nachos recipe
+  result: FoodMealNachos
+  secretRecipe: true
+  time: 10
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodDoughTortillaFlat: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeTortillaChips
+  baseRecipe: RecipeNachos
+  burnTime: 15
+
+- type: microwaveMealRecipe
+  id: RecipeNachosCheesy
+  name: cheesy nachos recipe
+  result: FoodMealNachosCheesy
+  secretRecipe: true
+  time: 10
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodCheeseSlice: 1
+    FoodDoughTortillaFlat: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeNachosCheesy
+  baseRecipe: RecipeNachosCheesy
+  burnTime: 15
+
+- type: microwaveMealRecipe
+  id: RecipeNachosCuban
+  name: cuban nachos recipe
+  result: FoodMealNachosCuban
+  secretRecipe: true
+  time: 10
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodChiliPepper: 1
+    FoodDoughTortillaFlat: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeNachosCuban
+  baseRecipe: RecipeNachosCuban
+  burnTime: 15
+
+- type: microwaveMealRecipe
+  id: RecipeFriedChicken
+  name: fried chicken recipe
+  result: FoodMeatChickenFried
+  secretRecipe: true
+  time: 30
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodMeatChicken: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeFriedChicken
+  baseRecipe: RecipeFriedChicken
+  burnTime: 45

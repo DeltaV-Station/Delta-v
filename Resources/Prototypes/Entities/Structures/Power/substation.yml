@@ -25,6 +25,14 @@
     supplyRampTolerance: 5000
     supplyRampRate: 1000
   - type: StationInfiniteBatteryTarget
+  # Begin DeltaV additions
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-substation
+    layoutId: SubStation
+  - type: StationAiWhitelist
+  # End DeltaV additions
 
   # Interface
   - type: BatteryInterface
@@ -36,6 +44,8 @@
     interfaces:
       enum.BatteryUiKey.Key:
         type: BatteryBoundUserInterface
+      enum.WiresUiKey.Key: #DeltaV
+        type: WiresBoundUserInterface #DeltaV
   - type: ActivatableUI
     key: enum.BatteryUiKey.Key
 
@@ -121,9 +131,7 @@
         gasMixture:
           volume: 1000
           moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 340.5701689 # carbon dioxide
+            CarbonDioxide: 340.5701689 # carbon dioxide
           temperature: 373.15
   - type: Explosive
     explosionType: Default

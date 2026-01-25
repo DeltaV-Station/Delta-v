@@ -101,6 +101,18 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables all tips for a player.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTips =
+        CVarDef.Create("game.disable_tips", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Disables all tips for ALL PLAYERS.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTipsGlobal =
+        CVarDef.Create("game.disable_tips_global", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
@@ -111,6 +123,29 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> YearOffset =
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
+
+    /*
+     * Traits
+     */
+
+    /// <summary>
+    /// Maximum number of traits that can be selected globally.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitCount =
+        CVarDef.Create("traits.max_count", 10, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum trait points available to spend.
+    /// Traits with positive cost consume points, negative cost traits grant points.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitPoints =
+        CVarDef.Create("traits.max_points", 15, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether to skip showing the disabled traits popup when spawning.
+    /// </summary>
+    public static readonly CVarDef<bool> SkipDisabledTraitsPopup =
+        CVarDef.Create("traits.skip_disabled_traits_popup", false, CVar.CLIENT | CVar.ARCHIVE);
 
     /*
      * Feedback webhook
@@ -168,7 +203,7 @@ public sealed partial class DCCVars
         CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// A string containing a list of newline-separated strings to be highlighted in the chat.
+    /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
     /// </summary>
     public static readonly CVarDef<string> ChatHighlights =
         CVarDef.Create("deltav.chat.highlights",
@@ -179,6 +214,7 @@ public sealed partial class DCCVars
     /// <summary>
     /// An option to toggle the automatic filling of the highlights with the character's info, if available.
     /// </summary>
+    [Obsolete("Use CCVar.ChatAutoFillHighlights instead.")]
     public static readonly CVarDef<bool> ChatAutoFillHighlights =
         CVarDef.Create("deltav.chat.auto_fill_highlights",
             false,
@@ -188,20 +224,12 @@ public sealed partial class DCCVars
     /// <summary>
     /// The color in which the highlights will be displayed.
     /// </summary>
+    [Obsolete("Use CCVar.ChatHighlightsColor instead.")]
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("deltav.chat.highlights_color",
             "#17FFC1FF",
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "The color in which the highlights will be displayed.");
-
-    /* Laying down combat */
-
-    /// <summary>
-    /// Modifier to apply to all melee attacks when laying down.
-    /// Don't increase this above 1...
-    /// </summary>
-    public static readonly CVarDef<float> LayingDownMeleeMod =
-        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
 
     /// <summary>
     ///    Maximum number of characters in objective summaries.

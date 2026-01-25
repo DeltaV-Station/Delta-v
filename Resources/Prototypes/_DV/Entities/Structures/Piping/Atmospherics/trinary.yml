@@ -1,0 +1,154 @@
+# Gas Mixers
+- type: entity
+  parent: GasMixer
+  id: GasMixerEnabled
+  suffix: Enabled
+  components:
+  - type: GasMixer
+    targetPressure: 310
+    startOnMapInit: true
+
+- type: entity
+  parent: [GasMixerFlipped, GasMixerEnabled]
+  id: GasMixerEnabledFlipped
+  suffix: Enabled, Flipped
+
+# Gas Filters
+- type: entity
+  parent: GasFilter
+  id: GasFilterEnabled
+  suffix: Enabled
+  components:
+  - type: GasFilter
+    startOnMapInit: true
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabled]
+  id: GasFilterEnabledFlipped
+  suffix: Enabled, Flipped
+
+# Oxygen
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledOxygen
+  suffix: Enabled, Oxygen
+  components:
+  - type: GasFilter
+    filteredGas: Oxygen
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledOxygen]
+  id: GasFilterEnabledOxygenFlipped
+  suffix: Enabled, Oxygen, Flipped
+
+# Nitrogen
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledNitrogen
+  suffix: Enabled, Nitrogen
+  components:
+  - type: GasFilter
+    filteredGas: Nitrogen
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledNitrogen]
+  id: GasFilterEnabledNitrogenFlipped
+  suffix: Enabled, Nitrogen, Flipped
+
+# Plasma
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledPlasma
+  suffix: Enabled, Plasma
+  components:
+  - type: GasFilter
+    filteredGas: Plasma
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledPlasma]
+  id: GasFilterEnabledPlasmaFlipped
+  suffix: Enabled, Plasma, Flipped
+
+# Carbon Dioxide
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledCarbonDioxide
+  suffix: Enabled, CarbonDioxide
+  components:
+  - type: GasFilter
+    filteredGas: CarbonDioxide
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledCarbonDioxide]
+  id: GasFilterEnabledCarbonDioxideFlipped
+  suffix: Enabled, CarbonDioxide, Flipped
+
+# Tritium
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledTritium
+  suffix: Enabled, Tritium
+  components:
+  - type: GasFilter
+    filteredGas: Tritium
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledTritium]
+  id: GasFilterEnabledTritiumFlipped
+  suffix: Enabled, Tritium, Flipped
+
+# Water Vapor
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledWaterVapor
+  suffix: Enabled, Water Vapor
+  components:
+  - type: GasFilter
+    filteredGas: WaterVapor
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledWaterVapor]
+  id: GasFilterEnabledWaterVaporFlipped
+  suffix: Enabled, Water Vapor, Flipped
+
+# Miasma
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledMiasma
+  suffix: Enabled, Miasma
+  components:
+  - type: GasFilter
+    filteredGas: Ammonia
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledMiasma]
+  id: GasFilterEnabledMiasmaFlipped
+  suffix: Enabled, Miasma, Flipped
+
+# Nitrous Oxide
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledNitrousOxide
+  suffix: Enabled, Nitrous Oxide
+  components:
+  - type: GasFilter
+    filteredGas: NitrousOxide
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledNitrousOxide]
+  id: GasFilterEnabledNitrousOxideFlipped
+  suffix: Enabled, Nitrous Oxide, Flipped
+
+# Frezon
+- type: entity
+  parent: GasFilterEnabled
+  id: GasFilterEnabledFrezon
+  suffix: Enabled, Frezon
+  components:
+  - type: GasFilter
+    filteredGas: Frezon
+
+- type: entity
+  parent: [GasFilterFlipped, GasFilterEnabledFrezon]
+  id: GasFilterEnabledFrezonFlipped
+  suffix: Enabled, Frezon, Flipped

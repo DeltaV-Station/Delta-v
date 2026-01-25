@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.Power.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.PowerCell.Components;
@@ -20,14 +20,10 @@ namespace Content.Server._EE.Power;
 
 public sealed class BatteryDrinkerSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ChargerSystem _chargers = default!; // DeltaV - people with augment power cells can drink batteries
 
     public override void Initialize()
@@ -121,10 +117,10 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
 
         if (_battery.TryUseCharge(source, amountToDrink))
-            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.CurrentCharge + amountToDrink, drinkerBatteryComponent); // DeltaV - people with augment power cells can drink batteries
+            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.CurrentCharge + amountToDrink); // DeltaV - people with augment power cells can drink batteries
         else
         {
-            _battery.SetCharge(drinkerBattery.Value, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge, drinkerBatteryComponent); // DeltaV - people with augment power cells can drink batteries
+            _battery.SetCharge(drinkerBattery.Value, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge); // DeltaV - people with augment power cells can drink batteries
             _battery.SetCharge(source, 0);
         }
 

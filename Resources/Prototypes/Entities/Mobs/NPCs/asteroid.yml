@@ -19,9 +19,6 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - SlowedDown
-    - Stutter
-    - Stun
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
@@ -73,7 +70,7 @@
     range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob #DeltaV - Changed to SalvageMob to not be friendly to Ovinia
   - type: HTN
     constantlyReplan: false
     rootTask:
@@ -245,7 +242,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -299,7 +296,7 @@
         acts: [ "Destruction" ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -417,7 +414,7 @@
     chemicalMaxVolume: 0
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: BasiliskCompound

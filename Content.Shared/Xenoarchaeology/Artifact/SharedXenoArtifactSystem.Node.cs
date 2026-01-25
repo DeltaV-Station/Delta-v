@@ -1,9 +1,11 @@
 using System.Linq;
+using Content.Shared._DV.Xenoarchaeology.Artifact.Components; // DeltaV
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random; // DeltaV
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
@@ -33,21 +35,14 @@ public abstract partial class SharedXenoArtifactSystem
         SetNodeDurability((ent, ent), nodeComponent.MaxDurability);
     }
 
-    /// <summary> Gets node component by node entity uid. </summary>
-    public XenoArtifactNodeComponent XenoArtifactNode(EntityUid uid)
-    {
-        return _nodeQuery.Get(uid);
-    }
-
     public void SetNodeUnlocked(Entity<XenoArtifactNodeComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Attached is not { } netArtifact)
+        if (ent.Comp.Attached is not { } artifact)
             return;
 
-        var artifact = GetEntity(netArtifact);
         if (!TryComp<XenoArtifactComponent>(artifact, out var artifactComponent))
             return;
 
@@ -111,6 +106,17 @@ public abstract partial class SharedXenoArtifactSystem
         var nodeComponent = nodeEnt.Value.Comp;
         nodeComponent.Depth = depth;
         nodeComponent.TriggerTip = trigger.Tip;
+        // DeltaV - start of hide locked node effects
+        nodeComponent.LockedEffectTipHidden = RobustRandom.Prob(ent.Comp.LockedEffectHiddenProbability);
+        nodeComponent.LockedEffectTipVague = RobustRandom.Prob(ent.Comp.LockedEffectVagueProbability);
+        if (TryComp<XAEDetailsComponent>(nodeEnt.Value.Owner, out var details))
+        {
+            nodeComponent.EffectTipSpecific = details.SpecificTip;
+            nodeComponent.EffectTipVague = details.VagueTip;
+            if (!details.AllowLockedEffectHiding)
+                nodeComponent.LockedEffectTipHidden = false;
+        }
+        // DeltaV - end of hide locked node effects
         EntityManager.AddComponents(nodeEnt.Value, trigger.Components);
 
         Dirty(nodeEnt.Value);
@@ -197,7 +203,10 @@ public abstract partial class SharedXenoArtifactSystem
             foreach (var netNode in segment)
             {
                 var node = GetEntity(netNode);
-                outSegment.Add((node, XenoArtifactNode(node)));
+                if (!_nodeQuery.TryComp(node, out var comp))
+                    continue;
+
+                outSegment.Add((node, comp));
             }
 
             output.Add(outSegment);
@@ -385,7 +394,7 @@ public abstract partial class SharedXenoArtifactSystem
             return;
         }
 
-        var artifact = _xenoArtifactQuery.Get(GetEntity(nodeComponent.Attached.Value));
+        var artifact = _xenoArtifactQuery.Get(nodeComponent.Attached.Value);
 
         var nonactiveNodes = GetActiveNodes(artifact);
         var durabilityEffect = MathF.Pow((float)nodeComponent.Durability / nodeComponent.MaxDurability, 2);

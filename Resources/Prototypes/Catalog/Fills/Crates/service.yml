@@ -143,7 +143,7 @@
     #   amount: 15
     - id: Pen
       amount: 2
-    - id: BoxFolderClipboard
+    - id: BoxFolderClipboardEmpty
       amount: 2
     - id: HandLabeler
     - id: BoxFolderBlue
@@ -234,7 +234,7 @@
 
 - type: entity
   id: CrateServiceSodaDispenser
-  parent: CrateGenericSteel
+  parent: CrateFreezer
   name: soda dispenser refill crate
   description: Contains refills for soda dispensers.
   components:
@@ -261,7 +261,7 @@
 
 - type: entity
   id: CrateServiceBoozeDispenser
-  parent: CrateGenericSteel
+  parent: CrateFreezer
   name: booze dispenser refill crate
   description: Contains refills for booze dispensers.
   components:

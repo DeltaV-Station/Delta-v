@@ -1,3 +1,4 @@
+using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Shared._DV.AACTablet;
@@ -36,7 +37,7 @@ public sealed class AACTabletSystem : EntitySystem
         _localisedPhrases.Clear();
         foreach (var phraseProto in message.PhraseIds)
         {
-            if (_prototype.TryIndex(phraseProto, out var phrase))
+            if (_prototype.Resolve(phraseProto, out var phrase))
             {
                 // Ensures each phrase is capitalised to maintain common AAC styling
                 _localisedPhrases.Add(_chat.SanitizeMessageCapital(Loc.GetString(phrase.Text)));

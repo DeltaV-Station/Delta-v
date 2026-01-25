@@ -7,7 +7,7 @@ using Robust.Shared.Containers;
 
 // Shitmed Change
 
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
@@ -70,7 +70,7 @@ public partial class SharedBodySystem
             RaiseLocalEvent(organEnt, ref removedInBodyEv);
         }
 
-        if (parentPartUid is { Valid: true }
+        if (parentPartUid is { Valid: true } // Shitmed Fixes
             && TryComp(parentPartUid, out DamageableComponent? damageable)
             && damageable.TotalDamage > 200)
             TrySetOrganUsed(organEnt, true, organEnt.Comp);

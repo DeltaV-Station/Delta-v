@@ -1,4 +1,5 @@
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Ghost;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared._EE.Silicon.Components;
@@ -32,7 +33,13 @@ public sealed class BatterySlotRequiresLockSystem : EntitySystem
 
     private void LockToggleAttempted(EntityUid uid, BatterySlotRequiresLockComponent component, LockToggleAttemptEvent args)
     {
+        if (args.Cancelled)
+            return;
+
         if (args.User == uid || !HasComp<SiliconComponent>(uid))
+            return;
+
+        if (HasComp<GhostComponent>(args.User)) // Prevent admin ghosts from triggering popup
             return;
 
         _popupSystem.PopupEntity(Loc.GetString("batteryslotrequireslock-component-alert-owner", ("user", Identity.Entity(args.User, EntityManager))), uid, uid, PopupType.Large);

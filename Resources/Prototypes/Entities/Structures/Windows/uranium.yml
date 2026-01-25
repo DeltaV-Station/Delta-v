@@ -1,7 +1,7 @@
 - type: entity
   id: UraniumWindow
   name: uranium window
-  parent: WindowRCDResistant
+  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -55,7 +55,7 @@
 
 - type: entity
   id: UraniumWindowDirectional
-  parent: WindowDirectional
+  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional uranium window
   description: Don't smudge up the glass down there.
   placement:
@@ -122,6 +122,7 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
     key: windows

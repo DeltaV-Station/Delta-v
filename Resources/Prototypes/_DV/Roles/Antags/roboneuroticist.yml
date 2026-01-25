@@ -5,10 +5,10 @@
   antagonist: true # making evil borgs
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 172800 # 48h evil big antag lots of playtime
+    time: 48h
   - !type:RoleTimeRequirement
     role: JobRoboticist
-    time: 7200 # 2h roboticist so you know how to make robot
+    time: 2h
 
 - type: startingGear
   id: RoboNeuroticistGear

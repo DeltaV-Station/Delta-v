@@ -24,10 +24,16 @@ public sealed class AddictionSystem : SharedAddictionSystem
     // The time to add after the last metabolism cycle
     private const int SuppressionDuration = 10;
 
+    private EntityQuery<AddictedComponent> _addicted;
+    private readonly ProtoId<LocalizedDatasetPrototype> _datasetId = "AddictionEffects";
+
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<AddictedComponent, ComponentStartup>(OnInit);
+
+        _addicted = GetEntityQuery<AddictedComponent>();
     }
 
     protected override void UpdateAddictionSuppression(Entity<AddictedComponent> ent, float duration)
@@ -81,7 +87,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
 
     private string GetRandomPopup()
     {
-        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("AddictionEffects").Values));
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(_datasetId).Values));
     }
 
     private void DoAddictionEffect(EntityUid uid)
@@ -92,7 +98,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
     // Called each time a reagent with the Addicted effect gets metabolized
     protected override void UpdateTime(EntityUid uid)
     {
-        if (!TryComp<AddictedComponent>(uid, out var component))
+        if (!_addicted.TryComp(uid, out var component))
             return;
 
         component.LastMetabolismTime = _timing.CurTime;

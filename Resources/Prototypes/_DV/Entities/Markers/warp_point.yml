@@ -1,7 +1,16 @@
+- type: entity
+  id: WarpPointNoBomb
+  parent: WarpPoint
+  suffix: No Bomb Target
+  components:
+  - type: Tag
+    tags:
+    - NinjaBombingTargetBlocker
+
 # Off station
 - type: entity
   id: WarpPointEvacShuttle
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Evac Shuttle
   components:
   - type: WarpPoint
@@ -9,7 +18,7 @@
 
 - type: entity
   id: WarpPointShuttle
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Shuttle
   components:
   - type: WarpPoint
@@ -17,7 +26,7 @@
 
 - type: entity
   id: WarpPointDebris
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Space Debris
   components:
   - type: WarpPoint
@@ -25,7 +34,7 @@
 
 - type: entity
   id: WarpPointRuin
-  parent: WarpPoint
+  parent: GhostWarpPoint
   suffix: Space Ruin
   components:
   - type: WarpPoint
@@ -74,6 +83,23 @@
     location: Detective
 
 - type: entity
+  id: WarpPointBrig
+  parent: WarpPoint
+  suffix: Brig
+  components:
+  - type: WarpPoint
+    location: Brig
+
+- type: entity
+  id: WarpPointSecurityCheckpoint
+  parent: WarpPoint
+  suffix: Security Checkpoint
+  components:
+  - type: WarpPoint
+    location: Security Checkpoint
+
+# Justice
+- type: entity
   id: WarpPointCourt
   parent: WarpPoint
   suffix: Courtroom
@@ -81,10 +107,26 @@
   - type: WarpPoint
     location: Courtroom
 
+- type: entity
+  id: WarpPointJustice
+  parent: WarpPoint
+  suffix: Justice
+  components:
+  - type: WarpPoint
+    location: Justice
+
+- type: entity
+  id: WarpPointLawyer
+  parent: WarpPoint
+  suffix: Attorney
+  components:
+  - type: WarpPoint
+    location: Attorney
+
 #Medical
 - type: entity
   id: WarpPointMedical
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Medical
   components:
   - type: WarpPoint
@@ -98,14 +140,62 @@
   - type: WarpPoint
     location: Morgue
 
+- type: entity
+  id: WarpPointPsych
+  parent: WarpPoint
+  suffix: Psychologist
+  components:
+  - type: WarpPoint
+    location: Psychologist
+
 #Epistemics
 - type: entity
   id: WarpPointEpistemics
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Epistemics
   components:
   - type: WarpPoint
     location: Epistemics
+
+- type: entity
+  id: WarpPointXenoarchaeologyLab
+  parent: WarpPointNoBomb
+  suffix: Xenoarchaeology Lab
+  components:
+  - type: WarpPoint
+    location: Xenoarchaeology Lab
+
+- type: entity
+  id: WarpPointAnomalyLab
+  parent: WarpPointNoBomb
+  suffix: Anomaly Lab
+  components:
+  - type: WarpPoint
+    location: Anomaly Lab
+
+- type: entity
+  id: WarpPointChapel
+  parent: WarpPoint
+  suffix: Chapel
+  components:
+  - type: WarpPoint
+    location: Chapel
+
+- type: entity
+  id: WarpPointLibrary
+  parent: WarpPoint
+  suffix: Library
+  components:
+  - type: WarpPoint
+    location: Library
+
+- type: entity
+  id: WarpPointRobotics
+  parent: WarpPoint
+  suffix: Robotics
+  components:
+  - type: WarpPoint
+    location: Robotics
 
 #Logistics
 - type: entity
@@ -117,12 +207,28 @@
     location: Logistics
 
 - type: entity
+  id: WarpPointMail
+  parent: WarpPoint
+  suffix: Mail
+  components:
+  - type: WarpPoint
+    location: Mail
+
+- type: entity
   id: WarpPointSalvage
   parent: WarpPoint
   suffix: Salvage
   components:
   - type: WarpPoint
     location: Salvage
+
+- type: entity
+  id: WarpPointSalvageDock
+  parent: WarpPointNoBomb
+  suffix: Salvage Dock
+  components:
+  - type: WarpPoint
+    location: Salvage Dock
 
 #Engineering
 - type: entity
@@ -148,6 +254,22 @@
   components:
   - type: WarpPoint
     location: Atmos
+
+- type: entity
+  id: WarpPointAME
+  parent: WarpPoint
+  suffix: AME
+  components:
+  - type: WarpPoint
+    location: AME
+
+- type: entity
+  id: WarpPointTEG
+  parent: WarpPoint
+  suffix: TEG
+  components:
+  - type: WarpPoint
+    location: TEG
 
 #Service
 - type: entity
@@ -199,12 +321,12 @@
     location: Reporter
 
 - type: entity
-  id: WarpPointLawyer
+  id: WarpPointBoxing
   parent: WarpPoint
-  suffix: Lawyer
+  suffix: Boxing Ring
   components:
   - type: WarpPoint
-    location: Lawyer
+    location: Boxing Ring
 
 #Misc
 - type: entity
@@ -217,7 +339,7 @@
 
 - type: entity
   id: WarpPointArrivals
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Arrivals
   components:
   - type: WarpPoint
@@ -225,7 +347,7 @@
 
 - type: entity
   id: WarpPointEvac
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Evac
   components:
   - type: WarpPoint
@@ -233,27 +355,11 @@
 
 - type: entity
   id: WarpPointCryo
-  parent: WarpPoint
+  parent: WarpPointNoBomb
   suffix: Cryo
   components:
   - type: WarpPoint
     location: Cryo
-
-- type: entity
-  id: WarpPointChapel
-  parent: WarpPoint
-  suffix: Chapel
-  components:
-  - type: WarpPoint
-    location: Chapel
-
-- type: entity
-  id: WarpPointLibrary
-  parent: WarpPoint
-  suffix: Library
-  components:
-  - type: WarpPoint
-    location: Library
 
 - type: entity
   id: WarpPointDorms
@@ -270,3 +376,19 @@
   components:
   - type: WarpPoint
     location: Disposals
+
+- type: entity
+  id: WarpPointPark
+  parent: WarpPoint
+  suffix: Park
+  components:
+  - type: WarpPoint
+    location: Park
+
+- type: entity
+  id: WarpPointArcade
+  parent: WarpPoint
+  suffix: Arcade
+  components:
+  - type: WarpPoint
+    location: Arcade

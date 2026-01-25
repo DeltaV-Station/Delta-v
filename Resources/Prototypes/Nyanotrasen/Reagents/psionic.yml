@@ -1,5 +1,5 @@
 - type: reagent
-  id: PsionicRegenerationEssence
+  id: Prometheum
   name: reagent-name-prometheum
   group: Biological
   desc: reagent-desc-prometheum
@@ -23,7 +23,7 @@
         factor: -3
       - !type:SatiateHunger
         factor: -3
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
       - !type:ModifyBloodLevel
         amount: 2
@@ -56,9 +56,9 @@
         damage:
           groups:
             Toxin: 2
-      - !type:ChemRemovePsionic
+      - !type:RemovePsionicAbilities
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: SoulbreakerToxin
           min: 5
 
@@ -74,21 +74,19 @@
     Narcotic:
       metabolismRate: 0.2
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 5
-        refresh: false
-      - !type:ChemRerollPsionic
+        type: Add
+      - !type:RerollPsionicAbilities
         bonusMultiplier: 4
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: LotophagoiOil
           min: 20
-      - !type:GenericStatusEffect
-        key: ScrambledSpeech
-        component: ScrambledAccent
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScrambled
+        type: Update
       - !type:GenericStatusEffect
         key: RepeatingTelepath
         component: TelepathicRepeater

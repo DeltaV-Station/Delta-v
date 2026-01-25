@@ -2,7 +2,7 @@
   id: UplinkBionicSyrinxImplanter
   name: uplink-bionic-syrinx-implanter-name
   description: uplink-bionic-syrinx-implanter-desc
-  productEntity: BionicSyrinxImplanter
+  productEntity: BionicVoiceMaskImplanter
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
@@ -11,27 +11,10 @@
   categories:
   - UplinkImplants
   conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Harpy
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
       - SurplusBundle
-
-- type: listing
-  id: UplinkSyndicateRadioImplanter
-  name: uplink-syndicate-radio-implanter-name
-  description: uplink-syndicate-radio-implanter-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: SyndicateRadioImplanter
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkImplants
 
 - type: listing
   id: UplinkSyndicateRadioImplanterBundle

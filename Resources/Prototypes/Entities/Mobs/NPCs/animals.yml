@@ -114,6 +114,7 @@
       10: Dead
   - type: Stamina
     critThreshold: 10
+    animationThreshold: 1
   - type: DamageStateVisuals
     states:
       Alive:
@@ -343,7 +344,7 @@
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
-- type: entity # TODO: figure out how to make these guys gib when stepped on
+- type: entity
   name: cockroach
   parent: SimpleMobBase
   id: MobCockroach
@@ -392,7 +393,7 @@
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 20
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - horrible
@@ -429,8 +430,13 @@
         gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.2
+  - type: GibOnTrigger
+  - type: ProtectedFromStepTriggers
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -851,6 +857,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune
 
 - type: entity
   name: cow
@@ -1078,10 +1085,10 @@
     growthDelay: 20
   - type: ExaminableHunger
   - type: Wooly
-  - type: Food
+  - type: Edible
+    destroyOnEmpty: false
     solution: wool
     requiresSpecialDigestion: true
-    # Wooly prevents eating wool deleting the goat so its fine
     requireDead: false
   - type: FlavorProfile
     flavors:
@@ -1239,6 +1246,8 @@
         true
       NavSmash: !type:Bool
         true
+  - type: Puller
+    needsHands: false
   - type: Prying
     pryPowered: true
     force: true
@@ -1250,8 +1259,6 @@
       0: Alive
       200: Critical
       250: Dead
-  - type: StaminaResistance
-    damageCoefficient: 0.40
 
 - type: entity
   name: kangaroo
@@ -1356,6 +1363,7 @@
   abstract: true
   components:
   - type: CombatMode
+    canDisarm: true
   # Shitmed Change Start
   - type: SurgeryTarget
   - type: Targeting
@@ -1500,7 +1508,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
 
 
 # DV - For ancestors without shitmed components (scurrets)
@@ -1620,8 +1628,8 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
-# DV End
+      - !type:WashCreamPie
+  - type: Crawler
 
 - type: entity
   name: monkey
@@ -1650,8 +1658,7 @@
       types:
         Blunt: 5
         Piercing: 4
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1
@@ -1798,8 +1805,7 @@
       types:
         Blunt: 2
         Piercing: 7
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1
@@ -1941,7 +1947,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -2125,6 +2131,47 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
+
+- type: entity
+  name: cancer mouse
+  description: Toxic. Squeak!
+  parent: MobMouse
+  id: MobMouseCancer
+  components:
+  - type: GhostRole
+    name: ghost-role-information-cancer-mouse-name
+    description: ghost-role-information-cancer-mouse-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+  - type: Sprite
+    color: LightGreen
+  - type: PointLight
+    color: LightGreen
+    radius: 5
+    energy: 5
+    netsync: false
+  - type: RadiationSource
+    intensity: 0.3
+  - type: Bloodstream
+    bloodReagent: UnstableMutagen
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+        - ReagentId: Uranium
+          Quantity: 10
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 1
+    - id: SheetUranium1
+      amount: 1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Zombie
 
 - type: entity
   name: lizard #Weh
@@ -2461,6 +2508,7 @@
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
 
+# TODO: Make grenade penguin voice activated like the rest of the stealth items.
 - type: entity
   name: grenade penguin
   parent: [ MobPenguin, MobCombat, BaseSyndicateContraband ]
@@ -2474,7 +2522,7 @@
   - type: MobMover
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: GrenadePenguinCompound
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -2512,7 +2560,8 @@
   - type: Item
     size: Normal
     sprite: Mobs/Animals/grenadepenguin.rsi
-  - type: OnUseTimerTrigger
+  - type: TriggerOnUse
+  - type: TimerTrigger
     delay: 10
     beepSound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg #funny sfx use
@@ -2521,10 +2570,12 @@
     beepInterval: 1
   - type: Explosive
     explosionType: Default
-    maxIntensity: 20
-    intensitySlope: 20
-    totalIntensity: 225
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 150
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Destructible
     thresholds:
     - trigger:
@@ -2640,6 +2691,8 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
@@ -3008,6 +3061,7 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+  - type: MessyDrinker
   - type: Tag
     tags:
     - VimPilot
@@ -3055,6 +3109,7 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: MessyDrinker
 
 - type: entity
   parent: MobCorgiBase
@@ -3074,8 +3129,6 @@
       amount: 2
   - type: ReplacementAccent
     accent: dog
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-corgi
   - type: Tag
     tags:
     - VimPilot
@@ -3244,6 +3297,10 @@
   - type: HTN # DeltaV - make all cats eat mice
     rootTask:
       task: SimpleHostileCompound
+  - type: JumpAbility # DeltaV - Give cats a pounce :3
+    jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
+    jumpDistance: 3
+    action: ActionCatJump
   - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
@@ -3271,7 +3328,8 @@
   name: syndicat
   id: MobCatSyndy
   parent: MobCatSpace
-  description: Explosive kitten.
+  # description: Explosive kitten.
+  description: An adorable cat in a terrifying red suit, prepared to cause trouble. #DeltaV
   components:
   - type: Sprite
     layers:
@@ -3296,14 +3354,17 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: AutoImplant
-    implants:
-    - MicroBombImplant
+  #- type: AutoImplant  # DetlaV
+  #  implants:
+  #  - MicroBombImplant
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Inventory # DeltaV
+    templateId: nfcat
+    speciesId: cat
   - type: Access
     tags:
     - NuclearOperative
@@ -3600,7 +3661,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty

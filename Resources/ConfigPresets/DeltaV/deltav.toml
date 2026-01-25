@@ -26,9 +26,8 @@ discord    = "https://discord.gg/deltav"
 github     = "https://github.com/DeltaV-Station/Delta-v"
 website    = "https://www.deltav.gay/"
 wiki       = "https://wiki.deltav.gay/view/Main_Page"
-patreon    = "https://www.patreon.com/c/DeltaVSS14"
+patreon    = "https://www.patreon.com/c/deltav_gay/membership"
 bug_report = "https://github.com/DeltaV-Station/Delta-v/issues/new/choose"
-#forum      = "https://forum.deltav.gay/"
 appeal     = "https://discord.gg/deltav"
 
 [net]
@@ -85,8 +84,7 @@ space_wind = true
 [shuttle]
 arrivals = false
 cooldown = 60 # 50 longer than the default
-startup_time = 10 # 4.5 seconds longer than the default
-travel_time = 5 # 15 seconds less than the default
+travel_time = 9.5 # 10.5 seconds less than the default
 emergency_dock_time = 240
 emergency_transit_time_min = 30
 auto_call_time = 120 # rounds are longer
@@ -98,7 +96,7 @@ recall_turning_point = 0.33
 easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
 
 [control]
-storage_limit = 2
+storage_limit = 3
 
 [nf14.respawn]
 time = 600

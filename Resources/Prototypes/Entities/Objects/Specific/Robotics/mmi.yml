@@ -47,6 +47,8 @@
           - Brain
         blacklist: # DeltaV
           components:
+          - BorgBrain # DeltaV - prevents PB in MMI
+          - MMI # DeltaV - prevents MMI in MMI
           - Unborgable
   - type: ContainerContainer
     containers:
@@ -125,9 +127,11 @@
       proto: robot
     - type: Speech
       speechSounds: Pai
+    - type: Alerts
     - type: MobState
       allowedStates:
       - Alive
+      - Dead
     - type: Appearance
     - type: Tag
       tags:

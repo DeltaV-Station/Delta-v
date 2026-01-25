@@ -21,7 +21,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Implants;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Nutrition;
@@ -62,7 +62,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DevilContractComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
-        SubscribeLocalEvent<DevilContractComponent, AfterFullyEatenEvent>(OnEaten);
+        SubscribeLocalEvent<DevilContractComponent, FullyEatenEvent>(OnEaten);
     }
 
     private readonly Dictionary<LocId, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
@@ -125,7 +125,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", contract.Comp.ContractWeight)));
     }
 
-    private void OnEaten(Entity<DevilContractComponent> contract, ref AfterFullyEatenEvent args)
+    private void OnEaten(Entity<DevilContractComponent> contract, ref FullyEatenEvent args)
     {
         _explosion.QueueExplosion(
             args.User,

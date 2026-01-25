@@ -3,7 +3,7 @@
   id: MantisKnifeStealObjective
   components:
   - type: NotJobRequirement
-    job: ForensicMantis
+    jobs: [ ForensicMantis ]
   - type: StealCondition
     stealGroup: AntiPsychicKnife
     owner: job-name-mantis
@@ -38,7 +38,7 @@
 #  description: objective-condition-become-golem-description.
 #  components:
 #  - type: NotJobRequirement
-#    job: Chaplain
+#    jobs: [ Chaplain ]
 #  - type: Objective
 #    difficulty: 3.5
 #    #unique: false

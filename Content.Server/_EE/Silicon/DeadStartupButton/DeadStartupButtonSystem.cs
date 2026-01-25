@@ -10,8 +10,10 @@ using Content.Shared.Electrocution;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._EE.Silicon.DeadStartupButton;
 
@@ -25,7 +27,6 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly SiliconChargeSystem _siliconChargeSystem = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -51,7 +52,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
             _mobState.ChangeMobState(uid, MobState.Alive, mobStateComponent);
         else
         {
-            _audio.PlayPvs(comp.BuzzSound, uid, AudioHelpers.WithVariation(0.05f, _robustRandom));
+            _audio.PlayPvs(comp.BuzzSound, uid, AudioParams.Default.WithVariation(0.05f));
             _popup.PopupEntity(Loc.GetString("dead-startup-system-reboot-failed", ("target", MetaData(uid).EntityName)), uid);
             Spawn("EffectSparks", Transform(uid).Coordinates);
         }

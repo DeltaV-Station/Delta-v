@@ -102,15 +102,13 @@
       types: {}
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - SlowedDown
-    - Stutter
     - Electrocution
     - TemporaryBlindness
     - Pacified
     - RadiationProtection
     - Adrenaline
   - type: Temperature
-    heatDamageThreshold: 800
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
@@ -131,12 +129,13 @@
     soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
   - type: MeleeWeapon
     altDisarm: false
+    angle: 90 # DeltaV - Give dragons a wide-sweep attack
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Piercing: 15
-        Slash: 15
+        Piercing: 20 # DeltaV - Increase piercing damage from 15 to 20
+        Slash: 20 # DeltaV - Increase slashing damage from 15 to 20
   - type: Devourer
     foodPreferenceWhitelist:
       components:
@@ -156,6 +155,7 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - StunImmune
   - type: Puller
     needsHands: false
   - type: RandomMetadata
@@ -206,7 +206,7 @@
     soundGunshot:
       path: /Audio/Animals/space_dragon_roar.ogg
     soundEmpty: null
-    projectileSpeed: 5
+    projectileSpeed: 7.5 # DeltaV - Increased from 5 to 7.5
 
 - type: entity
   parent: BaseMobDragon

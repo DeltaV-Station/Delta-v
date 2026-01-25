@@ -1,0 +1,95 @@
+- type: entity
+  parent: ToiletDirtyWaterFilled
+  id: ToiletDirtyWaterFilledPerma
+  suffix: Perma
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      stash: !type:NestedSelector
+        tableId: ToiletCisternLoot
+        prob: 0.2
+
+# For public toilets
+- type: entityTable
+  id: ToiletCisternLootPublic
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 10 # from 8
+      tableId: ToiletCisternRareToolsTable
+    - !type:NestedSelector
+      weight: 8 # from 5
+      tableId: ToiletCisternUtilityTable
+    - !type:NestedSelector
+      weight: 4 # from 25
+      tableId: ToiletCisternCommonToolsTable
+    - !type:NestedSelector
+      weight: 3 # no change
+      tableId: ToiletCisternWeaponsTable
+    - !type:NestedSelector
+      weight: 1 # no change
+      tableId: ToiletCisternSyndicateTable
+
+# Toilet reagent fill
+- type: weightedRandomFillSolution
+  id: RandomFillToiletMisc
+  fills:
+  - quantity: 20
+    reagents:
+    # 1:5 chance of clean water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    - Water
+    # Cleaners
+    - SpaceCleaner
+    - SoapReagent
+    - Bleach
+    - Chlorine
+    # Funny
+    - SpaceLube
+    - Laughter
+    - Happiness
+    - Holywater
+    - WeldingFuel
+    - Mopwata
+    # Puke n stuff
+    - Toxin
+    - Vomit
+    - VentCrud
+    - UncookedAnimalProteins
+    - ToxinTrash
+    - GastroToxin
+    # Foods
+    - Mold
+    - Cornoil
+    - Hotsauce
+    - Ketchup
+    - Mayo
+    - Beer
+    - MilkSpoiled
+    - HotRamen
+    - Tequila
+    # Chems & drugs
+    - Honk
+    - Nausium
+    - LotophagoiOil
+    - Enzyme
+    - SpaceDrugs
+    - Diphenhydramine
+    - Cognizine
+    - Nocturine
+    - UnstableMutagen
+    - Romerol
+    # Blood
+    - Blood
+    - Slime
+    - ZombieBlood
+    - Ichor
+    - SynthBlood

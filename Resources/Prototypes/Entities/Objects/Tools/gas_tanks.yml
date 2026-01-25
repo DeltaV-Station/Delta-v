@@ -9,9 +9,6 @@
   - type: Item
     size: Normal
     sprite: Objects/Tanks/generic.rsi
-  - type: Tag
-    tags:
-    - GasTank
   - type: Clothing
     quickEquip: false
     sprite: Objects/Tanks/generic.rsi
@@ -72,6 +69,9 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - OxygenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -85,6 +85,9 @@
     sprite: Objects/Tanks/red.rsi
   - type: Clothing
     sprite: Objects/Tanks/red.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrogenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -157,6 +160,9 @@
     sprite: Objects/Tanks/emergency_extended_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_extended_red.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrogenTank
 
 - type: entity
   parent: ExtendedEmergencyOxygenTank
@@ -205,6 +211,9 @@
     sprite: Objects/Tanks/emergency_clown.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_clown.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - ClownOxygenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -214,6 +223,9 @@
   components:
   - type: GasTank
     outputPressure: 101.3
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - AirTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -229,6 +241,9 @@
     outputPressure: 30.4
   - type: Clothing
     sprite: Objects/Tanks/anesthetic.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrousOxideTank
 
 - type: entity
   # it's a square so no rolling dough
