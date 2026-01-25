@@ -1,34 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: reduced the emote cooldown to 3s from 5s
-    type: Tweak
-  id: 1594
-  time: '2025-08-14T10:25:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4185
-- author: kotobdev
-  changes:
-  - message: Blinking is now an emote, and plays a silly noise.
-    type: Add
-  id: 1595
-  time: '2025-08-14T20:57:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4155
-- author: Quanteey
-  changes:
-  - message: Merged upstream until June 20.
-    type: Add
-  id: 1596
-  time: '2025-08-14T17:21:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4142
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult can now create a multispectral inhibitor, which jams any
-      radio communication in a large area, by putting a telecommunication server on
-      a glyph of cessation.
-    type: Add
-  id: 1597
-  time: '2025-08-14T23:51:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4181
 - author: NoElkaTheGod
   changes:
   - message: Entropy is now less efficient for progressing the cosmic cult's monument.
@@ -4477,4 +4447,33 @@
   id: 2093
   time: '2026-01-23T19:35:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5243
+- author: MilonPL
+  changes:
+  - message: The traits points bar will now show up correctly.
+    type: Fix
+  id: 2094
+  time: '2026-01-24T20:55:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5275
+- author: MilonPL
+  changes:
+  - message: The uncloneable trait no longer prevents your character from getting
+      revived by defibrillators.
+    type: Fix
+  id: 2095
+  time: '2026-01-24T21:29:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5273
+- author: Halo3moth
+  changes:
+  - message: The energy magnums "magnum" rounds no longer pierce windows
+    type: Fix
+  id: 2096
+  time: '2026-01-25T13:48:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5270
+- author: Toby222
+  changes:
+  - message: Added buttons for build info and credits to the escape menu
+    type: Tweak
+  id: 2097
+  time: '2026-01-25T14:42:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5260
 Order: 1
