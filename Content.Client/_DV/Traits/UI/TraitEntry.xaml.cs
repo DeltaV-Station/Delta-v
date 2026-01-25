@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
 using Content.Shared.Humanoid.Prototypes;
