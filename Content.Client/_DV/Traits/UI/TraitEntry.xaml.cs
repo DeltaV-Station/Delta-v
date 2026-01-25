@@ -1,3 +1,4 @@
+using System.Text;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
 using Content.Shared.Humanoid.Prototypes;
@@ -25,7 +26,7 @@ public sealed partial class TraitEntry : PanelContainer
 
     private readonly TraitPrototype _trait;
     private bool _isUpdating;
-    private readonly List<string> _failedConditionTooltips = new();
+    private string _failedConditionTooltip = string.Empty;
 
     public TraitEntry(TraitPrototype trait)
     {
@@ -55,24 +56,60 @@ public sealed partial class TraitEntry : PanelContainer
 
     private void UpdateConditionTooltips()
     {
-        var tooltips = new List<string>();
+        var tooltip = new StringBuilder();
+        var sectionTooltip = new StringBuilder();
 
+        #region Requirements
+
+        foreach (var requirementId in _trait.Requirements)
+        {
+            if (!_prototype.TryIndex(requirementId, out var requirement))
+                continue;
+
+            sectionTooltip.Append("- ");
+            sectionTooltip.AppendLine(Loc.GetString(requirement.Name));
+        }
+
+        if (sectionTooltip.Length > 0)
+            tooltip.AppendLine(Loc.GetString("trait-requirements-tooltip", ("requirements", sectionTooltip.ToString())));
+        sectionTooltip.Clear();
+        #endregion Requirements
+
+        #region Conflicts
+        foreach (var requirementId in _trait.Conflicts)
+        {
+            if (!_prototype.TryIndex(requirementId, out var requirement))
+                continue;
+
+            sectionTooltip.Append("- ");
+            sectionTooltip.AppendLine(Loc.GetString(requirement.Name));
+        }
+
+        if (sectionTooltip.Length > 0)
+            tooltip.AppendLine(Loc.GetString("trait-conflicts-tooltip", ("conflicts", sectionTooltip.ToString())));
+        sectionTooltip.Clear();
+        #endregion Conflicts
+
+        #region Conditions
         foreach (var condition in _trait.Conditions)
         {
-            var tooltip = condition.GetTooltip(_prototype, _loc);
-            if (!string.IsNullOrEmpty(tooltip))
-                tooltips.Add(tooltip);
+            sectionTooltip.Append(condition.GetTooltip(_prototype, _loc, 0));
         }
 
-        if (tooltips.Count > 0)
-        {
-            var tooltipText = Loc.GetString("trait-conditions-tooltip",
-                ("requirements", string.Join("\n", tooltips)));
+        if (sectionTooltip.Length > 0)
+            tooltip.Append(Loc.GetString("trait-conditions-tooltip", ("conditions", sectionTooltip.ToString())));
+        sectionTooltip.Clear();
+        #endregion Conditions
 
-            TooltipSupplier = _ => CreateMarkupTooltip(tooltipText);
+        if (tooltip.Length > 0)
+        {
+            var markupTooltip = CreateMarkupTooltip(tooltip.ToString().Trim());
+            TooltipSupplier = _ => markupTooltip;
         }
         else
+        {
             TooltipSupplier = null;
+        }
     }
 
     /// <summary>
@@ -93,7 +130,7 @@ public sealed partial class TraitEntry : PanelContainer
     /// </summary>
     public void UpdateConditionsMet(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
     {
-        _failedConditionTooltips.Clear();
+        var tooltipBuilder = new StringBuilder();
         MeetsConditions = true;
 
         foreach (var condition in _trait.Conditions)
@@ -115,11 +152,12 @@ public sealed partial class TraitEntry : PanelContainer
             if (!result)
             {
                 MeetsConditions = false;
-                var tooltip = condition.GetTooltip(_prototype, _loc);
-                if (!string.IsNullOrEmpty(tooltip))
-                    _failedConditionTooltips.Add(tooltip);
+                var conditionTooltip = condition.GetTooltip(_prototype, _loc, 0);
+                if (!string.IsNullOrEmpty(conditionTooltip))
+                    tooltipBuilder.Append(conditionTooltip);
             }
         }
+        _failedConditionTooltip = tooltipBuilder.ToString().Trim();
 
         UpdateDisabledState();
     }
@@ -212,10 +250,10 @@ public sealed partial class TraitEntry : PanelContainer
             AddStyleClass("TraitsEntryDisabled");
 
             // Update tooltip to show failed conditions
-            if (_failedConditionTooltips.Count > 0)
+            if (_failedConditionTooltip.Length > 0)
             {
                 var tooltipText = Loc.GetString("trait-conditions-not-met-tooltip",
-                    ("requirements", string.Join("\n", _failedConditionTooltips)));
+                    ("conditions", _failedConditionTooltip));
 
                 TooltipSupplier = _ => CreateMarkupTooltip(tooltipText);
             }

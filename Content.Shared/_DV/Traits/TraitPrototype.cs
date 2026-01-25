@@ -57,4 +57,10 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<TraitPrototype>> Conflicts = new();
+
+    /// <summary>
+    /// Other traits that are required to pick this one.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<TraitPrototype>> Requirements = new();
 }

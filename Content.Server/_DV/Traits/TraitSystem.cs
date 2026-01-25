@@ -246,7 +246,7 @@ public sealed class TraitSystem : EntitySystem
                 continue;
 
             // Get human-readable reason from the condition
-            var tooltip = condition.GetTooltip(ctx.Proto, Loc);
+            var tooltip = condition.GetTooltip(ctx.Proto, Loc, 0);
 
             if (!string.IsNullOrEmpty(tooltip))
                 rejectionReasons.Add(tooltip);
