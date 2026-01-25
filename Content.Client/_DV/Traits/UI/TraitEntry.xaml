@@ -7,11 +7,27 @@
                   HorizontalExpand="True"
                   Margin="10 8">
 
-        <!-- Checkbox / Toggle -->
-        <CheckBox Name="TraitCheckbox"
-                  StyleClasses="TraitsEntryCheckbox"
-                  VerticalAlignment="Top"
-                  Margin="0 2 10 0"/>
+        <!-- Toggle Container -->
+        <BoxContainer Name="ToggleContainer"
+                      Orientation="Horizontal"
+                      VerticalAlignment="Top"
+                      Margin="0 2 10 0"
+                      SetWidth="24">
+
+            <!-- Checkbox -->
+            <CheckBox Name="TraitCheckbox"
+                      StyleClasses="TraitsEntryCheckbox"
+                      VerticalAlignment="Center"/>
+
+            <!-- Lock Icon -->
+            <TextureRect Name="LockIcon"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         SetSize="20 20"
+                         Stretch="KeepAspectCentered"
+                         TexturePath="/Textures/Interface/VerbIcons/lock.svg.192dpi.png"
+                         Visible="False"/>
+        </BoxContainer>
 
         <!-- Trait Info -->
         <BoxContainer Orientation="Vertical"
@@ -31,7 +47,6 @@
             <!-- Description -->
             <RichTextLabel Name="TraitDescriptionLabel"
                            StyleClasses="TraitsEntryDescriptionLabel"
-                           HorizontalExpand="True"
                            Margin="0 4 0 0"/>
         </BoxContainer>
     </BoxContainer>
