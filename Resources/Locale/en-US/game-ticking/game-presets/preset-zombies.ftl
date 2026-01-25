@@ -8,7 +8,7 @@ zombie-not-enough-ready-players = Not enough players readied up for the game! Th
 zombie-no-one-ready = No players readied up! Can't start Zombies.
 
 # Delta V - Moved to _DV file
-#zombie-patientzero-role-greeting = You are an initial infected. Get supplies and prepare for your eventual transformation. Your goal is to overtake the station while infecting as many people as possible.
+# zombie-patientzero-role-greeting = You are an initial infected. Get supplies and prepare for your eventual transformation. Your goal is to overtake the station while infecting as many people as possible.
 zombie-healing = You feel a stirring in your flesh
 zombie-infection-warning = You feel the zombie virus take hold
 zombie-infection-underway = Your blood begins to thicken
