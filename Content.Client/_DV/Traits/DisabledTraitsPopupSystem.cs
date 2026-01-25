@@ -1,4 +1,4 @@
-﻿using Content.Client._DV.Traits.UI;
+using Content.Client._DV.Traits.UI;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Traits;
 using Robust.Shared.Configuration;

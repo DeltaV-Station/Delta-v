@@ -50,5 +50,3 @@ trait-condition-department-not = You must not be in the [color={$color}]{$depart
 
 ## HasComp borg conditions
 trait-condition-borg-not = You must not be a [color=yellow]borg[/color].
-
-
