@@ -1,23 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult win conditions are more fair now. Check PR for details.
-    type: Tweak
-  id: 1600
-  time: '2025-08-16T12:24:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4156
-- author: Proxysseia
-  changes:
-  - message: Laser Rifles now deal more damage
-    type: Tweak
-  - message: Laser Cannons now deal more damage
-    type: Tweak
-  - message: Laser Rifles and their practice counterparts can be shot more before
-      needing to recharge
-    type: Tweak
-  id: 1601
-  time: '2025-08-16T18:16:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4198
 - author: kotobdev
   changes:
   - message: Mantises now get two mindbreaker pills in their locker.
@@ -4474,4 +4455,27 @@
   id: 2099
   time: '2026-01-25T16:31:20.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5268
+- author: ShepardToTheStars
+  changes:
+  - message: You can now toggle your hardsuit helmet on over your hat or beret!
+    type: Add
+  id: 2100
+  time: '2026-01-25T16:31:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5263
+- author: Pharaz4
+  changes:
+  - message: Bingus can no longer drink the **ENTIRE** keg.
+    type: Fix
+  - message: You can eat rice dishes with chopsticks now.
+    type: Add
+  - message: Fixed Smartfridge visuals always showing their wire panels open.
+    type: Fix
+  - message: Projectiles and Mr. Butlertion are now insulated against wizardry.
+    type: Fix
+  - message: Wording fix to initial infected's prompt. It now states that they can
+      explicitly kill people.
+    type: Fix
+  id: 2101
+  time: '2026-01-25T16:31:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5278
 Order: 1
