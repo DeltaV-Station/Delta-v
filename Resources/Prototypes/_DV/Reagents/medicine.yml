@@ -96,14 +96,13 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
         damage:
           types:
-            Shadow: -2
-            Holy: -2
+            Metaphysical: -5
 
 - type: reagent
   id: Stabilizine
