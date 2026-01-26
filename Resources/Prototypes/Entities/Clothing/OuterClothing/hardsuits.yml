@@ -20,6 +20,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -71,6 +73,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -118,6 +122,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -164,6 +170,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -212,6 +220,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -406,6 +416,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -460,6 +472,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -509,6 +523,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -645,6 +661,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -695,6 +713,10 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-scurret:
+      - state: equipped-OUTERCLOTHING-scurret
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -763,6 +785,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: ToggleableClothing
@@ -792,6 +816,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -854,6 +880,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -913,6 +941,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -1216,6 +1246,18 @@
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -1268,6 +1310,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -1323,6 +1367,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
@@ -1370,6 +1416,8 @@
         state: equipped-OUTERCLOTHING-harpy
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
   - type: Construction
