@@ -8,6 +8,16 @@
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/suits/bombsuit.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: ClothingSpeedModifier
     walkModifier: 0.75 # DeltaV - slower for insulation, originally 0.8
     sprintModifier: 0.75 # DeltaV - slower for insulation, originally 0.8
@@ -55,6 +65,16 @@
     sprite: _DV/Clothing/OuterClothing/Suits/fire.rsi # DeltaV
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Suits/fire.rsi # DeltaV
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/suits/fire.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
     highPressureMultiplier: 0.04
   - type: TemperatureProtection
@@ -92,6 +112,16 @@
     sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/suits/atmos_firesuit.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -138,6 +168,16 @@
         Radiation: 0.01
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/suits/rad.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: GroupExamine
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodRad
@@ -318,6 +358,16 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/suits/carpsuit.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCarp
   - type: Tag
