@@ -12,6 +12,7 @@
     capacity: 60
   - type: Item
     size: Small
+    storedRotation: -45 # DeltaV - Align magazine and ammo box rotations
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
