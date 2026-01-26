@@ -1,8 +1,7 @@
 using System.Numerics;
 using Content.Shared.FixedPoint;
-using Robust.Shared.GameStates;
 
-namespace Content.Server._DV.Footprints;
+namespace Content.Server._DV.Footprints.Components;
 
 /**
  * <summary>
