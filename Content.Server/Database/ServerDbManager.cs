@@ -39,12 +39,12 @@ namespace Content.Server.Database
         #region Preferences
         Task<PlayerPreferences> InitPrefsAsync(
             NetUserId userId,
-            ICharacterProfile defaultProfile,
+            HumanoidCharacterProfile defaultProfile,
             CancellationToken cancel);
 
         Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index);
 
-        Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot);
+        Task SaveCharacterSlotAsync(NetUserId userId, HumanoidCharacterProfile? profile, int slot);
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
@@ -478,7 +478,7 @@ namespace Content.Server.Database
 
         public Task<PlayerPreferences> InitPrefsAsync(
             NetUserId userId,
-            ICharacterProfile defaultProfile,
+            HumanoidCharacterProfile defaultProfile,
             CancellationToken cancel)
         {
             DbWriteOpsMetric.Inc();
@@ -491,7 +491,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveSelectedCharacterIndexAsync(userId, index));
         }
 
-        public Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
+        public Task SaveCharacterSlotAsync(NetUserId userId, HumanoidCharacterProfile? profile, int slot)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SaveCharacterSlotAsync(userId, profile, slot));
