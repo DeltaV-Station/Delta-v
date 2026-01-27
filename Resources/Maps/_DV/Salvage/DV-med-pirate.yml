@@ -454,7 +454,7 @@ entities:
           maxVol: 30
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: DeadRum
             Quantity: 20
 - proto: FoodCakeLemon
@@ -954,13 +954,11 @@ entities:
     - type: Transform
       pos: 2.5,3.5
       parent: 52
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 148
     components:
     - type: Transform
       pos: 1.5,-5.5
       parent: 52
-    - type: WarpPoint
-      location: Space Debris
 ...

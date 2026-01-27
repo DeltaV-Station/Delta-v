@@ -173,7 +173,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 6 # Delta V - Given additional modules
+      maxModules: 7 # Delta V - Given additional modules, +1 for SRN's Engi module
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
