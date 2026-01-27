@@ -680,7 +680,7 @@
   - type: UseDelayOnShoot # DeltaV - No taser spam (provides a cooldown indicator)
   - type: UseDelay # DeltaV - No taser spam (provides a cooldown indicator)
     delay: 5
-    
+
 
 - type: entity
   name: elite taser
@@ -943,6 +943,7 @@
     tags:
     - HighRiskItem
     - Sidearm
+    - ConcealCarry # Delta V - boot storage yay
   - type: StealTarget
     stealGroup: HoSSidearm # Delta V - to work along side the X-01
   - type: Gun
