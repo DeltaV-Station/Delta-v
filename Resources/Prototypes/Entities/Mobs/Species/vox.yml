@@ -3,6 +3,7 @@
   id: BaseMobVox
   abstract: true
   components:
+  - type: Vox
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -42,7 +43,7 @@
     #- trigger: # DeltaV - Sadly no KFV :(
     #    !type:DamageTypeTrigger
     #    damageType: Heat
-    #    damage: 1500 
+    #    damage: 1500
     #  behaviors:
     #  - !type:SpawnEntitiesBehavior
     #    spawnInContainer: true
