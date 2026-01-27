@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Fixed ghosts not being able to see things like the monument or telegnostic
-      projections.
-    type: Fix
-  - message: Fixed entropic colossi not being able to see the monument.
-    type: Fix
-  id: 1606
-  time: '2025-08-18T11:57:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4226
-- author: NoElkaTheGod
-  changes:
   - message: Cosmic cultists can now siphon targets that are in critical condition.
       This would give much more entropy, but also kill the target. Mindshielded targets
       give even more entropy.
@@ -4481,4 +4471,11 @@
   id: 2105
   time: '2026-01-27T16:05:20.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5284
+- author: Pharaz4
+  changes:
+  - message: Wizard has been disabled pending a balance update.
+    type: Remove
+  id: 2106
+  time: '2026-01-27T17:55:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5228
 Order: 1
