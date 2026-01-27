@@ -1,100 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: reduced the emote cooldown to 3s from 5s
-    type: Tweak
-  id: 1594
-  time: '2025-08-14T10:25:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4185
-- author: kotobdev
-  changes:
-  - message: Blinking is now an emote, and plays a silly noise.
-    type: Add
-  id: 1595
-  time: '2025-08-14T20:57:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4155
-- author: Quanteey
-  changes:
-  - message: Merged upstream until June 20.
-    type: Add
-  id: 1596
-  time: '2025-08-14T17:21:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4142
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult can now create a multispectral inhibitor, which jams any
-      radio communication in a large area, by putting a telecommunication server on
-      a glyph of cessation.
-    type: Add
-  id: 1597
-  time: '2025-08-14T23:51:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4181
-- author: NoElkaTheGod
-  changes:
-  - message: Entropy is now less efficient for progressing the cosmic cult's monument.
-    type: Tweak
-  - message: Siphoning entropy now deals it's damage much slower, and the total amount
-      is randomized to make it less metagameable.
-    type: Tweak
-  id: 1598
-  time: '2025-08-15T06:24:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4099
-- author: Proxysseia
-  changes:
-  - message: IK30 has had its fire rate halved and now requires two hands to fire
-    type: Tweak
-  id: 1599
-  time: '2025-08-15T18:54:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4189
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult win conditions are more fair now. Check PR for details.
-    type: Tweak
-  id: 1600
-  time: '2025-08-16T12:24:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4156
-- author: Proxysseia
-  changes:
-  - message: Laser Rifles now deal more damage
-    type: Tweak
-  - message: Laser Cannons now deal more damage
-    type: Tweak
-  - message: Laser Rifles and their practice counterparts can be shot more before
-      needing to recharge
-    type: Tweak
-  id: 1601
-  time: '2025-08-16T18:16:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4198
-- author: kotobdev
-  changes:
-  - message: Mantises now get two mindbreaker pills in their locker.
-    type: Add
-  id: 1602
-  time: '2025-08-17T00:12:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4207
-- author: Quanteey
-  changes:
-  - message: The AI shop is now properly localized
-    type: Fix
-  id: 1603
-  time: '2025-08-17T12:56:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4210
-- author: Quanteey
-  changes:
-  - message: Fixed IK-30 and IK-60 spread glitches when wielded
-    type: Fix
-  id: 1604
-  time: '2025-08-17T21:31:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4212
-- author: Proxysseia
-  changes:
-  - message: Emergency Lasers now come in boxes of 10
-    type: Tweak
-  - message: Emergency Lasers now do almost as much damage as a real gun
-    type: Tweak
-  id: 1605
-  time: '2025-08-18T10:13:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4197
 - author: NoElkaTheGod
   changes:
   - message: Fixed ghosts not being able to see things like the monument or telegnostic
@@ -4477,4 +4381,104 @@
   id: 2093
   time: '2026-01-23T19:35:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5243
+- author: MilonPL
+  changes:
+  - message: The traits points bar will now show up correctly.
+    type: Fix
+  id: 2094
+  time: '2026-01-24T20:55:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5275
+- author: MilonPL
+  changes:
+  - message: The uncloneable trait no longer prevents your character from getting
+      revived by defibrillators.
+    type: Fix
+  id: 2095
+  time: '2026-01-24T21:29:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5273
+- author: Halo3moth
+  changes:
+  - message: The energy magnums "magnum" rounds no longer pierce windows
+    type: Fix
+  id: 2096
+  time: '2026-01-25T13:48:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5270
+- author: Toby222
+  changes:
+  - message: Added buttons for build info and credits to the escape menu
+    type: Tweak
+  id: 2097
+  time: '2026-01-25T14:42:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5260
+- author: MilonPL
+  changes:
+  - message: Added the "Marked as Protected" trait which makes you immune to becoming
+      a target objective.
+    type: Add
+  id: 2098
+  time: '2026-01-25T16:30:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5274
+- author: AeraAuling
+  changes:
+  - message: Shadow damage no longer removes all your blood immediately
+    type: Tweak
+  id: 2099
+  time: '2026-01-25T16:31:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5268
+- author: ShepardToTheStars
+  changes:
+  - message: You can now toggle your hardsuit helmet on over your hat or beret!
+    type: Add
+  id: 2100
+  time: '2026-01-25T16:31:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5263
+- author: Pharaz4
+  changes:
+  - message: Bingus can no longer drink the **ENTIRE** keg.
+    type: Fix
+  - message: You can eat rice dishes with chopsticks now.
+    type: Add
+  - message: Fixed Smartfridge visuals always showing their wire panels open.
+    type: Fix
+  - message: Projectiles and Mr. Butlertion are now insulated against wizardry.
+    type: Fix
+  - message: Wording fix to initial infected's prompt. It now states that they can
+      explicitly kill people.
+    type: Fix
+  id: 2101
+  time: '2026-01-25T16:31:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5278
+- author: MantasDab360, whatston3, ShepardToTheStars
+  changes:
+  - message: Chemical Dispenser can now toggle between auto labeling!
+    type: Add
+  id: 2102
+  time: '2026-01-25T16:46:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5261
+- author: keekee38
+  changes:
+  - message: a new compact submachine gun for security should be shipping in soon!
+    type: Add
+  - message: added machine pistol magazines to the security techfab's recipes.
+    type: Tweak
+  - message: added rubber SMG mags to the security techfab.
+    type: Tweak
+  id: 2103
+  time: '2026-01-26T10:46:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5212
+- author: Halo3moth
+  changes:
+  - message: Security long coats have been resprited to be more in line with other
+      security gear. (we ran out of red dye)
+    type: Tweak
+  id: 2104
+  time: '2026-01-27T05:50:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5288
+- author: EmberAstra
+  changes:
+  - message: Plasteel can now be printed at the Engineering Techfab.
+    type: Add
+  id: 2105
+  time: '2026-01-27T16:05:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5284
 Order: 1
