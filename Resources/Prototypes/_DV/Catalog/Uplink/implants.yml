@@ -17,20 +17,6 @@
       - SurplusBundle
 
 - type: listing
-  id: UplinkSyndicateRadioImplanter
-  name: uplink-syndicate-radio-implanter-name
-  description: uplink-syndicate-radio-implanter-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: RadioImplanterSyndicate
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkImplants
-
-- type: listing
   id: UplinkSyndicateRadioImplanterBundle
   name: uplink-syndicate-radio-implanter-bundle-name
   description: uplink-syndicate-radio-implanter-bundle-desc

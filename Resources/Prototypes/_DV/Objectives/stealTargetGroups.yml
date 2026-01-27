@@ -20,11 +20,11 @@
     state: folder-sec-doc
 
 - type: stealTargetGroup
-  id: WeaponEnergyGunMultiphase
-  name: steal-target-groups-x01
+  id: HoSSidearm
+  name: steal-target-groups-hos-sidearm
   sprite:
-    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-    state: base
+    sprite: _DV/Objects/Tools/HoS-Briefcase.rsi
+    state: steal
 
 - type: stealTargetGroup
   id: BoxFolderRdClipboard

@@ -10,7 +10,7 @@ namespace Content.Shared._DV.Mail;
 /// This is for the mail teleporter.
 /// Random mail will be teleported to this every few minutes.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause] // TODO: Access & PublicAPI for Commands
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause, Access(typeof(SharedMailSystem))]
 public sealed partial class MailTeleporterComponent : Component
 {
     /// <summary>

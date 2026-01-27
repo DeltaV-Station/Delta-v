@@ -42,6 +42,8 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key: #DeltaV
+        type: WiresBoundUserInterface #DeltaV
   - type: Transform
     anchored: true
   - type: Pullable
@@ -61,6 +63,11 @@
     - Experimental
     - CivilianServices
   # Begin DeltaV additions
+  - type: Wires
+    boardName: wires-board-name-autolathe
+    layoutId: Fabicator
+    alwaysRandomize: true
+  - type: StationAiWhitelist 
   - type: MaterialStorageMagnetPickup
     magnetEnabled: True
     range: 0.30

@@ -42,3 +42,13 @@
     - id: ClothingMaskSterile
       amount: 2
     - id: PaperViralCarePackageManual
+
+- type: entity
+  id: CrateCrashCart
+  parent: CrateMedical
+  name: crash cart crate
+  description: Contains one empty crash cart.
+  components:
+  - type: StorageFill
+    contents:
+    - id: CrashCart

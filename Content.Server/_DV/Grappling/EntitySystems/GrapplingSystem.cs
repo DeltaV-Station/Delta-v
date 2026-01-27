@@ -44,7 +44,6 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 
     private ProtoId<TagPrototype> _grappleTargetId = "GrappleTarget";

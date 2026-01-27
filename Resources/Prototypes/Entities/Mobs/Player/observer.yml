@@ -89,6 +89,17 @@
   - type: Tag
     tags: # BAD: Intentional removal of inherited tag
     - AllowGhostShownByEvent
+  - type: RadarConsole # DeltaV
+    maxRange: 256
+    followEntity: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionToggleMassScanner
 
 - type: entity
   parent: BaseMentalAction

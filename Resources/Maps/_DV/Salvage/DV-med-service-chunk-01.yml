@@ -2913,15 +2913,13 @@ entities:
     - type: Transform
       pos: -5.5,2.5
       parent: 273
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 464
     components:
     - type: Transform
       pos: -0.5,0.5
       parent: 273
-    - type: WarpPoint
-      location: Space Debris
 - proto: Window
   entities:
   - uid: 187

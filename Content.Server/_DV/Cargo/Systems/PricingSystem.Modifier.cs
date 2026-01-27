@@ -13,7 +13,7 @@ public sealed partial class PricingSystem
     /// <returns>The modified price.</returns>
     private double ApplyPrototypePriceModifier(EntityPrototype prototype, double basePrice)
     {
-        if (prototype.Components.TryGetValue(Factory.GetComponentName(typeof(PriceModifierComponent)),
+        if (prototype.Components.TryGetValue(Factory.GetComponentName<PriceModifierComponent>(),
                 out var modProto))
         {
             var priceModifier = (PriceModifierComponent)modProto.Component;

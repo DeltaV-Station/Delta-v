@@ -38,3 +38,13 @@
   cost: 10000
   category: Medical
   group: market
+
+- type: cargoProduct
+  id: CrashCartCrate
+  icon:
+    sprite: _Funkystation/Objects/Specific/Medical/crashcart.rsi
+    state: cart
+  product: CrateCrashCart
+  cost: 1000
+  category: Medical
+  group: market

@@ -78,6 +78,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("rofl", "chatsan-laughs"),
         Entry("o7", "chatsan-salutes"),
         Entry(";_;7", "chatsan-tearfully-salutes"),
+        Entry("idk", "chatsan-shrugs"), //Delta V
         Entry(";)", "chatsan-winks"),
         Entry(";]", "chatsan-winks"),
         Entry("(;", "chatsan-winks"),

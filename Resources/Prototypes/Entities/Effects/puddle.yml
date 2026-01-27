@@ -258,4 +258,7 @@
     prototype: PuddleSparkle
   - type: TimedDespawn
     lifetime: 60 # DeltaV End updates from EE Blood Puddle
-
+  - type: SpeedModifierContacts
+    ignoreWhitelist:
+      components:
+      - InputMover

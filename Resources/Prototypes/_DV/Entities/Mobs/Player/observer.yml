@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseMentalAction
+  id: ActionToggleMassScanner
+  name: Mass Scanner
+  description: View the mass scanner interface.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    priority: 6
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent
+      key: enum.RadarConsoleUiKey.Key

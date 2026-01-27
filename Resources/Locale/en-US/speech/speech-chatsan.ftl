@@ -190,5 +190,6 @@ chatsan-replacement-66 = something
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
 
-chatsan-word-68 = idk
-chatsan-replacement-68 = i don't know
+# Delta V - Replaced idk to do /me shrugs as per issue 5151
+# chatsan-word-68 = idk
+# chatsan-replacement-68 = i don't know

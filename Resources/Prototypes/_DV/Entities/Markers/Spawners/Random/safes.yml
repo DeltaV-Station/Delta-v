@@ -81,3 +81,14 @@
         children:
         - id: SalvageGunSafeRevolverSnub
         - id: SalvageGunSafeVulcan
+
+- type: entity
+  parent: BaseGunSafeSpawner
+  id: SubMachineGunSafeSpawner
+  suffix: SubMachineGun
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeSubMachineGunDrozd
+      - id: GunSafeSubMachineGunPatos

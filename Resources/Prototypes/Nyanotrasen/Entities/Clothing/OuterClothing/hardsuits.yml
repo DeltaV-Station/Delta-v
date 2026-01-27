@@ -19,13 +19,8 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot
-        showEnts: false
-        occludes: true
-        ent: null
+      toggleable-under-clothing: !type:ContainerSlot {}
       storagebase: !type:Container
-        showEnts: false
-        occludes: true
-        ents: []
 
 - type: entity
   parent: ClothingOuterHardsuitSyndie

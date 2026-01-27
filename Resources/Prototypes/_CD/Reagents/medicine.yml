@@ -12,7 +12,7 @@
       effects:
       - !type:PopupMessage
         type: Local
-        visualType: Medium
+        visualType: Small
         messages:
           - "reagent-effect-antidepressant-mild1"
           - "reagent-effect-antidepressant-mild2"
@@ -58,13 +58,13 @@
       effects:
       - !type:PopupMessage
         type: Local
-        visualType: Large
+        visualType: Medium
         messages:
           - "reagent-effect-antidepressant-normal1"
           - "reagent-effect-antidepressant-normal2"
           - "reagent-effect-antidepressant-normal3"
           - "reagent-effect-antidepressant-normal4"
-        probability: 0.045
+        probability: 0.035
         conditions:
         - !type:ReagentCondition
           reagent: Neurozenium
@@ -128,13 +128,13 @@
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
-        visualType: Large
+        visualType: Medium
         messages:
           - "reagent-effect-antidepressant-strong1"
           - "reagent-effect-antidepressant-strong2"
           - "reagent-effect-antidepressant-strong3"
           - "reagent-effect-antidepressant-strong4"
-        probability: 0.055
+        probability: 0.035
         conditions:
           - !type:ReagentCondition
             reagent: Blissifylovene
@@ -218,7 +218,7 @@
             Poison: 0.5
       - !type:PopupMessage
         type: Local
-        visualType: Medium
+        visualType: Large
         messages:
           - "reagent-effect-antidepressant-fade" # A decent chance to notify the player when their meds run out, but could happen silently.
         probability: 0.2
@@ -242,7 +242,7 @@
       effects:
       - !type:PopupMessage
         type: Local
-        visualType: Medium
+        visualType: Small
         messages:
           - "reagent-effect-anxietymed-mild1"
           - "reagent-effect-anxietymed-mild2"
@@ -259,7 +259,7 @@
         amount: -1.2
       - !type:PopupMessage
         type: Local
-        visualType: Small
+        visualType: Large
         messages:
           - "reagent-effect-anxietymed-fade" # A decent chance to notify the player when their meds run out, but could happen silently.
         probability: 0.35
@@ -282,14 +282,14 @@
       effects:
       - !type:PopupMessage
         type: Local
-        visualType: Large
+        visualType: Small
         messages:
           - "reagent-effect-anxietymed-normal1"
           - "reagent-effect-anxietymed-normal2"
           - "reagent-effect-anxietymed-normal3"
           - "reagent-effect-anxietymed-normal4"
           - "reagent-effect-anxietymed-normal5"
-        probability: 0.04
+        probability: 0.035
         conditions:
         - !type:ReagentCondition
           reagent: Tranquinase
@@ -341,7 +341,7 @@
             Poison: 1
       - !type:PopupMessage
         type: Local
-        visualType: Small
+        visualType: Large
         messages:
           - "reagent-effect-anxietymed-fade" # A decent chance to notify the player when their meds run out, but could happen silently.
         probability: 0.32
@@ -364,7 +364,7 @@
       effects:
       - !type:PopupMessage
         type: Local
-        visualType: Large
+        visualType: Small
         messages:
           - "reagent-effect-anxietymed-strong1"
           - "reagent-effect-anxietymed-strong2"
@@ -373,7 +373,7 @@
           - "reagent-effect-anxietymed-strong5"
           - "reagent-effect-anxietymed-strong6"
           - "reagent-effect-anxietymed-strong7"
-        probability: 0.04
+        probability: 0.035
         conditions:
         - !type:ReagentCondition
           reagent: Equilibrazine
@@ -425,7 +425,7 @@
         amount: -1.5
       - !type:PopupMessage
         type: Local
-        visualType: Small
+        visualType: Large
         messages:
           - "reagent-effect-anxietymed-fade" # A decent chance to notify the player when their meds run out, but could happen silently.
         probability: 0.2
@@ -446,17 +446,19 @@
     Medicine:
       metabolismRate : 0.02
       effects:
-      - !type:SuppressPain
-        level: Mild
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectChronicPainSuppressed
+        time: 2 # less effective than soretizone - 8.3 minutes of pain suppression per 5u (5u / 0.02 * 2 / 60)
+        type: Update
       - !type:PopupMessage
         type: Local
-        visualType: Medium
+        visualType: Small
         messages:
           - "reagent-effect-painkiller-mild1"
           - "reagent-effect-painkiller-mild2"
           - "reagent-effect-painkiller-mild3"
           - "reagent-effect-painkiller-mild4"
-        probability: 0.08
+        probability: 0.035
       - !type:Vomit
         probability: 0.4
         conditions:
@@ -483,7 +485,7 @@
             min: 2
       - !type:PopupMessage
         type: Local
-        visualType: Small
+        visualType: Large
         messages:
           - "reagent-effect-painkiller-fade" # A decent chance to notify the player when their meds run out
         probability: 0.35
@@ -504,18 +506,20 @@
     Medicine:
       metabolismRate : 0.01
       effects:
-      - !type:SuppressPain
-        level: Normal
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectChronicPainSuppressed
+        time: 1.5 # 12.5 minutes of pain suppression per 5u (5u / 0.01 * 1.5 / 60)
+        type: Add
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
-        visualType: Large
+        visualType: Small
         messages:
           - "reagent-effect-painkiller-normal1"
           - "reagent-effect-painkiller-normal2"
           - "reagent-effect-painkiller-normal3"
           - "reagent-effect-painkiller-normal4"
-        probability: 0.085
+        probability: 0.035
       - !type:AdjustReagent
         conditions:
         - !type:ReagentCondition
@@ -531,7 +535,7 @@
           min: 9
       - !type:PopupMessage
         type: Local
-        visualType: Medium # stronger painkiller = more noticable fading
+        visualType: Large # stronger painkiller = more noticable fading
         messages:
           - "reagent-effect-painkiller-fade" # A decent chance to notify the player when their meds run out
         probability: 0.4
@@ -552,12 +556,14 @@
     Medicine:
       metabolismRate : 0.01
       effects:
-      - !type:SuppressPain
-        level: Strong
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectChronicPainSuppressed
+        time: 3 # More effective than soretizone - 25 minutes of pain suppression per 5u (5u / 0.01 * 3 / 60)
+        type: Update
       - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
-        visualType: Large
+        visualType: Small
         messages:
           - "reagent-effect-painkiller-strong1"
           - "reagent-effect-painkiller-strong2"
@@ -565,7 +571,7 @@
           - "reagent-effect-painkiller-strong4"
           - "reagent-effect-painkiller-strong5"
           - "reagent-effect-painkiller-strong6"
-        probability: 0.1
+        probability: 0.35
       - !type:AdjustReagent
         conditions:
         - !type:ReagentCondition

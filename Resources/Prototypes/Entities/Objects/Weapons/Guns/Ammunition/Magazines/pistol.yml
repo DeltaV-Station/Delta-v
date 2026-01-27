@@ -45,7 +45,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 16
+    capacity: 20 # Delta-V, was 16
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -247,6 +247,7 @@
 - type: entity
   id: MagazinePistolHighCapacityEmpty
   name: machine pistol magazine (.35 auto any)
+  description: 20-round double-stack single feed magazine for machine pistols. #Delta V
   suffix: empty
   parent: BaseMagazinePistolHighCapacity
   components:
@@ -268,6 +269,7 @@
 - type: entity
   id: MagazinePistolHighCapacity
   name: machine pistol magazine (.35 auto)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold general-purpose kinetic ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -292,6 +294,7 @@
 - type: entity
   id: MagazinePistolHighCapacityPractice
   name: machine pistol magazine (.35 auto practice)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold non-harmful chalk ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -312,20 +315,6 @@
       - state: inhand-right-mag
       - state: inhand-right-stripe
         color: "#ea5800"
-
-- type: entity
-  id: MagazinePistolHighCapacityRubber
-  name: machine pistol magazine (.35 auto rubber)
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolRubber # DeltaV: upstream still has this for some reason but not using rubber
-  - type: Sprite
-    layers:
-    - state: rubber
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
   id: MagazinePistolSubMachineGun
@@ -443,4 +432,3 @@
       - state: inhand-left-mag
       right:
       - state: inhand-right-mag
-

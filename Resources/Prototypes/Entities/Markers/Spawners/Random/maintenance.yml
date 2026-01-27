@@ -175,7 +175,7 @@
       - id: WristwatchGold
       - id: ClothingBeltFoamSheathFilled # DeltaV - Add small chance of it spawning in maints locker.
       - id: WeaponLaserTagGun # DeltaV - Add small chance of it spawning in maints locker.
-      #- id: RubberStampGreytide # Delta-V: prevent greytide stamp from spawning
+      - id: RubberStampGreytide
       - id: MysteryLighterBox
       - id: GoldenPersonalAI
 
@@ -288,7 +288,6 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
-      - id: ClothingShoesCreasedJordans # DeltaV
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue
@@ -310,7 +309,8 @@
       - id: DrinkMopwataBottleRandom
       #- id: SpectralLocator # DeltaV: no ghost locator
       - id: ClothingShoesRealJordans # DeltaV
-      - id: LidSalami
+      - id: ClothingShoesCreasedJordans # DeltaV
+      #- id: LidSalami # Delta V - bloat
         weight: 0.05
 
 - type: entity

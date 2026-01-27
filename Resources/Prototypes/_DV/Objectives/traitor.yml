@@ -37,7 +37,7 @@
   - type: NotJobRequirement
     jobs: [ HeadOfSecurity ]
   - type: StealCondition
-    stealGroup: WeaponEnergyGunMultiphase
+    stealGroup: HoSSidearm
     owner: job-name-hos
 
 - type: entity # Clerk steal objective.
@@ -101,15 +101,12 @@
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
     filters:
-    - !type:BodyMindFilter
-      whitelist:
-        components:
-        - CommandStaff
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
+        - TargetObjectiveImmune
 
 # Kill fellow traitor objective
 - type: entity

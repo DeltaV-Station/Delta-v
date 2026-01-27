@@ -1874,15 +1874,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 21.5,-6.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointRuin
   entities:
   - uid: 304
     components:
     - type: Transform
       pos: 9.5,-8.5
       parent: 1
-    - type: WarpPoint
-      location: Space Ruin
 - proto: WindoorSecure
   entities:
   - uid: 261
