@@ -147,6 +147,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
+    maxSupply: 1500 # Delta V - addition, reworkign solars
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
