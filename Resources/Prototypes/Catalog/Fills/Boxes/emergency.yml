@@ -217,7 +217,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: SpaceMedipen # DeltaV - keep spacepen, replaces breath mask
+    - id: ClothingMaskBreath # DeltaV
+    - id: SpaceMedipen # DeltaV - keep spacepen
     - id: EmergencyOxygenTankFilled
     - id: EmergencyMedipen
     - id: Flare
@@ -231,7 +232,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: SpaceMedipen # DeltaV - keep spacepen, replaces breath mask
+    - id: ClothingMaskBreath # DeltaV
+    - id: SpaceMedipen # DeltaV - keep spacepen
     - id: EmergencyNitrogenTankFilled
     - id: EmergencyMedipen
     - id: Flare
@@ -252,6 +254,7 @@
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
+    - id: SpaceMedipen # DeltaV - keep spacepen
     - id: EmergencyOxygenTankFilled
     - id: EmergencyMedipen
     - id: Flare
