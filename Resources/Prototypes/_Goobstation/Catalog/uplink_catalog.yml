@@ -1,13 +1,13 @@
-- type: listing
-  id: UplinkHardsuitCybersunStealth
-  name: uplink-hardsuit-cybersun-stealth-name
-  description: uplink-hardsuit-cybersun-stealth-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
-  cost:
-    Telecrystal: 15 # Harmony - modified since goob has different TC ratio.
-  categories:
-  - UplinkWearables
+#- type: listing
+#  id: UplinkHardsuitCybersunStealth
+#  name: uplink-hardsuit-cybersun-stealth-name
+#  description: uplink-hardsuit-cybersun-stealth-desc
+#  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+#  cost:
+#    Telecrystal: 15 # Harmony - modified since goob has different TC ratio.
+#  categories:
+#  - UplinkWearables
 # begin Harmony change - yeah let's not give this to syndies
   # Begin DeltaV additions - we ARE giving this to syndies
   #conditions:
@@ -17,3 +17,5 @@
   #    - NukeOpsUplink
   # End DeltaV additions - we ARE giving this to syndies
 # end Harmony change
+
+# Removed from uplink catalog, this code remains in case we decide to add it back
