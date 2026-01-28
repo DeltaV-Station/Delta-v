@@ -508,7 +508,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
-        time: 0.5 # 4-ish minutes of pain suppression per 5u (5u / 0.01 * 0.5 / 60)
+        time: 0.6 # 5 minutes of pain suppression per 5u (5u / 0.01 * 0.6 / 60)
         type: Add
       - !type:SuppressAddiction
       - !type:PopupMessage
