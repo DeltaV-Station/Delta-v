@@ -60,7 +60,8 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             null,
             null,
             null,
-            null // Shitmed Change
+            null, // Shitmed Change
+            null  // DeltaV - Uncloneable
         ));
     }
 

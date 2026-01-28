@@ -255,7 +255,7 @@ namespace Content.Client.HealthAnalyzer.UI
                     MaxWidth = 300
                 });
 
-            if (msg.Uncloneable == true)
+            if (msg.Uncloneable == true) // DeltaV - Uncloneable
                 AlertsContainer.AddChild(new RichTextLabel
                 {
                     Text = Loc.GetString("health-analyzer-window-entity-uncloneable-text"),

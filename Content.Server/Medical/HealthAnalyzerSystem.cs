@@ -321,7 +321,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             scanMode,
             bleeding,
             unrevivable,
-            uncloneable,
+            uncloneable, // DeltaV - Uncloneable
             // Shitmed Change
             body,
             _medicalRecords.GetMedicalRecords(target), // DeltaV - Medical Records
