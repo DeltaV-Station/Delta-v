@@ -6,6 +6,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -45,13 +47,16 @@ public sealed class TraitSystem : EntitySystem
             !jobProto.ApplyTraits)
             return;
 
-        // Get species ID for condition checking
-        string? speciesId = null;
+        // Use the species ID from the profile if for some reason we can't get the humanoid appearance
+        ProtoId<SpeciesPrototype>? speciesId = args.Profile.Species;
         if (TryComp<HumanoidAppearanceComponent>(args.Mob, out var humanoid))
             speciesId = humanoid.Species;
 
+        // Track disabled traits and reasons
+        var disabledTraits = new Dictionary<ProtoId<TraitPrototype>, List<string>>();
+
         // Validate and collect valid traits
-        var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.JobId, speciesId);
+        var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.JobId, speciesId, args.Profile, disabledTraits);
 
         // Apply valid traits
         foreach (var traitId in validTraits)
@@ -60,6 +65,12 @@ public sealed class TraitSystem : EntitySystem
                 continue;
 
             ApplyTrait(args.Mob, trait);
+        }
+
+        // Send disabled traits notification to client if any were rejected
+        if (disabledTraits.Count > 0)
+        {
+            RaiseNetworkEvent(new DisabledTraitsEvent(disabledTraits), args.Player);
         }
     }
 
@@ -71,7 +82,9 @@ public sealed class TraitSystem : EntitySystem
         IReadOnlySet<ProtoId<TraitPrototype>> selectedTraits,
         ICommonSession? session,
         string? jobId,
-        string? speciesId)
+        string? speciesId,
+        HumanoidCharacterProfile? profile,
+        Dictionary<ProtoId<TraitPrototype>, List<string>> disabledTraits)
     {
         var validTraits = new HashSet<ProtoId<TraitPrototype>>();
         var totalPoints = 0;
@@ -90,6 +103,7 @@ public sealed class TraitSystem : EntitySystem
             LogMan = _log,
             JobId = jobId,
             SpeciesId = speciesId,
+            Profile = profile,
         };
 
         foreach (var traitId in selectedTraits)
@@ -100,25 +114,31 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
+            var rejectionReasons = new List<string>();
+
             // Check global trait count limit
             if (traitCount >= _maxTraitCount)
             {
                 Log.Warning($"Trait {traitId} rejected: global trait count limit ({_maxTraitCount}) exceeded");
+                rejectionReasons.Add(Loc.GetString("disabled-traits-reason-global-limit"));
+                disabledTraits[traitId] = rejectionReasons;
                 continue;
             }
 
             // Check global points limit
             if (totalPoints + trait.Cost > _maxTraitPoints)
             {
-                Log.Warning(
-                    $"Trait {traitId} rejected: global points limit ({_maxTraitPoints}) would be exceeded");
+                Log.Warning($"Trait {traitId} rejected: global points limit ({_maxTraitPoints}) would be exceeded");
+                rejectionReasons.Add(Loc.GetString("disabled-traits-reason-points-limit"));
+                disabledTraits[traitId] = rejectionReasons;
                 continue;
             }
 
             // Check category limits
-            if (!ValidateCategoryLimits(trait, categoryTraitCounts, categoryPointTotals))
+            if (!ValidateCategoryLimits(trait, categoryTraitCounts, categoryPointTotals, rejectionReasons))
             {
                 Log.Warning($"Trait {traitId} rejected: category limits exceeded");
+                disabledTraits[traitId] = rejectionReasons;
                 continue;
             }
 
@@ -130,6 +150,11 @@ public sealed class TraitSystem : EntitySystem
                 if (trait.Conflicts.Contains(validTraitId))
                 {
                     Log.Warning($"Trait {traitId} rejected: conflicts with {validTraitId}");
+                    if (_prototype.TryIndex(validTraitId, out var conflictTrait))
+                    {
+                        rejectionReasons.Add(Loc.GetString("disabled-traits-reason-conflict",
+                            ("trait", Loc.GetString(conflictTrait.Name))));
+                    }
                     hasConflict = true;
                     break;
                 }
@@ -139,18 +164,24 @@ public sealed class TraitSystem : EntitySystem
                     validTrait.Conflicts.Contains(traitId))
                 {
                     Log.Warning($"Trait {traitId} rejected: {validTraitId} conflicts with it");
+                    rejectionReasons.Add(Loc.GetString("disabled-traits-reason-conflict",
+                        ("trait", Loc.GetString(validTrait.Name))));
                     hasConflict = true;
                     break;
                 }
             }
 
             if (hasConflict)
+            {
+                disabledTraits[traitId] = rejectionReasons;
                 continue;
+            }
 
             // Check all conditions
-            if (!CheckConditions(trait, conditionCtx))
+            if (!CheckConditions(trait, conditionCtx, rejectionReasons))
             {
                 Log.Warning($"Trait {traitId} rejected: conditions not met");
+                disabledTraits[traitId] = rejectionReasons;
                 continue;
             }
 
@@ -176,7 +207,8 @@ public sealed class TraitSystem : EntitySystem
     private bool ValidateCategoryLimits(
         TraitPrototype trait,
         Dictionary<ProtoId<TraitCategoryPrototype>, int> categoryTraitCounts,
-        Dictionary<ProtoId<TraitCategoryPrototype>, int> categoryPointTotals)
+        Dictionary<ProtoId<TraitCategoryPrototype>, int> categoryPointTotals,
+        List<string> rejectionReasons)
     {
         if (!_prototype.TryIndex(trait.Category, out var category))
             return true; // Unknown category, allow it
@@ -186,11 +218,19 @@ public sealed class TraitSystem : EntitySystem
 
         // Check category trait count limit
         if (category.MaxTraits.HasValue && currentCount >= category.MaxTraits.Value)
+        {
+            rejectionReasons.Add(Loc.GetString("disabled-traits-reason-category-limit",
+                ("category", Loc.GetString(category.Name))));
             return false;
+        }
 
         // Check category points limit
         if (category.MaxPoints.HasValue && currentPoints + trait.Cost > category.MaxPoints.Value)
+        {
+            rejectionReasons.Add(Loc.GetString("disabled-traits-reason-category-points",
+                ("category", Loc.GetString(category.Name))));
             return false;
+        }
 
         return true;
     }
@@ -198,12 +238,20 @@ public sealed class TraitSystem : EntitySystem
     /// <summary>
     /// Checks all conditions on a trait.
     /// </summary>
-    private bool CheckConditions(TraitPrototype trait, TraitConditionContext ctx)
+    private bool CheckConditions(TraitPrototype trait, TraitConditionContext ctx, List<string> rejectionReasons)
     {
         foreach (var condition in trait.Conditions)
         {
-            if (!condition.Evaluate(ctx))
-                return false;
+            if (condition.Evaluate(ctx))
+                continue;
+
+            // Get human-readable reason from the condition
+            var tooltip = condition.GetTooltip(ctx.Proto, Loc);
+
+            if (!string.IsNullOrEmpty(tooltip))
+                rejectionReasons.Add(tooltip);
+
+            return false;
         }
 
         return true;
