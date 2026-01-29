@@ -30,10 +30,11 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     [Dependency] private readonly UserInterfaceSystem _bui = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
+    [Dependency] private readonly EmagSystem _emag = default!;
+    
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
     private readonly List<ThavenMood> _sharedMoods = new();
-
+    private readonly HashSet<ThavenMood> _emptyMoods = new HashSet<ThavenMood>();
 
     [ValidatePrototypeId<DatasetPrototype>]
     private const string SharedDataset = "ThavenMoodsShared";
@@ -66,7 +67,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
-    private void NewSharedMoods()
+    public void NewSharedMoods()
     {
         _sharedMoods.Clear();
         for (int i = 0; i < _config.GetCVar(ImpCCVars.ThavenSharedMoodCount); i++)
@@ -285,6 +286,27 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         UpdateBUIState(uid, comp);
     }
 
+
+    /// <summary>
+    /// Clears the moods for a thaven, then applies a new set of moods.
+    /// </summary>
+    public void RefreshMoods(EntityUid uid, ThavenMoodsComponent comp)
+    {
+        comp.Moods = _emptyMoods.ToList();
+
+        // "Yes, and" moods
+        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp)))
+            TryAddMood(uid, mood, comp, true, false);
+
+        // "No, and" moods
+        if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp)))
+            TryAddMood(uid, mood, comp, true, false);
+
+        // Wildcard moods
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
+            AddWildcardMood((uid, comp));
+    }
+    
     public HashSet<string> GetConflicts(IEnumerable<ThavenMood> moods)
     {
         var conflicts = new HashSet<string>();
@@ -342,13 +364,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (comp.LifeStage != ComponentLifeStage.Starting)
             return;
 
-        // "Yes, and" moods
-        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp)))
-            TryAddMood(uid, mood, comp, true, false);
-
-        // "No, and" moods
-        if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp)))
-            TryAddMood(uid, mood, comp, true, false);
+        RefreshMoods(uid, comp);
 
         comp.Action = _actions.AddAction(uid, ActionViewMoods);
     }

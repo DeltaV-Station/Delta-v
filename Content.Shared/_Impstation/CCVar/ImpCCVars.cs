@@ -5,7 +5,7 @@ namespace Content.Shared._Impstation.CCVar;
 
 // ReSharper disable once InconsistentNaming
 [CVarDefs]
-public sealed class ImpCCVars : CVars
+public sealed partial class ImpCCVars : CVars
 {
     /// <summary>
     /// The number of shared moods to give thaven by default.

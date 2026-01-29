@@ -367,6 +367,24 @@ public abstract class SharedPoweredLightSystem : EntitySystem
         _appearance.SetData(uid, PoweredLightVisuals.Blinking, isNowBlinking, appearance);
     }
 
+    /// <summary>
+    ///     Toggle whether ghosts can use their "boo" on the specified light
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="light"></param>
+    /// <param name="isNowIgnoringGhostBoo"></param>
+    /// <remarks>
+    ///     Delta-V - Add api for toggling whether ghosts can mess with lights
+    /// </remarks>
+    public void ToggleIgnoreGhostBoo(EntityUid uid, PoweredLightComponent light, bool isNowIgnoringGhostBoo)
+    {
+        if (light.IgnoreGhostsBoo == isNowIgnoringGhostBoo)
+            return;
+        
+        light.IgnoreGhostsBoo = isNowIgnoringGhostBoo;
+        Dirty(uid, light);
+    }
+
     private void SetLight(EntityUid uid, bool value, Color? color = null, PoweredLightComponent? light = null, float? radius = null, float? energy = null, float? softness = null)
     {
         if (!Resolve(uid, ref light))

@@ -1,0 +1,62 @@
+- type: supermatterDelamination
+  id: BaseSupermatterDelamination
+  message: supermatter-delam-generic
+  gameRules:
+  - SupermatterDelamEventScheduler
+  - DelaminationNewSharedThavenMood
+  - DelaminationFlickeringLights # this will always hit the station regardless of where the supermatter was
+  - DelaminationHallucinations
+  mobEffects:
+  - !type:IonStorm
+  - !type:ThavenRefreshMoods
+
+- type: supermatterDelamination
+  parent: BaseSupermatterDelamination
+  id: ExplosionSupermatterDelamination
+  message: supermatter-delam-explosion
+  supermatterEffects:
+  - !type:Explode
+
+- type: supermatterDelamination
+  parent: BaseSupermatterDelamination
+  id: SingularitySupermatterDelamination
+  message: supermatter-delam-overmass
+  requirements:
+    minMoles: 600
+  supermatterEffects:
+  - !type:SpawnEntity
+    entity: Singularity
+
+- type: supermatterDelamination
+  parent: BaseSupermatterDelamination
+  id: TeslaSupermatterDelamination
+  message: supermatter-delam-tesla
+  requirements:
+    minPower: 5000
+  supermatterEffects:
+  - !type:SpawnEntity
+    entity: TeslaEnergyBall
+
+- type: supermatterDelamination
+  parent: BaseSupermatterDelamination
+  id: GlimmerSupermatterDelamination
+  message: supermatter-delam-glimmer
+  requirements:
+    minGlimmer: 800
+  gameRules:
+  - MassMindSwap
+  mobEffects:
+  - !type:ModifyParalysis
+    time: 2
+    type: Add
+  - !type:RerollPsionicAbilities
+    bonusMultiplier: 4
+  - !type:Glow
+  supermatterEffects:
+  - !type:Explode
+    radius: 10
+
+- type: supermatterDelamination
+  parent: BaseSupermatterDelamination
+  id: CascadeSupermatterDelamination
+  message: supermatter-delam-cascade
