@@ -4,10 +4,11 @@
 #  name: radio implant crate
 #  description: Communicate without having a pesky headset on your ear.
 #  components:
-#  - type: StorageFill
-#    contents:
-#    - id: GenericRadioImplanter
-#      amount: 3
+#  - type: EntityTableContainerFill
+#    containers:
+#      entity_storage:
+#        id: GenericRadioImplanter
+#        amount: 3
 
 - type: entity
   id: CratePainkillerBottles
@@ -15,10 +16,11 @@
   name: painkiller crate
   description: Running out of these is not an option.
   components:
-  - type: StorageFill
-    contents:
-    - id: PillCanisterStubantazine
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: PillCanisterStubantazine
+        amount: 3
 
 - type: entity
   id: CrateViralCarePackage
@@ -26,22 +28,24 @@
   name: viral care package crate
   description: Contains all you need to subdue a viral outbreak.
   components:
-  - type: StorageFill
-    contents:
-    - id: JugPotassium
-    - id: JugNitrogen
-    - id: JugHydrogen
-    - id: JugSilicon
-    - id: Skimmer
-    - id: BoxBottle
-    - id: BoxSyringe
-    - id: ClothingOuterBioVirology
-      amount: 2
-    - id: ClothingHeadHatHoodBioVirology
-      amount: 2
-    - id: ClothingMaskSterile
-      amount: 2
-    - id: PaperViralCarePackageManual
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: JugPotassium
+        - id: JugNitrogen
+        - id: JugHydrogen
+        - id: JugSilicon
+        - id: Skimmer
+        - id: BoxBottle
+        - id: BoxSyringe
+        - id: ClothingOuterBioVirology
+          amount: 2
+        - id: ClothingHeadHatHoodBioVirology
+          amount: 2
+        - id: ClothingMaskSterile
+          amount: 2
+        - id: PaperViralCarePackageManual
 
 - type: entity
   id: CrateCrashCart
@@ -49,6 +53,8 @@
   name: crash cart crate
   description: Contains one empty crash cart.
   components:
-  - type: StorageFill
-    contents:
-    - id: CrashCart
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: CrashCart

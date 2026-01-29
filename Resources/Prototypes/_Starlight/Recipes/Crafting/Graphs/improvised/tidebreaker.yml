@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: tool
+    - to: sword
       steps:
       - tag: BladePlasteel
         icon:
@@ -27,15 +27,13 @@
       - material: Cloth
         amount: 8
         doAfter: 5
-  - node: tool
-    entity: HiltPlasteel
-    edges:
-    - to: sword
-      steps:
       - tag: HiltPlasteel
         icon:
           sprite: _Starlight/Objects/Misc/plasteel_hilt.rsi
           state: icon
         name: crafting-menu-name-PH
+
+  - node: tool
+    edges: []
   - node: sword
     entity: UnfinishedClaymoreForged
