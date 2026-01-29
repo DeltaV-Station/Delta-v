@@ -1,0 +1,21 @@
+# engineer
+- type: entity
+  id: UndeterminedVoidsuitEngineer
+  name: engineer voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - VoidsuitSelectorEngineerVoidsuit
+    - VoidsuitSelectorEngineerHardsuit
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
