@@ -443,7 +443,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnAnchorChanged(EntityUid uid, MicrowaveComponent component, ref AnchorStateChangedEvent args)
         {
             // DeltaV - start of microwave ejection bugfix
-            if (!args.Anchored) 
+            if (!args.Anchored)
             {
                 // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
                 StopCooking((uid, component));
@@ -470,7 +470,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
                 // DeltaV - start of microwave ejection bugfix
                 (
-                    EntityManager.TryGetComponent<ActiveMicrowaveComponent>(uid, out var active) 
+                    EntityManager.TryGetComponent<ActiveMicrowaveComponent>(uid, out var active)
                     && active.LifeStage < ComponentLifeStage.Stopping
                 ),
                 // DeltaV - end of microwave ejection bugfix
@@ -514,7 +514,7 @@ namespace Content.Server.Kitchen.EntitySystems
             // DeltaV - start of microwave ejection bugfix
             UpdateUserInterfaceState(ent, ent.Comp);
             // DeltaV - end of microwave ejection bugfix
-            
+
             _adminLogger.Add(LogType.Action, LogImpact.Medium,
                 $"{ToPrettyString(ent)} exploded from unsafe cooking!");
         }
@@ -562,7 +562,7 @@ namespace Content.Server.Kitchen.EntitySystems
             foreach (var item in component.Storage.ContainedEntities.ToArray())
             {
                 // special behavior when being microwaved ;)
-                var ev = new BeingMicrowavedEvent(uid, user, component.CurrentCookTimerTime);
+                var ev = new BeingMicrowavedEvent(uid, user, component.CurrentCookTimerTime); // DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
                 RaiseLocalEvent(item, ev);
 
                 // TODO MICROWAVE SPARKS & EFFECTS

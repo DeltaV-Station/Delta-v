@@ -68,7 +68,10 @@
 #     unitsToInject: 10
 #     webRequired: true
 #   - type: Bloodstream
-#     bloodReagent: DemonsBlood
+#     bloodReagents:
+#       reagents:
+#       - ReagentId: DemonsBlood
+#         Quanity: 1
 #   - type: Body
 #     prototype: VampiricAnimalLarge
 #   - type: PotentialPsionic

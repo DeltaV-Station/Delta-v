@@ -200,7 +200,10 @@
           prob: 0.2
     - type: Bloodstream
       bloodMaxVolume: 200
-      bloodReagent: Cryoxadone
+      bloodReagents:
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 1
     - type: Fixtures
       fixtures:
         fix1:
