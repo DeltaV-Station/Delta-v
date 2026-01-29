@@ -3,17 +3,19 @@
   suffix: Filled
   parent: LockerPilot
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingBeltPilotFilled
-      - id: ClothingHeadsetAltPilot
-      - id: ClothingEyesGlassesPilot
-      - id: ClothingNeckScarfPilot
-      - id: ClothingMaskPilot
-      # Begin DeltaV Additions - add full pilot outfit to locker
-      - id: ClothingHandsGlovesPilot 
-      - id: ClothingShoesBootsPilot
-      - id: ClothingUniformJumpsuitPilot
-      - id: ClothingHeadHatPilot
-      - id: ClothingBackpackPilot
-      # End DeltaV Additions
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBeltPilotFilled
+        - id: ClothingHeadsetAltPilot
+        - id: ClothingEyesGlassesPilot
+        - id: ClothingNeckScarfPilot
+        - id: ClothingMaskPilot
+        # Begin DeltaV Additions - add full pilot outfit to locker
+        - id: ClothingHandsGlovesPilot
+        - id: ClothingShoesBootsPilot
+        - id: ClothingUniformJumpsuitPilot
+        - id: ClothingHeadHatPilot
+        - id: ClothingBackpackPilot
+        # End DeltaV Additions

@@ -1,6 +1,5 @@
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Prying.Components;
 
 namespace Content.Server._DV.Tools;
@@ -30,7 +29,7 @@ public sealed class PryingRequiresPowerSystem : EntitySystem
 
     private void OnBeforePry(Entity<PryingRequiresPowerComponent> ent, ref BeforePryEvent args)
     {
-        if (!_cell.HasCharge(ent, ent.Comp.PowerCost, null, args.User))
+        if (!_cell.HasCharge(ent.Owner, ent.Comp.PowerCost, args.User))
             args.Cancelled = true;
     }
 }

@@ -193,6 +193,11 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: uranium
+      shader: unshaded
+ # - type: PointLight // Too resource intensive for what little effect it has, one day...
+ #   enabled: true
+ #   color: "#059919"
+ #   radius: 2.0
   - type: Projectile
     damage:
       types:
@@ -1303,15 +1308,15 @@
         hard: false
         mask:
         - Opaque
-        - Impassable
-        #- BulletImpassable # DeltaV - Still shoot through windows
+      # - Impassable DeltaV allows pierces windows
+      # - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10 # DeltaV changed from 13 to 10
+        Heat: 10 # Delta V was 13
 
 - type: entity
   name: wide laser barrage
@@ -1347,7 +1352,7 @@
     spread: 9
 
 - type: entity
-  name: magnum laser bolt
+  name: magnum bolt #Delta V - does not fuction like a laser bolt
   id: BulletLaserMagnum
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1362,9 +1367,20 @@
     color: "#ff4300"
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
-    damage:
+    damage: #Delta V - was 30 heat
       types:
-        Heat: 30
+        Heat: 24
+        Piercing: 11
+  - type: Fixtures # Delta V - ensures that it doesnt pierce windows
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: true 
+        mask:
+        - Impassable
+        - BulletImpassable
 
 - type: entity
   name: magnum window-piercing bolt
@@ -1394,3 +1410,44 @@
         hard: false
         mask:
         - Opaque
+
+- type: entity
+  parent: BaseBullet
+  id: EnergyCrossbowBolt
+  categories: [ HideSpawnMenu ]
+  name: energy bolt
+  description: This'll hurt.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Ammo
+    muzzleFlash: null
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: crossbowbolt
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 2
+  - type: StunOnCollide #somewhat mirror to taser stats, meant to be tot 'sidegrade'
+    stunAmount: 0
+    knockdownAmount: 2.5
+    slowdownAmount: 2.5
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+    drop: false
+  - type: StaminaDamageOnCollide #additional stam damage to make repeated pushups less of a viable counter
+    damage: 45
+  - type: SolutionContainerManager
+    solutions:
+      bolt:
+        maxVol: 1.5
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1.5
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 1.5
+    solution: bolt

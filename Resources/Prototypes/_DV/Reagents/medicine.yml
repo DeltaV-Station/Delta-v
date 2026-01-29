@@ -50,7 +50,7 @@
   desc: reagent-desc-unholy-water
   physicalDesc: reagent-physical-desc-menacing
   flavor: UnholyWater
-  color: "#1614143d"
+  color: "#c4c4c4"
   metabolisms:
     Medicine:
       effects:
@@ -83,3 +83,30 @@
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
+
+- type: reagent
+  id: Stabilizine
+  name: reagent-name-stabilizine
+  group: Medicine
+  desc: reagent-desc-stabilizine
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#ff7db5"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 293.15
+        amount: 40000 # thermal energy, not temperature!
+      - !type:AdjustTemperature
+        conditions: # Increase the effect at lower temperatures, to reduce rubberbanding
+        - !type:TemperatureCondition
+          max: 253.15
+        amount: 60000 # Remember, this adds with the above condition!
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 293.15
+        amount: -10000

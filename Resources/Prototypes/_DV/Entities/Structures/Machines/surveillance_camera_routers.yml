@@ -1,0 +1,8 @@
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterAI
+  name: AI camera router
+  suffix: AI
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraAI
