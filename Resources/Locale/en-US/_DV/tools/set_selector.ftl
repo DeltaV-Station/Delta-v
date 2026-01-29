@@ -3,3 +3,6 @@ selectable-set-engineering-voidsuit-desc = A lightweight version of the standard
 
 selectable-set-engineering-hardsuit-name = Engineering Hardsuit
 selectable-set-engineering-hardsuit-desc = A standard engineering hardsuit that protects against hazardous, low pressure environments. Has radiation shielding.
+
+selectable-set-voidsuit-title = Voidsuit Selector
+selectable-set-voidsuit-description = With how fragile stations are, spacing is a possibility. Choose wisely.
