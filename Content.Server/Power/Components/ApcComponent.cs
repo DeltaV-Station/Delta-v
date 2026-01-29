@@ -39,7 +39,7 @@ public sealed partial class ApcComponent : BaseApcNetComponent
     /// timer, which after enough overloading causes the APC to "trip" off.
     /// </summary>
     [DataField]
-    public float MaxLoad = 40e3f; // DeltaV - Was 20e3f, upping to allow for maps to catch up
+    public float MaxLoad = 40e3f; // DeltaV - Was 20e3f, upping to allow for maps to catch up ; THIS WILL BE REVERTED TO 20kW BY MARCH 2026
 
     /// <summary>
     /// Time that the APC can be continuously overloaded before tripping off.
