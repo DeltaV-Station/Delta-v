@@ -563,13 +563,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 40 # DeltaV - ss13 parity
-        #Structural: 30 # DeltaV - ss13 parity
+        Blunt: 15 # DeltaV - lower maximum damage to 30
+        Structural: 30
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.22 # roughly 5.5 tiles
+    lifetime: 0.4 # DeltaV - Revert to Prebase stats, was 0.22
   - type: GatheringProjectile
-  - type: PressureProjectile # DeltaV
 
 - type: entity
   id: BulletKineticShuttle
