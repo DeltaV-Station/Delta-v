@@ -81,3 +81,172 @@
         tableId: LockerFillQuarterMasterHardsuit
   - type: AccessReader
     access: [["Quartermaster"]]
+
+#ERT and CC hardsuit
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageCC
+  suffix: CentComm
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillCentCommHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillCentCommHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTCentcomm
+    - id: JetpackCaptainFilled
+    - id: ClothingMaskGasCentcom
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageERTLeader
+  suffix: ERT, Leader
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillERTLeaderHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillERTLeaderHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTLeader
+    - id: JetpackSecurityFilled
+    - id: ClothingMaskGasERT
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageERTSecurity
+  suffix: ERT, Security
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillERTSecurityHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillERTSecurityHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTSecurity
+    - id: JetpackSecurityFilled
+    - id: ClothingMaskGasERT
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageERTMedical
+  suffix: ERT, Medical
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillERTMedicalHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillERTMedicalHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTMedical
+    - id: JetpackSecurityFilled
+    - id: ClothingMaskGasERT
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageERTJanitor
+  suffix: ERT, Janitor
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillERTJanitorHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillERTJanitorHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTJanitor
+    - id: JetpackSecurityFilled
+    - id: ClothingMaskGasERT
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageERTEngineer
+  suffix: ERT, Engineer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillERTEngineerHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillERTEngineerHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTEngineer
+    - id: JetpackSecurityFilled
+    - id: ClothingMaskGasERT
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageERTChaplain
+  suffix: ERT, Chaplain
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillERTChaplainHardsuit
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entityTable
+  id: LockerFillERTChaplainHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitERTChaplain
+    - id: JetpackSecurityFilled
+    - id: ClothingMaskGasERT
+    - id: HandheldGPSBasic
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: DoubleEmergencyWaterVaporTankFilled

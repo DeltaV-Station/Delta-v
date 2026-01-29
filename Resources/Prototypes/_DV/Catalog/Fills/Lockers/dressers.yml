@@ -310,3 +310,51 @@
         - id: RemoteSignaller
         - id: Binoculars
         - id: NetworkConfigurator
+
+#CentComm
+- type: entity
+  id: DresserCentCommFilledDV
+  suffix: Filled, CentComm
+  parent: DresserLargeCommand
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitCentcomOfficial
+    - id: ClothingUniformJumpskirtCentcomOfficial
+    - id: ClothingUniformJumpsuitCentcomDirector
+    - id: ClothingUniformJumpskirtCentcomDirector
+    - id: ClothingUniformJumpsuitCentcomOfficer
+    - id: ClothingUniformJumpskirtCentcomOfficer
+    - id: ClothingUniformJumpsuitCentcomFormal
+    - id: ClothingUniformJumpskirtCentcomFormalDress
+    # Eyes
+    - id: ClothingEyesGlassesSunglasses
+    # Hats
+    - id: ClothingHeadHatCentcom
+    - id: ClothingHeadHatCentcomcap
+    - id: ClothingHeadHatBeretCentcomm
+    # Cloaks
+    - id: ClothingNeckCloakCentcom
+    - id: ClothingNeckMantleCentcom
+    # Outerwear
+    - id: ClothingOuterWinterCentcom
+    - id: ClothingOuterArmoredWinterCoatCentComm
+    - id: ClothingLongcoatCentCommArmored
+    - id: ClothingOuterArmorCentcommCarapace
+    # Gloves
+    - id: ClothingHandsGlovesInspection
+    - id: ClothingHandsGlovesCombat
+    # Shoes
+    - id: ClothingShoesBootsLaceup
+    - id: ClothingShoesMiscWhite
+    - id: ClothingShoesBootsWinterCentCom
+    # Extras
+    - id: MedalCase
+      prob: 0.3
+    - id: CigarGoldCase
+    - id: ClothingNeckScarfStripedCentcom
+      prob: 0.5
+    - id: TowelColorCentcom
+      prob: 0.3
+    - id: BookCentcommChads
+      prob: 0.1
