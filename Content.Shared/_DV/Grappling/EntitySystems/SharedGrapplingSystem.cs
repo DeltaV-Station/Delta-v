@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -13,9 +14,11 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Systems;
@@ -42,6 +45,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -60,6 +64,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         SubscribeLocalEvent<GrappledComponent, StandUpAttemptEvent>(OnGrappledStandUp);
         SubscribeLocalEvent<GrappledComponent, StandAttemptEvent>(OnGrappledStand);
         SubscribeLocalEvent<GrappledComponent, UpdateCanMoveEvent>(OnGrappleCanMoveQuery);
+        SubscribeLocalEvent<GrappledComponent, RefreshMovementSpeedModifiersEvent>(OnGrappledMovementSpeedModifier);
     }
 
     /// <summary>
@@ -153,12 +158,6 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     /// <param name="victim">Entity to be grappled.</param>
     private void StartGrapple(Entity<GrapplerComponent> grappler, EntityUid victim)
     {
-        // Throw the victim and grappler (if requested) prone
-        _standingState.Down(victim);
-
-        if (grappler.Comp.ProneOnGrapple)
-            _standingState.Down(grappler);
-
         // Ensure they have the grappled component for handling escapes and blocking movement.
         EnsureComp<GrappledComponent>(victim, out var grappled);
         grappled.Grappler = grappler;
@@ -172,12 +171,25 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         grappler.Comp.PullJointId = $"grapple-joint-{GetNetEntity(victim)}";
         Dirty(grappler);
 
-        // Update any movement blocks that the grappler/grappled now have
+        // Block movement of the grappler and prone them, if requested
+        if (grappler.Comp.ProneOnGrapple)
+            _standingState.Down(grappler);
         _actionBlocker.UpdateCanMove(grappler);
-        _actionBlocker.UpdateCanMove(victim);
 
         // Joint the two together so both the grappler and the victim can't be tugged away from one another.
         _joint.CreateDistanceJoint(grappler, victim, id: grappler.Comp.PullJointId);
+
+        // Activation mode changes the way users might be thrown to prone, if at all
+        if (grappler.Comp.ActivationMode is GrapplerActivationStaminaDrain drain)
+        {
+            // Add a stamina drain and wait
+            _stamina.ToggleStaminaDrain(victim, drain.StaminaDrainRate, true, true, grappler);
+            grappled.MovementSpeedModifier = drain.MovementSpeedModifier;
+        }
+        else
+        {
+            ActivateGrapplingForVictim((victim, grappled));
+        }
 
         _popup.PopupClient(
             Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
@@ -194,6 +206,22 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
 
         _alerts.ShowAlert(grappler.Owner, grappler.Comp.GrappledAlert);
         _alerts.ShowAlert(victim, grappler.Comp.GrappledAlert);
+    }
+
+    /// <summary>
+    /// Prones the grappled victim and restricts their movement.
+    /// </summary>
+    /// <param name="victim">Grappled entity to prone and restrict the movement of.</param>
+    private void ActivateGrapplingForVictim(Entity<GrappledComponent> victim)
+    {
+        // Block movement of the victim and prone them
+        _standingState.Down(victim);
+
+        victim.Comp.GrappleActivated = true; // Must go first to ensure the UpdateCanMove blocks properly
+        _actionBlocker.UpdateCanMove(victim);
+
+        // Ensure we don't continue to drain stamina
+        _stamina.ToggleStaminaDrain(victim, 0, false, false, victim.Comp.Grappler);
     }
 
     /// <summary>
@@ -469,6 +497,9 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         // Clean up the hold on their hands we have
         EnableHands(grappler, victim);
 
+        // Ensure any stamina drains are cleared on release
+        _stamina.ToggleStaminaDrain(victim, 0, false, false, grappler);
+
         // If this was a manul release by the grappler, we should cancel the doafter they have in progress, if any.
         if (manualRelease)
         {
@@ -558,7 +589,23 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     /// <param name="args">Args for the event.</param>
     private void OnGrappleCanMoveQuery(Entity<GrappledComponent> grappled, ref UpdateCanMoveEvent args)
     {
-        args.Cancel(); // Can't move while grappled
+        if (!grappled.Comp.GrappleActivated)
+            return; // Grapple hasn't fully pinned them just yet, they can move.
+
+        args.Cancel(); // Can't move while fully grappled
+    }
+
+    /// <summary>
+    /// Handles when movement speed modifiers are optionally applied to the victim.
+    /// </summary>
+    /// <param name="grappled">Grappled entity we are refreshing movement params for.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnGrappledMovementSpeedModifier(Entity<GrappledComponent> grappled, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        if (!grappled.Comp.MovementSpeedModifier.HasValue)
+            return;
+
+        args.ModifySpeed(grappled.Comp.MovementSpeedModifier.Value);
     }
 
     /// <summary>
@@ -573,5 +620,4 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         if (grappler.Comp.ActiveVictim.HasValue)
             args.Cancel(); // You cannot attack while grappling
     }
-
 }
