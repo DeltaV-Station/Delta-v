@@ -582,13 +582,8 @@
     - Robotics
     - Xenoborgs
   - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     tags:
     - Xenoborg
-  - type: ContainerFill # DeltaV - borg id chips
-    containers:
-      borg_id_chip:
-      - IdChipXenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed

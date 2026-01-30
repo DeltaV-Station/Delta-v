@@ -35,8 +35,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - BorgModuleAdvancedTool
@@ -49,6 +47,7 @@
   - type: ShowHealthBars
     damageContainers:
     - Inorganic
+    - HumanoidSilicon # DeltaV - IPC
     - Silicon
   - type: ItemSlots
     slots:
@@ -196,8 +195,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - XenoborgModuleTool
@@ -251,8 +248,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - XenoborgModuleTool
@@ -276,8 +271,6 @@
     containers:
       borg_brain:
       - MMI
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - BorgModuleAdvancedTool

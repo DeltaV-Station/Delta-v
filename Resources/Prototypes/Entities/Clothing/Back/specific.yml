@@ -133,6 +133,16 @@
     sprite: Objects/Specific/Robotics/silicon_storage_cube.rsi
     state: xenoborg
   - type: MagnetPickup
+  - type: ItemToggle # DeltaV - Allow Toggle
+    onUse: false
+    soundActivate: &soundActivate
+      collection: sparks
+      params:
+        variation: 0.25
+    soundDeactivate: *soundActivate
+  - type: ItemToggleExamine # DeltaV - Allow Toggle
+    on: magnet-pickup-component-magnet-xenoborg-on
+    off: magnet-pickup-component-magnet-xenoborg-off
   - type: Dumpable
   - type: Storage
     grid:
