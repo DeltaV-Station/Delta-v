@@ -3,9 +3,10 @@
   name: Colored Lights Crate
   parent: CrateGenericSteel
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxColoredLighttube
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: BoxColoredLighttube
         amount: 2
 
 - type: entity
@@ -13,7 +14,8 @@
   name: Maintenance Lights Crate
   parent: CrateGenericSteel
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxMaintenanceLightbulb
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: BoxMaintenanceLightbulb
         amount: 2

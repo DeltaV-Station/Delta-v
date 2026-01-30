@@ -174,14 +174,16 @@
     stateDoorClosed: shotgun
   - type: AccessReader
     access: [["Security"]]
-  - type: StorageFill
-    contents:
-    - id: WeaponShotgunKammererNonLethal
-      amount: 2
-    - id: BoxBeanbag
-      amount: 2
-    - id: BoxShotgunPractice
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponShotgunKammererNonLethal
+          amount: 2
+        - id: BoxBeanbag
+          amount: 2
+        - id: BoxShotgunPractice
+          amount: 2
 
 - type: entity
   parent: GunSafeBaseSecureDV
@@ -190,9 +192,11 @@
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: smg
-  - type: StorageFill
-    contents:
-    - id: WeaponSubMachineGunPatos
-      amount: 2
-    - id: MagazinePistolHighCapacity
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunPatos
+          amount: 2
+        - id: MagazinePistolHighCapacity
+          amount: 4
