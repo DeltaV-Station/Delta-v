@@ -8,11 +8,13 @@
     size: Small
     shape:
     - 0,0,1,1
-  - type: StorageFill
-    contents:
-      - id: RubberStampApproved
-      - id: RubberStampDenied
-      - id: RubberStampChiefJustice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RubberStampApproved
+        - id: RubberStampDenied
+        - id: RubberStampChiefJustice
   - type: Storage
     grid:
     - 0,0,1,1
@@ -30,7 +32,9 @@
   id: BoxCJCircuitboards
   description: A Tote filled with CJ's Circuit boards.
   components:
-  - type: StorageFill
-    contents:
-      - id: IDComputerCircuitboard
-      - id: CargoRequestJusticeComputerCircuitboard
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: IDComputerCircuitboard
+        - id: CargoRequestJusticeComputerCircuitboard

@@ -29,7 +29,7 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -82,7 +82,7 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 25
   - type: EnergyGun
@@ -148,7 +148,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -201,7 +201,7 @@
   - type: Battery
     maxCharge: 900
     startingCharge: 900
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -261,7 +261,7 @@
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
   - type: MagazineVisuals
@@ -290,7 +290,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ColdLaser
     fireCost: 100
 
@@ -319,7 +319,7 @@
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BeamLaser
     fireCost: 10
   - type: MagazineVisuals
@@ -352,7 +352,7 @@
     availableModes: FullAuto
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BeamDev
     fireCost: 1200
   - type: Battery
@@ -383,7 +383,7 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -396,7 +396,6 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 30
 
 - type: entity
@@ -421,7 +420,7 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunMediumImmolator
     fireCost: 100
   - type: Battery
@@ -451,7 +450,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunHeavyImmolator
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -471,7 +470,6 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
   components:
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50
 
 - type: entity
@@ -536,14 +534,13 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBuccaneer
     fireCost: 100
   - type: Battery
     maxCharge: 400
     startingCharge: 400
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
 
 - type: entity
@@ -577,7 +574,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 50
   - type: Tag
@@ -651,7 +648,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletRadiation
     fireCost: 100
   - type: Appearance
