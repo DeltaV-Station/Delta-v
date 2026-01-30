@@ -30,14 +30,7 @@
     offset: 0
     table: !type:GroupSelector
       prob: 0.50
-      children:
-      - id: SolarPanel
-        weight: 3
-      - id: SolarPanelBroken
-      - id: SolarPanelPlasma
-        weight: .10
-      - id: SolarPanelUranium
-        weight: .01
+      children: *solarWeights
 
 - type: entity
   parent: RandomSolarPanelState
