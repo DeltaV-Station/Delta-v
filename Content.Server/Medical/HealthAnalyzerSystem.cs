@@ -25,9 +25,11 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
 
-// DeltaV - Medical Records
+// Begin DeltaV
 using Content.Server._DV.MedicalRecords;
 using Content.Shared._DV.MedicalRecords;
+using Content.Shared._DV.Traits.Assorted;
+// End DeltaV
 
 namespace Content.Server.Medical;
 
@@ -291,6 +293,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         var bloodAmount = float.NaN;
         var bleeding = false;
         var unrevivable = false;
+        var uncloneable = false; // DeltaV - Uncloneable
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName,
@@ -302,6 +305,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
+
+        if (HasComp<UncloneableComponent>(target)) // DeltaV - Uncloneable
+            uncloneable = true;
 
         // Shitmed Change Start
         Dictionary<TargetBodyPart, TargetIntegrity>? body = null;
@@ -316,6 +322,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             scanMode,
             bleeding,
             unrevivable,
+            uncloneable, // DeltaV - Uncloneable
             // Shitmed Change
             body,
             _medicalRecords.GetMedicalRecords(target), // DeltaV - Medical Records
