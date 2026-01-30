@@ -25,6 +25,7 @@
     access:
     - - Security
   - type: ShockOnTrigger
+    targetContainer: true
     damage: 5
     duration: 3
   - type: TriggerOnSignal

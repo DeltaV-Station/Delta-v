@@ -350,6 +350,14 @@
     stripDelay: 10
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
   - type: SelfUnremovableClothing
+  # Start DeltaV Additions
+  - type: ShockOnUnequip
+    damage: 10
+    duration: 3
+  - type: AccessReader
+    access:
+    - - Security
+  # End DeltaV Additions
   - type: ShockOnTrigger
     targetContainer: true
     damage: 5
