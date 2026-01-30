@@ -37,6 +37,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedJointSystem _joint = default!;
@@ -208,11 +209,15 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
             // Add a stamina drain and wait
             _stamina.ToggleStaminaDrain(victim, drain.StaminaDrainRate, true, true, grappler);
             grappled.MovementSpeedModifier = drain.MovementSpeedModifier;
+
+            if (drain.InitialDamage != null)
+                _damageable.TryChangeDamage(victim, drain.InitialDamage);
         }
         else
         {
             ActivateGrapplingForVictim((victim, grappled));
         }
+
 
         _popup.PopupClient(
             Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),

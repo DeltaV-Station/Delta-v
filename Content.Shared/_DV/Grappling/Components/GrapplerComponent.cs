@@ -87,7 +87,7 @@ public sealed partial class GrapplerComponent : Component
     /// How the grapple from this entity will take effect.
     /// </summary>
     [DataField]
-    public IGrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
+    public GrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
 
     /// <summary>
     /// How much damage this grappler can sustain before the grapple is forcibly broken.
@@ -104,7 +104,7 @@ public sealed partial class GrapplerComponent : Component
     /// <summary>
     /// When the next update for handling damage should be done.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextDamageUpdate = TimeSpan.MinValue;
 
     /// <summary>
