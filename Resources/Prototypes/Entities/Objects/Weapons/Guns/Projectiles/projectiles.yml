@@ -563,7 +563,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 15 # DeltaV - lower maximum damage to 30
+        Blunt: 15
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
