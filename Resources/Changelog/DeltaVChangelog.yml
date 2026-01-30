@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: HTMLSystem
-  changes:
-  - message: Reworded the respawn popup so it's more understandable.
-    type: Tweak
-  id: 1612
-  time: '2025-08-20T03:50:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4085
 - author: kotobdev
   changes:
   - message: "Glimmer now has a fancy shader overlay when exceeding 700\u03A8. This\
@@ -4494,4 +4487,12 @@
   id: 2111
   time: '2026-01-30T16:18:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5310
+- author: ShepardToTheStars
+  changes:
+  - message: The uncloneable alert in the health analyzer window only shows up when
+      its relevant (i.e. when the patient is dead).
+    type: Tweak
+  id: 2112
+  time: '2026-01-30T21:11:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5330
 Order: 1
