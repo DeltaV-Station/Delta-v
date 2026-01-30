@@ -46,10 +46,12 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<GrapplerComponent, DamageChangedEvent>(OnGrapplerDamage);
         SubscribeLocalEvent<GrapplerComponent, UpdateCanMoveEvent>(OnCanMoveQuery);
         SubscribeLocalEvent<GrapplerComponent, AttackAttemptEvent>(OnAttemptAttack);
         SubscribeLocalEvent<GrapplerComponent, StartPullAttemptEvent>(OnPullAttempt);
@@ -65,6 +67,27 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         SubscribeLocalEvent<GrappledComponent, StandAttemptEvent>(OnGrappledStand);
         SubscribeLocalEvent<GrappledComponent, UpdateCanMoveEvent>(OnGrappleCanMoveQuery);
         SubscribeLocalEvent<GrappledComponent, RefreshMovementSpeedModifiersEvent>(OnGrappledMovementSpeedModifier);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<GrapplerComponent>();
+        while (query.MoveNext(out var ent, out var comp))
+        {
+            if (!comp.ActiveVictim.HasValue)
+                continue; // No active victim, nothing to check
+
+            if (_gameTiming.CurTime < comp.NextDamageUpdate)
+                continue; // Not yet their time to check
+
+            if (comp.DamageAccumulated >= comp.DamageThreshold)
+                ReleaseGrapple((ent, comp), manualRelease: false);
+
+            comp.NextDamageUpdate = _gameTiming.CurTime + comp.DamageUpdateCooldown;
+            comp.DamageAccumulated = 0f;
+        }
     }
 
     /// <summary>
@@ -344,6 +367,9 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         if (!args.HasDirectionalMovement)
             return;
 
+        if (!grappled.Comp.GrappleActivated)
+            return; // You're not immobilized so you can punch your way out of it!
+
         BeginEscapeAttempt(grappled);
     }
 
@@ -500,6 +526,9 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         // Ensure any stamina drains are cleared on release
         _stamina.ToggleStaminaDrain(victim, 0, false, false, grappler);
 
+        // Ensure accumlated damage is reset
+        grappler.Comp.DamageAccumulated = 0f;
+
         // If this was a manul release by the grappler, we should cancel the doafter they have in progress, if any.
         if (manualRelease)
         {
@@ -592,6 +621,9 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         if (!grappled.Comp.GrappleActivated)
             return; // Grapple hasn't fully pinned them just yet, they can move.
 
+        if (!grappled.Comp.GrappleActivated)
+            return; // If the grapple is not yet activated, the user can punch their way out of it
+
         args.Cancel(); // Can't move while fully grappled
     }
 
@@ -619,5 +651,23 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     {
         if (grappler.Comp.ActiveVictim.HasValue)
             args.Cancel(); // You cannot attack while grappling
+    }
+
+    /// <summary>
+    /// Handles when a grappler receives any damage from elsewhere, possibly breaking out of the
+    /// grapple.
+    /// </summary>
+    /// <param name="grappler">The grappler receiving damage.</param>
+    /// <param name="args">Args for the event, notably how much damage was done.</param>
+    private void OnGrapplerDamage(Entity<GrapplerComponent> grappler, ref DamageChangedEvent args)
+    {
+        if (!args.DamageIncreased || args.DamageDelta == null || _gameTiming.ApplyingState)
+            return; // Nothing to do
+
+        if (!grappler.Comp.ActiveVictim.HasValue)
+            return; // No need to accumulate when we don't have an active target
+
+        grappler.Comp.DamageAccumulated += args.DamageDelta.GetTotal();
+        Dirty(grappler);
     }
 }

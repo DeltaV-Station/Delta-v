@@ -1,5 +1,6 @@
 using Content.Shared._DV.Grappling.EntitySystems;
 using Content.Shared.Alert;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -87,6 +88,30 @@ public sealed partial class GrapplerComponent : Component
     /// </summary>
     [DataField]
     public IGrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
+
+    /// <summary>
+    /// How much damage this grappler can sustain before the grapple is forcibly broken.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 DamageThreshold = 5f;
+
+    /// <summary>
+    /// How much damage the grappler has accumulated since the last update.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 DamageAccumulated = 0f;
+
+    /// <summary>
+    /// When the next update for handling damage should be done.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextDamageUpdate = TimeSpan.MinValue;
+
+    /// <summary>
+    /// How long between cooldowns this entity should have for damage accumulation checks.
+    /// </summary>
+    [DataField]
+    public TimeSpan DamageUpdateCooldown = TimeSpan.FromSeconds(2);
 }
 
 /// <summary>
