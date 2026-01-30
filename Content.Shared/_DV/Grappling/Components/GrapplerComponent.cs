@@ -81,6 +81,12 @@ public sealed partial class GrapplerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? PullJointId = null;
+
+    /// <summary>
+    /// How the grapple from this entity will take effect.
+    /// </summary>
+    [DataField]
+    public IGrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
 }
 
 /// <summary>
