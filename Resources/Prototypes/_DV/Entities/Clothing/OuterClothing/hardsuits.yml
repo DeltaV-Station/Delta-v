@@ -199,6 +199,7 @@
 
 # Base ERT hardsuit, who the fuck makes the leader hardsuit the parent???
 - type: entity
+  abstract: true
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitERTBase
   components:
@@ -373,6 +374,7 @@
 
 #ERT Elite Base
 - type: entity
+  abstract: true
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitERTEliteBase
   components:
@@ -428,7 +430,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplainElite
 
-#ERT Engineer Hardsuit
+#ERT Engineer Elite Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitERTEliteBase
   id: ClothingOuterHardsuitERTEngineerElite
@@ -443,7 +445,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineerElite
 
 
-#ERT Medic Hardsuit
+#ERT Medic Elite Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitERTEliteBase
   id: ClothingOuterHardsuitERTMedicalElite
@@ -457,7 +459,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedicalElite
 
-#ERT Security Hardsuit
+#ERT Security Elite Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitERTEliteBase
   id: ClothingOuterHardsuitERTSecurityElite
@@ -471,7 +473,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTSecurityElite
 
-#ERT Janitor Hardsuit
+#ERT Janitor Elite Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitERTEliteBase
   id: ClothingOuterHardsuitERTJanitorElite
