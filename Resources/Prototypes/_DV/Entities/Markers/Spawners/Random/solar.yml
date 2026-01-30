@@ -12,7 +12,7 @@
     offset: 0
     table: !type:GroupSelector
       prob: 0.90
-      children:
+      children: &solarWeights
       - id: SolarPanel
         weight: 3
       - id: SolarPanelBroken
