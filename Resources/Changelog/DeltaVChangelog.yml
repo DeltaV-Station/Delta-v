@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: 'From Harmony: Riot Shields, Makeshift Shields, and Bucklers can now
-      be put into your Suit Storage Slot!'
-    type: Add
-  - message: Open-carrying shields is now disallowed on code green, per Alert Procedure.
-    type: Tweak
-  id: 1611
-  time: '2025-08-19T14:46:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4193
 - author: HTMLSystem
   changes:
   - message: Reworded the respawn popup so it's more understandable.
@@ -4494,4 +4484,14 @@
   id: 2110
   time: '2026-01-29T17:25:06.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5280
+- author: Toby222, PureBreadBagel
+  changes:
+  - message: Added the ability to see if a patient is uncloneable via the Health Analyzer!
+    type: Add
+  - message: Medical doctor and Cloning entries have been changed to reflect the new
+      uncloneable trait, as uncloneable and unrevivable are no longer the same.
+    type: Tweak
+  id: 2111
+  time: '2026-01-30T16:18:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5310
 Order: 1
