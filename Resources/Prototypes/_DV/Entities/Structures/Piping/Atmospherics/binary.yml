@@ -15,10 +15,10 @@
 - type: entity
   parent: GasPressurePumpEnabled
   id: GasPressurePumpEnabledStandard
-  suffix: Enabled, 300 kPa
+  suffix: Enabled, 310 kPa
   components:
   - type: GasPressurePump
-    targetPressure: 300
+    targetPressure: 310
   - type: AtmosPipeLayers
     alternativePrototypes:
       Primary: GasPressurePumpEnabledStandard
