@@ -6,6 +6,18 @@
   description: trait-blindness-desc
   category: Disabilities
   conditions:
+  - !type:HasTraitCondition
+    trait: PoorVision
+    invert: true
+  - !type:HasTraitCondition
+    trait: Deuteranopia
+    invert: true
+  - !type:HasTraitCondition
+    trait: UltraVision
+    invert: true
+  - !type:HasTraitCondition
+    trait: Monochromacy
+    invert: true
   - !type:HasCompCondition
     component: Blindable
   effects:
@@ -21,6 +33,9 @@
   description: trait-poor-vision-desc
   category: Disabilities
   conditions:
+  - !type:HasTraitCondition
+    trait: Blindness
+    invert: true
   - !type:HasCompCondition
     component: Blindable
   effects:
@@ -36,6 +51,16 @@
   name: trait-monochromacy-name
   description: trait-monochromacy-desc
   category: Disabilities
+  conditions:
+  - !type:HasTraitCondition
+    trait: Blindness
+    invert: true
+  - !type:HasTraitCondition
+    trait: Deuteranopia
+    invert: true
+  - !type:HasTraitCondition
+    trait: UltraVision
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
@@ -46,6 +71,19 @@
   name: trait-deuteranopia-name
   description: trait-deuteranopia-desc
   category: Disabilities
+  conditions:
+  - !type:HasTraitCondition
+    trait: Blindness
+    invert: true
+  - !type:HasTraitCondition
+    trait: Monochromacy
+    invert: true
+  - !type:HasTraitCondition
+    trait: UltraVision
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Vulpkanin
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
@@ -56,6 +94,19 @@
   name: trait-ultravision-name
   description: trait-ultravision-desc
   category: Disabilities
+  conditions:
+  - !type:HasTraitCondition
+    trait: Blindness
+    invert: true
+  - !type:HasTraitCondition
+    trait: Monochromacy
+    invert: true
+  - !type:HasTraitCondition
+    trait: Deuteranopia
+    invert: true
+  - !type:IsSpeciesCondition
+    species: Harpy
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
@@ -78,28 +129,40 @@
   name: trait-amputee-left-arm-name
   description: trait-amputee-left-arm-desc
   category: Disabilities
-  conflicts:
-  - ArmAmputeeRight # TODO: AmputeeComponent doesn't stack, should be an effect instead
   effects:
-  - !type:AddCompsEffect
-    components:
-    - type: Amputee
-      removeBodyPart: Arm
-      partSymmetry: Left
+  - !type:RemoveBodyPartEffect
+    part: Arm
+    symmetry: Left
 
 - type: trait
   id: ArmAmputeeRight
   name: trait-amputee-right-arm-name
   description: trait-amputee-right-arm-desc
   category: Disabilities
-  conflicts:
-  - ArmAmputeeLeft
   effects:
-  - !type:AddCompsEffect
-    components:
-    - type: Amputee
-      removeBodyPart: Arm
-      partSymmetry: Right
+  - !type:RemoveBodyPartEffect
+    part: Arm
+    symmetry: Right
+
+- type: trait
+  id: LegAmputeeLeft
+  name: trait-amputee-left-leg-name
+  description: trait-amputee-left-leg-desc
+  category: Disabilities
+  effects:
+  - !type:RemoveBodyPartEffect
+    part: Leg
+    symmetry: Left
+
+- type: trait
+  id: LegAmputeeRight
+  name: trait-amputee-right-leg-name
+  description: trait-amputee-right-leg-desc
+  category: Disabilities
+  effects:
+  - !type:RemoveBodyPartEffect
+    part: Leg
+    symmetry: Right
 
 - type: trait
   id: Dysgraphia
@@ -116,6 +179,10 @@
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
   category: Disabilities
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
@@ -126,6 +193,10 @@
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
   category: Disabilities
+  conditions:
+  - !type:IsSpeciesCondition
+    species: IPC
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:

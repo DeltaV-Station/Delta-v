@@ -26,7 +26,6 @@ public sealed partial class TraitEntry : PanelContainer
 
     private readonly TraitPrototype _trait;
     private bool _isUpdating;
-    private string _failedConditionTooltip = string.Empty;
 
     public TraitEntry(TraitPrototype trait)
     {
@@ -56,54 +55,17 @@ public sealed partial class TraitEntry : PanelContainer
 
     private void UpdateConditionTooltips()
     {
-        var tooltip = new StringBuilder();
-        var sectionTooltip = new StringBuilder();
+        var conditionsTooltip = new StringBuilder();
 
-        #region Requirements
-
-        foreach (var requirementId in _trait.Requirements)
-        {
-            if (!_prototype.TryIndex(requirementId, out var requirement))
-                continue;
-
-            sectionTooltip.Append("- ");
-            sectionTooltip.AppendLine(Loc.GetString(requirement.Name));
-        }
-
-        if (sectionTooltip.Length > 0)
-            tooltip.AppendLine(Loc.GetString("trait-requirements-tooltip", ("requirements", sectionTooltip.ToString())));
-        sectionTooltip.Clear();
-        #endregion Requirements
-
-        #region Conflicts
-        foreach (var requirementId in _trait.Conflicts)
-        {
-            if (!_prototype.TryIndex(requirementId, out var requirement))
-                continue;
-
-            sectionTooltip.Append("- ");
-            sectionTooltip.AppendLine(Loc.GetString(requirement.Name));
-        }
-
-        if (sectionTooltip.Length > 0)
-            tooltip.AppendLine(Loc.GetString("trait-conflicts-tooltip", ("conflicts", sectionTooltip.ToString())));
-        sectionTooltip.Clear();
-        #endregion Conflicts
-
-        #region Conditions
         foreach (var condition in _trait.Conditions)
         {
-            sectionTooltip.Append(condition.GetTooltip(_prototype, _loc, 0));
+            conditionsTooltip.Append(condition.GetTooltip(_prototype, _loc, 0));
         }
 
-        if (sectionTooltip.Length > 0)
-            tooltip.Append(Loc.GetString("trait-conditions-tooltip", ("conditions", sectionTooltip.ToString())));
-        sectionTooltip.Clear();
-        #endregion Conditions
-
-        if (tooltip.Length > 0)
+        if (conditionsTooltip.Length > 0)
         {
-            var markupTooltip = CreateMarkupTooltip(tooltip.ToString().Trim());
+            var tooltip = Loc.GetString("trait-conditions-tooltip", ("conditions", conditionsTooltip.ToString())).ToString().Trim();
+            var markupTooltip = CreateMarkupTooltip(tooltip);
             TooltipSupplier = _ => markupTooltip;
         }
         else
@@ -128,9 +90,8 @@ public sealed partial class TraitEntry : PanelContainer
     /// <summary>
     /// Updates whether conditions are met based on current job/species.
     /// </summary>
-    public void UpdateConditionsMet(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
+    public void UpdateConditionsMet(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences, IReadOnlySet<ProtoId<TraitPrototype>>? traits)
     {
-        var tooltipBuilder = new StringBuilder();
         MeetsConditions = true;
 
         foreach (var condition in _trait.Conditions)
@@ -142,7 +103,8 @@ public sealed partial class TraitEntry : PanelContainer
                 InDepartmentCondition deptCond => CheckDepartmentCondition(deptCond, jobId),
                 HasCompCondition compCond => !compCond.Invert, // can't check in lobby but screws with the inversion logic
                 IsAntagEligibleCondition antagEligibleCond => CheckAntagEligibleCondition(antagEligibleCond, antagPreferences),
-                AnyOfCondition anyOfCond => CheckAnyOfCondition(anyOfCond, jobId, speciesId, antagPreferences),
+                HasTraitCondition hasTrait => CheckHasTraitCondition(hasTrait, traits),
+                AnyOfCondition anyOfCond => CheckAnyOfCondition(anyOfCond, jobId, speciesId, antagPreferences, traits),
                 _ => true,
             };
 
@@ -152,12 +114,8 @@ public sealed partial class TraitEntry : PanelContainer
             if (!result)
             {
                 MeetsConditions = false;
-                var conditionTooltip = condition.GetTooltip(_prototype, _loc, 0);
-                if (!string.IsNullOrEmpty(conditionTooltip))
-                    tooltipBuilder.Append(conditionTooltip);
             }
         }
-        _failedConditionTooltip = tooltipBuilder.ToString().Trim();
 
         UpdateDisabledState();
     }
@@ -197,7 +155,15 @@ public sealed partial class TraitEntry : PanelContainer
         return antagPreferences.Contains(condition.Antag);
     }
 
-    private bool CheckAnyOfCondition(AnyOfCondition condition, ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
+    private bool CheckHasTraitCondition(HasTraitCondition condition, IReadOnlySet<ProtoId<TraitPrototype>>? traits)
+    {
+        if (traits is null)
+            return false;
+
+        return traits.Contains(condition.Trait);
+    }
+
+    private bool CheckAnyOfCondition(AnyOfCondition condition, ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences, IReadOnlySet<ProtoId<TraitPrototype>>? traits)
     {
         if (condition.Conditions.Count == 0)
             return false;
@@ -211,8 +177,9 @@ public sealed partial class TraitEntry : PanelContainer
                 HasJobCondition jobCond => CheckJobCondition(jobCond, jobId),
                 InDepartmentCondition deptCond => CheckDepartmentCondition(deptCond, jobId),
                 HasCompCondition compCond => !compCond.Invert, // can't check in lobby
-                AnyOfCondition nestedAnyOf => CheckAnyOfCondition(nestedAnyOf, jobId, speciesId, antagPreferences), // Recursive!
                 IsAntagEligibleCondition antagEligibleCond => CheckAntagEligibleCondition(antagEligibleCond, antagPreferences),
+                HasTraitCondition hasTrait => CheckHasTraitCondition(hasTrait, traits),
+                AnyOfCondition nestedAnyOf => CheckAnyOfCondition(nestedAnyOf, jobId, speciesId, antagPreferences, traits), // Recursive!
                 _ => true,
             };
 
@@ -248,15 +215,6 @@ public sealed partial class TraitEntry : PanelContainer
 
             // Add disabled styling
             AddStyleClass("TraitsEntryDisabled");
-
-            // Update tooltip to show failed conditions
-            if (_failedConditionTooltip.Length > 0)
-            {
-                var tooltipText = Loc.GetString("trait-conditions-not-met-tooltip",
-                    ("conditions", _failedConditionTooltip));
-
-                TooltipSupplier = _ => CreateMarkupTooltip(tooltipText);
-            }
         }
         else
         {

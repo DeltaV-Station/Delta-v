@@ -153,16 +153,6 @@ public sealed partial class TraitsTab : BoxContainer
                 }
             }
 
-            // Check conflicts
-            foreach (var conflict in trait.Conflicts)
-            {
-                if (!_selectedTraits.Contains(conflict))
-                    continue;
-
-                RevertTraitToggle(traitId);
-                return;
-            }
-
             _selectedTraits.Add(traitId);
             _currentTraitCount++;
             _currentPointsSpent += trait.Cost;
@@ -176,6 +166,7 @@ public sealed partial class TraitsTab : BoxContainer
 
         UpdateGlobalStats();
         UpdateCategoryStats(trait.Category);
+        UpdateAllConditions();
         OnTraitsChanged?.Invoke(_selectedTraits);
     }
 
@@ -210,7 +201,7 @@ public sealed partial class TraitsTab : BoxContainer
             // If parent width is 0 (not laid out yet), defer until layout happens
             if (parentWidth > 0)
             {
-                GlobalPointsBar.SetWidth = (int)((parentWidth - 2 ) * percentage);
+                GlobalPointsBar.SetWidth = (int)((parentWidth - 2) * percentage);
                 _awaitingLayoutUpdate = false;
             }
             else if (!_awaitingLayoutUpdate)
@@ -280,7 +271,7 @@ public sealed partial class TraitsTab : BoxContainer
         foreach (var (_, categoryUi) in _categoryUis)
         {
             // If some fork wants to use the top selected job as well, just add that to the UpdateConditions method in the editor
-            categoryUi.UpdateConditions(null, _profile?.Species, _profile?.AntagPreferences);
+            categoryUi.UpdateConditions(null, _profile?.Species, _profile?.AntagPreferences, _selectedTraits);
         }
 
         RecalculateStats();

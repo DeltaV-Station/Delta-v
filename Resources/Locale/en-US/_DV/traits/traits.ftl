@@ -15,11 +15,11 @@ trait-irish-accent-desc = Ya sap! Seems you got a pet hate fer rubbish!
 
 trait-ultravision-name = Ultraviolet vision
 trait-ultravision-desc = Whether through custom bionic eyes, random mutation,
-                         or being a Harpy, you perceive the world with ultraviolet light.
+                         or a bad organ replacement, you perceive the world with ultraviolet light.
 
 trait-deuteranopia-name = Deuteranopia
 trait-deuteranopia-desc = Whether through custom bionic eyes, random mutation,
-                          or being a Vulpkanin, you have red-green colour blindness.
+                          or a bad organ replacement, you have red-green colour blindness.
 
 trait-hushed-name = Hushed
 trait-hushed-desc = You are unable to speak louder than a whisper.
@@ -51,6 +51,17 @@ trait-amputee-right-arm-name = Amputee (Arm, Right)
 trait-amputee-right-arm-desc =
     Your right arm is missing!
     (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-amputee-left-leg-name = Amputee (Leg, Left)
+trait-amputee-left-leg-desc =
+    Your left leg is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
+
+trait-amputee-right-leg-name = Amputee (Leg, Right)
+trait-amputee-right-leg-desc =
+    Your right leg is missing!
+    (Note: Amputee traits do not appear in the character editor preview!)
+    (Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)(Note: Amputee traits do not appear in the character editor preview!)
 
 trait-redshirt-name = Redshirt
 trait-redshirt-desc =

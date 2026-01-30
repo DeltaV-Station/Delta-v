@@ -52,11 +52,6 @@
   description: trait-muted-desc
   category: Accents
   cost: 2
-  conditions:
-  - !type:HasCompCondition
-    component: BorgChassis
-    invert: true
-    tooltip: trait-condition-borg-not
   effects:
   - !type:AddCompsEffect
     components:
@@ -165,11 +160,6 @@
   description: trait-hushed-desc
   category: Accents
   cost: 0
-  conditions:
-  - !type:HasCompCondition
-    component: BorgChassis
-    invert: true
-    tooltip: trait-condition-borg-not
   effects:
   - !type:AddCompsEffect
     components:
