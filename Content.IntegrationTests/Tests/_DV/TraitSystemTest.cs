@@ -8,6 +8,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -109,8 +110,10 @@ public sealed partial class TraitSystemTest
   description: trait-dysgraphia-name
   category: TestCategoryUnlimited
   cost: 0
-  conflicts:
-  - TestTraitConflictB
+  conditions:
+  - !type:HasTraitCondition
+    trait: TestTraitConflictB
+    invert: true
   effects:
   - !type:AddCompsEffect
     components:
@@ -584,31 +587,29 @@ public sealed partial class TraitSystemTest
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
+        var protoMan = server.ProtoMan;
 
         await server.WaitAssertion(() =>
         {
             var player = entMan.SpawnEntity(null, MapCoordinates.Nullspace);
 
-            var selectedTraits = new HashSet<ProtoId<TraitPrototype>>
-            {
-                "TestTraitConflictA",
-                "TestTraitConflictB",
-            };
+            var profile = new HumanoidCharacterProfile()
+                .WithTraitPreference("TestTraitConflictA", protoMan)
+                .WithTraitPreference("TestTraitConflictB", protoMan);
 
             var traitSys = entMan.System<TraitSystem>();
             var method = typeof(TraitSystem).GetMethod("ValidateTraits",
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
+            var disabledTraits = new Dictionary<ProtoId<TraitPrototype>, List<string>>();
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, profile.TraitPreferences, null, null, null, profile, disabledTraits });
 
             Assert.Multiple(() =>
             {
                 Assert.That(validTraits?.Count, Is.EqualTo(1), "Only one conflicting trait should be valid");
-                Assert.That(validTraits.Contains("TestTraitConflictA"), Is.True, "First trait should be kept");
-                Assert.That(validTraits.Contains("TestTraitConflictB"),
-                    Is.False,
-                    "Conflicting trait should be rejected");
+                Assert.That(validTraits.Contains("TestTraitConflictB"), Is.True, "Non-complaining trait should be kept");
+                Assert.That(disabledTraits.ContainsKey("TestTraitConflictA"), Is.True, "Trait with conflicts should be rejected");
             });
 
             entMan.DeleteEntity(player);
@@ -671,6 +672,7 @@ public sealed partial class TraitSystemTest
             };
 
             var traitSys = entMan.System<TraitSystem>();
+
             var method = typeof(TraitSystem).GetMethod("ValidateTraits",
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -741,7 +743,7 @@ public sealed partial class TraitSystemTest
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             var validTraits = (HashSet<ProtoId<TraitPrototype>>)method?.Invoke(traitSys,
-             new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
+                new object[] { player, selectedTraits, null, null, null, null, new Dictionary<ProtoId<TraitPrototype>, List<string>>() });
 
             Assert.That(validTraits?.Contains("TestTraitHasComp"),
                 Is.False,
