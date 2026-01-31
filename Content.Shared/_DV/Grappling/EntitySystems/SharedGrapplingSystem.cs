@@ -47,6 +47,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
 
     public override void Initialize()
     {
@@ -572,6 +573,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         // Cleanup the grappling on the victim
         RemComp<GrappledComponent>(victim);
         _actionBlocker.UpdateCanMove(victim); // Must be done AFTER the component is removed.
+        _movement.RefreshFrictionModifiers(victim);
 
         // Automatically get the grappler back up
         if (grappler.Comp.ProneOnGrapple && TryComp<StandingStateComponent>(grappler, out var standingState) && _standingState.IsDown((grappler, standingState)))
