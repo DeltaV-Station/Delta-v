@@ -175,7 +175,7 @@
 
 - type: entity
   id: LockerEngineerFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Filled, Undetermined # DeltaV - Choose your own hardsuit adventure, was Filled, Hardsuit.
   parent: LockerEngineer
   components:
   - type: EntityTableContainerFill
@@ -214,7 +214,7 @@
   id: FillEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: UndeterminedVoidsuitEngineer
+    - id: UndeterminedVoidsuitEngineer # DeltaV - Choose your own hardsuit adventure, was ClothingOuterHardsuitEngineering
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
