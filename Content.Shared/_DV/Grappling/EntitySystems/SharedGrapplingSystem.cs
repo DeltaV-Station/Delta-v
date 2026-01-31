@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
@@ -71,6 +72,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
         SubscribeLocalEvent<GrappledComponent, StandAttemptEvent>(OnGrappledStand);
         SubscribeLocalEvent<GrappledComponent, UpdateCanMoveEvent>(OnGrappleCanMoveQuery);
         SubscribeLocalEvent<GrappledComponent, RefreshMovementSpeedModifiersEvent>(OnGrappledMovementSpeedModifier);
+        SubscribeLocalEvent<GrappledComponent, EnterStaminaCritEvent>(OnGrappledStaminaCrit);
     }
 
     public override void Update(float frameTime)
@@ -658,6 +660,22 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
             return;
 
         args.ModifySpeed(grappled.Comp.MovementSpeedModifier.Value);
+    }
+
+    /// <summary>
+    /// Handles when a grappled entity enters stamina crit.
+    /// </summary>
+    /// <param name="grappled">Grappled entity that has entered stamina crit.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnGrappledStaminaCrit(Entity<GrappledComponent> grappled, ref EnterStaminaCritEvent args)
+    {
+        var grappler = grappled.Comp.Grappler;
+
+        if (!TryComp<GrapplerComponent>(grappler, out var grapplerComp) ||
+            grapplerComp.ActivationMode is not GrapplerActivationStaminaDrain _)
+            return; // If it's not a stamina draining grapple then we don't release
+
+        ReleaseGrapple(grappler, manualRelease: true);
     }
 
     /// <summary>
