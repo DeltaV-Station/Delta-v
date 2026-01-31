@@ -42,7 +42,7 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
         // TODO: Add a blacklist comp to this like ninja now has from upstream #40726
         while (query.MoveNext(out var warpUid, out var warp))
         {
-            if (_whitelist.IsBlacklistFail(effigyBlacklist, warpUid)
+            if (_whitelist.IsWhitelistFail(effigyBlacklist, warpUid)
                 && !string.IsNullOrWhiteSpace(warp?.Location))
             {
                 warps.Add(warpUid);

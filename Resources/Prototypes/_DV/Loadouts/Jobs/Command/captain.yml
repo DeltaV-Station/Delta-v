@@ -21,6 +21,17 @@
   equipment:
     gloves: ClothingHandsGlovesInspection
 
+# Outer clothing
+- type: loadout
+  id: CaptainLongcoat
+  equipment:
+    outerClothing: ClothingLongcoatCaptainArmored
+
+- type: loadout
+  id: CaptainWintercoatArmored
+  equipment:
+    outerClothing: ClothingOuterWinterCapArmored
+
 # Shoes
 - type: loadout
   id: CaptainWinterBoots
