@@ -81,13 +81,13 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
             if (!comp.ActiveVictim.HasValue)
                 continue; // No active victim, nothing to check
 
-            if (_gameTiming.CurTime < comp.NextDamageUpdate)
-                continue; // Not yet their time to check
-
             if (comp.DamageAccumulated >= comp.DamageThreshold)
                 ReleaseGrapple((ent, comp), manualRelease: false);
 
-            comp.NextDamageUpdate = _gameTiming.CurTime + comp.DamageUpdateCooldown;
+            if (_gameTiming.CurTime < comp.NextDamageClear)
+                continue; // Not yet their time to check
+
+            comp.NextDamageClear = _gameTiming.CurTime + comp.DamageClearCooldown;
             comp.DamageAccumulated = 0f;
         }
     }
@@ -673,6 +673,10 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
 
         if (!grappler.Comp.ActiveVictim.HasValue)
             return; // No need to accumulate when we don't have an active target
+
+        // If we haven't really ticked yet for damage accum, setup the next one now
+        if (_gameTiming.CurTime > grappler.Comp.NextDamageClear)
+            grappler.Comp.NextDamageClear = _gameTiming.CurTime + grappler.Comp.DamageClearCooldown;
 
         grappler.Comp.DamageAccumulated += args.DamageDelta.GetTotal();
         Dirty(grappler);

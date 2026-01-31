@@ -102,16 +102,16 @@ public sealed partial class GrapplerComponent : Component
     public FixedPoint2 DamageAccumulated = 0f;
 
     /// <summary>
-    /// When the next update for handling damage should be done.
+    /// When the next clear for damage accumulated should occur.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NextDamageUpdate = TimeSpan.MinValue;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan NextDamageClear = TimeSpan.MinValue;
 
     /// <summary>
-    /// How long between cooldowns this entity should have for damage accumulation checks.
+    /// Time between clears for the accumulated damage on the grappler.
     /// </summary>
     [DataField]
-    public TimeSpan DamageUpdateCooldown = TimeSpan.FromSeconds(2);
+    public TimeSpan DamageClearCooldown = TimeSpan.FromSeconds(2);
 }
 
 /// <summary>
