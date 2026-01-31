@@ -45,7 +45,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 16
+    capacity: 20 # Delta-V, was 16
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -81,6 +81,7 @@
     capacity: 30
   - type: Item
     size: Small
+    storedRotation: 45 # DeltaV - Align magazine and ammo box rotations
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -103,6 +104,8 @@
   parent: [ BaseItem, BaseSecurityContraband ]
   description: Unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
   components:
+  - type: Item
+    storedRotation: 90
   - type: Tag
     tags:
       - MagazinePistolSubMachineGunTopMounted
@@ -247,6 +250,7 @@
 - type: entity
   id: MagazinePistolHighCapacityEmpty
   name: machine pistol magazine (.35 auto any)
+  description: 20-round double-stack single feed magazine for machine pistols. #Delta V
   suffix: empty
   parent: BaseMagazinePistolHighCapacity
   components:
@@ -268,6 +272,7 @@
 - type: entity
   id: MagazinePistolHighCapacity
   name: machine pistol magazine (.35 auto)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold general-purpose kinetic ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -292,6 +297,7 @@
 - type: entity
   id: MagazinePistolHighCapacityPractice
   name: machine pistol magazine (.35 auto practice)
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold non-harmful chalk ammunition. #Delta V
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -314,20 +320,6 @@
         color: "#ea5800"
 
 - type: entity
-  id: MagazinePistolHighCapacityRubber
-  name: machine pistol magazine (.35 auto rubber)
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolRubber # DeltaV: upstream still has this for some reason but not using rubber
-  - type: Sprite
-    layers:
-    - state: rubber
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
   id: MagazinePistolSubMachineGun
   name: SMG magazine (.35 auto)
   parent: BaseMagazinePistolSubMachineGun
@@ -335,9 +327,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
-    whitelist: # Redundant
-      tags:
-        - CartridgePistol
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
   - type: Sprite
@@ -443,4 +432,3 @@
       - state: inhand-left-mag
       right:
       - state: inhand-right-mag
-

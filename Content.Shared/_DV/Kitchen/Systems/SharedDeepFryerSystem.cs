@@ -169,7 +169,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
             return false;
 
         // Check blacklist first since it should override
-        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, item))
+        if (_whitelist.IsWhitelistPass(ent.Comp.Blacklist, item))
         {
             reason = Loc.GetString("deep-fryer-blacklist-item");
             return false;

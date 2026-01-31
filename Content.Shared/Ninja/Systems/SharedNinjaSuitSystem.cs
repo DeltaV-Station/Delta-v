@@ -114,8 +114,14 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
 
         var uid = ent.Owner;
         var comp = ent.Comp;
-        if (_toggle.TryDeactivate(uid, user) || !disable)
+
+        // DeltaV
+        if (!_toggle.TryDeactivate(uid, user))
             return;
+
+        if (!disable)
+            return;
+        // End DeltaV
 
         // previously cloaked, disable abilities for a short time
         _audio.PlayPredicted(comp.RevealSound, uid, user);

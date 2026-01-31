@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client._DV.Traits.Assorted; // DeltaV
 using Content.Shared._DV.Traits.Assorted; // DeltaV
+using Content.Shared._DV.Medical; // DeltaV - Uncloneable
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
@@ -24,6 +25,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
+
 namespace Content.Client.HealthAnalyzer.UI
 {
     [GenerateTypedNameReferences]
@@ -35,6 +37,7 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly IResourceCache _cache;
         private readonly UnborgableSystem _unborgable; // DeltaV
         private readonly RedshirtSystem _redshirt; // DeltaV
+        private readonly UncloneableSystem _uncloneable; // DeltaV
 
         // Shitmed Change Start
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
@@ -66,6 +69,7 @@ namespace Content.Client.HealthAnalyzer.UI
             _cache = dependencies.Resolve<IResourceCache>();
             _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
             _redshirt = _entityManager.System<RedshirtSystem>(); // DeltaV
+            _uncloneable = _entityManager.System<UncloneableSystem>(); // DeltaV
             // Shitmed Change Start
             _bodyPartControls = new Dictionary<TargetBodyPart, TextureButton>
             {
@@ -212,10 +216,13 @@ namespace Content.Client.HealthAnalyzer.UI
             DamageLabel.Text = damageable.TotalDamage.ToString();
 
             // Alerts
-
-            var unborgable = _unborgable.IsUnborgable(_target.Value); // DeltaV
+            // DeltaV traits - This is going to be horrid if we just keep adding things like this.
+            var unborgable = _unborgable.IsUnborgable(_target.Value);
             var redshirt = _redshirt.IsRedshirt(_target.Value) && mobStateComponent?.CurrentState == MobState.Dead; // DeltaV - Redshirt
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable || redshirt; // DeltaV - Unborgable/Redshirt
+            var uncloneable = _uncloneable.IsUncloneable(_target.Value) && mobStateComponent?.CurrentState == MobState.Dead; // DeltaV - Unclonable
+            // END DeltaV
+
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable || redshirt || uncloneable; // DeltaV
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;
@@ -251,6 +258,14 @@ namespace Content.Client.HealthAnalyzer.UI
                 AlertsContainer.AddChild(new RichTextLabel
                 {
                     Text = Loc.GetString("health-analyzer-window-entity-redshirt-text"),
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });
+
+            if (uncloneable) // DeltaV - Uncloneable
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-window-entity-uncloneable-text"),
                     Margin = new Thickness(0, 4),
                     MaxWidth = 300
                 });

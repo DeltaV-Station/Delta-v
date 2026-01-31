@@ -1,0 +1,10 @@
+build-info-window-title              = Build Info
+build-info-button                    = Build Info
+build-info-tooltip                   = Metadata about the game you're running
+build-info-version-label             = Game Version:
+build-info-engine-version-label      = Engine Version:
+build-info-fork-label                = Fork ID:
+build-info-download-url-label        = Client Download:
+build-info-build-hash-label          = Client Hash:
+build-info-build-manifest-url-label  = Manifest URL:
+build-info-build-manifest-hash-label = Manifest Hash:

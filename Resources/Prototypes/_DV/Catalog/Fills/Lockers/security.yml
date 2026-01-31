@@ -3,100 +3,115 @@
   id: GunSafePistolUniversal
   name: mk32 safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponPistolUniversal
-      amount: 2
-    - id: MagazineUniversalMagnum
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolUniversal
+          amount: 2
+        - id: MagazineUniversalMagnum
+          amount: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeSniperGrand
   name: mark 1 rifle safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponSniperGrand
-      amount: 2
-    - id: SpeedLoaderLightRifle
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSniperGrand
+          amount: 2
+        - id: SpeedLoaderLightRifle
+          amount: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeVulcanRifle
   name: vulcan safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleVulcan
-      amount: 2
-    - id: MagazineLightRifle
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleVulcan
+          amount: 2
+        - id: MagazineLightRifle
+          amount: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeAdjutantShotgun
   name: adjutant safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponShotgunAdjutant
-      amount: 2
-    - id: MagazineShotgun
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponShotgunAdjutant
+          amount: 2
+        - id: MagazineShotgun
+          amount: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeEnergyGun
   name: energy gun safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponEnergyGun
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponEnergyGun
+        amount: 3
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeEnergyGunMini
   name: miniature energy gun safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponEnergyGunMini
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponEnergyGunMini
+        amount: 3
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeM90Rifle
   name: M-90 rifle safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleM90
-      amount: 2
-    - id: MagazineRifle
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleM90
+          amount: 2
+        - id: MagazineRifle
+          amount: 4
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeRocketLauncher
   name: RPG safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponLauncherRocket
-    - id: CartridgeRocket
-      prob: 0.2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponLauncherRocket
+        - id: CartridgeRocket
+          prob: 0.2
 
 - type: entity
   parent: GunSafeBaseSecure
   id: GunSafeBeamDevastator
   name: Devastator safe
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponBeamDevastator
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponBeamDevastator
 
 - type: entity
   parent: GunSafeBaseSecure
@@ -139,11 +154,27 @@
   components:
   - type: AccessReader
     access: [["Security"]]
-  - type: StorageFill
-    contents:
-    - id: WeaponShotgunKammererNonLethal
-      amount: 2
-    - id: BoxBeanbag
-      amount: 2
-    - id: BoxShotgunPractice
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponShotgunKammererNonLethal
+          amount: 2
+        - id: BoxBeanbag
+          amount: 2
+        - id: BoxShotgunPractice
+          amount: 2
+
+- type: entity
+  parent: GunSafeBaseSecure
+  id: GunSafeSubMachineGunPatos
+  name: patos safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunPatos
+          amount: 2
+        - id: MagazinePistolHighCapacity
+          amount: 4
