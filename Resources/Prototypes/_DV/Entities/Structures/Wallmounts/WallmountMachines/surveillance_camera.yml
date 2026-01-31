@@ -1,0 +1,12 @@
+- type: entity
+  parent: SurveillanceCameraBase
+  id: SurveillanceCameraAI
+  name: camera
+  suffix: AI
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraAI
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true

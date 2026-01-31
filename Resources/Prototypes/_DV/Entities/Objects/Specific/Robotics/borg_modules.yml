@@ -6,6 +6,9 @@
   - type: Tag
     tags:
     - BorgModuleSecurity
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-security
   - type: Sprite
     sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
@@ -89,14 +92,14 @@
     - item: Handcuffs
       hand:
         emptyRepresentative: Handcuffs
-        emptyLabel: borg-slot-handcuffs
+        emptyLabel: borg-slot-handcuffs-empty
         whitelist:
           tags:
           - Handcuffs
     - item: Zipties
       hand:
         emptyRepresentative: Zipties
-        emptyLabel: borg-slot-handcuffs
+        emptyLabel: borg-slot-handcuffs-empty
         whitelist:
           tags:
           - Handcuffs
@@ -224,7 +227,7 @@
     - item: WeaponCrusherDagger
     - hand:
         emptyRepresentative: PKAUpgradeRange
-        emptyLabel: borg-slot-pka-upgrade
+        emptyLabel: borg-slot-pka-upgrade-empty
         whitelist:
           tags:
           - PKAUpgrade
@@ -251,7 +254,7 @@
     - item: SprayPainter
       hand:
         emptyRepresentative: SprayPainter
-        emptyLabel: borg-slot-spraypaint
+        emptyLabel: borg-slot-spraypaint-empty
         whitelist:
           components:
           - SprayPainter
@@ -259,7 +262,7 @@
     - item: SprayPainterAmmo
       hand:
         emptyRepresentative: SprayPainterAmmo
-        emptyLabel: borg-slot-spraypaint
+        emptyLabel: borg-slot-spraypaint-empty
         whitelist:
           components:
           - SprayPainter

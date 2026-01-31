@@ -9,9 +9,11 @@
   name: fishing goodies crate
   description: A couple of fishing rods, a beer, and a hat. Everything you need to catch all fish on the station!
   components:
-  - type: StorageFill
-    contents:
-    - id: FishingRod
-    - id: FishingRodGoon
-    - id: ClothingHeadFishCap
-    - id: DrinkBeerBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: FishingRod
+        - id: FishingRodGoon
+        - id: ClothingHeadFishCap
+        - id: DrinkBeerBottleFull
