@@ -64,9 +64,9 @@
   description: A suit that helps protect against hazardous temperatures.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/Suits/fire.rsi # DeltaV
+    sprite: Clothing/OuterClothing/Suits/fire.rsi
   - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Suits/fire.rsi # DeltaV
+    sprite: Clothing/OuterClothing/Suits/fire.rsi
     clothingVisuals: # Delta V - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
