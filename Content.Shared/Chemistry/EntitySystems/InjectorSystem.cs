@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._DV.Chemistry.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
@@ -379,6 +380,11 @@ public sealed partial class InjectorSystem : EntitySystem
             return false;
 
         var isOpenOrIgnored = injector.Comp.IgnoreClosed || !_openable.IsClosed(target);
+        if (HasComp<BlockInjectionComponent>(target)) // DeltaV
+        {
+            _popup.PopupClient(Loc.GetString("injector-component-deny-user-chitinid"), user, user);
+            return false;
+        }
 
         LocId msg = target == user ? "injector-component-cannot-transfer-message-self" : "injector-component-cannot-transfer-message";
 

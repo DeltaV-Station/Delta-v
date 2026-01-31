@@ -1,1 +1,1 @@
-injector-component-deny-user-chitnid = Exoskeleton too thick!
+injector-component-deny-user-chitinid = Exoskeleton too thick!
