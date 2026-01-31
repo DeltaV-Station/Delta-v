@@ -21,6 +21,7 @@ using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -48,6 +49,7 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     public override void Initialize()
     {
@@ -219,17 +221,19 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
             ActivateGrapplingForVictim((victim, grappled));
         }
 
-
-        _popup.PopupClient(
-            Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
-            victim,
-            grappler,
-            PopupType.MediumCaution);
-        _popup.PopupClient(
-            Loc.GetString("grapple-start-victim", ("part", grappler.Comp.GrapplingPart), ("grappler", grappler)),
-            victim,
-            victim,
-            PopupType.MediumCaution);
+        if (_netManager.IsServer)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("grapple-start", ("part", grappler.Comp.GrapplingPart), ("victim", victim)),
+                victim,
+                grappler,
+                PopupType.MediumCaution);
+            _popup.PopupEntity(
+                Loc.GetString("grapple-start-victim", ("part", grappler.Comp.GrapplingPart), ("grappler", grappler)),
+                victim,
+                victim,
+                PopupType.MediumCaution);
+        }
 
         _audio.PlayPredicted(grappler.Comp.GrappleSound, victim, null);
 
@@ -405,14 +409,17 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
 
         grappled.Comp.DoAfterId = doAfterId;
 
-        _popup.PopupClient(Loc.GetString("grapple-start-escaping", ("victim", grappled)),
-            grappled,
-            grappled.Comp.Grappler,
-            PopupType.MediumCaution);
-        _popup.PopupClient(Loc.GetString("grapple-start-escaping-victim", ("part", grappler.GrapplingPart)),
-            grappled,
-            grappled,
-            PopupType.MediumCaution);
+        if (_netManager.IsServer)
+        {
+            _popup.PopupEntity(Loc.GetString("grapple-start-escaping", ("victim", grappled)),
+                grappled,
+                grappled.Comp.Grappler,
+                PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("grapple-start-escaping-victim", ("part", grappler.GrapplingPart)),
+                grappled,
+                grappled,
+                PopupType.MediumCaution);
+        }
     }
 
     /// <summary>
@@ -543,31 +550,37 @@ public abstract partial class SharedGrapplingSystem : EntitySystem
                 _doAfter.Cancel(victim.Comp.DoAfterId.Value);
             }
 
-            _popup.PopupClient(
-                Loc.GetString("grapple-manual-release", ("victim", victim), ("part", grappler.Comp.GrapplingPart)),
-                victim,
-                grappler,
-                PopupType.Medium);
-            _popup.PopupClient(Loc.GetString("grapple-manual-release-victim",
-                    ("grappler", grappler),
-                    ("part", grappler.Comp.GrapplingPart)),
-                victim,
-                victim,
-                PopupType.Medium);
+            if (_netManager.IsServer)
+            {
+                _popup.PopupEntity(
+                    Loc.GetString("grapple-manual-release", ("victim", victim), ("part", grappler.Comp.GrapplingPart)),
+                    victim,
+                    grappler,
+                    PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString("grapple-manual-release-victim",
+                        ("grappler", grappler),
+                        ("part", grappler.Comp.GrapplingPart)),
+                    victim,
+                    victim,
+                    PopupType.Medium);
+            }
         }
         else
         {
-            _popup.PopupClient(Loc.GetString("grapple-finished-escaping",
-                    ("victim", victim),
-                    ("part", grappler.Comp.GrapplingPart)),
-                victim,
-                grappler,
-                PopupType.MediumCaution);
-            _popup.PopupClient(
-                Loc.GetString("grapple-finished-escaping-victim", ("part", grappler.Comp.GrapplingPart)),
-                victim,
-                victim,
-                PopupType.MediumCaution);
+            if (_netManager.IsServer)
+            {
+                _popup.PopupEntity(Loc.GetString("grapple-finished-escaping",
+                        ("victim", victim),
+                        ("part", grappler.Comp.GrapplingPart)),
+                    victim,
+                    grappler,
+                    PopupType.MediumCaution);
+                _popup.PopupEntity(
+                    Loc.GetString("grapple-finished-escaping-victim", ("part", grappler.Comp.GrapplingPart)),
+                    victim,
+                    victim,
+                    PopupType.MediumCaution);
+            }
         }
 
         // Cleanup the grappling on the victim
