@@ -1,5 +1,3 @@
-using System.Text;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
@@ -86,8 +84,10 @@ public sealed class SlavicAccentSystem : EntitySystem
         return true;
     }
 
-    // Applies sound-level replacements to simulate Slavic accent phonetics.
-    private string ApplySoundReplacements(string message)
+    /// <summary>
+    ///  Applies sound-level replacements to simulate Slavic accent phonetics.
+    /// </summary>
+    private static string ApplySoundReplacements(string message)
     {
         if (string.IsNullOrEmpty(message))
             return message;
@@ -116,7 +116,7 @@ public sealed class SlavicAccentSystem : EntitySystem
         if (result.Length > 0 && message.Length > 0 &&
             char.IsLetter(message[0]) && char.IsLower(result[0]) && char.IsUpper(message[0]))
         {
-            result = char.ToUpper(result[0]) + result.Substring(1);
+            result = char.ToUpper(result[0]) + result[1..];
         }
 
         return result;
