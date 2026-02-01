@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Kitsune transformation no longer cause issues with cosmic cult. Hopefully.
-    type: Fix
-  - message: Fixed a few minor cosmic cult bugs.
-    type: Fix
-  id: 1616
-  time: '2025-08-20T19:43:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4233
-- author: NoElkaTheGod
-  changes:
   - message: Glyph of cessation is now available to the cosmic cult at stage 2, while
       glyph of warding has been moved to stage 3
     type: Tweak
@@ -4489,4 +4480,11 @@
   id: 2115
   time: '2026-02-01T19:32:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5313
+- author: Pharaz4
+  changes:
+  - message: Changed the mapped enabled pumps from 310 to 300 kPa
+    type: Tweak
+  id: 2116
+  time: '2026-02-01T19:34:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5336
 Order: 1
