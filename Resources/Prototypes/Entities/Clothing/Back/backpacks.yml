@@ -355,8 +355,7 @@
     damage: 10
     duration: 3
   - type: AccessReader
-    access:
-    - - Security
+    access: [["Security"]]
   # End DeltaV Additions
   - type: ShockOnTrigger
     targetContainer: true
