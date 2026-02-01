@@ -1,8 +1,9 @@
 - type: entity
   id: HandheldCrewMonitorUnpowered
   parent: BaseItem
-  name: handheld crew monitor
-  suffix: Always Powered
+  name: integrated borg crew monitor
+  suffix: Borg
+  categories: [ DoNotMap ]  
   description: A hand-held crew monitor displaying the status of suit sensors.
   components:
   - type: Item
