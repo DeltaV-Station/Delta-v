@@ -1,19 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Cosmic cult related examines are now predicted (which means they work
-      much smoother).
-    type: Tweak
-  - message: Cosmic cult's glyphs are now animated!
-    type: Tweak
-  - message: Cosmic cult's conversion glyphs now take some time to activate. Put cuffs
-      on your target if you don't want them to run away mid-conversion.
-    type: Tweak
-  id: 1615
-  time: '2025-08-20T10:18:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4147
-- author: NoElkaTheGod
-  changes:
   - message: Kitsune transformation no longer cause issues with cosmic cult. Hopefully.
     type: Fix
   - message: Fixed a few minor cosmic cult bugs.
@@ -4494,4 +4481,12 @@
   id: 2114
   time: '2026-02-01T19:30:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5333
+- author: keekee38
+  changes:
+  - message: modified the bandolier slightly, and added a recipe for it in the sec
+      techfab
+    type: Tweak
+  id: 2115
+  time: '2026-02-01T19:32:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5313
 Order: 1
