@@ -57,11 +57,10 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodMaxVolume: 75
-    bloodReagents:
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
       reagents:
       - ReagentId: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
-        Quantity: 1
+        Quantity: 75 # DeltaV - Was 1, changed due to upstream blood solutions
   - type: InteractionPopup
     successChance: 0.1
     interactSuccessString: petting-success-anomalite

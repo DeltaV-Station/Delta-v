@@ -16,11 +16,10 @@
     factions:
     - SimpleHostile
   - type: Bloodstream
-    bloodMaxVolume: 150
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Eggnog
-        Quantity: 1
+        Quantity: 150
   - type: Loadout
     prototypes: [ ElfGearMonkey ]
   - type: GhostRole

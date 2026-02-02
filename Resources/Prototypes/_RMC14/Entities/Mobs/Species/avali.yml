@@ -76,7 +76,7 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
       reagents:
       - ReagentId: AmmoniaBlood
         Quantity: 1
