@@ -39,11 +39,10 @@
     - id: FoodMeatCrab
       amount: 3
   - type: Bloodstream
-    bloodMaxVolume: 100
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: BbqSauce #australia reference
-        Quantity: 1
+        Quantity: 100
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-possum

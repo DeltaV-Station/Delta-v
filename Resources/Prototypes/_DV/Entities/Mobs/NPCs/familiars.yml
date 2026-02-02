@@ -30,11 +30,10 @@
           layer:
             - FlyingMobLayer
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Phlogiston
         Quantity: 1
-    bloodMaxVolume: 0
   - type: TemperatureImmunity
   - type: MeleeWeapon
     altDisarm: false # No shoving
