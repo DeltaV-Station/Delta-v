@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 267.3.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/19/2026 18:59:22
+  time: 02/02/2026 18:14:23
   entityCount: 22451
 maps:
 - 1313
@@ -4433,7 +4433,6 @@ entities:
             id: ThickWestOverlayTrimline
           decals:
             3454: -20,-3
-            3455: -20,-4
             3456: -22,-6
             3457: -22,-7
             3458: -22,-8
@@ -4448,6 +4447,7 @@ entities:
             3547: -20,-13
             3568: -9,-5
             3569: -15,-3
+            3915: -20,-4
         - node:
             color: '#8D1C9996'
             id: ThinCornerInnerNorthEastOverlayTrimline
@@ -4490,6 +4490,7 @@ entities:
           decals:
             3432: -14,-12
             3663: -7,-15
+            3914: -17,-2
         - node:
             color: '#8D1C9996'
             id: ThinCornerSouthEastOverlayTrimline
@@ -4574,7 +4575,6 @@ entities:
             3517: -22,-8
             3518: -22,-7
             3519: -22,-6
-            3520: -20,-4
             3521: -20,-3
             3526: -21,-16
             3527: -21,-15
@@ -4584,6 +4584,7 @@ entities:
             3559: -20,-13
             3594: -15,-3
             3605: -9,-5
+            3916: -20,-4
         - node:
             color: '#334E6DC8'
             id: ThreeQuarterTileOverlayGreyscale
@@ -11874,7 +11875,7 @@ entities:
       pos: -38.5,33.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -55653.457
+      secondsUntilStateChange: -55746.99
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12341,7 +12342,7 @@ entities:
       pos: -31.5,9.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -52800.16
+      secondsUntilStateChange: -52893.69
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -59748,6 +59749,8 @@ entities:
       pos: -13.5,-29.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17152
       - 17147
@@ -59757,6 +59760,8 @@ entities:
       pos: -12.5,-29.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17152
       - 17147
@@ -60062,6 +60067,8 @@ entities:
       pos: -18.5,-23.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
   - uid: 5976
@@ -60108,6 +60115,8 @@ entities:
       pos: -18.5,-24.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
   - uid: 17294
@@ -60667,6 +60676,8 @@ entities:
       pos: -18.5,-25.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
   - uid: 5194
@@ -87436,6 +87447,8 @@ entities:
       pos: -13.5,-26.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
     - type: AtmosPipeColor
@@ -89428,6 +89441,8 @@ entities:
       pos: -13.5,-24.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
     - type: AtmosPipeColor
@@ -143112,7 +143127,7 @@ entities:
       pos: 6.5,-10.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -17053.658
+      secondsUntilStateChange: -17147.188
       state: Opening
   - uid: 226
     components:
