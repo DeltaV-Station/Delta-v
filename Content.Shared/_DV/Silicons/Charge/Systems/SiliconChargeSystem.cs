@@ -2,19 +2,15 @@ using Robust.Shared.Random;
 using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Power.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Temperature.Components;
-using Content.Shared.Atmos.Components;
-using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared._EE.Silicon.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Shared.CCVar;
+using SharedCVars = Content.Shared.CCVar.CCVars;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
 using Content.Shared.PowerCell;
@@ -24,13 +20,13 @@ using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Components;
 // End TheDen
 
-namespace Content.Server._EE.Silicon.Charge;
+namespace Content.Shared._DV.Silicons.Charge.Systems;
 
 public sealed class SiliconChargeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -91,7 +87,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             // Check if the Silicon is an NPC, and if so, follow the delay as specified in the CVAR.
             if (siliconComp.EntityType.Equals(SiliconType.Npc))
             {
-                var updateTime = _config.GetCVar(CCVars.SiliconNpcUpdateTime);
+                var updateTime = _config.GetCVar(SharedCVars.SiliconNpcUpdateTime);
                 if (_timing.CurTime - siliconComp.LastDrainTime < TimeSpan.FromSeconds(updateTime))
                     continue;
 
