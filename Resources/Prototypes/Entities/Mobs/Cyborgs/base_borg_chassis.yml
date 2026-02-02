@@ -576,6 +576,8 @@
         acts: [ "Destruction" ]
   - type: PointLight
     color: "#0033ff"
+    energy: 3.0 # DeltaV - brighter Xenoborg lights
+    falloff: 1.0 # DeltaV - brighter Xenoborg lights
   - type: GuideHelp
     guides:
     - Cyborgs
