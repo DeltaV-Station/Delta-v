@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Client.UserInterface.Screens;
+using Content.Shared._RMC14.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared._EE.CCVars; // EE - chat stack
 using Content.Shared.HUD;

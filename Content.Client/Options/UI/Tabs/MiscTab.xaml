@@ -7,6 +7,8 @@
             <BoxContainer Orientation="Vertical" Margin="8 8 8 8" VerticalExpand="True">
                 <Label Text="{Loc 'ui-options-general-ui-style'}"
                        StyleClasses="LabelKeyText"/>
+                <!-- DeltaV Changes, Adds RMC Show NewPlayer Icons Toggle -->
+                <CheckBox Name="RMCShowNewPlayerIcons" Text="{Loc 'rmc-ui-show-new-player-icons'}" Margin="0 0 0 5" />
                 <ui:OptionDropDown Name="DropDownHudTheme" Title="{Loc 'ui-options-hud-theme'}" />
                 <ui:OptionDropDown Name="DropDownHudLayout" Title="{Loc 'ui-options-hud-layout'}" />
                 <!-- EE - chat stacking -->
