@@ -59,7 +59,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: MobPrice
     price: 400
   - type: Tag
@@ -172,7 +175,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 300 # BIG DOG. MUCH BLOOD :3
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300 # BIG DOG. MUCH BLOOD :3
   - type: Puller
     needsHands: false
   - type: MobPrice
@@ -377,7 +383,7 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
         Quantity: 1
