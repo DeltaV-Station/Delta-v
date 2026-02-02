@@ -38,7 +38,7 @@
   - type: ItemSlots # Delta V - Bigger Battery
     slots:
       cell_slot:
-        name: power-cell-slot-component-slot-name-default 
+        name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
 
 - type: entity
@@ -49,7 +49,7 @@
   - type: ItemSlots
     slots:
       cell_slot:
-        name: power-cell-slot-component-slot-name-default 
+        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   id: SpyCrewMonitor
@@ -63,7 +63,7 @@
   - type: Item
     sprite: Objects/Tools/spy_device.rsi
   - type: PowerCellDraw
-    useRate: 10
+    useCharge: 10
   - type: StaticPrice
     price: 750
   - type: Tag # DeltaV - Let it be put in storage implants by removing HighRiskItem
@@ -79,7 +79,7 @@
   - type: ItemSlots
     slots:
       cell_slot:
-        name: power-cell-slot-component-slot-name-default 
+        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   id: SyndiCrewMonitor
@@ -93,7 +93,7 @@
   - type: Item
     sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
   - type: PowerCellDraw
-    useRate: 0 # DeltaV - Changed to zero with the removal of the microreactor in observations kit
+    useCharge: 0 # DeltaV - Changed to zero with the removal of the microreactor in observations kit
   - type: CrewMonitoringConsole # DeltaV - disable crew crit / dead beeping alerts
     alertsEnabled: false
 
@@ -105,5 +105,5 @@
   - type: ItemSlots
     slots:
       cell_slot:
-        name: power-cell-slot-component-slot-name-default 
-  
+        name: power-cell-slot-component-slot-name-default
+

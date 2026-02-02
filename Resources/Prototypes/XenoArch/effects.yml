@@ -174,6 +174,7 @@
 - type: entity
   id: XenoArtifactEffectUniversalIntercom
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-intercom
@@ -205,6 +206,7 @@
 - type: entity
   id: XenoArtifactBecomeRandomInstrument
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-become-instrument
@@ -220,6 +222,7 @@
 - type: entity
   id: XenoArtifactStorage
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-storage
@@ -236,6 +239,7 @@
 - type: entity
   id: XenoArtifactPhasing
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-phasing
@@ -245,6 +249,7 @@
 - type: entity
   id: XenoArtifactWandering
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-wandering
@@ -260,6 +265,7 @@
 - type: entity
   id: XenoArtifactSolutionStorage
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-solution-storage
@@ -293,6 +299,7 @@
 - type: entity
   id: XenoArtifactSpeedUp
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-speedup
@@ -306,6 +313,7 @@
 - type: entity
   id: XenoArtifactDrill
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-drill
@@ -324,6 +332,7 @@
 - type: entity
   id: XenoArtifactGenerateEnergy
   parent: BaseOneTimeXenoArtifactEffect # todo - increment power, but only once per node
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-generator
@@ -342,6 +351,7 @@
 - type: entity
   id: XenoArtifactGun
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gun
@@ -375,6 +385,7 @@
 - type: entity
   id: XenoArtifactGhost
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-ghost
@@ -397,6 +408,7 @@
 - type: entity
   id: XenoArtifactOmnitool
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-omnitool
@@ -446,6 +458,7 @@
 - type: entity
   id: XenoArtifactEffectBadFeeling
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-feeling
@@ -478,6 +491,7 @@
 - type: entity
   id: XenoArtifactEffectGoodFeeling
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-feeling
@@ -509,6 +523,7 @@
 - type: entity
   id: XenoArtifactEffectJunkSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-junk
@@ -534,6 +549,7 @@
 - type: entity
   id: XenoArtifactEffectLightFlicker
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-flicker
@@ -543,6 +559,7 @@
 - type: entity
   id: XenoArtifactPotassiumWave
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-potassium
@@ -572,6 +589,7 @@
 - type: entity
   id: XenoArtifactFloraSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-flora
@@ -589,6 +607,7 @@
 - type: entity
   id: XenoArtifactChemicalPuddle
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     # todo: make description say what exact chemical is produced, maybe add mixes into possible chemicals
@@ -628,6 +647,7 @@
 - type: entity
   id: XenoArtifactThrowThingsAround
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-throw
@@ -637,6 +657,7 @@
 - type: entity
   id: XenoArtifactColdWave
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-cold
@@ -647,6 +668,7 @@
 - type: entity
   id: XenoArtifactHeatWave
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-heat
@@ -657,6 +679,7 @@
 - type: entity
   id: XenoArtifactFoamMild
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     # todo: separate in 1 for each chemical for description? actually sounds like a very good idea
@@ -680,6 +703,7 @@
 - type: entity
   id: XenoArtifactRandomInstrumentSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-create-instrument
@@ -702,6 +726,7 @@
 - type: entity
   id: XenoArtifactMonkeySpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-monkey
@@ -727,6 +752,7 @@
 - type: entity
   id: XenoArtifactRadioactive
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-radioactive-mild
@@ -742,6 +768,7 @@
 - type: entity
   id: XenoArtifactChargeBattery
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-charge
@@ -754,6 +781,7 @@
 - type: entity
   id: XenoArtifactKnock
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-knock
@@ -764,6 +792,7 @@
 - type: entity
   id: XenoArtifactMagnet
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-magnet
@@ -780,6 +809,7 @@
 - type: entity
   id: XenoArtifactMagnetNegative
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-magnet
@@ -796,6 +826,7 @@
 - type: entity
   id: XenoArtifactStealth
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-stealth
@@ -811,6 +842,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawn
   parent: BaseXenoArtifactEffect # todo: splice into different well-named effects, amounts should reflect how rare material is
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-rare-materials
@@ -843,6 +875,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnSilver
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-rare-materials
@@ -868,6 +901,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnPlasma
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-plasma
@@ -893,6 +927,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnGold
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gold
@@ -918,6 +953,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnUranium
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-uranium
@@ -943,6 +979,7 @@
 - type: entity
   id: XenoArtifactAngryCarpSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-carp
@@ -968,6 +1005,7 @@
 - type: entity
   id: XenoArtifactFaunaSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-fauna
@@ -1017,6 +1055,7 @@
 - type: entity
   id: XenoArtifactHostileFaunaSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   description: Create hostile fauna
   components:
   - type: XenoArtifactNode
@@ -1044,6 +1083,7 @@
 - type: entity
   id: XenoArtifactCashSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-cash
@@ -1075,6 +1115,7 @@
 - type: entity
   id: XenoArtifactShatterWindows
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-shatter
@@ -1096,6 +1137,7 @@
 - type: entity
   id: XenoArtifactFoamGood
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-foam-medicine
@@ -1119,6 +1161,7 @@
 - type: entity
   id: XenoArtifactFoamDangerous
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-foam-poison
@@ -1143,6 +1186,7 @@
 - type: entity
   id: XenoArtifactPuddleRare
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-puddle-rare
@@ -1175,6 +1219,7 @@
 - type: entity
   id: XenoArtifactAnomalySpawn
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-anomaly
@@ -1192,6 +1237,7 @@
 - type: entity
   id: XenoArtifactIgnite
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-ignite
@@ -1205,6 +1251,7 @@
 - type: entity
   id: XenoArtifactTeleport
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-teleport
@@ -1214,6 +1261,7 @@
 - type: entity
   id: XenoArtifactEmp
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-emp
@@ -1228,6 +1276,7 @@
 - type: entity
   id: XenoArtifactPolyMonkey
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-poly-monkey
@@ -1237,6 +1286,7 @@
 - type: entity
   id: XenoArtifactPolyLizard
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-poly-lizard
@@ -1247,6 +1297,7 @@
 - type: entity
   id: XenoArtifactPolyLuminous
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-poly-luminous
@@ -1257,6 +1308,7 @@
 - type: entity
   id: XenoArtifactRadioactiveStrong
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-radioactive-strong
@@ -1272,6 +1324,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnGlass
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-glass
@@ -1289,6 +1342,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnSteel
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-steel
@@ -1306,6 +1360,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnPlastic
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-plastic
@@ -1323,6 +1378,7 @@
 - type: entity
   id: XenoArtifactPortal
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-portal
@@ -1332,6 +1388,7 @@
 - type: entity
   id: XenoArtifactArtifactSpawn
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-artifact
@@ -1354,6 +1411,7 @@
 - type: entity
   id: XenoArtifactShuffle
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-shuffle
@@ -1367,6 +1425,7 @@
 - type: entity
   id: XenoArtifactHealAll
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-heal
@@ -1385,6 +1444,7 @@
 - type: entity
   id: XenoArtifactTesla
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-tesla
@@ -1403,6 +1463,7 @@
 - type: entity
   id: XenoArtifactSingularity
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-singularity
@@ -1421,6 +1482,7 @@
 - type: entity
   id: XenoArtifactExplosionScary
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-explosion-radioactive
@@ -1438,6 +1500,7 @@
 - type: entity
   id: XenoArtifactBoom
   parent: BaseOneTimeXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-explosion-default
@@ -1454,6 +1517,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPlasma
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gas-plasma
@@ -1465,6 +1529,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasTritium
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gas-tritium
@@ -1476,6 +1541,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAmmonia
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gas-ammonia
@@ -1487,6 +1553,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasFrezon
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gas-frezon
@@ -1498,6 +1565,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasNitrousOxide
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gas-nitrous
@@ -1509,6 +1577,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasCarbonDioxide
   parent: BaseXenoArtifactEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails # DeltaV
     specificTip: xenoarch-effect-tip-specific-gas-carbon
