@@ -10,7 +10,7 @@ public sealed partial class FeedbackPopupPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     ///     Name of the popup. This is relayed in the discord webhook.
