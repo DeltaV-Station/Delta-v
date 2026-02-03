@@ -22,11 +22,10 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 300
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFrag
     fireCost: 300
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 - type: entity
@@ -56,11 +55,10 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFlash
     fireCost: 200
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 6
   - type: GunWieldBonus
     wieldBonusExamineMessage: null
@@ -99,11 +97,10 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeCleanade
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 10
   - type: GunWieldBonus
     wieldBonusExamineMessage: null
@@ -131,11 +128,10 @@
   - type: Battery
     maxCharge: 750
     startingCharge: 750
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CannonBall
     fireCost: 750
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: AmmoCounter
   - type: BatteryWeaponFireModes

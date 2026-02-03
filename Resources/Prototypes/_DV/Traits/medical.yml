@@ -56,8 +56,7 @@
   effects:
   - !type:AddCompsEffect
     components:
-    - type: Unrevivable
-      cloneable: false
+    - type: Uncloneable
 
 - type: trait
   id: Unborgable
@@ -98,6 +97,7 @@
   - !type:HasCompCondition
     component: BorgChassis
     invert: true
+    tooltip: trait-condition-borg-not
   - !type:IsSpeciesCondition
     species: IPC
     invert: true

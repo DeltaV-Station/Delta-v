@@ -64,3 +64,6 @@ trait-redshirt-desc =
 
 trait-anglish-name = Anglish tung
 trait-anglish-desc = Your tung is of the Saxons, and say unlike others aboard this skyship.
+
+trait-protected-name = Marked as Protected
+trait-protected-desc = Due to your position, value, or circumstances, your survival is considered preferable. You won't be targeted by kill objectives.
