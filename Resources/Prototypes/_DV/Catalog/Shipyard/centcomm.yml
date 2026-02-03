@@ -1,3 +1,94 @@
 # Ships put in here still need to have a price associated with them due to the arbitrage tests.
 # The CentComm console won't charge for them so just put like a million spesos or something
 # in the case that the station does see it in their console (could be a random bug, idk!)
+
+- type: vessel
+  id: NTCCBaron
+  name: NTCC Baron Valiant
+  description: A small passenger shuttle with seating space for 1 pilot and 4 passengers to get from A to B, ideal for shuttle transport between stations in the same sector.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_baron_bus.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCArsenal
+  name: NTCC Marquess Arsenal
+  description: A medium-sized armory shuttle, able to supply any station in need of arms at the behest of CentComm
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_armory.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCPillar
+  name: NTCC Marquess Pillar
+  description: A medium-sized base shuttle with an empty hold, best used for refitting and the bare essentials to make it legally a shuttle.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_base.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCSteward
+  name: NTCC Marquess Steward
+  description: A medium-sized passenger shuttle with seating space for 20 passengers.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_bus.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCCaravan
+  name: NTCC Marquess Caravan
+  description: A medium-sized cargo shuttle with decent space, including a secure hold.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_cargo.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCHarmony
+  name: NTCC Marquess Harmony
+  description: A medium-sized chappel shuttle for all your beliefs needs.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_chapel.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCRegent
+  name: NTCC Marquess Regent
+  description: A medium-sized office shuttle with an executive office, that has all the needs for a CC official in a hurry.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_office.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCFoundation
+  name: NTCC Sovereign Foundation
+  description: A large-sized base ship with an empty hold, best used for refitting and the bare essentials to make it legally a ship.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_base.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCTribunal
+  name: NTCC Sovereign Tribunal
+  description: A large-sized court ship with all the facilities to hold a legal court anywhere.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_court.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCMasquerade
+  name: NTCC Sovereign Masquerade
+  description: A large-sized theater ship with all the facilities to entertain any station it would travel to.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_stage.yml
+  categories:
+  - CentComm
+
