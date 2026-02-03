@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 267.3.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/24/2026 04:25:01
-  entityCount: 19522
+  time: 02/03/2026 20:35:43
+  entityCount: 19523
 maps:
 - 1
 grids:
@@ -90076,13 +90076,6 @@ entities:
     - type: Transform
       pos: 25.5,27.5
       parent: 2
-- proto: GunSafeSubMachineGunDrozd
-  entities:
-  - uid: 18822
-    components:
-    - type: Transform
-      pos: 27.5,27.5
-      parent: 2
 - proto: HandgunSafeSpawner
   entities:
   - uid: 13119
@@ -94077,6 +94070,13 @@ entities:
     components:
     - type: Transform
       pos: -24.155527,-5.321172
+      parent: 2
+- proto: MailCart
+  entities:
+  - uid: 19523
+    components:
+    - type: Transform
+      pos: -21.5,-7.5
       parent: 2
 - proto: MailingUnit
   entities:
@@ -110720,6 +110720,13 @@ entities:
     components:
     - type: Transform
       pos: 24.569845,12.443505
+      parent: 2
+- proto: SubMachineGunSafeSpawner
+  entities:
+  - uid: 18822
+    components:
+    - type: Transform
+      pos: 27.5,27.5
       parent: 2
 - proto: SubstationBasic
   entities:
