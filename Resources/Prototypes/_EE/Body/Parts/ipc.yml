@@ -110,7 +110,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0
     baseSprintSpeed: 0
-  - type: InputMover
+  #- type: InputMover # DeltaV - Disable InputMover on here else we get an assert
   - type: GhostOnMove
   - type: Tag
     tags:
