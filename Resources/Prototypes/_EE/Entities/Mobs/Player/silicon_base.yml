@@ -64,17 +64,18 @@
         1: 0.45
         0: 0.00
     - type: Temperature
-      heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
-      coldDamageThreshold: 100 # DeltaV - has to be very cold
       currentTemperature: 310.15
       specificHeat: 42
+      atmosTemperatureTransferEfficiency: 0.05
+    - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
+      heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
+      coldDamageThreshold: 100 # DeltaV - has to be very cold
       coldDamage:
         types:
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
           Heat: 2 # DeltaV - was 3
-      atmosTemperatureTransferEfficiency: 0.05
     - type: KillOnOverheat # GoobStation
     - type: Deathgasp
       prototype: SiliconDeathgasp

@@ -157,10 +157,11 @@
     solution: melee
     transferAmount: 1
   - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants

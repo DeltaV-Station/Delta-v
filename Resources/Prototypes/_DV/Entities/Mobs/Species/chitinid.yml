@@ -84,11 +84,12 @@
         layer:
         - MobLayer
 
-  - type: Temperature # Ants hate the cold
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
+  - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage # Ants hate the cold
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 1.25 #per second, scales with temperature & other constants

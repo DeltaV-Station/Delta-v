@@ -50,7 +50,7 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
-  - type: Temperature
+  - type: TemperatureDamage
     coldDamageThreshold: 210
     coldDamage:
       types:
