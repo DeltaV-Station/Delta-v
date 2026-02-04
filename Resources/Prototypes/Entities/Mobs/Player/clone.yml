@@ -69,10 +69,11 @@
   - Hushed
   - IrishAccent
   - MobsterAccent
-  - Pain
+  - ChronicPain
   - ScottishAccent
   - UltraVision
   - Unborgable
+  - AnglishAccent
   # End DeltaV Additions
   blacklist:
     components:
@@ -124,6 +125,8 @@
 - type: cloningSettings
   id: ParadoxCloningSettings
   parent: [BaseClone, Antag]
+  components:
+  - Forensics # This is so hugging data is copied to the clone, so you can't hug metagame them
 
 # changeling identity copying
 - type: cloningSettings

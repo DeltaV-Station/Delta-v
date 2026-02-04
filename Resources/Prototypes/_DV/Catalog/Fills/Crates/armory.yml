@@ -2,60 +2,68 @@
   id: CrateArmoryGrand
   parent: CrateWeaponSecure
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponSniperGrand
-        amount: 2
-      - id: BoxSpeedLoaderLightRifle
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSniperGrand
+          amount: 2
+        - id: BoxSpeedLoaderLightRifle
 
 - type: entity
   id: CrateArmoryUniversal
   parent: CrateWeaponSecure
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponPistolUniversal
-        amount: 2
-      - id: MagazineUniversalMagnum
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolUniversal
+          amount: 2
+        - id: MagazineUniversalMagnum
+          amount: 4
 
 - type: entity
   id: CrateArmoryAdjutant
   parent: CrateWeaponSecure
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponShotgunAdjutant
-      amount: 2
-    - id: MagazineShotgun
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponShotgunAdjutant
+          amount: 2
+        - id: MagazineShotgun
+          amount: 6
 
 - type: entity
   id: CrateArmoryEnergyGun
   parent: CrateWeaponSecure
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponEnergyGun
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponEnergyGun
         amount: 3
 
 - type: entity
   id: CrateArmoryEnergyGunMini
   parent: CrateWeaponSecure
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponEnergyGunMini
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponEnergyGunMini
         amount: 3
 
 - type: entity
   id: CrateArmoryArmingSword
   parent: CrateWeaponSecure
   components:
-  - type: StorageFill
-    contents:
-      - id: PlasteelArmingSword
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: PlasteelArmingSword
         amount: 2
 
 - type: entity
@@ -64,10 +72,11 @@
   name: watchdog implant crate
   description: Crate with three Watchdog implanters.
   components:
-  - type: StorageFill
-    contents:
-    - id: WatchdogImplanter
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WatchdogImplanter
+        amount: 3
 
 - type: entity
   id: CrateNT3

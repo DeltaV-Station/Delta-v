@@ -6,6 +6,9 @@
   - type: Tag
     tags:
     - BorgModuleSecurity
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-security
   - type: Sprite
     sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
