@@ -1,0 +1,91 @@
+- type: entity
+  id: BaseMotorkindOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/organs.rsi
+  - type: Organ
+
+- type: entity
+  id: OrganMotorkindBrainEngine
+  parent: [BaseMotorkindOrgan, PositronicBrain]
+  name: motorkind engine
+  description: "A compact internal combustion engine that has been modified to serve as the central processing unit for a motorkind."
+  components:
+  - type: Sprite
+    state: engine
+    layers:
+    - state: engine
+      map: ["base"]
+
+- type: entity
+  id: OrganMotorkindEyes
+  parent: BaseMotorkindOrgan
+  name: motorkind windshield
+  description: "A single windshield that serves to protect the cabin of the Motorkind, as well as provide vision, somehow."
+  components:
+  - type: Sprite
+    state: windshield
+  - type: Eyes
+  - type: Organ
+    slotId: eyes
+  - type: Tag
+    tags:
+    - Organ
+    - Eyes
+
+- type: entity
+  id: OrganMotorkindStomachFueltank
+  parent: BaseMotorkindOrgan
+  name: motorkind fuel tank
+  description: "A fuel tank that stores various fuels to power the motorkind's engine."
+  components:
+  - type: Sprite
+    state: fuel_tank
+  - type: Organ
+    slotId: stomach
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 6
+    metabolizerTypes: [ Fuel ]
+    groups: 
+    - id: Fuel
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  
+- type: entity
+  id: OrganMotorkindLiverOilfilter
+  parent: BaseMotorkindOrgan
+  name: motorkind oil filter
+  description: "An oil filter that cleans the motorkind's oil to ensure smooth operation of its engine."
+  components:
+  - type: Sprite
+    state: oil_filter
+  - type: Organ
+    slotId: liver
+
+- type: entity
+  id: OrganMotorkindLungsCatalyticConverter
+  parent: OrganHumanLungs
+  name: motorkind catalytic converter
+  description: "Helps purify the output of a Motorkind's engine into something less toxic. Motorkind are often hunted for these valuable trophies."
+  components:
+  - type: Organ
+    slotId: lungs
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/organs.rsi
+    state: catalytic_converter
+    layers:
+      - state: catalytic_converter
+      - state: catalytic_converter
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Fuel ]
+    groups: 
+      - id: Gas
+        rateModifier: 100.0

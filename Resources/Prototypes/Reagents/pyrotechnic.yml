@@ -172,6 +172,10 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
+      - !type:SatiateHunger
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Fuel]
     Poison:
       effects:
       - !type:HealthChange

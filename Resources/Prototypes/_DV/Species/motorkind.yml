@@ -1,0 +1,111 @@
+- type: species
+  id: Motorkind
+  name: species-name-motorkind
+  roundStart: true
+  prototype: MobMotorkind
+  sprites: MobMotorkindSprites
+  defaultSkinTone: "#cdb369"
+  markingLimits: MobMotorkindMarkingLimits
+  dollPrototype: MobMotorkindDummy
+  skinColoration: Hues
+  maleFirstNames: NamesMotorkindFirst
+  femaleFirstNames: NamesMotorkindFirst
+  lastNames: NamesMotorkindLast
+  baseScale: "2.0, 2.0"
+  minHeight: 0.8
+  maxHeight: 1.2
+  defaultHeight: 1.0
+
+- type: speciesBaseSprites
+  id: MobMotorkindSprites
+  sprites:
+    Head: MobMotorkindHead
+    Eyes: MobMotorkindEyes
+    LArm: MobMotorkindFLWheel
+    RArm: MobMotorkindFRWheel
+    LLeg: MobMotorkindBLWheel
+    RLeg: MobMotorkindBRWheel
+    Chest: MobMotorkindTorso
+
+- type: markingPoints
+  id: MobMotorkindMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 4
+      required: false
+    Head:
+      points: 3
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobMotorkindHead
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMotorkindHeadMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMotorkindHeadFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMotorkindTorso
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMotorkindTorsoMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMotorkindTorsoFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMotorkindFLWheel
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobMotorkindFRWheel
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobMotorkindBLWheel
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobMotorkindBRWheel
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobMotorkindEyes
+  baseSprite:
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: eyes

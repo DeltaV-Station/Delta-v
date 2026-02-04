@@ -8,3 +8,4 @@ species-name-rodentia = Rodentia
 species-name-chitinid = Chitinid
 species-name-feroxi = Feroxi
 species-name-kitsune = Kitsune
+species-name-motorkind = Motorkind

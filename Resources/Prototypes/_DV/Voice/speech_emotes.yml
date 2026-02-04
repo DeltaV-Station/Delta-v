@@ -266,3 +266,29 @@
     - gnashed her teeth
     - gnashed his teeth
     - gnashed its teeth
+
+# Motorkind
+- type: emote
+  id: Horn
+  name: delta-chat-emote-name-horn
+  icon: Interface/Emotes/honk.png
+  category: Vocal
+  whitelist:
+    components:
+    - TrafficHazard
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [honks.]
+  chatTriggers:
+    - honk
+    - honks
+    - honked
+    - honks their horn
+    - honked their horn
+    - honks its horn
+    - honked its horn
+    - honks his horn
+    - honked his horn
+    - honks her horn
+    - honked her horn
