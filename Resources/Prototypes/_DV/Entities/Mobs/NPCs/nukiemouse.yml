@@ -112,7 +112,7 @@
   - type: NoSlip
   - type: Respirator #It just works?
     minSaturation: 5.0
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: PressureImmunity
