@@ -64,7 +64,8 @@
 ## Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
+  # Begin Delta V Changes
+  parent: [ClothingBeltStorageBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -75,11 +76,13 @@
     sprite: Clothing/Belt/bandolier.rsi
   - type: Item
     size: Huge
-  - type: BallisticAmmoProvider
+  - type: Storage
+    grid:
+    - 0,0,7,1
     whitelist:
       tags:
         - ShellShotgun
-    capacity: 14
+  # End Delta V Changes
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
