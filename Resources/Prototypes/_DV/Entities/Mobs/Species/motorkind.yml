@@ -9,7 +9,7 @@
   abstract: true
   components:
   - type: Barotrauma
-    hasImmunity: true
+  - type: PressureImmunity
   - type: HumanoidAppearance
     species: Motorkind
     eyeColor: "#FFFFFF"
@@ -36,8 +36,8 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-      - id: ScrapMetal
-        amount: 10
+      - id: SheetSteel10
+        amount: 1
   - type: Bloodstream
     bloodReagents:
       reagents:
@@ -51,7 +51,7 @@
         Blunt: 0.05
     bloodlossHealDamage:
       types:
-      Blunt: -0.025
+        Blunt: -0.025
   - type: Hunger
     baseDecayRate: 0.005
   - type: Tag
