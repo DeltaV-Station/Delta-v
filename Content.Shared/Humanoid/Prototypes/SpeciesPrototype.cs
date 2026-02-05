@@ -34,6 +34,12 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField(required: true)]
     public bool RoundStart { get; private set; } = false;
 
+    /// <summary>
+    ///     DeltaV - Should this species default to hidden, (Event purposes, etc.)
+    /// </summary>
+    [DataField]
+    public bool DefaultHidden = false;
+
     // The below two are to avoid fetching information about the species from the entity
     // prototype.
 
