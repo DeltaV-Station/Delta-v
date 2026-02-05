@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: Fixed the game crashing on startup when running in compatibility mode.
-    type: Fix
-  id: 1620
-  time: '2025-08-20T20:12:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4247
 - author: NoElkaTheGod
   changes:
   - message: Double-bladed energy sword and vacuous lance have had their swing animations
@@ -4483,4 +4476,15 @@
   id: 2119
   time: '2026-02-02T17:56:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5319
+- author: Pharaz4
+  changes:
+  - message: Fixed harpy suits not displaying on some clothing.
+    type: Fix
+  - message: Added missing sprite for Lizards on multipe suits.
+    type: Add
+  - message: Removed upstream spawners from entity spawn panel.
+    type: Remove
+  id: 2120
+  time: '2026-02-05T20:04:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5325
 Order: 1
