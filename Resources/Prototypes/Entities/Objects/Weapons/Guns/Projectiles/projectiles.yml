@@ -1377,8 +1377,9 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
-        hard: true 
+        hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
 
