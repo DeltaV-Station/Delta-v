@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "State based Copyright",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "centrifuge",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/obj/pathology.dmi"
+        },
+        {
+            "name": "centrifuge_onlight",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/obj/pathology.dmi"
+        },
+        {
+            "name": "centrifuge_process",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/obj/pathology.dmi",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "centrifuge_processfull",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/obj/pathology.dmi",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

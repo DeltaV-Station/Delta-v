@@ -70,7 +70,7 @@
   components:
   - type: BorgModule
     borgFitTypes:
-    - borg-type-salvage
+    - borg-type-salvage-cargo # Starlight
   - type: Tag
     tags:
     - BorgModuleCargo
@@ -252,34 +252,23 @@
   - type: Tag
     tags:
     - BorgModuleSyndicate
-    - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module if found
-  - type: Sprite # Delta-V: Updated parent
-    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
-    inhandVisuals: # Delta-V: Fixed inhands
+    inhandVisuals:
       left:
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-icon-inhand-left
+      - state: base-icon-inhand-left
         color: "#FF0000"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-module-inhand-left
+      - state: base-module-inhand-left
         color: "#891417"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-part-inhand-left
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-stripes-inhand-left
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
         color: "#7B0F12"
       right:
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-icon-inhand-right
+      - state: base-icon-inhand-right
         color: "#FF0000"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-module-inhand-right
+      - state: base-module-inhand-right
         color: "#891417"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-part-inhand-right
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-stripes-inhand-right
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
         color: "#7B0F12"
 
 
@@ -294,34 +283,23 @@
   - type: Tag
     tags:
     - BorgModuleSyndicateAssault
-    - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module
-  - type: Sprite # Delta-V: Updated parent
-    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
-    inhandVisuals: # Delta-V: Fixed inhands
+    inhandVisuals:
       left:
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-icon-inhand-left
+      - state: base-icon-inhand-left
         color: "#FF0000"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-module-inhand-left
+      - state: base-module-inhand-left
         color: "#891417"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-part-inhand-left
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-stripes-inhand-left
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
         color: "#7B0F12"
       right:
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-icon-inhand-right
+      - state: base-icon-inhand-right
         color: "#FF0000"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-module-inhand-right
+      - state: base-module-inhand-right
         color: "#891417"
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-part-inhand-right
-      - sprite: Objects/Specific/Robotics/borgmodule.rsi
-        state: base-stripes-inhand-right
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
         color: "#7B0F12"
 
 - type: entity
@@ -567,6 +545,7 @@
     - item: Wirecutter
     - item: WelderIndustrial
     - item: Multitool
+    - item: SprayPainterBorg # Starlight
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -623,12 +602,12 @@
 
 - type: entity
   id: BorgModuleMining
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMining, BaseProviderBorgModule ] # Starlight
   name: mining cyborg module
   components:
   - type: Sprite
     layers:
-    - state: cargo
+    - state: mining # Starlight
     - state: icon-mining
   - type: ItemBorgModule
     hands:
@@ -636,18 +615,25 @@
     - item: Shovel
     - item: MineralScannerUnpowered
     - item: BorgOreBag
+    - item: RadioHandheldExpedition # Starlight
+    - hand: # Starlight
+        emptyRepresentative: GoldOre
+        emptyLabel: borg-slot-ore-empty
+        whitelist:
+          tags:
+            - Ore
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
 - type: entity
   id: BorgModuleAdvancedMining
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMining, BaseProviderBorgModule ] # Starlight
   name: advanced mining cyborg module
   description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
   components:
   - type: Sprite
     layers:
-    - state: cargo
+    - state: mining # Starlight
     - state: icon-mining-adv
   - type: ItemBorgModule
     hands:
@@ -655,17 +641,24 @@
     - item: Shovel
     - item: AdvancedMineralScannerUnpowered
     - item: OreBagOfHolding
+    - hand: # Starlight
+        emptyRepresentative: GoldOre
+        emptyLabel: borg-slot-ore-empty
+        whitelist:
+          tags:
+            - Ore
+    - item: RadioHandheldExpedition # Starlight
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
 
 - type: entity
   id: BorgModuleTraversal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMining, BaseProviderBorgModule ] # Starlight
   name: traversal cyborg module
   components:
   - type: Sprite
     layers:
-    - state: cargo
+    - state: mining # Starlight
     - state: icon-grappling-gun
   - type: ItemBorgModule
     hands:
@@ -694,6 +687,7 @@
     - item: WelderExperimental
     - item: Multitool
     - item: RemoteSignallerAdvanced
+    - item: SprayPainterBorg # Starlight
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
 
@@ -740,15 +734,17 @@
         whitelist:
           components:
           - Circuitboard
-        blacklist:
-          components:
-          - SiliconLawProvider
     - hand:
         emptyRepresentative: MicroManipulatorStockPart
-        emptyLabel: borg-slot-construction-empty
+        #STARLIGHT start
+        emptyLabel: borg-slot-comp-empty
         whitelist:
           tags:
-          - ConstructionMaterial
+          - MicroManipulatorStockPart
+          - PowerCell
+          - PowerCellSmall
+          - PowerCage
+        #STARLIGHT end
     - hand:
         emptyRepresentative: SpaceHeaterFlatpack
         emptyLabel: borg-slot-flatpacks-empty
@@ -788,6 +784,7 @@
   - type: ItemBorgModule
     hands:
     - item: RCDRecharging
+    - item: RPDRecharging # Starlight: RPD
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
     - item: GasAnalyzer
@@ -833,6 +830,7 @@
   - type: ItemBorgModule
     hands:
     - item: MopItem
+    - item: WireBrush
     - item: BorgBucket
     - item: BorgSprayBottle
     - item: HoloprojectorBorg
@@ -852,10 +850,9 @@
   - type: ItemBorgModule
     hands:
     - item: AdvMopItem
+    - item: WireBrushElectrical
     - item: BorgMegaSprayBottle
-    - item: WireBrush # DeltaV
     - item: HoloprojectorBorg
-    - item: WeaponLauncherHydraBorg # DeltaV
     - item: BorgDropper
     - item: Beaker
       hand:
@@ -872,6 +869,7 @@
   id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: diagnosis cyborg module
+  suffix: DO NOT USE
   components:
   - type: Sprite
     layers:
@@ -879,7 +877,7 @@
     - state: icon-diagnosis
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: ClothingNeckStethoscope
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: diagnosis-module }
@@ -887,7 +885,7 @@
 - type: entity
   id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: topicals cyborg module
+  name: first aid cyborg module
   components:
   - type: Sprite
     layers:
@@ -895,7 +893,19 @@
     - state: icon-treatment
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
+    #- item: AdvancedJetInjector # Starlight-disable - remove jet injector in favor of a syringe that can be replaced with a jet injector as resources allow
+    # Starlight start - add swappable syringe slot
+    - item: Syringe
+      hand:
+        emptyLabel: borg-slot-syringe-empty
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
+          - JetInjector
+          - Medipen
+    # Starlight end
     - item: Gauze
       hand:
         emptyLabel: borg-slot-topicals-empty
@@ -917,13 +927,28 @@
         whitelist:
           components:
           - Healing
-    - item: Bloodpack
+    # Starlight start - improve first aid module ergonomics
+    - item: PillCanister
       hand:
-        emptyLabel: borg-slot-topicals-empty
-        emptyRepresentative: Bloodpack
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: PillCanister
+        whitelist:
+          tags:
+          - PillCanister
+          - Bottle
+          - Pill
+          - PatchPack # Starlight
+          - Patch # Starlight
+    - item: Beaker
+      hand:
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
         whitelist:
           components:
-          - Healing
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
+    # Starlight end - improve first aid module ergonomics
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -938,12 +963,11 @@
     - state: icon-defib
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: DefibrillatorOneHandedUnpowered
-    - item: HandheldCrewMonitorUnpowered # DeltaV
+    - item: Crowbar
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
-    - item: HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
@@ -955,79 +979,110 @@
   - type: Sprite
     layers:
     - state: medical
-    - state: icon-chem
+    - state: icon-chemist
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
-    - item: JetInjector # DeltaV
+    - item: HandLabeler
     - item: Syringe
-    - item: BorgDropper
-    - item: BaseChemistryEmptyVial
       hand:
-        emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
+        emptyLabel: borg-slot-injector-dropper-empty
+        emptyRepresentative: Syringe
         whitelist:
-          components:
-          - FitsInDispenser
-    - item: BaseChemistryEmptyVial
-      hand:
-        emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
-        whitelist:
-          components:
-          - FitsInDispenser
-    - item: BaseChemistryEmptyVial
-      hand:
-        emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
-        whitelist:
-          components:
-          - FitsInDispenser
-    # DeltaV - Add Borg Pill Administering
-    - hand:
-        emptyLabel: borg-slot-pill-empty
-        emptyRepresentative: PillTricordrazine
-        whitelist:
-          components:
-          - Pill
           tags:
-          - PillCanister
-    - hand:
-        emptyLabel: borg-slot-pill-empty
+          - Dropper
+          - Syringe
+    - item: BorgDropper # Starlight
+    - item: PillCanister
+      hand:
+        emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: PillCanister
         whitelist:
-          components:
-          - Pill
           tags:
           - PillCanister
-    - hand:
-        emptyLabel: borg-slot-pill-empty
-        emptyRepresentative: PillCanister
+          - Bottle
+          - Pill
+          - PatchPack # Starlight
+          - Patch # Starlight
+    - item: Beaker
+      hand:
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
         whitelist:
           components:
-          - Pill
+          - FitsInDispenser
           tags:
-          - PillCanister
-    # END DeltaV
+          - ChemDispensable
+    - item: Beaker
+      hand:
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
 - type: entity
-  id: BorgModuleAdvancedChemical
+  id: BorgModuleAdvancedTopical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced chemical cyborg module
+  name: advanced first aid cyborg module
   description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
   components:
   - type: Sprite
     layers:
     - state: medical
-    - state: icon-chemist
+    - state: icon-chem
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: BorgHypo
+    # Starlight-remove - drop the topical slots to make room for our added automenders and beaker slots
+    #- item: Gauze
+    #  hand:
+    #    emptyLabel: borg-slot-topicals-empty
+    #    emptyRepresentative: Gauze
+    #    whitelist:
+    #      components:
+    #      - Healing
+    #- item: Brutepack
+    #  hand:
+    #    emptyLabel: borg-slot-topicals-empty
+    #    emptyRepresentative: Brutepack
+    #    whitelist:
+    #      components:
+    #      - Healing
+    #- item: Ointment
+    #  hand:
+    #    emptyLabel: borg-slot-topicals-empty
+    #    emptyRepresentative: Ointment
+    #    whitelist:
+    #      components:
+    #      - Healing
+    # Starlight start - we added automenders a while ago, and more recently added beakers after they got removed from the advanced chem module
+    - item: AutoMenderBrute
+    - item: AutoMenderBurn
     - item: Syringe
-    - item: BorgDropper
+      hand:
+        emptyLabel: borg-slot-syringe-empty
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
+          - JetInjector
+          - Medipen
+    - item: PillCanister
+      hand:
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: PillCanister
+        whitelist:
+          tags:
+          - PillCanister
+          - Bottle
+          - Pill
+          - PatchPack # Starlight
+          - Patch # Starlight
     - item: Beaker
       hand:
         emptyLabel: borg-slot-chemical-containers-empty
@@ -1055,6 +1110,7 @@
           - FitsInDispenser
           tags:
           - ChemDispensable
+    # Starlight end - improve advanced first aid module ergonomics
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 
@@ -1075,10 +1131,10 @@
     - item: SprayBottle
     - item: GasAnalyzer
     - item: BorgDropper
-    - item: BaseChemistryEmptyVial
+    - item: ChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: BaseChemistryEmptyVial
+        emptyRepresentative: ChemistryEmptyVial
         whitelist:
           components:
           - FitsInDispenser
@@ -1217,6 +1273,14 @@
     - item: HydroponicsToolSpade
     - item: HydroponicsToolClippers
     - item: Bucket
+      #Starlight start
+    - hand:
+        emptyLabel: borg-slot-seeds-empty
+        emptyRepresentative: WheatSeeds
+        whitelist:
+          components:
+          - Seed
+      #Starlight end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
 
@@ -1276,41 +1340,41 @@
 
 #syndicate modules
 - type: entity
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ] # Delta-V: Updated parent to Syndicate
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleSyndicateWeapon
   name: weapon cyborg module
+  description: a simple weapon module that comes with an Echis and energy dagger. # starlight
   components:
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-weapon # Delta-V
+    - state: icon-syndicate
   - type: ItemBorgModule
     hands:
     - item: WeaponPistolEchis
     - item: EnergyDaggerLoud
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
-#   Delta-V: Removed due to new parent
-#  - type: Item
-#    inhandVisuals:
-#      left:
-#      - state: base-icon-inhand-left
-#        color: "#FF0000"
-#      - state: base-module-inhand-left
-#        color: "#891417"
-#      - state: base-part-inhand-left
-#      - state: base-stripes-inhand-left
-#        color: "#7B0F12"
-#      right:
-#      - state: base-icon-inhand-right
-#        color: "#FF0000"
-#      - state: base-module-inhand-right
-#        color: "#891417"
-#      - state: base-part-inhand-right
-#      - state: base-stripes-inhand-right
-#        color: "#7B0F12"
-#  - type: StaticPrice
-#    price: 2500
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
@@ -1318,19 +1382,18 @@
   name: operative cyborg module
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-operative # Delta-V
-  - type: ItemBorgModule
-    hands:
-    - item: Crowbar
-    - item: Emag
-    #- item: AccessBreaker # DeltaV
-    - item: Doorjack # DeltaV - replaces AccessBreaker
-    - item: PinpointerSyndicateNuclear
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+    - type: Sprite
+      layers:
+      - state: syndicate
+      - state: icon-syndicate
+    - type: ItemBorgModule
+      hands:
+      - item: Crowbar
+      - item: Emag
+      - item: AccessBreaker
+      - item: PinpointerSyndicateNuclear
+    - type: BorgModuleIcon
+      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
 
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
@@ -1341,7 +1404,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-esword # Delta-V
+    - state: icon-syndicate
   - type: ItemBorgModule
     hands:
     - item: CyborgEnergySword
@@ -1358,7 +1421,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-desword # Delta-V
+    - state: icon-syndicate
   - type: ItemBorgModule
     hands:
     - item: CyborgEnergySwordDouble
@@ -1367,24 +1430,40 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-desword-module }
 
 - type: entity
-  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ] #Starlight L6 printing
   id: BorgModuleL6C
   name: L6C ROW cyborg module
-  description: A weapons module that comes with a L6C.
+  description: A weapons module that comes with an L6 and capacity to hold 2 spare magazines.
   components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-l6c # Delta-V
-  - type: ItemBorgModule
-    hands:
-    - item: WeaponLightMachineGunL6C
-    - item: PinpointerSyndicateNuclear
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
+    - type: Sprite
+      layers:
+      - state: syndicate
+      - state: icon-syndicate
+    - type: ItemBorgModule
+      hands:
+      - item: WeaponLightMachineGunL6C
+      # region starlight - L6C uses ammo
+      - item: MagazineLightRifleBoxSP
+        hand:
+          emptyRepresentative: MagazineLightRifleBoxSP
+          emptyLabel: borg-slot-light-box-empty
+          whitelist:
+            tags:
+            - MagazineLightRifleBox
+      - item: MagazineLightRifleBoxSP
+        hand:
+          emptyRepresentative: MagazineLightRifleBoxSP
+          emptyLabel: borg-slot-light-box-empty
+          whitelist:
+            tags:
+            - MagazineLightRifleBox
+      # end region starlight
+      - item: PinpointerSyndicateNuclear
+    - type: BorgModuleIcon
+      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
 
 - type: entity
-  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ] #Starlight c20 printing
   id: BorgModuleC20r
   name: C-20r ROW cyborg module
   description: A weapons module that comes with a burst-fire C-20r.
@@ -1392,7 +1471,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-c20r # Delta-V
+    - state: icon-syndicate
   - type: ItemBorgModule
     hands:
     - item: WeaponSubMachineGunC20rROW
@@ -1404,7 +1483,7 @@
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleMartyr
   name: martyr cyborg module
-  description: "A module that comes with an explosive you probably don't want to handle yourself."
+  description: A module that comes with an explosive you probably don't want to handle yourself.
   components:
     - type: Sprite
       layers:
@@ -1415,9 +1494,6 @@
       - item: SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
-    - type: Construction # DeltaV: construction for adding explosive payload to the dud version
-      graph: BorgModuleMartyr
-      node: live
     - type: Item
       inhandVisuals:
         left:
@@ -1525,8 +1601,9 @@
     - item: Wrench
     - item: Screwdriver
     - item: Wirecutter
-    - item: Multitool
-    - item: RefuelingWelder
+    - item: RefuelingWelder # Starlight: FIXING THE ORDER OF TOOLS
+    - item: Multitool # Starlight: FIXING THE ORDER OF TOOLS
+    - item: SprayPainterBorg # Starlight: Artistic xenoborgs GO! TODO mby make a xenoborg variant?
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-tool-module }
 
@@ -1542,9 +1619,7 @@
     - state: icon-xenoborg-access-breaker
   - type: ItemBorgModule
     hands:
-    #- item: AccessBreaker # DeltaV
-    - item: Doorjack # DeltaV - replaces AccessBreaker
-    - item: Emag # DeltaV - for lockers/etc
+    - item: AccessBreaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
@@ -1563,6 +1638,24 @@
     - item: SelfRechargingFireExtinguisher
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-extinguisher-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleDoorControl
+  name: door control xenoborg module
+  description: Module that allows Xenoborgs to control airlocks.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteXenoborg
+    - item: AccessBreaker
+    - item: AccessConfiguratorXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-door-remote-module }
 
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1695,7 +1788,7 @@
     - state: icon-xenoborg-projector
   - type: ItemBorgModule
     hands:
-    - item: ChameleonProjector
+    - item: ChameleonProjectorNoBattery
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
 
