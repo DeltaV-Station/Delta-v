@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/06/2026 19:36:40
-  entityCount: 16950
+  time: 02/06/2026 22:48:59
+  entityCount: 16951
 maps:
 - 1
 grids:
@@ -3437,13 +3437,13 @@ entities:
             2: 3
           -10,-10:
             0: 63232
-            6: 14
+            4: 14
           -10,-12:
             1: 14
             3: 3584
           -10,-11:
-            4: 14
-            5: 3584
+            5: 14
+            6: 3584
           -10,-13:
             1: 61166
           -9,-13:
@@ -4386,15 +4386,15 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+            Nitrogen: 6666.982
+        - volume: 2500
+          temperature: 293.15
+          moles:
             Plasma: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
             Oxygen: 6666.982
-        - volume: 2500
-          temperature: 293.15
-          moles:
-            Nitrogen: 6666.982
         chunkSize: 4
     - type: OccluderTree
     - type: Shuttle
@@ -35463,9 +35463,14 @@ entities:
   - uid: 4844
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.258026,-7.8149385
+      rot: -1.1780972450961724 rad
+      pos: -19.314487,-7.491038
       parent: 2
+    - type: Physics
+      angularDamping: 8
+      linearDamping: 8
+    - type: Pullable
+      prevFixedRotation: True
   - uid: 4845
     components:
     - type: Transform
@@ -35476,11 +35481,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,-29.5
-      parent: 2
-  - uid: 4848
-    components:
-    - type: Transform
-      pos: -20.508026,-6.5961885
       parent: 2
   - uid: 4850
     components:
@@ -40471,6 +40471,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 44.5,-18.5
       parent: 2
+  - uid: 9957
+    components:
+    - type: Transform
+      pos: -15.5,-8.5
+      parent: 2
   - uid: 11090
     components:
     - type: Transform
@@ -40718,6 +40723,12 @@ entities:
       parent: 2
 - proto: DisposalPipe
   entities:
+  - uid: 4848
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,-8.5
+      parent: 2
   - uid: 5280
     components:
     - type: Transform
@@ -42620,6 +42631,12 @@ entities:
     - type: Transform
       pos: 44.5,-19.5
       parent: 2
+  - uid: 12093
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-8.5
+      parent: 2
   - uid: 12094
     components:
     - type: Transform
@@ -42639,8 +42656,8 @@ entities:
   - uid: 12186
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -15.5,-8.5
+      rot: -1.5707963267948966 rad
+      pos: -18.5,-8.5
       parent: 2
   - uid: 12187
     components:
@@ -43292,10 +43309,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -38.5,9.5
       parent: 2
-  - uid: 14165
+  - uid: 11971
     components:
     - type: Transform
-      pos: -15.5,-7.5
+      rot: 1.5707963267948966 rad
+      pos: -19.5,-8.5
       parent: 2
   - uid: 16159
     components:
@@ -74726,11 +74744,6 @@ entities:
       parent: 2
 - proto: hydroponicsTray
   entities:
-  - uid: 9957
-    components:
-    - type: Transform
-      pos: -19.5,-8.5
-      parent: 2
   - uid: 9958
     components:
     - type: Transform
@@ -74787,6 +74800,11 @@ entities:
     components:
     - type: Transform
       pos: -17.5,-4.5
+      parent: 2
+  - uid: 14165
+    components:
+    - type: Transform
+      pos: -20.5,-6.5
       parent: 2
 - proto: Igniter
   entities:
@@ -76490,10 +76508,10 @@ entities:
     - type: Configuration
       config:
         tag: Chemistry
-  - uid: 12093
+  - uid: 14197
     components:
     - type: Transform
-      pos: -15.5,-7.5
+      pos: -19.5,-8.5
       parent: 2
     - type: MailingUnit
       tag: Botany
@@ -91921,11 +91939,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-6.5
-      parent: 2
-  - uid: 11971
-    components:
-    - type: Transform
-      pos: -20.5,-6.5
       parent: 2
   - uid: 11972
     components:
