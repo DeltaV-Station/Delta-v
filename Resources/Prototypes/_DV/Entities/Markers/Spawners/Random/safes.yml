@@ -68,7 +68,7 @@
 - type: entity
   parent: BaseGunSafeSpawner
   id: SalvageweaponSafeSpawner
-  suffix: Salvage, Random
+  suffix: LO, Random, Filled
   components:
   - type: EntityTableSpawner
     table: !type:GroupSelector
