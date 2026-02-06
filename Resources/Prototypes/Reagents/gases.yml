@@ -31,7 +31,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Fuel ]
-          inverted: true
         ratios:
           CarbonDioxide: 10.0
           Oxygen: -1.0
