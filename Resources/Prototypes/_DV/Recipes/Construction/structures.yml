@@ -63,3 +63,147 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
+
+- type: construction
+  id: RailingDeltaV
+  graph: RailingDeltaV
+  startNode: start
+  targetNode: railingDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaV
+  graph: RailingDeltaV
+  startNode: start
+  targetNode: railingCornerDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaV
+  graph: RailingDeltaV
+  startNode: start
+  targetNode: railingCornerSmallDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaV
+  graph: RailingDeltaV
+  startNode: start
+  targetNode: railingRoundDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingDeltaVGrey
+  graph: RailingDeltaVGrey
+  startNode: start
+  targetNode: railingDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaVGrey
+  graph: RailingDeltaVGrey
+  startNode: start
+  targetNode: railingCornerDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaVGrey
+  graph: RailingDeltaVGrey
+  startNode: start
+  targetNode: railingCornerSmallDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaVGrey
+  graph: RailingDeltaVGrey
+  startNode: start
+  targetNode: railingRoundDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+  
+- type: construction
+  id: RailingDeltaVWood
+  graph: RailingDeltaVWood
+  startNode: start
+  targetNode: railingDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaVWood
+  graph: RailingDeltaVWood
+  startNode: start
+  targetNode: railingCornerDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaVWood
+  graph: RailingDeltaVWood
+  startNode: start
+  targetNode: railingCornerSmallDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaVWood
+  graph: RailingDeltaVWood
+  startNode: start
+  targetNode: railingRoundDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
