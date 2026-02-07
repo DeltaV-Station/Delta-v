@@ -12,14 +12,14 @@
               amount: 2
               doAfter: 2
             - material: Plasteel
-              amount: 2
+              amount: 1
               doAfter: 2
         - to: railingCornerDeltaV
           completed:
             - !type:SnapToGrid { }
           steps:
             - material: Plasteel
-              amount: 2
+              amount: 1
               doAfter: 2.5
             - material: MetalRod
               amount: 2
@@ -42,9 +42,8 @@
               amount: 4
               doAfter: 2
             - material: Plasteel
-              amount: 4
+              amount: 2
               doAfter: 2
-
 
     - node: railingDeltaV
       entity: RailingDeltaV
@@ -52,17 +51,15 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
-              amount: 2
+                prototype: PartRodMetal1
+                amount: 2
             - !type:SpawnPrototype
-              prototype: SheetPlasteel
-              amount: 2
+                prototype: SheetPlasteel
+                amount: 2
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 1
-            - tool: Screwing
-              doAfter: 0.5
 
     - node: railingCornerDeltaV
       entity: RailingCornerDeltaV
@@ -70,17 +67,15 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MetalRod
+              prototype: PartRodMetal1
               amount: 2
             - !type:SpawnPrototype
-              prototype: Plasteel
+              prototype: SheetPlasteel1
               amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 1.5
-            - tool: Screwing
-              doAfter: 0.5
 
     - node: railingCornerSmallDeltaV
       entity: RailingCornerSmallDeltaV
@@ -88,17 +83,15 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MetalRod
+              prototype: PartRodMetal1
               amount: 1
             - !type:SpawnPrototype
-              prototype: Plasteel
+              prototype: SheetPlasteel1
               amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 1.5
-            - tool: Screwing
-              doAfter: 0.25
 
     - node: railingRoundDeltaV 
       entity: RailingRoundDeltaV
@@ -106,17 +99,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MetalRod
+              prototype: PartRodMetal1
               amount: 4
             - !type:SpawnPrototype
-              prototype: Plasteel
-              amount: 4
+              prototype: SheetPlasteel1
+              amount: 2
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 2.75
-            - tool: Screwing
-              doAfter: 1
+
 - type: constructionGraph
   id: RailingDeltaVGrey
   start: start
@@ -130,10 +122,6 @@
             - material: MetalRod
               amount: 2
               doAfter: 2
-        - to: railingDeltaVGrey
-          completed:
-            - !type:SnapToGrid { }
-          steps:
             - material: Steel
               amount: 2
               doAfter: 2
@@ -167,16 +155,17 @@
             - material: Steel
               amount: 4
               doAfter: 2
+    
     - node: railingDeltaVGrey
       entity: RailingDeltaVGrey
       edges:
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MetalRod
+              prototype: PartRodMetal1
               amount: 2
             - !type:SpawnPrototype
-              prototype: Plasteel
+              prototype: SheetPlasteel1
               amount: 2
             - !type:DeleteEntity
           steps:
@@ -191,7 +180,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
+              prototype: PartRodMetal1
               amount: 2
             - !type:SpawnPrototype
               prototype: SheetPlasteel1
@@ -202,24 +191,22 @@
               doAfter: 1.5
             - tool: Screwing
               doAfter: 0.5
-
+  
     - node: railingCornerSmallDeltaVGrey
       entity: RailingCornerSmallDeltaVGrey
       edges:
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MetalRod
+              prototype: PartRodMetal1
               amount: 1
             - !type:SpawnPrototype
-              prototype: Plasteel
+              prototype: SheetPlasteel1
               amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: .75
-            - tool: Screwing
-              doAfter: 0.25
 
     - node: railingRoundDeltaVGrey
       entity: RailingRoundDeltaVGrey
@@ -227,7 +214,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
+              prototype: PartRodMetal1
               amount: 4
             - !type:SpawnPrototype
               prototype: SheetPlasteel1
@@ -236,8 +223,7 @@
           steps:
             - tool: Welding
               doAfter: 2.75
-            - tool: Screwing
-              doAfter: 1
+
 - type: constructionGraph
   id: RailingDeltaVWood
   start: start
@@ -291,7 +277,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
+              prototype: PartRodMetal1
               amount: 2
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -307,7 +293,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
+              prototype: PartRodMetal1
               amount: 2
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -323,7 +309,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
+              prototype: PartRodMetal1
               amount: 1
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -339,7 +325,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartMetalRod
+              prototype: PartRodMetal1
               amount: 4
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1

@@ -1,7 +1,7 @@
 - type: entity
-  parent: Railing # since we already are parenting to upstream's railing, we can just edit the base values to fit here
+  parent: Railing
   id: RailingDeltaV
-  name: reinforced plasteel railing
+  name: reinforced railing
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -34,38 +34,47 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
   - type: Construction
     node: RailingDeltaV
 
 - type: entity
   parent: [RailingCorner, RailingDeltaV]
   id: RailingCornerDeltaV
-  name: reinforced plasteel railing corner
+  name: reinforced railing corner
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
+  - type: Construction
+    node: RailingCornerDeltaV
 
 - type: entity
   parent: [RailingCornerSmall, RailingDeltaV]
   id: RailingCornerSmallDeltaV
-  name: reinforced plasteel railing corner (small)
+  name: reinforced railing corner (small)
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
+  - type: Construction
+    node: RailingCornerSmallDeltaV
 
 - type: entity
   parent: [RailingRound, RailingDeltaV]
   id: RailingRoundDeltaV
-  name: reinforced plasteel round railing
+  name: reinforced railing round
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
+  - type: Construction
+    node: RailingRoundDeltaV
 
 - type: entity
   parent: Railing
@@ -105,6 +114,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
   - type: Construction
     node: RailingDeltaVGrey
 
@@ -119,6 +131,8 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_grey
+  - type: Construction
+    node: RailingCornerDeltaVGrey
 
 - type: entity
   parent: [RailingCornerSmall, RailingDeltaVGrey]
@@ -131,11 +145,13 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_small_grey
+  - type: Construction
+    node: RailingCornerSmallDeltaVGrey
 
 - type: entity
   parent: [RailingRound, RailingDeltaVGrey]
   id: RailingRoundDeltaVGrey
-  name: reinforced steel round railing 
+  name: reinforced steel railing round
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -143,6 +159,8 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: round_grey
+  - type: Construction
+    node: RailingRoundDeltaVGrey
 
 - type: entity
   abstract: true
@@ -175,6 +193,9 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Construction
     node: RailingDeltaVWood
 
@@ -203,6 +224,8 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_wood
+  - type: Construction
+    node: railingCornerDeltaVWood
 
 - type: entity
   parent: [BaseRailingWood, RailingCornerSmall]
@@ -215,11 +238,13 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_small_wood
+  - type: Construction
+    node: railingCornerSmallDeltaVWood
 
 - type: entity
   parent: [BaseRailingWood, RailingRound]
   id: RailingRoundDeltaVWood
-  name: reinforced wood round railing
+  name: reinforced wood railing round
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -227,3 +252,5 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: round_wood
+  - type: Construction
+    node: railingRoundDeltaVWood
