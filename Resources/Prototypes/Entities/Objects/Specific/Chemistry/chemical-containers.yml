@@ -21,6 +21,8 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 5
+    fillBaseName: jug # DeltaV - Resprited some medical items
+    inHandsFillBaseName: -fill- # DeltaV - Resprited some medical items
   - type: ExaminableSolution
     exactVolume: true # Chemistry item
   - type: StaticPrice
