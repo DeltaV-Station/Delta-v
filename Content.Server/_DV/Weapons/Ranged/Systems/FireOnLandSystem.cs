@@ -26,6 +26,6 @@ public sealed class FireOnLandSystem : EntitySystem
 
         var dir = gc.DefaultDirection;
         dir = new Vector2(-dir.Y, dir.X); // 90 degrees counter-clockwise, guns shoot down by default
-        _gunSystem.AttemptShoot(ent, ent, gc, new EntityCoordinates(ent, dir));
+        _gunSystem.AttemptShoot(ent, (ent, gc), new EntityCoordinates(ent, dir));
     }
 }
