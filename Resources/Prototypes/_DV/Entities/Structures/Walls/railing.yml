@@ -1,17 +1,44 @@
 - type: entity
-  parent: Railing
+  parent: Railing # since we already are parenting to upstream's railing, we can just edit the base values to fit here
   id: RailingDeltaV
-  suffix: Modern
+  name: reinforced plasteel railing
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
+  - type: Destructible
+    thresholds: 
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          SheetPlasteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  parent: RailingCorner
+  parent: [RailingCorner, RailingDeltaV]
   id: RailingCornerDeltaV
-  suffix: Modern
+  name: reinforced plasteel railing corner
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -19,9 +46,9 @@
     sprite: _DV/Structures/Walls/railing.rsi
 
 - type: entity
-  parent: RailingCornerSmall
+  parent: [RailingCornerSmall, RailingDeltaV]
   id: RailingCornerSmallDeltaV
-  suffix: Modern
+  name: reinforced plasteel railing corner (small)
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -29,9 +56,9 @@
     sprite: _DV/Structures/Walls/railing.rsi
 
 - type: entity
-  parent: RailingRound
+  parent: [RailingRound, RailingDeltaV]
   id: RailingRoundDeltaV
-  suffix: Modern
+  name: reinforced plasteel round railing
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -41,7 +68,7 @@
 - type: entity
   parent: Railing
   id: RailingDeltaVGrey
-  suffix: Modern, Grey
+  name: reinforced steel railing
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -49,11 +76,38 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: side_grey
+  - type: Destructible
+    thresholds: 
+    - trigger:
+        !type:DamageTrigger
+        damage: 175
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  parent: RailingCorner
+  parent: [RailingCorner, RailingDeltaVGrey]
   id: RailingCornerDeltaVGrey
-  suffix: Modern, Grey
+  name: reinforced steel railing corner
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -63,9 +117,9 @@
     state: corner_grey
 
 - type: entity
-  parent: RailingCornerSmall
+  parent: [RailingCornerSmall, RailingDeltaVGrey]
   id: RailingCornerSmallDeltaVGrey
-  suffix: Modern, Grey
+  name: reinforced steel railing (small)
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -75,9 +129,9 @@
     state: corner_small_grey
 
 - type: entity
-  parent: RailingRound
+  parent: [RailingRound, RailingDeltaVGrey]
   id: RailingRoundDeltaVGrey
-  suffix: Modern, Grey
+  name: reinforced steel round railing 
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -89,19 +143,18 @@
 - type: entity
   abstract: true
   id: BaseRailingWood
-  suffix: Modern, Wood
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 45
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -113,12 +166,16 @@
           MaterialWoodPlank1:
             min: 0
             max: 1
+          PartRodMetal1:
+            min: 0
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseRailingWood, Railing]
   id: RailingDeltaVWood
+  name: reinforced wood railing
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -131,6 +188,7 @@
 - type: entity
   parent: [BaseRailingWood, RailingCorner]
   id: RailingCornerDeltaVWood
+  name: reinforced wood railing corner
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -142,6 +200,7 @@
 - type: entity
   parent: [BaseRailingWood, RailingCornerSmall]
   id: RailingCornerSmallDeltaVWood
+  name: reinforced wood railing corner (small)
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -153,6 +212,7 @@
 - type: entity
   parent: [BaseRailingWood, RailingRound]
   id: RailingRoundDeltaVWood
+  name: reinforced wood round railing
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
