@@ -14,6 +14,8 @@ job-name-senior-researcher = Research Mentor
 job-name-senior-engineer = Engineering Mentor
 job-name-senior-officer = Security Mentor
 job-name-qm = Logistics Officer
+job-name-rd = Mystagogue
+job-name-brigmedic = Corpsman
 
 # Alternate titles
 job-alt-title-tourist = Tourist
