@@ -93,7 +93,7 @@
             - tool: Welding
               doAfter: 1.5
 
-    - node: railingRoundDeltaV 
+    - node: railingRoundDeltaV
       entity: RailingRoundDeltaV
       edges:
         - to: start
@@ -155,7 +155,7 @@
             - material: Steel
               amount: 4
               doAfter: 2
-    
+
     - node: railingDeltaVGrey
       entity: RailingDeltaVGrey
       edges:
@@ -191,7 +191,7 @@
               doAfter: 1.5
             - tool: Screwing
               doAfter: 0.5
-  
+
     - node: railingCornerSmallDeltaVGrey
       entity: RailingCornerSmallDeltaVGrey
       edges:
@@ -302,7 +302,7 @@
           steps:
             - tool: Screwing
               doAfter: 2
-              
+
     - node: railingCornerSmallDeltaVWood
       entity: RailingCornerSmallDeltaVWood
       edges:

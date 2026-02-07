@@ -8,7 +8,7 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Destructible
-    thresholds: 
+    thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 200
@@ -88,7 +88,7 @@
     sprite: _DV/Structures/Walls/railing.rsi
     state: side_grey
   - type: Destructible
-    thresholds: 
+    thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 175
