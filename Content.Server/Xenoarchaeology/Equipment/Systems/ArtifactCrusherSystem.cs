@@ -45,8 +45,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
             if (!TryComp<BodyComponent>(contained, out var body))
                 Del(contained);
 
-            // DeltaV acidify: false preserves inventory items, which get added to the output container
-            var gibs = _body.GibBody(contained, body: body, acidify: false);
+            var gibs = _gibbing.Gib(contained);
             foreach (var gib in gibs)
             {
                 ContainerSystem.Insert((gib, null, null, null), crusher.OutputContainer);

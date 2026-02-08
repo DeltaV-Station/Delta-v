@@ -12,10 +12,10 @@ public sealed partial class GibPartBehavior : IThresholdBehavior
 {
     public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
     {
-        if (!system.EntityManager.TryGetComponent(owner, out BodyPartComponent? part))
+        if (!system.EntityManager.HasComponent<BodyPartComponent>(owner))
             return;
 
-        system.BodySystem.GibPart(owner, part);
+        system.Gibbing.Gib(owner);
     }
 }
 
