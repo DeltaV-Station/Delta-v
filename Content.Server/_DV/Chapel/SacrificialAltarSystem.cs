@@ -4,6 +4,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Database;
+using Content.Shared.Gibbing;
 using Content.Shared._DV.Chapel;
 using Content.Shared.DoAfter;
 using Content.Shared.EntityTable;
@@ -29,6 +30,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public override void Initialize()
     {
@@ -70,8 +72,8 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
         // TODO GOLEMS: create a soul crystal and transfer mind into it
 
         // finally gib the targets old body
-        if (TryComp<BodyComponent>(target, out var body))
-            _body.GibBody(target, acidify: true, body, launchGibs: true);
+        if (HasComp<BodyComponent>(target))
+            _gibbing.Gib(target);
         else
             QueueDel(target);
     }
