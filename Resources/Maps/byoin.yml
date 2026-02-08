@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/03/2026 20:35:43
+  time: 02/08/2026 20:56:34
   entityCount: 19523
 maps:
 - 1
@@ -8510,6 +8510,8 @@ entities:
   entities:
   - uid: 5298
     components:
+    - type: MetaData
+      name: Boxer's Office
     - type: Transform
       pos: 47.5,-25.5
       parent: 2
@@ -114517,7 +114519,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 61.5,30.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 10274
     components:
