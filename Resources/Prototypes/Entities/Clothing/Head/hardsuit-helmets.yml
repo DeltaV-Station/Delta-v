@@ -631,6 +631,25 @@
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
+  - type: ToggleableVisuals # DeltaV - Looks way better with an overlaid light sprite
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
+      head-vox:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
+        state: on-equipped-HELMET-light-vox
+        shader: unshaded
+      head-vulpkanin:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
+        state: on-equipped-HELMET-light-vulpkanin
+        shader: unshaded
+      head-dog:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
+        state: on-equipped-HELMET-light-dog
+        shader: unshaded
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -659,6 +678,21 @@
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
+  - type: ToggleableVisuals # DeltaV - Looks way better with an overlaid light sprite
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiemedic.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
+      head-vox:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiemedic.rsi
+        state: on-equipped-HELMET-light-vox
+        shader: unshaded
+      head-vulpkanin:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiemedic.rsi
+        state: on-equipped-HELMET-light-vulpkanin
+        shader: unshaded
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -683,6 +717,25 @@
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+  - type: ToggleableVisuals # DeltaV - Looks way better with an overlaid light sprite
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
+      head-vox:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
+        state: on-equipped-HELMET-light-vox
+        shader: unshaded
+      head-vulpkanin:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
+        state: on-equipped-HELMET-light-vulpkanin
+        shader: unshaded
+      head-dog:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
+        state: on-equipped-HELMET-light-dog
+        shader: unshaded
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -716,6 +769,25 @@
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+  - type: ToggleableVisuals # WF - Looks way better with an overlaid light sprite
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
+      head-vox:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
+        state: on-equipped-HELMET-light-vox
+        shader: unshaded
+      head-vulpkanin:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
+        state: on-equipped-HELMET-light-vulpkanin
+        shader: unshaded
+      head-dog:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
+        state: on-equipped-HELMET-light-dog
+        shader: unshaded
   - type: PointLight
     color: green
   - type: PressureProtection
