@@ -16,7 +16,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable # DeltaV - Update for predicted mind examine
   - type: Sprite
     noRot: true
     drawdepth: Mobs

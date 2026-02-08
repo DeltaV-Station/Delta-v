@@ -12,7 +12,7 @@
         0: Alive
         100: Dead #Tweak for "Acidify on Crit"
     - type: MindContainer
-      showExamineInfo: False
+    - type: MindExaminable
     - type: Loadout
       prototypes:
         - RadioGuardGear
