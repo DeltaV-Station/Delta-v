@@ -235,7 +235,7 @@
     - type: Climbing
     - type: StandingState
     - type: MindContainer
-      showExamineInfo: true
+    - type: MindExaminable # DeltaV - Update for predicted mind examine
     - type: SSDIndicator
     - type: CanEscapeInventory
     - type: HumanoidAppearance
