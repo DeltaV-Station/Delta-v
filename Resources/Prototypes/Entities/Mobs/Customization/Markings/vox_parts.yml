@@ -63,7 +63,8 @@
   id: VoxLArmScales
   bodyPart: LArm
   markingCategory: Arms
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -78,7 +79,8 @@
   id: VoxLLegScales
   bodyPart: LLeg
   markingCategory: Legs
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -93,7 +95,8 @@
   id: VoxRArmScales
   bodyPart: RArm
   markingCategory: Arms
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -108,7 +111,8 @@
   id: VoxRLegScales
   bodyPart: RLeg
   markingCategory: Legs
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -123,7 +127,8 @@
   id: VoxRHandScales
   bodyPart: RHand
   markingCategory: Arms
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -138,7 +143,8 @@
   id: VoxLHandScales
   bodyPart: LHand
   markingCategory: Arms
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -153,7 +159,8 @@
   id: VoxLFootScales
   bodyPart: LFoot
   markingCategory: Legs
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -168,7 +175,8 @@
   id: VoxRFootScales
   bodyPart: RFoot
   markingCategory: Legs
-  forcedColoring: true
+  # forcedColoring: true #imp
+  # followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -179,62 +187,13 @@
         !type:SimpleColoring
         color: "#937e3d"
 
-- type: marking
-  id: VoxTail
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail
-
-- type: marking
-  id: VoxTailShort
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_short
-
-- type: marking
-  id: VoxTailBig
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_big
-
-- type: marking
-  id: VoxTailSpikes
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_spikes
-
-- type: marking
-  id: VoxTailDocked
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_docked
-
-- type: marking
-  id: VoxTailSplit
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_split
+#- type: marking
+#  id: VoxTail
+#  bodyPart: Tail
+#  markingCategory: Tail
+#  speciesRestriction: [Vox]
+#  forcedColoring: true
+#  sprites:
+#  - sprite: Mobs/Customization/vox_parts.rsi
+#    # Ideally this should use the normal tail sprite and apply an actual mask over it, not just use a butchered sprite
+#    state: tail_stenciled
