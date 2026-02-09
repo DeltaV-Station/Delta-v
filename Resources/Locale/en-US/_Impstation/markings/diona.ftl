@@ -103,6 +103,9 @@ marking-DionaWildflowerHead-wildflower_flowers4 = Flowers 4
 
 # HeadTop
 
+marking-DionaMoonBloom = Moon Bloom
+marking-DionaMoonBloom-dionamoonbloom = Moon Bloom
+
 # Tail
 
 # RArmExtension

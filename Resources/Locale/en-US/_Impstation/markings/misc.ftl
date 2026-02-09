@@ -11,10 +11,6 @@ marking-SpiderEyesMulti-spidereyesmulti2 = Middle Top
 marking-SpiderEyesMulti-spidereyesmulti3 = Middle Bottom
 marking-SpiderEyesMulti-spidereyesmulti4 = Bottom
 
-# diona
-marking-DionaMoonBloom = Moon Bloom
-marking-DionaMoonBloom-dionamoonbloom = Moon Bloom
-
 # humans
 marking-VitiligoHeadL = Vitiligo (Left Eye)
 marking-VitiligoHeadR = Vitiligo (Right Eye)
