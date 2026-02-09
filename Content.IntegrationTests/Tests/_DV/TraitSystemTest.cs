@@ -774,7 +774,7 @@ public sealed partial class TraitSystemTest
             LogMan = IoCManager.Resolve<ILogManager>(),
             JobId = jobId,
             SpeciesId = speciesId,
-            StatusEffects = IoCManager.Resolve<StatusEffectsSystem>(),
+            StatusEffects = entMan.System<StatusEffectsSystem>(),
         };
     }
 
@@ -792,7 +792,7 @@ public sealed partial class TraitSystemTest
             CompFactory = factory,
             LogMan = IoCManager.Resolve<ILogManager>(),
             Transform = entMan.GetComponent<TransformComponent>(player),
-            StatusEffects = IoCManager.Resolve<StatusEffectsSystem>(),
+            StatusEffects = entMan.System<StatusEffectsSystem>(),
         };
     }
 
