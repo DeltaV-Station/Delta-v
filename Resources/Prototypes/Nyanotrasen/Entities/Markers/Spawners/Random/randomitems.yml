@@ -204,7 +204,7 @@
       #Glowsticks
       - !type:GroupSelector
         children:
-        - id: GlowstickBase
+        - id: GlowstickGreen
           amount: !type:RangeNumberSelector
             range: 1, 4
         - id: GlowstickRed
