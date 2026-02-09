@@ -1,7 +1,8 @@
 - type: entity
   parent: Railing
   id: RailingDeltaV
-  name: reinforced railing
+  name: reinforced plasteel railing
+  description: Plasteel railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -17,7 +18,50 @@
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+          SheetPlasteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Construction
+    node: railingDeltaV
+
+- type: entity
+  parent: RailingCorner
+  id: RailingCornerDeltaV
+  name: reinforced plasteel railing
+  description: Plasteel railing meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Walls/railing.rsi
+  - type: Icon
+    sprite: _DV/Structures/Walls/railing.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -38,48 +82,99 @@
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
   - type: Construction
-    node: RailingDeltaV
+    node: railingCornerDeltaV
 
 - type: entity
-  parent: [RailingCorner, RailingDeltaV]
-  id: RailingCornerDeltaV
-  name: reinforced railing corner
-  components:
-  - type: Sprite
-    sprite: _DV/Structures/Walls/railing.rsi
-  - type: Icon
-    sprite: _DV/Structures/Walls/railing.rsi
-  - type: Construction
-    node: RailingCornerDeltaV
-
-- type: entity
-  parent: [RailingCornerSmall, RailingDeltaV]
+  parent: RailingCornerSmall
   id: RailingCornerSmallDeltaV
-  name: reinforced railing corner (small)
+  name: reinforced plasteel railing
+  description: Plasteel railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+          SheetPlasteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
   - type: Construction
-    node: RailingCornerSmallDeltaV
+    node: railingCornerSmallDeltaV
 
 - type: entity
-  parent: [RailingRound, RailingDeltaV]
+  parent: RailingRound
   id: RailingRoundDeltaV
-  name: reinforced railing round
+  name: reinforced plasteel railing
+  description: Plasteel railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          SheetPlasteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
   - type: Construction
-    node: RailingRoundDeltaV
+    node: railingRoundDeltaV
 
 - type: entity
   parent: Railing
   id: RailingDeltaVGrey
   name: reinforced steel railing
+  description: Steel railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -91,7 +186,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 175
+        damage: 150
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -118,12 +213,13 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Construction
-    node: RailingDeltaVGrey
+    node: railingDeltaVGrey
 
 - type: entity
-  parent: [RailingCorner, RailingDeltaVGrey]
+  parent: RailingCorner
   id: RailingCornerDeltaVGrey
-  name: reinforced steel railing corner
+  name: reinforced steel railing
+  description: Steel railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -131,41 +227,6 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_grey
-  - type: Construction
-    node: RailingCornerDeltaVGrey
-
-- type: entity
-  parent: [RailingCornerSmall, RailingDeltaVGrey]
-  id: RailingCornerSmallDeltaVGrey
-  name: reinforced steel railing (small)
-  components:
-  - type: Sprite
-    sprite: _DV/Structures/Walls/railing.rsi
-    state: corner_small_grey
-  - type: Icon
-    sprite: _DV/Structures/Walls/railing.rsi
-    state: corner_small_grey
-  - type: Construction
-    node: RailingCornerSmallDeltaVGrey
-
-- type: entity
-  parent: [RailingRound, RailingDeltaVGrey]
-  id: RailingRoundDeltaVGrey
-  name: reinforced steel railing round
-  components:
-  - type: Sprite
-    sprite: _DV/Structures/Walls/railing.rsi
-    state: round_grey
-  - type: Icon
-    sprite: _DV/Structures/Walls/railing.rsi
-    state: round_grey
-  - type: Construction
-    node: RailingRoundDeltaVGrey
-
-- type: entity
-  abstract: true
-  id: BaseRailingWood
-  components:
   - type: Destructible
     thresholds:
     - trigger:
@@ -176,7 +237,142 @@
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 45
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Construction
+    node: railingCornerDeltaVGrey
+
+- type: entity
+  parent: RailingCornerSmall
+  id: RailingCornerSmallDeltaVGrey
+  name: reinforced steel railing
+  description: Steel railing meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Walls/railing.rsi
+    state: corner_small_grey
+  - type: Icon
+    sprite: _DV/Structures/Walls/railing.rsi
+    state: corner_small_grey
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Construction
+    node: railingCornerSmallDeltaVGrey
+
+- type: entity
+  parent: RailingRound
+  id: RailingRoundDeltaVGrey
+  name: reinforced steel railing
+  description: Steel railing meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Walls/railing.rsi
+    state: round_grey
+  - type: Icon
+    sprite: _DV/Structures/Walls/railing.rsi
+    state: round_grey
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Construction
+    node: railingRoundDeltaVGrey
+
+- type: entity
+  parent: Railing
+  id: RailingDeltaVWood
+  name: reinforced wood railing
+  description: Wood railing meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Walls/railing.rsi
+    state: side_wood
+  - type: Icon
+    sprite: _DV/Structures/Walls/railing.rsi
+    state: side_wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -185,38 +381,25 @@
             volume: -6
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialWoodPlank1:
-            min: 0
-            max: 1
           PartRodMetal1:
             min: 0
             max: 2
+          MaterialWoodPlank1:
+            min: 0
+            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: Construction
-    node: RailingDeltaVWood
-
-- type: entity
-  parent: [BaseRailingWood, Railing]
-  id: RailingDeltaVWood
-  name: reinforced wood railing
-  components:
-  - type: Sprite
-    sprite: _DV/Structures/Walls/railing.rsi
-    state: side_wood
-  - type: Icon
-    sprite: _DV/Structures/Walls/railing.rsi
-    state: side_wood
-  - type: Construction
     node: railingDeltaVWood
 
 - type: entity
-  parent: [BaseRailingWood, RailingCorner]
+  parent: RailingCorner
   id: RailingCornerDeltaVWood
-  name: reinforced wood railing corner
+  name: reinforced wood railing
+  description: Wood railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -224,13 +407,44 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          MaterialWoodPlank1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Construction
     node: railingCornerDeltaVWood
 
 - type: entity
-  parent: [BaseRailingWood, RailingCornerSmall]
+  parent: RailingCornerSmall
   id: RailingCornerSmallDeltaVWood
-  name: reinforced wood railing corner (small)
+  name: reinforced wood railing
+  description: Wood railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -238,13 +452,44 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: corner_small_wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          MaterialWoodPlank1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Construction
     node: railingCornerSmallDeltaVWood
 
 - type: entity
-  parent: [BaseRailingWood, RailingRound]
+  parent: RailingRound
   id: RailingRoundDeltaVWood
-  name: reinforced wood railing round
+  name: reinforced wood railing
+  description: Wood railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/railing.rsi
@@ -252,5 +497,35 @@
   - type: Icon
     sprite: _DV/Structures/Walls/railing.rsi
     state: round_wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+          MaterialWoodPlank1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Construction
     node: railingRoundDeltaVWood
