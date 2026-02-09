@@ -82,8 +82,6 @@ marking-VoxBeakSplit-split2 = Bottom
 marking-VoxBeakTipped = Tipped Beak
 marking-VoxBeakTipped-tipped = Tipped Beak
 
-marking-VoxBeak = Default Beak [DO NOT USE]
-
 # Eyes
 
 # RArm
@@ -271,22 +269,6 @@ marking-SpotsTail = Spotted Tail
 marking-SpotsTail-spots= Spotted Tail
 
 marking-TailBloom = Bloom
-<<<<<<< HEAD
-marking-TailBloom-tailbloom1 = Flower
-marking-TailBloom-tailbloom2 = Flower
-marking-TailBloom-tailbloom3 = Bush
-marking-UnderwearIxixSpecial = Modest Underwear
-marking-UnderwearIxixSpecial-underwearixixspecial1 = Band
-marking-UnderwearIxixSpecial-underwearixixspecial2 = Cup
-marking-UnderwearStrappy = Belted
-marking-UnderwearStrappy-understrappy1 = Belt
-marking-UnderwearStrappy-understrappy2 = Belt
-marking-UnderwearStrappy-understrappy3 = Underwear
-marking-UnderwearBriefsVox = Briefs
-marking-UnderwearBriefsVox-underwearbriefs = Briefs
-marking-UnderwearHighWaisted = High Waisted
-marking-UnderwearHighWaisted-underwearhighwaisted = High Waisted
-=======
 marking-TailBloom-bloom1 = Flower
 marking-TailBloom-bloom2 = Flower
 marking-TailBloom-bloom3 = Bush
@@ -322,13 +304,7 @@ marking-VoxTailSmallPlume-smallplume = Small Plume
 marking-VoxTailSpines = Tail Spines
 marking-VoxTailSpines-spines = Tail Spines
 
-marking-VoxTailSplit = Twinned
-marking-VoxTailSplit-split = Twinned
-
 marking-VoxSunAndMoon = Sun and Moon
 marking-VoxSunAndMoon-sunandmoon = Sun and Moon
 
-marking-VoxTail = Default Tail [DO NOT USE]
-
 # RArmExtension
->>>>>>> c5d3c4ece2d (jesus fucking christ its over)

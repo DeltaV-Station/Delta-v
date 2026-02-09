@@ -27,13 +27,6 @@ marking-ThavenSpinechill-spinechill = Spinechill
 marking-ThavenSpines = Spines
 marking-ThavenSpines-spines = Spines
 
-<<<<<<< HEAD
-marking-ThavenREyeGlow = Glowing Eye (Right)
-marking-ThavenREyeGlow-thaveneyeglow = Glowing Eye (Right)
-
-marking-ThavenLEyeGlow = Glowing Eye (Left)
-marking-ThavenLEyeGlow-thaveneyeglow = Glowing Eye (Left)
-=======
 marking-ThavenTattooWave = Wave Tattoo
 marking-ThavenTattooWave-tattoowave = Wave Tattoo
 
@@ -65,7 +58,6 @@ marking-ThavenHeadStripes-stripes = Pinstripes
 
 marking-SharkminnowEyeliner = Sharkminnow Eyeliner
 marking-SharkminnowEyeliner-sharkminnoweyeliner = Sharkminnow Eyeliner
->>>>>>> b8dce41ed59 (:withered:)
 
 marking-ThavenEyesSharkminnow = Sharkminnow Eyes
 marking-ThavenEyesSharkminnow-sharkminnow = Sharkminnow Eyes

@@ -93,15 +93,9 @@
     state: tailsinglestripe
 
 - type: marking
-<<<<<<< HEAD
-  id: UnderwearIxixSpecial
-  bodyPart: Underwear
-  markingCategory: Underwear
-=======
   id: VoxTailStripes
   bodyPart: Chest
   markingCategory: Overlay
->>>>>>> 286b2106046 (markings yml reorganization)
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
@@ -110,11 +104,6 @@
 # Head
 
 - type: marking
-<<<<<<< HEAD
-  id: UnderwearStrappy
-  bodyPart: Underwear
-  markingCategory: Underwear
-=======
   id: ScarsVoxBigslashLeftHead
   bodyPart: Head
   markingCategory: Head
@@ -211,7 +200,6 @@
   id: VoxEarhole
   bodyPart: Head
   markingCategory: Head
->>>>>>> 286b2106046 (markings yml reorganization)
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
@@ -383,34 +371,26 @@
 
 - type: marking
   id: UnderwearBriefsVox
-  bodyPart: Underwear
-  markingCategory: Underwear
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Vox ]
-<<<<<<< HEAD
-  followSkinColor: false
-=======
   coloring:
     default:
       type: null
       fallbackColor: '#FFFFFF'
->>>>>>> 1c2268335d3 (rider hates this project btw)
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
     state: briefs
 
 - type: marking
   id: UnderwearHighWaisted
-  bodyPart: Underwear
-  markingCategory: Underwear
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Vox ]
-<<<<<<< HEAD
-  followSkinColor: false
-=======
   coloring:
     default:
       type: null
       fallbackColor: '#FFFFFF'
->>>>>>> 1c2268335d3 (rider hates this project btw)
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
     state: highwaisted

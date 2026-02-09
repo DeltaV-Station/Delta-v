@@ -126,20 +126,6 @@
     state: muscular
 
 - type: marking
-  id: TattooNanotrasenChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
-    state: nanotrasen
-
-- type: marking
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest

@@ -32,9 +32,6 @@ marking-ChestTwistingRight-twistingright = Twisted Scar (Right)
 marking-HumanoidAbs = Muscles
 marking-HumanoidAbs-muscular = Muscles
 
-marking-TattooNanotrasenChest-nanotrasen = Chest Tattoo (Nanotrasen)
-marking-TattooNanotrasenChest = Chest Tattoo (Nanotrasen)
-
 marking-ChestStar = Star Scar
 marking-ChestStar-star = Star Scar
 
