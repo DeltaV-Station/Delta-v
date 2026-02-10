@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: 0vrseer
-  changes:
-  - message: removed some IPC markings that resulted in invisible body parts.
-    type: Remove
-  id: 1619
-  time: '2025-08-20T20:10:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4140
-- author: kotobdev
-  changes:
-  - message: Fixed the game crashing on startup when running in compatibility mode.
-    type: Fix
-  id: 1620
-  time: '2025-08-20T20:12:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4247
 - author: NoElkaTheGod
   changes:
   - message: Double-bladed energy sword and vacuous lance have had their swing animations
@@ -4483,4 +4469,22 @@
   id: 2118
   time: '2026-02-01T19:43:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5304
+- author: verybigman311
+  changes:
+  - message: Feroxi can now waggy their tails.
+    type: Add
+  id: 2119
+  time: '2026-02-02T17:56:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5319
+- author: Pharaz4
+  changes:
+  - message: Fixed harpy suits not displaying on some clothing.
+    type: Fix
+  - message: Added missing sprite for Lizards on multipe suits.
+    type: Add
+  - message: Removed upstream spawners from entity spawn panel.
+    type: Remove
+  id: 2120
+  time: '2026-02-05T20:04:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5325
 Order: 1
