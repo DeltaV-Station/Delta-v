@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/10/2026 10:11:41
+  time: 02/10/2026 10:43:02
   entityCount: 16987
 maps:
 - 1
@@ -98092,15 +98092,15 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 37.5,-0.5
+      pos: 37.5,1.5
       parent: 2
   - uid: 12702
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 37.5,1.5
+      pos: 37.5,-0.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletDirtyWaterFilled
   entities:
   - uid: 12705
     components:
