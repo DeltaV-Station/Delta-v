@@ -34,6 +34,14 @@ public sealed class GibbingSystem : EntitySystem
         if (!_net.IsServer)
             return new();
 
+        // Shitmed Start
+        var beforeGibbed = new BeforeGibbedEvent();
+        RaiseLocalEvent(ent, ref beforeGibbed);
+
+        if (beforeGibbed.Cancelled)
+            return new();
+        // Shitmed End
+
         if (!_destructible.DestroyEntity(ent))
             return new();
 
@@ -68,6 +76,11 @@ public sealed class GibbingSystem : EntitySystem
         _physics.ApplyLinearImpulse(target, scatterVec);
     }
 }
+
+// Shitmed Start
+[ByRefEvent]
+public sealed class BeforeGibbedEvent() : CancellableEntityEventArgs;
+// Shitmed End
 
 /// <summary>
 /// Raised on an entity when it is being gibbed.
