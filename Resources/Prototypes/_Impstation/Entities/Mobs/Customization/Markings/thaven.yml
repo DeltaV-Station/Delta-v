@@ -415,19 +415,6 @@
     state: binder
 
 - type: marking
-  id: UndergarmentTopTanktopT
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [ Thaven ]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/undergarmenttop.rsi
-    state: tanktop
-
-- type: marking
   id: UndershirtBraClassicT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop

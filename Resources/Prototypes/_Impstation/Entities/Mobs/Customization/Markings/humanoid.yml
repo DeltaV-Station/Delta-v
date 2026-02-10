@@ -1,4 +1,3 @@
-# Delta-V - Added Kitsune, Vulpkanin, and Feroxi to species restrictions, removed Dwarf
 # if it's whitelisted for humans, it goes here, regardless of how species-agnostic its meant to be
 
 # Chest
@@ -7,7 +6,7 @@
   id: BodyhairHumanFemale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Kitsune, Vulpkanin ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   sexRestriction: [ Female ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
@@ -17,7 +16,7 @@
   id: BodyhairHumanMale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Kitsune, Vulpkanin ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   sexRestriction: [ Male ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
@@ -27,7 +26,7 @@
   id: BodyhairHumanUnsexed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Kitsune, Vulpkanin ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   sexRestriction: [ Unsexed ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
@@ -37,7 +36,7 @@
   id: ChestBackstabbed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: backstabbed
@@ -46,7 +45,7 @@
   id: ChestCutHere
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -60,7 +59,7 @@
   id: ChestHeavyTattoos
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -78,7 +77,7 @@
   id: ChestNecklace
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -92,7 +91,7 @@
   id: ChestStar
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: star
@@ -101,7 +100,7 @@
   id: ChestTwistingLeft
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: twistingleft
@@ -110,7 +109,7 @@
   id: ChestTwistingRight
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: twistingright
@@ -119,7 +118,7 @@
   id: HumanoidAbs
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
@@ -241,7 +240,7 @@
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: incision
@@ -264,7 +263,7 @@
   id: VitiligoChestF
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -279,7 +278,7 @@
   id: VitiligoChestSpots
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -296,7 +295,7 @@
   id: EyebrowsBig
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: eyebrowsthick
@@ -305,7 +304,7 @@
   id: EyebrowsBigger
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: eyebrowsultra
@@ -314,7 +313,7 @@
   id: EyebrowsUnibrow
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: eyebrowsunibrow
@@ -323,7 +322,7 @@
   id: HeadHeavyTattoos
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -339,7 +338,7 @@
   id: HeadTwisting
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: twisting
@@ -348,7 +347,7 @@
   id: HeadTwistingFlipped
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: twistingflipped
@@ -357,7 +356,7 @@
   id: HumanoidEyebags
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Reptilian, SlimePerson ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: eyebags
@@ -366,7 +365,7 @@
   id: SmileScars
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: smile
@@ -375,7 +374,7 @@
   id: VitiligoHeadJaw
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -390,7 +389,7 @@
   id: VitiligoHeadL
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -405,7 +404,7 @@
   id: VitiligoHeadR
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -422,7 +421,7 @@
   id: HeadSeptum
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -440,7 +439,7 @@
   id: ArmDollJointsTattooRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -454,7 +453,7 @@
   id: ArmHeavyTattoosRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -470,7 +469,7 @@
   id: ArmProstheticRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -484,7 +483,7 @@
   id: ArmTwistingRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: twisting
@@ -541,7 +540,7 @@
   id: VitiligoArmR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -558,7 +557,7 @@
   id: ArmDollJointsTattooLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -572,7 +571,7 @@
   id: ArmHeavyTattoosLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -588,7 +587,7 @@
   id: ArmProstheticLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -602,7 +601,7 @@
   id: ArmTwistingLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: twisting
@@ -627,7 +626,7 @@
   id: VitiligoArmL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -644,7 +643,7 @@
   id: LegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -658,7 +657,7 @@
   id: LegHeavyTattoosRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -674,7 +673,7 @@
   id: LegProstheticRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -688,7 +687,7 @@
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V removed dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: twisting
@@ -697,7 +696,7 @@
   id: VitiligoLegR
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V removed dwarf
   forcedColoring: true
   coloring:
     default:
@@ -714,7 +713,7 @@
   id: LegDollJointsTattooLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -728,7 +727,7 @@
   id: LegHeavyTattoosLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -744,7 +743,7 @@
   id: LegProstheticLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven ] # Delta-V removed dwarf
   coloring:
     default:
       type:
@@ -758,7 +757,7 @@
   id: LegTwistingLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V - removed Dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: twisting
@@ -767,7 +766,7 @@
   id: VitiligoLegL
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V - removed Dwarf
   forcedColoring: true
   coloring:
     default:
@@ -784,7 +783,7 @@
   id: UnderwearLowriders
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  speciesRestriction: [ Human, Arachnid, Diona, Moth, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Diona, Moth, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -798,7 +797,7 @@
   id: UnderwearTanga
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  speciesRestriction: [ Human, Arachnid, Diona, Moth, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Diona, Moth, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -814,7 +813,7 @@
   id: UndergarmentTopBinderF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -828,7 +827,7 @@
   id: UndergarmentTopBinderU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -842,7 +841,7 @@
   id: UndergarmentTopTanktopF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -856,7 +855,7 @@
   id: UndergarmentTopTanktopU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -870,7 +869,7 @@
   id: UndershirtBraSportsF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -885,7 +884,7 @@
   id: UndershirtBraSportsU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -900,7 +899,7 @@
   id: UndershirtBraStrapless
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Male ]
   coloring:
     default:
@@ -915,7 +914,7 @@
   id: UndershirtBraStraplessF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -930,7 +929,7 @@
   id: UndershirtBraStraplessU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -945,7 +944,7 @@
   id: UndershirtDefault
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Male ]
   coloring:
     default:
@@ -960,7 +959,7 @@
   id: UndershirtDefaultF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -975,7 +974,7 @@
   id: UndershirtDefaultU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -990,7 +989,7 @@
   id: UndershirtGrossSleeveless
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Male ]
   coloring:
     default:
@@ -1005,7 +1004,7 @@
   id: UndershirtGrossSleevelessF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -1020,7 +1019,7 @@
   id: UndershirtGrossSleevelessU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -1035,7 +1034,7 @@
   id: UndershirtNanotrasen
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson] # Delta-V - removed Dwarf
   sexRestriction: [ Male ]
   coloring:
     default:
@@ -1050,7 +1049,7 @@
   id: UndershirtNanotrasenF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V removed dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -1065,7 +1064,7 @@
   id: UndershirtNanotrasenU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V removed dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -1080,7 +1079,7 @@
   id: UndershirtRolled
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Male ]
   coloring:
     default:
@@ -1095,7 +1094,7 @@
   id: UndershirtRolledF
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -1110,7 +1109,7 @@
   id: UndershirtRolledU
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Diona, Moth, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   sexRestriction: [ Unsexed ]
   coloring:
     default:
@@ -1127,7 +1126,7 @@
   id: FootDollJointsTattooLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1141,7 +1140,7 @@
   id: FootHeavyTattoosLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1157,7 +1156,7 @@
   id: FootProstheticLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven ] # Delta-V -  removed Dwarf
   coloring:
     default:
       type:
@@ -1173,7 +1172,7 @@
   id: FootDollJointsTattooRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1187,7 +1186,7 @@
   id: FootHeavyTattoosRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1203,7 +1202,7 @@
   id: FootProstheticRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, SlimePerson, Thaven ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1219,7 +1218,7 @@
   id: HandBraceletLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1233,7 +1232,7 @@
   id: HandDollJointsTattooLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1247,7 +1246,7 @@
   id: HandHeavyTattoosLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1263,7 +1262,7 @@
   id: HandProstheticLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V -  removed Dwarf
   coloring:
     default:
       type:
@@ -1277,7 +1276,7 @@
   id: HandRingsLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1293,7 +1292,7 @@
   id: HandTwistingLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V - removed Dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: twisting
@@ -1302,7 +1301,7 @@
   id: VitiligoHandL
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V - removed Dwarf
   forcedColoring: true
   coloring:
     default:
@@ -1319,7 +1318,7 @@
   id: HandBraceletRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1333,7 +1332,7 @@
   id: HandDollJointsTattooRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1347,7 +1346,7 @@
   id: HandHeavyTattoosRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1363,7 +1362,7 @@
   id: HandProstheticRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V -  removed Dwarf
   coloring:
     default:
       type:
@@ -1377,7 +1376,7 @@
   id: HandRingsRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V -  removed Dwarf
   coloring:
     default:
       type:
@@ -1393,7 +1392,7 @@
   id: HandTwistingRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ] # Delta-V -  removed Dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: twisting
@@ -1402,7 +1401,7 @@
   id: VitiligoHandR
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human ] # Delta-V - removed Dwarf
   forcedColoring: true
   coloring:
     default:
@@ -1572,7 +1571,7 @@
   id: MessyPonytail
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ]  # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ]  # Delta-V - removed Dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
     state: messyponytail
@@ -1581,7 +1580,7 @@
   id: Niqab
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ]  # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ]  # Delta-V - removed Dwarf
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/hair.rsi
     state: niqab
@@ -1610,7 +1609,7 @@
   id: HeadEarrings
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1626,7 +1625,7 @@
   id: HeadEarringsDrop
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:
@@ -1642,7 +1641,7 @@
   id: HeadEarringsWeights
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Human, SlimePerson, Kitsune, Vulpkanin, Feroxi ] # Delta-V - Added DV species and removed Dwarf
+  speciesRestriction: [ Human, SlimePerson ] # Delta-V - removed Dwarf
   coloring:
     default:
       type:

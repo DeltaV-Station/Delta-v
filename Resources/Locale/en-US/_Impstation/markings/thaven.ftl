@@ -125,9 +125,6 @@ marking-UnderwearTangaT-tanga = Underwear
 marking-UndergarmentTopBinderT = Binder
 marking-UndergarmentTopBinderT-binder = Binder
 
-marking-UndergarmentTopTanktopT = Tanktop
-marking-UndergarmentTopTanktopT-tanktop = Tanktop
-
 marking-UndershirtBraClassicT = Bra
 marking-UndershirtBraClassicT-classic = Bra
 
