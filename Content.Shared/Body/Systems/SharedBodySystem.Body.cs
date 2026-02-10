@@ -59,6 +59,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
 
         SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBeingGibbed);
+        SubscribeLocalEvent<BodyPartComponent, BeforeGibbedEvent>(OnPartBeforeGibbed); // Shitmed Change
         SubscribeLocalEvent<BodyPartComponent, BeingGibbedEvent>(OnPartBeingGibbed); // Shitmed Change
     }
 
@@ -327,6 +328,17 @@ public partial class SharedBodySystem
     }
 
     // Shitmed Change Start
+    private void OnPartBeforeGibbed(Entity<BodyPartComponent> part, ref BeforeGibbedEvent args)
+    {
+        // Double check this is a root part, if it is then we can't gib it directly so cancel the whole
+        // gib event.
+        if (part.Comp.Body is { } bodyEnt)
+        {
+            if (IsPartRoot(bodyEnt, part, part: part) || !part.Comp.CanSever)
+                args.Cancel();
+        }
+    }
+
     private void OnPartBeingGibbed(Entity<BodyPartComponent> part, ref BeingGibbedEvent args)
     {
         if (part.Comp.Body is { } bodyEnt)
