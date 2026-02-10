@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/10/2026 04:16:41
+  time: 02/10/2026 08:34:16
   entityCount: 16973
 maps:
 - 1
@@ -1265,10 +1265,8 @@ entities:
             color: '#FFFFFFFF'
             id: Bushn1
           decals:
-            67: -25.456413,-20.206316
             362: 1.6279085,-2.063757
             542: 43,-22
-            1141: -30.513037,-20.209612
         - node:
             angle: 1.5707963267948966 rad
             color: '#FFFFFFFF'
@@ -1695,10 +1693,12 @@ entities:
             color: '#FFFFFFFF'
             id: Flowersy1
           decals:
-            65: -25.831413,-20.112501
             343: 8.925723,-2.1344383
-            1138: -31.075537,-20.131487
             1348: -13,-10
+            1815: -31,-20
+            1816: -30,-20
+            1817: -26,-20
+            1818: -25,-20
         - node:
             color: '#FFFFFFFF'
             id: Flowersy2
@@ -1714,17 +1714,14 @@ entities:
             131: 11,-4
             132: 11,-5
             342: 9.847598,-2.1188037
-            1140: -30.497412,-20.162737
         - node:
             color: '#FFFFFFFF'
             id: Flowersy4
           decals:
-            66: -25.081413,-20.091654
             126: 11,-14
             127: 11,-17
             341: 7.972598,-2.0875309
             546: 48,-22
-            1139: -30.013037,-20.162737
         - node:
             color: '#334E6DC8'
             id: FullTileOverlayGreyscale
@@ -2664,11 +2661,12 @@ entities:
             1303: 54,-32
             1304: 55,-33
             1747: -49,-12
+            1806: -25,-14
+            1811: -30,-20
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerNw
           decals:
-            58: -26,-20
             170: -33,-24
             207: -21,-2
             257: -54,12
@@ -2676,6 +2674,8 @@ entities:
             956: -7,5
             1302: 50,-32
             1748: -52,-12
+            1805: -31,-14
+            1812: -26,-20
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerSe
@@ -2687,6 +2687,7 @@ entities:
             1487: 19,-31
             1745: -49,-15
             1769: -49,-15
+            1807: -25,-15
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerSw
@@ -2698,6 +2699,7 @@ entities:
             1308: 49,-36
             1486: 17,-31
             1746: -52,-15
+            1808: -31,-15
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinEndE
@@ -2800,7 +2802,6 @@ entities:
           decals:
             42: -14,-28
             43: -9,-28
-            64: -25,-20
             112: 18,5
             113: 17,5
             114: 16,5
@@ -2846,6 +2847,15 @@ entities:
             1750: -50,-12
             1759: -51,-15
             1760: -50,-15
+            1792: -28,-16
+            1793: -27,-16
+            1800: -30,-14
+            1801: -29,-14
+            1802: -28,-14
+            1803: -27,-14
+            1804: -26,-14
+            1813: -31,-20
+            1814: -25,-20
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineS
@@ -2885,6 +2895,11 @@ entities:
             1754: -50,-15
             1755: -51,-12
             1756: -50,-12
+            1795: -30,-15
+            1796: -29,-15
+            1797: -28,-15
+            1798: -27,-15
+            1799: -26,-15
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineW
@@ -3557,13 +3572,13 @@ entities:
             2: 3
           -10,-10:
             0: 63232
-            6: 14
+            4: 14
           -10,-12:
             1: 14
             3: 3584
           -10,-11:
-            4: 14
-            5: 3584
+            5: 14
+            6: 3584
           -10,-13:
             1: 61166
           -9,-13:
@@ -4506,15 +4521,15 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+            Nitrogen: 6666.982
+        - volume: 2500
+          temperature: 293.15
+          moles:
             Plasma: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
             Oxygen: 6666.982
-        - volume: 2500
-          temperature: 293.15
-          moles:
-            Nitrogen: 6666.982
         chunkSize: 4
     - type: OccluderTree
     - type: Shuttle
@@ -8397,6 +8412,14 @@ entities:
     components:
     - type: Transform
       pos: -27.5,-13.5
+      parent: 2
+- proto: AlwaysPoweredLightLED
+  entities:
+  - uid: 10882
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-68.5
       parent: 2
 - proto: AlwaysPoweredWallLight
   entities:
@@ -36520,6 +36543,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 22.374012,18.787458
       parent: 2
+  - uid: 6226
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -30.444614,-13.465971
+      parent: 2
   - uid: 9082
     components:
     - type: Transform
@@ -38538,12 +38567,6 @@ entities:
     - type: Transform
       pos: -17.5,-37.5
       parent: 2
-  - uid: 15760
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -30.5,-13.5
-      parent: 2
 - proto: CommandmentCircuitBoard
   entities:
   - uid: 14961
@@ -38891,6 +38914,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -42.5,-18.5
+      parent: 2
+- proto: ComputerSalvageJobBoard
+  entities:
+  - uid: 10926
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -34.5,-68.5
       parent: 2
 - proto: ComputerShipyard
   entities:
@@ -77589,6 +77620,12 @@ entities:
     - type: Transform
       pos: 38.44724,-45.524754
       parent: 2
+  - uid: 16189
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.475073,-16.983068
+      parent: 2
 - proto: MaterialCloth
   entities:
   - uid: 10176
@@ -78491,6 +78528,16 @@ entities:
     components:
     - type: Transform
       pos: -4.5,6.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: PaintingTheSonOfMan
+  entities:
+  - uid: 10883
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-13.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -82158,12 +82205,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -38.5,-68.5
       parent: 2
-  - uid: 6226
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -33.5,-68.5
-      parent: 2
   - uid: 10706
     components:
     - type: Transform
@@ -82577,6 +82618,11 @@ entities:
     components:
     - type: Transform
       pos: 44.5,-18.5
+      parent: 2
+  - uid: 10928
+    components:
+    - type: Transform
+      pos: -38.5,-66.5
       parent: 2
   - uid: 11142
     components:
@@ -83092,18 +83138,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,-14.5
       parent: 2
-  - uid: 10882
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -30.5,-19.5
-      parent: 2
-  - uid: 10883
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -24.5,-19.5
-      parent: 2
   - uid: 10884
     components:
     - type: Transform
@@ -83357,23 +83391,11 @@ entities:
     - type: Transform
       pos: -6.5,-18.5
       parent: 2
-  - uid: 10926
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -29.5,-19.5
-      parent: 2
   - uid: 10927
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -12.5,-9.5
-      parent: 2
-  - uid: 10928
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -25.5,-19.5
       parent: 2
   - uid: 10929
     components:
@@ -85884,11 +85906,6 @@ entities:
     - type: Transform
       pos: -37.5,-68.5
       parent: 2
-  - uid: 16288
-    components:
-    - type: Transform
-      pos: -34.5,-68.5
-      parent: 2
   - uid: 16529
     components:
     - type: Transform
@@ -88285,8 +88302,6 @@ entities:
     - type: Transform
       pos: 32.5,-6.5
       parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines: []
 - proto: SeedExtractor
   entities:
   - uid: 11568
@@ -88313,8 +88328,13 @@ entities:
     - type: Transform
       pos: -13.5,3.5
       parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines: []
+- proto: SheetBrass10
+  entities:
+  - uid: 15760
+    components:
+    - type: Transform
+      pos: -22.486591,-25.54533
+      parent: 2
 - proto: SheetGlass
   entities:
   - uid: 7967
@@ -98433,8 +98453,6 @@ entities:
     - type: Transform
       pos: -19.5,-16.5
       parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines: []
 - proto: UprightPianoInstrument
   entities:
   - uid: 12748
