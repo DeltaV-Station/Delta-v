@@ -54,8 +54,8 @@ marking-TattooDragon = Tattoo (Dragon)
 marking-TattooDragon-dragontattoo1 = Body
 marking-TattooDragon-dragontattoo2 = Highlights
 
-marking-TattooNanotrasenChest-nanotrasen = Chest Tattoo (Nanotrasen)
-marking-TattooNanotrasenChest = Chest Tattoo (Nanotrasen)
+# marking-TattooNanotrasenChest-nanotrasen = Chest Tattoo (Nanotrasen)
+# marking-TattooNanotrasenChest = Chest Tattoo (Nanotrasen)
 
 marking-ChestStar = Star Scar
 marking-ChestStar-star = Star Scar

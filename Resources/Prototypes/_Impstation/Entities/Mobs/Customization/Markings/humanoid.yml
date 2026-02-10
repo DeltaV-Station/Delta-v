@@ -125,12 +125,10 @@
     state: muscular
 
 - type: marking
-<<<<<<< HEAD
-=======
   id: ProstheticShoulderL
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian ]
+  speciesRestriction: [ Human, Reptilian ]
   coloring:
     default:
       type:
@@ -144,7 +142,7 @@
   id: ProstheticShoulderR
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian ]
+  speciesRestriction: [ Human, Reptilian ]
   coloring:
     default:
       type:
@@ -158,7 +156,7 @@
   id: TattooAnchor
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ]
   coloring:
     default:
       type:
@@ -172,7 +170,7 @@
   id: TattooCode1
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ]
   coloring:
     default:
       type:
@@ -186,7 +184,7 @@
   id: TattooCode2
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ]
   coloring:
     default:
       type:
@@ -200,7 +198,7 @@
   id: TattooCode3
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ]
   coloring:
     default:
       type:
@@ -214,29 +212,28 @@
   id: TattooDragon
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson, Thaven ]
+  speciesRestriction: [ Human, Arachnid, Reptilian, SlimePerson, Thaven ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: dragontattoo1
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: dragontattoo2
 
-- type: marking
-  id: TattooNanotrasenChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
-    state: nanotrasen
+# - type: marking
+#  id: TattooNanotrasenChest
+#  bodyPart: Chest
+#  markingCategory: Chest
+#  speciesRestriction: [ Human, SlimePerson ]
+#  coloring:
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#666666"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
+#    state: nanotrasen
 
 - type: marking
->>>>>>> dc02306e1eb (april markings update)
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest
