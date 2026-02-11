@@ -1,0 +1,137 @@
+# ATMOS UNARY
+- type: construction
+  name: air vent
+  id: GasVentPumpAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventpumpAlt1
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+  
+- type: construction
+  name: air vent
+  id: GasVentPumpAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventpumpAlt2
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+  
+- type: construction
+  name: passive vent
+  id: GasPassiveVentAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: passiveventAlt1
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+
+- type: construction
+  name: passive vent
+  id: GasPassiveVentAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: passiveventAlt2
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+
+- type: construction
+  name: air scrubber
+  id: GasVentScrubberAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventscrubberAlt1
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+
+- type: construction
+  name: air scrubber
+  id: GasVentScrubberAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventscrubberAlt2
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+
+- type: construction
+  name: air injector
+  id: GasOutletInjectorAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: outletinjectorAlt1
+  category: construction-category-atmospherics
+  description: Injects air into the atmosphere.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
+
+- type: construction
+  name: air injector
+  id: GasOutletInjectorAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: outletinjectorAlt2
+  category: construction-category-atmospherics
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2

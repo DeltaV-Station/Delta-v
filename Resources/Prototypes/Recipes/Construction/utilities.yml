@@ -534,10 +534,14 @@
   startNode: start
   targetNode: ventpump
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes: # Funky
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
 
 - type: construction
   id: GasPassiveVent
@@ -545,10 +549,14 @@
   startNode: start
   targetNode: passivevent
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
 
 - type: construction
   id: GasVentScrubber
@@ -556,10 +564,14 @@
   startNode: start
   targetNode: ventscrubber
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
 
 - type: construction
   id: GasOutletInjector
@@ -567,10 +579,14 @@
   startNode: start
   targetNode: outletinjector
   category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
 
 # ATMOS BINARY
 - type: construction
