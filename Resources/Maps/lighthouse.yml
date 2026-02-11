@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/02/2026 18:14:23
-  entityCount: 22451
+  time: 02/11/2026 04:48:20
+  entityCount: 22450
 maps:
 - 1313
 grids:
@@ -4405,6 +4405,7 @@ entities:
             3651: -10,-17
             3652: -9,-17
             3653: -8,-17
+            3918: -8,-6
         - node:
             color: '#E86C5393'
             id: ThickSouthOverlayTrimline
@@ -4546,6 +4547,7 @@ entities:
             3660: -10,-16
             3661: -11,-16
             3662: -8,-15
+            3917: -21,-5
         - node:
             color: '#8D1C9996'
             id: ThinSouthOverlayTrimline
@@ -4565,6 +4567,7 @@ entities:
             3668: -10,-17
             3669: -9,-17
             3670: -8,-17
+            3919: -8,-6
         - node:
             color: '#8D1C9996'
             id: ThinWestOverlayTrimline
@@ -8283,14 +8286,17 @@ entities:
       parent: 100
     - type: DeviceList
       devices:
-      - 5168
-      - 5182
-      - 5184
-      - 5186
-      - 5166
-      - 5228
       - 5227
       - 5226
+      - 5166
+      - 5439
+      - 12684
+      - 5186
+      - 5184
+      - 5182
+      - 5168
+      - 5228
+      - 5100
       - 5397
     - type: Fixtures
       fixtures: {}
@@ -11875,7 +11881,7 @@ entities:
       pos: -38.5,33.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -55746.99
+      secondsUntilStateChange: -58937.57
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12342,7 +12348,7 @@ entities:
       pos: -31.5,9.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -52893.69
+      secondsUntilStateChange: -56084.273
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17373,6 +17379,11 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-2.5
+      parent: 100
+  - uid: 1856
+    components:
+    - type: Transform
+      pos: -10.5,-33.5
       parent: 100
   - uid: 1860
     components:
@@ -26443,11 +26454,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-33.5
-      parent: 100
-  - uid: 14725
-    components:
-    - type: Transform
-      pos: -10.5,-33.5
       parent: 100
   - uid: 14726
     components:
@@ -57866,6 +57872,8 @@ entities:
     - type: Transform
       pos: -20.5,-4.5
       parent: 100
+    - type: FaxMachine
+      name: Epistemics Desk
   - uid: 10304
     components:
     - type: Transform
@@ -57920,6 +57928,8 @@ entities:
     - type: Transform
       pos: -15.5,-23.5
       parent: 100
+    - type: FaxMachine
+      name: Engineering Desk
 - proto: FaxMachineCaptain
   entities:
   - uid: 7561
@@ -59637,6 +59647,11 @@ entities:
     - type: Transform
       pos: -25.5,-21.5
       parent: 100
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 17141
   - uid: 5178
     components:
     - type: Transform
@@ -59749,6 +59764,8 @@ entities:
       pos: -13.5,-29.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17152
       - 17147
@@ -59758,6 +59775,8 @@ entities:
       pos: -12.5,-29.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17152
       - 17147
@@ -60063,8 +60082,12 @@ entities:
       pos: -18.5,-23.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
+      - invalid
       deviceLists:
       - 17147
+      - 17141
   - uid: 5976
     components:
     - type: Transform
@@ -60109,8 +60132,12 @@ entities:
       pos: -18.5,-24.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
+      - invalid
       deviceLists:
       - 17147
+      - 17141
   - uid: 17294
     components:
     - type: Transform
@@ -60629,8 +60656,11 @@ entities:
       pos: -27.5,-26.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17134
+      - 17141
   - uid: 5177
     components:
     - type: Transform
@@ -60652,24 +60682,34 @@ entities:
       pos: -26.5,-26.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17134
+      - 17141
   - uid: 5184
     components:
     - type: Transform
       pos: -25.5,-26.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17134
+      - 17141
   - uid: 5186
     components:
     - type: Transform
       pos: -18.5,-25.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
+      - invalid
       deviceLists:
       - 17147
+      - 17141
   - uid: 5194
     components:
     - type: Transform
@@ -60739,16 +60779,31 @@ entities:
     - type: Transform
       pos: -24.5,-17.5
       parent: 100
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 17141
   - uid: 5227
     components:
     - type: Transform
       pos: -23.5,-17.5
       parent: 100
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 17141
   - uid: 5228
     components:
     - type: Transform
       pos: -22.5,-17.5
       parent: 100
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 17141
   - uid: 5232
     components:
     - type: Transform
@@ -84988,6 +85043,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -31.5,-30.5
       parent: 100
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 14416
     components:
     - type: Transform
@@ -87437,6 +87494,8 @@ entities:
       pos: -13.5,-26.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
     - type: AtmosPipeColor
@@ -88220,6 +88279,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -23.5,-19.5
       parent: 100
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 17141
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 5256
@@ -88238,6 +88302,11 @@ entities:
     - type: Transform
       pos: -22.5,-24.5
       parent: 100
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 17141
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 5414
@@ -89429,6 +89498,8 @@ entities:
       pos: -13.5,-24.5
       parent: 100
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 17147
     - type: AtmosPipeColor
@@ -89978,6 +90049,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -32.5,-30.5
       parent: 100
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
     - type: DeviceNetwork
       deviceLists:
       - 17134
@@ -105215,11 +105288,6 @@ entities:
     - type: Transform
       pos: -43.5,46.5
       parent: 100
-  - uid: 1856
-    components:
-    - type: Transform
-      pos: -7.5,-5.5
-      parent: 100
   - uid: 1939
     components:
     - type: Transform
@@ -118866,6 +118934,8 @@ entities:
       parent: 100
   - uid: 14368
     components:
+    - type: MetaData
+      name: Epistemics
     - type: Transform
       pos: -7.5,-18.5
       parent: 100
@@ -143113,7 +143183,7 @@ entities:
       pos: 6.5,-10.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -17147.188
+      secondsUntilStateChange: -20337.771
       state: Opening
   - uid: 226
     components:
