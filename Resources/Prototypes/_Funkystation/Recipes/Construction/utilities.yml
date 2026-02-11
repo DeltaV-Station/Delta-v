@@ -1,6 +1,5 @@
 # ATMOS UNARY
 - type: construction
-  name: air vent
   id: GasVentPumpAlt1
   hide: true
   graph: GasUnary
@@ -17,7 +16,6 @@
   - GasVentPumpAlt2
   
 - type: construction
-  name: air vent
   id: GasVentPumpAlt2
   hide: true
   graph: GasUnary
@@ -34,7 +32,6 @@
   - GasVentPumpAlt2
   
 - type: construction
-  name: passive vent
   id: GasPassiveVentAlt1
   hide: true
   graph: GasUnary
@@ -51,7 +48,6 @@
   - GasPassiveVentAlt2
 
 - type: construction
-  name: passive vent
   id: GasPassiveVentAlt2
   hide: true
   graph: GasUnary
@@ -68,7 +64,6 @@
   - GasPassiveVentAlt2
 
 - type: construction
-  name: air scrubber
   id: GasVentScrubberAlt1
   hide: true
   graph: GasUnary
@@ -85,7 +80,6 @@
   - GasVentScrubberAlt2
 
 - type: construction
-  name: air scrubber
   id: GasVentScrubberAlt2
   hide: true
   graph: GasUnary
@@ -102,7 +96,6 @@
   - GasVentScrubberAlt2
 
 - type: construction
-  name: air injector
   id: GasOutletInjectorAlt1
   hide: true
   graph: GasUnary
@@ -120,7 +113,6 @@
   - GasOutletInjectorAlt2
 
 - type: construction
-  name: air injector
   id: GasOutletInjectorAlt2
   hide: true
   graph: GasUnary
