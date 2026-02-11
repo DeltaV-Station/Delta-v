@@ -1,0 +1,113 @@
+- type: entity
+  name: footprint
+  id: Footprint
+  save: false
+  description: Trace of liquid
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Transform
+    noRot: false
+    anchored: true
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _EE/Effects/footprints.rsi
+  - type: Physics
+    bodyType: Static
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: SolutionContainerManager
+  - type: Footprint
+  - type: Puddle
+    affectsMovement: false
+  - type: ExaminableSolution
+    solution: puddle
+  - type: MixableSolution
+    solution: puddle
+  - type: DrawableSolution
+    solution: puddle
+  - type: BadDrink
+  - type: IgnoresFingerprints
+  - type: Tag
+    tags:
+    - DNASolutionScannable
+
+- type: footprint
+  id: baseFootprint
+  maxVolume: 1
+  minVolume: 0.5
+  maxStoredVolume: 10
+  distance: 0.5
+  localRotation: true
+  prints: !type:SequentialFootprint
+    layers:
+      - state: footprint-shoes
+        offset: &left 0.0625
+      - state: footprint-shoes
+        offset: &right -0.0625
+
+- type: footprint
+  id: baseBodyprint
+  maxVolume: 5
+  minVolume: 2
+  maxStoredVolume: 20
+  distance: 1
+  localRotation: false
+  prints: !type:RandomFootprint
+    layers:
+    - state: dragging-1
+    - state: dragging-2
+    - state: dragging-3
+    - state: dragging-4
+    - state: dragging-5
+
+- type: footprint
+  id: lizardFootprint
+  parent: [baseFootprint]
+  prints: !type:SequentialFootprint
+    layers:
+    - state: footprint-left-bare-lizard
+      offset: *left
+    - state: footprint-right-bare-lizard
+      offset: *right
+
+- type: footprint
+  id: dionaFootprint
+  parent: [baseFootprint]
+  prints: !type:SequentialFootprint
+    layers:
+    - state: footprint-left-bare-diona
+      offset: *left
+    - state: footprint-right-bare-diona
+      offset: *right
+
+- type: footprint
+  id: slimeFootprint
+  parent: [baseFootprint]
+  prints: !type:SequentialFootprint
+    layers:
+    - state: footprint-left-bare-slime
+      offset: *left
+    - state: footprint-right-bare-slime
+      offset: *right
+
+- type: footprint
+  id: humanFootprint
+  parent: [baseFootprint]
+  prints: !type:SequentialFootprint
+    layers:
+    - state: footprint-left-bare-human
+      offset: *left
+    - state: footprint-right-bare-human
+      offset: *right

@@ -53,7 +53,10 @@ public abstract partial class SharedPuddleSystem
             // that to all of them.
             var evaporationSpeeds = GetEvaporationSpeeds(puddleSolution);
             if (evaporationSpeeds.Count == 0)
+            {
+                RemComp(uid, evaporation); // starcup: remove component from puddles that aren't evaporating
                 continue;
+            }
 
             // Can't use .Average because FixedPoint2
             var evaporationSpeed = evaporationSpeeds.Values.Sum() / evaporationSpeeds.Count;

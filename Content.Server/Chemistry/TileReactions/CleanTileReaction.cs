@@ -7,6 +7,7 @@ using Content.Shared.Fluids.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Linq;
+using Content.Shared._starcup.Footprints;
 
 namespace Content.Server.Chemistry.TileReactions;
 
@@ -57,6 +58,10 @@ public sealed partial class CleanTileReaction : ITileReaction
 
             solutionContainerSystem.TryAddSolution(puddleSolution.Value, new Solution(ReplacementReagent, purgeable.Volume));
 
+            // begin starcup
+            if (entityManager.HasComponent<FootprintComponent>(entity))
+                entityManager.EventBus.RaiseLocalEvent(entity, new FootprintCleanEvent());
+            // end starcup
             if (purgeable.Volume <= FixedPoint2.Zero)
                 break;
         }
