@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._ES.Camera;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -15,6 +16,9 @@ namespace Content.Server.Damage.Systems;
 
 public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
 {
+    // ES START
+    [Dependency] private readonly ESScreenshakeSystem _shake = default!;
+    // ES END
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageable = default!;
@@ -48,7 +52,12 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
         if (TryComp<PhysicsComponent>(uid, out var body) && body.LinearVelocity.LengthSquared() > 0f)
         {
             var direction = body.LinearVelocity.Normalized();
-            _sharedCameraRecoil.KickCamera(args.Target, direction);
+            // ES START
+            // lower recoil + shake
+            _sharedCameraRecoil.KickCamera(args.Target, direction * 0.1f);
+            var otherHitShake = new ESScreenshakeParameters() { Trauma = 0.35f, DecayRate = 1.4f, Frequency = 0.014f };
+            _shake.Screenshake(args.Target, otherHitShake, null);
+            // ES END
         }
     }
 }
