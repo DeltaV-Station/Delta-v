@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/11/2026 06:12:28
-  entityCount: 13123
+  time: 02/11/2026 07:03:28
+  entityCount: 13125
 maps:
 - 7928
 grids:
@@ -6646,14 +6646,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13060
-  - uid: 2046
-    components:
-    - type: Transform
-      pos: 29.5,18.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 2045
   - uid: 3196
     components:
     - type: Transform
@@ -6704,6 +6696,16 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2370
+- proto: AirSensorUnset
+  entities:
+  - uid: 2046
+    components:
+    - type: Transform
+      pos: 28.5,19.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 2045
 - proto: AltarSpawner
   entities:
   - uid: 1563
@@ -57303,6 +57305,14 @@ entities:
     - type: Transform
       pos: -37.344334,4.4174924
       parent: 2
+- proto: MailCart
+  entities:
+  - uid: 13125
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,17.5
+      parent: 2
 - proto: MailTeleporter
   entities:
   - uid: 291
@@ -63454,12 +63464,10 @@ entities:
     - type: Transform
       pos: 70.5,4.5
       parent: 2
-- proto: RandomSolarPanelStateLow
-  entities:
   - uid: 13120
     components:
     - type: Transform
-      pos: -56.5,20.5
+      pos: -56.5,18.5
       parent: 2
   - uid: 13121
     components:
@@ -63469,7 +63477,7 @@ entities:
   - uid: 13122
     components:
     - type: Transform
-      pos: -56.5,18.5
+      pos: -56.5,20.5
       parent: 2
 - proto: RandomSpawner
   entities:
@@ -70541,6 +70549,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,11.5
       parent: 2
+  - uid: 13124
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,33.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
+      nameSet: True
+      id: Docking Area
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
   - uid: 4071
