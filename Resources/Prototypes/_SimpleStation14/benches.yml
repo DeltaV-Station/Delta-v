@@ -20,14 +20,18 @@
   name: park bench
   id: BenchParkMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_wooden.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/parkbench_wooden.rsi
 
 - type: entity
   id: BenchParkLeft
   suffix: Left
   parent: BenchParkMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -36,6 +40,8 @@
   id: BenchParkRight
   suffix: Right
   parent: BenchParkMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -45,14 +51,18 @@
   name: park bench
   id: BenchParkBambooMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/parkbench_bamboo.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/parkbench_bamboo.rsi
 
 - type: entity
   id: BenchParkBambooLeft
   suffix: Left
   parent: BenchParkBambooMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -61,6 +71,8 @@
   id: BenchParkBambooRight
   suffix: Right
   parent: BenchParkBambooMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -70,14 +82,18 @@
   name: pew
   id: BenchPewMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/pews.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/pews.rsi
 
 - type: entity
   id: BenchPewLeft
   suffix: Left
   parent: BenchPewMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -86,6 +102,8 @@
   id: BenchPewRight
   suffix: Right
   parent: BenchPewMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -95,14 +113,18 @@
   name: steel bench
   id: BenchSteelMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/steel_bench.rsi
 
 - type: entity
   id: BenchSteelLeft
   suffix: Left
   parent: BenchSteelMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -111,6 +133,8 @@
   id: BenchSteelRight
   suffix: Right
   parent: BenchSteelMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -120,14 +144,18 @@
   name: white steel bench
   id: BenchSteelWhiteMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/steel_bench_white.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/steel_bench_white.rsi
 
 - type: entity
   id: BenchSteelWhiteLeft
   suffix: Left
   parent: BenchSteelWhiteMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -136,6 +164,8 @@
   id: BenchSteelWhiteRight
   suffix: Right
   parent: BenchSteelWhiteMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -145,14 +175,18 @@
   name: sofa
   id: BenchSofaMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/sofa.rsi
 
 - type: entity
   id: BenchSofaLeft
   suffix: Left
   parent: BenchSofaMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -161,6 +195,8 @@
   id: BenchSofaRight
   suffix: Right
   parent: BenchSofaMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -177,7 +213,7 @@
     anchored: true
   - type: Rotatable
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/sofa.rsi
     state: corner
   - type: Clickable
   - type: InteractionOutline
@@ -202,14 +238,18 @@
   name: grey sofa
   id: BenchSofaCorpMiddle
   parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
 
 - type: entity
   id: BenchSofaCorpLeft
   suffix: Left
   parent: BenchSofaCorpMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: left
@@ -218,6 +258,8 @@
   id: BenchSofaCorpRight
   suffix: Right
   parent: BenchSofaCorpMiddle
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     state: right
@@ -234,7 +276,7 @@
     anchored: true
   - type: Rotatable
   - type: Sprite
-    sprite: SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
+    sprite: _SimpleStation14/Structures/Furniture/Benches/sofa_corp.rsi
     state: corner
   - type: Clickable
   - type: InteractionOutline
