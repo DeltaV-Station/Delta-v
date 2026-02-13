@@ -4,6 +4,7 @@ using Content.Shared.Charges.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
+using Content.Shared.Zombies;
 
 namespace Content.Shared._DV.Abilities.Kitsune;
 
@@ -23,6 +24,8 @@ public abstract class SharedKitsuneSystem : EntitySystem
         SubscribeLocalEvent<FoxfireComponent, ComponentShutdown>(OnFoxfireShutdown);
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KitsuneComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
+
+        SubscribeLocalEvent<ZombieComponent, ComponentInit>(OnZombieStartup);
     }
 
     private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref AppearanceLoadedEvent args)
@@ -56,6 +59,20 @@ public abstract class SharedKitsuneSystem : EntitySystem
         if (!HasComp<KitsuneFoxComponent>(ent))
             _actions.AddAction(ent, ref ent.Comp.KitsuneActionEntity, ent.Comp.KitsuneAction);
         ent.Comp.FoxfireAction = _actions.AddAction(ent, ent.Comp.FoxfireActionId);
+    }
+
+    /// <summary>
+    /// Handles when a Kitsune becomes a zombie, removing their abilities.
+    /// </summary>
+    /// <param name="ent">The Zombie that has just spawned.</param>
+    /// <param name="args">Args for the event.</param>
+    private void OnZombieStartup(Entity<ZombieComponent> ent, ref ComponentInit args)
+    {
+        if (!TryComp<KitsuneComponent>(ent, out var kitsune))
+            return; // Not a Kitsune, nothing to do.
+
+        _actions.RemoveAction(kitsune.KitsuneActionEntity);
+        _actions.RemoveAction(kitsune.FoxfireAction);
     }
 
     private void OnCreateFoxfire(Entity<KitsuneComponent> ent, ref CreateFoxfireActionEvent args)
