@@ -21,3 +21,12 @@
   ignoreActionBlocker: true
   force: true
   hiddenFromChatWindow: true
+#Delta-V
+# Persistent Cough
+- type: autoEmote
+  id: BadCough
+  emote: Cough
+  interval: 10.0
+  chance: 0.08
+  withChat: true
+  hiddenFromChatWindow: true
