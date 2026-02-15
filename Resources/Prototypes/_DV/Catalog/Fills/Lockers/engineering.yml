@@ -16,7 +16,7 @@
           tableId: FillLockerEngineer
 
 - type: entity
-  id: LockerEngineerFilledOnlyHardsuit # Probably need a better ID than the existing LockerEngineerFilledHardsuit.
+  id: LockerEngineerFilledOnlyHardsuit # Probably need a better ID than the existing LockerEngineerFilledHardsuit. Leaving up to mappers.
   suffix: Filled, Hardsuit
   parent: LockerEngineerFilled
   components:
