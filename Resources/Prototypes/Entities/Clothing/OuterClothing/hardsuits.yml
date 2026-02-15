@@ -1156,6 +1156,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieCommander ]
   id: ClothingOuterHardsuitERTLeader
+  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT leader's hardsuit
   description: A protective hardsuit worn by the leader of an emergency response team.
   components:
@@ -1168,8 +1169,9 @@
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ] # Delta V - Changed parent (ClothingOuterHardsuitJuggernaut) that was causing issues in debug
   id: ClothingOuterHardsuitERTChaplain
+  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT chaplain's hardsuit
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
   components:
@@ -1184,6 +1186,7 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTEngineer
+  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT engineer's hardsuit
   description: A protective hardsuit worn by the engineers of an emergency response team.
   components:
@@ -1200,6 +1203,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic ]
   id: ClothingOuterHardsuitERTMedical
+  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT medic's hardsuit
   description: A protective hardsuit worn by the medics of an emergency response team.
   components:
@@ -1214,6 +1218,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTSecurity
+  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT security's hardsuit
   description: A protective hardsuit worn by the security officers of an emergency response team.
   components:
@@ -1233,6 +1238,7 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTJanitor
+  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
   name: ERT janitor's hardsuit
   description: A protective hardsuit worn by the janitors of an emergency response team.
   components:
