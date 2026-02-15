@@ -139,6 +139,7 @@
   effects:
   - !type:AddCompsEffect
     components:
+    - type: BadCough
     - type: AutoEmote
       emotes:
       - BadCough
