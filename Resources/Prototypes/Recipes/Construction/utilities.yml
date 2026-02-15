@@ -553,7 +553,7 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  alternativePrototypes:
+  alternativePrototypes: # Funky
   - GasPassiveVent
   - GasPassiveVentAlt1
   - GasPassiveVentAlt2
@@ -568,7 +568,7 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  alternativePrototypes:
+  alternativePrototypes: # Funky
   - GasVentScrubber
   - GasVentScrubberAlt1
   - GasVentScrubberAlt2
@@ -583,7 +583,7 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  alternativePrototypes:
+  alternativePrototypes: # Funky
   - GasOutletInjector
   - GasOutletInjectorAlt1
   - GasOutletInjectorAlt2
