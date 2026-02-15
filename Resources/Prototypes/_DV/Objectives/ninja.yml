@@ -24,10 +24,7 @@
       whitelist:
         components:
         - CommandStaff
-    - !type:TargetObjectiveMindFilter
-      blacklist:
-        components:
-        - TargetObjectiveImmune
+    - !type:ObjectiveImmuneFilter
 
 - type: entity
   parent: BaseNinjaTeachLessonObjective
@@ -52,10 +49,7 @@
       whitelist:
         components:
         - CommandStaff
-    - !type:TargetObjectiveMindFilter
-      blacklist:
-        components:
-        - TargetObjectiveImmune
+    - !type:ObjectiveImmuneFilter
 
   - type: KillPersonCondition
     requireDead: true
