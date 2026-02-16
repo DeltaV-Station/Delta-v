@@ -35,7 +35,7 @@
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
           #deltav changes
-          state: crowbar
+          state: base
         useSound:
           path: /Audio/Items/crowbar.ogg
       - behavior: Anchoring
@@ -43,7 +43,7 @@
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
           state: wrench
         useSound:
-          path: /Audio/Items/wrench.ogg
+          path: /Audio/Items/ratchet.ogg
           #deltav changes end
 
 - type: entity
