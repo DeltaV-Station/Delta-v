@@ -34,9 +34,17 @@
       - behavior: Prying
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          state: wrench
+          #deltav changes
+          state: crowbar
         useSound:
           path: /Audio/Items/crowbar.ogg
+      - behavior: Anchoring
+        sprite:
+          sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
+          state: wrench
+        useSound:
+          path: /Audio/Items/wrench.ogg
+          #deltav changes end
 
 - type: entity
   name: makeshift crowbar-wrench-screwdriver
