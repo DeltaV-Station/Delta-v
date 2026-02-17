@@ -65,7 +65,7 @@
       params:
         volume: -4
   - type: PowerCellDraw
-    drawRate: 12
+    drawRate: 24 # DeltaV was 12
     useRate: 0
   - type: ToggleCellDraw
   - type: PowerCellSlot
