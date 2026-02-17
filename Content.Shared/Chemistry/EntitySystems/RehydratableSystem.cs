@@ -6,7 +6,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
-using Content.Shared.Kitchen.Components;
+using Content.Shared.Kitchen; // DeltaV - Improve animal cube interactions (31668 - Upstream)
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -24,8 +24,10 @@ public sealed class RehydratableSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RehydratableComponent, SolutionContainerChangedEvent>(OnSolutionChange);
+        // Begin DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
         SubscribeLocalEvent<RehydratableComponent, ExaminedEvent>(OnExamine);
-		SubscribeLocalEvent<RehydratableComponent, BeingMicrowavedEvent>(OnMicrowaved);
+        SubscribeLocalEvent<RehydratableComponent, BeingMicrowavedEvent>(OnMicrowaved);
+        // End DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
     }
 
     private void OnSolutionChange(Entity<RehydratableComponent> ent, ref SolutionContainerChangedEvent args)
@@ -38,11 +40,12 @@ public sealed class RehydratableSystem : EntitySystem
         }
     }
 
-	private void OnMicrowaved(EntityUid uid, RehydratableComponent component, BeingMicrowavedEvent args)
+    // Begin DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
+    private void OnMicrowaved(EntityUid uid, RehydratableComponent component, BeingMicrowavedEvent args)
     {
-		if(args.Time <= 0)
-			return;
-		if (!_solutions.TryGetSolution(uid, component.SolutionName, out _, out var solution))
+        if (args.Time <= 0)
+            return;
+        if (!_solutions.TryGetSolution(uid, component.SolutionName, out _, out var solution))
             return;
         solution.RemoveAllSolution();
     }
@@ -57,6 +60,7 @@ public sealed class RehydratableSystem : EntitySystem
             args.PushMarkup(Loc.GetString("rehydratable-component-soaked-message"));
         }
     }
+    // End DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
 
     // Try not to make this public if you can help it.
     private void Expand(Entity<RehydratableComponent> ent)

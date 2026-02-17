@@ -172,7 +172,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.QueueRefreshTrackers(ev.PlayerSession);
         // Send timers to client when they join lobby, so the UIs are up-to-date.
         _tracking.QueueSendTimers(ev.PlayerSession);
-        _tracking.QueueSendWhitelist(ev.PlayerSession); // Nyanotrasen - Send whitelist status
+        _tracking.QueueSendWhitelist(ev.PlayerSession); // DeltaV - Send whitelist status
     }
 
     private void OnStationJobsGetCandidates(ref StationJobsGetCandidatesEvent ev)
@@ -258,7 +258,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             _prototypes,
             (HumanoidCharacterProfile?)
             _preferencesManager.GetPreferences(player.UserId).SelectedCharacter,
-            isWhitelisted: isWhitelisted);
+            isWhitelisted: isWhitelisted); // DeltaV
     }
 
     /// <summary>
@@ -278,6 +278,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
+        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
         var requirements = _roles.GetRoleRequirements(antag);
         return JobRequirements.TryRequirementsMet(
             requirements,
@@ -286,7 +287,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             EntityManager,
             _prototypes,
             (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter,
+            isWhitelisted: isWhitelisted); // DeltaV
     }
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)

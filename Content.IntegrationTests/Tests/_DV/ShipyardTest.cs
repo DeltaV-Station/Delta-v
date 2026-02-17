@@ -28,7 +28,9 @@ public sealed class ShipyardTest
             {
                 foreach (var vessel in proto.EnumeratePrototypes<VesselPrototype>())
                 {
-                    var shuttle = shipyard.TryCreateShuttle(vessel.Path);
+                    var shuttleCreated = shipyard.TryCreateShuttle(vessel.Path, out var shuttle);
+
+                    Assert.That(shuttleCreated, Is.True, $"TryCreateShuttle returned false for {vessel.ID}!");
                     Assert.That(shuttle, Is.Not.Null, $"Failed to spawn shuttle {vessel.ID}!");
 
                     var value = pricing.AppraiseGrid(shuttle.Value);
@@ -57,7 +59,9 @@ public sealed class ShipyardTest
             {
                 foreach (var vessel in proto.EnumeratePrototypes<VesselPrototype>())
                 {
-                    var shuttle = shipyard.TryCreateShuttle(vessel.Path);
+                    var shuttleCreated = shipyard.TryCreateShuttle(vessel.Path, out var shuttle);
+
+                    Assert.That(shuttleCreated, Is.True, $"TryCreateShuttle returned false for {vessel.ID}!");
                     Assert.That(shuttle, Is.Not.Null, $"Failed to spawn shuttle {vessel.ID}!");
 
                     var console = FindComponent<ShuttleConsoleComponent>(entities, shuttle.Value);

@@ -13,3 +13,8 @@ ui-options-function-nano-chat-navigate-down-unread = Navigate down to next unrea
 
 ## DeltaV Curator Chat
 ui-options-function-open-c-help = Open curator help
+
+## DeltaV Tips
+ui-options-delta-tips = Tips
+ui-options-delta-disable-tips = Disable tips
+ui-options-delta-reset-tips = Reset all seen tips

@@ -26,7 +26,7 @@ public static class JobRequirements
     {
         var sys = entManager.System<SharedRoleSystem>();
         var requirements = sys.GetRoleRequirements(job);
-        return TryRequirementsMet(requirements, playTimes, out reason, entManager, protoManager, profile, isWhitelisted: isWhitelisted);
+        return TryRequirementsMet(requirements, playTimes, out reason, entManager, protoManager, profile, isWhitelisted: isWhitelisted); // DeltaV
     }
 
     /// <summary>
@@ -43,7 +43,7 @@ public static class JobRequirements
         IEntityManager entManager,
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile,
-        bool isWhitelisted = false)
+        bool isWhitelisted = false) // DeltaV
     {
         reason = null;
         if (requirements == null)
@@ -51,7 +51,7 @@ public static class JobRequirements
 
         foreach (var requirement in requirements)
         {
-            if (!requirement.Check(entManager, protoManager, profile, playTimes, out reason, isWhitelisted))
+            if (!requirement.Check(entManager, protoManager, profile, playTimes, out reason, isWhitelisted)) // DeltaV
                 return false;
         }
 
