@@ -60,7 +60,7 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// The amount of energy drained passively per update.
     /// </summary>
     [DataField]
-    public float PassiveEnergyDrainRate = 0.4f; // Makes tesla take the same amount of time as singulo to despawn
+    public float PassiveEnergyDrainRate = 0.4f; // DeltaV, make the Tesla take as long to fail as the singulo.
 
     /// <summary>
     /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
