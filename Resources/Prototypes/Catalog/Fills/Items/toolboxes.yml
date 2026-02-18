@@ -53,15 +53,15 @@
     - id: Screwdriver
     - id: CrowbarOrange
     - id: Wirecutter
-    - id: CableApcStack10
-    - id: CableMVStack10
+    - id: CableApcStack # Delta V - Changed from CableAPCStack10
+    - id: CableMVStack # Delta V - Changed from CableMVStack10
     - id: trayScanner
       prob: 0.9
     - !type:GroupSelector
       children:
       - id: ClothingHandsGlovesColorYellow
         weight: 0.05
-      - id: CableHVStack10
+      - id: CableHVStack # Delta V - Changed from CableHVStack10
 
 - type: entity
   id: ToolboxArtisticFilled

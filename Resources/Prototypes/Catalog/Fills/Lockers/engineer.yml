@@ -60,26 +60,45 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: FillElectricalSupplies
+        tableId: FillElectricalSuppliesDV # Delta V
 
+# - type: entityTable
+#   id: FillElectricalSupplies
+#   table: !type:AllSelector
+#     children:
+#     - id: ToolboxElectricalFilled
+#       prob: 0.7
+#     - id: FirelockElectronics
+#       prob: 0.05
+#     - id: APCElectronics
+#       prob: 0.1
+#     - !type:GroupSelector
+#       prob: 0.5
+#       children:
+#       - id: CableApcStack
+#         weight: 5
+#       - id: CableMVStack
+#       - id: CableHVStack
+#         weight: 0.5
+
+# Begin Delta V additions
 - type: entityTable
-  id: FillElectricalSupplies
+  id: FillElectricalSuppliesDV
   table: !type:AllSelector
     children:
     - id: ToolboxElectricalFilled
-      prob: 0.7
+      amount: 2
     - id: FirelockElectronics
-      prob: 0.05
+      amount: 2
     - id: APCElectronics
-      prob: 0.1
-    - !type:GroupSelector
-      prob: 0.5
-      children:
-      - id: CableApcStack
-        weight: 5
-      - id: CableMVStack
-      - id: CableHVStack
-        weight: 0.5
+      amount: 2
+    - id: DoorElectronics
+      amount: 2
+    - id: ClothingHandsGlovesColorYellow
+      prob: 0.3
+    - id: Multitool
+      prob: 0.3
+# End Delta V additions
 
 - type: entity
   id: LockerWeldingSuppliesFilled
@@ -95,7 +114,7 @@
           rolls: !type:ConstantNumberSelector
             value: 3
         - !type:NestedSelector
-          tableId: FillWelderSuppliesMask
+          tableId: FillWelderSuppliesMaskDV # Delta V - Garunteed industrial welders with 10% chance of advanced
           rolls: !type:ConstantNumberSelector
             value: 3
 
@@ -111,16 +130,26 @@
     - id: ClothingHeadHatWeldingMaskPainted
       weight: 0.25
 
+# - type: entityTable # Delta V - Use FillWelderSuppliesMaskDV isntead
+#   id: FillWelderSuppliesMask
+#   table: !type:GroupSelector
+#     children:
+#     - id: WelderMini
+#     - id: Welder
+#     - id: WelderIndustrial
+#       weight: 0.25
+#     - id: WelderIndustrialAdvanced
+#       weight: 0.05
+
+# Begin DV addition
 - type: entityTable
-  id: FillWelderSuppliesMask
+  id: FillWelderSuppliesMaskDV
   table: !type:GroupSelector
     children:
-    - id: WelderMini
-    - id: Welder
     - id: WelderIndustrial
-      weight: 0.25
     - id: WelderIndustrialAdvanced
-      weight: 0.05
+      weight: 0.10
+# End DV addition
 
 - type: entity
   id: LockerAtmosphericsFilledHardsuit
@@ -206,7 +235,7 @@
     - id: trayScanner
     - id: RCD
     - id: RCDAmmo
-    - id: MetalFoamGrenade
+    # - id: MetalFoamGrenade # Delta V
     - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
       prob: 0.3
 
