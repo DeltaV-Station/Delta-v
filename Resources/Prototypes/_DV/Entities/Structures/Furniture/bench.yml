@@ -30,7 +30,7 @@
     node: BenchParkMiddle
 
 - type: entity
-  id: BenchParkLeft
+  id: BenchParkLeftDV
   suffix: Left
   parent: BenchParkMiddle
   placement:
@@ -40,10 +40,10 @@
     state: left
   - type: Construction
     graph: Bench
-    node: BenchParkLeft
+    node: BenchParkLeftDV
 
 - type: entity
-  id: BenchParkRight
+  id: BenchParkRightDV
   suffix: Right
   parent: BenchParkMiddle
   placement:
@@ -53,7 +53,7 @@
     state: right
   - type: Construction
     graph: Bench
-    node: BenchParkRight
+    node: BenchParkRightDV
 
 # Bamboo benches
 - type: entity
@@ -70,7 +70,7 @@
     node: BenchParkBambooMiddle
 
 - type: entity
-  id: BenchParkBambooLeft
+  id: BenchParkBambooLeftDV
   suffix: Left
   parent: BenchParkBambooMiddle
   placement:
@@ -80,10 +80,10 @@
     state: left
   - type: Construction
     graph: Bench
-    node: BenchParkBambooLeft
+    node: BenchParkBambooLeftDV
 
 - type: entity
-  id: BenchParkBambooRight
+  id: BenchParkBambooRightDV
   suffix: Right
   parent: BenchParkBambooMiddle
   placement:
@@ -93,7 +93,7 @@
     state: right
   - type: Construction
     graph: Bench
-    node: BenchParkBambooRight
+    node: BenchParkBambooRightDV
 
 # Pews
 - type: entity
@@ -230,7 +230,7 @@
     node: BenchSofaMiddle
 
 - type: entity
-  id: BenchSofaLeft
+  id: BenchSofaLeftDV
   suffix: Left
   parent: BenchSofaMiddle
   placement:
@@ -240,10 +240,10 @@
     state: left
   - type: Construction
     graph: Bench
-    node: BenchSofaLeft
+    node: BenchSofaLeftDV
 
 - type: entity
-  id: BenchSofaRight
+  id: BenchSofaRightDV
   suffix: Right
   parent: BenchSofaMiddle
   placement:
@@ -253,7 +253,7 @@
     state: right
   - type: Construction
     graph: Bench
-    node: BenchSofaRight
+    node: BenchSofaRightDV
 
 - type: entity
   name: sofa
@@ -305,7 +305,7 @@
     node: BenchSofaCorpMiddle
 
 - type: entity
-  id: BenchSofaCorpLeft
+  id: BenchSofaCorpLeftDV
   suffix: Left
   parent: BenchSofaCorpMiddle
   placement:
@@ -315,10 +315,10 @@
     state: left
   - type: Construction
     graph: Bench
-    node: BenchSofaCorpLeft
+    node: BenchSofaCorpLeftDV
 
 - type: entity
-  id: BenchSofaCorpRight
+  id: BenchSofaCorpRightDV
   suffix: Right
   parent: BenchSofaCorpMiddle
   placement:
@@ -328,7 +328,7 @@
     state: right
   - type: Construction
     graph: Bench
-    node: BenchSofaCorpRight
+    node: BenchSofaCorpRightDV
 
 - type: entity
   name: grey sofa

@@ -11,12 +11,12 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: BenchParkLeft
+        - to: BenchParkLeftDV
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: BenchParkRight
+        - to: BenchParkRightDV
           steps:
             - material: WoodPlank
               amount: 2
@@ -26,12 +26,12 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: BenchParkBambooLeft
+        - to: BenchParkBambooLeftDV
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: BenchParkBambooRight
+        - to: BenchParkBambooRightDV
           steps:
             - material: WoodPlank
               amount: 2
@@ -88,14 +88,14 @@
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: BenchSofaLeft
+        - to: BenchSofaLeftDV
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: BenchSofaRight
+        - to: BenchSofaRightDV
           steps:
             - material: Steel
               amount: 2
@@ -116,14 +116,14 @@
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: BenchSofaCorpLeft
+        - to: BenchSofaCorpLeftDV
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: BenchSofaCorpRight
+        - to: BenchSofaCorpRightDV
           steps:
             - material: Steel
               amount: 2
@@ -151,8 +151,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchParkLeft
-      entity: BenchParkLeft
+    - node: BenchParkLeftDV
+      entity: BenchParkLeftDV
       edges:
         - to: start
           completed:
@@ -163,8 +163,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchParkRight
-      entity: BenchParkRight
+    - node: BenchParkRightDV
+      entity: BenchParkRightDV
       edges:
         - to: start
           completed:
@@ -188,8 +188,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchParkBambooLeft
-      entity: BenchParkBambooLeft
+    - node: BenchParkBambooLeftDV
+      entity: BenchParkBambooLeftDV
       edges:
         - to: start
           completed:
@@ -200,8 +200,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchParkBambooRight
-      entity: BenchParkBambooRight
+    - node: BenchParkBambooRightDV
+      entity: BenchParkBambooRightDV
       edges:
         - to: start
           completed:
@@ -341,8 +341,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchSofaLeft
-      entity: BenchSofaLeft
+    - node: BenchSofaLeftDV
+      entity: BenchSofaLeftDV
       edges:
         - to: start
           completed:
@@ -358,8 +358,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchSofaRight
-      entity: BenchSofaRight
+    - node: BenchSofaRightDV
+      entity: BenchSofaRightDV
       edges:
         - to: start
           completed:
@@ -410,8 +410,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchSofaCorpLeft
-      entity: BenchSofaCorpLeft
+    - node: BenchSofaCorpLeftDV
+      entity: BenchSofaCorpLeftDV
       edges:
         - to: start
           completed:
@@ -427,8 +427,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BenchSofaCorpRight
-      entity: BenchSofaCorpRight
+    - node: BenchSofaCorpRightDV
+      entity: BenchSofaCorpRightDV
       edges:
         - to: start
           completed:
