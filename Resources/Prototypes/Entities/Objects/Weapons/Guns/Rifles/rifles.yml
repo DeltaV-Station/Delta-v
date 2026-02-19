@@ -271,6 +271,9 @@
         whitelist:
           tags:
           - CartridgeRifle
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
