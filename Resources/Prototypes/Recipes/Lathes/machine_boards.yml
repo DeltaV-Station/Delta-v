@@ -145,6 +145,11 @@
   id: GasRecyclerMachineCircuitboard
   result: GasRecyclerMachineCircuitboard
 
+- type: latheRecipe # Delta V
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: KitchenFreezerMachineCircuitBoard
+  result: KitchenFreezerMachineCircuitBoard
+
 # Power
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
