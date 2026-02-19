@@ -8,5 +8,30 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterVoidsuitEngineering
-        - id: OxygenTankFilled
+        - !type:NestedSelector
+          tableId: FillLockerEngineer
+        - !type:NestedSelector
+          tableId: FillEngineerHardsuitVoid
+
+- type: entityTable
+  id: FillEngineerHardsuitVoid
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterVoidsuitEngineering
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingMaskBreath
+
+#HARDSUITS
+#Engineering hardsuit
+- type: entity
+  id: SuitStorageEngi
+  parent: SuitStorageBase
+  suffix: Station Engineer, Void
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillEngineerHardsuitVoid
+  - type: AccessReader
+    access: [["Engineering"]]
