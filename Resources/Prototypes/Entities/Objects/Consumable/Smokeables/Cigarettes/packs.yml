@@ -48,6 +48,10 @@
     shape: # Yes, this is cursed, but it breaks otherwise, dont question it.
     - 0,0,0,1
   - type: Storage
+    blacklist: #deltav- 300u chems in a 2x1
+      tags:
+      - Bottle
+      - Vial 
     grid:
     - 0,0,4,1
   - type: EntityTableContainerFill
