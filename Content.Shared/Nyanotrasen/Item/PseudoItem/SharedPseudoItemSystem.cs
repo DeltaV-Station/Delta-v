@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
@@ -24,6 +25,8 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Floofstation
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // Floofstation
 
     private readonly ProtoId<TagPrototype> PreventTag = "PreventLabel";
     private readonly EntProtoId SleepActionId = "ActionSleep"; // The action used for sleeping inside bags. Currently uses the default sleep action (same as beds)
@@ -115,17 +118,35 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     protected virtual void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
         GettingPickedUpAttemptEvent args)
     {
-        if (args.User == args.Item)
-            return;
+        args.Cancel(); // Floof - this is a terrible idea. This triggers every time ANY system checks if a pseudo-item can be picked up.
+        // WHY DID YOU DO THAT, NYANOTRASEN???
 
-        Transform(uid).AttachToGridOrMap();
-        args.Cancel();
+        // if (args.User == args.Item)
+        //     return;
+        //
+        // Transform(uid).AttachToGridOrMap();
+        // args.Cancel();
     }
 
     private void OnDropAttempt(EntityUid uid, PseudoItemComponent component, DropAttemptEvent args)
     {
-        if (component.Active)
-            args.Cancel();
+        if (!component.Active)
+            return;
+
+        // Floof - we try to get the containing container and try to drop it into it
+        // If possible, we do it, since a bagged cat probably can put things back into the bag just like they can pick them up.
+        string? failReason = null;
+        if (_hands.GetActiveItem(uid) is { Valid: true, } droppedItem
+            && _container.TryGetContainingContainer(Transform(uid).ParentUid, uid, out var pseudoItemContainer)
+            && TryComp<StorageComponent>(pseudoItemContainer.Owner, out var targetStorage)
+            && _storage.CanInsert(pseudoItemContainer.Owner, droppedItem, out failReason, targetStorage, ignoreStacks: true)
+           )
+            _storage.Insert(pseudoItemContainer.Owner, droppedItem, out _, uid, targetStorage, stackAutomatically: false);
+
+        if (failReason != null)
+            _popupSystem.PopupEntity(Loc.GetString(failReason), uid, uid);
+
+        args.Cancel();
     }
 
     private void OnInsertAttempt(EntityUid uid, PseudoItemComponent component,
@@ -140,8 +161,9 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     // Prevents moving within the bag :)
     private void OnInteractAttempt(EntityUid uid, PseudoItemComponent component, InteractionAttemptEvent args)
     {
-        if (args.Uid == args.Target && component.Active)
-            args.Cancelled = true;
+        // Floof - why the fuck.
+        // if (args.Uid == args.Target && component.Active)
+        //     args.Cancelled = true;
     }
 
     private void OnDoAfter(EntityUid uid, PseudoItemComponent component, DoAfterEvent args)
