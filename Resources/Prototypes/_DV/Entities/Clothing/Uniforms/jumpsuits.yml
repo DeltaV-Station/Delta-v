@@ -598,3 +598,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRoman
+  name: roman armor
+  description: An ancient Roman armor. Made of metallic strips and leather straps.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roman_armor.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/roman_armor.rsi

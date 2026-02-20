@@ -20,3 +20,14 @@
     sprite: _DV/Clothing/Shoes/Boots/fishing_boots.rsi
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/fishing_boots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsRoman
+  name: roman sandals
+  description: Sandals with buckled leather straps on it.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Shoes/Boots/roman_sandals.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Shoes/Boots/roman_sandals.rsi
