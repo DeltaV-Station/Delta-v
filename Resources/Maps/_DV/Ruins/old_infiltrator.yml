@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/20/2026 06:51:14
+  time: 02/20/2026 23:16:57
   entityCount: 321
 maps: []
 grids:
@@ -1093,6 +1093,13 @@ entities:
     - type: Transform
       pos: 1.5933614,-13.375262
       parent: 2
+- proto: RandomCommandCorpseSpawner
+  entities:
+  - uid: 81
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
+      parent: 2
 - proto: RandomIntercom
   entities:
   - uid: 176
@@ -1164,13 +1171,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.7044973,-1.3324821
-      parent: 2
-- proto: SalvageHumanCorpseSpawner
-  entities:
-  - uid: 81
-    components:
-    - type: Transform
-      pos: 6.5,-1.5
       parent: 2
 - proto: Screen
   entities:
