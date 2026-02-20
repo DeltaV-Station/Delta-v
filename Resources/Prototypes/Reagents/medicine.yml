@@ -859,7 +859,7 @@
       - !type:SatiateHunger
         factor: -1
 
-  # Should heal quite literally everything, use in very small amounts
+  # Should heal quite literally everything, use in very small amounts, in large amounts will cause drowsiness
 - type: reagent
   id: Omnizine
   name: reagent-name-omnizine
@@ -877,6 +877,14 @@
           Toxin: -2
           Airloss: -2
           Brute: -2
+      - !type:Emote
+          emote: Yawn
+          showInChat: true
+          probability: 0.1
+      - !type:ModifyStatusEffect
+          effectProto: StatusEffectDrowsiness
+          time: 8
+          type: Add
 
 - type: reagent
   id: Ultravasculine
