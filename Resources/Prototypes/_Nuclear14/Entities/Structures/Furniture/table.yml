@@ -282,6 +282,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: wood_counter_cross
+    snapCardinals: true # DeltaV - furniture rework
 
 - type: entity
   parent: N14TableCounter
@@ -319,6 +320,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_cross
+    snapCardinals: true # DeltaV - furniture rework
 
 - type: entity
   parent: N14FreeTableBase
@@ -356,6 +358,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: metal_counter_cross
+    snapCardinals: true # DeltaV - furniture rework
 
 - type: entity
   id: N14TableMetalGrate
