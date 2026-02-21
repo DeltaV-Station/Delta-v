@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Secret game mode now not only checks for amount of players ready, but
-      also for the total player count.
-    type: Tweak
-  - message: Game modes now generally require less players to be ready during lobby.
-    type: Tweak
-  id: 1623
-  time: '2025-08-21T08:53:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4246
-- author: NoElkaTheGod
-  changes:
   - message: Malign rifts sometimes deal damage to everyone around them now. Get away,
       or you may get hurt! Further away. Like, don't even look at it.
     type: Tweak
@@ -4486,4 +4476,11 @@
   id: 2122
   time: '2026-02-17T23:22:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5365
+- author: Pharaz4
+  changes:
+  - message: Fixed pew sprites!
+    type: Fix
+  id: 2123
+  time: '2026-02-20T23:13:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5375
 Order: 1
