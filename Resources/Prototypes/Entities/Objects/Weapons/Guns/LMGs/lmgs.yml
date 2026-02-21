@@ -117,7 +117,7 @@
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: CartridgeLightRifle
       fireCost: 100
     - type: Battery

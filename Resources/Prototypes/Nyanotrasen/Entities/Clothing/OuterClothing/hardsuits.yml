@@ -54,7 +54,7 @@
     newItem: null
 
 - type: entity
-  parent: ClothingOuterHardsuitERTLeader
+  parent: ClothingOuterHardsuitERTBase
   id: ClothingOuterHardsuitERTCentcomm
   name: CentComm hardsuit
   components:
@@ -64,3 +64,6 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTCentcomm
+  - type: Tag
+    tags:
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites

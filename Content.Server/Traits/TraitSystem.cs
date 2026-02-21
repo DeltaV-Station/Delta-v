@@ -41,7 +41,7 @@
 //             }
 //
 //             if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
-//                 _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
+//                 _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, args.Mob))
 //                 continue;
 //
 //             // Add all components required by the prototype

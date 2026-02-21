@@ -81,6 +81,7 @@
     capacity: 30
   - type: Item
     size: Small
+    storedRotation: 45 # DeltaV - Align magazine and ammo box rotations
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -103,6 +104,8 @@
   parent: [ BaseItem, BaseSecurityContraband ]
   description: Unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
   components:
+  - type: Item
+    storedRotation: 90
   - type: Tag
     tags:
       - MagazinePistolSubMachineGunTopMounted
@@ -324,9 +327,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
-    whitelist: # Redundant
-      tags:
-        - CartridgePistol
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
   - type: Sprite

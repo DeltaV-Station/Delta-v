@@ -436,7 +436,7 @@
   - type: AtmosDevice
   - type: PipeRestrictOverlap
   - type: ApcPowerReceiver
-    powerLoad: 10000
+    powerLoad: 2000 # DeltaV
   - type: Machine
     board: CondenserMachineCircuitBoard
   - type: WiresPanel
