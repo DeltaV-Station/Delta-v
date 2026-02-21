@@ -21,17 +21,4 @@
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
-
-#HARDSUITS
-#Engineering hardsuit
-- type: entity
-  id: SuitStorageEngiVoid
-  parent: SuitStorageBase
-  suffix: Station Engineer, Void
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillEngineerHardsuitVoid
-  - type: AccessReader
-    access: [["Engineering"]]
+    
