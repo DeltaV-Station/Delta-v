@@ -151,20 +151,6 @@
         tableId: FillEngineerHardsuit
   - type: AccessReader
     access: [["Engineering"]]
-
-#HARDSUITS
-#Engineering voidsuit
-- type: entity
-  id: SuitStorageEngiVoid
-  parent: SuitStorageBase
-  suffix: Station Engineer, Void
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillEngineerHardsuitVoid
-  - type: AccessReader
-    access: [["Engineering"]]
     
 #Atmospherics hardsuit
 - type: entity
