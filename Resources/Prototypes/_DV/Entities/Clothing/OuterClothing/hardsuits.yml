@@ -527,9 +527,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSecurityContraband ]
   id: ClothingOuterHardsuitSyndieReverseEngineered
-  suffix: reverse-engineered
+  suffix: reverse-engineered, Bluekies
   name: SA-122 combat hardsuit
-  description: A suit made by the special acquisitions department of Nanotrasen to be resilient.
+  description: A heavily armored hardsuit designed for work in special operations. Made by the special acquisitions department of Nanotrasen.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
@@ -537,8 +537,6 @@
     sprite: _DV/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieReverseEngineered
-  - type: ReverseEngineering
-    newItem: null
   - type: Item
     size: Huge
   - type: PressureProtection
@@ -577,7 +575,7 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSecurityContraband ]
   id: ClothingOuterHardsuitJuggernautReverseEngineered
-  suffix: reverse-engineered
+  suffix: reverse-engineered, Bluekies
   name: SA-126 assault hardsuit
   description: A suit made by the special acquisitions department of Nanotrasen to be hyper resilient.
   components:
@@ -587,8 +585,6 @@
     sprite: _DV/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
-  - type: ReverseEngineering
-    newItem: null
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
