@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.3.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/25/2026 07:35:55
-  entityCount: 296
+  time: 02/22/2026 01:47:11
+  entityCount: 321
 maps: []
 grids:
 - 2
@@ -206,6 +206,133 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-8.5
+      parent: 2
+- proto: AtmosFixBlockerMarker
+  entities:
+  - uid: 297
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
+      parent: 2
+  - uid: 298
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
+      parent: 2
+  - uid: 299
+    components:
+    - type: Transform
+      pos: 3.5,-0.5
+      parent: 2
+  - uid: 300
+    components:
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 2
+  - uid: 301
+    components:
+    - type: Transform
+      pos: 5.5,-0.5
+      parent: 2
+  - uid: 302
+    components:
+    - type: Transform
+      pos: 6.5,-0.5
+      parent: 2
+  - uid: 303
+    components:
+    - type: Transform
+      pos: 7.5,-0.5
+      parent: 2
+  - uid: 304
+    components:
+    - type: Transform
+      pos: 7.5,-1.5
+      parent: 2
+  - uid: 305
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
+      parent: 2
+  - uid: 306
+    components:
+    - type: Transform
+      pos: 5.5,-1.5
+      parent: 2
+  - uid: 307
+    components:
+    - type: Transform
+      pos: 4.5,-1.5
+      parent: 2
+  - uid: 308
+    components:
+    - type: Transform
+      pos: 3.5,-1.5
+      parent: 2
+  - uid: 309
+    components:
+    - type: Transform
+      pos: 2.5,-1.5
+      parent: 2
+  - uid: 310
+    components:
+    - type: Transform
+      pos: 1.5,-1.5
+      parent: 2
+  - uid: 311
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
+      parent: 2
+  - uid: 312
+    components:
+    - type: Transform
+      pos: 2.5,-2.5
+      parent: 2
+  - uid: 313
+    components:
+    - type: Transform
+      pos: 4.5,-2.5
+      parent: 2
+  - uid: 314
+    components:
+    - type: Transform
+      pos: 5.5,-2.5
+      parent: 2
+  - uid: 315
+    components:
+    - type: Transform
+      pos: 6.5,-2.5
+      parent: 2
+  - uid: 316
+    components:
+    - type: Transform
+      pos: 7.5,-2.5
+      parent: 2
+  - uid: 317
+    components:
+    - type: Transform
+      pos: 3.5,-2.5
+      parent: 2
+  - uid: 318
+    components:
+    - type: Transform
+      pos: 5.5,-3.5
+      parent: 2
+  - uid: 319
+    components:
+    - type: Transform
+      pos: 4.5,-3.5
+      parent: 2
+  - uid: 320
+    components:
+    - type: Transform
+      pos: 3.5,-3.5
+      parent: 2
+  - uid: 321
+    components:
+    - type: Transform
+      pos: 4.5,-4.5
       parent: 2
 - proto: BigBox
   entities:
@@ -966,13 +1093,6 @@ entities:
     - type: Transform
       pos: 1.5933614,-13.375262
       parent: 2
-- proto: RandomCommandCorpseSpawner
-  entities:
-  - uid: 81
-    components:
-    - type: Transform
-      pos: 6.5,-1.5
-      parent: 2
 - proto: RandomIntercom
   entities:
   - uid: 176
@@ -1044,6 +1164,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.7044973,-1.3324821
+      parent: 2
+- proto: SalvageHumanCorpseSpawner
+  entities:
+  - uid: 81
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
       parent: 2
 - proto: Screen
   entities:
