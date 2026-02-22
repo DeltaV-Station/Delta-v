@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/12/2026 06:13:51
-  entityCount: 13130
+  time: 02/22/2026 22:58:35
+  entityCount: 13126
 maps:
 - 7928
 grids:
@@ -28060,11 +28060,6 @@ entities:
     - type: Transform
       pos: -46.5,4.5
       parent: 2
-  - uid: 3828
-    components:
-    - type: Transform
-      pos: -18.5,-20.5
-      parent: 2
   - uid: 7005
     components:
     - type: Transform
@@ -28330,18 +28325,6 @@ entities:
     - type: Transform
       pos: -50.251892,-21.242592
       parent: 2
-- proto: ClothingHeadHelmetEVAScience
-  entities:
-  - uid: 13108
-    components:
-    - type: Transform
-      pos: -20.61097,-20.113413
-      parent: 2
-  - uid: 13109
-    components:
-    - type: Transform
-      pos: -21.111217,-20.113413
-      parent: 2
 - proto: ClothingHeadHelmetTemplar
   entities:
   - uid: 8898
@@ -28397,18 +28380,6 @@ entities:
     components:
     - type: Transform
       pos: 9.489485,14.475175
-      parent: 2
-- proto: ClothingOuterHardsuitEVAScience
-  entities:
-  - uid: 13102
-    components:
-    - type: Transform
-      pos: -21.446926,-20.406855
-      parent: 2
-  - uid: 13103
-    components:
-    - type: Transform
-      pos: -20.832037,-20.406855
       parent: 2
 - proto: ClothingOuterHoodieGrey
   entities:
@@ -56925,27 +56896,25 @@ entities:
       parent: 2
 - proto: LockerEngineerFilled
   entities:
-  - uid: 9527
-    components:
-    - type: Transform
-      pos: -14.5,3.5
-      parent: 2
-- proto: LockerEngineerFilledVoidsuit
-  entities:
-  - uid: 6222
+  - uid: 3828
     components:
     - type: Transform
       pos: 28.5,-2.5
       parent: 2
-  - uid: 6842
+  - uid: 6222
     components:
     - type: Transform
       pos: 29.5,-2.5
       parent: 2
-  - uid: 6846
+  - uid: 6842
     components:
     - type: Transform
       pos: 30.5,-2.5
+      parent: 2
+  - uid: 9527
+    components:
+    - type: Transform
+      pos: -14.5,3.5
       parent: 2
 - proto: LockerEvidence
   entities:
@@ -57156,6 +57125,18 @@ entities:
     components:
     - type: Transform
       pos: -32.5,-24.5
+      parent: 2
+- proto: LockerScienceFilledSoftsuit
+  entities:
+  - uid: 1099
+    components:
+    - type: Transform
+      pos: -20.5,-20.5
+      parent: 2
+  - uid: 13101
+    components:
+    - type: Transform
+      pos: -21.5,-20.5
       parent: 2
 - proto: LockerSecurityFilled
   entities:
@@ -64358,28 +64339,6 @@ entities:
       parent: 2
 - proto: ReinforcedSurveillanceCameraAI
   entities:
-  - uid: 10373
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 67.5,-19.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraAI
-      nameSet: True
-      id: 'AI inner-core, south '
-  - uid: 12276
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 65.5,-7.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraAI
-      nameSet: True
-      id: AI inner-core, north
   - uid: 12363
     components:
     - type: Transform
@@ -64434,27 +64393,6 @@ entities:
       - SurveillanceCameraAI
       nameSet: True
       id: AI airlock south
-  - uid: 12680
-    components:
-    - type: Transform
-      pos: 62.5,-12.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraAI
-      nameSet: True
-      id: AI core-main, north
-  - uid: 12716
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 62.5,-16.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraAI
-      nameSet: True
-      id: AI core-main, south
 - proto: ReinforcedSurveillanceCameraCommand
   entities:
   - uid: 9438
@@ -66017,6 +65955,11 @@ entities:
       parent: 2
     - type: Stack
       count: 15
+  - uid: 6846
+    components:
+    - type: Transform
+      pos: -18.591291,-20.438314
+      parent: 2
   - uid: 9329
     components:
     - type: Transform
@@ -66026,11 +65969,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,9.5
-      parent: 2
-  - uid: 10365
-    components:
-    - type: Transform
-      pos: -19.789854,-20.584063
       parent: 2
 - proto: SheetPlasma1
   entities:
@@ -69573,6 +69511,50 @@ entities:
     - type: Transform
       pos: -46.5,16.5
       parent: 2
+- proto: SurveillanceCameraAI
+  entities:
+  - uid: 10373
+    components:
+    - type: Transform
+      pos: 67.5,-19.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraAI
+      nameSet: True
+      id: 'AI inner-core, south '
+  - uid: 12276
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 65.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraAI
+      nameSet: True
+      id: AI inner-core, north
+  - uid: 12680
+    components:
+    - type: Transform
+      pos: 62.5,-12.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraAI
+      nameSet: True
+      id: AI core-main, north
+  - uid: 12716
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 62.5,-16.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraAI
+      nameSet: True
+      id: AI core-main, south
 - proto: SurveillanceCameraCommand
   entities:
   - uid: 9190
@@ -71160,11 +71142,6 @@ entities:
     - type: Transform
       pos: 6.5,-27.5
       parent: 2
-  - uid: 1099
-    components:
-    - type: Transform
-      pos: -20.5,-20.5
-      parent: 2
   - uid: 1123
     components:
     - type: Transform
@@ -71245,10 +71222,10 @@ entities:
     - type: Transform
       pos: 6.5,-1.5
       parent: 2
-  - uid: 13101
+  - uid: 10365
     components:
     - type: Transform
-      pos: -21.5,-20.5
+      pos: -18.5,-20.5
       parent: 2
 - proto: TablePlasmaGlass
   entities:
