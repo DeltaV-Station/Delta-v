@@ -362,3 +362,31 @@
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
         shader: unshaded
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitSyndieReverseEngineered
+  categories: [ HideSpawnMenu ]
+  name: SA-123 combat hardsuit helmet
+  description: An advanced hardsuit helmet designed for work in special operations.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: PointLight
+    color: aquamarine
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCybersun
+  id: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
+  categories: [ HideSpawnMenu ]
+  name: SA-127 combat hardsuit helmet
+  description: An assault hardsuit helmet featuring nigh-impenetrable armor plating.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: PointLight # DeltaV
+    color: aquamarine
