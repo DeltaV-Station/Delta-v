@@ -5,19 +5,19 @@ using Robust.Client.UserInterface;
 namespace Content.Client._Den.Botany.PlantAnalyzer;
 
 [UsedImplicitly]
-public sealed class PlantAnalyzerBoundUserInterface : BoundUserInterface
+public sealed class BasicPlantAnalyzerBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private PlantAnalyzerWindow? _window;
+    private BasicPlantAnalyzerWindow? _window;
 
-    public PlantAnalyzerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public BasicPlantAnalyzerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
     protected override void Open()
     {
         base.Open();
-        _window = this.CreateWindow<PlantAnalyzerWindow>();
+        _window = this.CreateWindow<BasicPlantAnalyzerWindow>();
         _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         _window.Print.OnPressed += _ => Print();
     }
