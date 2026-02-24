@@ -1,5 +1,5 @@
 - type: entity
-  id: BasicPlantAnalyzer
+  id: PlantAnalyzer
   parent: [BaseItem, PowerCellSlotSmallItem]
   name: plant analyzer
   description: A scanner used to evaluate a plant's various areas of growth, genetic traits and chemicals.
@@ -24,7 +24,7 @@
   - type: UserInterface
     interfaces:
       enum.PlantAnalyzerUiKey.Key:
-        type: BasicPlantAnalyzerBoundUserInterface
+        type: PlantAnalyzerBoundUserInterface
   - type: ItemToggle
     onUse: false
   - type: PlantAnalyzer

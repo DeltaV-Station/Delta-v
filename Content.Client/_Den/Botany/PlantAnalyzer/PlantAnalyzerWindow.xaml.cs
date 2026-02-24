@@ -11,13 +11,13 @@ using Robust.Shared.Timing;
 namespace Content.Client._Den.Botany.PlantAnalyzer;
 
 [GenerateTypedNameReferences]
-public sealed partial class BasicPlantAnalyzerWindow : FancyWindow
+public sealed partial class PlantAnalyzerWindow : FancyWindow
 {
     private readonly IEntityManager _entityManager;
     private readonly IPrototypeManager _prototypeManager;
     private readonly IGameTiming _gameTiming;
 
-    public BasicPlantAnalyzerWindow()
+    public PlantAnalyzerWindow()
     {
         RobustXamlLoader.Load(this);
 

@@ -4,4 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Den.Botany.PlantAnalyzer;
 
 [Serializable, NetSerializable]
-public sealed partial class BasicPlantAnalyzerDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class PlantAnalyzerDoAfterEvent : SimpleDoAfterEvent { }

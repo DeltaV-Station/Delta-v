@@ -8,8 +8,8 @@ namespace Content.Server._Den.Botany.Components;
 
 /// <inheritdoc/>
 [RegisterComponent, AutoGenerateComponentPause]
-[Access(typeof(BasicPlantAnalyzerSystem))]
-public sealed partial class BasicPlantAnalyzerComponent : AbstractAnalyzerComponent
+[Access(typeof(PlantAnalyzerSystem))]
+public sealed partial class PlantAnalyzerComponent : AbstractAnalyzerComponent
 {
     /// <inheritdoc/>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
