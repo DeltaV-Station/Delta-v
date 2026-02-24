@@ -1,0 +1,60 @@
+- type: constructionGraph
+  id: CardboardStructures
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DeleteEntity {}
+    edges:
+    - to: window
+      steps:
+      - material: Cardboard
+        amount: 2
+        doAfter: 3
+
+    - to: directional
+      steps:
+      - material: Cardboard
+        amount: 1
+        doAfter: 3
+
+  # Deconstruction is down here
+  - node: window
+    entity: WindowCardboard
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 2
+      steps:
+      - tool: Slicing
+        doAfter: 1
+
+  - node: directional
+    entity: WindowCardboardDirectional
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 1
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 1
+      steps:
+      - tool: Slicing
+        doAfter: 1

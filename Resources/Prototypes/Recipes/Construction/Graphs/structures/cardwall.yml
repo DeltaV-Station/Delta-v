@@ -12,6 +12,20 @@
   - node: cardwall
     entity: Cardwall
     edges:
+    # imp edit start, duplicate edge to allow deconstruction with both wirecutters and knives
+    # ordered first to prioritize appearance in deconstruction UI
+    - to: start
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Items/Toys/ToyFall2.ogg
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 3
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Cutting
+        doAfter: 1.2
+    # imp edit end
     - to: start
       completed:
       - !type:PlaySound

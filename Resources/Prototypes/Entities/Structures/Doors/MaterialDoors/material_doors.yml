@@ -328,7 +328,7 @@
             max: 2
 
 - type: entity
-  parent: BaseMaterialDoorNavMap
+  parent: [ BaseMaterialDoorNavMap, BaseDeltaPressureCardboard ] #imp edit, added damage from delta pressure
   id: CardDoor
   name: cardboard door
   components:

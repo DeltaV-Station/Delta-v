@@ -71,7 +71,7 @@
         - to: stoolCard
           steps:
             - material: Cardboard
-              amount: 3
+              amount: 2 #imp edit, 3->2
               doAfter: 1
         - to: chairWoodBench
           steps:
@@ -393,11 +393,24 @@
     - node: stoolCard
       entity: CardStool
       edges:
+        # imp edit start, duplicate edge to allow deconstruction with both wirecutters and knives
+        # ordered first to prioritize appearance in deconstruction UI
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+            prototype: MaterialCardboard1
+            amount: 2
+          - !type:PlaySound
+            sound: /Audio/Items/Toys/ToyFall2.ogg
+          steps:
+          - tool: Cutting
+            doAfter: 1
+        # imp edit end
         - to: start
           completed:
             - !type:SpawnPrototype
               prototype: MaterialCardboard1
-              amount: 3
+              amount: 2 #imp edit 3->2
             - !type:PlaySound
               sound: /Audio/Items/Toys/ToyFall2.ogg
           steps:

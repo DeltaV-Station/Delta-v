@@ -1745,9 +1745,9 @@
 
 - type: entity
   id: Cardwall
-  parent: BaseStructure
+  parent: [ BaseWall, BaseDeltaPressureCardboard ] # imp edit, ensure it's more wall-like and take damage from delta pressure
   name: cardboard wall
-  description: Budget cuts are hitting hard.
+  description: It's a marvel of engineering that this is able to hold against the vacuum of space. #imp edit
   placement:
     mode: SnapgridCenter
     snap:
@@ -1762,7 +1762,7 @@
     tags:
     - Wall
   - type: Sprite
-    drawdepth: SmallObjects #so bullets pass 'through'
+    #drawdepth: SmallObjects #so bullets pass 'through' # imp edit, make this more wall-like. ideally bullets would be able to both damage the wall and pass through them, but I don't think that's possible
     sprite: Structures/Walls/card.rsi
   - type: Icon
     sprite: Structures/Walls/card.rsi
@@ -1785,7 +1785,8 @@
         mask:
         - FullTileMask
         layer:
-        - FlimsyLayer
+        - WallLayer #imp edit, FlimsyLayer -> WallLayer,
+        density: 100 #imp edit, it's cardboard, a lot lighter than steel
   - type: Destructible
     thresholds:
     - trigger:
@@ -1805,9 +1806,18 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior # imp edit
+        sound:
+          collection: WoodDestroy
   - type: IconSmooth
     key: cards
     base: card
   - type: Occluder
   - type: BlockWeather
   - type: SunShadowCast
+  # imp edit start
+  - type: RadiationBlocker
+    resistance: .5 #down from 2 from BaseWall. not great, but better a lot better than you'd imagine
+  - type: StaticPrice
+    price: 7.5 # price of the sheets of cardboard required
+  # imp edit end

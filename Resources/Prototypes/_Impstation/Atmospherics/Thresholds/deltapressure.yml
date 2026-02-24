@@ -1,0 +1,13 @@
+## Base prototypes for DeltaPressureComponent settings, to make it easy to just
+## parent to them and just them globally here.
+
+## For cardboard structures, similar to quarter glass windows with a slightly higher minPressureDelta
+- type: entity
+  abstract: true
+  id: BaseDeltaPressureCardboard
+  components:
+  - type: DeltaPressure
+    minPressure: 250
+    minPressureDelta: 200
+    scalingType: Threshold
+

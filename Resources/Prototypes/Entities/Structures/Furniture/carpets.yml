@@ -432,3 +432,8 @@
     - id: MaterialCardboard1
       amount: 1
   - type: TrayScanReveal
+  # imp edit start
+  - type: Construction #lets it be deconstructed with wirecutters
+    graph: CarpetCard
+    node: carpet
+  # imp edit end

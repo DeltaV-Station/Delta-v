@@ -171,6 +171,17 @@
     - node: TableCard
       entity: TableCard
       edges:
+        # imp edit start, duplicate edge to allow deconstruction with both wirecutters and knives
+        # ordered first to prioritize appearance in deconstruction UI
+        - to: TableFrame
+          completed:
+          - !type:SpawnPrototype
+            prototype: MaterialCardboard1
+            amount: 3
+          steps:
+          - tool: Cutting
+            doAfter: 2
+        # imp edit end
         - to: TableFrame
           completed:
             - !type:SpawnPrototype

@@ -1,0 +1,198 @@
+﻿# TODO: reorganize this to look more like the Seat construction graph
+- type: constructionGraph
+  id: Carpet
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemRed
+          amount: 1
+        - !type:DeleteEntity {}
+        steps:
+        - tool: Cutting
+          doAfter: 1
+
+- type: constructionGraph
+  id: CarpetBlack
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemBlack
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetPink
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemPink
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetBlue
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemBlue
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetGreen
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemGreen
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetOrange
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemOrange
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetSBlue
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemSkyBlue
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetPurple
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemPurple
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetCyan
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemCyan
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetWhite
+  start: start
+  graph:
+    - node: start
+
+    - node: carpet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemWhite
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+          - tool: Cutting
+            doAfter: 1
+
+- type: constructionGraph
+  id: CarpetCard
+  start: start
+  graph:
+  - node: start
+
+  - node: carpet
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialCardboard1
+        amount: 1
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Cutting
+        doAfter: 1

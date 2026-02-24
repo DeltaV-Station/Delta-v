@@ -1,0 +1,32 @@
+- type: constructionGraph
+  id: TileGreen
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: greentile
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            # Needs StackType ID
+            - material: Steel
+              amount: 1
+    - node: greentile
+      entity: FloorTileItemGreen
+
+- type: constructionGraph
+  id: TileCardboard
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cardTile
+      completed:
+      - !type:SetStackCount
+        amount: 4
+      steps:
+      - material: Cardboard
+        amount: 1
+  - node: cardTile
+    entity: FloorTileItemCardboard

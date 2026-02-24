@@ -442,6 +442,9 @@
             max: 2
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:PlaySoundBehavior #imp edit
+        sound:
+          collection: WoodDestroy
 
 - type: entity
   name: wooden bench

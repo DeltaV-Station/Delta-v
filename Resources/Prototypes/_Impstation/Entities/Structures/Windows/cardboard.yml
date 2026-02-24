@@ -1,0 +1,156 @@
+- type: entity
+  parent: [ BaseStructure, BaseDeltaPressureCardboard ]
+  id: WindowCardboard
+  name: cardboard "window"
+  description: There are some holes covered with packing tape that you can see through.
+  components:
+  - type: Airtight
+  - type: IconSmooth
+    key: windows
+    base: window
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/pierce.ogg"
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Impstation/Structures/Windows/cardboard_window.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Windows/cardboard_window.rsi
+    state: full
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+        density: 10
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Card
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard1:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: Construction
+    graph: CardboardStructures
+    node: window
+    deconstructionTarget: start
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  id: WindowCardboardDirectional
+  parent: BaseStructure
+  name: directional cardboard "window"
+  description: This isn't going to do much for you.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: WallMount
+    arc: 360 # interact despite grilles
+  - type: Tag
+    tags:
+    - Window
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/pierce.ogg"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Impstation/Structures/Windows/cardboard_directional.rsi
+    state: window
+  - type: Icon
+    sprite: _Impstation/Structures/Windows/cardboard_directional.rsi
+    state: window
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,-0.28125"
+        density: 10
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Card
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+  - type: Construction
+    graph: CardboardStructures
+    node: directional
+  - type: Appearance
+  - type: StaticPrice
+    price: 2.5
