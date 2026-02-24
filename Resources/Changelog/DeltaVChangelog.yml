@@ -1,20 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Added ion damage type. Only silicons can take it, and it regenerates
-      over time.
-    type: Add
-  - message: Cosmic cult's weapons and glyphs now deal ion damage to compensate for
-      IPCs being immune to asphyxiation.
-    type: Tweak
-  - message: Disablers deal ion damage now. Don't look at me like that, direction
-      asked to add this, not my idea.
-    type: Tweak
-  id: 1625
-  time: '2025-08-22T10:38:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4245
-- author: NoElkaTheGod
-  changes:
   - message: EMP no longer drains power from IPCs and cyborgs. Instead, it deals high
       amount of ion damage, enough to instantly down the target in most cases. EMP
       implants deal less daamge, though, so you will need all 3 charges to kill somoene
@@ -4482,4 +4468,14 @@
   id: 2124
   time: '2026-02-24T04:26:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5242
+- author: keekee38
+  changes:
+  - message: added a new cryogenics chemical, photoxadone, that heals both holy and
+      shadow damage. it even works on the dead!
+    type: Add
+  - message: added purifying salt to the med vend, as well as a recipe in the techfab.
+    type: Tweak
+  id: 2125
+  time: '2026-02-24T05:05:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5276
 Order: 1
