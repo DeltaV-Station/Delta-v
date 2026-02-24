@@ -80,15 +80,15 @@
   - type: Armor 
     modifiers:
       coefficients: # Delta-V - Paladin Gear Nerfs/Rework
-        Blunt: 0.60
-        Slash: 0.60
+        Blunt: 0.55
+        Slash: 0.55
         Piercing: 0.75
         Heat: 1.15
         Shock: 1.45
         Holy: 0.70
         Shadow: 0.70
   - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.85
