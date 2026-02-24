@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: UnfinishedForgedShotgun
+  id: UnfinishedForgedShotgun # Delta-V - Forged Shotgun is now uncraftable. If someone wants to make this thing actually balanced then feel free to.
   name: assembled forged shotgun
   description: Just needs the welding to keep everything in place.
   components:
@@ -17,9 +17,9 @@
   - type: Tag
     tags:
     - Metal
-  - type: Construction
-    graph: ForgedShotgunGraph
-    node: shotgun
+#  - type: Construction
+#    graph: ForgedShotgunGraph
+#    node: shotgun
 
 - type: entity
   parent: BaseItem
@@ -80,9 +80,9 @@
   - type: Tag
     tags:
     - Metal
-  - type: Construction
-    graph: ForgedSMGGraph
-    node: shotgun
+#  - type: Construction # Delta-V - Forged SMG is now uncraftable. Too overpowered.
+#    graph: ForgedSMGGraph
+#    node: shotgun
 
 - type: entity
   parent: BaseItem
