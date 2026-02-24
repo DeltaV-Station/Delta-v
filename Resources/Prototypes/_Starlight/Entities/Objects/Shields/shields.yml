@@ -23,17 +23,22 @@
           Slash: 0.5 #Encourages long swordfights, which I really, really want to see.
           Piercing: 0.8
           Heat: 0.85
-      activeBlockModifier:
+      activeBlockModifier: # Delta-V - Paladin Gear Nerfs/Rework
         coefficients:
-          Blunt: 0.5
-          Slash: 0.3
-          Piercing: 0.7
+          Blunt: 0.6
+          Slash: 0.4
+          Piercing: 0.8
           Heat: 0.75
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
+          Shock: 1.45
+          Holy: 0.65
+          Shadow: 0.65
+        flatReductions: # Delta-V - Paladin Gear Nerfs/Rework
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.5
           Heat: 1
+          Holy: 1
+          Shadow: 1
     - type: MeleeWeapon
       damage:
         types:
