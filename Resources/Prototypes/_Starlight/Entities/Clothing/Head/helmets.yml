@@ -15,9 +15,9 @@
     sprite: _Starlight/Clothing/Head/Helmets/makeshift.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/Head/Helmets/makeshift.rsi
-  - type: Construction
-    graph: ClothingHeadHelmetMakeshiftGraph
-    node: helmet
+#  - type: Construction # Delta-V - Disabling crafting until I can rework these
+#    graph: ClothingHeadHelmetMakeshiftGraph
+#    node: helmet
 
 - type: entity
   parent: ClothingHeadHelmetBase
