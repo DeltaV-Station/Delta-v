@@ -63,11 +63,14 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: # Delta-V - Paladin Gear Nerfs/rework
         Blunt: 0.90
         Slash: 0.88
         Piercing: 0.90
         Heat: 0.92
+        Shock: 1.10
+        Holy: 0.85
+        Shadow: 0.85
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Helmets/paladin.rsi
   - type: Clothing
