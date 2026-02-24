@@ -1,18 +1,18 @@
-- type: constructionGraph
-  id: ClothingOuterArmorImprovisedGraph
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: vest
-      steps:
-      - material: Steel
-        amount: 12
-        doAfter: 10
-      - material: Cloth
-        amount: 5
-        doAfter: 5
-      - material: Cable
-        amount: 7
-  - node: vest
-    entity: UnfinishedClothingOuterArmorImprovised
+#- type: constructionGraph # Delta-V - Commented out for balancing purposes, Uncomment once this is changed to be more fun to fight against.
+#  id: ClothingOuterArmorImprovisedGraph
+#  start: start
+#  graph:
+#  - node: start
+#    edges:
+#    - to: vest
+#      steps:
+#      - material: Steel
+#        amount: 12
+#        doAfter: 10
+#      - material: Cloth
+#        amount: 5
+#        doAfter: 5
+#      - material: Cable
+#        amount: 7
+#  - node: vest
+#    entity: UnfinishedClothingOuterArmorImprovised
