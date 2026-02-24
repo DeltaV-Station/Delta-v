@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Malign rifts sometimes deal damage to everyone around them now. Get away,
-      or you may get hurt! Further away. Like, don't even look at it.
-    type: Tweak
-  id: 1624
-  time: '2025-08-22T07:43:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4216
-- author: NoElkaTheGod
-  changes:
   - message: Added ion damage type. Only silicons can take it, and it regenerates
       over time.
     type: Add
@@ -4483,4 +4475,11 @@
   id: 2123
   time: '2026-02-20T23:13:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5375
+- author: Woljif
+  changes:
+  - message: Removed the slowdown penalty when wielding the Estoc DMR.
+    type: Tweak
+  id: 2124
+  time: '2026-02-24T04:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5242
 Order: 1
