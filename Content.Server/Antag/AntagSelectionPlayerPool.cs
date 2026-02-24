@@ -23,7 +23,7 @@ public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> ordered
         return session != null;
     }
 
-    // DeltaV - Add function
+    // DeltaV - Add function BEGIN
     public bool TryPickAndTakeConditional(IRobustRandom random, [NotNullWhen(true)] out ICommonSession? session, Func<ICommonSession, bool> condition)
     {
         session = null;
@@ -43,6 +43,7 @@ public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> ordered
 
         return session != null;
     }
+    // DeltaV - Add function END
 
     public int Count => orderedPools.Sum(p => p.Count);
 }

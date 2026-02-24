@@ -202,12 +202,16 @@ public partial struct AntagSelectionDefinition()
     [DataField]
     public EntProtoId? SpawnerPrototype;
 
+    // DeltaV - Added DepartmentDistribution BEGIN
+    
     /// <summary>
     /// If set to true, selection won't pick crew from the same department in direct succession, making
     /// distribution among different departments more likely.
     /// </summary>
     [DataField]
-    public bool DepartmentDistribution; // DeltaV
+    public bool DepartmentDistribution;
+    
+    // DeltaV - Added DepartmentDistribution END
 }
 
 /// <summary>

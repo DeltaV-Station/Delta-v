@@ -292,7 +292,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             var session = (ICommonSession?)null;
             if (picking)
             {
-                // DeltaV - Added DepartmentDistribution
+                // DeltaV - Added DepartmentDistribution BEGIN
                 if (def.DepartmentDistribution)
                 {
                     if (playerPool.TryPickAndTakeConditional(RobustRandom,
@@ -306,6 +306,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                         Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule} using department distribution, falling back to regular behavior.");
                     }
                 }
+                // DeltaV - Added Department Distribution END
                 if (session == null && !playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner) // DeltaV - Added session null-check for fallback to regular behavior.
                 {
                     Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule}, no longer choosing antags for this definition");
@@ -332,7 +333,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
     }
 
-    // DeltaV - Add method
+    // DeltaV - Add method BEGIN
     private ProtoId<DepartmentPrototype>? GetDepartment(ICommonSession session)
     {
         if (!_mind.TryGetMind(session, out var mindId, out _))
@@ -346,7 +347,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         return department;
     }
-
+    // DeltaV - Add method END
 
     /// <summary>
     /// Assigns antag roles to sessions selected for it.
