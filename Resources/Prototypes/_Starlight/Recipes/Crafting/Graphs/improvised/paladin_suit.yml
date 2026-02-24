@@ -17,7 +17,12 @@
       - material: Cloth
         amount: 15
         doAfter: 15
-      - tool: Blessing
-        doAfter: 30
   - node: vest
     entity: UnfinishedClothingOuterArmorPaladin
+    edges:
+      - to: completevestpaladin
+        steps:
+        - tool: Blessing
+          doAfter: 30
+  - node: completevestpaladin
+    entity: ClothingOuterArmorPaladin

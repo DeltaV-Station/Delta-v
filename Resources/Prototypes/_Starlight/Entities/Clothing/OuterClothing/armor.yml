@@ -20,9 +20,9 @@
     sprintModifier: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.95
-  - type: Construction
-    graph: ClothingOuterArmorMakeshiftGraph
-    node: vest
+#  - type: Construction # Delta-V - Commented out for balancing purposes, Uncomment once this is changed to be more fun to fight against.
+#    graph: ClothingOuterArmorMakeshiftGraph
+#    node: vest
 
 - type: entity
   parent: ClothingOuterArmorForged
@@ -92,3 +92,6 @@
     sprintModifier: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.85
+  - type: Construction
+    graph: ClothingOuterArmorPaladinGraph
+    node: completevestpaladin
