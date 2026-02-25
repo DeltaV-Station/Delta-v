@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Field Command
-  changes:
-  - message: TEST MERGE, Arms dealers have been spotted in the sector! Adds a new
-      mid-round event.
-    type: Add
-  id: 1631
-  time: '2025-08-25T19:06:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4250
 - author: Stop-Signs
   changes:
   - message: 'TESTMERGE: The emergency shuttle travel time and docked time are shorter.'
@@ -4459,4 +4451,14 @@
   id: 2130
   time: '2026-02-25T18:20:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5392
+- author: zelezniciar
+  changes:
+  - message: Added Engineering SOP, formalizing safety regs, building permits, hazard
+      areas, and more.
+    type: Add
+  - message: RCDs are now a controlled item, restricted to Engineering.
+    type: Tweak
+  id: 2131
+  time: '2026-02-25T20:35:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5282
 Order: 1
