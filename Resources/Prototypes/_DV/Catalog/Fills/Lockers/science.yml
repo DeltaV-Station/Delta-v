@@ -28,10 +28,12 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerScientist
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterHardsuitEVAScience
-        - id: ClothingHeadHelmetEVAScience
-        - id: AirTankFilled
+        - !type:NestedSelector
+          tableId: FillLockerScientist
+        - !type:AllSelector
+          children:
+          - id: ClothingOuterHardsuitEVAScience
+          - id: ClothingHeadHelmetEVAScience
+          - id: AirTankFilled
