@@ -1,17 +1,4 @@
 ﻿Entries:
-- author: Halo3moth
-  changes:
-  - message: Python reduced to 4 tc.
-    type: Tweak
-  - message: Assault borg reduced to 40 tc.
-    type: Tweak
-  - message: Thermal suit pierce resistance brought up to 40%.
-    type: Tweak
-  - message: Thermal suit now cost 14 tc.
-    type: Tweak
-  id: 1629
-  time: '2025-08-25T01:34:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4177
 - author: NoElkaTheGod
   changes:
   - message: Entropic colossi now have increased damage and resistances. 15% reflect
@@ -4475,4 +4462,12 @@
   id: 2128
   time: '2026-02-25T18:18:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5366
+- author: BarryNorfolk
+  changes:
+  - message: Shrapnel Landmines are once again actually dangerous and will murder
+      you.
+    type: Fix
+  id: 2129
+  time: '2026-02-25T18:19:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5379
 Order: 1
