@@ -55,7 +55,7 @@
 - type: loadout
   id: HeadOfSecurityRobe
   effects:
-  - !type:JobRequirementLoadoutEffect
+   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
