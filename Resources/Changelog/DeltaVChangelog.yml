@@ -1,138 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: "Glimmer now has a fancy shader overlay when exceeding 700\u03A8. This\
-      \ can be disabled under Options>DeltaV."
-    type: Add
-  id: 1613
-  time: '2025-08-20T03:54:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4130
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult's armor now gives it's wearer some new emote sounds.
-    type: Tweak
-  id: 1614
-  time: '2025-08-20T09:28:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4213
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult related examines are now predicted (which means they work
-      much smoother).
-    type: Tweak
-  - message: Cosmic cult's glyphs are now animated!
-    type: Tweak
-  - message: Cosmic cult's conversion glyphs now take some time to activate. Put cuffs
-      on your target if you don't want them to run away mid-conversion.
-    type: Tweak
-  id: 1615
-  time: '2025-08-20T10:18:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4147
-- author: NoElkaTheGod
-  changes:
-  - message: Kitsune transformation no longer cause issues with cosmic cult. Hopefully.
-    type: Fix
-  - message: Fixed a few minor cosmic cult bugs.
-    type: Fix
-  id: 1616
-  time: '2025-08-20T19:43:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4233
-- author: NoElkaTheGod
-  changes:
-  - message: Glyph of cessation is now available to the cosmic cult at stage 2, while
-      glyph of warding has been moved to stage 3
-    type: Tweak
-  - message: Cult armor is now more resistant to pierce and heat, but less resistant
-      to other types of damage.
-    type: Tweak
-  id: 1617
-  time: '2025-08-20T19:43:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4236
-- author: 0vrseer
-  changes:
-  - message: Fixed IPCs standing when dead or crit.
-    type: Fix
-  id: 1618
-  time: '2025-08-20T20:10:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4232
-- author: 0vrseer
-  changes:
-  - message: removed some IPC markings that resulted in invisible body parts.
-    type: Remove
-  id: 1619
-  time: '2025-08-20T20:10:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4140
-- author: kotobdev
-  changes:
-  - message: Fixed the game crashing on startup when running in compatibility mode.
-    type: Fix
-  id: 1620
-  time: '2025-08-20T20:12:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4247
-- author: NoElkaTheGod
-  changes:
-  - message: Double-bladed energy sword and vacuous lance have had their swing animations
-      improved.
-    type: Tweak
-  id: 1621
-  time: '2025-08-21T07:53:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4235
-- author: kotobdev
-  changes:
-  - message: Warops can now be declared with just 3 nukies.
-    type: Tweak
-  id: 1622
-  time: '2025-08-21T08:04:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4169
-- author: NoElkaTheGod
-  changes:
-  - message: Secret game mode now not only checks for amount of players ready, but
-      also for the total player count.
-    type: Tweak
-  - message: Game modes now generally require less players to be ready during lobby.
-    type: Tweak
-  id: 1623
-  time: '2025-08-21T08:53:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4246
-- author: NoElkaTheGod
-  changes:
-  - message: Malign rifts sometimes deal damage to everyone around them now. Get away,
-      or you may get hurt! Further away. Like, don't even look at it.
-    type: Tweak
-  id: 1624
-  time: '2025-08-22T07:43:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4216
-- author: NoElkaTheGod
-  changes:
-  - message: Added ion damage type. Only silicons can take it, and it regenerates
-      over time.
-    type: Add
-  - message: Cosmic cult's weapons and glyphs now deal ion damage to compensate for
-      IPCs being immune to asphyxiation.
-    type: Tweak
-  - message: Disablers deal ion damage now. Don't look at me like that, direction
-      asked to add this, not my idea.
-    type: Tweak
-  id: 1625
-  time: '2025-08-22T10:38:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4245
-- author: NoElkaTheGod
-  changes:
-  - message: EMP no longer drains power from IPCs and cyborgs. Instead, it deals high
-      amount of ion damage, enough to instantly down the target in most cases. EMP
-      implants deal less daamge, though, so you will need all 3 charges to kill somoene
-      with it.
-    type: Tweak
-  id: 1626
-  time: '2025-08-23T08:39:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4255
-- author: cmorley191
-  changes:
-  - message: Fixed custom-named station beacons sometimes not being shown on the station
-      map UIs.
-    type: Fix
-  id: 1627
-  time: '2025-08-24T01:15:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4211
 - author: NoElkaTheGod
   changes:
   - message: Cosmic cult's conversion glyphs charging animation has been removed.
@@ -4495,4 +4361,118 @@
   id: 2112
   time: '2026-01-30T21:11:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5330
+- author: verybigman311
+  changes:
+  - message: Wielding a guitar should no longer turn it invisible in your hands.
+    type: Fix
+  id: 2113
+  time: '2026-02-01T19:29:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5331
+- author: verybigman311
+  changes:
+  - message: The Brigmed beret is now avaliable in the Corpsman loadout.
+    type: Add
+  id: 2114
+  time: '2026-02-01T19:30:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5333
+- author: keekee38
+  changes:
+  - message: modified the bandolier slightly, and added a recipe for it in the sec
+      techfab
+    type: Tweak
+  id: 2115
+  time: '2026-02-01T19:32:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5313
+- author: Pharaz4
+  changes:
+  - message: Changed the mapped enabled pumps from 310 to 300 kPa
+    type: Tweak
+  id: 2116
+  time: '2026-02-01T19:34:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5336
+- author: makyo
+  changes:
+  - message: Rodentia! Now your sneak action has an icon showing your sneak status.
+    type: Add
+  id: 2117
+  time: '2026-02-01T19:39:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5308
+- author: makyo
+  changes:
+  - message: Perma chefvends now get a few bowls!
+    type: Add
+  id: 2118
+  time: '2026-02-01T19:43:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5304
+- author: verybigman311
+  changes:
+  - message: Feroxi can now waggy their tails.
+    type: Add
+  id: 2119
+  time: '2026-02-02T17:56:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5319
+- author: Pharaz4
+  changes:
+  - message: Fixed harpy suits not displaying on some clothing.
+    type: Fix
+  - message: Added missing sprite for Lizards on multipe suits.
+    type: Add
+  - message: Removed upstream spawners from entity spawn panel.
+    type: Remove
+  id: 2120
+  time: '2026-02-05T20:04:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5325
+- author: Pharaz4
+  changes:
+  - message: Shoko improved!
+    type: Tweak
+  id: 2121
+  time: '2026-02-10T11:26:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5334
+- author: MantasDab360
+  changes:
+  - message: Gas condenser now uses 2kW instead of 10 kW!
+    type: Tweak
+  id: 2122
+  time: '2026-02-17T23:22:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5365
+- author: Pharaz4
+  changes:
+  - message: Fixed pew sprites!
+    type: Fix
+  id: 2123
+  time: '2026-02-20T23:13:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5375
+- author: Woljif
+  changes:
+  - message: Removed the slowdown penalty when wielding the Estoc DMR.
+    type: Tweak
+  id: 2124
+  time: '2026-02-24T04:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5242
+- author: keekee38
+  changes:
+  - message: added a new cryogenics chemical, photoxadone, that heals both holy and
+      shadow damage. it even works on the dead!
+    type: Add
+  - message: added purifying salt to the med vend, as well as a recipe in the techfab.
+    type: Tweak
+  id: 2125
+  time: '2026-02-24T05:05:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5276
+- author: IAmNotGray
+  changes:
+  - message: The maximum record length has been increased from 4096 to 8192. Remember
+      that these things exist?
+    type: Tweak
+  id: 2126
+  time: '2026-02-24T19:11:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5385
+- author: HameyTychol
+  changes:
+  - message: removed ability for limbs to be placed in trash bag and recycled
+    type: Fix
+  id: 2127
+  time: '2026-02-24T19:11:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5416
 Order: 1
