@@ -154,7 +154,7 @@
 - type: entity
   id: SalvageGunSafeBaseSecure
   parent: GunSafe
-  suffix: LO, Locked
+  suffix: LO, Locked, Empty
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
