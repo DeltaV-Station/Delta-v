@@ -1,23 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Entropic colossi now have increased damage and resistances. 15% reflect
-      chance has been removed, though.
-    type: Tweak
-  - message: Entropic colossi now take holy damage, but don't take structural damage
-      anymore.
-    type: Tweak
-  - message: Slumber Shell (colossus' healing) cooldown 120 -> 180 seconds.
-    type: Tweak
-  - message: Entropic colossi can no longer attack immediately after teleporting,
-      which allowed unavoidable one-shot kills.
-    type: Fix
-  - message: Midround entropic colossi now take 30 seconds to heal, just like ones
-      created by cult.
-    type: Fix
-  id: 1630
-  time: '2025-08-25T11:47:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4251
 - author: Field Command
   changes:
   - message: TEST MERGE, Arms dealers have been spotted in the sector! Adds a new
@@ -4470,4 +4451,12 @@
   id: 2129
   time: '2026-02-25T18:19:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5379
+- author: Eternally-Confused
+  changes:
+  - message: Bluespace beakers and lead bottles can now only be obtained by emagging
+      the chemvend, instead of cutting the manager wire.
+    type: Tweak
+  id: 2130
+  time: '2026-02-25T18:20:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5392
 Order: 1
