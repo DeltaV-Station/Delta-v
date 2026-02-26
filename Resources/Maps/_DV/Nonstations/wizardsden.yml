@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/15/2026 00:43:18
+  time: 02/26/2026 01:32:26
   entityCount: 763
 maps:
 - 411
@@ -2402,13 +2402,6 @@ entities:
       parent: 1
     - type: PowerSupplier
       supplyRate: 10000
-- proto: GhostWarpPoint
-  entities:
-  - uid: 550
-    components:
-    - type: Transform
-      pos: 0.5,6.5
-      parent: 1
 - proto: GravityGeneratorMini
   entities:
   - uid: 359
@@ -2536,7 +2529,6 @@ entities:
   - uid: 625
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 7.5,10.5
       parent: 1
     - type: Fixtures
@@ -4768,6 +4760,15 @@ entities:
     - type: Transform
       pos: 2.5,-15.5
       parent: 1
+- proto: WarpPointNoBomb
+  entities:
+  - uid: 550
+    components:
+    - type: Transform
+      pos: 0.5,6.5
+      parent: 1
+    - type: WarpPoint
+      location: Wizard's Den
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 402
