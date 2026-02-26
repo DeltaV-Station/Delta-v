@@ -12,3 +12,28 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Devices/Holoprojectors/eng.rsi
     state: icon
+
+- type: entity
+  parent: BaseItem
+  id: HolotapeProjector
+  name: holotape projector
+  description: A handy way to cordon off a particularly hazardous area - let everyone know they shouldn't wander in without a hardhat.
+  components:
+  - type: ChargeHolosignProjector
+    signProto: HoloTape
+    signComponentName: Holotape
+  - type: AutoRecharge
+    rechargeDuration: 60
+  - type: Sprite
+    sprite: _DV/Objects/Devices/Holoprojectors/holotape.rsi
+    state: icon
+  - type: Item
+    storedRotation: -90
+  - type: LimitedCharges
+    maxCharges: 6
+  - type: ContainerContainer
+    containers:
+      signs: !type:Container
+  - type: Tag
+    tags:
+    - HolofanProjector

@@ -1,68 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult's conversion glyphs charging animation has been removed.
-    type: Remove
-  id: 1628
-  time: '2025-08-25T00:52:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4259
-- author: Halo3moth
-  changes:
-  - message: Python reduced to 4 tc.
-    type: Tweak
-  - message: Assault borg reduced to 40 tc.
-    type: Tweak
-  - message: Thermal suit pierce resistance brought up to 40%.
-    type: Tweak
-  - message: Thermal suit now cost 14 tc.
-    type: Tweak
-  id: 1629
-  time: '2025-08-25T01:34:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4177
-- author: NoElkaTheGod
-  changes:
-  - message: Entropic colossi now have increased damage and resistances. 15% reflect
-      chance has been removed, though.
-    type: Tweak
-  - message: Entropic colossi now take holy damage, but don't take structural damage
-      anymore.
-    type: Tweak
-  - message: Slumber Shell (colossus' healing) cooldown 120 -> 180 seconds.
-    type: Tweak
-  - message: Entropic colossi can no longer attack immediately after teleporting,
-      which allowed unavoidable one-shot kills.
-    type: Fix
-  - message: Midround entropic colossi now take 30 seconds to heal, just like ones
-      created by cult.
-    type: Fix
-  id: 1630
-  time: '2025-08-25T11:47:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4251
-- author: Field Command
-  changes:
-  - message: TEST MERGE, Arms dealers have been spotted in the sector! Adds a new
-      mid-round event.
-    type: Add
-  id: 1631
-  time: '2025-08-25T19:06:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4250
-- author: Stop-Signs
-  changes:
-  - message: 'TESTMERGE: The emergency shuttle travel time and docked time are shorter.'
-    type: Tweak
-  id: 1632
-  time: '2025-08-25T21:16:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4162
-- author: NoElkaTheGod
-  changes:
-  - message: IPCs no longer bleed.
-    type: Remove
-  - message: IPCs are no longer immune to barotrauma damage, be that from space or
-      standing in a burn chamber.
-    type: Tweak
-  id: 1633
-  time: '2025-08-26T10:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4258
 - author: Proxysseia
   changes:
   - message: removed Trials
@@ -4475,4 +4411,52 @@
   id: 2127
   time: '2026-02-24T19:11:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5416
+- author: rebe83
+  changes:
+  - message: Skias can now emote. Harvest souls with some flavor. and spin.
+    type: Tweak
+  id: 2128
+  time: '2026-02-25T18:18:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5366
+- author: BarryNorfolk
+  changes:
+  - message: Shrapnel Landmines are once again actually dangerous and will murder
+      you.
+    type: Fix
+  id: 2129
+  time: '2026-02-25T18:19:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5379
+- author: Eternally-Confused
+  changes:
+  - message: Bluespace beakers and lead bottles can now only be obtained by emagging
+      the chemvend, instead of cutting the manager wire.
+    type: Tweak
+  id: 2130
+  time: '2026-02-25T18:20:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5392
+- author: zelezniciar
+  changes:
+  - message: Added Engineering SOP, formalizing safety regs, building permits, hazard
+      areas, and more.
+    type: Add
+  - message: RCDs are now a controlled item, restricted to Engineering.
+    type: Tweak
+  id: 2131
+  time: '2026-02-25T20:35:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5282
+- author: Stxcking
+  changes:
+  - message: Gun safes have new sprites!
+    type: Tweak
+  id: 2132
+  time: '2026-02-25T22:42:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5314
+- author: zelezniciar, AraiMaia
+  changes:
+  - message: Added Engineering Tape for use by Engineers to mark off hazardous areas.
+      Danger, Keep Out!
+    type: Add
+  id: 2133
+  time: '2026-02-26T07:29:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5277
 Order: 1
