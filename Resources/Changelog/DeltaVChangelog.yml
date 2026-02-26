@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: IPCs no longer bleed.
-    type: Remove
-  - message: IPCs are no longer immune to barotrauma damage, be that from space or
-      standing in a burn chamber.
-    type: Tweak
-  id: 1633
-  time: '2025-08-26T10:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4258
 - author: Proxysseia
   changes:
   - message: removed Trials
@@ -4461,4 +4451,12 @@
   id: 2132
   time: '2026-02-25T22:42:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5314
+- author: zelezniciar, AraiMaia
+  changes:
+  - message: Added Engineering Tape for use by Engineers to mark off hazardous areas.
+      Danger, Keep Out!
+    type: Add
+  id: 2133
+  time: '2026-02-26T07:29:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5277
 Order: 1
