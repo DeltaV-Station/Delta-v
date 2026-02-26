@@ -130,3 +130,15 @@
   - !type:AddCompsEffect
     components:
     - type: Hemophilia
+
+- type: trait
+  id: BadCough
+  name: trait-badcough-name
+  description: trait-badcough-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: AutoEmote
+      emotes:
+      - BadCough
