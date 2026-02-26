@@ -20,6 +20,7 @@
   - type: ConspiratorRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn # DeltaV - previously IntraPlayerSpawn
+    agentName: conspirator-round-end-agent-name # DeltaV - previously unset
     definitions:
     - prefRoles: [ Conspirator ]
       min: 4

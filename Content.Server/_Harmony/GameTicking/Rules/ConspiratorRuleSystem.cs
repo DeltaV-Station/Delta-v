@@ -30,7 +30,9 @@ public sealed class ConspiratorRuleSystem : GameRuleSystem<ConspiratorRuleCompon
         SubscribeLocalEvent<ConspiratorRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelected);
     }
 
-    protected override void AppendRoundEndText(EntityUid uid,
+    /* DeltaV - removed custom round end text in favor of individually displayed objective summaries
+
+     protected override void AppendRoundEndText(EntityUid uid,
         ConspiratorRuleComponent component,
         GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
@@ -51,6 +53,7 @@ public sealed class ConspiratorRuleSystem : GameRuleSystem<ConspiratorRuleCompon
 
         args.AddLine(Loc.GetString("conspirator-objective", ("objective", objectiveProto.Name)));
     }
+    */
 
     private void OnGetBriefing(Entity<ConspiratorRoleComponent> ent, ref GetBriefingEvent args)
     {
