@@ -181,7 +181,7 @@ public sealed class SlavicAccentSystem : EntitySystem
         return result;
     }
 
-    private void OnAccent(EntityUid uid, SlavicAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<SlavicAccentComponent> entity, ref AccentGetEvent args)
     {
         args.Message = Accentuate(args.Message, component);
     }
