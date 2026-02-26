@@ -81,8 +81,6 @@
       - state: inhand-right-blade
         shader: unshaded
   - type: Reflect
-    reflects:
-      - energy # Deltav - previously reflected all projectiles
   - type: IgnitionSource
     temperature: 700
 
@@ -417,7 +415,7 @@
     size: Small
     sprite: Objects/Weapons/Melee/hypereutactic_blade_inhands.rsi
   - type: Reflect
-    reflectProb: .6 # Deltav - was 100%
+    reflectProb: 1.0
     spread: 75
 
 # Borgs
