@@ -32,7 +32,7 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
             found = true;
 
             shell.WriteLine("");
-            shell.WriteLine(sessionData.UserName);
+            shell.WriteMarkup($"[bold]{sessionData.UserName}[/bold]");
             foreach (var record in watchlists)
             {
                 shell.WriteLine("");
@@ -49,7 +49,7 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
                 }
                 foreach (var line in record.Message.Split('\n', StringSplitOptions.TrimEntries))
                 {
-                   shell.WriteLine($">  {line}");
+                   shell.WriteLine($"> {line}");
                 }
             }
         }
