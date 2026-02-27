@@ -68,10 +68,12 @@ public sealed partial class PlayerTab : Control
         RefreshPlayerList(_adminSystem.PlayerList);
     }
 
+    // DeltaV - mark ghosted START
     private void MarkGhostedChanged(bool value)
     {
         _markGhosted = value;
     }
+    // DeltaV - mark ghosted END
 
     #region Antag Overlay
 
