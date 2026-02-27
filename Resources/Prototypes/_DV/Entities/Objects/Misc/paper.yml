@@ -396,8 +396,8 @@
         type: ResearchConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: MeleeWeapon
     damage:
       types:
