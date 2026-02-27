@@ -58,9 +58,9 @@ public sealed class ListLawsCommand : LocalizedEntityCommands
         _entityManager.TryGetComponent<MetaDataComponent>(ent, out var metaData);
         var entityName = metaData?.EntityName;
 
-        shell.WriteLine(_player.TryGetSessionByEntity(ent, out var session)
-            ? $"{entityName} ({ent.Id}, {session.Name}, subverted: {lawProvider.Subverted})"
-            : $"{entityName} ({ent.Id}, subverted: {lawProvider.Subverted})");
+        shell.WriteMarkup(_player.TryGetSessionByEntity(ent, out var session)
+            ? $"[bold]{entityName}[/bold] ({ent.Id}, [color=red]{session.Name}[/color], subverted: {lawProvider.Subverted})"
+            : $"[bold]{entityName}[/bold] ({ent.Id}, subverted: {lawProvider.Subverted})");
 
         shell.WriteLine($"Base Lawset: {lawProvider.Laws.Id}");
         if (lawProvider.Lawset is {} lawset)
