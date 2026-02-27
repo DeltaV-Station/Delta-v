@@ -12,6 +12,7 @@ using Content.Shared.Administration.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Ghost;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
@@ -220,12 +221,14 @@ public sealed class AdminSystem : EntitySystem
         var entityName = string.Empty;
         var identityName = string.Empty;
         var sortWeight = 0;
+        var ghost = false; // DeltaV
 
         // Visible (identity) name can be different from real name
         if (session?.AttachedEntity != null)
         {
             entityName = Comp<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
             identityName = Identity.Name(session.AttachedEntity.Value, EntityManager);
+            ghost = HasComp<GhostComponent>(session.AttachedEntity.Value); // DeltaV
         }
 
         var antag = false;
@@ -277,7 +280,9 @@ public sealed class AdminSystem : EntitySystem
             data.UserId,
             connected,
             _roundActivePlayers.Contains(data.UserId),
-            overallPlaytime);
+            overallPlaytime,
+            ghost // DeltaV - Add ghost
+        );
     }
 
     private void OnPanicBunkerChanged(bool enabled)

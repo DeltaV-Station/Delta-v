@@ -93,6 +93,16 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> AdminPlayerTabRoleSetting =
         CVarDef.Create("ui.admin_player_tab_role", "Subtype", CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    // DeltaV - Add MarkGhosted START
+
+    /// <summary>
+    /// Whether to prepend "(G)" to player usernames in the players tab
+    /// </summary>
+    public static readonly CVarDef<bool> AdminPlayerTabMarkGhosted =
+        CVarDef.Create("ui.admin_player_tab_mark_ghosted", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    // DeltaV - Add MarkGhosted END
+
     /// <summary>
     /// Determines how antagonist status/roletype is displayed. Based on AdminOverlayAntagSymbolStyles enum
     /// Off: No symbol is shown.

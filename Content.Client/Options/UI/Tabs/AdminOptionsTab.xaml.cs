@@ -56,6 +56,7 @@ public sealed partial class AdminOptionsTab : Control
         Control.AddOptionDropDown(CCVars.AdminPlayerTabSymbolSetting, DropDownPlayerTabSymbolSetting, playerTabSymbolSettings);
         Control.AddOptionDropDown(CCVars.AdminPlayerTabRoleSetting, DropDownPlayerTabRoleSetting, playerTabRoleSettings);
         Control.AddOptionDropDown(CCVars.AdminPlayerTabColorSetting, DropDownPlayerTabColorSetting, playerTabColorSettings);
+        Control.AddOptionCheckBox(CCVars.AdminPlayerTabMarkGhosted, EnablePlayerTabMarkGhosted); // DeltaV
 
         Control.AddOptionDropDown(CCVars.AdminOverlayAntagFormat, DropDownOverlayAntagFormat, antagFormats);
         Control.AddOptionDropDown(CCVars.AdminOverlaySymbolStyle, DropDownOverlayAntagSymbol, antagSymbolStyles);

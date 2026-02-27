@@ -393,6 +393,11 @@ ui-options-admin-player-tab-color-setting-character = Colorize antag character n
 ui-options-admin-player-tab-color-setting-roletype = Colorize all role types
 ui-options-admin-player-tab-color-setting-both = Colorize both
 
+# DeltaV - Additions START
+ui-options-admin-player-tab-mark-ghosted = Mark ghosted players
+ui-options-admin-player-tab-mark-ghosted-tooltip = Ghosts will have a "(G)" added to their character names (e.g. "(G) Glip-Glub")
+# DeltaV - Additions END
+
 ui-options-admin-logs-title = Admin Logs
 ui-options-admin-logs-highlight-color = Highlight Color
 

@@ -9,6 +9,7 @@
                 <ui:OptionDropDown Name="DropDownPlayerTabSymbolSetting" Title="{Loc 'ui-options-admin-player-tab-symbol-setting'}" />
                 <ui:OptionDropDown Name="DropDownPlayerTabRoleSetting" Title="{Loc 'ui-options-admin-player-tab-role-setting'}" />
                 <ui:OptionDropDown Name="DropDownPlayerTabColorSetting" Title="{Loc 'ui-options-admin-player-tab-color-setting'}" />
+                <CheckBox Name="EnablePlayerTabMarkGhosted" Text="{Loc 'ui-options-admin-player-tab-mark-ghosted'}" ToolTip="{Loc 'ui-options-admin-player-tab-mark-ghosted-tooltip'}" /> <!-- DeltaV - Add MarkGhosted -->
                 <Label Text="{Loc 'ui-options-admin-logs-title'}"
                        StyleClasses="LabelKeyText"/>
                 <ui:OptionColorSlider Name="ColorSliderLogsHighlight" Title="{Loc 'ui-options-admin-logs-highlight-color'}" />
