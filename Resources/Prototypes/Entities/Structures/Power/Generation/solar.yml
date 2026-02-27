@@ -67,7 +67,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 1000
+    maxSupply: 2000 # Delta V - Make solars worthwhile
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_plasma
@@ -107,7 +107,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 1500
+    maxSupply: 3000 # Delta V - Make solars worthwhile
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_uranium
@@ -147,7 +147,7 @@
     supplyRampTolerance: 500
     supplyRampRate: 500
   - type: SolarPanel
-    maxSupply: 1500 # Delta V - addition, reworkign solars
+    maxSupply: 1000 # Delta V - Make solars worthwhile
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
