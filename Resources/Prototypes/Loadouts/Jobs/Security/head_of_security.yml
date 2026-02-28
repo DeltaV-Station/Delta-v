@@ -75,5 +75,13 @@
 
 - type: loadout
   id: HeadofSecurityWinterCoat
+  #Begin DeltaV additions
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 72000 # 20hr
+  #End DeltaV additions
   equipment:
     outerClothing: ClothingOuterWinterHoS
