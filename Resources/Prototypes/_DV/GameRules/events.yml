@@ -362,6 +362,12 @@
   - type: AntagObjectives
     objectives:
     - NTAgentObjective
+    - FrameRandomPersonObjective
+    - FireRandomPersonObjective
+    - TestSecurityObjective
+    - TestEngineeringObjective
+    - TestMedicalObjective
+    - DefundDepartmentObjective
   - type: AntagSelection
     agentName: NTAgent-round-end-name
     definitions:
