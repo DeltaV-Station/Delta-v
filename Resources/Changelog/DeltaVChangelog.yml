@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: Nukeops and Cosmic Cult now have the same chance to occur on Secret rounds.
-    type: Tweak
-  id: 1639
-  time: '2025-08-28T01:54:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4222
 - author: NoElkaTheGod
   changes:
   - message: Cult helmets now actually provide flash protection. For real this time.
@@ -4441,4 +4434,13 @@
   id: 2138
   time: '2026-02-28T08:50:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5327
+- author: AeraAuling
+  changes:
+  - message: Removed PKA upgrade kits for Fire-Rate and Indoors.
+    type: Remove
+  - message: PKA damage stats have been tweaked.
+    type: Tweak
+  id: 2139
+  time: '2026-02-28T10:26:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5311
 Order: 1
