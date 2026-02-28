@@ -16,6 +16,7 @@
     - id: MenaceSkeleton
     - id: SkiaSpawn
     - id: RatKingSpawn
+    - id: NTAgentSleeper
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -353,42 +354,20 @@
         - type: BreakLightsOnSpawn
           radius: 10
 
-# nt agent
+# nt agent (this is usually for the admeme spawn)
 - type: entity
   parent: BaseGameRule
-  id: NTAgent
+  id: NTAgentRule
   components:
-  - type: StationEvent
-    earliestStart: 15
-    weight: 3
-    minimumPlayers: 25
-    maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
-    duration: null # the rule has to last the whole round not 1 second
-    occursDuringRoundEnd: false
-  - type: AlertLevelInterceptionRule
+  - type: GameRule
   - type: AntagObjectives
     objectives:
     - NTAgentObjective
-#    - FrameRandomPersonObjective
-#    - FireRandomPersonObjective
-#    - TestSecurityObjective
-#    - TestEngineeringObjective
-#    - TestMedicalObjective
-#    - DefundDepartmentObjective
-  - type: AntagRandomObjectives
-    sets:
-    - groups: NTAgentObjectiveGroup
-      maxPicks: 2
-    maxDifficulty: 100 # unused but apparently mandatory
   - type: AntagSelection
     agentName: NTAgent-round-end-name
     definitions:
     - min: 1
       max: 2
-      playerRatio: 10
       pickPlayer: true
       briefing:
         text: NTAgent-role-greeting-human
@@ -400,6 +379,401 @@
       - type: AutoImplant
         implants:
         - RadioImplantCentcomm
+
+# nt agent sleeper event
+- type: entity
+  id: NTAgentSleeper
+  parent: [NTAgentRule, BaseMidRoundAntag]
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 25
+    weight: 3
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NTAgentObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - prefRoles: [ NTAgent ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      pickPlayer: true
       blacklist:
         components:
         - AntagImmune
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+
+- type: entityTable
+  id: BasicCalmEventsTableDeltaV
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: MothroachSpawn
+    - id: XenoVents
+    - id: MalignRiftSpawn
+
+- type: entityTable
+  id: BasicAntagEventsTableDeltaV
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: Fugitive
+    - id: ListeningPost
+    - id: RoboNeuroticist
+    - id: MenaceSkeleton
+    - id: SkiaSpawn
+    - id: RatKingSpawn
+
+# Replaces upstream meteor events until they're good
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: MeteorSwarm
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 7.5
+    minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/meteors.ogg
+      params:
+        volume: -4
+    duration: null #ending is handled by MeteorSwarmRule
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
+  - type: MeteorSwarmRule
+# Xeno Vents
+- type: entity
+  parent: BaseGameRule
+  id: XenoVents
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-vent-start-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/aliens.ogg
+    earliestStart: 25
+    minimumPlayers: 30
+    weight: 2
+    duration: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-xeno-vents-result-message
+  - type: VentCrittersRule
+    table: !type:GroupSelector
+      children:
+      - id: MobXenoPlayer
+        weight: 0.20
+      - id: MobXenoRouny
+        weight: 0.01
+      - id: MobXenoDrone
+        weight: 0.35
+      - id: MobXenoSpitter
+        weight: 0.14
+      - id: MobXenoRunner
+        weight: 0.14
+      - id: MobXenoPraetorian
+        weight: 0.08
+      - id: MobXenoRavager
+        weight: 0.05
+      - id: MobXenoQueen
+        weight: 0.03
+# Mothroaches
+- type: entity
+  parent: BaseGameRule
+  id: MothroachSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 5
+    weight: 5
+    duration: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-mothroach-spawn-result-message
+  - type: VentCrittersRule
+    min: 5
+    max: 10
+    playerRatio: 65 # mothroaches aren't dangerous, but don't need as many as mice
+    table:
+      id: MobMothroach
+# Listening Post
+- type: entity
+  parent: BaseGameRule
+  id: ListeningPost
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 4
+    minimumPlayers: 25
+    maxOccurrences: 1
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-listening-post-result-message
+  - type: RuleGrids
+  - type: LoadFarGridRule
+    path: /Maps/_DV/Nonstations/listening_post.yml
+    distanceModifier: 13
+  - type: DebrisSpawnerRule
+    count: 6
+    distanceModifier: 3
+  # TODO: funny trolling or intel related objectives
+  - type: AntagLoadProfileRule
+  - type: AntagSelection
+    agentName: listening-post-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSyndicateListener
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateListenerGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesDeathCommando
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: IntrinsicRadioReceiver
+      - type: ActiveRadio
+        channels:
+        - Binary
+      mindRoles:
+      - MindRoleListeningPost
+# Malign Rifts
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6
+  - type: PrecognitionResult
+    message: psionic-power-precognition-rift-spawn-result-message
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 1
+    maxAmount: 3
+
+- type: entity
+  id: Epsilon
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 12
+    maxDuration: 12
+  - type: EpsilonEventRule
+
+# Mid round antag spawns
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseMidRoundAntag
+  components:
+  - type: StationEvent
+    weight: 7
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+  - type: MidRoundAntagRule
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: RatKingSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    minimumPlayers: 20
+    reoccurrenceDelay: 30
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRatKing
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: Fugitive
+  components:
+  - type: StationEvent
+    minimumPlayers: 40 # it's really easy to find fugitives on lowpop
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-fugitive-result-message
+  - type: FugitiveRule
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - FugitiveEscapeObjective
+  - type: AntagSelection
+    agentName: fugitive-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostFugitive
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: FugitiveGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindRoles:
+      - MindRoleFugitive
+# Syndicate RoboNeurotocist
+- type: entity
+  parent: BaseGameRule
+  id: RoboNeuroticist
+  components:
+  - type: StationEvent
+    weight: 1
+    minimumPlayers: 35 #big threat, but has to have ghosts to matter
+    reoccurrenceDelay: 30
+    duration: null # so it shows up in round end
+    maxOccurrences: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_DV/Shuttles/Event/haibu.yml # was /Maps/_DV/Shuttles/Admin/roboneuroticist_ship.yml
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - RoboNeuroticistSurviveObjective
+    - RoboNeuroticistBorgObjective
+    - RoboNeuroticistKillObjective
+    - RoboNeuroticistPlutoniumCoreStealObjective
+    - RoboNeuroticistUploadAILawObjective
+  - type: AntagSelection
+    agentName: roboneuroticist-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: RoboNeuroticistGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesHologram
+        - NamesMilitaryLast
+        nameFormat: name-format-standard
+      - type: EmitSoundOnSpawn # evil sound
+        sound: /Audio/Ambience/Antag/emagged_borg.ogg
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleRoboNeuroticist
+# Noospheric Storm
+- type: entity
+  parent: BaseGameRule
+  id: NoosphericStorm
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/noosphericstorm.ogg
+    weight: 5
+    earliestStart: 15
+  - type: NoosphericStormRule
+# Menace Skeleton (Antagonistic)
+- type: entity
+  parent: BaseMidRoundAntag
+  id:  MenaceSkeleton
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-closet-skeleton-result-message
+  - type: AntagSpawner
+    prototype: MobMenaceSkeleton
+  - type: AntagRandomObjectives
+    sets:
+    - groups: SkeletonObjectiveGroup
+      maxPicks: 2 # only pick 2 of 4
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
+  - type: AntagSelection
+    agentName: menace-skeleton-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointMenaceSkeleton
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindRoles:
+      - MindRoleMenaceSkeleton
+# Skia
+- type: entity
+  parent: BaseMidRoundAntag
+  id: SkiaSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-skia-result-message
+  - type: AntagSpawner
+    prototype: MobSkia
+  - type: AntagObjectives
+    objectives:
+    - SkiaReapObjective
+  - type: AntagSelection
+    agentName: skia-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointSkia
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSkia
+      components:
+      - type: EmitSoundOnSpawn
+        sound: /Audio/_DV/Effects/creepyshriek.ogg
+      - type: BreakLightsOnSpawn
+        radius: 10

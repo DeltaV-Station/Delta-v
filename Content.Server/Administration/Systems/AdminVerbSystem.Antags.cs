@@ -239,7 +239,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Nanotrasen"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "NTAgent");
+                _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "NTAgentRule");
             },
             Impact = LogImpact.High,
             Message = string.Join(": ", ntAgent, Loc.GetString("admin-verb-text-make-NTAgent")),
