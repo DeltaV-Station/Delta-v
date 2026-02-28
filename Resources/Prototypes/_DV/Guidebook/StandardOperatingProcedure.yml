@@ -12,6 +12,7 @@
   - SecurityandJusticeRegulations
   - Hearings
   - MedicalRegulations
+  - EngineeringRegulations
 
 # General Regulations Main Directory
 
@@ -103,6 +104,19 @@
   - MedicalEvaluation
   - Quarantine
   - StandardOfCare
+
+# Engineering Regulations Main Directory
+- type: guideEntry
+  id: EngineeringRegulations
+  name: Engineering Regulations
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/EngineeringRegulations.xml
+  priority: 1
+  children:
+  - HealthAndSafety
+  - BuildingPermits
+  - EmergencyAccess
+  - HazardZones
+  - CondemnedAreas
 
 ## General Regulations Entries
 - type: guideEntry
@@ -298,3 +312,32 @@
   id: StandardOfCare
   name: Standard Of Care
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/StandardOfCare.xml
+
+  ## Engineering Regulations Entries
+- type: guideEntry
+  id: HealthAndSafety
+  name: Health and Safety
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/HealthAndSafety.xml
+
+
+- type: guideEntry
+  id: BuildingPermits
+  name: Building Permits
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/BuildingPermits.xml
+
+
+- type: guideEntry
+  id: EmergencyAccess
+  name: Emergency Access
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/EmergencyAccess.xml
+
+
+- type: guideEntry
+  id: HazardZones
+  name: Hazard Zones
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/HazardZones.xml
+
+- type: guideEntry
+  id: CondemnedAreas
+  name: Condemned Areas
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/CondemnedAreas.xml
