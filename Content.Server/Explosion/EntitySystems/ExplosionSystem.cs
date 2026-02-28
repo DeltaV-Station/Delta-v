@@ -6,6 +6,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Destructible;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
+using Content.Server.Station.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
@@ -54,6 +55,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!; // DeltaV
 
     private EntityQuery<FlammableComponent> _flammableQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -246,19 +248,49 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         if (!addLog)
             return;
 
+        // DeltaV - check if on station START
+        string? stationName = null;
+        var station = _stationSystem.GetOwningStation(gridPos?.EntityId);
+        // just in case: is the user on station?
+        if (station is null && user is not null)
+        {
+            station = _stationSystem.GetOwningStation(gridPos?.EntityId);
+        }
+;
+        if (station is not null)
+        {
+            if (_stationSystem.TryGetNetEntity(station, out var stationNetEnt))
+            {
+                stationName = _stationSystem.GetStationNames().Find(x => x.Entity == stationNetEnt).Name;
+            }
+        }
+        // DeltaV - check if on station END
+
         if (user == null)
         {
-            _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(uid):entity} exploded ({typeId}) at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+            // DeltaV - Set to Extreme if onStation (always alert), add station name if available
+            _adminLogger.Add(LogType.Explosion, station is not null ? LogImpact.Extreme : LogImpact.High,
+                $"{ToPrettyString(uid):entity} exploded ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
         }
         else
         {
             var alertMinExplosionIntensity = _cfg.GetCVar(CCVars.AdminAlertExplosionMinIntensity);
             var logImpact = (alertMinExplosionIntensity > -1 && totalIntensity >= alertMinExplosionIntensity)
                 ? LogImpact.Extreme
-                : LogImpact.High;
+                : LogImpact.Medium; // DeltaV - If false, Medium instead of High
+
+            // DeltaV - Set to Extreme if onStation (always alert) START
+            if (station is not null)
+                logImpact = LogImpact.Extreme;
+            // DeltaV - Set to Extreme if onStation (always alert) END
+
             if (posFound)
-                _adminLogger.Add(LogType.Explosion, logImpact, $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{gridPos:coordinates} with intensity {totalIntensity} slope {slope}");
+            {
+                // DeltaV - Add stationName to log message if available
+                _adminLogger.Add(LogType.Explosion,
+                    logImpact,
+                    $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{gridPos:coordinates} with intensity {totalIntensity} slope {slope}");
+            }
             else
                 _adminLogger.Add(LogType.Explosion, logImpact, $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:[Grid or Map not found] with intensity {totalIntensity} slope {slope}");
         }
