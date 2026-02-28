@@ -19,13 +19,8 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot
-        showEnts: false
-        occludes: true
-        ent: null
+      toggleable-under-clothing: !type:ContainerSlot {}
       storagebase: !type:Container
-        showEnts: false
-        occludes: true
-        ents: []
 
 - type: entity
   parent: ClothingOuterHardsuitSyndie
@@ -59,7 +54,7 @@
     newItem: null
 
 - type: entity
-  parent: ClothingOuterHardsuitERTLeader
+  parent: ClothingOuterHardsuitERTBase
   id: ClothingOuterHardsuitERTCentcomm
   name: CentComm hardsuit
   components:
@@ -69,3 +64,6 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTCentcomm
+  - type: Tag
+    tags:
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites

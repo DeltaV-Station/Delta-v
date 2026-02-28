@@ -3,26 +3,30 @@
   id: BriefcaseRecruiterLawyerkit
   suffix: Cybersun, Lawyer
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingEyesGlassesCheapSunglasses
-    - id: LuxuryPen
-    - id: ClothingOuterCybersunOvercoat
-    - id: ClothingUniformCybersunAttorney
-    - id: ClothingMaskNeckGaiter
-    - id: SyndieHandyFlag
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingEyesGlassesCheapSunglasses
+        - id: LuxuryPen
+        - id: ClothingOuterCybersunOvercoat
+        - id: ClothingUniformCybersunAttorney
+        - id: ClothingMaskNeckGaiter
+        - id: SyndieHandyFlag
 
 - type: entity
   parent: CybersunBriefcase
   id: BriefcaseRecruiterSurgeonKit
   suffix: Cybersun, Surgeon
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingHeadHatSurgcapCybersun
-    - id: UniformScrubsColorCybersun
-    - id: ClothingOuterCoatCybersunWindbreaker
-    - id: ClothingMaskNeckGaiter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatSurgcapCybersun
+        - id: UniformScrubsColorCybersun
+        - id: ClothingOuterCoatCybersunWindbreaker
+        - id: ClothingMaskNeckGaiter
 
 - type: entity
   parent: CybersunBriefcase

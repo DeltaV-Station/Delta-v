@@ -4,7 +4,29 @@
   suffix: Filled, Void suit
   parent: LockerEngineerFilled
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterVoidsuitEngineering
-    - id: OxygenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterVoidsuitEngineering
+        - id: OxygenTankFilled
+        - id: ClothingShoesBootsMag
+        - id: ClothingMaskBreath
+        - !type:NestedSelector
+          tableId: FillLockerEngineer
+
+- type: entity
+  id: LockerEngineerFilledOnlyHardsuit # Probably need a better ID than the existing LockerEngineerFilledHardsuit. Leaving up to mappers.
+  suffix: Filled, Hardsuit
+  parent: LockerEngineerFilled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitEngineering
+        - id: OxygenTankFilled
+        - id: ClothingShoesBootsMag
+        - id: ClothingMaskBreath
+        - !type:NestedSelector
+          tableId: FillLockerEngineer

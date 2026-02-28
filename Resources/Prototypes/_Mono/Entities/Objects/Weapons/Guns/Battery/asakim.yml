@@ -41,7 +41,7 @@
     magState: mag
     steps: 1
     zeroVisible: false
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HandheldAutopulserProjectile
     fireCost: 50 # DeltaV - doubled fire cost, was 25
   - type: BatteryWeaponFireModes # DeltaV - selectable disabler mode
@@ -54,5 +54,4 @@
   - type: StaticPrice
     price: 1750
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 30 # DeltaV - double to compensate for increased cost, was 15

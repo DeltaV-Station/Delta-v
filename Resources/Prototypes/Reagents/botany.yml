@@ -271,6 +271,11 @@
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
         factor: -4
+      - !type:Oxygenate # DeltaV - Harpy sensitive to air quality
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Harpy ]
+        factor: -4
 
 
 - type: reagent

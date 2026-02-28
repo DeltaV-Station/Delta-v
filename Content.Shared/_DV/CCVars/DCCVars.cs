@@ -101,6 +101,18 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables all tips for a player.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTips =
+        CVarDef.Create("game.disable_tips", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Disables all tips for ALL PLAYERS.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTipsGlobal =
+        CVarDef.Create("game.disable_tips_global", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
@@ -113,25 +125,27 @@ public sealed partial class DCCVars
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
 
     /*
-     * Footprints
+     * Traits
      */
 
     /// <summary>
-    /// Maximum number of footprints allowed per tile.
-    /// Won't allow for new footprints to spawn on the tile once reached.
-    /// Set to 0 to disable per-tile limiting.
+    /// Maximum number of traits that can be selected globally.
     /// </summary>
-    public static readonly CVarDef<int> MaxFootPrintsPerTile =
-        CVarDef.Create("footprints.max_per_tile", 2, CVar.REPLICATED);
+    public static readonly CVarDef<int> MaxTraitCount =
+        CVarDef.Create("traits.max_count", 10, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// Maximum total number of footprints allowed on a single grid.
-    /// When this limit is reached, the oldest footprint on the grid will be deleted.
-    /// Set to 0 to disable global limiting.
+    /// Maximum trait points available to spend.
+    /// Traits with positive cost consume points, negative cost traits grant points.
     /// </summary>
-    public static readonly CVarDef<int> MaxFootPrintsPerGrid =
-        CVarDef.Create("footprints.max_per_grid", 1000, CVar.REPLICATED);
+    public static readonly CVarDef<int> MaxTraitPoints =
+        CVarDef.Create("traits.max_points", 15, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Whether to skip showing the disabled traits popup when spawning.
+    /// </summary>
+    public static readonly CVarDef<bool> SkipDisabledTraitsPopup =
+        CVarDef.Create("traits.skip_disabled_traits_popup", false, CVar.CLIENT | CVar.ARCHIVE);
 
     /*
      * Feedback webhook

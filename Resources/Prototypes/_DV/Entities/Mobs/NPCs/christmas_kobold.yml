@@ -17,7 +17,10 @@
     - SimpleHostile
   - type: Bloodstream
     bloodMaxVolume: 150
-    bloodReagent: Eggnog
+    bloodReagents:
+      reagents:
+      - ReagentId: Eggnog
+        Quantity: 1
   - type: Loadout
     prototypes: [ ElfGearMonkey ]
   - type: GhostRole

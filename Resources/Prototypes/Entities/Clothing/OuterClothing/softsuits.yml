@@ -9,6 +9,20 @@
     sprite: Clothing/OuterClothing/Suits/eva.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/Suits/eva.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-monkey:
+      - state: equipped-OUTERCLOTHING-monkey
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: Tag
     tags:
     - SuitEVA
@@ -28,6 +42,20 @@
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/Suits/eva_syndicate.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-monkey:
+      - state: equipped-OUTERCLOTHING-monkey
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: Tag
     tags:
     - SuitEVA
@@ -48,6 +76,22 @@
     sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/Suits/eva_emergency.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-monkey:
+      - state: equipped-OUTERCLOTHING-monkey
+      outerClothing-scurret:
+      - state: equipped-OUTERCLOTHING-scurret
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -60,12 +104,14 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
   - type: Tag
     tags:
     - CorgiWearable
     - ScurretWearable
     - MonkeyWearable
     - WhitelistChameleon
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
 
 #Prisoner EVA
 - type: entity
@@ -78,6 +124,20 @@
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/Suits/eva_prisoner.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-monkey:
+      - state: equipped-OUTERCLOTHING-monkey
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -122,6 +182,18 @@
   - type: Appearance
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    clothingVisuals: # Delta V - Need this for harpies
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-harpy:
+      - sprite: _DV/Clothing/OuterClothing/Suits/paramed.rsi
+        state: equipped-OUTERCLOTHING-harpy
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -173,7 +245,9 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
   - type: Tag
     tags:
     - CorgiWearable
     - WhitelistChameleon
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
