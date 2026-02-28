@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: removed Trials
-    type: Remove
-  - message: added hearings, a quicker way to check if you have the right guy
-    type: Add
-  - message: you can no longer 'detain' people. Just put the cuffs on them.
-    type: Remove
-  - message: being coerced into crime is now a legal defense
-    type: Add
-  - message: Procedural Defense is now a right outside of trial
-    type: Add
-  - message: Permanent Prisoners may now receive solitary confinement as a punishment
-    type: Add
-  - message: Permanent Prisoners pending a hearing may be released after being implanted
-      with a tracker
-    type: Add
-  - message: removed decorp as a valid capital sentence
-    type: Remove
-  - message: civil trials are no longer spelled out in SoP, doesnt mean you can't
-      do them anymore though.
-    type: Remove
-  - message: evidence now is secured in the Justice department
-    type: Tweak
-  - message: and much more, re-read the "Security and Justice Regulations" in SoP,
-      i promise its shorter now.
-    type: Tweak
-  id: 1634
-  time: '2025-08-26T16:49:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4199
-- author: AlgisAlphonse
-  changes:
-  - message: Added a "Toggle Power" link port for the automated robotic arms.
-    type: Tweak
-  id: 1635
-  time: '2025-08-26T20:05:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4117
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult's abilities got a rebalance. Check the PR for details.
-    type: Tweak
-  id: 1636
-  time: '2025-08-27T17:20:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4260
-- author: NoElkaTheGod
-  changes:
-  - message: Tweaked some values to make cult rounds faster and more dynamic.
-    type: Tweak
-  id: 1637
-  time: '2025-08-27T17:32:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4272
 - author: 0vrseer
   changes:
   - message: IPCs can heal again while empowered as a cultist
@@ -4459,4 +4408,39 @@
   id: 2133
   time: '2026-02-26T07:29:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5277
+- author: AeraAuling
+  changes:
+  - message: certain tails no longer make skirts look like shorts
+    type: Tweak
+  id: 2134
+  time: '2026-02-26T20:00:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4548
+- author: SuperGDPWYL, youtissoum, DisposableCrewmember42
+  changes:
+  - message: Conspirators have been ported from Harmony! Check the guidebook for more
+      details.
+    type: Add
+  - message: Conspirators are more likely to be chosen from different departments
+    type: Tweak
+  - message: Conspirators can use custom objective summaries
+    type: Tweak
+  id: 2135
+  time: '2026-02-27T18:24:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5218
+- author: zelezniciar
+  changes:
+  - message: Added a generic Slavic accent that can be selected as a character trait.
+      Very Nice!
+    type: Add
+  id: 2136
+  time: '2026-02-27T18:30:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5264
+- author: kotobdev
+  changes:
+  - message: You can now always equip items to your suit storage, even without any
+      outer clothing!
+    type: Add
+  id: 2137
+  time: '2026-02-27T18:55:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5300
 Order: 1

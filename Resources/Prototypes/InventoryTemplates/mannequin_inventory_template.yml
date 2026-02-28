@@ -50,9 +50,9 @@
       stripTime: 3
       uiWindowPos: 2,0
       strippingWindowPos: 1,3
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowSuitStorage
+#      dependsOn: outerClothing # DeltaV - disable suit storage restriction
+#      dependsOnComponents:
+#      - type: AllowSuitStorage
       displayName: Suit Storage
     - name: back
       slotTexture: back
