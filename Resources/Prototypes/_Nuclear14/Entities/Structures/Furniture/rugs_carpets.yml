@@ -33,9 +33,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs.rsi
     state: mat_blank
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugMatRecipe
-    node: start
+    node: matBlank
 
 - type: entity
   parent: N14CarpetSingleBase
@@ -45,9 +45,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs.rsi
     state: mat_welcome
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugMatWelcomeRecipe
-    node: start
+    node: matWelcome
 
 - type: entity
   parent: N14RugMat
@@ -131,9 +131,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugRecipes
-    node: start
+    node: rugBlue
 
 - type: entity
   id: N14RugShag
@@ -144,9 +144,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue_shag
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugRecipes
-    node: start
+    node: rugShag
 
 - type: entity
   id: N14RugBrown
@@ -159,7 +159,7 @@
     state: rug_fancy
   - type: Construction
     graph: N14RugRecipes
-    node: start
+    node: rugBrown
 
 - type: entity
   id: N14RugRed
@@ -170,9 +170,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_red
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugRecipes
-    node: start
+    node: rugRed
 
 - type: entity
   id: N14RugOrange
@@ -183,9 +183,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_yellow
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugRecipes
-    node: start
+    node: rugOrange
 
 - type: entity
   id: N14RugMatRubberLarge
@@ -196,7 +196,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_rubber
-  - type: Construction
+  - type: Construction # DeltaV
     graph: N14RugRecipes
-    node: start
+    node: RubberMat
  

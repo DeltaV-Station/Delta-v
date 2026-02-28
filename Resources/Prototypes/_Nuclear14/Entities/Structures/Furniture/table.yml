@@ -49,11 +49,34 @@
 - type: entity
   parent: N14FreeTableBase
   id: N14TableMetalRound
-  suffix: clean
+  name: round metal table
+  description: A cold handmade round metal table.
   components:
+  - type: Destructible # Begin DeltaV Additions
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"] # End DeltaV Additions
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_metal_round-2
+    snapCardinals: true # DeltaV
+  - type: Construction # DeltaV
+    graph: N14TableRecipes
+    node: N14MetalRound
 
 - type: entity
   parent: N14TableMetalRound
@@ -69,18 +92,22 @@
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodRound
-  name: wooden table
+  name: round wooden table
   description: A wooden round table.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_round
+    snapCardinals: true # DeltaV
+  - type: Construction # DeltaV
+    graph: N14TableRecipes
+    node: N14WoodRound
 
 - type: entity
   parent: N14FreeTableBase
   id: N14TableWoodSquare
   name: wooden table
-  description: A wooden square table.
+  description: A simple wooden table. # DeltaV - added description
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
@@ -96,24 +123,35 @@
         - TableMask
         layer:
         - TableLayer
+  - type: Construction # DeltaV
+    graph: N14TableRecipes
+    node: N14WoodSquare
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodLow
-  name: wooden table
+  name: wooden coffee table
   description: A low wooden square table.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_low
+  - type: Construction # DeltaV
+    graph: N14TableRecipes
+    node: N14WoodLow
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodStand
+  name: wooden end table # DeltaV
+  description: A small wooden table for holding smaller things. # DeltaV - added description
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_stand
+  - type: Construction # DeltaV
+    graph: N14TableRecipes
+    node: N14WoodStand
 
 #64x64 tables
 - type: entity
@@ -145,7 +183,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
-    state: desk_metal
+    state: desk_metal_dirty # DeltaV - added clean version, renamed and added old texture to dirty
 
 - type: entity
   parent: N14FreeTableBase
@@ -371,5 +409,5 @@
   - type: Icon
     sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
   - type: Construction
-    graph: N14TableMetalGrateRecipes
-    node: start
+    graph: N14TableRecipes
+    node: N14MetalGrate
