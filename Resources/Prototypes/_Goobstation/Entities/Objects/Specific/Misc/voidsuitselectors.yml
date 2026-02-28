@@ -9,12 +9,14 @@
     sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
     state: standard
   - type: ThiefUndeterminedBackpack
+    #Delta V additions begin
     possibleSets:
     - VoidsuitSelectorEngineerVoidsuit
     - VoidsuitSelectorEngineerHardsuit
     maxSelectedSets: 1
     toolName: selectable-set-voidsuit-title
     toolDesc: selectable-set-voidsuit-description
+    #Delta V additions end
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
