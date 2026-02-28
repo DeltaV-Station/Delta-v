@@ -30,13 +30,6 @@
       distro: '#0055cc'
       air: '#03fcd3'
       mix: '#947507'
-      # Begin Delta V additions
-      oxygen: '#76A3C3FF'
-      nitrogen: '#D34C48FF'
-      plasma: '#F400FFFF'
-      water vapor: '#D3D3E3FF'
-      nitrous oxide: '#F49797FF'
-      # End Delta V additions
   - type: StaticPrice
     price: 40
   - type: LimitedCharges
@@ -52,7 +45,7 @@
   suffix: Admeme
   components:
   - type: AutoRecharge
-    rechargeDuration: 0.1 # Delta V - Was 1
+    rechargeDuration: 1
 
 - type: entity
   parent: SprayPainter
