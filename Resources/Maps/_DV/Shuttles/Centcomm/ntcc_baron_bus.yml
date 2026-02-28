@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.3.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/18/2026 07:48:24
-  entityCount: 97
+  time: 02/28/2026 04:19:16
+  entityCount: 98
 maps: []
 grids:
 - 1
@@ -188,6 +188,15 @@ entities:
     - type: Transform
       pos: -0.5,-2.5
       parent: 1
+- proto: AntiMeteorZone
+  entities:
+  - uid: 98
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
 - proto: APCBasic
   entities:
   - uid: 48

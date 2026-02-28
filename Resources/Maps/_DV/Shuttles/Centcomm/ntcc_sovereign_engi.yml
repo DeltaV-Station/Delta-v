@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/03/2026 04:16:41
-  entityCount: 1236
+  time: 02/28/2026 05:35:21
+  entityCount: 1248
 maps: []
 grids:
 - 1
@@ -1073,6 +1073,24 @@ entities:
     - type: Transform
       pos: -1.5,-12.5
       parent: 1
+- proto: AntiMeteorZone
+  entities:
+  - uid: 1237
+    components:
+    - type: Transform
+      pos: 0.5,-6.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 14
+  - uid: 1238
+    components:
+    - type: Transform
+      pos: 0.5,12.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 14
 - proto: APCBasic
   entities:
   - uid: 134
@@ -2741,6 +2759,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-11.5
       parent: 1
+- proto: CentcommComputerComms
+  entities:
+  - uid: 520
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-2.5
+      parent: 1
 - proto: ChairOfficeDark
   entities:
   - uid: 1093
@@ -2835,14 +2861,6 @@ entities:
     components:
     - type: Transform
       pos: -6.4115205,-3.610313
-      parent: 1
-- proto: ComputerComms
-  entities:
-  - uid: 520
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-2.5
       parent: 1
 - proto: ComputerIFF
   entities:
@@ -6391,6 +6409,50 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,-3.5
       parent: 1
+  - uid: 1239
+    components:
+    - type: Transform
+      pos: -7.5,-5.5
+      parent: 1
+  - uid: 1240
+    components:
+    - type: Transform
+      pos: -6.5,-5.5
+      parent: 1
+  - uid: 1241
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
+      parent: 1
+  - uid: 1242
+    components:
+    - type: Transform
+      pos: 8.5,-5.5
+      parent: 1
+  - uid: 1243
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-9.5
+      parent: 1
+  - uid: 1244
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-9.5
+      parent: 1
+  - uid: 1245
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-9.5
+      parent: 1
+  - uid: 1246
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-9.5
+      parent: 1
 - proto: PortableGeneratorSuperPacman
   entities:
   - uid: 1187
@@ -8611,6 +8673,16 @@ entities:
     components:
     - type: Transform
       pos: 3.494531,1.5678148
+      parent: 1
+  - uid: 1247
+    components:
+    - type: Transform
+      pos: 3.3534284,1.7426553
+      parent: 1
+  - uid: 1248
+    components:
+    - type: Transform
+      pos: 3.3534284,1.3989053
       parent: 1
 - proto: WelderExperimental
   entities:

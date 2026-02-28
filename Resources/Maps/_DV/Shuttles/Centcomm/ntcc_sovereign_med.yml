@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/03/2026 04:19:07
-  entityCount: 1151
+  time: 02/28/2026 05:54:17
+  entityCount: 1161
 maps: []
 grids:
 - 1
@@ -993,6 +993,24 @@ entities:
     - type: Transform
       pos: -1.5,-12.5
       parent: 1
+- proto: AntiMeteorZone
+  entities:
+  - uid: 1159
+    components:
+    - type: Transform
+      pos: 0.5,12.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 14
+  - uid: 1161
+    components:
+    - type: Transform
+      pos: 0.5,-6.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 14
 - proto: AntiPoisonMedipen
   entities:
   - uid: 1099
@@ -2662,6 +2680,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-11.5
       parent: 1
+- proto: CentcommComputerComms
+  entities:
+  - uid: 520
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-2.5
+      parent: 1
 - proto: ChairOfficeLight
   entities:
   - uid: 99
@@ -2873,14 +2899,6 @@ entities:
           - CloningPodReceiver
         - - MedicalScannerSender
           - CloningPodReceiver
-- proto: ComputerComms
-  entities:
-  - uid: 520
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-2.5
-      parent: 1
 - proto: ComputerIFF
   entities:
   - uid: 223
@@ -6075,6 +6093,50 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,-8.5
+      parent: 1
+  - uid: 1152
+    components:
+    - type: Transform
+      pos: -7.5,-5.5
+      parent: 1
+  - uid: 1153
+    components:
+    - type: Transform
+      pos: -6.5,-5.5
+      parent: 1
+  - uid: 1154
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
+      parent: 1
+  - uid: 1155
+    components:
+    - type: Transform
+      pos: 8.5,-5.5
+      parent: 1
+  - uid: 1156
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-9.5
+      parent: 1
+  - uid: 1157
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-9.5
+      parent: 1
+  - uid: 1158
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-9.5
+      parent: 1
+  - uid: 1160
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-9.5
       parent: 1
 - proto: Portafib
   entities:

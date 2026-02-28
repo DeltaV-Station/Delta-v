@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/03/2026 04:09:44
-  entityCount: 435
+  time: 02/28/2026 06:31:46
+  entityCount: 440
 maps: []
 grids:
 - 1
@@ -392,6 +392,16 @@ entities:
     - type: Transform
       pos: -0.5,-7.5
       parent: 1
+- proto: AntiMeteorZone
+  entities:
+  - uid: 436
+    components:
+    - type: Transform
+      pos: 3.5,1.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 13
 - proto: APCHighCapacity
   entities:
   - uid: 119
@@ -2277,6 +2287,30 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-6.5
+      parent: 1
+  - uid: 437
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-5.5
+      parent: 1
+  - uid: 438
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-4.5
+      parent: 1
+  - uid: 439
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-4.5
+      parent: 1
+  - uid: 440
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-5.5
       parent: 1
 - proto: PortableGeneratorSuperPacman
   entities:

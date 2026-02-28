@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 01:34:08
-  entityCount: 1153
+  time: 02/28/2026 05:59:01
+  entityCount: 1175
 maps: []
 grids:
 - 1
@@ -981,6 +981,24 @@ entities:
     - type: Transform
       pos: -1.5,-12.5
       parent: 1
+- proto: AntiMeteorZone
+  entities:
+  - uid: 1156
+    components:
+    - type: Transform
+      pos: 0.5,12.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 14
+  - uid: 1157
+    components:
+    - type: Transform
+      pos: 0.5,-6.5
+      parent: 1
+    - type: AntiMeteorZone
+      avoidanceRate: 0.33
+      zoneRadius: 14
 - proto: APCBasic
   entities:
   - uid: 134
@@ -1169,6 +1187,18 @@ entities:
       parent: 1
 - proto: BenchPewLeft
   entities:
+  - uid: 520
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,5.5
+      parent: 1
+  - uid: 543
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,3.5
+      parent: 1
   - uid: 641
     components:
     - type: Transform
@@ -1180,18 +1210,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,5.5
-      parent: 1
-  - uid: 649
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,5.5
-      parent: 1
-  - uid: 650
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,3.5
       parent: 1
 - proto: BenchPewMiddle
   entities:
@@ -1245,6 +1263,18 @@ entities:
       parent: 1
 - proto: BenchPewRight
   entities:
+  - uid: 541
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,3.5
+      parent: 1
+  - uid: 542
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,5.5
+      parent: 1
   - uid: 645
     components:
     - type: Transform
@@ -1256,18 +1286,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,5.5
-      parent: 1
-  - uid: 651
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,5.5
-      parent: 1
-  - uid: 652
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,3.5
       parent: 1
 - proto: BlastDoorOpen
   entities:
@@ -2756,6 +2774,14 @@ entities:
     - type: Transform
       pos: 2.5,5.5
       parent: 1
+- proto: CentcommComputerComms
+  entities:
+  - uid: 544
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-2.5
+      parent: 1
 - proto: ChairOfficeDark
   entities:
   - uid: 839
@@ -2871,6 +2897,16 @@ entities:
     - type: Transform
       pos: -6.1791964,-2.2202008
       parent: 1
+  - uid: 1158
+    components:
+    - type: Transform
+      pos: 7.2773027,-7.213456
+      parent: 1
+  - uid: 1162
+    components:
+    - type: Transform
+      pos: -6.7406864,-7.338456
+      parent: 1
 - proto: ClothingHeadHatPartyGreen
   entities:
   - uid: 988
@@ -2883,6 +2919,16 @@ entities:
     - type: Transform
       pos: -5.5229464,-2.4858258
       parent: 1
+  - uid: 1159
+    components:
+    - type: Transform
+      pos: 7.5116777,-7.369706
+      parent: 1
+  - uid: 1163
+    components:
+    - type: Transform
+      pos: -6.4750614,-7.510331
+      parent: 1
 - proto: ClothingHeadHatPartyRed
   entities:
   - uid: 987
@@ -2890,12 +2936,32 @@ entities:
     - type: Transform
       pos: 6.5154505,-2.4545758
       parent: 1
+  - uid: 1160
+    components:
+    - type: Transform
+      pos: 7.7148027,-7.322831
+      parent: 1
+  - uid: 1164
+    components:
+    - type: Transform
+      pos: -6.8188114,-7.572831
+      parent: 1
 - proto: ClothingHeadHatPartyYellow
   entities:
   - uid: 990
     components:
     - type: Transform
       pos: -6.4760714,-2.5014508
+      parent: 1
+  - uid: 1161
+    components:
+    - type: Transform
+      pos: 7.3398027,-7.572831
+      parent: 1
+  - uid: 1165
+    components:
+    - type: Transform
+      pos: -6.3188114,-7.275956
       parent: 1
 - proto: ClothingMaskBlushingClown
   entities:
@@ -2959,14 +3025,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5776551,11.514049
-      parent: 1
-- proto: ComputerComms
-  entities:
-  - uid: 520
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-2.5
       parent: 1
 - proto: ComputerIFF
   entities:
@@ -5331,6 +5389,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.9448214,-2.4545758
       parent: 1
+  - uid: 1167
+    components:
+    - type: Transform
+      pos: -6.3969364,-7.447831
+      parent: 1
+  - uid: 1172
+    components:
+    - type: Transform
+      pos: 7.473777,-7.463456
+      parent: 1
 - proto: GlowstickBlue
   entities:
   - uid: 995
@@ -5339,6 +5407,40 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.972596,-2.5483258
       parent: 1
+  - uid: 1166
+    components:
+    - type: Transform
+      pos: -6.6781864,-7.463456
+      parent: 1
+  - uid: 1171
+    components:
+    - type: Transform
+      pos: 7.442527,-7.291581
+      parent: 1
+- proto: GlowstickPurple
+  entities:
+  - uid: 1168
+    components:
+    - type: Transform
+      pos: -6.4906864,-7.369706
+      parent: 1
+  - uid: 1173
+    components:
+    - type: Transform
+      pos: 7.708152,-7.432206
+      parent: 1
+- proto: GlowstickRed
+  entities:
+  - uid: 1169
+    components:
+    - type: Transform
+      pos: -6.3031864,-7.588456
+      parent: 1
+  - uid: 1174
+    components:
+    - type: Transform
+      pos: 7.676902,-7.369706
+      parent: 1
 - proto: GlowstickYellow
   entities:
   - uid: 996
@@ -5346,6 +5448,16 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.144471,-2.3764508
+      parent: 1
+  - uid: 1170
+    components:
+    - type: Transform
+      pos: -6.4125614,-7.525956
+      parent: 1
+  - uid: 1175
+    components:
+    - type: Transform
+      pos: 7.739402,-7.588456
       parent: 1
 - proto: GravityGeneratorMini
   entities:
@@ -5516,38 +5628,6 @@ entities:
       parent: 1
     - type: Label
       currentLabel: NTCC Sovereign Masquerade
-- proto: JetpackSecurityFilled
-  entities:
-  - uid: 541
-    components:
-    - type: Transform
-      pos: -6.665106,-7.254449
-      parent: 1
-  - uid: 542
-    components:
-    - type: Transform
-      pos: -6.477606,-7.520074
-      parent: 1
-  - uid: 543
-    components:
-    - type: Transform
-      pos: -6.321356,-7.254449
-      parent: 1
-  - uid: 544
-    components:
-    - type: Transform
-      pos: 7.2590084,-7.270074
-      parent: 1
-  - uid: 545
-    components:
-    - type: Transform
-      pos: 7.6027584,-7.270074
-      parent: 1
-  - uid: 546
-    components:
-    - type: Transform
-      pos: 7.4465084,-7.473199
-      parent: 1
 - proto: LampBanana
   entities:
   - uid: 855
@@ -5849,6 +5929,18 @@ entities:
       parent: 1
 - proto: PlasmaWindoorSecureCentralCommandLocked
   entities:
+  - uid: 545
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-9.5
+      parent: 1
+  - uid: 546
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-9.5
+      parent: 1
   - uid: 558
     components:
     - type: Transform
@@ -5872,6 +5964,38 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,-8.5
+      parent: 1
+  - uid: 649
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-9.5
+      parent: 1
+  - uid: 650
+    components:
+    - type: Transform
+      pos: -7.5,-5.5
+      parent: 1
+  - uid: 651
+    components:
+    - type: Transform
+      pos: -6.5,-5.5
+      parent: 1
+  - uid: 652
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-9.5
+      parent: 1
+  - uid: 1154
+    components:
+    - type: Transform
+      pos: 8.5,-5.5
+      parent: 1
+  - uid: 1155
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
       parent: 1
 - proto: PlasticBanana
   entities:
