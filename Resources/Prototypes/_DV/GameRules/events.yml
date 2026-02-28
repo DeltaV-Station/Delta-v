@@ -383,7 +383,7 @@
 # nt agent sleeper event
 - type: entity
   id: NTAgentSleeper
-  parent: [NTAgentRule, BaseMidRoundAntag]
+  parent: [NTAgentRule]
   components:
   - type: StationEvent
     earliestStart: 15
