@@ -91,6 +91,14 @@
   - type: NavMapBeacon
     defaultText: station-beacon-engi-outpost
 
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconAtmosOutpost
+  suffix: Atmos Outpost
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-atmos-outpost
+
 #Service
 - type: entity
   parent: DefaultStationBeaconService
