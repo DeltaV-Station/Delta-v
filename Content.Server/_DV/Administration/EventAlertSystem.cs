@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Shared.Destructible;
 using Content.Shared.GameTicking;
 
 namespace Content.Server._DV.Administration;
@@ -12,8 +13,7 @@ public sealed class EventAlertSystem : EntitySystem
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
 
-    // Alert when overall playtime is lower than this and player latejoins.
-    // Useful for raiders that first-join and then wait in Lobby for a while to slip in.
+
     private static readonly double LateJoinAlertMaxHours = 2.0;
 
     public override void Initialize()
@@ -23,7 +23,9 @@ public sealed class EventAlertSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
     }
 
-    private async void OnSpawnComplete(PlayerSpawnCompleteEvent ev)
+    // Alert when overall playtime is lower than this and player latejoins.
+    // Useful for raiders that first-join and then wait in Lobby for a while to slip in or briefly join to get a bit of playtime.
+    private void OnSpawnComplete(ref PlayerSpawnCompleteEvent ev)
     {
         var playtimeHours = _playTime.GetOverallPlaytime(ev.Player).TotalHours;
         if (playtimeHours < LateJoinAlertMaxHours && ev.LateJoin)
