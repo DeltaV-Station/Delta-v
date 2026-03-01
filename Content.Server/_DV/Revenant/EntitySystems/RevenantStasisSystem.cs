@@ -8,6 +8,7 @@ using Content.Server.Kitchen.EntitySystems;
 using Content.Server.Mind;
 using Content.Server.Revenant.Components;
 using Content.Server.Speech.Components;
+using Content.Shared._DV.Revenant.Components;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
@@ -17,13 +18,15 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Revenant;
+using Content.Shared.Revenant.Components;
 using Content.Shared.Speech;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Revenant.EntitySystems;
+namespace Content.Server._DV.Revenant.EntitySystems;
 
 public sealed partial class RevenantStasisSystem : EntitySystem
 {
@@ -38,8 +41,7 @@ public sealed partial class RevenantStasisSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string RevenantStasisId = "Stasis";
+    public static readonly EntProtoId StasisEffectProto = "RevenantStasis";
 
     public override void Initialize()
     {
@@ -47,7 +49,7 @@ public sealed partial class RevenantStasisSystem : EntitySystem
 
         SubscribeLocalEvent<RevenantStasisComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RevenantStasisComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<RevenantStasisComponent, StatusEffectEndedEvent>(OnStatusEnded);
+        SubscribeLocalEvent<RevenantStasisComponent, StatusEffectRemovedEvent>(OnStatusEnded);
         SubscribeLocalEvent<RevenantStasisComponent, ChangeDirectionAttemptEvent>(OnAttemptDirection);
         SubscribeLocalEvent<RevenantStasisComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantStasisComponent, ConstructionConsumedObjectEvent>(OnCrafted);
@@ -60,9 +62,11 @@ public sealed partial class RevenantStasisSystem : EntitySystem
     private void OnStartup(EntityUid uid, RevenantStasisComponent component, ComponentStartup args)
     {
         EnsureComp<AlertsComponent>(uid);
+        TryComp<RevenantComponent>(component.Revenant, out var revenant);
+        if (revenant == null)
+            return;
 
-        EnsureComp<StatusEffectsComponent>(uid);
-        _statusEffects.TryAddStatusEffect(uid, RevenantStasisId, component.StasisDuration, true);
+        _statusEffects.TryAddStatusEffectDuration(uid, StasisEffectProto, revenant.StasisTime);
 
         var mover = EnsureComp<InputMoverComponent>(uid);
         mover.CanMove = false;
@@ -84,25 +88,25 @@ public sealed partial class RevenantStasisSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, RevenantStasisComponent component, ComponentShutdown args)
     {
-        if (_statusEffects.HasStatusEffect(uid, RevenantStasisId))
-        {
-            if (_mind.TryGetMind(uid, out var mindId, out var _))
-                _mind.TransferTo(mindId, null);
-            QueueDel(component.Revenant);
-        }
+        if (!_statusEffects.HasStatusEffect(uid, StasisEffectProto))
+            return;
+
+        if (_mind.TryGetMind(uid, out var mindId, out var _))
+            _mind.TransferTo(mindId, null);
+
+        QueueDel(component.Revenant);
     }
 
-    private void OnStatusEnded(EntityUid uid, RevenantStasisComponent component, StatusEffectEndedEvent args)
+    private void OnStatusEnded(EntityUid uid, RevenantStasisComponent component, StatusEffectRemovedEvent args)
     {
-        if (args.Key == "Stasis")
-        {
-            _transformSystem.SetCoordinates(component.Revenant, Transform(uid).Coordinates);
-            _transformSystem.AttachToGridOrMap(component.Revenant);
-            _meta.SetEntityPaused(component.Revenant, false);
-            if (_mind.TryGetMind(uid, out var mindId, out var _))
-                _mind.TransferTo(mindId, component.Revenant);
-            QueueDel(uid);
-        }
+        _transformSystem.SetCoordinates(component.Revenant, Transform(uid).Coordinates);
+        _transformSystem.AttachToGridOrMap(component.Revenant);
+
+        _meta.SetEntityPaused(component.Revenant, false);
+        if (_mind.TryGetMind(uid, out var mindId, out var _))
+            _mind.TransferTo(mindId, component.Revenant);
+
+        QueueDel(uid);
     }
 
     private void OnExamine(Entity<RevenantStasisComponent> entity, ref ExaminedEvent args)
