@@ -8,14 +8,14 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew; // DeltaV
 using Content.Shared.Stunnable;
 
 namespace Content.Shared.Abilities.Psionics
 {
     public sealed class MassSleepPowerSystem : EntitySystem
     {
-        public ProtoId<StatusEffectPrototype> StatusEffectKey = "ForcedSleep";
+        public EntProtoId StatusEffectKey = "StatusEffectForcedSleeping"; // DeltaV
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -92,11 +92,20 @@ namespace Content.Shared.Abilities.Psionics
 
             foreach (var entity in _lookup.GetEntitiesInRange(args.User, ent.Comp.Radius))
             {
-                if (HasComp<MobStateComponent>(entity) && entity != (EntityUid)ent && !HasComp<PsionicInsulationComponent>(entity))
+                // Begin DeltaV Additions - Update mass sleep to new status effects
+                if (HasComp<MobStateComponent>(entity) &&
+                    entity != (EntityUid)ent &&
+                    !HasComp<PsionicInsulationComponent>(entity))
                 {
-                    if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
-                        _statusEffects.TryAddStatusEffect<ForcedSleepingStatusEffectComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(ent.Comp.Duration), false);
+                    if (TryComp<DamageableComponent>(entity, out var damageable) &&
+                        damageable.DamageContainerID == "Biological")
+                        _statusEffects.TryUpdateStatusEffectDuration(
+                            entity,
+                            StatusEffectKey,
+                            TimeSpan.FromSeconds(ent.Comp.Duration)
+                        );
                 }
+                // End DeltaV Additions - Update mass sleep to new status effects
             }
 
             ent.Comp.DoAfter = null;
