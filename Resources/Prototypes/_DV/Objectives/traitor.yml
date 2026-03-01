@@ -101,12 +101,12 @@
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 # Kill fellow traitor objective
 - type: entity

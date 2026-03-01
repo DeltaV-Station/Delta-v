@@ -35,12 +35,12 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
   - type: RerollAfterCompletion
     rerollObjectivePrototype: AsakimKillObjective
     rerollObjectiveMessage: objective-condition-asakim-terminate-reroll-message
