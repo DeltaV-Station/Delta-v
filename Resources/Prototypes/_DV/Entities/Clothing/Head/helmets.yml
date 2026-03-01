@@ -1,0 +1,36 @@
+# Roman Helmets
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetRoman
+  name: legionnaire helmet
+  description: A lovingly-crafted helmet based off examples used by Roman legionnaires. Provides light protection against melee impacts!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/roman_helmet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Helmets/roman_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Blunt: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+
+- type: entity
+  parent: ClothingHeadHelmetRoman
+  id: ClothingHeadHelmetRomanCenturion
+  name: centurion helmet
+  description: A lovingly-crafted helmet based off those used by Roman centurions. Provides light protection against melee impacts, and has a fancy crest on top!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/roman_centurion.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Helmets/roman_centurion.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

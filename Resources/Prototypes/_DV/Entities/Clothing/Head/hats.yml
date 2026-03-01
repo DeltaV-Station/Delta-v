@@ -354,3 +354,14 @@
     sprite: _DV/Clothing/Head/Hats/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/elf.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatLaurelWreath
+  name: laurel wreath
+  description: Ave Imperator!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/laurel_wreath.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/laurel_wreath.rsi
