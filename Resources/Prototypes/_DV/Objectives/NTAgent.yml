@@ -12,11 +12,98 @@
 
 - type: entity
   parent: BaseNTAgentObjective
+  id: BaseNTAgentTestDepartment
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: paper_words
+
+# listen to CC
+- type: entity
+  parent: BaseNTAgentObjective
   id: NTAgentObjective
   name: Do your task.
-  description: Complete the objectives given by your handler.
+  description: If contacted by Central, complete their objectives too.
   components:
   - type: Objective
     icon:
       sprite: Clothing/Ears/Headsets/centcom.rsi
+      state: icon
+
+# frame someone
+- type: entity
+  parent: BaseNTAgentObjective
+  id: FrameRandomPersonObjective
+  description: We would like if they got into legal trouble. Ensure they end up in prison.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+    difficulty: 1.75
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-frame-person-title
+  - type: PickRandomPerson
+    filters:
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - TargetObjectiveImmune # DeltaV
+
+# fire someone
+- type: entity
+  parent: BaseNTAgentObjective
+  id: FireRandomPersonObjective
+  description: We need them fired for several reasons, but we legally can't find one. Make one up.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/id_cards.rsi
+      state: default
+    difficulty: 1.75
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-fired-person-title
+  - type: PickRandomPerson
+    filters:
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - TargetObjectiveImmune # DeltaV
+
+# auditing
+- type: entity
+  parent: BaseNTAgentTestDepartment
+  id: TestSecurityObjective
+  name: Audit Security.
+  description: Test their response time, their law knowledge or whatever else. Send the results to Central.
+
+- type: entity
+  parent: BaseNTAgentTestDepartment
+  id: TestEngineeringObjective
+  name: Audit Engineering.
+  description: Test their response time to sabotage, structural damage or whatever else. Send the results to Central.
+
+- type: entity
+  parent: BaseNTAgentTestDepartment
+  id: TestMedicalObjective
+  name: Audit Medical.
+  description: Test their response time, their medical knowledge or whatever else. Send the results to Central.
+
+# defunding
+- type: entity
+  parent: BaseNTAgentObjective
+  id: DefundDepartmentObjective
+  name: Defund any department.
+  description: Embezzle or waste any department's funds.
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/Objects/Misc/first_bill.rsi
       state: icon
