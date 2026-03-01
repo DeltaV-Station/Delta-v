@@ -60,7 +60,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: FillElectricalSupplies
+        tableId: FillElectricalSuppliesDV
 
 - type: entityTable
   id: FillElectricalSupplies
@@ -81,6 +81,25 @@
       - id: CableHVStack
         weight: 0.5
 
+# Begin DV additions
+- type: entityTable
+  id: FillElectricalSuppliesDV
+  table: !type:AllSelector
+    children:
+    - id: ToolboxElectricalFilled
+      amount: 2
+    - id: FirelockElectronics
+      amount: 2
+    - id: APCElectronics
+      amount: 2
+    - id: DoorElectronics
+      amount: 2
+    - id: ClothingHandsGlovesColorYellow
+      prob: 0.3
+    - id: Multitool
+      prob: 0.3
+# End DV additions
+
 - type: entity
   id: LockerWeldingSuppliesFilled
   suffix: Filled
@@ -95,7 +114,7 @@
           rolls: !type:ConstantNumberSelector
             value: 3
         - !type:NestedSelector
-          tableId: FillWelderSuppliesMask
+          tableId: FillWelderSuppliesMaskDV # Delta V - Was FillWelderSuppliesMask
           rolls: !type:ConstantNumberSelector
             value: 3
 
@@ -121,6 +140,18 @@
       weight: 0.25
     - id: WelderIndustrialAdvanced
       weight: 0.05
+
+# Begin DV changes
+- type: entityTable
+  id: FillWelderSuppliesMaskDV
+  table: !type:GroupSelector
+    children:
+    - id: Welder
+    - id: WelderIndustrial
+      weight: 0.50
+    - id: WelderIndustrialAdvanced
+      weight: 0.20
+# End DV changes
 
 - type: entity
   id: LockerAtmosphericsFilledHardsuit
@@ -206,7 +237,7 @@
     - id: trayScanner
     - id: RCD
     - id: RCDAmmo
-    - id: MetalFoamGrenade
+    # - id: MetalFoamGrenade # Delta V - Reduce clutter
     - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
       prob: 0.3
     - id: HolotapeProjector # DeltaV - engineering tape
