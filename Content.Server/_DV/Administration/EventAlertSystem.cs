@@ -1,9 +1,15 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
-using Content.Server.Database;
+using Content.Server.Destructible;
+using Content.Server.GameTicking;
 using Content.Server.Players.PlayTimeTracking;
-using Content.Shared.Destructible;
 using Content.Shared.GameTicking;
+using Content.Shared.Item;
+using Content.Shared.Trigger;
+using Content.Shared.Trigger.Components;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Server.Player;
+using Robust.Shared.Player;
 
 namespace Content.Server._DV.Administration;
 
@@ -12,31 +18,104 @@ public sealed class EventAlertSystem : EntitySystem
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
 
     private static readonly double LateJoinAlertMaxHours = 2.0;
+    private HashSet<EntityUid> _eorgAlerted = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
+        SubscribeLocalEvent<DestructibleComponent, BrokenWithOriginEvent>(OnBrokenWithOrigin);
+        SubscribeLocalEvent<TimerTriggerComponent, ActiveTimerTriggerEvent>(OnTimerTrigger);
+        SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
+        SubscribeLocalEvent<ActorComponent, AttackedEvent>(OnPlayerAttacked);
+    }
+
+    private void OnTimerTrigger(Entity<TimerTriggerComponent> ent, ref ActiveTimerTriggerEvent args)
+    {
+        if (_gameTicker.RunLevel != GameRunLevel.PostRound || args.User is not { } user)
+            return;
+
+        if (_eorgAlerted.Add(user))
+        {
+            AlertWithLink(
+                $"[EORG] {ToPrettyString(user):player} activated timer trigger of {ToPrettyString(ent):item}.",
+                user);
+        }
+    }
+
+    // Alert if player starts destroying stuff at EOR.
+    // Only sent if it's the first instance of possible EORG for that player to avoid spam.
+    private void OnBrokenWithOrigin(Entity<DestructibleComponent> target, ref BrokenWithOriginEvent ev)
+    {
+        if (_gameTicker.RunLevel != GameRunLevel.PostRound || !HasComp<ActorComponent>(ev.Origin))
+            return;
+
+        if (_eorgAlerted.Add(ev.Origin))
+        {
+            AlertWithLink($"[EORG] {ToPrettyString(ev.Origin):player} destroyed {ToPrettyString(target):entity}.",
+                ev.Origin);
+        }
+    }
+
+    // Alert if player starts attacking others at EOR.
+    // Only sent if it's the first instance of possible EORG for that player to avoid spam.
+    private void OnPlayerAttacked(Entity<ActorComponent> targetPlayer, ref AttackedEvent ev)
+    {
+        if (_gameTicker.RunLevel != GameRunLevel.PostRound)
+            return;
+
+        if (_eorgAlerted.Add(ev.User))
+        {
+            AlertWithLink(
+                $"[EORG] {ToPrettyString(ev.User)} attacked {ToPrettyString(targetPlayer):player} using {(ev.Used == ev.User ? "Hands" : ToPrettyString(ev.Used))}.",
+                ev.User);
+        }
+    }
+
+    private void OnRunLevelChanged(GameRunLevelChangedEvent ev)
+    {
+        _eorgAlerted.Clear();
     }
 
     // Alert when overall playtime is lower than this and player latejoins.
     // Useful for raiders that first-join and then wait in Lobby for a while to slip in or briefly join to get a bit of playtime.
-    private void OnSpawnComplete(ref PlayerSpawnCompleteEvent ev)
+    private void OnSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
         var playtimeHours = _playTime.GetOverallPlaytime(ev.Player).TotalHours;
         if (playtimeHours < LateJoinAlertMaxHours && ev.LateJoin)
         {
-            _chat.SendAdminAlert($"New player {ev.Player.Name} [{playtimeHours:0.#} hours] joined the round.");
+            AlertWithLink($"New player {ev.Player.Name} [{playtimeHours:0.#} hours] joined the round.", ev.Mob);
+        }
+    }
 
-            if (_entity.GetNetEntity(ev.Mob) is { } netEnt &&
-                AdminLogManager.CreateTpLinks([(netEnt, ev.Profile.Name)], out var tpLinks))
-            {
-                _chat.SendAdminAlertNoFormatOrEscape(tpLinks);
-            }
+    private void AlertWithLink(string message, EntityUid playerEnt)
+    {
+        var originName = "Actor";
+        if (TryComp(playerEnt, out MetaDataComponent? meta))
+        {
+            originName = meta.EntityName;
+        }
+
+        _chat.SendAdminAlert(message);
+        if (_entity.GetNetEntity(playerEnt) is { } netEnt &&
+            AdminLogManager.CreateTpLinks([(netEnt, originName)], out var tpLinks))
+        {
+            _chat.SendAdminAlertNoFormatOrEscape(tpLinks);
+        }
+    }
+
+    public sealed class BrokenWithOriginEvent : EntityEventArgs
+    {
+        public readonly EntityUid Origin;
+
+        public BrokenWithOriginEvent(EntityUid origin)
+        {
+            Origin = origin;
         }
     }
 }
