@@ -233,9 +233,9 @@
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: [JetpackMini, BaseSecurityContraband]
-  name: security mini jetpack
-  description: A compact jetpack utilized by station security when patrolling the station's exterior. Not intended for long range travel, it holds only 1.5 L of gas.
+  parent: [BaseJetpack, BaseSecurityContraband]
+  name: security jetpack # DeltaV - Remove word mini from name
+  description: A jetpack utilized by station security when patrolling the station's exterior. Not intended for long range travel, it holds only 3.0 L of gas. # DeltaV - Changed description to mention 3.0 and remove word 'compact'
   suffix: Empty
   components:
   - type: Item
@@ -255,12 +255,13 @@
   - type: GasTank
     outputPressure: 42.6
     air:
-      # 4 minutes of thrust
-      volume: 1.5
+      # 8 minutes of thrust
+      volume: 3 # DeltaV - Increase fron 1.5L to 3L
       temperature: 293.15
       moles:
-        Oxygen: 0.307706858 # oxygen
-        Nitrogen: 0.307706858 # nitrogen
+        #DeltaV - Changed moles for Oxygen and Nitrogen from 0.307706858 to 0.615413716 to accomdate the larger tank.
+        Oxygen: 0.615413716 # oxygen
+        Nitrogen: 0.615413716 # nitrogen
 
 #Empty void
 - type: entity
