@@ -1,3 +1,4 @@
+using Content.Shared._DV.Stealth; // DeltaV - Make certain items unable to stealth.
 using Content.Shared.Armor; // DeltaV - Addition of HandHeldArmor
 using Content.Shared.Atmos;
 using Content.Shared.Camera;
@@ -31,6 +32,7 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, WieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, UnwieldAttemptEvent>(RefRelayEvent);
         SubscribeLocalEvent<HandsComponent, TargetHandcuffedEvent>(RefRelayEvent);
+        SubscribeLocalEvent<HandsComponent, StealthAddedEvent>(RefRelayEvent); // DeltaV - Make certain items unable to stealth.
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs

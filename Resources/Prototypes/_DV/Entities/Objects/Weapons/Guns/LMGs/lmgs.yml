@@ -25,7 +25,7 @@
     slots:
     - Back
   - type: ClothingSpeedModifier
-    sprintModifier: 0.9
+    sprintModifier: 0.8
   - type: Appearance
   - type: Wieldable
     unwieldOnUse: false
@@ -35,7 +35,7 @@
     maxAngle: 30
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 4
+    fireRate: 3
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -44,10 +44,11 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: GunBipod
+    setupDelay: 1.25
     minAngle: -12
     maxAngle: -20
     angleDecay: 4
-    fireRateIncrease: 3
+    fireRateIncrease: 4
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
@@ -78,3 +79,7 @@
     price: 500
   - type: UseDelay
     delay: 1
+  - type: PreventStealth
+  - type: Tag
+    tags:
+    - ParcelWrapBlacklist

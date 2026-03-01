@@ -1,12 +1,13 @@
 using Content.Server._DV.Projectiles.Components;
 using Content.Server._DV.Projectiles.Events;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 
 namespace Content.Server._DV.Projectiles.Systems;
 
 public sealed class PiercingProjectileSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -17,13 +18,14 @@ public sealed class PiercingProjectileSystem : EntitySystem
     private void OnPierce(Entity<PiercingProjectileComponent> bullet, ref ProjectilePierceEvent args)
     {
         // If the target doesn't have any tags to stop the bullet from piercing, it's automatically true.
-        if (!_tagSystem.HasAnyTag(args.Target, bullet.Comp.PierceBlockTag))
+        if (_whitelist.IsWhitelistFail(bullet.Comp.PierceCounterWhitelist, args.Target))
         {
             args.Pierced = true;
             return;
         }
         // If it does have the tag to stop it and enough health to count as "strongly armored", it'll block the bullet.
-        if (bullet.Comp.HealthThreshold < args.RequiredDamage)
+        // Mobs return a required Damage amount of Float.MaxValue. Therefore we need to check for absurdly high values.
+        if (bullet.Comp.HealthThreshold < args.RequiredDamage && args.RequiredDamage < 20000000)
             return;
 
         if (bullet.Comp.Direction == null) // Get the direction of the bullet to determine which walls count.

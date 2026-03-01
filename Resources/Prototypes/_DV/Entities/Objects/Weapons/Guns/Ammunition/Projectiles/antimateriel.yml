@@ -11,4 +11,10 @@
         Structural: 20
     penetrationThreshold: 200 # This is irrelevant - As long as it's above 0.
   - type: PiercingProjectile
+    pierceCounterWhitelist:
+      tags:
+      - Wall
+      - Window
+      components:
+      - CombatMode
     healthThreshold: 200 # Normal walls have a threshold of 200.
