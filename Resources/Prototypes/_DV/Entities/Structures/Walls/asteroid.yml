@@ -11,6 +11,7 @@
 - type: entity
   parent: [ BaseRockBluespace, AsteroidRock ]
   id: AsteroidRockBluespace
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
