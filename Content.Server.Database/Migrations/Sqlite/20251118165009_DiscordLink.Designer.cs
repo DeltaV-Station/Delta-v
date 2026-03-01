@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251118165009_DiscordLink")]
+    partial class DiscordLink
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -90,10 +93,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("Id")
                         .HasColumnType("INTEGER")
                         .HasColumnName("admin_log_id");
-
-                    b.Property<long>("CurTime")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("cur_time");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT")
@@ -669,37 +668,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("UserId");
 
                     b.ToTable("connection_log", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DVModel+SeenTip", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("dv_seen_tips_id");
-
-                    b.Property<DateTime>("DismissedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("dismissed_at");
-
-                    b.Property<Guid>("PlayerUserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_user_id");
-
-                    b.Property<string>("TipProtoId")
-                        .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("tip_proto_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_dv_seen_tips");
-
-                    b.HasIndex("PlayerUserId", "TipProtoId")
-                        .IsUnique()
-                        .HasDatabaseName("IX_dv_seen_tips_player_user_id_tip_proto_id");
-
-                    b.ToTable("dv_seen_tips", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
@@ -1754,17 +1722,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("HWId");
 
                     b.Navigation("Server");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DVModel+SeenTip", b =>
-                {
-                    b.HasOne("Content.Server.Database.Player", null)
-                        .WithMany()
-                        .HasForeignKey("PlayerUserId")
-                        .HasPrincipalKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_dv_seen_tips_player_player_id");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>

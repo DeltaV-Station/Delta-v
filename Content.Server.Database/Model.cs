@@ -598,6 +598,9 @@ namespace Content.Server.Database
         public IPAddress LastSeenAddress { get; set; } = null!;
         public TypedHwid? LastSeenHWId { get; set; }
 
+        // Data that changes based on player related factors
+        public ulong? DiscordUserId { get; set; }
+
         // Data that changes with each round
         public List<Round> Rounds { get; set; } = null!;
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;

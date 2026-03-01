@@ -210,6 +210,12 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Discord Linking
+        Task UpdateDiscordLink(NetUserId userId, ulong? discordId);
+        Task UpdateDiscordLink(ulong associatedDiscordId, ulong? discordId);
+        Task<ulong?> GetDiscordLink(NetUserId userId);
+        #endregion
+
         #region Admin Ranks
         Task<Admin?> GetAdminDataForAsync(NetUserId userId, CancellationToken cancel = default);
         Task<AdminRank?> GetAdminRankAsync(int id, CancellationToken cancel = default);
@@ -658,6 +664,25 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPlayerRecordByUserId(userId, cancel));
         }
+
+        public Task UpdateDiscordLink(NetUserId userId, ulong? discordId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateDiscordLink(userId, discordId));
+        }
+
+        public Task UpdateDiscordLink(ulong associatedDiscordId, ulong? newDiscordId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateDiscordLink(associatedDiscordId, newDiscordId));
+        }
+
+        public Task<ulong?> GetDiscordLink(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDiscordLink(userId));
+        }
+
 
         public Task<int> AddConnectionLogAsync(
             NetUserId userId,
