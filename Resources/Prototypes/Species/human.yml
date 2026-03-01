@@ -7,6 +7,10 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  sexes:
+  - Male
+  - Female
+  - Unsexed
 
 # The lack of a layer means that
 # this person cannot have round-start anything
@@ -35,8 +39,6 @@
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
-    Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
-    HeadSide: MobHumanoidAnyMarking # Einstein Engines - Oni
 
 - type: markingPoints
   id: MobHumanMarkingLimits
@@ -66,13 +68,13 @@
       points: 1
       required: false
     Chest:
-      points: 2
+      points: 4 # Imp 1<4
       required: false
     Legs:
-      points: 6 # DeltaV - was 2
+      points: 8 # Imp 6<8
       required: false
     Arms:
-      points: 6 # DeltaV - was 2
+      points: 8 # Imp 6<8
       required: false
 
 - type: humanoidBaseSprite

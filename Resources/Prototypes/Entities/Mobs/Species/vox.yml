@@ -11,7 +11,7 @@
   - type: Body
     prototype: Vox
     requiredLegs: 2
-    #- type: VoxAccent # Not yet coded
+  #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
@@ -42,7 +42,7 @@
     #- trigger: # DeltaV - Sadly no KFV :(
     #    !type:DamageTypeTrigger
     #    damageType: Heat
-    #    damage: 1500 
+    #    damage: 1500
     #  behaviors:
     #  - !type:SpawnEntitiesBehavior
     #    spawnInContainer: true
@@ -149,6 +149,9 @@
       visible: false
   - type: HumanoidAppearance
     species: Vox
+    hideLayersOnEquip: # Impstation
+    - HeadSide
+    - Hair
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement:

@@ -28,6 +28,7 @@
     HeadSide: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     Chest: MobThavenTorso
     LArm: MobThavenLArm
     RArm: MobThavenRArm
@@ -58,8 +59,17 @@
     Chest:
       points: 4
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Arms:
       points: 4
+      required: false
+    Tail:
+      points: 1
       required: false
     Overlay:
       points: 6
