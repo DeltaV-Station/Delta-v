@@ -35,7 +35,7 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// The amount of energy to which the tesla must reach in order to be destroyed.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float EnergyToDespawn = -540f; // DeltaV, make the Tesla take as long to fail as the singulo.
+    public float EnergyToDespawn = -100f;
 
     /// <summary>
     /// Played when energy reaches the lower limit (and entity destroyed)
@@ -60,7 +60,7 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// The amount of energy drained passively per update.
     /// </summary>
     [DataField]
-    public float PassiveEnergyDrainRate = 3f;
+    public float PassiveEnergyDrainRate = 0.4f; // DeltaV, make the Tesla take as long to fail as the singulo.
 
     /// <summary>
     /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
