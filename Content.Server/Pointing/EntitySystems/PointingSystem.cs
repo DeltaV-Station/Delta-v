@@ -297,6 +297,11 @@ namespace Content.Server.Pointing.EntitySystems
 
                 viewerMessage = Loc.GetString("pointing-system-other-point-at-tile", ("otherName", playerName), ("tileName", name));
 
+                // Begin DeltaV Additions - Interactions with tile pointing
+                var ev = new AfterPointedAtTileEvent(mapCoordsPointed);
+                RaiseLocalEvent(player, ref ev);
+                // End DeltaV Additions - Interactions with tile pointing
+
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):user} pointed at {name} {(position == null ? mapCoordsPointed : position)}");
             }
 

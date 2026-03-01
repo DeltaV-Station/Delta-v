@@ -91,6 +91,10 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Vulpkanin
+  - type: RemoteControlReceiver
+    canUnderstand: false
+    bindable: false
+    channelName: CanineDogWhistle
   - type: Vocal
     sounds:
       Male: MaleVulpkanin

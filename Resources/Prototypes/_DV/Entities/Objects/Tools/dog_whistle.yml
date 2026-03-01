@@ -1,0 +1,55 @@
+- type: entity
+  id: DogWhistle
+  parent: BaseItem
+  name: dog whistle
+  description: For canines and canine-adjacent sophants
+  components:
+  - type: Item
+    sprite: Objects/Fun/whistles.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Fun/whistles.rsi
+    state: whistle
+  - type: Clothing
+    sprite: Objects/Fun/whistles.rsi
+    equippedPrefix: whistle
+    slots: neck
+  - type: ItemToggle
+    popupActivate: dog-whistle-toggle-action-up
+    popupDeactivate: dog-whistle-toggle-action-down
+    onActivate: false  # do not toggle with E key nor right click context menu
+    onUse: false  # do not toggle with Z key
+  - type: ToggleClothing  # only toggle with the action granted by being clothing
+    action: ActionToggleDogWhistleOrderMode
+    mustEquip: false
+  - type: RemoteControl
+    channelName: CanineDogWhistle
+    cooldown: 3
+    useSound: !type:SoundCollectionSpecifier
+        collection: TrenchWhistle
+    screeches:
+        - "dog-whistle-noise-1"
+        - "dog-whistle-noise-2"
+        - "dog-whistle-noise-3"
+        - "dog-whistle-noise-4"
+        - "dog-whistle-noise-5"
+        - "dog-whistle-noise-6"
+        - "dog-whistle-noise-7"
+    orderStrings:
+      EntityPoint: "dog-whistle-order-catch"
+      TilePoint: "dog-whistle-order-sit"
+      SelfPoint: "dog-whistle-order-comeback"
+      FreeUnit: "dog-whistle-order-at-ease"
+    noBoundEntitiesWarning: "dog-whistle-no-bound-entities"
+
+- type: entity
+  id: ActionToggleDogWhistleOrderMode
+  name: Toggle dog whistle orders
+  description: Toggles whether pointing should send orders to bound dogs
+  components:
+  - type: Action
+    icon: Interface/Default/blocked.png
+    iconOn: { sprite: Objects/Fun/whistles.rsi, state: whistle }
+    useDelay: 1
+  - type: InstantAction
+    event: !type:ToggleActionEvent
