@@ -12,5 +12,5 @@ public sealed partial class StationArrivalsComponent : Component
     [DataField("shuttle")]
     public EntityUid Shuttle;
 
-    [DataField("shuttlePath")] public ResPath ShuttlePath = new("/Maps/Shuttles/arrivals.yml");
+    [DataField("shuttlePath")] public ResPath ShuttlePath = new("/Maps/_DV/nt_runner.yml"); // DeltaV - Made arrival shuttle DV specific, Was: /Maps/Shuttles/arrivals.yml
 }

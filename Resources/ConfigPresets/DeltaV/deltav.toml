@@ -82,7 +82,10 @@ voter_ghost_requirement = false
 space_wind = true
 
 [shuttle]
-arrivals = false
+arrivals = true
+arrivals_planet = false
+arrivals_map = "/Maps/_DV/transit_hub.yml"
+arrivals_cooldown = 60 # Need to be longer than cooldown
 cooldown = 60 # 50 longer than the default
 travel_time = 9.5 # 10.5 seconds less than the default
 emergency_dock_time = 240
