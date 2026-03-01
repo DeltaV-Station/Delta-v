@@ -169,3 +169,96 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMachineMagazinePistolSpecial
+  name: machine pistol magazine (.38 special)
+  components:
+  - type: Tag
+    tags:
+    - MagazinePistolSpecial
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeSpecial
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_special_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+
+- type: entity
+  parent: BaseMachineMagazinePistolSpecial
+  id: MagazinePistolSpecialTranq
+  name: machine pistol magazine (.38 special tranquilizer)
+  description: 10-round single-stack magazine for the Mk98 pistol, compatible with the psi-breaker. Intended to hold non-lethal tranquilizer ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialTranq
+  - type: Sprite
+    layers:
+    - state: tranq
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMachineMagazinePistolSpecial
+  id: MagazineMachinePistolSpecial
+  description: 10-round single-stack magazine for the Mk98 pistol, compatible with the psi-breaker. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecial
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMachineMagazinePistolSpecial
+  id: MagazineMachinePistolSpecialPractice
+  name: machine pistol magazine (.38 special practice)
+  description: 10-round single-stack magazine for the Mk98 pistol, compatible with the psi-breaker. Intended to hold non-harmful chalk ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialPractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMachineMagazinePistolSpecial
+  id: MagazineMachinePistolSpecialRubber
+  name: machine pistol magazine (.38 special rubber)
+  description: 10-round single-stack magazine for the Mk98 pistol, compatible with the psi-breaker. Intended to hold less-lethal rubber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

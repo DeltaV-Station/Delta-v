@@ -96,3 +96,27 @@
   - type: GuideHelp
     guides:
     - Psionics
+
+- type: entity
+  id: BulletSpecialTranq
+  name: bullet (.38 special tranquilizer)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 0.1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 6.5
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 6.5
+    blockSlots: NONE #shouldn't be blocked by a mask
+    solution: ammo
+  - type: InjectableSolution

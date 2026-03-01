@@ -353,3 +353,55 @@
         whitelist:
           tags:
           - CartridgeMagnum
+
+- type: entity
+  name: Mk98-S3 "Fox"
+  parent: BaseWeaponPistol
+  id: WeaponPistolTranqulizer
+  description: A integrally suppressed manual-action pistol used by the Syndicate intended for use with tranquilizer rounds, specifically designed for kidnapping targets without causing suit-sensors to alarm their death. Uses .38 special ammo.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Pistols/fox.rsi
+  - type: Gun
+    fireRate: 2.3
+    minAngle: 0
+    maxAngle: 0
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/mk98fire.ogg
+      params:
+        volume: -4
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/mk98empty.ogg
+  - type: UseDelay
+    delay: 0.6
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+    autoCycle: false
+    soundRack:
+      path: /Audio/_DV/Weapons/Guns/Cock/mk98rack.ogg
+      params:
+        volume: -4
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSpecialTranq
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSpecial
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeSpecialTranq
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeSpecial
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
