@@ -6,10 +6,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 - type: entity
   abstract: true
@@ -89,7 +91,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/staseccoat.rsi
 
 - type: entity
-  parent: ClothingOuterArmoredWinterCoat
+  parent: ClothingOuterCoatHoSTrench
   id: ClothingOuterCoatStasecHoS
   name: head of security's winter coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is adorned with gold trim.
@@ -98,6 +100,9 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
+  - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
 
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
