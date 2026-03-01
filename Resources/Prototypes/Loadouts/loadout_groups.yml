@@ -1424,9 +1424,12 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-  - ScarfRed # DeltaV
-  - ScarfBlack # DeltaV
-  - SecurityPoncho # DeltaV
+  # Begin DeltaV changes
+  - ScarfRed 
+  - ScarfBlack 
+  - SecurityPoncho 
+  - HeadOfSecurityRobe
+  # End DeltaV changes
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing

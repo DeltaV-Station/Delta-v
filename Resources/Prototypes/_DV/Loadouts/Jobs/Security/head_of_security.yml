@@ -50,3 +50,15 @@
   id: HeadOfSecurityWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterHeadOfSecurity
+
+# Neck
+- type: loadout
+  id: HeadOfSecurityRobe
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 180000
+  equipment:
+    neck: ClothingNeckHosRobe
