@@ -1,0 +1,103 @@
+- type: constructionGraph
+  id: N14RugMatRecipe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: matBlank
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+  
+    - node: matBlank
+      entity: N14RugMat
+
+- type: constructionGraph
+  id: N14RugMatWelcomeRecipe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: matWelcome
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+  
+    - node: matWelcome
+      entity: N14RugMatWelcome
+
+- type: constructionGraph
+  id: N14RugRecipes
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: blueRug
+          completed:
+          - !type:SnapToGrid
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+        - to: shagRug
+          completed:
+          - !type:SnapToGrid
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+        - to: brownRug
+          completed:
+          - !type:SnapToGrid
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+        - to: redRug
+          completed:
+          - !type:SnapToGrid
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+        - to: orangeRug
+          completed:
+          - !type:SnapToGrid
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 1
+        - to: RubberMat
+          completed:
+          - !type:SnapToGrid
+          steps:
+            - material: Plastic
+              amount: 3
+              doAfter: 1
+  
+    - node: RubberMat
+      entity: N14RugMatRubberLarge
+
+    - node: shagRug
+      entity: N14RugShag
+
+    - node: blueRug
+      entity: N14RugBlue
+
+    - node: brownRug
+      entity: N14RugBrown
+
+    - node: redRug
+      entity: N14RugRed
+
+    - node: orangeRug
+      entity: N14RugOrange
+    
+
+  

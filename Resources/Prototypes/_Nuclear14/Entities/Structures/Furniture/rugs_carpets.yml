@@ -19,6 +19,11 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              MaterialCloth1:
+                min: 3
+                max: 3
 
 - type: entity
   parent: N14CarpetSingleBase
@@ -28,14 +33,21 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs.rsi
     state: mat_blank
+  - type: Construction # DeltaV
+    graph: N14RugMatRecipe
+    node: matBlank
 
 - type: entity
-  parent: N14RugMat
+  parent: N14CarpetSingleBase
   id: N14RugMatWelcome
-  suffix: welcome
+  name: welcome mat
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs.rsi
     state: mat_welcome
+  - type: Construction # DeltaV
+    graph: N14RugMatWelcomeRecipe
+    node: matWelcome
 
 - type: entity
   parent: N14RugMat
@@ -111,57 +123,80 @@
 
 # 64x64 rugs
 - type: entity
-  parent: N14CarpetSingleBase
   id: N14RugBlue
-  name: rug
+  parent: N14CarpetSingleBase
+  name: blue rug
   description: A modern looking blue rug.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue
+  - type: Construction # DeltaV
+    graph: N14RugRecipes
+    node: rugBlue
 
 - type: entity
+  id: N14RugShag
   parent: N14RugBlue
-  id: N14RugBlueShag
-  suffix: shag
+  name: blue shag rug
+  description: A blue shag rug. Looks cheap.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue_shag
+  - type: Construction # DeltaV
+    graph: N14RugRecipes
+    node: rugShag
 
 - type: entity
+  id: N14RugBrown
   parent: N14RugBlue
-  id: N14RugBrownFancy
-  description: A fancy looking rug.
+  name: brown rug
+  description: A fancy looking brown rug. 
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_fancy
+  - type: Construction
+    graph: N14RugRecipes
+    node: rugBrown
 
 - type: entity
-  parent: N14RugBlue
   id: N14RugRed
-  description: A patterned red rug.
+  parent: N14RugBlue
+  name: red rug
+  description: A fancily patterned red rug. Looks expensive.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_red
+  - type: Construction # DeltaV
+    graph: N14RugRecipes
+    node: rugRed
 
 - type: entity
+  id: N14RugOrange
   parent: N14RugBlue
-  id: N14RugYellow
-  description: A patterned yellow rug.
+  name: orange rug
+  description: A patterned orange rug.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_yellow
+  - type: Construction # DeltaV
+    graph: N14RugRecipes
+    node: rugOrange
 
 - type: entity
-  parent: N14RugBlue
   id: N14RugMatRubberLarge
+  parent: N14RugBlue
   name: rubber mat
-  description: A large rubber mat.
+  description: A large laboratory-grade rubber mat. Feel safe as you spill acid on yourself!
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_rubber
+  - type: Construction # DeltaV
+    graph: N14RugRecipes
+    node: RubberMat
+ 

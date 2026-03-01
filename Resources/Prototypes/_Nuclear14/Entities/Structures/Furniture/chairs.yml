@@ -30,11 +30,12 @@
     state: diner_chair
 
 - type: entity
-  parent: N14ChairBarRetro
   id: N14ChairOfficeErgonomic
   name: ergonomic office chair
+  parent: OfficeChairBase # DeltaV - furniture rework
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi # DeltaV - furniture rework
     state: ergo_chair
 
 - type: entity

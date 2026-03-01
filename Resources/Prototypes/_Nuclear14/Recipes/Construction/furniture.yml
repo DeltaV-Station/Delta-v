@@ -37,3 +37,107 @@
   canRotate: true
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: N14RugMat
+  graph: N14RugMatRecipe
+  startNode: start
+  targetNode: matBlank
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugMatWelcome
+  graph: N14RugMatWelcomeRecipe
+  startNode: start
+  targetNode: matWelcome
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugBlue
+  graph: N14RugRecipes
+  startNode: start
+  targetNode: blueRug
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugBrown
+  graph: N14RugRecipes
+  startNode: start
+  targetNode: brownRug
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugRed
+  graph: N14RugRecipes
+  startNode: start
+  targetNode: redRug
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugOrange
+  graph: N14RugRecipes
+  startNode: start
+  targetNode: orangeRug
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugMatRubberLarge
+  graph: N14RugRecipes
+  startNode: start
+  targetNode: RubberMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14RugShag
+  graph: N14RugRecipes
+  startNode: start
+  targetNode: shagRug
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false

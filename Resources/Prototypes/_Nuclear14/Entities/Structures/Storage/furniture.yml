@@ -15,3 +15,79 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Furniture/safespinner.rsi
+
+# Begin Delta V "additions"
+
+- type: entity
+  id: DeliDisplayCase
+  name: deli display case
+  description: A large stand for displaying delicious food.
+  parent: BaseStructure
+  components:
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialSteel1:
+            min: 5
+            max: 8
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Store_Furniture/delistand.rsi
+    layers:
+      - state: deli_stand
+      - state: food-0
+      - map: ["enum.StorageFillLayers.Fill"]
+    drawdepth: 6
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 5
+    fillBaseName: food
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Storage
+    grid:
+    - 0,0,9,9 
+    maxItemSize: Normal
+    storageOpenSound: /Audio/Effects/closetopen.ogg
+    storageCloseSound: /Audio/Effects/closetclose.ogg
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.425,-0.2,0.425,0.1"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
