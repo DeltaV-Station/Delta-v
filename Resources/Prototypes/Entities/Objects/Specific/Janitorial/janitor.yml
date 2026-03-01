@@ -58,6 +58,7 @@
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
+  - type: DecalScrubber # DeltaV
 
 - type: entity
   parent: MopItem
@@ -93,6 +94,8 @@
       tags:
         - Mop
         - MopAdv
+    - type: DnaSubstanceTrace
+    - type: DecalScrubber # DeltaV
 
 - type: entity
   name: wet floor sign

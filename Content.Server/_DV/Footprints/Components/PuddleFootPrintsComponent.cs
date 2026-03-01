@@ -1,4 +1,4 @@
-namespace Content.Shared._EE.FootPrint;
+namespace Content.Server._DV.Footprints.Components;
 
 [RegisterComponent]
 public sealed partial class PuddleFootPrintsComponent : Component
