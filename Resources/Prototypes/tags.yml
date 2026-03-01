@@ -157,6 +157,7 @@
 
 - type: Tag # Used for specifically chemistry bottles.
   id: Bottle # Storage whitelist: ChemMaster, ChemBag, SmartFridge, ClothingBeltJanitor, ClothingBeltMedical, ClothingBeltPlant
+             # Storage blacklist: CigPackBase - deltav
 
 - type: Tag
   id: BoxCardboard # CargoBounty: BountyCardboardBox. Storage whitelist: MailCart
