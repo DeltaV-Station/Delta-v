@@ -287,3 +287,22 @@
   - type: MappingCategories
     categories:
     - Debug
+
+# Security K9 Officer
+- type: entity
+  parent: IDCardStandard
+  id: K9OfficerIDCard
+  name: K9 officer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-security-top
+    - state: stripe_bottom
+      color: *color-security-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: SecurityK9Officer
+  - type: PresetIdCard
+    job: RoleK9Officer

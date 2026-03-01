@@ -68,7 +68,8 @@
 
 - type: entity
   parent: SimpleMobBase
-  id: MobSecDog
+  abstract: true
+  id: MobSecDogBase
   name: security dog
   description: Funnily enough, this pig is actually a dog.
   components:
@@ -182,12 +183,25 @@
     - DoorBumpOpener
     - VimPilot
     - K9
+  - type: MindOnlyAccess
+  - type: AutoImplant
+    implants:
+    - TrackingImplant
+    - K9IDCardImplant
   - type: Vocal
     sounds:
       Unsexed: MobDog
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
+
+# Split from MobSecDog for random names, allows Laika to be Laika
+- type: entity
+  parent: MobSecDogBase
+  id: MobSecDog
+  components:
+  - type: RandomMetadata
+    nameSegments: [NamesSecDogs]
 
 - type: entity
   parent: MobMouse

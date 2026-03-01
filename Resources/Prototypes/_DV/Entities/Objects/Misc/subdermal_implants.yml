@@ -81,3 +81,22 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+
+# K9 ID card implant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: K9IDCardImplant
+  categories: [ HideSpawnMenu ]
+  name: K9 IDCard implant
+  description: A subdermal implant with a preloaded ID Card
+  components:
+  - type: SubdermalImplant
+    whitelist:
+      tags:
+      - K9
+  - type: ContainerContainer
+    containers:
+      subdermalIdCard: !type:Container { }
+  - type: SubdermalIdCard
+    idCardProto: K9OfficerIDCard
