@@ -16,7 +16,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable # DeltaV - Update for predicted mind examine
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -57,11 +57,10 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodMaxVolume: 75
-    bloodReagents:
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
       reagents:
       - ReagentId: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
-        Quantity: 1
+        Quantity: 75 # DeltaV - Was 1, changed due to upstream blood solutions
   - type: InteractionPopup
     successChance: 0.1
     interactSuccessString: petting-success-anomalite
@@ -209,13 +208,14 @@
   - type: Damageable
     damageModifierSet: AnomalitePyroclastic
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold: 0.1
-    specificHeat: 42
     heatDamage:
       types:
         Heat: 0.0
@@ -306,13 +306,14 @@
   - type: Damageable
     damageModifierSet: AnomaliteIce
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold: 0.0
-    specificHeat: 42
     heatDamage:
       types:
         Heat: 1.5

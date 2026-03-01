@@ -36,16 +36,16 @@
       0: Alive
       100: Dead
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: MovementAlwaysTouching
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Cryoxadone
-        Quantity: 1
+        Quantity: 300
   - type: CombatMode
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 500
     coldDamageThreshold: 0
   - type: MeleeWeapon
@@ -158,7 +158,7 @@
       Dead:
         Base: kangaroo-space-dead
   - type: Stamina
-    critThreshold: 180
+    baseCritThreshold: 180
   - type: Inventory
     speciesId: kangaroo
     templateId: spacekangaroo
@@ -199,7 +199,7 @@
       0: Alive
       90: Dead
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: DamageStateVisuals
     states:
       Alive:
@@ -215,11 +215,10 @@
       amount: 1
       prob: 0.5
   - type: Bloodstream
-    bloodMaxVolume: 250
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Cryoxadone
-        Quantity: 1
+        Quantity: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -305,7 +304,7 @@
         0: Alive
         100: Dead
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:
@@ -323,11 +322,10 @@
           amount: 1
           prob: 0.3
     - type: Bloodstream
-      bloodMaxVolume: 200
-      bloodReagents:
+      bloodReferenceSolution:
         reagents:
         - ReagentId: Cryoxadone
-          Quantity: 1
+          Quantity: 200
     - type: Fixtures
       fixtures:
         fix1:
@@ -494,11 +492,10 @@
   - type: CombatMode
     combatToggleAction: ActionCombatModeToggleOff
   - type: Bloodstream
-    bloodMaxVolume: 30
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Cryoxadone
-        Quantity: 1
+        Quantity: 30
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -508,6 +505,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 500
     coldDamageThreshold: 0
   - type: Reactive

@@ -7,6 +7,7 @@ using Content.Shared._DV.Traits.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
@@ -773,6 +774,7 @@ public sealed partial class TraitSystemTest
             LogMan = IoCManager.Resolve<ILogManager>(),
             JobId = jobId,
             SpeciesId = speciesId,
+            StatusEffects = entMan.System<StatusEffectsSystem>(),
         };
     }
 
@@ -790,6 +792,7 @@ public sealed partial class TraitSystemTest
             CompFactory = factory,
             LogMan = IoCManager.Resolve<ILogManager>(),
             Transform = entMan.GetComponent<TransformComponent>(player),
+            StatusEffects = entMan.System<StatusEffectsSystem>(),
         };
     }
 

@@ -2,6 +2,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared._DV.Autoclave;
 using Content.Shared._DV.Surgery;
 using Content.Shared.Power;
+using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.GameObjects;
@@ -46,8 +47,7 @@ public sealed class AutoclaveSystem : EntitySystem
             if (!(isPowered && isClosed))
                 continue;
 
-            EntityStorageComponent? storageComponent = null;
-            if (!_entityStorage.ResolveStorage(uid, ref storageComponent))
+            if (!TryComp<EntityStorageComponent>(uid, out var storageComponent))
                 continue;
 
             foreach (var containedEntity in storageComponent.Contents.ContainedEntities)
@@ -61,9 +61,8 @@ public sealed class AutoclaveSystem : EntitySystem
 
     private void UpdateVisuals(EntityUid ent, bool isPowered, bool isClosed)
     {
-        EntityStorageComponent? storageComponent = null;
-        bool hasDirtyContents =
-            _entityStorage.ResolveStorage(ent, ref storageComponent)
+        var hasDirtyContents =
+                TryComp<EntityStorageComponent>(ent, out var storageComponent)
                 && storageComponent.Contents.ContainedEntities.Any(contained => _surgeryClean.RequiresCleaning(contained));
 
         var (greenLight, redLight) = (isPowered, isClosed, hasDirtyContents) switch

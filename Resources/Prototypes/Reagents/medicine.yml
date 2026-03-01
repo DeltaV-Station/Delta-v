@@ -752,6 +752,9 @@
   physicalDesc: reagent-physical-desc-starry
   flavor: medicine
   color: "#2b2f77"
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: -5
   metabolisms:
     Medicine:
       effects:
@@ -1331,7 +1334,6 @@
   worksOnTheDead: true
   metabolisms:
     Medicine:
-      metabolismRate: 0.2
       effects:
       - !type:EvenHealthChange
         conditions:
@@ -1545,3 +1547,27 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+
+- type: reagent
+  id: Warfarin
+  name: reagent-name-warfarin
+  group: Medicine
+  desc: reagent-desc-warfarin
+  physicalDesc: reagent-physical-desc-thin
+  allowedDepartments:
+  - Medical
+  flavor: medicine
+  color: "#d0e21b"
+  metabolisms:
+    Medicine:
+      effects: # One day this could be useful for treating blood clots, if we get those
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAnticoagulant
+        time: 30 # 10 bleed ticks, you bleed every 3 seconds by default.
+        type: Update
+      - !type:ModifyBleed
+        conditions:
+        - !type:ReagentCondition
+          reagent: Warfarin
+          min: 15
+        amount: 0.25

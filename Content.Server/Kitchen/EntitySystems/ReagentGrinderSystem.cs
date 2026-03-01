@@ -1,5 +1,3 @@
-using Content.Server.Kitchen.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
@@ -20,15 +18,15 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server.Construction.Completions;
 using Content.Server.Jittering;
 using Content.Shared.Jittering;
+using Content.Shared.Kitchen.EntitySystems;
 using Content.Shared.Power;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class ReagentGrinderSystem : EntitySystem
+    internal sealed class ReagentGrinderSystem : SharedReagentGrinderSystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
@@ -65,7 +63,9 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnToggleAutoModeMessage(Entity<ReagentGrinderComponent> entity, ref ReagentGrinderToggleAutoModeMessage message)
         {
-            entity.Comp.AutoMode = (GrinderAutoMode) (((byte) entity.Comp.AutoMode + 1) % Enum.GetValues(typeof(GrinderAutoMode)).Length);
+            entity.Comp.AutoMode = (GrinderAutoMode)(((byte)entity.Comp.AutoMode + 1) % Enum.GetValues(typeof(GrinderAutoMode)).Length);
+
+            Dirty(entity);
 
             UpdateUiState(entity);
         }
@@ -92,12 +92,13 @@ namespace Content.Server.Kitchen.EntitySystems
 
                 foreach (var item in inputContainer.ContainedEntities.ToList())
                 {
-                    var solution = active.Program switch
+                    var solution = GetGrinderSolution(item, active.Program);
+                    // Begin Imp changes - DeltaV - Updated for reagent grinder moving to shared
+                    if (active.Program == GrinderProgram.Grind)
                     {
-                        GrinderProgram.Grind => TryGrindSolution(item, (uid, reagentGrinder), inputContainer.ContainedEntities), // Imp
-                        GrinderProgram.Juice => CompOrNull<ExtractableComponent>(item)?.JuiceSolution,
-                        _ => null,
-                    };
+                        solution = TryGrindSolution(item, solution, (uid, reagentGrinder), inputContainer.ContainedEntities);
+                    }
+                    // Begin Imp changes - DeltaV - Updated for reagent grinder moving to shared
 
                     if (solution is null)
                         continue;
@@ -110,7 +111,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
                         // Maximum number of items we can process in the stack without going over AvailableVolume
                         // We add a small tolerance, because floats are inaccurate.
-                        var fitsCount = (int) (stack.Count * FixedPoint2.Min(containerSolution.AvailableVolume / totalVolume + 0.01, 1));
+                        var fitsCount = (int)(stack.Count * FixedPoint2.Min(containerSolution.AvailableVolume / totalVolume + 0.01, 1));
                         if (fitsCount <= 0)
                             continue;
 
@@ -228,8 +229,8 @@ namespace Content.Server.Kitchen.EntitySystems
                 && _solutionContainersSystem.TryGetFitsInDispenser(outputContainer.Value, out _, out containerSolution)
                 && inputContainer.ContainedEntities.Count > 0)
             {
-                canGrind = inputContainer.ContainedEntities.All(CanGrind);
-                canJuice = inputContainer.ContainedEntities.All(CanJuice);
+                canGrind = inputContainer.ContainedEntities.All(x => CanGrind(x));
+                canJuice = inputContainer.ContainedEntities.All(x => CanJuice(x));
             }
 
             var state = new ReagentGrinderInterfaceState(
@@ -303,10 +304,10 @@ namespace Content.Server.Kitchen.EntitySystems
             SoundSpecifier? sound;
             switch (program)
             {
-                case GrinderProgram.Grind when inputContainer.ContainedEntities.All(CanGrind):
+                case GrinderProgram.Grind when inputContainer.ContainedEntities.All(x => CanGrind(x)):
                     sound = reagentGrinder.GrindSound;
                     break;
-                case GrinderProgram.Juice when inputContainer.ContainedEntities.All(CanJuice):
+                case GrinderProgram.Juice when inputContainer.ContainedEntities.All(x => CanJuice(x)):
                     sound = reagentGrinder.JuiceSound;
                     break;
                 default:
@@ -328,39 +329,22 @@ namespace Content.Server.Kitchen.EntitySystems
             _audioSystem.PlayPvs(reagentGrinder.Comp.ClickSound, reagentGrinder.Owner, AudioParams.Default.WithVolume(-2f));
         }
 
-        // Begin Imp
-        private Solution? TryGrindSolution(EntityUid uid, Entity<ReagentGrinderComponent> grinder, IReadOnlyList<EntityUid> contents)
+        // Begin Imp Changes - DeltaV - Updated for reagent grinder moving to shared
+        private Solution? TryGrindSolution(
+            EntityUid uid,
+            Solution? solution,
+            Entity<ReagentGrinderComponent> grinder,
+            IReadOnlyList<EntityUid> contents)
         {
-            if (TryComp<ExtractableComponent>(uid, out var extractable)
-                && extractable.GrindableSolution is not null
-                && _solutionContainersSystem.TryGetSolution(uid, extractable.GrindableSolution, out _, out var solution))
-            {
-                var ev = new GrindAttemptEvent(grinder, contents);
-                RaiseLocalEvent(uid, ev);
+            var ev = new GrindAttemptEvent(grinder, contents);
+            RaiseLocalEvent(uid, ev);
 
-                if (ev.Cancelled)
-                    return null;
-
-                return solution;
-            }
-            else
+            if (ev.Cancelled)
                 return null;
-        }
-        // End Imp
 
-        private bool CanGrind(EntityUid uid)
-        {
-            var solutionName = CompOrNull<ExtractableComponent>(uid)?.GrindableSolution;
-
-            return solutionName is not null && _solutionContainersSystem.TryGetSolution(uid, solutionName, out _, out _);
+            return solution;
         }
 
-        private bool CanJuice(EntityUid uid)
-        {
-            return CompOrNull<ExtractableComponent>(uid)?.JuiceSolution is not null;
-        }
-
-        // Begin Imp Changes
         public sealed partial class GrindAttemptEvent : CancellableEntityEventArgs
         {
             public Entity<ReagentGrinderComponent> Grinder;
@@ -372,6 +356,6 @@ namespace Content.Server.Kitchen.EntitySystems
                 Reagents = reagents;
             }
         }
-        // End Imp Changes
+        // End Imp Changes - DeltaV - Updated for reagent grinder moving to shared
     }
 }

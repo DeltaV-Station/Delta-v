@@ -38,7 +38,7 @@ public sealed class FelinidSystem : SharedFelinidSystem
 
     private void OnItemCoughedUp(Entity<FelinidComponent> ent, ref ItemCoughedUpEvent args)
     {
-        if (!TryComp<BloodstreamComponent>(ent, out var blood) || blood.ChemicalSolution is not {} solution)
+        if (!TryComp<BloodstreamComponent>(ent, out var blood) || blood.BloodSolution is not {} solution)
             return;
 
         var item = args.Item;

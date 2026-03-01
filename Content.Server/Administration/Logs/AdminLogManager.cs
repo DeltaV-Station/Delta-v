@@ -88,7 +88,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     // Per round
     private int _currentRoundId;
     private int _currentLogId;
-    private TimeSpan _currentRoundStartTime;
     private int NextLogId => Interlocked.Increment(ref _currentLogId);
     private GameRunLevel _runLevel = GameRunLevel.PreRoundLobby;
 
@@ -268,7 +267,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
 
     public void RoundStarting(int id)
     {
-        _currentRoundStartTime = _timing.CurTime;
         _currentRoundId = id;
         CacheNewRound();
     }
@@ -338,7 +336,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
             Type = type,
             Impact = impact,
             Date = DateTime.UtcNow,
-            CurTime = (_timing.CurTime - _currentRoundStartTime).Ticks,
             Message = message,
             Json = json,
             Players = players,
