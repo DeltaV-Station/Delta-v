@@ -25,7 +25,7 @@ thief-backpack-category-chameleon-description =
 thief-backpack-category-tools-name = breacher kit
 # Delta V: C4 replaced with breaching charges and description changed
 thief-backpack-category-tools-description =
-    What's that sound? A few stolen breachin' charges knockin' at their door. 
+    What's that sound? A few stolen breachin' charges knockin' at their door.
     No obstacle can stop you!
     Includes: Three breaching charges, a multitool, remote signaller, jaws of life,
     advanced welder, engineering goggles, and insulated gloves.
@@ -33,7 +33,7 @@ thief-backpack-category-tools-description =
 thief-backpack-category-chemistry-name = anatomy kit
 thief-backpack-category-chemistry-description =
     You've reached peak physical performance... with a little help.
-    Includes: Storage implanter, DNA scrambler implanter,
+    Includes: Scram implanter, DNA scrambler implanter,
     ephedrine bottle, syringe, empty shaker, and omega soap
 
 thief-backpack-category-syndie-name = syndie kit
