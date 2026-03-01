@@ -122,7 +122,6 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -279,6 +278,11 @@
       groups:
         Electronic: -0.5
   - type: SiliconEmp # DeltaV - EMP damage
+  - type: BypassLock
+  - type: BypassLockRequiresMobState
+    requiredMobState:
+    - Critical
+    - Dead
 
 - type: entity
   abstract: true
@@ -329,6 +333,7 @@
     networkSet: true
     nameSet: True
     id: Xenoborg
+    useEntityNameAsCameraId: true
   - type: Explosive
     explosionType: Minibomb
     deleteAfterExplosion: false # let damage threshold gib the borg
@@ -402,6 +407,8 @@
     color: "#dd200b"
   - type: Fiber # DeltaV - syndiborgs have black plasteel fibers
     fiberColor: fibers-black
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -463,6 +470,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
@@ -555,7 +564,7 @@
           collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
-          PinpointerMothership: # drop a pinpointer to the mothership upon being destructed
+          PinpointerMothershipPiece: # drop a piece of core pinpointer upon being destructed (4 pieces to make a core pinpointer)
             min: 1
             max: 1
       - !type:EmptyContainersBehaviour
@@ -567,19 +576,16 @@
         acts: [ "Destruction" ]
   - type: PointLight
     color: "#0033ff"
+    energy: 3.0 # DeltaV - brighter Xenoborg lights
+    falloff: 1.0 # DeltaV - brighter Xenoborg lights
   - type: GuideHelp
     guides:
     - Cyborgs
     - Robotics
     - Xenoborgs
   - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     tags:
     - Xenoborg
-  - type: ContainerFill # DeltaV - borg id chips
-    containers:
-      borg_id_chip:
-      - IdChipXenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
@@ -589,3 +595,5 @@
   - type: Fiber # DeltaV - xenoborgs have replicated plasteel fibers
     fiberMaterial: fibers-replicated-plasteel
   - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
