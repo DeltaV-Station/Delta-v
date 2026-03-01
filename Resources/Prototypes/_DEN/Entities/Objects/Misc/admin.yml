@@ -24,7 +24,7 @@
         - id: OmnimedTool
         - id: BaseUplinkRadioDebug
         - id: LightReplacer
-        - id: SprayPainter
+        - id: SprayPainterRecharging # DeltaV - Was SprayPainter
         - id: GeigerCounter
         - id: AccessConfiguratorUniversal
         - id: AdminRCD
@@ -67,7 +67,5 @@
   description: An RCD with a never-ending supply of compressed matter.
   suffix: Admin
   components:
-  - type: LimitedCharges
-    maxCharges: 100
   - type: AutoRecharge
-    rechargeDuration: 0
+    rechargeDuration: 0.01 # DeltaV - Was 0 (broken, didnt recharge)
