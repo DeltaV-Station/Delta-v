@@ -181,6 +181,8 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretAI
     transmitFrequencyId: TurretControlAI
+  - type: StationAiVision # DeltaV
+    range: 0
   - type: TurretTargetSettings
     exemptAccessLevels:
     - BasicSilicon
@@ -220,6 +222,8 @@
     containers:
       board:
       - WeaponEnergyTurretCommandControlPanelElectronics
+  - type: StationAiVision # DeltaV
+    range: 0
   - type: TurretTargetSettings
     exemptAccessLevels:
     - Command

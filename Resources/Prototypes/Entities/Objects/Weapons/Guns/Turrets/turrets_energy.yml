@@ -87,8 +87,8 @@
     - proto: BulletEnergyTurretLaser
       fireCost: 100
   - type: DeployableTurret
-    retractedDamageModifierSetId: Metallic
-    deployedDamageModifierSetId: FlimsyMetallic
+    retractedDamageModifierSetId: RetractedAITurret #DeltaV
+    deployedDamageModifierSetId: DeployedAITurret #DeltaV
   - type: Damageable
     damageModifierSet: Metallic
   - type: Repairable
@@ -158,6 +158,8 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAI
     transmitFrequencyId: TurretAI
+  - type: StationAiVision #DeltaV
+    range: 0
 
 - type: entity
   parent: WeaponEnergyTurretStationBase
@@ -195,3 +197,5 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControl
     transmitFrequencyId: Turret
+  - type: StationAiVision #DeltaV
+    range: 0

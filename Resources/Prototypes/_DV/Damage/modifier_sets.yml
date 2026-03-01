@@ -168,3 +168,26 @@
     Slash: 40
     Piercing: 15
     Heat: 10
+
+- type: damageModifierSet
+  id: RetractedAITurret
+  coefficients:
+    Blunt: 0.3
+    Slash: 0.3
+    Piercing: 0.3
+    Heat: 0.7
+    Shock: 0
+    Structural: 0.3
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+
+- type: damageModifierSet
+  id: DeployedAITurret
+  coefficients:
+    Blunt: 0.3
+    Slash: 0.3
+    Piercing: 0.3
+    Heat: 0.7
+    Shock: 0
