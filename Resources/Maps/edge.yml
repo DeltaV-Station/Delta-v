@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/28/2026 05:04:40
-  entityCount: 20414
+  time: 03/01/2026 07:31:34
+  entityCount: 20415
 maps:
 - 1
 grids:
@@ -8901,7 +8901,7 @@ entities:
       pos: -18.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -91898.33
+      secondsUntilStateChange: -92927.59
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12791,6 +12791,16 @@ entities:
       name: APC (Logi, Maintenance)
     - type: Transform
       pos: 0.5,-11.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: ArrivalsShuttleTimer
+  entities:
+  - uid: 7214
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,-23.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -55867,6 +55877,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 26.5,18.5
       parent: 2
+  - uid: 7153
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -48.5,48.5
+      parent: 2
   - uid: 7189
     components:
     - type: Transform
@@ -55986,11 +56002,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -54.5,31.5
-      parent: 2
-  - uid: 7214
-    components:
-    - type: Transform
-      pos: -50.5,50.5
       parent: 2
   - uid: 7216
     components:
@@ -99829,11 +99840,6 @@ entities:
     - type: Transform
       pos: -9.5,-19.5
       parent: 2
-  - uid: 12900
-    components:
-    - type: Transform
-      pos: 27.5,-17.5
-      parent: 2
   - uid: 12902
     components:
     - type: Transform
@@ -103441,13 +103447,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 7153
-    components:
-    - type: Transform
-      pos: 32.5,-17.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 11521
     components:
     - type: Transform
@@ -103526,6 +103525,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 13.5,-29.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 20415
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,-17.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -104630,6 +104637,16 @@ entities:
     components:
     - type: Transform
       pos: -44.5,-7.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: SignArrivals
+  entities:
+  - uid: 12900
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,-23.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -109250,6 +109267,16 @@ entities:
       - SurveillanceCameraAI
       nameSet: True
       id: AI Chute
+  - uid: 20228
+    components:
+    - type: Transform
+      pos: -23.5,-51.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraAI
+      nameSet: True
+      id: AI Chute Door
   - uid: 20376
     components:
     - type: Transform
@@ -109294,16 +109321,6 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Command
-  - uid: 20228
-    components:
-    - type: Transform
-      pos: -23.5,-51.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraCommand
-      nameSet: True
-      id: AI Chute Door
   - uid: 20233
     components:
     - type: Transform
