@@ -26,6 +26,14 @@
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
+      # Poison the atmosphere
+      - !type:ModifyLungGas
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Fuel ]
+        ratios:
+          CarbonDioxide: 10.0
+          Oxygen: -1.0
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -56,6 +64,14 @@
           inverted: true
         ratios:
           CarbonDioxide: 1.0
+          Oxygen: -1.
+      # Poison the atmosphere
+      - !type:ModifyLungGas
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Fuel ]
+        ratios:
+          CarbonDioxide: 10.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:

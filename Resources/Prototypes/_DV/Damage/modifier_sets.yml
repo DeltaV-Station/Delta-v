@@ -109,6 +109,13 @@
     Piercing: 0.85
 
 - type: damageModifierSet
+  id: Motorkind
+  coefficients:
+    Blunt: 0.8
+    Slash: 1.2
+    Piercing: 1.2
+
+- type: damageModifierSet
   id: CancerMouse
   coefficients:
     Radiation: -0.25

@@ -1,0 +1,39 @@
+- type: body
+  id: Motorkind
+  name: motorkind
+  root: torso
+  slots:
+    head:
+      part: HeadMotorkind
+      connections:
+      - torso
+      organs:
+        eyes: OrganMotorkindEyes
+    torso:
+      part: TorsoMotorkind
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+      organs:
+        brain: OrganMotorkindBrainEngine
+        stomach: OrganMotorkindStomachFueltank
+        liver: OrganMotorkindLiverOilfilter
+        lungs: OrganMotorkindLungsCatalyticConverter
+    left arm:
+      part: LeftArmMotorkind
+      connections:
+        - left hand
+    right arm:
+      part: RightArmMotorkind
+      connections:
+        - right hand
+    left leg:
+      part: LeftLegMotorkind
+    right leg:
+      part: RightLegMotorkind
+    left hand:
+      part: LeftHandHuman
+    right hand:
+      part: RightHandHuman

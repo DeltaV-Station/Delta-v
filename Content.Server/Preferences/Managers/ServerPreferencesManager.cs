@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
+using Content.Shared._DV.Species; // Delta-V Hidden species
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Preferences;
@@ -265,6 +266,25 @@ namespace Content.Server.Preferences.Managers
 
             var msg = new MsgPreferencesAndSettings();
             msg.Preferences = prefsData.Prefs;
+            // Start DeltaV - If the selected character is a hidden species, try selecting the NEXT character in the list.
+            // If there is no additional characters: Create a new one.
+            while (msg.Preferences.SelectedCharacter is HumanoidCharacterProfile hcp && SpeciesHiderSystem.IsHidden(hcp.Species.Id))
+            {
+                // Are we the last character in the list? If so, make a new character.
+                int curId = msg.Preferences.SelectedCharacterIndex;
+                if (curId == msg.Preferences.Characters.Keys.Max())
+                {
+                    int newID = curId + 1;
+                    var newCharacter = HumanoidCharacterProfile.Random();
+                    msg.Preferences = new(msg.Preferences.Characters.Append(new(newID, newCharacter)), newID, msg.Preferences.AdminOOCColor, msg.Preferences.ConstructionFavorites);
+                }
+                else
+                {
+                    int newID = msg.Preferences.Characters.Keys.Where(k => k > curId).Min();
+                    msg.Preferences = new(msg.Preferences.Characters, newID, msg.Preferences.AdminOOCColor, msg.Preferences.ConstructionFavorites);
+                }
+            }
+            // End DeltaV
             msg.Settings = new GameSettings
             {
                 MaxCharacterSlots = MaxCharacterSlots
