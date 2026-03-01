@@ -1,5 +1,5 @@
 grapple-start = Your {LOC($part)} clamp down on {$victim}!
-grapple-start-victim = The {$grappler}'s {LOC($part)} clamps down on you, throwing you to the floor!
+grapple-start-victim = The {$grappler}'s {LOC($part)} clamps down on you!
 
 grapple-start-escaping = {THE($victim)} is attempting to get free!
 grapple-start-escaping-victim = You start trying to escape from their {LOC($part)}!

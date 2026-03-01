@@ -1,5 +1,6 @@
 using Content.Shared._DV.Grappling.EntitySystems;
 using Content.Shared.Alert;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -81,6 +82,36 @@ public sealed partial class GrapplerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? PullJointId = null;
+
+    /// <summary>
+    /// How the grapple from this entity will take effect.
+    /// </summary>
+    [DataField]
+    public GrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
+
+    /// <summary>
+    /// How much damage this grappler can sustain before the grapple is forcibly broken.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 DamageThreshold = 5f;
+
+    /// <summary>
+    /// How much damage the grappler has accumulated since the last update.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 DamageAccumulated = 0f;
+
+    /// <summary>
+    /// When the next clear for damage accumulated should occur.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan NextDamageClear = TimeSpan.MinValue;
+
+    /// <summary>
+    /// Time between clears for the accumulated damage on the grappler.
+    /// </summary>
+    [DataField]
+    public TimeSpan DamageClearCooldown = TimeSpan.FromSeconds(2);
 }
 
 /// <summary>
