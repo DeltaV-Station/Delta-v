@@ -161,12 +161,134 @@
 
 - type: entity
   id: SyndicateGunSafeBaseSecure
-  parent: GunSafe
+  parent: GunSafeSyndicateDV
   suffix: Syndicate, Locked
   description: A red sticker with an "S" has been slapped over some existing text. All you can make out is "standard issue"
   components:
   - type: AccessReader
     access: [["SyndicateAgent"]]
+
+- type: entity
+  id: GunSafeDV
+  parent: GunSafe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/gunsafe.rsi
+    noRot: true
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorOpen: open
+    stateDoorClosed: door
+
+- type: entity
+  id: GunSafeBaseSecureDV
+  parent: GunSafeDV
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  id: GunSafeHandgunDV
+  parent: GunSafeDV
+  name: handgun safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/handgunsafe.rsi
+    noRot: true
+
+- type: entity
+  id: GunSafeHandgunBaseSecureDV
+  parent: GunSafeHandgunDV
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  id: GunSafeNonlethalHandgunDV
+  parent: GunSafeDV
+  name: non-lethal handgun safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/disablersafe.rsi
+    noRot: true
+
+- type: entity
+  id: GunSafeNonlethalHandgunBaseSecureDV
+  parent: GunSafeNonlethalHandgunDV
+  suffix: Security, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: GunSafeNonlethalDV
+  parent: GunSafeDV
+  name: non-lethal safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/nonlethalsafe.rsi
+    noRot: true
+
+- type: entity
+  id: GunSafeNonlethalBaseSecureDV
+  parent: GunSafeNonlethalDV
+  suffix: Security, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: GunSafeSyndicateDV
+  parent: GunSafeDV
+  name: syndicate gun safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/syndicategunsafe.rsi
+    noRot: true
+
+- type: entity
+  id: GunSafeSyndicateBaseSecureDV
+  parent: GunSafeSyndicateDV
+  suffix: Syndicate, Locked
+  components:
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+
+- type: entity
+  id: GunSafeSuperweaponDV
+  parent: GunSafeDV
+  name: superweapon gun safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/superweaponsafe.rsi
+    noRot: true
+
+- type: entity
+  id: GunSafeSuperweaponBaseSecureDV
+  parent: GunSafeSuperweaponDV
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
 
 - type: entity
   parent: LockerForensicMantis

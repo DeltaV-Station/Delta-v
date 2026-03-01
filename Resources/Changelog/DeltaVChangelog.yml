@@ -1,212 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Malign rifts sometimes deal damage to everyone around them now. Get away,
-      or you may get hurt! Further away. Like, don't even look at it.
-    type: Tweak
-  id: 1624
-  time: '2025-08-22T07:43:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4216
-- author: NoElkaTheGod
-  changes:
-  - message: Added ion damage type. Only silicons can take it, and it regenerates
-      over time.
-    type: Add
-  - message: Cosmic cult's weapons and glyphs now deal ion damage to compensate for
-      IPCs being immune to asphyxiation.
-    type: Tweak
-  - message: Disablers deal ion damage now. Don't look at me like that, direction
-      asked to add this, not my idea.
-    type: Tweak
-  id: 1625
-  time: '2025-08-22T10:38:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4245
-- author: NoElkaTheGod
-  changes:
-  - message: EMP no longer drains power from IPCs and cyborgs. Instead, it deals high
-      amount of ion damage, enough to instantly down the target in most cases. EMP
-      implants deal less daamge, though, so you will need all 3 charges to kill somoene
-      with it.
-    type: Tweak
-  id: 1626
-  time: '2025-08-23T08:39:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4255
-- author: cmorley191
-  changes:
-  - message: Fixed custom-named station beacons sometimes not being shown on the station
-      map UIs.
-    type: Fix
-  id: 1627
-  time: '2025-08-24T01:15:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4211
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult's conversion glyphs charging animation has been removed.
-    type: Remove
-  id: 1628
-  time: '2025-08-25T00:52:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4259
-- author: Halo3moth
-  changes:
-  - message: Python reduced to 4 tc.
-    type: Tweak
-  - message: Assault borg reduced to 40 tc.
-    type: Tweak
-  - message: Thermal suit pierce resistance brought up to 40%.
-    type: Tweak
-  - message: Thermal suit now cost 14 tc.
-    type: Tweak
-  id: 1629
-  time: '2025-08-25T01:34:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4177
-- author: NoElkaTheGod
-  changes:
-  - message: Entropic colossi now have increased damage and resistances. 15% reflect
-      chance has been removed, though.
-    type: Tweak
-  - message: Entropic colossi now take holy damage, but don't take structural damage
-      anymore.
-    type: Tweak
-  - message: Slumber Shell (colossus' healing) cooldown 120 -> 180 seconds.
-    type: Tweak
-  - message: Entropic colossi can no longer attack immediately after teleporting,
-      which allowed unavoidable one-shot kills.
-    type: Fix
-  - message: Midround entropic colossi now take 30 seconds to heal, just like ones
-      created by cult.
-    type: Fix
-  id: 1630
-  time: '2025-08-25T11:47:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4251
-- author: Field Command
-  changes:
-  - message: TEST MERGE, Arms dealers have been spotted in the sector! Adds a new
-      mid-round event.
-    type: Add
-  id: 1631
-  time: '2025-08-25T19:06:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4250
-- author: Stop-Signs
-  changes:
-  - message: 'TESTMERGE: The emergency shuttle travel time and docked time are shorter.'
-    type: Tweak
-  id: 1632
-  time: '2025-08-25T21:16:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4162
-- author: NoElkaTheGod
-  changes:
-  - message: IPCs no longer bleed.
-    type: Remove
-  - message: IPCs are no longer immune to barotrauma damage, be that from space or
-      standing in a burn chamber.
-    type: Tweak
-  id: 1633
-  time: '2025-08-26T10:44:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4258
-- author: Proxysseia
-  changes:
-  - message: removed Trials
-    type: Remove
-  - message: added hearings, a quicker way to check if you have the right guy
-    type: Add
-  - message: you can no longer 'detain' people. Just put the cuffs on them.
-    type: Remove
-  - message: being coerced into crime is now a legal defense
-    type: Add
-  - message: Procedural Defense is now a right outside of trial
-    type: Add
-  - message: Permanent Prisoners may now receive solitary confinement as a punishment
-    type: Add
-  - message: Permanent Prisoners pending a hearing may be released after being implanted
-      with a tracker
-    type: Add
-  - message: removed decorp as a valid capital sentence
-    type: Remove
-  - message: civil trials are no longer spelled out in SoP, doesnt mean you can't
-      do them anymore though.
-    type: Remove
-  - message: evidence now is secured in the Justice department
-    type: Tweak
-  - message: and much more, re-read the "Security and Justice Regulations" in SoP,
-      i promise its shorter now.
-    type: Tweak
-  id: 1634
-  time: '2025-08-26T16:49:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4199
-- author: AlgisAlphonse
-  changes:
-  - message: Added a "Toggle Power" link port for the automated robotic arms.
-    type: Tweak
-  id: 1635
-  time: '2025-08-26T20:05:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4117
-- author: NoElkaTheGod
-  changes:
-  - message: Cosmic cult's abilities got a rebalance. Check the PR for details.
-    type: Tweak
-  id: 1636
-  time: '2025-08-27T17:20:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4260
-- author: NoElkaTheGod
-  changes:
-  - message: Tweaked some values to make cult rounds faster and more dynamic.
-    type: Tweak
-  id: 1637
-  time: '2025-08-27T17:32:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4272
-- author: 0vrseer
-  changes:
-  - message: IPCs can heal again while empowered as a cultist
-    type: Fix
-  - message: IPCs can be deconverted from cultist
-    type: Fix
-  id: 1638
-  time: '2025-08-28T01:42:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4230
-- author: kotobdev
-  changes:
-  - message: Nukeops and Cosmic Cult now have the same chance to occur on Secret rounds.
-    type: Tweak
-  id: 1639
-  time: '2025-08-28T01:54:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4222
-- author: NoElkaTheGod
-  changes:
-  - message: Cult helmets now actually provide flash protection. For real this time.
-    type: Fix
-  id: 1640
-  time: '2025-08-28T13:38:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4281
-- author: Field Command
-  changes:
-  - message: Arms dealer tweaks.
-    type: Tweak
-  id: 1641
-  time: '2025-08-28T14:36:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4279
-- author: kotobdev
-  changes:
-  - message: The Mass Mindswap glimmer event has been reworked, adding both a station
-      announcement, and a 15 second delay before activating. Grab your tinfoil hats!
-    type: Tweak
-  id: 1642
-  time: '2025-08-29T02:22:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4136
-- author: NoElkaTheGod
-  changes:
-  - message: PDAs now display the current in-universe date! It was 2575 all along.
-    type: Add
-  id: 1643
-  time: '2025-08-29T14:41:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4277
-- author: NoElkaTheGod
-  changes:
-  - message: Kitsune and felinids are no longer as bad at dragging things. Still worse
-      than most other species, though.
-    type: Tweak
-  id: 1644
-  time: '2025-08-29T15:44:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4265
 - author: HTMLSystem
   changes:
   - message: Medical belts can now hold syringes
@@ -4483,4 +4275,175 @@
   id: 2123
   time: '2026-02-20T23:13:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5375
+- author: Woljif
+  changes:
+  - message: Removed the slowdown penalty when wielding the Estoc DMR.
+    type: Tweak
+  id: 2124
+  time: '2026-02-24T04:26:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5242
+- author: keekee38
+  changes:
+  - message: added a new cryogenics chemical, photoxadone, that heals both holy and
+      shadow damage. it even works on the dead!
+    type: Add
+  - message: added purifying salt to the med vend, as well as a recipe in the techfab.
+    type: Tweak
+  id: 2125
+  time: '2026-02-24T05:05:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5276
+- author: IAmNotGray
+  changes:
+  - message: The maximum record length has been increased from 4096 to 8192. Remember
+      that these things exist?
+    type: Tweak
+  id: 2126
+  time: '2026-02-24T19:11:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5385
+- author: HameyTychol
+  changes:
+  - message: removed ability for limbs to be placed in trash bag and recycled
+    type: Fix
+  id: 2127
+  time: '2026-02-24T19:11:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5416
+- author: rebe83
+  changes:
+  - message: Skias can now emote. Harvest souls with some flavor. and spin.
+    type: Tweak
+  id: 2128
+  time: '2026-02-25T18:18:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5366
+- author: BarryNorfolk
+  changes:
+  - message: Shrapnel Landmines are once again actually dangerous and will murder
+      you.
+    type: Fix
+  id: 2129
+  time: '2026-02-25T18:19:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5379
+- author: Eternally-Confused
+  changes:
+  - message: Bluespace beakers and lead bottles can now only be obtained by emagging
+      the chemvend, instead of cutting the manager wire.
+    type: Tweak
+  id: 2130
+  time: '2026-02-25T18:20:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5392
+- author: zelezniciar
+  changes:
+  - message: Added Engineering SOP, formalizing safety regs, building permits, hazard
+      areas, and more.
+    type: Add
+  - message: RCDs are now a controlled item, restricted to Engineering.
+    type: Tweak
+  id: 2131
+  time: '2026-02-25T20:35:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5282
+- author: Stxcking
+  changes:
+  - message: Gun safes have new sprites!
+    type: Tweak
+  id: 2132
+  time: '2026-02-25T22:42:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5314
+- author: zelezniciar, AraiMaia
+  changes:
+  - message: Added Engineering Tape for use by Engineers to mark off hazardous areas.
+      Danger, Keep Out!
+    type: Add
+  id: 2133
+  time: '2026-02-26T07:29:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5277
+- author: AeraAuling
+  changes:
+  - message: certain tails no longer make skirts look like shorts
+    type: Tweak
+  id: 2134
+  time: '2026-02-26T20:00:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4548
+- author: SuperGDPWYL, youtissoum, DisposableCrewmember42
+  changes:
+  - message: Conspirators have been ported from Harmony! Check the guidebook for more
+      details.
+    type: Add
+  - message: Conspirators are more likely to be chosen from different departments
+    type: Tweak
+  - message: Conspirators can use custom objective summaries
+    type: Tweak
+  id: 2135
+  time: '2026-02-27T18:24:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5218
+- author: zelezniciar
+  changes:
+  - message: Added a generic Slavic accent that can be selected as a character trait.
+      Very Nice!
+    type: Add
+  id: 2136
+  time: '2026-02-27T18:30:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5264
+- author: kotobdev
+  changes:
+  - message: You can now always equip items to your suit storage, even without any
+      outer clothing!
+    type: Add
+  id: 2137
+  time: '2026-02-27T18:55:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5300
+- author: verybigman311
+  changes:
+  - message: The Crusher can now Wideswing with right click.
+    type: Tweak
+  id: 2138
+  time: '2026-02-28T08:50:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5327
+- author: AeraAuling
+  changes:
+  - message: Removed PKA upgrade kits for Fire-Rate and Indoors.
+    type: Remove
+  - message: PKA damage stats have been tweaked.
+    type: Tweak
+  id: 2139
+  time: '2026-02-28T10:26:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5311
+- author: makyo
+  changes:
+  - message: Some clothing/item/etc forced accents removed; they can still be added
+      in traits!
+    type: Tweak
+  id: 2140
+  time: '2026-02-28T12:31:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5343
+- author: Cepelinas1
+  changes:
+  - message: NanoTrasen has permitted Engineering to choose between a voidsuit and
+      a hardsuit for their work. Check your lockers!
+    type: Add
+  - message: Increased Engineering Voidsuit speed by 5%.
+    type: Tweak
+  id: 2141
+  time: '2026-02-28T14:23:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5317
+- author: Darklyac
+  changes:
+  - message: Added 9 new Lobby Music and 11 new Jukebox Music!
+    type: Add
+  id: 2142
+  time: '2026-02-28T18:13:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5424
+- author: Pharaz4
+  changes:
+  - message: Added cloth wraps!
+    type: Add
+  id: 2143
+  time: '2026-02-28T20:06:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5335
+- author: Stxcking
+  changes:
+  - message: Fixed medborg crew monitor not getting power and being able to remove
+      power cell.
+    type: Fix
+  id: 2144
+  time: '2026-02-28T20:42:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5342
 Order: 1
