@@ -23,15 +23,17 @@ public sealed partial class IsAntagEligibleCondition : BaseTraitCondition
         return ctx.Profile.AntagPreferences.Contains(Antag);
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         if (!proto.TryIndex(Antag, out var antagProto))
             return string.Empty;
 
         var antagName = loc.GetString(antagProto.Name);
 
-        return Invert
+        var tooltip = Invert
             ? loc.GetString("trait-condition-antag-not", ("antag", antagName))
-            : loc.GetString("trait-condition-antag-is", ("antag",  antagName));
+            : loc.GetString("trait-condition-antag-is", ("antag", antagName));
+
+        return new string(' ', depth * 2) + "- " + tooltip + Environment.NewLine;
     }
 }

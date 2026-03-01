@@ -39,11 +39,11 @@ public sealed partial class HasCompCondition : BaseTraitCondition
         }
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         // If there's a custom tooltip supplied, use that
         if (Tooltip is not null)
-            return Loc.GetString(Tooltip);
+            return new string(' ', depth * 2) + "- " + loc.GetString(Tooltip) + Environment.NewLine;
 
         // No tooltip for this condition since we're dealing with comps
         return string.Empty;

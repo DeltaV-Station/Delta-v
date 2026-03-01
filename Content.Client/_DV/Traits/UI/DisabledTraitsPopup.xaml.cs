@@ -70,8 +70,7 @@ public sealed partial class DisabledTraitsPopup : FancyWindow
                 {
                     Margin = new Thickness(10, 2, 0, 0)
                 };
-                reasonLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(
-                    Loc.GetString("disabled-traits-popup-reason", ("reason", reason))));
+                reasonLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(reason));
                 container.AddChild(reasonLabel);
             }
 

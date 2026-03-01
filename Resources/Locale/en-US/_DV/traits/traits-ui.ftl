@@ -10,7 +10,6 @@ disabled-traits-popup-title = Traits Disabled
 disabled-traits-popup-label = Traits Disabled
 disabled-traits-popup-message = Some of your selected traits could not be applied because they did not meet the required conditions.
 disabled-traits-popup-list-header = The following traits were disabled:
-disabled-traits-popup-reason = • {$reason}
 disabled-traits-popup-skip-checkbox = Don't show this again
 disabled-traits-popup-close-button = Close
 
@@ -27,30 +26,29 @@ trait-category-traits-unlimited = {$selected} traits
 trait-category-points = ({$selected} / {$max} pts)
 
 ## Condition tooltips
-trait-conditions-tooltip = [bold]Requirements:[/bold]
-    {$requirements}
-trait-conditions-not-met-tooltip = Requirements not met:
-    {$requirements}
+trait-conditions-tooltip = [bold]Conditions:[/bold]
+    {$conditions}
 
 ## Composite conditions
 trait-condition-any-of = Any of the following must be true:
-    • {$requirements}
+    {$requirements}
 
 ## Species conditions
-trait-condition-species-is = You must be a [color=yellow]{$species}[/color].
-trait-condition-species-not = You must not be a [color=yellow]{$species}[/color].
+trait-condition-species-is = You must be {INDEFINITE($species)} [color=yellow]{$species}[/color].
+trait-condition-species-not = You must not be {INDEFINITE($species)} [color=yellow]{$species}[/color].
 
 ## Job conditions
-trait-condition-job-is = You must be a [color={$color}]{$job}[/color].
-trait-condition-job-not = You must not be a [color={$color}]{$job}[/color].
+trait-condition-job-is = You must be {INDEFINITE($job)} [color={$color}]{$job}[/color].
+trait-condition-job-not = You must not be {INDEFINITE($job)} [color={$color}]{$job}[/color].
 
 ## Department conditions
 trait-condition-department-is = You must be in the [color={$color}]{$department}[/color] department.
 trait-condition-department-not = You must not be in the [color={$color}]{$department}[/color] department.
 
-## HasComp borg conditions
-trait-condition-borg-not = You must not be a [color=yellow]borg[/color].
-
 # Antag conditions
 trait-condition-antag-is = Must be eligible for [color=red]{$antag}[/color] antag role.
 trait-condition-antag-not = Must not be eligible for [color=red]{$antag}[/color] antag role.
+
+# Trait requirements and conflicts
+trait-condition-trait-has-not = Must not have the trait [color=yellow]{$trait}[/color].
+trait-condition-trait-has = Must have the trait [color=yellow]{$trait}[/color].

@@ -1,4 +1,6 @@
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -31,7 +33,7 @@ public abstract partial class BaseTraitCondition
     /// Generates a human-readable tooltip describing this condition's requirements.
     /// </summary>
     [PublicAPI]
-    public abstract string GetTooltip(IPrototypeManager proto, ILocalizationManager loc);
+    public abstract string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth);
 
     protected abstract bool EvaluateImplementation(TraitConditionContext ctx);
 }
@@ -52,12 +54,12 @@ public sealed class TraitConditionContext
     /// <summary>
     /// The job ID of the player, if available.
     /// </summary>
-    public string? JobId { get; init; }
+    public ProtoId<JobPrototype>? JobId { get; init; }
 
     /// <summary>
     /// The species ID of the player, if available.
     /// </summary>
-    public string? SpeciesId { get; init; }
+    public ProtoId<SpeciesPrototype>? SpeciesId { get; init; }
 
     /// <summary>
     /// The <see cref="HumanoidCharacterProfile"/> of the player, if available.

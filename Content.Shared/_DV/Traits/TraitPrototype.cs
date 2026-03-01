@@ -51,10 +51,4 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<BaseTraitEffect> Effects = new();
-
-    /// <summary>
-    /// Other traits that are mutually exclusive with this one.
-    /// </summary>
-    [DataField]
-    public List<ProtoId<TraitPrototype>> Conflicts = new();
 }
