@@ -19,7 +19,9 @@ public sealed record PlayerInfo(
     NetUserId SessionId,
     bool Connected,
     bool ActiveThisRound,
-    TimeSpan? OverallPlaytime)
+    TimeSpan? OverallPlaytime,
+    bool Ghost // DeltaV - Add Ghost
+    )
 {
     private string? _playtimeString;
 

@@ -108,7 +108,7 @@ public sealed partial class CCVars
     ///     Minimum explosion intensity to create an admin alert message. -1 to disable the alert.
     /// </summary>
     public static readonly CVarDef<int> AdminAlertExplosionMinIntensity =
-        CVarDef.Create("admin.alert.explosion_min_intensity", 60, CVar.SERVERONLY);
+        CVarDef.Create("admin.alert.explosion_min_intensity", -1, CVar.SERVERONLY); // DeltaV - disable, previously set to 60
 
     /// <summary>
     ///     Minimum particle accelerator strength to create an admin alert message.

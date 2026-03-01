@@ -14,7 +14,9 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Players;
 using Content.Shared.Popups;
+using Content.Shared.SSDIndicator;
 using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -35,6 +37,9 @@ public abstract class SharedStrippableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+
+    private readonly string[] _highImpactOnStrip = ["id", "belt", "back"]; // DeltaV - high impact on player, key items
+    private readonly string[] _extremeImpactOnStrip = ["jumpsuit"]; // DeltaV - people shouldn't be stripping each others clothes off
 
     public override void Initialize()
     {
@@ -351,7 +356,31 @@ public abstract class SharedStrippableSystem : EntitySystem
         RaiseLocalEvent(item, new DroppedEvent(user), true); // Gas tank internals etc.
 
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth);
-        _adminLogger.Add(LogType.Stripping, LogImpact.High, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
+
+        // DeltaV - LogImpact Additions START
+        // Previously High by default. Stop chat spam from searches in Sec. Somebody with bad intentions is likely to strip from the specified slots.
+        var logImpact = LogImpact.Medium;
+        if (_highImpactOnStrip.Contains(slot.ToLower()))
+        {
+            logImpact = LogImpact.High;
+        }
+
+        if (_extremeImpactOnStrip.Contains(slot.ToLower()))
+        {
+            logImpact = LogImpact.Extreme;
+        }
+
+        var isSsd = false;
+        if (TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD)
+        {
+            isSsd = true;
+            logImpact = LogImpact.Extreme;
+        }
+        // DeltaV - LogImpact Additions END
+
+        // DeltaV - replace default LogImpact, insert SSD indicator
+        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isSsd ? "[SSD] " : "")}{ToPrettyString(target):target}'s {slot} slot");
+
     }
 
     /// <summary>
@@ -565,7 +594,9 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         _handsSystem.TryDrop(target, item, checkActionBlocker: false);
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth, handsComp: user.Comp);
-        _adminLogger.Add(LogType.Stripping, LogImpact.High, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
+
+        // DeltaV - Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice.
+        _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
 
         // Hand update will trigger strippable update.
     }

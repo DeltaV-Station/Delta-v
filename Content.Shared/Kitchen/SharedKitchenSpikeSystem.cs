@@ -15,11 +15,13 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
+using Content.Shared.SSDIndicator;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -240,12 +242,30 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
                 args.Target.Value,
                 ent);
 
-            // normally medium severity, but for humanoids high severity, so new players get relay'd to admin alerts.
-            var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.High : LogImpact.Medium;
+            // DeltaV - Replace logSeverity START
+            var logSeverity = LogImpact.Medium;
+
+            // Extreme impact if SSD indicator comp is present on target (as of writing only regular player characters have it), always alerting
+            if (HasComp<SSDIndicatorComponent>(args.Target.Value))
+            {
+                logSeverity = LogImpact.Extreme;
+            }
+
+            var hasMind = false;
+            // Extreme impact if a mind is attached to the target, always alerting
+            if (TryComp<MindContainerComponent>(args.Target.Value, out var mindContainer))
+            {
+                if (mindContainer.HasMind)
+                {
+                    hasMind = true;
+                    logSeverity = LogImpact.Extreme;
+                }
+            }
+            // DeltaV - Replace logSeverity END
 
             _logger.Add(LogType.Action,
                 logSeverity,
-                $"{ToPrettyString(args.User):user} put {ToPrettyString(args.Target):target} on the {ToPrettyString(ent):spike}");
+                $"{ToPrettyString(args.User):user} put {ToPrettyString(args.Target):target}{(hasMind ? " (MIND ATTACHED)" : "")} on the {ToPrettyString(ent):spike}"); // DeltaV - Add hasMind indicator
 
             _audioSystem.PlayPredicted(ent.Comp.SpikeSound, ent, args.User);
         }
