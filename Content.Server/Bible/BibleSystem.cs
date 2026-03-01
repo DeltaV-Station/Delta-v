@@ -1,3 +1,4 @@
+using Content.Server._DV.BibleUser; // DeltaV
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -32,6 +33,7 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly BibleUserSystem _bibleUser = default!; // DeltaV - Shared Bible Cooldown
 
         public override void Initialize()
         {
@@ -116,7 +118,7 @@ namespace Content.Server.Bible
                 return;
             }
 
-            if (!HasComp<BibleUserComponent>(args.User))
+            if (!TryComp<BibleUserComponent>(args.User, out var bibleUser)) // DeltaV - Changed from HasComp to TryComp
             {
                 _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, args.User);
 
@@ -128,9 +130,11 @@ namespace Content.Server.Bible
             }
 
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
-            if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value))
+            // DeltaV - also fails if the BibleUser has used another bible in the last 10 seconds.
+            if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value)
+                || !bibleUser.CanHeal) // DeltaV - also fails if the BibleUser has used another bible in the last 10 seconds.
             {
-                if (_random.Prob(component.FailChance))
+                if (_random.Prob(component.FailChance) || !bibleUser.CanHeal) // DeltaV
                 {
                     var othersFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
                     _popupSystem.PopupEntity(othersFailMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.SmallCaution);
@@ -162,6 +166,7 @@ namespace Content.Server.Bible
                 _popupSystem.PopupEntity(selfMessage, args.User, args.User, PopupType.Large);
                 _audio.PlayPvs(component.HealSoundPath, args.User);
                 _delay.TryResetDelay((uid, useDelay));
+                _bibleUser.StartBibleCooldown((args.User, bibleUser)); // DeltaV - Shared bible cooldown - Only put on cooldown if the bible healed 
             }
         }
 
