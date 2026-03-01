@@ -266,26 +266,32 @@
   - type: Storage
     whitelist:
       tags:
-      - PlantSampleTaker
-      - BotanyShovel
-      - BotanyHoe
-      - BotanyHatchet
-      - PlantBGone
-      - Bottle
-      - Syringe
-      - CigPack
-      - Dropper
+        - PlantAnalyzer # Den
+        - PlantSampleTaker
+        - BotanyShovel
+        - BotanyHoe
+        - BotanyHatchet
+        - PlantSampleTaker
+        - PlantBGone
+        - Bottle
+        - Syringe
+        - CigPack
+        - Dropper
       components:
-      - Seed
-      - Smokable
-      - HandLabeler
+        - Seed
+        - Smokable
+        - HandLabeler
   - type: ItemMapper
-    sprite: *BeltOverlay
     mapLayers:
       hatchet:
         whitelist:
           tags:
           - BotanyHatchet
+      # Den
+      hydro:
+        whitelist:
+          tags:
+          - PlantAnalyzer
       hoe:
         whitelist:
           tags:
@@ -302,6 +308,7 @@
         whitelist:
           tags:
           - Bottle
+    sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
 - type: entity
@@ -418,7 +425,7 @@
       - Whistle
       - BalloonPopper
   - type: ItemMapper # DeltaV - Custom sprite and item mapper
-    sprite: _DV/Clothing/Belt/belt_overlay.rsi 
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
     mapLayers:
       baton:
         whitelist:
