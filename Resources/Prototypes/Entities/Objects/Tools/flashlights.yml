@@ -74,6 +74,10 @@
     quickEquip: false
     slots:
       - Belt
+  - type: PhysicalComposition # DeltaV - Made flashlights recycleable
+    materialComposition:
+      Steel: 100
+      Plastic: 100
 
 - type: entity
   name: seclite
