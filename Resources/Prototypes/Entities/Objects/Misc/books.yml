@@ -44,6 +44,9 @@
     damage:
       types:
         Blunt: 1
+  - type: PhysicalComposition # Delta V - can recycle books
+    materialComposition:
+      Paper: 100
 
 - type: entity
   parent: BaseItem
@@ -69,6 +72,9 @@
   - type: DamageOtherOnHit
     damage:
       types:
+  - type: PhysicalComposition # Delta V - can recycle books
+    materialComposition:
+      Paper: 100
 
 - type: entity
   id: BookSpaceEncyclopedia
