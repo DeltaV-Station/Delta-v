@@ -1,22 +1,6 @@
 ﻿Entries:
 - author: NoElkaTheGod
   changes:
-  - message: Malign rifts are more dangerous now.
-    type: Tweak
-  - message: Chaplains and mystagogues now have an easier time purging malign rifts.
-      Cultists also absorb them faster now.
-    type: Tweak
-  - message: Vacuous chantry, multispectral inhibitor and vacuous spire are no longer
-      destructible. Instead, you have to purge them with a bible, just like a malign
-      rift.
-    type: Tweak
-  - message: Cosmic cult's glyphs can now be purged with a bible.
-    type: Tweak
-  id: 1647
-  time: '2025-08-30T14:34:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4284
-- author: NoElkaTheGod
-  changes:
   - message: Loneops get 75TC instead of 67 now (they no longer get free suit).
     type: Tweak
   - message: Nuclear operative war declaration now uses the correct sound.
@@ -4444,4 +4428,12 @@
   id: 2146
   time: '2026-03-01T13:38:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5215
+- author: rebe83
+  changes:
+  - message: Bottles, vials, and chem injectors no longer fit inside cigarette boxes.
+      Use a combat kit like the rest of us!
+    type: Tweak
+  id: 2147
+  time: '2026-03-01T14:12:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5402
 Order: 1
