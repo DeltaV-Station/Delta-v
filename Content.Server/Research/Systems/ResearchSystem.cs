@@ -4,6 +4,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._DV.Shuttles.Components; // DeltaV
 using Content.Shared.Access.Systems;
+using Content.Shared.Administration.Logs; // DeltaV
+using Content.Shared.Database; // DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Systems;
@@ -23,6 +25,7 @@ namespace Content.Server.Research.Systems
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly RadioSystem _radio = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!; // DeltaV - research statistics admin logs
 
         public override void Initialize()
         {
@@ -107,11 +110,26 @@ namespace Content.Server.Research.Systems
             var query = EntityQueryEnumerator<ResearchServerComponent>();
             while (query.MoveNext(out var uid, out var server))
             {
-                if (server.NextUpdateTime > _timing.CurTime)
-                    continue;
-                server.NextUpdateTime = _timing.CurTime + server.ResearchConsoleUpdateTime;
+                // DeltaV - inverted the if-continue pattern to make room for research statistics admin logs
+                if (server.NextUpdateTime <= _timing.CurTime)
+                {
+                    server.NextUpdateTime = _timing.CurTime + server.ResearchConsoleUpdateTime;
 
-                UpdateServer(uid, (int) server.ResearchConsoleUpdateTime.TotalSeconds, server);
+                    UpdateServer(uid, (int) server.ResearchConsoleUpdateTime.TotalSeconds, server);
+                }
+                
+                // DeltaV - start of research statistics admin logs
+                if (server.NextAdminLogTime <= _timing.CurTime)
+                {
+                    server.NextAdminLogTime = _timing.CurTime + server.ResearchServerAdminLogTime;
+
+                    _adminLogger.Add(
+                        LogType.Research,
+                        LogImpact.Low,
+                        $"current points in {ToPrettyString(uid)}: {server.Points}"
+                    );
+                }
+                // DeltaV - end of research statistics admin logs
             }
         }
     }

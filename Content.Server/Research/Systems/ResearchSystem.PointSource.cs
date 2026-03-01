@@ -14,7 +14,7 @@ public sealed partial class ResearchSystem
     private void OnGetPointsPerSecond(Entity<ResearchPointSourceComponent> source, ref ResearchServerGetPointsPerSecondEvent args)
     {
         if (CanProduce(source))
-            args.Points += source.Comp.PointsPerSecond;
+            args.Sources.Add(new ResearchServerPointsPerSecondSource(source, source.Comp.PointsPerSecond)); // DeltaV - research statistics admin logs
     }
 
     public bool CanProduce(Entity<ResearchPointSourceComponent> source)

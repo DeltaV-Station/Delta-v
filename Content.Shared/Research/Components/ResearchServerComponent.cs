@@ -42,6 +42,12 @@ public sealed partial class ResearchServerComponent : Component
 
     [DataField("researchConsoleUpdateTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ResearchConsoleUpdateTime = TimeSpan.FromSeconds(1);
+
+    /// DeltaV - timing for research statistics admin logs
+    public TimeSpan NextAdminLogTime = TimeSpan.Zero;
+
+    /// DeltaV - timing for research statistics admin logs
+    public TimeSpan ResearchServerAdminLogTime = TimeSpan.FromSeconds(60);
 }
 
 /// <summary>
@@ -58,6 +64,11 @@ public readonly record struct ResearchServerPointsChangedEvent(EntityUid Server,
 /// </summary>
 /// <param name="Server"></param>
 /// <param name="Points"></param>
+/// <remarks>
+/// DeltaV - changed from `int Points` to list of sources for research statistics admin logs
+/// </remarks>
 [ByRefEvent]
-public record struct ResearchServerGetPointsPerSecondEvent(EntityUid Server, int Points);
+public record struct ResearchServerGetPointsPerSecondEvent(EntityUid Server, List<ResearchServerPointsPerSecondSource> Sources);
 
+/// DeltaV - for research statistics admin logs
+public record struct ResearchServerPointsPerSecondSource(EntityUid Source, int PointsPerSecond);

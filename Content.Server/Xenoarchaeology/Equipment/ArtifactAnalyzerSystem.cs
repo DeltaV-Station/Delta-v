@@ -1,6 +1,8 @@
 using System; // DeltaV
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
+using Content.Shared.Administration.Logs; // DeltaV
+using Content.Shared.Database; // DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;// DeltaV
 using Content.Shared._DV.Xenoarchaeology.BUI;// DeltaV
@@ -22,6 +24,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; // DeltaV
     [Dependency] private readonly ArtifactAnalyzerSystem _analyzerSystem = default!; //DeltaV
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!; // DeltaV
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -44,6 +47,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         var sumGlimmer = 0;
         if (!_analyzerSystem.TryGetAnalyzer(ent, out var analyzer))
             return;
+        var glimmerMultiplier = GetGlimmerMultiplier(analyzer.Value.Comp);
         // End DeltaV
 
         foreach (var node in _xenoArtifact.GetAllNodes(artifact.Value))
@@ -51,13 +55,32 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
             var research = _xenoArtifact.GetResearchValue(node);
             _xenoArtifact.SetConsumedResearchValue(node, node.Comp.ConsumedResearchValue + research);
 
-            // Begin DeltaV - Only run if we have an artifact ready for extraction
-            if (analyzer != null)
+            // Begin DeltaV - glimmer interaction & research statistics admin logs
+            var subtotalResearch = research;
+            research = (int)(subtotalResearch * glimmerMultiplier);
+            var glimmer = (int)(subtotalResearch / (float)analyzer.Value.Comp.ExtractRatio);
+            
+            if (research > 0 || glimmer > 0)
             {
-                sumGlimmer += (int)(research / (float)analyzer.Value.Comp.ExtractRatio);
-                research = (int)(research * GetGlimmerMultiplier(analyzer.Value.Comp));
+                // Log all the variables that affect research value (see UpdateNodeResearchValue).
+                var predecessors = _xenoArtifact.GetPredecessorNodes((artifact.Value, artifact.Value), node);
+                _adminLogger.Add(
+                    LogType.ArtifactDetails,
+                    LogImpact.Low,
+                    $"{ToPrettyString(ent.Owner)} extracted {research} points and {glimmer} glimmer from node {ToPrettyString(node)}. Details: base {node.Comp.BasePointValue}; predecessors {predecessors.Count}; durability {node.Comp.Durability}/{node.Comp.MaxDurability}; subtotal {subtotalResearch}; glimmerMultiplier {glimmerMultiplier}"
+                );
             }
-            // End DeltaV
+            if (glimmer > 0)
+            {
+                _adminLogger.Add(
+                    LogType.Glimmer,
+                    LogImpact.Low,
+                    $"{ToPrettyString(ent.Owner)} produced {glimmer} glimmer from extracting node {ToPrettyString(node)}"
+                );
+            }
+
+            sumGlimmer += glimmer;
+            // End DeltaV - glimmer interaction & research statistics admin logs
             sumResearch += research;
         }
         UpdateClientUI(ent, analyzer!.Value); // DeltaV
