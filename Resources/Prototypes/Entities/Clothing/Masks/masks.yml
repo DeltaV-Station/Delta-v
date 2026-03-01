@@ -24,10 +24,10 @@
   parent: [ClothingMaskGas, BaseSecurityContraband]
   id: ClothingMaskGasSecurity
   name: security gas mask
-  description: A standard issue Security gas mask.
+  description: An updated Security gas mask, built to handle the hazards of the future. # Delta-V - Updated sec mask, may add the old version in as maints loot or as a sec playtime reward later on.
   components:
   - type: Item
-    size: Tiny
+    size: Normal # Delta-V - Increased mask size for realism with updated sprites.
   - type: Sprite
     sprite: Clothing/Mask/gassecurity.rsi
   - type: Clothing
