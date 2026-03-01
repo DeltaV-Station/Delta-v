@@ -13,3 +13,16 @@ names-regal-rat-kingdom-dataset-12 = Sewer
 names-regal-rat-kingdom-dataset-13 = Disposal
 names-regal-rat-kingdom-dataset-14 = Service
 names-regal-rat-kingdom-dataset-15 = The
+# Delta-V additions
+names-regal-rat-kingdom-dataset-16 = Odor
+names-regal-rat-kingdom-dataset-17 = Disease
+names-regal-rat-kingdom-dataset-18 = Rodent
+names-regal-rat-kingdom-dataset-19 = Slime
+names-regal-rat-kingdom-dataset-20 = Squeak
+names-regal-rat-kingdom-dataset-21 = Pipe
+names-regal-rat-kingdom-dataset-22 = Stain
+names-regal-rat-kingdom-dataset-23 = Stench
+names-regal-rat-kingdom-dataset-24 = Drain
+names-regal-rat-kingdom-dataset-25 = Pizza
+names-regal-rat-kingdom-dataset-26 = Waste
+names-regal-rat-kingdom-dataset-27 = Tunnel

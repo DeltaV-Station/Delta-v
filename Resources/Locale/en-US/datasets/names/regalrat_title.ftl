@@ -15,3 +15,22 @@ names-regal-rat-title-dataset-14 = Mayor
 names-regal-rat-title-dataset-15 = Boss
 names-regal-rat-title-dataset-16 = Prophet
 names-regal-rat-title-dataset-17 = Cheese
+# Delta-V additions
+names-regal-rat-title-dataset-18 = Queen
+names-regal-rat-title-dataset-19 = Princess
+names-regal-rat-title-dataset-20 = Empress
+names-regal-rat-title-dataset-21 = Honcho
+names-regal-rat-title-dataset-22 = Kahuna
+names-regal-rat-title-dataset-23 = Guru
+names-regal-rat-title-dataset-24 = Baron
+names-regal-rat-title-dataset-25 = Earl
+names-regal-rat-title-dataset-26 = Viscount
+names-regal-rat-title-dataset-27 = Minister
+names-regal-rat-title-dataset-28 = Liege
+names-regal-rat-title-dataset-29 = Haver
+names-regal-rat-title-dataset-30 = Regent
+names-regal-rat-title-dataset-31 = General
+names-regal-rat-title-dataset-32 = Commander
+names-regal-rat-title-dataset-33 = Colonel
+names-regal-rat-title-dataset-34 = Nibbler
+
