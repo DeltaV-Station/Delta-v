@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: Quanteey
   changes:
-  - message: Fixed the glitch that happens when eating food items that leave trash
-      behind
-    type: Fix
-  id: 1650
-  time: '2025-08-31T01:39:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4296
-- author: Quanteey
-  changes:
   - message: Fixed a bug causing harpies to not have their speed bonus
     type: Fix
   id: 1651
@@ -4436,4 +4428,12 @@
   id: 2149
   time: '2026-03-02T17:48:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5326
+- author: JoulesBerg
+  changes:
+  - message: Vents, air injectors, and pumps can be pipes in their alternate configurations
+      now.
+    type: Add
+  id: 2150
+  time: '2026-03-02T18:17:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5372
 Order: 1
