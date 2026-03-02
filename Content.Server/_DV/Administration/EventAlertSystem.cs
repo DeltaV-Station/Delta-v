@@ -84,8 +84,11 @@ public sealed class EventAlertSystem : EntitySystem
     // Useful for raiders that first-join and then wait in Lobby for a while to slip in or briefly join to get a bit of playtime.
     private void OnSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
+        if (!ev.LateJoin)
+            return;
+
         var playtimeHours = _playTime.GetOverallPlaytime(ev.Player).TotalHours;
-        if (playtimeHours < LateJoinAlertMaxHours && ev.LateJoin)
+        if (playtimeHours < LateJoinAlertMaxHours)
         {
             AlertWithLink($"New player {ev.Player.Name} [{playtimeHours:0.#} hours] joined the round.", ev.Mob);
         }
