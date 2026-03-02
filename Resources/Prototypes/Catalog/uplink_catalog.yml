@@ -783,7 +783,7 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
-  
+
 - type: listing
   id: UplinkAgentIDCard
   name: uplink-agent-id-card-name
@@ -1764,11 +1764,16 @@
     Telecrystal: 14 # DeltaV - was 12
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+# begin delta v changes
+  discountCategory: VeryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+#end delta v changes
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -1783,11 +1788,13 @@
     Telecrystal: 20 # DeltaV - was 12
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+# begin delta v changes
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+# end delta v changes
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
