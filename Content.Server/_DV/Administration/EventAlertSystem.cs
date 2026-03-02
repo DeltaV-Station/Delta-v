@@ -7,6 +7,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 
 namespace Content.Server._DV.Administration;
@@ -17,6 +19,7 @@ public sealed class EventAlertSystem : EntitySystem
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
 
     private static readonly double LateJoinAlertMaxHours = 2.0;
@@ -56,7 +59,7 @@ public sealed class EventAlertSystem : EntitySystem
         if (_eorgAlerted.Add(ev.Origin))
         {
             AlertWithLink($"[EORG] {ToPrettyString(ev.Origin):player} destroyed {ToPrettyString(target):entity}.",
-                ev.Origin);
+                ev.Origin, _transform.GetMapCoordinates(ev.Origin));
         }
     }
 
@@ -94,7 +97,7 @@ public sealed class EventAlertSystem : EntitySystem
         }
     }
 
-    private void AlertWithLink(string message, EntityUid playerEnt)
+    private void AlertWithLink(string message, EntityUid playerEnt, MapCoordinates? coords = null)
     {
         var originName = "Actor";
         if (TryComp(playerEnt, out MetaDataComponent? meta))
@@ -107,6 +110,11 @@ public sealed class EventAlertSystem : EntitySystem
             AdminLogManager.CreateTpLinks([(netEnt, originName)], out var tpLinks))
         {
             _chat.SendAdminAlertNoFormatOrEscape(tpLinks);
+        }
+
+        if (coords is { } mapCoords && coords != MapCoordinates.Nullspace && AdminLogManager.CreateCordLinks([mapCoords], out var coordLinks))
+        {
+            _chat.SendAdminAlertNoFormatOrEscape(coordLinks);
         }
     }
 

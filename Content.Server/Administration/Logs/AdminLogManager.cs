@@ -520,7 +520,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Creates a list of toto command links for the given map coordinates.
     /// </summary>
-    private bool CreateCordLinks(List<MapCoordinates> cords, out string outString)
+    // DeltaV - Make public static
+    public static bool CreateCordLinks(List<MapCoordinates> cords, out string outString)
     {
         outString = string.Empty;
 
