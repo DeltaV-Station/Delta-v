@@ -17,10 +17,6 @@
     - type: Loadout
       prototypes: [ SyndicateSynthesisGear ]
       roleLoadout: [ RoleSurvivalStandard ]
-    - type: AntagObjectives
-      objectives:
-      - SynthesisSurviveObjective
-      - SynthesisPrescribeObjective
 
 # Arms Dealer Settings
 - type: randomHumanoidSettings
@@ -41,7 +37,3 @@
     - type: Loadout
       prototypes: [ SyndicateArmsDealerGear ]
       roleLoadout: [ RoleSurvivalStandard ]
-    - type: AntagObjectives
-      objectives:
-      - ArmsdealerSurviveObjective
-      - ArmsdealerSaleObjective
