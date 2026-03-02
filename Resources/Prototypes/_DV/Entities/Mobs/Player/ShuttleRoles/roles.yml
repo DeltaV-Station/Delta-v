@@ -1,0 +1,22 @@
+# Synthesis Specialist Role
+- type: entity
+  id: RandomHumanoidSynthesisSpecialist
+  name: synthesis specialist ghost role
+  suffix: Interdyne
+  components:
+    - type: Sprite
+      sprite: Structures/Decoration/banner.rsi
+      state: banner-red
+    - type: RandomHumanoidSpawner
+      settings: SynthesisSpecialist
+
+# Arms Dealer Role
+- type: entity
+  id: RandomHumanoidArmsDealer
+  name: arms dealer ghost role
+  components:
+    - type: Sprite
+      sprite: Structures/Decoration/banner.rsi
+      state: banner-red
+    - type: RandomHumanoidSpawner
+      settings: ArmsDealer

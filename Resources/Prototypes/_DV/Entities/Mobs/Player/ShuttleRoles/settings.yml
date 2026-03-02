@@ -1,0 +1,47 @@
+# Synthesis Specialist Settings
+- type: randomHumanoidSettings
+  id: SynthesisSpecialist
+  parent: EventHumanoid
+  components:
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+    - type: GhostRole
+      name: ghost-role-information-synthesis-name
+      description: ghost-role-information-synthesis-description
+      rules: ghost-role-information-synthesis-rules
+      mindRoles:
+      - MindRoleSynthesis
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ SyndicateSynthesisGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: AntagObjectives
+      objectives:
+      - SynthesisSurviveObjective
+      - SynthesisPrescribeObjective
+
+# Arms Dealer Settings
+- type: randomHumanoidSettings
+  id: ArmsDealer
+  parent: EventHumanoid
+  components:
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+    - type: GhostRole
+      name: ghost-role-information-armsdealer-name
+      description: ghost-role-information-armsdealer-description
+      rules: ghost-role-information-armsdealer-rules
+      mindRoles:
+      - MindRoleArmsdealer
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ SyndicateArmsDealerGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: AntagObjectives
+      objectives:
+      - ArmsdealerSurviveObjective
+      - ArmsdealerSaleObjective

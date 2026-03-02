@@ -63,38 +63,8 @@
     duration: null
   - type: PrecognitionResult
     message: psionic-power-precognition-synthesis-specialist-result-message
-  - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/synthesis_ship.yml
-  - type: AntagSpawner
-    prototype: MobHuman
-  - type: AntagObjectives
-    objectives:
-    - SynthesisSurviveObjective
-    - SynthesisPrescribeObjective
-  - type: AntagSelection
-    agentName: synthesis-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSynthesis
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateSynthesisGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleSynthesis
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -109,32 +79,3 @@
     message: psionic-power-precognition-syndicate-armsdealer-result-message
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/strongbox.yml
-  - type: AntagSpawner
-    prototype: MobHuman
-  - type: AntagObjectives
-    objectives:
-    - ArmsdealerSurviveObjective
-    - ArmsdealerSaleObjective
-  - type: AntagSelection
-    agentName: armsdealer-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostArmsdealer
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateArmsdealerGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleArmsdealer

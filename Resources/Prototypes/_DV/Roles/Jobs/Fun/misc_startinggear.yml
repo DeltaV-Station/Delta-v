@@ -72,3 +72,42 @@
     pocket1: AgentIDCard
     pocket2: HandheldStationMapRecordsTablet
 #  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink # I don't think loadouts work for ghost roles anyways
+
+# Syndicate Synthesis Gear
+- type: startingGear
+  id: SyndicateSynthesisGear
+  equipment:
+    jumpsuit: ClothingUniformInterdyneChemist
+    back: ClothingBackpackChemistry
+    belt: ChemBag
+    eyes: ClothingEyesGlassesChemicalInterdyne
+    gloves: ClothingHandsGlovesChemist
+    outerClothing: ClothingOuterInterdyneChemistrySuit
+    shoes: ClothingShoesEnclosedChem
+    id: SyndiPDA
+    ears: ClothingHeadsetAltSyndicateInterdyne # Gives them Traffic Coms (Todo: Add common coms upon ship & role rework)
+    pocket1: HandLabeler
+    pocket2: RubberStampSyndicate
+    mask: ClothingMaskInterdyneChemistry
+    head: ClothingHeadHatSyndie
+  inhand:
+    - DefibrillatorSyndicate
+
+# Arms Dealer Gear
+- type: startingGear
+  id: SyndicateArmsDealerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJeansBrown
+    back: ClothingBackpackSatchelLeather
+    belt: ClothingBeltHolsterArmsdealerFilled
+    eyes: ClothingEyesGlassesCheapSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterCoatJensen
+    shoes: ClothingShoesBootsLaceup
+    id: SyndiPDA
+    ears: ClothingHeadsetAltSyndicateInterdyne
+    mask: ClothingMaskNeckGaiter
+    head: ClothingHeadHatFedoraBlack
+  inhand:
+  - BriefcaseRecruiterArmsdealer
+

@@ -84,18 +84,6 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
-  id: SpawnPointGhostSynthesis
-  components:
-  - type: GhostRole
-    name: ghost-role-information-synthesis-name
-    description: ghost-role-information-synthesis-description
-    rules: ghost-role-information-synthesis-rules
-    mindRoles:
-    - MindRoleSynthesis
-
-- type: entity
-  categories: [ HideSpawnMenu, Spawner ]
-  parent: BaseAntagSpawner
   id: SpawnPointGhostRoboNeuroticist
   components:
   - type: GhostRole
@@ -130,16 +118,6 @@
     rules: ghost-role-information-skia-rules
     mindRoles:
     - MindRoleSkia
-
-- type: entity
-  categories: [ HideSpawnMenu, Spawner ]
-  parent: BaseAntagSpawner
-  id: SpawnPointGhostArmsdealer
-  components:
-  - type: GhostRole
-    name: ghost-role-information-armsdealer-name
-    description: ghost-role-information-armsdealer-description
-    rules: ghost-role-information-armsdealer-rules
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

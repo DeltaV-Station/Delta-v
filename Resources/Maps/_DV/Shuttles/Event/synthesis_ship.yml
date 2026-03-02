@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.3.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/14/2026 18:22:56
-  entityCount: 356
+  time: 03/02/2026 07:46:08
+  entityCount: 359
 maps: []
 grids:
 - 1
@@ -427,6 +427,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,2.5
+      parent: 1
+- proto: Autoclave
+  entities:
+  - uid: 333
+    components:
+    - type: Transform
+      pos: 9.5,-0.5
       parent: 1
 - proto: Bed
   entities:
@@ -907,11 +914,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.4766264,4.5867953
       parent: 1
+- proto: ChairPilotSeat
+  entities:
   - uid: 234
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 3.5235014,8.644082
+      pos: 3.5,8.5
       parent: 1
 - proto: ChemDispenserEmpty
   entities:
@@ -1078,13 +1087,16 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: DefibrillatorSyndicate
+- proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 333
+  - uid: 359
     components:
     - type: Transform
-      pos: 9.50774,-0.36634243
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: DrinkWaterBottleFull
   entities:
   - uid: 223
@@ -1458,14 +1470,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 167
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,3.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 173
     components:
     - type: Transform
@@ -1479,6 +1483,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,-0.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 279
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,3.5
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -1498,6 +1510,8 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
+- proto: GasPressurePumpEnabledMax
+  entities:
   - uid: 177
     components:
     - type: Transform
@@ -1755,6 +1769,16 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: MirrorModern
+  entities:
+  - uid: 358
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-1.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: OperatingTable
   entities:
   - uid: 297
@@ -2026,24 +2050,20 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: SinkEmpty
+  entities:
+  - uid: 357
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-1.5
+      parent: 1
 - proto: SpaceCash10000
   entities:
   - uid: 320
     components:
     - type: Transform
       pos: 4.5272465,-2.2322407
-      parent: 1
-- proto: SpawnPointNukies
-  entities:
-  - uid: 278
-    components:
-    - type: Transform
-      pos: 4.5,3.5
-      parent: 1
-  - uid: 279
-    components:
-    - type: Transform
-      pos: 3.5,2.5
       parent: 1
 - proto: SubstationBasic
   entities:
@@ -2064,18 +2084,30 @@ entities:
     - type: Transform
       pos: 1.5,7.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal: []
+- proto: SynthesisSpecialistSpawner
+  entities:
+  - uid: 167
+    components:
+    - type: Transform
+      pos: 5.5,-1.5
+      parent: 1
+  - uid: 278
+    components:
+    - type: Transform
+      pos: 4.5,-1.5
+      parent: 1
 - proto: TableReinforced
   entities:
   - uid: 21
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 8.5,-2.5
       parent: 1
   - uid: 56
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 7.5,-2.5
       parent: 1
   - uid: 67
@@ -2091,7 +2123,6 @@ entities:
   - uid: 205
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 9.5,-0.5
       parent: 1
   - uid: 225
@@ -2112,7 +2143,6 @@ entities:
   - uid: 295
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 9.5,-2.5
       parent: 1
 - proto: Telecrystal10
@@ -2587,6 +2617,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,4.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 290
     components:
     - type: Transform

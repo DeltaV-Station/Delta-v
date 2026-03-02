@@ -1,0 +1,30 @@
+# Synthesis Specialist Spawner
+- type: entity
+  name: synthesis specialist spawner
+  suffix: Interdyne
+  id: SynthesisSpecialistSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner-red
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidSynthesisSpecialist
+
+# Synthesis Specialist Spawner
+- type: entity
+  name: arms dealer spawner
+  id: ArmsDealerSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner-red
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidArmsDealer

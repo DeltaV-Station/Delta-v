@@ -1,5 +1,5 @@
 - type: antag
-  id: SyndicateArmsdealer
+  id: SyndicateArmsDealer
   name: roles-antag-syndicate-armsdealer-name
   objective: roles-antag-syndicate-armsdealer-objective
   antagonist: true # Trading guns for your benefit and watch the chaos commence
@@ -12,20 +12,3 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 12h
-
-- type: startingGear
-  id: SyndicateArmsdealerGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitJeansBrown
-    back: ClothingBackpackSatchelLeather
-    belt: ClothingBeltHolsterArmsdealerFilled
-    eyes: ClothingEyesGlassesCheapSunglasses
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterCoatJensen
-    shoes: ClothingShoesBootsLaceup
-    id: SyndiPDA
-    ears: ClothingHeadsetAltSyndicateInterdyne
-    mask: ClothingMaskNeckGaiter
-    head: ClothingHeadHatFedoraBlack
-  inhand:
-  - BriefcaseRecruiterArmsdealer
