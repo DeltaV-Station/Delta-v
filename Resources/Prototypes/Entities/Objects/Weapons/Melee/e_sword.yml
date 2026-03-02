@@ -401,6 +401,10 @@
     delay: 1.5
   - type: Sprite
     sprite: Objects/Weapons/Melee/hypereutactic_blade.rsi
+    # DeltaV sprite offset
+    offset: 0, 0.4
+    StoredOffset: 0, 30
+    # DeltaV changes end
     layers:
     - state: hypereutactic
     - state: hypereutactic_blade
