@@ -394,8 +394,6 @@
         Heat: 20
         Structural: 20
   - type: MeleeRequiresWield
-  - type: Wieldable #DeltaV - requires wield to swing
-    UnwieldOnUse: false
   - type: HeldSpeedModifier #slowdown is what balances this compared to a dsword
     walkModifier: 0.6
     sprintModifier: 0.6
@@ -418,13 +416,16 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/hypereutactic_blade_inhands.rsi
+    # DeltaV changes
+  - type: Wieldable #DeltaV - requires wield to swing
+    UnwieldOnUse: false
   - type: Reflect
     reflectProb: 0.75 # DeltaV - from 100% to 75% reflect
     spread: 10 # DeltaV - tightened spread from 75 to 10
     reflects:
     - Energy
     - NonEnergy
-
+    # DeltaV changes end
 # Borgs
 
 - type: entity
