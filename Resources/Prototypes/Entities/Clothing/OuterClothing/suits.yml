@@ -102,7 +102,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
-  - type: Tag # Delta V 
+  - type: Tag # Delta V
     tags:
       - HidesHarpyWings
 
@@ -350,8 +350,9 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
-  - type: AddAccentClothing
-    accent: BarkAccent
+  # DeltaV - remove forced accents
+  #- type: AddAccentClothing
+  #  accent: BarkAccent
 
 - type: entity
   parent: ClothingOuterBase
