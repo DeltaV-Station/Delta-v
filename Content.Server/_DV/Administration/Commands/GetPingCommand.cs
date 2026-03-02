@@ -25,6 +25,8 @@ public sealed class GetPingCommand : LocalizedEntityCommands
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        return args.Length == 1 ? CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), "username") : CompletionResult.Empty;
+        return args.Length == 1
+            ? CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), "username")
+            : CompletionResult.Empty;
     }
 }

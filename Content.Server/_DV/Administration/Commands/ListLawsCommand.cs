@@ -1,12 +1,8 @@
 using Content.Server.Administration;
-using Content.Server.Commands;
-using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
-using Content.Shared.Mind;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Administration.Commands;
 
@@ -34,9 +30,12 @@ public sealed class ListLawsCommand : LocalizedEntityCommands
                 {
                     WriteLawReport(shell, ent, lawProvider);
                 }
+
                 break;
             case 1:
-                if (!_player.TryGetSessionByUsername(args[0], out var session) || !_entityManager.TryGetComponent<SiliconLawProviderComponent>(session.AttachedEntity, out var provider))
+                if (!_player.TryGetSessionByUsername(args[0], out var session) ||
+                    !_entityManager.TryGetComponent<SiliconLawProviderComponent>(session.AttachedEntity,
+                        out var provider))
                 {
                     shell.WriteError(Loc.GetString("cmd-lslaws-error-bad-player"));
                     return;
@@ -48,8 +47,6 @@ public sealed class ListLawsCommand : LocalizedEntityCommands
                 shell.WriteLine(Help);
                 break;
         }
-
-
     }
 
     private void WriteLawReport(IConsoleShell shell, EntityUid ent, SiliconLawProviderComponent lawProvider)
@@ -63,7 +60,7 @@ public sealed class ListLawsCommand : LocalizedEntityCommands
             : $"[bold]{entityName}[/bold] ({ent.Id}, subverted: {lawProvider.Subverted})");
 
         shell.WriteLine($"Base Lawset: {lawProvider.Laws.Id}");
-        if (lawProvider.Lawset is {} lawset)
+        if (lawProvider.Lawset is { } lawset)
         {
             foreach (var siliconLaw in lawset.Laws)
             {
@@ -78,6 +75,8 @@ public sealed class ListLawsCommand : LocalizedEntityCommands
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        return args.Length == 1 ? CompletionResult.FromOptions(CompletionHelper.SessionNames()) : CompletionResult.Empty;
+        return args.Length == 1
+            ? CompletionResult.FromOptions(CompletionHelper.SessionNames())
+            : CompletionResult.Empty;
     }
 }

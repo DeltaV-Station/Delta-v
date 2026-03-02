@@ -1,14 +1,9 @@
 using System.Globalization;
 using Content.Server.Administration;
 using Content.Server.Administration.Notes;
-using Content.Server.Commands;
-using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
-using Content.Shared.Mind;
-using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Administration.Commands;
 
@@ -47,9 +42,10 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
                 {
                     shell.WriteLine("Expires: PERMANENT");
                 }
+
                 foreach (var line in record.Message.Split('\n', StringSplitOptions.TrimEntries))
                 {
-                   shell.WriteLine($"> {line}");
+                    shell.WriteLine($"> {line}");
                 }
             }
         }
