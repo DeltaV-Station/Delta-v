@@ -43,6 +43,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    mindRoles: # Delta V - No more domestic Xenos </3
+    - MindRoleGhostRoleTeamAntagonistFlock
     raffle:
       settings: short # DeltaV - lower xeno raffle time - formerly default
   - type: GhostTakeoverAvailable
