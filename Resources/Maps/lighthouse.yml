@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/02/2026 17:44:07
-  entityCount: 22327
+  time: 03/03/2026 05:53:55
+  entityCount: 22329
 maps:
 - 1313
 grids:
@@ -11876,7 +11876,7 @@ entities:
       pos: -38.5,33.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -71875.84
+      secondsUntilStateChange: -71918.93
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12314,7 +12314,7 @@ entities:
       pos: -31.5,9.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -69022.55
+      secondsUntilStateChange: -69065.63
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -117591,6 +117591,18 @@ entities:
     - type: Transform
       pos: -23.5,15.5
       parent: 100
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 12199
+    components:
+    - type: Transform
+      pos: 24.5,-36.5
+      parent: 100
+  - uid: 12249
+    components:
+    - type: Transform
+      pos: 28.5,-36.5
+      parent: 100
 - proto: SpawnPointLawyer
   entities:
   - uid: 19370
@@ -142618,7 +142630,7 @@ entities:
       pos: 6.5,-10.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -33276.043
+      secondsUntilStateChange: -33319.13
       state: Opening
   - uid: 226
     components:
