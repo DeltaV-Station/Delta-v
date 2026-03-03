@@ -88,7 +88,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/disaster_evacpod.yml
+    gridPath: /Maps/_DV/Shuttles/Event/disaster_evacpod.yml # Delta V - Modified to our version
 
 # The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
 - type: entity
