@@ -11,7 +11,7 @@ namespace Content.Server.Shuttles.Components;
 public sealed partial class GridFillComponent : Component
 {
     [DataField]
-    public ResPath Path = new("/Maps/_DV/Shuttles/Evac/escape_pod_small.yml"); // Delta V - Opted to use our evac pod
+    public ResPath Path = new("/Maps/_DV/Shuttles/Evac/escape_pod_small.yml"); // Delta V - Opted to use our evac pod. Was /Maps/Shuttles/escape_pod_small.yml
 
     /// <summary>
     /// Components to be added to any spawned grids.
