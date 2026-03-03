@@ -1803,7 +1803,10 @@
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsUplink
+      - CommanderUplink #DeltaV - only commander and lone op can buy
+      - LoneOpUplink
+  - !type:ListingLimitedStockCondition #DeltaV - only one jug suit per team
+    stock: 1
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
