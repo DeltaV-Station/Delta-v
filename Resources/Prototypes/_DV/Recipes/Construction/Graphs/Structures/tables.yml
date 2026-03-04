@@ -116,15 +116,15 @@
 
         - to: N14WoodCounter
           steps:
-            - material: MetalRod 
+            - material: MetalRod
               amount: 4
               doAfter: 1
             - material: WoodPlank
               amount: 6
               doAfter: 1
             - tool: Screwing
-              doAfter: 4   
-           
+              doAfter: 4
+
         - to: N14WoodCounterBend
           steps:
             - material: WoodPlank
@@ -506,9 +506,8 @@
           steps:
             - tool: Prying
               doAfter: 4
-    
+
 
     - node: N14DeskMetal
       entity: N14TableDeskMetal
-    
 
