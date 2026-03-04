@@ -26,7 +26,7 @@
   name: air vent
   description: Has a valve and a pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers # Funky
   components:
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -78,6 +78,11 @@
       guides:
       - AirVent
       - DeviceMonitoringAndControl
+    - type: AtmosPipeLayers # Funky
+      alternativePrototypes:
+        Primary: GasVentPump
+        Secondary: GasVentPumpAlt1
+        Tertiary: GasVentPumpAlt2
 
 - type: entity
   parent: GasUnaryBase
@@ -85,7 +90,7 @@
   name: passive vent
   description: It's an open vent.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers # Funky
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -110,6 +115,11 @@
     - type: GuideHelp
       guides:
       - PassiveVent
+    - type: AtmosPipeLayers # Funky
+      alternativePrototypes:
+        Primary: GasPassiveVent
+        Secondary: GasPassiveVentAlt1
+        Tertiary: GasPassiveVentAlt2
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -117,7 +127,7 @@
   name: air scrubber
   description: Has a valve and pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers # Funky
   components:
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -169,6 +179,11 @@
       guides:
       - AirScrubber
       - DeviceMonitoringAndControl
+    - type: AtmosPipeLayers # Funky
+      alternativePrototypes:
+        Primary: GasVentScrubber
+        Secondary: GasVentScrubberAlt1
+        Tertiary: GasVentScrubberAlt2
 
 - type: entity
   parent: GasUnaryBase
@@ -176,7 +191,7 @@
   name: air injector
   description: Has a valve and pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers # Funky
   components:
     - type: Sprite
       drawdepth: FloorObjects
@@ -213,6 +228,11 @@
     - type: GuideHelp
       guides:
       - AirInjector
+    - type: AtmosPipeLayers # Funky
+      alternativePrototypes:
+        Primary: GasOutletInjector
+        Secondary: GasOutletInjectorAlt1
+        Tertiary: GasOutletInjectorAlt2
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
