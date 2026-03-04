@@ -216,7 +216,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
     }
 
-    private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) 
+    private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args)
     {
         ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
         UpdateUI(uid, component);
@@ -249,8 +249,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             comp.ApplyPrefab = false;
         }
 
-        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
-        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);
+        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.TotalMoles > 20);
+        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.TotalMoles > 20);
 
         var TempRads = 0;
         var ControlRods = 0;
@@ -833,7 +833,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             // Data is sent to a log queue to avoid spamming the admin log when adjusting values rapidly
             if(!_logQueue.TryGetValue(new(args.Actor, ent.Owner), out var value))
                 _logQueue.Add(new(args.Actor, ent.Owner), new LogData {
-                    CreationTime = _gameTiming.RealTime, 
+                    CreationTime = _gameTiming.RealTime,
                     SetControlRodInsertion = ent.Comp.ControlRodInsertion
                 });
             else

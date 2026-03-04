@@ -602,7 +602,7 @@
 
 - type: entity
   id: BorgModuleMining
-  parent: [ BaseBorgModuleMining, BaseProviderBorgModule ] # Starlight
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ] # Starlight
   name: mining cyborg module
   components:
   - type: Sprite
@@ -615,7 +615,7 @@
     - item: Shovel
     - item: MineralScannerUnpowered
     - item: BorgOreBag
-    - item: RadioHandheldExpedition # Starlight
+    - item: RadioHandheld
     - hand: # Starlight
         emptyRepresentative: GoldOre
         emptyLabel: borg-slot-ore-empty
@@ -627,7 +627,7 @@
 
 - type: entity
   id: BorgModuleAdvancedMining
-  parent: [ BaseBorgModuleMining, BaseProviderBorgModule ] # Starlight
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ] # Starlight
   name: advanced mining cyborg module
   description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
   components:
@@ -653,7 +653,7 @@
 
 - type: entity
   id: BorgModuleTraversal
-  parent: [ BaseBorgModuleMining, BaseProviderBorgModule ] # Starlight
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ] # Starlight
   name: traversal cyborg module
   components:
   - type: Sprite
