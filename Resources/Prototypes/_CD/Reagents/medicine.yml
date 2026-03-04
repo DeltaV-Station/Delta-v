@@ -448,7 +448,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
-        time: 2 # less effective than soretizone - 8.3 minutes of pain suppression per 5u (5u / 0.02 * 2 / 60)
+        time: 1 # less effective than soretizone - 4.1 minutes of pain suppression per 5u (5u / 0.02 * 1 / 60)
         type: Update
       - !type:PopupMessage
         type: Local
@@ -508,7 +508,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
-        time: 1.5 # 12.5 minutes of pain suppression per 5u (5u / 0.01 * 1.5 / 60)
+        time: 1 # 8.3 minutes of pain suppression per 5u (5u / 0.01 * 1 / 60)
         type: Add
       - !type:SuppressAddiction
       - !type:PopupMessage
@@ -556,6 +556,11 @@
     Medicine:
       metabolismRate : 0.01
       effects:
+      - !type:GenericStatusEffect
+        key: PainNumbness
+        component: PainNumbness
+        time: 3.0
+        type: Add 
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
         time: 3 # More effective than soretizone - 25 minutes of pain suppression per 5u (5u / 0.01 * 3 / 60)

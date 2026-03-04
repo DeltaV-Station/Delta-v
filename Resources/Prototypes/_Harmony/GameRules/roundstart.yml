@@ -1,0 +1,43 @@
+- type: entity
+  parent: BaseGameRule
+  id: ThiefChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+
+- type: entity
+  parent: BaseGameRule
+  id: Conspirators
+  components:
+  - type: GameRule
+    # DeltaV - minPlayers now set on Preset
+    # minPlayers: 28 # minimum of 4 conspirators
+    delay: # DeltaV - add delay
+      min: 60
+      max: 120
+  - type: ConspiratorRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn # DeltaV - previously IntraPlayerSpawn
+    agentName: conspirator-round-end-agent-name # DeltaV - previously unset
+    definitions:
+    - prefRoles: [ Conspirator ]
+      min: 4
+      max: 7
+      playerRatio: 7
+      departmentDistribution: true # DeltaV - previously unset
+      blacklist: # DeltaV - Blacklist AntagImmune
+        components:
+        - AntagImmune
+      briefing:
+        text: conspirator-role-greeting
+        color: "#724F29"
+        sound: /Audio/_Harmony/Misc/conspirator_greeting.ogg
+      components:
+      - type: Conspirator
+      - type: AutoImplant
+        implants:
+        - RadioImplantConspiracy
+      mindRoles:
+      - MindRoleConspirator

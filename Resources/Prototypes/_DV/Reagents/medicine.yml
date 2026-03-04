@@ -85,6 +85,25 @@
         sprintSpeedModifier: 0.5
 
 - type: reagent
+  id: Photoxadone
+  name: reagent-name-photoxadone
+  desc: reagent-desc-photoxadone
+  flavor: clean
+  color: "#A695AD"
+  physicalDesc: reagent-physical-desc-enigmatic
+  group: Medicine
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        damage:
+          Metaphysical: -5
+
+- type: reagent
   id: Stabilizine
   name: reagent-name-stabilizine
   group: Medicine
