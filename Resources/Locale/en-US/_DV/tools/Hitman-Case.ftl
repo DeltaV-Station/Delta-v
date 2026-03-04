@@ -1,8 +1,8 @@
 Sharpshooter-kit-name = Sharpshooter kit
-Sharpshooter-kit-description = a kit for those who prefer killing from afar. provides a hirstov with piercing rounds, X-ray goggles, and a briefcase.
+Sharpshooter-kit-description = a kit for those who prefer killing from afar. provides a hirstov, binoculars, and a briefcase.
 
 Loud-kit-name = Loud kit
-Loud-kit-description = a kit for those who wish to forgo stealth. provides a Python, a speedloader for it, and an armor vest.
+Loud-kit-description = a kit for those who like a direct method. provides a Python, a speedloader for it, and an armor vest.
 
 Assassin-kit-name = Assassin kit
 Assassin-kit-description = a kit for the quiet killers. provides a cobra with 3 mags, a combat knife, and radio jammer.
