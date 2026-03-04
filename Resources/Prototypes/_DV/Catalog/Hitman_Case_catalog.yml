@@ -6,9 +6,9 @@
     sprite: 
     state: icon
   content:
+  - WeaponSniperHristov
   - 
-  - 
-  - 
+  - BriefcaseBase
 
 - type: thiefBackpackSet
   id: LoudKit
@@ -18,7 +18,7 @@
     sprite: 
     state: icon
   content:
-  - 
+  - WeaponRevolverPython
   - 
   - 
   
@@ -30,9 +30,9 @@
     sprite: 
     state: icon
   content:
-  - 
-  - 
-  - 
+  - WeaponPistolCobra
+  - CombatKnife
+  - RechargingRadioJammer
   
 - type: thiefBackpackSet
   id: PoisonerKit
@@ -54,7 +54,7 @@
     sprite: 
     state: icon
   content:
-  - 
+  - AccessBreaker
   - 
   - 
   
@@ -78,9 +78,9 @@
     sprite: 
     state: icon
   content:
-  - 
-  - 
-  - 
+  - DnaScramblerImplant
+  - FreedomImplant
+  - ScramImplant
 
 - type: thiefBackpackSet
   id: TrackerKit 
@@ -90,6 +90,6 @@
     sprite: 
     state: icon
   content:
-  - 
-  - 
-  - 
+  - PinpointerUniversal #todo: make a version which will track their target
+  - EncryptionKeyStationMaster
+  - CameraBug
