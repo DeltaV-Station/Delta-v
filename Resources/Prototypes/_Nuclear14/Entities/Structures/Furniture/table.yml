@@ -1,5 +1,5 @@
 - type: entity
-  id: N14FreeTableBase # Base off this for metal tables
+  id: N14FreeTableBase # Base off this for wood tables
   parent: BaseStructure
   name: table
   description: A square piece of metal standing on four metal legs.
@@ -7,7 +7,7 @@
   components:
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Wood # DeltaV
   - type: Destructible
     thresholds:
     - trigger:
@@ -19,9 +19,9 @@
           collection: WoodDestroy
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
+          MaterialWoodPlank1: # DeltaV
             min: 1
-            max: 1
+            max: 2
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: PlaceableSurface
@@ -45,18 +45,18 @@
         Blunt: 4
   - type: Clickable
 
-# 32x32 tables
 - type: entity
-  parent: N14FreeTableBase
-  id: N14TableMetalRound
-  name: round metal table
-  description: A cold handmade round metal table.
+  parent: N14FreeTableBase # Begin DeltaV Additions
+  id: N14FreeMetalTableBase # Base off THIS for metal tables
   components:
-  - type: Destructible # Begin DeltaV Additions
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible 
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -70,16 +70,23 @@
             max: 1
       - !type:DoActsBehavior
         acts: ["Destruction"] # End DeltaV Additions
+
+# 32x32 tables
+- type: entity
+  parent: N14FreeMetalTableBase
+  id: N14TableMetalCircle
+  name: circular metal table
+  description: A cold handmade circular metal table.
+  components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_metal_round-2
     snapCardinals: true # DeltaV
   - type: Construction # DeltaV
     graph: N14TableRecipes
-    node: N14MetalRound
+    node: N14MetalCircle
 
 - type: entity
-  parent: N14TableMetalRound
   id: N14TableMetalRoundDirty
   name: round table
   suffix: dirty
@@ -88,20 +95,6 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_metal_round # N14TODO: There's a second sprite of this, need it to spawn a random one.
-
-- type: entity
-  parent: N14TableWoodSquare
-  id: N14TableWoodRound
-  name: round wooden table
-  description: A wooden round table.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: table_wood_round
-    snapCardinals: true # DeltaV
-  - type: Construction # DeltaV
-    graph: N14TableRecipes
-    node: N14WoodRound
 
 - type: entity
   parent: N14FreeTableBase
@@ -129,6 +122,20 @@
 
 - type: entity
   parent: N14TableWoodSquare
+  id: N14TableWoodCircle
+  name: circular wooden table
+  description: A circular wooden table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_round
+    snapCardinals: true # DeltaV
+  - type: Construction # DeltaV
+    graph: N14TableRecipes
+    node: N14WoodCircle
+
+- type: entity
+  parent: N14TableWoodSquare
   id: N14TableWoodLow
   name: wooden coffee table
   description: A low wooden square table.
@@ -152,18 +159,61 @@
   - type: Construction # DeltaV
     graph: N14TableRecipes
     node: N14WoodStand
+  
+- type: entity
+  parent: BaseStructure
+  id: N14WoodTableFrame
+  name: wooden frame
+  description: Pieces of wood that make up the frame of an unfinished object.
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood # DeltaV
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1: # DeltaV
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: tableframe_wood
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodFrame
+  - type: Clickable
 
 #64x64 tables
 - type: entity
-  parent: N14FreeTableBase
+  parent: N14FreeMetalTableBase
   id: N14TableDeskMetal
   name: metal desk
   description: A metal desk for working at. Sturdy.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/Tables/desks.rsi
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: desk_metal
-    offset: 0.5, 0
   - type: Fixtures
     fixtures:
       fix1:
@@ -175,9 +225,56 @@
         - TableMask
         layer:
         - TableLayer
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14DeskMetal
 
 - type: entity
-  parent: N14TableDeskMetal
+  parent: BaseStructure
+  id: N14MetalTableFrame
+  name: metal frame
+  description: Pieces of metal that make up the frame of an unfinished object.
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic 
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 65
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1: 
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: tableframe_metal
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14MetalFrame
+  - type: Clickable
+
+- type: entity
+  parent: N14FreeMetalTableBase
   id: N14TableDeskMetalDirty
   suffix: dirty
   components:
@@ -186,7 +283,7 @@
     state: desk_metal_dirty # DeltaV - added clean version, renamed and added old texture to dirty
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: N14FreeMetalTableBase
   id: N14TableDeskMetalSmall
   components:
   - type: Sprite
@@ -223,6 +320,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: desk_wood
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14DeskWood2
 
 - type: entity
   parent: N14FreeTableBase
@@ -256,22 +356,28 @@
 - type: entity
   parent: N14TableCasinoCards
   id: N14TableWoodenOvalWide
-  name: wooden table
+  name: oval wooden table
   description: An oval table made from wood.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: table_wood_wide_oval
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodWideOval
 
 - type: entity
   parent: N14TableCasinoCards
   id: N14TableWoodenSquareWide
-  name: wooden table
+  name: wide wooden table
   description: A wide square table made from wood.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: table_wood_wide_square
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodSquareWide
 
 - type: entity
   parent: N14TableCasinoCards
@@ -287,12 +393,16 @@
 - type: entity
   parent: N14FreeTableBase
   id: N14TableCounter
-  name: wooden counter
+  name: wood counter
+  description: Give me a drink, bartender
   suffix: full
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: wood_counter
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCounter
 
 - type: entity
   parent: N14TableCounter
@@ -302,6 +412,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: wood_counter_bend
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCounterBend
 
 - type: entity
   parent: N14TableCounter
@@ -311,6 +424,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: wood_counter_intersect
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCounterIntersect
 
 - type: entity
   parent: N14TableCounter
@@ -320,7 +436,10 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: wood_counter_cross
-    snapCardinals: true # DeltaV - furniture rework
+    snapCardinals: true # DeltaV
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCounterCross
 
 - type: entity
   parent: N14TableCounter
@@ -331,6 +450,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCraftCounter
 
 - type: entity
   parent: N14TableCounter
@@ -340,6 +462,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_bend
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCraftCounterBend
 
 - type: entity
   parent: N14TableCounter
@@ -349,6 +474,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_intersect
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCraftCounterIntersect
 
 - type: entity
   parent: N14TableCounter
@@ -358,10 +486,13 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_cross
-    snapCardinals: true # DeltaV - furniture rework
+    snapCardinals: true # DeltaV 
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14WoodCraftCounterCross
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: N14FreeMetalTableBase
   id: N14TableCounterMetal
   name: metal counter
   description: A cold, hard metal counter.
@@ -369,6 +500,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: metal_counter
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14MetalCounter
 
 - type: entity
   parent: N14TableCounterMetal
@@ -378,6 +512,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: metal_counter_bend
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14MetalCounterBend
 
 - type: entity
   parent: N14TableCounterMetal
@@ -387,6 +524,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: metal_counter_intersect
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14MetalCounterIntersect
 
 - type: entity
   parent: N14TableCounterMetal
@@ -397,6 +537,9 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: metal_counter_cross
     snapCardinals: true # DeltaV - furniture rework
+  - type: Construction
+    graph: N14TableRecipes
+    node: N14MetalCounterCross
 
 - type: entity
   id: N14TableMetalGrate
@@ -409,5 +552,5 @@
   - type: Icon
     sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
   - type: Construction
-    graph: N14TableRecipes
-    node: N14MetalGrate
+    graph: N14TableMetalGrateRecipes
+    node: TableMetalGrate

@@ -42,43 +42,44 @@
           completed:
           - !type:SnapToGrid
           steps:
-            - material: Cloth
-              amount: 3
+            - material: FloorCarpetBlue
+              amount: 4
               doAfter: 1
         - to: shagRug
           completed:
           - !type:SnapToGrid
           steps:
-            - material: Cloth
-              amount: 3
+            - material: FloorCarpetBlue
+              amount: 4
               doAfter: 1
         - to: brownRug
           completed:
           - !type:SnapToGrid
           steps:
-            - material: Cloth
-              amount: 3
-              doAfter: 1
+            - material: FloorCarpetRed
+              amount: 2
+            - material: FloorCarpetGreen
+              amount: 2
         - to: redRug
           completed:
           - !type:SnapToGrid
           steps:
-            - material: Cloth
-              amount: 3
+            - material: FloorCarpetRed
+              amount: 4
               doAfter: 1
         - to: orangeRug
           completed:
           - !type:SnapToGrid
           steps:
-            - material: Cloth
-              amount: 3
+            - material: FloorCarpetOrange
+              amount: 4
               doAfter: 1
         - to: RubberMat
           completed:
           - !type:SnapToGrid
           steps:
             - material: Plastic
-              amount: 3
+              amount: 4
               doAfter: 1
   
     - node: RubberMat

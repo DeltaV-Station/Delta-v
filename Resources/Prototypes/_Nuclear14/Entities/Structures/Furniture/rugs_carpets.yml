@@ -134,6 +134,21 @@
   - type: Construction # DeltaV
     graph: N14RugRecipes
     node: rugBlue
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 10
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CarpetBlue:
+                min: 4
+                max: 4
 
 - type: entity
   id: N14RugShag
@@ -160,6 +175,20 @@
   - type: Construction
     graph: N14RugRecipes
     node: rugBrown
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              Carpet:
+                min: 2
+                max: 2
+              CarpetGreen:
+                min: 2
+                max: 2
 
 - type: entity
   id: N14RugRed
@@ -173,6 +202,21 @@
   - type: Construction # DeltaV
     graph: N14RugRecipes
     node: rugRed
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 10
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              Carpet:
+                min: 4
+                max: 4
 
 - type: entity
   id: N14RugOrange
@@ -186,6 +230,15 @@
   - type: Construction # DeltaV
     graph: N14RugRecipes
     node: rugOrange
+  - type: Destructible
+    thresholds:
+      - trigger:
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CarpetOrange:
+                min: 4
+                max: 4
 
 - type: entity
   id: N14RugMatRubberLarge
@@ -199,4 +252,13 @@
   - type: Construction # DeltaV
     graph: N14RugRecipes
     node: RubberMat
+  - type: Destructible
+    thresholds:
+      - trigger:
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetPlastic:
+                min: 4
+                max: 4
  
