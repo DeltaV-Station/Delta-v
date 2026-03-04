@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: AlgisAlphonse
-  changes:
-  - message: The biogenerator can now produce plastic thanks to the wonders of modern
-      chemistry.
-    type: Add
-  - message: The biogenerator has been upgraded to use less biomass.
-    type: Tweak
-  id: 1654
-  time: '2025-09-01T17:31:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4298
 - author: NoElkaTheGod
   changes:
   - message: Added malign injectors, which cosmic cultists can create from any medipen
@@ -4435,4 +4425,18 @@
   id: 2153
   time: '2026-03-03T04:32:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5457
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Added additional meteor shielding, meteor avoidance zones, Robotics
+      console, AI Recovery Console, AI subnet/cameras, mail cart, and medical crash
+      cart'
+    type: Add
+  - message: 'Terra: Waste and Distro have pre-enabled pumps now, and power bank has
+      been slightly improved'
+    type: Tweak
+  - message: 'Terra: APCs are now all below 20kw in regards to the new breaker system'
+    type: Fix
+  id: 2154
+  time: '2026-03-04T01:23:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5432
 Order: 1
