@@ -171,6 +171,13 @@
   allowed:
   - Syndicate # blood-red hardsuit...
 
+- type: mapCategories
+  id: Greed
+  map: /Maps/Lavaland/Greed.yml
+  allowed:
+  - Centcomm # Gambling crate
+  
+
 # Central Command Shuttles
 
 - type: mapCategories
@@ -305,3 +312,9 @@
   allowed:
   - Centcomm
   - Stamps # CC stamp
+=======
+- type: mapCategories
+  id: Greed
+  map: /Maps/Lavaland/Greed.yml
+  allowed:
+  - Centcomm # Gambling crate

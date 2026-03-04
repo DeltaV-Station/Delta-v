@@ -366,7 +366,7 @@
       maxPicks: 2
     maxDifficulty: 5 # DeltaV - end changes
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/wizard.yml # DV - was /Maps/Nonstations/wizardsden.yml but switched it back for now
+    mapPath: /Maps/_DV/Nonstations/wizardsden.yml # DV - moved with edits
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
