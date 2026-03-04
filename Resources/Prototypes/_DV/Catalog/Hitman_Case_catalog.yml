@@ -1,7 +1,7 @@
 - type: thiefBackpackSet
   id: SharpshooterKit
-  name: 
-  description: 
+  name: Sharpshooter-kit-name
+  description: Sharpshooter-kit-description
   sprite:
     sprite: 
     state: icon
@@ -11,9 +11,9 @@
   - 
 
 - type: thiefBackpackSet
-  id: 
-  name: 
-  description: 
+  id: LoudKit
+  name: Loud-kit-name
+  description: Loud-kit-description 
   sprite:
     sprite: 
     state: icon
@@ -23,9 +23,9 @@
   - 
   
 - type: thiefBackpackSet
-  id: 
-  name: 
-  description: 
+  id: AssassinKit
+  name: Assassin-kit-name
+  description: Assassin-kit-description
   sprite:
     sprite: 
     state: icon
@@ -35,9 +35,9 @@
   - 
   
 - type: thiefBackpackSet
-  id: 
-  name: 
-  description: 
+  id: PoisonerKit
+  name: Poisoner-kit-name
+  description: Poisoner-kit-description
   sprite:
     sprite: 
     state: icon
@@ -47,9 +47,9 @@
   - 
   
 - type: thiefBackpackSet
-  id: 
-  name: 
-  description: 
+  id: InfiltrationKit
+  name: Infiltration-kit-name
+  description: Infiltration-kit-description
   sprite:
     sprite: 
     state: icon
@@ -59,9 +59,9 @@
   - 
   
 - type: thiefBackpackSet
-  id: 
-  name: 
-  description: 
+  id: DisguiseKit
+  name: Disguise-kit-name
+  description: Disguise-kit-description
   sprite:
     sprite: 
     state: icon
@@ -69,4 +69,27 @@
   - 
   - 
   - 
-  
+
+- type: thiefBackpackSet
+  id: EscapistKit 
+  name: Escapist-kit-name
+  description: Escapist-kit-description
+  sprite:
+    sprite: 
+    state: icon
+  content:
+  - 
+  - 
+  - 
+
+- type: thiefBackpackSet
+  id: TrackerKit 
+  name: Tracker-kit-name
+  description: Tracker-kit-description
+  sprite:
+    sprite: 
+    state: icon
+  content:
+  - 
+  - 
+  - 
