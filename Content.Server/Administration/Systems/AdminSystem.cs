@@ -10,7 +10,9 @@ using Content.Server.Popups;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
+using Content.Shared.Administration.Notes;
 using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
@@ -58,6 +60,7 @@ public sealed class AdminSystem : EntitySystem
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly AdminNotesSystem _notes = default!; // DeltaV
+    [Dependency] private readonly IAdminNotesManager _notesManager = default!; // DeltaV
 
     private readonly Dictionary<NetUserId, PlayerInfo> _playerList = new();
 
@@ -77,6 +80,12 @@ public sealed class AdminSystem : EntitySystem
         _adminManager.OnPermsChanged += OnAdminPermsChanged;
         _playTime.SessionPlayTimeUpdated += OnSessionPlayTimeUpdated;
 
+        // DeltaV - track watchlist changes START
+        _notesManager.NoteAdded += OnNoteChange;
+        _notesManager.NoteModified += OnNoteChange;
+        _notesManager.NoteDeleted += OnNoteChange;
+        // DeltaV - track watchlist changes END
+
         // Panic Bunker Settings
         Subs.CVar(_config, CCVars.PanicBunkerEnabled, OnPanicBunkerChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerDisableWithAdmins, OnPanicBunkerDisableWithAdminsChanged, true);
@@ -95,6 +104,14 @@ public sealed class AdminSystem : EntitySystem
         SubscribeLocalEvent<ActorComponent, EntityRenamedEvent>(OnPlayerRenamed);
         SubscribeLocalEvent<ActorComponent, IdentityChangedEvent>(OnIdentityChanged);
     }
+
+    // DeltaV - update on watchlist change START
+    private void OnNoteChange(SharedAdminNote note)
+    {
+        if (note.NoteType == NoteType.Watchlist && _playerManager.TryGetSessionById(note.Player, out var session))
+            UpdatePlayerList(session);
+    }
+    // DeltaV - update on watchlist change END
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
@@ -200,6 +217,12 @@ public sealed class AdminSystem : EntitySystem
         _playerManager.PlayerStatusChanged -= OnPlayerStatusChanged;
         _adminManager.OnPermsChanged -= OnAdminPermsChanged;
         _playTime.SessionPlayTimeUpdated -= OnSessionPlayTimeUpdated;
+
+        // DeltaV - track watchlist changes START
+        _notesManager.NoteAdded -= OnNoteChange;
+        _notesManager.NoteModified -= OnNoteChange;
+        _notesManager.NoteDeleted -= OnNoteChange;
+        // DeltaV - track watchlist changes END
     }
 
     private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
