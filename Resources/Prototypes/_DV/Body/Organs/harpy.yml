@@ -1,7 +1,7 @@
 - type: entity
   id: OrganHarpyLungs
   parent: BaseHumanOrgan
-  name: harpy lungs
+  name: lungs
   description: "An advanced pair of avian lungs. Filters oxygen by way of moving air constantly through air sacs."
   components:
   - type: Sprite
@@ -12,13 +12,14 @@
   - type: Organ
     slotId: lungs
   - type: Metabolizer
+    updateInterval: 2.0
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Harpy ]
+    metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 100.0
+      rateModifier: 200.0
   - type: SolutionContainerManager
     solutions:
       organ:

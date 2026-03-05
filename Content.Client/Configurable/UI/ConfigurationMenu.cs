@@ -68,7 +68,7 @@ namespace Content.Client.Configurable.UI
             outerColumn.AddChild(Column);
             baseContainer.AddChild(outerColumn);
             baseContainer.AddChild(confirmButton);
-            ContentsContainer.AddChild(baseContainer);
+            Contents.AddChild(baseContainer);
         }
 
         private void OnConfirm(ButtonEventArgs args)

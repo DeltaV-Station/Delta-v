@@ -10,14 +10,11 @@ public sealed partial class MinorMassMindSwapRuleComponent : Component
     /// <summary>
     /// The mind swap is only temporary if true.
     /// </summary>
-    [DataField]
+    [DataField("isTemporary")]
     public bool IsTemporary = false;
 
     [DataField]
     public TimeSpan Delay = TimeSpan.FromSeconds(60);
-
-    [DataField]
-    public int ReturnSwapCooldown = 120;
 
     [DataField]
     public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");

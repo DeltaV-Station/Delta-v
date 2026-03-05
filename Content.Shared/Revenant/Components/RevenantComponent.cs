@@ -299,5 +299,7 @@ public sealed partial class RevenantComponent : Component
     [DataField("harvestingState")]
     public string HarvestingState = "harvesting";
     #endregion
+
+    [DataField] public EntityUid? ShopAction; // Imp
     [DataField] public EntityUid? HauntAction; // Imp
 }

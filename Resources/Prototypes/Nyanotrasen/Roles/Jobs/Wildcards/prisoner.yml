@@ -12,7 +12,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 6h
+      time: 21600
   special:
   - !type:AddImplantSpecial
     implants: [ TrackingImplant ]

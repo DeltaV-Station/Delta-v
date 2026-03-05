@@ -69,7 +69,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
             return;
         }
 
-        PopupSystem.PopupClient(Loc.GetString("psionic-cannot-use-psionics"), args.Performer, args.Performer);
+        PopupSystem.PopupClient(Loc.GetString("psionic-cannot-use-psionics"), args.Performer);
     }
 
     protected abstract void OnPowerUsed(Entity<T> psionic, ref T1 args);

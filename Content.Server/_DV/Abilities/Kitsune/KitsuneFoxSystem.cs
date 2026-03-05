@@ -9,6 +9,7 @@ namespace Content.Server._DV.Abilities.Kitsune;
 public sealed class KitsuneFoxSystem : EntitySystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
     public override void Initialize()
     {
@@ -19,7 +20,7 @@ public sealed class KitsuneFoxSystem : EntitySystem
 
     private void OnStunned(Entity<KitsuneFoxComponent> ent, ref StunnedEvent args)
     {
-        if (!HasComp<PolymorphedEntityComponent>(ent))
+        if (!TryComp<PolymorphedEntityComponent>(ent, out var polymorph))
             return;
 
         _polymorph.Revert(ent.Owner);

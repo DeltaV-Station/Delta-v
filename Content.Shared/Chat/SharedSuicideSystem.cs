@@ -1,10 +1,8 @@
-using System.Linq;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Shared.Chat;
 
@@ -42,7 +40,7 @@ public sealed class SharedSuicideSystem : EntitySystem
             appliedDamageSpecifier.DamageDict[key] = Math.Ceiling((double) (value * lethalAmountOfDamage / totalDamage));
         }
 
-        _damageableSystem.ChangeDamage(target.AsNullable(), appliedDamageSpecifier, true, origin: target);
+        _damageableSystem.TryChangeDamage(target, appliedDamageSpecifier, true, origin: target);
     }
 
     /// <summary>
@@ -66,6 +64,6 @@ public sealed class SharedSuicideSystem : EntitySystem
         }
 
         var damage = new DamageSpecifier(damagePrototype, lethalAmountOfDamage);
-        _damageableSystem.ChangeDamage(target.AsNullable(), damage, true, origin: target);
+        _damageableSystem.TryChangeDamage(target, damage, true, origin: target);
     }
 }

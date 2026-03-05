@@ -92,9 +92,6 @@
   - type: CanMoveInAir
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
     location: The Unknown
   - type: CosmicGod
   - type: CosmicCultExamine
@@ -125,6 +122,3 @@
     raffle:
         settings: short
   - type: GhostTakeoverAvailable
-  - type: Tag
-    tags:
-      - GhostOnlyWarp

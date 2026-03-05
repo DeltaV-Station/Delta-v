@@ -9,7 +9,6 @@ using Robust.Shared.Utility;
 
 // Shitmed Change
 using Content.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Inventory;
 
@@ -346,9 +345,9 @@ public partial class InventorySystem : EntitySystem
             if (!TryGetSlotContainer(uid, slotName, out var container, out _, inventory))
                 break;
 
-            if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform))
+            if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform) && _gameTiming.IsFirstTimePredicted)
             {
-                _transform.DropNextTo(entityUid, uid);
+                _transform.AttachToGridOrMap(entityUid, transform);
                 _randomHelper.RandomOffset(entityUid, 0.5f);
             }
 

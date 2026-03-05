@@ -79,8 +79,7 @@ public partial class RadiationSystem
 
                 // add rads to total rad exposure
                 if (ray.ReachedDestination)
-                    // DeltaV - apply a modifier if you are irradiating yourself
-                    rads += ray.Rads * (source.Entity.Owner == destUid ? (source.Entity.Comp1.SelfReceiverMultiplier * dest.SelfSourceMultiplier) : 1f);
+                    rads += ray.Rads;
 
                 if (!debug)
                     continue;

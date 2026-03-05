@@ -9,13 +9,11 @@
     - state: box_security
     - sprite: _DV/Objects/Storage/boxes.rsi
       state: recorder
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: CassetteTape
-          amount: 4
-        - id: TapeRecorder
+  - type: StorageFill
+    contents:
+    - id: CassetteTape
+      amount: 4
+    - id: TapeRecorder
 
 - type: entity
   parent: BoxCardboard
@@ -23,11 +21,10 @@
   name: mindshield box
   description: A box filled with mindshield implants.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: MindShieldImplanter
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: MindShieldImplanter
+      amount: 4
 
 - type: entity
   parent: BoxCardboard
@@ -35,8 +32,7 @@
   name: c4 box
   description: A box filled with C4s.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: C4
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: C4
+      amount: 4

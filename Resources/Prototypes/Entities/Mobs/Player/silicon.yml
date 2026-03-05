@@ -1,4 +1,4 @@
-﻿# Be careful with these as they get removed on shutdown too!
+# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
   description: Components added / removed from an entity that gets inserted into an AI core.
@@ -83,10 +83,9 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
-  - type: DamagedSiliconAccent
-    startPowerCorruptionAtCharIdx: 4
-    maxPowerCorruptionAtCharIdx: 20
-  - type: StationAiShop # DeltaV - AI Shop System
+  # Begin DeltaV - AI Shop System
+  - type: StationAiShop
+  # End DeltaV - AI Shop System
 
 - type: entity
   id: AiHeldIntellicard
@@ -160,12 +159,10 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.StationAiVisualLayers.Icon:
+      enum.StationAiVisualState.Key:
         unshaded:
           Empty: { state: empty }
           Occupied: { state: full }
-          Rebooting: { state: dead }
-          Dead: { state: dead }
   - type: Intellicard
 
 - type: entity
@@ -179,10 +176,9 @@
     - state: ai
       shader: unshaded
 
-# Empty AI core
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI core
+  name: AI Core
   description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
@@ -190,81 +186,30 @@
   suffix: Empty
   components:
   - type: Anchorable
-    flags:
+    flags: 
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
     blacklist:
       tags:
       - GhostOnlyWarp
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-        density: 200
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
-  - type: Damageable
-    damageModifierSet: StrongMetallic
-  - type: Repairable
-    doAfterDelay: 10
-    allowSelfRepair: false
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
-        acts: [ "Breakage" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlassReinforced:
-            min: 1
-            max: 2
-          SheetPlasteel:
-            min: 2
-            max: 2
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: DamageVisuals
-    thresholds: [25, 50, 75, 100, 200, 300, 400]
-    damageDivisor: 4
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Mobs/Silicon/station_ai_cracks.rsi
+        acts: [ "Destruction" ]
   - type: ApcPowerReceiver
-    powerLoad: 500
-  - type: ExtensionCableReceiver
-  - type: Battery
-    # Very important:
-    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
-    # This can not be done by changing the charge rate as the power supply ramps up over time.
-    # This disables prediction for this battery.
-    netsync: false
-    maxCharge: 300000
-    startingCharge: 300000
-  - type: ApcPowerReceiverBattery
-    idleLoad: 500
-    batteryRechargeRate: 1000
-    batteryRechargeEfficiency: 0 # Setting to zero until the light flickering issue associated with dynamic power loads is fixed 
+    powerLoad: 1000
+    needsPower: false
   - type: StationAiCore
   - type: StationAiVision
   - type: InteractionOutline
@@ -274,26 +219,12 @@
     layers:
     - state: base
     - state: ai_empty
-      map: ["enum.StationAiVisualLayers.Base"]
       shader: unshaded
     - state: ai
-      map: ["enum.StationAiVisualLayers.Icon"]
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
       visible: false
-    - state: ai_unpowered
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      visible: false
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          False: { visible: true }
-          True: { visible: false }
-      enum.StationAiVisuals.Broken:
-        enum.StationAiVisualLayers.Base:
-          False: { state: ai_empty }
-          True: { state: ai_error }
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
     interactFailureString: petting-failure-station-ai
@@ -318,22 +249,7 @@
         type: HolopadBoundUserInterface
       enum.StationAiCustomizationUiKey.Key:
         type: StationAiCustomizationBoundUserInterface
-  - type: Construction
-    graph: StationAiCore
-    node: stationAiCore
-  - type: ContainerContainer
-    containers:
-      board: !type:Container
-      station_ai_brain_slot: !type:Container
-      station_ai_mind_slot: !type:ContainerSlot
-        showEnts: true
-  - type: ContainerFill
-    containers:
-      board:
-      - StationAiCoreElectronics
-  - type: StaticPrice
-    price: 5000
-      
+
 # The job-ready version of an AI spawn.
 - type: entity
   id: PlayerStationAi
@@ -344,77 +260,6 @@
     containerId: station_ai_mind_slot
     job: StationAi
 
-# The station AI core assembly
-- type: entity
-  parent: BaseStructure
-  id: PlayerStationAiAssembly
-  name: AI core assembly
-  description: An unfinished computer core for housing an artifical intelligence.
-  components:
-  - type: Anchorable
-    flags: 
-    - Anchorable
-  - type: Rotatable
-  - type: Sprite
-    snapCardinals: true
-    sprite: Mobs/Silicon/station_ai.rsi
-    layers:
-    - state: frame_0
-      map: [ "enum.ConstructionVisuals.Layer" ]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ConstructionVisuals.Key:
-        enum.ConstructionVisuals.Layer:
-          frame: { state: frame_0 }
-          frameWithElectronics: { state: frame_1 }
-          frameWithSecuredElectronics: { state: frame_2 }
-          frameWithWires: { state: frame_3 }
-          frameWithBrain: { state: frame_3b }
-          frameWithBrainFinished: { state: frame_4 }
-          frameWithoutBrainFinished: { state: frame_4 }
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-        density: 200
-  - type: Damageable
-    damageModifierSet: StrongMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetPlasteel:
-            min: 2
-            max: 4
-      - !type:EmptyContainersBehaviour
-        containers:
-        - station_ai_brain_slot
-        - board
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Construction
-    graph: StationAiCore
-    node: frame
-  - type: ContainerContainer
-    containers:
-      board: !type:Container
-      station_ai_brain_slot: !type:Container
-
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
@@ -424,6 +269,8 @@
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
+  - type: BlockMovement
+    blockInteraction: false
   - type: SiliconLawProvider
     laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
@@ -456,10 +303,6 @@
     drawFov: false
   - type: Examiner
   - type: InputMover
-  - type: BlockMovement
-    blockInteraction: false
-  - type: GhostOnMove
-    mustBeDead: true
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
@@ -488,13 +331,6 @@
     - Silicon
     - HumanoidSilicon
   # End DeltaV additions
-  - type: ToggleableGhostRole
-    roleName: station-ai-ghost-role-name
-    roleDescription: station-ai-ghost-role-description
-    roleRules: ghost-role-information-silicon-rules
-    mindRoles:
-    - MindRoleGhostRoleSilicon
-    job: StationAi
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -596,8 +432,6 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
-  - type: RandomMetadata # Delta V - Gives syndiborgs cool names!
-    nameSegments: [NamesDeathCommando]
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -610,7 +444,6 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
-      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -624,12 +457,9 @@
       borg_brain:
         - SyndicateNeuroling # DeltaV
       borg_module:
-        - BorgModuleAdvancedTool # Delta V - replaced tool module
-        - BorgModuleCable # DeltaV
-        - BorgModuleConstruction # DeltaV
+        - BorgModuleTool
         - BorgModuleOperative
         - BorgModuleSyndicateWeapon
-        - BorgModuleCloakDeviceSyndicate # DeltaV
       borg_id_chip: # DeltaV - borg id chips
       - IdChipSyndie
   - type: ItemSlots
@@ -637,8 +467,6 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
-  - type: RandomMetadata # Delta V - Gives syndiborgs cool names!
-    nameSegments: [NamesDeathCommando]
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurGhostRole
@@ -651,7 +479,6 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
-      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -707,7 +534,6 @@
     raffle:
       settings: default
     reregister: false
-    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -744,7 +570,6 @@
       raffle:
         settings: default
       reregister: false
-      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -783,7 +608,6 @@
     raffle:
       settings: default
     reregister: false
-    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -823,7 +647,6 @@
     raffle:
       settings: default
     reregister: false
-    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -862,7 +685,6 @@
     raffle:
       settings: default
     reregister: false
-    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -900,5 +722,4 @@
     raffle:
       settings: default
     reregister: false
-    job: Borg
   - type: GhostTakeoverAvailable

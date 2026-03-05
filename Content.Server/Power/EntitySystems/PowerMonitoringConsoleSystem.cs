@@ -1,4 +1,6 @@
+using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
 using Content.Server.Power.NodeGroups;
@@ -7,8 +9,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.Station.Components;
 using Content.Shared.Power;
-using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -23,7 +23,6 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedMapSystem _sharedMapSystem = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     // Note: this data does not need to be saved
     private Dictionary<EntityUid, Dictionary<Vector2i, PowerCableChunk>> _gridPowerCableChunks = new();
@@ -512,7 +511,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         if (effectiveMax == 0)
             effectiveMax = 1;
 
-        return _battery.GetCharge((uid, battery)) / effectiveMax;
+        return battery.CurrentCharge / effectiveMax;
     }
 
     private void GetSourcesForNode(EntityUid uid, Node node, out List<PowerMonitoringConsoleEntry> sources)

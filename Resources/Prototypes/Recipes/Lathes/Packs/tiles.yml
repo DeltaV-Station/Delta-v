@@ -1,7 +1,9 @@
 ## Static
 
 - type: latheRecipePack
-  id: FloorDarkTilesStatic
+  parent:
+  - FloorTilesStaticDeltaV # DeltaV
+  id: FloorTilesStatic
   recipes:
   - FloorTileItemDark
   - FloorTileItemDarkDiagonalMini
@@ -12,10 +14,8 @@
   - FloorTileItemDarkPavement
   - FloorTileItemDarkPavementVertical
   - FloorTileItemDarkOffset
-
-- type: latheRecipePack
-  id: FloorSteelTilesStatic
-  recipes:
+  - FloorTileItemDarkSquiggly
+  - FloorTileItemSteelCheckerDark
   - FloorTileItemSteel
   - FloorTileItemSteelOffset
   - FloorTileItemSteelDiagonalMini
@@ -25,12 +25,6 @@
   - FloorTileItemSteelMono
   - FloorTileItemSteelPavement
   - FloorTileItemSteelPavementVertical
-  - FloorTileItemSteelCheckerDark
-  - FloorTileItemSteelCheckerLight
-
-- type: latheRecipePack
-  id: FloorWhiteTilesStatic
-  recipes:
   - FloorTileItemWhite
   - FloorTileItemWhiteOffset
   - FloorTileItemWhiteDiagonalMini
@@ -40,25 +34,14 @@
   - FloorTileItemWhiteMono
   - FloorTileItemWhitePavement
   - FloorTileItemWhitePavementVertical
-
-- type: latheRecipePack
-  id: FloorMaintsTilesStatic
-  recipes:
+  - FloorTileItemSteelCheckerLight
   - FloorTileItemGratingMaint
   - FloorTileItemTechmaint
   - FloorTileItemSteelMaint
   - FloorTileItemTechmaintDark
-
-- type: latheRecipePack
-  id: FloorWoodTilesStatic
-  recipes:
   - FloorTileItemWood
   - FloorTileItemWoodLarge
   - FloorTileItemWoodPattern
-
-- type: latheRecipePack
-  id: FloorConcreteTilesStatic
-  recipes:
   - FloorTileItemConcrete
   - FloorTileItemConcreteMono
   - FloorTileItemConcreteSmooth
@@ -68,32 +51,5 @@
   - FloorTileItemOldConcrete
   - FloorTileItemOldConcreteMono
   - FloorTileItemOldConcreteSmooth
-
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
-- type: latheRecipePack
-  id: FloorMarbleTilesStatic
-  recipes:
   - FloorTileItemWhiteMarble
   - FloorTileItemDarkMarble
-
-## Dynamic
-
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileDarkAstroGrass
-  - FauxTileLightAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
-  - FauxTileDesertAstroSand
-  - FauxTileMowedAstroSnow # DeltaV

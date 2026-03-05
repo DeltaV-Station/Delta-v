@@ -10023,13 +10023,15 @@ entities:
     - type: Transform
       pos: 17.5,-14.5
       parent: 1
-- proto: WarpPointEvacShuttle
+- proto: WarpPoint
   entities:
   - uid: 1457
     components:
     - type: Transform
       pos: 3.5,-5.5
       parent: 1
+    - type: WarpPoint
+      location: Evac Shuttle
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 1100

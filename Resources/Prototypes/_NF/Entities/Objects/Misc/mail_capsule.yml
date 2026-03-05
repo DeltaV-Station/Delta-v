@@ -41,7 +41,7 @@
         startingItem: null
         whitelist:
           components:
-          - Edible
+          - Food
         blacklist:
           components:
           - Storage
@@ -82,7 +82,7 @@
       icon-food:
         whitelist:
           components:
-          - Edible
+          - Food
       icon-cash:
         whitelist:
           components:
@@ -132,10 +132,9 @@
   - type: Storage
     grid:
     - 0,0,4,3
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: MailCapsulePrimed
+  - type: StorageFill
+    contents:
+      - id: MailCapsulePrimed
         amount: 10
   - type: Sprite
     layers:

@@ -23,8 +23,7 @@
       reagents:
       - ReagentId: Phlogiston
         Quantity: 100
-  - type: Edible
-    edible: Drink
+  - type: Drink
     solution: fountain
   - type: ExaminableSolution
     solution: fountain
@@ -44,7 +43,7 @@
     intersectRatio: 0.1
   - type: TileEntityEffect
     effects:
-    - !type:Flammable
+    - !type:FlammableReaction
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite

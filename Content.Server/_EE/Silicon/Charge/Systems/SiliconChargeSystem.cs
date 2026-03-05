@@ -1,8 +1,8 @@
 using Robust.Shared.Random;
 using Content.Shared._EE.Silicon.Components;
-using Content.Shared.Power.Components;
+using Content.Server.Power.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Temperature.Components;
+using Content.Server.Temperature.Components;
 using Content.Shared.Atmos.Components;
 using Content.Server.Popups;
 using Content.Shared.Popups;
@@ -11,14 +11,13 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
-using Content.Shared.PowerCell;
-using Content.Shared.Power.EntitySystems;
 // Begin TheDen - IPC Dynamic Power draw
 using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Components;
@@ -37,7 +36,6 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -45,7 +43,7 @@ public sealed class SiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out Entity<BatteryComponent>? batteryComp)
+    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp)
     {
         batteryComp = null;
         if (!HasComp<SiliconComponent>(silicon))
@@ -53,13 +51,8 @@ public sealed class SiliconChargeSystem : EntitySystem
 
 
         // try get a battery directly on the inserted entity
-        if (TryComp<BatteryComponent>(silicon, out var comp))
-        {
-            batteryComp = (silicon, comp);
-            return true;
-        }
-
-        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+        if (TryComp(silicon, out batteryComp)
+            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
             return true;
 
 
@@ -130,19 +123,15 @@ public sealed class SiliconChargeSystem : EntitySystem
                 drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
             }
 
-            // DeltaV - Sanity check
-            if (float.IsNaN(drainRateFinalAddi))
-                drainRateFinalAddi = 0f;
-
             // Ensures that the drain rate is at least 10% of normal,
             // and would allow at least 4 minutes of life with a max charge, to prevent cheese.
-            drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.Value.Comp.MaxCharge / 240);
+            drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
 
             // Drain the battery.
             _powerCell.TryUseCharge(silicon, frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
-            var chargePercent = (short) MathF.Round(_battery.GetCharge(batteryComp.Value.AsNullable()) / batteryComp.Value.Comp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }
@@ -226,10 +215,6 @@ public sealed class SiliconChargeSystem : EntitySystem
         {
             return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
         }
-
-        // DeltaV - Prevent divide by zero errors, smh
-        if (movement.CurrentSprintSpeed == 0)
-            return 0;
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(

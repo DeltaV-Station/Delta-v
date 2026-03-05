@@ -7,8 +7,9 @@ namespace Content.Shared.Trigger.Systems;
 /// <summary>
 /// System for creating triggers when entities are inserted into or removed from containers.
 /// </summary>
-public sealed class TriggerOnContainerInteractionSystem : TriggerOnXSystem
+public sealed class TriggerOnContainerInteractionSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -30,7 +31,7 @@ public sealed class TriggerOnContainerInteractionSystem : TriggerOnXSystem
         if (ent.Comp.ContainerId != null && ent.Comp.ContainerId != args.Container.ID)
             return;
 
-        Trigger.Trigger(ent.Owner, args.Entity, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Entity, ent.Comp.KeyOut);
     }
 
     private void OnRemovedFromContainer(Entity<TriggerOnRemovedFromContainerComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -41,7 +42,7 @@ public sealed class TriggerOnContainerInteractionSystem : TriggerOnXSystem
         if (ent.Comp.ContainerId != null && ent.Comp.ContainerId != args.Container.ID)
             return;
 
-        Trigger.Trigger(ent.Owner, args.Entity, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Entity, ent.Comp.KeyOut);
     }
 
     // Used by entities to trigger when they are inserted into or removed from a container
@@ -53,7 +54,7 @@ public sealed class TriggerOnContainerInteractionSystem : TriggerOnXSystem
         if (ent.Comp.ContainerId != null && ent.Comp.ContainerId != args.Container.ID)
             return;
 
-        Trigger.Trigger(ent.Owner, args.Container.Owner, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Container.Owner, ent.Comp.KeyOut);
     }
 
     private void OnGotRemovedFromContainer(Entity<TriggerOnGotRemovedFromContainerComponent> ent, ref EntGotRemovedFromContainerMessage args)
@@ -64,6 +65,6 @@ public sealed class TriggerOnContainerInteractionSystem : TriggerOnXSystem
         if (ent.Comp.ContainerId != null && ent.Comp.ContainerId != args.Container.ID)
             return;
 
-        Trigger.Trigger(ent.Owner, args.Container.Owner, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Container.Owner, ent.Comp.KeyOut);
     }
 }

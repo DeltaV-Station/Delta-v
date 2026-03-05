@@ -15,11 +15,7 @@
     - Write
     - Crayon
   - type: Crayon
-    deleteEmpty: false
-  - type: LimitedCharges
-    maxCharges: 100
-  - type: AutoRecharge
-    rechargeDuration: 2
+    capacity: 2147483647 # int.MaxValue, infinite charges
   - type: FlavorProfile
     flavors:
     - chewy

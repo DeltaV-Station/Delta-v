@@ -2,7 +2,7 @@ reagent-effect-guidebook-change-glimmer-reaction-effect =
     { $chance ->
         [1] Modifies
         *[other] modify
-    } the glimmer count by {$amount} points
+    } the glimmer count by {$count} points
 
 
 

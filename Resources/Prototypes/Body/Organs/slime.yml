@@ -21,7 +21,7 @@
         - id: Poison
         - id: Narcotic
         - id: Alcohol
-          rateModifier: 2.5
+          rateModifier: 0.25
     - type: SolutionContainerManager
       solutions:
         stomach:
@@ -38,6 +38,7 @@
     - type: Item
       size: Small
       heldPrefix: brain
+
 
 - type: entity
   id: OrganSlimeLungs

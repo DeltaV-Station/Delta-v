@@ -1,6 +1,6 @@
 using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
@@ -12,6 +12,7 @@ namespace Content.Server._DV.CosmicCult.EntitySystems;
 public sealed partial class CosmicEntropyDegenSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()

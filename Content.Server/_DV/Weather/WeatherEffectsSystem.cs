@@ -1,4 +1,4 @@
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weather;
@@ -75,7 +75,7 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
                     continue;
             }
 
-            if (_whitelist.IsWhitelistFailOrNull(weather.DamageBlacklist, uid))
+            if (_whitelist.IsBlacklistFailOrNull(weather.DamageBlacklist, uid))
                 _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
         }
     }

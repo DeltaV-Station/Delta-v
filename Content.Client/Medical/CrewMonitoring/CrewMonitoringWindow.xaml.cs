@@ -130,7 +130,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             };
 
             deparmentLabel.SetMessage(department);
-            deparmentLabel.StyleClasses.Add("font-large");
+            deparmentLabel.StyleClasses.Add(StyleNano.StyleClassTooltipActionDescription);
 
             SensorsTable.AddChild(deparmentLabel);
 
@@ -155,7 +155,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 HorizontalExpand = true,
             };
 
-            deparmentLabel.SetMessage(Loc.GetString("crew-monitoring-ui-no-department-label"));
+            deparmentLabel.SetMessage(Loc.GetString("crew-monitoring-user-interface-no-department"));
+            deparmentLabel.StyleClasses.Add(StyleNano.StyleClassTooltipActionDescription);
 
             SensorsTable.AddChild(deparmentLabel);
 
@@ -193,7 +194,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             };
 
             if (sensor.SuitSensorUid == _trackedEntity)
-                sensorButton.AddStyleClass(StyleClass.Positive);
+                sensorButton.AddStyleClass(StyleNano.StyleClassButtonColorGreen);
 
             SensorsTable.AddChild(sensorButton);
 
@@ -363,10 +364,10 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             var castSensor = (CrewMonitoringButton) sensor;
 
             if (castSensor.SuitSensorUid == prevTrackedEntity)
-                castSensor.RemoveStyleClass(StyleClass.Positive);
+                castSensor.RemoveStyleClass(StyleNano.StyleClassButtonColorGreen);
 
             else if (castSensor.SuitSensorUid == currTrackedEntity)
-                castSensor.AddStyleClass(StyleClass.Positive);
+                castSensor.AddStyleClass(StyleNano.StyleClassButtonColorGreen);
 
             if (castSensor?.Coordinates == null)
                 continue;

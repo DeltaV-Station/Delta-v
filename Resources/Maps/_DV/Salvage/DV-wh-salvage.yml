@@ -933,7 +933,7 @@ entities:
           maxVol: 20
           name: null
           reagents:
-          - data: []
+          - data: null
             ReagentId: Coffee
             Quantity: 13
   - uid: 379
@@ -950,7 +950,7 @@ entities:
           maxVol: 20
           name: null
           reagents:
-          - data: []
+          - data: null
             ReagentId: Coffee
             Quantity: 16
 - proto: DrinkJar
@@ -1031,13 +1031,13 @@ entities:
           maxVol: 20
           name: null
           reagents:
-          - data: []
+          - data: null
             ReagentId: Nutriment
             Quantity: 8
-          - data: []
+          - data: null
             ReagentId: Vitamin
             Quantity: 1
-          - data: []
+          - data: null
             ReagentId: Toxin
             Quantity: 10
 - proto: FoodBakedWaffleRoffle
@@ -1391,7 +1391,7 @@ entities:
           maxVol: 20
           name: null
           reagents:
-          - data: []
+          - data: null
             ReagentId: Desoxyephedrine
             Quantity: 20
 - proto: PosterContrabandEAT
@@ -2352,13 +2352,15 @@ entities:
     - type: Transform
       pos: 11.5,-0.5
       parent: 374
-- proto: WarpPointDebris
+- proto: WarpPoint
   entities:
   - uid: 368
     components:
     - type: Transform
       pos: -2.5,-6.5
       parent: 374
+    - type: WarpPoint
+      location: Space Debris
 - proto: WaterCooler
   entities:
   - uid: 346

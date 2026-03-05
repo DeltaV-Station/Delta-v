@@ -34,13 +34,12 @@ public sealed class NodeScannerSystem : EntitySystem
             connected.NextUpdate = _timing.CurTime + connected.LinkUpdateInterval;
 
             var attachedArtifact = connected.AttachedTo;
-            // DeltaV - begin of deleted artifact bugfix
-            if (Deleted(attachedArtifact) || !_transform.InRange(Transform(attachedArtifact).Coordinates, transform.Coordinates, scanner.MaxLinkedRange))
+            var artifactCoordinates = Transform(attachedArtifact).Coordinates;
+            if (!_transform.InRange(artifactCoordinates, transform.Coordinates, scanner.MaxLinkedRange))
             {
                 //scanner is too far, disconnect
                 RemCompDeferred(uid, connected);
             }
-            // DeltaV - end of deleted artifact bugfix
         }
     }
 

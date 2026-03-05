@@ -90,10 +90,8 @@
     solution: tank
   - type: InjectableSolution
     solution: tank
-  - type: Edible
-    edible: Drink
+  - type: Drink
     solution: tank
-    destroyOnEmpty: false
   - type: Spillable
     solution: tank
   - type: DumpableSolution

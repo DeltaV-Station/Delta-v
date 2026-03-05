@@ -3,8 +3,10 @@ using Content.Shared.Trigger.Components.Triggers;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed partial class TriggerOnLandSystem : TriggerOnXSystem
+public sealed partial class TriggerOnLandSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -14,6 +16,6 @@ public sealed partial class TriggerOnLandSystem : TriggerOnXSystem
 
     private void OnLand(Entity<TriggerOnLandComponent> ent, ref LandEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.User, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.User, ent.Comp.KeyOut);
     }
 }

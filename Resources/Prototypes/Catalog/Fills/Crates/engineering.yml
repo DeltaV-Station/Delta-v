@@ -4,22 +4,20 @@
   name: engineering gear crate
   description: Various engineering gear parts.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ClothingBeltUtility
-          amount: 2
-        - id: ClothingEyesGlassesMeson
-          amount: 2
-        - id: ClothingHeadHatHardhatYellow
-          amount: 2
-        - id: ClothingHeadHatWelding
-          amount: 2
-        - id: ClothingOuterVestHazard
-          amount: 3
-        - id: ClothingHandsGlovesColorYellow
-          amount: 2
+  - type: StorageFill
+    contents:
+      - id: ClothingBeltUtility
+        amount: 2
+      - id: ClothingEyesGlassesMeson
+        amount: 2
+      - id: ClothingHeadHatHardhatYellow
+        amount: 2
+      - id: ClothingHeadHatWelding
+        amount: 2
+      - id: ClothingOuterVestHazard
+        amount: 3
+      - id: ClothingHandsGlovesColorYellow
+        amount: 2
 
 - type: entity
   id: CrateEngineeringToolbox
@@ -27,14 +25,12 @@
   name: toolbox crate
   description: Two mechanical and two electrical toolboxes.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ToolboxMechanicalFilled
-          amount: 2
-        - id: ToolboxElectricalFilled
-          amount: 2
+  - type: StorageFill
+    contents:
+      - id: ToolboxMechanicalFilled
+        amount: 2
+      - id: ToolboxElectricalFilled
+        amount: 2
 
 #- type: entity
 #  id: CrateEngineeringPowercell
@@ -42,11 +38,10 @@
 #  name: AME crate
 #  description: Three microcreactor powercells.
 #  components:
-# - type: EntityTableContainerFill
-#   containers:
-#     entity_storage:
-#       id: PowerCellMicroreactor
-#       amount: 3
+#  - type: StorageFill
+#    contents:
+#      - id: PowerCellMicroreactor
+#        amount: 3
 
 - type: entity
   id: CrateEngineeringCableLV
@@ -54,10 +49,9 @@
   name: LV cable crate
   description: 3 coils of LV cables.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: CableApcStack
+  - type: StorageFill
+    contents:
+      - id: CableApcStack
         amount: 3
 
 - type: entity
@@ -66,10 +60,9 @@
   name: MV cable crate
   description: 3 coils of MV cables.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: CableMVStack
+  - type: StorageFill
+    contents:
+      - id: CableMVStack
         amount: 3
 
 - type: entity
@@ -78,10 +71,9 @@
   name: HV cable crate
   description: 3 coils of HV cables.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: CableHVStack
+  - type: StorageFill
+    contents:
+      - id: CableHVStack
         amount: 3
 
 - type: entity
@@ -90,11 +82,10 @@
   name: sealant grenade crate
   description: 5 metal foam sealant grenades.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: MetalFoamGrenade
-        amount: 5
+  - type: StorageFill
+    contents:
+    - id: MetalFoamGrenade
+      amount: 5
 
 - type: entity
   id: CrateEngineeringCableBulk
@@ -102,16 +93,14 @@
   name: bulk cable crate
   description: 2 coils each for every cable type.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: CableHVStack
-          amount: 2
-        - id: CableMVStack
-          amount: 2
-        - id: CableApcStack
-          amount: 2
+  - type: StorageFill
+    contents:
+      - id: CableHVStack
+        amount: 2
+      - id: CableMVStack
+        amount: 2
+      - id: CableApcStack
+        amount: 2
 
 - type: entity
   id: CrateEngineeringElectricalSupplies
@@ -119,14 +108,12 @@
   name: electrical supplies crate
   description: NT is not responsible for any workplace infighting relating to the insulated gloves included within these crates.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ToolboxElectricalFilled
-          amount: 2
-        - id: ClothingHandsGlovesColorYellow
-          amount: 2
+  - type: StorageFill
+    contents:
+      - id: ToolboxElectricalFilled
+        amount: 2
+      - id: ClothingHandsGlovesColorYellow
+        amount: 2
 
 - type: entity
   id: CrateEngineeringStationBeaconBundle
@@ -134,11 +121,10 @@
   name: station beacon bundle
   description: A crate containing 5 station beacon assemblies for modifying the station map.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: StationBeaconPart
-        amount: 5
+  - type: StorageFill
+    contents:
+    - id: StationBeaconPart
+      amount: 5
 
 - type: entity
   id: CrateEngineeringJetpack
@@ -146,10 +132,9 @@
   name: jetpack crate
   description: Two jetpacks for those who don't know how to use fire extinguishers.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: JetpackBlue
+  - type: StorageFill
+    contents:
+      - id: JetpackBlue
         amount: 2
 
 - type: entity
@@ -158,10 +143,9 @@
   name: mini jetpack crate
   description: Two mini jetpacks for those who want an extra challenge.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: JetpackMini
+  - type: StorageFill
+    contents:
+      - id: JetpackMini
         amount: 2
 
 - type: entity
@@ -170,14 +154,12 @@
   name: airlock kit
   description: A kit for building 6 airlocks, doesn't include tools.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: SheetSteel
-        - id: CableApcStack
-        - id: DoorElectronics
-          amount: 6
+  - type: StorageFill
+    contents:
+      - id: SheetSteel
+      - id: CableApcStack
+      - id: DoorElectronics
+        amount: 6
 
 - type: entity
   id: CrateEvaKit
@@ -185,14 +167,12 @@
   name: EVA kit
   description: A set consisting of two prestigious EVA suits and helmets.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ClothingHeadHelmetEVA
-          amount: 2
-        - id: ClothingOuterHardsuitEVA
-          amount: 2
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetEVA
+        amount: 2
+      - id: ClothingOuterHardsuitEVA
+        amount: 2
 
 - type: entity
   id: CrateRCDAmmo
@@ -200,11 +180,10 @@
   name: compressed matter crate
   description: Contains three compressed matter cartridges.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: RCDAmmo
-        amount: 3
+  - type: StorageFill
+    contents:
+    - id: RCDAmmo
+      amount: 3
 
 - type: entity
   id: CrateRCD
@@ -212,10 +191,9 @@
   name: RCD crate
   description: A crate containing a single rapid construction device.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: RCD
+  - type: StorageFill
+    contents:
+    - id: RCD
 
 - type: entity
   id: CrateParticleDecelerators
@@ -223,11 +201,10 @@
   name: particle decelerators crate
   description: A crate containing 3 Particle Decelerators.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: WeaponParticleDecelerator
-        amount: 3
+  - type: StorageFill
+    contents:
+    - id: WeaponParticleDecelerator
+      amount: 3
 
 - type: entity
   id: CrateEngineeringSpaceHeater
@@ -235,10 +212,9 @@
   name: space heater crate
   description: Contains a space heater for climate control.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: SpaceHeaterFlatpack
+  - type: StorageFill
+    contents:
+      - id: SpaceHeaterFlatpack
 
 - type: entityTable
   id: RandomTechBoardTable
@@ -259,13 +235,13 @@
 
 - type: entity
   id: CrateTechBoardRandom
-  parent: ToteBase
+  parent: CrateEngineering
   name: surplus boards
   description: Surplus boards from somewhere.
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:NestedSelector
+      entity_storage: !type:NestedSelector
         tableId: RandomTechBoardTable
         rolls: !type:RangeNumberSelector
           range: 6, 8
@@ -276,8 +252,7 @@
   name: air grenade crate
   description: A crate containing 3 air grenades.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: AirGrenade
-        amount: 3
+  - type: StorageFill
+    contents:
+    - id: AirGrenade
+      amount: 3

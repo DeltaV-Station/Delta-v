@@ -1,9 +1,11 @@
 ﻿using Content.Shared.ActionBlocker;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Weapons.Misc;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Chasm;
@@ -17,7 +19,6 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
 
     public override void Initialize()
     {
@@ -79,12 +80,6 @@ public sealed class ChasmSystem : EntitySystem
 
     private void OnStepTriggerAttempt(EntityUid uid, ChasmComponent component, ref StepTriggerAttemptEvent args)
     {
-        if (_grapple.IsEntityHooked(args.Tripper))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
         args.Continue = true;
     }
 

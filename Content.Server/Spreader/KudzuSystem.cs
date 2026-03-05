@@ -1,5 +1,4 @@
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Spreader;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

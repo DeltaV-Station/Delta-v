@@ -1,21 +1,14 @@
 using Content.Shared._DV.MedicalRecords;
 using Content.Shared.Access.Systems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.StationRecords;
 using Content.Server.StationRecords.Systems;
-using Content.Server.Access.Systems;
-using Content.Shared.Access.Components;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.MedicalRecords;
 
 public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
-    private static readonly TimeSpan ExpirationTime = TimeSpan.FromMinutes(5);
 
     public override void Initialize()
     {
@@ -33,7 +26,7 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
     public void SetStatus(StationRecordKey key, MedicalRecord record)
     {
         var name = _records.RecordName(key);
-        if (!string.IsNullOrEmpty(name))
+        if (name != string.Empty)
             UpdateMedicalRecords(name, record);
 
         _records.AddRecordEntry(key, record);
@@ -46,15 +39,7 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
         foreach (var key in keys)
         {
             if (_records.TryGetRecord<MedicalRecord>(key, out var record))
-            {
-                // Check if expired when accessed
-                if (record.LastUpdated != null && (_timing.CurTime - record.LastUpdated.Value) >= ExpirationTime)
-                {
-                    record = record with { Status = TriageStatus.None, ClaimedName = null, LastUpdated = null };
-                    SetStatus(key, record);
-                }
                 return record;
-            }
         }
         foreach (var key in keys)
         {
@@ -85,7 +70,7 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
     {
         if (_records.TryGetRecord<MedicalRecord>(patient, out var record) && status != TriageStatus.None)
         {
-            SetStatus(patient, record with { Status = status, LastUpdated = _timing.CurTime });
+            SetStatus(patient, record with { Status = status });
         }
         else
         {
@@ -95,26 +80,18 @@ public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 
     public void ClaimPatient(StationRecordKey patient, EntityUid claimer)
     {
-        // Require ID card with medical access to claim patient
-        if (!_idCard.TryFindIdCard(claimer, out var idCard))
-            return;
+        _access.FindStationRecordKeys(claimer, out var keys);
+        foreach (var key in keys)
+        {
+            var name = _records.RecordName(key);
+            if (name == string.Empty)
+                continue;
 
-        // Check if ID card has medical access
-        if (!TryComp<AccessComponent>(idCard.Owner, out var access) ||
-            !access.Tags.Contains("Medical"))
-            return;
+            if (!_records.TryGetRecord<MedicalRecord>(patient, out var record) || record.ClaimedName == name)
+                continue;
 
-        var claimerName = idCard.Comp.FullName;
-        if (string.IsNullOrEmpty(claimerName))
-            return;
-
-        if (!_records.TryGetRecord<MedicalRecord>(patient, out var record))
-            return;
-
-        // Makes claim patient toggleable
-        var newClaim = record.ClaimedName == claimerName ? null : claimerName;
-        var newTime = newClaim != null ? (TimeSpan?)_timing.CurTime : null;
-
-        SetStatus(patient, record with { ClaimedName = newClaim, LastUpdated = newTime });
+            SetStatus(patient, record with { ClaimedName = name });
+            break;
+        }
     }
 }

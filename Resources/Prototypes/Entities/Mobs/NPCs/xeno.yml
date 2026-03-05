@@ -67,10 +67,7 @@
   - type: Stamina
     critThreshold: 200
   - type: Bloodstream
-    bloodReagents:
-      reagents:
-      - ReagentId: FluorosulfuricAcid
-        Quantity: 1
+    bloodReagent: FluorosulfuricAcid
     bloodMaxVolume: 650
   - type: MeleeWeapon
     altDisarm: false
@@ -423,8 +420,7 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - Xeno
-    - SimpleHostile
+    - SimpleHostile # DeltaV - Was Xeno
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -523,10 +519,7 @@
   - type: Stamina
     critThreshold: 200
   - type: Bloodstream
-    bloodReagents:
-      reagents:
-      - ReagentId: FluorosulfuricAcid
-        Quantity: 1
+    bloodReagent: FluorosulfuricAcid
     bloodMaxVolume: 300
   - type: MeleeWeapon
     altDisarm: false

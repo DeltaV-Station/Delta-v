@@ -43,7 +43,6 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             SubscribeLocalEvent<GasFilterComponent, GasFilterChangeRateMessage>(OnTransferRateChangeMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterSelectGasMessage>(OnSelectGasMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterToggleStatusMessage>(OnToggleStatusMessage);
-            SubscribeLocalEvent<GasFilterComponent, MapInitEvent>(OnMapInit); // Frontier
 
         }
 
@@ -157,18 +156,18 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
         private void OnSelectGasMessage(EntityUid uid, GasFilterComponent filter, GasFilterSelectGasMessage args)
         {
-            if (args.Gas.HasValue)
+            if (args.ID.HasValue)
             {
-                if (Enum.IsDefined(typeof(Gas), args.Gas))
+                if (Enum.TryParse<Gas>(args.ID.ToString(), true, out var parsedGas))
                 {
-                    filter.FilteredGas = args.Gas;
+                    filter.FilteredGas = parsedGas;
                     _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
-                        $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to {args.Gas.ToString()}");
+                        $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to {parsedGas.ToString()}");
                     DirtyUI(uid, filter);
                 }
                 else
                 {
-                    Log.Warning($"{ToPrettyString(uid)} received GasFilterSelectGasMessage with an invalid ID: {args.Gas}");
+                    Log.Warning($"{ToPrettyString(uid)} received GasFilterSelectGasMessage with an invalid ID: {args.ID}");
                 }
             }
             else
@@ -212,19 +211,5 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
             args.DeviceFlipped = inlet != null && filterNode != null && inlet.CurrentPipeDirection.ToDirection() == filterNode.CurrentPipeDirection.ToDirection().GetClockwise90Degrees();
         }
-
-        // Frontier - Start: Enable filters at roundstart
-        private void OnMapInit(EntityUid uid, GasFilterComponent filter, MapInitEvent args) // Frontier - Init on map
-        {
-            if (filter.StartOnMapInit)
-            {
-                filter.Enabled = true;
-                DirtyUI(uid, filter);
-
-                UpdateAppearance(uid, filter);
-                _userInterfaceSystem.CloseUi(uid, GasFilterUiKey.Key);
-            }
-        }
-        // Frontier - End: Enable filters at roundstart
     }
 }

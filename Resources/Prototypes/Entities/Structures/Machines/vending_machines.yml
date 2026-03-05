@@ -325,7 +325,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1
-    energy: 2.0
+    energy: 1.3
     color: "#ffb0b0"
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
@@ -360,7 +360,7 @@
     access: [["Service"]]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#4b93ad"
 
 - type: entity
@@ -421,7 +421,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.8
-    energy: 3.0
+    energy: 1.6
     color: "#3db83b"
 
 - type: entity
@@ -452,7 +452,7 @@
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: PointLight
     radius: 1.8
-    energy: 3.0
+    energy: 1.6
     color: "#3db83b"
 
 - type: entity
@@ -493,7 +493,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 2.0
+    energy: 1.3
     color: "#ad7c4b"
 
 - type: entity
@@ -529,7 +529,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#3c5eb5"
 
 - type: entity
@@ -549,7 +549,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#423438"
 
 - type: entity
@@ -570,7 +570,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#A50824"
 
 - type: entity
@@ -593,7 +593,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#44964A"
 
 - type: entity
@@ -615,7 +615,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#CBC6BE"
 
 - type: entity
@@ -638,7 +638,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#D3A44D"
 
 - type: entity
@@ -672,7 +672,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#66538F"
 
 - type: entity
@@ -708,7 +708,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#6927C5"
 
 - type: entity
@@ -744,7 +744,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#D82929"
 
 - type: entity
@@ -780,7 +780,7 @@
     pack: SmiteGoodbyes
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#00E645"
 
 - type: entity
@@ -813,7 +813,7 @@
     access: [["Kitchen"]]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#4b93ad"
 
 - type: entity
@@ -843,7 +843,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#9a18d6"
 
 - type: entity
@@ -876,7 +876,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#6148c7"
 
 - type: entity
@@ -906,7 +906,7 @@
     access: [["Engineering"]]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#b89e2a"
 
 - type: entity
@@ -939,7 +939,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#9dc5c9"
   - type: GuideHelp
     guides:
@@ -949,11 +949,13 @@
   parent: VendingMachineMedicalBase
   id: VendingMachineMedical
   name: NanoMed Plus
+  description: It's a medical drug dispenser. Natural chemicals only!
   components:
   - type: VendingMachine
     pack: NanoMedPlusInventory
     offState: off
   - type: Sprite
+    sprite: Structures/Machines/VendingMachines/medical.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -996,7 +998,7 @@
     access: [["Hydroponics"]]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#326e3f"
 
 - type: entity
@@ -1030,7 +1032,7 @@
     access: [["Security"]]
   - type: PointLight
     radius: 1
-    energy: 2.0
+    energy: 1.2
     color: "#78645c"
   - type: GuideHelp
     guides:
@@ -1067,7 +1069,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#326e3f"
 
 - type: entity
@@ -1110,7 +1112,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#c73434"
 
 - type: entity
@@ -1140,7 +1142,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#737785"
 
 - type: entity
@@ -1160,7 +1162,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#3c5eb5"
 
 - type: entity
@@ -1180,7 +1182,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#CE3401"
 
 - type: entity
@@ -1200,7 +1202,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#5F6A1C"
 
 - type: entity
@@ -1220,15 +1222,14 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#207E79"
 
 - type: entity
   parent: VendingMachine
   id: VendingMachineSovietSoda
-  name: ВОДА
+  name: BODA
   description: An old vending machine containing sweet water.
-  suffix: VODA
   components:
   - type: VendingMachine
     pack: BodaInventory
@@ -1256,7 +1257,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#389690"
   - type: RussianAccent
 
@@ -1293,7 +1294,7 @@
       shader: unshaded
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#c73434"
 
 - type: entity
@@ -1325,7 +1326,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#9dc5c9"
 
 - type: entity
@@ -1359,7 +1360,7 @@
     access: [["Robotics"]] # DeltaV: Robotics access instead of Research
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#B0ADA9"
   - type: GuideHelp
     guides:
@@ -1390,7 +1391,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#d4ab33"
 
 - type: entity
@@ -1422,7 +1423,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#326e3f"
 
 - type: entity
@@ -1455,7 +1456,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#ffe599"
 
 - type: entity
@@ -1482,7 +1483,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#b89f25"
   - type: ShopVendor # DeltaV
     pack: SalvageVendorInventory
@@ -1535,7 +1536,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#d4ab33"
 
 # job clothing
@@ -1567,7 +1568,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#326e3f"
   - type: AccessReader
     access: [["Hydroponics"]]
@@ -1627,7 +1628,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#d82929"
   - type: AccessReader
     access: [["Security"]]
@@ -1685,7 +1686,7 @@
     access: [["Chapel"]]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#CCCCCC" #The holy C
 
 - type: entity
@@ -1715,7 +1716,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#b89e2a"
   - type: AccessReader
     access: [["Cargo"]]
@@ -1831,7 +1832,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
@@ -1863,7 +1864,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
@@ -1951,7 +1952,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#6927C5"
   - type: AccessReader
     access: [["Janitor"]]
@@ -2011,7 +2012,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#d82929"
   - type: AccessReader
     access: [["NuclearOperative"], ["SyndicateAgent"]]
@@ -2123,7 +2124,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#48CF48"
   - type: AccessReader
     access: [["CentralCommand"]]
@@ -2157,7 +2158,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#3c5eb5"
   - type: DatasetVocalizer
     dataset: HappyHonkAds
@@ -2186,7 +2187,7 @@
   - type: Speech
   - type: PointLight
     radius: 1.5
-    energy: 2.0 # reduced energy since the color is pure white
+    energy: 1.3 # reduced energy since the color is pure white
     color: "#FFFFFF"
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/pride.rsi
@@ -2211,7 +2212,7 @@
   - type: VendingMachine
     pack: TankDispenserEVAInventory
   - type: Sprite
-    sprite: _DV/Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualizer for remaining tanks as layers # Delta V - Changed Sprites
+    sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     state: dispenser
 
 - type: entity
@@ -2224,7 +2225,7 @@
   - type: VendingMachine
     pack: TankDispenserEngineeringInventory
   - type: Sprite
-    sprite: _DV/Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualizer for remaining tanks as layers # Delta V - Changed Sprites
+    sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     layers:
     - state: dispenser
     - state: dispensereng
@@ -2279,7 +2280,7 @@
   parent: VendingMachineWallmount
   id: VendingMachineWallMedicalCivilian
   name: NanoMed band-aid
-  description: It's a wall-mounted medical equipment dispenser. Natural chemicals only!
+  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
   components:
   - type: VendingMachine
     pack: NanoMedCivilianWallInventory
@@ -2299,7 +2300,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.3
-    energy: 3.0
+    energy: 1.6
     color: "#43ccb5"
   - type: GuideHelp
     guides:
@@ -2309,11 +2310,13 @@
   parent: VendingMachineWallMedicalCivilian
   id: VendingMachineWallMedical
   name: NanoMed
+  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
   components:
   - type: VendingMachine
     pack: NanoMedInventory
     offState: off
   - type: Sprite
+    sprite: Structures/Machines/VendingMachines/wallmed.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

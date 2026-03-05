@@ -5,10 +5,10 @@
   playTimeTracker: JobMedicalBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 60h
+      time: 216000 #60 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 6h
+      time: 21600 #6 hrs
   canBeAntag: false
   icon: JobIconMedicalBorg
   supervisors: job-supervisors-cmo

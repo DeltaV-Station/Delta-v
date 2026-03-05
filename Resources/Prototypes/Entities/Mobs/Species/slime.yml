@@ -74,10 +74,7 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagents: # TODO Color slime blood based on their slime color or smth
-      reagents:
-      - ReagentId: Slime
-        Quantity: 1
+    bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
   - type: Barotrauma
     damage:
       types:
@@ -91,14 +88,15 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
-            Heat: 0.05
+            Heat: 0.1
       - !type:PopupMessage
         type: Local
         visualType: Large

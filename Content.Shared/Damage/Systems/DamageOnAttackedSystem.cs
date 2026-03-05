@@ -73,9 +73,9 @@ public sealed class DamageOnAttackedSystem : EntitySystem
             }
         }
 
-        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity);
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity);
 
-        if (totalDamage.AnyPositive())
+        if (totalDamage != null && totalDamage.AnyPositive())
         {
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} injured themselves by attacking {ToPrettyString(entity):target} and received {totalDamage.GetTotal():damage} damage");
             _audioSystem.PlayPredicted(entity.Comp.InteractSound, entity, args.User);

@@ -1,5 +1,4 @@
 
-using Content.Server.Administration.Systems;
 using Content.Server.Physics.Controllers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -9,7 +8,7 @@ namespace Content.Server.Physics.Components;
 /// <summary>
 /// A component which makes its entity chasing entity with selected component.
 /// </summary>
-[RegisterComponent, Access(typeof(ChasingWalkSystem), typeof(AdminVerbSystem)), AutoGenerateComponentPause]
+[RegisterComponent, Access(typeof(ChasingWalkSystem)), AutoGenerateComponentPause]
 public sealed partial class ChasingWalkComponent : Component
 {
     /// <summary>
@@ -79,16 +78,4 @@ public sealed partial class ChasingWalkComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? ChasingEntity;
-
-    /// <summary>
-    /// whether the entity should point in the direction its moving
-    /// </summary>
-    [DataField]
-    public bool RotateWithImpulse;
-
-    /// <summary>
-    /// Sprite rotation offset.
-    /// </summary>
-    [DataField]
-    public Angle RotationAngleOffset = Angle.Zero;
 }

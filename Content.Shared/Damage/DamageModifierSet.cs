@@ -1,4 +1,3 @@
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;

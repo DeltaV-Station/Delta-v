@@ -1,8 +1,8 @@
+using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
-using Content.Shared.Popups;
 using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.Prototypes;
 using Content.Shared.Whitelist;
@@ -39,43 +39,29 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
         if (_whitelist.IsWhitelistFail(vessel.Whitelist, ent))
             return;
 
-        var purchasingGrid = Transform(ent).GridUid;
-        Entity<StationBankAccountComponent>? bankAccount = null;
-        if (ent.Comp.UseStationFunds)
+        if (GetBankAccount(ent) is not {} bank)
+            return;
+
+        if (bank.Comp.Accounts[bank.Comp.PrimaryAccount] < vessel.Price)
         {
-            bankAccount = GetBankAccount(ent);
-            if (!bankAccount.HasValue)
-            {
-                var popup = Loc.GetString("shipyard-console-error-bank");
-                Popup.PopupEntity(popup, ent, user, PopupType.SmallCaution);
-                Audio.PlayPvs(ent.Comp.DenySound, ent);
-                return;
-            }
-
-            if (bankAccount.Value.Comp.Accounts[bankAccount.Value.Comp.PrimaryAccount] < vessel.Price)
-            {
-                var popup = Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price));
-                Popup.PopupEntity(popup, ent, user, PopupType.SmallCaution);
-                Audio.PlayPvs(ent.Comp.DenySound, ent);
-                return;
-            }
-
-            purchasingGrid = bankAccount.Value.Owner;
-        }
-
-        if (purchasingGrid is not { } grid
-            || !_shipyard.TrySendShuttle(grid, vessel.Path, out var shuttle))
-        {
-            var popup = Loc.GetString("shipyard-console-error");
-            Popup.PopupEntity(popup, ent, user, PopupType.SmallCaution);
+            var popup = Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price));
+            Popup.PopupEntity(popup, ent, user);
             Audio.PlayPvs(ent.Comp.DenySound, ent);
             return;
         }
 
-        if (bankAccount.HasValue)
-            _cargo.UpdateBankAccount(bankAccount.Value.Owner, -vessel.Price, _cargo.CreateAccountDistribution(bankAccount.Value));
+        if (_shipyard.TrySendShuttle(bank.Owner, vessel.Path) is not {} shuttle)
+        {
+            var popup = Loc.GetString("shipyard-console-error");
+            Popup.PopupEntity(popup, ent, user);
+            Audio.PlayPvs(ent.Comp.DenySound, ent);
+            return;
+        }
 
-        _meta.SetEntityName(shuttle.Value, $"{vessel.Name} {_random.Next(1000):000}");
+        _meta.SetEntityName(shuttle, $"{vessel.Name} {_random.Next(1000):000}");
+
+        _cargo.UpdateBankAccount((bank, bank), -vessel.Price, _cargo.CreateAccountDistribution(bank));
+
         var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name));
         _radio.SendRadioMessage(ent, message, ent.Comp.Channel, ent);
         Audio.PlayPvs(ent.Comp.ConfirmSound, ent);
@@ -90,7 +76,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
             if (!_ui.IsUiOpen(uid, ShipyardConsoleUiKey.Key))
                 return;
 
-            if (GetBankAccount(uid) is { } bank)
+            if (GetBankAccount(uid) is {} bank)
                 UpdateUI(uid, args.Balance[bank.Comp.PrimaryAccount]);
         }
     }
@@ -102,7 +88,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
     private void UpdateUI(EntityUid uid)
     {
-        if (GetBankAccount(uid) is { } bank)
+        if (GetBankAccount(uid) is {} bank)
             UpdateUI(uid, bank.Comp.Accounts[bank.Comp.PrimaryAccount]);
     }
 
@@ -117,7 +103,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
     private Entity<StationBankAccountComponent>? GetBankAccount(EntityUid console)
     {
-        if (_station.GetOwningStation(console) is not { } station)
+        if (_station.GetOwningStation(console) is not {} station)
             return null;
 
         if (!TryComp<StationBankAccountComponent>(station, out var bank))

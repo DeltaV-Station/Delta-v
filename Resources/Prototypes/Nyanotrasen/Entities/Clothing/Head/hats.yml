@@ -80,7 +80,7 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadTinfoil
   id: ClothingHeadCage
   name: insulative headcage
   suffix: SelfUnremovable
@@ -93,12 +93,6 @@
     equipDelay: 5
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: SelfUnremovableClothing
-  - type: PsionicallyInsulative
-    shieldsFromPsionics: false
-    canBeFried: true
-  - type: GuideHelp
-    guides:
-    - Psionics
   - type: Tag
     tags:
     - ForensicBeltEquip

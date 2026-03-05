@@ -70,7 +70,6 @@
   parent: BaseAction
   id: ActionRgbLight
   components:
-  - type: TargetAction
   - type: EntityTargetAction
     whitelist: { components: [ PointLight ] }
     event: !type:ChangeComponentsSpellEvent

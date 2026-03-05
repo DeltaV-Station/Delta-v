@@ -4,19 +4,17 @@
   name: mining conscription kit
   description: A duffel bag containing everything a crewmember needs to support a shaft miner in the field.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingEyesGlassesMeson
-        - id: MineralScanner
-        - id: OreBag
-        - id: ClothingUniformJumpsuitSalvageSpecialist
-        - id: EncryptionKeyCargo
-        - id: ClothingMaskGasExplorer
-        - id: WeaponProtoKineticAccelerator
-        - id: SurvivalKnife
-        - id: FlashlightSeclite
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesGlassesMeson
+    - id: MineralScanner
+    - id: OreBag
+    - id: ClothingUniformJumpsuitSalvageSpecialist
+    - id: EncryptionKeyCargo
+    - id: ClothingMaskGasExplorer
+    - id: WeaponProtoKineticAccelerator
+    - id: SurvivalKnife
+    - id: FlashlightSeclite
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -24,26 +22,22 @@
   name: syndicate autodoc bundle
   description: A large duffel bag containing parts for a sinister-looking Mk. XIV Autodoc.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: AutodocSyndieFlatpack
-        - id: OperatingTableFlatpack
-        - id: Multitool
-        - id: ChemistryBottleChloralHydrate # stronger than n2o as you can be awake during safe operation
-        - id: Syringe
+  - type: StorageFill
+    contents:
+    - id: AutodocSyndieFlatpack
+    - id: OperatingTableFlatpack
+    - id: Multitool
+    - id: ChemistryBottleChloralHydrate # stronger than n2o as you can be awake during safe operation
+    - id: Syringe
 
 - type: entity
   parent: ClothingBackpackDuffelMedical
   id: ClothingBackpackDuffelRecruiterInterdyne
   suffix: Interdyne, Uniform
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskInterdyneChemistry
-        - id: ClothingEyesGlassesChemicalInterdyne
-        - id: ClothingOuterInterdyneChemistrySuit
-        - id: ClothingUniformInterdyneChemist
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskInterdyneChemistry
+    - id: ClothingEyesGlassesChemicalInterdyne
+    - id: ClothingOuterInterdyneChemistrySuit
+    - id: ClothingUniformInterdyneChemist

@@ -1,16 +1,17 @@
-using System.Linq;
 using Content.Server.Store.Components;
+using Content.Shared.UserInterface;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
-using Content.Shared.Store.Events;
-using Content.Shared.UserInterface;
+using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Linq;
+using Robust.Shared.Timing;
+using Content.Shared.Mind;
 
 namespace Content.Server.Store.Systems;
 
@@ -36,7 +37,6 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
-        SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
 
         InitializeUi();
         InitializeCommand();
@@ -81,9 +81,7 @@ public sealed partial class StoreSystem : EntitySystem
         if (component.AccountOwner == mind)
             return;
 
-        if (!args.Silent)
-            _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
-
+        _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
         args.Cancel();
     }
 
@@ -155,7 +153,7 @@ public sealed partial class StoreSystem : EntitySystem
         // same tick
         currency.Comp.Price.Clear();
         if (stack != null)
-            _stack.SetCount((currency.Owner, stack), 0);
+            _stack.SetCount(currency.Owner, 0, stack);
 
         QueueDel(currency);
         return true;
@@ -189,12 +187,6 @@ public sealed partial class StoreSystem : EntitySystem
         UpdateUserInterface(null, uid, store);
         return true;
     }
-
-    private void OnIntrinsicStoreAction(Entity<StoreComponent> ent, ref IntrinsicStoreActionEvent args)
-    {
-        ToggleUi(args.Performer, ent.Owner, ent.Comp);
-    }
-
 }
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs

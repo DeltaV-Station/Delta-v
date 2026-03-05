@@ -167,21 +167,15 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
 
-        /// <summary>
-        /// Whether a user can pickup the given item.
-        /// </summary>
-        /// <param name="user">The mob trying to pick up the item.</param>
-        /// <param name="item">The item being picked up.</param>
-        /// <param name="showPopup">Whether or not to show a popup to the player telling them why the attempt failed.</param>
-        public bool CanPickup(EntityUid user, EntityUid item, bool showPopup = false)
+        public bool CanPickup(EntityUid user, EntityUid item)
         {
-            var userEv = new PickupAttemptEvent(user, item, showPopup);
+            var userEv = new PickupAttemptEvent(user, item);
             RaiseLocalEvent(user, userEv);
 
             if (userEv.Cancelled)
                 return false;
 
-            var itemEv = new GettingPickedUpAttemptEvent(user, item, showPopup);
+            var itemEv = new GettingPickedUpAttemptEvent(user, item);
             RaiseLocalEvent(item, itemEv);
 
             return !itemEv.Cancelled;

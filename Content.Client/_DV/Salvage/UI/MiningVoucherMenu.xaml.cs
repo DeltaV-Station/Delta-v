@@ -37,7 +37,7 @@ public sealed partial class MiningVoucherMenu : RadialMenu
         {
             var index = i; // copy so the closure doesn't borrow it
             var kit = _proto.Index(comp.Kits[i]);
-            var button = new RadialMenuButton()
+            var button = new RadialMenuTextureButton()
             {
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64f, 64f),

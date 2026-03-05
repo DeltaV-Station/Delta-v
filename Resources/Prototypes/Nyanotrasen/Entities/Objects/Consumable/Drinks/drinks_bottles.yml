@@ -14,7 +14,7 @@
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sojubottle.rsi
 
 - type: entity
-  parent: [DrinkBaseMaterialGlass, DrinkBaseCup]
+  parent: DrinkGlassBase
   id: DrinkTokkuri
   name: tokkuri
   description: Floral and full of osake!

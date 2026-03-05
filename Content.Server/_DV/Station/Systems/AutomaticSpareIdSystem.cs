@@ -3,16 +3,13 @@ using Content.Server._DV.Cabinet;
 using Content.Server._DV.Station.Components;
 using Content.Server._DV.Station.Events;
 using Content.Server.Chat.Systems;
-using Content.Server.NukeOps;
 using Content.Server.Station.Components;
 using Content.Shared._DV.CCVars;
 using Content.Shared.Access.Components;
 using Content.Shared.Access;
-using Content.Shared.NukeOps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Station.Systems;
 
@@ -33,7 +30,6 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         SubscribeLocalEvent<AutomaticSpareIdComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AutomaticSpareIdComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<AutomaticSpareIdComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
-        SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
 
         Subs.CVar(_cfg, DCCVars.SpareIdAutoUnlock, a => _autoUnlock = a, true);
         Subs.CVar(_cfg, DCCVars.SpareIdAlertDelay, a => _alertDelay = a, true);
@@ -67,19 +63,6 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         {
             MoveToUnlocked(ent);
         }
-        else if (ent.Comp.State is AutomaticSpareIdState.WarOps)
-        {
-            // Default to these, then check if there is a captain
-            var message = ent.Comp.WarOpsUnlockedMessageACO;
-            var accessGranted = ent.Comp.GrantAccessToCommand;
-            if (HasCaptain(ent))
-            {
-                message = ent.Comp.WarOpsUnlockedMessageCaptain;
-                accessGranted = ent.Comp.GrantAccessToCaptain;
-            }
-            ent.Comp.State = AutomaticSpareIdState.AwaitingUnlock;
-            MoveToUnlocked(ent, accessGranted, message);
-        }
         else
         {
             DebugTools.Assert($"Spare ID state timed out with unexpected state {ent.Comp.State}");
@@ -94,7 +77,7 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
             MoveToAlerted(ent);
     }
 
-    private static void RoundStartCaptain(Entity<AutomaticSpareIdComponent> ent)
+    private void RoundStartCaptain(Entity<AutomaticSpareIdComponent> ent)
     {
         ent.Comp.State = AutomaticSpareIdState.CaptainPresent;
         ent.Comp.Timeout = null;
@@ -119,18 +102,6 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         MoveToAlerted(ent);
     }
 
-    private void OnWarDeclared(ref WarDeclaredEvent args)
-    {
-        if (args.Status == WarConditionStatus.YesWar)
-        {
-            foreach (var spareId in EntityQuery<AutomaticSpareIdComponent>())
-            {
-                spareId.Timeout = _timing.CurTime + spareId.WarOpsUnlockDelay;
-                spareId.State = AutomaticSpareIdState.WarOps;
-            }
-        }
-    }
-
     private bool HasCaptain(Entity<AutomaticSpareIdComponent> ent)
     {
         if (!TryComp<StationJobsComponent>(ent, out var stationJobs))
@@ -149,13 +120,7 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
         _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.AwaitingUnlockMessage, ("minutes", _unlockDelay.TotalMinutes)), colorOverride: Color.Gold);
     }
 
-    /// <summary>
-    ///     Unlocks all spare ID cabinets, giving access to a certain access prototype and displays a message to the station.
-    /// </summary>
-    /// <param name="ent">The station entity that has the <see cref="AutomaticSpareIdComponent"/>.</param>
-    /// <param name="newSpareIdAccess">The access to give to the spare ID cabinet. If not specified or null, will default to ent.Comp.GrantAccessToCommand</param>
-    /// <param name="unlockMessageLocId">The message to display to the station upon unlocking the spare ID. If not specified or null, will default to ent.Comp.UnlockedMessage</param>
-    private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent, ProtoId<AccessLevelPrototype>? newSpareIdAccess = null, LocId? unlockMessageLocId = null)
+    private void MoveToUnlocked(Entity<AutomaticSpareIdComponent> ent)
     {
         DebugTools.Assert(ent.Comp.State is AutomaticSpareIdState.AwaitingUnlock, $"Spare ID state has unexpected state {ent.Comp.State} on unlocking");
 
@@ -169,18 +134,12 @@ public sealed class AutomaticSpareIdSystem : EntitySystem
             if (accesses.Count <= 0)
                 continue;
 
-            if (!newSpareIdAccess.HasValue)
-                newSpareIdAccess = ent.Comp.GrantAccessToCommand; // Default to command if no access is specified
-
-            accesses.Add([newSpareIdAccess.Value]);
+            accesses.Add([ent.Comp.GrantAccessTo]);
             Dirty(uid, accessReader);
             RaiseLocalEvent(uid, new AccessReaderConfigurationChangedEvent());
         }
 
-        if (!unlockMessageLocId.HasValue)
-            unlockMessageLocId = ent.Comp.UnlockedMessage; // Default message if nothing is specified
-
-        _chat.DispatchStationAnnouncement(ent, Loc.GetString(unlockMessageLocId), colorOverride: Color.Red);
+        _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.UnlockedMessage), colorOverride: Color.Red);
     }
 
     private void MoveToCaptainPresent(Entity<AutomaticSpareIdComponent> ent)

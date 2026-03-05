@@ -2,8 +2,7 @@
   id: CrateHolyWaterKit
   parent: CrateScienceSecure
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: BoxHolyWater
-        amount: 1
+    - type: StorageFill
+      contents:
+        - id: BoxHolyWater
+          amount: 1

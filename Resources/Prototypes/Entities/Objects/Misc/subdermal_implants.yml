@@ -155,18 +155,6 @@
     targetUser: true
 
 - type: entity
-  parent: BaseSubdermalImplant
-  id: RadioSyndicateImplant # DeltaV - Renamed
-  name: radio implant
-  description: This implant grants access to the Syndicate channel without a headset.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-  - type: RadioImplant
-    radioChannels:
-    - Syndicate
-
-- type: entity
   parent: [ BaseSubdermalImplant, StorePresetUplink ]
   id: UplinkImplant
   name: uplink implant
@@ -325,6 +313,7 @@
       tags:
       - SubdermalImplant
       - HideContextMenu
+      - MacroBomb
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -350,6 +339,7 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+    - DeathAcidifier
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -404,15 +394,3 @@
   components:
   - type: RattleOnTrigger
     radioChannel: CentCom
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: RadioImplantCentcomm
-  name: centcomm radio implant
-  description: This implant grants access to the Centcomm channel without a headset. Only authorized for Centcomm employees.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-  - type: RadioImplant
-    radioChannels:
-    - CentCom

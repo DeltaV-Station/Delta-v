@@ -117,13 +117,13 @@ public sealed class EnergyGunSystem : EntitySystem
 
         component.CurrentFireMode = fireMode;
 
-        if (TryComp(uid, out BatteryAmmoProviderComponent? batteryAmmoProvider))
+        if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
         {
             if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
                 return;
 
-            batteryAmmoProvider.Prototype = fireMode.Prototype;
-            batteryAmmoProvider.FireCost = fireMode.FireCost;
+            projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
+            projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
 
             if (user != null)
             {

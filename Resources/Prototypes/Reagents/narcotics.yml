@@ -4,7 +4,6 @@
   group: Narcotics
   desc: reagent-desc-desoxyephedrine
   physicalDesc: reagent-physical-desc-translucent
-  contrabandSeverity: Major
   flavor: bitter
   color: "#FAFAFA"
   boilingPoint: 212.0  # Dexosyephedrine vape when?
@@ -19,8 +18,7 @@
             Cellular: 1 # DeltaV - meth rots you just like in real life :D
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Desoxyephedrine
+        - !type:ReagentThreshold
           min: 30
         damage:
           types:
@@ -28,41 +26,40 @@
             Asphyxiation: 2
     Narcotic:
       effects:
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectStunned
+      - !type:GenericStatusEffect
+        key: Stun
         time: 3
         type: Remove
-      - !type:ModifyKnockdown
+      - !type:GenericStatusEffect
+        key: KnockedDown
         time: 3
         type: Remove
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-      - !type:Addicting # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
-        - !type:ReagentCondition
-          reagent: Desoxyephedrine
+        - !type:ReagentThreshold
           min: 0.25
       - !type:SuppressAddiction
     Medicine:
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentCondition
-          reagent: Desoxyephedrine
+        - !type:ReagentThreshold
           min: 20
 
 - type: reagent
@@ -71,7 +68,6 @@
   group: Narcotics
   desc: reagent-desc-ephedrine
   physicalDesc: reagent-physical-desc-powdery
-  contrabandSeverity: Minor
   flavor: bitter
   color: "#D2FFFA"
   boilingPoint: 255.0
@@ -79,29 +75,29 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Ephedrine
+        - !type:ReagentThreshold
           min: 20
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectStunned
+      - !type:GenericStatusEffect
+        key: Stun
         time: 1
         type: Remove
-      - !type:ModifyKnockdown
+      - !type:GenericStatusEffect
+        key: KnockedDown
         time: 1
         type: Remove
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -116,8 +112,7 @@
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentCondition
-          reagent: Ephedrine
+        - !type:ReagentThreshold
           min: 30
 
 - type: reagent
@@ -126,7 +121,6 @@
   group: Narcotics
   desc: reagent-desc-stimulants
   physicalDesc: reagent-physical-desc-energizing
-  contrabandSeverity: Syndicate
   flavor: sharp
   color: "#9A040E"
   boilingPoint: 212.0
@@ -135,42 +129,43 @@
     Narcotic:
       metabolismRate: 1.0
       effects:
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange
         conditions:
-          - !type:ReagentCondition
-            reagent: Stimulants
+          - !type:ReagentThreshold
             min: 80 #please wait 3 minutes before using another stimpack
         damage:
           types:
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectStunned
+      - !type:GenericStatusEffect
+        key: Stun
         time: 3
         type: Remove
-      - !type:ModifyKnockdown
+      - !type:GenericStatusEffect
+        key: KnockedDown
         time: 3
         type: Remove
       - !type:GenericStatusEffect
         key: StaminaModifier
         component: StaminaModifier
         time: 3
+        type: Add
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -186,7 +181,7 @@
           factor: 1
         - !type:HealthChange
           conditions:
-          - !type:TotalDamageCondition
+          - !type:TotalDamage
             min: 70 # only heals when you're more dead than alive
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
@@ -214,19 +209,13 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-      # Delta-V - Addictive
-      - !type:Addicting
+        refresh: false
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
-        - !type:ReagentCondition
-          reagent: THC
+        - !type:ReagentThreshold
           min: 0.25
       - !type:SuppressAddiction
-      - !type:ModifyStatusEffect # suppresses chronic pain mildly
-        effectProto: StatusEffectChronicPainSuppressed
-        time: 25 # 4.16 minutes of pain suppression per 5u (5u / 0.5 * 25 / 60)
-        type: Add
-      # END DeltaV
 
 - type: reagent
   id: Nicotine
@@ -257,13 +246,12 @@
   group: Narcotics
   desc: reagent-desc-impedrezene
   physicalDesc: reagent-physical-desc-acrid
-  contrabandSeverity: Minor
   flavor: bitter
   color: "#215263"
   metabolisms:
     Narcotic:
       effects:
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:HealthChange
@@ -274,15 +262,15 @@
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
-      - !type:Vomit # Vomiting is a symptom of brain damage
+        refresh: false
+      - !type:ChemVomit # Vomiting is a symptom of brain damage
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
-      - !type:Addicting # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
-        - !type:ReagentCondition
-          reagent: Impedrezene
+        - !type:ReagentThreshold
           min: 0.25
       - !type:SuppressAddiction
 
@@ -301,20 +289,18 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-      # DeltaV Additions
-      - !type:RollPsionicAbility # DeltaV - Roll for psionics
+        refresh: false
+      - !type:ChemRollPsionic #Nyano - Summary: lets the imbiber become psionic.
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: SpaceDrugs
           min: 15
-      - !type:Addicting # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
-        - !type:ReagentCondition
-          reagent: SpaceDrugs
+        - !type:ReagentThreshold
           min: 0.25
       - !type:SuppressAddiction
-      # END DeltaV
 
 - type: reagent
   id: Bananadine
@@ -331,6 +317,7 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+        refresh: false
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -339,27 +326,24 @@
   group: Narcotics
   desc: reagent-desc-nocturine
   physicalDesc: reagent-physical-desc-powdery
-  contrabandSeverity: Syndicate
   color: "#128e80"
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
     Narcotic:
-      effects: # It would be nice to have speech slurred or mumbly, but accents are a bit iffy atm. Same for distortion effects.
-      - !type:MovementSpeedModifier
-        walkSpeedModifier: 0.65
-        sprintSpeedModifier: 0.65
+      effects:
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Nocturine
           min: 8
         effectProto: StatusEffectForcedSleeping
-        time: 6
-        delay: 5
+        time: 3
+        type: Add
       - !type:GenericStatusEffect # DeltaV: anesthesia
         key: Anesthesia
         component: Anesthesia
+        refresh: false
         type: Add
 
 - type: reagent
@@ -368,7 +352,6 @@
   group: Narcotics
   desc: reagent-desc-mute-toxin
   physicalDesc: reagent-physical-desc-syrupy
-  contrabandSeverity: Syndicate
   color: "#000000"
   boilingPoint: 255.0
   meltingPoint: 36.0
@@ -380,6 +363,7 @@
         component: Muted
         type: Add
         time: 10
+        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -387,7 +371,6 @@
   group: Narcotics
   desc: reagent-desc-norepinephric-acid
   physicalDesc: reagent-physical-desc-milky
-  contrabandSeverity: Minor
   flavor: salty
   color: "#96a8b5"
   boilingPoint: 255.0
@@ -415,8 +398,7 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentCondition
-          reagent: NorepinephricAcid
+        - !type:ReagentThreshold
           min: 20
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
@@ -424,8 +406,7 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentCondition
-          reagent: NorepinephricAcid
+        - !type:ReagentThreshold
           min: 20
 
 - type: reagent
@@ -434,8 +415,6 @@
   group: Narcotics
   desc: reagent-desc-tear-gas
   physicalDesc: reagent-physical-desc-milky
-  allowedDepartments:
-  - Security
   flavor: salty
   color: "#ffffff4d"
   boilingPoint: 255.0
@@ -467,8 +446,7 @@
         emote: Scream
         probability: 0.08
         conditions:
-        - !type:ReagentCondition
-          reagent: TearGas
+        - !type:ReagentThreshold
           min: 4
       - !type:Emote
         emote: Cough
@@ -477,16 +455,14 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentCondition
-          reagent: TearGas
+        - !type:ReagentThreshold
           min: 4
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-        time: 1.5
+        statusLifetime: 1.5
         conditions: # because of the remainding after effect, threshold is given so the effects ends simultaniously
-        - !type:ReagentCondition
-          reagent: TearGas
+        - !type:ReagentThreshold
           min: 4
 
 - type: reagent
@@ -505,24 +481,21 @@
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentCondition
-          reagent: Happiness
+        - !type:ReagentThreshold
           max: 20
       - !type:Emote
         emote: Whistle
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentCondition
-          reagent: Happiness
+        - !type:ReagentThreshold
           max: 20
       - !type:Emote
         emote: Crying
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentCondition
-          reagent: Happiness
+        - !type:ReagentThreshold
           min: 20
       - !type:PopupMessage # we dont have sanity/mood so this will have to do
         type: Local
@@ -533,10 +506,10 @@
         - "psicodine-effect-at-peace"
         probability: 0.2
         conditions:
-        - !type:ReagentCondition
-          reagent: Happiness
+        - !type:ReagentThreshold
           max: 20
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+        refresh: false

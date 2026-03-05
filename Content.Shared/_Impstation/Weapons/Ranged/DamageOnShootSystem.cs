@@ -62,9 +62,9 @@ public sealed class DamageOnShootSystem : EntitySystem
             }
         }
 
-        var didSelfDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage);
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage);
 
-        if (didSelfDamage)
+        if (totalDamage != null && totalDamage.AnyPositive())
         {
             // Record this interaction and determine when a user is allowed to interact with this entity again
             entity.Comp.LastInteraction = _gameTiming.CurTime;

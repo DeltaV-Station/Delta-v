@@ -6,7 +6,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Timing;
 
@@ -65,10 +64,6 @@ public sealed class PacificationSystem : EntitySystem
     {
         if (HasComp<PacifismAllowedGunComponent>(args.Used))
             return;
-
-        if (TryComp<BatteryWeaponFireModesComponent>(args.Used, out var component))
-            if (component.FireModes[component.CurrentFireMode].PacifismAllowedMode)
-                return;
 
         // Disallow firing guns in all cases.
         ShowPopup(ent, args.Used, "pacified-cannot-fire-gun");

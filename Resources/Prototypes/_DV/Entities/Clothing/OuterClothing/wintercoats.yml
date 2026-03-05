@@ -22,13 +22,12 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-      toggleable-under-clothing: !type:ContainerSlot {}
       storagebase: !type:Container
         ents: []
 
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
-  id: ClothingOuterArmoredWinterCoatCentComm
+  id: ClothingOuterWinterCCWarden
   name: central command's armored winter coat
   description: A tough, utilitarian coat designed for the wardens of Central Command. Reinforced kevlar plating and high quality fur allow the user to look stylish while staying protected.
   components:
@@ -47,7 +46,7 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterCorporateJacket
-  name: nanotrasen corporate jacket
+  name: Nanotrasen Corporate Jacket
   description: A cozy jacket with the Nanotrasen logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
   components:
   - type: Sprite
@@ -58,7 +57,7 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterDenimJacket
-  name: denim jacket
+  name: Denim jacket
   description: A jean jacket with a warm inner lining.
   components:
   - type: Sprite
@@ -80,7 +79,7 @@
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasec
-  name: station security winter coat
+  name: station security coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards.
   components:
   - type: Sprite
@@ -91,7 +90,7 @@
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecHoS
-  name: head of security's winter coat
+  name: head of security's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is adorned with gold trim.
   components:
   - type: Sprite
@@ -102,7 +101,7 @@
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecWarden
-  name: warden's winter coat
+  name: warden's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version features ice-white trim.
   components:
   - type: Sprite
@@ -113,7 +112,7 @@
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecDet
-  name: detective's winter coat
+  name: detective's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is detective plum.
   components:
   - type: Sprite
@@ -124,7 +123,7 @@
 - type: entity
   parent: ClothingOuterArmoredWinterCoat
   id: ClothingOuterCoatStasecCorpsman
-  name: corpsman's winter coat
+  name: corpsman's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is corpsman blue.
   components:
   - type: Sprite
@@ -141,17 +140,3 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
-
-- type: entity
-  parent: [ClothingOuterArmorCaptainCarapace, BaseCommandContraband]
-  id: ClothingOuterWinterCapArmored
-  name: captain's armored winter coat
-  description: A sturdy, utilitarian winter coat with a built-in carapace designed to protect a captain from any station-bound threats and hypothermic events.
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/WinterCoats/cap_armored_winter_coat.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/WinterCoats/cap_armored_winter_coat.rsi
-  - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1

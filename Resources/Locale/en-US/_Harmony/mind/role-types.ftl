@@ -1,1 +1,0 @@
-role-subtype-conspirator = Conspirator

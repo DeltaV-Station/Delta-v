@@ -48,7 +48,7 @@
     thresholds:
       0: Alive
       100: Critical
-      300: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+      200: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -136,11 +136,17 @@
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
-  - type: Access
-    enabled: false # needs a player so that scientists can't drag around an empty borg for free AA
+  - type: ItemToggle
+    onActivate: false # You should not be able to turn off a borg temporarily.
+    activated: false # gets activated when a mind is added
+    onUse: false # no item-borg toggling sorry
+  - type: ItemTogglePointLight
+  #- type: AccessToggle # DeltaV - IdChipSlot disables access, don't re-enable it when losing power
+  # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
+  # TODO: or just have sentient speedboots be fast idk
   - type: PowerCellDraw
     drawRate: 0.4 # DeltaV - Was 0.6
-    enabled: false # the borg is only activated when a player takes over, otherwise the battery is likely empty
+  # no ToggleCellDraw since dont want to lose access when power is gone
   - type: ItemSlots
     slots:
       cell_slot:
@@ -159,10 +165,9 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
-    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSilicon
-    wilhelmProbability: 0.001 # DeltaV
+    wilhelmProbability: 0
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -215,11 +220,6 @@
     wattage: 0.2
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
-  # These two components are required to make HandheldLight work, even though we don't even have ItemToggle.
-  # The code is a total mess and needs a complete rewrite.
-  - type: ItemTogglePointLight
-  - type: ToggleableVisuals
-    spriteLayer: light
   - type: LightBehaviour
     behaviours:
     - !type:FadeBehaviour
@@ -236,6 +236,8 @@
       startValue: 0.1
       endValue: 2.0
       isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     mask: /Textures/Effects/LightMasks/cone.png
@@ -270,6 +272,7 @@
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
+  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
   - type: PassiveDamage # DeltaV - electric damage disappears over time
     allowedStates:
     - Alive
@@ -349,6 +352,7 @@
     factions:
     - NanoTrasen
   - type: Access
+    enabled: false
     groups:
     - AllAccessBorg # DeltaV
     tags:
@@ -483,11 +487,12 @@
     thresholds: # slightly tankier than a normal borg
       0: Alive
       125: Critical
-      375: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+      250: Dead
   - type: EmagSiliconLaw # should xenoborgs be emagable?
     stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
+    subverted: true
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
@@ -514,10 +519,9 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
-    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSiliconXenoborg
-    wilhelmProbability: 0.001 # DeltaV
+    wilhelmProbability: 0
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -553,11 +557,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          PinpointerMothership: # drop a pinpointer to the mothership upon being destructed
-            min: 1
-            max: 1
       - !type:EmptyContainersBehaviour
         containers:
         - borg_brain
@@ -571,7 +570,7 @@
     guides:
     - Cyborgs
     - Robotics
-    - Xenoborgs
+    # TODO: add Xenoborg guide (part 7 spoilers)
   - type: Access
     enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     tags:
@@ -588,4 +587,3 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Fiber # DeltaV - xenoborgs have replicated plasteel fibers
     fiberMaterial: fibers-replicated-plasteel
-  - type: Xenoborg

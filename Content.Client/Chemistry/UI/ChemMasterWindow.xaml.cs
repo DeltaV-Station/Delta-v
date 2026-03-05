@@ -53,14 +53,14 @@ namespace Content.Client.Chemistry.UI
             {
                 // For every button decide which stylebase to have
                 // Every row has 10 buttons
-                String styleBase = StyleClass.ButtonOpenBoth;
+                String styleBase = StyleBase.ButtonOpenBoth;
                 uint modulo = i % 10;
                 if (i > 0 && modulo == 0)
-                    styleBase = StyleClass.ButtonOpenRight;
+                    styleBase = StyleBase.ButtonOpenRight;
                 else if (i > 0 && modulo == 9)
-                    styleBase = StyleClass.ButtonOpenLeft;
+                    styleBase = StyleBase.ButtonOpenLeft;
                 else if (i == 0)
-                    styleBase = StyleClass.ButtonOpenRight;
+                    styleBase = StyleBase.ButtonOpenRight;
 
                 // Generate buttons
                 PillTypeButtons[i] = new Button
@@ -113,16 +113,13 @@ namespace Content.Client.Chemistry.UI
 
             var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
             {
-                ("1", ChemMasterReagentAmount.U1, StyleClass.ButtonOpenBoth),
-                ("5", ChemMasterReagentAmount.U5, StyleClass.ButtonOpenBoth),
-                ("10", ChemMasterReagentAmount.U10, StyleClass.ButtonOpenBoth),
-                ("15", ChemMasterReagentAmount.U15, StyleClass.ButtonOpenBoth),
-                ("20", ChemMasterReagentAmount.U20, StyleClass.ButtonOpenBoth),
-                ("25", ChemMasterReagentAmount.U25, StyleClass.ButtonOpenBoth),
-                ("30", ChemMasterReagentAmount.U30, StyleClass.ButtonOpenBoth),
-                ("50", ChemMasterReagentAmount.U50, StyleClass.ButtonOpenBoth),
-                ("100", ChemMasterReagentAmount.U100, StyleClass.ButtonOpenBoth),
-                (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleClass.ButtonOpenLeft),
+                ("1", ChemMasterReagentAmount.U1, StyleBase.ButtonOpenBoth),
+                ("5", ChemMasterReagentAmount.U5, StyleBase.ButtonOpenBoth),
+                ("10", ChemMasterReagentAmount.U10, StyleBase.ButtonOpenBoth),
+                ("25", ChemMasterReagentAmount.U25, StyleBase.ButtonOpenBoth),
+                ("50", ChemMasterReagentAmount.U50, StyleBase.ButtonOpenBoth),
+                ("100", ChemMasterReagentAmount.U100, StyleBase.ButtonOpenBoth),
+                (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleBase.ButtonOpenLeft),
             };
 
             var buttons = new List<ReagentButton>();
@@ -249,7 +246,7 @@ namespace Content.Client.Chemistry.UI
             var bufferVol = new Label
             {
                 Text = $"{state.BufferCurrentVolume}u",
-                StyleClasses = { StyleClass.LabelWeak }
+                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
             };
             bufferHBox.AddChild(bufferVol);
 
@@ -318,7 +315,7 @@ namespace Content.Client.Chemistry.UI
                     new Label
                     {
                         Text = $"{info.CurrentVolume}/{info.MaxVolume}",
-                        StyleClasses = { StyleClass.LabelWeak }
+                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
                     }
                 }
             });
@@ -373,7 +370,7 @@ namespace Content.Client.Chemistry.UI
                     new Label
                     {
                         Text = $"{quantity}u",
-                        StyleClasses = { StyleClass.LabelWeak }
+                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
                     },
 
                     // Padding

@@ -32,6 +32,10 @@ public sealed partial class EmpOnTriggerComponent : BaseXOnTriggerComponent
     /// <summary>
     /// DeltaV - The damage dealt to silicons instead of draining their power cells
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier? Damage;
+    [DataField]
+    public DamageSpecifier Damage = new() {
+        DamageDict = new() {
+            { "Ion", 130 } // Most EMP sources should pretty much oneshot silicons. This would kill an IPC and completely disable a borg for a minute.
+        }
+    };
 }

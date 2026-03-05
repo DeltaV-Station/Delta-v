@@ -174,13 +174,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
     private void GenerateCookTime(FoodRecipePrototype recipe)
     {
         var msg = new FormattedMessage();
-
-        // DeltaV - Deep fryer formatting
-        var locId = recipe.DeepFried
-            ? "guideboook-microwave-fry-time"
-            : "guidebook-microwave-cook-time-deltav";
-        msg.AddMarkupOrThrow(Loc.GetString(locId, ("time", recipe.CookTime)));
-        // End DV
+        msg.AddMarkupOrThrow(Loc.GetString("guidebook-microwave-cook-time", ("time", recipe.CookTime)));
         msg.Pop();
 
         CookTimeLabel.SetMessage(msg);

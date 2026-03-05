@@ -1,7 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
-using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Player;
 using static Content.Server.Chat.Systems.ChatSystem;
@@ -62,7 +61,7 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
     public void CanListen(EntityUid uid, SurveillanceCameraMicrophoneComponent microphone, ListenAttemptEvent args)
     {
         // TODO maybe just make this a part of ActiveListenerComponent?
-        if (_whitelistSystem.IsWhitelistPass(microphone.Blacklist, args.Source))
+        if (_whitelistSystem.IsBlacklistPass(microphone.Blacklist, args.Source))
             args.Cancel();
     }
 

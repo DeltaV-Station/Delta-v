@@ -51,7 +51,7 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    #- id: WizardSpawn # DeltaV - Disabled until overhauled
+    - id: WizardSpawn
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 

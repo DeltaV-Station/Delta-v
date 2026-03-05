@@ -19,7 +19,6 @@
         Slash: 6
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
-    storedRotation: -135
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -109,7 +108,6 @@
         Piercing: 2
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
-    storedRotation: -135
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -141,7 +139,6 @@
       collection: MetalThud
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
-    storedRotation: -45
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
   - type: PhysicalComposition

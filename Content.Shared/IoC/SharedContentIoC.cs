@@ -5,10 +5,10 @@ namespace Content.Shared.IoC
 {
     public static class SharedContentIoC
     {
-        public static void Register(IDependencyCollection deps)
+        public static void Register()
         {
-            deps.Register<MarkingManager, MarkingManager>();
-            deps.Register<ContentLocalizationManager, ContentLocalizationManager>();
+            IoCManager.Register<MarkingManager, MarkingManager>();
+            IoCManager.Register<ContentLocalizationManager, ContentLocalizationManager>();
         }
     }
 }

@@ -1,7 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;

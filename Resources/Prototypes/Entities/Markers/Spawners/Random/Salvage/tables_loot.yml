@@ -104,7 +104,7 @@
       rolls: !type:RangeNumberSelector
         range: 1, 2
     - !type:NestedSelector
-      tableId: SalvageInstrumentTable
+      tableId: RandomInstrumentTable
     - id: AncientBookDamagedCommon # DeltaV
 
 - type: entityTable
@@ -265,7 +265,6 @@
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: ChemistryBottleOmnizine
-    - id: ClothingShoesRealJordans # DeltaV
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled
@@ -274,7 +273,7 @@
       children:
       - id: PKAUpgradeDamage
       - id: PKAUpgradeRange
-      #- id: PKAUpgradeFireRate # DeltaV - removal of fire rate upgrade for better feel
+      - id: PKAUpgradeFireRate
 
 
 - type: entityTable

@@ -40,10 +40,7 @@
   - type: MovementAlwaysTouching
   - type: Bloodstream
     bloodMaxVolume: 300
-    bloodReagents:
-      reagents:
-      - ReagentId: Cryoxadone
-        Quantity: 1
+    bloodReagent: Cryoxadone
   - type: CombatMode
   - type: Temperature
     heatDamageThreshold: 500
@@ -216,10 +213,7 @@
       prob: 0.5
   - type: Bloodstream
     bloodMaxVolume: 250
-    bloodReagents:
-      reagents:
-      - ReagentId: Cryoxadone
-        Quantity: 1
+    bloodReagent: Cryoxadone
   - type: Fixtures
     fixtures:
       fix1:
@@ -324,10 +318,7 @@
           prob: 0.3
     - type: Bloodstream
       bloodMaxVolume: 200
-      bloodReagents:
-        reagents:
-        - ReagentId: Cryoxadone
-          Quantity: 1
+      bloodReagent: Cryoxadone
     - type: Fixtures
       fixtures:
         fix1:
@@ -366,7 +357,7 @@
       interactFailureString: petting-failure-generic
     - type: PointLight
       radius: 1.1
-      energy: 2.7
+      energy: 1.5
       color: "#4faffb"
 
 - type: entity
@@ -455,7 +446,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Edible
+  - type: Food
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -495,10 +486,7 @@
     combatToggleAction: ActionCombatModeToggleOff
   - type: Bloodstream
     bloodMaxVolume: 30
-    bloodReagents:
-      reagents:
-      - ReagentId: Cryoxadone
-        Quantity: 1
+    bloodReagent: Cryoxadone
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -516,6 +504,7 @@
       methods: [Touch, Ingestion, Injection]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
             Caustic: 1

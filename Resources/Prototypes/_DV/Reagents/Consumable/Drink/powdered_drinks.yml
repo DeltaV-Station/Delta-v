@@ -10,6 +10,11 @@
         emote: Cough
         showInChat: true
         probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
 
 - type: reagent
   parent: BasePowderedBeverage
@@ -57,11 +62,10 @@
         emote: Cough
         showInChat: true
         probability: 0.33
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.1
         conditions:
-        - !type:ReagentCondition
-          reagent: PowderedJuiceLime
+        - !type:ReagentThreshold
           min: 15
 
 - type: reagent
@@ -83,11 +87,10 @@
         emote: Cough
         showInChat: true
         probability: 0.33
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.1
         conditions:
-        - !type:ReagentCondition
-          reagent: PowderedJuiceLemon
+        - !type:ReagentThreshold
           min: 15
 
 - type: reagent
@@ -109,11 +112,10 @@
         emote: Cough
         showInChat: true
         probability: 0.33
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.1
         conditions:
-        - !type:ReagentCondition
-          reagent: PowderedJuicePineapple
+        - !type:ReagentThreshold
           min: 15
 
 - type: reagent

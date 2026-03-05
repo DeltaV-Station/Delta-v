@@ -95,7 +95,7 @@ namespace Content.Client.ContextMenu.UI
         /// </summary>
         public void Close()
         {
-            RootMenu.MenuBody.RemoveAllChildren();
+            RootMenu.MenuBody.DisposeAllChildren();
             CancelOpen?.Cancel();
             CancelClose?.Cancel();
             OnContextClosed?.Invoke();

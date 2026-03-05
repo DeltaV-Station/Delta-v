@@ -128,7 +128,7 @@
       sprite: _DV/Interface/Actions/actions_ai.rsi
       state: nanites
     checkCanInteract: false
-    useDelay: 75
+    useDelay: 120
   - type: TargetAction
     range: -1
     checkCanAccess: false
@@ -139,8 +139,8 @@
     event: !type:StationAiHealthChangeActionEvent
       damage:
         groups:
-          Burn: -50
-          Brute: -50
+          Burn: -20
+          Brute: -20
 
 - type: entity
   id: ActionStationAiEmergencySealant

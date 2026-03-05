@@ -4,11 +4,9 @@
   name: harbinger bundle
   description: A bundle containing an Accursed Scythe and a set of Harbinger's armor.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingHeadHatHarbingerHelmet
-        - id: ClothingUniformHarbingerTunic
-        - id: ClothingOuterCoatHarbingerCoat
-        - id: AccursedScythe
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatHarbingerHelmet
+      - id: ClothingUniformHarbingerTunic
+      - id: ClothingOuterCoatHarbingerCoat
+      - id: AccursedScythe

@@ -2,7 +2,7 @@ using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage.Components;
+using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Events;

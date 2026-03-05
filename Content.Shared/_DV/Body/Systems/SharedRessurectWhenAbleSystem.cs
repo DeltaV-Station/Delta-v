@@ -1,5 +1,4 @@
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Timing;

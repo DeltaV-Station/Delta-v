@@ -14,7 +14,7 @@ namespace Content.Client.UserInterface.Controls
             {
                 Children = {(_label = new Label
                 {
-                    StyleClasses = {StyleClass.LabelHeading}
+                    StyleClasses = {StyleNano.StyleClassLabelHeading}
                 })}
             };
             AddChild(_panel);

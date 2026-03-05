@@ -61,11 +61,6 @@
 #          paths:
 #          - /Maps/Shuttles/trading_outpost.yml
         # Spawn last
-        salvageShuttle: !type:GridSpawnGroup # DeltaV - salvage gets their own ship
-          paths:
-          - /Maps/_DV/Shuttles/Misc/reclaimer_mk2.yml
-          nameGrid: true
-          name: Reclaimer Mk2
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
@@ -91,10 +86,6 @@
           #- /Maps/Ruins/displaced_telescience.yml # TODO
           # DeltaV - Added maps
           - /Maps/_DV/Ruins/the_pond.yml # DeltaV - Moved to DV folder
-          - /Maps/_DV/Ruins/garbagetruck1.yml
-          - /Maps/_DV/Ruins/infested_frigate.yml
-          - /Maps/_DV/Ruins/mrow_thats_right.yml
-          - /Maps/_DV/Ruins/old_infiltrator.yml
           # DeltaV - End added maps
         wrecks: !type:DungeonSpawnGroup
           minimumDistance: 150
@@ -116,8 +107,8 @@
           - ChunkDebrisSmall
           - ChunkDebris
         vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 500 # DeltaV - vgroid spawns farther out (TODO: until we fix it spawning in the station)
-          maximumDistance: 550 # DeltaV - vgroid spawns farther out (TODO: until we fix it spawning in the station)
+          minimumDistance: 300
+          maximumDistance: 350
           nameDataset: NamesBorer
           stationGrid: false
           addComponents:

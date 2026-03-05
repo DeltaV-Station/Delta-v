@@ -115,6 +115,10 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
+  - type: Tag
+    tags:
+    - Sheet
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -216,7 +220,7 @@
   suffix: Full
   components:
   - type: Material
-  - type: Edible
+  - type: Food
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition

@@ -18,7 +18,7 @@ public sealed partial class UnrevivableComponent : Component
     /// Can this player be cloned using a cloning pod?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool Cloneable = true; // DeltaV
+    public bool Cloneable = false;
 
     /// <summary>
     /// The loc string used to provide a reason for being unrevivable

@@ -7,6 +7,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -39,8 +40,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
-using Content.Shared.Damage.Components;
-using Content.Shared.Temperature.Components;
+using Content.Shared.Damage;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -240,7 +241,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         // If an entity has a stack component, use the stacktype instead of prototype id
                         if (TryComp<StackComponent>(item, out var stackComp))
                         {
-                            itemID = _prototype.Index(stackComp.StackTypeId).Spawn;
+                            itemID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
                         }
                         else
                         {
@@ -263,7 +264,7 @@ namespace Content.Server.Kitchen.EntitySystems
                             {
                                 _container.Remove(item, component.Storage);
                             }
-                            _stack.ReduceCount((item, stackComp), 1);
+                            _stack.Use(item, 1, stackComp);
                             break;
                         }
                         else
@@ -443,7 +444,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnAnchorChanged(EntityUid uid, MicrowaveComponent component, ref AnchorStateChangedEvent args)
         {
             // DeltaV - start of microwave ejection bugfix
-            if (!args.Anchored)
+            if (!args.Anchored) 
             {
                 // DeltaV's MicrowaveEventsSystem changes prevent ejection from active microwave, so stop cooking first
                 StopCooking((uid, component));
@@ -470,7 +471,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
                 // DeltaV - start of microwave ejection bugfix
                 (
-                    EntityManager.TryGetComponent<ActiveMicrowaveComponent>(uid, out var active)
+                    EntityManager.TryGetComponent<ActiveMicrowaveComponent>(uid, out var active) 
                     && active.LifeStage < ComponentLifeStage.Stopping
                 ),
                 // DeltaV - end of microwave ejection bugfix
@@ -514,7 +515,7 @@ namespace Content.Server.Kitchen.EntitySystems
             // DeltaV - start of microwave ejection bugfix
             UpdateUserInterfaceState(ent, ent.Comp);
             // DeltaV - end of microwave ejection bugfix
-
+            
             _adminLogger.Add(LogType.Action, LogImpact.Medium,
                 $"{ToPrettyString(ent)} exploded from unsafe cooking!");
         }
@@ -562,7 +563,7 @@ namespace Content.Server.Kitchen.EntitySystems
             foreach (var item in component.Storage.ContainedEntities.ToArray())
             {
                 // special behavior when being microwaved ;)
-                var ev = new BeingMicrowavedEvent(uid, user, component.CurrentCookTimerTime); // DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
+                var ev = new BeingMicrowavedEvent(uid, user, component.CurrentCookTimerTime);
                 RaiseLocalEvent(item, ev);
 
                 // TODO MICROWAVE SPARKS & EFFECTS
@@ -749,7 +750,7 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             foreach (ProtoId<FoodRecipePrototype> recipeId in ent.Comp.ProvidedRecipes)
             {
-                if (_prototype.Resolve(recipeId, out var recipeProto))
+                if (_prototype.TryIndex(recipeId, out var recipeProto))
                 {
                     args.Recipes.Add(recipeProto);
                 }

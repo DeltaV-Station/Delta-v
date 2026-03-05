@@ -1,12 +1,11 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.Light;
 
 /// <summary>
 /// A component that reacts to changes in light levels.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause, Access(typeof(SharedLightReactiveSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedLightReactiveSystem))]
 public sealed partial class LightReactiveComponent : Component
 {
     /// <summary>
@@ -34,7 +33,7 @@ public sealed partial class LightReactiveComponent : Component
     /// <summary>
     /// The next time the component should update.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    [AutoNetworkedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
     /// <summary>

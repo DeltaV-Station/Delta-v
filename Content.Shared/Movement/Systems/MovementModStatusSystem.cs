@@ -19,7 +19,6 @@ namespace Content.Shared.Movement.Systems;
 /// </remarks>
 public sealed partial class MovementModStatusSystem : EntitySystem // DeltaV - Made Partial
 {
-    public static readonly EntProtoId ReagentSpeed = "ReagentSpeedStatusEffect";
     public static readonly EntProtoId VomitingSlowdown = "VomitingSlowdownStatusEffect";
     public static readonly EntProtoId TaserSlowdown = "TaserSlowdownStatusEffect";
     public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";

@@ -6,8 +6,6 @@
   components:
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
-    toolName: neuroticist-stash-window-title
-    toolDesc: neuroticist-stash-window-description
     possibleSets:
     - RoboNeuroticistCommander
     - RoboNeuroticistSaboteur
@@ -24,9 +22,6 @@
   name: nocturine hypo
   description: A self-refilling injector for rapid administration of nocturine to victms.
   components:
-  - type: Sprite
-    sprite: Objects/Specific/Medical/hypospray.rsi
-    state: borghypo_s
   - type: SolutionContainerManager
     solutions:
       hypospray:

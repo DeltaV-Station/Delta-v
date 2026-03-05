@@ -185,10 +185,8 @@
   clauseWeight: 35
   addedComponents:
   - type: Narcolepsy
-    minTimeBetweenIncidents: 300
-    maxTimeBetweenIncidents: 600
-    minDurationOfIncident: 10
-    maxDurationOfIncident: 30
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
 
 - type: clause
   id: anorgan

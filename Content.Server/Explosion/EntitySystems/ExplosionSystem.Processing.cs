@@ -1,10 +1,13 @@
+using System.Linq;
 using System.Numerics;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Explosion.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
+using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
@@ -14,6 +17,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -23,6 +27,8 @@ namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem
 {
+    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
+
     /// <summary>
     ///     Used to limit explosion processing time. See <see cref="MaxProcessingTime"/>.
     /// </summary>
@@ -435,25 +441,28 @@ public sealed partial class ExplosionSystem
         float? fireStacksOnIgnite,
         EntityUid? cause)
     {
-        if (originalDamage is not null)
+        if (originalDamage != null)
         {
             GetEntitiesToDamage(uid, originalDamage, id);
             foreach (var (entity, damage) in _toDamage)
             {
-                if (!_damageableQuery.TryComp(entity, out var damageable))
-                    continue;
+                if (damage.GetTotal() > 0 && TryComp<ActorComponent>(entity, out var actorComponent))
+                {
+                    // Log damage to player entities only, cause this will create a massive amount of log spam otherwise.
+                    if (cause != null)
+                    {
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                    }
+                    else
+                    {
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                    }
+
+                }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage((entity, damageable), damage, ignoreResistances: true, ignoreGlobalModifiers: true);
+                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
 
-                if (_actorQuery.HasComp(entity))
-                {
-                    // Log damage to player entities only; this will create a massive amount of log spam otherwise.
-                    if (cause is not null)
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
-                    else
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
-                }
             }
         }
 
@@ -659,7 +668,6 @@ sealed class Explosion
     private readonly IEntityManager _entMan;
     private readonly ExplosionSystem _system;
     private readonly SharedMapSystem _mapSystem;
-    private readonly Shared.Damage.Systems.DamageableSystem _damageable;
 
     public readonly EntityUid VisualEnt;
 
@@ -680,10 +688,10 @@ sealed class Explosion
         int maxTileBreak,
         bool canCreateVacuum,
         IEntityManager entMan,
+        IMapManager mapMan,
         EntityUid visualEnt,
         EntityUid? cause,
-        SharedMapSystem mapSystem,
-        Shared.Damage.Systems.DamageableSystem damageable)
+        SharedMapSystem mapSystem)
     {
         VisualEnt = visualEnt;
         Cause = cause;
@@ -698,7 +706,6 @@ sealed class Explosion
         _maxTileBreak = maxTileBreak;
         _canCreateVacuum = canCreateVacuum;
         _entMan = entMan;
-        _damageable = damageable;
 
         _xformQuery = entMan.GetEntityQuery<TransformComponent>();
         _physicsQuery = entMan.GetEntityQuery<PhysicsComponent>();
@@ -753,10 +760,8 @@ sealed class Explosion
                 _expectedDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
             }
 #endif
-            var modifier = _currentIntensity
-                           * _damageable.UniversalExplosionDamageModifier
-                           * _damageable.UniversalAllDamageModifier;
-            _currentDamage = ExplosionType.DamagePerIntensity * modifier;
+
+            _currentDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
 
             // only throw if either the explosion is small, or if this is the outer ring of a large explosion.
             var doThrow = Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6;

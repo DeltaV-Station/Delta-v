@@ -259,7 +259,6 @@
   minLimit: 0
   loadouts:
   - CorpsmanBeret
-  - BrigMedicalBeret
 
 - type: loadoutGroup
   id: BrigMedicNeck
@@ -284,26 +283,17 @@
   id: BrigMedicOuterClothing
   name: loadout-group-brig-medic-outerclothing
   loadouts:
-  - LongcoatBrigmedic
   - StasecWinterCoatCorpsman
   - PlateCarrier
   - DuraVest
-  - ArmorVestSlim
 
 - type: loadoutGroup
   id: CorpsmanEyewear
   name: loadout-group-corpsman-eyewear
-  minLimit: 1
-  maxLimit: 1
+  minLimit: 0
   loadouts:
   - CorpsmanGlasses
   - PrescriptionCorpsmanGlasses
-  - MedicalHud
-  - MedicalEyePatchHud
-  - PrescriptionMedHud
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
 
 - type: loadoutGroup
   id: BrigMedicBack
@@ -423,22 +413,6 @@
   - SecurityClothingHandsGlovesColorBlack
   - SecurityClothingHandsGlovesFingerless
 
-## Security Glasses
-- type: loadoutGroup
-  id: SecurityEyewear
-  name: loadout-group-security-eyewear
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - SecurityGlasses
-  - PrescriptionSecurityGlasses
-  - SecurityHud
-  - SecurityEyePatchHud
-  - PrescriptionSecurityHud
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
-
 ## Security Officer
 - type: loadoutGroup
   id: SecurityNeck
@@ -456,9 +430,7 @@
   - PlateCarrier
   - DuraVest
   - StasecSweater
-  - LongcoatSecurity
   - StasecWinterCoat
-  - ArmorVestSlim
 
 ## Warden
 - type: loadoutGroup
@@ -467,9 +439,7 @@
   loadouts:
   - PlateCarrier
   - DuraVest
-  - WardenLongcoat
   - StasecWinterCoatWarden
-  - ArmorVestSlim
 
 ## Head of Security
 - type: loadoutGroup
@@ -478,10 +448,8 @@
   loadouts:
   - PlateCarrier
   - DuraVest
-  - HeadofSecurityLongcoat
   - StasecWinterCoatHoS
   - HeadOfSecurityTrenchcoat
-  - ArmorVestSlim
 
 ## Detective
 - type: loadoutGroup
@@ -501,12 +469,10 @@
   id: DetectiveOuterClothingDeltaV
   name: loadout-group-detective-outerclothing
   loadouts:
-  - LongcoatSecurity
   - StasecWinterCoatDet
   - PlateCarrier
   - DuraVest
   - DetPlatedCoat
-  - ArmorVestSlim
 
 # Medical
 ## Psychologist
@@ -823,9 +789,6 @@
   - ClothingEyesHudDiagnostic
   - ClothingEyesPrescriptionDiagHud
   - ClothingEyesEyepatchHudDiag
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
 
 # Command
 ## Captain

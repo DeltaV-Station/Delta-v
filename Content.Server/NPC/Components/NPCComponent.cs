@@ -9,5 +9,4 @@ public abstract partial class NPCComponent : SharedNPCComponent
     /// </summary>
     [DataField("blackboard", customTypeSerializer: typeof(NPCBlackboardSerializer))]
     public NPCBlackboard Blackboard = new();
-    // TODO FULL GAME SAVE Serialize this
 }

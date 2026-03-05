@@ -15,7 +15,6 @@
 - type: entity
   parent: BaseXenoArtifactEffect
   id: XenoArtifactRaiseGlimmer
-  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails
     specificTip: xenoarch-effect-tip-specific-glimmer
@@ -29,7 +28,6 @@
 - type: entity
   parent: XenoArtifactRaiseGlimmer
   id: XenoArtifactRaiseGlimmerLarge
-  categories: [ HideSpawnMenu ]
   components:
   - type: XAEModifyGlimmer
     range:
@@ -40,7 +38,6 @@
 - type: entity
   parent: XenoArtifactRaiseGlimmer
   id: XenoArtifactLowerGlimmer
-  categories: [ HideSpawnMenu ]
   components:
   - type: XAEModifyGlimmer
     range:
@@ -51,7 +48,6 @@
 - type: entity
   parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactMakePsionic
-  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails
     specificTip: xenoarch-effect-tip-specific-psionic

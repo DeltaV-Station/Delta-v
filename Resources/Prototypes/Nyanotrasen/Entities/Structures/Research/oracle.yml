@@ -21,12 +21,8 @@
     solutions:
       fountain:
         maxVol: 200
-  - type: Edible
-    edible: Drink
+  - type: Drink
     solution: fountain
-    destroyOnEmpty: false
-    utensil: None
-  - type: DnaSubstanceTrace
   - type: DrawableSolution
     solution: fountain
   - type: DrainableSolution

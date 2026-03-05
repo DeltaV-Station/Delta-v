@@ -117,8 +117,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/_EE/Voice/IPC/robot-scream.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       path: /Audio/_EE/Voice/IPC/pai_whistle.ogg
     delay: 5
@@ -150,8 +149,7 @@
   - type: MeleeWeapon
     soundHit:
       collection: FelinidPlushieSounds
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       collection: FelinidPlushieSounds
 
@@ -189,8 +187,7 @@
   - type: MeleeWeapon
     soundHit:
       collection: ToySqueak
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       collection: HarpyPlushieSounds
 
@@ -218,8 +215,7 @@
   - type: MeleeWeapon
     soundHit:
       collection: ToySqueak
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       collection: RodentiaPlushieSounds
 
@@ -247,8 +243,7 @@
   - type: MeleeWeapon
     soundHit:
       collection: FeroxiPlushieSounds
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       collection: ToySqueak
 
@@ -276,8 +271,7 @@
   - type: MeleeWeapon
     soundHit:
       collection: ToySqueak
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       collection: ToySqueak
 
@@ -305,7 +299,6 @@
   - type: MeleeWeapon
     soundHit:
       collection: ToySqueak
-  - type: Edible
-    requiresSpecialDigestion: true
+  - type: Food
     useSound:
       collection: KitsuneSqueal

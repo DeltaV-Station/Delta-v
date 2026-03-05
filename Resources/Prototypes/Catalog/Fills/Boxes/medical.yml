@@ -4,10 +4,9 @@
   id: BoxSyringe
   description: A box full of syringes.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: Syringe
+  - type: StorageFill
+    contents:
+      - id: Syringe
         amount: 6
   - type: Sprite
     layers:
@@ -20,10 +19,9 @@
   id: BoxPillCanister
   description: A box full of pill canisters.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: PillCanister
+  - type: StorageFill
+    contents:
+      - id: PillCanister
         amount: 9
   - type: Sprite
     layers:
@@ -36,10 +34,9 @@
   id: BoxBottle
   description: A box full of bottles.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ChemistryEmptyBottle01
+  - type: StorageFill
+    contents:
+      - id: ChemistryEmptyBottle01
         amount: 6
   - type: Sprite
     layers:
@@ -52,10 +49,9 @@
   id: BoxSterileMask
   description: This box contains sterile medical masks.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ClothingMaskSterile
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskSterile
         amount: 4
   - type: Sprite
     layers:
@@ -68,10 +64,9 @@
   id: BoxLatexGloves
   description: Contains sterile latex gloves.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ClothingHandsGlovesLatex
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesLatex
         amount: 4
   - type: Sprite
     layers:
@@ -84,10 +79,9 @@
   id: BoxNitrileGloves
   description: Contains sterile nitrile gloves. Better than latex.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ClothingHandsGlovesNitrile
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesNitrile
         amount: 4
   - type: Sprite
     layers:
@@ -100,16 +94,15 @@
   id: BoxBodyBag
   description: Contains body bags.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: BodyBagFolded
+  - type: StorageFill
+    contents:
+      - id: BodyBagFolded
         amount: 4
   - type: Sprite
     layers:
       - state: box
       - state: bodybags
-  - type: Storage # TODO cardboard boxes shouldn't have whitelisting
+  - type: Storage
     whitelist:
       tags:
         - BodyBag
@@ -123,10 +116,9 @@
   - type: Storage
     grid:
     - 0,0,2,1
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: BaseChemistryEmptyVial
+  - type: StorageFill
+    contents:
+      - id: BaseChemistryEmptyVial
         amount: 6
   - type: Sprite
     layers:

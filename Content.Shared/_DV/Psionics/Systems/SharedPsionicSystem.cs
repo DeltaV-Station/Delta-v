@@ -41,17 +41,13 @@ public abstract partial class SharedPsionicSystem : EntitySystem
             return;
 
         Glimmer.Glimmer -= Random.Next(50, 70);
-
         if (args.Stun)
         {
             _stuttering.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
-            _stun.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(5), false, drop: false);
+            _stun.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, drop: false);
             _jittering.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
         }
 
         RemComp<PsionicComponent>(psionic);
-        GrantPsionicRoll(psionic.Owner);
-
-        Popup.PopupClient(Loc.GetString("psionic-mindbroken"), psionic, PopupType.Medium);
     }
 }

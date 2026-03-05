@@ -11,7 +11,6 @@ using Content.Server.Materials;
 using Content.Shared.Database;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.Chat;
 
 namespace Content.Server.Roboisseur.Roboisseur
 {
@@ -21,6 +20,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
+        [Dependency] private readonly AppearanceSystem _appearance = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
 

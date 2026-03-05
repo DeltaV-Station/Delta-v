@@ -4,7 +4,6 @@
   id: MaterialsStatic
   recipes:
   - SheetRGlass
-  - MaterialDurathread
 
 - type: latheRecipePack
   id: PartsStatic
@@ -47,11 +46,6 @@
   - BoxFolderClipboardEmpty
   - BoxFolderPlasticClipboardEmpty
 
-- type: latheRecipePack
-  id: TowelsStatic # This is used for both the autolathe and the uniform printer, so "unique" towels that only HoP can print shouldn't be included!
-  recipes:
-  - TowelColorWhite
-
 ## Dynamic
 
 # Things you'd expect sci salv and engi to make use of
@@ -75,4 +69,4 @@
   - WeaponProtoKineticAccelerator
   - PKAUpgradeDamage
   - PKAUpgradeRange
-  #- PKAUpgradeFireRate # DeltaV - removal of fire rate upgrade for better feel
+  - PKAUpgradeFireRate

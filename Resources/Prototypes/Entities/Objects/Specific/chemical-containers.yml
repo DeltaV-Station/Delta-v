@@ -39,11 +39,8 @@
       interfaces:
         enum.TransferAmountUiKey.Key:
           type: TransferAmountBoundUserInterface
-    - type: Edible
-      edible: Drink
+    - type: Drink
       solution: beaker
-      destroyOnEmpty: false
-      utensil: Spoon
     - type: Spillable
       solution: beaker
     - type: Appearance

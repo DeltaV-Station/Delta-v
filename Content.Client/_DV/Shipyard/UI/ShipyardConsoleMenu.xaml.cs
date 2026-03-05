@@ -19,12 +19,10 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     public event Action<string>? OnPurchased;
 
     private readonly List<VesselPrototype> _vessels = [];
-    private readonly List<VesselCategoryPrototype> _categories = [];
+    private readonly List<string> _categories = [];
 
     public Entity<ShipyardConsoleComponent> Console;
-
-    // The currently selected category
-    private ProtoId<VesselCategoryPrototype>? _category;
+    private string? _category;
 
     public ShipyardConsoleMenu(EntityUid console, IPrototypeManager proto, IEntityManager entMan, IPlayerManager player, AccessReaderSystem access, EntityWhitelistSystem whitelist)
     {
@@ -35,44 +33,46 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         _access = access;
         _player = player;
 
-        _categories.Clear();
-        foreach (var vesselCategoryProto in Console.Comp.Categories)
-        {
-            if (proto.Resolve(vesselCategoryProto, out var vesselCategory))
-                _categories.Add(vesselCategory);
-        }
-
         // don't include ships that aren't allowed by whitelist, server won't accept them anyway
         foreach (var vessel in proto.EnumeratePrototypes<VesselPrototype>())
         {
             if (whitelist.IsWhitelistPassOrNull(vessel.Whitelist, console))
                 _vessels.Add(vessel);
         }
-
         _vessels.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
 
-        // inserting here and not adding at the start so it doesn't get affected by sort
-        PopulateCategories(Console);
+        // only list categories in said ships
+        foreach (var vessel in _vessels)
+        {
+            foreach (var category in vessel.Categories)
+            {
+                if (!_categories.Contains(category))
+                    _categories.Add(category);
+            }
+        }
 
-        SearchBar.OnTextChanged += _ => PopulateProducts(Console);
+        _categories.Sort();
+        // inserting here and not adding at the start so it doesn't get affected by sort
+        _categories.Insert(0, Loc.GetString("cargo-console-menu-populate-categories-all-text"));
+        PopulateCategories();
+
+        SearchBar.OnTextChanged += _ => PopulateProducts();
         Categories.OnItemSelected += args =>
         {
-            _category = _categories[args.Id];
+            _category = args.Id == 0 ? null : _categories[args.Id];
             Categories.SelectId(args.Id);
-            PopulateProducts(Console);
+            PopulateProducts();
         };
-
-        PopulateProducts(Console);
     }
 
     /// <summary>
     ///     Populates the list of products that will actually be shown, using the current filters.
     /// </summary>
-    private void PopulateProducts(Entity<ShipyardConsoleComponent> entity)
+    private void PopulateProducts()
     {
         Vessels.RemoveAllChildren();
 
-        var access = _player.LocalSession?.AttachedEntity is { } player
+        var access = _player.LocalSession?.AttachedEntity is {} player
             && _access.IsAllowed(player, Console);
 
         var search = SearchBar.Text.Trim().ToLowerInvariant();
@@ -80,11 +80,10 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         {
             if (search.Length != 0 && !vessel.Name.Contains(search, StringComparison.InvariantCultureIgnoreCase))
                 continue;
-
-            if (_category != null && !vessel.Categories.Contains(_category.Value.Id))
+            if (_category != null && !vessel.Categories.Contains(_category))
                 continue;
 
-            var vesselEntry = new VesselRow(vessel, access, isFree: !entity.Comp.UseStationFunds);
+            var vesselEntry = new VesselRow(vessel, access);
             vesselEntry.OnPurchasePressed += () => OnPurchased?.Invoke(vessel.ID);
             Vessels.AddChild(vesselEntry);
         }
@@ -93,29 +92,18 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     /// <summary>
     ///     Populates the list categories that will actually be shown, using the current filters.
     /// </summary>
-    private void PopulateCategories(Entity<ShipyardConsoleComponent> entity)
+    private void PopulateCategories()
     {
         Categories.Clear();
-        // Guh, there's gotta be an easier way to select a category by default...
-        var selectedId = 0; // Default to the first category. May get overridden later.
-        for (var i = 0; i < _categories.Count; i++)
+        foreach (var category in _categories)
         {
-            Categories.AddItem(_categories[i].LocalizedName, i);
-
-            if (entity.Comp.DefaultCategory.HasValue && entity.Comp.DefaultCategory.Value.Id.Equals(_categories[i].ID, StringComparison.CurrentCultureIgnoreCase))
-                selectedId = i;
-        }
-
-        if (selectedId >= 0 && selectedId < _categories.Count)
-        {
-            _category = _categories[selectedId];
-            Categories.SelectId(selectedId);
+            Categories.AddItem(category);
         }
     }
 
     public void UpdateState(ShipyardConsoleState state)
     {
         BankAccountLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", state.Balance.ToString()));
-        PopulateProducts(Console);
+        PopulateProducts();
     }
 }

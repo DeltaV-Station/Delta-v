@@ -1,4 +1,4 @@
-﻿<controls:FancyWindow
+<controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     MinSize="320 180"
@@ -18,7 +18,7 @@
                 <Label
                     Text="{Loc 'power-charge-window-power'}"
                     HorizontalExpand="True"
-                    StyleClasses="highlight" />
+                    StyleClasses="StatusFieldTitle" />
 
                 <BoxContainer
                     Orientation="Horizontal"
@@ -49,21 +49,21 @@
                 <!-- Status -->
                 <Label
                     Text="{Loc 'power-charge-window-status'}"
-                    StyleClasses="highlight" />
+                    StyleClasses="StatusFieldTitle" />
                 <Label Name="StatusLabel"
                     Text="{Loc 'power-charge-window-status-fully-charged'}" />
 
                 <!-- ETA -->
                 <Label
                     Text="{Loc 'power-charge-window-eta'}"
-                    StyleClasses="highlight" />
+                    StyleClasses="StatusFieldTitle" />
                 <Label Name="EtaLabel"
                     Text="N/A" />
 
                 <!-- Charge -->
                 <Label
                     Text="{Loc 'power-charge-window-charge'}"
-                    StyleClasses="highlight" />
+                    StyleClasses="StatusFieldTitle" />
 
                 <ProgressBar Name="ChargeBar"
                     MaxValue="255">

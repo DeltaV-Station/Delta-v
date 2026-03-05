@@ -94,7 +94,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
             var target01 = _random.PickAndTake(psionicActors);
             var target02 = _random.PickAndTake(psionicActors);
 
-            _mindSwap.Swap(target01, target02, false, component.ReturnSwapCooldown);
+            _mindSwap.Swap(target01, target02);
 
             if (!component.IsTemporary)
             {

@@ -1,4 +1,4 @@
-using Content.Shared.Medical;
+using Content.Server.Medical;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 

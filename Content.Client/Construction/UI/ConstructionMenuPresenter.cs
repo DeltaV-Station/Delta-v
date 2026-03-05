@@ -510,7 +510,7 @@ namespace Content.Client.Construction.UI
 
             foreach (var id in favorites)
             {
-                if (_prototypeManager.TryIndex(id, out ConstructionPrototype? recipe))
+                if (_prototypeManager.TryIndex(id, out ConstructionPrototype? recipe, logError: false))
                     _favoritedRecipes.Add(recipe);
             }
 

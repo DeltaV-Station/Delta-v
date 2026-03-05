@@ -1,6 +1,5 @@
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 

@@ -41,7 +41,7 @@ public sealed class IsEyesCoveredCheckEvent : EntityEventArgs, IInventoryRelayEv
 
 // Contract Events
 
-[ImplicitDataDefinitionForInheritors]
+[ImplicitDataDefinitionForInheritors, DataDefinition]
 public abstract partial class BaseDevilContractEvent : EntityEventArgs
 {
     /// <summary>
@@ -55,17 +55,17 @@ public abstract partial class BaseDevilContractEvent : EntityEventArgs
     public EntityUid Target;
 }
 
-[Serializable]
+[DataDefinition, Serializable]
 public sealed partial class DevilContractSoulOwnershipEvent : BaseDevilContractEvent;
 
-[Serializable]
+[DataDefinition, Serializable]
 public sealed partial class DevilContractLoseHandEvent : BaseDevilContractEvent;
 
-[Serializable]
+[DataDefinition, Serializable]
 public sealed partial class DevilContractLoseLegEvent : BaseDevilContractEvent;
 
-[Serializable]
+[DataDefinition, Serializable]
 public sealed partial class DevilContractLoseOrganEvent : BaseDevilContractEvent;
 
-[Serializable]
+[DataDefinition, Serializable]
 public sealed partial class DevilContractChanceEvent : BaseDevilContractEvent;

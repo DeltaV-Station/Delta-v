@@ -27,6 +27,7 @@ namespace Content.Shared.Entry
         public override void PreInit()
         {
             IoCManager.InjectDependencies(this);
+            SharedContentIoC.Register();
         }
 
         public override void Shutdown()

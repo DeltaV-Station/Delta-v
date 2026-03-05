@@ -5,7 +5,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Chat;
 
 namespace Content.Server._Shitmed.DelayedDeath;
 

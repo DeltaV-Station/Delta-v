@@ -1,12 +1,12 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.GameTicking;
+using Content.Server.Store.Components;
 using Content.Server.Mind; // Imp
 using Content.Server.Revenant.Components; // Imp
 using Content.Server.Store.Systems;
-using Content.Shared.Actions; // Imp
 using Content.Shared.Alert;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
@@ -32,6 +32,7 @@ namespace Content.Server.Revenant.EntitySystems;
 public sealed partial class RevenantSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -49,16 +50,21 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly MindSystem _mind = default!; // Imp
     [Dependency] private readonly MetaDataSystem _meta = default!; // Imp
-    [Dependency] private readonly SharedActionsSystem _action = default!; // Imp
     [Dependency] private readonly TurfSystem _turf = default!;
 
-    private readonly EntProtoId _revenantHaunt = "ActionRevenantHaunt"; // Imp
+    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
+
+    [ValidatePrototypeId<EntityPrototype>]  // Imp
+    private const string RevenantHauntId = "ActionRevenantHaunt"; // Imp
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RevenantComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<RevenantComponent, MapInitEvent>(OnMapInit);
 
+        SubscribeLocalEvent<RevenantComponent, RevenantShopActionEvent>(OnShop);
         SubscribeLocalEvent<RevenantComponent, DamageChangedEvent>(OnDamage);
         SubscribeLocalEvent<RevenantComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantComponent, StatusEffectAddedEvent>(OnStatusAdded);
@@ -98,7 +104,8 @@ public sealed partial class RevenantSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RevenantComponent component, MapInitEvent args)
     {
-        _action.AddAction(uid, ref component.HauntAction, _revenantHaunt); // Imp
+        _action.AddAction(uid, ref component.ShopAction, RevenantShopId); // Imp
+        _action.AddAction(uid, ref component.HauntAction, RevenantHauntId); // Imp
     }
 
     private void OnStatusAdded(EntityUid uid, RevenantComponent component, StatusEffectAddedEvent args)
@@ -190,6 +197,13 @@ public sealed partial class RevenantSystem : EntitySystem
             _physics.ResetDynamics(uid, Comp<PhysicsComponent>(uid)); // Imp
 
         return true;
+    }
+
+    private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEvent args)
+    {
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+        _store.ToggleUi(uid, uid, store);
     }
 
     public void MakeVisible(bool visible)

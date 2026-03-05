@@ -1,7 +1,3 @@
-# The mind roles specified here will be overwritten by the actual entities' GhostRoleComponent when they spawn
-# But the mind roles specified here are the ones checked for role bans when taking a ghost role!
-# TODO make this simpler
-
 - type: entity
   abstract: true
   parent: MarkerBase
@@ -92,7 +88,7 @@
   - type: GhostRole
     rules: ghost-role-information-rules-default-team-antagonist
     mindRoles:
-    - MindRoleNukeops
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -115,6 +111,12 @@
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleLoneops
+    requirements: # DeltaV
+    - !type:OverallPlaytimeRequirement
+      time: 172800 # 48 hours overall
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours of sec
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -132,7 +134,7 @@
     description: roles-antag-nuclear-operative-commander-objective
     rules: ghost-role-information-rules-default-team-antagonist
     mindRoles:
-    - MindRoleNukeopsCommander
+    - MindRoleGhostRoleTeamAntagonist
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -144,7 +146,7 @@
     description: roles-antag-nuclear-operative-agent-objective
     rules: ghost-role-information-rules-default-team-antagonist
     mindRoles:
-    - MindRoleNukeopsMedic
+    - MindRoleGhostRoleTeamAntagonist
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -156,7 +158,7 @@
     description: roles-antag-nuclear-operative-objective
     rules: ghost-role-information-rules-default-team-antagonist
     mindRoles:
-    - MindRoleNukeops
+    - MindRoleGhostRoleTeamAntagonist
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -168,7 +170,7 @@
     description: deltav-ghost-role-information-space-dragon-description # DeltaV - Dragons despawn in 10 mins
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
-    - MindRoleDragon
+    - MindRoleGhostRoleTeamAntagonist
   - type: Sprite
     layers:
     - state: green
@@ -185,9 +187,12 @@
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleNinja
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 259200 # DeltaV - 72 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -238,8 +243,6 @@
     name: ghost-role-information-derelict-cyborg-name
     description: ghost-role-information-derelict-cyborg-description
     rules: ghost-role-information-silicon-rules
-    mindRoles:
-    - MindRoleSubvertedSilicon
     raffle:
       settings: default
   - type: Sprite
@@ -248,50 +251,6 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
-
-- type: entity
-  categories: [ Spawner ]
-  parent: BaseAntagSpawner
-  id: SpawnPointGhostRoleMothershipCore
-  components:
-  - type: Tag
-    tags:
-    - ForceFixRotations
-    - MothershipCoreGhostrole
-  - type: GhostRole
-    name: ghost-role-information-mothership-core-name
-    description: ghost-role-information-mothership-core-desc
-    rules: ghost-role-information-silicon-rules
-    mindRoles:
-    - MindRoleMothershipCore
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-    - state: green
-    - sprite: Mobs/Silicon/mothership_core.rsi
-      state: core-idle
-
-- type: entity
-  categories: [ HideSpawnMenu, Spawner ]
-  parent: BaseAntagSpawner
-  id: SpawnPointGhostRoleXenoborg
-  components:
-  - type: Tag
-    tags:
-    - ForceFixRotations
-    - XenoborgGhostrole
-  - type: GhostRole
-    name: ghost-role-information-xenoborg-name
-    description: ghost-role-information-xenoborg-desc
-    rules: ghost-role-information-silicon-rules
-    mindRoles:
-    - MindRoleXenoborg
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-    - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: xenoborg_engi
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -352,9 +311,12 @@
     name: ghost-role-information-wizard-name
     description: ghost-role-information-wizard-desc
     mindRoles:
-    - MindRoleWizard
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 90000 # DeltaV - 25 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

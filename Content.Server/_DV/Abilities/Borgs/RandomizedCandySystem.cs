@@ -55,7 +55,6 @@ public sealed partial class RandomizedCandySystem : EntitySystem
             _metaData.SetEntityName(uid, $"{candyFlavor.Name} {meta.EntityName}", meta);
         _metaData.SetEntityDescription(uid, $"{meta.EntityDescription} {GetExamineFluff(candyFlavor.Flavors)}");
         Dirty(uid, meta);
-        Dirty(uid, flavorProfile);
     }
 
     // this technically duplicates code from FlavorProfileSystem but what we would need to call

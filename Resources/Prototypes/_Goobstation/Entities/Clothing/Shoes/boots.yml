@@ -19,16 +19,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ClothingShoesBootsJump, BaseMajorContraband]
+  parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
   id: ClothingShoesRealJordans
   name: air jordans
-  description: State-of-the-art, official, uncreased Jordans that give you moves you could only dream of.
+  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: StaticPrice
     price: 750
   - type: Damageable
@@ -49,14 +52,12 @@
           ClothingShoesCreasedJordans:
             min: 1
             max: 1
-  - type: Magboots
-  - type: NoSlip
   - type: Tag
     tags:
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesRealJordans
+  parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
   id: ClothingShoesRealJordansAutographed
   name: air jordans
   description: These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
@@ -89,14 +90,12 @@
           ClothingShoesCreasedJordans:
             min: 1
             max: 1
-  - type: JumpAbility
-    jumpDistance: 6
   - type: Tag
     tags:
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingShoesBootsJump, ClothingShoesBaseButcherable]
+  parent: ClothingShoesBaseButcherable
   id: ClothingShoesCreasedJordans
   name: creased air jordans
   description: No wait... this can't be.... THEY'RE CREASED!
@@ -109,7 +108,5 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
-  - type: JumpAbility
-    jumpDistance: 2
   - type: StaticPrice
     price: 2.5 # DeltaV - Worth the scrap they're made of

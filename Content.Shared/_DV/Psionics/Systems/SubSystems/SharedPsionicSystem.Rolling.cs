@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared.EntityTable;
 using Content.Shared.Popups;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -74,7 +75,7 @@ public abstract partial class SharedPsionicSystem
             // For alternative means of getting psionics that aren't via spawning in, cause them to suffer.
             _stuttering.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
             _stun.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, drop: false);
-            _jittering.DoJitter(psionic, TimeSpan.FromSeconds(3), false);
+            _jittering.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
 
             return;
         }
@@ -86,14 +87,5 @@ public abstract partial class SharedPsionicSystem
         {
             Popup.PopupEntity(Loc.GetString("psionic-roll-failed"), psionic, psionic, PopupType.Medium);
         }
-    }
-
-    public bool GrantPsionicRoll(Entity<PotentialPsionicComponent?> potPsionic)
-    {
-        if (!Resolve(potPsionic, ref potPsionic.Comp) || !potPsionic.Comp.Rolled)
-            return false;
-
-        potPsionic.Comp.Rolled = false;
-        return true;
     }
 }

@@ -86,7 +86,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
     private void AddAnomalyToBody(Entity<InnerBodyAnomalyComponent> ent)
     {
-        if (!_proto.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
+        if (!_proto.TryIndex(ent.Comp.InjectionProto, out var injectedAnom))
             return;
 
         if (ent.Comp.Injected)
@@ -139,8 +139,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!TryComp<BodyComponent>(ent, out var body))
             return;
 
-        // DeltaV acidify: false preserves inventory items when anomaly goes supercritical
-        _body.GibBody(ent, false, body, splatModifier: 5f);
+        _body.GibBody(ent, true, body, splatModifier: 5f);
     }
 
     private void OnSeverityChanged(Entity<InnerBodyAnomalyComponent> ent, ref AnomalySeverityChangedEvent args)
@@ -216,7 +215,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!ent.Comp.Injected)
             return;
 
-        if (_proto.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
+        if (_proto.TryIndex(ent.Comp.InjectionProto, out var injectedAnom))
             EntityManager.RemoveComponents(ent, injectedAnom.Components);
 
         if (!ent.Comp.SkipStun) // imp. added this check for anomalites

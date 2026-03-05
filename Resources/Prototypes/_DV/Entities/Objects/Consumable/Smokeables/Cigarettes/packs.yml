@@ -8,11 +8,10 @@
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/purple.rsi
   - type: Item
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/purple.rsi
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: CigaretteOlive
-        amount: 10
+  - type: StorageFill
+    contents:
+    - id: CigaretteOlive
+      amount: 10
 
 - type: entity
   id: CigPackCandy
@@ -24,8 +23,7 @@
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/pink.rsi
   - type: Item
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Packs/pink.rsi
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: CigaretteCandy
-        amount: 10
+  - type: StorageFill
+    contents:
+    - id: CigaretteCandy
+      amount: 10

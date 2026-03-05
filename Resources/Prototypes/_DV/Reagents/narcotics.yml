@@ -21,9 +21,9 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectTelepathicRepeater
         type: Add
-      - !type:RollPsionicAbility
+      - !type:ChemRollPsionic
         bonusMultiplier: 4
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: LotophagoiOil
           min: 20

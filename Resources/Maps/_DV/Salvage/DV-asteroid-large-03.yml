@@ -4191,13 +4191,15 @@ entities:
     - type: Transform
       pos: 0.5,-5.5
       parent: 778
-- proto: WarpPointDebris
+- proto: WarpPoint
   entities:
   - uid: 779
     components:
     - type: Transform
       pos: 2.5,-3.5
       parent: 778
+    - type: WarpPoint
+      location: Space Debris
 - proto: WindoorSecureScienceLocked
   entities:
   - uid: 283

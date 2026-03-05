@@ -4,16 +4,14 @@
   id: BoxColoredLighttube
   description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ColoredLightTubeRed
-          amount: 4
-        - id: ColoredLightTubeFrostyBlue
-          amount: 4
-        - id: ColoredLightTubeBlackLight
-          amount: 4
+  - type: StorageFill
+    contents:
+      - id: ColoredLightTubeRed
+        amount: 4
+      - id: ColoredLightTubeFrostyBlue
+        amount: 4
+      - id: ColoredLightTubeBlackLight
+        amount: 4
   - type: Sprite
     layers:
       - state: box
@@ -32,14 +30,12 @@
   id: BoxMaintenanceLightbulb
   description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: LightBulbMaintenance
-          amount: 6
-        - id: DimLightBulb
-          amount: 6
+  - type: StorageFill
+    contents:
+      - id: LightBulbMaintenance
+        amount: 6
+      - id: DimLightBulb
+        amount: 6
   - type: Sprite
     layers:
       - state: box
@@ -58,15 +54,13 @@
   id: BoxHolyWater
   description: This box is filled with everything you need to make homemade holy water. Water not included.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: DrinkWineCan
-          amount: 2
-        - id: SprayBottle
-        - id: ChemistryBottleMercury
-          amount: 2
+  - type: StorageFill
+    contents:
+      - id: DrinkWineCan
+        amount: 2
+      - id: SprayBottle
+      - id: ChemistryBottleMercury
+        amount: 2
   - type: Sprite
     layers:
       - state: box_science

@@ -30,9 +30,11 @@
     Plastic: 200
 
 - type: latheRecipe
-  id: HolotapeProjector
-  result: HolotapeProjector
-  completetime: 3
+  parent: BaseToolRecipe
+  id: HoloprojectorEngineering
+  result: HoloprojectorEngineering
+  completetime: 8
   materials:
-    Plastic: 250
-    Glass: 150
+    Steel: 300
+    Glass: 50
+    Plastic: 50

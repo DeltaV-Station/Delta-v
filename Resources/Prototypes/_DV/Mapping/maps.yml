@@ -5,14 +5,7 @@
   map: /Maps/_DV/centcomm.yml
   allowed:
   - Centcomm
-  - Stamps # no CC official locker to put the stamp in
-
-- type: mapCategories
-  id: Midpoint
-  map: /Maps/_DV/midpoint.yml
-  allowed:
-  - Centcomm
-  - Stamps # no CC official locker to put the stamp in
+  - Stamps # no CC official locker to put the btamp in
 
 # Stations
 
@@ -170,9 +163,3 @@
   map: /Maps/Lavaland/crashedinstigator.yml
   allowed:
   - Syndicate # blood-red hardsuit...
-
-- type: mapCategories
-  id: Greed
-  map: /Maps/Lavaland/Greed.yml
-  allowed:
-  - Centcomm # Gambling crate

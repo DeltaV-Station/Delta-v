@@ -1,5 +1,7 @@
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Fluids.Components;
 using JetBrains.Annotations;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
@@ -25,14 +27,34 @@ public sealed partial class SpillBehavior : IThresholdBehavior
     /// <param name="cause">Optional entity that caused this behavior to trigger</param>
     public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
     {
-        var puddleSystem = system.EntityManager.System<PuddleSystem>();
-        var solutionContainer = system.EntityManager.System<SharedSolutionContainerSystem>();
+        var solutionContainerSystem = system.EntityManager.System<SharedSolutionContainerSystem>();
+        var spillableSystem = system.EntityManager.System<PuddleSystem>();
         var coordinates = system.EntityManager.GetComponent<TransformComponent>(owner).Coordinates;
 
-        // Spill the solution that was drained/split
-        if (solutionContainer.TryGetSolution(owner, Solution, out _, out var solution))
-            puddleSystem.TrySplashSpillAt(owner, coordinates, solution, out _, false, cause);
+        Solution targetSolution;
+
+        // First try to get solution from SpillableComponent
+        if (system.EntityManager.TryGetComponent(owner, out SpillableComponent? spillableComponent) &&
+            solutionContainerSystem.TryGetSolution(owner, spillableComponent.SolutionName, out var solution, out var compSolution))
+        {
+            // If entity is drainable, drain the solution. Otherwise just split it.
+            // Both methods ensure the solution is properly removed.
+            targetSolution = system.EntityManager.HasComponent<DrainableSolutionComponent>(owner)
+                ? solutionContainerSystem.Drain((owner, system.EntityManager.GetComponent<DrainableSolutionComponent>(owner)), solution.Value, compSolution.Volume)
+                : compSolution.SplitSolution(compSolution.Volume);
+        }
+        // Fallback to solution specified in behavior data
+        else if (Solution != null &&
+                 solutionContainerSystem.TryGetSolution(owner, Solution, out var solutionEnt, out var behaviorSolution))
+        {
+            targetSolution = system.EntityManager.HasComponent<DrainableSolutionComponent>(owner)
+                ? solutionContainerSystem.Drain((owner, system.EntityManager.GetComponent<DrainableSolutionComponent>(owner)), solutionEnt.Value, behaviorSolution.Volume)
+                : behaviorSolution.SplitSolution(behaviorSolution.Volume);
+        }
         else
-            puddleSystem.TrySplashSpillAt(owner, coordinates, out _, out _, false, cause);
+            return;
+
+        // Spill the solution that was drained/split
+        spillableSystem.TrySplashSpillAt(owner, coordinates, targetSolution, out _, false, cause);
     }
 }

@@ -14,9 +14,10 @@
         reagents:
         - ReagentId: TableSalt
           Quantity: 50
-  - type: Edible
-    edible: Drink
+  - type: Drink
     solution: food
+    useSound:
+      path: /Audio/Items/eating_1.ogg
 
 - type: entity
   parent: ReagentPacketBase

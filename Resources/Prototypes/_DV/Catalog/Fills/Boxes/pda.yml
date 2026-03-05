@@ -4,14 +4,12 @@
   id: BoxPDASecurity
   description: A box of spare PDA microcomputers for the security department.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: SecurityPDA
-        - id: DetectivePDA
-        - id: WardenPDA
-        - id: SeniorOfficerPDA
+  - type: StorageFill
+    contents:
+      - id: SecurityPDA
+      - id: DetectivePDA
+      - id: WardenPDA
+      - id: SeniorOfficerPDA
 
 - type: entity
   name: prisoner PDA box
@@ -19,10 +17,9 @@
   id: BoxPDAPrisoner
   description: A box of spare PDA microcomputers for the warden to use for prisoners.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: PrisonerPDA
+  - type: StorageFill
+    contents:
+      - id: PrisonerPDA
         amount: 4
 
 - type: entity
@@ -31,14 +28,12 @@
   id: BoxPDAMedical
   description: A box of spare PDA microcomputers for the medical department.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: MedicalPDA
-        - id: ChemistryPDA
-        - id: ParamedicPDA
-        - id: SeniorPhysicianPDA
+  - type: StorageFill
+    contents:
+      - id: MedicalPDA
+      - id: ChemistryPDA
+      - id: ParamedicPDA
+      - id: SeniorPhysicianPDA
 
 - type: entity
   name: epistemics PDA box
@@ -46,14 +41,12 @@
   id: BoxPDAScience
   description: A box of spare PDA microcomputers for the epistemics department.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: SciencePDA
-        - id: PsionicMantisPDA
-        - id: ChaplainPDA
-        - id: SeniorResearcherPDA
+  - type: StorageFill
+    contents:
+      - id: SciencePDA
+      - id: PsionicMantisPDA
+      - id: ChaplainPDA
+      - id: SeniorResearcherPDA
 
 - type: entity
   name: engineering PDA box
@@ -61,14 +54,12 @@
   id: BoxPDAEngineering
   description: A box of spare PDA microcomputers for the engineering department.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: EngineerPDA
-        - id: AtmosPDA
-        - id: SeniorEngineerPDA
-        - id: TechnicalAssistantPDA
+  - type: StorageFill
+    contents:
+      - id: EngineerPDA
+      - id: AtmosPDA
+      - id: SeniorEngineerPDA
+      - id: TechnicalAssistantPDA
 
 - type: entity
   name: logistics PDA box
@@ -76,14 +67,13 @@
   id: BoxPDACargo
   description: A box of spare PDA microcomputers for the logistics department.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: CargoPDA
-          amount: 2
-        - id: SalvagePDA
-        - id: MailCarrierPDA
+  - type: StorageFill
+    contents:
+      - id: CargoPDA
+        amount: 2
+      - id: SalvagePDA
+      - id: MailCarrierPDA
+        amount: 1
 
 - type: entity
   name: justice PDA box
@@ -91,11 +81,9 @@
   id: BoxPDAJustice
   description: A box of spare PDA microcomputers for the justice department.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: LawyerPDA
-          amount: 2
-        - id: ProsecutorPDA
-        - id: ClerkPDA
+  - type: StorageFill
+    contents:
+      - id: LawyerPDA
+        amount: 2
+      - id: ProsecutorPDA
+      - id: ClerkPDA

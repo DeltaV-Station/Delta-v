@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -52,9 +51,9 @@ public enum SiliconLawsUiKey : byte
 public sealed class SiliconLawBuiState : BoundUserInterfaceState
 {
     public List<SiliconLaw> Laws;
-    public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
+    public HashSet<string>? RadioChannels;
 
-    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
+    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<string>? radioChannels)
     {
         Laws = laws;
         RadioChannels = radioChannels;

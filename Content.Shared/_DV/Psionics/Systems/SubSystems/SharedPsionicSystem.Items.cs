@@ -60,6 +60,7 @@ public abstract partial class SharedPsionicSystem
         args.Args.AllowsPsionicUsage &= gear.Comp.AllowsPsionicUsage;
         // If one gear shields from psionics, they're shielded.
         args.Args.ShieldsFromPsionics |= gear.Comp.ShieldsFromPsionics;
+
     }
 
     private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerUseAttemptEvent> args)

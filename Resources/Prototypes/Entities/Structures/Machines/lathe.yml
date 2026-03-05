@@ -42,8 +42,6 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key: #DeltaV
-        type: WiresBoundUserInterface #DeltaV
   - type: Transform
     anchored: true
   - type: Pullable
@@ -63,11 +61,6 @@
     - Experimental
     - CivilianServices
   # Begin DeltaV additions
-  - type: Wires
-    boardName: wires-board-name-autolathe
-    layoutId: Fabicator
-    alwaysRandomize: true
-  - type: StationAiWhitelist 
   - type: MaterialStorageMagnetPickup
     magnetEnabled: True
     range: 0.30
@@ -131,7 +124,7 @@
   - type: Machine
     board: AutolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist: &StandardMaterialWhitelist
+    whitelist:
       tags:
         - Sheet
         - RawMaterial
@@ -152,7 +145,6 @@
     - AtmosStatic
     - CablesStatic
     - PaperworkStatic
-    - TowelsStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -164,7 +156,6 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
-    - SyndicateAmmoStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -213,7 +204,11 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
@@ -237,6 +232,7 @@
     - Janitor
     - Instruments
     - Equipment
+    - FauxTiles
     - Botany # DeltaV
     - Surgery # Shitmed change
   - type: EmagLatheRecipes
@@ -287,6 +283,7 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
+    - CircuitFloorsStatic
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -301,7 +298,11 @@
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
   - type: RequireProjectileTarget
 
@@ -371,7 +372,11 @@
     - AdvancedPsionicProsthetics
     # End DeltaV Additions
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
   - type: OreSiloClient
   - type: GuideHelp
     guides:
@@ -450,11 +455,8 @@
     # Being DeltaV Additions
     - ReportingStatic
     - SecurityRubberAmmoStatic
-    - SecurityShotgunDrumsStatic
     - PrisonerSoftsuits
     - EVASuit
-    - SimpleToolsStaticDeltaV
-    - BorgModulesSecurityDeltaVStatic
     # End DeltaV Additions
     dynamicPacks:
     - SalvageSecurityBoards
@@ -467,11 +469,12 @@
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
     - AdvancedPsionicProsthetics # DeltaV
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - SyndicateAmmoStatic
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   # End DeltaV Additions
   - type: BlueprintReceiver
     whitelist:
@@ -516,7 +519,6 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
-      - SecurityShotgunDrumsStatic
     # End DeltaV Additions
     - type: BlueprintReceiver
       whitelist:
@@ -527,11 +529,12 @@
         machine_board: !type:Container
         machine_parts: !type:Container
         blueprint: !type:Container
-    - type: EmagLatheRecipes
-      emagStaticPacks:
-      - SyndicateAmmoStatic
     - type: MaterialStorage
-      whitelist: *StandardMaterialWhitelist
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
     - type: OreSiloClient
 
 - type: entity
@@ -573,7 +576,6 @@
     - IPCLimbsStatic
     - PowerAugments
     - ToolAugments
-    - SimpleToolsStaticDeltaV
     # End DeltaV Additions
     dynamicPacks:
     - Chemistry
@@ -613,7 +615,6 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
@@ -634,7 +635,11 @@
     - ClothingCentComm
     - ClothingSyndie
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
 
 - type: entity
@@ -679,10 +684,6 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - BioGenEmagStatic
-    - HostileCubesStatic
 
 - type: entity
   parent: BaseLathe
@@ -802,17 +803,13 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - FloorDarkTilesStatic
-    - FloorSteelTilesStatic
-    - FloorWhiteTilesStatic
-    - FloorMaintsTilesStatic
-    - FloorWoodTilesStatic
-    - FloorConcreteTilesStatic
-    - CircuitFloorsStatic
-    - FloorMarbleTilesStatic
-    - FloorTilesStaticDeltaV # DeltaV
-    dynamicPacks:
-    - FauxTiles
+    - FloorTilesStatic
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - Metal
+        - Wooden
+        - RawMaterial
+        - Plastic
   - type: OreSiloClient
