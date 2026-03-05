@@ -59,7 +59,7 @@ public sealed class EventAlertSystem : EntitySystem
         if (_eorgAlerted.Add(ev.Origin))
         {
             AlertWithLink($"[EORG] {ToPrettyString(ev.Origin):player} destroyed {ToPrettyString(target):entity}.",
-                ev.Origin, _transform.GetMapCoordinates(ev.Origin));
+                ev.Origin);
         }
     }
 
@@ -97,22 +97,36 @@ public sealed class EventAlertSystem : EntitySystem
         }
     }
 
-    private void AlertWithLink(string message, EntityUid playerEnt, MapCoordinates? coords = null)
+    public void AlertWithLink(string message, EntityUid playerEnt, MapCoordinates? coords = null)
     {
-        var originName = "Actor";
-        if (TryComp(playerEnt, out MetaDataComponent? meta))
-        {
-            originName = meta.EntityName;
-        }
-
         _chat.SendAdminAlert(message);
-        if (_entity.GetNetEntity(playerEnt) is { } netEnt &&
-            AdminLogManager.CreateTpLinks([(netEnt, originName)], out var tpLinks))
+        SendLinks(playerEnt, coords);
+    }
+
+    public void SendLinks(EntityUid? playerEnt = null, MapCoordinates? mapCoords = null)
+    {
+        List<MapCoordinates> coords = new();
+        if (playerEnt is not null)
         {
-            _chat.SendAdminAlertNoFormatOrEscape(tpLinks);
+            var originName = "Actor";
+            if (TryComp(playerEnt, out MetaDataComponent? meta))
+            {
+                originName = meta.EntityName;
+            }
+
+            if (_entity.GetNetEntity(playerEnt) is { } netEnt &&
+                AdminLogManager.CreateTpLinks([(netEnt, originName)], out var tpLinks))
+            {
+                _chat.SendAdminAlertNoFormatOrEscape(tpLinks);
+                coords.Add(_transform.GetMapCoordinates(playerEnt.Value));
+            }
         }
 
-        if (coords is { } mapCoords && coords != MapCoordinates.Nullspace && AdminLogManager.CreateCordLinks([mapCoords], out var coordLinks))
+        if (mapCoords is not null && mapCoords.Value != MapCoordinates.Nullspace)
+        {
+            coords.Add(mapCoords.Value);
+        }
+        if (coords.Count != 0 && AdminLogManager.CreateCordLinks(coords, out var coordLinks))
         {
             _chat.SendAdminAlertNoFormatOrEscape(coordLinks);
         }
