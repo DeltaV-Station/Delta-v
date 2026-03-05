@@ -2,6 +2,8 @@ using System.Linq;
 using Content.Server._DV.StationEvents.Components;
 using Content.Server.Psionics;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -30,9 +32,14 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
 
         while (query.MoveNext(out var entity, out var humanoid, out var mobState))
         {
-            if (!_mob.IsAlive(entity, mobState) || HasComp<PsionicInsulationComponent>(entity) || !HasComp<PotentialPsionicComponent>(entity))
+            if (!_mob.IsAlive(entity, mobState) || !HasComp<PotentialPsionicComponent>(entity))
                 continue;
-            potentialTargets.Add((entity, humanoid));
+
+            var ev = new TargetedByPsionicPowerEvent();
+            RaiseLocalEvent(entity, ref ev);
+
+            if (!ev.IsShielded)
+                potentialTargets.Add((entity, humanoid));
         }
 
         _random.Shuffle(potentialTargets);

@@ -11,12 +11,13 @@ psionic-power-metapsionic-success = You detect psychic presence there.
 psionic-power-metapsionic-failure = You don't detect any psychic presence there.
 psionic-power-metapsionic-power-detected = You detect that {$power} was used nearby.
 
-## Psionic Rolling Messages
+## Psionic Rolling & Mindbreaking Messages
 psionic-roll-failed = The noöspheric influence leaves no mark on your mind...
+psionic-mindbroken = Your mind retreats from abstraction to reality.
 
 ## Psionic Gamerule Messages
-gamerule-noospheric-zap-seize = An external power overwhelms you!
-gamerule-noospheric-zap-seize-potential-regained = Your mind expands.. it demands knowledge...
+gamerule-noospheric-zap-seize = An external eruption overwhelms your mind!
+gamerule-noospheric-zap-seize-potential-regained = Your mind restructures.. it demands knowledge...
 
 psionic-nosebleed-message = Your nose starts gushing blood!
 

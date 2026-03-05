@@ -4,12 +4,12 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DV.EntityEffects.Effects.Psionics;
 
 /// <inheritdoc cref="EntityEffect"/>
-public sealed partial class RerollPsionicAbilities : EntityEffectBase<RerollPsionicAbilities>
+public sealed partial class RollPsionicAbility : EntityEffectBase<RollPsionicAbility>
 {
     /// <summary>
     ///     Reroll multiplier.
     /// </summary>
-    [DataField("bonusMultiplier")]
+    [DataField]
     public float BonusMultiplier = 1f;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
