@@ -5,12 +5,12 @@
   parent: ToolboxThief
   components:
   - type: Sprite
-    sprite: 
+    sprite: _DV/Objects/Tools/Hitman_Briefcase.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 2
-    toolName: 
-    toolDesc: 
+    toolName: hitman-briefcase-window-title
+    toolDesc: hitman-briefcase-window-description
     possibleSets:
     - SharpshooterKit
     - LoudKit
