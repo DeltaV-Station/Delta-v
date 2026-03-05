@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using Content.Server.Administration.Commands;
+using Content.Server.Administration.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.EUI;
 using Content.Shared.Administration.Notes;
@@ -22,6 +23,7 @@ public sealed class AdminNotesSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly EuiManager _euis = default!;
+    [Dependency] private readonly AdminSystem _admin = default!; // DeltaV
 
 
     // DeltaV - watchlist cache defs START
@@ -62,6 +64,9 @@ public sealed class AdminNotesSystem : EntitySystem
             _connectedPlayerWatchlists[note.Player] = new();
 
         _connectedPlayerWatchlists[note.Player].Add(note);
+
+        if (_playerManager.TryGetSessionById(note.Player, out var session))
+            _admin.UpdatePlayerList(session);
     }
 
     private void OnNoteModified(SharedAdminNote note)
@@ -72,6 +77,9 @@ public sealed class AdminNotesSystem : EntitySystem
         var modifiedIndex = _connectedPlayerWatchlists[note.Player].FindIndex(n => n.Id == note.Id);
         if (modifiedIndex != -1)
             _connectedPlayerWatchlists[note.Player][modifiedIndex] = note;
+
+        if (_playerManager.TryGetSessionById(note.Player, out var session))
+            _admin.UpdatePlayerList(session);
     }
 
     private void OnNoteDeleted(SharedAdminNote note)
@@ -85,6 +93,9 @@ public sealed class AdminNotesSystem : EntitySystem
 
         if (_connectedPlayerWatchlists[note.Player].Count == 0)
             _connectedPlayerWatchlists.Remove(note.Player);
+
+        if (_playerManager.TryGetSessionById(note.Player, out var session))
+            _admin.UpdatePlayerList(session);
     }
     // DeltaV - track watchlist changes END
 
