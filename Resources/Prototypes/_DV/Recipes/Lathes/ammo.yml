@@ -1,0 +1,220 @@
+# .38 special
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnumEmpty
+  id: AmmoFabSpeedLoaderSpecialEmpty
+  result: SpeedLoaderSpecialEmpty
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnum
+  id: AmmoFabSpeedLoaderSpecial
+  result: SpeedLoaderSpecial
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnumPractice
+  id: AmmoFabSpeedLoaderSpecialPractice
+  result: SpeedLoaderSpecialPractice
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnumUranium
+  id: AmmoFabSpeedLoaderSpecialUranium
+  result: SpeedLoaderSpecialUranium
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabSpeedLoaderSpecialRubber
+  result: SpeedLoaderSpecialRubber
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolSpecial
+  result: MagazinePistolSpecial
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecial
+  result: MagazineBoxSpecial
+  materials:
+    Steel: 1250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecialPractice
+  result: MagazineBoxSpecialPractice
+  materials:
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecialRubber
+  result: MagazineBoxSpecialRubber
+  materials:
+    Steel: 350
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecialIncendiary
+  result: MagazineBoxSpecialIncendiary
+  materials:
+    Plastic: 1250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecialUranium
+  result: MagazineBoxSpecialUranium
+  materials:
+    Plastic: 1250
+    Uranium: 125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecialHoly
+  result: MagazineBoxSpecialHoly
+  materials:
+    Plastic: 1250
+    Steel: 75
+    Silver: 75
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxSpecialMindbreaker
+  result: MagazineBoxSpecialMindbreaker
+  materials:
+    Plastic: 1250
+    Steel: 75
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabBoxShellSoulbreaker
+  result: BoxShellSoulbreaker
+  materials:
+    Plastic: 300
+    Steel: 200
+    Glass: 100
+
+# Rubber ammo, removed from upstream
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolRubber
+  result: MagazinePistolRubber
+  materials:
+    Steel: 25
+    Plastic: 120
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineRifleRubber
+  result: MagazineRifleRubber
+  materials:
+    Steel: 25
+    Plastic: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineLightRifleRubber
+  result: MagazineLightRifleRubber
+  materials:
+    Steel: 25
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolSubMachineGunRubber
+  result: MagazinePistolSubMachineGunRubber
+  materials:
+    Steel: 25
+    Plastic: 360
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolHighCapacityRubber
+  result: MagazinePistolHighCapacityRubber
+  materials:
+    Steel: 25
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabSpeedLoaderMagnumRubber
+  result: SpeedLoaderMagnumRubber
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxPistolRubber
+  result: MagazineBoxPistolRubber
+  materials:
+    Plastic: 600
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxMagnumRubber
+  result: MagazineBoxMagnumRubber
+  materials:
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxLightRifleRubber
+  result: MagazineBoxLightRifleRubber
+  materials:
+    Plastic: 900
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazineBoxRifleRubber
+  result: MagazineBoxRifleRubber
+  materials:
+    Plastic: 750
+
+# Machine pistol mags, aside from rubber
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolHighCapacity
+  result: MagazinePistolHighCapacity
+  materials:
+    Steel: 210
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolHighCapacityPractice
+  result: MagazinePistolHighCapacityPractice
+  materials:
+    Steel: 125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolHighCapacityIncendiary
+  result: MagazinePistolHighCapacityIncendiary
+  materials:
+    Steel: 25
+    Plastic: 225
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoFabMagazinePistolHighCapacityUranium
+  result: MagazinePistolHighCapacityUranium
+  materials:
+    Steel: 25
+    Plastic: 200
+    Uranium: 200
+
+# .40 Anti-materiel Ammo for the NT-3
+
+- type: latheRecipe
+  id: AmmoFabMagazineBoxLMGAntiMateriel
+  result: MagazineBoxLMGAntiMateriel
+  completetime: 4
+  materials:
+    Steel: 1000
+    Uranium: 250

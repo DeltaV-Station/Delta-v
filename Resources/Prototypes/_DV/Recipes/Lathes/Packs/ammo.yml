@@ -1,0 +1,94 @@
+## Static
+
+- type: latheRecipePack
+  parent:
+  - SecurityPracticeStaticDeltaV # DeltaV
+  id: AmmoFabPracticeStatic
+  recipes:
+  - BoxShotgunPractice
+  - MagazineBoxLightRiflePractice
+  - MagazineBoxMagnumPractice
+  - MagazineBoxPistolPractice
+  - MagazineBoxRiflePractice
+  - MagazineLightRiflePractice
+  - MagazineRiflePractice
+  - MagazinePistolPractice
+  - SpeedLoaderMagnumPractice
+  - MagazinePistolSubMachineGunPractice
+
+- type: latheRecipePack
+  parent:
+  - SecurityAmmoStaticDeltaV
+  id: AmmoFabAmmoStatic
+  recipes:
+  - BoxLethalshot
+  - BoxShotgunSlug
+  - BoxShotgunFlare
+  - MagazineBoxLightRifle
+  - MagazineBoxMagnum
+  - MagazineBoxPistol
+  - MagazineBoxRifle
+  - MagazineLightRifle
+  - MagazineLightRifleEmpty
+  - MagazinePistol
+  - MagazinePistolEmpty
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGunEmpty
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMountedEmpty
+  - MagazineRifle
+  - MagazineRifleEmpty
+  - SpeedLoaderMagnum
+  - SpeedLoaderMagnumEmpty
+
+- type: latheRecipePack
+  id: AmmoFabShotgunDrumsStatic
+  recipes:
+  - MagazineShotgun
+  - MagazineShotgunEmpty
+  - MagazineShotgunSlug
+
+- type: latheRecipePack
+  id: AmmoFabRubberAmmoStatic
+  recipes:
+  - MagazinePistolRubber
+  - SpeedLoaderMagnumRubber
+  - SpeedLoaderSpecialRubber
+  - MagazineRifleRubber
+  - MagazineLightRifleRubber
+  - MagazineBoxPistolRubber
+  - MagazineBoxMagnumRubber
+  - MagazineBoxLightRifleRubber
+  - MagazineBoxRifleRubber
+  - MagazineBoxSpecialRubber
+  - MagazinePistolSubMachineGunRubber
+  - MagazinePistolHighCapacityRubber
+
+## Dynamic
+
+- type: latheRecipePack
+  parent:
+  - SecurityAmmoDeltaV
+  id: AmmoFabAmmo
+  recipes:
+  - BoxShotgunIncendiary
+  - BoxShotgunUranium
+  - MagazineBoxLightRifleIncendiary
+  - MagazineBoxLightRifleUranium
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxMagnumUranium
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxPistolUranium
+  - MagazineBoxRifleIncendiary
+  - MagazineBoxRifleUranium
+  - MagazineLightRifleIncendiary
+  - MagazineLightRifleUranium
+  - MagazinePistolIncendiary
+  - MagazinePistolUranium
+  - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolSubMachineGunUranium
+  - MagazineRifleIncendiary
+  - MagazineRifleUranium
+  - MagazineShotgunIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - SpeedLoaderMagnumUranium
