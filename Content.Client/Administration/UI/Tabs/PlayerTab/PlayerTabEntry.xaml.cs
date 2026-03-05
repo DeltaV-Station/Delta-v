@@ -21,7 +21,8 @@ public sealed partial class PlayerTabEntry : PanelContainer
         AdminPlayerTabColorOption colorOption,
         AdminPlayerTabRoleTypeOption roleSetting,
         AdminPlayerTabSymbolOption symbolSetting,
-        bool markGhosted // DeltaV - Add markGhosted
+        bool markGhosted, // DeltaV - Add markGhosted
+        bool markWatchlisted // DeltaV - Add markWatchlisted
         )
     {
         IoCManager.InjectDependencies(this);
@@ -75,12 +76,16 @@ public sealed partial class PlayerTabEntry : PanelContainer
         if (player.IdentityName != player.CharacterName)
             CharacterLabel.Text += $" [{player.IdentityName}]";
 
-        // DeltaV - Mark ghosted players START
+        // DeltaV - Mark ghosted/watchlisted players START
         if (player.Ghost && markGhosted)
         {
             CharacterLabel.Text = $"(G) {CharacterLabel.Text}";
         }
-        // DeltaV - Mark ghosted players END
+        if (player.Watchlisted && markWatchlisted)
+        {
+            CharacterLabel.Text = $"(WL) {CharacterLabel.Text}";
+        }
+        // DeltaV - Mark ghosted/watchlisted players END
 
         var roletype = RoleTypeLabel.Text = Loc.GetString(rolePrototype?.Name ?? RoleTypePrototype.FallbackName);
         var subtype = roles.GetRoleSubtypeLabel(rolePrototype?.Name ?? RoleTypePrototype.FallbackName, player.Subtype);
