@@ -237,7 +237,7 @@ public sealed partial class MapScreen : BoxContainer
     private void ClearMapObjects()
     {
         _mapObjectControls.Clear();
-        HyperspaceDestinations.RemoveAllChildren();
+        HyperspaceDestinations.DisposeAllChildren();
         _pendingMapObjects.Clear();
         _mapObjects.Clear();
         _mapHeadings.Clear();

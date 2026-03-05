@@ -3,8 +3,10 @@ using Content.Shared.Trigger.Components.Triggers;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class TriggerOnToolUseSystem : TriggerOnXSystem
+public sealed class TriggerOnToolUseSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -14,6 +16,6 @@ public sealed class TriggerOnToolUseSystem : TriggerOnXSystem
 
     private void OnToolUse(Entity<TriggerOnSimpleToolUsageComponent> ent, ref SimpleToolDoAfterEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.User, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.User, ent.Comp.KeyOut);
     }
 }

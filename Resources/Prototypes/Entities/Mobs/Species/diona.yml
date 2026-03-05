@@ -33,10 +33,7 @@
       - id: FoodMeatPlant
         amount: 5
   - type: Bloodstream
-    bloodReagents:
-      reagents:
-      - ReagentId: Sap
-        Quantity: 1
+    bloodReagent: Sap
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -46,16 +43,17 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ PlantBGone ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
-            Blunt: 0.05
-            Slash: 0.05
-            Piercing: 0.075
+            Blunt: 0.1
+            Slash: 0.1
+            Piercing: 0.15
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -65,9 +63,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
-            Poison: 0.125
+            Poison: 0.25
       - !type:PopupMessage
         type: Local
         visualType: Large

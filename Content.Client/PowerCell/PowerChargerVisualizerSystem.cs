@@ -1,4 +1,4 @@
-using Content.Shared.Power.Components;
+using Content.Shared.Power;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.PowerCell;

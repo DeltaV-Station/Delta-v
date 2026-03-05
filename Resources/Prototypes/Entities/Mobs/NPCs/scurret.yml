@@ -61,7 +61,6 @@
     proto: moth
   - type: InteractionPopup
     successChance: 0.99 # Imagine not being allowed to headpat a scurret, chat
-    interactDelay: 2.25
     interactSuccessString: petting-success-scurret
     interactFailureString: petting-failure-scurret
     interactSuccessSpawn: EffectHearts
@@ -138,7 +137,7 @@
           state: hand
 
   - type: InventorySlots
-  - type: Edible # Why? I'm not sure but I also am afraid of the answer.
+  - type: Food
   - type: Hunger
     baseDecayRate: 0.05 # They get a lil' hungy
   - type: BodyEmotes # Grants them clapping and so on.

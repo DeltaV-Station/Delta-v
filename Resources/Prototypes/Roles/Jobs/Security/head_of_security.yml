@@ -6,16 +6,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 1h
+      time: 3600 #1 hr
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 1h # knowing how to use the tools is important
+      time: 3600 #1 hr, knowing how to use the tools is important
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 5h
+      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      time: 36000 # 10 hrs
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -30,6 +30,7 @@
   - Security
   - Armory
   - Maintenance
+  #- Service # DeltaV - Sec isn't service
   - External
   - Detective
   - Corpsman # DeltaV - added Corpsman access

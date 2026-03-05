@@ -4,8 +4,7 @@ using Content.Shared.Armor;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Components;
 using Content.Shared.Changeling.Components;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -93,7 +92,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
             if (damage.Damage.DamageDict.TryGetValue(damagePoints.Key, out var val) && val > comp.DevourConsumeDamageCap)
                 return;
         }
-        _damageable.ChangeDamage((target.Value, damage), comp.DamagePerTick, true, true, user);
+        _damageable.TryChangeDamage(target, comp.DamagePerTick, true, true, damage, user);
     }
 
     /// <summary>

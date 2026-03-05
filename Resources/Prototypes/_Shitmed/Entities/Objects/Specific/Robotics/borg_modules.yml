@@ -25,12 +25,6 @@
         whitelist:
           tags:
           - Soap
-    - hand: 
-        emptyLabel: borg-slot-organ-empty
-        emptyRepresentative: OrganHumanBrain
-        whitelist:
-          components:
-          - Organ
   - type: BorgModuleIcon
     icon: { sprite: _Shitmed/Interface/Actions/actions_borg.rsi, state: surgery-module }
 
@@ -50,44 +44,31 @@
     - item: HandheldHealthAnalyzerUnpowered # DeltaV - Add Scanners to Surgery Modules.
     - item: EnergyScalpel
       hand:
-        emptyLabel: borg-slot-surgery-tool-empty
+        emptyLabel: borg-slot-surgery-tool
         emptyRepresentative: EnergyScalpel
         whitelist:
           components:
           - MedicalSurgeryTool
     - item: EnergyCautery
       hand:
-        emptyLabel: borg-slot-surgery-tool-empty
+        emptyLabel: borg-slot-surgery-tool
         emptyRepresentative: EnergyCautery
         whitelist:
           components:
           - MedicalSurgeryTool
     - item: AdvancedRetractor
       hand:
-        emptyLabel: borg-slot-surgery-tool-empty
+        emptyLabel: borg-slot-surgery-tool
         emptyRepresentative: AdvancedRetractor
         whitelist:
           components:
           - MedicalSurgeryTool
     - item: BoneGel
       hand:
-        emptyLabel: borg-slot-surgery-tool-empty
+        emptyLabel: borg-slot-surgery-tool
         emptyRepresentative: BoneGel
         whitelist:
           components:
           - MedicalSurgeryTool
-    - item: SoapNT
-      hand:
-        emptyLabel: borg-slot-soap-empty
-        emptyRepresentative: SoapNT
-        whitelist:
-          tags:
-          - Soap
-    - hand: 
-        emptyLabel: borg-slot-organ-empty
-        emptyRepresentative: OrganHumanBrain
-        whitelist:
-          components:
-          - Organ
   - type: BorgModuleIcon
     icon: { sprite: _Shitmed/Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

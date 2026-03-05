@@ -26,7 +26,9 @@
         ents: []
   - type: StaticPrice
     price: 100
-  - type: Tag #DeltaV- Removed Trash tag, preventing heads from being recycled
+  - type: Tag
+    tags:
+    - Trash
 
 - type: entity
   abstract: true
@@ -95,6 +97,9 @@
         id: eyes
   - type: Input
     context: "ghost"
+  - type: Tag
+    tags:
+      - Head
 
 - type: entity
   abstract: true

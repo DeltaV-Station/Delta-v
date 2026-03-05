@@ -75,6 +75,7 @@
         methods: [Touch]
         effects:
         - !type:HealthChange
+          scaleByQuantity: true
           damage:
             types:
               Heat: 0.5
@@ -88,7 +89,7 @@
       ignoreWhitelist:
         components:
         - IgnoreKudzu
-    - type: Edible
+    - type: Food
       requiresSpecialDigestion: true
       delay: 0.5
     - type: FlavorProfile
@@ -99,7 +100,7 @@
         food:
           reagents:
           - ReagentId: Nutriment
-            Quantity: 0.1
+            Quantity: 2
     - type: Tag
       tags:
       - Ruminant
@@ -147,9 +148,6 @@
       - CrystalCyan
       rarePrototypes:
       - AnomalyFloraBulb
-    - type: Tag
-      tags:
-      - Ruminant
 
 - type: entity
   id: KudzuFlowerAngry
@@ -242,14 +240,14 @@
        types:
          Heat: 3
     - type: AtmosExposed
-    - type: Edible # delightfully devilish !
-      delay: 0.5
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.3
       sprintSpeedModifier: 0.3
       ignoreWhitelist:
         tags:
         - Flesh
+    - type: Food # delightfully devilish !
+      delay: 0.5
     - type: SolutionContainerManager
       solutions:
         food:
@@ -258,13 +256,16 @@
             Quantity: 2
           - ReagentId: Protein
             Quantity: 1
-    - type: AutoEmote # Meat Kudzu used to have respirator, but couldn't breathe so all it would do is gasp.
-      emotes:
-      - MeatGasp
+    - type: Respirator
+      damage:
+        types:
+          Asphyxiation: 0.25
+      damageRecovery:
+        types:
+          Asphyxiation: -0.25
     - type: Tag
       tags:
       - Meat
-      - Ruminant
 
 - type: entity
   name: dark haze

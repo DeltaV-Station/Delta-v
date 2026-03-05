@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Content.Shared.Guidebook;
 
 namespace Content.Shared.Atmos.Piping.Binary.Components;
 
@@ -34,7 +33,6 @@ public sealed partial class GasVolumePumpComponent : Component
     public float LowerThreshold = 0.01f;
 
     [DataField]
-    [GuidebookData]
     public float HigherThreshold = DefaultHigherThreshold;
 
     public static readonly float DefaultHigherThreshold = 2 * Atmospherics.MaxOutputPressure;
@@ -44,10 +42,4 @@ public sealed partial class GasVolumePumpComponent : Component
 
     [DataField]
     public float LastMolesTransferred;
-
-    /// <summary>
-    /// Frontier - Start the pump with the map.
-    /// </summary>
-    [DataField]
-    public bool StartOnMapInit { get; set; } = false;
 }

@@ -44,10 +44,7 @@
       amount: 2
   - type: Bloodstream
     bloodMaxVolume: 20
-    bloodReagents:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 1
+    bloodReagent: Blood
   - type: ZombieImmune
 
 - type: entity
@@ -171,10 +168,7 @@
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
   - type: Bloodstream
     bloodMaxVolume: 20
-    bloodReagents:
-      reagents:
-      - ReagentId: Laughter
-        Quantity: 1
+    bloodReagent: Laughter
 
 - type: entity
   id: FishNukeDisk
@@ -285,10 +279,7 @@
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
   - type: Bloodstream
     bloodMaxVolume: 10
-    bloodReagents:
-      reagents:
-      - ReagentId: Laughter
-        Quantity: 1
+    bloodReagent: Laughter
 
 - type: entity
   id: FishIan

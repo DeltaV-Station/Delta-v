@@ -11,13 +11,12 @@ psionic-power-metapsionic-success = You detect psychic presence there.
 psionic-power-metapsionic-failure = You don't detect any psychic presence there.
 psionic-power-metapsionic-power-detected = You detect that {$power} was used nearby.
 
-## Psionic Rolling & Mindbreaking Messages
+## Psionic Rolling Messages
 psionic-roll-failed = The noöspheric influence leaves no mark on your mind...
-psionic-mindbroken = Your mind retreats from abstraction to reality.
 
 ## Psionic Gamerule Messages
-gamerule-noospheric-zap-seize = An external eruption overwhelms your mind!
-gamerule-noospheric-zap-seize-potential-regained = Your mind restructures.. it demands knowledge...
+gamerule-noospheric-zap-seize = An external power overwhelms you!
+gamerule-noospheric-zap-seize-potential-regained = Your mind expands.. it demands knowledge...
 
 psionic-nosebleed-message = Your nose starts gushing blood!
 
@@ -113,5 +112,3 @@ fractured-form-nobodies = You have no alternate forms to switch to!
 fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
 fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
 fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
-
-glimmer-restyle-event = You feel like something changed about your looks...

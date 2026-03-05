@@ -24,7 +24,7 @@
   #- type: GameRule # DeltaV - redundant
   #  minPlayers: 40
   - type: LoadMapRule
-    gridPath: /Maps/_Mono/ShuttleEvent/asakim_small.yml
+    preloadedGrid: AsakimSmall
   # Begin DeltaV Additions
   - type: PrecognitionResult
     message: psionic-power-precognition-asakim-spawn-result-message

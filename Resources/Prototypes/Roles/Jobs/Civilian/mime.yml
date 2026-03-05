@@ -5,7 +5,7 @@
   playTimeTracker: JobMime
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 4h
+      time: 14400 #4 hrs
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -20,7 +20,7 @@
     - type: Psionic # Nyano - Summary: Makes the mime psionic.
     - type: MimePowers
       preventWriting: false # DeltaV
-    #- type: FrenchAccent # DeltaV - remove forced accents
+    - type: FrenchAccent
 
 - type: startingGear
   id: MimeGear

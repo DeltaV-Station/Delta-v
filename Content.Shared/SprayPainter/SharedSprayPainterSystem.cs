@@ -181,7 +181,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
 
         if (ent.Comp.Group is not { } group
             || !painter.StylesByGroup.TryGetValue(group, out var selectedStyle)
-            || !Proto.Resolve(group, out PaintableGroupPrototype? targetGroup))
+            || !Proto.TryIndex(group, out PaintableGroupPrototype? targetGroup))
             return;
 
         // Valid paint target.

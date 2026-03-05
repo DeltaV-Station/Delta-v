@@ -1,55 +1,20 @@
 - type: entity
   name: adjutant
-  parent: [BaseItem, BaseGunWieldable]
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunAdjutant
-  description: A semi-automatic magazine-fed shotgun manufactured by Nanotrasen. trading firerate for a compact and user-friendly design.
+  description: Sold as a "riot" shotgun, this shotgun has a special gas-operated mechanism that makes it highly effective for CQC and suppressive fire.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Item
-    size: Large
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: AmmoCounter
+  - type: Item
+    size: Large
   - type: GunRequiresWield
   - type: Gun
     fireRate: 1.5
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineShotgun
-        priority: 2
-        whitelist:
-          tags:
-          - MagazineShotgun
-        whitelistFailPopup: gun-magazine-whitelist-fail
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-  - type: MagazineAmmoProvider
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
+  - type: BallisticAmmoProvider
+    capacity: 6
 
 - type: entity
   parent: WeaponShotgunKammerer
@@ -89,11 +54,12 @@
   - type: Battery
     maxCharge: 400
     startingCharge: 200
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: PelletShotgunBeanbag
     fireCost: 100
   - type: AmmoCounter
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 20
 
 - type: entity

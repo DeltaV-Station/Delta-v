@@ -110,12 +110,7 @@ public sealed partial class GunSystem
             _bulletRender.Count = count;
             _bulletRender.Capacity = capacity;
 
-            _bulletRender.Type = capacity switch
-            {
-                > 50 => BulletRender.BulletType.Tiny,
-                > 15 => BulletRender.BulletType.Normal,
-                _ => BulletRender.BulletType.Large
-            };
+            _bulletRender.Type = capacity > 50 ? BulletRender.BulletType.Tiny : BulletRender.BulletType.Normal;
         }
     }
 
@@ -142,7 +137,7 @@ public sealed partial class GunSystem
                     }),
                     (_ammoCount = new Label
                     {
-                        StyleClasses = { StyleClass.ItemStatus },
+                        StyleClasses = { StyleNano.StyleClassItemStatus },
                         HorizontalAlignment = HAlignment.Right,
                         VerticalAlignment = VAlignment.Bottom
                     }),
@@ -194,7 +189,7 @@ public sealed partial class GunSystem
                             (_noMagazineLabel = new Label
                             {
                                 Text = "No Magazine!",
-                                StyleClasses = {StyleClass.ItemStatus}
+                                StyleClasses = {StyleNano.StyleClassItemStatus}
                             })
                         }
                     },
@@ -207,7 +202,7 @@ public sealed partial class GunSystem
                         {
                             (_ammoCount = new Label
                             {
-                                StyleClasses = {StyleClass.ItemStatus},
+                                StyleClasses = {StyleNano.StyleClassItemStatus},
                                 HorizontalAlignment = HAlignment.Right,
                             }),
                             (_chamberedBullet = new TextureRect
@@ -241,12 +236,7 @@ public sealed partial class GunSystem
             _bulletRender.Count = count;
             _bulletRender.Capacity = capacity;
 
-            _bulletRender.Type = capacity switch
-            {
-                > 50 => BulletRender.BulletType.Tiny,
-                > 15 => BulletRender.BulletType.Normal,
-                _ => BulletRender.BulletType.Large
-            };
+            _bulletRender.Type = capacity > 50 ? BulletRender.BulletType.Tiny : BulletRender.BulletType.Normal;
 
             _ammoCount.Text = $"x{count:00}";
         }

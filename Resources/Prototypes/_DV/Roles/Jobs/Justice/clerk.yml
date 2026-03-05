@@ -6,13 +6,13 @@
   antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 10h
+      time: 36000 # 10 hrs
     - !type:RoleTimeRequirement
       role: JobLawyer
-      time: 10h
+      time: 36000 # 10 hours
     - !type:RoleTimeRequirement
       role: JobProsecutor
-      time: 10h
+      time: 36000 # 10 hours
   startingGear: ClerkGear
   icon: "JobIconClerk"
   requireAdminNotify: true

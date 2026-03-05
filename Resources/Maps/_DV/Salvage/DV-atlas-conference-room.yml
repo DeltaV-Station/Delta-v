@@ -3853,13 +3853,15 @@ entities:
     - type: Transform
       pos: -2.5,-12.5
       parent: 576
-- proto: WarpPointDebris
+- proto: WarpPoint
   entities:
   - uid: 578
     components:
     - type: Transform
       pos: -0.5,-3.5
       parent: 576
+    - type: WarpPoint
+      location: Space Debris
 - proto: WaterCooler
   entities:
   - uid: 173

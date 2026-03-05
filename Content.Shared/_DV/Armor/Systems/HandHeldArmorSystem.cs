@@ -1,7 +1,6 @@
 using Content.Shared._DV.Armor.Components;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Verbs;
@@ -38,7 +37,7 @@ public sealed class HandHeldArmorSystem : EntitySystem
     {
         if (!armor.Comp.Holder.HasValue
             || _whitelist.IsWhitelistFail(armor.Comp.Whitelist, armor.Comp.Holder.Value) // If they pass the lists, add the coefficients.
-            || _whitelist.IsWhitelistPass(armor.Comp.Blacklist, armor.Comp.Holder.Value))
+            || _whitelist.IsBlacklistPass(armor.Comp.Blacklist, armor.Comp.Holder.Value))
             return;
 
         foreach (var armorCoefficient in armor.Comp.Modifiers.Coefficients)
@@ -54,7 +53,7 @@ public sealed class HandHeldArmorSystem : EntitySystem
     {
         if (!armor.Comp.Holder.HasValue
             || _whitelist.IsWhitelistFail(armor.Comp.Whitelist, armor.Comp.Holder.Value) // If they pass the lists, add the coefficients.
-            || _whitelist.IsWhitelistPass(armor.Comp.Blacklist, armor.Comp.Holder.Value))
+            || _whitelist.IsBlacklistPass(armor.Comp.Blacklist, armor.Comp.Holder.Value))
             return;
 
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, armor.Comp.Modifiers);
@@ -71,7 +70,7 @@ public sealed class HandHeldArmorSystem : EntitySystem
 
         // If the user is blacklisted or not whitelisted, show what they need. Otherwise, show resistance values.
         if (_whitelist.IsWhitelistPassOrNull(armor.Comp.Whitelist, args.User)
-            && _whitelist.IsWhitelistFailOrNull(armor.Comp.Blacklist, args.User))
+            && _whitelist.IsBlacklistFailOrNull(armor.Comp.Blacklist, args.User))
         {
             examineMarkup = GetHeldArmorExamine(armor);
 

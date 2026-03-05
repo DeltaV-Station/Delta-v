@@ -166,6 +166,9 @@
   name: "pan magazine (.30 rifle)"
   parent: BaseMagazineLightRifle
   components:
+  - type: Tag
+    tags:
+      - MagazineLightRiflePan
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
     capacity: 96

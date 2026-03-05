@@ -23,12 +23,6 @@
 - type: entity
   parent: [AirSensorVoxBase, GasVentPump]
   id: GasVentPumpVox
-  components:
-  - type: AtmosPipeLayers # Funky
-    alternativePrototypes:
-      Primary: GasVentPumpVox
-      Secondary: GasVentPumpVoxAlt1
-      Tertiary: GasVentPumpVoxAlt2
 
 - type: entity
   parent: [AirSensorVoxBase, GasVentScrubber]
@@ -45,11 +39,6 @@
     - Ammonia
     - NitrousOxide
     - Frezon
-  - type: AtmosPipeLayers # Funky
-    alternativePrototypes:
-      Primary: GasVentScrubberVox
-      Secondary: GasVentScrubberVoxAlt1
-      Tertiary: GasVentScrubberVoxAlt2
 
 # use this to prevent overriding filters with hardcoded defaults
 - type: entity

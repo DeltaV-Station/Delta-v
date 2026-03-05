@@ -2488,13 +2488,15 @@ entities:
     - type: Transform
       pos: 11.5,-8.5
       parent: 407
-- proto: WarpPointDebris
+- proto: WarpPoint
   entities:
   - uid: 339
     components:
     - type: Transform
       pos: 3.5,4.5
       parent: 407
+    - type: WarpPoint
+      location: Space Debris
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 351

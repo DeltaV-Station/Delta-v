@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Hands.Components;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -8,8 +9,7 @@ namespace Content.Shared.Silicons.Borgs.Components;
 /// <summary>
 /// This is used for a <see cref="BorgModuleComponent"/> that provides items to the entity it's installed into.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedBorgSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedBorgSystem))]
 public sealed partial class ItemBorgModuleComponent : Component
 {
     /// <summary>
@@ -19,17 +19,10 @@ public sealed partial class ItemBorgModuleComponent : Component
     public List<BorgHand> Hands = new();
 
     /// <summary>
-    /// The items stored within the hands.
+    /// The items stored within the hands. Null until the first time items are stored.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public Dictionary<string, EntityUid> StoredItems = new();
-
-    /// <summary>
-    /// Whether the provided items have been spawned.
-    /// This happens the first time the module is used.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Spawned;
+    [DataField]
+    public Dictionary<string, EntityUid>? StoredItems;
 
     /// <summary>
     /// An ID for the container where items are stored when not in use.
@@ -38,21 +31,12 @@ public sealed partial class ItemBorgModuleComponent : Component
     public string HoldingContainer = "holding_container";
 }
 
-/// <summary>
-/// A single hand provided by the module.
-/// </summary>
 [DataDefinition, Serializable, NetSerializable]
 public partial record struct BorgHand
 {
-    /// <summary>
-    /// The item to spawn in the hand, if any.
-    /// </summary>
     [DataField]
     public EntProtoId? Item;
 
-    /// <summary>
-    /// The settings for the hand, including a whitelist.
-    /// </summary>
     [DataField]
     public Hand Hand = new();
 

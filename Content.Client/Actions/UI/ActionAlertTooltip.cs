@@ -23,10 +23,9 @@ namespace Content.Client.Actions.UI
 
         public ActionAlertTooltip(FormattedMessage name, FormattedMessage? desc, string? requires = null)
         {
-            Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSystem;
             _gameTiming = IoCManager.Resolve<IGameTiming>();
 
-            SetOnlyStyleClass(StyleClass.TooltipPanel);
+            SetOnlyStyleClass(StyleNano.StyleClassTooltipPanel);
 
             BoxContainer vbox;
             AddChild(vbox = new BoxContainer
@@ -37,7 +36,7 @@ namespace Content.Client.Actions.UI
             var nameLabel = new RichTextLabel
             {
                 MaxWidth = TooltipTextMaxWidth,
-                StyleClasses = { StyleClass.TooltipTitle }
+                StyleClasses = {StyleNano.StyleClassTooltipActionTitle}
             };
             nameLabel.SetMessage(name);
             vbox.AddChild(nameLabel);
@@ -47,7 +46,7 @@ namespace Content.Client.Actions.UI
                 var description = new RichTextLabel
                 {
                     MaxWidth = TooltipTextMaxWidth,
-                    StyleClasses = { StyleClass.TooltipDesc }
+                    StyleClasses = {StyleNano.StyleClassTooltipActionDescription}
                 };
                 description.SetMessage(desc);
                 vbox.AddChild(description);
@@ -56,7 +55,7 @@ namespace Content.Client.Actions.UI
             vbox.AddChild(_cooldownLabel = new RichTextLabel
             {
                 MaxWidth = TooltipTextMaxWidth,
-                StyleClasses = { StyleClass.TooltipDesc },
+                StyleClasses = {StyleNano.StyleClassTooltipActionCooldown},
                 Visible = false
             });
 
@@ -65,7 +64,7 @@ namespace Content.Client.Actions.UI
                 var requiresLabel = new RichTextLabel
                 {
                     MaxWidth = TooltipTextMaxWidth,
-                    StyleClasses = { StyleClass.TooltipDesc }
+                    StyleClasses = {StyleNano.StyleClassTooltipActionRequirements}
                 };
 
                 if (!FormattedMessage.TryFromMarkup("[color=#635c5c]" + requires + "[/color]", out var markup))

@@ -1,11 +1,10 @@
-using Content.Shared.Damage.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Standing;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Containers;
+using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Containers;
 
-namespace Content.Shared.Damage.Systems;
+namespace Content.Shared.Damage.Components;
 
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {

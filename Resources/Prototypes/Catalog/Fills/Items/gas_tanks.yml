@@ -31,7 +31,7 @@
       # 31 minutes
       volume: 5
       moles:
-        Oxygen: 2.051379050 # oxygen
+        - 2.051379050 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -45,7 +45,7 @@
       # 4 minutes
       volume: 0.66
       moles:
-        Oxygen: 0.270782035 # oxygen
+        - 0.270782035 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -59,8 +59,10 @@
       # 4 minutes
       volume: 0.66
       moles:
-        Nitrogen: 0.270782035 # nitrogen
+        - 0 # oxygen
+        - 0.270782035 # nitrogen
       temperature: 293.15
+
 
 - type: entity
   id: ExtendedEmergencyOxygenTankFilled
@@ -73,7 +75,7 @@
       # 9 minutes
       volume: 1.5
       moles:
-        Oxygen: 0.615413715 # oxygen
+        - 0.615413715 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -87,11 +89,9 @@
       # 9 minutes
       volume: 1.5
       moles:
-        Nitrogen: 0.615413715 # nitrogen
+        - 0 # oxygen
+        - 0.615413715 # nitrogen
       temperature: 293.15
-  - type: Tag
-    tags:
-    - NitrogenTank
 
 
 - type: entity
@@ -105,7 +105,7 @@
       # 15 minutes
       volume: 2.5
       moles:
-        Oxygen: 1.025689525 # oxygen
+        - 1.025689525 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -119,7 +119,8 @@
       # 15 minutes
       volume: 2.5
       moles:
-        Nitrogen: 1.025689525 # nitrogen
+        - 0 # oxygen
+        - 1.025689525 # nitrogen
       temperature: 293.15
 
 - type: entity
@@ -133,13 +134,16 @@
       # 4 minutes
       volume: 0.66
       moles:
-        Oxygen: 0.270782035 # 95% oxygen
-        NitrousOxide: 0.014251686 # 5% N2O
-        # 0.285033721       total
+        - 0.270782035 # 95% oxygen
+        - 0 # nitrogen
+        - 0 # CO2
+        - 0 # plasma
+        - 0 # tritium
+        - 0 # water vapor
+        - 0 # ammonia
+        - 0.014251686 # 5% N2O
+        # 0.285033721       total 
       temperature: 293.15
-  - type: Tag
-    tags:
-    - ClownOxygenTank
 
 - type: entity
   id: AirTankFilled
@@ -152,13 +156,10 @@
       # 6 minutes due to output pressure
       volume: 5
       moles:
-        Oxygen: 0.451303391 # 22% oxygen
-        Nitrogen: 1.600075659 # 78% nitrogen
+        - 0.451303391 # 22% oxygen
+        - 1.600075659 # 78% nitrogen
         # 2.051379050       total
       temperature: 293.15
-  - type: Tag
-    tags:
-    - AirTank
 
 - type: entity
   id: NitrogenTankFilled
@@ -171,11 +172,9 @@
       # 31 minutes
       volume: 5
       moles:
-        Nitrogen: 2.051379050 # nitrogen
+        - 0           # oxygen not included
+        - 2.051379050 # nitrogen
       temperature: 293.15
-  - type: Tag
-    tags:
-    - NitrogenTank
 
 - type: entity
   id: NitrousOxideTankFilled
@@ -194,13 +193,16 @@
       # only 22 minutes due to pressure
       volume: 5
       moles:
-        Oxygen: 1.435965335 # 70% oxygen
-        NitrousOxide: 0.615413715 # 30% N2O
+        - 1.435965335 # 70% oxygen
+        - 0 # nitrogen
+        - 0 # CO2
+        - 0 # plasma
+        - 0 # tritium
+        - 0 # water vapor
+        - 0 # ammonia
+        - 0.615413715 # 30% N2O
         # 2.051379050       total
       temperature: 293.15
-  - type: Tag
-    tags:
-    - NitrousOxideTank
 
 - type: entity
   id: PlasmaTankFilled
@@ -214,8 +216,8 @@
       # 6 minutes of agony
       volume: 5
       moles:
-        Plasma: 2.051379050
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 2.051379050 # plasma
       temperature: 293.15
-  - type: Tag
-    tags:
-    - PlasmaTank

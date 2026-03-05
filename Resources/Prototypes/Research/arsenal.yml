@@ -104,8 +104,6 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
-  - CableDetStack1
-  - EmptyDetonator
   - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology
@@ -161,7 +159,7 @@
   recipeUnlocks:
   - PKAUpgradeDamage
   - PKAUpgradeRange
-  #- PKAUpgradeFireRate # DeltaV - removal of fire rate upgrade for better feel
+  - PKAUpgradeFireRate
 
 - type: technology
   id: BasicShuttleArmament

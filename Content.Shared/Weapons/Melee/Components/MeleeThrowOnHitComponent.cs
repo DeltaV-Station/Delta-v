@@ -1,4 +1,3 @@
-using Content.Shared.Throwing;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Melee.Components;
@@ -27,7 +26,7 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// Whether or not anchorable entities should be unanchored when hit.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ThrowingUnanchorStrength UnanchorOnHit = ThrowingUnanchorStrength.None;
+    public bool UnanchorOnHit;
 
     /// <summary>
     /// How long should this stun the target, if applicable?

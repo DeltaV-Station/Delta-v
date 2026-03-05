@@ -8,8 +8,10 @@ namespace Content.Shared.Trigger.Systems;
 /// The users of strap components are the objects having an entity strapped to them (IE: Chairs)
 /// The users of buckle components are entities being buckled to an object. (IE: Mobs and players)
 /// </summary>
-public sealed partial class TriggerOnStrappedOrBuckledSystem : TriggerOnXSystem
+public sealed partial class TriggerOnStrappedOrBuckledSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,23 +27,23 @@ public sealed partial class TriggerOnStrappedOrBuckledSystem : TriggerOnXSystem
     // Called by objects entities can be buckled to. (Chairs, surgical tables/)
     private void OnStrapped(Entity<TriggerOnStrappedComponent> ent, ref StrappedEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.Strap, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Strap, ent.Comp.KeyOut);
     }
 
     private void OnUnstrapped(Entity<TriggerOnUnstrappedComponent> ent, ref UnstrappedEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.Strap, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Strap, ent.Comp.KeyOut);
     }
 
     // Called by entities that are buckled to an object. (Mobs, players.)
     private void OnBuckled(Entity<TriggerOnBuckledComponent> ent, ref BuckledEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.Buckle, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Buckle, ent.Comp.KeyOut);
     }
 
     private void OnUnbuckled(Entity<TriggerOnUnbuckledComponent> ent, ref UnbuckledEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.Buckle, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Buckle, ent.Comp.KeyOut);
     }
     #endregion
 }

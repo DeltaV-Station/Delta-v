@@ -61,7 +61,7 @@ namespace Content.Client.LateJoin
                 VerticalExpand = true,
             };
 
-            ContentsContainer.AddChild(_base);
+            Contents.AddChild(_base);
 
             _jobRequirements.Updated += RebuildUI;
             RebuildUI();

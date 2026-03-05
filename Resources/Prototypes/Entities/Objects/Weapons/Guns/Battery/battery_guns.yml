@@ -32,41 +32,6 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
-  parent: [BaseWeaponBattery, BaseGunWieldable]
-  id: BaseLaserRifle
-  abstract: true
-  components:
-  - type: Item
-    size: Large
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: BatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
-  - type: StaticPrice
-    price: 420
-  - type: Tag
-    tags:
-    - LaserWeapon
-
-- type: entity
   id: BaseWeaponPowerCell
   parent: BaseItem
   abstract: true
@@ -82,7 +47,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
   - type: ItemSlots
@@ -172,10 +137,6 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: retro laser blaster
@@ -193,7 +154,7 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-5
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
   - type: MagazineVisuals
@@ -201,10 +162,6 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: makeshift laser pistol
@@ -229,16 +186,12 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: tesla gun
@@ -264,7 +217,7 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
     fireCost: 300
   - type: MagazineVisuals
@@ -275,7 +228,7 @@
 
 - type: entity
   name: laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
@@ -300,7 +253,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 50 #Delta-V was 62.5
   - type: StaticPrice
@@ -308,13 +261,13 @@
 
 - type: entity
   name: practice laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable]
+  parent: [WeaponLaserCarbine, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
   description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
   components:
   - type: StaticPrice
     price: 300
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
     fireCost: 62.5
     # Start DeltaV additions
@@ -359,16 +312,12 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: pulse carbine
@@ -401,7 +350,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
   - type: Battery
@@ -437,7 +386,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 100
   - type: Battery
@@ -473,7 +422,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
   - type: Tag
@@ -504,7 +453,7 @@
         path: /Audio/Weapons/emitter.ogg
         params:
           pitch: 2
-    - type: BatteryAmmoProvider
+    - type: ProjectileBatteryAmmoProvider
       proto: AntiParticlesProjectile
       fireCost: 500
     - type: Battery
@@ -534,7 +483,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
     fireCost: 100
   - type: MagazineVisuals
@@ -576,7 +525,7 @@
     projectileSpeed: 35 # any higher and this causes issues in lag
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 62.5
   - type: Tag
@@ -606,7 +555,7 @@
     slots:
       - suitStorage
       - Belt
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 62.5
   - type: GuideHelp
@@ -644,7 +593,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 25
   - type: MagazineVisuals
@@ -682,12 +631,9 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.2 # DeltaV - No taser spam, was 0.5
-    resetOnHandSelected: false # DeltaV - Makes it so you dont have to wait 10 seconds to shoot a taser after pulling it out
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-    projectileSpeed: 25
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletTaser
     fireCost: 200
   - type: MagazineVisuals
@@ -695,11 +641,6 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: PacifismAllowedGun
-  - type: UseDelayOnShoot # DeltaV - No taser spam (provides a cooldown indicator)
-  - type: UseDelay # DeltaV - No taser spam (provides a cooldown indicator)
-    delay: 5
-
 
 - type: entity
   name: elite taser
@@ -714,7 +655,7 @@
       path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
       params:
         volume: -6
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletTaserSuper
     fireCost: 200
 
@@ -724,6 +665,10 @@
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with a mahogany grip and chrome filigree. The object menaces with spikes of energy. On the item is an image of a captain and a clown. The clown is dead. The captain is striking a heroic pose.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
     layers:
@@ -737,10 +682,11 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 40
   - type: MagazineVisuals
     magState: mag
@@ -753,7 +699,6 @@
     - Sidearm
     - WeaponAntiqueLaser
     - ConcealCarry # DeltaV - can be stowed in military boots for now
-    - LaserWeapon
   - type: StaticPrice
     price: 750
   - type: StealTarget
@@ -786,10 +731,11 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 30
   - type: MagazineVisuals
     magState: mag
@@ -798,10 +744,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -832,7 +774,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: AnomalousParticleDeltaStrong
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -885,21 +827,18 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: energy shotgun
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
@@ -922,74 +861,35 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
-    proto: BulletLaserSpreadNarrow
-    fireCost: 80
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpread
+    fireCost: 150
   - type: BatteryWeaponFireModes
     fireModes:
+    - proto: BulletLaserSpread
+      fireCost: 150
     - proto: BulletLaserSpreadNarrow
-      fireCost: 80
+      fireCost: 200
     - proto: BulletDisablerSmgSpread
-      fireCost: 48
-      pacifismAllowedMode: true
+      fireCost: 120
   - type: Item
     size: Large
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: Battery
-    maxCharge: 720 # Delta V - Was 480
-    startingCharge: 720
-  - type: BatterySelfRecharger #Delta V - Self recharging not removed
-    autoRechargeRate: 72 # Delta V - Was 10
-    autoRechargePauseTime: 30
-
-- type: entity
-  name: energy magnum
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
-  id: WeaponEnergyMagnum
-  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-unshaded-1
-      visible: false
-      map: [ "enum.GunVisualLayers.MagUnshaded" ]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
   - type: Tag
     tags:
     - HighRiskItem
-    - Sidearm
   - type: StealTarget
-    stealGroup: HoSSidearm # Delta V - to work along side the X-01
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
-    proto: BulletLaserMagnum
-    fireCost: 150
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletLaserMagnum
-      fireCost: 150
-    - proto: BulletEnergyGunLaser #Delta V - Energy guns pierce by default
-      fireCost: 150
-    - proto: BulletDisabler
-      fireCost: 62.5
-      pacifismAllowedMode: true
+    stealGroup: WeaponEnergyShotgun
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
   - type: BatterySelfRecharger
-    autoRechargeRate: 48
-    autoRechargePauseTime: 10
+    autoRecharge: true
+    autoRechargeRate: 24
+    autoRechargePause: true
+    autoRechargePauseTime: 30
 
 - type: entity
   name: temperature gun
@@ -1020,7 +920,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BoltTempgunCold
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -1036,22 +936,14 @@
     price: 100
 
 - type: entity
-  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
-  id: WeaponLaserGunXenoborg
   name: xenoborg laser gun
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
+  id: XenoborgLaserGun
 
 - type: entity
-  parent: [WeaponLaserCannon, BaseXenoborgContraband]
-  id: WeaponLaserCannonXenoborg
-  name: xenoborg laser cannon
+  name: xenoborg heavy laser gun
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
+  id: XenoborgHeavyLaserGun
   components:
-  - type: BatterySelfRecharger
-    autoRechargeRate: 30
-  # "remove" wield bonus and penalty so borgs can use it 
-  - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: 0
-  - type: Gun
-    fireRate: 2
-    minAngle: 1
-    maxAngle: 2
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser

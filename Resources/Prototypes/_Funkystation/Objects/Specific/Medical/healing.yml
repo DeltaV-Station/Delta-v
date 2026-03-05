@@ -56,8 +56,7 @@
   components:
   - type: Label
     currentLabel: granibitulari 15u
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: PillGranibitulari
-        amount: 8
+  - type: StorageFill
+    contents:
+    - id: PillGranibitulari
+      amount: 8

@@ -1,6 +1,4 @@
-﻿using Content.Shared.Destructible;
-
-namespace Content.Server.Destructible.Thresholds.Behaviors
+﻿namespace Content.Server.Destructible.Thresholds.Behaviors
 {
     [Serializable]
     [DataDefinition]

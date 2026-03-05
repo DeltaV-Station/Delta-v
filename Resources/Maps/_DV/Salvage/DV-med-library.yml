@@ -1323,13 +1323,15 @@ entities:
     - type: Transform
       pos: -3.5,-7.5
       parent: 6
-- proto: WarpPointDebris
+- proto: WarpPoint
   entities:
   - uid: 206
     components:
     - type: Transform
       pos: -0.5,-1.5
       parent: 6
+    - type: WarpPoint
+      location: Space Debris
 - proto: WeldingFuelTankHighCapacity
   entities:
   - uid: 163

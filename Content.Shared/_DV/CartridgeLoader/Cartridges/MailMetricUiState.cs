@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._DV.CartridgeLoader.Cartridges;
+namespace Content.Shared.CartridgeLoader.Cartridges;
 
 [Serializable, NetSerializable]
 public sealed class MailMetricUiState : BoundUserInterfaceState

@@ -58,7 +58,7 @@ public sealed partial class ChangelogTab : Control
             ChangelogBody.AddChild(new Label
             {
                 Text = dayNice,
-                StyleClasses = { StyleClass.LabelHeading },
+                StyleClasses = { StyleBase.StyleClassLabelHeading },
                 Margin = new Thickness(4, 6, 0, 0)
             });
 
@@ -117,7 +117,7 @@ public sealed partial class ChangelogTab : Control
                     };
 
                     readDivider.AddChild(hBox);
-                    readDivider.AddChild(new PanelContainer { StyleClasses = { StyleClass.LowDivider } });
+                    readDivider.AddChild(new PanelContainer { StyleClasses = { StyleBase.ClassLowDivider } });
                     ChangelogBody.AddChild(readDivider);
 
                     if (first)

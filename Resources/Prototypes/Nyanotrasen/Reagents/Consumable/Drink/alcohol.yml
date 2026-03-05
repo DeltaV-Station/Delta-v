@@ -109,8 +109,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Brainbomb
+        - !type:ReagentThreshold
           min: 5
         damage:
           types:

@@ -6,7 +6,7 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
-    time: 5h
+    time: 18000 #5 hrs
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
@@ -15,11 +15,10 @@
   - Security
   #- Brig # DeltaV - Removed brig access
   - Maintenance
+  #- Service # DeltaV - Sec isn't service
   - Detective
   - Cryogenics
   - External
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

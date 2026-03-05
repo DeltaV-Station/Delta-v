@@ -1813,13 +1813,15 @@ entities:
     - type: Transform
       pos: 3.5,13.5
       parent: 1
-- proto: WarpPointDebris
+- proto: WarpPoint
   entities:
   - uid: 299
     components:
     - type: Transform
       pos: 3.5,8.5
       parent: 1
+    - type: WarpPoint
+      location: Space Debris
 - proto: WeaponTurretSyndicateBroken
   entities:
   - uid: 197

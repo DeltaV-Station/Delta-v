@@ -137,9 +137,9 @@ public abstract partial class SharedGravitySystem : EntitySystem
     private void OnWeightlessnessChanged(Entity<AlertsComponent> entity, ref WeightlessnessChangedEvent args)
     {
         if (args.Weightless)
-            _alerts.ShowAlert(entity.AsNullable(), WeightlessAlert);
+            _alerts.ShowAlert(entity, WeightlessAlert);
         else
-            _alerts.ClearAlert(entity.AsNullable(), WeightlessAlert);
+            _alerts.ClearAlert(entity, WeightlessAlert);
     }
 
     private void OnEntParentChanged(Entity<GravityAffectedComponent> entity, ref EntParentChangedMessage args)
@@ -207,12 +207,12 @@ public abstract partial class SharedGravitySystem : EntitySystem
             _alerts.ClearAlert(ev.Euid, WeightlessAlert);
     }
 
-    private void OnAlertsParentChange(Entity<AlertsComponent> entity, ref EntParentChangedMessage args)
+    private void OnAlertsParentChange(EntityUid uid, AlertsComponent component, ref EntParentChangedMessage args)
     {
-        if (IsWeightless(entity.Owner))
-            _alerts.ShowAlert(entity.AsNullable(), WeightlessAlert);
+        if (IsWeightless(uid))
+            _alerts.ShowAlert(uid, WeightlessAlert);
         else
-            _alerts.ClearAlert(entity.AsNullable(), WeightlessAlert);
+            _alerts.ClearAlert(uid, WeightlessAlert);
     }
 
     private void OnGridInit(GridInitializeEvent ev)
@@ -233,12 +233,12 @@ public abstract partial class SharedGravitySystem : EntitySystem
 
     private void OnThrowerImpulse(Entity<GravityAffectedComponent> entity, ref ThrowerImpulseEvent args)
     {
-        args.Push |= IsWeightless((entity.Owner, entity.Comp));
+        args.Push = true;
     }
 
     private void OnShooterImpulse(Entity<GravityAffectedComponent> entity, ref ShooterImpulseEvent args)
     {
-        args.Push |= IsWeightless((entity.Owner, entity.Comp));
+        args.Push = true;
     }
 }
 

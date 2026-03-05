@@ -21,7 +21,8 @@ namespace Content.Client.Changelog
         public ChangelogWindow()
         {
             RobustXamlLoader.Load(this);
-            WindowTitle.AddStyleClass(StyleClass.LabelHeading);
+            WindowTitle.AddStyleClass(StyleBase.StyleClassLabelHeading);
+            Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSpace;
         }
 
         protected override void Opened()
@@ -54,7 +55,7 @@ namespace Content.Client.Changelog
             // Changelog is not kept in memory so load it again.
             var changelogs = await _changelog.LoadChangelog();
 
-            Tabs.RemoveAllChildren();
+            Tabs.DisposeAllChildren();
 
             var i = 0;
             foreach (var changelog in changelogs)

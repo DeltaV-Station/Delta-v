@@ -12,7 +12,6 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -169,7 +168,7 @@ namespace Content.Server.Abilities.Psionics
                 psionic.PsionicPowersActionEntities.Add(component.MindSwapReturnActionEntity);
         }
 
-        public void Swap(EntityUid performer, EntityUid target, bool end = false, int ReturnSwapCooldown = 0)
+        public void Swap(EntityUid performer, EntityUid target, bool end = false)
         {
             if (end && (!HasComp<MindSwappedComponent>(performer) || !HasComp<MindSwappedComponent>(target)))
                 return;
@@ -210,15 +209,6 @@ namespace Content.Server.Abilities.Psionics
 
             var perfComp = EnsureComp<MindSwappedComponent>(performer);
             var targetComp = EnsureComp<MindSwappedComponent>(target);
-
-            // Delta V - Cooldown for Returning back
-            if (ReturnSwapCooldown > 0)
-            {
-                var cooldown = TimeSpan.FromSeconds(ReturnSwapCooldown);
-                _actions.SetCooldown(perfComp.MindSwapReturnActionEntity, cooldown);
-                _actions.SetCooldown(targetComp.MindSwapReturnActionEntity, cooldown);
-            }
-            // Delta V
 
             perfComp.OriginalEntity = target;
             targetComp.OriginalEntity = performer;

@@ -11,7 +11,7 @@ steal-target-groups-captain-id-card = captain ID card
 steal-target-groups-jetpack-captain-filled = captain's jetpack
 steal-target-groups-weapon-antique-laser = antique laser pistol
 steal-target-groups-nuke-disk = nuclear authentication disk
-steal-target-groups-weapon-energy-magnum = energy magnum
+steal-target-groups-weapon-energy-shot-gun = energy shotgun
 
 # Thief Collection
 steal-target-groups-figurines = figurine
@@ -23,7 +23,6 @@ steal-target-groups-encryption-keys = encryption key
 steal-target-groups-technology-disks = technology disk
 steal-target-groups-mail = mail
 steal-target-groups-id-cards = ID Card
-steal-target-groups-officer-handguns = security officer's handgun
 steal-target-groups-lamps = LAMP
 
 # Thief single item
@@ -43,9 +42,6 @@ steal-target-groups-clothing-eyes-hud-beer = beer goggles
 steal-target-groups-bible = bible
 steal-target-groups-clothing-neck-goldmedal = gold medal of crewmanship
 steal-target-groups-clothing-neck-clownmedal = clown medal
-steal-target-groups-wanted-list-cartridge = wanted list cartridge
-steal-target-groups-belt-ce = chief engineer's toolbelt
-steal-target-groups-captain-sword = captain's sabre
 
 # Thief structures
 steal-target-groups-teg = teg generator part
@@ -57,7 +53,8 @@ steal-target-groups-fax-machine-captain = captain long range fax machine
 steal-target-groups-chem-dispenser = chemical dispenser
 steal-target-groups-xeno-artifact = alien artifact
 steal-target-groups-booze-dispenser = booze dispenser
-steal-target-groups-plant-rd = "RD's potted plant"
+# DeltaV - Epistemics Department - Replace RD with Mystagogue
+steal-target-groups-plant-rd = "Mystagogue's potted plant"
 steal-target-groups-toilet-golden-dirty-water = golden toilet
 
 # Thief Animal
@@ -68,5 +65,6 @@ steal-target-groups-animal-mc-griff = McGriff
 steal-target-groups-animal-walter = Walter
 steal-target-groups-animal-morty = Morty
 steal-target-groups-animal-renault = Renault
-steal-target-groups-animal-shiva = Shiva
+# DeltaV - Adjusts from Shiva because we have multiple possible sec animals
+steal-target-groups-animal-shiva = Security Pet
 steal-target-groups-animal-tropico = Tropico

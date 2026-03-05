@@ -1,6 +1,4 @@
 using System.Text.RegularExpressions;
-using Content.Client._DV.UserInterfaces.BuildInfo; // DeltaV - More info in Escape Menu
-using Content.Client.Credits; // DeltaV - More info in Escape Menu
 using Content.Client.MainMenu.UI;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Robust.Client;
@@ -50,8 +48,6 @@ namespace Content.Client.MainMenu
             _mainMenuControl.DirectConnectButton.OnPressed += DirectConnectButtonPressed;
             _mainMenuControl.AddressBox.OnTextEntered += AddressBoxEntered;
             _mainMenuControl.ChangelogButton.OnPressed += ChangelogButtonPressed;
-            _mainMenuControl.BuildInfoButton.OnPressed += BuildInfoButtonPressed;  // DeltaV - More info in Escape Menu
-            _mainMenuControl.CreditsButton.OnPressed += CreditsButtonPressed;  // DeltaV - More info in Escape Menu
 
             _client.RunLevelChanged += RunLevelChanged;
         }
@@ -69,18 +65,6 @@ namespace Content.Client.MainMenu
         {
             _userInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
         }
-
-        // Begin DeltaV - More info in Escape Menu
-        private void BuildInfoButtonPressed(BaseButton.ButtonEventArgs args)
-        {
-            _userInterfaceManager.GetUIController<BuildInfoUIController>().ToggleWindow();
-        }
-
-        private void CreditsButtonPressed(BaseButton.ButtonEventArgs args)
-        {
-            new CreditsWindow().Open();
-        }
-        // End DeltaV - More info in Escape Menu
 
         private void OptionsButtonPressed(BaseButton.ButtonEventArgs args)
         {

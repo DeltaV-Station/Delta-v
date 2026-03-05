@@ -1,13 +1,3 @@
-# For mantles
-#- type: loadoutEffectGroup # Delta-V - No time requirements
-#  id: MasterQM
-#  effects:
-#  - !type:JobRequirementLoadoutEffect 
-#    requirement:
-#      !type:RoleTimeRequirement
-#      role: JobQuartermaster
-#      time: 20h
-
 # Jumpsuit
 - type: loadout
   id: QuartermasterJumpsuit
@@ -52,14 +42,6 @@
     neck: ClothingNeckCloakQm
 
 - type: loadout
-  id: QuartermasterMantle
-  equipment:
-    neck: ClothingNeckMantleQM
-  #effects: # Delta-V - No time requirements
-  #- !type:GroupLoadoutEffect
-  #  proto: MasterQM
-
-- type: startingGear
   id: QuartermasterMantle
   equipment:
     neck: ClothingNeckMantleQM

@@ -6,10 +6,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 5h
+      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      time: 36000 #10 hrs
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
@@ -22,12 +22,11 @@
   #- Brig # DeltaV - Removed brig access
   - Armory
   - Maintenance
+  #- Service # DeltaV - Sec isn't service
   - External
   - Detective
   - Cryogenics
   - Corpsman # DeltaV - Warden requires access to the treatment of their prisoners.
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

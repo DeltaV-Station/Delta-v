@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Lightning;
 using Content.Server.Popups;
+using Content.Server.PowerCell;
 using Content.Server._EE.Silicon.Charge;
 using Content.Shared._EE.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
@@ -12,9 +13,6 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Content.Shared.Damage.Components;
-using Content.Shared.PowerCell;
-using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server._EE.Silicon.DeadStartupButton;
 
@@ -28,7 +26,6 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly SiliconChargeSystem _siliconChargeSystem = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -64,15 +61,12 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     {
         if (!TryComp<MobStateComponent>(uid, out var mobStateComponent)
             || !_mobState.IsDead(uid, mobStateComponent)
-            || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria))
-            return;
-
-        var charge = _battery.GetCharge(bateria.Value.AsNullable());
-        if (charge <= 0)
+            || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria)
+            || bateria.CurrentCharge <= 0)
             return;
 
         _lightning.ShootRandomLightnings(uid, 2, 4);
-        _powerCell.TryUseCharge(uid, charge);
+        _powerCell.TryUseCharge(uid, bateria.CurrentCharge);
 
     }
 

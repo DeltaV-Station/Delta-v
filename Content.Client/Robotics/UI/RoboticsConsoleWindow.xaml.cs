@@ -63,7 +63,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         };
 
         // cant put multiple styles in xaml for some reason
-        DestroyButton.StyleClasses.Add(StyleClass.Negative);
+        DestroyButton.StyleClasses.Add(StyleBase.ButtonCaution);
     }
 
     public void SetEntity(EntityUid uid)

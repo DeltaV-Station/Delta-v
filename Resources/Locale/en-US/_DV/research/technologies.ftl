@@ -10,7 +10,6 @@ research-technology-engineering-eva = EVA PPE Suits
 research-technology-cloning = Cloning
 research-technology-artifact-display = Artifact Display Technology
 research-technology-psionic-prosthetics = Psionic Prosthetics
-research-technology-directed-radiation = Directed Radiation
 
 # Civilian
 research-technology-civilian-mechs = Civilian Mechs

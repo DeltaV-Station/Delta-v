@@ -557,11 +557,11 @@
         - to: wall
           steps:
             - tool: Welding
-              doAfter: 2
+              doAfter: 5
         - to: wall
           steps:
             - tool: Brushing
-              doAfter: 4
+              doAfter: 12
 
     - node: paperWall #Nyano
       entity: WallPaper
@@ -581,8 +581,8 @@
         - to: reinforcedWall
           steps:
             - tool: Welding
-              doAfter: 2
+              doAfter: 5
         - to: reinforcedWall
           steps:
             - tool: Brushing
-              doAfter: 4
+              doAfter: 12

@@ -3,12 +3,10 @@
   id: ToolboxSyndicateFilledCoreExtraction
   suffix: Filled, Core Extraction
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: Crowbar
-        - id: Welder
-        - id: Wrench
-        - id: ThinTippedScrewdriver
-        - id: NukeCoreContainer
+  - type: StorageFill
+    contents:
+    - id: Crowbar
+    - id: Welder
+    - id: Wrench
+    - id: ThinTippedScrewdriver
+    - id: NukeCoreContainer

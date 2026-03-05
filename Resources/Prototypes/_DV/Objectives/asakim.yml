@@ -40,7 +40,6 @@
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
   - type: RerollAfterCompletion
     rerollObjectivePrototype: AsakimKillObjective
     rerollObjectiveMessage: objective-condition-asakim-terminate-reroll-message

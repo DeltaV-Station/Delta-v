@@ -12,6 +12,7 @@ namespace Content.Server.Ghost.Roles
     public sealed partial class GhostRoleSystem
     {
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly OutfitSystem _outfit = default!;
 
         private void OnSpawnerTakeCharacter(Entity<GhostRoleCharacterSpawnerComponent> ent,
@@ -29,7 +30,7 @@ namespace Content.Server.Ghost.Roles
 
             var character = (HumanoidCharacterProfile) _prefs.GetPreferences(args.Player.UserId).SelectedCharacter;
 
-            var mob = _ent.System<StationSpawningSystem>()
+            var mob = _entityManager.System<StationSpawningSystem>()
                 .SpawnPlayerMob(Transform(uid).Coordinates, null, character, null);
             _transform.AttachToGridOrMap(mob);
 

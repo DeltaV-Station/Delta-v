@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseHypospray # Not inheriting from ChemicalMedipen so that you can't transmute an empty injector into a filled one.
+  parent: BaseItem # Not inheriting from ChemicalMedipen so that you can't transmute an empty injector into a filled one.
   id: CosmicMedipen
   name: malign injector
   description: Previously a sterile injector, now corrupted beyond recognition. You can see the liquid inside it boiling and freezing at the same time.
@@ -37,12 +37,11 @@
         reagents:
         - ReagentId: AntiEntropy
           Quantity: 10
-  - type: Injector
+  - type: Hypospray
     solutionName: pen
-    currentTransferAmount: null
-    activeModeProtoId: HyposprayInjectMode
-    allowedModes:
-    - HyposprayInjectMode
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
   - type: ExaminableSolution
     solution: pen
   - type: Appearance

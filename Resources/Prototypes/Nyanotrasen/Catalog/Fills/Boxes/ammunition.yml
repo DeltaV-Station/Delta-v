@@ -5,10 +5,9 @@
   id: BoxMagazineUniversalMagnum
   description: A box full of .45 magnum magazines.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: MagazineUniversalMagnum
+  - type: StorageFill
+    contents:
+      - id: MagazineUniversalMagnum
         amount: 6
   - type: Storage
     maxItemSize: Small
@@ -24,10 +23,9 @@
   id: BoxMagazineUniversalMagnumPractice
   description: A box full of .45 magnum practice magazines.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: MagazineUniversalMagnumPractice
+  - type: StorageFill
+    contents:
+      - id: MagazineUniversalMagnumPractice
         amount: 6
   - type: Storage
     maxItemSize: Small
@@ -43,10 +41,9 @@
   id: BoxMagazineUniversalMagnumRubber
   description: A box full of .45 magnum rubber magazines.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: MagazineUniversalMagnumRubber
+  - type: StorageFill
+    contents:
+      - id: MagazineUniversalMagnumRubber
         amount: 6
   - type: Storage
     maxItemSize: Small
@@ -62,11 +59,10 @@
   id: BoxSpeedLoaderLightRifle
   description: A box full of .30 rifle speed loaders.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: SpeedLoaderLightRifle
-        amount: 6
+  - type: StorageFill
+    contents:
+    - id: SpeedLoaderLightRifle
+      amount: 6
   - type: Storage
     maxItemSize: Small
     grid:

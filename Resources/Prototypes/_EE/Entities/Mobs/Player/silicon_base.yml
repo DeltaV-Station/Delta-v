@@ -15,7 +15,7 @@
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
           effects:
-            - !type:WashCreamPie
+            - !type:WashCreamPieReaction
     - type: DamageOnHighSpeedImpact
       damage:
         types:
@@ -156,10 +156,7 @@
       bounds: -0.5,-0.5,0.5,0.5
     #- type: Bloodstream
     #  damageBleedModifiers: BloodlossIPC
-    #  bloodReagents:
-    #    reagents:
-    #    - ReagentId: Oil
-    #      Quantity: 1
+    #  bloodReagent: Oil
     #  bleedReductionAmount: 0
     #  bloodMaxVolume: 100
     #  chemicalMaxVolume: 0
@@ -320,9 +317,6 @@
     - type: Carriable
     - type: Targeting
     - type: SurgeryTarget
-    - type: ParcelWrapOverride
-      parcelPrototype: WrappedParcelHumanoid
-      wrapDelay: 5
     - type: Fiber # DeltaV - IPCs leave fibers instead of prints
       fiberMaterial: fibers-steel
     - type: Anesthesia # DeltaV - IPCs can be operated on without anesthesia

@@ -6,6 +6,7 @@
   components:
   - type: Tag
     tags:
+      - Cartridge
       - CartridgePistol
   - type: CartridgeAmmo
     proto: BulletPistol
@@ -89,7 +90,3 @@
   - type: CartridgeAmmo
     proto: BulletPistol
     spent: true
-  - type: Tag
-    tags:
-    - CartridgePistol
-    - Trash # surely theres a way to automatically add this...

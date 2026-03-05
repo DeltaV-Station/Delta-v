@@ -30,7 +30,6 @@ public sealed class AfterLightTargetOverlay : Overlay
             return;
 
         var lightOverlay = _overlay.GetOverlay<BeforeLightTargetOverlay>();
-        var lightRes = lightOverlay.GetCachedForViewport(args.Viewport);
         var bounds = args.WorldBounds;
 
         // at 1-1 render scale it's mostly fine but at 4x4 it's way too fkn big
@@ -39,7 +38,7 @@ public sealed class AfterLightTargetOverlay : Overlay
 
         var localMatrix =
             viewport.LightRenderTarget.GetWorldToLocalMatrix(viewport.Eye, newScale);
-        var diff = (lightRes.EnlargedLightTarget.Size - viewport.LightRenderTarget.Size);
+        var diff = (lightOverlay.EnlargedLightTarget.Size - viewport.LightRenderTarget.Size);
         var halfDiff = diff / 2;
 
         // Pixels -> Metres -> Half distance.
@@ -54,7 +53,7 @@ public sealed class AfterLightTargetOverlay : Overlay
                     viewport.LightRenderTarget.Size.Y + halfDiff.Y);
 
                 worldHandle.SetTransform(localMatrix);
-                worldHandle.DrawTextureRectRegion(lightRes.EnlargedLightTarget.Texture, bounds, subRegion: subRegion);
+                worldHandle.DrawTextureRectRegion(lightOverlay.EnlargedLightTarget.Texture, bounds, subRegion: subRegion);
             }, Color.Transparent);
     }
 }

@@ -23,6 +23,7 @@ public abstract class SharedRoleSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] protected readonly ISharedPlayerManager Player = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -139,7 +140,7 @@ public abstract class SharedRoleSystem : EntitySystem
             return;
         }
 
-        if (!_prototypes.Resolve(protoId, out var protoEnt))
+        if (!_prototypes.TryIndex(protoId, out var protoEnt))
         {
             Log.Error($"Failed to add role {protoId} to {ToPrettyString(mindId)} : Role prototype does not exist");
             return;
@@ -399,7 +400,7 @@ public abstract class SharedRoleSystem : EntitySystem
 
         foreach (var role in delete)
         {
-            PredictedDel(role);
+            _entityManager.DeleteEntity(role);
         }
 
         var update = MindRolesUpdate(mind);
@@ -666,13 +667,10 @@ public abstract class SharedRoleSystem : EntitySystem
             _audio.PlayGlobal(sound, session);
     }
 
-    // TODO ROLES Change to readonly?
+    // TODO ROLES Change to readonly.
     // Passing around a reference to a prototype's hashset makes me uncomfortable because it might be accidentally
     // mutated.
-    /// <summary>
-    /// Returns the list of requirements for a role, or null. May be altered by requirement overrides.
-    /// </summary>
-    public HashSet<JobRequirement>? GetRoleRequirements(JobPrototype job)
+    public HashSet<JobRequirement>? GetJobRequirement(JobPrototype job)
     {
         if (_requirementOverride != null && _requirementOverride.Jobs.TryGetValue(job.ID, out var req))
             return req;
@@ -680,28 +678,31 @@ public abstract class SharedRoleSystem : EntitySystem
         return job.Requirements;
     }
 
-    // TODO ROLES Change to readonly?
-    /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
-    public HashSet<JobRequirement>? GetRoleRequirements(AntagPrototype antag)
+    // TODO ROLES Change to readonly.
+    public HashSet<JobRequirement>? GetJobRequirement(ProtoId<JobPrototype> job)
     {
-        if (_requirementOverride != null && _requirementOverride.Antags.TryGetValue(antag.ID, out var req)) // DeltaV - Early merge of #41652
+        if (_requirementOverride != null && _requirementOverride.Jobs.TryGetValue(job, out var req))
+            return req;
+
+        return _prototypes.Index(job).Requirements;
+    }
+
+    // TODO ROLES Change to readonly.
+    public HashSet<JobRequirement>? GetAntagRequirement(ProtoId<AntagPrototype> antag)
+    {
+        if (_requirementOverride != null && _requirementOverride.Antags.TryGetValue(antag, out var req))
+            return req;
+
+        return _prototypes.Index(antag).Requirements;
+    }
+
+    // TODO ROLES Change to readonly.
+    public HashSet<JobRequirement>? GetAntagRequirement(AntagPrototype antag)
+    {
+        if (_requirementOverride != null && _requirementOverride.Antags.TryGetValue(antag.ID, out var req))
             return req;
 
         return antag.Requirements;
-    }
-
-    // TODO ROLES Change to readonly?
-    /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
-    public HashSet<JobRequirement>? GetRoleRequirements(ProtoId<JobPrototype> jobId)
-    {
-        return _prototypes.TryIndex(jobId, out var job) ? GetRoleRequirements(job) : null;
-    }
-
-    // TODO ROLES Change to readonly?
-    /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
-    public HashSet<JobRequirement>? GetRoleRequirements(ProtoId<AntagPrototype> antagId)
-    {
-        return _prototypes.TryIndex(antagId, out var antag) ? GetRoleRequirements(antag) : null;
     }
 
     /// <summary>

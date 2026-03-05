@@ -60,7 +60,7 @@ public sealed partial class CloningSystem
     {
         // if the clone is a stack as well, adjust the count of the copy
         if (TryComp<StackComponent>(args.CloneUid, out var cloneStackComp))
-            _stack.SetCount((args.CloneUid, cloneStackComp), ent.Comp.Count);
+            _stack.SetCount(args.CloneUid, ent.Comp.Count, cloneStackComp);
     }
 
     private void OnCloneItemLabel(Entity<LabelComponent> ent, ref CloningItemEvent args)

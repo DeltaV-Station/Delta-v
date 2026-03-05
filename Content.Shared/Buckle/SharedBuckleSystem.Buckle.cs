@@ -196,11 +196,11 @@ public abstract partial class SharedBuckleSystem
         {
             strapEnt.Comp.BuckledEntities.Add(buckle);
             Dirty(strapEnt);
-            _alerts.ShowAlert(buckle.Owner, strapEnt.Comp.BuckledAlertType);
+            _alerts.ShowAlert(buckle, strapEnt.Comp.BuckledAlertType);
         }
         else
         {
-            _alerts.ClearAlertCategory(buckle.Owner, BuckledAlertCategory);
+            _alerts.ClearAlertCategory(buckle, BuckledAlertCategory);
         }
 
         buckle.Comp.BuckledTo = strap;
@@ -235,7 +235,7 @@ public abstract partial class SharedBuckleSystem
 
         // Does it pass the Whitelist
         if (_whitelistSystem.IsWhitelistFail(strapComp.Whitelist, buckleUid) ||
-            _whitelistSystem.IsWhitelistPass(strapComp.Blacklist, buckleUid))
+            _whitelistSystem.IsBlacklistPass(strapComp.Blacklist, buckleUid))
         {
             if (popup)
                 _popup.PopupClient(Loc.GetString("buckle-component-cannot-fit-message"), user, PopupType.Medium);
@@ -469,7 +469,7 @@ public abstract partial class SharedBuckleSystem
             // TODO: This is doing 4 moveevents this is why I left the warning in, if you're going to remove it make it only do 1 moveevent.
             if (strap.Comp.BuckleOffset != Vector2.Zero)
             {
-                _transform.SetCoordinates(buckle, buckleXform, oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset));
+                buckleXform.Coordinates = oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset);
             }
         }
 

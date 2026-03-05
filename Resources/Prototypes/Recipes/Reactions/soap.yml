@@ -2,8 +2,7 @@
   id: CreateSoapRegular
   impact: Low
   quantized: true
-  minTemp: 373 # Water boiling point. We are boiling it
-  priority: -1 # Ensures that the more complicated soaps get made instead
+  minTemp: 383 # Water boiling point + 10 Kelvin. We are boiling it
   reactants:
     Oil:
       amount: 10
@@ -12,14 +11,14 @@
     TableSalt:
       amount: 5
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: Soap
 
 - type: reaction
   id: CreateSoapNT
   impact: Low
   quantized: true
-  minTemp: 373
+  minTemp: 373 # Water boiling point. We are boiling it too, but with higher priority!
   reactants:
     Oil:
       amount: 15
@@ -30,7 +29,7 @@
     Plasma:
       amount: 5
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: SoapNT
 
 - type: reaction
@@ -48,7 +47,7 @@
     JuiceBerry:
       amount: 5
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: SoapDeluxe
 
 - type: reaction
@@ -66,7 +65,7 @@
     Blood:
       amount: 10
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: SoapHomemade
 
 - type: reaction
@@ -84,7 +83,7 @@
     Stimulants:
       amount: 5
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: SoapSyndie
 
 - type: reaction
@@ -116,5 +115,5 @@
     Amatoxin:
       amount: 1
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: SoapOmega

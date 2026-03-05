@@ -40,8 +40,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: FemaleHuman
@@ -84,8 +82,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
   id: MaleReptilian
@@ -122,8 +118,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -160,8 +154,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: MaleSlime
@@ -204,8 +196,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
   params:
     variation: 0.125
 
@@ -250,8 +240,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
   params:
     variation: 0.125
 
@@ -262,31 +250,25 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
-    Cough:
-      path: /Audio/Voice/Vox/vox_cough.ogg
-    Sigh:
-      path: /Audio/Voice/Vox/vox_sigh.ogg
-    Click:
-      path: /Audio/Voice/Vox/vox_click.ogg
-    #Chitter: # DeltaV - Combined upstream and impstation sounds
-    #  path: /Audio/Voice/Vox/vox_chitter.ogg
     Honk:
       collection: BikeHorn
-    Crying:
-      collection: VoxCry # DeltaV - Combined upstream and Imp sounds
-      params: # Imp
-        volume: -7
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+    # Begin DeltaV Additions
     Gasp: 
-      collection: VoxGasp # DeltaV - Combined upstream and our sounds
+      collection: VoxGasp
     DefaultDeathgasp:
-      collection: VoxDeathgasp # DeltaV - Combined upstream and our sounds
+      path: /Audio/_DV/Effects/Gasp/vox_deathgasp_1.ogg
+    # End DeltaV Additions
     # Begin Impstation Additions
+    Crying:
+      collection: VoxCry
+      params:
+        volume: -7
     Chitter:
-      collection: VoxChitter # DeltaV - Combined upstream and impstation sounds
+      collection: VoxChitter
       params:
         volume: -5
     Coo:
@@ -298,12 +280,9 @@
       params:
         volume: -5
     # End Impstation Additions
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
-
 
 - type: emoteSounds
   id: UnisexDiona
@@ -324,8 +303,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
   params:
     variation: 0.125
 
@@ -354,8 +331,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -396,8 +371,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
   params:
     variation: 0.125
     pitch: 0.75
@@ -441,8 +414,6 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
   params:
     variation: 0.125
     pitch: 0.75
@@ -472,8 +443,6 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: UnisexSilicon

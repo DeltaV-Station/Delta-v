@@ -13,9 +13,9 @@
       - !type:SatiateThirst
         factor: 1.5
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Human ]
-            inverted: true
+          - !type:OrganType
+            type: Human
+            shouldHave: false
   footstepSound:
     collection: FootstepBlood
     params:

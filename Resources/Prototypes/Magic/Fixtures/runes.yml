@@ -55,7 +55,6 @@
   components:
     - type: TriggerOnCollide
       fixtureID: rune
-      maxTriggers: 1
     - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Cryo
@@ -75,12 +74,10 @@
   components:
     - type: TriggerOnCollide
       fixtureID: rune
-      maxTriggers: 1
     - type: DeleteOnTrigger
     - type: StunOnCollide
       stunAmount: 5
       knockdownAmount: 3
-      fixture: rune
     - type: Sprite
       sprite: Structures/Magic/Cult/trap.rsi
       layers:
@@ -94,7 +91,6 @@
   components:
     - type: TriggerOnCollide
       fixtureID: ignition
-      maxTriggers: 1
     - type: Fixtures
       fixtures:
         ignition:

@@ -1,6 +1,3 @@
-# TODO: Reagent Args which allow more selective scaling.
-# Currently all Gas metabolisms scale by reagent quantity metabolized, where other Metabolisms are modified by metabolism rate!
-
 - type: reagent
   id: Oxygen
   name: reagent-name-oxygen
@@ -15,62 +12,96 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Feroxi, Harpy ] # DeltaV
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+        - !type:OrganType
+          type: Vox
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 1.5
+            Poison:
+              3
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 1
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Vox ]
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Vox
         clear: true
         time: 5
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Feroxi, Harpy ] # DeltaV
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plant
+      - !type:Oxygenate # DeltaV - Feroxi Still need to breathe
+        conditions:
+        - !type:OrganType
+          type: Feroxi
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+        - !type:OrganType
+          type: Vox
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 0.7
+            Poison:
+              7
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 0.5
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Vox ]
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Vox
         clear: true
         time: 5
 
@@ -93,42 +124,38 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1.5
+            Poison: 3
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
     Gas:
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.1
+              1
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 1.5
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
         clear: True
         time: 5
-      - !type:Oxygenate # DeltaV - Harpy sensitive to air quality
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Harpy ]
-        factor: -8
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:Flammable
+      - !type:FlammableReaction
 
 - type: reagent
   id: Tritium
   name: reagent-name-tritium
   desc: reagent-desc-tritium
   physicalDesc: reagent-physical-desc-ionizing
-  allowedDepartments:
-  - Engineering
   flavor: bitter
   color: "#66ff33"
   tileReactions:
@@ -138,7 +165,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:Flammable
+      - !type:FlammableReaction
         multiplier: 0.8
   metabolisms:
     Poison:
@@ -146,10 +173,11 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: 1.5
+            Radiation: 3
     Gas:
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -158,14 +186,11 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 1.5
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
         clear: True
         time: 5
-      - !type:Oxygenate # DeltaV - Harpy sensitive to air quality
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Harpy ]
-        factor: -8
 
 - type: reagent
   id: CarbonDioxide
@@ -179,43 +204,47 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+        - !type:OrganType
+          type: Plant
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.4
+              0.8
       - !type:Oxygenate
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Harpy ] # DeltaV - Harpy moved below
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
         factor: -4
-      - !type:Oxygenate # DeltaV - Harpy more sensitive to air quality
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Harpy ]
-        factor: -12
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+        - !type:OrganType
+          type: Plant
       - !type:HealthChange
-        minScale: 0.5
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Vox ]
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
+        - !type:ReagentThreshold
+          min: 0.5
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -223,18 +252,13 @@
               0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant, Harpy ] # DeltaV - Harpy moved below
-          inverted: true
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
         factor: -4
       # We need a metabolism effect on reagent removal
       #- !type:AdjustAlert
       #  alertType: CarbonDioxide
-      - !type:Oxygenate # DeltaV - Harpy more sensitive to air quality
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Harpy ]
-        factor: -12
 
 - type: reagent
   id: Nitrogen
@@ -251,25 +275,29 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: 0.5 # liquid nitrogen is cold
+            Cold: 1 # liquid nitrogen is cold
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox, Slime ]
-      # Converts Nitrogen into Ammonia
+        - !type:OrganType
+          type: Vox
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Slime
+      # Converts Nitrogen into CO2
       - !type:ModifyLungGas
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+        - !type:OrganType
+          type: Vox
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
+        - !type:OrganType
+          type: Slime
         ratios:
           NitrousOxide: 1.0
           Nitrogen: -1.0
@@ -289,74 +317,74 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 2
     Gas:
       effects:
       - !type:Emote
-        minScale: 0.2
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.2
+          max: 0.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
-      - !type:Emote
-        minScale: 0.2
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
-        emote: Scream
-        showInChat: true
-        probability: 0.01
       - !type:PopupMessage
-        minScale: 0.5
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovementSpeedModifier
-        minScale: 1
+      - !type:MovespeedModifier
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
-        minScale: 1.8
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
-        effectProto: StatusEffectForcedSleeping
-        time: 3
-        type: Update
-      # DeltaV - anesthesia changes
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 1
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectForcedSleeping
+        time: 200 # This reeks, but I guess it works LMAO
+        type: Add
+      - !type:GenericStatusEffect # DeltaV: anesthesia changes
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         key: Anesthesia
         component: Anesthesia
         time: 200
         type: Add
-      # END DeltaV
       - !type:HealthChange
-        minScale: 3.5
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 3.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         ignoreResistances: true
         damage:
           types:
@@ -367,10 +395,6 @@
   name: reagent-name-frezon
   desc: reagent-desc-frezon
   physicalDesc: reagent-physical-desc-gaseous
-  allowedDepartments:
-  - Engineering
-  allowedJobs:
-  - Chemist
   flavor: bitter
   color: "#3a758c"
   boilingPoint: -195.8
@@ -379,57 +403,76 @@
     Narcotic:
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.5
+            Cellular: 1
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
+        refresh: false
       - !type:Drunk
         boozePower: 15
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        minScale: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         conditions:
-        minScale: 2
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
     Gas:
       effects:
       - !type:HealthChange
-        minScale: 0.5
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.05
+            Cellular: 0.5
       - !type:ModifyStatusEffect
-        minScale: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
+        refresh: false
       - !type:Drunk
         boozePower: 500
-        minScale: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        minScale: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 0.5
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
-        minScale: 1
-      - !type:Oxygenate # DeltaV - Harpy sensitive to air quality
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Harpy ]
-        factor: -4
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1

@@ -1,5 +1,24 @@
 # Harpy
 - type: emote
+  id: HarpyHonk
+  name: delta-chat-emote-name-honk
+  icon: Interface/Emotes/honk.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [honks.]
+  chatTriggers:
+    - honk
+    - honks
+    - honking
+    - honked
+
+- type: emote
   id: HarpyRing
   name: delta-chat-emote-name-ring
   icon: _DV/Interface/Emotes/ring.png
@@ -59,6 +78,25 @@
     - banged
 
 - type: emote
+  id: HarpyBeep
+  name: delta-chat-emote-name-beep
+  icon: Interface/Emotes/beep.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [beeps.]
+  chatTriggers:
+    - beep
+    - beeps
+    - beeping
+    - beeped
+
+- type: emote
   id: HarpyRev
   name: delta-chat-emote-name-rev
   # icons in .rsi directories need to be specified this way, because they get packaged
@@ -98,9 +136,9 @@
     - cawed
 
 - type: emote
-  id: HarpyQuack
-  name: delta-chat-emote-name-quack
-  icon: _DV/Interface/Emotes/caw.png
+  id: HarpySquish
+  name: delta-chat-emote-name-harpysquish
+  icon: Interface/Emotes/squish.png
   category: Vocal
   available: false
   whitelist:
@@ -109,31 +147,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [quacks.]
+  chatMessages: [squishes.]
   chatTriggers:
-  - quack
-  - quacks
-  - quacking
-  - quacked
-
-- type: emote
-  id: HarpySquawk
-  name: delta-chat-emote-name-squawk
-  icon: _DV/Interface/Emotes/caw.png
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [squawks.]
-  chatTriggers:
-  - squawk
-  - squawks
-  - squawking
-  - squawked
+    - squish
+    - squishing
+    - squishes
 
 #Vulpkanin
 - type: emote
@@ -148,7 +166,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-bark"]
+  chatMessages: [barks.]
   chatTriggers:
     - bark
     - barks
@@ -167,7 +185,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-snarl"]
+  chatMessages: [snarls.]
   chatTriggers:
     - snarl
     - snarls
@@ -186,7 +204,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-whine"]
+  chatMessages: [whines.]
   chatTriggers:
     - whine
     - whines
@@ -205,7 +223,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-howl"]
+  chatMessages: [howls.]
   chatTriggers:
     - howl
     - howls

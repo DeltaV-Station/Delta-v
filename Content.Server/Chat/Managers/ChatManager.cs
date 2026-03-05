@@ -160,19 +160,13 @@ internal sealed partial class ChatManager : IChatManager
 
     public void SendAdminAlert(string message)
     {
+        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+
         var wrappedMessage = Loc.GetString("chat-manager-send-admin-announcement-wrap-message",
             ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")), ("message", FormattedMessage.EscapeText(message)));
 
-        SendAdminAlertNoFormatOrEscape(wrappedMessage);
+        ChatMessageToMany(ChatChannel.AdminAlert, message, wrappedMessage, default, false, true, clients);
     }
-
-    public void SendAdminAlertNoFormatOrEscape(string message)
-    {
-        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
-
-        ChatMessageToMany(ChatChannel.AdminAlert, message, message, default, false, true, clients);
-    }
-
 
     public void SendAdminAlert(EntityUid player, string message)
     {

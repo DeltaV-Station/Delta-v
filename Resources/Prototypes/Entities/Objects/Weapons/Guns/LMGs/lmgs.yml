@@ -117,12 +117,13 @@
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container
-    - type: BatteryAmmoProvider
+    - type: ProjectileBatteryAmmoProvider
       proto: CartridgeLightRifle
       fireCost: 100
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
     - type: BatterySelfRecharger
+      autoRecharge: true
       autoRechargeRate: 25
     - type: AmmoCounter

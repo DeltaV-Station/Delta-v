@@ -16,14 +16,14 @@ public sealed partial class EnergyGunComponent : Component
     /// <summary>
     /// A list of the different firing modes the energy gun can switch between
     /// </summary>
-    [DataField(required: true)]
+    [DataField("fireModes", required: true)]
     [AutoNetworkedField]
     public List<EnergyWeaponFireMode> FireModes = new();
 
     /// <summary>
     /// The currently selected firing mode
     /// </summary>
-    [DataField]
+    [DataField("currentFireMode")]
     [AutoNetworkedField]
     public EnergyWeaponFireMode? CurrentFireMode = default!;
 }
@@ -40,18 +40,18 @@ public sealed partial class EnergyWeaponFireMode
     /// <summary>
     /// The battery cost to fire the projectile associated with this firing mode
     /// </summary>
-    [DataField]
+    [DataField("fireCost")]
     public float FireCost = 100;
 
     /// <summary>
     /// The name of the selected firemode
     /// </summary>
-    [DataField]
+    [DataField("name")]
     public string Name = string.Empty;
 
     /// <summary>
     /// What RsiState we use for that firemode if it needs to change.
     /// </summary>
-    [DataField]
+    [DataField("state")]
     public string State = string.Empty;
 }

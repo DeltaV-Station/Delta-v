@@ -1,22 +1,20 @@
-
-using Content.Shared.PowerCell;
+using Content.Server.Power.Components; // ough BatteryComponent why are you in server
+using Content.Server.Power.EntitySystems;
+using Content.Server.PowerCell;
 using Content.Shared._DV.Augments;
 using Content.Shared.Alert;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Power.Components;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server._DV.Augments;
 
 public sealed class AugmentPowerCellSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -50,9 +48,9 @@ public sealed class AugmentPowerCellSystem : EntitySystem
 
             var entity = new Entity<AugmentPowerCellSlotComponent, OrganComponent, PowerCellSlotComponent>(organ.Owner, organ.Comp1, organ.Comp2, powerCellSlot);
 
-            if (_powerCell.TryGetBatteryFromSlot(organ.Owner, out var battery))
+            if (_powerCell.TryGetBatteryFromSlot(organ, out var batteryUid, out var batteryComp))
             {
-                return (entity, battery);
+                return (entity, new(batteryUid.Value, batteryComp));
             }
             return (entity, null);
         }
@@ -97,10 +95,10 @@ public sealed class AugmentPowerCellSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<HasAugmentPowerCellSlotComponent, MobStateComponent>();
-        while (query.MoveNext(out var owner, out _, out var mobState))
+        var query = EntityQueryEnumerator<HasAugmentPowerCellSlotComponent>();
+        while (query.MoveNext(out var owner, out _))
         {
-            if (_mobState.IsDead(owner, mobState))
+            if (_mobState.IsDead(owner))
                 continue;
 
             var powerCell = TryGetAugmentPowerCell(owner);
@@ -123,7 +121,7 @@ public sealed class AugmentPowerCellSystem : EntitySystem
                 _alerts.ClearAlert(owner, augment.Comp1.NoBatteryAlert);
             }
 
-            var chargePercent = (short) MathF.Round(_battery.GetCharge(insertedBattery.AsNullable()) / insertedBattery.Comp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(insertedBattery.Comp.CurrentCharge / insertedBattery.Comp.MaxCharge * 10f);
             _alerts.ShowAlert(owner, augment.Comp1.BatteryAlert, chargePercent);
         }
     }

@@ -7,210 +7,210 @@
     Bartender:
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 1h
+      time: 3600 # 1 hour
     Boxer:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
     Chef:
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 1h
+      time: 3600 # 1 hour
     Clown:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
     Librarian:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 3600 # 1 hour
     Mime:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
     Musician:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
     Reporter:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
     Zookeeper:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
 
     # Command
     Captain:
     - !type:DepartmentTimeRequirement
       department: Logistics
-      time: 5h
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 5h
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 5h
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 5h
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 5h
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 30h
+      time: 108000 # 30 hours
     ChiefEngineer:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 20h
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 30h
+      time: 108000 # 30 hours
     ChiefMedicalOfficer:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 6h
+      time: 21600 # 6 hours
     - !type:RoleTimeRequirement
       role: JobSurgeon
-      time: 3h
+      time: 10800 # 3 hrs
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 12h
+      time: 43200 # 12 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 35h
+      time: 126000 # 35 hours
     HeadOfPersonnel:
     - !type:RoleTimeRequirement
       role: JobChef
-      time: 4h
+      time: 14400 # 4 hours
     - !type:RoleTimeRequirement
       role: JobBartender
-      time: 4h
+      time: 14400 # 4 hours
     - !type:RoleTimeRequirement
       role: JobJanitor
-      time: 4h
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 20h
+      time: 72000 # 20 hours
     - !type:OverallPlaytimeRequirement
-      time: 25h
+      time: 90000 # 25 hours
     HeadOfSecurity:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 20h
+      time: 72000 # 20 hours
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 10h
+      time: 36000 # 10 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 10h
+      time: 36000 # 10 hours
     - !type:OverallPlaytimeRequirement
-      time: 25h
+      time: 90000 # 25 hours
     ResearchDirector: # (MG)
     - !type:RoleTimeRequirement
       role: JobForensicMantis
-      time: 2h
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 25h
+      time: 90000 # 25 hours
 
     # Engineering
     AtmosphericTechnician:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10h
+      time: 36000 # 10 hours
     TechnicalAssistant:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 7200 # 2 hours
 
     # Epistemics
     Chaplain:
     - !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 4h
+      time: 14400 # 4 hours
     ResearchAssistant:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 3600 # 1 hour
     Scientist:
     - !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 4h
+      time: 14400 # 4 hours
 
     # Justice
     Lawyer: # (Attorney)
     - !type:OverallPlaytimeRequirement
-      time: 10h
+      time: 36000 # 10 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 4h
+      time: 14400 # 4 hours
 
     # Logistics
     Quartermaster: # (LO)
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 6h
+      time: 21600 # 6 hours
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 3h
+      time: 10800 # 3 hours
     - !type:RoleTimeRequirement
       role: JobCourier
-      time: 2h
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Logistics
-      time: 25h
+      time: 90000 # 25 hours
     - !type:OverallPlaytimeRequirement
-      time: 40h
+      time: 144000 # 40 hours
     SalvageSpecialist:
     - !type:DepartmentTimeRequirement
       department: Logistics
-      time: 6h
+      time: 21600 # 6 hours
     CargoTechnician:
     - !type:DepartmentTimeRequirement
       department: Logistics
-      time: 6h
+      time: 21600 # 6 hours
 
     # Medical
     Chemist:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 8h
+      time: 28800 # 8 hours
     MedicalIntern:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 3600 # 1 hour
     Paramedic:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 8h
+      time: 28800 # 8 hours
     Psychologist:
     - !type:OverallPlaytimeRequirement
-      time: 10h
+      time: 36000 # 10 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 4h
+      time: 14400 # 4 hours
     MedicalDoctor:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 7h
+      time: 25200 # 7 hours
 
     # Security
     Detective:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 6h
+      time: 21600 # 6 hours
     SecurityCadet:
     - !type:OverallPlaytimeRequirement
-      time: 6h
+      time: 21600 # 6 hours
     SecurityOfficer:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      time: 36000 # 10 hours
     Warden:
     - !type:RoleTimeRequirement # Make them experienced in proper officer work.
       role: JobSecurityOfficer
-      time: 10h
+      time: 36000 # 10 hours
     - !type:RoleTimeRequirement # Give them an understanding of basic forensics.
       role: JobDetective
-      time: 6h
+      time: 21600 # 6 hours
   antags:
     NukeopsMedic:
     - !type:RoleTimeRequirement # They should be able to make advanced brutes + pyra quickly
       role: JobChemist
-      time: 10h
+      time: 36000 # 10 hours
     - !type:RoleTimeRequirement # Give them a good understanding of how medical works
       role: JobMedicalDoctor
-      time: 2h
+      time: 7200 # 2 hours (+ the time it takes to unlock medical doctor)

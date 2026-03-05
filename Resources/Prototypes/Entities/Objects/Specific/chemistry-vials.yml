@@ -30,11 +30,8 @@
     fillBaseName: vial-1-
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
-  - type: Edible
-    edible: Drink
+  - type: Drink
     solution: beaker
-    destroyOnEmpty: false
-    utensil: None
   - type: SolutionContainerManager
     solutions:
       beaker:

@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
   - type: Organ
-  - type: Edible
+  - type: Food
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -28,7 +28,6 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: arachnid stomach # DeltaV
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
@@ -56,7 +55,7 @@
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: arachnid lungs # DeltaV
+  name: lungs
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
   - type: Sprite
@@ -93,7 +92,7 @@
 - type: entity
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
-  name: arachnid heart # DeltaV
+  name: heart
   description: "A disgustingly persistent little biological pump made for spiders."
   components:
   - type: Sprite
@@ -121,7 +120,7 @@
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: arachnid liver # DeltaV
+  name: liver
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
@@ -136,6 +135,7 @@
     metabolizerTypes: [Animal]
     groups:
     - id: Alcohol
+      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
   - type: Organ # Shitmed
     slotId: liver
   - type: Liver # Shitmed
@@ -148,7 +148,7 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: arachnid kidneys # DeltaV
+  name: kidneys
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
@@ -171,7 +171,7 @@
 - type: entity
   id: OrganArachnidEyes
   parent: BaseArachnidOrgan
-  name: arachnid eyes # DeltaV
+  name: eyes
   description: "Two was already too many."
   components:
   - type: Sprite
@@ -193,7 +193,7 @@
 - type: entity
   id: OrganArachnidTongue
   parent: BaseArachnidOrgan
-  name: arachnid tongue # DeltaV
+  name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite

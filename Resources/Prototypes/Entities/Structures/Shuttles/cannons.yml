@@ -90,7 +90,7 @@
           tags:
             - PowerCell
             - PowerCellSmall
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
 
@@ -146,7 +146,7 @@
         whitelist:
           tags:
             - PowerCage
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedShuttleLaser
     fireCost: 150
 

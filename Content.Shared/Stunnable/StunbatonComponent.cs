@@ -2,7 +2,7 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Stunnable;
+namespace Content.Server.Stunnable.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]

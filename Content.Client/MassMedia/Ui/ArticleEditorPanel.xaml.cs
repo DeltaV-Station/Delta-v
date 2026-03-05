@@ -36,8 +36,8 @@ public sealed partial class ArticleEditorPanel : Control
     {
         RobustXamlLoader.Load(this);
 
-        ButtonPublish.StyleClasses.Add(StyleClass.ButtonOpenLeft);
-        ButtonPublish.StyleClasses.Add(StyleClass.Positive);
+        ButtonPublish.StyleClasses.Add(StyleBase.ButtonOpenLeft);
+        ButtonPublish.StyleClasses.Add(StyleNano.StyleClassButtonColorGreen);
 
         ContentField.GetChild(0).Margin = new Thickness(9, 3);
         // Customize scrollbar width and margin. This is not possible in xaml

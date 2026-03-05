@@ -25,11 +25,11 @@ namespace Content.Client.Access.UI
         public void SetAccessLevels(IPrototypeManager protoManager, List<ProtoId<AccessLevelPrototype>> accessLevels)
         {
             _accessButtons.Clear();
-            AccessLevelGrid.RemoveAllChildren();
+            AccessLevelGrid.DisposeAllChildren();
 
             foreach (var access in accessLevels)
             {
-                if (!protoManager.Resolve(access, out var accessLevel))
+                if (!protoManager.TryIndex(access, out var accessLevel))
                 {
                     continue;
                 }

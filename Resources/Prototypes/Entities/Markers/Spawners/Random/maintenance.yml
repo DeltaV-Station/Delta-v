@@ -112,10 +112,9 @@
         - id: ClothingNeckCloakGay
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
-      - id: ToyFigurineSkeleton
+      - id: ToySkeleton
       - id: Basketball
       - id: Football
-      - id: TennisBall
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
@@ -175,7 +174,7 @@
       - id: WristwatchGold
       - id: ClothingBeltFoamSheathFilled # DeltaV - Add small chance of it spawning in maints locker.
       - id: WeaponLaserTagGun # DeltaV - Add small chance of it spawning in maints locker.
-      - id: RubberStampGreytide
+      #- id: RubberStampGreytide # Delta-V: prevent greytide stamp from spawning
       - id: MysteryLighterBox
       - id: GoldenPersonalAI
 
@@ -308,9 +307,7 @@
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
       #- id: SpectralLocator # DeltaV: no ghost locator
-      - id: ClothingShoesRealJordans # DeltaV
-      - id: ClothingShoesCreasedJordans # DeltaV
-      #- id: LidSalami # Delta V - bloat
+      - id: LidSalami
         weight: 0.05
 
 - type: entity
@@ -338,7 +335,6 @@
       weight: 95
       children:
       - id: Machete
-      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear

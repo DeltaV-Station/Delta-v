@@ -5,7 +5,8 @@ roles-antag-survivor-name = Survivor
 roles-antag-survivor-objective = Current Objective: Survive
 
 survivor-role-greeting =
-    You are a Survivor. Above all you need to make it back to Central Command alive.
+    You are a Survivor.
+    Above all you need to make it back to CentComm alive.
     Collect as much firepower as needed to guarantee your survival.
     Trust no one.
 
@@ -41,9 +42,11 @@ roles-antag-wizard-name = Wizard
 roles-antag-wizard-objective = Teach them a lesson they'll never forget.
 
 wizard-role-greeting =
-    It's wizard time, fireball!
-    There's been tensions between the Space Wizards Federation and NanoTrasen. You've been selected by the Space Wizards Federation to pay a visit to the station and "remind them" why spellcasters are not to be trifled with.
-    Cause mayhem and destruction! What you do is up to you, but remember that the Space Wizards want you to make it out alive.
+    YER A WIZARD!
+    There's been tensions between the Space Wizards Federation and NanoTrasen.
+    So you've been selected by the Space Wizards Federation to pay a visit to the station.
+    Give them a good demonstration of your powers.
+    What you do is up to you, just remember the Space Wizards want you to make it out alive.
 
 wizard-round-end-name = wizard
 

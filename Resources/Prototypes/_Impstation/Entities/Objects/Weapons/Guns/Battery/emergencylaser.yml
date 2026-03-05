@@ -14,7 +14,7 @@
       shader: unshaded
   - type: StaticPrice
     price: 300
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: EmergencyRedLaser
     fireCost: 50
   - type: Item

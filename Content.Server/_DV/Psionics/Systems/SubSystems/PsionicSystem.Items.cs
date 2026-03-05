@@ -2,7 +2,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 
@@ -24,8 +24,8 @@ public sealed partial class PsionicSystem
         {
             Popup.PopupEntity(Loc.GetString("psionic-burns-up", ("item", gear)), gear.Owner, PopupType.MediumCaution);
             Audio.PlayEntity(gear.Comp.FrySound, gear, gear);
-            Spawn("Ash", Transform(gear).Coordinates);
             QueueDel(gear);
+            Spawn("Ash", Transform(gear).Coordinates);
         }
         else
         {

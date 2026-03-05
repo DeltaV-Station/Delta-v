@@ -1,4 +1,4 @@
-using Content.Client.Graphics;
+using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 
@@ -13,8 +13,7 @@ public sealed class BeforeLightTargetOverlay : Overlay
 
     [Dependency] private readonly IClyde _clyde = default!;
 
-    private readonly OverlayResourceCache<CachedResources> _resources = new();
-
+    public IRenderTexture EnlargedLightTarget = default!;
     public Box2Rotated EnlargedBounds;
 
     /// <summary>
@@ -37,42 +36,16 @@ public sealed class BeforeLightTargetOverlay : Overlay
         var size = args.Viewport.LightRenderTarget.Size + (int) (_skirting * EyeManager.PixelsPerMeter);
         EnlargedBounds = args.WorldBounds.Enlarged(_skirting / 2f);
 
-        var res = _resources.GetForViewport(args.Viewport, static _ => new CachedResources());
-
         // This just exists to copy the lightrendertarget and write back to it.
-        if (res.EnlargedLightTarget?.Size != size)
+        if (EnlargedLightTarget?.Size != size)
         {
-            res.EnlargedLightTarget = _clyde
+            EnlargedLightTarget = _clyde
                 .CreateRenderTarget(size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "enlarged-light-copy");
         }
 
-        args.WorldHandle.RenderInRenderTarget(res.EnlargedLightTarget,
+        args.WorldHandle.RenderInRenderTarget(EnlargedLightTarget,
             () =>
             {
             }, _clyde.GetClearColor(args.MapUid));
-    }
-
-    internal CachedResources GetCachedForViewport(IClydeViewport viewport)
-    {
-        return _resources.GetForViewport(viewport,
-            static _ => throw new InvalidOperationException(
-                "Expected BeforeLightTargetOverlay to have created its resources"));
-    }
-
-    protected override void DisposeBehavior()
-    {
-        _resources.Dispose();
-
-        base.DisposeBehavior();
-    }
-
-    internal sealed class CachedResources : IDisposable
-    {
-        public IRenderTexture EnlargedLightTarget = default!;
-
-        public void Dispose()
-        {
-            EnlargedLightTarget?.Dispose();
-        }
     }
 }

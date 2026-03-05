@@ -94,10 +94,10 @@ public sealed class DamageOnInteractSystem : EntitySystem
             };
         }
 
-        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart);
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart);
         // Shitmed Change End
 
-        if (totalDamage.AnyPositive())
+        if (totalDamage != null && totalDamage.AnyPositive())
         {
             // Record this interaction and determine when a user is allowed to interact with this entity again
             entity.Comp.LastInteraction = _gameTiming.CurTime;

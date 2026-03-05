@@ -118,7 +118,7 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
     - Electrocution
@@ -136,7 +136,8 @@
     # Begin DeltaV additions
     - Addicted # Psych med addictions system
     - SuppressAddiction # Psych med addictions system
-    - ChronicPain # Pain system
+    - InPain # Pain system
+    - SuppressPain # Pain system
     - Anesthesia # Anesthesia
     - PainNumbness # Pain numbness status effect
     - ScrambledSpeech
@@ -187,9 +188,6 @@
     factions:
     - NanoTrasen
   - type: CreamPied
-  - type: ParcelWrapOverride
-    parcelPrototype: WrappedParcelHumanoid
-    wrapDelay: 5
   - type: Stripping
   - type: UserInterface
     interfaces:
@@ -230,6 +228,7 @@
   - type: SurgeryTarget # Shitmed Change
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
+  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
   - type: GrappleTarget # DeltaV - Allow targets to be grappled
 
 - type: entity

@@ -44,6 +44,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 
     private ProtoId<TagPrototype> _grappleTargetId = "GrappleTarget";
@@ -193,7 +194,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
 
         _audio.PlayPvs(grappler.Comp.GrappleSound, victim);
 
-        _alerts.ShowAlert(grappler.Owner, grappler.Comp.GrappledAlert);
+        _alerts.ShowAlert(grappler, grappler.Comp.GrappledAlert);
         _alerts.ShowAlert(victim, grappler.Comp.GrappledAlert);
     }
 
@@ -517,7 +518,7 @@ public sealed partial class GrapplingSystem : SharedGrapplingSystem
         if (grappler.Comp.ProneOnGrapple && TryComp<StandingStateComponent>(grappler, out var standingState) && _standingState.IsDown((grappler, standingState)))
             _standingState.Stand(grappler);
 
-        _alerts.ClearAlert(grappler.Owner, grappler.Comp.GrappledAlert);
-        _alerts.ClearAlert(victim.Owner, grappler.Comp.GrappledAlert);
+        _alerts.ClearAlert(grappler, grappler.Comp.GrappledAlert);
+        _alerts.ClearAlert(victim, grappler.Comp.GrappledAlert);
     }
 }

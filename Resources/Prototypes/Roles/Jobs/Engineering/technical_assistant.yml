@@ -6,10 +6,10 @@
   antagAdvantage: 3 # DeltaV - Reduced TC: External Access + Engineering
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 3600 #1 hr
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 5h
+      time: 18000 #5 hrs
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"

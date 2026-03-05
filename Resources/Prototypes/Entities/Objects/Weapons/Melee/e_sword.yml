@@ -81,8 +81,6 @@
       - state: inhand-right-blade
         shader: unshaded
   - type: Reflect
-    reflects:
-    - energy # Deltav - previously reflected all projectiles
   - type: IgnitionSource
     temperature: 700
 
@@ -166,7 +164,7 @@
   - type: PointLight
     enabled: false
     radius: 1.5
-    energy: 2.7
+    energy: 1.5
     color: white
     netsync: false
 
@@ -225,7 +223,7 @@
   - type: PointLight
     enabled: false
     radius: 1.5
-    energy: 2.7
+    energy: 1.5
     color: white
     netsync: false
   - type: MeleeWeapon

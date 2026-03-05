@@ -375,7 +375,7 @@ public sealed class AutomationFilterSystem : EntitySystem
 
         // have to split it, client will return null here
         var coords = Transform(item).Coordinates;
-        return _stack.Split((item, stack), stack.Count - excess, coords);
+        return _stack.Split(item, stack.Count - excess, coords, stack);
     }
 
     /// <summary>

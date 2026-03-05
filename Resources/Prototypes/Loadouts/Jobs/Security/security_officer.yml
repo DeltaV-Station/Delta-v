@@ -2,16 +2,26 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
-  # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
-  #   requirement:
-  #     !type:RoleTimeRequirement
-  #     role: JobWarden
-  #     time: 6h
+ #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobWarden
+ #     time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 60h
+      time: 216000 # 60 hrs
+
+#Security Star
+- type: loadoutEffectGroup
+  id: SecurityStarWorthy
+  effects:
+    - !type:JobRequirementLoadoutEffect
+      requirement:
+        !type:DepartmentTimeRequirement
+        department: Security
+        time: 360000 #100 hrs
 
 # Head
 - type: loadout
@@ -138,3 +148,13 @@
     proto: SeniorOfficer
   equipment:
     id: SeniorOfficerPDA
+
+# Misc
+- type: loadout
+  id: SecStar
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SecurityStarWorthy
+  storage:
+    back:
+    - Dinkystar

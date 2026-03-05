@@ -36,14 +36,3 @@
     - SpellbookEvents       #Summon Weapons, Summon Ghosts
     currencyWhitelist:
     - WizCoin
-
-- type: entity
-  id: StorePresetChangeling
-  abstract: true
-  components:
-  - type: Store
-    name: store-preset-name-changeling
-    categories:
-    - ChangelingAbilities
-    currencyWhitelist:
-    - ChangelingDNA

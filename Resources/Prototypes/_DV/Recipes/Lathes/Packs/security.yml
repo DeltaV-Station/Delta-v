@@ -11,14 +11,12 @@
   - HoloprojectorSecurity
   - RadioHandheldSecurity
   - WeaponSwordSilver
-  - ClothingBeltBandolier
 
 - type: latheRecipePack
   id: SecurityPracticeStaticDeltaV
   recipes:
   - MagazineBoxSpecialPractice
   - SpeedLoaderSpecialPractice
-  - MagazinePistolHighCapacityPractice
 
 - type: latheRecipePack
   id: SecurityAmmoStaticDeltaV
@@ -31,14 +29,6 @@
   - BoxShellTranquilizer
   - MagazineShotgunBeanbag
   - MagazineLaser
-  - MagazinePistolHighCapacity
-
-- type: latheRecipePack
-  id: SecurityShotgunDrumsStatic
-  recipes:
-  - MagazineShotgun
-  - MagazineShotgunEmpty
-  - MagazineShotgunSlug
 
 - type: latheRecipePack
   id: SecurityRubberAmmoStatic
@@ -53,8 +43,6 @@
   - MagazineBoxLightRifleRubber
   - MagazineBoxRifleRubber
   - MagazineBoxSpecialRubber
-  - MagazinePistolSubMachineGunRubber
-  - MagazinePistolHighCapacityRubber
 
 - type: latheRecipePack
   parent: SecurityDisablers
@@ -74,8 +62,6 @@
   - MagazineBoxSpecialHoly
   - MagazineBoxSpecialMindbreaker
   - GamblagatorCapacitor
-  - MagazinePistolHighCapacityUranium
-  - MagazinePistolHighCapacityIncendiary
 
 - type: latheRecipePack
   parent: SecurityHardsuits

@@ -6,8 +6,10 @@ namespace Content.Shared.Trigger.Systems;
 /// <summary>
 /// System for creating a trigger when the round ends.
 /// </summary>
-public sealed class TriggerOnRoundEndSystem : TriggerOnXSystem
+public sealed class TriggerOnRoundEndSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -23,7 +25,7 @@ public sealed class TriggerOnRoundEndSystem : TriggerOnXSystem
         // trigger everything with the component
         while (triggerQuery.MoveNext(out var uid, out var comp))
         {
-            Trigger.Trigger(uid, null, comp.KeyOut);
+            _trigger.Trigger(uid, null, comp.KeyOut);
         }
     }
 }

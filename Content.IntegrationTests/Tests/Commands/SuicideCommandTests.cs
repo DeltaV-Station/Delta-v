@@ -1,8 +1,6 @@
 using System.Linq;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Execution;
 using Content.Shared.FixedPoint;
 using Content.Shared.Ghost;
@@ -148,8 +146,8 @@ public sealed class SuicideCommandTests
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
-            var slashProto = protoMan.Index(DamageType);
-            damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
+            if (protoMan.TryIndex(DamageType, out var slashProto))
+                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
         });
 
         // Check that running the suicide command kills the player
@@ -282,7 +280,7 @@ public sealed class SuicideCommandTests
         await server.WaitAssertion(() =>
         {
             // Heal all damage first (possible low pressure damage taken)
-            damageableSystem.ClearAllDamage((player, damageableComp));
+            damageableSystem.SetAllDamage(player, damageableComp, 0);
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             var lethalDamageThreshold = mobThresholdsComp.Thresholds.Keys.Last();
 
@@ -357,7 +355,7 @@ public sealed class SuicideCommandTests
         await server.WaitAssertion(() =>
         {
             // Heal all damage first (possible low pressure damage taken)
-            damageableSystem.ClearAllDamage((player, damageableComp));
+            damageableSystem.SetAllDamage(player, damageableComp, 0);
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             var lethalDamageThreshold = mobThresholdsComp.Thresholds.Keys.Last();
 

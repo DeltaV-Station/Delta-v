@@ -4,7 +4,6 @@
   name: traffic key crate
   description: Contains a box of traffic keys
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: BoxEncryptionKeyTraffic
+  - type: StorageFill
+    contents:
+    - id: BoxEncryptionKeyTraffic

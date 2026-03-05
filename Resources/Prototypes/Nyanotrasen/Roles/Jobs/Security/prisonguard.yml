@@ -5,10 +5,10 @@
   playTimeTracker: JobPrisonGuard
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 5h
+      time: 18000
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 4h
+      time: 14400
   startingGear: PrisonGuardGear
   alwaysUseSpawner: true
   canBeAntag: false

@@ -1,5 +1,5 @@
 - type: reagent
-  id: Prometheum
+  id: PsionicRegenerationEssence
   name: reagent-name-prometheum
   group: Biological
   desc: reagent-desc-prometheum
@@ -23,7 +23,7 @@
         factor: -3
       - !type:SatiateHunger
         factor: -3
-      - !type:ModifyBleed
+      - !type:ModifyBleedAmount
         amount: -1
       - !type:ModifyBloodLevel
         amount: 2
@@ -56,9 +56,9 @@
         damage:
           groups:
             Toxin: 2
-      - !type:RemovePsionicAbilities
+      - !type:ChemRemovePsionics
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: SoulbreakerToxin
           min: 5
 

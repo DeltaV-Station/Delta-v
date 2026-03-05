@@ -54,10 +54,7 @@
     damageContainer: Biological
     damageModifierSet: Slime
   - type: Bloodstream
-    bloodReagents:
-      reagents:
-      - ReagentId: Slime
-        Quantity: 1
+    bloodReagent: Slime
     bloodlossDamage:
       types:
         Bloodloss:
@@ -78,14 +75,15 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
-            Heat: 0.05 #Same as slime species
+            Heat: 0.15
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]

@@ -256,15 +256,6 @@
   - type: AccessReader
     access: [["Mantis"]]
 
-#Archivist
-- type: entity
-  parent: FilledSecureCabinet
-  id: SecureCabinetArchivist
-  suffix: Archivist
-  components:
-  - type: AccessReader
-    access: [["Library"]]
-
 #Department Secure Cabinets
 #Command
 - type: entity
@@ -337,12 +328,3 @@
   components:
   - type: AccessReader
     access: [["Justice"]]
-
-#CentComm
-- type: entity
-  parent: FilledSecureCabinet
-  id: SecureCabinetCentComm
-  suffix: Dept CentComm
-  components:
-  - type: AccessReader
-    access: [["CentralCommand"]]

@@ -35,7 +35,7 @@
     Narcotic:
       effects:
       - !type:Jitter
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:SatiateHunger

@@ -2,8 +2,6 @@ using Content.Shared.Item;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Shared.Whitelist;
 
@@ -34,8 +32,8 @@ public sealed partial class EntityWhitelist
     /// <summary>
     ///     Component names that are allowed in the whitelist.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(CustomArraySerializer<string, ComponentNameSerializer>))]
-    public string[]? Components;
+    [DataField] public string[]? Components;
+    // TODO yaml validation
 
     /// <summary>
     ///     Item sizes that are allowed in the whitelist.

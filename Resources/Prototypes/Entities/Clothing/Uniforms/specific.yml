@@ -6,9 +6,7 @@
   suffix: Chameleon
   components:
     - type: Tag
-      tags: # ignore "WhitelistChameleon" tag
-      - ClothMade
-      - Recyclable
+      tags:
       - Skirt # Delta-V : Overwrites null tag so Harpies can wear chameleon suit #[] # ignore "WhitelistChameleon" tag
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/color.rsi

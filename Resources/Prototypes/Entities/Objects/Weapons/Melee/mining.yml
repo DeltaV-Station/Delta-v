@@ -142,11 +142,7 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
-    # Begin DeltaV Removals - Shooting is now done with MB1
-    # useKey: false
-    # End DeltaV Removals
-  - type: AltFireMelee # DeltaV
-    attackType: Heavy
+    useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.5
     rechargeSound:
@@ -239,7 +235,7 @@
     - Back
     - suitStorage
   - type: UseDelay
-    delay: 0.9 # DeltaV - Didn't match the firerate. This is just visuals.
+    delay: 1.9
   - type: LeechOnMarker
     leech:
       groups:

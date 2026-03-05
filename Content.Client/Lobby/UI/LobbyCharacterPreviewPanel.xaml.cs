@@ -43,7 +43,7 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
 
         _previewDummy = uid;
 
-        ViewBox.RemoveAllChildren();
+        ViewBox.DisposeAllChildren();
         var spriteView = new SpriteView
         {
             OverrideDirection = Direction.South,
