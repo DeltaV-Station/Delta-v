@@ -1,12 +1,15 @@
+using System.Collections.ObjectModel;
 using System.Linq;
 using Content.Server.Administration.Commands;
 using Content.Server.Chat.Managers;
 using Content.Server.EUI;
+using Content.Shared.Administration.Notes;
 using Content.Shared.Database;
 using Content.Shared.Verbs;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -20,11 +23,64 @@ public sealed class AdminNotesSystem : EntitySystem
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly EuiManager _euis = default!;
 
+
+    // DeltaV - watchlist cache defs START
+    // For use by other systems
+    // Used by lswatchlisted command to avoid querying database for every connected user every time it's invoked.
+    public ReadOnlyDictionary<NetUserId, List<SharedAdminNote>> ConnectedPlayerWatchlists => _connectedPlayerWatchlists.AsReadOnly();
+    private readonly Dictionary<NetUserId, List<SharedAdminNote>> _connectedPlayerWatchlists = new();
+    // DeltaV - watchlist cache defs END
+
     public override void Initialize()
     {
         SubscribeLocalEvent<GetVerbsEvent<Verb>>(AddVerbs);
         _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
+
+        // DeltaV - track watchlist changes START
+        _notes.NoteAdded += OnNoteAdded;
+        _notes.NoteModified += OnNoteModified;
+        _notes.NoteDeleted += OnNoteDeleted;
+        // DeltaV - track watchlist changes END
     }
+
+    // DeltaV - track watchlist changes START
+    public override void Shutdown()
+    {
+        base.Shutdown();
+
+        _notes.NoteAdded -= OnNoteAdded;
+        _notes.NoteModified -= OnNoteModified;
+        _notes.NoteDeleted -= OnNoteDeleted;
+    }
+
+    private void OnNoteAdded(SharedAdminNote note)
+    {
+        if (note.NoteType != NoteType.Watchlist)
+            return;
+
+        _connectedPlayerWatchlists[note.Player].Add(note);
+    }
+
+    private void OnNoteModified(SharedAdminNote note)
+    {
+        if (note.NoteType != NoteType.Watchlist)
+            return;
+
+        var modifiedIndex = _connectedPlayerWatchlists[note.Player].FindIndex(n => n.Id == note.Id);
+        if (modifiedIndex != -1)
+            _connectedPlayerWatchlists[note.Player][modifiedIndex] = note;
+    }
+
+    private void OnNoteDeleted(SharedAdminNote note)
+    {
+        if (note.NoteType != NoteType.Watchlist)
+            return;
+
+        var deletedIndex = _connectedPlayerWatchlists[note.Player].FindIndex(n => n.Id == note.Id);
+        if (deletedIndex != -1)
+            _connectedPlayerWatchlists[note.Player].RemoveAt(deletedIndex);
+    }
+    // DeltaV - track watchlist changes END
 
     private void AddVerbs(GetVerbsEvent<Verb> ev)
     {
@@ -53,11 +109,24 @@ public sealed class AdminNotesSystem : EntitySystem
 
     private async void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
     {
+        // DeltaV - clear watchlist cache on disconnect START
+        if (e.NewStatus == SessionStatus.Disconnected)
+        {
+            _connectedPlayerWatchlists.Remove(e.Session.UserId);
+            return;
+        }
+        // DeltaV - clear watchlist cache on disconnect END
+
         if (e.NewStatus != SessionStatus.InGame)
             return;
 
         var messages = await _notes.GetNewMessages(e.Session.UserId);
         var watchlists = await _notes.GetActiveWatchlists(e.Session.UserId);
+
+        // DeltaV - write to cache START
+        if (watchlists.Count != 0)
+            _connectedPlayerWatchlists[e.Session.UserId] = watchlists.Select(r => r.ToShared()).ToList();
+        // DeltaV - write to cache END
 
         if (!_playerManager.TryGetPlayerData(e.Session.UserId, out var playerData))
         {

@@ -11,31 +11,33 @@ namespace Content.Server._DV.Administration.Commands;
 public sealed class ListWatchlistedCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IAdminNotesManager _notes = default!;
+    [Dependency] private readonly AdminNotesSystem _notes = default!;
 
     public override string Command => "lswatchlisted";
 
-    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var found = false;
-        foreach (var sessionData in _player.GetAllPlayerData())
+        if (_notes.ConnectedPlayerWatchlists.Count == 0)
         {
-            var watchlists = await _notes.GetActiveWatchlists(sessionData.UserId.UserId);
-            if (watchlists.Count == 0)
+            shell.WriteLine("No watchlisted players online.");
+            return;
+        }
+
+
+        foreach (var (playerId, records) in _notes.ConnectedPlayerWatchlists)
+        {
+            if (!_player.TryGetSessionById(playerId, out var sessionData))
                 return;
 
-            found = true;
-
-            shell.WriteLine("");
-            shell.WriteMarkup($"[bold]{sessionData.UserName}[/bold]");
-            foreach (var record in watchlists)
+            shell.WriteMarkup($"\n[bold]{sessionData.Name}[/bold]\n");
+            foreach (var record in records)
             {
                 shell.WriteLine("");
-                record.CreatedAt.Deconstruct(out var date, out _, out _);
+                record.CreatedAt.Deconstruct(out var date, out _);
                 shell.WriteLine($"Created: {date.ToString("O", CultureInfo.InvariantCulture)}");
-                if (record.ExpirationTime is { } expirationTime)
+                if (record.ExpiryTime is { } expirationTime)
                 {
-                    expirationTime.Deconstruct(out var expirationDate, out _, out _);
+                    expirationTime.Deconstruct(out var expirationDate, out _);
                     shell.WriteLine($"Expires: {expirationDate.ToString("O", CultureInfo.InvariantCulture)}");
                 }
                 else
@@ -48,11 +50,6 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
                     shell.WriteLine($"> {line}");
                 }
             }
-        }
-
-        if (!found)
-        {
-            shell.WriteLine("No watchlisted players online.");
         }
     }
 }
