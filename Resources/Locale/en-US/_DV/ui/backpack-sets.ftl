@@ -1,6 +1,9 @@
 hos-briefcase-window-title = Security Sidearm Selection
 hos-briefcase-window-description = Which of these beautiful artworks shall have the honor of being your sidearm?
 
+hitman-briefcase-window-title = hitman kit Selection
+hitman-briefcase-window-description = which items did you bring to get your job done?
+
 fugitive-stash-window-title = Fugitive Stash
 fugitive-stash-window-description = You need to not get caught, what did you bring with you to elude the authorities?
 
