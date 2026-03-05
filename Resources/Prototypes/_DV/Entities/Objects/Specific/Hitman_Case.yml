@@ -1,0 +1,22 @@
+- type: entity
+  id: HitmanCase
+  name: Hitman briefcase
+  description: "A briefcase containing the tools of the trade of a hitman."
+  parent: ToolboxThief
+  components:
+  - type: Sprite
+    sprite: 
+    state: icon
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 2
+    toolName: 
+    toolDesc: 
+    possibleSets:
+    - SharpshooterKit
+    - LoudKit
+    - AssassinKit
+    - PoisonerKit
+    - InfiltrationKit
+    - DisguiseKit
+    - EscapistKit 
+    - TrackerKit 
