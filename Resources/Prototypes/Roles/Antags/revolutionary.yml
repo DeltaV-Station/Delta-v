@@ -7,10 +7,10 @@
   guides: [ Revolutionaries ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 172800 # DeltaV - was 3600, 48 hours
+    time: 48h # DeltaV - was 1h
   - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
     department: Command
-    time: 36000 # 10 hours
+    time: 10h
 
 - type: antag
   id: Rev

@@ -51,6 +51,12 @@
   - type: RandomWalk # To make the singularity move around.
     maxSpeed: 2.5
     minSpeed: 1.875
+  - type: ChasingWalk # DeltaV - Add comp
+    minSpeed: 1
+    maxSpeed: 1.875
+    impulseInterval: 5
+    chasingComponent:
+    - type: Cable # Other comps like Destructible and Transform are also assigned to Entities the singulo can't eat
   - type: SingularityDistortion
     falloffPower: 2.529822
     intensity: 3645

@@ -48,41 +48,42 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: [MobXeno, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXeno] #Delta-v - reverse order so suffix works
   id: MobXenoPlayer
   name: Burrower
 
 - type: entity
-  parent: [MobXenoPraetorianNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC] #Delta-v - reverse order so suffix works
   id: MobXenoPraetorian
   name: Praetorian
 
 - type: entity
-  parent: [MobXenoDroneNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoDroneNPC] #Delta-v - reverse order so suffix works
   id: MobXenoDrone
   name: Drone
 
 - type: entity
-  parent: [MobXenoQueenNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoQueenNPC] #Delta-v - reverse order so suffix works
   id: MobXenoQueen
   name: Queen
 
 - type: entity
-  parent: [MobXenoRavagerNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC] #Delta-v - reverse order so suffix works
   id: MobXenoRavager
   name: Ravager
 
 - type: entity
-  parent: [MobXenoRunnerNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC] #Delta-v - reverse order so suffix works
   id: MobXenoRunner
   name: Runner
 
 - type: entity
-  parent: [MobXenoRounyNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoRounyNPC] #Delta-v - reverse order so suffix works
   id: MobXenoRouny
   name: Rouny
 
 - type: entity
-  parent: [MobXenoSpitterNPC, BaseMobXenoPlayer]
+  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] #Delta-v - reverse order so suffix works
   id: MobXenoSpitter
   name: Spitter
+  

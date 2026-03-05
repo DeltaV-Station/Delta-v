@@ -1,0 +1,105 @@
+- type: entity
+  parent: [ClothingOuterArmorCaptainCarapace, BaseCommandContraband]
+  id: ClothingLongcoatCaptainArmored
+  name: captain's armored longcoat
+  description: A navy blue double-breasted longcoat with gold embelleshments, specifically designed for the captain. It's been reinforced with a special alloy for some added protection.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/captain.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/captain.rsi
+  - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingLongcoatQM
+  name: logistics officer's longcoat
+  description: A saturated brown double-breasted longcoat with mossy trim, specifically designed for the logistics officer. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/logstics-officer.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/logstics-officer.rsi
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, ClothingUniformFoldableBase, BaseCommandContraband]
+  id: ClothingLongcoatRD
+  name: mystagogue's longcoat
+  description: A pure white double-breasted longcoat with a purple stripe, specifically designed for the mystagogue. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/mystagogue.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/mystagogue.rsi
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingLongcoatCMO
+  name: chief medical officer's longcoat
+  description: A double-breasted longcoat with a green cross, specifically designed for the chief medical officer. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-medical-officer.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-medical-officer.rsi
+  - type: Armor # Same as ClothingOuterWinterCMO, can't just parent because of ClothingOuterWinterCoatToggleable
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingLongcoatCE
+  name: chief engineer's longcoat
+  description: A dark green double-breasted with LED strip trim, specifically designed for the chief engineer. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-engineer.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/chief-engineer.rsi
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingLongcoatHoP
+  name: head of personnel's longcoat
+  description: A navy blue double-breasted longcoat with red shoulderpads, specifically designed for the head of personnel. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-personnel.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-personnel.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatStasecHoS, BaseSecurityCommandContraband]
+  id: ClothingLongcoatHoS
+  name: head of security's armored longcoat
+  description: A black double-breasted longcoat with gold buttons and gray sleeves with velvet trim along the whole outfit, specifically designed for the head of security. Security longcoats sport protective plates underneath, but are fairly heavy.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-security.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/head-of-security.rsi
+  - type: Armor # Same as ClothingOuterWinterHoS, can't use as parent because ClothingOuterArmoredWinterCoatToggleable
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterArmorBaseCarapace, ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingLongcoatCentCommArmored
+  categories: [ DoNotMap ]
+  name: central command armored longcoat
+  description: A royal green double-breasted longcoat with gold embellishments, specifically designed for a central command agent. Longcoats are fairly robust, offering some protection from the elements. It's been reinforced with a special alloy for some added protection.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/centcomm.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/centcomm.rsi

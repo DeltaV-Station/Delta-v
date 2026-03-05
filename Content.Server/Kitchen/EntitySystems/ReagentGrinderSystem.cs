@@ -120,8 +120,8 @@ namespace Content.Server.Kitchen.EntitySystems
                         scaledSolution.ScaleSolution(fitsCount);
                         solution = scaledSolution;
 
-                        // _stackSystem.SetCount(item, stack.Count - fitsCount); // Setting to 0 will QueueDel // Imp
-                        toSet.Add((item, stack.Count - fitsCount)); // Imp
+                        // _stackSystem.ReduceCount((item, stack), fitsCount); // Setting to 0 will QueueDel // Imp
+                        toSet.Add((item, fitsCount)); // Imp
 
                     }
                     else
@@ -138,7 +138,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
                 // Begin Imp
                 foreach (var (item, amount) in toSet)
-                    _stackSystem.SetCount(item, amount); // Setting to 0 will QueueDel
+                    _stackSystem.ReduceCount(item, amount); // Setting to 0 will QueueDel
                 // End Imp
 
                 _userInterfaceSystem.ServerSendUiMessage(uid, ReagentGrinderUiKey.Key,

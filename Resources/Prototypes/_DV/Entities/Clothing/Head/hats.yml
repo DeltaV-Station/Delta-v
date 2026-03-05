@@ -339,6 +339,10 @@
     sprite: _DV/Clothing/Head/Hats/festive_lights.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/festive_lights.rsi
+    slots:
+    - HEAD
+    - NECK
+    - OUTERCLOTHING
 
 - type: entity
   parent: ClothingHeadBase

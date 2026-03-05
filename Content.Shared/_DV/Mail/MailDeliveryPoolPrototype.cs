@@ -1,3 +1,4 @@
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Mail;
@@ -5,7 +6,7 @@ namespace Content.Shared._DV.Mail;
 /// <summary>
 /// Generic random weighting dataset to use.
 /// </summary>
-[Prototype("mailDeliveryPool")]
+[Prototype]
 public sealed class MailDeliveryPoolPrototype : IPrototype
 {
     [IdDataField] public string ID { get; } = default!;
@@ -13,18 +14,18 @@ public sealed class MailDeliveryPoolPrototype : IPrototype
     /// <summary>
     /// Mail that can be sent to everyone.
     /// </summary>
-    [DataField("everyone")]
-    public Dictionary<string, float> Everyone = new();
+    [DataField]
+    public Dictionary<EntProtoId, float> Everyone = new();
 
     /// <summary>
     /// Mail that can be sent only to specific jobs.
     /// </summary>
-    [DataField("jobs")]
-    public Dictionary<string, Dictionary<string, float>> Jobs = new();
+    [DataField]
+    public Dictionary<ProtoId<JobPrototype>, Dictionary<EntProtoId, float>> Jobs = new();
 
     /// <summary>
     /// Mail that can be sent only to specific departments.
     /// </summary>
-    [DataField("departments")]
-    public Dictionary<string, Dictionary<string, float>> Departments = new();
+    [DataField]
+    public Dictionary<ProtoId<DepartmentPrototype>, Dictionary<EntProtoId, float>> Departments = new();
 }

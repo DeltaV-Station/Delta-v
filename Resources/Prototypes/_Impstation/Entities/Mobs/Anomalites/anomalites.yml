@@ -58,7 +58,10 @@
         - MobLayer
   - type: Bloodstream
     bloodMaxVolume: 75
-    bloodReagent: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+    bloodReagents:
+      reagents:
+      - ReagentId: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+        Quantity: 1
   - type: InteractionPopup
     successChance: 0.1
     interactSuccessString: petting-success-anomalite
@@ -367,6 +370,12 @@
   - type: InnerBodyAnomaly
     injectionProto: AnomalyInjectionFlesh
     skipStun: true
+  - type: Tag # Delta-v - add flesh to flesh anomalite so it isn't damaged by meat anomaly kudzu
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost # this is potentially really funny. if not, or if it causes problems, we can remove it.
+    - Flesh
 
 # Rock
 - type: entity

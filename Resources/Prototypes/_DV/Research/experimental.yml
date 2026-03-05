@@ -23,3 +23,15 @@
   - DispelLeftArm
   - RecallLeftArm
   - ForcewallLeftArm
+
+- type: technology
+  id: DirectedRadiation
+  name: research-technology-directed-radiation
+  icon:
+    sprite: _DV/Objects/Weapons/Guns/Battery/microwave_emitter.rsi
+    state: icon
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - WeaponMicrowaveEmitter

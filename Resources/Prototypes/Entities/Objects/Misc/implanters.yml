@@ -45,7 +45,7 @@
     - DeathRattleImplant
     - MindShieldImplant
     - FakeMindShieldImplant
-    - RadioImplant
+    - RadioSyndicateImplant
     - ChameleonControllerImplant
     deimplantFailureDamage:
       types:
@@ -84,15 +84,16 @@
 - type: entity
   id: Implanter
   parent: BaseImplanter
-  description: A disposable syringe exclusively designed for the injection and extraction of subdermal implants.
+  name: implant extractor
+  description: "A dual-purpose syringe designed for the removal of specific subdermal implants. Once an implant is extracted, it is stored within and can be re-administered." # DeltaV - We dont take genetic
   components:
   - type: Tag
     tags:
     - Trash
 
 - type: entity
-  parent: Implanter
   id: ImplanterAdmeme
+  parent: Implanter
   suffix: Admeme
   components:
   - type: Implanter
@@ -125,7 +126,7 @@
   id: BaseImplantOnlyImplanterSyndi
   parent: [BaseImplantOnlyImplanter, BaseSyndicateContraband]
   name: syndicate implanter
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap to remove residual DNA after use!
   abstract: true
   components:
   - type: Item
@@ -208,12 +209,13 @@
     implant: FreedomImplant
 
 - type: entity
-  id: SyndicateRadioImplanter # DeltaV
-  name: syndicate radio implanter
+  id: RadioImplanterSyndicate # DeltaV - Renamed
+  name: syndicate radio implanter # DeltaV - added name
+  suffix: radio Syndicate
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
-    implant: SyndicateRadioImplant # DeltaV
+    implant: RadioSyndicateImplant
 
 - type: entity
   id: UplinkImplanter
@@ -305,14 +307,14 @@
   name: mindshield implanter
   parent: BaseImplantOnlyImplanter
   components:
-  - type: Implanter
-    implant: MindShieldImplant
+    - type: Implanter
+      implant: MindShieldImplant
 
 # Centcomm implanters
 
 - type: entity
   id: RadioImplanterCentcomm
-  name: centcomm radio implanter
+  name: centcomm radio implanter # DeltaV
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
@@ -320,7 +322,7 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  name: centcomm death rattle implanter
+  name: centcomm death rattle implanter # DeltaV
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

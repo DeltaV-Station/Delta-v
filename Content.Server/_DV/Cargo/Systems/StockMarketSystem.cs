@@ -109,7 +109,7 @@ public sealed class StockMarketSystem : EntitySystem
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new InvalidOperationException($"Unknown UiAction type [{message.Action}]");
             }
 
             // Play confirmation sound if the transaction was successful

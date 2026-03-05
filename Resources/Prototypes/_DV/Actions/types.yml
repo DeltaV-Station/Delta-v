@@ -35,9 +35,14 @@
   - type: Action
     itemIconStyle: BigAction
     useDelay: 3
+    # L5 - toggle icon
     icon:
-      sprite: Structures/Furniture/Tables/generic.rsi
-      state: full
+      sprite: _L5/Actions/sneak.rsi
+      state: sneak
+    iconOn:
+      sprite: _L5/Actions/sneak.rsi
+      state: stand
+    # end L5 - toggle icon
   - type: InstantAction
     event: !type:ToggleCrawlingStateEvent
 

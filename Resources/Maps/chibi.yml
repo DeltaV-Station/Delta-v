@@ -31809,43 +31809,34 @@ entities:
     - type: Transform
       pos: -0.5,7.5
       parent: 2
-- proto: WarpPointBombing
+- proto: WarpPointEpistemics
   entities:
   - uid: 3946
     components:
     - type: Transform
       pos: 4.5,-10.5
       parent: 2
-    - type: WarpPoint
-      location: Epistemics
+- proto: WarpPointMedical
+  entities:
   - uid: 3948
     components:
     - type: Transform
       pos: 14.5,-3.5
       parent: 2
-    - type: WarpPoint
-      location: Medical
+- proto: WarpPointTEG
+  entities:
   - uid: 3950
     components:
     - type: Transform
       pos: 10.5,-21.5
       parent: 2
-    - type: WarpPoint
-      location: TEG
+- proto: WarpPointBotany
+  entities:
   - uid: 3951
     components:
     - type: Transform
       pos: 6.5,-1.5
       parent: 2
-    - type: WarpPoint
-      location: Botany
-  - uid: 3952
-    components:
-    - type: Transform
-      pos: 29.5,10.5
-      parent: 2
-    - type: WarpPoint
-      location: Armory
 - proto: WarpPointBridge
   entities:
   - uid: 3941

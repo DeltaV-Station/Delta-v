@@ -89,7 +89,7 @@ public sealed class FishingSystem : SharedFishingSystem
 
     private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
     {
-        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled || !Timing.IsFirstTimePredicted)
+        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled)
             return;
 
         fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
@@ -140,7 +140,7 @@ public sealed class FishingSystem : SharedFishingSystem
         visuals.Sprite = component.RopeSprite;
         visuals.OffsetA = component.RopeLureOffset;
         visuals.OffsetB = component.RopeUserOffset;
-        visuals.Target = GetNetEntity(uid);
+        visuals.Target = uid;
     }
 
     protected override void ThrowFishReward(EntProtoId fishId, EntityUid fishSpot, EntityUid target)

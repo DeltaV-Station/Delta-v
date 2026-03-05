@@ -1,0 +1,366 @@
+# Base benches
+- type: entity
+  name: bench
+  id: BenchBaseMiddle
+  suffix: Middle
+  abstract: true
+  parent: SeatBase
+  description: Multiple seats spanning a single object. Truly a marvel of science.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Sprite
+    state: middle
+
+# Park benches
+- type: entity
+  name: park bench
+  id: BenchParkMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/parkbench_wooden.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchParkMiddle
+
+- type: entity
+  id: BenchParkLeftDV
+  suffix: Left
+  parent: BenchParkMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchParkLeftDV
+
+- type: entity
+  id: BenchParkRightDV
+  suffix: Right
+  parent: BenchParkMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchParkRightDV
+
+# Bamboo benches
+- type: entity
+  name: park bench
+  id: BenchParkBambooMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/parkbench_bamboo.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchParkBambooMiddle
+
+- type: entity
+  id: BenchParkBambooLeftDV
+  suffix: Left
+  parent: BenchParkBambooMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchParkBambooLeftDV
+
+- type: entity
+  id: BenchParkBambooRightDV
+  suffix: Right
+  parent: BenchParkBambooMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchParkBambooRightDV
+
+# Pews
+- type: entity
+  name: pew
+  id: BenchPewMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/pews.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchPewMiddle
+
+- type: entity
+  id: BenchPewLeft
+  suffix: Left
+  parent: BenchPewMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchPewLeft
+
+- type: entity
+  id: BenchPewRight
+  suffix: Right
+  parent: BenchPewMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchPewRight
+
+# Steel benches
+- type: entity
+  name: steel bench
+  id: BenchSteelMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/steel_bench.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchSteelMiddle
+
+- type: entity
+  id: BenchSteelLeft
+  suffix: Left
+  parent: BenchSteelMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchSteelLeft
+
+- type: entity
+  id: BenchSteelRight
+  suffix: Right
+  parent: BenchSteelMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchSteelRight
+
+# White steel benches
+- type: entity
+  name: white steel bench
+  id: BenchSteelWhiteMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/steel_bench_white.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchSteelWhiteMiddle
+
+- type: entity
+  id: BenchSteelWhiteLeft
+  suffix: Left
+  parent: BenchSteelWhiteMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchSteelWhiteLeft
+
+- type: entity
+  id: BenchSteelWhiteRight
+  suffix: Right
+  parent: BenchSteelWhiteMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchSteelWhiteRight
+
+# Standard sofa
+- type: entity
+  name: sofa
+  id: BenchSofaMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/sofa.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchSofaMiddle
+
+- type: entity
+  id: BenchSofaLeftDV
+  suffix: Left
+  parent: BenchSofaMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchSofaLeftDV
+
+- type: entity
+  id: BenchSofaRightDV
+  suffix: Right
+  parent: BenchSofaMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchSofaRightDV
+
+- type: entity
+  name: sofa
+  id: BenchSofaCorner
+  suffix: Corner
+#  parent: BenchSofaMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/sofa.rsi
+    state: corner
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Construction
+    graph: Bench
+    node: BenchSofaCorner
+
+# Corp sofa
+- type: entity
+  name: grey sofa
+  id: BenchSofaCorpMiddle
+  parent: BenchBaseMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/sofa_corp.rsi
+  - type: Construction
+    graph: Bench
+    node: BenchSofaCorpMiddle
+
+- type: entity
+  id: BenchSofaCorpLeftDV
+  suffix: Left
+  parent: BenchSofaCorpMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: left
+  - type: Construction
+    graph: Bench
+    node: BenchSofaCorpLeftDV
+
+- type: entity
+  id: BenchSofaCorpRightDV
+  suffix: Right
+  parent: BenchSofaCorpMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: right
+  - type: Construction
+    graph: Bench
+    node: BenchSofaCorpRightDV
+
+- type: entity
+  name: grey sofa
+  id: BenchSofaCorpCorner
+  suffix: Corner
+#  parent: BenchSofaCorpMiddle
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Sprite
+    sprite: _DV/Structures/Furniture/Bench/sofa_corp.rsi
+    state: corner
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalThud
+  - type: Construction
+    graph: Bench
+    node: BenchSofaCorpCorner

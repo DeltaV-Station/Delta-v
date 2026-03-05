@@ -26,22 +26,6 @@
         maxDistance: 2
   - type: UseDelay
     delay: 1.5
-
-- type: entity
-  parent: Pen
-  id: PenEmbeddable
-  abstract: true
-  components:
-  - type: EmbeddableProjectile
-    offset: 0.3,0.0
-    removalTime: 0.0
-  - type: ThrowingAngle
-    angle: 315
-  - type: LandAtCursor
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 3
   - type: Tending # Shitmed
     speed: 0.55
   - type: SurgeryTool # Shitmed
@@ -63,6 +47,22 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+
+- type: entity
+  parent: Pen
+  id: PenEmbeddable
+  abstract: true
+  components:
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 0.0
+  - type: ThrowingAngle
+    angle: 315
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 3
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
@@ -86,7 +86,6 @@
     tags:
     - Write
     - WriteIgnoreStamps
-    - Pickaxe
     - Pen
   - type: MeleeWeapon
     wideAnimationRotation: -45

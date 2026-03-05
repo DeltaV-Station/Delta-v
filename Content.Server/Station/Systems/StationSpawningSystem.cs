@@ -1,6 +1,5 @@
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
-using Content.Server.IdentityManagement;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Spawners.Components; // DeltaV
@@ -12,6 +11,7 @@ using Content.Shared.Clothing;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.IdentityManagement;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -91,11 +91,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? station,
         EntityUid? entity = null)
     {
-        // Delta-V, prevent errors if this is an empty job.
-        JobPrototype? prototype = null;
-        if (!string.IsNullOrWhiteSpace(job))
-            _prototypeManager.TryIndex(job ?? string.Empty, out prototype);
-        // Delta-V end
+        _prototypeManager.Resolve(job, out var prototype);
         RoleLoadout? loadout = null;
 
         // Need to get the loadout up-front to handle names if we use an entity spawn override.
@@ -176,7 +172,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
     private void DoJobSpecials(ProtoId<JobPrototype>? job, EntityUid entity)
     {
-        if (!_prototypeManager.TryIndex(job ?? string.Empty, out JobPrototype? prototype))
+        if (!_prototypeManager.Resolve(job, out JobPrototype? prototype))
             return;
 
         foreach (var jobSpecial in prototype.Special)
@@ -208,8 +204,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (card.JobTitle == null) // DeltaV
             _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
 
-        // DeltaV
-        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
+
+        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.Resolve(jobPrototype.Icon, out var jobIcon)) // DeltaV
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
 
         var extendedAccess = false;

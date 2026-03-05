@@ -143,3 +143,286 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+# Park Bench Wood
+- type: construction
+  id: BenchParkMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchParkMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkLeftDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchParkLeftDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkRightDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchParkRightDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Park Bench Bamboo
+- type: construction
+  id: BenchParkBambooMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchParkBambooMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkBambooLeftDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchParkBambooLeftDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchParkBambooRightDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchParkBambooRightDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Pew
+- type: construction
+  id: BenchPewMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchPewMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchPewLeft
+  graph: Bench
+  startNode: start
+  targetNode: BenchPewLeft
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchPewRight
+  graph: Bench
+  startNode: start
+  targetNode: BenchPewRight
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Steel bench
+- type: construction
+  id: BenchSteelMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchSteelMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelLeft
+  graph: Bench
+  startNode: start
+  targetNode: BenchSteelLeft
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelRight
+  graph: Bench
+  startNode: start
+  targetNode: BenchSteelRight
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Steel Bench White
+- type: construction
+  id: BenchSteelWhiteMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchSteelWhiteMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelWhiteLeft
+  graph: Bench
+  startNode: start
+  targetNode: BenchSteelWhiteLeft
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSteelWhiteRight
+  graph: Bench
+  startNode: start
+  targetNode: BenchSteelWhiteRight
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Normal Sofa
+- type: construction
+  id: BenchSofaMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaLeftDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaLeftDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaRightDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaRightDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorner
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaCorner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Sofa Corp
+- type: construction
+  id: BenchSofaCorpMiddle
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaCorpMiddle
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpLeftDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaCorpLeftDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpRightDV
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaCorpRightDV
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaCorpCorner
+  graph: Bench
+  startNode: start
+  targetNode: BenchSofaCorpCorner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

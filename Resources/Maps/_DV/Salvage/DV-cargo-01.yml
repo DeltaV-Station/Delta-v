@@ -1111,15 +1111,13 @@ entities:
     - type: Transform
       pos: 0.5,-0.5
       parent: 20
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 160
     components:
     - type: Transform
       pos: -1.5,1.5
       parent: 20
-    - type: WarpPoint
-      location: Space Debris
 - proto: WaterCooler
   entities:
   - uid: 117

@@ -65,6 +65,11 @@ namespace Content.Shared.Humanoid.Markings
             var markingPoints = _prototypeManager.Index(speciesProto.MarkingPoints);
             var res = new Dictionary<string, MarkingPrototype>();
 
+            // Begin DeltaV addition - prevents errors when category is missing
+            if (!markingPoints.Points.ContainsKey(category))
+                return res;
+            // End DeltaV addition
+
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
                 if ((markingPoints.OnlyWhitelisted || markingPoints.Points[category].OnlyWhitelisted) && marking.SpeciesRestrictions == null)
@@ -254,9 +259,9 @@ namespace Content.Shared.Humanoid.Markings
             IoCManager.Resolve(ref prototypeManager);
             var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
             if (
-                !prototypeManager.TryIndex(speciesProto.SpriteSet, out var baseSprites) ||
+                !prototypeManager.Resolve(speciesProto.SpriteSet, out var baseSprites) ||
                 !baseSprites.Sprites.TryGetValue(layer, out var spriteName) ||
-                !prototypeManager.TryIndex(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
+                !prototypeManager.Resolve(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
                 sprite == null ||
                 !sprite.MarkingsMatchSkin
             )
