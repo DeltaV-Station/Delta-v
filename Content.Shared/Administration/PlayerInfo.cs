@@ -20,7 +20,8 @@ public sealed record PlayerInfo(
     bool Connected,
     bool ActiveThisRound,
     TimeSpan? OverallPlaytime,
-    bool Ghost // DeltaV - Add Ghost
+    bool Ghost, // DeltaV - Add Ghost
+    bool Watchlisted // DeltaV - Add Watchlisted
     )
 {
     private string? _playtimeString;

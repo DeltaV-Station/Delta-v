@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
+using Content.Server.Administration.Notes;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Hands.Systems;
@@ -56,6 +57,7 @@ public sealed class AdminSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly AdminNotesSystem _notes = default!; // DeltaV
 
     private readonly Dictionary<NetUserId, PlayerInfo> _playerList = new();
 
@@ -255,6 +257,7 @@ public sealed class AdminSystem : EntitySystem
 
         // Connection status and playtime
         var connected = session != null && session.Status is SessionStatus.Connected or SessionStatus.InGame;
+        var watchlisted = connected && _notes.ConnectedPlayerWatchlists.ContainsKey(session!.UserId); // DeltaV
 
         // Start with the last available playtime data
         var cachedInfo = GetCachedPlayerInfo(data.UserId);
@@ -281,7 +284,8 @@ public sealed class AdminSystem : EntitySystem
             connected,
             _roundActivePlayers.Contains(data.UserId),
             overallPlaytime,
-            ghost // DeltaV - Add ghost
+            ghost, // DeltaV - Add ghost
+            watchlisted // DeltaV - Add watchlisted
         );
     }
 
