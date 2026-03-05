@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: Omni patches have been updated to purge radiation as well
-    type: Tweak
-  - message: IPC now heal twice as much per cable
-    type: Tweak
-  id: 1656
-  time: '2025-09-01T21:24:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4283
 - author: AlgisAlphonse
   changes:
   - message: Pneumatic cannon can now be equipped in the suit storage slot.
@@ -4437,4 +4428,12 @@
   id: 2155
   time: '2026-03-05T20:46:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5357
+- author: EmberAstra
+  changes:
+  - message: Fixed the Research Digi-Board storage space lacking an UI. Did you even
+      know it had some?
+    type: Fix
+  id: 2156
+  time: '2026-03-05T21:17:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5434
 Order: 1
