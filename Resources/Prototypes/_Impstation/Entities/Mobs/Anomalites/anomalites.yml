@@ -58,7 +58,10 @@
         - MobLayer
   - type: Bloodstream
     bloodMaxVolume: 75
-    bloodReagent: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+    bloodReagents:
+      reagents:
+      - ReagentId: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+        Quantity: 1
   - type: InteractionPopup
     successChance: 0.1
     interactSuccessString: petting-success-anomalite

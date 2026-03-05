@@ -259,6 +259,7 @@
   minLimit: 0
   loadouts:
   - CorpsmanBeret
+  - BrigMedicalBeret
 
 - type: loadoutGroup
   id: BrigMedicNeck
@@ -283,9 +284,11 @@
   id: BrigMedicOuterClothing
   name: loadout-group-brig-medic-outerclothing
   loadouts:
+  - LongcoatBrigmedic
   - StasecWinterCoatCorpsman
   - PlateCarrier
   - DuraVest
+  - ArmorVestSlim
 
 - type: loadoutGroup
   id: CorpsmanEyewear
@@ -453,7 +456,9 @@
   - PlateCarrier
   - DuraVest
   - StasecSweater
+  - LongcoatSecurity
   - StasecWinterCoat
+  - ArmorVestSlim
 
 ## Warden
 - type: loadoutGroup
@@ -462,7 +467,9 @@
   loadouts:
   - PlateCarrier
   - DuraVest
+  - WardenLongcoat
   - StasecWinterCoatWarden
+  - ArmorVestSlim
 
 ## Head of Security
 - type: loadoutGroup
@@ -471,8 +478,10 @@
   loadouts:
   - PlateCarrier
   - DuraVest
+  - HeadofSecurityLongcoat
   - StasecWinterCoatHoS
   - HeadOfSecurityTrenchcoat
+  - ArmorVestSlim
 
 ## Detective
 - type: loadoutGroup
@@ -492,10 +501,12 @@
   id: DetectiveOuterClothingDeltaV
   name: loadout-group-detective-outerclothing
   loadouts:
+  - LongcoatSecurity
   - StasecWinterCoatDet
   - PlateCarrier
   - DuraVest
   - DetPlatedCoat
+  - ArmorVestSlim
 
 # Medical
 ## Psychologist

@@ -1,9 +1,11 @@
-borg-slot-surgery-tool = Surgery tools
+borg-slot-surgery-tool-empty = Surgery tools
+borg-slot-pill-empty = Pills and pill canisters
+borg-slot-organ-empty = Organs
 
-borg-slot-handcuffs = Handcuffs and Zipties
+borg-slot-handcuffs-empty = Handcuffs and zipties
 
-borg-slot-spraypaint = Spraypaint Supplies
+borg-slot-spraypaint-empty = Spraypaint supplies
 
-borg-slot-pka-upgrade = PKA Upgrades
+borg-slot-pka-upgrade-empty = PKA upgrades
 
-borg-slot-forensic-empty = Forensic Reports and Bureaucracy Supplies
+borg-slot-forensic-empty = Forensic reports and bureaucracy supplies

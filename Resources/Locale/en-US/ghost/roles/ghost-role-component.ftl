@@ -93,7 +93,8 @@ ghost-role-information-kobold-description = Be the little gremlin you are, yell 
 
 ghost-role-information-rat-king-name = Rat King
 
-ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Fight against the station for food. Did I say food interests you?
+# DeltaV - moved to _DV file
+# ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Fight against the station for food. Did I say food interests you?
 
 ghost-role-information-rat-servant-name = Rat Servant
 ghost-role-information-rat-servant-description = You are a Rat Servant. You must follow your king's orders.
@@ -346,6 +347,12 @@ ghost-role-information-tomatokiller-description = This little tomato will serve 
 ghost-role-information-gingerbread-name = Gingerbread Man
 ghost-role-information-gingerbread-description = A being of pure holiday spirit.
                                      Spread molassesy goodness and to all good cheer.
+
+ghost-role-information-mothership-core-name = Mothership Core
+ghost-role-information-mothership-core-desc = You are the core of the xenoborg mothership, help them multiply by borging any brain they bring to you.
+
+ghost-role-information-xenoborg-name = Xenoborg
+ghost-role-information-xenoborg-desc = A strange cyborg made to replicate itself and take over the station by turning any sentient being into xenoborgs.
 
 ghost-role-information-wizard-name = Wizard
 ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your magic is made of.

@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Traits.Assorted; // DV
 
 namespace Content.Server.Cloning;
 

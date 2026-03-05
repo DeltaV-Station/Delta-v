@@ -14,6 +14,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot { }
+      toggleable-under-clothing: !type:ContainerSlot {}
   - type: Armor
     modifiers:
       coefficients:
@@ -76,6 +77,10 @@
       - state: equipped-OUTERCLOTHING-vox
       - state: equipped-OUTERCLOTHING-unshaded-vox
         shader: unshaded
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      - state: equipped-OUTERCLOTHING-unshaded-reptilian
+        shader: unshaded
       outerClothing-dog:
       - state: equipped-OUTERCLOTHING-dog
       - state: equipped-OUTERCLOTHING-unshaded-dog
@@ -88,14 +93,15 @@
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetVoidsuitEngineering
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
     - CorgiWearable

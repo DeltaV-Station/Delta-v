@@ -148,6 +148,8 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
 
         _moveSpeed.RefreshMovementSpeedModifiers(ent);
 
+        _actions.SetToggled(ent.Comp.ToggleHideAction, enabled); // L5
+
         var ev = new CrawlingUpdatedEvent(enabled, ent.Comp);
         RaiseLocalEvent(ent, ref ev);
     }

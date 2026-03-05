@@ -70,6 +70,9 @@
   id: CartridgeMusket #For the Craftable Musket
 
 - type: Tag
+  id: ChemicalMedipen # Storage blacklist: CigPackBase
+
+- type: Tag
   id: ChitinSharkminnow
 
 - type: Tag
@@ -133,6 +136,9 @@
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
 
 - type: Tag
+  id: MagazineMagnumSubMachineGun
+
+- type: Tag
   id: MagazineUniversalMagnum
 
 - type: Tag
@@ -178,7 +184,7 @@
   id: SpeedLoaderSpecial
 
 - type: Tag
-  id: Vial
+  id: Vial # Storage Blacklist: CigPackBase
 
 - type: Tag
   id: Wakizashi
@@ -231,6 +237,35 @@
 - type: Tag # Ovinia, allows them to use specified emotes
   id: OviniaEmotes
 
+- type: Tag
+  id: ReinforcedCameraAI # Reinforced Cameras - AI
+
+- type: Tag
+  id: ReinforcedCameraCommand # Reinforced Cameras - Command
+
+- type: Tag
+  id: ReinforcedCameraConstructed # Reinforced Cameras - Constructed
+
+- type: Tag
+  id: ReinforcedCameraEngineering # Reinforced Cameras - Engineering
+
+- type: Tag
+  id: ReinforcedCameraGeneral # Reinforced Cameras - General
+
+- type: Tag
+  id: ReinforcedCameraMedical # Reinforced Cameras - Medical
+
+- type: Tag
+  id: ReinforcedCameraScience # Reinforced Cameras - Epistemics
+
+- type: Tag
+  id: ReinforcedCameraSecurity # Reinforced Cameras - Security
+
+- type: Tag
+  id: ReinforcedCameraService # Reinforced Cameras - Service
+
+- type: Tag
+  id: ReinforcedCameraSupply # Reinforced Cameras - Logistics
 - type: Tag
   id: GenderScarf
 

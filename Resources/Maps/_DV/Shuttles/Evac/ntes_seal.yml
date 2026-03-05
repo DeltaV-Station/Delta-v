@@ -9213,15 +9213,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -20.5,9.5
       parent: 60
-- proto: WarpPoint
+- proto: WarpPointEvacShuttle
   entities:
   - uid: 1065
     components:
     - type: Transform
       pos: -0.5,-1.5
       parent: 60
-    - type: WarpPoint
-      location: Evac Shuttle
 - proto: WeaponTurretSyndicateBroken
   entities:
   - uid: 1489

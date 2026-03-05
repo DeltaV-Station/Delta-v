@@ -26,7 +26,7 @@
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesColorBlack
     id: SyndiPDA
-    ears: ClothingHeadsetAltSyndicate
+    # ears: ClothingHeadsetAltSyndicate # Delta V - Often used by sec to powergame
 
 # Syndicate Footsoldier Gear - No Headset
 - type: startingGear
@@ -56,6 +56,7 @@
     gloves: ClothingHandsGlovesCombat
     back: ClothingBackpack
     shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetAltSyndicate # Delta V - Comms were removed from parent
   storage:
     back:
     - BoxSurvivalSyndicate

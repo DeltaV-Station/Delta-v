@@ -931,13 +931,11 @@ entities:
     - type: Transform
       pos: 0.034253955,2.4062808
       parent: 192
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 19
     components:
     - type: Transform
       pos: -1.5,-1.5
       parent: 192
-    - type: WarpPoint
-      location: Space Debris
 ...

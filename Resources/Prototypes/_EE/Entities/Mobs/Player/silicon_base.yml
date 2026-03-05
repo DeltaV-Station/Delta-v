@@ -156,7 +156,10 @@
       bounds: -0.5,-0.5,0.5,0.5
     #- type: Bloodstream
     #  damageBleedModifiers: BloodlossIPC
-    #  bloodReagent: Oil
+    #  bloodReagents:
+    #    reagents:
+    #    - ReagentId: Oil
+    #      Quantity: 1
     #  bleedReductionAmount: 0
     #  bloodMaxVolume: 100
     #  chemicalMaxVolume: 0

@@ -3,17 +3,19 @@
   id: LockerChiefJusticeFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingHeadsetAltJustice
-    - id: PaperStationWarrant # TODO: Put these in a folder or something
-      amount: 10
-    - id: BoxPDAJustice
-    - id: BoxEncryptionKeyJustice
-    - id: ChiefJusticeIDCard
-    - id: DoorRemoteJustice
-    - id: Gavel
-    - id: BoxCJStamps
-    - id: BoxCJCircuitboards
-    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-      prob: 0.3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingHeadsetAltJustice
+        - id: PaperStationWarrant # TODO: Put these in a folder or something
+          amount: 10
+        - id: BoxPDAJustice
+        - id: BoxEncryptionKeyJustice
+        - id: ChiefJusticeIDCard
+        - id: DoorRemoteJustice
+        - id: Gavel
+        - id: BoxCJStamps
+        - id: BoxCJCircuitboards
+        - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+          prob: 0.3

@@ -89,12 +89,11 @@
   - type: Battery
     maxCharge: 400
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: PelletShotgunBeanbag
     fireCost: 100
   - type: AmmoCounter
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 20
 
 - type: entity

@@ -59,3 +59,11 @@
   parent: BaseFauxTileRecipe
   id: FauxTileMowedAstroSnow
   result: FloorTileItemMowedAstroSnow
+
+- type: latheRecipe
+  id: SheetPlasteel1Engineering
+  result: SheetPlasteel1
+  completetime: 1
+  materials:
+    Steel: 200
+    Plasma: 100

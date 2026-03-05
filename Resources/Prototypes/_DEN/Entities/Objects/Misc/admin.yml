@@ -11,21 +11,23 @@
   - type: Item
     size: Normal
     shape: null
-  - type: StorageFill
-    contents:
-      - id: ToolDebug
-      - id: WelderExperimental
-      - id: Multitool
-      - id: HolofanProjector
-      - id: GasAnalyzer
-      - id: trayScanner
-      - id: OmnimedTool
-      - id: BaseUplinkRadioDebug
-      - id: LightReplacer
-      - id: SprayPainter
-      - id: GeigerCounter
-      - id: AccessConfiguratorUniversal
-      - id: AdminRCD
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ToolDebug
+        - id: WelderExperimental
+        - id: Multitool
+        - id: HolofanProjector
+        - id: GasAnalyzer
+        - id: trayScanner
+        - id: OmnimedTool
+        - id: BaseUplinkRadioDebug
+        - id: LightReplacer
+        - id: SprayPainter
+        - id: GeigerCounter
+        - id: AccessConfiguratorUniversal
+        - id: AdminRCD
   - type: Storage
     grid:
     - 0,0,6,3
@@ -47,14 +49,16 @@
     maxItemSize: Normal
     grid:
     - 0,0,5,3
-  - type: StorageFill
-    contents:
-    - id: SheetSteel
-    - id: SheetGlass
-    - id: SheetPlastic
-    - id: MaterialWoodPlank
-    - id: MaterialCloth
-    - id: PartRodMetal
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SheetSteel
+        - id: SheetGlass
+        - id: SheetPlastic
+        - id: MaterialWoodPlank
+        - id: MaterialCloth
+        - id: PartRodMetal
 
 - type: entity
   id: AdminRCD

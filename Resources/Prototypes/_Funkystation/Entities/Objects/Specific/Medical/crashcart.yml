@@ -120,21 +120,23 @@
   description: Meds on the move for when the patient decides to tombstone.
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: Brutepack
-    - id: Gauze
-    - id: Ointment
-    - id: Bloodpack
-    - id: SyringeSaline
-      amount: 2
-    - id: EmergencyMedipen
-      amount: 2
-    - id: AntiPoisonMedipen
-      amount: 2
-    - id: ChemistryBottleDexalin
-    - id: Syringe
-    - id: NitrogenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Gauze
+        - id: Ointment
+        - id: Bloodpack
+        - id: SyringeSaline
+          amount: 2
+        - id: EmergencyMedipen
+          amount: 2
+        - id: AntiPoisonMedipen
+          amount: 2
+        - id: ChemistryBottleDexalin
+        - id: Syringe
+        - id: NitrogenTankFilled
 
 
 

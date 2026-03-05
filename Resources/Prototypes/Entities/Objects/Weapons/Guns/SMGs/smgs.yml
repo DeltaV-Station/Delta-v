@@ -23,7 +23,7 @@
     fireRate: 8
     burstFireRate: 8
     angleIncrease: 3
-    angleDecay: 16  
+    angleDecay: 16
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -153,7 +153,7 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CartridgePistol
     fireCost: 100
   - type: Battery
@@ -250,7 +250,7 @@
     minAngle: 1
     maxAngle: 6
     angleIncrease: 1.5
-    angleDecay: 6  
+    angleDecay: 6
     selectedMode: FullAuto
     shotsPerBurst: 5
     burstCooldown: 0.2
@@ -309,3 +309,42 @@
           whitelist:
             tags:
               - CartridgePistol
+
+- type: entity
+  name: brown briefcase
+  parent: [BaseWeaponSubMachineGun]
+  id: WeaponSubMachineGunBriefcase
+  description: Useful for carrying items in your hands.
+  suffix: Gun
+  components:
+  - type: Item
+    size: Ginormous
+    inhandVisuals:
+      left:
+        - sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+          state: inhand-left
+        - state: inhand-left-muzzle
+      right:
+        - sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+          state: inhand-right
+        - state: inhand-right-muzzle
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/SMGs/briefcase.rsi
+    layers:
+    - sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+      state: icon
+    - state: icon-muzzle
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 9
+    minAngle: 25
+    maxAngle: 32
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: false
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000

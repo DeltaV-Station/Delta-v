@@ -76,7 +76,10 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodReagent: AmmoniaBlood
+    bloodReagents:
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 1
   - type: BonusStaminaDamage
     multiplier: 0.85 # less melee stamina damage
   - type: BonusMeleeDamage # significantly weaker with melee

@@ -30,7 +30,10 @@
           layer:
             - FlyingMobLayer
   - type: Bloodstream
-    bloodReagent: Phlogiston
+    bloodReagents:
+      reagents:
+      - ReagentId: Phlogiston
+        Quantity: 1
     bloodMaxVolume: 0
   - type: TemperatureImmunity
   - type: MeleeWeapon

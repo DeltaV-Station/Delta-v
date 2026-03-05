@@ -1,7 +1,9 @@
 using Content.Shared.Chat;
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Shared._DV.AACTablet;
+using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -11,6 +13,7 @@ namespace Content.Server._DV.AACTablet;
 public sealed class AACTabletSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
@@ -49,11 +52,17 @@ public sealed class AACTabletSystem : EntitySystem
 
         EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
+        // L5 — save the message for logging
+        var messageToSend = string.Join(" ", _localisedPhrases);
+
         _chat.TrySendInGameICMessage(ent,
-            string.Join(" ", _localisedPhrases),
+            messageToSend,
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);
+
+        // L5 — log AAC chat message
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"AAC tablet message from {ToPrettyString(message.Actor):user}: {messageToSend}");
 
         var curTime = _timing.CurTime;
         ent.Comp.NextPhrase = curTime + ent.Comp.Cooldown;

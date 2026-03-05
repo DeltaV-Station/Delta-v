@@ -1,0 +1,32 @@
+- type: entity
+  parent: [ClothingOuterCoatStasecWarden, BaseSecurityContraband] # Same as ClothingOuterCoatWarden, without ClothingOuterWinterCoatToggleable from ClothingOuterWinterWarden
+  id: ClothingLongcoatWarden
+  name: warden's armored longcoat
+  description: A black double-breasted longcoat with silver buttons and red band and cuffs, specifically designed for the warden. Security longcoats sport protective plates underneath, but are fairly heavy.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/warden.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/warden.rsi
+
+- type: entity
+  parent: [ ClothingOuterCoatStasec, BaseSecurityContraband ] # Same as ClothingOuterWinterSec, without ClothingOuterWinterCoatToggleable
+  id: ClothingLongcoatSecurity
+  name: security officer's armored longcoat
+  description: A black double-breasted longcoat with silver buttons and red bands, specifically designed for security personnel. Security longcoats sport protective plates underneath, but are fairly heavy.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/security.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/security.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatStasecCorpsman, BaseSecurityContraband]
+  id: ClothingLongcoatBrigmedic
+  name: corpsman's armored longcoat
+  description: A black double-breasted longcoat with silver buttons, blue bands, and sterile fabric cuffs, specifically designed for the corpsman. Security longcoats sport protective plates underneath, though this one comes with lighter plates that traditional security longcoats.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/corpsman.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/corpsman.rsi
