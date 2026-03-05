@@ -62,6 +62,7 @@
         settings: short
       mindRoles:
       - MindRoleGhostRoleFamiliar
+      job: DeathSquad
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -76,6 +77,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeader
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   name: ERT leader
   suffix: ERTRole, Basic
   components:
@@ -98,15 +100,6 @@
       name: ghost-role-information-ert-leader-name
       description: ghost-role-information-ert-leader-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 54000 #15 hrs
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 14400 #4 hrs
-      # End DeltaV additions
       raffle:
         settings: short
       job: ERTLeader
@@ -121,6 +114,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT leader
   suffix: ERTRole, Armored EVA
@@ -148,6 +142,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVALecter
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeaderEVA
   suffix: ERTRole, Lecter, EVA
   components:
@@ -173,6 +168,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplain
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT chaplain
   suffix: ERTRole, Basic
@@ -197,15 +193,6 @@
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Epistemics
-        time: 36000 #10 hrs
-      # End DeltaV additions
       raffle:
         settings: short
       job: ERTChaplain
@@ -220,6 +207,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTChaplain
   name: ERT chaplain
   suffix: ERTRole, Enviro EVA
@@ -250,6 +238,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitor
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT janitor
   suffix: ERTRole, Basic
@@ -273,15 +262,6 @@
       name: ghost-role-information-ert-janitor-name
       description: ghost-role-information-ert-janitor-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:RoleTimeRequirement
-        role: JobJanitor
-        time: 18000 #5 hrs
-      # End DeltaV additions
       raffle:
         settings: short
       job: ERTJanitor
@@ -296,6 +276,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTJanitor
   name: ERT janitor
   suffix: ERTRole, Enviro EVA
@@ -325,6 +306,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineer
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT engineer
   suffix: ERTRole, Basic
@@ -348,15 +330,6 @@
       name: ghost-role-information-ert-engineer-name
       description: ghost-role-information-ert-engineer-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Engineering
-        time: 36000 #10 hrs
-      # End DeltaV additions
       raffle:
         settings: short
       job: ERTEngineer
@@ -371,6 +344,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTEngineer
   name: ERT engineer
   suffix: ERTRole, Enviro EVA
@@ -400,6 +374,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurity
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT security
   suffix: ERTRole, Basic
@@ -423,12 +398,6 @@
       name: ghost-role-information-ert-security-name
       description: ghost-role-information-ert-security-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 54000 #15 hrs
-      # End DeltaV additions
       raffle:
         settings: short
       job: ERTSecurity
@@ -443,6 +412,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTSecurity
   name: ERT security
   suffix: ERTRole, Armored EVA
@@ -470,6 +440,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVALecter
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTSecurityEVA
   suffix: ERTRole, Lecter, EVA
   components:
@@ -495,6 +466,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedical
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT medic
   suffix: ERTRole, Basic
@@ -518,15 +490,6 @@
       name: ghost-role-information-ert-medical-name
       description: ghost-role-information-ert-medical-description
       rules: ghost-role-information-nonantagonist-rules
-      # Begin DeltaV additions
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 #5 hrs
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 36000 #10 hrs
-      # End DeltaV additions
       raffle:
         settings: short
       job: ERTMedical
@@ -541,6 +504,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTMedical
   name: ERT medic
   suffix: ERTRole, Armored EVA
@@ -592,6 +556,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      job: CBURN
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirst
@@ -620,6 +585,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
+      job: CentralCommandOfficial
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]

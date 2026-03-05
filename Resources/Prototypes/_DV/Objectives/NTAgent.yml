@@ -1,0 +1,22 @@
+- type: entity
+  parent: BaseSurviveObjective
+  abstract: true
+  id: BaseNTAgentObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-NTAgent
+    difficulty: 1
+  - type: RoleRequirement
+    roles:
+    - NTAgentRole
+
+- type: entity
+  parent: BaseNTAgentObjective
+  id: NTAgentObjective
+  name: Do your task.
+  description: Complete the objectives given by your handler.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Ears/Headsets/centcom.rsi
+      state: icon

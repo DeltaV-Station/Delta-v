@@ -1154,15 +1154,13 @@ entities:
     - type: Transform
       pos: -2.5,2.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 159
     components:
     - type: Transform
       pos: 4.5,3.5
       parent: 1
-    - type: WarpPoint
-      location: Space Debris
 - proto: WheatBushel
   entities:
   - uid: 96

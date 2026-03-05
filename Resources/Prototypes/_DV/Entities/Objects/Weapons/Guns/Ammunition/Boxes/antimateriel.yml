@@ -1,4 +1,24 @@
 - type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBoxAntiMaterielBig
+  name: ammunition box (.60 anti-materiel)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeAntiMateriel
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
   parent: MagazineBoxAntiMateriel
   id: MagazineBoxLMGAntiMateriel
   name: ammunition box (.40 anti-materiel)

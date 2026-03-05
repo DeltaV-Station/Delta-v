@@ -969,7 +969,7 @@ entities:
           maxVol: 250
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: FourteenLoko
             Quantity: 250
 - proto: CableApcExtension
@@ -3651,10 +3651,10 @@ entities:
           maxVol: 30
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: SodaWater
             Quantity: 25
-          - data: null
+          - data: []
             ReagentId: JuiceLime
             Quantity: 5
 - proto: DrinkGlassWhite
@@ -3694,16 +3694,16 @@ entities:
           maxVol: 50
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: LongIslandIcedTea
             Quantity: 20
-          - data: null
+          - data: []
             ReagentId: Gin
             Quantity: 20
-          - data: null
+          - data: []
             ReagentId: Hooch
             Quantity: 9
-          - data: null
+          - data: []
             ReagentId: Potassium
             Quantity: 1
 - proto: DrinkManlyDorfGlass
@@ -3721,10 +3721,10 @@ entities:
           maxVol: 30
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: ManlyDorf
             Quantity: 15
-          - data: null
+          - data: []
             ReagentId: Goldschlager
             Quantity: 15
 - proto: DrinkSodaWaterCan
@@ -6652,7 +6652,7 @@ entities:
           maxVol: 20
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: THC
             Quantity: 20
 - proto: KitchenDeepFryer
@@ -9182,15 +9182,13 @@ entities:
     - type: Transform
       pos: 8.5,0.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointEvacShuttle
   entities:
   - uid: 1487
     components:
     - type: Transform
       pos: 0.5,-2.5
       parent: 1
-    - type: WarpPoint
-      location: Evac Shuttle
 - proto: WaterTankFull
   entities:
   - uid: 733

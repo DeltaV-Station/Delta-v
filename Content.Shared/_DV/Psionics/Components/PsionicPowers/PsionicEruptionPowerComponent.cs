@@ -2,10 +2,11 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComponent
 {
     /// <summary>
@@ -61,12 +62,12 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
     /// <summary>
     /// The timespan for the next annoy popup. This will be refreshed depending on the glimmer amount.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextAnnoy = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The timespan for the next spark to appear.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextSpark = TimeSpan.MaxValue;
 }

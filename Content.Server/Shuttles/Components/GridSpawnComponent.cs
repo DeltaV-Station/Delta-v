@@ -56,6 +56,11 @@ public interface IGridSpawnGroup
     public bool NameGrid { get; set; }
 
     /// <summary>
+    /// DeltaV - If <see cref="NameGrid"> is true and this is not null, the grid will use this name instead of the file name.
+    /// </summary>
+    public string? Name { get; set; }
+
+    /// <summary>
     /// Should we add this to the station's grids (if possible / relevant).
     /// </summary>
     public bool StationGrid { get; set; }
@@ -93,6 +98,9 @@ public sealed partial class DungeonSpawnGroup : IGridSpawnGroup
     public bool NameGrid { get; set; } = false;
 
     /// <inheritdoc />
+    public string? Name { get; set; } = null; // DeltaV
+
+    /// <inheritdoc />
     public bool StationGrid { get; set; } = false;
 }
 
@@ -112,6 +120,9 @@ public sealed partial class GridSpawnGroup : IGridSpawnGroup
     public ComponentRegistry AddComponents { get; set; } = new();
     public bool Hide { get; set; } = false;
     public bool NameGrid { get; set; } = true;
+
+    /// <inheritdoc />
+    public string? Name { get; set; } = null; // DeltaV
     public bool StationGrid { get; set; } = true;
 }
 

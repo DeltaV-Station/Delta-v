@@ -387,3 +387,214 @@
   sprites:
   - sprite: _DV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-arm-stripes-tiger
+
+# Animated
+- type: marking
+  id: FeroxiTailAndDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+
+- type: marking
+  id: FeroxiTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+
+- type: marking
+  id: FeroxiStripedTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes-wagging
+
+- type: marking
+  id: FeroxiStripedTailAndDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiTipTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip-wagging
+
+- type: marking
+  id: FeroxiTipTailAndDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-tip
+
+- type: marking
+  id: FeroxiTailBlitzAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiTailBlitzNoDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+
+- type: marking
+  id: FeroxiTwoToneTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+
+- type: marking
+  id: FeroxiTwoToneTailAndDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+
+- type: marking
+  id: FeroxiStripeTwoToneTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+
+- type: marking
+  id: FeroxiStripeTwoToneTailAndDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiTipTwoToneTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+
+- type: marking
+  id: FeroxiTipTwoToneTailAndDorsalAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-second-dorsal-tip-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-under-wagging
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal
+  - sprite: _DV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-dorsal-tip

@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: ImprovisedLightRifleBulletGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 0.5
+            - material: CrushedPhosphorus
+              amount: 3
+              doAfter: 0.5
+    - node: shell
+      entity: CartridgeLightRifleImprovised

@@ -13,12 +13,12 @@
       - !type:ReduceRotting
         seconds: 10
         conditions:
-        - !type:HasComponent
+        - !type:HasComponentCondition
           bodyPart: Torso
           explanation: reagent-explanation-netinadone-ribcage
           components:
           - type: RibcageOpen
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 150.0
         - !type:MobStateCondition
           mobstate: Dead
@@ -50,7 +50,7 @@
   desc: reagent-desc-unholy-water
   physicalDesc: reagent-physical-desc-menacing
   flavor: UnholyWater
-  color: "#1614143d"
+  color: "#c4c4c4"
   metabolisms:
     Medicine:
       effects:
@@ -73,53 +73,62 @@
       - !type:GenericStatusEffect
         key: Anesthesia
         component: Anesthesia
-        refresh: false
         time: 4.0
         type: Add
       - !type:GenericStatusEffect
         key: PainNumbness
         component: PainNumbness
-        refresh: false
         time: 8.0
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
 
 - type: reagent
-  id: Trinoxadone
-  name: reagent-name-trinoxadone
+  id: Photoxadone
+  name: reagent-name-photoxadone
+  desc: reagent-desc-photoxadone
+  flavor: clean
+  color: "#A695AD"
+  physicalDesc: reagent-physical-desc-enigmatic
   group: Medicine
-  desc: reagent-desc-trinoxadone
-  physicalDesc: reagent-physical-desc-cloudy
-  flavor: medicine
-  color: "#4f3670"
   worksOnTheDead: true
   metabolisms:
     Medicine:
       effects:
       - !type:EvenHealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
-        - !type:MultiMobStateCondition
-          states: [ Alive, Critical ]
         damage:
-          Brute: -1.5
-          Burn: -1.5
-          Toxin: -2
-      - !type:EvenHealthChange
+          Metaphysical: -5
+
+- type: reagent
+  id: Stabilizine
+  name: reagent-name-stabilizine
+  group: Medicine
+  desc: reagent-desc-stabilizine
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#ff7db5"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
-          max: 213.0
-        - !type:MobStateCondition
-          mobstate: Dead
-        - !type:TotalDamage
-          min: 210
-          max: 350
-        damage:
-          Brute: -2
-          Burn: -2
+        - !type:TemperatureCondition
+          max: 293.15
+        amount: 40000 # thermal energy, not temperature!
+      - !type:AdjustTemperature
+        conditions: # Increase the effect at lower temperatures, to reduce rubberbanding
+        - !type:TemperatureCondition
+          max: 253.15
+        amount: 60000 # Remember, this adds with the above condition!
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 293.15
+        amount: -10000
 
 - type: reagent
   id: SanctusSal
@@ -137,9 +146,7 @@
         effectProto: StatusEffectShieldedFromPsionics
         type: Add
         time: 60
-        refresh: false
       - !type:ModifyStatusEffect
         effectProto: StatusEffectPsionicsDisabled
         type: Add
         time: 60
-        refresh: false

@@ -73,6 +73,10 @@
         type: StoreBoundUserInterface
   - type: Visibility
     layer: 2 #ghost vis layer
+  - type: ActionGrant
+    actions:
+    - ActionRevenantShop
+    - ActionRevenantHaunt # Imp - Haunt ability
   - type: Store
     categories:
     - RevenantAbilities

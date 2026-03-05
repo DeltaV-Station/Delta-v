@@ -1,7 +1,5 @@
-using Content.Shared._DV.Chemistry.Effects;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
-using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
@@ -14,9 +12,6 @@ public abstract partial class SharedPsionicSystem
     {
         SubscribeLocalEvent<PsionicsDisabledComponent, StatusEffectRelayedEvent<PsionicPowerUseAttemptEvent>>(OnPowerUseAttempt);
         SubscribeLocalEvent<ShieldedFromPsionicsComponent, StatusEffectRelayedEvent<TargetedByPsionicPowerEvent>>(OnTargetedByPsionicPower);
-
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRemovePsionics>>(OnChemRemovePsionics);
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRollPsionic>>(OnChemRollPsionic);
     }
 
     private void OnPowerUseAttempt(Entity<PsionicsDisabledComponent> psionic, ref StatusEffectRelayedEvent<PsionicPowerUseAttemptEvent> args)
@@ -31,31 +26,5 @@ public abstract partial class SharedPsionicSystem
         var ev = args.Args;
         ev.IsShielded = true;
         args.Args = ev;
-    }
-
-    private void OnChemRemovePsionics(ref ExecuteEntityEffectEvent<ChemRemovePsionics> args)
-    {
-        if (args.Args is EntityEffectReagentArgs reagentArgs)
-        {
-            if (reagentArgs.Scale != 1f)
-                return;
-        }
-
-        var ev = new PsionicMindBrokenEvent(stun: true);
-        RaiseLocalEvent(args.Args.TargetEntity, ref ev);
-    }
-
-    private void OnChemRollPsionic(ref ExecuteEntityEffectEvent<ChemRollPsionic> args)
-    {
-        if (args.Args is EntityEffectReagentArgs reagentArgs)
-        {
-            if (reagentArgs.Scale != 1f)
-                return;
-        }
-
-        if (!TryComp<PotentialPsionicComponent>(args.Args.TargetEntity, out var potComp))
-            return;
-
-        TryRollPsionic((args.Args.TargetEntity, potComp), args.Effect.BonusMultiplier);
     }
 }

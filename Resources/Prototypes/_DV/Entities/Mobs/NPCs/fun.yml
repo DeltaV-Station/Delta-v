@@ -40,7 +40,10 @@
       amount: 3
   - type: Bloodstream
     bloodMaxVolume: 100
-    bloodReagent: BbqSauce #australia reference
+    bloodReagents:
+      reagents:
+      - ReagentId: BbqSauce #australia reference
+        Quantity: 1
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-possum

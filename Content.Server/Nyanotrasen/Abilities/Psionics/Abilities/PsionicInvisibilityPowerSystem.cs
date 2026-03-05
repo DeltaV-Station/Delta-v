@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;

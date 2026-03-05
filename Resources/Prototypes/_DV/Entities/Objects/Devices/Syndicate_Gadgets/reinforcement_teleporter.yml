@@ -27,12 +27,12 @@
   suffix: Human, HostageOps
   components:
   - type: GhostRole
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 86400 # 24 hours so you aren't a new player.
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 21600 # 6 hours so you know how to use your kit.
+    #requirements: # TODO: If this is ever enabled, move this to an antag or job prototype, since thats where playtime requirements are validated
+    #- !type:OverallPlaytimeRequirement
+    #  time: 24h
+    #- !type:DepartmentTimeRequirement
+    #  department: Security
+    #  time: 6h
     name: ghost-role-information-warden-nukeop-reinforcement-name
     description: ghost-role-information-warden-nukeop-reinforcement-description
     rules: ghost-role-information-warden-nukeop-reinforcement-rules
@@ -55,3 +55,20 @@
     - state: syndicat-yarn
   - type: GhostRole
     description: ghost-role-information-DVSyndiCat-description
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSyndicateCyborgSaboteur
+  name: syndicate saboteur cyborg reinforcement radio
+  description: Calls in a saboteur borg with light weaponry and disruptive gear.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-saboteur-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: PlayerBorgSyndicateSaboteurBattery

@@ -109,6 +109,8 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: Fiber # DeltaV - IPCs leave fibers instead of prints
+    fiberMaterial: fibers-steel
   - type: CombatMode # DeltaV - let IPCs disarm
     canDisarm: true
   - type: SnoutHelmet # DeltaV - IPC Snouts

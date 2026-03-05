@@ -15,13 +15,15 @@
   parent: ClothingBeltCorpsmanWebbing
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: Bloodpack
-      - id: SyringeEphedrine
-      - id: EmergencyMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedicatedSuture
+        - id: RegenerativeMesh
+        - id: Bloodpack
+        - id: SyringeEphedrine
+        - id: EmergencyMedipen
 
 - type: entity
   id: ClothingBeltFoamSheathFilled
@@ -48,27 +50,31 @@
   id: ClothingBeltPaperworkFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: BoxFolderBase
-    - id: BoxFolderBlack
-    - id: BoxFolderClipboard
-    - id: DrinkVacuumFlask
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxFolderBase
+        - id: BoxFolderBlack
+        - id: BoxFolderClipboard
+        - id: DrinkVacuumFlask
 
 - type: entity
   parent: ClothingBeltMedical
   id: ClothingBeltSurgeonFilled
   suffix: Filled, Surgical
   components:
-  - type: StorageFill
-    contents:
-    - id: Cautery
-    - id: ScalpelAdvanced
-    - id: Retractor
-    - id: Hemostat
-    - id: Bonesetter
-    - id: BoneGel
-    - id: SawElectric
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Cautery
+        - id: ScalpelAdvanced
+        - id: Retractor
+        - id: Hemostat
+        - id: Bonesetter
+        - id: BoneGel
+        - id: SawElectric
 
 - type: entityTable
   id: HostageWardenBelt

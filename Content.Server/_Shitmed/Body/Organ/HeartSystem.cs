@@ -1,5 +1,5 @@
 using Content.Shared.Body.Events;
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Server._Shitmed.DelayedDeath;

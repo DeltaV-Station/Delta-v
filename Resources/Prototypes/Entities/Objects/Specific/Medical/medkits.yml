@@ -14,13 +14,13 @@
         - Bottle
         - Brutepack
         - Gauze
-        - GasTank
         - Ointment
         - PillCanister
         - Syringe
       components:
+        - GasTank # DeltaV
         - BreathMask
-        - Hypospray
+        - Injector # Deltav
     maxItemSize: Small
     grid:
     - 0,0,3,1

@@ -5,8 +5,8 @@
   playTimeTracker: JobResearchAssistant
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics replacing Science
-      time: 18000 #5 hrs
+      department: Epistemics # DeltaV
+      time: 5h
       inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"

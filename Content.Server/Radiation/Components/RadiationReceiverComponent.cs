@@ -16,5 +16,11 @@ public sealed partial class RadiationReceiverComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public float CurrentRadiation;
+
+    /// <summary>
+    /// DeltaV - multiplier on the rads received if the RadiationSource is the same entity as this RadiationReceiver
+    /// </summary>
+    [DataField]
+    public float SelfSourceMultiplier = 1.0f;
 }
 

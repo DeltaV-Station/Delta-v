@@ -32,15 +32,18 @@ Hands are attached to the arms, feet are attached to the legs. And everything el
 ## Where do I get more parts?
 
 Normally when your patients come in needing new limbs, they'll need to get a new one, as their old ones will be either missing, or damaged beyond repair.
-For this you can use the Medical Biofabricator with some Biomass. Which can manufacture Biosynthetic limbs for all species.
+For this you can use the Medical Biofabricator for organic limbs with some Biomass, or alternativley, you can use the Exosuit Fabricator for IPC limbs, which should also work on any patient.
 
 <Box>
-<GuideEntityEmbed Entity="MedicalBiofabricator" Caption="medical biofabricator"/>
-<GuideEntityEmbed Entity="MedicalBiofabMachineBoard" Caption="biofabricator board"/>
-<GuideEntityEmbed Entity="MaterialBiomass" Caption="biomass"/>
+<GuideEntityEmbed Entity="ExosuitFabricator" Caption="Exosuit Fabricator"/>
+<GuideEntityEmbed Entity="MedicalBiofabricator" Caption="Medical Biofabricator"/>
+<GuideEntityEmbed Entity="MedicalBiofabMachineBoard" Caption="Biofabricator board"/>
+<GuideEntityEmbed Entity="MaterialBiomass" Caption="Biomass"/>
 </Box>
+However, [bold]you cannot manefacture torsos or heads from a Medical Biofabricator[/bold]. Instead, you can craft an IPC Torso and IPC head from an [bold]Exosuit Fabricator[/bold].
 
-By default, every Chief Medical Officer has access to a Medical Biofabricator board in their locker.
+
+
 
 ## I reattached my patient's limb, but
 ## it's not working?

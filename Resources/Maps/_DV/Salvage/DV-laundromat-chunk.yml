@@ -2928,7 +2928,7 @@ entities:
           maxVol: 50
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Beer
             Quantity: 25
 - proto: DrinkBlackRussianGlass
@@ -3475,7 +3475,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Bleach
             Quantity: 175
     - type: Label
@@ -3495,7 +3495,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Ammonia
             Quantity: 150
     - type: Label
@@ -3515,7 +3515,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: FoamingAgent
             Quantity: 165
     - type: Label
@@ -3535,7 +3535,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: SoapReagent
             Quantity: 100
     - type: Label
@@ -4062,7 +4062,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Moonshine
             Quantity: 25
     - type: StepTrigger
@@ -4081,7 +4081,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: SpaceLube
             Quantity: 18
     - type: TileFrictionModifier
@@ -4100,7 +4100,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Whiskey
             Quantity: 45
     - type: StepTrigger
@@ -6086,7 +6086,7 @@ entities:
     - type: Transform
       pos: 22.5,15.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 869
     components:
