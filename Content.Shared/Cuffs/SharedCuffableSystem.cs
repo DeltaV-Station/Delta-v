@@ -665,7 +665,8 @@ namespace Content.Shared.Cuffs
             if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
                 return;
 
-            _adminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(user):player} is trying to uncuff {ToPrettyString(target):subject}");
+            // DeltaV - Only alert if new user tries to uncuff someone else, stop spam during escape attempts. LogImpact previously always High.
+            _adminLog.Add(LogType.Action, isOwner ? LogImpact.Medium : LogImpact.High, $"{ToPrettyString(user):player} is trying to uncuff {ToPrettyString(target):subject}");
 
             var popupText = user == target.Owner
                 ? "cuffable-component-start-uncuffing-self-observer"
