@@ -14,10 +14,9 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
-#      - !type:ModifyStatusEffect # Removed until ScrambledSpeech gets fixed by an upstream merge.
-#        key: ScrambledSpeech
-#        component: ScrambledAccent
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScrambled
+        type: Update
       - !type:ModifyStatusEffect
         effectProto: StatusEffectTelepathicRepeater
         type: Add
