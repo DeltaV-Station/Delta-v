@@ -9,7 +9,6 @@ using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -34,7 +33,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -133,39 +132,40 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     /// <summary>
     /// Add the starting powers to the cultist.
     /// </summary>
-    private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentInit args)
+    private void OnStartCultist(Entity<CosmicCultComponent> ent, ref ComponentInit args)
     {
-        _eye.RefreshVisibilityMask(uid.Owner);
-        _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
-        if (!HasComp<HumanoidAppearanceComponent>(uid)) return; // Non-humanoids don't get abilities
-        foreach (var actionId in uid.Comp.CosmicCultActions)
+        _eye.RefreshVisibilityMask(ent.Owner);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.EntropyAlert);
+
+        if (!HasComp<HumanoidAppearanceComponent>(ent)) return; // Non-humanoids don't get abilities
+        foreach (var actionId in ent.Comp.CosmicCultActions)
         {
-            var actionEnt = _actions.AddAction(uid, actionId);
-            uid.Comp.ActionEntities.Add(actionEnt);
+            var actionEnt = _actions.AddAction(ent, actionId);
+            ent.Comp.ActionEntities.Add(actionEnt);
         }
     }
 
     /// <summary>
     /// Add the Monument summon action to the cult lead.
     /// </summary>
-    private void OnStartCultLead(Entity<CosmicCultLeadComponent> uid, ref ComponentInit args)
+    private void OnStartCultLead(Entity<CosmicCultLeadComponent> ent, ref ComponentInit args)
     {
-        if (_cultRule.AssociatedGamerule(uid) is not { } cult)
+        if (_cultRule.AssociatedGamerule(ent) is not { } cult)
             return;
-        if (!HasComp<HumanoidAppearanceComponent>(uid)) return; // Non-humanoids don't get abilities
+        if (!HasComp<HumanoidAppearanceComponent>(ent)) return; // Non-humanoids don't get abilities
 
         if (!cult.Comp.MonumentPlaced) // There's no monument, grant them an action to place one
-            _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
+            _actions.AddAction(ent, ref ent.Comp.CosmicMonumentPlaceActionEntity, ent.Comp.CosmicMonumentPlaceAction, ent);
         if (cult.Comp.MonumentMoved) return; // If the monument was already moved, don't let them do it again.
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
         {
             if (objectiveComp.Tier == 2) // If it's stage 2, give them the move action
-                _actions.AddAction(uid, ref uid.Comp.CosmicMonumentMoveActionEntity, uid.Comp.CosmicMonumentMoveAction, uid);
+                _actions.AddAction(ent, ref ent.Comp.CosmicMonumentMoveActionEntity, ent.Comp.CosmicMonumentMoveAction, ent);
         }
     }
 
-    private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)
+    private void OnGetVisMask(Entity<CosmicCultComponent> ent, ref GetVisMaskEvent args)
     {
         args.VisibilityMask |= (int)VisibilityFlags.CosmicCultMonument;
     }
@@ -222,28 +222,28 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Movespeed
-    private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentInit args) // i wish movespeed was easier to work with
+    private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> ent, ref ComponentInit args) // i wish movespeed was easier to work with
     {
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
     }
-    private void OnEndInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentRemove args) // that movespeed applies more-or-less correctly
+    private void OnEndInfluenceStride(Entity<InfluenceStrideComponent> ent, ref ComponentRemove args) // that movespeed applies more-or-less correctly
     {
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
     }
-    private void OnStartImposition(Entity<CosmicImposingComponent> uid, ref ComponentInit args) // these functions just make sure
+    private void OnStartImposition(Entity<CosmicImposingComponent> ent, ref ComponentInit args) // these functions just make sure
     {
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
     }
-    private void OnEndImposition(Entity<CosmicImposingComponent> uid, ref ComponentRemove args) // as various cosmic cult effects get added and removed
+    private void OnEndImposition(Entity<CosmicImposingComponent> ent, ref ComponentRemove args) // as various cosmic cult effects get added and removed
     {
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
     }
 
-    private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshMoveSpeed(EntityUid ent, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(1.15f, 1.15f);
     }
-    private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
+    private void OnImpositionMoveSpeed(EntityUid ent, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(0.8f, 0.8f);
     }

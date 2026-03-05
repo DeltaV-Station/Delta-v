@@ -20,7 +20,7 @@
     message: psionic-power-precognition-syndicate-recruiter-result-message
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: SyndieRecruiterShip
+    gridPath: /Maps/_DV/Shuttles/Event/census.yml # Was /Maps/_DV/Shuttles/Admin/recruiter_ship.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
@@ -65,7 +65,7 @@
     message: psionic-power-precognition-synthesis-specialist-result-message
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: SyndieSynthesisShip
+    gridPath: /Maps/_DV/Shuttles/Event/synthesis_ship.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives
@@ -108,7 +108,7 @@
   - type: PrecognitionResult
     message: psionic-power-precognition-syndicate-armsdealer-result-message
   - type: LoadMapRule
-    preloadedGrid: SyndieArmsdealerShip
+    gridPath: /Maps/_DV/Shuttles/Event/strongbox.yml
   - type: AntagSpawner
     prototype: MobHuman
   - type: AntagObjectives

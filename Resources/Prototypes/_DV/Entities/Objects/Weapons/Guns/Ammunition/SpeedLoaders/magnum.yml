@@ -18,3 +18,32 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+
+
+- type: entity
+  id: SpeedLoaderMagnumImprovised
+  name: "speed loader (.45 magnum)"
+  parent: BaseSpeedLoaderMagnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - CartridgeMagnumImprovised
+    capacity: 4
+  - type: MagazineVisuals
+    magState: base
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/improvised_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-4
+        map: [ "enum.GunVisualLayers.Mag" ]
+      # Unshaded tip layer removed to avoid missing state errors (no corresponding 'base-unshaded-*' states in RSI)
+  - type: Construction
+    graph: ImprovisedMagnumSpeedLoaderGraph
+    node: shell

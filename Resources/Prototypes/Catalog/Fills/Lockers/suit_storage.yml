@@ -186,7 +186,6 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitSecurity
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     - id: ClothingMaskBreath
 
 #CE's hardsuit
@@ -250,7 +249,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: FillLockerWardenHarduit
+        tableId: FillLockerWardenHardsuit
   - type: AccessReader
     access: [["Armory"]]
 

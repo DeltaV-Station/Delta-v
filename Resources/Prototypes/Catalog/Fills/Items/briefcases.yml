@@ -3,9 +3,10 @@
   parent: BriefcaseBrown
   suffix: Filled, Paper
   components:
-  - type: StorageFill
-    contents:
-      - id: Paper
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Paper
         amount: 3
 
 - type: entity
@@ -19,47 +20,52 @@
     maxItemSize: Huge
     grid:
     - 0,0,6,3
-  - type: StorageFill
-    contents:
-      - id: WeaponSniperHristov
-      - id: MagazineBoxAntiMateriel
-      - id: ClothingNeckTieRed
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingUniformHitmanSuit #imp
-      - id: BarberScissors
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSniperHristov
+        - id: MagazineBoxAntiMateriel
+        - id: ClothingNeckTieRed
+        - id: ClothingHandsGlovesLatex
+        - id: ClothingUniformJumpsuitLawyerBlack
+        - id: ClothingUniformHitmanSuit #imp
+        - id: BarberScissors
 
 - type: entity
   id: BriefcaseSyndieLobbyingBundleFilled
   parent: CybersunBriefcase # DeltaV
   suffix: Syndicate, Spesos
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingEyesGlassesSunglasses
-      - id: SpaceCash30000
-        amount: 1
-      - id: EncryptionKeySyndie
-      - id: RubberStampTrader
-      - id: PhoneInstrumentSyndicate
-      # begin DeltaV
-      # - id: ClothingUniformJumpsuitTacticool
-      # - id: ClothingOuterCoatJensen
-      - id: ClothingOuterCybersunOvercoat
-      - id: ClothingUniformCybersunAttorney
-      # end DeltaV
-      - id: ClothingHandsGlovesCombat
-      - id: ClothingMaskNeckGaiter
-      - id: SyndieHandyFlag
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingEyesGlassesSunglasses
+        - id: SpaceCash30000
+        - id: EncryptionKeySyndie
+        - id: RubberStampTrader
+        - id: PhoneInstrumentSyndicate
+        # begin DeltaV
+        # - id: ClothingUniformJumpsuitTacticool
+        # - id: ClothingOuterCoatJensen
+        - id: ClothingOuterCybersunOvercoat
+        - id: ClothingUniformCybersunAttorney
+        # end DeltaV
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingMaskNeckGaiter
+        - id: SyndieHandyFlag
 
 - type: entity
   id: BriefcaseThiefBribingBundleFilled
   parent: BriefcaseSyndie
   suffix: Thief, Spesos
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingEyesGlassesSunglasses
-      - id: SpaceCash20000
-        amount: 1
-      - id: ClothingOuterCoatJensen
-      - id: ClothingHandsGlovesColorBlack
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingEyesGlassesSunglasses
+        - id: SpaceCash20000
+        - id: ClothingOuterCoatJensen
+        - id: ClothingHandsGlovesColorBlack

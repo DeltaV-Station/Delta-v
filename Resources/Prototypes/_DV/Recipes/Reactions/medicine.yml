@@ -49,14 +49,28 @@
     Anodynafil: 4
 
 - type: reaction
-  id: Trinoxadone
+  id: PhotoxadoneLight
   reactants:
+    Mercury:
+      amount: 1
+    Holywater:
+      amount: 1
     Cryoxadone:
       amount: 1
-    Tricordrazine:
+  products:
+    Photoxadone: 3
+
+- type: reaction
+  id: PhotoxadoneDark
+  reactants:
+    Silver:
+      amount: 1
+    Umbroxol:
+      amount: 1
+    Cryoxadone:
       amount: 1
   products:
-    Trinoxadone: 2
+    Photoxadone: 3
 
 - type: reaction
   id: SanctusSal

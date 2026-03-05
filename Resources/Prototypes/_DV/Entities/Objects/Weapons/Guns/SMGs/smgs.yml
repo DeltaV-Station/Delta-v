@@ -48,3 +48,66 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: Patos
+  parent: BaseWeaponSubMachineGun
+  id: WeaponSubMachineGunPatos
+  description: A compact and lightweight personal defense weapon, with an aggressive compensator. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    minAngle: 4
+    maxAngle: 24
+    fireRate: 7
+    angleIncrease: 4.5
+    angleDecay: 24
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+    defaultDirection: 1, 0
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolHighCapacity
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazinePistolHighCapacity
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance

@@ -1128,15 +1128,13 @@ entities:
     - type: Transform
       pos: -5.5,2.5
       parent: 162
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 115
     components:
     - type: Transform
       pos: -0.5,-1.5
       parent: 162
-    - type: WarpPoint
-      location: Space Debris
 - proto: WoodenBuckler
   entities:
   - uid: 158

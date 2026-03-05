@@ -27,18 +27,20 @@ public abstract class SharedLightReactiveSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<LightReactiveComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<LightReactiveComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var xform))
         {
             if (comp.Manual)
                 continue; // Don't auto update if it's manual
             if (_timing.CurTime < comp.NextUpdate)
                 continue;
-            comp.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(1);
+            comp.NextUpdate = _timing.CurTime + comp.UpdateFrequency;
+            Dirty(uid, comp);
+            // Technically this only runs once every X time so I'm leaving it as TryComp because I don't want to deal with the B/C
             if (_mobState.IsDead(uid) && comp.OnlyWhileAlive)
                 continue; // Don't apply damage / healing if the mob is dead
             // Get the light level at the entity's position
-            comp.CurrentLightLevel = GetLightLevelForPoint(uid);
+            comp.CurrentLightLevel = GetLightLevelForPoint(uid, xform);
         }
     }
 
@@ -67,11 +69,11 @@ public abstract class SharedLightReactiveSystem : EntitySystem
     /// Gets the light level at a specific point in the world.
     /// Avoid calling this too often, as it can be expensive.
     /// </summary>
-    public float GetLightLevelForPoint(EntityUid uid)
+    public float GetLightLevelForPoint(EntityUid uid, TransformComponent? xform = null)
     {
         float val = 0.0f;
         // Get the current map entity so we can get a MapLightComponent from it if it has one
-        var map = _transform.GetMap(uid);
+        var map = _transform.GetMap((uid, xform));
         if (TryComp(map, out MapLightComponent? mapLight))
             val += (mapLight.AmbientLightColor.R + mapLight.AmbientLightColor.G + mapLight.AmbientLightColor.B) / 3f;
         var pos = _transform.GetWorldPosition(uid);
@@ -112,8 +114,9 @@ public abstract class SharedLightReactiveSystem : EntitySystem
 
             // Collision ray check from the entity to the light source
             var ray = new CollisionRay(pos, (lightPos - pos).Normalized(), (int)CollisionGroup.Opaque);
-            var hit = _physics.IntersectRay(_transform.GetMapId(uid), ray, MathF.Sqrt(sqrDistance) - 0.5f, ignoredEnt: lightUid, returnOnFirstHit: true);
-            if (hit.Any() && hit.First().Distance != 0)
+            var hit = _physics.IntersectRay(_transform.GetMapId((uid, xform)), ray, MathF.Sqrt(sqrDistance) - 0.5f, ignoredEnt: lightUid, returnOnFirstHit: true);
+            var firstHit = hit.FirstOrDefault();
+            if (firstHit.Distance != 0)
                 continue;
 
             // Manual hack for cones.

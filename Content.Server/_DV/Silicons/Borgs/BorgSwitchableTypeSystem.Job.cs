@@ -20,7 +20,7 @@ public sealed partial class BorgSwitchableTypeSystem
         if (_banMan.GetJobBans(session.UserId) is {} bans && bans.Contains(job.ID))
             return new FormattedMessage(); // server doesn't use it
 
-        return _playTime.IsAllowed(session, job.ID)
+        return _playTime.IsAllowed(session, job)
             ? null
             : new FormattedMessage(); // server doesn't use it
     }

@@ -4,7 +4,4 @@ namespace Content.Shared._DV.Psionics.Events;
 /// Event raised on an entity that is being mindbroken.
 /// </summary>
 [ByRefEvent]
-public readonly struct PsionicMindBrokenEvent(bool stun = true)
-{
-    public readonly bool Stun = stun;
-}
+public record struct PsionicMindBrokenEvent(bool Stun);

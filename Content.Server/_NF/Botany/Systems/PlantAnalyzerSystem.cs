@@ -1,5 +1,4 @@
 using Content.Server.Botany.Components;
-using Content.Server.PowerCell;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared._NF.PlantAnalyzer;
@@ -10,6 +9,7 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Text;
 using Content.Shared.Atmos;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.Botany.Systems;
 
@@ -31,7 +31,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
     private void OnAfterInteract(Entity<PlantAnalyzerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent, user: args.User))
+        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent.Owner, user: args.User))
             return;
 
         if (ent.Comp.DoAfter != null)
@@ -71,7 +71,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         // Double charge use for advanced scan.
         if (ent.Comp.Settings.AdvancedScan)
         {
-            if (!_cell.TryUseActivatableCharge(ent, user: args.User))
+            if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
                 return;
         }
         if (args.Handled || args.Cancelled || args.Args.Target == null || !_cell.TryUseActivatableCharge(ent.Owner, user: args.User))

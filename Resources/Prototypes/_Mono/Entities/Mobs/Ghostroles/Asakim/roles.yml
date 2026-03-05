@@ -23,9 +23,6 @@
     rules: ghost-role-information-asakim-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 172800 # DeltaV - 48 hours, sync with antag
     mindRoles: # DeltaV
     - MindRoleAsakim
   - type: GhostTakeoverAvailable

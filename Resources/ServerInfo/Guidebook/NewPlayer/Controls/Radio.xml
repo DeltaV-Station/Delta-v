@@ -30,7 +30,8 @@ People standing right next to you might catch bits of your radio message, even i
 
 You are able to send messages over your departmental radio channels using [color=#32cd32]colon (:)[/color] followed by the department letter as long as you're wearing a headset with your department's encryption key.
 
-Examine your headset to see the department channels available to you.
+<!--Delta V: Highlighted Examine your headset-->
+[color=yellow]Examine your headset[/color] to see the department channels available to you.
 
 <Box>
   <GuideEntityEmbed Entity="ClothingHeadsetEngineering"/>
@@ -43,14 +44,14 @@ For example, if you're a Station Engineer then [color=#a4885c]:h[/color] will de
 
 ## Encryption Keys
 [color=#a4885c]Encryption keys[/color] give you access to their respective channel.
-  
+
 Examining our engineering headset from earlier shows us [color=#32cd32]Common[/color] and [color=#f37746]Engineering[/color] because an engineer's headset starts with those [color=#a4885c]encryption keys[/color].
-  
+
 <Box>
   <GuideEntityEmbed Entity="EncryptionKeyCommon"/>
   <GuideEntityEmbed Entity="EncryptionKeyEngineering"/>
 </Box>
-  
+
 You can take out encryption keys by using a [color=#a4885c]screwdriver[/color] on a headset. New encryption keys are put into headsets by clicking on one with an encryption key in your hand.
 
 All command members have extras of their relevant encryption key, but you can also request one at the HoP's office when you're getting your job changed.

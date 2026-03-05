@@ -30,7 +30,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.PowerCellSlotVisuals.Enabled:
+      enum.BatteryVisuals.State:
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
@@ -41,7 +41,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 0
-    useRate: 40
+    useCharge: 40
   - type: ActivatableUIRequiresPowerCell
 
 - type: entity

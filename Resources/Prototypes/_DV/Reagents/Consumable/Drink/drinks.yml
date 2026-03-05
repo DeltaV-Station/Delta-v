@@ -1,4 +1,47 @@
 - type: reagent
+  id: Lean
+  name: reagent-name-lean
+  parent: BaseAlcohol
+  desc: reagent-desc-lean
+  physicalDesc: reagent-physical-desc-strong-smelling
+  color: "#9400D3"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/lean.rsi
+    state: icon
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Lean
+          min: 25
+        damage:
+          types:
+           Caustic: 0.5
+      - !type:Electrocute
+        conditions:
+        - !type:ReagentCondition
+          reagent: Lean
+          min: 35
+        probability: 0.1
+    Medicine:
+      effects:
+      - !type:Vomit
+        conditions:
+          - !type:ReagentCondition
+            reagent: Lean
+            min: 60
+        probability: 0.2
+
+
+- type: reagent
   id: HealthViolation
   name: reagent-name-healthviolation
   parent: BaseDrink
@@ -22,15 +65,17 @@
         amount: 0.3
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: HealthViolation
           min: 30
         type: Local
         visualType: Medium
         messages: [ "generic-reagent-effect-damnation" ]
         probability: 0.2
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: HealthViolation
           min: 30
         probability: 0.02
 
@@ -135,7 +180,7 @@
         damage:
           types:
             Heat: 2
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.5
       - !type:Ignite
       - !type:Emote

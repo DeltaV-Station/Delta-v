@@ -2,7 +2,7 @@
   id: CrateNPCSecDog
   parent: CrateLivestock
   components:
-  - type: StorageFill
-    contents:
-      - id: MobSecDog
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: MobSecDog

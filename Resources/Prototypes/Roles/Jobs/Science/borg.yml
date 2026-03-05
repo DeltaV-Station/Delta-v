@@ -8,7 +8,7 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000  # 5 hrs
+    time: 5h
   canBeAntag: false
   whitelisted: true # DeltaV - ai must be whitelisted
   icon: JobIconStationAi
@@ -24,7 +24,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 10h
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd

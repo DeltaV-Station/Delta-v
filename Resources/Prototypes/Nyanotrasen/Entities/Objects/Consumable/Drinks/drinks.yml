@@ -11,7 +11,8 @@
         reagents:
         - ReagentId: Sake
           Quantity: 30
-  - type: Drink
+  - type: Edible
+    edible: Drink
   - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sakeglass.rsi
     state: icon

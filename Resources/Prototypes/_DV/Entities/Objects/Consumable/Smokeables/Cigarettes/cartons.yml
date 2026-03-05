@@ -8,10 +8,11 @@
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/purple.rsi
   - type: Item
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/purple.rsi
-  - type: StorageFill
-    contents:
-    - id: CigPackPurple
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackPurple
+        amount: 6
 
 - type: entity
   id: CigCartonCandy
@@ -23,10 +24,11 @@
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/pink.rsi
   - type: Item
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/pink.rsi
-  - type: StorageFill
-    contents:
-    - id: CigPackCandy
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackCandy
+        amount: 6
 
 - type: entity
   id: CigCartonSyndicate
@@ -38,12 +40,14 @@
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/syndicate.rsi
   - type: Item
     sprite: _DV/Objects/Consumable/Smokeables/Cigarettes/Cartons/syndicate.rsi
-  - type: StorageFill
-    contents:
-    - id: CigPackSyndicate
-      amount: 6
-    - id: SyndicateFlippoDV
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigPackSyndicate
+          amount: 6
+        - id: SyndicateFlippoDV
+          amount: 1
   - type: Storage
     grid:
     - 0,0,5,1

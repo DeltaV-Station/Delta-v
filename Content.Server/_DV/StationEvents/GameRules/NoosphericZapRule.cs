@@ -1,3 +1,4 @@
+using Content.Server._DV.Psionics.Systems;
 using Content.Server._DV.StationEvents.Components;
 using Content.Server.Popups;
 using Content.Server.StationEvents.Events;
@@ -7,6 +8,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Stunnable;
 
@@ -20,6 +22,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly PsionicSystem _psionic = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
 
@@ -52,15 +55,15 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
 
     private void Zap(EntityUid psionic, PotentialPsionicComponent potPsionComp)
     {
-        _stuttering.DoStutter(psionic, TimeSpan.FromSeconds(10), false);
         _stun.TryUpdateParalyzeDuration(psionic, TimeSpan.FromSeconds(5));
         _jittering.DoJitter(psionic, TimeSpan.FromSeconds(5), false);
+        _stuttering.DoStutter(psionic, TimeSpan.FromSeconds(15), false);
 
-        var message = potPsionComp.Rolled
+        var grantedRoll = _psionic.GrantPsionicRoll((psionic, potPsionComp));
+        var message = grantedRoll
             ? "gamerule-noospheric-zap-seize-potential-regained"
             : "gamerule-noospheric-zap-seize";
-        _popupSystem.PopupEntity(Loc.GetString(message), psionic, psionic, Shared.Popups.PopupType.LargeCaution);
 
-        potPsionComp.Rolled = false;
+        _popupSystem.PopupEntity(Loc.GetString(message), psionic, psionic, PopupType.LargeCaution);
     }
 }

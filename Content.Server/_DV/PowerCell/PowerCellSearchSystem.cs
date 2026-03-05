@@ -1,5 +1,5 @@
-using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Server._DV.PowerCell;
@@ -17,6 +17,13 @@ public sealed class PowerCellSearchSystem : EntitySystem
 
     private void OnSearchForBattery(Entity<PowerCellSlotComponent> ent, ref SearchForBatteryEvent args)
     {
-        args.Handled = _powerCell.TryGetBatteryFromSlot(ent, out args.Uid, out args.Component);
+        if (_powerCell.TryGetBatteryFromSlot(ent.AsNullable(), out var battery))
+        {
+            args.Uid = battery.Value.Owner;
+            args.Component = battery.Value.Comp;
+            args.Handled = true;
+        }
+        else
+            args.Handled = false;
     }
 }

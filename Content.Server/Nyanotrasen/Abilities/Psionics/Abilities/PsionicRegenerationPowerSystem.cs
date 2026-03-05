@@ -121,7 +121,7 @@ namespace Content.Server.Abilities.Psionics
             var percentageComplete = Math.Min(1f, (_gameTiming.CurTime - args.StartedAt).TotalSeconds / component.UseDelay);
 
             var solution = new Solution();
-            solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount * percentageComplete));
+            solution.AddReagent("Prometheum", FixedPoint2.New(component.EssenceAmount * percentageComplete));
             _bloodstreamSystem.TryAddToChemicals((uid, stream), solution);
         }
     }
