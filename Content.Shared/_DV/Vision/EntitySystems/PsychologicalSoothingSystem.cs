@@ -34,9 +34,9 @@ public sealed class PsychologicalSoothingSystem : EntitySystem
         {
             if (Paused(entReceiver))
                 continue;
-            
+
             var providerQuery = _entityLookup.GetEntitiesInRange<PsychologicalSoothingProviderComponent>(Transform(entReceiver).Coordinates, receiver.Range);
-            
+
             if (_mobStateQuery.TryComp(entReceiver, out var mobStateSelf) && mobStateSelf.CurrentState == MobState.Dead)
                 continue;
 

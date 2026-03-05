@@ -84,7 +84,7 @@ public sealed class GrantComponentsOnObservationSystem : EntitySystem
         {
             if (Paused(uid))
                 continue;
-            
+
             if (comp.Grant is not { Count: > 0 })
                 continue;
 

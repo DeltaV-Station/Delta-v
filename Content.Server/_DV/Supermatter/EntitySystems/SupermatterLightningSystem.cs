@@ -26,10 +26,10 @@ public sealed class SupermatterLightningSystem : EntitySystem
         {
             if (Paused(uid))
                 continue;
-            
+
             if(!lightningComp.Enabled)
                 continue;
-            
+
             if (lightningComp.NextZapTime is { } next && _timing.CurTime < next)
                 continue;
 
