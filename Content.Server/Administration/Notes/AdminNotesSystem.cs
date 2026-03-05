@@ -58,6 +58,9 @@ public sealed class AdminNotesSystem : EntitySystem
         if (note.NoteType != NoteType.Watchlist)
             return;
 
+        if (!_connectedPlayerWatchlists.ContainsKey(note.Player))
+            _connectedPlayerWatchlists[note.Player] = new();
+
         _connectedPlayerWatchlists[note.Player].Add(note);
     }
 
@@ -79,6 +82,9 @@ public sealed class AdminNotesSystem : EntitySystem
         var deletedIndex = _connectedPlayerWatchlists[note.Player].FindIndex(n => n.Id == note.Id);
         if (deletedIndex != -1)
             _connectedPlayerWatchlists[note.Player].RemoveAt(deletedIndex);
+
+        if (_connectedPlayerWatchlists[note.Player].Count == 0)
+            _connectedPlayerWatchlists.Remove(note.Player);
     }
     // DeltaV - track watchlist changes END
 
