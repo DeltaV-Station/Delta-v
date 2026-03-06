@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseImplantOnlyImplanter # it's weird because this neither an NT or syndicate implanter. it's completely unobtainable though and exists more for playtesting convenience than anything
+  id: RadioImplanterConspiracy
+  name: conspiracy radio implanter
+  components:
+  - type: Implanter
+    implant: RadioImplantConspiracy
