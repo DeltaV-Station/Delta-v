@@ -6,6 +6,6 @@ Hitman-role-greeting-human =
 Hitman-briefing =
     you've prepared a case with what you need to complete your contract. you have it on your person.
 
-objective-issuer-Hitman = [color=#FFDF20]Client[/color]
+objective-issuer-Hitman = [color=#746694]Criminal[/color]
 
 Hitman-round-end-name = Hitman
