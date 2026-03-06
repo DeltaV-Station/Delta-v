@@ -286,7 +286,9 @@
   materials:
     Steel: 300
     Cloth: 200
+
 # Masks
+
 - type: latheRecipe #Sec Gas Masks and Breath Masks are craftable.
   id: ClothingMaskGasSecurity
   result: ClothingMaskGasSecurity
@@ -295,6 +297,7 @@
     Steel: 500
     Cloth: 100
     Plastic: 250
+    
 - type: latheRecipe
   id: ClothingMaskBreathSecurity
   result: ClothingMaskBreathSecurity
