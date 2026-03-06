@@ -62,6 +62,7 @@
   components:
   - type: Objective
     difficulty: 1
+    unique: true
     icon:
       sprite: Structures/Furniture/chairs.rsi
       state: shuttle
@@ -76,18 +77,20 @@
   components:
   - type: Objective
     difficulty: 1 #not that hard, just requires doing some extra stuff to the body
+    unique: true
     icon:
       sprite: 
       state: icon
 
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
-  id: HitmanDramticObjective
+  id: HitmanBrutalObjective
   name: kill your target dramticly
   description: your client wants to make their death a preformence. give it the show it deserves.
   components:
   - type: Objective
     difficulty: 1.25 #likely means setting nonsense up 
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -100,6 +103,7 @@
   components:
   - type: Objective
     difficulty: 1.25 #likely means setting nonsense up 
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -108,10 +112,11 @@
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanAccidentObjective
   name: make your targerts death seem like a accident
-  description: your client would rather others not realize your targets death was a assanation. try to frame it as a accident
-  difficulty: 2 #very target specfic and very set up intesive 
+  description: your client would rather others not realize your targets death was a assanation. try to frame it as a accident 
   components:
   - type: Objective
+    difficulty: 2 #very target specfic and very set up intesive
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -124,6 +129,7 @@
   components:
   - type: Objective
     difficulty: 2 #requires a ton of set up and chance
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -136,6 +142,7 @@
   components:
   - type: Objective
     difficulty: 1.75 #highly limits kill methods
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -148,6 +155,7 @@
   components:
   - type: Objective
     difficulty: 1 #easy to do in the moment
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -160,6 +168,7 @@
   components:
   - type: Objective
     difficulty: 2 #make it much harder to get away with 
+    unique: true
     icon:
       sprite: 
       state: icon
@@ -172,18 +181,20 @@
   components:
   - type: Objective
     difficulty: 1 #kinda hard but it means you dont have to plan for something else when killing them 
+    unique: true
     icon:
       sprite: 
       state: icon
 
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
-  id: HitmantramuObjective
+  id: HitmanTraumaObjective
   name: kill someone close to your target and make sure they know
   description: your client wants your target to be broken mentaly and physicaly. find someone close to your target and kill them. the person need not stay dead. make sure your target knows they died.
   components:
   - type: Objective
     difficulty: 1.75 #forces a second tol but doesnt interact with the other objectives
+    unique: true
     icon:
       sprite: 
       state: icon
