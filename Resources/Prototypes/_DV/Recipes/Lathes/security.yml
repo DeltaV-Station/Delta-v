@@ -287,7 +287,7 @@
     Steel: 300
     Cloth: 200
 # Masks
-- type: latheRecipe
+- type: latheRecipe #Sec Gas Masks and Breath Masks are craftable.
   id: ClothingMaskGasSecurity
   result: ClothingMaskGasSecurity
   completetime: 2
@@ -295,6 +295,14 @@
     Steel: 500
     Cloth: 100
     Plastic: 250
+- type: latheRecipe
+  id: ClothingMaskBreathSecurity
+  result: ClothingMaskBreathSecurity
+  completetime: 1
+  materials:
+    Steel: 250
+    Cloth: 50
+    Plastic: 125
 
 # Weapons
 
