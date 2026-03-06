@@ -55,7 +55,7 @@
       - PrintedDocumentRequestEuthanasiaRecipe
       - PrintedDocumentRequestConstructionWorkRecipe
       - PrintedDocumentRequestModernizationRecipe
-# Complaintst
+# Complaints
       - PrintedDocumentComplaintViolationLaborRulesRecipe
 #  - type: EmagLatheRecipes
 #    emagStaticRecipes:
@@ -78,6 +78,4 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Document
-    storage:
-      SheetPrinter: 0
+      - Paper
