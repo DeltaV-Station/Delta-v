@@ -1,0 +1,16 @@
+- type: gamePreset
+  id: Conspiracy
+  alias:
+  - conspirators
+  - conspirator
+  name: conspiracy-title
+  description: conspiracy-description
+  showInVote: false # secret
+  minPlayers: 28 # DeltaV - Added attribute to preset since selection method changed
+  rules:
+  - Conspirators
+  - ThiefChance
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation

@@ -250,3 +250,27 @@
     - id: DoubleEmergencyOxygenTankFilled
     - id: DoubleEmergencyNitrogenTankFilled
     - id: DoubleEmergencyWaterVaporTankFilled
+
+# Science EVA Suit
+- type: entityTable
+  id: FillSuitStorageScienceEVA
+  table: !type:AllSelector
+    children:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitEVAScience
+    - id: ClothingHeadHelmetEVAScience
+    - id: ClothingMaskBreath
+    - id: GeigerCounter
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageEVAEpistemics
+  suffix: Epistemics EVA
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageScienceEVA
+  - type: AccessReader
+    access: [["Research"]]

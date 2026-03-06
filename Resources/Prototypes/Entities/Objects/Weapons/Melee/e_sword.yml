@@ -81,6 +81,8 @@
       - state: inhand-right-blade
         shader: unshaded
   - type: Reflect
+    reflects:
+    - energy # Deltav - previously reflected all projectiles
   - type: IgnitionSource
     temperature: 700
 
