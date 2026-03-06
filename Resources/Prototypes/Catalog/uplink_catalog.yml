@@ -1788,13 +1788,11 @@
     Telecrystal: 20 # DeltaV - was 12
   categories:
   - UplinkWearables
-# begin delta v changes
-#  conditions:
-#  - !type:StoreWhitelistCondition
-#    whitelist:
-#      tags:
-#      - NukeOpsUplink
-# end delta v changes
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
