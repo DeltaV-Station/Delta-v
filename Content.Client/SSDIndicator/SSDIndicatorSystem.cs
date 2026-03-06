@@ -33,8 +33,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
             _cfg.GetCVar(CCVars.ICShowSSDIndicator) &&
             !_mobState.IsDead(uid) &&
             !HasComp<ActiveNPCComponent>(uid) &&
-            TryComp<MindContainerComponent>(uid, out var mindContainer) &&
-            mindContainer.ShowExamineInfo)
+            HasComp<MindExaminableComponent>(uid))
         {
             // Begin DeltaV Addition
             var ev = new ShowSSDIndicatorEvent();

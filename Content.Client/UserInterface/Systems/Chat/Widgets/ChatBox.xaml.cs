@@ -200,7 +200,7 @@ public partial class ChatBox : UIWidget
         }
         // End EE - Chat stacking
 
-        Contents.AddMessage(formatted);
+        Contents.AddMessage(formatted, tagsAllowed: null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)

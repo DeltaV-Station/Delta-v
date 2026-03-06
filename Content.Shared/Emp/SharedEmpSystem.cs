@@ -11,6 +11,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Configuration; // Frontier
 using Robust.Shared;
 using Content.Shared.Damage; // Frontier
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Emp;
 
@@ -31,6 +32,7 @@ public abstract class SharedEmpSystem : EntitySystem
     private static readonly DamageSpecifier? DefaultEmpDamage = new() { DamageDict = new() { { "Ion", 130 } } };
 
     private HashSet<EntityUid> _entSet = new();
+    private EntityQuery<EmpResistanceComponent> _resistanceQuery;
 
     public override void Initialize()
     {
@@ -39,6 +41,10 @@ public abstract class SharedEmpSystem : EntitySystem
         SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
+
+        SubscribeLocalEvent<EmpResistanceComponent, EmpAttemptEvent>(OnResistEmpAttempt);
+
+        _resistanceQuery = GetEntityQuery<EmpResistanceComponent>();
     }
 
     public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier - was EffectEmpPulse
@@ -145,7 +151,14 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <returns>If the entity was affected by the EMP.</returns>
     public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
     {
-        var ev = new EmpPulseEvent(energyConsumption, false, false, duration, user, damage); // DeltaV - Add Ion Damage
+        var strMultiplier = 1f;
+        var durMultiplier = 1f;
+        if (_resistanceQuery.TryComp(uid, out var resistance))
+        {
+            strMultiplier = resistance.StrengthMultiplier;
+            durMultiplier = resistance.DurationMultiplier;
+        }
+        var ev = new EmpPulseEvent(energyConsumption * strMultiplier, false, false, duration * durMultiplier, user, damage); // DeltaV - Add Ion Damage
         RaiseLocalEvent(uid, ref ev);
 
         // TODO: replace with PredictedSpawn once it works with animated sprites
@@ -156,7 +169,7 @@ public abstract class SharedEmpSystem : EntitySystem
             return ev.Affected;
 
         var disabled = EnsureComp<EmpDisabledComponent>(uid);
-        disabled.DisabledUntil = Timing.CurTime + duration;
+        disabled.DisabledUntil = Timing.CurTime + duration * durMultiplier;
         Dirty(uid, disabled);
 
         return ev.Affected;
@@ -191,6 +204,14 @@ public abstract class SharedEmpSystem : EntitySystem
     private void OnRejuvenate(Entity<EmpDisabledComponent> ent, ref RejuvenateEvent args)
     {
         RemCompDeferred<EmpDisabledComponent>(ent);
+    }
+
+    private void OnResistEmpAttempt(Entity<EmpResistanceComponent> ent, ref EmpAttemptEvent args)
+    {
+        // We only cancel if the strength multiplier is 0, because then the effect basically doesn't exist.
+        // Allows us to make things resistant to the duration, but still lose charge to the EMP.
+        if (ent.Comp.StrengthMultiplier <= 0)
+            args.Cancelled = true;
     }
 }
 

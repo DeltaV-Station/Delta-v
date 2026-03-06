@@ -29,7 +29,7 @@
     damageContainer: BiologicalMetaphysical
     damageModifierSet: ManifestedSpirit
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -94,7 +94,7 @@
     tags:
     - Chapel
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: Familiar
   - type: Dispellable
   - type: Psionic #Nyano - Summary: makes psionic on creation.
