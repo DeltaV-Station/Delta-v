@@ -148,3 +148,24 @@
   id: AsakimObjectiveGroupAlly
   weights:
     AsakimAllyObjective: 1
+
+##hitman
+- type: weightedRandom
+  id: HitmanObjectiveGroupKill
+  weights:
+    HitmanTeachLessonRandomPersonObjective: 1
+    HitmanTeachLessonRandomHeadObjective: 0.5
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupModifer
+  weights:
+    HitmanBrutalObjective: 1
+    HitmanhumorousObjective: 1
+    HitmanAccidentObjective: 1
+    HitmanIndirectlyObjective: 1
+    HitmanCleanObjective: 1
+    HitmanSufferObjective: 1
+    HitmanPublicObjective: 1
+    HitmanNoticeObjective: 1
+    HitmanTraumaObjective: 1
+
