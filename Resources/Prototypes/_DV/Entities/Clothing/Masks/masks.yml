@@ -8,3 +8,22 @@
     sprite: _DV/Clothing/Mask/interdynechemmask.rsi
   - type: Clothing
     sprite: _DV/Clothing/Mask/interdynechemmask.rsi
+- type: entity
+  parent: [ClothingMaskGas, BaseSecurityContraband]
+  id: ClothingMaskGasSecurity
+  name: security gas mask
+  description: An updated Security gas mask, built to handle the hazards of the future. # Delta-V - Actual Gas Mask for Security, based off the MCU-2P mask used by the United States Military.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Clothing/Mask/gassecurity.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/gassecurity.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
