@@ -56,12 +56,11 @@
 ## escape objective
 - type: entity
   parent: [BaseHitmanObjective, BaseLivingObjective]
-  id: EscapeShuttleObjective
+  id: EscapeShuttleObjectiveHitman
   name: Escape to centcomm alive and unrestrained.
   description: you prepared a escape route at centcomm. try not to get arrested before getting there.
   components:
   - type: Objective
-    difficulty: 1
     unique: true
     icon:
       sprite: Structures/Furniture/chairs.rsi
