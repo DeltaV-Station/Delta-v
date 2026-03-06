@@ -22,8 +22,8 @@
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
-  id: ClothingMaskGasSecurity
-  name: security breath mask # Delta-V - Renamed Sec gas mask. This really doesnt look like an actual gas mask.
+  id: ClothingMaskBreathSecurity
+  name: security breath mask # Delta-V - Changed the name and description for the basegame Sec gas mask, seeing as this really doesn't look like an actual gas mask.
   description: A standard issue armored breath mask for NanoTrasen Security.
   components:
   - type: Item
