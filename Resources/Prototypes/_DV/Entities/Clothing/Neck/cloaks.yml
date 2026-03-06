@@ -76,3 +76,16 @@
     - ClothMade # for whatever reason, these tags aren't being inhereted from the parent
     - WhitelistChameleon
     - GenderCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckHosRobe
+  name: head of security's decadent robe
+  description: a comfy formal robe given to veteran head's of security
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/hosrobe.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/hosrobe.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
