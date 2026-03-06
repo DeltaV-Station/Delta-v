@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: IPC now take 10% more heat damage (instead of 50%)
-    type: Tweak
-  - message: IPC now take 10% less cold damage (instead of 50%)
-    type: Tweak
-  id: 1659
-  time: '2025-09-02T21:44:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4306
 - author: SirWarock
   changes:
   - message: Moved Atmospherics Recipes to their own category!
@@ -4436,4 +4427,14 @@
   id: 2158
   time: '2026-03-06T15:36:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5435
+- author: BarryNorfolk
+  changes:
+  - message: Silicons no longer change their battery usage depending on the temperature
+      around them
+    type: Remove
+  - message: IPCs now once again have working alerts for their batteries
+    type: Fix
+  id: 2159
+  time: '2026-03-06T16:10:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5345
 Order: 1
