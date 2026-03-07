@@ -111,7 +111,7 @@
   parent: BaseGameRule
   id: Hitman
   components:
-  - type: HitmanRule
+  - type: HitmanRule #add this
   - type: AntagObjectives
     objectives:
     - EscapeShuttleObjectiveHitman
