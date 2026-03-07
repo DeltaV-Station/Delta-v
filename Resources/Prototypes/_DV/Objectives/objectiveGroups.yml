@@ -156,17 +156,16 @@
     NTAgentObjectiveGroupPerson: 1
     NTAgentObjectiveGroupAudit: 1
 
-
 - type: weightedRandom
   id: NTAgentObjectiveGroupPerson
   weights:
-    FrameRandomPersonObjective: 0.5
-    FireRandomPersonObjective: 0.5
+    FrameRandomPersonObjective: 1
+    FireRandomPersonObjective: 1
 
 - type: weightedRandom
   id: NTAgentObjectiveGroupAudit
   weights:
-    TestSecurityObjective: 0.25
-    TestEngineeringObjective: 0.25
-    TestMedicalObjective: 0.25
-    DefundDepartmentObjective: 0.25
+    TestSecurityObjective: 1
+    TestEngineeringObjective: 1
+    TestMedicalObjective: 1
+    DefundDepartmentObjective: 1

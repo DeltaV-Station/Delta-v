@@ -7,7 +7,7 @@ NTAgent-role-greeting-human =
 
 NTAgent-briefing =
     You've been implanted with a CentComm Radio Implanter.
-    Use y: to talk through CentComm channels.
+    Use :y to talk through CentComm channels.
 
 objective-issuer-NTAgent = [color=#204cc7]NanoTrasen[/color]
 
