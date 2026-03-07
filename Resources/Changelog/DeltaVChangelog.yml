@@ -1,46 +1,4 @@
 ﻿Entries:
-- author: NoElkaTheGod
-  changes:
-  - message: Added malign injectors, which cosmic cultists can create from any medipen
-      with a glyph of blades. They give a powerful speed boost when used, but be wary
-      of the possible side effects!
-    type: Add
-  id: 1655
-  time: '2025-09-01T20:04:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4194
-- author: Proxysseia
-  changes:
-  - message: Omni patches have been updated to purge radiation as well
-    type: Tweak
-  - message: IPC now heal twice as much per cable
-    type: Tweak
-  id: 1656
-  time: '2025-09-01T21:24:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4283
-- author: AlgisAlphonse
-  changes:
-  - message: Pneumatic cannon can now be equipped in the suit storage slot.
-    type: Tweak
-  id: 1657
-  time: '2025-09-02T05:11:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4299
-- author: NoElkaTheGod
-  changes:
-  - message: You can now examine items to see if they cover your face (or parts of
-      your face, like eyes).
-    type: Add
-  id: 1658
-  time: '2025-09-02T08:25:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4295
-- author: Proxysseia
-  changes:
-  - message: IPC now take 10% more heat damage (instead of 50%)
-    type: Tweak
-  - message: IPC now take 10% less cold damage (instead of 50%)
-    type: Tweak
-  id: 1659
-  time: '2025-09-02T21:44:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4306
 - author: SirWarock
   changes:
   - message: Moved Atmospherics Recipes to their own category!
@@ -4439,4 +4397,44 @@
   id: 2154
   time: '2026-03-04T01:23:21.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5432
+- author: Woljif
+  changes:
+  - message: Sec jetpacks are no longer mini-jetpacks and can hold 3.0L
+    type: Tweak
+  id: 2155
+  time: '2026-03-05T20:46:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5357
+- author: EmberAstra
+  changes:
+  - message: Fixed the Research Digi-Board storage space lacking an UI. Did you even
+      know it had some?
+    type: Fix
+  id: 2156
+  time: '2026-03-05T21:17:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5434
+- author: Stxcking
+  changes:
+  - message: Changed the mailbox sprite!
+    type: Tweak
+  id: 2157
+  time: '2026-03-05T21:18:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5433
+- author: EmberAstra
+  changes:
+  - message: Added the power digi-board! Monitor your energy situation on the move!
+      Find it in CE's locker.
+    type: Add
+  id: 2158
+  time: '2026-03-06T15:36:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5435
+- author: BarryNorfolk
+  changes:
+  - message: Silicons no longer change their battery usage depending on the temperature
+      around them
+    type: Remove
+  - message: IPCs now once again have working alerts for their batteries
+    type: Fix
+  id: 2159
+  time: '2026-03-06T16:10:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5345
 Order: 1

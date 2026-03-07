@@ -1,7 +1,7 @@
 using Content.Shared.Power.Components;
 using Content.Shared._EE.Silicon.Systems;
 using Content.Shared.Bed.Sleep;
-using Content.Server._EE.Silicon.Charge;
+using Content.Shared._DV.Silicons.Charge.Systems; // DeltaV - Moved IPC charge to shared
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 
