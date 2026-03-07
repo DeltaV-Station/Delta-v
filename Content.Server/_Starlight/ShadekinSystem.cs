@@ -1,24 +1,15 @@
 using Content.Shared.Humanoid;
 using Content.Shared.Alert;
-using Content.Shared.Actions;
-using System.Linq;
-using Microsoft.CodeAnalysis;
-using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
 using Content.Shared.Examine;
 using Robust.Server.Containers;
 using Content.Shared._Starlight;
-using Content.Server._Starlight;
 using Content.Shared.Damage.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Movement.Components;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Damage;
 using Content.Server.Chat.Managers;
-using Robust.Shared.Player;
-using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared._Goobstation.Overlays;
 using Robust.Shared.Timing;
@@ -30,10 +21,8 @@ public sealed class ShadekinSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -64,13 +53,12 @@ public sealed class ShadekinSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ShadekinComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<ShadekinComponent, EyeColorInitEvent>(OnEyeColorChange);
-        SubscribeLocalEvent<ShadekinComponent, ShadekinAlertEvent>(OnShadekinAlert);
         SubscribeLocalEvent<ShadekinComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
     }
 
     private void OnInit(EntityUid uid, ShadekinComponent component, ComponentStartup args)
     {
-        UpdateAlert(uid, component);
+        UpdateAlert(uid, component, (short)component.CurrentState);
     }
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)
@@ -82,22 +70,9 @@ public sealed class ShadekinSystem : EntitySystem
         Dirty(uid, humanoid);
     }
 
-    public void UpdateAlert(EntityUid uid, ShadekinComponent component)
+    public void UpdateAlert(EntityUid uid, ShadekinComponent component, short state)
     {
-        _alerts.ShowAlert(uid, component.ShadekinAlert, (short) component.LightExposure);
-    }
-
-    private void OnShadekinAlert(Entity<ShadekinComponent> ent, ref ShadekinAlertEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (TryComp<ActorComponent>(ent.Owner, out var actor))
-        {
-            var msg = Loc.GetString("shadekin-alert-" + ent.Comp.LightExposure);
-            _chatManager.ChatMessageToOne(ChatChannel.Notifications, msg, msg, EntityUid.Invalid, false, actor.PlayerSession.Channel);
-        }
-        args.Handled = true;
+        _alerts.ShowAlert(uid, component.ShadekinAlert, state);
     }
 
     private Angle GetAngle(EntityUid lightUid, SharedPointLightComponent lightComp, EntityUid targetUid)
@@ -134,9 +109,6 @@ public sealed class ShadekinSystem : EntitySystem
 
         foreach (var light in lightQuery)
         {
-            if (HasComp<DarkLightComponent>(light))
-                continue;
-
             if (!light.Comp.Enabled
                 || light.Comp.Radius < 1
                 || light.Comp.Energy <= 0)
@@ -182,23 +154,23 @@ public sealed class ShadekinSystem : EntitySystem
         return illumination;
     }
 
-    private void SetPassiveBuff(EntityUid uid, float state)
+    private void SetPassiveBuff(EntityUid uid, ShadekinState state)
     {
         if (!TryComp<PassiveDamageComponent>(uid, out var passive))
             return;
 
-        if (state >= 2)
+        if (state == ShadekinState.Extreme || state == ShadekinState.Annoying || state == ShadekinState.High)
         {
             passive.DamageCap = 1;
         }
-        else if (state == 1)
+        else if (state == ShadekinState.Low)
         {
             passive.DamageCap = 20;
             passive.AllowedStates.Clear();
             passive.AllowedStates.Add(MobState.Alive);
             passive.Interval = 1f;
         }
-        else
+        else if (state != ShadekinState.Dark)
         {
             passive.DamageCap = 0;
             passive.AllowedStates.Clear();
@@ -209,28 +181,29 @@ public sealed class ShadekinSystem : EntitySystem
         }
     }
 
-    private void ToggleNightVision(EntityUid uid, float state)
+    private void ToggleNightVision(EntityUid uid, ShadekinState state)
     {
-        if (state > 0)
-            RemComp<NightVisionComponent>(uid);
-        else
+        if (state == ShadekinState.Dark)
             EnsureComp<NightVisionComponent>(uid);
+        else
+            RemComp<NightVisionComponent>(uid);
     }
 
-    private void ApplyLightDamage(EntityUid uid, float state)
+    private void ApplyLightDamage(EntityUid uid, ShadekinState state)
     {
-        if (state < 4)
+        if (state != ShadekinState.Extreme)
             return;
 
         var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Heat", 1);
+        damage.DamageDict.Add("Heat", 5);
         _damageable.TryChangeDamage(uid, damage, true, false);
 
     }
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, ShadekinComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (component.LightExposure < 3)
+        if (component.CurrentState == ShadekinState.Low || component.CurrentState == ShadekinState.Annoying ||
+                component.CurrentState == ShadekinState.Dark || component.CurrentState == ShadekinState.Invalid)
             return;
 
         if (!TryComp<MovementSpeedModifierComponent>(uid, out var movement))
@@ -258,31 +231,25 @@ public sealed class ShadekinSystem : EntitySystem
                 lightExposure = GetLightExposure(uid);
 
             if (lightExposure >= 15f)
-                component.LightExposure = 4;
+                component.CurrentState = ShadekinState.Extreme;
             else if (lightExposure >= 10f)
-                component.LightExposure = 3;
+                component.CurrentState = ShadekinState.High;
             else if (lightExposure >= 5f)
-                component.LightExposure = 2;
+                component.CurrentState = ShadekinState.Annoying;
             else if (lightExposure >= 0.8f)
-                component.LightExposure = 1;
+                component.CurrentState = ShadekinState.Low;
             else
-                component.LightExposure = 0;
+                component.CurrentState = ShadekinState.Dark;
 
-            SetPassiveBuff(uid, component.LightExposure);
-            ToggleNightVision(uid, component.LightExposure);
-            ApplyLightDamage(uid, component.LightExposure);
+            UpdateAlert(uid, component, (short)component.CurrentState);
+
+            SetPassiveBuff(uid, component.CurrentState);
+            ToggleNightVision(uid, component.CurrentState);
+            ApplyLightDamage(uid, component.CurrentState);
             _speed.RefreshMovementSpeedModifiers(uid);
 
             if (component.CurrentState == ShadekinState.Extreme)
-                ApplyLightDamage(uid, 5);
-
-            if (TryComp<BodyComponent>(uid, out var body))
-                foreach (var core in _bodySystem.GetBodyOrganEntityComps<OrganShadekinCoreComponent>((uid, body)))
-                    if (core.Comp1.OrganOwner != uid)
-                        ApplyCoreDamage(uid, 1);
-
-            if (TryComp<BrighteyeComponent>(uid, out var brighteye))
-                UpdateEnergy(uid, component, brighteye);
+                ApplyLightDamage(uid, component.CurrentState);
         }
     }
 }
