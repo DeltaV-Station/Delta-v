@@ -70,6 +70,9 @@
     - SecDogWearable # DeltaV - let Laika wear meson goggles
     - PetWearable
     - WhitelistChameleon
+  - type: ClothingGrantComponent # imp
+    component:
+    - type: SupermatterHallucinationImmune
 
 - type: entity
   parent: ClothingEyesBase

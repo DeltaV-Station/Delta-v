@@ -12,6 +12,10 @@
   - Psychologist # DeltaV - Add Psychologist access
   extendedAccess:
   - Chemistry
+  special: # imp
+  - !type:AddComponentSpecial
+    components:
+    - type: PsychologicalSoothingProvider # Delta-V - change from supermatter soother to a more flexible soothing system
 
 - type: startingGear
   id: PsychologistGear

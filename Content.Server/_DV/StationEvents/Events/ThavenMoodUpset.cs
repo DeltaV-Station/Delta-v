@@ -14,10 +14,19 @@ public sealed class ThavenMoodUpset : StationEventSystem<ThavenMoodUpsetRuleComp
     {
         base.Started(uid, comp, gameRule, args);
 
+        if (comp.NewSharedMoods)
+        {
+            _thavenMoods.NewSharedMoods();
+        }
+
         var thavens = EntityQueryEnumerator<ThavenMoodsComponent>();
         while (thavens.MoveNext(out var thavenUid, out var thavenComp))
         {
-            _thavenMoods.AddWildcardMood((thavenUid, thavenComp));
+            if(comp.RefreshPersonalMoods)
+                _thavenMoods.RefreshMoods(thavenUid, thavenComp);
+
+            if(comp.AddWildcardMood)
+                _thavenMoods.AddWildcardMood((thavenUid, thavenComp));
         }
     }
 }

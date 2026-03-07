@@ -1,5 +1,5 @@
-﻿using Content.Shared.Random;
-using Content.Shared.Storage;
+﻿using Content.Shared.Storage;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.VariationPass.Components;
@@ -24,4 +24,10 @@ public sealed partial class EntitySpawnVariationPassComponent : Component
     /// </summary>
     [DataField(required: true)]
     public List<EntitySpawnEntry> Entities = default!;
+
+    /// <summary>
+    ///     Delta-V: Skip spawning an entity if another entity with any of these tags exists on the tile.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype>[]? TagsBlacklist;
 }
