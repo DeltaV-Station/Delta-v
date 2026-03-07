@@ -1,7 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Lightning;
 using Content.Server.Popups;
-using Content.Server._EE.Silicon.Charge;
+using Content.Shared._DV.Silicons.Charge.Systems; // DeltaV - Moved IPC charge to shared
 using Content.Shared._EE.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
 using Content.Shared.Damage;

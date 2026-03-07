@@ -71,6 +71,17 @@
     stealGroup: BibleMystagogue
     owner: job-name-rd
 
+# Chief Engineer steal objective
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CeClipboardStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: StealCondition
+    stealGroup: BoxFolderCeClipboard
+    owner: job-name-ce
+
 # teach lesson
 - type: entity
   abstract: true
