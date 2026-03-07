@@ -1,7 +1,8 @@
 - type: alert
   id: Shadekin
-  clickEvent: !type:ShadekinAlertEvent { }
   icons:
+  - sprite: error.rsi
+    state: error
   - sprite: /Textures/_Starlight/Interface/Alerts/shadekin.rsi
     state: dark
   - sprite: /Textures/_Starlight/Interface/Alerts/shadekin.rsi
@@ -13,6 +14,6 @@
   - sprite: /Textures/_Starlight/Interface/Alerts/shadekin.rsi
     state: dangerous
   minSeverity: 0
-  maxSeverity: 4
+  maxSeverity: 5
   name: alerts-shadekin-name
   description: alerts-shadekin-desc
