@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Moved Atmospherics Recipes to their own category!
-    type: Tweak
-  id: 1660
-  time: '2025-09-03T17:04:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4320
 - author: turtlemutt
   changes:
   - message: Felinids now take a normal amount of slash and pierce damage. Dufflebag
@@ -4437,4 +4430,11 @@
   id: 2159
   time: '2026-03-06T16:10:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5345
+- author: marigauge
+  changes:
+  - message: reverted soretizone changes hopefully fixing flashing
+    type: Fix
+  id: 2160
+  time: '2026-03-07T09:45:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5391
 Order: 1
