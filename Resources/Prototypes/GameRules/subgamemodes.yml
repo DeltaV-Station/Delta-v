@@ -111,7 +111,7 @@
   parent: BaseGameRule
   id: Hitman
   components:
-  - type: HitmanRule #add this
+  - type: HitmanRule 
   - type: AntagObjectives
     objectives:
     - EscapeShuttleObjectiveHitman
@@ -136,7 +136,7 @@
       multiAntagSetting: NotExclusive
       startingGear: HitmanGear 
       mindRoles:
-      - MindRoleHitman #add this!!
+      - MindRoleHitman 
       briefing:
         sound: "" #add this!
   - type: DynamicRuleCost
