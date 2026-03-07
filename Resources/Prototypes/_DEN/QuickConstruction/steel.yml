@@ -1,0 +1,30 @@
+- type: quickConstructionCategory
+  id: Steel
+  constructionEntries:
+  - MachineFrame
+  - Computer
+  - Girder
+  - MetalRod
+  categoryEntries:
+  - Pipes
+  - SteelTiles
+
+- type: quickConstructionCategory
+  id: Pipes
+  name: quickconstruction-category-pipe
+  icon: { sprite: Structures/Piping/Atmospherics/pipe.rsi, state: storageStraight }
+  constructionEntries:
+  - GasPipeStraight
+  - GasPipeBend
+  - GasPipeTJunction
+  - GasPipeFourway
+  - GasPipeManifold
+
+- type: quickConstructionCategory
+  id: SteelTiles
+  name: quickconstruction-category-tile
+  icon: { sprite: Objects/Tiles/tile.rsi, state: steel }
+  constructionEntries:
+  - TileDark
+  - TileWhite
+  - TileSteel
