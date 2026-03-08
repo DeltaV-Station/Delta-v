@@ -43,5 +43,5 @@ public sealed partial class CCVars : CVars
     ///     TODO: Move this to the proper file. I dunno which, just not the main one.
     /// </summary>
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
-        CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
+        CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVER | CVar.REPLICATED); // DeltaV - Move IPC charge to shared
 }
