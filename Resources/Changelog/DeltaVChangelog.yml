@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Moved Atmospherics Recipes to their own category!
-    type: Tweak
-  id: 1660
-  time: '2025-09-03T17:04:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4320
-- author: turtlemutt
-  changes:
-  - message: Felinids now take a normal amount of slash and pierce damage. Dufflebag
-      mains rejoice!
-    type: Tweak
-  id: 1661
-  time: '2025-09-03T17:05:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4269
-- author: SirWarock
-  changes:
-  - message: Fixed Chemistry and Mechanical Surgical Gloves showing fingerprints!
-    type: Fix
-  id: 1662
-  time: '2025-09-04T05:01:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4314
 - author: kotobdev
   changes:
   - message: Colossus hitbox has been made MUCH larger.
@@ -4437,4 +4415,26 @@
   id: 2159
   time: '2026-03-06T16:10:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5345
+- author: marigauge
+  changes:
+  - message: reverted soretizone changes hopefully fixing flashing
+    type: Fix
+  id: 2160
+  time: '2026-03-07T09:45:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5391
+- author: Pharaz4
+  changes:
+  - message: Added kitchen freezer.
+    type: Add
+  id: 2161
+  time: '2026-03-07T16:24:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5443
+- author: Cepelinas1
+  changes:
+  - message: 'A new antag role has been added: Internal Affairs! NanoTrasen is hiring
+      any employees who would love to protect the company.'
+    type: Add
+  id: 2162
+  time: '2026-03-07T20:35:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5450
 Order: 1
