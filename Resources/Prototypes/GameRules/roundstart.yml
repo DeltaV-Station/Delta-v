@@ -30,6 +30,10 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
+    #begin stormyatt DeltaV additions - add hitman
+    - id: HitmanMode
+      prob: 0.5 #think it can match thief
+    # end stormyatt deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -45,6 +49,10 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
+    #begin stormyatt DeltaV additions - add hitman
+    - id: HitmanMode
+      prob: 0.5 #think it can match thief
+    # end stormyatt deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
