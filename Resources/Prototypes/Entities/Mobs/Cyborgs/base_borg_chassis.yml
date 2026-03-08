@@ -110,6 +110,7 @@
   #  doAfterDelay: 10
   #  allowSelfRepair: false
   - type: WeldingHealable
+    doAfterDelay: 10 
     allowSelfHeal: true # DeltaV - was false
   # End DeltaV Changes
   - type: BorgChassis

@@ -112,6 +112,10 @@
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: Damageable
+      damageModifierSet: SyndicateAssaultBorg #DeltaV
+    - type: ExplosionResistance #DeltaV, RPG won't gib it.
+      damageCoefficient: 0.5
 
 - type: entity
   id: BorgChassisSyndicateMedical
@@ -392,3 +396,7 @@
     noMindState: synd_sec_derelict
   - type: Construction
     node: derelictcyborg
+  - type: Damageable
+    damageModifierSet: SyndicateAssaultBorg #DeltaV 
+  - type: ExplosionResistance #DeltaV, RPG won't gib it.
+    damageCoefficient: 0.5

@@ -334,3 +334,13 @@
   id: ManifestedSpirit
   coefficients:
     Holy: 2
+
+# Slash and Blunt weaker rewarding smart play and ambushes, Pierce and heat for the guns and lasers that station has, Plus your a goddamn assault borg you SHOULD be reinforced against this. For Delta-V
+- type: damageModifierSet
+  id: SyndicateAssaultBorg
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.65
+    Heat: 0.65
+    Cold: 0.65
