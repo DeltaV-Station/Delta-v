@@ -4,8 +4,8 @@
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
-      !type:DepartmentTimeRequirement
-      department: Chemistry
+      !type:RoleTimeRequirement
+      role: JobChemist
       time: 60h
 
 # Jumpsuit
