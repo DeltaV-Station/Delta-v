@@ -5,8 +5,7 @@ using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
 
-// DeltaV - Change required flag from Server to Ban. If you are able to ban, the panic bunker turns off on join. You should be able to turn it back on.
-[AdminCommand(AdminFlags.Ban)]
+[AdminCommand(AdminFlags.Ban)] // DeltaV - Change required flag from Server to Ban. If you are able to ban, the panic bunker turns off on join. You should be able to turn it back on.
 public sealed class PanicBunkerCommand : LocalizedCommands
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
