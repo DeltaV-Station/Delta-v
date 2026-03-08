@@ -1683,10 +1683,11 @@
   loadouts:
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
-  - ScarfBlue # DeltaV
-  - Stethoscope # DeltaV
   - ChiefMedicalOfficerOverTheShoulderCoat # DeltaV - Medical Clothing Overhaul
   - ChiefMedicalOfficerShawl # DeltaV - Medical Clothing Overhaul
+  - ScarfBlue # DeltaV
+  - ScarfLightBlue #DeltaV
+  - Stethoscope # DeltaV
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes
@@ -1711,13 +1712,13 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
+  - BlueMedicalBeret # DeltaV - Medical Clothing Overhaul
   - SeniorPhysicianBeret
   - MedicalHeadMirror
   - BlueSurgeryCap
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
-  - BlueMedicalBeret # DeltaV - Medical Clothing Overhaul
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1896,6 +1897,8 @@
   - BlueShoes
   - WhiteShoes
   - BlackShoes # DeltaV
+  - LeatherShoes # DeltaV
+  - LaceupShoes # DeltaV
   - MedicalWinterBoots
   - ParamedicWinterBoots # DeltaV
 
@@ -1953,7 +1956,16 @@
   loadouts:
   - PsychologistJumpsuit
   - PsychologistJumpskirt
-
+  # Begin DeltaV Additions
+  - MedicalVestJumpsuit #DevltaV - Medical Clothing Overhaul
+  - MedicalVestJumpskirt #DevltaV - Medical Clothing Overhaul
+  - BlueTurtleneckJumpsuit
+  - BlueTurtleneckJumpskirt
+  - DarkBlueTurtleneckJumpsuit
+  - DarkBlueTurtleneckJumpskirt
+  - WhiteTurtleneckJumpsuit
+  - WhiteTurtleneckJumpskirt
+  # End DeltaV Additions
 - type: loadoutGroup
   id: PsychologistJobTrinkets
   name: loadout-group-jobtrinkets
