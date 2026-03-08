@@ -1,3 +1,13 @@
+# Senior Time
+- type: loadoutEffectGroup
+  id: SeniorChemist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Chemistry
+      time: 60h
+
 # Jumpsuit
 - type: loadout
   id: ChemistFormalSuit
@@ -9,11 +19,40 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemShirt
 
+- type: loadout
+  id: SeniorChemistJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChemist
+  equipment:
+    jumpsuit: ClothingUniformChemistSenior
+
+- type: loadout
+  id: SeniorChemistJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChemist
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChemistSenior
+
 # OuterClothing
 - type: loadout
   id: ChemistApron
   equipment:
     outerClothing: ClothingOuterApronChemist
+
+- type: loadout
+  id: SeniorChemistLabCoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChemist
+  equipment:
+    outerClothing: ClothingOuterCoatLabSeniorChemist
+
+- type: loadout
+  id: ChemistLongLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabLongChemist
 
 # Gloves
 - type: loadout
@@ -48,3 +87,12 @@
   id: PharmacistPDA
   equipment:
     id: PharmacistPDA
+
+# Head
+- type: loadout
+  id: SeniorChemistBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChemist
+  equipment:
+      head: ClothingHeadHatBeretSeniorChemistry

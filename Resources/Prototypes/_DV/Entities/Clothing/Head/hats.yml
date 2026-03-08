@@ -368,14 +368,14 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatBeretChemistry
+  id: ClothingHeadHatBeretSeniorChemistry
   name: chemist senior beret
   description: A white beret with blue and orange accents, a sign of skill and prestige within the chemistry lab.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Head/Hats/beret_chemistry.rsi
+    sprite: _DV/Clothing/Head/Hats/beret_senior_chemist.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Head/Hats/beret_chemistry.rsi
+    sprite: _DV/Clothing/Head/Hats/beret_senior_chemist.rsi
 
 - type: entity
   parent: ClothingHeadBase

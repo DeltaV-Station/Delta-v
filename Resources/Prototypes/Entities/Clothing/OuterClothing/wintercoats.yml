@@ -259,18 +259,18 @@
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/WinterCoats/cmo.rsi # Delta V - Recolor to match department color
     layers:
-    - state: CMO-icon
+    - state: icon
   - type: Item
     inhandVisuals:
       left:
-      - state: CMO-inhand-left
+      - state: inhand-left
       right:
-      - state: CMO-inhand-right
+      - state: inhand-right
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/cmo.rsi # Delta V - Recolor to match department color
     clothingVisuals:
       outerClothing:
-      - state: CMO-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -475,18 +475,18 @@
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # Delta V - Recolor to match department color
     layers:
-    - state: MED-icon
+    - state: icon
   - type: Item
     inhandVisuals:
       left:
-      - state: MED-inhand-left
+      - state: inhand-left
       right:
-      - state: MED-inhand-right
+      - state: inhand-right
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # Delta V - Recolor to match department color
     clothingVisuals:
       outerClothing:
-      - state: MED-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
