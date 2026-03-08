@@ -257,7 +257,7 @@
   name: chief medical officer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cmo.rsi # Delta V - Recolor to match department color
     layers:
     - state: CMO-icon
   - type: Item
@@ -267,7 +267,7 @@
       right:
       - state: CMO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cmo.rsi # Delta V - Recolor to match department color
     clothingVisuals:
       outerClothing:
       - state: CMO-equipped-OUTERCLOTHING
@@ -473,7 +473,7 @@
   name: medical winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # Delta V - Recolor to match department color
     layers:
     - state: MED-icon
   - type: Item
@@ -483,7 +483,7 @@
       right:
       - state: MED-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # Delta V - Recolor to match department color
     clothingVisuals:
       outerClothing:
       - state: MED-equipped-OUTERCLOTHING

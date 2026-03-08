@@ -354,3 +354,36 @@
     sprite: _DV/Clothing/Head/Hats/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/elf.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMedical
+  name: medical beret
+  description: A light blue beret with a white cross.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_medical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_medical.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretChemistry
+  name: chemist senior beret
+  description: A white beret with blue and orange accents, a sign of skill and prestige within the chemistry lab.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_chemistry.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_chemistry.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretParamedic
+  name: paramedic beret
+  description: A dark blue beret with a white cross.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_paramedic.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_paramedic.rsi
