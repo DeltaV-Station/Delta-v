@@ -1,0 +1,67 @@
+using System.Numerics;
+using Content.Shared._DV.Footprints.Components;
+using Content.Shared.Decals;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map.Components;
+
+namespace Content.Shared._DV.Footprints.EntitySystems;
+
+public sealed class DecalScrubberSystem : EntitySystem
+{
+    [Dependency] private readonly SharedDecalSystem _decal = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<DecalScrubberComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<DecalScrubberComponent, DecalScrubberDoAfterEvent>(OnDoAfter);
+    }
+
+    private void OnDoAfter(Entity<DecalScrubberComponent> ent, ref DecalScrubberDoAfterEvent args)
+    {
+        if (args.Cancelled
+            || ent.Comp.LastClick is not { } loc
+            || _transform.GetGrid(loc) is not { } grid
+            || !TryComp<DecalGridComponent>(grid, out var decalGrid))
+            return;
+
+        var decals = _decal.GetDecalsInRange(grid, loc.Position, ent.Comp.Radius, decal => decal.Cleanable);
+
+        foreach (var (id, _) in decals)
+        {
+            _decal.RemoveDecal(loc.EntityId, id, decalGrid);
+        }
+
+        _audio.PlayPredicted(ent.Comp.ScrubSound, loc, args.User);
+    }
+
+    private void OnAfterInteract(Entity<DecalScrubberComponent> ent, ref AfterInteractEvent args)
+    {
+        if (!args.CanReach || args.Handled || args.Target != null)
+            return;
+
+        ent.Comp.LastClick = args.ClickLocation;
+
+        var ev = new DecalScrubberDoAfterEvent();
+        var doArgs = new DoAfterArgs(_entityManager, args.User, ent.Comp.DoAfterLength, ev, ent.Owner)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            NeedHand = true,
+        };
+
+        if (_doAfter.TryStartDoAfter(doArgs))
+            _popup.PopupPredicted(Loc.GetString("decal-scrubber-popup", ("user", args.User)), ent.Owner, args.User);
+    }
+}
