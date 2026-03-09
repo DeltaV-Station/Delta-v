@@ -1,24 +1,4 @@
 ﻿Entries:
-- author: TehFlaminTaco
-  changes:
-  - message: New fancy scream effect for the Shatter Lights ability.
-    type: Add
-  - message: Can now purchase Night Vision and Thermal Goggles from an uplink.
-    type: Add
-  - message: Salvagers can purchase Night Vision goggles from their vending machine.
-    type: Add
-  - message: Skia now also get Thermal Vision.
-    type: Add
-  - message: Night Vision and Thermal Goggles are no-longer craftable at Lathes, except
-      Night Visions at Seclathes
-    type: Remove
-  - message: Nukies no-longer spawn with Night Visions, Buy some.
-    type: Remove
-  - message: Skia can now mouse walk through doors.
-    type: Tweak
-  id: 1665
-  time: '2025-09-07T08:11:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4308
 - author: SirWarock
   changes:
   - message: Defibrillator Cabinets now recharge the battery within!
@@ -4436,4 +4416,13 @@
   id: 2164
   time: '2026-03-09T09:43:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5398
+- author: snowywinters
+  changes:
+  - message: Watchdogs now work as a death rattle also decreased the price to 9k
+    type: Tweak
+  - message: Fixed watchdogs not working
+    type: Fix
+  id: 2165
+  time: '2026-03-09T10:17:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5475
 Order: 1
