@@ -1,4 +1,6 @@
 using Content.Shared._DV.Footprints.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Decals;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -15,6 +17,7 @@ public sealed class DecalScrubberSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     public override void Initialize()
     {
@@ -31,6 +34,21 @@ public sealed class DecalScrubberSystem : EntitySystem
             || _transform.GetGrid(loc) is not { } grid
             || !TryComp<DecalGridComponent>(grid, out var decalGrid))
             return;
+
+        if (ent.Comp.CleaningSolutionName is { } solutionName &&
+            _solution.TryGetSolution(ent.Owner, solutionName, out var solutionOpt) &&
+            solutionOpt is {} solutionEnt)
+        {
+            var solution = solutionEnt.Comp.Solution;
+            var toRemove = new ReagentQuantity(ent.Comp.CleaningReagent.Id, ent.Comp.CleaningReagentCost);
+            if (solution.GetReagentQuantity(toRemove.Reagent) <= ent.Comp.CleaningReagentCost)
+            {
+                _popup.PopupPredicted(Loc.GetString("decal-scrubber-dry-popup", ("user", args.User)), ent.Owner, args.User);
+                return;
+            }
+
+            _solution.RemoveReagent(solutionEnt, toRemove);
+        }
 
         var decals = _decal.GetDecalsInRange(grid, loc.Position, ent.Comp.Radius, decal => decal.Cleanable);
 

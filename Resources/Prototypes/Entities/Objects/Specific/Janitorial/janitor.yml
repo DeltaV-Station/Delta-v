@@ -59,6 +59,7 @@
     - Janitorial
   - type: DnaSubstanceTrace
   - type: DecalScrubber # DeltaV
+    cleaningSolutionName: absorbed
 
 - type: entity
   parent: MopItem
@@ -96,6 +97,7 @@
         - MopAdv
     - type: DnaSubstanceTrace
     - type: DecalScrubber # DeltaV
+      cleaningSolutionName: absorbed
 
 - type: entity
   name: wet floor sign
