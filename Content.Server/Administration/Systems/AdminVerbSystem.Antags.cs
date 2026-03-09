@@ -247,8 +247,8 @@ public sealed partial class AdminVerbSystem
         args.Verbs.Add(agent);
         // End DeltaV Additions
         // start stormyatt DeltaV Additions 
-        var ntAgent = Loc.GetString("admin-verb-make-Hitman");
-        Verb agent = new()
+        var hitman = Loc.GetString("admin-verb-make-Hitman");
+        Verb hitmans = new()
         {
             Text = hitman,
             Category = VerbCategory.Antag,
@@ -260,7 +260,7 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.High,
             Message = string.Join(": ", ntAgent, Loc.GetString("admin-verb-text-make-Hitman")),
         };
-        args.Verbs.Add(agent);
+        args.Verbs.Add(hitmans);
         // end stormyatt DeltaV additions
         // Harmony start
         var conspiratorName = Loc.GetString("admin-verb-text-make-conspirator");
