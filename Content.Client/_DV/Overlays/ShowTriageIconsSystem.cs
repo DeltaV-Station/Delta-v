@@ -12,9 +12,9 @@ namespace Content.Client._DV.Overlays;
 
 public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsComponent>
 {
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
 
     private static readonly ProtoId<HealthIconPrototype> Minor = "TriageStatusMinor";
     private static readonly ProtoId<HealthIconPrototype> Delayed = "TriageStatusDelayed";
@@ -47,10 +47,8 @@ public sealed class ShowTriageIconsSystem : EquipmentHudSystem<ShowTriageIconsCo
             _ => null,
         };
 
-        if (triageStatusIcon is not { } statusPrototype)
-            return;
-
-        ev.StatusIcons.Add(statusPrototype);
+        if (triageStatusIcon is { } statusPrototype)
+            ev.StatusIcons.Add(statusPrototype);
 
         if (ent.Comp.Record.ClaimedName is not { } claimedName)
         {
