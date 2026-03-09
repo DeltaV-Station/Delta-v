@@ -34,18 +34,17 @@
       - behavior: Prying
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
-          #deltav changes
-          state: base # deltaV changes
+          state: base # DeltaV Wrenchcrowbar fix - Was "wrench"
         useSound:
           path: /Audio/Items/crowbar.ogg
-      # deltav changes
+      # Begin DeltaV additions - Wrenchcrowbar fix
       - behavior: Anchoring
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
           state: wrench
         useSound:
           path: /Audio/Items/ratchet.ogg
-          #deltav changes end
+      # End DeltaV additions
 
 - type: entity
   name: makeshift crowbar-wrench-screwdriver
