@@ -148,3 +148,24 @@
   id: AsakimObjectiveGroupAlly
   weights:
     AsakimAllyObjective: 1
+
+# NTAgent
+- type: weightedRandom
+  id: NTAgentObjectiveGroup
+  weights:
+    NTAgentObjectiveGroupPerson: 1
+    NTAgentObjectiveGroupAudit: 1
+
+- type: weightedRandom
+  id: NTAgentObjectiveGroupPerson
+  weights:
+    FrameRandomPersonObjective: 1
+    FireRandomPersonObjective: 1
+
+- type: weightedRandom
+  id: NTAgentObjectiveGroupAudit
+  weights:
+    TestSecurityObjective: 1
+    TestEngineeringObjective: 1
+    TestMedicalObjective: 1
+    DefundDepartmentObjective: 1
