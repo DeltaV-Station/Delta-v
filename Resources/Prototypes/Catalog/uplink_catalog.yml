@@ -1764,16 +1764,16 @@
     Telecrystal: 14 # DeltaV - was 12
   categories:
   - UplinkWearables
-# begin delta v changes
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 8
 #  conditions:
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
 #      - NukeOpsUplink
-#end delta v changes
+# Begin DeltaV additions
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+# End DeltaV additions
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
