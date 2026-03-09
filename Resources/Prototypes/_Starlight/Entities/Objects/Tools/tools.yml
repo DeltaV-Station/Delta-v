@@ -35,7 +35,7 @@
         sprite:
           sprite: _Starlight/Objects/Tools/makeshift_omnitool.rsi
           #deltav changes
-          state: base
+          state: base # deltaV changes
         useSound:
           path: /Audio/Items/crowbar.ogg
       - behavior: Anchoring
