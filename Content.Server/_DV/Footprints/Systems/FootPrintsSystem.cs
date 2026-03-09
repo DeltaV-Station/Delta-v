@@ -43,7 +43,10 @@ public sealed partial class FootPrintsSystem : EntitySystem
     private void OnMove(Entity<FootPrintsComponent> ent, ref MoveEvent args)
     {
         if (ent.Comp.PrintsColor.A <= 0f)
+        {
+            ent.Comp.ColorQuantity = 0;
             return;
+        }
 
         if (_flightQuery.TryComp(ent, out var flight) && _flight.IsFlying((ent, flight)))
             return;
