@@ -53,7 +53,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         Log.Info($"Selected {preset.ID} as the secret preset.");
         _adminLogger.Add(LogType.EventStarted, $"Selected {preset.ID} as the secret preset.");
 
-        if (_configurationManager.GetCVar(DCCVars.EnableBacktoBack) == true) // DeltaV
+        if (_configurationManager.GetCVar(DCCVars.EnablePresetCooldowns)) // DeltaV
         {
             if (preset.Cooldown > 0) // Begin Imp
             {
@@ -187,7 +187,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             if (ruleComp.MinTotalPlayers > totalPlayers) return false; // DeltaV
         }
 
-        if (_configurationManager.GetCVar(DCCVars.EnableBacktoBack) == true) // DeltaV
+        if (_configurationManager.GetCVar(DCCVars.EnablePresetCooldowns)) // DeltaV
         {
             if (_nextRoundAllowed.ContainsKey(selected.ID) && _nextRoundAllowed[selected.ID] > _ticker.RoundId) // Begin Imp
             {
