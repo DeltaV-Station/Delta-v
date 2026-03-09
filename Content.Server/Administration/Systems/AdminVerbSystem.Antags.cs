@@ -258,7 +258,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<HitmanRuleComponent>(targetPlayer, "HitmanRule");
             },
             Impact = LogImpact.High,
-            Message = string.Join(": ", ntAgent, Loc.GetString("admin-verb-text-make-Hitman")),
+            Message = string.Join(": ", hitman, Loc.GetString("admin-verb-text-make-Hitman")),
         };
         args.Verbs.Add(hitmans);
         // end stormyatt DeltaV additions

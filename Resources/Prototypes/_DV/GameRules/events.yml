@@ -404,10 +404,11 @@
     - min: 1
       max: 2
       pickPlayer: true
+      startingGear: HitmanGear
       briefing:
         text: Hitman-role-greeting-human
         color: yellow
-        sound: Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.mp3
+        sound: /Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.mp3
       mindRoles:
       - MindRoleHitman
       
