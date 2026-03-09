@@ -36,6 +36,8 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public EntProtoId Attack1Vfx = "CosmicColossusAttack1Vfx";
 
+    [DataField] public EntProtoId UpgradeVfx = "ColossusUpgradeVFX";
+
     [DataField] public EntProtoId TileDetonations = "MobTileDamageZone";
 
     [DataField] public EntProtoId EffigyPrototype = "CosmicEffigy";
@@ -52,13 +54,17 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public TimeSpan HibernationWait = TimeSpan.FromSeconds(30);
 
-    [DataField] public TimeSpan DeathWait = TimeSpan.FromMinutes(15);
+    [DataField] public TimeSpan DeathWaitSpawn = TimeSpan.FromMinutes(15);
+
+    [DataField] public TimeSpan DeathWaitEffigy = TimeSpan.FromMinutes(10);
 
     [DataField] public bool Attacking;
 
     [DataField] public bool Hibernating;
 
     [DataField] public bool Timed;
+
+    [DataField] public bool CompletedFirstEffigy;
 }
 
 [Serializable, NetSerializable]
