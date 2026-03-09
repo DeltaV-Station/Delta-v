@@ -515,12 +515,12 @@
       unlitIdleState: unlit # DeltaV - added animation sprite layers
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
-      - AmmoFabAmmoStatic
-      - AmmoFabShotgunDrumsStatic
-      - AmmoFabPracticeStatic
-      - AmmoFabRubberAmmoStatic
+      - SecurityAmmoStatic
+      - SecurityShotgunDrumsStatic
+      - SecurityPracticeStatic
+      - SecurityRubberAmmoStatic
       dynamicPacks:
-      - AmmoFabAmmo
+      - SecurityAmmo
     # End DeltaV Additions
     - type: BlueprintReceiver
       whitelist:
