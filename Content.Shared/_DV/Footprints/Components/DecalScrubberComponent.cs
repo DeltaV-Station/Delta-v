@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.DoAfter;
 using Content.Shared.Fluids;
 using Robust.Shared.Audio;

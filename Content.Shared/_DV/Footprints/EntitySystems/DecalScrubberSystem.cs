@@ -1,11 +1,9 @@
-using System.Numerics;
 using Content.Shared._DV.Footprints.Components;
 using Content.Shared.Decals;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map.Components;
 
 namespace Content.Shared._DV.Footprints.EntitySystems;
 
@@ -17,7 +15,6 @@ public sealed class DecalScrubberSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
