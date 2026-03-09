@@ -6,8 +6,8 @@
 
 # engineer
 - type: entity
-  id: UndeterminedVoidsuitEngineer
-  name: engineer voidsuit selector
+  id: UndeterminedsuitEngineer
+  name: engineer suit selector
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
   parent: BaseItem
   components:
@@ -20,8 +20,8 @@
     - VoidsuitSelectorEngineerVoidsuit
     - VoidsuitSelectorEngineerHardsuit
     maxSelectedSets: 1
-    toolName: selectable-set-voidsuit-title
-    toolDesc: selectable-set-voidsuit-description
+    toolName: selectable-set-engisuit-title
+    toolDesc: selectable-set-engisuit-description
     #Delta V additions end
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key

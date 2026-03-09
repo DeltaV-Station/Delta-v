@@ -1,0 +1,49 @@
+# Engineering Void Suit Locker
+- type: entity
+  id: LockerEngineerFilledVoidsuit
+  suffix: Filled, Void suit
+  parent: LockerEngineerFilled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerEngineer
+        - !type:NestedSelector
+          tableId: FillEngineerVoidsuit
+
+# Undetermined Engineering Suit Locker
+- type: entity
+  id: LockerEngineerFilledSelector
+  suffix: Filled, Undetermined
+  parent: LockerEngineerFilled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerEngineer
+        - !type:NestedSelector
+          tableId: FillEngineerUndetermined
+
+# Engineering Void Suit Table
+- type: entityTable
+  id: FillEngineerVoidsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterVoidsuitEngineering
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingMaskBreath
+
+# Undetermined Engineering Suit Table
+- type: entityTable
+  id: FillEngineerUndetermined
+  table: !type:AllSelector
+    children:
+    - id: UndeterminedsuitEngineer
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingMaskBreath

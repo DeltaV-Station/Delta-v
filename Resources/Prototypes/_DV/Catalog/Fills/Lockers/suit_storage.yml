@@ -274,3 +274,29 @@
         tableId: FillSuitStorageScienceEVA
   - type: AccessReader
     access: [["Research"]]
+
+#Engineering voidsuit
+- type: entity
+  id: SuitStorageEngiVoidsuit
+  parent: SuitStorageBase
+  suffix: Station Engineer, Voidsuit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillEngineerVoidsuit
+  - type: AccessReader
+    access: [["Engineering"]]
+
+#Engineering undetermined suit
+- type: entity
+  id: SuitStorageEngiUndetermined
+  parent: SuitStorageBase
+  suffix: Station Engineer, Undetermined
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillEngineerUndetermined
+  - type: AccessReader
+    access: [["Engineering"]]
