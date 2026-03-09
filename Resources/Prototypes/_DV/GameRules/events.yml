@@ -380,6 +380,38 @@
         implants:
         - RadioImplantCentcomm
 
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: HitmanRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeShuttleObjectiveHitman
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroupKill
+      prob: 1
+      maxPicks: 1
+    - groups: HitmanObjectiveGroupModifer
+      maxPicks: 2
+    maxDifficulty: 3
+
+  - type: AntagSelection
+    agentName: Hitman-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      briefing:
+        text: Hitman-role-greeting-human
+        color: yellow
+        sound: Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.mp3
+      mindRoles:
+      - MindRoleHitman
+      
+
 # nt agent sleeper event
 - type: entity
   id: NTAgentSleeper
