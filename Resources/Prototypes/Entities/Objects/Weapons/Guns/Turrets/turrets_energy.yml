@@ -89,6 +89,8 @@
   - type: DeployableTurret
     retractedDamageModifierSetId: RetractedAITurret #DeltaV
     deployedDamageModifierSetId: DeployedAITurret #DeltaV
+  - type: ExplosionResistance # DeltaV
+    damageCoefficient: 0.75
   - type: Damageable
     damageModifierSet: Metallic
   - type: Repairable
