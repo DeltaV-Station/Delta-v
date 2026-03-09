@@ -151,6 +151,12 @@
 
 ##hitman
 - type: weightedRandom
+  id: HitmanObjectiveGroup
+  weights:
+    HitmanObjectiveGroupKill: 1
+    HitmanObjectiveGroupModifer: 1
+
+- type: weightedRandom
   id: HitmanObjectiveGroupKill
   weights:
     HitmanTeachLessonRandomPersonObjective: 1
@@ -169,6 +175,7 @@
     HitmanPublicObjective: 1
     HitmanNoticeObjective: 1
     HitmanTraumaObjective: 1
+
 
 # NTAgent
 - type: weightedRandom
