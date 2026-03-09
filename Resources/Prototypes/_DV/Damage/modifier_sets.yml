@@ -168,3 +168,19 @@
     Slash: 40
     Piercing: 15
     Heat: 10
+
+- type: damageModifierSet
+  id: BlastDoor
+  coefficients:
+   Blunt: 0.5
+   Slash: 0.3
+   Piercing: 0.5
+   Heat: 0.3
+   Shock: 0.8
+   Structural: 0.7
+  flatReductions:
+    Structural: 5
+    Blunt: 10
+    Slash: 10
+    Piercing: 10
+    Heat: 10

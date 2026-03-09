@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BlastDoor
   parent: BaseShutter
   name: blast door
@@ -33,7 +33,9 @@
     resistance: 8
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StrongMetallic
+    damageModifierSet: BlastDoor #DeltaV
+  - type: ExplosionResistance #DeltaV
+    damageCoefficient: 0.25
   - type: ContainerFill
     containers:
       board: [ DoorElectronics ]
