@@ -15,13 +15,13 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
-using Content.Shared.Mind.Components;
+using Content.Shared.Mind.Components; // DeltaV - Admin QOL
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
-using Content.Shared.SSDIndicator;
+using Content.Shared.SSDIndicator; // DeltaV - Admin QOL
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;

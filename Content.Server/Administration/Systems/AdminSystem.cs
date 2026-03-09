@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
-using Content.Server.Administration.Notes;
+using Content.Server.Administration.Notes; // DeltaV - Admin QOL
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Hands.Systems;
@@ -13,7 +13,7 @@ using Content.Shared.Administration.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost; // DeltaV - Admin QOL
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
