@@ -1,28 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Added a new Sprite for Operating tables!
-    type: Add
-  - message: Operating Tables now speed up Surgery by 1.25x!
-    type: Tweak
-  - message: Added sprites for each mode of the advanced operating table!
-    type: Add
-  - message: The Stasis mode of the advanced operating table now speeds up surgery
-      by 1.25x.
-    type: Tweak
-  - message: The Speed mode of the advanced operating table now speeds up surgery
-      by 1.5x.
-    type: Tweak
-  id: 1669
-  time: '2025-09-08T11:56:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4333
-- author: SirWarock
-  changes:
-  - message: Removed the Alive Icon!
-    type: Remove
-  id: 1670
-  time: '2025-09-08T19:48:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4317
 - author: kotobdev
   changes:
   - message: 'From Impstation: Vox can now chitter, coo, hiss, and cry!'
@@ -4426,4 +4402,20 @@
   id: 2168
   time: '2026-03-09T11:48:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5427
+- author: verybigman311
+  changes:
+  - message: Electropacks can no longer be removed by non-Security.
+    type: Tweak
+  - message: Shock collars work once more.
+    type: Fix
+  id: 2169
+  time: '2026-03-09T13:32:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5332
+- author: rebe83
+  changes:
+  - message: Makeshift crowbar-wrench now actually does wrenchy things.
+    type: Fix
+  id: 2170
+  time: '2026-03-09T13:31:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5388
 Order: 1
