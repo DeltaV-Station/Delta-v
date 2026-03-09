@@ -13,6 +13,7 @@ using Content.Server.Chat.Managers;
 using Content.Shared.Damage.Systems;
 using Content.Shared._Goobstation.Overlays;
 using Robust.Shared.Timing;
+using Content.Server.Body.Components;
 
 
 namespace Content.Server._Starlight;
@@ -59,6 +60,7 @@ public sealed class ShadekinSystem : EntitySystem
     private void OnInit(EntityUid uid, ShadekinComponent component, ComponentStartup args)
     {
         UpdateAlert(uid, component, (short)component.CurrentState);
+        RemComp<RespiratorComponent>(uid);
     }
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)
