@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: you may now respawn after 10 minutes
-    type: Tweak
-  id: 1667
-  time: '2025-09-07T20:48:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4278
 - author: kotobdev
   changes:
   - message: The setting to disable glimmer visuals should now work between restarts.
@@ -4425,4 +4418,12 @@
   id: 2166
   time: '2026-03-09T10:55:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5469
+- author: DisposableCrewmember42
+  changes:
+  - message: Conspirators now requires 32 connected players to roll. The ingame delay
+      before choosing conspirators is increased.
+    type: Fix
+  id: 2167
+  time: '2026-03-09T11:39:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5490
 Order: 1
