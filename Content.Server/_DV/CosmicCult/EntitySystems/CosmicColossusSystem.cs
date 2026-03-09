@@ -82,7 +82,7 @@ public sealed class CosmicColossusSystem : EntitySystem
 
     private void OnSpawn(Entity<CosmicColossusComponent> ent, ref ComponentInit args) // I WANT THIS BIG GUY HURLED TOWARDS THE STATION
     {
-        ent.Comp.DeathTimer = _timing.CurTime + ent.Comp.DeathWait;
+        ent.Comp.DeathTimer = _timing.CurTime + ent.Comp.DeathWaitSpawn;
         var station = _station.GetStationInMap(Transform(ent).MapID);
         if (TryComp<StationDataComponent>(station, out var stationData))
         {
