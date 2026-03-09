@@ -1,5 +1,6 @@
 using Content.Shared._Harmony.Conspirators.Components;
 using Content.Shared.Antag;
+using Content.Shared.Ghost; // DeltaV
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 
@@ -26,6 +27,6 @@ public abstract class SharedConspiratorSystem : EntitySystem // looking at blood
         if (player?.AttachedEntity is not { } uid)
             return true;
 
-        return HasComp<ConspiratorComponent>(uid) || HasComp<ShowAntagIconsComponent>(uid);
+        return HasComp<ConspiratorComponent>(uid) || HasComp<ShowAntagIconsComponent>(uid) || HasComp<GhostComponent>(uid); // DeltaV - add GhostComponent
     }
 }
