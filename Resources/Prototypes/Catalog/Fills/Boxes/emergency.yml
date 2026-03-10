@@ -276,7 +276,7 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-        contents:
+        children:
         - id: ClothingMaskBreath
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
