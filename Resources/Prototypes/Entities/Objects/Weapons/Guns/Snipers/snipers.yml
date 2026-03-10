@@ -23,6 +23,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    cameraRecoilScalar: 1.5 # DeltaV - higher screenshake on snipers
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
