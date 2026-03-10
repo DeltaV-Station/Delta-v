@@ -11,16 +11,16 @@
 
 - type: entity
   parent: ClothingMaskGas
-  id: ClothingMaskGasSecurity
+  id: ClothingMaskGasSecurityDV
   name: security gas mask
   description: A gas mask designed for Nanotrasen Security teams, built to handle the hazards of the future. #Actual Gas Mask for Security, based off the MCU-2P mask used by the United States Military.
   components:
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _DV/Clothing/Mask/gassecurity.rsi
+    sprite: _DV/Clothing/Mask/gassecurityDV.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Mask/gassecurity.rsi
+    sprite: _DV/Clothing/Mask/gassecurityDV.rsi
   - type: Armor #Below values can be buffed or nerfed as needed.
     modifiers:
       coefficients:
