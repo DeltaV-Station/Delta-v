@@ -12,11 +12,11 @@
   id: Conspirators
   components:
   - type: GameRule
-    # DeltaV - minPlayers now set on Preset
-    # minPlayers: 28 # minimum of 4 conspirators
-    delay: # DeltaV - add delay
-      min: 60
-      max: 120
+    minPlayers: 15 # DeltaV - changed from 28 to 15
+    minTotalPlayers: 40 # DeltaV - added attribute
+    delay: # DeltaV - add delay to make sure as many people as possible join the round
+      min: 600
+      max: 900
   - type: ConspiratorRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn # DeltaV - previously IntraPlayerSpawn
