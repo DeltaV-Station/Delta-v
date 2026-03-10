@@ -10,6 +10,3 @@ Hitman-briefing =
 objective-issuer-Hitman = [color=#746694]Criminal[/color]
 
 Hitman-round-end-name = Hitman
-
-
-roles-antag-hitman-objective = kill a person to a contracts Requirements 
