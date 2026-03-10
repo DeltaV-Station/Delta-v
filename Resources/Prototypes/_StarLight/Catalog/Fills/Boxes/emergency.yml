@@ -9,8 +9,8 @@
       storagebase: !type:AllSelector
         children:
         - id: EmergencyMedipen
-        - id: FoodSnackNutribrick
-        - id: FoodSnackNutribrick
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
         - id: DrinkWaterBottleFull
         - id: DrinkWaterBottleFull
         - id: Flare
@@ -30,8 +30,8 @@
       storagebase: !type:AllSelector
         children:
         - id: EmergencyMedipen
-        - id: FoodSnackNutribrick
-        - id: FoodSnackNutribrick
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
         - id: DrinkWaterBottleFull
         - id: DrinkWaterBottleFull
         - id: Flare
@@ -52,7 +52,7 @@
         children:
         - id: EmergencyMedipen
         - id: Flare
-        - id: FoodSnackNutribrick
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
         - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
@@ -70,8 +70,8 @@
       storagebase: !type:AllSelector
         children:
         - id: EmergencyMedipen
-        - id: FoodSnackNutribrick
-        - id: FoodSnackNutribrick
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
         - id: DrinkWaterBottleFull
         - id: DrinkWaterBottleFull
         - id: Flare
@@ -92,7 +92,7 @@
       storagebase: !type:AllSelector
         children:
         - id: EmergencyMedipen
-        - id: FoodSnackNutribrick
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
         - id: DrinkWaterBottleFull
         - id: Flare
   - type: Sprite
@@ -130,8 +130,8 @@
         - id: EmergencyMedipen
         - id: EmergencyMedipen
         - id: Flare
-        - id: FoodSnackNutribrick
-        - id: FoodSnackNutribrick
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
+        - id: FoodPSB # DeltaV - replace Nutribrick with PSB
   - type: Sprite
     layers:
     - state: internals
