@@ -10,9 +10,9 @@
     - type: Appearance
     - type: Transform
       anchored: true
-    - type: EmitSoundOnSpawn
-      sound:
-        path: /Audio/_Starlight/Effects/Shadekin/nullphase.ogg
+    # - type: EmitSoundOnSpawn
+    #   sound:
+    #     path: null # Delta-V commented out, as file misisng for nullphase.ogg
     - type: TimedDespawn
       lifetime: 30
     - type: Physics

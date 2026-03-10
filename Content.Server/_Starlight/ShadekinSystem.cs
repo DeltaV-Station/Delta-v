@@ -14,6 +14,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared._Goobstation.Overlays;
 using Robust.Shared.Timing;
 using Content.Server.Body.Components;
+using System.Linq;
 
 
 namespace Content.Server._Starlight;
@@ -215,6 +216,22 @@ public sealed class ShadekinSystem : EntitySystem
         args.ModifySpeed(1f, sprintDif);
     }
 
+    private ShadekinState GetStateByThreshold(ShadekinComponent component, float lightExposure)
+    {
+        var returnState = ShadekinState.Dark;
+
+        foreach (var (threshold, shadekinState) in component.Thresholds.Reverse())
+        {
+            if (threshold <= lightExposure)
+            {
+                returnState = shadekinState == ShadekinState.Low ? ShadekinState.Dark : shadekinState;
+                break;
+            }
+        }
+
+        return returnState;
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -232,16 +249,7 @@ public sealed class ShadekinSystem : EntitySystem
             if (!_container.IsEntityInContainer(uid))
                 lightExposure = GetLightExposure(uid);
 
-            if (lightExposure >= 15f)
-                component.CurrentState = ShadekinState.Extreme;
-            else if (lightExposure >= 10f)
-                component.CurrentState = ShadekinState.High;
-            else if (lightExposure >= 5f)
-                component.CurrentState = ShadekinState.Annoying;
-            else if (lightExposure >= 0.8f)
-                component.CurrentState = ShadekinState.Low;
-            else
-                component.CurrentState = ShadekinState.Dark;
+            component.CurrentState = GetStateByThreshold(component, lightExposure);
 
             UpdateAlert(uid, component, (short)component.CurrentState);
 

@@ -6,6 +6,11 @@
   abstract: true
   components:
     - type: Shadekin
+      thresholds:
+        0.8: Low
+        5: Annoying
+        10: High
+        15: Extreme
     # - type: Absorbable # Delta-V: Commented out, we got no Absorbable
     - type: Hunger
     - type: Thirst
@@ -18,7 +23,7 @@
       prototype: Shadekin
       requiredLegs: 2
     - type: Speech
-      allowedEmotes: ["Marr", "Wurble", "Hisses", "Growl", "Purr"]
+      allowedEmotes: ["Marr", "Wurble", "Hiss", "Growl", "Purr"]
     - type: Vocal
       sounds:
         Male: MaleShadekin
@@ -50,7 +55,7 @@
           methods: [Touch]
           effects:
           - !type:Emote
-            emote: Hisses
+            emote: Hiss
             showInChat: false
     - type: Bloodstream
       bloodlossDamage:
