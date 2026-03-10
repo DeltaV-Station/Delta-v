@@ -8,20 +8,18 @@ using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Warps;
 using Content.Shared.Weapons.Melee;
 using Robust.Server.Audio;
-using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -40,6 +38,7 @@ public sealed class CosmicEffigySystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly CosmicCultObjectiveSystem _cultObjective = default!;
     [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -52,23 +51,23 @@ public sealed class CosmicEffigySystem : EntitySystem
 
     private void OnAnomShutdown(Entity<CosmicEffigyComponent> ent, ref AnomalyShutdownEvent args)
     {
-        if (args.Supercritical || !Exists(ent.Comp.Colossus) || !TryComp<CosmicColossusComponent>(ent.Comp.Colossus, out var colossusComp))
+        if (args.Forced || args.Supercritical || !Exists(ent.Comp.Colossus) || !TryComp<CosmicColossusComponent>(ent.Comp.Colossus, out var colossusComp))
             return;
 
-        colossusComp.Timed = true;
         colossusComp.DeathTimer = _time.CurTime;
+        colossusComp.Timed = true;
     }
 
     private void OnSupercritical(Entity<CosmicEffigyComponent> ent, ref AnomalySupercriticalEvent args)
     {
-        if (!Exists(ent.Comp.Colossus) || !TryComp<CosmicColossusComponent>(ent.Comp.Colossus, out var colossusComp) || !_mind.TryGetMind(ent.Comp.Colossus.Value, out var mindId, out var mind))
+        if (!Exists(ent.Comp.Colossus) || !TryComp<CosmicColossusComponent>(ent.Comp.Colossus, out var colossusComp) || !_mind.TryGetMind(ent.Comp.Colossus.Value, out _, out var mind))
             return;
 
         var colossus = ent.Comp.Colossus.Value;
 
         if (TryComp<MeleeWeaponComponent>(colossus, out var weapon))
         {
-            weapon.AttackRate = Math.Clamp(weapon.AttackRate * ent.Comp.ColossusAttackRateMultiplier, 0, ent.Comp.ColossusAttackRateMax ?? float.MaxValue);
+            weapon.AttackRate *= ent.Comp.ColossusAttackRateMultiplier;
         }
 
         if (TryComp<CosmicCorruptingComponent>(colossus, out var corrupting))
@@ -81,16 +80,28 @@ public sealed class CosmicEffigySystem : EntitySystem
             _damage.TryChangeDamage(ent.Comp.Colossus.Value, damageable.Damage / 2 * -1, true);
         }
 
-        Spawn(colossusComp.UpgradeVfx, Transform(ent.Comp.Colossus.Value).Coordinates);
-        if (!colossusComp.CompletedFirstEffigy)
+        colossusComp.BonusDamage += new DamageSpecifier(_proto.Index(colossusComp.BonusDamageType), ent.Comp.ColossusBonusDamage);
+
+        Spawn(colossusComp.BuffVfx, Transform(ent.Comp.Colossus.Value).Coordinates);
+        if (colossusComp.CompletedEffigies == 0)
         {
             _audio.PlayGlobal(colossusComp.ReawakenSfx, ent);
-            colossusComp.CompletedFirstEffigy = true;
         }
         else
         {
             _audio.PlayPvs(colossusComp.ReawakenSfx, ent);
         }
+
+        colossusComp.CompletedEffigies += 1;
+
+        if (colossusComp.CompletedEffigies >= colossusComp.MaxEffigies)
+        {
+            colossusComp.Timed = false;
+            _popup.PopupEntity(Loc.GetString("colossus-buff-final-popup"), colossus, PopupType.Large);
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("colossus-buff-popup"), colossus, PopupType.Large);
 
         var objIndex = mind.Objectives.FindIndex(HasComp<CosmicEffigyConditionComponent>);
         if (objIndex == -1 ||
@@ -101,7 +112,7 @@ public sealed class CosmicEffigySystem : EntitySystem
         }
 
         var objective = mind.Objectives[objIndex];
-        if (!_cultObjective.RandomizeEffigyTarget(objective, conditionComp))
+        if (!_cultObjective.RandomizeEffigyTarget(objective, conditionComp, setDescription: true))
         {
             Log.Error("Failed to randomize effigy objective location!");
             return;
@@ -111,8 +122,6 @@ public sealed class CosmicEffigySystem : EntitySystem
         colossusComp.EffigyPlaceActionEntity = _actions.AddAction(colossus, colossusComp.EffigyPlaceAction);
         colossusComp.DeathTimer = _time.CurTime + colossusComp.DeathWaitEffigy;
         colossusComp.Timed = true;
-
-        _popup.PopupEntity(Loc.GetString("colossus-upgrade-popup"), colossus, PopupType.Medium);
     }
 
     private void OnColossusEffigy(Entity<CosmicColossusComponent> ent, ref EventCosmicColossusEffigy args)

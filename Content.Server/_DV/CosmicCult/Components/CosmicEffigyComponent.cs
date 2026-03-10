@@ -1,3 +1,5 @@
+using Content.Shared.FixedPoint;
+
 namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent]
@@ -7,13 +9,13 @@ public sealed partial class CosmicEffigyComponent : Component
     public EntityUid? Colossus;
 
     [DataField]
-    public float ColossusAttackRateMultiplier = 1.2f;
-
-    [DataField]
-    public float? ColossusAttackRateMax = 1.5f;
+    public float ColossusAttackRateMultiplier = 1.1f;
 
     [DataField]
     public float ColossusCorruptionSpeedMultiplier = 0.9f;
+
+    [DataField]
+    public FixedPoint2 ColossusBonusDamage = 10;
 
     [DataField]
     public bool ColossusHeal = true;
