@@ -1,0 +1,125 @@
+# deception
+- type: listing
+  id: PenCentcom
+  name: nanolink-centcom-pen-name
+  description: nanolink-centcom-pen-description
+  productEntity: PenCentcom
+  icon:
+    entity: PenCentcom
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkChameleonProjector
+  name: uplink-chameleon-projector-name
+  description: uplink-chameleon-projector-desc
+  productEntity: ChameleonProjector
+  cost:
+    NanoCoin: 4 # DeltaV - was 7
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkChameleon
+  name: uplink-chameleon-name
+  description: uplink-chameleon-desc
+  productEntity: ClothingBackpackChameleonFillNT
+  icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
+  cost:
+    NanoCoin: 5
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkAgentIDCard
+  name: uplink-agent-id-card-name
+  description: uplink-agent-id-card-desc
+  productEntity: AgentIDCard
+  cost:
+    NanoCoin: 4
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkVoiceMask
+  name: uplink-voice-mask-name
+  description: uplink-voice-mask-desc
+  productEntity: ClothingMaskGasVoiceChameleon
+  cost:
+    NanoCoin: 4
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkBoxHeadStampBase
+  name: nanolink-stamp-name
+  description: nanolink-stamp-description
+  productEntity: BoxHeadStampBase
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+#Surveillance
+- type: listing
+  id: SpyCrewMonitor
+  name: nanolink-spy-monitor-name
+  description: nanolink-spy-monitor-description
+  productEntity: SpyCrewMonitor
+  icon:
+    entity: SpyCrewMonitor
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkSurveillance
+
+- type: listing
+  id: ClothingEyesGlassesHiddenSecurity
+  name: nanolink-glasses-name
+  description: nanolink-glasses-description
+  productEntity: ClothingEyesGlassesHiddenSecurity
+  icon:
+    entity: ClothingEyesGlassesHiddenSecurity
+  cost:
+    NanoCoin: 2
+  categories:
+  - NanolinkSurveillance
+
+- type: listing
+  id: EncryptionKeyStationMaster
+  name: nanolink-encryption-name
+  description: nanolink-encryption-description
+  productEntity: EncryptionKeyStationMaster
+  icon:
+    entity: EncryptionKeyStationMaster
+  cost:
+    NanoCoin: 5
+  categories:
+  - NanolinkSurveillance
+
+- type: listing
+  id: NanolinkRecordsTablet
+  name: nanolink-tablet-name
+  description: nanolink-tablet-description
+  productEntity: HandheldStationMapRecordsTablet
+  icon:
+    entity: HandheldStationMapRecordsTablet
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkSurveillance
+
+# framing
+- type: listing
+  id: WeaponPistolCobra
+  name: nanolink-cobra-name
+  description: nanolink-cobra-description
+  productEntity: WeaponPistolCobra
+  icon:
+    entity: WeaponPistolCobra
+  cost:
+    NanoCoin: 8
+  categories:
+  - NanolinkFraming

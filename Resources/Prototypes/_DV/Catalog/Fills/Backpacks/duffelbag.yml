@@ -12,3 +12,24 @@
         - id: ClothingUniformHarbingerTunic
         - id: ClothingOuterCoatHarbingerCoat
         - id: AccursedScythe
+
+- type: entity
+  parent: ClothingBackpackChameleonFill
+  id: ClothingBackpackChameleonFillNT
+  suffix: Fill, Chameleon, NT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ChameleonPDA
+        - id: ClothingUniformJumpsuitChameleon
+        - id: ClothingOuterChameleon
+        - id: ClothingNeckChameleon
+        - id: ClothingMaskGasChameleon
+        - id: ClothingHeadHatChameleon
+        - id: ClothingHandsChameleon
+        - id: ClothingEyesChameleon
+        - id: ClothingHeadsetChameleon
+        - id: ClothingShoesChameleon
+        - id: ChameleonControllerImplanterNT
