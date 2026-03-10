@@ -71,6 +71,11 @@ public sealed class EyeLerpingSystem : EntitySystem
         {
             _eye.SetRotation(uid, lerpInfo.TargetRotation, component);
             _eye.SetZoom(uid, lerpInfo.TargetZoom, component);
+
+            // Starlight begin - fix ES Screenshake triggering on spawn
+            if (TryComp<ContentEyeComponent>(uid, out var contentEye))
+                contentEye.BaseRotation = lerpInfo.TargetRotation;
+            // Starlight end
         }
     }
 
