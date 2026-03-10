@@ -89,7 +89,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         if (anomaly.Comp.CurrentBehavior is not null)
             RemoveBehavior(anomaly, anomaly.Comp.CurrentBehavior.Value);
 
-        EndAnomaly(anomaly, spawnCore: false);
+        EndAnomaly(anomaly, spawnCore: false, forced: true);
     }
 
     private void OnStartCollide(Entity<AnomalyComponent> anomaly, ref StartCollideEvent args)

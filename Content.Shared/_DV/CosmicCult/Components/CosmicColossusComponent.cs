@@ -1,3 +1,5 @@
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -36,7 +38,7 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public EntProtoId Attack1Vfx = "CosmicColossusAttack1Vfx";
 
-    [DataField] public EntProtoId UpgradeVfx = "ColossusUpgradeVFX";
+    [DataField] public EntProtoId BuffVfx = "ColossusBuffVfx";
 
     [DataField] public EntProtoId TileDetonations = "MobTileDamageZone";
 
@@ -64,7 +66,14 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public bool Timed;
 
-    [DataField] public bool CompletedFirstEffigy;
+    [DataField] public short CompletedEffigies;
+
+    [DataField] public short MaxEffigies = 3;
+
+    [DataField] public DamageSpecifier BonusDamage = new();
+
+    [DataField] public ProtoId<DamageTypePrototype> BonusDamageType = "Blunt";
+
 }
 
 [Serializable, NetSerializable]

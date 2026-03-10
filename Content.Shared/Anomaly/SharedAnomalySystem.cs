@@ -190,7 +190,8 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
     /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
+    /// <param name="forced">Whether or not the anomaly shutdown was caused by component shutdown</param> // DeltaV - Add forced
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false, bool forced = false)  // DeltaV - Add forced
     {
         if (logged)
         {
@@ -205,7 +206,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var ev = new AnomalyShutdownEvent(uid, supercritical);
+        var ev = new AnomalyShutdownEvent(uid, supercritical, forced); // DeltaV - Add forced
         RaiseLocalEvent(uid, ref ev, true);
 
         if (Terminating(uid) || _net.IsClient)

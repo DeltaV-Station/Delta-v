@@ -69,7 +69,7 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
         {
             _metaData.SetEntityDescription(uid,
                 warpComp.Location != null
-                    ? Loc.GetString("objective-condition-effigy", ("location", warpComp.Location ?? "UNNAMED"))
+                    ? Loc.GetString("objective-condition-effigy", ("location", warpComp.Location))
                     : Loc.GetString("objective-condition-effigy-no-target"));
         }
         return true;

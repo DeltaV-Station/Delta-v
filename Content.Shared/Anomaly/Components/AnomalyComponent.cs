@@ -308,7 +308,7 @@ public readonly record struct AnomalySupercriticalEvent(EntityUid Anomaly, float
 /// <param name="Anomaly">The anomaly being shut down.</param>
 /// <param name="Supercritical">Whether or not the anomaly shut down passively or via a supercritical event.</param>
 [ByRefEvent]
-public readonly record struct AnomalyShutdownEvent(EntityUid Anomaly, bool Supercritical);
+public readonly record struct AnomalyShutdownEvent(EntityUid Anomaly, bool Supercritical, bool Forced); // DeltaV - Add Forced
 
 /// <summary>
 /// Event broadcast when an anomaly's severity is changed.

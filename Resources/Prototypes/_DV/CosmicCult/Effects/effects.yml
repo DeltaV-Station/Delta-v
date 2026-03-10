@@ -172,13 +172,13 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseCosmicVFX
-  id: ColossusUpgradeVFX
+  id: ColossusBuffVfx
   components:
   - type: TimedDespawn
     lifetime: 0.8
   - type: Sprite
     layers:
-    - sprite: _DV/CosmicCult/Effects/colossus_upgradevfx.rsi
+    - sprite: _DV/CosmicCult/Effects/colossus_buffvfx.rsi
       state: vfx
       shader: unshaded
   - type: PointLight
