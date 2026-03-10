@@ -393,8 +393,9 @@
   - type: AntagRandomObjectives
     sets:
     - groups: HitmanObjectiveGroup
-      maxPicks: 2
-    maxDifficulty: 3
+      minPicks
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
   - type: AntagSelection
     agentName: Hitman-round-end-name
     definitions:
