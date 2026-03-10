@@ -65,3 +65,8 @@
 - type: entity
   parent: [BaseImplantOnlyImplanterCentcomm, ChameleonControllerImplanter]
   id: ChameleonControllerImplanterNT
+
+- type: entity
+  parent: [BaseImplantOnlyImplanterCentcomm, FakeMindShieldImplanter]
+  id: FakeMindShieldImplantNT
+  name: fake mindshield implanter

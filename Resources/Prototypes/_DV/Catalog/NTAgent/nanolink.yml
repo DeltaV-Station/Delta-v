@@ -17,7 +17,7 @@
   description: uplink-chameleon-projector-desc
   productEntity: ChameleonProjector
   cost:
-    NanoCoin: 4 # DeltaV - was 7
+    NanoCoin: 4
   categories:
   - NanolinkDeception
 
@@ -28,7 +28,7 @@
   productEntity: ClothingBackpackChameleonFillNT
   icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
   cost:
-    NanoCoin: 5
+    NanoCoin: 3
   categories:
   - NanolinkDeception
 
@@ -59,6 +59,16 @@
   productEntity: BoxHeadStampBase
   cost:
     NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: FakeMindShieldImplantNT
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  productEntity: FakeMindShieldImplantNT
+  cost:
+    NanoCoin: 2
   categories:
   - NanolinkDeception
 
@@ -107,7 +117,7 @@
   icon:
     entity: HandheldStationMapRecordsTablet
   cost:
-    NanoCoin: 3
+    NanoCoin: 1
   categories:
   - NanolinkSurveillance
 

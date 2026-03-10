@@ -76,6 +76,9 @@
         components:
         - KillPersonCondition
         - TargetObjectiveImmune # DeltaV
+    - !type:JobRequirementMindFilter
+      jobs:
+      - Passenger
 
 # auditing
 - type: entity
