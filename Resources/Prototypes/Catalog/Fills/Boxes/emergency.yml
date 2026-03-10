@@ -101,7 +101,7 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingMaskGasSecurity # DeltaV - Renamed Sec Gas Mask
+        - id: ClothingMaskGasSecurity
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: SpaceMedipen # DeltaV - keep spacepen
@@ -122,7 +122,7 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingMaskGasSecurity # DeltaV - Renamed Sec Gas Mask
+        - id: ClothingMaskGasSecurity
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: SpaceMedipen # DeltaV - keep spacepen
