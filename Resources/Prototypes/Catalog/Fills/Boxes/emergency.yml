@@ -274,14 +274,15 @@
   suffix: Mime, Emergency moth
   components:
   - type: EntityTableContainerFill
-    storagebase: !type:AllSelector
-      contents:
-      - id: ClothingMaskBreath
-      - id: EmergencyOxygenTankFilled
-      - id: EmergencyMedipen
-      - id: Flare
-      - id: FoodBreadBaguetteCotton
-      - id: DrinkWaterBottleFull
+    containers:
+      storagebase: !type:AllSelector
+        contents:
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodBreadBaguetteCotton
+        - id: DrinkWaterBottleFull
 
 - type: entity
   parent: BoxCardboard
