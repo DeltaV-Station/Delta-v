@@ -392,12 +392,10 @@
   - type: AntagRandomObjectives
     sets:
     - groups: HitmanObjectiveGroupKill
-      prob: 1
       maxPicks: 1
     - groups: HitmanObjectiveGroupModifer
       maxPicks: 2
     maxDifficulty: 3
-
   - type: AntagSelection
     agentName: Hitman-round-end-name
     definitions:

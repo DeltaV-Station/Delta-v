@@ -109,7 +109,7 @@
 ##stormyatt addition for delta v hitman, start.
 - type: entity
   parent: BaseGameRule
-  id: HitmanMode
+  id: Hitman
   components:
   - type: HitmanRule 
   - type: AntagObjectives
@@ -118,11 +118,11 @@
   - type: AntagRandomObjectives
     sets:
     - groups: HitmanObjectiveGroupKill
+      prob: 1
       maxPicks: 1
     - groups: HitmanObjectiveGroupModifer
       maxPicks: 2
     maxDifficulty: 3
-
   - type: AntagSelection
     agentName: Hitman-round-end-agent-name
     selectionTime: IntraPlayerSpawn
