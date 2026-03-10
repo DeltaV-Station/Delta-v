@@ -92,11 +92,9 @@ namespace Content.Client.Lobby.UI
             foreach (var (slot, character) in _preferencesManager.Preferences!.Characters)
             {
                 // DeltaV - Ignore hidden species.
-                if (character is HumanoidCharacterProfile hcp)
-                {
-                    if (SpeciesHiderSystem.IsHidden(hcp.Species.Id))
-                        continue;
-                }
+                if (character is HumanoidCharacterProfile hcp && SpeciesHiderSystem.IsHidden(hcp.Species.Id))
+                    continue;
+                // End DeltaV
                 numberOfFullSlots++;
                 var characterPickerButton = new CharacterPickerButton(_entManager,
                     _protomanager,

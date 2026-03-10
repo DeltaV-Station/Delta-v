@@ -723,13 +723,13 @@ namespace Content.Client.Lobby.UI
 
         /// <summary>
         /// Refreshes the species selector.
-        /// </summary>s
+        /// </summary>
         public void RefreshSpecies()
         {
             SpeciesButton.Clear();
             _species.Clear();
 
-            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart && !SpeciesHiderSystem.IsHidden(o.ID)));
+            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart && !SpeciesHiderSystem.IsHidden(o.ID))); // DeltaV - SpeciesHider
             _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
             var speciesIds = _species.Select(o => o.ID).ToList();
 

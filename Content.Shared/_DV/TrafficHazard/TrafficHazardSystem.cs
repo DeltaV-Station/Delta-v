@@ -1,10 +1,7 @@
 using System.Numerics;
-using Content.Shared._DV.TrafficHazard;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
-using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
@@ -12,6 +9,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+
+namespace Content.Shared._DV.TrafficHazard;
 
 public sealed partial class TrafficHazardSystem : EntitySystem
 {
@@ -49,7 +48,8 @@ public sealed partial class TrafficHazardSystem : EntitySystem
                 if (!TryComp<DamageableComponent>(victim, out var otherDamage))
                     continue;
                 CrawlerComponent? crawler = null;
-                if (comp.StunTime > 0f){
+                if (comp.StunTime > 0f)
+                {
                     // If it can never be knocked, don't hit it.
                     if (!TryComp(victim, out crawler))
                         continue;

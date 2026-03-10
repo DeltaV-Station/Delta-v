@@ -38,6 +38,7 @@ public sealed partial class TrafficHazardComponent : Component
     /// <summary>
     /// Should this transfer velocity on a collision?
     /// </summary>
+    [DataField]
     public bool Bonk = true;
 
     /// <summary>

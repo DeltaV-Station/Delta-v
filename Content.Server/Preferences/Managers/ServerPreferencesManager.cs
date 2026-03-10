@@ -271,16 +271,16 @@ namespace Content.Server.Preferences.Managers
             while (msg.Preferences.SelectedCharacter is HumanoidCharacterProfile hcp && SpeciesHiderSystem.IsHidden(hcp.Species.Id))
             {
                 // Are we the last character in the list? If so, make a new character.
-                int curId = msg.Preferences.SelectedCharacterIndex;
+                var curId = msg.Preferences.SelectedCharacterIndex;
                 if (curId == msg.Preferences.Characters.Keys.Max())
                 {
-                    int newID = curId + 1;
+                    var newID = curId + 1;
                     var newCharacter = HumanoidCharacterProfile.Random();
                     msg.Preferences = new(msg.Preferences.Characters.Append(new(newID, newCharacter)), newID, msg.Preferences.AdminOOCColor, msg.Preferences.ConstructionFavorites);
                 }
                 else
                 {
-                    int newID = msg.Preferences.Characters.Keys.Where(k => k > curId).Min();
+                    var newID = msg.Preferences.Characters.Keys.Where(k => k > curId).Min();
                     msg.Preferences = new(msg.Preferences.Characters, newID, msg.Preferences.AdminOOCColor, msg.Preferences.ConstructionFavorites);
                 }
             }

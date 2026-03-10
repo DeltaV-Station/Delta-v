@@ -1,6 +1,5 @@
 using Content.Shared._DV.CCVars;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Shared._DV.Species;
