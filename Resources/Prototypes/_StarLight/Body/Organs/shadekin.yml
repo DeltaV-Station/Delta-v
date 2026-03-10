@@ -16,11 +16,8 @@
     layers:
       - state: eyes
   - type: Organ
-    components:
-    - type: NightVision
-  # - type: OrganVisualization
-  #   layer: Eyes
-  #   prototype: MobShadekinEyes
+    # onAdd:
+    # - type: NightVision
 
 - type: entity
   id: OrganShadekinTongue
