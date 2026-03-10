@@ -71,7 +71,7 @@
 
 ## modifer objectives
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanBrutalObjective
   name: Kill your target brutaly
   description: your client wants your target to die brutaly. try to make their death as painful as possible
@@ -84,7 +84,7 @@
     unique: true
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanDramaticObjective
   name: kill your target dramatically
   description: your client wants to make their death a preformence. give it the show it deserves.
@@ -97,7 +97,7 @@
     unique: true
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanhumorousObjective
   name: kill your target humorously
   description: your client wants to make their death a joke. make their death funny.
@@ -110,7 +110,7 @@
     unique: true
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanAccidentObjective
   name: make your targets death seem like a accident
   description: your client would rather others not realize your targets death was a assassination. try to frame it as a accident
@@ -124,7 +124,7 @@
     
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanIndirectlyObjective
   name: kill your target indirectly
   description: your client wants you to take no chances with getting spotted near the body. try to find a way to kill them indirectly
@@ -138,7 +138,7 @@
     
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanCleanObjective
   name: try to make your kill as clean as possible
   description: your client does not want this death making a mess. try to do as little damage to the person as you can
@@ -151,7 +151,7 @@
     unique: true
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanSufferObjective
   name: drag out your targets murder
   description: your client would like that your target suffers as they die. make your theyre dieing for a long time.
@@ -164,20 +164,20 @@
     unique: true
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanPublicObjective
   name: kill your target in a public place
   description: your client would like to send a message. kill your target in public, in front of others if you can.
   components:
   - type: Objective
     icon:
-      sprite: Structures/Wallmounts/camera.rsi
-      state: cameracase.png
+      sprite: Structures/Wallmounts/screen.rsi
+      state: screen
     difficulty: 2 #make it much harder to get away with 
     unique: true
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanNoticeObjective
   name: inform your target they are going to be killed long before it happens
   description: your client wants your target to know whats going on. tell your target theyll be killed and still get away with it.
@@ -191,7 +191,7 @@
     
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseFreeObjective]
+  parent: [BaseHitmanObjective]
   id: HitmanTraumaObjective
   name: kill someone close to your target and make sure they know
   description: your client wants your target to be broken mentaly and physicaly. find someone close to your target and kill them. the person need not stay dead. make sure your target knows they died.
