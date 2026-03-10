@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/31/2026 01:49:31
+  time: 03/10/2026 18:13:52
   entityCount: 2094
 maps: []
 grids:
@@ -1258,7 +1258,7 @@ entities:
     - type: Transform
       pos: 4.5,18.5
       parent: 1
-- proto: AirlockCommandLocked
+- proto: AirlockCentralCommandLocked
   entities:
   - uid: 1799
     components:
@@ -11108,15 +11108,6 @@ entities:
     - type: Transform
       pos: 18.5,25.5
       parent: 1
-- proto: Screen
-  entities:
-  - uid: 1869
-    components:
-    - type: Transform
-      pos: -0.5,20.5
-      parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: SecureCabinetCommand
   entities:
   - uid: 1765
@@ -13094,6 +13085,19 @@ entities:
     - type: Transform
       pos: 4.5,21.5
       parent: 1
+- proto: WindoorSecureCentralCommandLocked
+  entities:
+  - uid: 1802
+    components:
+    - type: Transform
+      pos: 0.5,17.5
+      parent: 1
+  - uid: 1803
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,19.5
+      parent: 1
 - proto: WindoorSecureCommandLocked
   entities:
   - uid: 42
@@ -13107,17 +13111,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,21.5
-      parent: 1
-  - uid: 1802
-    components:
-    - type: Transform
-      pos: 0.5,17.5
-      parent: 1
-  - uid: 1803
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,19.5
       parent: 1
   - uid: 1891
     components:
