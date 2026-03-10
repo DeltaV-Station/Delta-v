@@ -151,7 +151,7 @@
 
 ##hitman
 - type: weightedRandom
-  id: HitmanObjectiveGroups
+  id: HitmanObjectiveGroup
   weights:
     HitmanObjectiveGroupKill: 1
     HitmanObjectiveGroupModifer: 1
@@ -160,7 +160,7 @@
   id: HitmanObjectiveGroupKill
   weights:
     HitmanTeachLessonRandomPersonObjective: 1
-    HitmanTeachLessonRandomHeadObjective: 0.5
+    HitmanTeachLessonRandomHeadObjective: 0.25
 
 - type: weightedRandom
   id: HitmanObjectiveGroupModifer

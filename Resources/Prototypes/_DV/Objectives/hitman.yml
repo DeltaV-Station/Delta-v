@@ -1,10 +1,11 @@
 - type: entity
+  parent: BaseSurviveObjective
   abstract: true
-  parent: BaseObjective
   id: BaseHitmanObjective
   components:
   - type: Objective
-    issuer: objective-issuer-Hitman 
+    issuer: objective-issuer-Hitman
+    difficulty: 1
   - type: RoleRequirement
     roles:
     - HitmanRole
@@ -112,7 +113,7 @@
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanAccidentObjective
   name: make your targets death seem like a accident
-  description: your client would rather others not realize your targets death was a assassination. try to frame it as a accident 
+  description: your client would rather others not realize your targets death was a assassination. try to frame it as a accident
   components:
   - type: Objective
     icon:
