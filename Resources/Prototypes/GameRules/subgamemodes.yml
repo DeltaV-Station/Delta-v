@@ -115,14 +115,12 @@
   - type: AntagObjectives
     objectives:
     - EscapeShuttleObjectiveHitman
+    - HitmanTeachLessonRandomPersonObjective
   - type: AntagRandomObjectives
     sets:
-    - groups: HitmanObjectiveGroupKill
-      prob: 1
-      maxPicks: 1
-    - groups: HitmanObjectiveGroupModifer
+    - groups: HitmanObjectiveGroup
       maxPicks: 2
-    maxDifficulty: 3
+    maxDifficulty: 2
   - type: AntagSelection
     agentName: Hitman-round-end-agent-name
     selectionTime: IntraPlayerSpawn

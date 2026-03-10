@@ -153,20 +153,65 @@
 - type: weightedRandom
   id: HitmanObjectiveGroup
   weights:
-    HitmanObjectiveGroupModifer: 1
-
+    HitmanObjectiveGroupBrutal: 1
+    HitmanObjectiveGroupDramatic: 1
+    HitmanObjectiveGrouphumorous: 1
+    HitmanObjectiveGroupAccident: 1
+    HitmanObjectiveGroupIndirect: 1
+    HitmanObjectiveGroupClean: 1
+    HitmanObjectiveGroupSuffer: 1
+    HitmanObjectiveGroupPublic: 1
+    HitmanObjectiveGroupNotice: 1
+    HitmanObjectiveGroupTrauma: 1
+##time for the dumbest nonsense that i have to do
 - type: weightedRandom
-  id: HitmanObjectiveGroupModifer
+  id: HitmanObjectiveGroupBrutal
   weights:
     HitmanBrutalObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupDramatic
+  weights:
     HitmanDramaticObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGrouphumorous
+  weights:
     HitmanhumorousObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupAccident
+  weights:
     HitmanAccidentObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupIndirect
+  weights:
     HitmanIndirectlyObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupClean
+  weights:
     HitmanCleanObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupSuffer
+  weights:
     HitmanSufferObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupPublic
+  weights:
     HitmanPublicObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupNotice
+  weights:
     HitmanNoticeObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupTrauma
+  weights:
     HitmanTraumaObjective: 1
 
 
