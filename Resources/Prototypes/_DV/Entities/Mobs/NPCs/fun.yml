@@ -58,8 +58,8 @@
   - type: MindContainer
     showExamineInfo: true
   - type: Psionic
-    removable: false
   - type: PyrokinesisPower
+    canBeRemoved: false
   - type: NpcFactionMember
     factions:
     - Passive
