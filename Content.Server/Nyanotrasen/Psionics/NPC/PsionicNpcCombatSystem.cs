@@ -1,8 +1,7 @@
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Server.NPC.Events;
 using Content.Server.NPC.Components;
-using Content.Server.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared.Actions.Components;
 using Robust.Shared.Timing;
 
@@ -24,7 +23,7 @@ public sealed class PsionicNpcCombatSystem : EntitySystem
     private void ZapCombat(Entity<NoosphericZapPowerComponent> ent, ref NPCSteeringEvent args)
     {
         var (uid, comp) = ent;
-        if (comp.NoosphericZapActionEntity is not {} action)
+        if (comp.ActionEntity is not {} action)
             return;
 
         var target = Comp<EntityTargetActionComponent>(action);

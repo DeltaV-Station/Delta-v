@@ -5,21 +5,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-
-- type: entity
-  parent: BasePsionicAction
-  id: ActionTestPower # this power is just for testing. remove before merging.
-  name: Testing Power
-  description: Wow this tests real good
-  components:
-  - type: Action
-    icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: dispel
-    useDelay: 5
-    checkCanInteract: false
-  - type: InstantAction
-    event: !type:TestPowerActionEvent
+    startDelay: true
 
 - type: entity
   parent: BasePsionicAction
@@ -86,7 +72,7 @@
     useDelay: 20
     checkCanInteract: false
   - type: InstantAction
-    event: !type:MindSwapPowerReturnActionEvent
+    event: !type:MindSwappedReturnPowerActionEvent
 
 - type: entity
   parent: BasePsionicAction
@@ -133,13 +119,12 @@
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: metapsionic
     useDelay: 45
-    startDelay: true
     checkCanInteract: false
   - type: TargetAction
     checkCanAccess: false
     range: -1 # You can cast it anywhere on your screen.
   - type: WorldTargetAction
-    event: !type:MetapsionicPulseActionEvent
+    event: !type:MetapsionicPulsePowerActionEvent
 
 - type: entity
   parent: BasePsionicAction
@@ -152,7 +137,6 @@
       sprite: _DV/Interface/Actions/actions_psionics.rsi
       state: eruption
     useDelay: 45
-    startDelay: true
     checkCanInteract: false
   - type: InstantAction
     event: !type:PsionicEruptionPowerActionEvent
@@ -204,20 +188,6 @@
 
 - type: entity
   parent: BasePsionicAction
-  id: ActionPsionicInvisibilityUsed
-  name: Turn Off Psionic Invisibility
-  description: Return to visibility, and receive a stun.
-  components:
-  - type: Action
-    icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: invisibility_off
-    checkCanInteract: false
-  - type: InstantAction
-    event: !type:RemovePsionicInvisibilityOffPowerActionEvent
-
-- type: entity
-  parent: BasePsionicAction
   id: ActionPrecognition
   name: Precognition
   description: See into the future to get a hint about the next random event.
@@ -233,6 +203,7 @@
     event: !type:PrecognitionPowerActionEvent
 
 - type: entity
+  parent: BasePsionicAction
   id: ActionPsychokineticScream
   name: Psychokinetic Scream
   description: Emit a blood-curdling scream that shatters all lights in the area.
@@ -241,9 +212,10 @@
     icon: { sprite: _DV/Actions/shatterlights.rsi, state: shatter-lights }
     useDelay: 60
   - type: InstantAction
-    event: !type:ShatterLightsActionEvent
+    event: !type:PsychokineticScreamPowerActionEvent
 
 - type: entity
+  parent: BasePsionicAction
   id: ActionFracturedForm
   name: Swap Form
   description: Switch to one of your alternate forms, if you have one. This can also be done by sleeping.

@@ -40,12 +40,9 @@ public abstract partial class SharedPsionicSystem
             if (detector == args.User)
                 continue;
 
-            var ev = new PsionicPowerUseAttemptEvent();
-            RaiseLocalEvent(detector, ref ev);
-
-            if (!ev.CanUsePower)
+            if (!CanUsePsionicAbility(detector))
                 continue;
-
+            // This is for artifacts.
             var detectEv = new PsionicPowerDetectedEvent(args.User, args.Power);
             RaiseLocalEvent(detector, ref detectEv);
 

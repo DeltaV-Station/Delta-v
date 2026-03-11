@@ -1,3 +1,4 @@
+using Content.Server._DV.Psionics.Systems;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -14,7 +15,6 @@ using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Shared._DV.Psionics.Components; // DeltaV
-using Content.Shared._DV.Psionics.Events; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -72,6 +72,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly PsionicSystem _psionic = default!; // DeltaV
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -148,10 +149,7 @@ public sealed partial class ZombieSystem
         // DeltaV Start - Prevent Psionic Zombies
         RemComp<PotentialPsionicComponent>(target);
         if (HasComp<PsionicComponent>(target))
-        {
-            var mindBrokenEv = new PsionicMindBrokenEvent(Stun: false);
-            RaiseLocalEvent(target, ref mindBrokenEv);
-        }
+            _psionic.MindBreakEntity(target, false, true);
         // DeltaV End - Prevent Psionic Zombies
 
         //funny voice

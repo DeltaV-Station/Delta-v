@@ -2,6 +2,7 @@ using Content.Server._DV.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Psionics.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -18,6 +19,7 @@ internal sealed class NoosphericSilenceRule : StationEventSystem<NoosphericSilen
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
     protected override void Started(EntityUid uid, NoosphericSilenceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -30,10 +32,7 @@ internal sealed class NoosphericSilenceRule : StationEventSystem<NoosphericSilen
             if (!_mobStateSystem.IsAlive(potPsion))
                 continue;
 
-            var ev = new TargetedByPsionicPowerEvent();
-            RaiseLocalEvent(potPsion, ref ev);
-
-            if (!ev.IsShielded)
+            if (_psionic.CanBeTargeted(potPsion))
                 Silence(potPsion, component);
         }
     }

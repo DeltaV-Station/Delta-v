@@ -1,23 +1,23 @@
 using System.Linq;
-using Content.Shared._DV.Abilities.Psionics;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
-using Content.Shared.Damage;
+using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwapPowerSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private void InitializeItems()
@@ -25,8 +25,8 @@ public abstract partial class SharedPsionicSystem
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotEquippedEvent>(OnInsulativeGearEquipped);
         SubscribeLocalEvent<PsionicallyInsulativeComponent, GotUnequippedEvent>(OnInsulativeGearUnequipped);
 
+
         SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<PsionicPowerUseAttemptEvent>>(OnPowerUseAttempt);
-        SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<CheckPsionicInsulativeGearEvent>>(OnPsionicGearChecked);
         SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<TargetedByPsionicPowerEvent>>(OnTargetedByPsionicPower);
 
         SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnAntiPsionicMeleeHit);
@@ -35,33 +35,39 @@ public abstract partial class SharedPsionicSystem
 
     private void OnInsulativeGearEquipped(Entity<PsionicallyInsulativeComponent> gear, ref GotEquippedEvent args)
     {
-        RefreshPsionicAbilities(args.Equipee);
+        if (_timing.ApplyingState)
+            return;
+
+        if (!gear.Comp.AllowsPsionicUsage)
+        {
+            var ev = new PsionicSuppressedEvent(args.Equipee);
+            RaiseLocalEvent(args.Equipee, ref ev);
+        }
+        if (gear.Comp.ShieldsFromPsionics)
+        {
+            var ev = new PsionicShieldedEvent(args.Equipee);
+            RaiseLocalEvent(args.Equipee, ref ev);
+        }
     }
 
     private void OnInsulativeGearUnequipped(Entity<PsionicallyInsulativeComponent> gear, ref GotUnequippedEvent args)
     {
-        RefreshPsionicAbilities(args.Equipee);
-    }
-
-    private void RefreshPsionicAbilities(EntityUid user)
-    {
-        if (!TryComp<PsionicComponent>(user, out var psionic))
+        if (_timing.ApplyingState)
             return;
 
-        var ev = new CheckPsionicInsulativeGearEvent();
-        RaiseLocalEvent(user, ref ev);
+        if (!gear.Comp.AllowsPsionicUsage && CanUsePsionicAbility(args.Equipee))
+        {
+            var ev = new PsionicStoppedSuppressedEvent(args.Equipee);
+            RaiseLocalEvent(args.Equipee, ref ev);
+        }
+        if (gear.Comp.ShieldsFromPsionics && CanBeTargeted(args.Equipee, showPopup: false))
+        {
+            var ev = new PsionicStoppedShieldedEvent(args.Equipee);
+            RaiseLocalEvent(args.Equipee, ref ev);
+        }
     }
 
     #region EventHandling
-    private void OnPsionicGearChecked(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<CheckPsionicInsulativeGearEvent> args)
-    {
-        args.Args.GearPresent = true;
-        // If one gear blocks psionic usage, psionics cannot be used.
-        args.Args.AllowsPsionicUsage &= gear.Comp.AllowsPsionicUsage;
-        // If one gear shields from psionics, they're shielded.
-        args.Args.ShieldsFromPsionics |= gear.Comp.ShieldsFromPsionics;
-    }
-
     private void OnPowerUseAttempt(Entity<PsionicallyInsulativeComponent> gear, ref InventoryRelayedEvent<PsionicPowerUseAttemptEvent> args)
     {
         // If one gear blocks psionic usage, psionics cannot be used.
@@ -89,11 +95,11 @@ public abstract partial class SharedPsionicSystem
                     _statusEffects.TryUpdateStatusEffectDuration(target, PsionicsDisabledProtoId, TimeSpan.FromSeconds(10));
             }
 
-            // if (TryComp<MindSwappedComponent>(target, out var swapped))
-            // {
-            //     _mindSwapPowerSystem.Swap(target, swapped.OriginalEntity, true);
-            //     return;
-            // }
+            if (TryComp<Components.PsionicPowers.MindSwappedReturnPowerComponent>(target, out var swapped))
+            {
+                _mindSwapPowerSystem.SwapMinds(target, swapped.OriginalEntity, false);
+                return;
+            }
 
             if (!weapon.Comp.Punish
                 || !HasComp<PotentialPsionicComponent>(target)

@@ -1,7 +1,7 @@
+using Content.Server._DV.Psionics.Systems;
 using Content.Shared._DV.EntityEffects.Effects.Psionics;
 using Content.Shared.EntityEffects;
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Events;
 
 namespace Content.Server._DV.EntityEffects.Effects.Psionics;
 
@@ -9,11 +9,12 @@ namespace Content.Server._DV.EntityEffects.Effects.Psionics;
 /// Removes psionic abilities.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
-public sealed partial class RemovePsionicAbilitiesEntityEffectSystem : EntityEffectSystem<PotentialPsionicComponent, RemovePsionicAbilities>
+public sealed partial class RemovePsionicAbilitiesEntityEffectSystem : EntityEffectSystem<PsionicComponent, RemovePsionicAbilities>
 {
-    protected override void Effect(Entity<PotentialPsionicComponent> entity, ref EntityEffectEvent<RemovePsionicAbilities> args)
+    [Dependency] private readonly PsionicSystem _psionicSystem = default!;
+
+    protected override void Effect(Entity<PsionicComponent> psionic, ref EntityEffectEvent<RemovePsionicAbilities> args)
     {
-        var ev = new PsionicMindBrokenEvent(true);
-        RaiseLocalEvent(entity, ref ev);
+        _psionicSystem.MindBreakEntity(psionic.Owner);
     }
 }

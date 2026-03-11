@@ -3,6 +3,7 @@ using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
+using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
@@ -13,15 +14,18 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 /// <summary>
 /// This is a base psionic power system that handles being mindbroken and checks for being able to use psionic powers automagically!
+/// You WILL NEED to parent of this.
 /// </summary>
 public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : BasePsionicPowerComponent where T1 : BaseActionEvent
 {
-    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly SharedActionsSystem ActionSystem = default!;
-    [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
-    [Dependency] protected readonly GlimmerSystem GlimmerSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly SharedActionsSystem Action = default!;
+    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
+    [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected readonly SharedPsionicSystem Psionic = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -31,19 +35,24 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         SubscribeLocalEvent<T, MapInitEvent>(OnPowerInit);
 
         SubscribeLocalEvent<T, T1>(OnPowerActionUsed);
+        SubscribeLocalEvent<T, DispelledEvent>(OnDispelled);
         SubscribeLocalEvent<T, PsionicMindBrokenEvent>(OnMindBroken);
         SubscribeLocalEvent<T, GetItemActionsEvent>(OnGrantingClothingEquipped);
+        SubscribeLocalEvent<T, PsionicSuppressedEvent>(OnPsionicallySuppressed);
+        SubscribeLocalEvent<T, PsionicStoppedSuppressedEvent>(OnStoppedPsionicallySuppressed);
     }
 
     /// <summary>
     /// This is called on every power upon initialization, so the action gets put into the action container.
-    /// The only exemption is powers that don't have just one action.
+    /// The only exemption is powers that don't have just one action or require special actions at initialize.
     /// </summary>
     /// <param name="power">The psionic power whose action is put into the container.</param>
     /// <param name="args">The args from the event.</param>
     protected virtual void OnPowerInit(Entity<T> power, ref MapInitEvent args)
     {
-        ActionSystem.AddAction(power, ref power.Comp.ActionEntity, power.Comp.ActionProtoId );
+        var actionId = power.Comp.OverrideActionProtoId ?? power.Comp.ActionProtoId;
+
+        Action.AddAction(power, ref power.Comp.ActionEntity, actionId );
 
         var psionicComp = EnsureComp<PsionicComponent>(power);
         psionicComp.PsionicPowersActionEntities.Add(power.Comp.ActionEntity);
@@ -57,24 +66,79 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// <param name="args">The action event for said power.</param>
     private void OnPowerActionUsed(Entity<T> psionic,  ref T1 args)
     {
-        if (_timing.ApplyingState)
+        if (Timing.ApplyingState || args.Handled)
             return;
 
-        var ev = new PsionicPowerUseAttemptEvent();
-        RaiseLocalEvent(args.Performer, ref ev);
+        args.Handled = true;
 
-        if (ev.CanUsePower)
+        if (Psionic.CanUsePsionicAbility(psionic))
         {
             OnPowerUsed(psionic, ref args);
             return;
         }
 
-        PopupSystem.PopupClient(Loc.GetString("psionic-cannot-use-psionics"), args.Performer, args.Performer);
+        Popup.PopupClient(Loc.GetString("psionic-cannot-use-psionics"), args.Performer, args.Performer);
     }
 
+    /// <summary>
+    /// This is the creme of the system. If you add a new power, you will want to call this.
+    /// This is where the actual power takes place that follows after the button press.
+    /// You will need to call LogPowerUsed() at the end.
+    /// You will need to call Psionic.CanBeTargeted(target) if you add a power that can target things.
+    /// IMPORTANT! The psionic entity DOES NOT HAVE TO BE THE PLAYER! It can be a clothing!
+    /// If you want something to affect the player everytime, use args.Performer!
+    /// psionic.Owner => Source of the power. args.Performer => The user of the power.
+    /// </summary>
+    /// <param name="psionic">The source of the power.</param>
+    /// <param name="args">The event.</param>
     protected abstract void OnPowerUsed(Entity<T> psionic, ref T1 args);
 
-    protected void OnGrantingClothingEquipped(Entity<T> psionicClothing, ref GetItemActionsEvent args)
+    /// <summary>
+    /// This handles being dispelled while having an active DoAfter.
+    /// It'll be enough for most usages.
+    /// But you can overwrite it if you have multiple DoAfters or require a specific interaction with being dispelled.
+    /// </summary>
+    /// <param name="psionic">The psionic who has been dispelled.</param>
+    /// <param name="args">The DispelledEvent.</param>
+    protected virtual void OnDispelled(Entity<T> psionic, ref DispelledEvent args)
+    {
+        if (args.Handled
+            || psionic.Comp.GetDoAfterId() is not { } doAfterId)
+            return;
+
+        DoAfter.Cancel(doAfterId);
+        Popup.PopupClient(Loc.GetString("psionic-dispelled"), args.Target, args.Target, PopupType.MediumCaution);
+        psionic.Comp.RemoveSavedDoAfterId();
+
+        args.Handled = true;
+        Dirty(psionic);
+    }
+
+    /// <summary>
+    /// This handles when the psionic gets mindbroken via chemicals or other.
+    /// </summary>
+    /// <param name="psionic">The psionic who is being mindbroken.</param>
+    /// <param name="args">The mindbreaking event.</param>
+    /// <returns>Returns true if the power was removed, false if not.</returns>
+    protected virtual void OnMindBroken(Entity<T> psionic, ref PsionicMindBrokenEvent args)
+    {
+        if (psionic.Comp.CanBeRemoved || args.Force)
+        {
+            args.Success = true;
+            Action.RemoveAction(psionic.Comp.ActionEntity);
+            RemComp<T>(psionic);
+            return;
+        }
+
+        args.AllRemoved = false;
+    }
+
+    /// <summary>
+    /// This handles equipping gear that has psionic abilities. These will be automatically relayed to the user.
+    /// </summary>
+    /// <param name="psionicClothing">The clothing that grants the power and has the component.</param>
+    /// <param name="args">The event.</param>
+    private void OnGrantingClothingEquipped(Entity<T> psionicClothing, ref GetItemActionsEvent args)
     {
         if (args.SlotFlags is null or SlotFlags.POCKET
             || !HasComp<PotentialPsionicComponent>(args.User)) // IPCs and non-player organics shouldn't be able to use abilities.
@@ -84,20 +148,42 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         Dirty(psionicClothing);
     }
 
-    public void OnMindBroken(Entity<T> psionic, ref PsionicMindBrokenEvent args)
+    /// <summary>
+    /// This interrupts DoAfters when being suppressed psionically.
+    /// No putting on skullcaps AFTER casting your DoAfter to be secure from Dispels.
+    /// </summary>
+    /// <param name="power">The power source.</param>
+    /// <param name="args">The event.</param>
+    protected virtual void OnPsionicallySuppressed(Entity<T> power, ref PsionicSuppressedEvent args)
     {
-        ActionSystem.RemoveAction(psionic.Comp.ActionEntity);
-        RemComp<T>(psionic);
+        if (Timing.ApplyingState || power.Comp.GetDoAfterId() is not { } doAfterId)
+            return;
+
+        DoAfter.Cancel(doAfterId);
+        Popup.PopupClient(Loc.GetString("psionic-equipped-shielded-in-doafter"), args.Victim, args.Victim, PopupType.MediumCaution);
+        power.Comp.RemoveSavedDoAfterId();
+
+        Dirty(power);
     }
 
-    public void LogPowerUsed(EntityUid psionicSource, EntityUid performer, string power, int minGlimmer = 8, int maxGlimmer = 12)
+    /// <summary>
+    /// This is raised when the suppression stops.
+    /// This allows powers to handle special behavior.
+    /// </summary>
+    /// <param name="psionic">The psionic who is no longer suppressed.</param>
+    /// <param name="args">The event.</param>
+    protected virtual void OnStoppedPsionicallySuppressed(Entity<T> psionic, ref PsionicStoppedSuppressedEvent args)
     {
-        power = Loc.GetString(power);
-        AdminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(psionicSource):player} used {power}");
+    }
+
+    protected void LogPowerUsed(Entity<T> psionicSource, EntityUid performer)
+    {
+        var power = Loc.GetString(psionicSource.Comp.PowerName);
+        _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(psionicSource):player} used {power}");
 
         var ev = new PsionicPowerUsedEvent(performer, psionicSource, power);
         RaiseLocalEvent(psionicSource, ev);
 
-        GlimmerSystem.Glimmer += Random.Next(minGlimmer, maxGlimmer);
+        _glimmer.Glimmer += Random.Next(psionicSource.Comp.MinGlimmerChanged, psionicSource.Comp.MaxGlimmerChanged);
     }
 }

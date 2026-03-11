@@ -23,13 +23,11 @@ public sealed class XAEPsionicInducerSystem : EntitySystem
         var coords = Transform(arti).Coordinates;
         foreach (var target in _lookup.GetEntitiesInRange<PotentialPsionicComponent>(coords, arti.Comp.Range))
         {
+            // No additional ability for already psionic beings.
             if (HasComp<PsionicComponent>(target))
                 continue;
 
-            var ev = new TargetedByPsionicPowerEvent();
-            RaiseLocalEvent(target.Owner, ref ev);
-
-            if (!ev.IsShielded)
+            if (_psionic.CanBeTargeted(target))
                 _psionic.AddRandomPsionicPower(target, true);
         }
     }

@@ -37,10 +37,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
             if (!_mobStateSystem.IsAlive(potPsion))
                 continue;
 
-            var ev = new TargetedByPsionicPowerEvent();
-            RaiseLocalEvent(potPsion, ref ev);
-
-            if (ev.IsShielded)
+            if (!_psionic.CanBeTargeted(potPsion))
                 continue;
 
             // Zap non-psionics only if they spent their roll already.

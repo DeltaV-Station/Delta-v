@@ -6,7 +6,10 @@ using Content.Shared.Popups;
 
 namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
-public sealed partial class MetapsionicPulsePowerSystem : BasePsionicPowerSystem<MetapsionicPulsePowerComponent,  MetapsionicPulseActionEvent>
+/// <summary>
+/// This system allows a psionic user to spot other psionic entities via a pulse.
+/// </summary>
+public sealed class MetapsionicPulsePowerSystem : BasePsionicPowerSystem<MetapsionicPulsePowerComponent,  MetapsionicPulsePowerActionEvent>
 {
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
 
@@ -17,7 +20,7 @@ public sealed partial class MetapsionicPulsePowerSystem : BasePsionicPowerSystem
         EnsureComp<PsionicPowerDetectorComponent>(power);
     }
 
-    protected override void OnPowerUsed(Entity<MetapsionicPulsePowerComponent> psionic, ref MetapsionicPulseActionEvent args)
+    protected override void OnPowerUsed(Entity<MetapsionicPulsePowerComponent> psionic, ref MetapsionicPulsePowerActionEvent args)
     {
         foreach (var target in _lookupSystem.GetEntitiesInRange<PsionicComponent>(args.Target, psionic.Comp.Range))
         {
@@ -25,21 +28,28 @@ public sealed partial class MetapsionicPulsePowerSystem : BasePsionicPowerSystem
                 || Transform(target).ParentUid == args.Performer)
                 continue;
 
-            var ev = new TargetedByPsionicPowerEvent();
-            RaiseLocalEvent(target, ref ev);
-
-            if (ev.IsShielded) // Cannot detect shielded psionics.
+            if (!Psionic.CanBeTargeted(target)) // Cannot detect shielded psionics.
                 continue;
 
-            PopupSystem.PopupClient(Loc.GetString("psionic-power-metapsionic-success"), args.Performer, args.Performer, PopupType.LargeCaution);
-            LogPowerUsed(psionic, args.Performer, psionic.Comp.PowerName, psionic.Comp.MinGlimmerChanged, psionic.Comp.MaxGlimmerChanged);
+            Popup.PopupClient(Loc.GetString("psionic-power-metapsionic-success"), args.Performer, args.Performer, PopupType.LargeCaution);
+            LogPowerUsed(psionic, args.Performer);
 
             args.Handled = true;
             return;
         }
-        PopupSystem.PopupClient(Loc.GetString("psionic-power-metapsionic-failure"), args.Performer, args.Performer, PopupType.Large);
-        LogPowerUsed(psionic, args.Performer, psionic.Comp.PowerName, psionic.Comp.MinGlimmerChanged, psionic.Comp.MaxGlimmerChanged);
+        Popup.PopupClient(Loc.GetString("psionic-power-metapsionic-failure"), args.Performer, args.Performer, PopupType.Large);
+        LogPowerUsed(psionic, args.Performer);
 
         args.Handled = true;
+    }
+
+    protected override void OnMindBroken(Entity<MetapsionicPulsePowerComponent> psionic, ref PsionicMindBrokenEvent args)
+    {
+        base.OnMindBroken(psionic, ref args);
+        // If the mindbreak was successful, remove the detector component too.
+        if (!psionic.Comp.Deleted)
+            return;
+
+        RemComp<PsionicPowerDetectorComponent>(psionic);
     }
 }
