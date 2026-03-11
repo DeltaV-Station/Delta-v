@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McShadow
-  parent: BaseMobSpeciesOrganic
+  parent: [MobBloodstream, MobAtmosStandard, MobFlammable, BaseMobSpecies]
   id: BaseMobShadekin
   abstract: true
   components:

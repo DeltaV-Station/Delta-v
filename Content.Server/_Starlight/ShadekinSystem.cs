@@ -61,7 +61,6 @@ public sealed class ShadekinSystem : EntitySystem
     private void OnInit(EntityUid uid, ShadekinComponent component, ComponentStartup args)
     {
         UpdateAlert(uid, component, (short)component.CurrentState);
-        RemComp<RespiratorComponent>(uid);
     }
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)
