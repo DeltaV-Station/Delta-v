@@ -1,4 +1,4 @@
-using Robust.Shared.GameStates;
+using Content.Shared.DoAfter;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
@@ -22,6 +22,14 @@ public abstract partial class BasePsionicPowerComponent : Component
     public virtual EntProtoId ActionProtoId { get; set; }
 
     /// <summary>
+    /// The action prototype ID to override the virtual one.
+    /// This is necessary, as the virtual one cannot be set via YML.
+    /// This allows different creatures to have different ability cooldowns or other things.
+    /// </summary>
+    [DataField]
+    public EntProtoId? OverrideActionProtoId;
+
+    /// <summary>
     /// The Loc string for the name of the power.
     /// </summary>
     [DataField]
@@ -40,4 +48,61 @@ public abstract partial class BasePsionicPowerComponent : Component
     /// </summary>
     [DataField]
     public virtual int MaxGlimmerChanged { get; set; }
+
+    /// <summary>
+    /// Whether this ability can be removed via mindbreaking.
+    /// </summary>
+    /// <example>Revenants shouldn't be able to lose their powers.</example>
+    [DataField]
+    public bool CanBeRemoved = true;
+
+    /// <summary>
+    /// When a power uses a DoAfter, the ID can be saved here for convenience.
+    /// It'll handle being dispelled automatically.
+    /// It'll need to be broken up into the DoAfter EntityUid and ushort index first.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? DoAfterEntityId;
+
+    /// <summary>
+    /// When a power uses a DoAfter, the ID can be saved here for convenience.
+    /// It'll handle being dispelled automatically.
+    /// It'll need to be broken up into the DoAfter EntityUid and ushort index first.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ushort? DoAfterIdIndex;
+
+    /// <summary>
+    /// Helper method to save a DoAfterId as DoAfterIds are not serializable and therefore cannot be networked.
+    /// It's parts can be though, and can be rebuilt.
+    /// </summary>
+    /// <param name="doAfterId">The DoAfterId to save. If null, it'll remove the saved DoAfterId.</param>
+    public void SaveDoAfterId(DoAfterId doAfterId)
+    {
+        DoAfterEntityId = doAfterId.Uid;
+        DoAfterIdIndex = doAfterId.Index;
+
+    }
+
+    /// <summary>
+    /// Helper method to remove the saved DoAfterId.
+    /// </summary>
+    public void RemoveSavedDoAfterId()
+    {
+        DoAfterEntityId = null;
+        DoAfterIdIndex = null;
+    }
+
+    /// <summary>
+    /// A helper method to get a saved DoAfterId.
+    /// </summary>
+    /// <returns>Returns a DoAfterId if one is present, null if not.</returns>
+    public DoAfterId? GetDoAfterId()
+    {
+        if (DoAfterEntityId is not { } doAfterId
+            || DoAfterIdIndex is not { } doAfterIndex)
+            return null;
+
+        return new DoAfterId(doAfterId, doAfterIndex);
+    }
 }

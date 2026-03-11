@@ -72,8 +72,8 @@
   - type: Speech
   # powers
   - type: Psionic
-    removable: false
   - type: NoosphericZapPower
+    canBeRemoved: false
   - type: LifeDrainer
     damage:
       types:

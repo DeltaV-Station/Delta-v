@@ -5,7 +5,7 @@ namespace Content.Shared._DV.Psionics.Components;
 /// <summary>
 /// Entities with this component are psionics and can use powers.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PsionicComponent : Component
 {
     /// <summary>
@@ -15,9 +15,9 @@ public sealed partial class PsionicComponent : Component
     public HashSet<EntityUid?> PsionicPowersActionEntities = [];
 
     /// <summary>
-    /// Whether the psionic power can be removed from them.
+    /// Whether the psionic gets stunned when a psionic power gets removed. This doesn't mean they lost all psionic powers.
+    /// Psionic powers themselves regulate if they can be removed.
     /// </summary>
-    /// <example>Revenants shouldn't be able to lose their powers.</example>
-    [DataField, AutoNetworkedField]
-    public bool Removable = true;
+    [DataField]
+    public bool StunOnRemoval = true;
 }

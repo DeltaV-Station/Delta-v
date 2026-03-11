@@ -1,8 +1,9 @@
+using Content.Server._DV.Psionics.Systems;
 using Content.Server._DV.StationEvents.Components;
-using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -18,11 +19,12 @@ namespace Content.Server._DV.StationEvents.GameRules;
 /// </summary>
 internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSwapRuleComponent>
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
     [Dependency] private readonly MobStateSystem _mobstateSystem = default!;
+    [Dependency] private readonly PsionicSystem _psionic = default!;
 
     private TimeSpan _warningSoundLength;
     private ResolvedSoundSpecifier _resolvedWarningSound = string.Empty;
@@ -74,19 +76,18 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
 
     private void SwapMinds(MinorMassMindSwapRuleComponent component)
     {
-        List<EntityUid> psionicActors = new();
+        List<EntityUid> psionicActors = [];
 
         var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
-        while (query.MoveNext(out var psion, out _, out _))
+        while (query.MoveNext(out var psion, out _, out var mobState))
         {
-            if (_mobstateSystem.IsAlive(psion)
-                && HasComp<ActorComponent>(psion))
+            if (_mobstateSystem.IsAlive(psion, mobState) && HasComp<ActorComponent>(psion) && _psionic.CanBeTargeted(psion))
                 // Only a list of Players
                 psionicActors.Add(psion);
         }
 
         // We go with 4 pairs for now
-        List<EntityUid> actorsToSwap = new();
+        List<EntityUid> actorsToSwap = [];
         var swapPairCount = _random.Next(1, component.MaxNumberOfPairs);
 
         for (; swapPairCount > 0 && psionicActors.Count > 1; swapPairCount--)
@@ -94,13 +95,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
             var target01 = _random.PickAndTake(psionicActors);
             var target02 = _random.PickAndTake(psionicActors);
 
-            _mindSwap.Swap(target01, target02, false, component.ReturnSwapCooldown);
-
-            if (!component.IsTemporary)
-            {
-                _mindSwap.GetTrapped(target01);
-                _mindSwap.GetTrapped(target02);
-            }
+            _mindSwap.SwapMinds(target01, target02, false, component.IsTemporary);
         }
     }
 }

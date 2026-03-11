@@ -3,6 +3,7 @@ using Content.Server.Body.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Psionics.Systems;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
@@ -13,9 +14,10 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class PsionicNosebleedRule : StationEventSystem<PsionicNosebleedRuleComponent>
 {
-    [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
 
     protected override void Started(EntityUid uid, PsionicNosebleedRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -27,10 +29,7 @@ public sealed class PsionicNosebleedRule : StationEventSystem<PsionicNosebleedRu
             if (!_mob.IsAlive(psion, mobState))
                 continue;
 
-            var ev = new TargetedByPsionicPowerEvent();
-            RaiseLocalEvent(psion, ref ev);
-
-            if (ev.IsShielded)
+            if (!_psionic.CanBeTargeted(psion))
                 continue;
 
             _popup.PopupEntity(Loc.GetString("psionic-nosebleed-message"), psion, psion, PopupType.MediumCaution);

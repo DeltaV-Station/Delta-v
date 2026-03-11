@@ -9,27 +9,12 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComponent
 {
-    /// <summary>
-    /// The prototype ID for the action.
-    /// It's set up in the YML and then referenced via a string here.
-    /// </summary>
     public override EntProtoId ActionProtoId => "ActionEruption";
 
-    /// <summary>
-    /// The Loc string for the name of the power.
-    /// </summary>
     public override string PowerName => "psionic-power-name-eruption";
 
-    /// <summary>
-    /// The minimum glimmer amount that will be changed upon use of the psionic power.
-    /// Should be lower than <see cref="MaxGlimmerChanged"/>.
-    /// </summary>
     public override int MinGlimmerChanged => -200;
 
-    /// <summary>
-    /// The maximum glimmer amount that will be changed upon use of the psionic power.
-    /// Should be higher than <see cref="MinGlimmerChanged"/>.
-    /// </summary>
     public override int MaxGlimmerChanged => -100;
 
     /// <summary>
@@ -45,13 +30,6 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
     /// </summary>
     [DataField]
     public TimeSpan MaxDetonateDelay = TimeSpan.FromSeconds(30);
-
-    /// <summary>
-    /// The ID of the DoAfter that is used for the detonation of the psionic.
-    /// This is used to check if the psionic is currently detonating.
-    /// </summary>
-    /// <returns>Null, if psionic isn't detonating. A valid UID if otherwise.</returns>
-    public DoAfterId? DoAfterId;
 
     /// <summary>
     /// The sound that appears when the action is pressed.

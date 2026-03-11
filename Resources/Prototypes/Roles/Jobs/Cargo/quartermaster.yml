@@ -38,6 +38,10 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Start DeltaV Additions
+  - !type:ModifyPsionicChanceSpecial # Command are more likely to be psionic.
+    jobBonusChance: 0.05 # Additional 5% chance.
+  # End DeltaV Additions
 
 - type: startingGear
   id: QuartermasterGear

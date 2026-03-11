@@ -1,8 +1,7 @@
 using Content.Server.Chat.Systems;
-using Content.Server.Nyanotrasen.StationEvents.Events;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Chat;
-using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.StationEvents.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Psionics.Glimmer;
@@ -75,7 +74,7 @@ public sealed partial class SophicScribeSystem : EntitySystem
 
             // mind entities when...
             var speaker = scribe;
-            if (TryComp<MindSwappedComponent>(scribe, out var swapped))
+            if (TryComp<MindSwappedReturnPowerComponent>(scribe, out var swapped))
             {
                 speaker = swapped.OriginalEntity;
             }

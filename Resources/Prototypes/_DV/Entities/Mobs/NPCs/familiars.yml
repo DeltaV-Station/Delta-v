@@ -90,8 +90,8 @@
   - type: RandomMetadata
     nameSegments: [NamesGolem]
   - type: Psionic
-    removable: false
   - type: PyrokinesisPower
+    canBeRemoved: false
   - type: Grammar
     attributes:
       proper: true

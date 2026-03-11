@@ -1,4 +1,5 @@
 using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Abilities.Psionics; //Nyano - Summary: Makes Mime psionic.
 using Content.Shared.Actions;
@@ -21,7 +22,6 @@ public sealed class MimePowersSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!; // DeltaV
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -108,10 +108,6 @@ public sealed class MimePowersSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("mime-invisible-wall-failed"), ent, ent);
             return;
         }
-
-        // Begin DeltaV Additions
-        _psionics.LogPowerUsed(ent.Owner, "invisible wall");
-        // End DeltaV Additions
 
         var messageSelf = Loc.GetString("mime-invisible-wall-popup-self", ("mime", Identity.Entity(ent.Owner, EntityManager)));
         var messageOthers = Loc.GetString("mime-invisible-wall-popup-others", ("mime", Identity.Entity(ent.Owner, EntityManager)));

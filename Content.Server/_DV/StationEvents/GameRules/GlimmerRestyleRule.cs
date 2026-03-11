@@ -4,6 +4,7 @@ using Content.Server.Psionics;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Psionics.Systems;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -18,10 +19,11 @@ namespace Content.Server._DV.StationEvents.Events;
 
 public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleComponent>
 {
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
 
     protected override void Started(EntityUid uid, GlimmerRestyleRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -35,10 +37,7 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
             if (!_mob.IsAlive(entity, mobState) || !HasComp<PotentialPsionicComponent>(entity))
                 continue;
 
-            var ev = new TargetedByPsionicPowerEvent();
-            RaiseLocalEvent(entity, ref ev);
-
-            if (!ev.IsShielded)
+            if (_psionic.CanBeTargeted(entity))
                 potentialTargets.Add((entity, humanoid));
         }
 
