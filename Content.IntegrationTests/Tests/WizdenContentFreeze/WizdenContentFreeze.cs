@@ -24,7 +24,7 @@ public sealed class WizdenContentFreeze
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 280; // DeltaV - was 218
+        var recipesLimit = 270; // DeltaV - was 218
 
         if (recipesCount > recipesLimit)
         {
