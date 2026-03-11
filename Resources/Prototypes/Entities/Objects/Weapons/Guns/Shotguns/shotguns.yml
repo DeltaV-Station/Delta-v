@@ -165,6 +165,8 @@
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     sprite: _DV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
+    shape: # DeltaV - Add shape component to Kammerer to override base shotgun shape
+    - 0,0,3,1
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: Clothing
