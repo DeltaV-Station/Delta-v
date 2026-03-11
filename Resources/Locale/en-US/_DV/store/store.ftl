@@ -1,7 +1,6 @@
 store-recruiter-name-uplink = Recruiter merchandise
 
 store-preset-name-nanolink = Nanolink
-store-category-deception = Deception
 store-category-surveillance = Surveillance
 store-category-framing = Framing
 
