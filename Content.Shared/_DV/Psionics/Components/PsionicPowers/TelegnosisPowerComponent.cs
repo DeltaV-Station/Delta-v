@@ -21,4 +21,3 @@ public sealed partial class TelegnosisPowerComponent : BasePsionicPowerComponent
     [DataField]
     public EntProtoId Prototype = "MobObserverTelegnostic";
 }
-

@@ -28,4 +28,3 @@ public sealed partial class DamageOnDispelComponent : Component
     [DataField]
     public SoundSpecifier DispelSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 }
-

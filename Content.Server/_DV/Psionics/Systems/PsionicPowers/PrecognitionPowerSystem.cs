@@ -1,4 +1,4 @@
-﻿using Content.Server._DV.StationEvents.NextEvent;
+using Content.Server._DV.StationEvents.NextEvent;
 using Content.Server.Chat.Managers;
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;

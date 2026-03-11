@@ -12,4 +12,3 @@ public sealed partial class DispellableComponent : Component
     [DataField]
     public SoundSpecifier DispelSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 }
-

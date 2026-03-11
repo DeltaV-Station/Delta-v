@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Psionics.Events;
+namespace Content.Shared._DV.Psionics.Events;
 
 /// <summary>
 /// Raised on an entity when they are no longer psionically suppressed from using psionic abilities.

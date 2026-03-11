@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Psionics.Components.PsionicPowers;
+using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;
 using Content.Shared.Actions.Events;
 using Content.Shared.DoAfter;

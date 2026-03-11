@@ -1,4 +1,4 @@
-﻿using Content.Server.Ghost;
+using Content.Server.Ghost;
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 

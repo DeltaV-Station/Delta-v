@@ -1,4 +1,4 @@
-﻿using Content.Server.Bible.Components;
+using Content.Server.Bible.Components;
 using Content.Server.Guardian;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;

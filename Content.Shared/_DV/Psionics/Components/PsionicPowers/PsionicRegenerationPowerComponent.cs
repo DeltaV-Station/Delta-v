@@ -33,5 +33,3 @@ public sealed partial class PsionicRegenerationPowerComponent : BasePsionicPower
     [DataField]
     public SoundSpecifier SoundUse = new SoundPathSpecifier("/Audio/Nyanotrasen/Psionics/heartbeat_fast.ogg");
 }
-
-

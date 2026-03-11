@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Psionics.Events;
+namespace Content.Shared._DV.Psionics.Events;
 
 /// <summary>
 /// This is raised on an entity that has been psionically suppressed, stopping them from using psionics.
