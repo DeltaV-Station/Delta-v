@@ -10,6 +10,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._DV.Footprints.Systems;
 
+// TODO: If upstream ever adds prediction to SharedDecalSystem, move this to Shared and implement footprint prediction
 public sealed partial class FootPrintsSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _map = default!;
