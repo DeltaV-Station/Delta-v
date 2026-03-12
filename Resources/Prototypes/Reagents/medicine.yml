@@ -877,6 +877,18 @@
           Toxin: -2
           Airloss: -2
           Brute: -2
+      # DeltaV changes
+      - !type:CleanBloodstream
+        excluded: Omnizine
+        cleanseRate: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Omnizine
+          min: 20
+        damage:
+          types:
+            Cellular: 1 # 2 per u DeltaV changes end
 
 - type: reagent
   id: Ultravasculine
