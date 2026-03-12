@@ -418,9 +418,11 @@
     size: Small
     sprite: Objects/Weapons/Melee/hypereutactic_blade_inhands.rsi
     # DeltaV changes
+  - type: ItemToggle 
+    onUse: false # wielding events control it instead
+    onActivate: false # cannot activate on floor
   - type: Wieldable # requires wield to swing
     UnwieldOnUse: true
-  - type: ItemToggleOnWield #DeltaV new component
   - type: Reflect
     reflectProb: 0.75 # from 100% to 75% reflect
     spread: 10 # tightened spread from 75 to 10
