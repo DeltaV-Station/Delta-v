@@ -13,7 +13,6 @@ namespace Content.Shared._DV.Footprints.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DecalScrubberComponent : Component
 {
-
     [DataField]
     public float Radius = 1f;
 

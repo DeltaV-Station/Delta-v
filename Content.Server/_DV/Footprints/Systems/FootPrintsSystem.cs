@@ -12,7 +12,6 @@ namespace Content.Server._DV.Footprints.Systems;
 
 public sealed partial class FootPrintsSystem : EntitySystem
 {
-
     [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly DecalSystem _decalSystem = default!;
     [Dependency] private readonly SharedFlightSystem _flight = default!;
