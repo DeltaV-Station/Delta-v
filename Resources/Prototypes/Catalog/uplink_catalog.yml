@@ -1780,11 +1780,16 @@
     Telecrystal: 14 # DeltaV - was 12
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+#  conditions: # DeltaV - Traitors can now buy Elite suit!
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+# Begin DeltaV additions
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+# End DeltaV additions
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -1803,7 +1808,13 @@
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsUplink
+      # - NukeOpsUplink # DeltaV - Commented out as of #5462 (only commander and loneop can get suit)
+  # Begin DeltaV additions - Jugsuit buy limit #5462
+      - CommanderUplink 
+      - LoneOpUplink 
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  # End DeltaV additions
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
