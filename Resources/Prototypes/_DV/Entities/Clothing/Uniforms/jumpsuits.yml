@@ -598,3 +598,15 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSecCadet
+  name: cadet jumpsuit
+  description: A simple uniform for security cadets. It's a bit small, but it should do for training purposes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/seccadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/seccadet.rsi
+

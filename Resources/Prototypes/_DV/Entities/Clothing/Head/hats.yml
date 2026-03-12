@@ -354,3 +354,26 @@
     sprite: _DV/Clothing/Head/Hats/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/elf.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCapSec
+  name: security cap
+  description: A cap worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBeretCadet
+  name: security cadet beret
+  description: A beret worn by security cadets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+
