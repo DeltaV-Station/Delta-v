@@ -33,29 +33,29 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         SubscribeLocalEvent<PuddleFootPrintsComponent, EndCollideEvent>(OnEndCollide);
     }
 
-    private void OnEndCollide(Entity<PuddleFootPrintsComponent> ent, ref EndCollideEvent args)
+    private void OnEndCollide(Entity<PuddleFootPrintsComponent> puddle, ref EndCollideEvent args)
     {
-        var tripper = args.OtherEntity;
+        var collidingEntity = args.OtherEntity;
 
         // Don't process if the tripper is flying
-        if (_flightQuery.TryComp(ent, out var flight) && _flight.IsFlying((ent, flight)))
+        if (_flightQuery.TryComp(collidingEntity, out var flight) && _flight.IsFlying((collidingEntity, flight)))
             return;
 
         // Only process entities that can leave footprints
-        if (!TryComp<FootPrintsComponent>(tripper, out var footPrints))
+        if (!TryComp<FootPrintsComponent>(collidingEntity, out var footPrints))
             return;
 
         // Get puddle appearance and solution data
-        if (!TryComp<AppearanceComponent>(ent, out var appearance))
+        if (!TryComp<AppearanceComponent>(puddle, out var appearance))
             return;
 
-        if (!TryComp<PuddleComponent>(ent, out var puddleComp))
+        if (!TryComp<PuddleComponent>(puddle, out var puddleComp))
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(ent, out var solutionManager))
+        if (!TryComp<SolutionContainerManagerComponent>(puddle, out var solutionManager))
             return;
 
-        if (!_solutionContainer.ResolveSolution((ent, solutionManager),
+        if (!_solutionContainer.ResolveSolution((puddle, solutionManager),
                 puddleComp.SolutionName,
             ref puddleComp.Solution,
                 out var solution))
@@ -74,16 +74,16 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         var waterPercent = (waterQuantity / totalSolutionQuantity) * 100f;
 
         // If puddle is mostly water, don't transfer color
-        if (waterPercent > ent.Comp.OffPercent)
+        if (waterPercent > puddle.Comp.OffPercent)
             return;
 
         // Transfer color from puddle to footprints
-        if (_appearance.TryGetData(ent, PuddleVisuals.SolutionColor, out var colorValue, appearance)
-            && _appearance.TryGetData(ent, PuddleVisuals.CurrentVolume, out var volumeValue, appearance))
+        if (_appearance.TryGetData(puddle, PuddleVisuals.SolutionColor, out var colorValue, appearance)
+            && _appearance.TryGetData(puddle, PuddleVisuals.CurrentVolume, out var volumeValue, appearance))
         {
             if (colorValue is Color color && volumeValue is float volume)
             {
-                AddColor(color, volume * ent.Comp.SizeRatio, footPrints);
+                AddColor(color, volume * puddle.Comp.SizeRatio, footPrints);
             }
         }
 
