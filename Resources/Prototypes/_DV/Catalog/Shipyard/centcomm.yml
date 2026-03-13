@@ -64,6 +64,15 @@
   path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_office.yml
   categories:
   - CentComm
+  
+- type: vessel
+  id: NTCCScholar
+  name: NTCC Marquess Regent
+  description: A medium-sized science shuttle with the basic equipment to conduct most basic experiments.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_science.yml
+  categories:
+  - CentComm
 
 - type: vessel
   id: NTCCFoundation
@@ -98,5 +107,14 @@
   description: A large-sized theater ship with all the facilities hosts the greatest trivia shows on any station it would travel to.
   price: 1000000
   path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_trivia.yml
+  categories:
+  - CentComm
+
+- type: vessel
+  id: NTCCRevelation
+  name: NTCC Sovereign Symposium
+  description: A large-sized science ship with all the facilities and cutting-edge equipment to conduct even the most taxing experiments.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_science.yml
   categories:
   - CentComm

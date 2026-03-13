@@ -258,6 +258,13 @@
   - Stamps # CC stamp
 
 - type: mapCategories
+  id: Scholar
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_science.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
+- type: mapCategories
   id: Foundation
   map: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_base.yml
   allowed:
@@ -309,6 +316,13 @@
 - type: mapCategories
   id: Symposium
   map: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_trivia.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
+- type: mapCategories
+  id: Revelation
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_science.yml
   allowed:
   - Centcomm
   - Stamps # CC stamp
