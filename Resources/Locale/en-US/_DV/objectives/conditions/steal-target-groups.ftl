@@ -6,6 +6,7 @@ steal-target-groups-hos-sidearm = energy sidearm
 steal-target-groups-notary-stamp = notary stamp
 steal-target-groups-silvia = silvia
 steal-target-groups-box-folder-rd-clipboard = research digi-board
+steal-target-groups-box-folder-ce-clipboard = power digi-board
 steal-target-groups-bible-mystagogue = book of mysteries
 steal-target-groups-recruiter-pen = recruiter's pen
 steal-target-groups-captains-cloak = captain's cloak

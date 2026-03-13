@@ -185,3 +185,14 @@
   - !type:AddCompsEffect
     components:
     - type: AnglishAccent
+
+- type: trait
+  id: SlavicAccent
+  name: trait-slavic-name
+  description: trait-slavic-desc
+  category: Accents
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SlavicAccent

@@ -30,8 +30,8 @@
   id: LandmineTable
   table: !type:GroupSelector
     children:
-    #- id: LandMineShrapnel Temporary disabled until fixed
-    #  weight: 10
+    - id: LandMineShrapnel
+      weight: 10
     - id: LandMineHE
       weight: 2
     - id: LandMineExplosive

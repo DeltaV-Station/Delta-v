@@ -1,0 +1,19 @@
+- type: thiefBackpackSet
+  id: VoidsuitSelectorEngineerVoidsuit
+  name: selectable-set-engineering-voidsuit-name
+  description: selectable-set-engineering-voidsuit-desc
+  sprite:
+    sprite: _DV/Clothing/OuterClothing/Suits/engineering-light.rsi
+    state: icon
+  content:
+  - ClothingOuterVoidsuitEngineering
+
+- type: thiefBackpackSet
+  id: VoidsuitSelectorEngineerHardsuit
+  name: selectable-set-engineering-hardsuit-name
+  description: selectable-set-engineering-hardsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitEngineering

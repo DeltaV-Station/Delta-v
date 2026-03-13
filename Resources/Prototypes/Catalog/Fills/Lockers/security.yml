@@ -238,10 +238,12 @@
       prob: 0.5
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  parent: [SecurityGunSafeNonlethalHandgunDV, BaseSecurityContraband]
   id: GunSafeDisabler
-  name: disabler safe
+  name: disabler gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: disabler
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -255,10 +257,12 @@
       amount: 5
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  parent: [SecurityGunSafeHandgunDV, BaseSecurityContraband]
   id: GunSafePistolMk58
-  name: mk58 safe
+  name: mk58 gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: pistol
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -274,10 +278,12 @@
       amount: 8
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
   id: GunSafeRifleLecter
-  name: lecter safe
+  name: lecter gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: lecter
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -293,10 +299,12 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
   id: GunSafeSubMachineGunDrozd
-  name: drozd safe
+  name: drozd gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: drozd
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -312,10 +320,12 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
   id: GunSafeShotgunEnforcer
-  name: enforcer safe
+  name: enforcer gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: enforcer
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -331,10 +341,12 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
   id: GunSafeShotgunKammerer
-  name: kammerer safe
+  name: kammerer gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: kammerer
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -352,9 +364,11 @@
 - type: entity
   id: GunSafeSubMachineGunWt550
   suffix: Wt550
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
-  name: wt550 safe
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
+  name: wt550 gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: wt550
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -369,11 +383,13 @@
     - id: MagazinePistolSubMachineGunTopMounted
       amount: 4
 
-- type: entity
-  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+- type: entity 
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
   id: GunSafeLaserCarbine
-  name: laser safe
+  name: laser gun safe # DeltaV - Added "gun"
   components:
+  - type: EntityStorageVisuals # DeltaV Sprite
+    stateDoorClosed: laser
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector

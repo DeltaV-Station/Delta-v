@@ -16,7 +16,9 @@
         - ReagentId: GreyMatter
           Quantity: 5
       organ:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: Slime
+          Quantity: 5
+        - ReagentId: SentientGreyMatter
           Quantity: 5

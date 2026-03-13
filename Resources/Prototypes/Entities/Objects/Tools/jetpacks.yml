@@ -233,11 +233,22 @@
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: [JetpackMini, BaseSecurityContraband]
+  parent: [BaseJetpack, BaseSecurityContraband] # DeltaV - Change parent from JetpackMini to BaseJetpack
   name: security mini jetpack
   description: A compact jetpack utilized by station security when patrolling the station's exterior. Not intended for long range travel, it holds only 1.5 L of gas.
   suffix: Empty
   components:
+  # DeltaV - Add override to gas tank for empty security jetpack to correspond with filled jetpack (So empty sec jetpacks aren't 5L while filled jetpacks are 3L)
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 8 minutes of thrust
+      volume: 3
+      temperature: 293.15
+      moles:
+        Oxygen: 0.0
+        Nitrogen: 0.0
+  # End DeltaV
   - type: Item
     sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
   - type: Sprite
@@ -255,12 +266,14 @@
   - type: GasTank
     outputPressure: 42.6
     air:
-      # 4 minutes of thrust
-      volume: 1.5
+      # 8 minutes of thrust
+      volume: 3 # DeltaV - Increase from 1.5L to 3L
       temperature: 293.15
       moles:
-        Oxygen: 0.307706858 # oxygen
-        Nitrogen: 0.307706858 # nitrogen
+        # DeltaV - Changed moles for Oxygen and Nitrogen from 0.307706858 to 0.615413716 to accommodate the larger tank.
+        Oxygen: 0.615413716 # oxygen
+        Nitrogen: 0.615413716 # nitrogen
+        # End DeltaV
 
 #Empty void
 - type: entity

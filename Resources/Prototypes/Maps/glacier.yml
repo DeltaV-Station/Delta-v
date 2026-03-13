@@ -5,7 +5,7 @@
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 15
-  maxPlayers: 60
+  maxPlayers: 70
   stations:
     Glacier:
       stationProto: StandardNanotrasenStation
@@ -39,7 +39,7 @@
           Mime: [ 1, 2 ]
         #engineering
           ChiefEngineer: [ 1, 1 ]
-          AtmosphericTechnician: [ 1, 2 ]
+          AtmosphericTechnician: [ 1, 1 ]
           StationEngineer: [ 2, 3 ]
           TechnicalAssistant: [ 2, 2 ]
         #justice
@@ -49,12 +49,12 @@
           Prosecutor: [ 1, 1 ]
         #medical
           ChiefMedicalOfficer: [ 1, 1 ]
-          Chemist: [ 1, 2 ]
-          Paramedic: [ 1, 2 ]
+          Chemist: [ 2, 2 ]
+          Paramedic: [ 2, 2 ]
           Psychologist: [ 1, 1 ]
           MedicalDoctor: [ 2, 3 ]
           MedicalIntern: [ 2, 2 ]
-          MedicalBorg: [ 1, 2 ]
+          MedicalBorg: [ 1, 1 ]
           Surgeon: [ 1, 2 ]
         #science
           ResearchDirector: [ 1, 1 ]
@@ -74,7 +74,7 @@
           Prisoner: [ 2, 3 ]
         #logistics
           Quartermaster: [ 1, 1 ]
-          Courier: [ 2, 3 ]
+          Courier: [ 2, 2 ]
           SalvageSpecialist: [ 2, 3 ]
           CargoTechnician: [ 2, 3 ]
           CargoAssistant: [ 2, 2 ]

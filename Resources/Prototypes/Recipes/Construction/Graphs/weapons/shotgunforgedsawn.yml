@@ -1,0 +1,12 @@
+- type: constructionGraph
+  id: ShotgunForgedSawn
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shotgunforgedsawn
+          steps:
+            - tool: Sawing
+              doAfter: 2
+    - node: shotgunforgedsawn
+      entity: WeaponShotgunForgedSawn
