@@ -7,7 +7,7 @@ Delta-V is a fork of [Space Station 14](https://github.com/space-wizards/space-s
 
 Space Station 14 is a remake of SS13 that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), a homegrown engine written in C#.
 
-### Any work done in a non-base namespace may contain incorrect attributes due to rewrites and recommitting.
+### Any work done in a non-base namespace may contain incorrect attributions due to rewrites and recommitting.
 
 ## Links
 
