@@ -78,10 +78,28 @@ public sealed partial class FootPrintsComponent : Component
     public FixedPoint2 AmountToTransfer = 0.01;
 
     /// <summary>
-    /// The decal to spawn for footprints.
+    /// The decal to spawn for left footprints when wearing shoes.
     /// </summary>
     [DataField]
-    public string PrintDecal = "footprint-shoes";
+    public string BootDecalLeft = "footprint-shoes";
+
+    /// <summary>
+    /// The decal to spawn for right footprints when wearing shoes.
+    /// </summary>
+    [DataField]
+    public string BootDecalRight = "footprint-shoes";
+
+    /// <summary>
+    /// The decal to spawn for left footprints when barefoot.
+    /// </summary>
+    [DataField]
+    public string BareDecalLeft = "footprint-human-left";
+
+    /// <summary>
+    /// The decal to spawn for right footprints when barefoot.
+    /// </summary>
+    [DataField]
+    public string BareDecalRight = "footprint-human-right";
 
     /// <summary>
     /// The decal to spawn for being dragged.

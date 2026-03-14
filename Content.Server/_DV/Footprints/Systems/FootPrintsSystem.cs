@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Server._DV.Footprints.Components;
 using Content.Server.Decals;
 using Content.Shared._EE.Flight;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
@@ -19,6 +20,7 @@ public sealed partial class FootPrintsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private EntityQuery<FlightComponent> _flightQuery;
     private EntityQuery<TransformComponent> _transformQuery;
@@ -58,10 +60,10 @@ public sealed partial class FootPrintsSystem : EntitySystem
             return;
 
         var isCrit = mobThresholds.CurrentThresholdState is MobState.Critical or MobState.Dead;
-        var beingDragged = isCrit || _standingQuery.TryComp(ent, out var standingComp) && _standing.IsDown((ent, standingComp));
+        var isDowned = isCrit || _standingQuery.TryComp(ent, out var standingComp) && _standing.IsDown((ent, standingComp));
 
         var distance = (transform.LocalPosition - ent.Comp.LastPrintPosition).Length();
-        var stepSize = beingDragged ? ent.Comp.DragSize : ent.Comp.StepSize;
+        var stepSize = isDowned ? ent.Comp.DragSize : ent.Comp.StepSize;
 
         if (distance <= stepSize)
             return;
@@ -71,12 +73,26 @@ public sealed partial class FootPrintsSystem : EntitySystem
             return;
 
         // Calculate spawn coordinates
-        var coords = CalcCoords(gridUid, ent.Comp, transform, beingDragged);
-        var angle = beingDragged
+        var coords = CalcCoords(gridUid, ent.Comp, transform, isDowned);
+        var angle = isDowned
             ? (transform.LocalPosition - ent.Comp.LastPrintPosition).ToAngle() + Angle.FromDegrees(-90f)
             : transform.LocalRotation + Angle.FromDegrees(180f);
 
-        var decal = beingDragged ? _random.Pick(ent.Comp.DraggingDecals) : ent.Comp.PrintDecal;
+        string decal;
+        if (isDowned)
+        {
+            decal = _random.Pick(ent.Comp.DraggingDecals);
+        }
+        else if (!_inventory.GetSlotEnumerator(ent.Owner, SlotFlags.FEET).NextItem(out var item)  // This assumes there can only be 1 feet slot.
+                 || item == EntityUid.Invalid)
+        {
+            decal = ent.Comp.RightStep ? ent.Comp.BareDecalRight : ent.Comp.BareDecalLeft;
+        }
+        else
+        {
+            decal = ent.Comp.RightStep ? ent.Comp.BootDecalRight : ent.Comp.BootDecalLeft;
+        }
+
         if (!_decalSystem.TryAddDecal(decal, coords, out _, color: ent.Comp.PrintsColor, rotation: angle, cleanable: true))
             return;
 
