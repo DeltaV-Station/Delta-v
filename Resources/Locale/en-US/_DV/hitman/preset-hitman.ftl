@@ -4,7 +4,7 @@ Hitman-role-greeting-human =
     Keep damage to bystanders to a minimum.
 
 Hitman-briefing =
-    you've prepared a case with what you need to complete your contract. 
+    you've prepared a case with what you need to complete your contract.
     you have it on your person.
 
 objective-issuer-Hitman = [color=#746694]Criminal[/color]
