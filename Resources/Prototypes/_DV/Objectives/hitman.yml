@@ -93,7 +93,7 @@
     icon:
       sprite: Objects/Fun/Instruments/microphone.rsi
       state: icon
-    difficulty: 1.25 #likely means setting nonsense up 
+    difficulty: 1.25 #likely means setting nonsense up
     unique: true
 
 - type: entity
@@ -106,7 +106,7 @@
     icon:
       sprite: Clothing/Mask/clown.rsi
       state: icon
-    difficulty: 1.25 #likely means setting nonsense up 
+    difficulty: 1.25 #likely means setting nonsense up
     unique: true
 
 - type: entity
@@ -121,7 +121,7 @@
       state: icon
     difficulty: 2 #very target specfic and very set up intesive
     unique: true
-    
+
 
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
@@ -135,7 +135,7 @@
       state: explosive
     difficulty: 2 #requires a ton of set up and chance
     unique: true
-    
+
 
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
@@ -173,7 +173,7 @@
     icon:
       sprite: Structures/Wallmounts/screen.rsi
       state: screen
-    difficulty: 2 #make it much harder to get away with 
+    difficulty: 2 #make it much harder to get away with
     unique: true
 
 - type: entity
@@ -186,9 +186,9 @@
     icon:
       sprite: Objects/Misc/bureaucracy.rsi
       state: acquisition_form
-    difficulty: 1 #kinda hard but it means you dont have to plan for something else when killing them 
+    difficulty: 1 #kinda hard but it means you dont have to plan for something else when killing them
     unique: true
-    
+
 
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
@@ -202,4 +202,4 @@
       state: brain
     difficulty: 1.75 #forces a second tol but doesnt interact with the other objectives
     unique: true
-    
+
