@@ -1,44 +1,4 @@
 ﻿Entries:
-- author: TehFlaminTaco
-  changes:
-  - message: Skia can now resurrect if left un-attended.
-    type: Add
-  - message: Skia's Shatter Light now has a shorter range, but can more consistently
-      shatter close-range lights.
-    type: Tweak
-  - message: Flare gun pellets no-longer stick to Skia.
-    type: Tweak
-  - message: Skia no-longer touch every door they pass through
-    type: Fix
-  id: 1678
-  time: '2025-09-11T06:02:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4355
-- author: EmberAstra
-  changes:
-  - message: Added pressurized micro pumps, allowing IPCs to be pressure immune. Ask
-      your local roboticist for one!
-    type: Add
-  - message: micro pumps can now be inserted in IPCs and not just removed
-    type: Fix
-  id: 1679
-  time: '2025-09-12T07:51:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4356
-- author: Proxysseia
-  changes:
-  - message: the colossus defence values have been tweaked.
-    type: Tweak
-  id: 1680
-  time: '2025-09-12T09:05:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4344
-- author: cmorley191
-  changes:
-  - message: 'These abilities now actually function: Dispel, Mind Swap (Psionics);
-      RGB, Light Synth, Honk, Nanites (AI Abilities); Lapse (Cosmic Cult); Void Applause
-      (Wizard)'
-    type: Fix
-  id: 1681
-  time: '2025-09-19T06:00:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4423
 - author: SirWarock
   changes:
   - message: Added black scarfs to Security - No longer must they wear red scarfs
@@ -4418,4 +4378,33 @@
   id: 2177
   time: '2026-03-10T03:45:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5426
+- author: Eternally-Confused
+  changes:
+  - message: Interdyne herbal cigarettes no longer provide omnizine when ground.
+    type: Tweak
+  id: 2178
+  time: '2026-03-10T23:34:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5493
+- author: rebe83
+  changes:
+  - message: Jug suits now have reduced stamina resistance, and can only bought by
+      commanders and lone ops once.
+    type: Tweak
+  id: 2179
+  time: '2026-03-11T00:14:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5462
+- author: Coryler
+  changes:
+  - message: Reinforced Uranium Windows potentially dropping two shards
+    type: Fix
+  id: 2180
+  time: '2026-03-12T04:03:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5470
+- author: Stxcking
+  changes:
+  - message: 'New gun safe sprites: Salvage + Plain.'
+    type: Tweak
+  id: 2181
+  time: '2026-03-12T11:23:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5512
 Order: 1
