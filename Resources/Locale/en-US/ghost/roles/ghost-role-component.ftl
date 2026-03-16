@@ -359,3 +359,6 @@ ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your ma
 
 ghost-role-information-emotional-support-scurret-name = Emotional Support Scurret
 ghost-role-information-emotional-support-scurret-description = Support the crew, be adorable, say "wa" a lot.
+
+ghost-role-information-centcom-intern-name = CentComm Intern
+ghost-role-information-centcom-intern-description = Perform tasks given by CentComm officials and assist in their duties, such as inspecting the station, taking notes, and managing the fax machine.

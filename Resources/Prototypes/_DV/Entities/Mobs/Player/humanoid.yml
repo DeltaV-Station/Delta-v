@@ -497,3 +497,30 @@
   - type: Loadout
     prototypes: [CBURNGearDeltaV]
     roleLoadout: [ RoleSurvivalEVA ]
+
+# CentComm
+
+- type: entity
+  name: centcomm intern
+  id: RandomHumanoidSpawnerCentcomIntern
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: centcom
+  - type: RandomHumanoidSpawner
+    settings: CentcommIntern
+
+- type: randomHumanoidSettings
+  id: CentcommIntern
+  parent: EventHumanoidCentcomm
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcom-intern-name
+    description: ghost-role-information-centcom-intern-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    job: CentralCommandIntern
+  - type: Loadout
+    prototypes: [ CentcomInternGear ]
+    roleLoadout: [ RoleSurvivalStandard ]

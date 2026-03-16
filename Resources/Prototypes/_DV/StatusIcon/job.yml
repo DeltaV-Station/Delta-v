@@ -60,3 +60,13 @@
   icon:
     sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
     state: Surgeon
+
+# CentComm
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentCommIntern
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    state: CentcommIntern
+  jobName: job-name-centcomintern
