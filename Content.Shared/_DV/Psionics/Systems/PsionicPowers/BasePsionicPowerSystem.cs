@@ -50,9 +50,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// <param name="args">The args from the event.</param>
     protected virtual void OnPowerInit(Entity<T> power, ref MapInitEvent args)
     {
-        var actionId = power.Comp.OverrideActionProtoId ?? power.Comp.ActionProtoId;
-
-        Action.AddAction(power, ref power.Comp.ActionEntity, actionId );
+        Action.AddAction(power, ref power.Comp.ActionEntity, power.Comp.ActionProtoId);
 
         var psionicComp = EnsureComp<PsionicComponent>(power);
         psionicComp.PsionicPowersActionEntities.Add(power.Comp.ActionEntity);

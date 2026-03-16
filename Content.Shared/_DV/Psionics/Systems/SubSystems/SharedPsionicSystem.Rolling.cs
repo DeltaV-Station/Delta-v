@@ -26,6 +26,7 @@ public abstract partial class SharedPsionicSystem
         }
 
         AddRandomPsionicPower(potPsionic, true);
+        Dirty(potPsionic);
         return true;
     }
 
@@ -46,17 +47,11 @@ public abstract partial class SharedPsionicSystem
 
     public void AddRandomPsionicPower(Entity<PotentialPsionicComponent> psionic, bool midRound, int attempts = 0)
     {
-        // This is important to check for beings that become potentially psionic through other ways than spawning in.
-        // Example would be admeme or cognizine.
-        if (psionic.Comp.AvailablePsionics == null)
-        {
-            if (!_prototypeManager.Resolve(psionic.Comp.PsionicPowerTableId, out var powerTable))
+
+        if (!_prototypeManager.Resolve(psionic.Comp.PsionicPowerTableId, out var powerTable))
                 return;
 
-            psionic.Comp.AvailablePsionics = powerTable.Table;
-        }
-
-        var spawns = _entityTable.GetSpawns(psionic.Comp.AvailablePsionics);
+        var spawns = _entityTable.GetSpawns(powerTable);
 
         foreach (var entProtoId in spawns)
         {
@@ -94,6 +89,7 @@ public abstract partial class SharedPsionicSystem
             return false;
 
         potPsionic.Comp.Rolled = false;
+        Dirty(potPsionic);
         return true;
     }
 }

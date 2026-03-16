@@ -7,13 +7,13 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PrecognitionPowerComponent : BasePsionicPowerComponent
 {
-    public override EntProtoId ActionProtoId => "ActionPrecognition";
+    public override EntProtoId ActionProtoId { get; set; } = "ActionPrecognition";
 
-    public override string PowerName => "psionic-power-name-precognition";
+    public override string PowerName { get; set; } = "psionic-power-name-precognition";
 
-    public override int MinGlimmerChanged => 5;
+    public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged => 10;
+    public override int MaxGlimmerChanged { get; set; } = 10;
 
     /// <summary>
     /// This dictates the chance that it'll return a wrong message, seeding unreliance.

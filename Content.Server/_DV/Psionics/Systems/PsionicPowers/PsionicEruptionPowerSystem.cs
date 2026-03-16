@@ -23,7 +23,6 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicEruptionPowerComponent, PsionicEruptionPowerActionEvent>
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -34,7 +33,6 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private static readonly EntProtoId? Sparks = "EffectSparks";
@@ -54,6 +52,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
             return;
 
         _eui.OpenEui(new EruptionWarningEui(), session);
+        power.Comp.NextAnnoy = Timing.CurTime + TimeSpan.FromSeconds(60); // Minute grace period
     }
 
     protected override void OnPowerUsed(Entity<PsionicEruptionPowerComponent> psionic, ref PsionicEruptionPowerActionEvent args)
@@ -80,11 +79,11 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         psionic.Comp.SaveDoAfterId(doAfterId.Value); // Save the DoAfterID to reference it later.
 
         var message = Loc.GetString("psionic-eruption-begin", ("user", args.Performer));
-        _popups.PopupEntity(message, args.Performer, PopupType.LargeCaution);
+        Popup.PopupEntity(message, args.Performer, PopupType.LargeCaution);
         _audio.PlayPvs(psionic.Comp.SoundUse, args.Performer, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
         _jittering.DoJitter(args.Performer, sparkFrom, true, 10, 16);
 
-        psionic.Comp.NextSpark = _gameTiming.CurTime + sparkFrom;
+        psionic.Comp.NextSpark = Timing.CurTime + sparkFrom;
         LogPowerUsed(psionic, args.Performer);
     }
 
@@ -93,7 +92,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         base.Update(frameTime);
 
         // Occasionally pester users of the Psionic Eruption power to use it.
-        var curTime = _gameTiming.CurTime;
+        var curTime = Timing.CurTime;
 
         var query = EntityQueryEnumerator<PsionicEruptionPowerComponent>();
         while (query.MoveNext(out var psionic, out var comp))
@@ -112,7 +111,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
 
             var msg = GetSeverityMessage(psionic, out var messageSize, out var minWait);
             // Prompt the user to use the power.
-            _popups.PopupEntity(Loc.GetString(msg, ("user", psionic)), psionic, psionic, messageSize);
+            Popup.PopupEntity(Loc.GetString(msg, ("user", psionic)), psionic, psionic, messageSize);
             comp.NextAnnoy = curTime + minWait + TimeSpan.FromSeconds(_random.Next(0, 10)); // Add a random delay to the next annoyance.
         }
     }

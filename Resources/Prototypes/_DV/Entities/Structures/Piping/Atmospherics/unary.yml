@@ -8,3 +8,17 @@
     wideNet: true
     filterGases:
     - Tritium
+
+# Kitchen freezer, cant go below 230.15 K
+- type: entity
+  parent: GasThermoMachineFreezer
+  id: GasThermoMachineKitchenFreezer
+  name: kitchen freezer
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Piping/Atmospherics/kitchenthermomachine.rsi
+  - type: GasThermoMachine
+    minTemperature: 230.15
+    targetTemperature: 235.15
+  - type: Machine
+    board: KitchenFreezerMachineCircuitBoard

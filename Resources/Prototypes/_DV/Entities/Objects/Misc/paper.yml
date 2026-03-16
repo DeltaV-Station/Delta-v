@@ -396,8 +396,8 @@
         type: ResearchConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: MeleeWeapon
     damage:
       types:
@@ -529,3 +529,96 @@
     content: |2
       [color=red]TOP SECRET![/color]
       nuclear fission explosive (NT-XXXXXX) code: XXXXXX
+
+- type: entity
+  parent: [BoxFolderClipboardEmpty, BaseGrandTheftContraband]
+  id: BoxFolderCeClipboard
+  name: power digi-board
+  description: A bulky electric clipboard, filled with building permits and power reports. With so many compromising documents, you ought to keep this safe.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+    layers:
+    - state: ce_clipboard
+    - state: ce_clipboard_paper
+      map: ["ce_clipboard_paper"]
+      visible: false
+    - state: ce_clipboard_pen
+      map: ["ce_clipboard_pen"]
+      visible: false
+    - state: ce_clipboard_over
+  - type: ItemSlots
+    slots:
+      pen_slot:
+        name: clipboard-slot-component-slot-name-pen
+        whitelist:
+          tags:
+          - Write
+        insertOnInteract: true
+  - type: Item
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+    size: Normal
+  - type: Clothing
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    quickInsert: true
+  - type: ItemMapper
+    mapLayers:
+      ce_clipboard_paper:
+        whitelist:
+          tags:
+          - Document
+      ce_clipboard_pen:
+        whitelist:
+          tags:
+          - Write
+  - type: PowerMonitoringConsole
+  - type: PowerMonitoringCableNetworks
+  - type: UserInterface
+    interfaces:
+      enum.PowerMonitoringConsoleUiKey.Key:
+        type: PowerMonitoringConsoleBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    verbText: ce-clipboard-computer-verb-text
+    key: enum.PowerMonitoringConsoleUiKey.Key
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: Tag
+    tags:
+    - Folder
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: BoxFolderCeClipboard
+
+#Smile Recipe
+- type: entity
+  parent: Paper
+  id: PaperResearchSmileRecipe
+  name: epistemics test log
+  components:
+  - type: Paper
+    content: |2
+      [color=Purple]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
+      [color=Purple]
+      ░▀▄▄▀░ [head=2]Test Log Number: 979[/head]
+      ░█░░█░ [color=Black][bold]Research Lead:[/bold] Lydia Moon[/color]
+      ░▄▀▀▄░ [color=Black][bold]Subject:[/bold] Sentient Slime[/color]
+      ───────────────────────────────────────── [/color]
+      [bold]Hypothesis:[/bold] Near sentience has been observed multiple times in various slime organisms.
+      It is feasible to believe we can replicate a cognitive formula to produce a fully sentient slime organism.
+      [bold]Test Method:[/bold] Reagent Emulsification
+      [bold]Components used in this trial:[/bold]
+      - 20u slime
+      - 10u weh juice
+      - 4u happiness
+      - 1u slime core
+      [bold]Method used in this trial:[/bold] Mixing liquids at room temperature. Injecting mixture into slime core.
+      [bold]Results:[/bold] Negative
+      [bold]Notes:[/bold] I feel like I am close. All previous tests have indicated the components are correct. However, it seems we have been missing a step.
+      [bold]Synopsis:[/bold] Further testing and analysis needed.

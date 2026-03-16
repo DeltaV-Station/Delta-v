@@ -7,13 +7,13 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PsychokineticScreamPowerComponent : BasePsionicPowerComponent
 {
-    public override EntProtoId ActionProtoId => "ActionPsychokineticScream";
+    public override EntProtoId ActionProtoId { get; set; } = "ActionPsychokineticScream";
 
-    public override string PowerName => "psionic-power-name-psychokinetic";
+    public override string PowerName { get; set; } = "psionic-power-name-psychokinetic";
 
-    public override int MinGlimmerChanged => 20;
+    public override int MinGlimmerChanged { get; set; } = 20;
 
-    public override int MaxGlimmerChanged => 30;
+    public override int MaxGlimmerChanged { get; set; } = 30;
 
     /// <summary>
     /// The radius in which lights will be broken.

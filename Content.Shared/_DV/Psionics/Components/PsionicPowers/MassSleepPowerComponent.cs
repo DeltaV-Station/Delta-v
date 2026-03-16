@@ -6,13 +6,13 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MassSleepPowerComponent : BasePsionicPowerComponent
 {
-    public override EntProtoId ActionProtoId => "ActionMassSleep";
+    public override EntProtoId ActionProtoId { get; set; } = "ActionMassSleep";
 
-    public override string PowerName => "psionic-power-name-mass-sleep";
+    public override string PowerName { get; set; } = "psionic-power-name-mass-sleep";
 
-    public override int MinGlimmerChanged => 10;
+    public override int MinGlimmerChanged { get; set; } = 10;
 
-    public override int MaxGlimmerChanged => 20;
+    public override int MaxGlimmerChanged { get; set; } = 20;
 
     /// <summary>
     /// The radius to where people will fall asleep.

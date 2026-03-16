@@ -9,13 +9,13 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class FracturedFormPowerComponent : BasePsionicPowerComponent
 {
-    public override EntProtoId ActionProtoId => "ActionFracturedForm";
+    public override EntProtoId ActionProtoId { get; set; } = "ActionFracturedForm";
 
-    public override string PowerName => "psionic-power-name-fractured-form";
+    public override string PowerName { get; set; } = "psionic-power-name-fractured-form";
 
-    public override int MinGlimmerChanged => 5;
+    public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged => 30;
+    public override int MaxGlimmerChanged { get; set; } = 30;
 
     /// <summary>
     /// These are settings for creating the second body.

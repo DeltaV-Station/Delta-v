@@ -9,13 +9,13 @@ namespace Content.Shared._DV.Psionics.Components.PsionicPowers;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComponent
 {
-    public override EntProtoId ActionProtoId => "ActionEruption";
+    public override EntProtoId ActionProtoId { get; set; } = "ActionEruption";
 
-    public override string PowerName => "psionic-power-name-eruption";
+    public override string PowerName { get; set; } = "psionic-power-name-eruption";
 
-    public override int MinGlimmerChanged => -200;
+    public override int MinGlimmerChanged { get; set; } = -200;
 
-    public override int MaxGlimmerChanged => -100;
+    public override int MaxGlimmerChanged { get; set; } = -100;
 
     /// <summary>
     /// Minimum time for the Detonation DoAfter to take effect.
@@ -40,12 +40,12 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
     /// <summary>
     /// The timespan for the next annoy popup. This will be refreshed depending on the glimmer amount.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    [DataField, AutoPausedField]
     public TimeSpan NextAnnoy = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The timespan for the next spark to appear.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextSpark = TimeSpan.MaxValue;
+    [DataField, AutoPausedField]
+    public TimeSpan? NextSpark;
 }
