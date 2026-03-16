@@ -177,6 +177,13 @@
     examineWhileLocked: false
     keysExtractionMethod: Cutting
     keysUnlocked: false
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 5
+    unlockTime: 5
+    breakOnAccessBreaker: false # DeltaV - cant be emagged
   - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
