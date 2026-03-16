@@ -172,6 +172,14 @@
       Unsexed: MaleMotorkind
   - type: Speech
     speechSounds: Alto
+  - type: EncryptionKeyHolder
+    keySlots: 4
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+    keysUnlocked: false
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
   - type: Strap
     position: Down
     rotation: -90
