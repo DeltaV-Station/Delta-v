@@ -302,8 +302,6 @@
   #- type: StunVisuals # DeltaV - No stars
   - type: CanDoCPR # DeltaV - Addition of CPR
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
-    availablePsionics: !type:NestedSelector
-      tableId: PsionicPowerTable
 
 - type: entity
   save: false
