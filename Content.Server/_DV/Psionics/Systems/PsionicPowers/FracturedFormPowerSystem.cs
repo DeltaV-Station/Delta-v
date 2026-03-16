@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Content.Server.Cloning;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
@@ -5,6 +6,7 @@ using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Components;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -53,6 +55,10 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
         // Don't generate a new body if we're already part of a network.
         if (HasComp<FracturedFormBodyComponent>(power))
+            return;
+
+        // Don't make bodies if there is no body. This is solely for test fails.
+        if (!HasComp<BodyComponent>(power))
             return;
 
         var bodyComp = AddComp<FracturedFormBodyComponent>(power);

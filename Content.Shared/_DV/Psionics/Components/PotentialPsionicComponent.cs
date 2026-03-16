@@ -36,18 +36,12 @@ public sealed partial class PotentialPsionicComponent : Component
     /// </summary>
     /// <example>Lotophagoi Oil will attempt to roll a new power for the consumer if this is false.
     /// It'll then be set true.</example>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Rolled;
 
     /// <summary>
     /// The Prototype ID of the table containing the available psionic powers to roll.
     /// </summary>
     [DataField]
-    public ProtoId<EntityTablePrototype>? PsionicPowerTableId = "PsionicPowerTable";
-
-    /// <summary>
-    /// The actual table.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityTableSelector? AvailablePsionics;
+    public ProtoId<EntityTablePrototype> PsionicPowerTableId = "PsionicPowerTable";
 }

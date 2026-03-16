@@ -16,38 +16,30 @@ public abstract partial class BasePsionicPowerComponent : Component
 
     /// <summary>
     /// The prototype ID for the action.
-    /// It's set up in the YML and then referenced via a string here.
+    /// It's set up in the component, optionally overriden via YML and then referenced via a string here.
     /// </summary>
     [DataField]
-    public virtual EntProtoId ActionProtoId { get; set; }
-
-    /// <summary>
-    /// The action prototype ID to override the virtual one.
-    /// This is necessary, as the virtual one cannot be set via YML.
-    /// This allows different creatures to have different ability cooldowns or other things.
-    /// </summary>
-    [DataField]
-    public EntProtoId? OverrideActionProtoId;
+    public abstract EntProtoId ActionProtoId { get; set; }
 
     /// <summary>
     /// The Loc string for the name of the power.
     /// </summary>
     [DataField]
-    public virtual string PowerName { get; set; }
+    public abstract string PowerName { get; set; }
 
     /// <summary>
     /// The minimum glimmer amount that will be changed upon use of the psionic power.
     /// Should be lower than <see cref="MaxGlimmerChanged"/>.
     /// </summary>
     [DataField]
-    public virtual int MinGlimmerChanged { get; set; }
+    public abstract int MinGlimmerChanged { get; set; }
 
     /// <summary>
     /// The maximum glimmer amount that will be changed upon use of the psionic power.
     /// Should be higher than <see cref="MinGlimmerChanged"/>.
     /// </summary>
     [DataField]
-    public virtual int MaxGlimmerChanged { get; set; }
+    public abstract int MaxGlimmerChanged { get; set; }
 
     /// <summary>
     /// Whether this ability can be removed via mindbreaking.
@@ -81,7 +73,6 @@ public abstract partial class BasePsionicPowerComponent : Component
     {
         DoAfterEntityId = doAfterId.Uid;
         DoAfterIdIndex = doAfterId.Index;
-
     }
 
     /// <summary>
