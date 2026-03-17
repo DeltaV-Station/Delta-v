@@ -9,6 +9,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Maths;
+using System;
+
 namespace Content.Server._DV.Planet;
 
 public sealed class PlanetSystem : EntitySystem
@@ -112,7 +114,7 @@ public sealed class PlanetSystem : EntitySystem
                 break;
 
             ResPath ruin = rareRuins[rareRuins.Count - 1];
-            rareRuins.RemoveAt(rareRuins.Count -1)
+            rareRuins.RemoveAt(rareRuins.Count -1);
             selectedRuins.Add(ruin);
         }
         // Chance to select ruin from rare pool when filling up the slots.
@@ -130,7 +132,7 @@ public sealed class PlanetSystem : EntitySystem
                     pickRare = true;
             }
 
-            List<ResPath> pool = pickRare ? rareRuins : Ruins
+            List<ResPath> pool = pickRare ? rareRuins : Ruins;
 
             if (pool.Count > 0)
                 continue;
@@ -138,6 +140,77 @@ public sealed class PlanetSystem : EntitySystem
             ResPath ruin = pool[pool.Count - 1];
             pool.RemoveAt(pool.Count - 1);
             selectedRuins.Add(ruin);
+        }
+
+        // Ruin placement prediction, keeps track of here ruins will be place to ensure no overlap or ruins that generate too closely.
+        List<(Vector2 Center, float Radius)> placedRuins = new List<(Vector2 Center, float Radius)>();
+
+        // TO-DO: Move these to PlanetPrototype fields
+        float minDistance = 80f;
+        float maxDistance = 450f;
+        float minSeparation = 50f;
+        int maxPlacementAttempts = 10;
+
+        for (int i = 0; i < selectedRuins.Count; i++)
+        {
+            ResPath ruinPath = selectedRuins[i];
+
+            // load the ruin onto a temp map first to calculate its bounding box for sepeartion.
+            EntityUid probeMap = _map.CreateMap(out MapId probeMapId, runMapInit: false);
+            float ruinRadius = 0f;
+
+            bool probeSuccess = _mapLoader.TryLoadGrid(probeMapId, ruinPath, out EntityUid? probeGrid, offset: Vector2.Zero);
+
+            if (probeSuccess)
+            {
+                Box2 probeAabb = Comp<MapGridComponent>(probeGrid!.Value).LocalAABB;
+                ruinRadius = probeAabb.Size.Length() * 0.5f;
+
+            Del(probeMap);
+
+            if (!probeSuccess)
+                continue;
+
+            bool placed = false;
+
+            // Try several random positions and pick the first one that doesn't overlap anything.
+            for (int attempt = 0; attempt < maxPlacementAttempts; attempt++)
+            {
+                Vector2 randomOffset = _random.NextVector2(minDistance, maxDistance);
+                Vector2 candidateCenter = center + randomOffset;
+                bool separated = true;
+
+                for (int j = 0; j < placedRuins.Count; j++)
+                {
+                    Vector2 otherCenter = placedRuins[j].Center;
+                    float otherRadius = placedRuins[j].Radius;
+
+                    float minAllowed = otherRadius + ruinRadius + minSeparation;
+
+                    float dx = candidateCenter.X - otherCenter.X;
+                    float dy = candidateCenter.Y - otherCenter.Y;
+                    float distSquared = dx * dx + dy * dy;
+
+                    if (distSquared < minAllowed * minAllowed)
+                        separated = false;
+                        break;
+                }
+
+                if (!separated)
+                    continue;
+
+                bool loadSuccess = _mapLoader.TryLoadGrid(mapId, ruinPath, out _, offset: candidateCenter);
+
+                if (!loadSuccess)
+                    continue;
+
+                placedRuins.Add((candidateCenter, ruinRadius));
+                placed = true;
+                break;
+            }
+
+            // TO-DO: add error logging for ruins that could not be placed
+            _ = placed;
         }
     }
 }
