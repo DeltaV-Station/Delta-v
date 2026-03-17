@@ -10,6 +10,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Maths;
 using System;
+using System.Numerics;
 
 namespace Content.Server._DV.Planet;
 
