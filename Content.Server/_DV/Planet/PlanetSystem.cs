@@ -7,6 +7,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
 
 namespace Content.Server._DV.Planet;
 
@@ -70,5 +71,21 @@ public sealed class PlanetSystem : EntitySystem
 
         _map.InitializeMap(map);
         return map;
+
+    // Ruin generation for planet maps.
+    private void TrySpawningRuins(EntityUid mapUid, MapId mapId, PlanetPrototype planet)
+    {
+        if (planet.RuinMaxCount <= 0)
+            return;
+
+        if (planet.RuinPaths.Count == 0 && planet.RareRuinPaths.Count == 0)
+            return;
+
+        List<ResPath> Ruins = new List<ResPath>(planet.RuinPaths);
+        List<ResPath> rareRuins = new List<ResPath>(planet.RareRuinPaths);
+
+        int totalRuinAvailable = Ruins.Count + rareRuins.Count;
+        if (totalRuinAvailable == 0)
+            return;
     }
 }
