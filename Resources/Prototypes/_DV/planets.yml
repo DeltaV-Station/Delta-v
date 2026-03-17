@@ -46,6 +46,50 @@
   - OreBluespace
   - OreArtifactFragment
   - LavalandGibtonite
+  ruinPaths:
+  #- /Maps/Lavaland/bait.yml # TO-DO: Free RPG.
+  #- /Maps/Lavaland/basalt_ruin.yml # TO-DO: Make a grid.
+  #- /Maps/Lavaland/bridge.yml # TO-DO: Massive lava river with a single bridge
+  - /Maps/Lavaland/broken_cargo.yml
+  - /Maps/Lavaland/catwalk_crossroad.yml
+  - /Maps/Lavaland/cave_murder.yml
+  - /Maps/Lavaland/commieoutpost.yml
+  #- /Maps/Lavaland/crashed_pod_trail.yml # TO-DO: Trail too long.
+  - /Maps/Lavaland/crasheddropship.yml
+  - /Maps/Lavaland/crashedinstigator.yml
+  - /Maps/Lavaland/crashedsloop.yml
+  #- /Maps/Lavaland/crashedsyndiepod.yml # TO-DO: Make a grid.
+  - /Maps/Lavaland/Envy.yml
+  - /Maps/Lavaland/escape_pod_crash.yml
+  - /Maps/Lavaland/front_desk.yml
+  - /Maps/Lavaland/generator_scrapyard.yml
+  - /Maps/Lavaland/Gluttony.yml
+  - /Maps/Lavaland/Greed.yml
+  - /Maps/Lavaland/hermit_base.yml
+  - /Maps/Lavaland/lava_farm.yml
+  - /Maps/Lavaland/miming_drill.yml
+  #- /Maps/Lavaland/minefield.yml # TO-DO: Probably remove the AKM?
+  - /Maps/Lavaland/miner_tomb.yml
+  - /Maps/Lavaland/mug_factory.yml
+  - /Maps/Lavaland/penalcolony.yml
+  - /Maps/Lavaland/pizza_party.yml
+  # - /Maps/Lavaland/Pride.yml # TO-DO: Just a room filled with mirrors.
+  - /Maps/Lavaland/ripley.yml
+  - /Maps/Lavaland/roundel.yml
+  - /Maps/Lavaland/shinobi_graveyard.yml
+  - /Maps/Lavaland/sloth.yml
+  - /Maps/Lavaland/solemn_lament.yml
+  - /Maps/Lavaland/temple.yml
+  #- /Maps/Lavaland/wrecked_outpost.yml # TO-DO: Make a grid.
+  #- /Maps/Lavaland/Wrath.yml # TO-DO: Probably remove the AKM?
+#  rareRuinPaths: for later
+  - /Maps/Lavaland/labour_camp.yml
+  - /Maps/Lavaland/fleshlab.yml
+  - /Maps/Lavaland/mineshaft.yml
+#  guaranteedRareRuins: 1
+#  ruinRareChance: 20
+  ruinMinCount: 5
+  ruinMaxCount: 8
 
 - type: planet
   id: GlacierSurface

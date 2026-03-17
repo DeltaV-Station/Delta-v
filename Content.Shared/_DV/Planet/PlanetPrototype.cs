@@ -46,4 +46,40 @@ public sealed partial class PlanetPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<BiomeMarkerLayerPrototype>> BiomeMarkerLayers = new();
+
+    /// <summary>
+    /// Ruin map paths for the ruin pool.
+    /// </summary>
+    [DataField]
+    public List<ResPath> RuinPaths = new();
+
+    /// <summary>
+    /// Minimum number of ruins to spawn at round start.
+    /// </summary>
+    [DataField]
+    public int RuinMinCount = 0;
+
+    /// <summary>
+    /// Maximum number of ruins to spawn at round start.
+    /// </summary>
+    [DataField]
+    public int RuinMaxCount = 0;
+
+    /// <summary>
+    /// Optional rare ruin map paths that should be selected less often.
+    /// </summary>
+    [DataField]
+    public List<ResPath> RareRuinPaths = new();
+
+    /// <summary>
+    /// Number of rare ruins guaranteed.
+    /// </summary>
+    [DataField]
+    public int GuaranteedRareRuins = 0;
+
+    /// <summary>
+    /// Percent chance that each additional ruin selected is rare.
+    /// </summary>
+    [DataField]
+    public int RuinRareChance = 0;
 }
