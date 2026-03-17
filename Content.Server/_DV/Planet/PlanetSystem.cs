@@ -101,6 +101,44 @@ public sealed class PlanetSystem : EntitySystem
         if (RuinSpawningCount == 0)
             return;
 
-        List<ResPath> SelectedRuins = new List<ResPath>();
+        List<ResPath> selectedRuins = new List<ResPath>();
+
+        // Guaranteed rare ruins come first in selection!
+        int guaranteedRare = Math.Clamp(planet.GuaranteedRareRuinCount, 0, Math.Min(selectedRuins, rareRuins.Count));
+
+        for (int i = 0; i < guaranteedRare; i++)
+        {
+            if (rareRuins.Count == 0)
+                break;
+
+            ResPath ruin = rareRuins[rareRuins.Count - 1];
+            rareRuins.RemoveAt(rareRuins.Count -1)
+            selectedRuins.Add(ruin);
+        }
+        // Chance to select ruin from rare pool when filling up the slots.
+        int rareChance = Math.Clamp(planet.RareRuinChance, 0, 100);
+
+        while (selectedRuins.Count < RuinSpawningCount && (Ruins.Count > 0 || rareRuins.Count > 0))
+        {
+            bool pickRare = false;
+
+            if (rareRuin.Count > 0)
+            {
+                if (Ruins.Count == 0)
+                    pickRare = true;
+                else if (_random.Next(100) < rareChance)
+                    pickRare = true;
+            }
+
+            List<ResPath> pool = pickRare ? rareRuins : Ruins
+
+            if (pool.Count > 0)
+                continue;
+
+            ResPath ruin = pool[pool.Count - 1];
+            pool.RemoveAt(pool.Count - 1);
+            selectedRuins.Add(ruin);
+        }
     }
 }
+
