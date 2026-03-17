@@ -161,12 +161,13 @@ public sealed class PlanetSystem : EntitySystem
             // load the ruin onto a temp map first to calculate its bounding box for separation.
             EntityUid probeMap = _map.CreateMap(out MapId probeMapId, runMapInit: false);
             float ruinRadius = 0f;
+            Box2 probeAabb = Box2.UnitCentered;
 
             bool probeSuccess = _mapLoader.TryLoadGrid(probeMapId, ruinPath, out var probeGrid, offset: Vector2.Zero);
 
             if (probeSuccess)
             {
-                Box2 probeAabb = Comp<MapGridComponent>(probeGrid!.Value).LocalAABB;
+                probeAabb = Comp<MapGridComponent>(probeGrid!.Value).LocalAABB;
                 ruinRadius = probeAabb.Size.Length() * 0.5f;
             }
 
@@ -209,6 +210,11 @@ public sealed class PlanetSystem : EntitySystem
 
                 if (!loadSuccess)
                     continue;
+
+                // Reserve one tile around the ruin so biome stuff does not spawn right against it.
+                _setTiles.Clear();
+                Box2 ruinReserveBox = probeAabb.Translated(candidateCenter).Enlarged(1f);
+                _biome.ReserveTiles(mapUid, ruinReserveBox, _setTiles);
 
                 placedRuins.Add((candidateCenter, ruinRadius));
                 placed = true;
