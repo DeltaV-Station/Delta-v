@@ -146,14 +146,8 @@ public sealed class PlanetSystem : EntitySystem
             selectedRuins.Add(ruin);
         }
 
-        // Ruin placement prediction, keeps track of here ruins will be place to ensure no overlap or ruins that generate too closely.
+        // Ruin placement prediction, keeps track of the ruins that will be placed to ensure no overlap or ruins that generate too closely.
         List<(Vector2 Center, float Radius)> placedRuins = new List<(Vector2 Center, float Radius)>();
-
-        // TO-DO: Move these to PlanetPrototype fields
-        float minDistance = 80f;
-        float maxDistance = 450f;
-        float minSeparation = 50f;
-        int maxPlacementAttempts = 10;
 
         for (int i = 0; i < selectedRuins.Count; i++)
         {

@@ -83,4 +83,28 @@ public sealed partial class PlanetPrototype : IPrototype
     /// </summary>
     [DataField]
     public int RuinRareChance = 0;
+
+    /// <summary>
+    /// Minimum distance from the base grid edge for ruin placement.
+    /// </summary>
+    [DataField]
+    public float RuinMinDistance = 80f;
+
+    /// <summary>
+    /// Maximum distance from the base grid edge for ruin placement.
+    /// </summary>
+    [DataField]
+    public float RuinMaxDistance = 450f;
+
+    /// <summary>
+    /// Minimum spacing between spawned ruin bounds.
+    /// </summary>
+    [DataField]
+    public float RuinMinSeparation = 60f;
+
+    /// <summary>
+    /// Placement attempts per ruin before giving up.
+    /// </summary>
+    [DataField]
+    public int RuinPlacementAttempts = 10;
 }
