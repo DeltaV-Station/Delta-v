@@ -8,7 +8,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
-
+using Robust.Shared.Maths;
 namespace Content.Server._DV.Planet;
 
 public sealed class PlanetSystem : EntitySystem
@@ -19,6 +19,8 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
 
     private readonly List<(Vector2i, Tile)> _setTiles = new();
 
@@ -87,5 +89,18 @@ public sealed class PlanetSystem : EntitySystem
         int totalRuinAvailable = Ruins.Count + rareRuins.Count;
         if (totalRuinAvailable == 0)
             return;
+
+        _random.Shuffle(Ruins);
+        _random.Shuffle(rareRuins);
+
+        int minCount = Math.Clamp(planet.RuinMinCount, 0, totalRuinAvailable);
+        int maxCount = Math.Clamp(planet.RuinMaxCount, minCount, totalRuinAvailable);
+
+        int RuinSpawningCount = _random.Next(minCount, maxCount + 1);
+
+        if (RuinSpawningCount == 0)
+            return;
+
+        List<ResPath> SelectedRuins = new List<ResPath>();
     }
 }
