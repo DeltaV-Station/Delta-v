@@ -149,6 +149,10 @@ public sealed class PlanetSystem : EntitySystem
 
         // Ruin placement prediction, keeps track of the ruins that will be placed to ensure no overlap or ruins that generate too closely.
         List<(Vector2 Center, float Radius)> placedRuins = new List<(Vector2 Center, float Radius)>();
+        float minDistance = planet.RuinMinDistance;
+        float maxDistance = planet.RuinMaxDistance;
+        float minSeparation = planet.RuinMinSeparation;
+        int maxPlacementAttempts = planet.RuinPlacementAttempts;
 
         for (int i = 0; i < selectedRuins.Count; i++)
         {
@@ -158,7 +162,7 @@ public sealed class PlanetSystem : EntitySystem
             EntityUid probeMap = _map.CreateMap(out MapId probeMapId, runMapInit: false);
             float ruinRadius = 0f;
 
-            bool probeSuccess = _mapLoader.TryLoadGrid(probeMapId, ruinPath, out EntityUid? probeGrid, offset: Vector2.Zero);
+            bool probeSuccess = _mapLoader.TryLoadGrid(probeMapId, ruinPath, out var probeGrid, offset: Vector2.Zero);
 
             if (probeSuccess)
             {
