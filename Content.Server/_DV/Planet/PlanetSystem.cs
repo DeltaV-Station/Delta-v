@@ -59,6 +59,7 @@ public sealed class PlanetSystem : EntitySystem
     /// </summary>
     public EntityUid? LoadPlanet(ProtoId<PlanetPrototype> id, ResPath path)
     {
+        PlanetPrototype planet = _proto.Index(id);
         var map = SpawnPlanet(id, runMapInit: false);
         var mapId = Comp<MapComponent>(map).MapId;
         if (!_mapLoader.TryLoadGrid(mapId, path, out var grid))
@@ -73,11 +74,14 @@ public sealed class PlanetSystem : EntitySystem
         var aabb = Comp<MapGridComponent>(grid.Value).LocalAABB;
         _biome.ReserveTiles(map, aabb.Enlarged(0.2f), _setTiles);
 
+        TrySpawningRuins(map, mapId, planet, aabb.Center);
+
         _map.InitializeMap(map);
         return map;
+    }
 
     // Ruin generation for planet maps.
-    private void TrySpawningRuins(EntityUid mapUid, MapId mapId, PlanetPrototype planet)
+    private void TrySpawningRuins(EntityUid mapUid, MapId mapId, PlanetPrototype planet, Vector2 center)
     {
         if (planet.RuinMaxCount <= 0)
             return;
@@ -85,28 +89,28 @@ public sealed class PlanetSystem : EntitySystem
         if (planet.RuinPaths.Count == 0 && planet.RareRuinPaths.Count == 0)
             return;
 
-        List<ResPath> Ruins = new List<ResPath>(planet.RuinPaths);
+        List<ResPath> ruins = new List<ResPath>(planet.RuinPaths);
         List<ResPath> rareRuins = new List<ResPath>(planet.RareRuinPaths);
 
-        int totalRuinAvailable = Ruins.Count + rareRuins.Count;
+        int totalRuinAvailable = ruins.Count + rareRuins.Count;
         if (totalRuinAvailable == 0)
             return;
 
-        _random.Shuffle(Ruins);
+        _random.Shuffle(ruins);
         _random.Shuffle(rareRuins);
 
         int minCount = Math.Clamp(planet.RuinMinCount, 0, totalRuinAvailable);
         int maxCount = Math.Clamp(planet.RuinMaxCount, minCount, totalRuinAvailable);
 
-        int RuinSpawningCount = _random.Next(minCount, maxCount + 1);
+        int ruinSpawningCount = _random.Next(minCount, maxCount + 1);
 
-        if (RuinSpawningCount == 0)
+        if (ruinSpawningCount == 0)
             return;
 
         List<ResPath> selectedRuins = new List<ResPath>();
 
         // Guaranteed rare ruins come first in selection!
-        int guaranteedRare = Math.Clamp(planet.GuaranteedRareRuinCount, 0, Math.Min(selectedRuins, rareRuins.Count));
+        int guaranteedRare = Math.Clamp(planet.GuaranteedRareRuins, 0, rareRuins.Count);
 
         for (int i = 0; i < guaranteedRare; i++)
         {
@@ -118,23 +122,23 @@ public sealed class PlanetSystem : EntitySystem
             selectedRuins.Add(ruin);
         }
         // Chance to select ruin from rare pool when filling up the slots.
-        int rareChance = Math.Clamp(planet.RareRuinChance, 0, 100);
+        int rareChance = Math.Clamp(planet.RuinRareChance, 0, 100);
 
-        while (selectedRuins.Count < RuinSpawningCount && (Ruins.Count > 0 || rareRuins.Count > 0))
+        while (selectedRuins.Count < ruinSpawningCount && (ruins.Count > 0 || rareRuins.Count > 0))
         {
             bool pickRare = false;
 
-            if (rareRuin.Count > 0)
+            if (rareRuins.Count > 0)
             {
-                if (Ruins.Count == 0)
+                if (ruins.Count == 0)
                     pickRare = true;
                 else if (_random.Next(100) < rareChance)
                     pickRare = true;
             }
 
-            List<ResPath> pool = pickRare ? rareRuins : Ruins;
+            List<ResPath> pool = pickRare ? rareRuins : ruins;
 
-            if (pool.Count > 0)
+            if (pool.Count == 0)
                 continue;
 
             ResPath ruin = pool[pool.Count - 1];
@@ -155,7 +159,7 @@ public sealed class PlanetSystem : EntitySystem
         {
             ResPath ruinPath = selectedRuins[i];
 
-            // load the ruin onto a temp map first to calculate its bounding box for sepeartion.
+            // load the ruin onto a temp map first to calculate its bounding box for separation.
             EntityUid probeMap = _map.CreateMap(out MapId probeMapId, runMapInit: false);
             float ruinRadius = 0f;
 
@@ -165,6 +169,7 @@ public sealed class PlanetSystem : EntitySystem
             {
                 Box2 probeAabb = Comp<MapGridComponent>(probeGrid!.Value).LocalAABB;
                 ruinRadius = probeAabb.Size.Length() * 0.5f;
+            }
 
             Del(probeMap);
 
@@ -192,8 +197,10 @@ public sealed class PlanetSystem : EntitySystem
                     float distSquared = dx * dx + dy * dy;
 
                     if (distSquared < minAllowed * minAllowed)
+                    {
                         separated = false;
                         break;
+                    }
                 }
 
                 if (!separated)
