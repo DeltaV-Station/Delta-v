@@ -31,6 +31,7 @@
     - NanolinkDeception
     - NanolinkSurveillance
     - NanolinkFraming
+    - NanolinkPointless
     currencyWhitelist:
     - NanoCoin
     balance:
@@ -50,3 +51,8 @@
   id: NanolinkFraming
   name: store-category-framing
   priority: 2
+
+- type: storeCategory
+  id: NanolinkPointless
+  name: store-category-pointless
+  priority: 3
