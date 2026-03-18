@@ -59,7 +59,7 @@
     layers:
       - state: chemical_mixer
   - type: Item
-    size: Huge
+    size: Ginormous #Delta-V Made it Ginormous from huge
   - type: ItemMapper
     containerWhitelist: [beakerSlot]
     mapLayers:
@@ -70,6 +70,8 @@
   - type: Appearance
   - type: ChemMaster
     pillDosageLimit: 20
+  - type: Damageable #Delta-V Made it damageble
+    damageContainer: Inorganic 
   - type: Destructible
     thresholds:
     - trigger:
@@ -122,8 +124,8 @@
     price: 20
   - type: SolutionItemStatus  # lets you see how full it is when holding it
     solution: buffer
-  - type: Clothing  # Goes in the belt slot
-    slots: [belt]
+  - type: Clothing  
+    slots: [suitStorage] #Delta-V Change it to suit strorage slot from belt
   - type: Construction
     graph: portableChemicalMixerGraph
     node: end
@@ -140,4 +142,4 @@
     layers:
       - state: incomplete
   - type: Item
-    size: Huge
+    size: Ginormous #Delta-V Made it Ginormous from huge
