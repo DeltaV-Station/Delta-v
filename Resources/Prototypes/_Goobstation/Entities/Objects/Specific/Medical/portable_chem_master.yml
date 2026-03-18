@@ -55,15 +55,19 @@
   description: A "Tider" grade chemical manipulator
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+    sprite: _DV/Objects/Tools/chemical_mixer.rsi # DeltaV - New Sprite
     layers:
-      - state: chemical_mixer
+      - state: mixer
+      - state: mixer_on
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+      - state: mixer1
   - type: Item
+    sprite string?: _DV/Objects/Tools/chemical_mixer.rsi
     size: Ginormous #Delta-V Made it Ginormous from huge
   - type: ItemMapper
     containerWhitelist: [beakerSlot]
     mapLayers:
-      chemical_mixer_beaker:
+      beaker:
         whitelist:
           components:
           - FitsInDispenser
@@ -126,7 +130,9 @@
   - type: SolutionItemStatus  # lets you see how full it is when holding it
     solution: buffer
   - type: Clothing  
-    slots: [suitStorage] #Delta-V Change it to suit strorage slot from belt
+    sprite: _DV/Objects/Tools/chemical_mixer.rsi # DeltaV - New Sprite
+    slots: 
+        - suitStorage #Delta-V Change it to suit strorage slot from belt
   - type: Construction
     graph: portableChemicalMixerGraph
     node: end
