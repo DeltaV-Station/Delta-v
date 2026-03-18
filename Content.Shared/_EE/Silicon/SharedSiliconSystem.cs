@@ -9,7 +9,7 @@ using Content.Shared.PowerCell.Components;
 namespace Content.Shared._EE.Silicon.Systems;
 
 
-public abstract class SharedSiliconChargeSystem : EntitySystem
+public abstract class SharedSiliconChargeSystem : EntitySystem // DeltaV - Make class abstract to split into Client/Server
 {
     // [Dependency] private readonly AlertsSystem _alertsSystem = default!; // DeltaV - Moved alert handling to Client
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
