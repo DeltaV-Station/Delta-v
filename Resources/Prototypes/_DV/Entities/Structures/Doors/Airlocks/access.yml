@@ -197,6 +197,14 @@
     containers:
       board: [ DoorElectronicsRobotics ]
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleEscapePodDV
+  suffix: External, DV, Escape 5x7, Glass, Docking
+  components:
+  - type: GridFill
+    path: /Maps/_DV/Shuttles/Misc/escape_pod_dv.yml
+
 # Add airlocks from upstream roles
 - type: entity
   parent: AirlockServiceLocked

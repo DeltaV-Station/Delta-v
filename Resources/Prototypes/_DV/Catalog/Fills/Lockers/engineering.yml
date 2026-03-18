@@ -30,3 +30,28 @@
         - id: ClothingMaskBreath
         - !type:NestedSelector
           tableId: FillLockerEngineer
+
+# Escape Pod Locker
+- type: entity
+  parent: LockerEvacPodLocker
+  id: LockerEvacPodLockerFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillEvacPodLocker
+
+- type: entityTable
+  id: FillEvacPodLocker
+  table: !type:AllSelector
+    children:
+    - id: MedkitOxygenFilled
+      prob: 0.3
+    - id: ClothingOuterSuitEmergency
+      amount: 4
+    - id: OxygenTankFilled
+      amount: 2
+    - id: NitrogenTankFilled
+      amount: 2
+    - id: WaterVaporTankFilled
