@@ -1,46 +1,46 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by @Stxcking (github) inspired by tgstation chemical dispenser.",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "mixer"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by @Stxcking (github) inspired by tgstation chemical dispenser.",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "beaker"
-    },
-    {
-      "name": "mixer1"
-    },
-    {
-      "name": "mixer2"
-    },
-    {
-      "name": "mixer3"
-    },
-    {
-      "name": "equipped-suitStorage"
-    },
-    {
-      "name": "inhand-right"
-    },
-    {
-      "name": "inhand-left"
-    },
-    {
-      "name": "mixer_on",
-      "delays": [
-        [
-          0.2,
-          0.2,
-          0.2,
-          0.2
-        ]
-      ]
-    }
-  ]
+    "states": [
+        {
+            "name": "mixer"
+        },
+        {
+            "name": "beaker"
+        },
+        {
+            "name": "mixer1"
+        },
+        {
+            "name": "mixer2"
+        },
+        {
+            "name": "mixer3"
+        },
+        {
+            "name": "equipped-suitStorage"
+        },
+        {
+            "name": "inhand-right"
+        },
+        {
+            "name": "inhand-left"
+        },
+        {
+            "name": "mixer_on",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        }
+    ]
 }
