@@ -4,7 +4,7 @@ using Content.Shared._EE.Silicon.Systems;
 
 namespace Content.Client._DV.Silicon.Charge;
 
-public sealed class SiliconSystem : SharedSiliconChargeSystem
+public sealed class SiliconChargeSystem : SharedSiliconChargeSystem
 {
     [Dependency] private readonly ClientAlertsSystem _alerts = default!;
 

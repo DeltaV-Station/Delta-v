@@ -26,7 +26,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly SiliconDrainSystem _siliconChargeSystem = default!;
+    [Dependency] private readonly SiliconDrainSystem _siliconChargeSystem = default!; // DeltaV - Renamed type from "Charge" to "Drain" to disambiguate
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedBatterySystem _battery = default!;
 
