@@ -1,46 +1,49 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by @Stxcking (github) inspired by tgstation chemical dispenser.",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "mixer"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by @Stxcking (github) inspired by https://github.com/discordia-space/CEV-Eris/blob/2b969adc2dfd3e9621bf3597c5cbffeb3ac8c9f0/icons/obj/chemical.dmi and modified by Will-Oliver-Br.",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "beaker"
-    },
-    {
-      "name": "mixer1"
-    },
-    {
-      "name": "mixer2"
-    },
-    {
-      "name": "mixer3"
-    },
-    {
-      "name": "equipped-SUITSTORAGE"
-    },
-    {
-      "name": "inhand-right"
-    },
-    {
-      "name": "inhand-left"
-    },
-    {
-      "name": "mixer_on",
-      "delays": [
-        [
-          0.2,
-          0.2,
-          0.2,
-          0.2
-        ]
-      ]
-    }
-  ]
+    "states": [
+        {
+            "name": "mixer"
+        },
+        {
+            "name": "beaker"
+        },
+        {
+            "name": "mixer1"
+        },
+        {
+            "name": "mixer2"
+        },
+        {
+            "name": "mixer3"
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "mixer_on",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        }
+    ]
 }

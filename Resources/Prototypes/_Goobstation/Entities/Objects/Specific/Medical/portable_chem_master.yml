@@ -58,11 +58,11 @@
     sprite: _DV/Objects/Tools/chemical_mixer.rsi # DeltaV - New Sprite
     layers:
       - state: mixer
-      - state: mixer_on
-        map: [ "enum.SolutionContainerLayers.Fill" ]
       - state: mixer1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+      - state: mixer_on
   - type: Item
-    sprite string?: _DV/Objects/Tools/chemical_mixer.rsi
+    sprite: _DV/Objects/Tools/chemical_mixer.rsi
     size: Ginormous #Delta-V Made it Ginormous from huge
   - type: ItemMapper
     containerWhitelist: [beakerSlot]
@@ -80,7 +80,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 25
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -117,12 +117,12 @@
   - type: SolutionContainerManager
     solutions:
       buffer:
-        maxVol: 600
+        maxVol: 400
         canReact: false     # added becuse there where instances that the chemicals can mix on transfer
-  - type: SolutionContainerVisuals # DeltaV - New Sprite
-    solutionName: buffer
+  - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: mixer
+    solutionName: buffer
   - type: DumpableSolution
     solution: buffer
   - type: GuideHelp
@@ -133,23 +133,24 @@
     price: 20
   - type: SolutionItemStatus  # lets you see how full it is when holding it
     solution: buffer
-  - type: Clothing  # DeltaV - Goes in the suit storage slot
-    sprite:  _DV/Objects/Tools/chemical_mixer.rsi
-    slots: [suitStorage]
+  - type: Clothing
+    sprite: _DV/Objects/Tools/chemical_mixer.rsi
+    slots:
+      - suitStorage #Delta-V Change it to suit strorage slot from belt
   - type: Construction
     graph: portableChemicalMixerGraph
     node: end
 
-- type: entity
-  id: portableChemicalMixerIncomplete
-  parent: BaseItem
-  name: Incomplete portable chemical mixer
-  description: A incompleted "Tider" grade chemical manipulator
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
-    layers:
-      - state: incomplete
-  - type: Item
-    size: Ginormous #Delta-V Made it Ginormous from huge
+#- type: entity
+#  id: portableChemicalMixerIncomplete
+#  parent: BaseItem
+#  name: Incomplete portable chemical mixer
+#  description: A incompleted "Tider" grade chemical manipulator
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+#    layers:
+#      - state: incomplete
+#  - type: Item
+#    size: Ginormous #Delta-V Made it Ginormous from huge
