@@ -27,4 +27,3 @@ public sealed class SiliconChargeSystem : SharedSiliconDrainSystem
         }
     }
 }
-
