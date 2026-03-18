@@ -2,7 +2,7 @@
 - type: listing
   id: PenCentcom
   name: nanolink-centcom-pen-name
-  description: nanolink-centcom-pen-description
+  description: nanolink-centcom-pen-desc
   productEntity: PenCentcom
   icon:
     entity: PenCentcom
@@ -35,7 +35,7 @@
 - type: listing
   id: NanolinkAgentIDCard
   name: nanolink-agentid-name
-  description: nanolink-agentid-description
+  description: nanolink-agentid-desc
   productEntity: AgentIDCard
   cost:
     NanoCoin: 3
@@ -54,8 +54,8 @@
 
 - type: listing
   id: NanolinkBoxHeadStampBase
-  name: nanolink-stamp-name
-  description: nanolink-stamp-description
+  name: nanolink-stampbox-name
+  description: nanolink-stampbox-desc
   productEntity: BoxHeadStampBase
   cost:
     NanoCoin: 3
@@ -77,7 +77,7 @@
 - type: listing
   id: SpyCrewMonitor
   name: nanolink-spy-monitor-name
-  description: nanolink-spy-monitor-description
+  description: nanolink-spy-monitor-desc
   productEntity: SpyCrewMonitor
   icon:
     entity: SpyCrewMonitor
@@ -89,7 +89,7 @@
 - type: listing
   id: ClothingEyesGlassesHiddenSecurity
   name: nanolink-glasses-name
-  description: nanolink-glasses-description
+  description: nanolink-glasses-desc
   productEntity: ClothingEyesGlassesHiddenSecurity
   icon:
     entity: ClothingEyesGlassesHiddenSecurity
@@ -101,7 +101,7 @@
 - type: listing
   id: EncryptionKeyStationMaster
   name: nanolink-encryption-name
-  description: nanolink-encryption-description
+  description: nanolink-encryption-desc
   productEntity: EncryptionKeyStationMaster
   icon:
     entity: EncryptionKeyStationMaster
@@ -113,7 +113,7 @@
 - type: listing
   id: NanolinkRecordsTablet
   name: nanolink-tablet-name
-  description: nanolink-tablet-description
+  description: nanolink-tablet-desc
   productEntity: HandheldStationMapRecordsTablet
   icon:
     entity: HandheldStationMapRecordsTablet
@@ -127,12 +127,24 @@
 - type: listing
   id: WeaponPistolCobra
   name: nanolink-cobra-name
-  description: nanolink-cobra-description
+  description: nanolink-cobra-desc
   productEntity: WeaponPistolCobra
   icon:
     entity: WeaponPistolCobra
   cost:
     NanoCoin: 8
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: WeaponEnergyGunPistol
+  name: nanolink-epistol-name
+  description: nanolink-epistol-desc
+  productEntity: WeaponEnergyGunPistol
+  icon:
+    entity: WeaponEnergyGunPistol
+  cost:
+    NanoCoin: 6
   categories:
   - NanolinkFraming
 
@@ -226,3 +238,13 @@
     NanoCoin: 10
   categories:
    - NanolinkPointless
+
+- type: listing
+  id: NanolinkNTAgentStamp
+  name: nanolink-ntstamp-name
+  description: nanolink-ntstamp-desc
+  productEntity: RubberStampNTAgent
+  cost:
+    NanoCoin: 1
+  categories:
+  - NanolinkPointless
