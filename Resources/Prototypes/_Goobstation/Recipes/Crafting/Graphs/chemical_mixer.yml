@@ -12,11 +12,16 @@
     edges:
     - to: end
       steps:
-      - tag: Bucket # general mixing and container
+      - tag: Jug # DeltaV: use proper Tag id for jug
         icon:
-          sprite: Objects/Tools/bucket.rsi
+          sprite: "Objects/Specific/Chemistry/jug.rsi"
           state: icon
-        name: construction-graph-tag-bucket
+        name: construction-graph-tag-jug
+      - tag: Jug # DeltaV: use proper Tag id for jug
+        icon:
+          sprite: "Objects/Specific/Chemistry/jug.rsi"
+          state: icon
+        name: construction-graph-tag-jug
       - tag: Multitool  # for the screen
         icon:
           sprite: Objects/Tools/multitool.rsi
@@ -29,6 +34,8 @@
         name: construction-graph-tag-beaker
       - material: Cable
         amount: 15
+      - material: Steel
+        amount: 10
       - anyTags:        # Powers the contraption
         - PowerCell
         - PowerCellSmall
