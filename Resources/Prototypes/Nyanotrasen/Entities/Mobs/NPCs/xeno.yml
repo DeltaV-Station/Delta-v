@@ -4,6 +4,7 @@
 - type: entity
   parent: MobPurpleSnake
   id: MobPurpleSnakeGhost
+  suffix: Player # DeltaV - Overide inherited "AI" suffix
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
@@ -13,11 +14,14 @@
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
     rules: deltav-ghost-role-information-salvageantag-rules # DeltaV salvage mob rules
+    mindRoles: # DeltaV
+      - MindRoleGhostRoleSoloAntagonist # DeltaV - mark as antagonist
   - type: SalvageMobRestrictions
 
 - type: entity
   parent: MobSmallPurpleSnake
   id: MobSmallPurpleSnakeGhost
+  suffix: Player, Small # DeltaV - Overide inherited "AI" suffix
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
@@ -27,6 +31,8 @@
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
     rules: deltav-ghost-role-information-salvageantag-rules # DeltaV salvage mob rules
+    mindRoles: # DeltaV
+      - MindRoleGhostRoleSoloAntagonist # DeltaV - mark as antagonist
   - type: SalvageMobRestrictions
 
 # Delta V variants of Xenos to allow ghost takeover again
@@ -43,6 +49,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    mindRoles:
+      - MindRoleGhostRoleTeamAntagonist # DeltaV - mark them as team antags
     raffle:
       settings: short # DeltaV - lower xeno raffle time - formerly default
   - type: GhostTakeoverAvailable
@@ -86,4 +94,3 @@
   parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] #Delta-v - reverse order so suffix works
   id: MobXenoSpitter
   name: Spitter
-  
