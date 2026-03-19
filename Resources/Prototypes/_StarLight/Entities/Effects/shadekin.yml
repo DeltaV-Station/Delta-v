@@ -1,3 +1,4 @@
+id:
 - type: entity
   name: Shadekin Haze
   id: ShadekinShadow
@@ -55,9 +56,6 @@
   id: ShadekinPhaseOutEffect
   name: Shadekin Phase out
   components:
-    - type: EmitSoundOnSpawn
-      sound:
-        path: /Audio/_Starlight/Effects/Shadekin/shadekinphase.ogg
     - type: TimedDespawn
       lifetime: 0.5
     - type: Sprite
