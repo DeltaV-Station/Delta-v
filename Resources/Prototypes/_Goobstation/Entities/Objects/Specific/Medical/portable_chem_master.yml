@@ -135,8 +135,7 @@
     solution: buffer
   - type: Clothing
     sprite: _DV/Objects/Tools/chemical_mixer.rsi
-    slots:
-      - suitStorage #Delta-V Change it to suit strorage slot from belt
+    slots: [suitStorage] #Delta-V Change it to suit strorage slot from belt
   - type: Construction
     graph: portableChemicalMixerGraph
     node: end
