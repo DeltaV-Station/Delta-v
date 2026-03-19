@@ -479,6 +479,8 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.85 # Delta V
     sprintModifier: 0.85 # Delta V
+  - type: CursorOffsetRequiresWield # Delta V
+  - type: EyeCursorOffset # Delta V
   - type: Tag
     tags:
     - TurretCompatibleWeapon
