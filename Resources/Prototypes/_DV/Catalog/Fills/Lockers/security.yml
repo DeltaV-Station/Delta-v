@@ -142,6 +142,16 @@
         tableId: GamblagatorTable
 
 - type: entity
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
+  id: GunSafeAdvancedLaser
+  name: advanced laser gun safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: AdvancedLaserTable
+
+- type: entity
   id: LockerBrigmedicFilledHardsuit
   suffix: Corpsman, Filled, Hardsuit
   parent: LockerBrigmedic
@@ -200,3 +210,18 @@
           amount: 2
         - id: MagazinePistolHighCapacity
           amount: 4
+
+- type: entity
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
+  id: GunSafeRocketLauncher
+  name: RPG gun safe
+  components:
+  - type: EntityStorageVisuals
+    stateDoorClosed: rpg
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponLauncherRocket
+        - id: CartridgeRocket
+          prob: 0.2
