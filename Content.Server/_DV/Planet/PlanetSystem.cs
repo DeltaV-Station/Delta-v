@@ -24,7 +24,6 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-
     private readonly List<(Vector2i, Tile)> _setTiles = new();
 
     /// <summary>
@@ -87,18 +86,15 @@ public sealed class PlanetSystem : EntitySystem
         if (planet.RuinMaxCount <= 0)
             return;
 
-        if (planet.RuinPaths.Count == 0 && planet.RareRuinPaths.Count == 0)
-            return;
-
         List<ResPath> ruins = new List<ResPath>(planet.RuinPaths);
         List<ResPath> rareRuins = new List<ResPath>(planet.RareRuinPaths);
+
+        _random.Shuffle(ruins);
+        _random.Shuffle(rareRuins);
 
         int totalRuinAvailable = ruins.Count + rareRuins.Count;
         if (totalRuinAvailable == 0)
             return;
-
-        _random.Shuffle(ruins);
-        _random.Shuffle(rareRuins);
 
         int minCount = Math.Clamp(planet.RuinMinCount, 0, totalRuinAvailable);
         int maxCount = Math.Clamp(planet.RuinMaxCount, minCount, totalRuinAvailable);
@@ -115,9 +111,6 @@ public sealed class PlanetSystem : EntitySystem
 
         for (int i = 0; i < guaranteedRare; i++)
         {
-            if (rareRuins.Count == 0)
-                break;
-
             ResPath ruin = rareRuins[rareRuins.Count - 1];
             rareRuins.RemoveAt(rareRuins.Count -1);
             selectedRuins.Add(ruin);
@@ -139,9 +132,6 @@ public sealed class PlanetSystem : EntitySystem
 
             List<ResPath> pool = pickRare ? rareRuins : ruins;
 
-            if (pool.Count == 0)
-                continue;
-
             ResPath ruin = pool[pool.Count - 1];
             pool.RemoveAt(pool.Count - 1);
             selectedRuins.Add(ruin);
@@ -149,16 +139,16 @@ public sealed class PlanetSystem : EntitySystem
 
         // Ruin placement prediction, keeps track of the ruins that will be placed to ensure no overlap or ruins that generate too closely.
         List<(Vector2 Center, float Radius)> placedRuins = new List<(Vector2 Center, float Radius)>();
-        float minDistance = planet.RuinMinDistance;
-        float maxDistance = planet.RuinMaxDistance;
-        float minSeparation = planet.RuinMinSeparation;
-        int maxPlacementAttempts = planet.RuinPlacementAttempts;
+        float minDistance = MathF.Max(0f, planet.RuinMinDistance);
+        float maxDistance = MathF.Max(minDistance, planet.RuinMaxDistance);
+        float minSeparation = MathF.Max(0f, planet.RuinMinSeparation);
+        int maxPlacementAttempts = Math.Max(1, planet.RuinPlacementAttempts);
 
         for (int i = 0; i < selectedRuins.Count; i++)
         {
             ResPath ruinPath = selectedRuins[i];
 
-            // load the ruin onto a temp map first to calculate its bounding box for separation.
+            // load the ruin onto a temp map first to calculate its bounding box for separation. TO-DO: Log error for being unable to calc radius
             EntityUid probeMap = _map.CreateMap(out MapId probeMapId, runMapInit: false);
             float ruinRadius = 0f;
             Box2 probeAabb = Box2.UnitCentered;
@@ -176,9 +166,7 @@ public sealed class PlanetSystem : EntitySystem
             if (!probeSuccess)
                 continue;
 
-            bool placed = false;
-
-            // Try several random positions and pick the first one that doesn't overlap anything.
+            // Try several random positions and pick the first one that doesn't overlap anything.  TO-DO: Log error for being unable to load
             for (int attempt = 0; attempt < maxPlacementAttempts; attempt++)
             {
                 Vector2 randomOffset = _random.NextVector2(minDistance, maxDistance);
@@ -217,12 +205,8 @@ public sealed class PlanetSystem : EntitySystem
                 _biome.ReserveTiles(mapUid, ruinReserveBox, _setTiles);
 
                 placedRuins.Add((candidateCenter, ruinRadius));
-                placed = true;
                 break;
             }
-
-            // TO-DO: add error logging for ruins that could not be placed
-            _ = placed;
         }
     }
 }
