@@ -41,9 +41,6 @@
   id: ShadekinPhaseInEffect
   name: Shadekin Phase in
   components:
-    - type: EmitSoundOnSpawn
-      sound:
-        path: /Audio/_Starlight/Effects/Shadekin/shadekinphase.ogg
     - type: TimedDespawn
       lifetime: 0.5
     - type: Sprite
