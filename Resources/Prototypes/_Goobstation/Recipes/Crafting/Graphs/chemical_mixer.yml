@@ -12,15 +12,15 @@
     edges:
     - to: end
       steps:
-      - tag: Jug # DeltaV: use proper Tag id for jug
+      - tag: Jug #DeltaV change it from bucket
         icon:
-          sprite: "Objects/Specific/Chemistry/jug.rsi"
-          state: icon
+          sprite: _DV/Objects/Specific/Chemistry/jug.rsi
+          state: jug
         name: construction-graph-tag-jug
-      - tag: Jug # DeltaV: use proper Tag id for jug
+      - tag: Jug #DeltaV change it from bucket
         icon:
-          sprite: "Objects/Specific/Chemistry/jug.rsi"
-          state: icon
+          sprite: _DV/Objects/Specific/Chemistry/jug.rsi
+          state: jug
         name: construction-graph-tag-jug
       - tag: Multitool  # for the screen
         icon:
