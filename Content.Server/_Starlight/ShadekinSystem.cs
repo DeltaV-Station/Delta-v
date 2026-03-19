@@ -15,6 +15,7 @@ using Content.Shared._Goobstation.Overlays;
 using Robust.Shared.Timing;
 using Content.Server.Body.Components;
 using System.Linq;
+using Content.Shared.Flash; // Delta V - Flash Work
 
 
 namespace Content.Server._Starlight;
@@ -30,6 +31,7 @@ public sealed class ShadekinSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly SharedFlashSystem _flashSystem = default!;
 
     private sealed class LightCone
     {
@@ -56,6 +58,7 @@ public sealed class ShadekinSystem : EntitySystem
         SubscribeLocalEvent<ShadekinComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<ShadekinComponent, EyeColorInitEvent>(OnEyeColorChange);
         SubscribeLocalEvent<ShadekinComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<ShadekinComponent, AfterFlashedEvent>(OnShadekinFlashed); // Delta V - Prevent Chain Flashing
     }
 
     private void OnInit(EntityUid uid, ShadekinComponent component, ComponentStartup args)
@@ -186,9 +189,16 @@ public sealed class ShadekinSystem : EntitySystem
     private void ToggleNightVision(EntityUid uid, ShadekinState state)
     {
         if (state == ShadekinState.Dark)
-            EnsureComp<NightVisionComponent>(uid);
+        {
+            var nightVisionComponent = EnsureComp<NightVisionComponent>(uid);
+            nightVisionComponent.Color =  Color.FromHex("#808080"); // Delta V - Change Night Vision Color
+        }
         else
+        {
+            if (TryComp<NightVisionComponent>(uid, out var nightVision) &&  nightVision.IsActive)
+                _flashSystem.Flash(uid, uid, uid, TimeSpan.FromSeconds(0.5 * (int)state), 0.5f);
             RemComp<NightVisionComponent>(uid);
+        }
     }
 
     private void ApplyLightDamage(EntityUid uid, ShadekinState state)
@@ -223,13 +233,20 @@ public sealed class ShadekinSystem : EntitySystem
         {
             if (threshold <= lightExposure)
             {
-                returnState = shadekinState == ShadekinState.Low ? ShadekinState.Dark : shadekinState;
+                returnState = shadekinState;
                 break;
             }
         }
 
         return returnState;
     }
+
+    // Delta V - Begin After Flash Event
+    private void OnShadekinFlashed(EntityUid uid, ShadekinComponent comp, AfterFlashedEvent ev)
+    {
+        RemComp<NightVisionComponent>(uid);
+    }
+    // Delta V - End
 
     public override void Update(float frameTime)
     {

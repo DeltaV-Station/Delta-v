@@ -26,7 +26,7 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Clothing.Components;
-using Content.Shared._Starlight.Flash.Components;
+using Content.Shared._Starlight.Flash.Components; // Delta V - For Flash Duration
 
 namespace Content.Shared.Flash;
 
