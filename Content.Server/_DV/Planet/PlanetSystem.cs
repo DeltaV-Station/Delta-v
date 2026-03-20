@@ -148,7 +148,7 @@ public sealed class PlanetSystem : EntitySystem
         {
             ResPath ruinPath = selectedRuins[i];
 
-            // load the ruin onto a temp map first to calculate its bounding box for separation. TO-DO: Log error for being unable to calc radius
+            // Load the ruin onto a temp map first to calculate its bounding box for separation.
             EntityUid probeMap = _map.CreateMap(out MapId probeMapId, runMapInit: false);
             float ruinRadius = 0f;
             Box2 probeAabb = Box2.UnitCentered;
@@ -164,9 +164,13 @@ public sealed class PlanetSystem : EntitySystem
             Del(probeMap);
 
             if (!probeSuccess)
+            {
+                Log.Error($"Failed to load ruin grid {ruinPath} while calculating placement bounds.");
                 continue;
+            }
 
-            // Try several random positions and pick the first one that doesn't overlap anything.  TO-DO: Log error for being unable to load
+            // Try several random positions and pick the first one that doesn't overlap anything.
+            var placed = false;
             for (int attempt = 0; attempt < maxPlacementAttempts; attempt++)
             {
                 Vector2 randomOffset = _random.NextVector2(minDistance, maxDistance);
@@ -205,7 +209,13 @@ public sealed class PlanetSystem : EntitySystem
                 _biome.ReserveTiles(mapUid, ruinReserveBox, _setTiles);
 
                 placedRuins.Add((candidateCenter, ruinRadius));
+                placed = true;
                 break;
+            }
+
+            if (!placed)
+            {
+                Log.Warning($"Failed to place ruin grid {ruinPath} after {maxPlacementAttempts} attempts.");
             }
         }
     }
