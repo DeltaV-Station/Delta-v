@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: cmorley191
-  changes:
-  - message: Dying in telegnosis no longer prevents you from ghosting
-    type: Fix
-  id: 1684
-  time: '2025-09-24T09:49:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4393
 - author: TehFlaminTaco
   changes:
   - message: Fixed Flares, Flashlights, and more not effecting Skia.
@@ -4404,4 +4397,11 @@
   id: 2183
   time: '2026-03-21T16:28:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5534
+- author: Toby222
+  changes:
+  - message: IPCs are no longer crashing when checking their battery status
+    type: Fix
+  id: 2184
+  time: '2026-03-21T19:37:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5535
 Order: 1
