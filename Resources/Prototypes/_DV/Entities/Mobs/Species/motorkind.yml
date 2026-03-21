@@ -59,6 +59,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - Honker
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -172,6 +173,7 @@
       Unsexed: MaleMotorkind
   - type: Speech
     speechSounds: Alto
+  - type: EncryptionHolderRequiresLock
   - type: EncryptionKeyHolder
     keySlots: 4
     examineWhileLocked: false
@@ -183,7 +185,7 @@
     unlockOnClick: false
     lockTime: 5
     unlockTime: 5
-    breakOnAccessBreaker: false # DeltaV - cant be emagged
+    breakOnAccessBreaker: false
   - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
