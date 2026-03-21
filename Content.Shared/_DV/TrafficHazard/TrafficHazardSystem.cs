@@ -84,7 +84,7 @@ public sealed partial class TrafficHazardSystem : EntitySystem
 
                     if (comp.Bonk)
                     {
-                        _throwing.TryThrow(victim, direction: phys.LinearVelocity, baseThrowSpeed: phys.LinearVelocity.Length() * 2.5f, uid, unanchor: ThrowingUnanchorStrength.None);
+                        _throwing.TryThrow(victim, direction: phys.LinearVelocity, baseThrowSpeed: phys.LinearVelocity.Length() * comp.BonkMultiplier, uid, unanchor: ThrowingUnanchorStrength.None);
                         _physics.SetLinearVelocity(uid, Vector2.Zero);
                     }
 

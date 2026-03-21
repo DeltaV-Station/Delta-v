@@ -42,6 +42,15 @@ public sealed partial class TrafficHazardComponent : Component
     public bool Bonk = true;
 
     /// <summary>
+    /// How much to multiply velocity imparted on the victim on collision. Multiplied by the velocity difference between the hazard and the victim.
+    /// </summary>
+    /// <remarks>
+    /// Defaulted to 2.5 because big object hitting small object makes big object go faster, but also, this looked and felt good in testing.
+    /// </remarks>
+    [DataField]
+    public float BonkMultiplier = 2.5f;
+
+    /// <summary>
     /// Collision noise when hitting someone.
     /// </summary>
     [DataField]
