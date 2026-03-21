@@ -20,16 +20,15 @@ using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Components;
 // End TheDen
 
-namespace Content.Shared._DV.Silicons.Charge.Systems;
+namespace Content.Shared._DV.Silicons.Charge;
 
-public sealed class SiliconChargeSystem : EntitySystem
+public abstract class SharedSiliconDrainSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
     [Dependency] private readonly SharedBatterySystem _battery = default!;
     public override void Initialize()
@@ -96,11 +95,6 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (!TryGetSiliconBattery(silicon, out var batteryComp))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
-                if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
-                {
-                    _alerts.ClearAlert(silicon, siliconComp.BatteryAlert);
-                    _alerts.ShowAlert(silicon, siliconComp.NoBatteryAlert);
-                }
                 continue;
             }
 
@@ -135,11 +129,18 @@ public sealed class SiliconChargeSystem : EntitySystem
             _powerCell.TryUseCharge(silicon, frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
-            var chargePercent = (short) MathF.Round(_battery.GetCharge(batteryComp.Value.AsNullable()) / batteryComp.Value.Comp.MaxCharge * 10f);
+            var chargePercent = (short)MathF.Round(_battery.GetCharge(batteryComp.Value.AsNullable()) / batteryComp.Value.Comp.MaxCharge * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }
     }
+
+    /// <summary>
+    ///Makes sure the entity is showing the right charge alert
+    /// </summary>
+    /// <param name="ent">The silicon whose charge to check</param>
+    /// <param name="chargePercent">Charge level, normalized to range 0-100</param>
+    protected abstract void UpdateChargeIcon(Entity<SiliconComponent> ent, short chargePercent);
 
     /// <summary>
     ///     Checks if anything needs to be updated, and updates it.
@@ -151,13 +152,7 @@ public sealed class SiliconChargeSystem : EntitySystem
         RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(chargePercent));
 
         _moveMod.RefreshMovementSpeedModifiers(uid);
-
-        // If the battery was replaced and the no battery indicator is showing, replace the indicator
-        if (_alerts.IsShowingAlert(uid, component.NoBatteryAlert) && chargePercent != 0)
-        {
-            _alerts.ClearAlert(uid, component.NoBatteryAlert);
-            _alerts.ShowAlert(uid, component.BatteryAlert, chargePercent);
-        }
+        UpdateChargeIcon((uid, component), chargePercent);
     }
 
     // TheDen - IPC Dynamic Power draw
