@@ -46,11 +46,25 @@
   - type: Organ
     slotId: stomach
   - type: Stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 100
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 5
   - type: Metabolizer
     maxReagents: 6
     metabolizerTypes: [ Fuel ]
     groups:
+    - id: Food
     - id: Drink
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+    - id: Alcohol
   - type: Item
     size: Small
     heldPrefix: stomach

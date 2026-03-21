@@ -183,7 +183,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox]
+          type: [Vox, Fuel] # DeltaV - Fuel eaters are also unharmed by welding fuel
           inverted: true
         damage:
           types:
