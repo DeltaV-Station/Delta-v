@@ -16,8 +16,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared._CD.Records; // CD - Character Records
-using Content.Shared._DV.Traits;
-using Content.Shared._DV.Species; // DeltaV - Traits rework
+using Content.Shared._DV.Traits; // DeltaV - Traits rework
+using Content.Shared._DV.Species; // DeltaV - Species hiding
 
 namespace Content.Shared.Preferences
 {

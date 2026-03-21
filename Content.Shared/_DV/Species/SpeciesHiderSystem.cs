@@ -8,7 +8,7 @@ public sealed partial class SpeciesHiderSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private static HashSet<string>? _hiddenSpecies = [];
+    private static HashSet<string> _hiddenSpecies = [];
 
     public override void Initialize()
     {

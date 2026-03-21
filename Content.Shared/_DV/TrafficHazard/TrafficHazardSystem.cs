@@ -58,7 +58,7 @@ public sealed partial class TrafficHazardSystem : EntitySystem
                     if (HasComp<StunnedComponent>(victim))
                         continue;
                 }
-                // Ensure our relative velocies are greater than threshold.
+                // Ensure our relative velocities are greater than threshold.
                 // (If we're going opposite directions (Towards eachother), (other.vel - phys.vel) is larger than if we're going in the same direction (trying to outrun it))
                 if ((otherPhys.LinearVelocity - phys.LinearVelocity).LengthSquared() < comp.MinimumSpeedDifference * comp.MinimumSpeedDifference)
                     continue;
