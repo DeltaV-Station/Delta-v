@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: TehFlaminTaco
-  changes:
-  - message: Fixed Flares, Flashlights, and more not effecting Skia.
-    type: Fix
-  - message: Skia now can weakly maneuver in space.
-    type: Add
-  id: 1685
-  time: '2025-09-26T10:03:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4417
 - author: Proxysseia
   changes:
   - message: made Zombies more likely
@@ -4404,4 +4395,12 @@
   id: 2184
   time: '2026-03-21T19:37:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5535
+- author: Field Command
+  changes:
+  - message: The arrival shuttle has returned for normal operational drift. Both the
+      terminal and arrival shuttle are made DeltaV specific.
+    type: Add
+  id: 2185
+  time: '2026-03-21T20:00:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5000
 Order: 1
