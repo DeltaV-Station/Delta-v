@@ -36,7 +36,7 @@
     - Eyes
 
 - type: entity
-  id: OrganMotorkindStomachFueltank
+  id: OrganMotorkindStomachFuelTank
   parent: BaseMotorkindOrgan
   name: motorkind fuel tank
   description: "A fuel tank that stores various fuels to power the motorkind's engine."
@@ -49,7 +49,7 @@
   - type: SolutionContainerManager
     solutions:
       stomach:
-        maxVol: 100
+        maxVol: 50
       food:
         maxVol: 5
         reagents:
@@ -70,7 +70,7 @@
     heldPrefix: stomach
 
 - type: entity
-  id: OrganMotorkindLiverOilfilter
+  id: OrganMotorkindLiverOilFilter
   parent: BaseMotorkindOrgan
   name: motorkind oil filter
   description: "An oil filter that cleans the motorkind's oil to ensure smooth operation of its engine."
