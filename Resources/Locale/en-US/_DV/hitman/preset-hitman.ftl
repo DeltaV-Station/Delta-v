@@ -10,3 +10,5 @@ Hitman-briefing =
 objective-issuer-Hitman = [color=#746694]Criminal[/color]
 
 Hitman-round-end-name = Hitman
+
+Hitman-round-end-agent-name = Hitman
