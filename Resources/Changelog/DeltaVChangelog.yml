@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Added black scarfs to Security - No longer must they wear red scarfs
-      after the paint change!
-    type: Add
-  - message: Added formal suits for Senior Security Officers - Now more than one person
-      can dress in style!
-    type: Add
-  id: 1682
-  time: '2025-09-21T09:08:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4036
-- author: TehFlaminTaco
-  changes:
-  - message: Having Night Vision Goggles on now lets you be flashed even when wearing
-      other flash protection.
-    type: Tweak
-  id: 1683
-  time: '2025-09-22T05:46:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4378
-- author: cmorley191
-  changes:
-  - message: Dying in telegnosis no longer prevents you from ghosting
-    type: Fix
-  id: 1684
-  time: '2025-09-24T09:49:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4393
-- author: TehFlaminTaco
-  changes:
-  - message: Fixed Flares, Flashlights, and more not effecting Skia.
-    type: Fix
-  - message: Skia now can weakly maneuver in space.
-    type: Add
-  id: 1685
-  time: '2025-09-26T10:03:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4417
 - author: Proxysseia
   changes:
   - message: made Zombies more likely
@@ -4407,4 +4372,35 @@
   id: 2181
   time: '2026-03-12T11:23:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5512
+- author: Woljif
+  changes:
+  - message: Rodentia no longer take extra pierce and slash damage & guidebook updated
+      for this.
+    type: Tweak
+  id: 2182
+  time: '2026-03-21T02:17:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5520
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Fixed Logi shuttle dock from being underpressurized when turning
+      on the conveyors'
+    type: Fix
+  id: 2183
+  time: '2026-03-21T16:28:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5534
+- author: Toby222
+  changes:
+  - message: IPCs are no longer crashing when checking their battery status
+    type: Fix
+  id: 2184
+  time: '2026-03-21T19:37:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5535
+- author: Field Command
+  changes:
+  - message: The arrival shuttle has returned for normal operational drift. Both the
+      terminal and arrival shuttle are made DeltaV specific.
+    type: Add
+  id: 2185
+  time: '2026-03-21T20:00:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5000
 Order: 1
