@@ -30,6 +30,18 @@ public sealed class CargoBountyConsoleBoundUserInterface : BoundUserInterface
         {
             SendMessage(new BountySkipMessage(id));
         };
+
+        // DeltaV: bounty claim stuff begins
+        _menu.OnClaimButtonPressed += id =>
+        {
+            SendMessage(new BountyClaimedMessage(id));
+        };
+
+        _menu.OnStatusOptionSelected += (id, status) =>
+        {
+            SendMessage(new BountySetStatusMessage(id, status));
+        };
+        // DeltaV: bounty claim stuff ends
     }
 
     protected override void UpdateState(BoundUserInterfaceState message)

@@ -13,6 +13,28 @@ bounty-console-manifest-reward = Reward: ${$reward}
 bounty-console-description-label = [color=gray]{$description}[/color]
 bounty-console-id-label = ID#{$id}
 
+## Begin DeltaV
+bounty-console-claim-button-text = Claim
+bounty-console-claimed-by-none = None
+bounty-console-claimed-by-unknown = Unknown
+bounty-console-claimed-by = Claimed by: {$claimant}
+bounty-console-status-label = Status: {$status ->
+        [2] [color=limegreen]On Shuttle[/color]
+        [1] Processing
+        *[other] [color=orange]Undelivered[/color]
+    }
+bounty-console-status = {$status ->
+        [2] On Shuttle
+        [1] Processing
+        *[other] Undelivered
+    }
+bounty-console-status-tooltip = {$status ->
+    [2] This bounty is on the shuttle, ready to be delivered to the trade station
+    [1] This bounty has been delivered and is waiting to be fulfilled
+    *[other] This bounty has not yet been sent out for fulfilment
+    }
+## End DeltaV
+
 bounty-console-flavor-left = Bounties sourced from local unscrupulous dealers.
 bounty-console-flavor-right = v1.4
 
