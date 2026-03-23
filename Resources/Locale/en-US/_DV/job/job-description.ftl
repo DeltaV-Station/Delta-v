@@ -18,3 +18,6 @@ role-description-ifrit = "Burn baby, burn!"
 role-description-carpy = "Grrr!"
 role-description-shiva = "Hsssss!"
 role-description-pun-pun = "Ook!"
+
+# Generic secdog
+role-description-k9-officer = Support the security team with your sharp nose and teeth.
