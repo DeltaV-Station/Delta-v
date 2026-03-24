@@ -864,7 +864,7 @@
   id: Omnizine
   name: reagent-name-omnizine
   group: Medicine
-  desc: reagent-desc-omnizine
+  desc: reagent-desc-omnizine-deltav
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
   color: "#fcf7f9"
@@ -888,7 +888,8 @@
           min: 20
         damage:
           types:
-            Cellular: 1 # 2 per u DeltaV changes end
+            Cellular: 1 # 2 per u
+            # DeltaV changes end
 
 - type: reagent
   id: Ultravasculine

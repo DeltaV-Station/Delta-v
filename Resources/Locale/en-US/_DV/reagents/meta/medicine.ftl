@@ -19,3 +19,5 @@ reagent-desc-photoxadone = a strange, faintly glowing cryogenics chemical. Seems
 
 reagent-name-stabilizine = stabilizine
 reagent-desc-stabilizine = A potent chemical used to stabliize and regulate body temperature.
+
+reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam. A regenerative, miraculous chemical able to purge the body of most impurity. Overdose causes cancerous growth.
