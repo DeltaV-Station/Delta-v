@@ -163,8 +163,7 @@
     heldPrefix: off
   - type: PointLight
     color: red
-  - type: TinfoilHat
-    destroyOnFry: false
+  - type: PsionicallyInsulative
   - type: GuideHelp
     guides:
     - Psionics
@@ -205,11 +204,9 @@
   - type: PointLight
     color: "#ffffff"
   - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
-  - type: ClothingGrantPsionicPower
-    power: DispelPower
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
+  - type: DispelPower
   - type: GuideHelp
     guides:
     - Psionics

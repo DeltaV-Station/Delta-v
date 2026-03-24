@@ -1,0 +1,94 @@
+# Table
+- type: entityTable
+  id: PsionicPowerTable
+  table: !type:GroupSelector
+    children:
+    - id: DispelPowerEntity
+      weight: 1
+    - id: PrecognitionPowerEntity
+      weight: 1
+    - id: PsionicRegenerationPowerEntity
+      weight: 1
+    - id: PsychokineticScreamPowerEntity
+      weight: 1
+    - id: TelegnosisPowerEntity
+      weight: 1
+    - id: FracturedFormPowerEntity
+      weight: 0.3
+    - id: MassSleepPowerEntity
+      weight: 0.3
+    - id: MetapsionicPulsePowerEntity
+      weight: 0.5
+    - id: NoosphericZapPowerEntity
+      weight: 0.3
+    - id: MindSwapPowerEntity
+      weight: 0.15
+    - id: PsionicEruptionPowerEntity
+      weight: 0.1
+
+# Powers
+- type: entity
+  id: DispelPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DispelPower
+
+- type: entity
+  id: MetapsionicPulsePowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MetapsionicPulsePower
+
+- type: entity
+  id: PsionicEruptionPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PsionicEruptionPower
+
+- type: entity
+  id: FracturedFormPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FracturedFormPower
+
+- type: entity
+  id: PsychokineticScreamPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PsychokineticScreamPower
+
+- type: entity
+  id: PrecognitionPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PrecognitionPower
+
+- type: entity
+  id: MassSleepPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MassSleepPower
+
+- type: entity
+  id: NoosphericZapPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: NoosphericZapPower
+
+- type: entity
+  id: MindSwapPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MindSwapPower
+
+- type: entity
+  id: PsionicRegenerationPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PsionicRegenerationPower
+
+- type: entity
+  id: TelegnosisPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TelegnosisPower

@@ -215,7 +215,7 @@
         time: 16
         type: Add
       # Delta-V - Addictive
-      - !type:Addicting 
+      - !type:Addicting
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -302,7 +302,7 @@
         type: Add
         time: 5
       # DeltaV Additions
-      - !type:RerollPsionicAbilities # DeltaV - Roll for psionics
+      - !type:RollPsionicAbility # DeltaV - Roll for psionics
         conditions:
         - !type:ReagentCondition
           reagent: SpaceDrugs

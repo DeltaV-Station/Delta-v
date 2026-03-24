@@ -5,6 +5,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
+    startDelay: true
 
 - type: entity
   parent: BasePsionicAction
@@ -71,7 +72,7 @@
     useDelay: 20
     checkCanInteract: false
   - type: InstantAction
-    event: !type:MindSwapPowerReturnActionEvent
+    event: !type:MindSwappedReturnPowerActionEvent
 
 - type: entity
   parent: BasePsionicAction
@@ -109,9 +110,9 @@
 
 - type: entity
   parent: BasePsionicAction
-  id: ActionMetapsionic
+  id: ActionMetapsionicPulse
   name: Metapsionic Pulse
-  description: Send a mental pulse through the area to see if there are any psychics nearby.
+  description: Send a mental pulse through a specified area to see if there are any psychics.
   components:
   - type: Action
     icon:
@@ -119,8 +120,11 @@
       state: metapsionic
     useDelay: 45
     checkCanInteract: false
-  - type: InstantAction
-    event: !type:MetapsionicPowerActionEvent
+  - type: TargetAction
+    checkCanAccess: false
+    range: -1 # You can cast it anywhere on your screen.
+  - type: WorldTargetAction
+    event: !type:MetapsionicPulsePowerActionEvent
 
 - type: entity
   parent: BasePsionicAction
@@ -184,20 +188,6 @@
 
 - type: entity
   parent: BasePsionicAction
-  id: ActionPsionicInvisibilityUsed
-  name: Turn Off Psionic Invisibility
-  description: Return to visibility, and receive a stun.
-  components:
-  - type: Action
-    icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: invisibility_off
-    checkCanInteract: false
-  - type: InstantAction
-    event: !type:RemovePsionicInvisibilityOffPowerActionEvent
-
-- type: entity
-  parent: BasePsionicAction
   id: ActionPrecognition
   name: Precognition
   description: See into the future to get a hint about the next random event.
@@ -213,6 +203,7 @@
     event: !type:PrecognitionPowerActionEvent
 
 - type: entity
+  parent: BasePsionicAction
   id: ActionPsychokineticScream
   name: Psychokinetic Scream
   description: Emit a blood-curdling scream that shatters all lights in the area.
@@ -221,9 +212,10 @@
     icon: { sprite: _DV/Actions/shatterlights.rsi, state: shatter-lights }
     useDelay: 60
   - type: InstantAction
-    event: !type:ShatterLightsActionEvent
+    event: !type:PsychokineticScreamPowerActionEvent
 
 - type: entity
+  parent: BasePsionicAction
   id: ActionFracturedForm
   name: Swap Form
   description: Switch to one of your alternate forms, if you have one. This can also be done by sleeping.

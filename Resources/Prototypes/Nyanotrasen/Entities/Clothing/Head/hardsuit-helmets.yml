@@ -11,12 +11,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/rd.rsi
   - type: PointLight
     color: "#d6adff"
-  - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
-  - type: ClothingGrantPsionicPower
-    power: MetapsionicPower
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
   - type: GuideHelp
     guides:
     - Psionics
