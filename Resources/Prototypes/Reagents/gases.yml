@@ -26,6 +26,15 @@
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
+      # Begin DeltaV - Poison the atmosphere
+      - !type:ModifyLungGas
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Fuel ]
+        ratios:
+          CarbonDioxide: 10.0
+          Oxygen: -1.0
+      # End DeltaV
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -57,6 +66,15 @@
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
+      # Begin DeltaV - Poison the atmosphere
+      - !type:ModifyLungGas
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Fuel ]
+        ratios:
+          CarbonDioxide: 10.0
+          Oxygen: -1.0
+      # End DeltaV
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition

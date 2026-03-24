@@ -19,3 +19,40 @@
 - type: storeCategory
   id: RecruiterTreasure
   name: store-category-recruiter-treasure
+
+# NTAgent (nanolink)
+- type: entity
+  id: StorePresetNanolink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-nanolink
+    categories:
+    - NanolinkDeception
+    - NanolinkSurveillance
+    - NanolinkFraming
+    - NanolinkPointless
+    currencyWhitelist:
+    - NanoCoin
+    balance:
+      NanoCoin: 0
+
+- type: storeCategory
+  id: NanolinkDeception
+  name: store-category-deception
+  priority: 0
+
+- type: storeCategory
+  id: NanolinkSurveillance
+  name: store-category-surveillance
+  priority: 1
+
+- type: storeCategory
+  id: NanolinkFraming
+  name: store-category-framing
+  priority: 2
+
+- type: storeCategory
+  id: NanolinkPointless
+  name: store-category-pointless
+  priority: 3
