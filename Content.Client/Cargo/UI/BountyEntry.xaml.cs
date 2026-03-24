@@ -59,6 +59,7 @@ public sealed partial class BountyEntry : BoxContainer
 
         var claimedByText = string.IsNullOrEmpty(bounty.ClaimedBy) ? Loc.GetString("bounty-console-claimed-by-none") : bounty.ClaimedBy;
         ClaimedBylabel.SetMarkup(Loc.GetString("bounty-console-claimed-by", ("claimant", claimedByText)));
+        StatusLabel.SetMarkup(Loc.GetString("bounty-console-status-label", ("status", (int) bounty.Status)));
         // End DeltaV bounty claiming
     }
 

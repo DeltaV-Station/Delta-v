@@ -19,7 +19,7 @@ bounty-console-claimed-by-none = None
 bounty-console-claimed-by-unknown = Unknown
 bounty-console-claimed-by = Claimed by: {$claimant}
 bounty-console-status-label = Status: {$status ->
-        [2] [color=limegreen]On Shuttle[/color]
+        [2] [color=limegreen]Completed[/color]
         [1] Processing
         *[other] [color=orange]Undelivered[/color]
     }
@@ -29,8 +29,8 @@ bounty-console-status = {$status ->
         *[other] Undelivered
     }
 bounty-console-status-tooltip = {$status ->
-    [2] This bounty is on the shuttle, ready to be delivered to the trade station
-    [1] This bounty has been delivered and is waiting to be fulfilled
+    [2] This bounty is completed, ready to be delivered to the trade station
+    [1] This bounty has been sent out, and is waiting to be fulfilled
     *[other] This bounty has not yet been sent out for fulfilment
     }
 ## End DeltaV
