@@ -421,6 +421,8 @@
   - type: ItemToggle 
     onUse: false # wielding events control it instead
     onActivate: false # cannot activate on floor
+  - type: ItemToggleSize
+    activatedSize: Ginormous #cannot be put in bags while active
   - type: Wieldable # requires wield to swing
     UnwieldOnUse: true
   - type: Reflect
