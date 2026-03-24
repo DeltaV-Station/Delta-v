@@ -8,6 +8,7 @@ namespace Content.Server._RMC14.Examine;
 
 public sealed class RMCSetPoseSystem : SharedRMCSetPoseSystem
 {
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
 
     protected override void SetPose(Entity<RMCSetPoseComponent> ent)
