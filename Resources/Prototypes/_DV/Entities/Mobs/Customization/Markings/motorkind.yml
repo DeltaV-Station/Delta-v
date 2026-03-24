@@ -1,0 +1,412 @@
+- type: marking
+  id: MotorkindTeeth
+  bodyPart: Chest
+  markingCategory: Head
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: teeth
+
+- type: marking
+  id: MotorkindHeadlight
+  bodyPart: Chest
+  markingCategory: Head
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ff8800"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: headlights
+
+- type: marking
+  id: MotorkindTaillight
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: taillights
+
+- type: marking
+  id: MotorkindTaillightColourable
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ff0000"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: taillights_c
+
+- type: marking
+  id: MotorkindEyelashes
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Motorkind ]
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: eyelashes
+
+- type: marking
+  id: MotorkindWindows
+  bodyPart: Head
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ff0000"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: windows
+
+- type: marking
+  id: MotorkindFrontLeftWheel
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: l_arm
+
+- type: marking
+  id: MotorkindFrontRightWheel
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: r_arm
+
+- type: marking
+  id: MotorkindBackLeftWheel
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: l_leg
+
+- type: marking
+  id: MotorkindBackRightWheel
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: r_leg
+
+
+# Digits
+# 00 refers to a 0 in the tens column, where as 0 refers to a 0 in the ones column.
+- type: marking
+  id: MotorkindDigit00
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_00
+
+- type: marking
+  id: MotorkindDigit10
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_10
+
+- type: marking
+  id: MotorkindDigit20
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_20
+
+- type: marking
+  id: MotorkindDigit30
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_30
+
+- type: marking
+  id: MotorkindDigit40
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_40
+
+- type: marking
+  id: MotorkindDigit50
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_50
+
+- type: marking
+  id: MotorkindDigit60
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_60
+
+- type: marking
+  id: MotorkindDigit70
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_70
+
+- type: marking
+  id: MotorkindDigit80
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_80
+
+- type: marking
+  id: MotorkindDigit90
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_90
+
+- type: marking
+  id: MotorkindDigit0
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_0
+
+- type: marking
+  id: MotorkindDigit1
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_1
+
+- type: marking
+  id: MotorkindDigit2
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_2
+
+- type: marking
+  id: MotorkindDigit3
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_3
+
+- type: marking
+  id: MotorkindDigit4
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_4
+
+- type: marking
+  id: MotorkindDigit5
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_5
+
+- type: marking
+  id: MotorkindDigit6
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_6
+
+- type: marking
+  id: MotorkindDigit7
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_7
+
+- type: marking
+  id: MotorkindDigit8
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_8
+
+- type: marking
+  id: MotorkindDigit9
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Motorkind ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/motorkind.rsi
+    state: digit_9
