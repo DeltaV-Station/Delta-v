@@ -1,59 +1,59 @@
 {
-  "version": 1,
-  "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/176be184d511dd4f85585e3a62f0cf524b4e1d9b, metal and wood sprites by Mithrandalf for N14, resprited and open state by @Stxcking (github).",
-  "size": {
-    "x": 64,
-    "y": 64
-  },
-  "states": [
-    {
-      "name": "metal",
-      "directions": 4
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/176be184d511dd4f85585e3a62f0cf524b4e1d9b, metal and wood sprites by Mithrandalf for N14, resprited and open state by @Stxcking (github).",
+    "size": {
+        "x": 64,
+        "y": 64
     },
-    {
-      "name": "metal_open",
-      "directions": 4
-    },
-    {
-      "name": "metal_legs",
-      "directions": 4
-    },
-    {
-      "name": "metal_legs_open",
-      "directions": 4
-    },
-    {
-      "name": "metal_small",
-      "directions": 4
-    },
-    {
-      "name": "metal_small_open",
-      "directions": 4
-    },
-    {
-      "name": "wood",
-      "directions": 4
-    },
-    {
-      "name": "wood_open",
-      "directions": 4
-    },
-    {
-      "name": "wood_small",
-      "directions": 4
-    },
-    {
-      "name": "wood_small_open",
-      "directions": 4
-    },
-    {
-      "name": "wood_metal",
-      "directions": 4
-    },
-    {
-      "name": "wood_metal_open",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "metal",
+            "directions": 4
+        },
+        {
+            "name": "metal_open",
+            "directions": 4
+        },
+        {
+            "name": "metal_legs",
+            "directions": 4
+        },
+        {
+            "name": "metal_legs_open",
+            "directions": 4
+        },
+        {
+            "name": "metal_small",
+            "directions": 4
+        },
+        {
+            "name": "metal_small_open",
+            "directions": 4
+        },
+        {
+            "name": "wood",
+            "directions": 4
+        },
+        {
+            "name": "wood_open",
+            "directions": 4
+        },
+        {
+            "name": "wood_small",
+            "directions": 4
+        },
+        {
+            "name": "wood_small_open",
+            "directions": 4
+        },
+        {
+            "name": "wood_metal",
+            "directions": 4
+        },
+        {
+            "name": "wood_metal_open",
+            "directions": 4
+        }
+    ]
 }
