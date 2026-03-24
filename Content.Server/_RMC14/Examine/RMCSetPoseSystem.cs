@@ -23,8 +23,8 @@ public sealed class RMCSetPoseSystem : SharedRMCSetPoseSystem
             setPosePrompt,
             (string pose) =>
             {
-//                if (pose.Length > 1000) this was causing build fails ill be honest i have no clue how this stuff works
-//                    pose = pose[..999];
+                if (pose.Length > 1000)
+                    pose = pose[..999];
 //                _adminLog.Add(LogType.RMCSetPose, $"{ToPrettyString(ent)} set their pose to {pose}");
                 ent.Comp.Pose = pose;
                 Dirty(ent);
