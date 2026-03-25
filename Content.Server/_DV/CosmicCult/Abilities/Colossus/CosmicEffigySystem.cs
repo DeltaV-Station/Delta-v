@@ -19,6 +19,7 @@ using Content.Shared.Weapons.Melee;
 using Robust.Server.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -82,10 +83,12 @@ public sealed class CosmicEffigySystem : EntitySystem
 
         colossusComp.BonusDamage += new DamageSpecifier(_proto.Index(colossusComp.BonusDamageType), ent.Comp.ColossusBonusDamage);
 
-        Spawn(colossusComp.BuffVfx, Transform(ent.Comp.Colossus.Value).Coordinates);
+        var transform = Transform(ent.Comp.Colossus.Value);
+        Spawn(colossusComp.BuffVfx, transform.Coordinates);
+
         if (colossusComp.CompletedEffigies == 0)
         {
-            _audio.PlayGlobal(colossusComp.ReawakenSfx, ent);
+            _audio.PlayStatic(colossusComp.ReawakenSfx, Filter.BroadcastMap(transform.MapID), transform.Coordinates, true);
         }
         else
         {
