@@ -424,7 +424,7 @@
   - type: ItemToggleSize
     activatedSize: Ginormous #cannot be put in bags while active
   - type: Wieldable # requires wield to swing
-    UnwieldOnUse: true
+    unwieldOnUse: true
   - type: Reflect
     reflectProb: 0.75 # from 100% to 75% reflect
     spread: 10 # tightened spread from 75 to 10
