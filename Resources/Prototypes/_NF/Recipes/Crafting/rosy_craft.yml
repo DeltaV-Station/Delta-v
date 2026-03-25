@@ -1,12 +1,9 @@
 - type: construction
-  name: maple mothroach cloak
+  name: construction-recipe-maple-mothroach-cloak
   id: ClothingNeckCloakRosyRecipe
   graph: ClothingNeckCloakRosyGraph
   startNode: start
   targetNode: ClothingNeckCloakRosy
   category: construction-category-clothing
-  description: As you stare into those lifeless eyes you know this is what you, I mean they, would have wanted.
-  icon:
-    sprite: _NF/Clothing/Neck/Cloaks/rosy.rsi
-    state: icon
-  objectType: Item  
+  description: construction-recipe-description-maple-mothroach-cloak
+  objectType: Item

@@ -5,12 +5,12 @@
   - node: start
     edges:
     - to: ClothingNeckCloakRosy
-      steps:    
+      steps:
       - tag: MaterialHideRosyMothroach
         icon:
           sprite: _NF/Objects/Materials/rosymothroach.rsi
           state: hiderosymothroach
-        name: rosy maple mothroach hide
+        name: construction-graph-tag-rosy-maple-mothroach-hide
         doAfter: 10
       - material: Cloth
         amount: 10
