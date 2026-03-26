@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/03/2026 07:31:39
-  entityCount: 73
+  time: 03/26/2026 04:08:00
+  entityCount: 74
 maps: []
 grids:
 - 1
@@ -31,6 +31,7 @@ entities:
     - type: Transform
       parent: invalid
     - type: ProtectedGrid
+      baseIndices: {}
     - type: EscapePod
     - type: MapGrid
       chunks:
@@ -69,10 +70,10 @@ entities:
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
     - type: DeviceNetwork
+      deviceNetId: Wireless
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
-      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -334,6 +335,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
 - proto: GasPipeBend
   entities:
   - uid: 60
@@ -342,12 +345,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0337FCFF'
   - uid: 66
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,-1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
 - proto: GasPipeStraight
   entities:
   - uid: 63
@@ -355,16 +362,22 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 64
     components:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 65
     components:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
 - proto: GasPort
   entities:
   - uid: 59
@@ -372,13 +385,17 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
-- proto: GasPressurePumpEnabled
+    - type: AtmosPipeColor
+      color: '#0337FCFF'
+- proto: GasPressurePumpEnabledStandard
   entities:
   - uid: 58
     components:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0337FCFF'
 - proto: GasVentPump
   entities:
   - uid: 2
@@ -387,6 +404,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0337FCFF'
 - proto: GasVentScrubber
   entities:
   - uid: 61
@@ -394,6 +413,8 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
 - proto: GeneratorWallmountAPU
   entities:
   - uid: 36
@@ -590,6 +611,15 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
+- proto: WarpPointShuttle
+  entities:
+  - uid: 74
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 1
+    - type: WarpPoint
+      location: Escape Pod
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 29
