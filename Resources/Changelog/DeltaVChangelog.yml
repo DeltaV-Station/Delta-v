@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: CrimsonAnnie
-  changes:
-  - message: Fixed one of Psionic eruption's flavour pop-ups
-    type: Fix
-  id: 1689
-  time: '2025-10-02T21:57:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4444
 - author: Vapetastic-Gaming
   changes:
   - message: Apoapsis Hits 100 pop
@@ -4406,4 +4399,14 @@
   id: 2188
   time: '2026-03-25T01:29:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5514
+- author: DisposableCrewmember42
+  changes:
+  - message: Footprints are now decals, this should address associated performance
+      issues. As a result, they can no longer be mopped like puddles.
+    type: Fix
+  - message: Mops can now be used to scrub off decals by left-clicking tiles.
+    type: Add
+  id: 2189
+  time: '2026-03-26T13:44:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5226
 Order: 1
