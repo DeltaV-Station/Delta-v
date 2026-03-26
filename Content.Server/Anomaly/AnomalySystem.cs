@@ -314,6 +314,15 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
             msg.AddMarkupOrThrow(Loc.GetString("anomaly-behavior-unknown"));
         else
         {
+            // DeltaV - Colossus Additions START
+            if (anomalyComp.AlwaysGrow)
+            {
+                msg.AddMarkupOrThrow("- " + Loc.GetString("anomaly-behavior-always-grow"));
+                if (anomalyComp.CurrentBehavior != null)
+                    msg.PushNewline();
+            }
+            // DeltaV - Colossus Additions END
+
             if (anomalyComp.CurrentBehavior != null)
             {
                 var behavior = _prototype.Index(anomalyComp.CurrentBehavior.Value);
@@ -323,7 +332,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
                 var mod = Math.Floor((behavior.EarnPointModifier) * 100);
                 msg.AddMarkupOrThrow("- " + Loc.GetString("anomaly-behavior-point", ("mod", mod)));
             }
-            else
+            else if(!anomalyComp.AlwaysGrow) // DeltaV - Add condition, previously regular else
             {
                 msg.AddMarkupOrThrow(Loc.GetString("anomaly-behavior-balanced"));
             }
