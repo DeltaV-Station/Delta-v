@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
-using Content.Server.Objectives;
+using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
@@ -17,6 +17,7 @@ using Content.Shared.Popups;
 using Content.Shared.Warps;
 using Content.Shared.Weapons.Melee;
 using Robust.Server.Audio;
+using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
@@ -40,6 +41,8 @@ public sealed class CosmicEffigySystem : EntitySystem
     [Dependency] private readonly CosmicCultObjectiveSystem _cultObjective = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -121,11 +124,17 @@ public sealed class CosmicEffigySystem : EntitySystem
         }
 
         var objective = mind.Objectives[objIndex];
-        if (!_cultObjective.RandomizeEffigyTarget(objective, conditionComp, setDescription: true))
+        if (_cultObjective.RandomizeEffigyTarget(objective, conditionComp, setDescription: true) is not {} nextTarget)
         {
             Log.Error("Failed to randomize effigy objective location!");
             return;
         }
+
+        if (mind.UserId is { } userId)
+        {
+            _chat.DispatchServerMessage(_player.GetSessionById(userId), Loc.GetString("colossus-next-target", ("location", nextTarget)));
+        }
+
         _codeCondition.SetCompleted(objective, false);
 
         colossusComp.EffigyPlaceActionEntity = _actions.AddAction(colossus, colossusComp.EffigyPlaceAction);
