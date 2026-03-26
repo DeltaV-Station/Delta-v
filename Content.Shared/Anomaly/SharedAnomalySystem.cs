@@ -82,7 +82,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             Log.Info($"Performing anomaly pulse. Entity: {ToPrettyString(uid)}");
 
         // if we are above the growth threshold, then grow before the pulse
-        if (component.Stability > component.GrowthThreshold)
+        if (component.AlwaysGrow || component.Stability > component.GrowthThreshold) // DeltaV - Add AlwaysGrow
         {
             ChangeAnomalySeverity(uid, GetSeverityIncreaseFromGrowth(component), component);
         }
@@ -344,7 +344,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             // if the stability is under the death threshold,
             // update it every second to start killing it slowly.
-            if (anomaly.Stability < anomaly.DecayThreshold)
+            if (!anomaly.AlwaysGrow && anomaly.Stability < anomaly.DecayThreshold) // DeltaV - Add AlwaysGrow
             {
                 ChangeAnomalyHealth(ent, anomaly.HealthChangePerSecond * frameTime, anomaly);
             }
@@ -477,6 +477,14 @@ public abstract class SharedAnomalySystem : EntitySystem
         visual = null;
         if (!Resolve(ent, ref ent.Comp, logMissing: false))
             return false;
+
+        // DeltaV - Colossus Additions START
+        if (ent.Comp.AlwaysGrow)
+        {
+            visual = AnomalyStabilityVisuals.Growing;
+            return true;
+        }
+        // DeltaV - Colossus Additions END
 
         visual = AnomalyStabilityVisuals.Stable;
         if (ent.Comp.Stability <= ent.Comp.DecayThreshold)

@@ -145,7 +145,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
             return 0;
 
         var multiplier = 1f;
-        if (component.Stability > component.GrowthThreshold)
+        if (component.AlwaysGrow || component.Stability > component.GrowthThreshold) // DeltaV - Add AlwaysGrow
             multiplier = component.GrowingPointMultiplier; //more points for unstable
 
         //penalty of up to 50% based on health
@@ -250,7 +250,11 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         else
         {
             string stateLoc;
-            if (anomalyComp.Stability < anomalyComp.DecayThreshold)
+            // DeltaV - Colossus Additions START
+            if (anomalyComp.AlwaysGrow)
+                stateLoc = Loc.GetString("anomaly-scanner-stability-high");
+            // DeltaV - Colossus Additions END
+            else if (anomalyComp.Stability < anomalyComp.DecayThreshold) // DeltaV - Add else
                 stateLoc = Loc.GetString("anomaly-scanner-stability-low");
             else if (anomalyComp.Stability > anomalyComp.GrowthThreshold)
                 stateLoc = Loc.GetString("anomaly-scanner-stability-high");
