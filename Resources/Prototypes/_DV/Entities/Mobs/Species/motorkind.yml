@@ -147,8 +147,8 @@
           sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
           state: hand_r
   - type: FootPrints
-    leftBarePrint: "footprint-left-bare-motorkind"
-    rightBarePrint: "footprint-right-bare-motorkind"
+    bareDecalLeft: "footprint-left-bare-motorkind"
+    bareDecalRight: "footprint-right-bare-motorkind"
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 10
