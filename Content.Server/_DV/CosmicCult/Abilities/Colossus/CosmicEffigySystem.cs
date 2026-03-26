@@ -61,7 +61,9 @@ public sealed class CosmicEffigySystem : EntitySystem
 
     private void OnSupercritical(Entity<CosmicEffigyComponent> ent, ref AnomalySupercriticalEvent args)
     {
-        if (!Exists(ent.Comp.Colossus) || !TryComp<CosmicColossusComponent>(ent.Comp.Colossus, out var colossusComp) || !_mind.TryGetMind(ent.Comp.Colossus.Value, out _, out var mind))
+        if (!Exists(ent.Comp.Colossus)
+            || !TryComp<CosmicColossusComponent>(ent.Comp.Colossus, out var colossusComp)
+            || !_mind.TryGetMind(ent.Comp.Colossus.Value, out _, out var mind))
             return;
 
         var colossus = ent.Comp.Colossus.Value;
@@ -81,14 +83,18 @@ public sealed class CosmicEffigySystem : EntitySystem
             _damage.TryChangeDamage(ent.Comp.Colossus.Value, damageable.Damage / 2 * -1, true);
         }
 
-        colossusComp.BonusDamage += new DamageSpecifier(_proto.Index(colossusComp.BonusDamageType), ent.Comp.ColossusBonusDamage);
+        colossusComp.BonusDamage +=
+            new DamageSpecifier(_proto.Index(colossusComp.BonusDamageType), ent.Comp.ColossusBonusDamage);
 
         var transform = Transform(ent.Comp.Colossus.Value);
         Spawn(colossusComp.BuffVfx, transform.Coordinates);
 
         if (colossusComp.CompletedEffigies == 0)
         {
-            _audio.PlayStatic(colossusComp.ReawakenSfx, Filter.BroadcastMap(transform.MapID), transform.Coordinates, true);
+            _audio.PlayStatic(colossusComp.ReawakenSfx,
+                Filter.BroadcastMap(transform.MapID),
+                transform.Coordinates,
+                true);
         }
         else
         {
