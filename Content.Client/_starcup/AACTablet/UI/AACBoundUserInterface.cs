@@ -1,4 +1,4 @@
-using Content.Shared._starcup.AACTablet;
+using Content.Shared._DV.AACTablet;
 
 namespace Content.Client._DV.AACTablet.UI;
 

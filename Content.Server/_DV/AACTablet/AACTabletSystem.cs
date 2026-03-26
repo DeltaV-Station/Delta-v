@@ -5,6 +5,7 @@ using Content.Server.Speech.Components;
 using Content.Shared._DV.AACTablet;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Radio.Components;
 using Robust.Server.GameObjects; // starcup
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -71,8 +72,7 @@ public sealed partial class AACTabletSystem : EntitySystem // starcup: made part
         var messageToSend = string.Join(" ", _localisedPhrases);
 
         _chat.TrySendInGameICMessage(ent,
-            messageToSend,
-            message.Prefix + string.Join(" ", _localisedPhrases), // starcup: prefix
+            message.Prefix + messageToSend,
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);

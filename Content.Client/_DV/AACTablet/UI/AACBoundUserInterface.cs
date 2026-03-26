@@ -23,8 +23,12 @@ public sealed partial class AACBoundUserInterface : BoundUserInterface // starcu
     protected override void Open()
     {
         base.Open();
-        _window?.Close();
+
+        if (_window is { Disposed: false })
+            _window.Close();
+
         _window = this.CreateWindow<AACWindow>();
+        _window.OnClose += Close;
         _window.PhraseButtonPressed += OnPhraseButtonPressed;
         _window.Typing += OnTyping;
         _window.SubmitPressed += OnSubmit;

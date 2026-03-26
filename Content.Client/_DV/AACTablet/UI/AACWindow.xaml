@@ -18,7 +18,14 @@
                                   StyleClasses="AacCheckbox"
                                   Margin="0 0 8 0"/>
                         <Control HorizontalExpand="True"/>
-                    </BoxContainer>
+
+                        <Control SetWidth="170" Margin="8 0 0 0"/>
+
+                        <OptionButton Name="RadioChannels"
+                                      StyleClasses="OpenBoth"
+                                      SetWidth="120"
+                                      Margin="8 0 0 0"/>
+                        </BoxContainer>
 
                     <!-- Buffer Display and Controls -->
                     <BoxContainer Orientation="Horizontal">
@@ -29,11 +36,6 @@
                                       StyleClasses="AacBufferText"
                                       Margin="8 4"/>
                         </PanelContainer>
-            <!-- begin starcup REMINDER TO MAKE A BUTTON FOR RADIO CHANNELS RAh-->
-            <Button Name="ClearButton" Text="{Loc 'aac-tablet-backspace'}" TextAlign="Center" StyleClasses="OpenBoth" />
-            <OptionButton Name="RadioChannels" StyleClasses="OpenBoth"/>
-            <Button Name="SendButton" Text="{Loc 'aac-tablet-send'}" TextAlign="Center" StyleClasses="OpenLeft"/>
-            <!-- end starcup -->
                         <Button Name="ClearButton"
                                 Text="{Loc 'aac-tablet-backspace'}"
                                 TextAlign="Center"

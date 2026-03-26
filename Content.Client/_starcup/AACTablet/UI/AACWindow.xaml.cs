@@ -1,4 +1,4 @@
-using Content.Shared._starcup.AACTablet;
+using Content.Shared._DV.AACTablet;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
 using Robust.Client.UserInterface.Controls;
