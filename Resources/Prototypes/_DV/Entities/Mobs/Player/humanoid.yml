@@ -507,6 +507,10 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: centcom
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryLast
+    nameFormat: name-format-ccintern
   - type: RandomHumanoidSpawner
     settings: CentcommIntern
 

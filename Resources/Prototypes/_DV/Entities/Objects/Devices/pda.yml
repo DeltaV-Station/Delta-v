@@ -737,11 +737,6 @@
   components:
   - type: Pda
     id: CentcomInternIDCard
-    penSlot:
-      startingItem: PenCentcom
-      whitelist:
-        tags:
-        - Write
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
