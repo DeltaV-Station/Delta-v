@@ -285,6 +285,11 @@ public sealed partial class AnomalyComponent : Component
 
     [DataField]
     public bool DeleteEntity = true;
+
+    // DeltaV - Colossus additions START
+    [DataField]
+    public bool AlwaysGrow;
+    // DeltaV - Colossus additions END
 }
 
 /// <summary>
