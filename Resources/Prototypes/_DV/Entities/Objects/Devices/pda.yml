@@ -726,3 +726,19 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType: !type:String
         pda-secborg
+
+# CentComm
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcomInternPDA
+  name: CentCommIntern PDA
+  description: Brand new light green PDA that smells of fresh plastic.
+  components:
+  - type: Pda
+    id: CentcomInternIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-interncentcomm

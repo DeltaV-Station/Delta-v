@@ -124,6 +124,12 @@ public sealed partial class DCCVars
     public static readonly CVarDef<int> YearOffset =
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
 
+    /// <summary>
+    /// What species to hide, as a comma seperated list.
+    /// </summary>
+    public static readonly CVarDef<string> HiddenSpecies =
+        CVarDef.Create("species.hidden", "Motorkind", CVar.SERVER | CVar.REPLICATED);
+
     /*
      * Traits
      */
