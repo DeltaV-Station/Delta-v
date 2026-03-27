@@ -129,6 +129,7 @@ loadout-group-brig-medic-back = Corpsman backpack
 loadout-group-brig-medic-neck = Corpsman neck
 loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 loadout-group-corpsman-eyewear = Corpsman eyewear
+loadout-group-corpsman-injectors = Corpsman Injectors
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
