@@ -53,7 +53,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 20 # DeltaV - was 14
+        Heat: 14
 
 - type: entity
   parent: BasicHitscan
@@ -94,6 +94,17 @@
     damage:
       types:
         Heat: 1
+
+- type: entity #Delta V - leaving here incase pr 42786 in upstream merges
+  parent: RedHeavyLaser
+  id: RedSniperLaser
+  name: red high-precision laser ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 42
 
 - type: entity
   parent: BasicHitscan
