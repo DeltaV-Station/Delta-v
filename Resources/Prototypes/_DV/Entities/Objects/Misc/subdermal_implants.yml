@@ -98,3 +98,39 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+
+# NTAgent
+
+- type: entity
+  parent: [ BaseSubdermalImplant, StorePresetNanolink ]
+  id: NanolinkSubImplant
+  name: Nanolink implant
+  description: This implant lets the user access a hidden NanoTrasen uplink at will.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionOpenNanolinkImplant
+    whitelist:
+      components:
+      - Hands
+  - type: Store
+    balance:
+      NanoCoin: 10
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+
+- type: entity
+  parent: ActionIntrinsicStore
+  id: ActionOpenNanolinkImplant
+  name: Open Nanolink
+  description: Opens the NanoTrasen uplink embedded under your skin.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Devices/communication.rsi
+      state: old-radio
