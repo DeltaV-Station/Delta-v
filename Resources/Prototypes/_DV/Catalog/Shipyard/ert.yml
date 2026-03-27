@@ -3,10 +3,82 @@
 # in the case that the station does see it in their console (could be a random bug, idk!)
 
 - type: vessel
-  id: Ares
-  name: NT-Ares
-  description: A small ship, outfitted with some combat supplies for those extra dangerous ERT situations. Combat supplies include a Hristov, 4 hyperzine injectors, a handheld crew monitor, and an experimenal RCD.
+  id: NTCCPaladin
+  name: NTCC Marquess Paladin
+  description: A medium-sized warship with two laser cannons facing port side
   price: 1000000
-  path: /Maps/Shuttles/AdminSpawn/ERT-Small-Deathsquad.yml
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_assault.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCArtisan
+  name: NTCC Marquess Artisan
+  description: A medium-sized engineering shuttle with all the equipment to handle most engineering emergencies.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_engi.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCAbsolvet
+  name: NTCC Marquess Absolvet
+  description: A medium-sized janitorial shuttle with all the equipment to handle even the most severe biohazards.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_jani.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCMercy
+  name: NTCC Marquess Mercy
+  description: A medium-sized medical shuttle fully stocked with chemistry, able to handle most medical situations.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_med.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCSentinel
+  name: NTCC Marquess Sentinel
+  description: A medium-sized security shuttle with equipment to detain and handle most security threats, comes with two basic holding cells.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_sec.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCImperator
+  name: NTCC Sovereign Imperator
+  description: A large-sized warship with 4 laser cannons on either sides and one forward artillery.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_assault.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCSanctuary
+  name: NTCC Sovereign Sanctuary
+  description: A large-sized medical ship fully stocked with chemistry, cloning, cryogenics, and surgery. able to function as a drop-in medical department for any station in medical need.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_med.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCParagon
+  name: NTCC Sovereign Paragon
+  description: A large-sized engineering ship fully stocked to do rapid repairs of even the most damaged stations comes with a fully functioning atmospheric and spare flat-packed power generation.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_engi.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCCitadel
+  name: NTCC Sovereign Citadel
+  description: A large-sized command and control ship with general-purpose equipment. Can't handle any major emergencies on its own.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_fob.yml
   categories:
   - ERT
