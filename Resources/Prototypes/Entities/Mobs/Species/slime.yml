@@ -124,9 +124,8 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # DeltaV port from EE, blood splatter
-    leftBarePrint: "footprint-left-bare-slime"
-    rightBarePrint: "footprint-right-bare-slime"
+  - type: FootprintOwner # starcup
+    footprint: slimeFootprint # starcup
 
 - type: entity
   parent: MobHumanDummy

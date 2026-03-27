@@ -100,9 +100,8 @@
           32:
             sprite: Mobs/Species/Reptilian/displacement.rsi
             state: mask
-  - type: FootPrints # DeltaV port from EE, blood splatter
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
+  - type: FootprintOwner # starcup
+    footprint: lizardFootprint # starcup
 
 - type: entity
   parent: BaseSpeciesDummy

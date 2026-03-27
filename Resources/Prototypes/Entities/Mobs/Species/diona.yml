@@ -113,9 +113,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # DeltaV
-    leftBarePrint: "footprint-left-bare-diona"
-    rightBarePrint: "footprint-right-bare-diona"
   - type: MovementSpeedModifier # DeltaV
     baseWalkSpeed: 1.0
     baseSprintSpeed: 3.0
@@ -136,6 +133,8 @@
         Toxin: -0.1
         Airloss: -0.1
     darkMovementSpeedMultiplier: 0.7
+  - type: FootprintOwner # starcup
+    footprint: dionaFootprint # starcup
 
 - type: entity
   parent: BaseSpeciesDummy

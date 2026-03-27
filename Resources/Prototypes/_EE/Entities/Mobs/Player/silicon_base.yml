@@ -317,7 +317,7 @@
       priority: 1
       lightningExplode: false
     - type: ComplexInteraction
-    - type: FootPrints
+    #- type: FootPrints # DeltaV - nuke EE footprints
     - type: Carriable
     - type: Targeting
     - type: SurgeryTarget
@@ -339,3 +339,5 @@
     - type: CosmicCenserTarget # DeltaV - Cosmic Cult
     - type: GrappleTarget # DeltaV - Allow targets to be grappled
     - type: CanDoCPR # DeltaV - Addition of CPR
+    - type: FootprintOwner # starcup
+      footprint: humanFootprint # starcup
