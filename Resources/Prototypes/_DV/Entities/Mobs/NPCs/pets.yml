@@ -35,6 +35,8 @@
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
+  - type: Loadout
+    prototypes: [ MobLaikaGear ]
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -43,8 +45,6 @@
     attributes:
       proper: true
       gender: female
-  - type: Loadout
-    prototypes: [ MobSecDogLaikaGear ]
   - type: Tag
     tags:
     - CannotSuicide
@@ -56,12 +56,6 @@
   - type: Temperature
     heatDamageThreshold: 315 # 10 lower than base
     coldDamageThreshold: 240 # 20 lower than base
-  - type: Grappler
-    handDisabling: SingleActive
-    grapplingPart: grapple-part-jaws
-    proneOnGrapple: true # Make sure Laika isn't shot by sprays
-    grappleSound:
-      collection: VulpkaninGrowls
 
 - type: entity
   parent: MobCarp
