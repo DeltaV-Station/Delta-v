@@ -46,7 +46,9 @@ marking-HarpyWingBat-bat_wings_tone_2 = Membrane
 
 marking-HarpyWingBionic = Simple Bionic Wings (Whitescale)
 marking-HarpyWingBionic-bionic_wings_tone_1 = Wings
-marking-HarpyWingBionic-bionic_wings_tone_2 = Lights (Unshaded)
+
+marking-HarpyWingBionicHighlights = Simple Bionic Wings (Lights)
+marking-HarpyWingBionicHighlights-bionic_wings_tone_2 = Lights (Unshaded)
 
 marking-HarpyEarsDefault = Feather Tufts
 marking-HarpyEarsDefault-harpy_ears_default = Tufts
