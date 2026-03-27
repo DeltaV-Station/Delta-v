@@ -1,3 +1,4 @@
+using Content.Server._DV.Administration; // DeltaV - Admin QOL
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Bible.Components;
@@ -24,6 +25,7 @@ public sealed class PrayerSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
+    [Dependency] private readonly EventAlertSystem _eventAlert = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -105,6 +107,7 @@ public sealed class PrayerSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString(comp.SentMessage), sender.AttachedEntity.Value, sender, PopupType.Medium);
 
         _chatManager.SendAdminAnnouncement($"{Loc.GetString(comp.NotificationPrefix)} <{sender.Name}>: {message}");
+        _eventAlert.SendLinks(sender.AttachedEntity); // DeltaV - send tp links for prayers
         _adminLogger.Add(LogType.AdminMessage, LogImpact.Low, $"{ToPrettyString(sender.AttachedEntity.Value):player} sent prayer ({Loc.GetString(comp.NotificationPrefix)}): {message}");
     }
 }

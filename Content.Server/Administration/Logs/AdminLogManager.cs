@@ -495,7 +495,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Creates a list of tpto command links of the given players
     /// </summary>
-    private bool CreateTpLinks(List<(NetEntity NetEnt, string CharacterName)> players, out string outString)
+    // DeltaV - Make public static
+    public static bool CreateTpLinks(List<(NetEntity NetEnt, string CharacterName)> players, out string outString)
     {
         outString = string.Empty;
 
@@ -519,7 +520,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Creates a list of toto command links for the given map coordinates.
     /// </summary>
-    private bool CreateCordLinks(List<MapCoordinates> cords, out string outString)
+    // DeltaV - Make public static
+    public static bool CreateCordLinks(List<MapCoordinates> cords, out string outString)
     {
         outString = string.Empty;
 
@@ -543,7 +545,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Escape the given text to not allow breakouts of the cmdlink tags.
     /// </summary>
-    private string EscapeText(string text)
+    // DeltaV - Make public static
+    public static string EscapeText(string text)
     {
         return FormattedMessage.EscapeText(text).Replace("\"", "\\\"").Replace("'", "\\'");
     }

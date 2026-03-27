@@ -21,6 +21,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Mindshield.Components; // DeltaV - Admin QOL
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
@@ -665,7 +666,11 @@ namespace Content.Shared.Cuffs
             if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
                 return;
 
-            _adminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(user):player} is trying to uncuff {ToPrettyString(target):subject}");
+            // DeltaV - Conditional Impact START
+            var isMindShielded = HasComp<MindShieldComponent>(user);
+            // Only alert if new user tries to uncuff someone else and if they aren't mindshielded, stops spam during escape attempts or for cadets. LogImpact previously always High.
+            _adminLog.Add(LogType.Action, isOwner || isMindShielded ? LogImpact.Medium : LogImpact.High, $"{ToPrettyString(user):player} is trying to uncuff {ToPrettyString(target):subject}");
+            // DeltaV - Conditional impact END
 
             var popupText = user == target.Owner
                 ? "cuffable-component-start-uncuffing-self-observer"
@@ -765,7 +770,7 @@ namespace Content.Shared.Cuffs
                 {
                     _popup.PopupEntity(Loc.GetString("cuffable-component-remove-cuffs-by-other-success-message",
                         ("otherName", Identity.Name(user.Value, EntityManager, user))), target, target);
-                    _adminLog.Add(LogType.Action, LogImpact.High,
+                    _adminLog.Add(LogType.Action, HasComp<MindShieldComponent>(user) ? LogImpact.Medium : LogImpact.High, // DeltaV - make impact conditional, previously always high
                         $"{ToPrettyString(user):player} has successfully uncuffed {ToPrettyString(target):player}");
                 }
                 else

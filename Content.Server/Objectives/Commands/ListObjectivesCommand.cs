@@ -23,7 +23,14 @@ namespace Content.Server.Objectives.Commands
             if (args.Length > 0)
                 _players.TryGetSessionByUsername(args[0], out player);
             else
-                player = shell.Player;
+            {
+                // DeltaV - Print everyone's objectives START
+                // previously: player = shell.Player
+                // implemented like this to make it easier to rip out later
+                ListAllObjectives(shell);
+                return;
+                // DeltaV - Print everyone's objectives END
+            }
 
             if (player == null)
             {
@@ -61,6 +68,45 @@ namespace Content.Server.Objectives.Commands
                 }
             }
         }
+
+        // DeltaV - Added function START
+        private void ListAllObjectives(IConsoleShell shell)
+        {
+            var minds = _entities.System<SharedMindSystem>();
+            foreach (var mind in minds.GetAliveHumans())
+            {
+                ICommonSession? player = null;
+                if (mind.Comp.OwnedEntity is not null)
+                {
+                    _players.TryGetSessionByEntity(mind.Comp.OwnedEntity.Value, out player);
+                }
+
+                _entities.TryGetComponent<MetaDataComponent>(mind.Comp.OwnedEntity, out var metaData);
+                if (mind.Comp.Objectives.Count > 0)
+                {
+                    shell.WriteMarkup($"\n[bold]{metaData?.EntityName}[/bold] ({player?.Name})");
+
+                    var objectivesSystem = _entities.System<SharedObjectivesSystem>();
+                    var objectives = mind.Comp.Objectives;
+
+                    for (var i = 0; i < objectives.Count; i++)
+                    {
+                        var info = objectivesSystem.GetInfo(objectives[i], mind);
+                        if (info == null)
+                        {
+                            shell.WriteLine($"- [{i}] {objectives[i]} - INVALID");
+                        }
+                        else
+                        {
+
+                            var progress = (int) (info.Value.Progress * 100f);
+                            shell.WriteLine($"- [{i}] {objectives[i]} ({info.Value.Title}) ({progress}%)");
+                        }
+                    }
+                }
+            }
+        }
+        // DeltaV - Added function END
 
         public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
         {
