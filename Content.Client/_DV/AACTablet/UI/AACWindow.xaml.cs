@@ -16,7 +16,7 @@ public sealed partial class AACWindow : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     private readonly List<QuickPhrasePrototype> _phrases;
     private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
-    public event Action<List<ProtoId<QuickPhrasePrototype>>>? PhraseButtonPressed;
+    public event Action<List<ProtoId<QuickPhrasePrototype>>, string>? PhraseButtonPressed; // starcup: radio second parameter
     public event Action? Typing;
     public event Action? SubmitPressed;
 
@@ -42,6 +42,7 @@ public sealed partial class AACWindow : FancyWindow
         SearchBar.OnTextChanged += FilterSearch;
         SendButton.OnPressed += SendBuffer;
         ClearButton.OnPressed += BackspaceBuffer;
+        RadioChannels.OnItemSelected += OnChannelSelected; // starcup
         PopulateGui();
         FilterSearch(null);
     }
@@ -68,7 +69,7 @@ public sealed partial class AACWindow : FancyWindow
 
     private void SendBuffer(BaseButton.ButtonEventArgs obj)
     {
-        PhraseButtonPressed?.Invoke(_phraseBuffer);
+        PhraseButtonPressed?.Invoke(_phraseBuffer, Prefix); // starcup: Prefix
         _phraseBuffer.Clear();
         BufferedString.Text = string.Empty;
         SubmitPressed?.Invoke();
@@ -236,7 +237,7 @@ public sealed partial class AACWindow : FancyWindow
         {
             _phraseSingle.Clear();
             _phraseSingle.Add(phraseId);
-            PhraseButtonPressed?.Invoke(_phraseSingle);
+            PhraseButtonPressed?.Invoke(_phraseSingle, Prefix); // starcup: Prefix parameter
             SubmitPressed?.Invoke();
         }
     }

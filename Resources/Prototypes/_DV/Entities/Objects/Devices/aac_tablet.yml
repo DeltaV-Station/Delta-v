@@ -40,5 +40,9 @@
         type: AACBoundUserInterface
   - type: Speech
     speechSounds: Alto
-  - type: AACTablet
   - type: VoiceMask
+  - type: AACTablet
+  - type: IntrinsicRadioTransmitter # starcup
+  - type: Grammar # starcup
+    attributes:
+      proper: True
