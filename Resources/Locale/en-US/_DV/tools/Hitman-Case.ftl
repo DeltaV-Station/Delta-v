@@ -1,22 +1,22 @@
 Sharpshooter-kit-name = Sharpshooter kit
 Sharpshooter-kit-description =
     A kit for those who prefer killing from afar.
-    provides a hirstov and a briefcase to put it in.
+    provides a hirstov with ammo, a briefcase with a outfit, and thermal goggles.
 
 Loud-kit-name = Loud kit
 Loud-kit-description =
     A kit for those who like a direct method.
-    provides a Python, two speedloaders, and an armor vest.
+    provides a Python and two speedloaders both with ap rounds. plus an armor vest and no slip shoes.
 
 Assassin-kit-name = Assassin kit
 Assassin-kit-description =
     A kit for the quiet killers.
-    Provides a cobra, combat knife, and radio jammer.
+    Provides a cobra, 4 throwing knives, night vision goggles, and a radio jammer.
 
 Poisoner-kit-name = Poisoner kit
 Poisoner-kit-description =
     A kit for those who dislike messy deaths.
-    Provides a bottle of toxin, bottle of nocturine, and hypopen.
+    Provides manys bottle of toxin and nocturine, plus a syringe.
 
 Infiltration-kit-name = Infiltration kit
 Infiltration-kit-description =
@@ -26,7 +26,7 @@ Infiltration-kit-description =
 Disguise-kit-name = Disguise kit
 Disguise-kit-description =
     A kit for those who want to be anyone.
-    Provides an agent id, chameleon clothing, and chameleon voice mask.
+    Provides an agent id, chameleon clothing, a Fake MindShield Implanter, and voice mask implant.
 
 Escapist-kit-name = Escapist kit
 Escapist-kit-description =

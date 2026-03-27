@@ -6,8 +6,8 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
     state: base
   content:
-  - WeaponSniperHristov
-  - BriefcaseBrown
+  - BriefcaseSyndieSniperBundleFilled
+  - ClothingEyesThermalVisionGogglesSyndie
 
 - type: thiefBackpackSet
   id: LoudKit
@@ -17,10 +17,11 @@
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     state: icon
   content:
-  - WeaponRevolverPython
-  - SpeedLoaderMagnum
-  - SpeedLoaderMagnum
+  - WeaponRevolverPythonAP
+  - SpeedLoaderMagnumAP
+  - SpeedLoaderMagnumAP
   - ClothingOuterArmorBasic
+  - ClothingShoesChameleonNoSlips
 
 - type: thiefBackpackSet
   id: AssassinKit
@@ -32,7 +33,8 @@
   content:
   - WeaponPistolCobra
   - MagazinePistolCaselessRifle
-  - CombatKnife
+  - ThrowingKnivesKit
+  - ClothingEyesNightVisionGoggles
   - RechargingRadioJammer
 
 - type: thiefBackpackSet
@@ -43,8 +45,14 @@
     sprite: Objects/Specific/Chemistry/bottle.rsi
     state: bottle-1
   content:
-  - HypopenBox
+  - Syringe
   - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
+  - ChemistryBottleToxin
+  - ChemistryBottleToxin
+  - ChemistryBottleToxin
   - ChemistryBottleToxin
 
 - type: thiefBackpackSet
@@ -56,7 +64,7 @@
     state: icon
   content:
   - Doorjack
-  - JawsOfLife
+  - SyndicateJawsOfLife
   - StealthBox
 
 - type: thiefBackpackSet
@@ -71,8 +79,9 @@
   - ClothingUniformJumpsuitChameleon
   - ClothingOuterChameleon
   - ClothingHandsChameleon
-  - ClothingShoesChameleonNoSlips
-  - ClothingMaskGasVoiceChameleon
+  - ClothingShoesChameleon
+  - BionicVoiceMaskImplanter
+  - FakeMindShieldImplanter
 
 - type: thiefBackpackSet
   id: EscapistKit
