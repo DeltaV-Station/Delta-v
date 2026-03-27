@@ -96,12 +96,12 @@
     title: objective-condition-maroon-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter # DeltaV
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune # DeltaV
   - type: KillPersonCondition
     requireMaroon: true
 
@@ -123,12 +123,12 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter # DeltaV
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune # DeltaV
   - type: KillPersonCondition
     # don't count missing evac as killing as heads are higher profile, so you really need to do the dirty work
     # if ce flies a shittle to centcom you better find a way onto it
@@ -152,13 +152,13 @@
       whitelist:
         components:
         - TraitorRole
+    - !type:ObjectiveImmuneFilter # DeltaV
     # Can't have multiple objectives to help/save the same person
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - HelpProgressCondition
         - KeepAliveCondition
-        - TargetObjectiveImmune # DeltaV
 
 - type: entity
   parent: [BaseTraitorSocialObjective, BaseHelpProgressObjective]
@@ -182,13 +182,13 @@
       blacklist:
         components:
         - HelpProgressCondition
+    - !type:ObjectiveImmuneFilter # DeltaV
     # Can't have multiple objectives to help/save the same person
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - HelpProgressCondition
         - KeepAliveCondition
-        - TargetObjectiveImmune # DeltaV
 
 # steal
 
