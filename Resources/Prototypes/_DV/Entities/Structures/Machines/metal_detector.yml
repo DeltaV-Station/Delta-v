@@ -1,0 +1,47 @@
+- type: entity
+  id: MetalDetector
+  name: Metal Detector
+  description: Beeps when metal and contraband is detected by a passing person.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _DV/Structures/Machines/metal_detector.rsi
+    snapCardinals: true
+    layers:
+    - state: metal_detector_1
+      map: ["enum.StorageVisualLayers.Base"]
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/click.ogg
+      params:
+        maxDistance: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 100
+        hard: false
+        layer:
+        - LowImpassable
+  - type: MetalDetector
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    stepOn: true

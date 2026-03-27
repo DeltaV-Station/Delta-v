@@ -22,6 +22,18 @@
   conditions:
   - !type:TileNotBlocked
 
+- type: construction
+  id: MetalDetector
+  graph: MetalDetectorGraph
+  startNode: start
+  targetNode: metalDetector
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
 # - type: construction
 #   id: Golem
 #   graph: Golem

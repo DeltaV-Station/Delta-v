@@ -1,0 +1,31 @@
+- type: constructionGraph
+  id: MetalDetectorGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      completed:
+      - !type:SetAnchor
+        value: false
+      steps:
+#      - material: Plasteel
+#        amount: 10
+#      - material: Cable
+#        amount: 5
+      - material: Steel
+        amount: 10
+  - node: frame
+    entity: MachineFrame
+    edges:
+    - to: metalDetector
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - material: Plasteel
+        amount: 5
+#      - tool: Welding
+#        doAfter: 5
+
+  - node: metalDetector
+    entity: MetalDetector
