@@ -9,6 +9,7 @@
   parent: BaseWall
   name: asteroid rock
   description: A rocky asteroid.
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: Transform
     noRot: true
@@ -128,6 +129,7 @@
   parent: AsteroidRock
   description: An ore vein rich with coal.
   suffix: Coal
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -150,6 +152,7 @@
   id: AsteroidRockCoalCrab
   parent: AsteroidRockCoal
   suffix: Coal Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreCoalCrab
@@ -159,6 +162,7 @@
   parent: AsteroidRock
   description: An ore vein rich with gold.
   suffix: Gold
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -181,6 +185,7 @@
   id: AsteroidRockGoldCrab
   parent: AsteroidRockGold
   suffix: Gold Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreGoldCrab
@@ -190,6 +195,7 @@
   parent: AsteroidRock
   description: An ore vein rich with diamonds.
   suffix: Diamond
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -213,6 +219,7 @@
   parent: AsteroidRock
   description: An ore vein rich with plasma.
   suffix: Plasma
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OrePlasma
@@ -235,6 +242,7 @@
   parent: AsteroidRock
   description: An ore vein rich with quartz.
   suffix: Quartz
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -257,6 +265,7 @@
   id: AsteroidRockQuartzCrab
   parent: AsteroidRockQuartz
   suffix: Quartz Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreQuartzCrab
@@ -266,6 +275,7 @@
   parent: AsteroidRock
   description: An ore vein rich with silver.
   suffix: Silver
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -288,6 +298,7 @@
   id: AsteroidRockSilverCrab
   parent: AsteroidRockSilver
   suffix: Silver Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreSilverCrab
@@ -298,6 +309,7 @@
   parent: AsteroidRock
   description: An ore vein rich with iron.
   suffix: Iron
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -320,6 +332,7 @@
   id: AsteroidRockTinCrab
   parent: AsteroidRockTin
   suffix: Iron Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreIronCrab
@@ -329,6 +342,7 @@
   parent: AsteroidRock
   description: An ore vein rich with uranium.
   suffix: Uranium
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -351,6 +365,7 @@
   id: AsteroidRockUraniumCrab
   parent: AsteroidRockUranium
   suffix: Uranium Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreUraniumCrab
@@ -360,6 +375,7 @@
   parent: AsteroidRock
   description: An ore vein rich with bananium.
   suffix: Bananium
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -382,6 +398,7 @@
   id: AsteroidRockBananiumCrab
   parent: AsteroidRockBananium
   suffix: Bananium Crab
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     currentOre: OreBananiumCrab
@@ -391,6 +408,7 @@
   parent: AsteroidRock
   description: An ore vein rich with salt.
   suffix: Salt
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -414,6 +432,7 @@
   parent: AsteroidRock
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 1.0
@@ -435,6 +454,7 @@
 - type: entity
   parent: [ BaseRockGibtonite, AsteroidRock ]
   id: AsteroidRockGibtonite
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: Sprite
     layers:
@@ -457,6 +477,7 @@
   name: asteroid rock
   suffix: higher ore yield .33
   description: An asteroid.
+  categories: [ HideSpawnMenu ] # Delta V - Hide in favor of our version.
   components:
   - type: OreVein
     oreChance: 0.33
