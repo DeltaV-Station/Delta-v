@@ -7,7 +7,7 @@ using Content.Shared.Fluids.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Linq;
-using Content.Shared._starcup.Footprints;
+using Content.Shared._starcup.Footprints; // starcup
 
 namespace Content.Server.Chemistry.TileReactions;
 
