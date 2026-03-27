@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.Station.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Warps;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
@@ -41,6 +42,7 @@ public sealed class CosmicColossusSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<CosmicColossusComponent, ComponentInit>(OnSpawn);
         SubscribeLocalEvent<CosmicColossusComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CosmicColossusComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     public override void Update(float frameTime)
@@ -82,7 +84,7 @@ public sealed class CosmicColossusSystem : EntitySystem
 
     private void OnSpawn(Entity<CosmicColossusComponent> ent, ref ComponentInit args) // I WANT THIS BIG GUY HURLED TOWARDS THE STATION
     {
-        ent.Comp.DeathTimer = _timing.CurTime + ent.Comp.DeathWait;
+        ent.Comp.DeathTimer = _timing.CurTime + ent.Comp.DeathWaitSpawn;
         var station = _station.GetStationInMap(Transform(ent).MapID);
         if (TryComp<StationDataComponent>(station, out var stationData))
         {
@@ -114,5 +116,10 @@ public sealed class CosmicColossusSystem : EntitySystem
         RemComp<PointLightComponent>(ent);
         RemComp<WarpPointComponent>(ent);
         RemComp<CosmicCorruptingComponent>(ent);
+    }
+
+    private void OnMeleeHit(Entity<CosmicColossusComponent> colossus, ref MeleeHitEvent args)
+    {
+        args.BonusDamage += colossus.Comp.BonusDamage;
     }
 }

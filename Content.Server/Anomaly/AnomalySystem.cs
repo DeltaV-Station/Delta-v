@@ -89,7 +89,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         if (anomaly.Comp.CurrentBehavior is not null)
             RemoveBehavior(anomaly, anomaly.Comp.CurrentBehavior.Value);
 
-        EndAnomaly(anomaly, spawnCore: false);
+        EndAnomaly(anomaly, spawnCore: false, forced: true);
     }
 
     private void OnStartCollide(Entity<AnomalyComponent> anomaly, ref StartCollideEvent args)
@@ -145,7 +145,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
             return 0;
 
         var multiplier = 1f;
-        if (component.Stability > component.GrowthThreshold)
+        if (component.AlwaysGrow || component.Stability > component.GrowthThreshold) // DeltaV - Add AlwaysGrow
             multiplier = component.GrowingPointMultiplier; //more points for unstable
 
         //penalty of up to 50% based on health
@@ -250,7 +250,11 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         else
         {
             string stateLoc;
-            if (anomalyComp.Stability < anomalyComp.DecayThreshold)
+            // DeltaV - Colossus Additions START
+            if (anomalyComp.AlwaysGrow)
+                stateLoc = Loc.GetString("anomaly-scanner-stability-high");
+            // DeltaV - Colossus Additions END
+            else if (anomalyComp.Stability < anomalyComp.DecayThreshold) // DeltaV - Add else
                 stateLoc = Loc.GetString("anomaly-scanner-stability-low");
             else if (anomalyComp.Stability > anomalyComp.GrowthThreshold)
                 stateLoc = Loc.GetString("anomaly-scanner-stability-high");
@@ -310,6 +314,15 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
             msg.AddMarkupOrThrow(Loc.GetString("anomaly-behavior-unknown"));
         else
         {
+            // DeltaV - Colossus Additions START
+            if (anomalyComp.AlwaysGrow)
+            {
+                msg.AddMarkupOrThrow("- " + Loc.GetString("anomaly-behavior-always-grow"));
+                if (anomalyComp.CurrentBehavior != null)
+                    msg.PushNewline();
+            }
+            // DeltaV - Colossus Additions END
+
             if (anomalyComp.CurrentBehavior != null)
             {
                 var behavior = _prototype.Index(anomalyComp.CurrentBehavior.Value);
@@ -319,7 +332,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
                 var mod = Math.Floor((behavior.EarnPointModifier) * 100);
                 msg.AddMarkupOrThrow("- " + Loc.GetString("anomaly-behavior-point", ("mod", mod)));
             }
-            else
+            else if(!anomalyComp.AlwaysGrow) // DeltaV - Add condition, previously regular else
             {
                 msg.AddMarkupOrThrow(Loc.GetString("anomaly-behavior-balanced"));
             }
