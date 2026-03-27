@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Reduced the sprinting speed of all Webvests by 10%!
-    type: Tweak
-  - message: Reduced the TC price of the Elite Webvest. 5 TC -> 3 TC.
-    type: Tweak
-  id: 1695
-  time: '2025-10-03T00:18:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4404
 - author: Minerva
   changes:
   - message: People with the Numb trait no longer scream during surgery. Anesthesia
@@ -4410,4 +4401,14 @@
   id: 2194
   time: '2026-03-26T21:59:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5473
+- author: Dorragon
+  changes:
+  - message: ERT specific gas tanks and backpack versions with reduced visuals
+    type: Add
+  - message: ERT now has different gas tanks and backpacks that hides less of their
+      hardsuit sprite
+    type: Tweak
+  id: 2195
+  time: '2026-03-27T20:42:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5513
 Order: 1
