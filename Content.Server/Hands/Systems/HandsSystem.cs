@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
+using Content.Shared._DV.Item;
 using Content.Shared._NF.Standing; // Frontier
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
@@ -224,7 +225,8 @@ namespace Content.Server.Hands.Systems
             if (IsHolding((player, hands), throwEnt, out _) && !TryDrop(player, throwEnt.Value))
                 return false;
 
-            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            // DeltaV - Set pushback to 0 if NoThrowingPushback, previously unset
+            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, pushbackRatio: HasComp<Shared._DV.Item.Components.NoThrowingPushbackComponent>(ev.ItemUid) ? 0 : ThrowingSystem.PushbackDefault, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
 
             return true;
         }
