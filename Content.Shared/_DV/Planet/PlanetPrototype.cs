@@ -2,6 +2,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.Planet;
 
@@ -46,4 +47,64 @@ public sealed partial class PlanetPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<BiomeMarkerLayerPrototype>> BiomeMarkerLayers = new();
+
+    /// <summary>
+    /// Ruin map paths for the ruin pool.
+    /// </summary>
+    [DataField]
+    public List<ResPath> RuinPaths = new();
+
+    /// <summary>
+    /// Minimum number of ruins to spawn at round start.
+    /// </summary>
+    [DataField]
+    public int RuinMinCount = 0;
+
+    /// <summary>
+    /// Maximum number of ruins to spawn at round start.
+    /// </summary>
+    [DataField]
+    public int RuinMaxCount = 0;
+
+    /// <summary>
+    /// Optional rare ruin map paths that should be selected less often.
+    /// </summary>
+    [DataField]
+    public List<ResPath> RareRuinPaths = new();
+
+    /// <summary>
+    /// Number of rare ruins guaranteed.
+    /// </summary>
+    [DataField]
+    public int GuaranteedRareRuins = 0;
+
+    /// <summary>
+    /// Percent chance that each additional ruin selected is rare.
+    /// </summary>
+    [DataField]
+    public int RuinRareChance = 0;
+
+    /// <summary>
+    /// Minimum distance from the base grid edge for ruin placement.
+    /// </summary>
+    [DataField]
+    public float RuinMinDistance = 80f;
+
+    /// <summary>
+    /// Maximum distance from the base grid edge for ruin placement.
+    /// </summary>
+    [DataField]
+    public float RuinMaxDistance = 450f;
+
+    /// <summary>
+    /// Minimum spacing between spawned ruin bounds.
+    /// </summary>
+    [DataField]
+    public float RuinMinSeparation = 60f;
+
+    /// <summary>
+    /// Placement attempts per ruin before giving up.
+    /// </summary>
+    [DataField]
+    public int RuinPlacementAttempts = 10;
 }
