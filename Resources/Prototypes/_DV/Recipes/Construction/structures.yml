@@ -1,3 +1,4 @@
+
 - type: construction
   id: UraniumWindowDirectional
   graph: WindowDirectional
@@ -63,3 +64,156 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
+
+- type: construction
+  id: RailingDeltaV
+  graph: Railing
+  startNode: start
+  targetNode: railingDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaV
+  name: reinforced plasteel railing corner
+  graph: Railing
+  startNode: start
+  targetNode: railingCornerDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaV
+  name: reinforced plasteel railing corner (small)
+  graph: Railing
+  startNode: start
+  targetNode: railingCornerSmallDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaV
+  name: reinforced plasteel railing (round)
+  graph: Railing
+  startNode: start
+  targetNode: railingRoundDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingDeltaVGrey
+  graph: Railing
+  startNode: start
+  targetNode: railingDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaVGrey
+  name: reinforced steel railing corner
+  graph: Railing
+  startNode: start
+  targetNode: railingCornerDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaVGrey
+  name: reinforced steel railing corner (small)
+  graph: Railing
+  startNode: start
+  targetNode: railingCornerSmallDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaVGrey
+  name: reinforced steel railing (round)
+  graph: Railing
+  startNode: start
+  targetNode: railingRoundDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: railingDeltaVWood
+  graph: Railing
+  startNode: start
+  targetNode: railingDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaVWood
+  name: reinforced wood railing corner
+  graph: Railing
+  startNode: start
+  targetNode: railingCornerDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaVWood
+  name: reinforced wood railing corner (small)
+  graph: Railing
+  startNode: start
+  targetNode: railingCornerSmallDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaVWood
+  name: reinforced wood railing (round)
+  graph: Railing
+  startNode: start
+  targetNode: railingRoundDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
