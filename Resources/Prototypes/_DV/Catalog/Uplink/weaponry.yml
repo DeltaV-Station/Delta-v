@@ -75,3 +75,23 @@
     whitelist:
     - Chaplain
     - Botanist
+
+- type: listing
+  id: UplinkMk98
+  name: uplink-mk98-name
+  description: uplink-mk98-desc
+  icon:
+    entity: WeaponPistolTranqulizer
+  productEntity: WeaponPistolTranqulizer
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink ##doesn't make any sense for nukies to have a non-lethal weapon like this and just imegane this thing with stealth suits
