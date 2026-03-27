@@ -1,0 +1,77 @@
+- type: gameMap
+  id: Anvil
+  mapName: 'Anvil'
+  mapPath: /Maps/anvil.yml
+  minPlayers: 35
+  stations:
+    Anvil:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Anvil Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'DV'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Hammerhead.yml
+        - type: StationJobs
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+          #command
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefJustice: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 3, 5 ]
+            TechnicalAssistant: [ 2, 3 ]
+          #justice
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            Paramedic: [ 1, 2 ]
+            MedicalDoctor: [ 3, 5 ]
+            MedicalIntern: [ 2, 3 ]
+            Psychologist: [ 1, 1 ]
+            Surgeon: [ 1, 1 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Prisoner: [ 3, 3 ]
+            PrisonGuard: [ 2, 3 ]
+            SecurityOfficer: [ 2, 5 ]
+            SecurityCadet: [ 2, 3 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 2, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 2, 3 ]
+            Reporter: [ 1, 1 ]
+            ServiceWorker: [ 4, 5 ] 
+            Librarian: [ 1, 1 ]
+            MartialArtist: [ 2, 2 ]
+          #science
+            Chaplain: [ 1, 1 ]
+            ForensicMantis: [ 1, 1 ]
+            Scientist: [ 4, 6 ]
+            ResearchAssistant: [ 4, 6 ]
+            Roboticist: [ 1, 2 ]
+            Borg: [ 2, 3 ]
+          #supply
+            CargoTechnician: [ 2, 3 ]
+            CargoAssistant: [ 1, 2 ]
+            Courier: [ 2, 2 ]
+            SalvageSpecialist: [ 2, 3 ]
