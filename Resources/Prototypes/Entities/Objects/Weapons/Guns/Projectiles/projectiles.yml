@@ -250,6 +250,11 @@
     slowdownAmount: 2.5
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
+    # Begin DeltaV Additions
+    blacklist:
+      tags:
+      - TaserImmune
+    # End DeltaV Additions
 
 - type: entity
   parent: BulletTaser
