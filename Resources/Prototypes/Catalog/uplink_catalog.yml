@@ -66,6 +66,29 @@
   categories:
   - UplinkWeaponry
 
+# Deltav changes begin  
+- type: listing
+  id: UplinkHypereutacticBlade
+  name: uplink-hypereutactic-blade-name
+  description: uplink-hypereutactic-blade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 16 # can't buy web vest with this even on discount :) better kill renault
+  productEntity: HyperEutacticBlade
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 #just no need for 2 ever
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+# DeltaV changes end
+
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
