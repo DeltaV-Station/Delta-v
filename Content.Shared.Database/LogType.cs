@@ -481,4 +481,9 @@ public enum LogType
     /// Events relating to midi playback.
     /// </summary>
     Instrument = 103,
+
+    /// <summary>
+    /// Delta V - RMC Pose port
+    /// </summary>
+    RMCSetPose= 10000,
 }
