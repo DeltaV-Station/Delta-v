@@ -6,7 +6,7 @@ Sharpshooter-kit-description =
 Loud-kit-name = Loud kit
 Loud-kit-description =
     A kit for those who like a direct method.
-    provides a Python and two speedloaders both with ap rounds. 
+    provides a Python and two speedloaders both with ap rounds.
     plus an armor vest and no slip shoes.
 
 Assassin-kit-name = Assassin kit
@@ -27,7 +27,7 @@ Infiltration-kit-description =
 Disguise-kit-name = Disguise kit
 Disguise-kit-description =
     A kit for those who want to be anyone.
-    Provides an agent id, chameleon clothing, 
+    Provides an agent id, chameleon clothing,
     a Fake MindShield Implanter, and voice mask implant.
 
 Escapist-kit-name = Escapist kit
@@ -38,5 +38,5 @@ Escapist-kit-description =
 Tracker-kit-name = Tracker kit
 Tracker-kit-description =
     A kit for those who wish to know everything.
-    Provides an all comms encryption key, pinpointer, 
+    Provides an all comms encryption key, pinpointer,
     and a handheld crew monitor.
