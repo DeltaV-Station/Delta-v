@@ -228,6 +228,8 @@
   id: MobShark
   description: A dangerous shark from the blackness of endless space, who loves to drink blood.
   components:
+    - type: MovedByPressure # DeltaV - Spacewind Immune
+      enabled: false
     - type: Sprite
       sprite: Mobs/Aliens/Carps/sharkminnow.rsi
       layers:

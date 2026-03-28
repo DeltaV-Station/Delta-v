@@ -158,6 +158,8 @@
     - StunImmune
   - type: Puller
     needsHands: false
+  - type: MovedByPressure # DeltaV - Spacewind Immune
+    enabled: false
   - type: RandomMetadata
     nameSegments:
     - NamesDragon
