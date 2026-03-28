@@ -71,6 +71,7 @@ loadout-group-chemist-gloves = Chemist gloves
 loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-neck = Chemist neck
 loadout-group-chemist-id = Chemist PDA
+loadout-group-chemist-head = Chemist head
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
