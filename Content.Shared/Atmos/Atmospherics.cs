@@ -179,6 +179,23 @@ namespace Content.Shared.Atmos
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
         };
 
+
+        /// <summary>
+        ///     Funkystation - Dictionary of names for <see cref="Gas"/>
+        /// </summary>
+        public static Dictionary<Gas, string> GasNames = new Dictionary<Gas, string>()
+        {
+            [Gas.Ammonia] = Loc.GetString("gases-ammonia"),
+            [Gas.CarbonDioxide] = Loc.GetString("gases-co2"),
+            [Gas.Frezon] = Loc.GetString("gases-frezon"),
+            [Gas.Nitrogen] = Loc.GetString("gases-nitrogen"),
+            [Gas.NitrousOxide] = Loc.GetString("gases-n2o"),
+            [Gas.Oxygen] = Loc.GetString("gases-oxygen"),
+            [Gas.Plasma] = Loc.GetString("gases-plasma"),
+            [Gas.Tritium] = Loc.GetString("gases-tritium"),
+            [Gas.WaterVapor] = Loc.GetString("gases-water-vapor"),
+        };
+
         #region Excited Groups
 
         /// <summary>

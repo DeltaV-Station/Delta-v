@@ -28,6 +28,11 @@
     Plastic: 200
     Plasma: 100
 
+- type: latheRecipe #den plant analyzer
+  parent: HandheldHealthAnalyzer
+  id: PlantAnalyzer
+  result: PlantAnalyzer
+
 - type: latheRecipe
   id: EncryptionKeySyndie
   result: EncryptionKeySyndie
