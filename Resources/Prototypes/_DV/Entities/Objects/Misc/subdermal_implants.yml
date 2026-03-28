@@ -50,7 +50,7 @@
   components:
   - type: TriggerOnMobstateChange
     mobState:
-    - critical
+    - Critical
     - Dead
   - type: RattleOnTrigger
     targetUser: true
