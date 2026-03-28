@@ -26,6 +26,8 @@
     - type: Carriable # DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
+    - type: MovedByPressure # DeltaV - Spacewind Immune
+      enabled: false
     - type: Fixtures
       fixtures:
         fix1:
@@ -228,8 +230,6 @@
   id: MobShark
   description: A dangerous shark from the blackness of endless space, who loves to drink blood.
   components:
-    - type: MovedByPressure # DeltaV - Spacewind Immune
-      enabled: false
     - type: Sprite
       sprite: Mobs/Aliens/Carps/sharkminnow.rsi
       layers:
