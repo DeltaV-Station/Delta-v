@@ -23,17 +23,16 @@
           Slash: 0.5 #Encourages long swordfights, which I really, really want to see.
           Piercing: 0.8
           Heat: 0.85
-      activeBlockModifier:
+          Shock: 1.55 # Delta-V - Paladin Gear Changes, if you run into a grille while holding this it's your fault for holding such a big chunk of metal
+      activeBlockModifier: # Delta-V - Paladin Gear Nerfs/Rework, removal of flat reductions for consistency with other tidersmithing shields.
         coefficients:
-          Blunt: 0.5
-          Slash: 0.3
-          Piercing: 0.7
+          Blunt: 0.6
+          Slash: 0.4
+          Piercing: 0.8
           Heat: 0.75
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+          Shock: 1.45
+          Holy: 0.65
+          Shadow: 0.65
     - type: MeleeWeapon
       damage:
         types:
@@ -88,12 +87,18 @@
           Slash: 0.7
           Piercing: 0.7
           Heat: 0.85
+          Shock: 1.55 # Delta-V - Paladin Gear Changes, if you run into a grille while holding this it's your fault for holding such a big chunk of metal
+          Holy: 0.75
+          Shadow: 0.75
       activeBlockModifier:
         coefficients: #Insanely high resist because normal shields suck when raising. This is a WALL.
           Blunt: 0.1
           Slash: 0.1
-          Piercing: 0.1
+          Piercing: 0.25
           Heat: 0.75 # Achilles Heel
+          Shock: 1.45
+          Holy: 0.50
+          Shadow: 0.50
     - type: MeleeWeapon
       attackRate: 0.50 # Large and heavy but god help you if someone hits you with this thing.
       damage:
