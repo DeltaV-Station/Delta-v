@@ -1,0 +1,42 @@
+Sharpshooter-kit-name = Sharpshooter kit
+Sharpshooter-kit-description =
+    A kit for those who prefer killing from afar.
+    provides a hirstov with ammo, a briefcase with a outfit, and thermal goggles.
+
+Loud-kit-name = Loud kit
+Loud-kit-description =
+    A kit for those who like a direct method.
+    provides a Python and two speedloaders both with ap rounds.
+    plus an armor vest and no slip shoes.
+
+Assassin-kit-name = Assassin kit
+Assassin-kit-description =
+    A kit for the quiet killers.
+    Provides a cobra, 4 throwing knives, night vision goggles, and a radio jammer.
+
+Poisoner-kit-name = Poisoner kit
+Poisoner-kit-description =
+    A kit for those who dislike messy deaths.
+    Provides manys bottle of toxin and nocturine, plus a syringe.
+
+Infiltration-kit-name = Infiltration kit
+Infiltration-kit-description =
+    A kit for those who want to get anywhere.
+    Provides an access breaker, jaws of life, and stealth box.
+
+Disguise-kit-name = Disguise kit
+Disguise-kit-description =
+    A kit for those who want to be anyone.
+    Provides an agent id, chameleon clothing,
+    a Fake MindShield Implanter, and voice mask implant.
+
+Escapist-kit-name = Escapist kit
+Escapist-kit-description =
+    A kit for those who want to get out of anything.
+    Provides a dna scrambler, freedom implanter,and scram scrambler.
+
+Tracker-kit-name = Tracker kit
+Tracker-kit-description =
+    A kit for those who wish to know everything.
+    Provides an all comms encryption key, pinpointer,
+    and a handheld crew monitor.

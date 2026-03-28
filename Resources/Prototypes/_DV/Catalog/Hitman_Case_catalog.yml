@@ -1,0 +1,108 @@
+- type: thiefBackpackSet
+  id: SharpshooterKit
+  name: Sharpshooter-kit-name
+  description: Sharpshooter-kit-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    state: base
+  content:
+  - BriefcaseSyndieSniperBundleFilled
+  - ClothingEyesThermalVisionGogglesSyndie
+
+- type: thiefBackpackSet
+  id: LoudKit
+  name: Loud-kit-name
+  description: Loud-kit-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    state: icon
+  content:
+  - WeaponRevolverPythonAP
+  - SpeedLoaderMagnumAP
+  - SpeedLoaderMagnumAP
+  - ClothingOuterArmorBasic
+  - ClothingShoesChameleonNoSlips
+
+- type: thiefBackpackSet
+  id: AssassinKit
+  name: Assassin-kit-name
+  description: Assassin-kit-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    state: icon
+  content:
+  - WeaponPistolCobra
+  - MagazinePistolCaselessRifle
+  - ThrowingKnivesKit
+  - ClothingEyesNightVisionGoggles
+  - RechargingRadioJammer
+
+- type: thiefBackpackSet
+  id: PoisonerKit
+  name: Poisoner-kit-name
+  description: Poisoner-kit-description
+  sprite:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  content:
+  - Syringe
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
+  - ChemistryBottleToxin
+  - ChemistryBottleToxin
+  - ChemistryBottleToxin
+  - ChemistryBottleToxin
+
+- type: thiefBackpackSet
+  id: InfiltrationKit
+  name: Infiltration-kit-name
+  description: Infiltration-kit-description
+  sprite:
+    sprite: _DV/Objects/Tools/doorjack.rsi
+    state: icon
+  content:
+  - Emag
+  - SyndicateJawsOfLife
+  - StealthBox
+
+- type: thiefBackpackSet
+  id: DisguiseKit
+  name: Disguise-kit-name
+  description: Disguise-kit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+    state: icon
+  content:
+  - AgentIDCard
+  - ClothingUniformJumpsuitChameleon
+  - ClothingOuterChameleon
+  - ClothingHandsChameleon
+  - ClothingShoesChameleon
+  - BionicVoiceMaskImplanter
+  - FakeMindShieldImplanter
+
+- type: thiefBackpackSet
+  id: EscapistKit
+  name: Escapist-kit-name
+  description: Escapist-kit-description
+  sprite:
+    sprite: Actions/Implants/implants.rsi
+    state: freedom
+  content:
+  - DnaScramblerImplanter
+  - FreedomImplanter
+  - ScramImplanter
+
+- type: thiefBackpackSet
+  id: TrackerKit
+  name: Tracker-kit-name
+  description: Tracker-kit-description
+  sprite:
+    sprite: Objects/Tools/spy_device.rsi
+    state: icon
+  content:
+  - PinpointerUniversal #todo: make this a version to find the hitmans target later
+  - EncryptionKeyStationMaster
+  - SpyCrewMonitor

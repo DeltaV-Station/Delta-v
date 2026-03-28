@@ -105,3 +105,37 @@
       max: 4
   - type: DynamicRuleCost
     cost: 200
+
+##stormyatt addition for delta v hitman, start.
+- type: entity
+  parent: BaseGameRule
+  id: Hitman
+  components:
+  - type: HitmanRule 
+  - type: AntagObjectives
+    objectives:
+    - EscapeShuttleObjectiveHitman
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: Hitman-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Hitman ]
+      max: 2
+      playerRatio: 30 #a bit more impactful than thief which DV has at 25 so
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: HitmanGear 
+      mindRoles:
+      - MindRoleHitman 
+      briefing:
+        sound: "/Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.ogg"
+  - type: DynamicRuleCost
+    cost: 100 # bit more than thief
+## stormyatt addtion for delta V, end.

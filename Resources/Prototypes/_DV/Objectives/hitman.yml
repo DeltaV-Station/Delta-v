@@ -1,0 +1,204 @@
+- type: entity
+  parent: BaseObjective
+  abstract: true
+  id: BaseHitmanObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-Hitman
+    difficulty: 1
+  - type: RoleRequirement
+    roles:
+    - HitmanRole
+
+#tol objectives
+- type: entity
+  parent: [BaseHitmanObjective, BaseTeachLessonObjective]
+  id: HitmanTeachLessonRandomPersonObjective
+  description: your client wants this person to be killed. kill them once to furfill your contract
+  components:
+  - type: Objective
+    difficulty: 1
+    unique: true
+  - type: TargetObjective
+    title: objective-condition-teach-person-title
+  - type: PickRandomPerson
+    filters:
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - TargetObjectiveImmune
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseTeachLessonObjective]
+  id: HitmanTeachLessonRandomHeadObjective
+  description: your client wants this person to be killed. kill them once to furfill your contract
+  components:
+  - type: Objective
+    difficulty: 1.5
+    unique: true
+  - type: TargetObjective
+    title: objective-condition-teach-person-title
+  - type: PickRandomPerson
+    filters:
+    #only comand
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - TargetObjectiveImmune
+
+## escape objective
+- type: entity
+  parent: [BaseHitmanObjective, BaseLivingObjective]
+  id: EscapeShuttleObjectiveHitman
+  name: Escape to centcomm alive and unrestrained.
+  description: you prepared a escape route at centcomm. try not to get arrested before getting there.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+    difficulty: 1.25
+    unique: true
+  - type: EscapeShuttleCondition
+
+## modifer objectives
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanBrutalObjective
+  name: Kill your target brutaly
+  description: your client wants your target to die brutaly. try to make their death as painful as possible
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: heart-off
+    difficulty: 1 #not that hard, just requires doing some extra stuff to the body
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanDramaticObjective
+  name: kill your target dramatically
+  description: your client wants to make their death a preformence. give it the show it deserves.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Fun/Instruments/microphone.rsi
+      state: icon
+    difficulty: 1.25 #likely means setting nonsense up
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanhumorousObjective
+  name: kill your target humorously
+  description: your client wants to make their death a joke. make their death funny.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/clown.rsi
+      state: icon
+    difficulty: 1.25 #likely means setting nonsense up
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanAccidentObjective
+  name: make your targets death seem like a accident
+  description: your client would rather others not realize your targets death was a assassination. try to frame it as a accident
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tools/rcd.rsi
+      state: icon
+    difficulty: 2 #very target specfic and very set up intesive
+    unique: true
+
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanIndirectlyObjective
+  name: kill your target indirectly
+  description: your client wants you to take no chances with getting spotted near the body. try to find a way to kill them indirectly
+  components:
+  - type: Objective
+    icon:
+      sprite: Actions/Implants/implants.rsi
+      state: explosive
+    difficulty: 2 #requires a ton of set up and chance
+    unique: true
+
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanCleanObjective
+  name: try to make your kill as clean as possible
+  description: your client does not want this death making a mess. try to do as little damage to the person as you can
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Janitorial/soap.rsi
+      state: deluxe-4
+    difficulty: 1.75 #highly limits kill methods
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanSufferObjective
+  name: drag out your targets murder
+  description: your client would like that your target suffers as they die. make your theyre dieing for a long time.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Consumable/Drinks/bloodglass.rsi
+      state: icon
+    difficulty: 1 #easy to do in the moment
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanPublicObjective
+  name: kill your target in a public place
+  description: your client would like to send a message. kill your target in public, in front of others if you can.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Wallmounts/screen.rsi
+      state: screen
+    difficulty: 2 #make it much harder to get away with
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanNoticeObjective
+  name: inform your target they are going to be killed long before it happens
+  description: your client wants your target to know whats going on. tell your target theyll be killed and still get away with it.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: acquisition_form
+    difficulty: 1 #kinda hard but it means you dont have to plan for something else when killing them
+    unique: true
+
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanTraumaObjective
+  name: kill someone close to your target and make sure they know
+  description: your client wants your target to be broken mentaly and physicaly. find someone close to your target and kill them. the person need not stay dead. make sure your target knows they died.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: brain
+    difficulty: 1.75 #forces a second tol but doesnt interact with the other objectives
+    unique: true

@@ -380,6 +380,36 @@
         implants:
         - RadioImplantCentcomm
 
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: HitmanRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeShuttleObjectiveHitman
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
+  - type: AntagSelection
+    agentName: Hitman-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      startingGear: HitmanGear
+      briefing:
+        text: Hitman-role-greeting-human
+        color: yellow
+        sound: /Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.ogg
+      mindRoles:
+      - MindRoleHitman
+
+
 # nt agent sleeper event
 - type: entity
   id: NTAgentSleeper

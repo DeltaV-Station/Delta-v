@@ -128,3 +128,16 @@
   - type: NTAgentRole
   - type: RoleBriefing
     briefing: NTAgent-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleHitman
+  name: Hitman
+  components:
+  - type: MindRole
+    subtype: role-subtype-hitman
+    antagPrototype: Hitman
+    exclusiveAntag: true
+  - type: HitmanRole
+  - type: RoleBriefing
+    briefing: Hitman-briefing
