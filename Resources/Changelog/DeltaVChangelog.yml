@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: SirWarock
   changes:
-  - message: Fixed Lotophago Oil sometimes making you permanently slurring your words!
-    type: Fix
-  id: 1697
-  time: '2025-10-03T02:33:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4318
-- author: SirWarock
-  changes:
   - message: Made Augments a round-start recipe!
     type: Tweak
   - message: Augments can now be printed in the medical techfab!
@@ -4410,4 +4403,12 @@
   id: 2196
   time: '2026-03-28T18:33:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5566
+- author: Minerva
+  changes:
+  - message: Singularity distortion effects now respect the reduced motion accessibility
+      option.
+    type: Tweak
+  id: 2197
+  time: '2026-03-28T21:38:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5579
 Order: 1
