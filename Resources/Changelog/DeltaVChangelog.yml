@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: SirWarock
   changes:
-  - message: HoS's stylish headgear is now armored and counts as protective gear under
-      alert procedures! Keep that mewing streak up!
-    type: Tweak
-  id: 1699
-  time: '2025-10-03T04:47:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4334
-- author: SirWarock
-  changes:
   - message: Changed Surgery Healing to heal 7% of the part's damage and not the general
       damage! The healing will be conistent this way and won't fall off a mountain
       later!
@@ -4409,4 +4401,11 @@
   id: 2198
   time: '2026-03-28T23:04:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5541
+- author: cargomouse
+  changes:
+  - message: Cargo invoices now correctly display who approved the order.
+    type: Fix
+  id: 2199
+  time: '2026-03-28T23:56:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5555
 Order: 1
