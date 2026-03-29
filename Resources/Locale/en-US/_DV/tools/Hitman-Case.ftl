@@ -14,11 +14,6 @@ Assassin-kit-description =
     A kit for the quiet killers.
     Provides a cobra, 4 throwing knives, night vision goggles, and a radio jammer.
 
-Poisoner-kit-name = Poisoner kit
-Poisoner-kit-description =
-    A kit for those who dislike messy deaths.
-    Provides manys bottle of toxin and nocturine, plus a syringe.
-
 Infiltration-kit-name = Infiltration kit
 Infiltration-kit-description =
     A kit for those who want to get anywhere.

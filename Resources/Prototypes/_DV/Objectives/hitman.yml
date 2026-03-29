@@ -31,15 +31,12 @@
         - TargetObjectiveImmune
 
 - type: entity
-  parent: [BaseHitmanObjective, BaseTeachLessonObjective]
+  parent: [BaseHitmanObjective, HitmanTeachLessonRandomPersonObjective]
   id: HitmanTeachLessonRandomHeadObjective
-  description: your client wants this person to be killed. kill them once to furfill your contract
   components:
   - type: Objective
     difficulty: 1.5
     unique: true
-  - type: TargetObjective
-    title: objective-condition-teach-person-title
   - type: PickRandomPerson
     filters:
     #only comand

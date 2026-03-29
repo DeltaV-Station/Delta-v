@@ -1,11 +1,11 @@
 Hitman-role-greeting-human =
-    You're an Hitman hired by a far away Client.
-    kill your target in the way your Client wishes.
+    You're a hitman hired to kill a target.
+    There are conditions for this assassination.
     Keep damage to bystanders to a minimum.
 
 Hitman-briefing =
-    you've prepared a case with what you need to complete your contract.
-    you have it on your person.
+    You've prepared a case with to complete your contract.
+    You've brought it with you on this trip.
 
 objective-issuer-Hitman = [color=#746694]Criminal[/color]
 
