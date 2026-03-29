@@ -246,7 +246,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(agent);
         // End DeltaV Additions
-        // start stormyatt DeltaV Additions 
+        // start DeltaV Additions 
         var hitman = Loc.GetString("admin-verb-make-Hitman");
         Verb hitmans = new()
         {
@@ -261,7 +261,7 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", hitman, Loc.GetString("admin-verb-text-make-Hitman")),
         };
         args.Verbs.Add(hitmans);
-        // end stormyatt DeltaV additions
+        // end DeltaV additions
         // Harmony start
         var conspiratorName = Loc.GetString("admin-verb-text-make-conspirator");
         Verb conspirator = new()
