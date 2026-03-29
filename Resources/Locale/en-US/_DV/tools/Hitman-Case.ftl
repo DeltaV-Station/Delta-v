@@ -27,8 +27,8 @@ Infiltration-kit-description =
 Disguise-kit-name = Disguise kit
 Disguise-kit-description =
     A kit for those who want to be anyone.
-    Provides an agent id, chameleon clothing,
-    a Fake MindShield Implanter, and voice mask implant.
+    Provides an Agent ID, chameleon clothing.
+    Plus a fake MindShield and voice mask implanter.
 
 Escapist-kit-name = Escapist kit
 Escapist-kit-description =
