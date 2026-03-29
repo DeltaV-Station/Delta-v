@@ -12,7 +12,7 @@ Loud-kit-description =
 Assassin-kit-name = Assassin kit
 Assassin-kit-description =
     A kit for the quiet killers.
-    Provides a cobra, 4 throwing knives, night vision goggles, and a radio jammer.
+    Provides a Cobra with an extra magazine, 4 throwing knives, night vision goggles, and a radio jammer.
 
 Poisoner-kit-name = Poisoner kit
 Poisoner-kit-description =
