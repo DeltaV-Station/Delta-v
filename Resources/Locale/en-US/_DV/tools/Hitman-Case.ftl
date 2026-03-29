@@ -1,37 +1,37 @@
 Sharpshooter-kit-name = Sharpshooter kit
 Sharpshooter-kit-description =
     A kit for those who prefer killing from afar.
-    provides a hirstov with ammo, a briefcase with a outfit, and thermal goggles.
+    Provides a Hristov with ammo along with an outfit in a briefcase, and thermal goggles.
 
 Loud-kit-name = Loud kit
 Loud-kit-description =
     A kit for those who like a direct method.
-    provides a Python and two speedloaders both with ap rounds.
-    plus an armor vest and no slip shoes.
+    provides a Python with Armor-Piercing rounds, with two speedloaders as backup.
+    With an extra of an armor vest and no-slip shoes.
 
 Assassin-kit-name = Assassin kit
 Assassin-kit-description =
     A kit for the quiet killers.
-    Provides a cobra, 4 throwing knives, night vision goggles, and a radio jammer.
+    Provides a Cobra with an extra magazine, 4 throwing knives, night vision goggles, and a radio jammer.
 
 Infiltration-kit-name = Infiltration kit
 Infiltration-kit-description =
     A kit for those who want to get anywhere.
-    Provides an access breaker, jaws of life, and stealth box.
+    Provides a cryptographic sequencer, syndicate jaws of life and stealth box.
 
 Disguise-kit-name = Disguise kit
 Disguise-kit-description =
     A kit for those who want to be anyone.
-    Provides an agent id, chameleon clothing,
-    a Fake MindShield Implanter, and voice mask implant.
+    Provides an Agent ID, chameleon clothing.
+    Plus a fake MindShield and voice mask implanter.
 
 Escapist-kit-name = Escapist kit
 Escapist-kit-description =
     A kit for those who want to get out of anything.
-    Provides a dna scrambler, freedom implanter,and scram scrambler.
+    Provides a DNA, freedom and scram implanter.
 
 Tracker-kit-name = Tracker kit
 Tracker-kit-description =
     A kit for those who wish to know everything.
-    Provides an all comms encryption key, pinpointer,
-    and a handheld crew monitor.
+    Provides a station master encryption key and universal pinpointer.
+    Plus a spy monitor.
