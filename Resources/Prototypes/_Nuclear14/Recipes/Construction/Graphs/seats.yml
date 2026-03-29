@@ -20,6 +20,29 @@
               doAfter: 1
             - material: Cloth
               amount: 1
+        - to: N14ChairRetro # Begin DeltaV Additions
+          steps:
+          - material: Steel
+            amount: 3
+            doAfter: 1
+          - material: Cloth
+            amount: 1
+            doAfter: 1 
+
+    - node: N14ChairRetro
+      entity: N14ChairBarRetro
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 3
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1 # End DeltaV Additions
 
     - node: N14ChairArmchair
       entity: N14ChairArmchair

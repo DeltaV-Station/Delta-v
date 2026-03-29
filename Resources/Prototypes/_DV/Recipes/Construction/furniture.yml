@@ -439,6 +439,7 @@
   conditions:
     - !type:TileNotBlocked
 
+# N14 Stuffs - Desks/Tables/Counters/Frame
 - type: construction
   id: N14MetalTableFrame
   graph: N14TableRecipes
@@ -452,13 +453,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  id: N14TableDeskWood2
+  id: N14TableDeskWood
   graph: N14TableRecipes
   startNode: start
-  targetNode: N14DeskWood2
+  targetNode: N14DeskWood
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridCenter
+  placementMode: AlignTileNonDense
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -470,7 +471,7 @@
   targetNode: N14WoodSquareWide
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridCenter
+  placementMode: AlignTileNonDense
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -482,7 +483,7 @@
   targetNode: N14WoodWideOval
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridCenter
+  placementMode: AlignTileNonDense
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -710,7 +711,21 @@
   targetNode: N14DeskMetal
   category: construction-category-furniture
   objectType: Structure
+  placementMode: AlignTileNonDense
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# N14 Chair
+- type: construction
+  id: N14ChairRetro
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairRetro
+  category: construction-category-furniture
+  objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  hide: false

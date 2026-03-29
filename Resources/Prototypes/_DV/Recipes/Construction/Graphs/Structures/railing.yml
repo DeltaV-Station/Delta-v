@@ -1,5 +1,6 @@
+
 - type: constructionGraph
-  id: RailingDeltaV
+  id: RailingDeltaVRecipes
   start: start
   graph:
     - node: start
@@ -8,42 +9,118 @@
           completed:
             - !type:SnapToGrid { }
           steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 2
             - material: Plasteel
               amount: 1
-              doAfter: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
+        - to: railingDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
+        - to: railingDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
+
         - to: railingCornerDeltaV
-          completed:
-            - !type:SnapToGrid { }
           steps:
             - material: Plasteel
               amount: 1
-              doAfter: 2.5
+              doAfter: 1
             - material: MetalRod
               amount: 2
-              doAfter: 2.5
+              doAfter: 1
+        - to: railingCornerDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingCornerDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingCornerDeltaV
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: railingCornerDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: railingCornerDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+
         - to: railingCornerSmallDeltaV
-          completed:
-            - !type:SnapToGrid { }
           steps:
-            - material: MetalRod
-              amount: 1
-              doAfter: 2
             - material: Plasteel
               amount: 1
-              doAfter: 2
-        - to: railingRoundDeltaV
-          completed:
-            - !type:SnapToGrid { }
+              doAfter: 1
+        - to: railingCornerSmallDeltaVGrey
           steps:
-            - material: MetalRod
-              amount: 4
-              doAfter: 2
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: railingCornerSmallDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: railingRoundDeltaV
+          steps:
             - material: Plasteel
               amount: 2
-              doAfter: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingRoundDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingRoundDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
 
     - node: railingDeltaV
       entity: RailingDeltaV
@@ -51,15 +128,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-                prototype: PartRodMetal1
-                amount: 2
+              prototype: SheetPlasteel1
+              amount: 1
             - !type:SpawnPrototype
-                prototype: SheetPlasteel
-                amount: 2
+              prototype: PartRodMetal1
+              amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
-              doAfter: 1
+              doAfter: 1.5
+
 
     - node: railingCornerDeltaV
       entity: RailingCornerDeltaV
@@ -67,15 +145,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
-            - !type:SpawnPrototype
               prototype: SheetPlasteel1
               amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
             - !type:DeleteEntity
           steps:
             - tool: Welding
-              doAfter: 1.5
+              doAfter: 2
+
 
     - node: railingCornerSmallDeltaV
       entity: RailingCornerSmallDeltaV
@@ -83,15 +162,13 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 1
-            - !type:SpawnPrototype
               prototype: SheetPlasteel1
               amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
-              doAfter: 1.5
+              doAfter: .5
+
 
     - node: railingRoundDeltaV
       entity: RailingRoundDeltaV
@@ -99,62 +176,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 4
-            - !type:SpawnPrototype
               prototype: SheetPlasteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
               amount: 2
             - !type:DeleteEntity
           steps:
             - tool: Welding
-              doAfter: 2.75
+              doAfter: 2.5
 
-- type: constructionGraph
-  id: RailingDeltaVGrey
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: railingDeltaVGrey
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 2
-            - material: Steel
-              amount: 2
-              doAfter: 2
-        - to: railingCornerDeltaVGrey
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 3
-              doAfter: 2.5
-            - material: Steel
-              amount: 2
-              doAfter: 2.5
-        - to: railingCornerSmallDeltaVGrey
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 1
-              doAfter: 2
-            - material: Steel
-              amount: 1
-              doAfter: 2
-        - to: railingRoundDeltaVGrey
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 4
-              doAfter: 2
-            - material: Steel
-              amount: 4
-              doAfter: 2
 
     - node: railingDeltaVGrey
       entity: RailingDeltaVGrey
@@ -162,17 +193,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
+              prototype: SheetSteel1
+              amount: 1
             - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
+              prototype: PartRodMetal1
+              amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 1
-            - tool: Screwing
-              doAfter: 0.5
+
 
     - node: railingCornerDeltaVGrey
       entity: RailingCornerDeltaVGrey
@@ -180,17 +210,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:SpawnPrototype
               prototype: PartRodMetal1
               amount: 2
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 1.5
-            - tool: Screwing
-              doAfter: 0.5
+
 
     - node: railingCornerSmallDeltaVGrey
       entity: RailingCornerSmallDeltaVGrey
@@ -198,15 +227,13 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 1
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
+              prototype: SheetSteel1
               amount: 1
             - !type:DeleteEntity
           steps:
             - tool: Welding
-              doAfter: .75
+              doAfter: .5
+
 
     - node: railingRoundDeltaVGrey
       entity: RailingRoundDeltaVGrey
@@ -214,62 +241,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 4
+              prototype: SheetSteel1
+              amount: 2
             - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 4
+              prototype: PartRodMetal1
+              amount: 2
             - !type:DeleteEntity
           steps:
             - tool: Welding
-              doAfter: 2.75
+              doAfter: 2
 
-- type: constructionGraph
-  id: RailingDeltaVWood
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: railingDeltaVWood
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 2
-            - material: WoodPlank
-              amount: 2
-              doAfter: 2
-        - to: railingCornerDeltaVWood
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 3
-              doAfter: 2.5
-            - material: WoodPlank
-              amount: 2
-              doAfter: 2.5
-        - to: railingCornerSmallDeltaVWood
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 1
-              doAfter: 2
-            - material: WoodPlank
-              amount: 1
-              doAfter: 2
-        - to: railingRoundDeltaVWood
-          completed:
-            - !type:SnapToGrid { }
-          steps:
-            - material: MetalRod
-              amount: 4
-              doAfter: 2
-            - material: WoodPlank
-              amount: 4
-              doAfter: 2
 
     - node: railingDeltaVWood
       entity: RailingDeltaVWood
@@ -277,15 +258,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
-            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 2
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 1
             - !type:DeleteEntity
           steps:
-            - tool: Screwing
-              doAfter: 1.5
+            - tool: Prying
+              doAfter: 1
+
 
     - node: railingCornerDeltaVWood
       entity: RailingCornerDeltaVWood
@@ -293,15 +275,16 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
-            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
             - !type:DeleteEntity
           steps:
-            - tool: Screwing
-              doAfter: 2
+            - tool: Prying
+              doAfter: 1
+
 
     - node: railingCornerSmallDeltaVWood
       entity: RailingCornerSmallDeltaVWood
@@ -309,15 +292,13 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 1
-            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 1
             - !type:DeleteEntity
           steps:
-            - tool: Screwing
+            - tool: Prying
               doAfter: 1
+
 
     - node: railingRoundDeltaVWood
       entity: RailingRoundDeltaVWood
@@ -325,12 +306,12 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 4
-            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 4
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
             - !type:DeleteEntity
           steps:
-            - tool: Screwing
-              doAfter: 3.75
+            - tool: Prying
+              doAfter: 2

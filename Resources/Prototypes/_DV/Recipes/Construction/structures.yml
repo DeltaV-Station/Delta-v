@@ -67,7 +67,7 @@
 
 - type: construction
   id: RailingDeltaV
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingDeltaV
   category: construction-category-structures
@@ -80,7 +80,7 @@
 - type: construction
   id: RailingCornerDeltaV
   name: reinforced plasteel railing corner
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingCornerDeltaV
   category: construction-category-structures
@@ -93,8 +93,8 @@
 - type: construction
   id: RailingCornerSmallDeltaV
   name: reinforced plasteel railing corner (small)
-  graph: Railing
-  startNode: start
+  graph: RailingDeltaVRecipes
+  startNode: railing
   targetNode: railingCornerSmallDeltaV
   category: construction-category-structures
   objectType: Structure
@@ -106,7 +106,7 @@
 - type: construction
   id: RailingRoundDeltaV
   name: reinforced plasteel railing (round)
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingRoundDeltaV
   category: construction-category-structures
@@ -118,7 +118,7 @@
 
 - type: construction
   id: RailingDeltaVGrey
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingDeltaVGrey
   category: construction-category-structures
@@ -131,7 +131,7 @@
 - type: construction
   id: RailingCornerDeltaVGrey
   name: reinforced steel railing corner
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingCornerDeltaVGrey
   category: construction-category-structures
@@ -144,7 +144,7 @@
 - type: construction
   id: RailingCornerSmallDeltaVGrey
   name: reinforced steel railing corner (small)
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingCornerSmallDeltaVGrey
   category: construction-category-structures
@@ -157,7 +157,7 @@
 - type: construction
   id: RailingRoundDeltaVGrey
   name: reinforced steel railing (round)
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingRoundDeltaVGrey
   category: construction-category-structures
@@ -169,7 +169,7 @@
 
 - type: construction
   id: railingDeltaVWood
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingDeltaVWood
   category: construction-category-structures
@@ -182,7 +182,7 @@
 - type: construction
   id: RailingCornerDeltaVWood
   name: reinforced wood railing corner
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingCornerDeltaVWood
   category: construction-category-structures
@@ -195,7 +195,7 @@
 - type: construction
   id: RailingCornerSmallDeltaVWood
   name: reinforced wood railing corner (small)
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingCornerSmallDeltaVWood
   category: construction-category-structures
@@ -208,7 +208,7 @@
 - type: construction
   id: RailingRoundDeltaVWood
   name: reinforced wood railing (round)
-  graph: Railing
+  graph: RailingDeltaVRecipes
   startNode: start
   targetNode: railingRoundDeltaVWood
   category: construction-category-structures
