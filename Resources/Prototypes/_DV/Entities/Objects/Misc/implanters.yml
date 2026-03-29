@@ -23,6 +23,14 @@
     implant: WatchdogImplant
 
 - type: entity
+  parent: BaseImplantOnlyImplanter
+  id: MedicalTrackingImplanter
+  name: medical tracking implanter
+  components:
+  - type: Implanter
+    implant: MedicalTrackingImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanterCentcomm
   id: CentCommImplanter
   name: centcomm mindshield implanter

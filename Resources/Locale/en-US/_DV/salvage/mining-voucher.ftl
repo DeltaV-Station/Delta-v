@@ -21,9 +21,10 @@ mining-voucher-resonator-description =
     of energy that resonate until they detonate, crushing rock.
     It does increased damage in low pressure.
 
-mining-voucher-survival-name = Survival Capsule and Explorer's Webbing
+mining-voucher-survival-name = Survival Capsule, Explorer's Webbing, and Medical Tracking Implanter
 mining-voucher-survival-description =
-    Contains an explorer's webbing, which allows you to carry even more mining equipment, and a spare shelter capsule to go with it.
+    Contains an explorer's webbing, which allows you to carry even more mining equipment,
+    a spare shelter capsule, and a medical tracking implanter to go with it.
 
 mining-voucher-minebot-name = Minebot Kit
 mining-voucher-minebot-description =
