@@ -326,5 +326,29 @@
   - type: TrashOnSolutionEmpty
     solution: drink
 
+- type: entity
+  parent: DrinkBaseMug
+  id: DrinkHotCoffeeNocaf
+  name: nocaf coffee
+  suffix: Full
+  description: Coffee made from a mixture of barley, ground chicory, and figs. Contains no caffeine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: CoffeeNocaf
+          Quantity: 20
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/mug.rsi
+    state: icon-vend-brown
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: fill-3
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
 #[1] https://en.wikipedia.org/wiki/Cup
 #[2] https://en.wikipedia.org/wiki/Mug

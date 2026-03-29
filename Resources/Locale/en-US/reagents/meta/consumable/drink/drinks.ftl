@@ -98,3 +98,6 @@ reagent-desc-mopwata = Dirty, stagnant mop water.
 
 reagent-name-orange-lime-soda = citrus bikeshed
 reagent-desc-orange-lime-soda = The soda should be orange! No, it should be lemon-lime!
+
+reagent-name-coffee-nocaf = nocaf coffee
+reagent-desc-coffee-nocaf = A drink made from brewed chicory and figs. Contains no caffeine.
