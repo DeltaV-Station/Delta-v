@@ -51,7 +51,7 @@
               doAfter: 5
         - to: N14WoodSquare
           completed:
-            - !type:SnapToGrid        
+            - !type:SnapToGrid
           steps:
             - material: WoodPlank
               amount: 2
@@ -88,7 +88,7 @@
           - material: Steel
             amount: 2
             doAfter: 1
-        
+
         - to: N14WoodCraftCounter
           steps:
             - material: WoodPlank
@@ -153,7 +153,7 @@
               doAfter: 0.5
             - tool: Screwing
               doAfter: 1.5
-            
+
 
     - node: N14MetalFrame
       entity: N14MetalTableFrame
@@ -187,7 +187,7 @@
             doAfter: 1
 
       - to: N14MetalCounterIntersect
-        steps:          
+        steps:
           - tool: Welding
             doAfter: 1.75
           - material: Steel
@@ -422,7 +422,7 @@
               doAfter: 4
             - tool: Anchoring
               doAfter: 3
-          
+
         - to: N14MetalCounterCross
           steps:
             - material: Steel

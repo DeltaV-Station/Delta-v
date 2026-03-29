@@ -1,0 +1,16 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobSmileCore
+  name: Smile Core Spawner
+  suffix: Science Pet, Delta V
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: brain-smile
+      sprite: _DV/Mobs/Pets/Smile/organs.rsi
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: SentientSmileCore
+      - id: PaperResearchSmileRecipe

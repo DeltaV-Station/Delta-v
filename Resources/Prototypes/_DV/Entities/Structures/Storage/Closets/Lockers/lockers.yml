@@ -154,10 +154,40 @@
 - type: entity
   id: SalvageGunSafeBaseSecure
   parent: GunSafe
+  name: salvage gun safe
   suffix: LO, Locked, Empty
   components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/gunsafe.rsi
+    noRot: true
+    layers:
+    - state: salvage
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: salvage-open
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: salvage
+    stateDoorOpen: salvage-open
+    stateDoorClosed: salvage-door
   - type: AccessReader
     access: [["Quartermaster"]]
+
+- type: entity
+  id: GunSafeSyndicateDV
+  parent: GunSafeDV
+  name: syndicate gun safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/syndicategunsafe.rsi
+    noRot: true
 
 - type: entity
   id: SyndicateGunSafeBaseSecure
@@ -193,17 +223,42 @@
     stateDoorClosed: door
 
 - type: entity
-  id: GunSafeBaseSecureDV
-  parent: GunSafeDV
+  id: SecurityGunSafeDV
+  parent: GunSafe
+  name: security gun safe
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/gunsafe.rsi
+    noRot: true
+    layers:
+    - state: security
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: security-door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: security
+    stateDoorOpen: open
+    stateDoorClosed: security-door
+
+- type: entity
+  id: SecurityGunSafeBaseSecureDV
+  parent: SecurityGunSafeDV
   suffix: Armory, Locked
   components:
   - type: AccessReader
     access: [["Armory"]]
 
 - type: entity
-  id: GunSafeHandgunDV
+  id: SecurityGunSafeHandgunDV
   parent: GunSafeDV
-  name: handgun safe
+  name: handgun gun safe
   components:
   - type: Appearance
   - type: Sprite
@@ -211,17 +266,17 @@
     noRot: true
 
 - type: entity
-  id: GunSafeHandgunBaseSecureDV
-  parent: GunSafeHandgunDV
+  id: SecurityGunSafeHandgunBaseSecureDV
+  parent: SecurityGunSafeHandgunDV
   suffix: Armory, Locked
   components:
   - type: AccessReader
     access: [["Armory"]]
 
 - type: entity
-  id: GunSafeNonlethalHandgunDV
+  id: SecurityGunSafeNonlethalHandgunDV
   parent: GunSafeDV
-  name: non-lethal handgun safe
+  name: non-lethal hand gun safe
   components:
   - type: Appearance
   - type: Sprite
@@ -229,17 +284,17 @@
     noRot: true
 
 - type: entity
-  id: GunSafeNonlethalHandgunBaseSecureDV
-  parent: GunSafeNonlethalHandgunDV
+  id: SecurityGunSafeNonlethalHandgunBaseSecureDV
+  parent: SecurityGunSafeNonlethalHandgunDV
   suffix: Security, Locked
   components:
   - type: AccessReader
     access: [["Security"]]
 
 - type: entity
-  id: GunSafeNonlethalDV
+  id: SecurityGunSafeNonlethalDV
   parent: GunSafeDV
-  name: non-lethal safe
+  name: non-lethal gun safe
   components:
   - type: Appearance
   - type: Sprite
@@ -247,33 +302,15 @@
     noRot: true
 
 - type: entity
-  id: GunSafeNonlethalBaseSecureDV
-  parent: GunSafeNonlethalDV
+  id: SecurityGunSafeNonlethalBaseSecureDV
+  parent: SecurityGunSafeNonlethalDV
   suffix: Security, Locked
   components:
   - type: AccessReader
     access: [["Security"]]
 
 - type: entity
-  id: GunSafeSyndicateDV
-  parent: GunSafeDV
-  name: syndicate gun safe
-  components:
-  - type: Appearance
-  - type: Sprite
-    sprite: _DV/Structures/Storage/Closets/syndicategunsafe.rsi
-    noRot: true
-
-- type: entity
-  id: GunSafeSyndicateBaseSecureDV
-  parent: GunSafeSyndicateDV
-  suffix: Syndicate, Locked
-  components:
-  - type: AccessReader
-    access: [["SyndicateAgent"]]
-
-- type: entity
-  id: GunSafeSuperweaponDV
+  id: SecurityGunSafeSuperweaponDV
   parent: GunSafeDV
   name: superweapon gun safe
   components:
@@ -283,8 +320,8 @@
     noRot: true
 
 - type: entity
-  id: GunSafeSuperweaponBaseSecureDV
-  parent: GunSafeSuperweaponDV
+  id: SecurityGunSafeSuperweaponBaseSecureDV
+  parent: SecurityGunSafeSuperweaponDV
   suffix: Armory, Locked
   components:
   - type: AccessReader
