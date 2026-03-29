@@ -351,9 +351,9 @@
 
 - type: entity
   parent: N14FreeTableBase
-  id: N14TableDeskWoodAlt # DeltaV
-  name: office desk # DeltaV
-  description: An office desk for working at. # DeltaV
+  id: N14TableDeskWood2 
+  suffix: alt # DeltaV
+  description: A desk for working at. # DeltaV
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/N14Tables/desks.rsi # DeltaV - Resprite
@@ -371,8 +371,9 @@
         - TableLayer
 
 - type: entity
-  parent: N14TableDeskWoodAlt # DeltaV
+  parent: N14TableDeskWood2 
   id: N14TableDeskWood # DeltaV
+  name: office desk
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/N14Tables/desks.rsi # DeltaV - Resprite
