@@ -87,8 +87,8 @@
     - proto: BulletEnergyTurretLaser
       fireCost: 100
   - type: DeployableTurret
-    retractedDamageModifierSetId: RetractedAITurret #DeltaV
-    deployedDamageModifierSetId: DeployedAITurret #DeltaV
+    retractedDamageModifierSetId: Metallic
+    deployedDamageModifierSetId: FlimsyMetallic
   - type: Damageable
     damageModifierSet: Metallic
   - type: Repairable
