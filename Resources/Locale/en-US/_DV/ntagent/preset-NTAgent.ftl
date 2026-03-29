@@ -6,9 +6,14 @@ NTAgent-role-greeting-human =
     If you're caught, Central Command will deny everything.
 
 NTAgent-briefing =
-    You've been implanted with a CentComm Radio Implanter.
-    Use y: to talk through CentComm channels.
+    You've been implanted with a CentComm Radio Implanter, alongside NanoLink.
+    Use :y to talk through CentComm channels.
 
 objective-issuer-NTAgent = [color=#204cc7]NanoTrasen[/color]
 
 NTAgent-round-end-name = Internal Affairs Agent
+
+objective-condition-frame-person-title = Frame {$targetName}, {CAPITALIZE($job)}.
+objective-condition-fired-person-title = Get {$targetName}, {CAPITALIZE($job)} fired.
+
+roles-antag-NT-agent-objective = Do dirty work for NanoTrasen.

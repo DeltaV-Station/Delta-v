@@ -28,9 +28,9 @@
   desc: reagent-desc-pinkdrink
   physicalDesc: reagent-physical-desc-glowing
   flavor: pinkdrink
-  color: "#d04949"
+  color: "#d48592" #DeltaV - was #d04949
   metamorphicSprite:
-    sprite: Nyanotrasen/Objects/Consumable/Drinks/pinkdrink.rsi
+    sprite: _DV/Objects/Consumable/Drinks/pinkdrink.rsi # DeltaV replacement
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-

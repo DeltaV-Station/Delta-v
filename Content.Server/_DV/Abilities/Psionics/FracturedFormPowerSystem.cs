@@ -6,6 +6,7 @@ using Content.Server.Mind;
 using Content.Server.Psionics;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared._DV.Species;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
@@ -181,7 +182,7 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             {
                 var speciesEntityPrototype = _prototype.Index<EntityPrototype>(proto.Prototype);
 
-                if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out var canBePsionic, Factory))
+                if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out var canBePsionic, Factory) && !SpeciesHiderSystem.IsHidden(proto.ID))
                 {
                     var chance = canBePsionic.Chance;
 

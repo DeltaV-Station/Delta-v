@@ -992,3 +992,19 @@
   hidden: true
   loadouts:
   - EmergencyIPCBox
+
+# ERT
+- type: loadoutGroup
+  id: GroupEVATankERT
+  name: loadout-group-EVA-tank
+  hidden: true
+  loadouts:
+  - LoadoutEmergencyOxygenExtendedERT
+  - LoadoutEmergencyNitrogenExtendedERT
+  - LoadoutEmergencyWaterVaporExtendedERT
+
+- type: roleLoadout
+  id: RoleSurvivalERT
+  groups:
+  - GroupEVATankERT
+  - SurvivalExtended
