@@ -32,4 +32,4 @@ roles-antag-asakim-name = Asakim
 roles-antag-asakim-objective = Serve the ancient directives of your ship's AI.
 
 roles-antag-hitman-name = Hitman
-roles-antag-hitman-objective = kill your target in the way your client wishes.
+roles-antag-hitman-objective = Kill your target in the way your client wishes.
