@@ -38,5 +38,5 @@ Escapist-kit-description =
 Tracker-kit-name = Tracker kit
 Tracker-kit-description =
     A kit for those who wish to know everything.
-    Provides an all comms encryption key, pinpointer,
-    and a handheld crew monitor.
+    Provides a station master encryption key and universal pinpointer.
+    Plus a spy monitor.
