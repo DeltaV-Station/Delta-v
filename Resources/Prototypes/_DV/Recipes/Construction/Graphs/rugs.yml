@@ -45,7 +45,7 @@
             - material: FloorCarpetBlue
               amount: 4
               doAfter: 1
-        - to: shagRug
+        - to: rugShag
           completed:
           - !type:SnapToGrid
           steps:
@@ -85,7 +85,7 @@
     - node: RubberMat
       entity: N14RugMatRubberLarge
 
-    - node: shagRug
+    - node: rugShag
       entity: N14RugShag
 
     - node: blueRug
@@ -98,4 +98,4 @@
       entity: N14RugRed
 
     - node: orangeRug
-      entity: N14RugOrange
+      entity: N14RugYellow

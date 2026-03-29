@@ -41,6 +41,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/chairs.rsi # DeltaV - furniture rework
     state: ergo_chair
+  - type: Construction # DeltaV
+    graph: N14Seat # DeltaV
+    node: N14ChairErgonomic # DeltaV - furniture rework
 
 - type: entity
   parent: N14ChairBarRetro

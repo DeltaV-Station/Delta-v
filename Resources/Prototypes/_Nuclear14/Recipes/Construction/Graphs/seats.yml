@@ -13,7 +13,7 @@
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: N14ChairOfficeErgonomic
+        - to: N14ChairErgonomic # DeltaV
           steps:
             - material: Steel
               amount: 2
@@ -59,7 +59,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: N14ChairOfficeErgonomic
+    - node: N14ChairErgonomic # DeltaV
       entity: N14ChairOfficeErgonomic
       edges:
         - to: start
