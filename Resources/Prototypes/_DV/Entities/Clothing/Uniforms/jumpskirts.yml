@@ -108,6 +108,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/scientist_formal.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCMOFormal
+  name: chief medical offier's formal skirtsuit
+  description: An lavish greenish blue skirtsuit with golden buttons and a green cross pin, fitted for the head of medical.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cmo_formal.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cmo_formal.rsi
+
 # Security alt uniforms
 
 - type: entity
@@ -428,3 +439,71 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/elf.rsi
+
+# Medical
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtCMOVest
+  name: chief medical offier's vest jumpskirt
+  description: A cozy teal cotton vest with a green cross pin paired with a white button-up.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cmo_vest.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cmo_vest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtMedicalApron
+  name: medical apron Jumpskirt
+  description: The white apron keeps chemical spill and blood from staining the light blue scrubs.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/medical_apron.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/medical_apron.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtMedicalOffset
+  name: medical offset Jumpskirt
+  description: An light blue asymmetrical scrub set with white accents.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/medical_offset.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/medical_offset.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtMedicalVest
+  name: medical vest Jumpskirt
+  description: A cosy light blue cotton vest and white button-up shirt combo.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/medical_vest.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/medical_vest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtParamedicJumper
+  name: paramedic skirt jumper
+  description: A dark blue jumper with reflective strips for high visibility and straps everywhere.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/paramedic_jumper.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/paramedic_jumper.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtChemistSenior
+  name: chemist senior Jumpskirt
+  description: A sign of skill and prestige within the chemistry lab.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemistry_senior.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/chemistry_senior.rsi

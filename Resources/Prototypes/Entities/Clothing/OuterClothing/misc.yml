@@ -302,9 +302,9 @@
   description: Made from the wool of slaughtered baby lambs.  The cruelty makes it softer.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
+    sprite: _DV/Clothing/OuterClothing/Misc/hospitalgown.rsi # DeltaV - Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
+    sprite: _DV/Clothing/OuterClothing/Misc/hospitalgown.rsi # DeltaV - Resprite
   - type: Tag # DeltaV: tank harnesses can be used for surgery
     tags:
     - PermissibleForSurgery
