@@ -33,7 +33,7 @@ Disguise-kit-description =
 Escapist-kit-name = Escapist kit
 Escapist-kit-description =
     A kit for those who want to get out of anything.
-    Provides a dna scrambler, freedom implanter,and scram scrambler.
+    Provides a DNA, freedom and scram implanter.
 
 Tracker-kit-name = Tracker kit
 Tracker-kit-description =
