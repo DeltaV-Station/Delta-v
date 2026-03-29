@@ -57,7 +57,7 @@
               amount: 2
               doAfter: 1
 
-        - to: N14WoodCircle
+        - to: N14WoodRound
           completed:
             - !type:SnapToGrid
           steps:
@@ -81,7 +81,7 @@
               amount: 2
               doAfter: 1
 
-        - to: N14MetalCircle
+        - to: N14MetalRound
           completed:
             - !type:SnapToGrid
           steps:
@@ -208,8 +208,8 @@
             - tool: Anchoring
               doAfter: 1
 
-    - node: N14WoodCircle
-      entity: N14TableWoodCircle
+    - node: N14WoodRound
+      entity: N14TableWoodRound
       edges:
         - to: start
           completed:
@@ -366,8 +366,8 @@
             - tool: Prying
               doAfter: 2
 
-    - node: N14MetalCircle
-      entity: N14TableMetalCircle
+    - node: N14MetalRound
+      entity: N14TableMetalRound
       edges:
         - to: start
           completed:

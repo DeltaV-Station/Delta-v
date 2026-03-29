@@ -501,10 +501,10 @@
     - !type:TileNotBlocked
 
 - type: construction
-  id: N14TableWoodCircle
+  id: N14TableWoodRound
   graph: N14TableRecipes
   startNode: start
-  targetNode: N14WoodCircle
+  targetNode: N14WoodRound
   category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter
@@ -641,10 +641,10 @@
     - !type:TileNotBlocked
 
 - type: construction
-  id: N14TableMetalCircle
+  id: N14TableMetalRound
   graph: N14TableRecipes
   startNode: start
-  targetNode: N14MetalCircle
+  targetNode: N14MetalRound
   category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter

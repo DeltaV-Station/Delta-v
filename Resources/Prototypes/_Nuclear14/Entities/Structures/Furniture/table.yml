@@ -74,7 +74,7 @@
 # 32x32 tables
 - type: entity
   parent: N14FreeMetalTableBase # Begin DeltaV Additions
-  id: N14TableMetalCircle
+  id: N14TableMetalRound
   name: circular metal table
   description: A cold handmade circular metal table. # End DeltaV Additions
   components:
@@ -95,7 +95,7 @@
         - TableLayer
   - type: Construction 
     graph: N14TableRecipes
-    node: N14MetalCircle # End DeltaV Additions
+    node: N14MetalRound # End DeltaV Additions
 
 - type: entity
   id: N14TableMetalRoundDirty
@@ -135,7 +135,7 @@
 
 - type: entity
   parent: N14TableWoodSquare
-  id: N14TableWoodCircle
+  id: N14TableWoodRound
   name: circular wooden table
   description: A circular wooden table.
   components:
@@ -156,7 +156,7 @@
         - TableLayer
   - type: Construction
     graph: N14TableRecipes
-    node: N14WoodCircle # End DeltaV Additions
+    node: N14WoodRound # End DeltaV Additions
 
 - type: entity
   parent: N14TableWoodSquare
