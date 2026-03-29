@@ -154,13 +154,18 @@
     sprite: _DV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Clothing
     sprite: _DV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
-  - type: ItemSlots # DeltaV - add sidearm slot
+  - type: ItemSlots # DeltaV - add sidearm and radio slot
     slots:
       holster:
         name: clothing-belt-sidearm
         whitelist:
           tags:
           - Sidearm
+      radio:
+        name: clothing-belt-radio
+        whitelist:
+          tags:
+          - Radio
         insertOnInteract: false
   - type: Storage # DeltaV - Split Inventory
     grid:
