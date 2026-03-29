@@ -22,7 +22,7 @@ Poisoner-kit-description =
 Infiltration-kit-name = Infiltration kit
 Infiltration-kit-description =
     A kit for those who want to get anywhere.
-    Provides an access breaker, jaws of life, and stealth box.
+    Provides a cryptographic sequencer, syndicate jaws of life and stealth box.
 
 Disguise-kit-name = Disguise kit
 Disguise-kit-description =
