@@ -19,7 +19,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-          - !type:SpawnEntitiesBehavior
+          - !type:SpawnEntitiesBehavior # Begin DeltaV Additions
             spawn:
               MaterialCloth1:
                 min: 3
