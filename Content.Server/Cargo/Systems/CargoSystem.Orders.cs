@@ -537,7 +537,8 @@ namespace Content.Server.Cargo.Systems
             var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, account);
 
             // Approve it now
-            order.SetApproverData(dest, sender);
+            // DeltaV: the line below does nothing but null order.Approver?
+            //order.SetApproverData(dest, sender);
             order.Approved = true;
 
             // Log order addition
