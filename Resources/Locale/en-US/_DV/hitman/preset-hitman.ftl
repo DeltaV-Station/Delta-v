@@ -1,6 +1,6 @@
 Hitman-role-greeting-human =
-    You're an Hitman hired by a far away Client.
-    kill your target in the way your Client wishes.
+    You're a hitman hired to kill a target.
+    There are conditions for this assassination.
     Keep damage to bystanders to a minimum.
 
 Hitman-briefing =
