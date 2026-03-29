@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Changed Surgery Healing to heal 7% of the part's damage and not the general
-      damage! The healing will be conistent this way and won't fall off a mountain
-      later!
-    type: Tweak
-  - message: Knocked Surgery effectiviness on dead people from 20% to 10% - Better
-      revive them as soon as possible!
-    type: Tweak
-  id: 1700
-  time: '2025-10-03T04:52:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4307
 - author: Eternally-Confused
   changes:
   - message: The nicotine reagent is now obtainable through grinding cigarettes.
@@ -4408,4 +4396,11 @@
   id: 2199
   time: '2026-03-28T23:56:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5555
+- author: Coryler
+  changes:
+  - message: Medical Tracking Implant and Forced them onto Salvs
+    type: Add
+  id: 2200
+  time: '2026-03-29T03:22:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5538
 Order: 1
