@@ -1,7 +1,7 @@
 Sharpshooter-kit-name = Sharpshooter kit
 Sharpshooter-kit-description =
     A kit for those who prefer killing from afar.
-    provides a hirstov with ammo, a briefcase with a outfit, and thermal goggles.
+    Provides a Hristov with ammo along with an outfit in a briefcase, and thermal goggles.
 
 Loud-kit-name = Loud kit
 Loud-kit-description =
