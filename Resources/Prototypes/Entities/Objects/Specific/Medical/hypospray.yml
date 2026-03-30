@@ -675,9 +675,9 @@
         maxVol: 30
         reagents:
         - ReagentId: Omnizine
-          Quantity: 20 #DeltaV changes reduced to 20
+          Quantity: 20 # DeltaV - Was 25
         - ReagentId: TranexamicAcid
-          Quantity: 10 #DeltaV changes increased to 10
+          Quantity: 10 # DeltaV - Was 5
   - type: StaticPrice
     price: 1500
 
