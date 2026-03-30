@@ -100,7 +100,7 @@
         - to: N14WoodCraftCounterBend
           steps:
             - material: FloorTileWoodLarge
-              amount: 4
+              amount: 2
               doAfter: 3
             - material: WoodPlank
               amount: 2
@@ -129,7 +129,7 @@
         - to: N14WoodCounter
           steps:
             - material: WoodPlank
-              amount: 2
+              amount: 4
               doAfter: 0.5
             - tool: Screwing
               doAfter: 1
@@ -442,9 +442,9 @@
               amount: 4
           steps:
             - tool: Welding
-              doAfter: 5
+              doAfter: 2
             - tool: Prying
-              doAfter: 4
+              doAfter: 2
 
 
     - node: N14WoodWideOval
@@ -454,7 +454,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 5
+              amount: 6
             - !type:DeleteEntity {}
           steps:
             - tool: Prying
@@ -468,7 +468,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 5
+              amount: 6
             - !type:DeleteEntity {}
           steps:
             - tool: Prying
