@@ -284,14 +284,13 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbine.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: GunRequiresWield
   - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: 0
+    minAngle: -20
+    maxAngle: -20
   - type: Gun
-    fireRate: 1.5
-    minAngle: 1
-    maxAngle: 4
+    fireRate: 2
+    minAngle: 21
+    maxAngle: 32
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -314,7 +313,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLaser
         priority: 1
         whitelist:
           tags:
