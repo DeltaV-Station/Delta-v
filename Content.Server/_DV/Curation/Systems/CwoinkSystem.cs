@@ -873,7 +873,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
             stringbuilder.Append($" **{parameters.RoundTime}**");
         if (!parameters.PlayedSound)
-            stringbuilder.Append($" **{(parameters.CuratorOnly ? Loc.GetString("cwoink-message-admin-only") : Loc.GetString("cwoink-message-silent"))}**");
+            stringbuilder.Append($" **{(parameters.CuratorOnly ? Loc.GetString("cwoink-message-curator-only") : Loc.GetString("cwoink-message-silent"))}**");
 
         if (parameters.IsDiscord) // Frontier - Discord Indicator
             stringbuilder.Append($" **{discordReplyPrefix}**");

@@ -18,3 +18,58 @@
     proto: SeniorPhysician
   equipment:
     id: CryogenicsSpecialistPDA
+
+# Head
+- type: loadout
+  id: BlueMedicalBeret
+  equipment:
+      head: ClothingHeadHatBeretMedical
+
+# Jumpsuit
+
+- type: loadout
+  id: MedicalApronJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMedicalApron
+
+- type: loadout
+  id: MedicalApronJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalApron
+
+- type: loadout
+  id: MedicalOffsetJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMedicalOffset
+
+- type: loadout
+  id: MedicalOffsetJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalOffset
+
+- type: loadout
+  id: MedicalVestJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMedicalVest
+
+- type: loadout
+  id: MedicalVestJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalVest
+
+# OuterClothing
+
+- type: loadout
+  id: MedicalLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabMedical
+
+- type: loadout
+  id: MedicalLongLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabLongMedical
+
+- type: loadout
+  id: LongLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabLong
