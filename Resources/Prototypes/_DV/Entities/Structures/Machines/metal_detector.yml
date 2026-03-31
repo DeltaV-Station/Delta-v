@@ -5,8 +5,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     sprite: _DV/Structures/Machines/metal_detector.rsi
     snapCardinals: true
@@ -27,10 +25,11 @@
   - type: Physics
     bodyType: Static
   - type: ItemToggle
-    soundActivate:
-      path: /Audio/Weapons/click.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/policesiren.ogg
       params:
-        maxDistance: 1
+        volume: -3
   - type: Fixtures
     fixtures:
       fix1:
