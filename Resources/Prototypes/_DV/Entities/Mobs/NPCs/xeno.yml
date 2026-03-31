@@ -4,6 +4,7 @@
 - type: entity
   parent: MobPurpleSnake
   id: MobPurpleSnakeGhost
+  suffix: Player
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
@@ -12,12 +13,15 @@
     makeSentient: true
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
-    rules: deltav-ghost-role-information-salvageantag-rules # DeltaV salvage mob rules
+    rules: deltav-ghost-role-information-salvageantag-rules
+    mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
   - type: SalvageMobRestrictions
 
 - type: entity
   parent: MobSmallPurpleSnake
   id: MobSmallPurpleSnakeGhost
+  suffix: Player, Small
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
@@ -26,10 +30,12 @@
     makeSentient: true
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
-    rules: deltav-ghost-role-information-salvageantag-rules # DeltaV salvage mob rules
+    rules: deltav-ghost-role-information-salvageantag-rules
+    mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
   - type: SalvageMobRestrictions
 
-# Delta V variants of Xenos to allow ghost takeover again
+# Variants of Xenos to allow ghost takeover again
 
 - type: entity
   abstract: true
@@ -43,47 +49,48 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
     raffle:
-      settings: short # DeltaV - lower xeno raffle time - formerly default
+      settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXeno] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXeno] # Reverse order so suffix works
   id: MobXenoPlayer
   name: Burrower
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC] # Reverse order so suffix works
   id: MobXenoPraetorian
   name: Praetorian
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoDroneNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoDroneNPC] # Reverse order so suffix works
   id: MobXenoDrone
   name: Drone
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoQueenNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoQueenNPC] # Reverse order so suffix works
   id: MobXenoQueen
   name: Queen
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC] # Reverse order so suffix works
   id: MobXenoRavager
   name: Ravager
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC] # Reverse order so suffix works
   id: MobXenoRunner
   name: Runner
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoRounyNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoRounyNPC] # Reverse order so suffix works
   id: MobXenoRouny
   name: Rouny
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] #Delta-v - reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] # Reverse order so suffix works
   id: MobXenoSpitter
   name: Spitter
-  
