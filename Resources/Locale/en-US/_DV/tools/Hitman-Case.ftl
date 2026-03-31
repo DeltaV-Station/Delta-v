@@ -1,37 +1,37 @@
-Sharpshooter-kit-name = Sharpshooter kit
-Sharpshooter-kit-description =
+hitman-sharpshooter-kit-name = Sharpshooter kit
+hitman-sharpshooter-kit-description =
     A kit for those who prefer killing from afar.
     Provides a Hristov with ammo along with an outfit in a briefcase, and thermal goggles.
 
-Loud-kit-name = Loud kit
-Loud-kit-description =
+hitman-loud-kit-name = Loud kit
+hitman-loud-kit-description =
     A kit for those who like a direct method.
     provides a Python with Armor-Piercing rounds, with two speedloaders as backup.
     With an extra of an armor vest and no-slip shoes.
 
-Assassin-kit-name = Assassin kit
-Assassin-kit-description =
+hitman-assassin-kit-name = Assassin kit
+hitman-assassin-kit-description =
     A kit for the quiet killers.
     Provides a Cobra with an extra magazine, 4 throwing knives, night vision goggles, and a radio jammer.
 
-Infiltration-kit-name = Infiltration kit
-Infiltration-kit-description =
+hitman-infiltration-kit-name = Infiltration kit
+hitman-infiltration-kit-description =
     A kit for those who want to get anywhere.
     Provides a cryptographic sequencer, syndicate jaws of life and stealth box.
 
-Disguise-kit-name = Disguise kit
-Disguise-kit-description =
+hitman-disguise-kit-name = Disguise kit
+hitman-disguise-kit-description =
     A kit for those who want to be anyone.
     Provides an Agent ID, chameleon clothing.
     Plus a fake MindShield and voice mask implanter.
 
-Escapist-kit-name = Escapist kit
-Escapist-kit-description =
+hitman-escapist-kit-name = Escapist kit
+hitman-escapist-kit-description =
     A kit for those who want to get out of anything.
     Provides a DNA, freedom and scram implanter.
 
-Tracker-kit-name = Tracker kit
-Tracker-kit-description =
+hitman-tracker-kit-name = Tracker kit
+hitman-tracker-kit-description =
     A kit for those who wish to know everything.
     Provides a station master encryption key and universal pinpointer.
     Plus a spy monitor.

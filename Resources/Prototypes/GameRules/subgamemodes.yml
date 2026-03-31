@@ -122,7 +122,7 @@
       maxPicks: 2
     maxDifficulty: 100
   - type: AntagSelection
-    agentName: Hitman-round-end-agent-name
+    agentName: hitman-round-end-agent-name
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Hitman ]
@@ -135,6 +135,8 @@
       mindRoles:
       - MindRoleHitman 
       briefing:
+        text: hitman-role-greeting-human
+        color: yellow
         sound: "/Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.ogg"
   - type: DynamicRuleCost
     cost: 100 # bit more than thief

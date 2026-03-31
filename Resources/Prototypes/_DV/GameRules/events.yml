@@ -396,14 +396,14 @@
       maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
     maxDifficulty: 300
   - type: AntagSelection
-    agentName: Hitman-round-end-name
+    agentName: hitman-round-end-agent-name
     definitions:
     - min: 1
       max: 2
       pickPlayer: true
       startingGear: HitmanGear
       briefing:
-        text: Hitman-role-greeting-human
+        text: hitman-role-greeting-human
         color: yellow
         sound: /Audio/_DV/Ambience/Antag/Hitman_briefing_Piano_Between.ogg
       mindRoles:

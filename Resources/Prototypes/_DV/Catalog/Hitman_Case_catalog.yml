@@ -1,7 +1,7 @@
 - type: thiefBackpackSet
-  id: SharpshooterKit
-  name: Sharpshooter-kit-name
-  description: Sharpshooter-kit-description
+  id: HitmanSharpshooterKit
+  name: hitman-sharpshooter-kit-name
+  description: hitman-sharpshooter-kit-description
   sprite:
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
     state: base
@@ -10,9 +10,9 @@
   - ClothingEyesThermalVisionGogglesSyndie
 
 - type: thiefBackpackSet
-  id: LoudKit
-  name: Loud-kit-name
-  description: Loud-kit-description
+  id: HitmanLoudKit
+  name: hitman-loud-kit-name
+  description: hitman-loud-kit-description
   sprite:
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     state: icon
@@ -24,9 +24,9 @@
   - ClothingShoesChameleonNoSlips
 
 - type: thiefBackpackSet
-  id: AssassinKit
-  name: Assassin-kit-name
-  description: Assassin-kit-description
+  id: HitmanAssassinKit
+  name: hitman-assassin-kit-name
+  description: hitman-assassin-kit-description
   sprite:
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
     state: icon
@@ -38,9 +38,9 @@
   - RechargingRadioJammer
 
 - type: thiefBackpackSet
-  id: InfiltrationKit
-  name: Infiltration-kit-name
-  description: Infiltration-kit-description
+  id: HitmanInfiltrationKit
+  name: hitman-infiltration-kit-name
+  description: infiltration-kit-description
   sprite:
     sprite: _DV/Objects/Tools/doorjack.rsi
     state: icon
@@ -50,9 +50,9 @@
   - StealthBox
 
 - type: thiefBackpackSet
-  id: DisguiseKit
-  name: Disguise-kit-name
-  description: Disguise-kit-description
+  id: HitmanDisguiseKit
+  name: hitman-disguise-kit-name
+  description: hitman-disguise-kit-description
   sprite:
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
     state: icon
@@ -66,9 +66,9 @@
   - FakeMindShieldImplanter
 
 - type: thiefBackpackSet
-  id: EscapistKit
-  name: Escapist-kit-name
-  description: Escapist-kit-description
+  id: HitmanEscapistKit
+  name: hitman-escapist-kit-name
+  description: hitman-escapist-kit-description
   sprite:
     sprite: Actions/Implants/implants.rsi
     state: freedom
@@ -78,9 +78,9 @@
   - ScramImplanter
 
 - type: thiefBackpackSet
-  id: TrackerKit
-  name: Tracker-kit-name
-  description: Tracker-kit-description
+  id: HitmanTrackerKit
+  name: hitman-tracker-kit-name
+  description: hitman-tracker-kit-description
   sprite:
     sprite: Objects/Tools/spy_device.rsi
     state: icon
