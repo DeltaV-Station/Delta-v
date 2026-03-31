@@ -313,6 +313,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
+            - !type:DeleteEntity {}
           steps:
             - tool: Prying
               doAfter: 3
@@ -328,6 +329,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
+            - !type:DeleteEntity {}
           steps:
             - tool: Prying
               doAfter: 3
@@ -343,6 +345,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
+            - !type:DeleteEntity {}
           steps:
             - tool: Prying
               doAfter: 3
