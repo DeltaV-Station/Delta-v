@@ -138,17 +138,16 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 10
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CarpetBlue:
-                min: 4
-                max: 4 # End DeltaV Additions
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetBlue:
+            min: 4
+            max: 4 # End DeltaV Additions
 
 - type: entity
   id: N14RugShag # Delta V
@@ -179,16 +178,16 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-      - trigger:
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Carpet:
-                min: 2
-                max: 2
-              CarpetGreen:
-                min: 2
-                max: 2 # End DeltaV Additions
+    - trigger:
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Carpet:
+            min: 2
+            max: 2
+          CarpetGreen:
+            min: 2
+            max: 2 # End DeltaV Additions
 
 - type: entity
   id: N14RugRed
@@ -206,17 +205,17 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 10
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Carpet:
-                min: 4
-                max: 4 # End DeltaV Additions
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Carpet:
+            min: 4
+            max: 4 # End DeltaV Additions
 
 - type: entity
   id: N14RugYellow
@@ -232,13 +231,13 @@
     node: orangeRug
   - type: Destructible
     thresholds:
-      - trigger:
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CarpetOrange:
-                min: 4
-                max: 4 # End DeltaV Additions
+    - trigger:
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetOrange:
+            min: 4
+            max: 4 # End DeltaV Additions
 
 - type: entity
   id: N14RugMatRubberLarge
@@ -256,9 +255,9 @@
     thresholds:
       - trigger:
         behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              SheetPlastic:
-                min: 4
-                max: 4 # End DeltaV Additions
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetPlastic:
+              min: 4
+              max: 4 # End DeltaV Additions
  

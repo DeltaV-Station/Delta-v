@@ -6,7 +6,7 @@
       edges:
         - to: matBlank
           completed:
-            - !type:SnapToGrid { }
+            - !type:SnapToGrid
           steps:
             - material: Cloth
               amount: 3
@@ -36,7 +36,7 @@
   graph:
     - node: start
       actions:
-        - !type:DestroyEntity {}
+        - !type:DestroyEntity
       edges:
         - to: blueRug
           completed:

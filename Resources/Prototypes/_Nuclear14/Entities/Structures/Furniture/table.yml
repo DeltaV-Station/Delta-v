@@ -502,9 +502,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: wood_counter
-  - type: Construction # DeltaV
-    graph: N14TableRecipes # DeltaV
-    node: N14WoodCounter # DeltaV
+  - type: Construction # DeltaV - Constructible
+    graph: N14TableRecipes
+    node: N14WoodCounter
 
 - type: entity
   parent: N14TableCounter
