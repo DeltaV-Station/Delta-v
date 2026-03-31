@@ -178,7 +178,8 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
+    - trigger: !type:DamageTrigger
+        damage: 10
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -205,8 +206,7 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 10
       behaviors:
       - !type:DoActsBehavior
@@ -231,7 +231,8 @@
     node: orangeRug
   - type: Destructible
     thresholds:
-    - trigger:
+    - trigger: !type:DamageTrigger
+        damage: 10
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -253,8 +254,9 @@
     node: RubberMat
   - type: Destructible
     thresholds:
-      - trigger:
-        behaviors:
+      - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
         - !type:SpawnEntitiesBehavior
           spawn:
             SheetPlastic:

@@ -1,4 +1,3 @@
-
 structure-wall-reinforced-steel-railing = reinforced steel railing
 structure-wall-reinforced-steel-railing-corner = reinforced steel railing corner
 structure-wall-reinforced-steel-railing-corner-small = reinforced steel railing corner (small)

@@ -4,7 +4,7 @@
   graph:
     - node: start
       actions:
-        - !type:DeleteEntity {}
+        - !type:DeleteEntity
       edges:
         - to: N14WoodFrame
           steps:
@@ -121,7 +121,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 1
@@ -154,7 +154,6 @@
             - tool: Screwing
               doAfter: 1.5
 
-
     - node: N14MetalFrame
       entity: N14MetalTableFrame
       edges:
@@ -163,7 +162,7 @@
           - !type:SpawnPrototype
             prototype: SheetSteel1
             amount: 2
-          - !type:DeleteEntity {}
+          - !type:DeleteEntity
         steps:
           - tool: Prying
             doAfter: 1
@@ -203,7 +202,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Anchoring
               doAfter: 1
@@ -216,7 +215,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 1
@@ -229,7 +228,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 1
@@ -242,7 +241,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 1
@@ -313,7 +312,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 3
@@ -329,7 +328,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 3
@@ -345,7 +344,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 3
@@ -377,7 +376,7 @@
             - !type:SpawnPrototype
               prototype: SheetSteel1
               amount: 2
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 1
@@ -458,7 +457,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 6
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 3
@@ -472,7 +471,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 6
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity 
           steps:
             - tool: Prying
               doAfter: 3
@@ -489,7 +488,7 @@
             - !type:SpawnPrototype
               prototype: SheetSteel1
               amount: 6
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 4
@@ -505,7 +504,7 @@
           - !type:SpawnPrototype
             prototype: SheetSteel1
             amount: 7
-          - !type:DeleteEntity {}
+          - !type:DeleteEntity
           steps:
             - tool: Welding
               doAfter: 5

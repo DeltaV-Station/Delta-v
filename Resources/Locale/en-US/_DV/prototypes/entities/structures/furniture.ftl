@@ -1,4 +1,3 @@
-
 structure-furniture-fancy-counter = fancy wood counter
 structure-furniture-fancy-counter-corner = fancy wood counter (corner)
 structure-furniture-fancy-counter-junction = fancy wood counter (t-junction)
