@@ -471,7 +471,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 6
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
           steps:
             - tool: Prying
               doAfter: 3
