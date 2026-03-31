@@ -36,7 +36,7 @@ public sealed partial class TraitPrototype : IPrototype
     /// How many trait points this trait costs (positive) or grants (negative).
     /// </summary>
     [DataField]
-    public int Cost = 1;
+    public int Cost = 0;
 
     /// <summary>
     /// Conditions that must be met for this trait to be selectable and applied.
