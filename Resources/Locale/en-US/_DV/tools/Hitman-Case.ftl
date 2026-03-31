@@ -36,5 +36,5 @@ hitman-tracker-kit-description =
     Provides a station master encryption key and universal pinpointer.
     Plus a spy monitor.
 
-hitman-case-name: Hitman case
-hitman-case-description: A case containing the tools of the trade of a hitman.
+hitman-case-name = Hitman case
+hitman-case-description = A case containing the tools of the trade of a hitman.
