@@ -1425,9 +1425,9 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   # Begin DeltaV changes
-  - ScarfRed 
-  - ScarfBlack 
-  - SecurityPoncho 
+  - ScarfRed
+  - ScarfBlack
+  - SecurityPoncho
   - HeadOfSecurityRobe
   # End DeltaV changes
 
@@ -1619,8 +1619,8 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - SecurityCadetJumpsuit # DeltaV
+  - SecurityCadetJumpskirt # DeltaV
 
 - type: loadoutGroup
   id: SecurityCadetJobTrinkets

@@ -1,10 +1,16 @@
 # Jumpsuit
 - type: loadout
-  id: RedJumpsuit
+  id: SecurityCadetJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorRed
+    jumpsuit: ClothingUniformSecCadet
 
 - type: loadout
-  id: RedJumpskirt
+  id: SecurityCadetJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtColorRed
+    jumpsuit: ClothingUniformJumpskirtSecCadet
+
+# Head
+- type: loadout
+  id: SecurityCadetBeret
+  equipment:
+    head: ClothingHeadBeretCadet
