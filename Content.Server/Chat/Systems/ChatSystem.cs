@@ -655,7 +655,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessage;
 
         // Emotes use Identity.Name, since it doesn't actually involve your voice at all.
-            ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+        if (emoteType == EmoteType.Possessive) // DeltaV change
             wrappedMessage = Loc.GetString("chat-manager-entity-me-possessive-wrap-message",
                 ("entityName", name),
                 ("entity", ent),
