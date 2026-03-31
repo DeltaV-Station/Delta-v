@@ -26,6 +26,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         SubscribeLocalEvent<HeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
 
         SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
+        SubscribeLocalEvent<WearingHeadsetComponent, EntityAudiblyEmotedEvent>(OnAudibleEmote); // DeltaV
     }
 
     private void OnKeysChanged(EntityUid uid, HeadsetComponent component, EncryptionChannelsChangedEvent args)
@@ -48,22 +49,43 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
     }
 
-    private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
+    // Start - DeltaV
+    // WARNING - Be very careful when modifying this method.
+    // The implementation right now has null forgiving operatiors in OnSpeak() and OnAudibleEmote() since this only returns true if channel is not null!
+    private bool CheckRadioCapable(EntityUid uid, WearingHeadsetComponent headset, RadioChannelPrototype? channel)
     {
-        if (args.Channel != null
-            && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
-            && keys.Channels.Contains(args.Channel.ID))
+        if (channel != null
+            && TryComp(headset.Headset, out EncryptionKeyHolderComponent? keys)
+            && keys.Channels.Contains(channel.ID))
         {
-            // Begin DeltaV Additions: No using headsets if you lost your hands or are cuffed
             if (!TryComp<HandsComponent>(uid, out var hands) || hands.Count < 1 ||
                 TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable)))
             {
                 _popup.PopupEntity(Loc.GetString("headset-cant-reach"), uid, uid, PopupType.SmallCaution);
-                return;
+                return false;
             }
-            // End DeltaV Additions
 
-            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void OnAudibleEmote(EntityUid uid, WearingHeadsetComponent component, EntityAudiblyEmotedEvent args)
+    {
+        if (CheckRadioCapable(uid, component, args.Channel))
+        {
+            _radio.SendRadioMessage(uid, args.Message, args.Channel!, component.Headset, emType: args.Type);
+            args.Channel = null;
+        }
+    }
+    // End - DeltaV
+
+    private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
+    {
+        if (CheckRadioCapable(uid, component, args.Channel)) // DeltaV change
+        {
+            _radio.SendRadioMessage(uid, args.Message, args.Channel!, component.Headset);
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }

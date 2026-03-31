@@ -74,3 +74,31 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         ObfuscatedMessage = obfuscatedMessage;
     }
 }
+
+/// <summary>
+/// Raised on an entity when it audibly emotes.
+/// </summary>
+public sealed class EntityAudiblyEmotedEvent : EntityEventArgs
+{
+    public readonly EntityUid Source;
+    public readonly string Message;
+
+    /// <summary>
+    /// If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
+    /// message gets sent on this channel, this should be set to null to prevent duplicate messages.
+    /// </summary>
+    public RadioChannelPrototype? Channel;
+
+    /// <summary>
+    /// What type of emote that was audibly emoted. Normally it should send EmoteType.Audible but can sometimes send EmoteType.AudiblePossessive.
+    /// </summary>
+    public EmoteType? Type;
+
+    public EntityAudiblyEmotedEvent(EntityUid source, string message, RadioChannelPrototype? channel, EmoteType? type)
+    {
+        Source = source;
+        Message = message;
+        Channel = channel;
+        Type = type ?? EmoteType.Audible;
+    }
+}

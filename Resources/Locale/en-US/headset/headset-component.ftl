@@ -2,6 +2,9 @@
 chat-radio-message-wrap = [color={$color}]{$channel} {$name} {$verb}, [font={$fontType} size={$fontSize}]"{$message}"[/font][/color]
 chat-radio-message-wrap-bold = [color={$color}]{$channel} {$name} {$verb}, [font={$fontType} size={$fontSize}][bold]"{$message}"[/bold][/font][/color]
 
+chat-radio-message-audible-emote-wrap = [color={$color}]{$channel} {$name} {$message}[/color]
+chat-radio-message-audible-possessive-emote-wrap = [color={$color}]{$channel} {$name}'s {$message}[/color]
+
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
 
 chat-radio-common = Common
