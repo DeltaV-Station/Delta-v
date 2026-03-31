@@ -4,11 +4,33 @@
   equipment:
     head: ClothingHeadHatBeretCap
 
+- type: loadout
+  id: CaptainCavalier
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    head: ClothingHeadHatCaptainCavalier
+
 # Neck
 - type: loadout
   id: CaptainCloakFormal
   equipment:
     neck: ClothingNeckCloakCapFormal
+
+- type: loadout
+  id: CaptainBoatCloak
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000
+  equipment:
+    neck: ClothingNeckCloakBoat
 
 # Gloves
 - type: loadout
