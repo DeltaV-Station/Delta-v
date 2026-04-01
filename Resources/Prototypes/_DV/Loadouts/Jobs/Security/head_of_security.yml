@@ -33,11 +33,6 @@
 - type: loadout
   id: HeadofSecurityCavalier
   effects:
-   - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfSecurity
-      time: 180000
   equipment:
     head: ClothingHeadHatHeadOfSecurityCavalier
 
@@ -78,10 +73,5 @@
 - type: loadout
   id: HeadOfSecurityCloakBoat
   effects:
-   - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfSecurity
-      time: 180000
   equipment:
     neck: ClothingNeckHeadOfSecurityCloakBoat
