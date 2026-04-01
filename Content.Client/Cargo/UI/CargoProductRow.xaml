@@ -9,7 +9,9 @@ SPDX-License-Identifier: MIT
 -->
 <!-- basically all of this has been changed by goobstation to a new UI, See PR #4780-->
 <BoxContainer xmlns="https://spacestation14.io"
-              HorizontalExpand="True">
+              xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              HorizontalExpand="True"
+              Margin="0 0 0 2">
     <PanelContainer HorizontalExpand="True">
         <!-- Btn position hardcoded (args.Button.Parent?.Parent type) in CargoConsoleBUI 71 line -->
         <Button Name="MainButton"
@@ -26,19 +28,32 @@ SPDX-License-Identifier: MIT
             <TextureRect Name="Icon"
                          Access="Public"
                          MinSize="32 32"
+                         MaxSize="32 32"
+                         Stretch="KeepCentered"
                          RectClipContent="True" />
+
 
             <Label Name="ProductName"
                    Access="Public"
                    HorizontalExpand="True"
+                   Margin="4 0"
                    ClipText="True" />
         </BoxContainer>
     </PanelContainer>
 
-    <Label Name="PointCost"
-           Access="Public"
-           MinSize="56 32"
-           Align="Right"
-           Margin="0 0 5 0"
-           HorizontalAlignment="Right"/>
+    <PanelContainer StyleClasses="BackgroundDark">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#22222A" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Margin="0 0 4 0">
+            <Label Name="PointCost"
+               Access="Public"
+               MinSize="72 1"
+               Align="Right"
+
+               VerticalAlignment="Center"
+            />
+        </BoxContainer>
+    </PanelContainer>
+
 </BoxContainer>

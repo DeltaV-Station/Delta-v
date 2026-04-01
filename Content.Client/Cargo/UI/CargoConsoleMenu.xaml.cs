@@ -191,7 +191,7 @@ namespace Content.Client.Cargo.UI
                         Product = prototype,
                         ProductName = { Text = prototype.Name },
                         MainButton = { ToolTip = prototype.Description },
-                        PointCost = { Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", prototype.Cost.ToString())) },
+                        PointCost = { Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", String.Format("{0:#,##0}", (prototype.Cost)))) },
                         Icon = { Texture = _spriteSystem.Frame0(prototype.Icon) },
                     };
                     button.MainButton.OnPressed += args =>
@@ -263,7 +263,7 @@ namespace Content.Client.Cargo.UI
                             "cargo-console-menu-order-row-title",
                             ("productName", order.ProductName),
                             ("orderAmount", order.OrderQuantity),
-                            ("orderPrice", order.Price * order.OrderQuantity)),
+                            ("orderPrice", String.Format("{0:#,##0}", (order.Price * order.OrderQuantity))))
                     },
 
                     Stride =
@@ -355,8 +355,9 @@ namespace Content.Client.Cargo.UI
             }
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
-            PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
-            PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance)); // Goobstation
+            string balanceString = String.Format("{0:#,##0}", balance);
+            PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balanceString));
+            PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balanceString)); // Goobstation
             TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", balance * orderConsole.TransferLimit)); // Goobstation
 
             UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
