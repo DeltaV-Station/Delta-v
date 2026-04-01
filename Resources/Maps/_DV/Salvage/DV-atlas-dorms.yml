@@ -2453,15 +2453,13 @@ entities:
     - type: Transform
       pos: 12.5,-5.5
       parent: 377
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 380
     components:
     - type: Transform
       pos: 10.5,-9.5
       parent: 377
-    - type: WarpPoint
-      location: Space Debris
 - proto: WaterTankFull
   entities:
   - uid: 200

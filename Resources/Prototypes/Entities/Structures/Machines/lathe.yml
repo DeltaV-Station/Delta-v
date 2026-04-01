@@ -42,6 +42,8 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key: #DeltaV
+        type: WiresBoundUserInterface #DeltaV
   - type: Transform
     anchored: true
   - type: Pullable
@@ -61,6 +63,11 @@
     - Experimental
     - CivilianServices
   # Begin DeltaV additions
+  - type: Wires
+    boardName: wires-board-name-autolathe
+    layoutId: Fabicator
+    alwaysRandomize: true
+  - type: StationAiWhitelist 
   - type: MaterialStorageMagnetPickup
     magnetEnabled: True
     range: 0.30
@@ -447,6 +454,7 @@
     - PrisonerSoftsuits
     - EVASuit
     - SimpleToolsStaticDeltaV
+    - BorgModulesSecurityDeltaVStatic
     # End DeltaV Additions
     dynamicPacks:
     - SalvageSecurityBoards
@@ -508,7 +516,12 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
+    # Start DeltaV Additions 
       - SecurityShotgunDrumsStatic
+      - AmmoFabPracticeStatic # Removes practice guns
+      - SecurityRubberAmmoStatic
+      dynamicPacks:
+      - SecurityAmmo
     # End DeltaV Additions
     - type: BlueprintReceiver
       whitelist:

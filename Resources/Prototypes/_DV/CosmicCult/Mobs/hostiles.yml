@@ -19,6 +19,7 @@
   - type: NpcFactionMember
     factions:
     - CosmicCult
+    - SimpleHostile
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -53,7 +54,10 @@
     bloodMaxVolume: 100
     maxBleedAmount: 10.75
     bleedReductionAmount: 0.1
-    bloodReagent: Entropy
+    bloodReagents:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 1
     bloodlossDamage:
       types:
         Bloodloss:

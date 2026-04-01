@@ -135,6 +135,22 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGunRubber
+  result: MagazinePistolSubMachineGunRubber
+  materials:
+    Steel: 25
+    Plastic: 360
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacityRubber
+  result: MagazinePistolHighCapacityRubber
+  materials:
+    Steel: 25
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: SpeedLoaderMagnumRubber
   result: SpeedLoaderMagnumRubber
   materials:
@@ -168,6 +184,40 @@
   result: MagazineBoxRifleRubber
   materials:
     Plastic: 750
+
+
+# Machine pistol mags, aside from rubber
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacity
+  result: MagazinePistolHighCapacity
+  materials:
+    Steel: 210
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacityPractice
+  result: MagazinePistolHighCapacityPractice
+  materials:
+    Steel: 125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacityIncendiary
+  result: MagazinePistolHighCapacityIncendiary
+  materials:
+    Steel: 25
+    Plastic: 225
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacityUranium
+  result: MagazinePistolHighCapacityUranium
+  materials:
+    Steel: 25
+    Plastic: 200
+    Uranium: 200
 
 # Armour vests
 
@@ -228,6 +278,34 @@
     Steel: 300
     Glass: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: ClothingBeltBandolier
+  result: ClothingBeltBandolier
+  completetime: 2
+  materials:
+    Steel: 300
+    Cloth: 200
+
+# Masks
+
+- type: latheRecipe #Sec Gas Masks and Breath Masks are craftable.
+  id: ClothingMaskGasSecurityDV
+  result: ClothingMaskGasSecurityDV
+  completetime: 2
+  materials:
+    Steel: 500
+    Cloth: 100
+    Plastic: 250
+
+- type: latheRecipe
+  id: ClothingMaskGasSecurity
+  result: ClothingMaskGasSecurity
+  completetime: 1
+  materials:
+    Steel: 250
+    Cloth: 50
+    Plastic: 125
 
 # Weapons
 
@@ -333,6 +411,7 @@
     Glass: 1200
     Gold: 500
     Silver: 500
+    Uranium: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong

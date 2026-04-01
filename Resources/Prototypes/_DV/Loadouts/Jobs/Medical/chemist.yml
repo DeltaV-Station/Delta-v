@@ -9,11 +9,49 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemShirt
 
+- type: loadout
+  id: SeniorChemistJumpsuit
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 216000
+  equipment:
+    jumpsuit: ClothingUniformChemistSenior
+
+- type: loadout
+  id: SeniorChemistJumpskirt
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 216000
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChemistSenior
+
 # OuterClothing
 - type: loadout
   id: ChemistApron
   equipment:
     outerClothing: ClothingOuterApronChemist
+
+- type: loadout
+  id: SeniorChemistLabCoat
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 216000
+  equipment:
+    outerClothing: ClothingOuterCoatLabSeniorChemist
+
+- type: loadout
+  id: ChemistLongLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabLongChemist
 
 # Gloves
 - type: loadout
@@ -48,3 +86,15 @@
   id: PharmacistPDA
   equipment:
     id: PharmacistPDA
+
+# Head
+- type: loadout
+  id: SeniorChemistBeret
+  effects:
+   - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 216000
+  equipment:
+      head: ClothingHeadHatBeretSeniorChemistry

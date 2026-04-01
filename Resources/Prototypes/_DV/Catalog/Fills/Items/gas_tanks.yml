@@ -73,3 +73,52 @@
         - 0 # tritium
         - 1.025689525 # water vapor
       temperature: 293.15
+
+- type: entity
+  id: OxygenTankERTFilled
+  parent: OxygenTankERT
+  suffix: Filled
+  name: ERT oxygen tank
+  components:
+  - type: GasTank
+    air:
+      volume: 5
+      moles:
+        Oxygen: 2.051379050
+      temperature: 293.15
+  - type: Tag
+    tags:
+    - OxygenTank
+
+- type: entity
+  id: NitrogenTankERTFilled
+  parent: NitrogenTankERT
+  suffix: Filled
+  name: ERT nitrogen tank
+  components:
+  - type: GasTank
+    air:
+      volume: 5
+      moles:
+        Nitrogen: 2.051379050
+      temperature: 293.15
+  - type: Tag
+    tags:
+    - NitrogenTank
+
+- type: entity
+  id: WaterVaporTankERTFilled
+  parent: WaterVaporTankERT
+  suffix: Filled
+  name: ERT water vapor tank
+  components:
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 5
+      moles:
+        WaterVapor: 2.051379050
+      temperature: 293.15
+  - type: Tag
+    tags:
+    - WaterVaporTank

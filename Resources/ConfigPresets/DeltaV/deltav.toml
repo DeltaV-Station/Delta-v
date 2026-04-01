@@ -1,7 +1,7 @@
 [game]
 desc               = "A medium roleplay fork based around the mysterious Noösphere, featuring unique content, custom maps, new species and a revamped science department."
 lobbyenabled       = true
-lobbyduration      = 240
+lobbyduration      = 420
 round_end_pacifist = true
 round_restart_time = 300
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
@@ -82,10 +82,12 @@ voter_ghost_requirement = false
 space_wind = true
 
 [shuttle]
-arrivals = false
+arrivals = true
+arrivals_planet = false
+arrivals_map = "/Maps/_DV/transit_hub.yml"
+arrivals_cooldown = 90 # Need to be longer than cooldown
 cooldown = 60 # 50 longer than the default
-startup_time = 10 # 4.5 seconds longer than the default
-travel_time = 5 # 15 seconds less than the default
+travel_time = 9.5 # 10.5 seconds less than the default
 emergency_dock_time = 240
 emergency_transit_time_min = 30
 auto_call_time = 120 # rounds are longer
@@ -101,3 +103,6 @@ storage_limit = 3
 
 [nf14.respawn]
 time = 600
+
+[chat]
+max_announcement_length = 512

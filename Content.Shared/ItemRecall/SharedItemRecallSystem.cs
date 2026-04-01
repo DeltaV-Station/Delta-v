@@ -109,7 +109,7 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
         if (action.Comp.AttachedEntity is not {} user)
             return false;
 
-        if (_whitelistSystem.IsBlacklistPass(ent.Comp.MarkedEntityBlacklist, item))
+        if (_whitelistSystem.IsWhitelistPass(ent.Comp.MarkedEntityBlacklist, item))
         {
             _popups.PopupClient(Loc.GetString("item-recall-item-steal-target", ("item", item)), user, user);
             return false;

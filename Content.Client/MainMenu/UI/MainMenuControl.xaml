@@ -48,5 +48,18 @@
         <clog:ChangelogButton
             Name="ChangelogButton"
             Access="Public"/>
+        <!-- Begin DeltaV - More info in Escape Menu -->
+        <Button
+            Name="CreditsButton"
+            Access="Public"
+            Text="{Loc server-info-credits-button}"
+            TextAlign="Center" />
+        <Button
+            Name="BuildInfoButton"
+            Access="Public"
+            Text="{Loc build-info-button}"
+            ToolTip="{Loc build-info-tooltip}"
+            TextAlign="Center" />
+        <!-- End DeltaV - More info in Escape Menu -->
     </BoxContainer>
 </Control>

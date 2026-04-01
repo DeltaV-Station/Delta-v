@@ -42,7 +42,7 @@
     #- trigger: # DeltaV - Sadly no KFV :(
     #    !type:DamageTypeTrigger
     #    damageType: Heat
-    #    damage: 1500 
+    #    damage: 1500
     #  behaviors:
     #  - !type:SpawnEntitiesBehavior
     #    spawnInContainer: true
@@ -89,7 +89,10 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: AmmoniaBlood
+    bloodReagents:
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 1
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -197,9 +200,6 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-  - type: FootPrints # DeltaV port from EE, blood splatter
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
   - type: Hands
     leftHandDisplacement:
       sizeMaps:

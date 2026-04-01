@@ -254,6 +254,11 @@
     powerLoad: 500
   - type: ExtensionCableReceiver
   - type: Battery
+    # Very important:
+    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+    # This can not be done by changing the charge rate as the power supply ramps up over time.
+    # This disables prediction for this battery.
+    netsync: false
     maxCharge: 300000
     startingCharge: 300000
   - type: ApcPowerReceiverBattery
@@ -591,6 +596,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+  - type: RandomMetadata # Delta V - Gives syndiborgs cool names!
+    nameSegments: [NamesDeathCommando]
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -630,6 +637,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+  - type: RandomMetadata # Delta V - Gives syndiborgs cool names!
+    nameSegments: [NamesDeathCommando]
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurGhostRole

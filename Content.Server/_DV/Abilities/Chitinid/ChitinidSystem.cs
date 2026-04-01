@@ -11,7 +11,6 @@ namespace Content.Server._DV.Abilities.Chitinid;
 public sealed partial class ChitinidSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ItemCougherSystem _cougher = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;

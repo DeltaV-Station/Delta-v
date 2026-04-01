@@ -1,6 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DV.Cargo.Components;
 using Content.Shared._DV.Cargo.Systems;
+using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Cargo;
@@ -14,12 +16,14 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Station;
 using Content.Shared.Tag;
+using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -39,7 +43,8 @@ public abstract class SharedMailSystem : EntitySystem
     [Dependency] private readonly SharedCargoSystem _cargo = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] protected readonly SharedIdCardSystem IdCard = default!;
+    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] protected readonly SharedStationSystem Station = default!;
     [Dependency] protected readonly TagSystem Tag = default!;
@@ -84,7 +89,7 @@ public abstract class SharedMailSystem : EntitySystem
 
         if (HasComp<PdaComponent>(args.Used)) // Can we find it in a PDA if the user is using that?
         {
-            IdCard.TryGetIdCard(args.Used, out var pdaId);
+            _idCard.TryGetIdCard(args.Used, out var pdaId);
             idCard = pdaId;
         }
 
@@ -382,6 +387,96 @@ public abstract class SharedMailSystem : EntitySystem
             action(station, logisticStats);
         }
     }
+
+    /// <summary>
+    /// Try to match a mail receiver to a mail teleporter.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetMailTeleporterForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailTeleporterComponent? teleporterComponent, [NotNullWhen(true)] out EntityUid? teleporterUid)
+    {
+        var query = EntityQueryEnumerator<MailTeleporterComponent>();
+        var receiverStation = Station.GetOwningStation(receiverUid);
+
+        while (query.MoveNext(out var uid, out var mailTeleporter))
+        {
+            var teleporterStation = Station.GetOwningStation(uid);
+            if (receiverStation != teleporterStation)
+                continue;
+            teleporterComponent = mailTeleporter;
+            teleporterUid = uid;
+            return true;
+        }
+
+        teleporterComponent = null;
+        teleporterUid = null;
+        return false;
+    }
+
+    /// <summary>
+    /// Try to construct a recipient struct for a mail parcel based on a receiver.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetMailRecipientForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailRecipient? recipient)
+    {
+        if (_idCard.TryFindIdCard(receiverUid, out var idCard)
+            && TryComp<AccessComponent>(idCard.Owner, out var access)
+            && idCard.Comp.FullName != null)
+        {
+            var accessTags = access.Tags;
+            var mayReceivePriorityMail = !(_mind.GetMind(receiverUid) == null);
+
+            recipient = new MailRecipient(
+                idCard.Comp.FullName,
+                idCard.Comp.LocalizedJobTitle ?? idCard.Comp.JobTitle ?? "Unknown",
+                idCard.Comp.JobIcon,
+                accessTags,
+                mayReceivePriorityMail);
+
+            return true;
+        }
+
+        recipient = null;
+        return false;
+    }
+
+    /// <summary>
+    /// Sets whether the mail is fragile.
+    /// </summary>
+    [PublicAPI]
+    public void SetFragile(Entity<MailComponent?> ent, bool isFragile)
+    {
+        if (!Resolve(ent, ref ent.Comp) || ent.Comp.IsFragile == isFragile)
+            return;
+
+        ent.Comp.IsFragile = isFragile;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Sets whether the mail is priority mail.
+    /// </summary>
+    [PublicAPI]
+    public void SetPriority(Entity<MailComponent?> ent, bool isPriority)
+    {
+        if (!Resolve(ent, ref ent.Comp) || ent.Comp.IsPriority == isPriority)
+            return;
+
+        ent.Comp.IsPriority = isPriority;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Sets whether the mail is a large package.
+    /// </summary>
+    [PublicAPI]
+    public void SetLarge(Entity<MailComponent?> ent, bool isLarge)
+    {
+        if (!Resolve(ent, ref ent.Comp) || ent.Comp.IsLarge == isLarge)
+            return;
+
+        ent.Comp.IsLarge = isLarge;
+        Dirty(ent);
+    }
 }
 
 /// <summary>
@@ -418,4 +513,18 @@ public struct MailEntityStrings
     public string NameAddressed;
     public string DescClose;
     public string DescFar;
+}
+
+public struct MailRecipient(
+    string name,
+    string job,
+    string jobIcon,
+    HashSet<ProtoId<AccessLevelPrototype>> accessTags,
+    bool mayReceivePriorityMail)
+{
+    public readonly string Name = name;
+    public readonly string Job = job;
+    public readonly string JobIcon = jobIcon;
+    public readonly HashSet<ProtoId<AccessLevelPrototype>> AccessTags = accessTags;
+    public readonly bool MayReceivePriorityMail = mayReceivePriorityMail;
 }

@@ -16,6 +16,7 @@
     - id: MenaceSkeleton
     - id: SkiaSpawn
     - id: RatKingSpawn
+    - id: NTAgentSleeper
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -54,22 +55,22 @@
   - type: VentCrittersRule
     table: !type:GroupSelector
       children:
-      - id: MobXeno
-        weight: 0.55
+      - id: MobXenoPlayer
+        weight: 0.20
       - id: MobXenoRouny
         weight: 0.01
       - id: MobXenoDrone
-        weight: 0.25
+        weight: 0.35
       - id: MobXenoSpitter
-        weight: 0.05
+        weight: 0.14
       - id: MobXenoRunner
-        weight: 0.08
+        weight: 0.14
       - id: MobXenoPraetorian
-        weight: 0.03
+        weight: 0.08
       - id: MobXenoRavager
-        weight: 0.02
+        weight: 0.05
       - id: MobXenoQueen
-        weight: 0.01
+        weight: 0.03
 # Mothroaches
 - type: entity
   parent: BaseGameRule
@@ -130,6 +131,10 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: IntrinsicRadioReceiver
+      - type: ActiveRadio
+        channels:
+        - Binary
       mindRoles:
       - MindRoleListeningPost
 # Malign Rifts
@@ -348,3 +353,73 @@
           sound: /Audio/_DV/Effects/creepyshriek.ogg
         - type: BreakLightsOnSpawn
           radius: 10
+
+# nt agent (this is usually for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: NTAgentRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - NTAgentObjective
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+
+# nt agent sleeper event
+- type: entity
+  id: NTAgentSleeper
+  parent: [NTAgentRule]
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 25
+    weight: 3
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NTAgentObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - prefRoles: [ NTAgent ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      pickPlayer: true
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant

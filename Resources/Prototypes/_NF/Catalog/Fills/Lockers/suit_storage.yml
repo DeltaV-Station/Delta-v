@@ -4,8 +4,10 @@
   parent: SuitStorageBase
   suffix: Pilot
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: OxygenTankFilled # DeltaV - Changed Air Tank to O2 Tank
         - id: ClothingOuterHardsuitPilot
         - id: ClothingMaskBreath

@@ -1,54 +1,132 @@
-- type: trait
-  id: Addicted
-  name: trait-addicted-name
-  description: trait-addicted-desc
-  category: Disabilities
-  components:
-  - type: Addicted
+## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
 
 - type: trait
-  id: InPain
-  name: trait-inpain-name
-  description: trait-inpain-desc
-  traitGear: PillCanisterSoretizone
+  id: Blindness
+  name: trait-blindness-name
+  description: trait-blindness-desc
   category: Disabilities
-  components:
-  - type: Pain
+  conditions:
+  - !type:HasCompCondition
+    component: Blindable
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: PermanentBlindness
+  - !type:SpawnItemInHandEffect
+    item: WhiteCane
 
 - type: trait
-  id: Unborgable
-  name: trait-unborgable-name
-  description: trait-unborgable-desc
+  id: PoorVision
+  name: trait-poor-vision-name
+  description: trait-poor-vision-desc
   category: Disabilities
-  components:
-  - type: Unborgable # Automatically gets moved to the brain
+  conditions:
+  - !type:HasCompCondition
+    component: Blindable
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: PermanentBlindness
+      blindness: 4
+  - !type:SpawnItemInHandEffect
+    item: ClothingEyesGlasses
 
 - type: trait
-  id: Depression
-  name: trait-depression-name
-  description: trait-depression-desc
-  traitGear: PillCanisterNeurozenium
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
   category: Disabilities
-  components: []
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: BlackAndWhiteOverlay
+
+- type: trait
+  id: Deuteranopia
+  name: trait-deuteranopia-name
+  description: trait-deuteranopia-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: DogVision
+
+- type: trait
+  id: UltraVision
+  name: trait-ultravision-name
+  description: trait-ultravision-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: UltraVision
+
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ImpairedMobility
+  - !type:SpawnItemInHandEffect
+    item: OffsetCane
+
+- type: trait
+  id: ArmAmputeeLeft
+  name: trait-amputee-left-arm-name
+  description: trait-amputee-left-arm-desc
+  category: Disabilities
+  conflicts:
+  - ArmAmputeeRight # TODO: AmputeeComponent doesn't stack, should be an effect instead
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Amputee
+      removeBodyPart: Arm
+      partSymmetry: Left
+
+- type: trait
+  id: ArmAmputeeRight
+  name: trait-amputee-right-arm-name
+  description: trait-amputee-right-arm-desc
+  category: Disabilities
+  conflicts:
+  - ArmAmputeeLeft
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Amputee
+      removeBodyPart: Arm
+      partSymmetry: Right
 
 - type: trait
   id: Dysgraphia
   name: trait-dysgraphia-name
   description: trait-dysgraphia-desc
   category: Disabilities
-  components:
-  - type: BlockWriting
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: BlockWriting
 
 - type: trait
-  id: Redshirt
-  name: trait-redshirt-name
-  description: trait-redshirt-desc
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
   category: Disabilities
-  components:
-  - type: Redshirt
-  overriddenComponents:
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      99.9: Critical
-      100: Dead
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: PainNumbness
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Hemophilia

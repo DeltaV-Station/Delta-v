@@ -50,6 +50,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
       storagebase: !type:Container
         ents: []
 
@@ -256,20 +257,20 @@
   name: chief medical officer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CMO-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CMO-inhand-left
-      right:
-      - state: CMO-inhand-right
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cmo.rsi # DeltaV - Recolor to match department color
+#    layers:
+#    - state: CMO-icon
+#  - type: Item
+#    inhandVisuals:
+#      left:
+#      - state: CMO-inhand-left
+#      right:
+#      - state: CMO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CMO-equipped-OUTERCLOTHING
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/cmo.rsi # DeltaV - Recolor to match department color
+#    clothingVisuals:
+#      outerClothing:
+#      - state: CMO-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -472,20 +473,20 @@
   name: medical winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: MED-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: MED-inhand-left
-      right:
-      - state: MED-inhand-right
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # DeltaV - Recolor to match department color
+#    layers:
+#    - state: MED-icon
+#  - type: Item
+#    inhandVisuals:
+#      left:
+#      - state: MED-inhand-left
+#      right:
+#      - state: MED-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: MED-equipped-OUTERCLOTHING
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # DeltaV - Recolor to match department color
+#    clothingVisuals:
+#      outerClothing:
+#      - state: MED-equipped-OUTERCLOTHING 
   - type: Armor
     modifiers:
       coefficients:
@@ -702,7 +703,7 @@
       - state: SEC-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
-  - type: Armor # DeltaV - adds resists to coat
+  - type: Armor # DeltaV - adds resists to coat. Make sure to update ClothingLongcoatSecurity if these values change.
     modifiers:
       coefficients:
         Blunt: 0.85

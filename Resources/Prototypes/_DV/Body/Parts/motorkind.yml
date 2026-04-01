@@ -1,0 +1,74 @@
+- type: entity
+  id: PartMotorkind
+  parent: BasePart
+  name: "motorkind body part"
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+  - type: Icon
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+  - type: BodyPart
+    species: Motorkind
+
+- type: entity
+  id: TorsoMotorkind
+  name: "motorkind torso"
+  parent: [PartMotorkind, BaseTorso]
+
+- type: entity
+  id: LeftArmMotorkind
+  name: "motorkind front-left wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+  parent: [PartMotorkind, BaseLeftArm]
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: Icon
+    state: l_arm
+
+- type: entity
+  id: RightArmMotorkind
+  name: "motorkind front-right wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+  parent: [PartMotorkind, BaseRightArm]
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: Icon
+    state: r_arm
+
+- type: entity
+  id: LeftLegMotorkind
+  name: "motorkind back-left wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+  parent: [PartMotorkind, BaseLeftLeg]
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 5
+    sprintSpeed: 10
+    acceleration: 1
+  - type: Sprite
+    state: l_leg
+  - type: Icon
+    state: l_leg
+
+- type: entity
+  id: RightLegMotorkind
+  name: "motorkind back-right wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+  parent: [PartMotorkind, BaseRightLeg]
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 5
+    sprintSpeed: 10
+    acceleration: 1
+  - type: Sprite
+    state: r_leg
+  - type: Icon
+    state: r_leg
+
+- type: entity
+  id: HeadMotorkind
+  name: "motorkind head"
+  parent: [PartMotorkind, BaseHead]

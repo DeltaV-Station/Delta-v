@@ -156,7 +156,10 @@
       bounds: -0.5,-0.5,0.5,0.5
     #- type: Bloodstream
     #  damageBleedModifiers: BloodlossIPC
-    #  bloodReagent: Oil
+    #  bloodReagents:
+    #    reagents:
+    #    - ReagentId: Oil
+    #      Quantity: 1
     #  bleedReductionAmount: 0
     #  bloodMaxVolume: 100
     #  chemicalMaxVolume: 0
@@ -197,6 +200,7 @@
         - FootstepSound
         - DoorBumpOpener
         - SiliconOrIPCEmotes # DeltaV
+        - Honker # DeltaV - Honk seperate from Silicon emotes
     - type: Hands
     - type: Inventory
       templateId: human
@@ -313,7 +317,6 @@
       priority: 1
       lightningExplode: false
     - type: ComplexInteraction
-    - type: FootPrints
     - type: Carriable
     - type: Targeting
     - type: SurgeryTarget

@@ -9,8 +9,6 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 
 public sealed class ArtifactMetapsionicTriggerSystem : BaseXATSystem<ArtifactMetapsionicTriggerComponent>
 {
-    [Dependency] private readonly XenoArtifactSystem _artifact = default!;
-
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
 
     public override void Initialize()

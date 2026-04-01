@@ -1,0 +1,45 @@
+# Everyone
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingLongcoatArashiLabs
+  name: arashi labs longcoat
+  description: A double-breasted longcoat sporting the colors of a company called Arashi Laboratories, a biotech corporation claiming to hail from the long rim, wherever that is. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/arashi-laboratories.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/arashi-laboratories.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingLongcoatNanoTrasen
+  name: nanotrasen longcoat
+  description: A double-breasted longcoat sporting the the colors of NanoTrasen, the general-purpose spacefaring corporation that you (hopefully) work for! Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/nanotrasen.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/nanotrasen.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingLongcoatBlack
+  name: black longcoat
+  description: A matte black double-breasted longcoat with gold-tinted brass buttons. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/black.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/black.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingLongcoatBrown
+  name: brown longcoat
+  description: A matte brown double-breasted longcoat with stylish onyx buttons. Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/brown.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Longcoats/brown.rsi

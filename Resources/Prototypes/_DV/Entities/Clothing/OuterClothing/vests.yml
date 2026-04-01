@@ -59,14 +59,14 @@
     sprite: _DV/Clothing/OuterClothing/Vests/advcarrier.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Vests/advcarrier.rsi
-  - type: Armor # intended as Head of Security's and Warden's armour only, hence high values; resists at 40% flat with 60% pierce and 30% shock.
+  - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
+        Blunt: 0.7
+        Slash: 0.7
         Piercing: 0.4
-        Shock: 0.7
-        Heat: 0.6
+        Shock: 0.8
+        Heat: 0.7
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: ClothingSpeedModifier

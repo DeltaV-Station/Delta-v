@@ -77,6 +77,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeader
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   name: ERT leader
   suffix: ERTRole, Basic
   components:
@@ -113,6 +114,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT leader
   suffix: ERTRole, Armored EVA
@@ -140,6 +142,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVALecter
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeaderEVA
   suffix: ERTRole, Lecter, EVA
   components:
@@ -165,6 +168,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplain
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT chaplain
   suffix: ERTRole, Basic
@@ -203,6 +207,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTChaplain
   name: ERT chaplain
   suffix: ERTRole, Enviro EVA
@@ -233,6 +238,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitor
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT janitor
   suffix: ERTRole, Basic
@@ -270,6 +276,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTJanitor
   name: ERT janitor
   suffix: ERTRole, Enviro EVA
@@ -299,6 +306,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineer
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT engineer
   suffix: ERTRole, Basic
@@ -336,6 +344,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTEngineer
   name: ERT engineer
   suffix: ERTRole, Enviro EVA
@@ -365,6 +374,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurity
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT security
   suffix: ERTRole, Basic
@@ -402,6 +412,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTSecurity
   name: ERT security
   suffix: ERTRole, Armored EVA
@@ -429,6 +440,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVALecter
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTSecurityEVA
   suffix: ERTRole, Lecter, EVA
   components:
@@ -454,6 +466,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedical
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT medic
   suffix: ERTRole, Basic
@@ -491,6 +504,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: RandomHumanoidSpawnerERTMedical
   name: ERT medic
   suffix: ERTRole, Armored EVA

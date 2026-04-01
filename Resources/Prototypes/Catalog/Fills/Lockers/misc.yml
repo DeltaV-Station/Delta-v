@@ -217,8 +217,8 @@
     - id: Wrench
     - id: Wirecutter
     - id: Welder
-    - id: ClothingMaskGas
-    - id: PowerCellSmall
+    - id: ClothingMaskWeldingGas # DeltaV
+    - id: PowerCellMedium # DeltaV - was PowerCellSmall
     - id: RadioHandheld
     - id: Syringe
     - id: CableApcStack
@@ -232,9 +232,12 @@
     - id: DrinkSpaceLube
     - id: WelderIndustrial
     - id: ClothingHeadHatWeldingMaskFlame
-    - id: PowerCellMedium
+    - id: PowerCellHigh # DeltaV - was PowerCellMedium
     - id: DoubleEmergencyOxygenTankFilled
     - id: DoubleEmergencyNitrogenTankFilled
+    - id: ClothingEyesGlassesSunglasses # DeltaV
+    - id: voicesensor # DeltaV
+    - id: CrayonMagic # DeltaV
 
 - type: entityTable
   id: ToiletCisternUtilityTable
@@ -244,6 +247,7 @@
     - id: Ointment
     - id: Gauze
     - id: ChemistryBottleUnstableMutagen
+    - id: PillCanisterRandom # DeltaV
 
 - type: entityTable
   id: ToiletCisternWeaponsTable
@@ -255,7 +259,7 @@
     - id: SawImprov
     - id: HydroponicsToolHatchet
     - id: ClothingHandsKnuckleDusters
-    - id: WeaponFlareGun
+    #- id: WeaponFlareGun # DeltaV - too common
 
 - type: entityTable
   id: ToiletCisternSyndicateTable
@@ -266,6 +270,7 @@
     - id: SoapSyndie
     - id: SyndicatePersonalAI
     - id: UplinkLighterBox
+    - id: ClothingHandsGlovesConducting # DeltaV - fake insuls hehe
 
 - type: entityTable
   id: ToiletCisternLoot

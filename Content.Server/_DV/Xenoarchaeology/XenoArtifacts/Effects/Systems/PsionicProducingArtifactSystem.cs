@@ -4,6 +4,7 @@ using Content.Server.Psionics;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 
+namespace Content.Server._DV.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 public sealed class PsionicProducingArtifactSystem : EntitySystem
 {
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
@@ -31,8 +32,6 @@ public sealed class PsionicProducingArtifactSystem : EntitySystem
 
         // Pick first active node
         var node = _artifact.GetActiveNodes(artifactEntity).FirstOrDefault();
-        if (node == null)
-            return;
 
         // Track psionic usage using ConsumedResearchValue
         var currentAmount = _artifact.GetResearchValue(node);

@@ -266,6 +266,9 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorEngineer
+  - type: IdCard # DeltaV
+    jobTitle: job-name-senior-engineer
+    jobIcon: JobIconSeniorEngineer
 
 #Medical
 
@@ -374,6 +377,9 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorPhysician
+  - type: IdCard # DeltaV
+    jobTitle: job-name-senior-physician
+    jobIcon: JobIconSeniorPhysician
 
 #Science
 
@@ -428,6 +434,9 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorResearcher
+  - type: IdCard # DeltaV
+    jobTitle: job-name-senior-researcher
+    jobIcon: JobIconSeniorResearcher
 
 #Security
 
@@ -534,6 +543,9 @@
     - sprite: *icon-rsi-dv # DeltaV - Sec Icon Resprite
       offset: *icon-offset
       state: SeniorOfficer
+  - type: IdCard # DeltaV
+    jobTitle: job-name-senior-officer
+    jobIcon: JobIconSeniorOfficer
 
 #Service
 
@@ -926,23 +938,14 @@
 #Antags
 
 - type: entity
-  name: passenger ID card
-  parent: [IDCardStandard, BaseChameleon]
+  parent: [PassengerIDCard, BaseChameleon]
   id: AgentIDCard
   suffix: Agent
   components:
-  - type: PresetIdCard
-    job: Passenger
   - type: Access
     tags:
     - Maintenance
     - SyndicateAgent
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: *icon-rsi
-      offset: *icon-offset
-      state: Passenger
   - type: AgentIDCard
   - type: UIRequiresLock
   - type: ActivatableUI
@@ -965,7 +968,6 @@
     listNumber: false
 
 - type: entity
-  name: passenger ID card
   parent: AgentIDCard
   id: NukieAgentIDCard
   suffix: Nukie

@@ -4,9 +4,10 @@
   id: BoxEncryptionKeyPrisoner
   description: A box of spare encryption keys.
   components:
-  - type: StorageFill
-    contents:
-      - id: EncryptionKeyPrison
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: EncryptionKeyPrison
         amount: 4
   - type: Sprite
     layers:
@@ -23,10 +24,11 @@
   name: traffic encryption key box
   description: A box of spare encryption keys.
   components:
-  - type: StorageFill
-    contents:
-    - id: EncryptionKeyTraffic
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: EncryptionKeyTraffic
+        amount: 4
 
 - type: entity
   name: justice encryption key box
@@ -34,9 +36,10 @@
   id: BoxEncryptionKeyJustice
   description: A box of spare encryption keys.
   components:
-  - type: StorageFill
-    contents:
-      - id: EncryptionKeyJustice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: EncryptionKeyJustice
         amount: 4
 
 - type: entity
@@ -49,10 +52,11 @@
     layers:
     - state: box_of_doom
     - state: implant
-  - type: StorageFill
-    contents:
-    - id: RadioImplanterSyndicate
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: RadioImplanterSyndicate
+        amount: 2
 
 - type: entity
   name: syndicate hostage implanter box
@@ -71,10 +75,11 @@
     whitelist:
       components:
       - Implanter
-  - type: StorageFill
-    contents:
-    - id: HostageImplanter
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: HostageImplanter
+        amount: 6
 
 - type: entity
   name: syndicate handcuff box
@@ -93,10 +98,11 @@
     whitelist:
       components:
       - Handcuff
-  - type: StorageFill
-    contents:
-    - id: Handcuffs
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Handcuffs
+        amount: 10
 
 - type: entity
   parent: BoxCardboard
@@ -112,10 +118,12 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-    - id: Stunbaton
-    - id: WeaponDisabler
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Stunbaton
+        - id: WeaponDisabler
 
 - type: entity
   parent: BoxCardboard
@@ -130,12 +138,14 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-    - id: ToyFigurineNukie
-    - id: ToyFigurineNukieElite
-    - id: ToyFigurineNukieCommander
-    - id: ToyFigurineFootsoldier
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ToyFigurineNukie
+        - id: ToyFigurineNukieElite
+        - id: ToyFigurineNukieCommander
+        - id: ToyFigurineFootsoldier
   description: A box of a full set of syndicate figurines!
 
 - type: entity
@@ -148,36 +158,29 @@
     - state: writing_of_doom
   - type: Storage
     maxItemSize: Normal
-  - type: StorageFill
-    contents:
-    #Main
-    - id: FoodBoxDonkpocketHonk
-      orGroup: RandomDonk
-      prob: 0.15
-    - id: FoodBoxDonkpocketBerry
-      orGroup: RandomDonk
-      prob: 0.1
-    - id: FoodBoxDonkpocketCarp
-      orGroup: RandomDonk
-      prob: 0.05
-    - id: FoodBoxDonkpocketDink
-      orGroup: RandomDonk
-      prob: 0.1
-    - id: FoodBoxDonkpocket
-      orGroup: RandomDonk
-      prob: 0.2
-    - id: FoodBoxDonkpocketStonk
-      orGroup: RandomDonk
-      prob: 0.05
-    - id: FoodBoxDonkpocketPizza
-      orGroup: RandomDonk
-      prob: 0.15
-    - id: FoodBoxDonkpocketSpicy
-      orGroup: RandomDonk
-      prob: 0.1
-    - id: FoodBoxDonkpocketTeriyaki
-      orGroup: RandomDonk
-      prob: 0.1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        #Main
+        - id: FoodBoxDonkpocketHonk
+          weight: 0.15
+        - id: FoodBoxDonkpocketBerry
+          weight: 0.1
+        - id: FoodBoxDonkpocketCarp
+          weight: 0.05
+        - id: FoodBoxDonkpocketDink
+          weight: 0.1
+        - id: FoodBoxDonkpocket
+          weight: 0.2
+        - id: FoodBoxDonkpocketStonk
+          weight: 0.05
+        - id: FoodBoxDonkpocketPizza
+          weight: 0.15
+        - id: FoodBoxDonkpocketSpicy
+          weight: 0.1
+        - id: FoodBoxDonkpocketTeriyaki
+          weight: 0.1
 
 - type: entity
   parent: BoxCardboard
@@ -189,12 +192,13 @@
     layers:
     - state: box_of_doom
     - state: writing_of_doom
-  - type: StorageFill
-    contents:
-    - id: ChemistryBottleFirebugsFriend
-      amount: 8
-    - id: SyndicateFlippoDV
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ChemistryBottleFirebugsFriend
+          amount: 8
+        - id: SyndicateFlippoDV
 
 - type: entity
   parent: BoxCardboard
@@ -206,9 +210,11 @@
     layers:
     - state: box_of_doom
     - state: writing_of_doom
-  - type: StorageFill
-    contents:
-    - id: C4
-    - id: Multitool
-    - id: RemoteSignallerAdvanced
-    - id: ReinforcementRadioSyndicateYarn
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: C4
+        - id: Multitool
+        - id: RemoteSignallerAdvanced
+        - id: ReinforcementRadioSyndicateYarn

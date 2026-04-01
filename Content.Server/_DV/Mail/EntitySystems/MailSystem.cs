@@ -6,13 +6,11 @@ using Content.Server._DV.Mail.Components;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Server.Destructible;
-using Content.Server.Mind;
 using Content.Server.Power.Components;
 using Content.Server.Radio.EntitySystems; // ImpStation - for radio notifications of new mail
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
-using Content.Shared.Access;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
@@ -34,6 +32,7 @@ using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Power.EntitySystems;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Shared.Destructible;
+using JetBrains.Annotations;
 
 namespace Content.Server._DV.Mail.EntitySystems;
 
@@ -45,7 +44,6 @@ public sealed class MailSystem : SharedMailSystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -238,6 +236,8 @@ public sealed class MailSystem : SharedMailSystem
     /// <remarks>
     /// This is separate mostly so the unit tests can get to it.
     /// </remarks>
+    /// TODO: Move to shared when IsEntityFragile can be made network-safe
+    [PublicAPI]
     public void SetupMail(EntityUid uid, MailTeleporterComponent component, MailRecipient recipient)
     {
         var mailComp = EnsureComp<MailComponent>(uid);
@@ -267,14 +267,12 @@ public sealed class MailSystem : SharedMailSystem
         mailComp.RecipientJob = recipient.Job;
         mailComp.Recipient = recipient.Name;
 
-        // Frontier: Large mail bonus
         var mailEntityStrings = mailComp.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
         if (mailComp.IsLarge)
         {
             mailComp.Bounty += component.LargeBonus;
             mailComp.Penalty += component.LargeMalus;
         }
-        // End Frontier
 
         if (mailComp.IsFragile)
         {
@@ -296,7 +294,6 @@ public sealed class MailSystem : SharedMailSystem
             Timer.Spawn((int)component.PriorityDuration.TotalMilliseconds,
                 () =>
                 {
-                    // DeltaV - Expired mail recorded to logistic stats
                     ExecuteForEachLogisticsStats(uid,
                         (station, logisticStats) =>
                         {
@@ -313,7 +310,7 @@ public sealed class MailSystem : SharedMailSystem
         Appearance.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
         _meta.SetEntityName(uid,
-            Loc.GetString(mailEntityStrings.NameAddressed, // Frontier: move constant to MailEntityString
+            Loc.GetString(mailEntityStrings.NameAddressed,
                 ("recipient", recipient.Name)));
 
         var accessReader = EnsureComp<AccessReaderComponent>(uid);
@@ -349,55 +346,6 @@ public sealed class MailSystem : SharedMailSystem
     private uint GetUndeliveredParcelCount(EntityUid uid)
     {
         return (uint)GetUndeliveredParcels(uid).Count;
-    }
-
-    /// <summary>
-    /// Try to match a mail receiver to a mail teleporter.
-    /// </summary>
-    public bool TryGetMailTeleporterForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailTeleporterComponent? teleporterComponent, [NotNullWhen(true)] out EntityUid? teleporterUid)
-    {
-        var query = EntityQueryEnumerator<MailTeleporterComponent>();
-        var receiverStation = Station.GetOwningStation(receiverUid);
-
-        while (query.MoveNext(out var uid, out var mailTeleporter))
-        {
-            var teleporterStation = Station.GetOwningStation(uid);
-            if (receiverStation != teleporterStation)
-                continue;
-            teleporterComponent = mailTeleporter;
-            teleporterUid = uid;
-            return true;
-        }
-
-        teleporterComponent = null;
-        teleporterUid = null;
-        return false;
-    }
-
-    /// <summary>
-    /// Try to construct a recipient struct for a mail parcel based on a receiver.
-    /// </summary>
-    public bool TryGetMailRecipientForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailRecipient? recipient)
-    {
-        if (IdCard.TryFindIdCard(receiverUid, out var idCard)
-            && TryComp<AccessComponent>(idCard.Owner, out var access)
-            && idCard.Comp.FullName != null)
-        {
-            var accessTags = access.Tags;
-            var mayReceivePriorityMail = !(_mind.GetMind(receiverUid) == null);
-
-            recipient = new MailRecipient(
-                idCard.Comp.FullName,
-                idCard.Comp.LocalizedJobTitle ?? idCard.Comp.JobTitle ?? "Unknown",
-                idCard.Comp.JobIcon,
-                accessTags,
-                mayReceivePriorityMail);
-
-            return true;
-        }
-
-        recipient = null;
-        return false;
     }
 
     /// <summary>
@@ -444,7 +392,7 @@ public sealed class MailSystem : SharedMailSystem
             return;
         }
 
-        if (!_prototype.TryIndex<MailDeliveryPoolPrototype>(ent.Comp.MailPool, out var pool))
+        if (!_prototype.TryIndex(ent.Comp.MailPool, out var pool))
         {
             Log.Error($"Can't index {ToPrettyString(ent)}'s MailPool {ent.Comp.MailPool}!");
             return;
@@ -498,7 +446,7 @@ public sealed class MailSystem : SharedMailSystem
             var mail = EntityManager.SpawnEntity(chosenParcel, coordinates);
             SetupMail(mail, ent.Comp, candidate);
 
-            Tag.AddTag(mail, MailTag); // Frontier
+            Tag.AddTag(mail, MailTag);
         }
 
         if (_container.TryGetContainer(ent, "queued", out var queued))
@@ -518,18 +466,29 @@ public sealed class MailSystem : SharedMailSystem
         var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
         _radio.SendRadioMessage(source, message, channel, source);
     }
-}
 
-public struct MailRecipient(
-    string name,
-    string job,
-    string jobIcon,
-    HashSet<ProtoId<AccessLevelPrototype>> accessTags,
-    bool mayReceivePriorityMail)
-{
-    public readonly string Name = name;
-    public readonly string Job = job;
-    public readonly string JobIcon = jobIcon;
-    public readonly HashSet<ProtoId<AccessLevelPrototype>> AccessTags = accessTags;
-    public readonly bool MayReceivePriorityMail = mayReceivePriorityMail;
+    /// <summary>
+    /// Sets the next delivery time for the mail teleporter.
+    /// </summary>
+    [PublicAPI]
+    public void SetNextDeliveryTime(Entity<MailTeleporterComponent?> ent, TimeSpan nextDeliveryTime)
+    {
+        if (!Resolve(ent, ref ent.Comp) || ent.Comp.NextDelivery == nextDeliveryTime)
+            return;
+
+        ent.Comp.NextDelivery = nextDeliveryTime;
+    }
+
+    /// <summary>
+    /// Triggers an immediate mail delivery for the teleporter, bypassing the normal timer.
+    /// </summary>
+    [PublicAPI]
+    public void DeliverNow(Entity<MailTeleporterComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        SpawnMail(ent);
+        ent.Comp.NextDelivery = Timing.CurTime + ent.Comp.TeleportInterval;
+    }
 }

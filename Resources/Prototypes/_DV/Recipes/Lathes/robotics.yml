@@ -19,6 +19,16 @@
   result: BorgModuleSecurityBastion
 
 - type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityDetective
+  result: BorgModuleSecurityDetective
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+
+- type: latheRecipe
   parent: BaseRoboticsRecipe
   id: IdChipBorgAA
   result: IdChipBorgAA

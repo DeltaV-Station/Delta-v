@@ -4,17 +4,20 @@
   suffix: Filled, Captain
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHatCaptain
-      - id: ClothingHeadHatCapcap
-      - id: ClothingNeckCloakCap
-      - id: ClothingNeckCloakCapFormal
-      - id: ClothingUniformJumpsuitCapFormal
-      - id: ClothingUniformJumpskirtCapFormalDress
-      - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
-      - id: ClothingNeckMantleCap
-      - id: ClothingOuterWinterCap
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatCaptain
+        - id: ClothingHeadHatCapcap
+        - id: ClothingUniformJumpsuitCapFormal
+        - id: ClothingUniformJumpskirtCapFormalDress
+        - id: ClothingHandsGlovesCaptain
+        - id: ClothingOuterWinterCap
+        - id: ClothingNeckCloakCap
+        - id: ClothingNeckCloakCapFormal # DeltaV
+        - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
+        - id: ClothingNeckMantleCap # DeltaV
 
 - type: entity
   id: DresserChiefEngineerFilled
@@ -22,14 +25,16 @@
   suffix: Filled, Chief Engineer
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingNeckMantleCE
-      - id: ClothingUniformJumpsuitChiefEngineerTurtle
-      - id: ClothingUniformJumpskirtChiefEngineerTurtle
-      - id: ClothingNeckCloakCe
-      - id: ClothingHeadHatBeretEngineering
-      - id: ClothingOuterWinterCE
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitChiefEngineerTurtle
+        - id: ClothingUniformJumpskirtChiefEngineerTurtle
+        - id: ClothingHeadHatBeretEngineering
+        - id: ClothingOuterWinterCE
+        - id: ClothingNeckCloakCe
+        - id: ClothingNeckMantleCE # DeltaV
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled
@@ -37,17 +42,19 @@
   suffix: Filled, Chief Medical Officer
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingNeckMantleCMO
-      - id: ClothingCloakCmo
-      - id: ClothingOuterCoatLabCmo
-      - id: ClothingUniformJumpsuitCMOTurtle
-      - id: ClothingUniformJumpskirtCMOTurtle
-      - id: ClothingHeadHatBeretCmo
-      - id: ClothingHeadMirror
-      - id: ClothingEyesGlasses
-      - id: ClothingOuterWinterCMO
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterCoatLabCmo
+        - id: ClothingUniformJumpsuitCMOTurtle
+        - id: ClothingUniformJumpskirtCMOTurtle
+        - id: ClothingHeadHatBeretCmo
+        - id: ClothingHeadMirror
+        - id: ClothingEyesGlasses
+        - id: ClothingOuterWinterCMO
+        - id: ClothingCloakCmo
+        - id: ClothingNeckMantleCMO # DeltaV
 
 - type: entity
   id: DresserHeadOfPersonnelFilled
@@ -55,14 +62,16 @@
   suffix: Filled, Head Of Personnel
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingNeckMantleHOP
-      - id: ClothingNeckCloakHop
-      - id: ClothingHeadHatHopcap
-      - id: ClothingHeadHatBeretHop
-      - id: ClothingOuterWinterHoP
-      - id: ClothingEyesGlasses
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatHopcap
+        - id: ClothingOuterWinterHoP
+        - id: ClothingEyesGlasses
+        - id: ClothingNeckCloakHop
+        - id: ClothingNeckMantleHOP # DeltaV
+        - id: ClothingHeadHatBeretHop # DeltaV
 
 - type: entity
   id: DresserHeadOfSecurityFilled
@@ -70,19 +79,21 @@
   suffix: Filled, Head Of Security
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingNeckMantleHOS
-      - id: ClothingHeadHatBeretHoS
-      - id: ClothingHeadHatHoshat
-      - id: ClothingNeckCloakHos
-#      - id: ClothingUniformJumpskirtHoSAlt # DeltaV - removed for incongruence
-#      - id: ClothingUniformJumpsuitHoSAlt # DeltaV - removed for incongruence
-      - id: ClothingUniformJumpskirtHosFormal
-      - id: ClothingUniformJumpsuitHosFormal
-#      - id: ClothingOuterWinterHoS # DeltaV - removed for incongruence
-      - id: ClothingOuterCoatStasecHoS # DeltaV - add winter coat
-      - id: ClothingShoesBootsWinterHeadOfSecurity # DeltaV - add HoS winter boots
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatBeretHoS
+        - id: ClothingHeadHatHoshat
+        - id: ClothingMaskNeckGaiter
+#        - id: ClothingUniformJumpskirtHoSAlt # DeltaV - removed for incongruence
+#        - id: ClothingUniformJumpsuitHoSAlt # DeltaV - removed for incongruence
+        - id: ClothingUniformJumpskirtHosFormal
+        - id: ClothingUniformJumpsuitHosFormal
+#        - id: ClothingOuterWinterHoS # DeltaV - removed for incongruence
+        - id: ClothingNeckCloakHos
+        - id: ClothingOuterCoatStasecHoS # DeltaV - add winter coat
+        - id: ClothingShoesBootsWinterHeadOfSecurity # DeltaV - add HoS winter boots
 
 - type: entity
   id: DresserQuarterMasterFilled
@@ -90,17 +101,18 @@
   suffix: Filled, Quarter Master
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingNeckCloakQm
-      - id: ClothingHeadHatBeretQM
-      - id: ClothingUniformJumpsuitQMFormal
-      - id: ClothingUniformJumpskirtQMFormal # DeltaV - Formal dresses
-      - id: ClothingUniformJumpsuitQMTurtleneck
-      - id: ClothingUniformJumpskirtQMTurtleneck
-      - id: ClothingHandsGlovesColorBrown
-      - id: ClothingNeckMantleQM
-      - id: ClothingOuterWinterQM
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatBeretQM
+        - id: ClothingUniformJumpsuitQMFormal
+        - id: ClothingUniformJumpskirtQMFormal # DeltaV - Formal dresses
+        - id: ClothingUniformJumpsuitQMTurtleneck
+        - id: ClothingUniformJumpskirtQMTurtleneck
+        - id: ClothingHandsGlovesColorBrown
+        - id: ClothingOuterWinterQM
+        - id: ClothingNeckCloakQm
 
 - type: entity
   id: DresserResearchDirectorFilled
@@ -108,15 +120,17 @@
   suffix: Filled, Research Director
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingNeckMantleRD
-      - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Delta variant
-      - id: ClothingHeadHatBeretRND
-      - id: ClothingHandsGlovesColorPurple
-      - id: ClothingEyesGlasses
-      - id: ClothingOuterWinterRD
-      - id: ClothingOuterCoatRD
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingNeckMantleRD
+        - id: ClothingHeadHatBeretRND
+        - id: ClothingHandsGlovesColorPurple
+        - id: ClothingEyesGlasses
+        - id: ClothingOuterWinterRD
+        - id: ClothingOuterCoatRD
+        - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Delta variant
 
 - type: entity
   id: DresserWardenFilled
@@ -124,11 +138,13 @@
   suffix: Filled, Warden
   categories: [ HideSpawnMenu ] # DeltaV - Replaced with bigger dresser in Resources/Prototypes/_DV/Catalog/Fills/Lockers/dressers.yml
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHatWarden
-      - id: ClothingHeadHatBeretWarden
-      - id: ClothingUniformJumpskirtWarden
-      - id: ClothingUniformJumpsuitWarden
-      - id: ClothingOuterCoatStasecWarden # DeltaV - add winter coat
-      - id: ClothingShoesBootsWinterSec # DeltaV - add winter boots
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatWarden
+        - id: ClothingHeadHatBeretWarden
+        - id: ClothingUniformJumpskirtWarden
+        - id: ClothingUniformJumpsuitWarden
+        - id: ClothingOuterCoatStasecWarden # DeltaV - add winter coat
+        - id: ClothingShoesBootsWinterSec # DeltaV - add winter boots

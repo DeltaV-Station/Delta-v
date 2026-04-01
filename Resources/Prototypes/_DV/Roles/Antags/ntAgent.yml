@@ -1,0 +1,9 @@
+- type: antag
+  id: NTAgent
+  name: NTAgent-round-end-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-NT-agent-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 24h
