@@ -70,7 +70,7 @@ public sealed class TraitSystem : EntitySystem
             sortedPrototypes.Add(trait);
         }
 
-        sortedPrototypes = sortedPrototypes.OrderBy(a => a.Cost).ToList(); //Floof - get all traits from negative cost to positive cost // DeltaV - ...without priority
+        sortedPrototypes = sortedPrototypes.OrderBy(a => -a.Priority).ThenBy(a => a.Cost).ToList(); //Floof - get all traits from negative cost to positive cost
         foreach (var trait in sortedPrototypes)
             ApplyTrait(args.Mob, trait);
         // Floofstation edit end
