@@ -10,6 +10,7 @@ namespace Content.Client._Goobstation.Silicon.AiEarlyLeave;
 public sealed class StationAiEarlyLeaveEui : BaseEui
 {
     private readonly StationAiEarlyLeaveMenu _menu;
+    private bool _sentResponse;
 
     public StationAiEarlyLeaveEui()
     {
@@ -17,15 +18,24 @@ public sealed class StationAiEarlyLeaveEui : BaseEui
 
         _menu.DenyButton.OnPressed += _ =>
         {
-            SendMessage(new StationAiEarlyLeaveMessage(false));
+            SendResponse(false);
             _menu.Close();
         };
 
         _menu.ConfirmButton.OnPressed += _ =>
         {
-            SendMessage(new StationAiEarlyLeaveMessage(true));
+            SendResponse(true);
             _menu.Close();
         };
+    }
+
+    private void SendResponse(bool confirmed)
+    {
+        if (_sentResponse)
+            return;
+
+        _sentResponse = true;
+        SendMessage(new StationAiEarlyLeaveMessage(confirmed));
     }
 
     public override void Opened()
@@ -38,7 +48,7 @@ public sealed class StationAiEarlyLeaveEui : BaseEui
     {
         base.Closed();
 
-        SendMessage(new StationAiEarlyLeaveMessage(false));
+        SendResponse(false);
         _menu.Close();
     }
 

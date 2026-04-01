@@ -8,12 +8,7 @@ using Content.Server.EUI;
 using Robust.Shared.Network;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Server.Radio.EntitySystems;
-using Robust.Shared.Prototypes;
-using Content.Shared.Radio;
-using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.Ghost;
 
 namespace Content.Server._Goobstation.Silicon.AiEarlyLeave;
 
@@ -24,10 +19,6 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly StationJobsSystem _jobs = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
-    private readonly string _alertChannelName = "Command";
 
     protected override void RequestEarlyLeave(Entity<StationAiCoreComponent> aiCore, EntityUid insertedAi)
     {
@@ -64,46 +55,13 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         if (station is not { })
             return;
 
-        var channel = _prototypeManager.Index<RadioChannelPrototype>(_alertChannelName);
-
-        var filter = Filter.Empty();
-        var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
-
-        // get people with access to the radio
-        // me when no separate function for checking radio access in RadioSystem
-        while (radioQuery.MoveNext(out var receiver, out var radio, out var transform))
-        {
-            if (!radio.ReceiveAllChannels)
-            {
-                if (!radio.Channels.Contains(channel.ID)
-                || (TryComp<IntercomComponent>(receiver, out var intercom)
-                && !intercom.SupportedChannels.Contains(channel.ID)))
-                    continue;
-            }
-
-            var parent = transform.ParentUid;
-
-            if (TryComp(parent, out ActorComponent? actor))
-                filter.AddPlayer(actor.PlayerSession);
-        }
-        // also add ghosts its probably fine
-        var ghostQuery = EntityQueryEnumerator<GhostComponent>();
-        while (ghostQuery.MoveNext(out var ghost, out var _))
-        {
-            if (TryComp<ActorComponent>(ghost, out var actor))
-            {
-                filter.AddPlayer(actor.PlayerSession);
-            }
-        }
-
-        // filtered announcement cuz just not good to announce that ai is offline to literally everyone IC
-        _chat.DispatchFilteredAnnouncement(filter,
-            Loc.GetString(
-                "station-ai-earlyleave-announcement",
-                ("character", Name(insertedAi)),
-                ("entity", insertedAi)
-            ), insertedAi, Loc.GetString("station-ai-earlyleave-announcement-sender")
+        var message = Loc.GetString(
+            "station-ai-earlyleave-announcement",
+            ("character", Name(insertedAi)),
+            ("entity", insertedAi)
         );
+
+        _chat.DispatchStationAnnouncement(insertedAi, message, Loc.GetString("station-ai-earlyleave-announcement-sender"));
 
         QueueDel(insertedAi);
     }
