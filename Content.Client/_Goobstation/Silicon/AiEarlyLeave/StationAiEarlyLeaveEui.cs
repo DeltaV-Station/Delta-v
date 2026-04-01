@@ -18,17 +18,17 @@ public sealed class StationAiEarlyLeaveEui : BaseEui
 
         _menu.DenyButton.OnPressed += _ =>
         {
-            SendResponse(false);
+            SendResponse(false); // DeltaV
             _menu.Close();
         };
 
         _menu.ConfirmButton.OnPressed += _ =>
         {
-            SendResponse(true);
+            SendResponse(true); // DeltaV
             _menu.Close();
         };
     }
-
+    // Start of DeltaV Changes
     private void SendResponse(bool confirmed)
     {
         if (_sentResponse)
@@ -43,12 +43,12 @@ public sealed class StationAiEarlyLeaveEui : BaseEui
         IoCManager.Resolve<IClyde>().RequestWindowAttention();
         _menu.OpenCentered();
     }
-
+    // End of DeltaV Changes
     public override void Closed()
     {
         base.Closed();
 
-        SendResponse(false);
+        SendResponse(false); // DeltaV
         _menu.Close();
     }
 

@@ -54,7 +54,7 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
 
         if (station is not { })
             return;
-
+        // Start of DeltaV Changes
         var message = Loc.GetString(
             "station-ai-earlyleave-announcement",
             ("character", Name(insertedAi)),
@@ -62,7 +62,7 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         );
 
         _chat.DispatchStationAnnouncement(insertedAi, message, Loc.GetString("station-ai-earlyleave-announcement-sender"));
-
+        // End of DeltaV Changes
         QueueDel(insertedAi);
     }
 }
