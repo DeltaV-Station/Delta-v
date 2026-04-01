@@ -356,9 +356,10 @@ namespace Content.Client.Cargo.UI
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             string balanceString = String.Format("{0:#,##0}", balance);
+            string transferLimitString = String.Format("{0:#,##0}", (balance * orderConsole.TransferLimit));
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balanceString));
             PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balanceString)); // Goobstation
-            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", balance * orderConsole.TransferLimit)); // Goobstation
+            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", transferLimitString)); // Goobstation
 
             UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
