@@ -1,5 +1,5 @@
-using Content.Goobstation.Shared.Silicon;
-using Content.Goobstation.Shared.Silicon.Components;
+using Content.Shared._Goobstation.Silicon.AiEarlyLeave;
+using Content.Shared._Goobstation.Silicon.Components;
 using Linguini.Bundle.Errors;
 
 using Content.Server.Chat.Systems;
@@ -7,15 +7,15 @@ using Robust.Shared.Player;
 using Content.Server.EUI;
 using Robust.Shared.Network;
 using Content.Server.Station.Components;
-using Content.Goobstation.Server.Silicons;
 using Content.Server.Station.Systems;
 using Content.Server.Radio.EntitySystems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using Content.Server.Radio.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Ghost;
+
+namespace Content.Server._Goobstation.Silicon.AiEarlyLeave;
 
 public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
 {
@@ -75,7 +75,7 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
         {
             if (!radio.ReceiveAllChannels)
             {
-                if (!radio.Channels.Contains(channel.ID) 
+                if (!radio.Channels.Contains(channel.ID)
                 || (TryComp<IntercomComponent>(receiver, out var intercom)
                 && !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;

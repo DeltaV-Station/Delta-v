@@ -2,9 +2,9 @@ using Content.Client.Eui;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 
-using Content.Goobstation.Shared.Silicons;
+using Content.Shared._Goobstation.Silicon.AiEarlyLeave;
 
-namespace Content.Goobstation.Client.Silicon;
+namespace Content.Client._Goobstation.Silicon.AiEarlyLeave;
 
 [UsedImplicitly]
 public sealed class StationAiEarlyLeaveEui : BaseEui

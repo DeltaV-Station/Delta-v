@@ -1,8 +1,9 @@
 using Content.Shared.Silicons.Bots;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Silicon.Components;
+namespace Content.Shared._Goobstation.Silicon.Components;
 
 /// <summary>
 /// Grants a verb allowing early leave / cryo functionality.

@@ -4,7 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Goobstation.Client.Silicon;
+namespace Content.Client._Goobstation.Silicon.AiEarlyLeave;
 
 public sealed class StationAiEarlyLeaveMenu : DefaultWindow
 {

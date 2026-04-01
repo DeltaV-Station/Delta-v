@@ -3,10 +3,10 @@ using Content.Shared.Eui;
 using Robust.Shared.Network;
 
 using Content.Server.Silicons.StationAi;
-using Content.Goobstation.Shared.Silicons;
+using Content.Shared._Goobstation.Silicon.AiEarlyLeave;
 using Content.Shared.Silicons.StationAi;
 
-namespace Content.Goobstation.Server.Silicons;
+namespace Content.Server._Goobstation.Silicon.AiEarlyLeave;
 
 public sealed class StationAiEarlyLeaveEui : BaseEui
 {
