@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseItem
+  id: AvaliFeather
+  name: feather
+  description: Probably not ethically-sourced.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Objects/Misc/feather.rsi
+    layers:
+    - state: feather
+      map: [ "enum.FeatherVisualLayers.Feather" ]
+    - state: featherblood
+      color: "#FFFFFF00"
+      map: [ "enum.FeatherVisualLayers.Blood"]
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable # a lot of this is sensible boilerplate from the Paper prototype
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Item
+    size: Tiny
+  - type: EmbeddableProjectile
+    removalTime: .2
+  - type: Feather
