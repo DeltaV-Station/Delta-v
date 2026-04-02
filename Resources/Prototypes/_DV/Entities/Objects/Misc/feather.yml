@@ -2,7 +2,7 @@
   parent: BaseItem
   id: AvaliFeather
   name: feather
-  description: Probably not ethically-sourced.
+  description: Probably not ethically sourced.
   components:
   - type: Appearance
   - type: Sprite
@@ -42,4 +42,19 @@
     size: Tiny
   - type: EmbeddableProjectile
     removalTime: .2
+  - type: Clothing
+    sprite: _DV/Objects/Misc/feather.rsi
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        map: [ "feather" ]
+      head:
+      - state: equipped-HELMET
+        map: [ "feather" ]
+    slots:
+    - ears
+    - head
+  - type: Tag
+    tags:
+    - Write # Like a quill!
   - type: Feather

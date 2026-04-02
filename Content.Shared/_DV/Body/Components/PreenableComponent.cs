@@ -1,7 +1,8 @@
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._DV.Body.Components;
 
@@ -20,15 +21,45 @@ public sealed partial class PreenableComponent : Component
         "Brute",
     };
 
+    [DataField]
+    public LocId SelfPreeningMessage = "preening-popup-self";
+
+    [DataField]
+    public LocId GettingPreenedMessage = "preening-popup-self-recipient";
+
+    [DataField]
+    public LocId PreeningOtherMessage = "preening-popup-other";
+
+    [DataField]
+    public LocId FeatherBloodiedNameString = "feather-bloody-name-modifier";
+
+    [DataField]
+    public LocId FeatherBloodiedDescString = "feather-bloody-desc";
+
+    [DataField]
+    public LocId PreeningVerbString = "preening-action-verb";
+
+    /// <summary>
+    /// The minimum amount of damage that must be taken from one attack to have a chance to shed a feather.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 ShedDamageThreshold = 9;
+
+    /// <summary>
+    /// The chance for a feather to be shed on hit, per point of damage taken.
+    /// </summary>
+    [DataField]
+    public float ShedScalingChance = 0.0125f;
+
     [DataField, AutoNetworkedField]
     public int MaximumFeathers = 3;
 
     [DataField, AutoNetworkedField]
     public int CurrentFeathers = 3;
 
-    /// <summary>
-    /// Stores the entity's skin (feather) color, for later use.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Color? Color;
+    [DataField]
+    public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(240);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan? ReplenishTime;
 }
