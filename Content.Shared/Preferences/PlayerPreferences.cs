@@ -55,7 +55,6 @@ namespace Content.Shared.Preferences
                 }
                 // If we can't find ANY valid character, make a new one.
                 return HumanoidCharacterProfile.Random();
-
             }
         } // End DeltaV
 
