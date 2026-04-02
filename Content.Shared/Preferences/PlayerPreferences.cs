@@ -1,3 +1,4 @@
+using Content.Shared._DV.Species; // DeltaV - Hidden species
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -41,7 +42,24 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public ICharacterProfile SelectedCharacter
+        { // Start DeltaV - Prevent spawning as hidden speceis (At all costs)
+            get
+            {
+                if (Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile) return Characters[SelectedCharacterIndex];
+                if (!SpeciesHiderSystem.IsHidden(humanoidProfile.Species)) return Characters[SelectedCharacterIndex];
+                // If we can't spawn as the selected character, try to find the NEXT one we can, wrapping if we must.
+                for (int i = 0; i < Characters.Count; i++)
+                {
+                    var candidate = Characters[(SelectedCharacterIndex + i) % Characters.Count];
+                    if (candidate is not HumanoidCharacterProfile nextHumanoidProfile) return candidate;
+                    if (!SpeciesHiderSystem.IsHidden(nextHumanoidProfile.Species)) return candidate;
+                }
+                // If we can't find ANY valid character, make a new one.
+                return HumanoidCharacterProfile.Random();
+
+            }
+        } // End DeltaV
 
         public Color AdminOOCColor { get; set; }
 
