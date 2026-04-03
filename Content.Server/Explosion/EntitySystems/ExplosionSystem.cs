@@ -254,9 +254,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         // just in case: is the user on station?
         if (station is null && user is not null)
         {
-            station = _stationSystem.GetOwningStation(gridPos?.EntityId);
+            station = _stationSystem.GetOwningStation(user);
         }
-;
+
         if (station is not null)
         {
             if (_stationSystem.TryGetNetEntity(station, out var stationNetEnt))
