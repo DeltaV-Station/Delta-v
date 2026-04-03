@@ -1,5 +1,6 @@
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
+using Content.Shared._starcup.Footprints; // starcup
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -513,6 +514,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, mapGrid, tileRef.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
         var sparklesQuery = GetEntityQuery<EvaporationSparkleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // starcup
 
         while (anchored.MoveNext(out var ent))
         {
@@ -525,6 +527,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
             if (!puddleQuery.TryGetComponent(ent, out var puddle))
                 continue;
+
+            // begin starcup
+            if (footprintQuery.HasComp(ent))
+                continue;
+            // end starcup
 
             if (TryAddSolution(ent.Value, solution, sound, puddleComponent: puddle))
             {
@@ -560,11 +567,17 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         var anc = _map.GetAnchoredEntitiesEnumerator(tile.GridUid, grid, tile.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // starcup
 
         while (anc.MoveNext(out var ent))
         {
             if (!puddleQuery.HasComponent(ent.Value))
                 continue;
+
+            // begin starcup
+            if (footprintQuery.HasComponent(ent.Value))
+                continue;
+            // end starcup
 
             puddleUid = ent.Value;
             return true;

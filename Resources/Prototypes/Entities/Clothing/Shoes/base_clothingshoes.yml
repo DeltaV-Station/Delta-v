@@ -25,6 +25,8 @@
     - Recyclable
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: FootprintModifier # starcup
+    footprint: baseFootprint # starcup
 
 - type: entity
   abstract: true

@@ -301,6 +301,8 @@
     alternateState: Standing
   #- type: StunVisuals # DeltaV - No stars
   - type: CanDoCPR # DeltaV - Addition of CPR
+  - type: FootprintOwner # starcup
+    footprint: humanFootprint # starcup
 
 - type: entity
   save: false
