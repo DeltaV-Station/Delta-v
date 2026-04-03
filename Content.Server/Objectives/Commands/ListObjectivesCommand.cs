@@ -81,9 +81,9 @@ namespace Content.Server.Objectives.Commands
                     _players.TryGetSessionByEntity(mind.Comp.OwnedEntity.Value, out player);
                 }
 
-                _entities.TryGetComponent<MetaDataComponent>(mind.Comp.OwnedEntity, out var metaData);
                 if (mind.Comp.Objectives.Count > 0)
                 {
+                    _entities.TryGetComponent<MetaDataComponent>(mind.Comp.OwnedEntity, out var metaData);
                     shell.WriteMarkup($"\n[bold]{metaData?.EntityName}[/bold] ({player?.Name})");
 
                     var objectivesSystem = _entities.System<SharedObjectivesSystem>();
