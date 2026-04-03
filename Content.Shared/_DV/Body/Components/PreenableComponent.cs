@@ -72,7 +72,7 @@ public sealed partial class PreenableComponent : Component
     public int CurrentFeathers = 3;
 
     [DataField]
-    public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(180);
+    public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(150);
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan? ReplenishTime;
