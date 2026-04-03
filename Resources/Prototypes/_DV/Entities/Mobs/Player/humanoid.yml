@@ -55,7 +55,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTLeaderGearRed ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 - type: entity
   parent: RandomHumanoidSpawnerERTLeaderAmber
@@ -74,7 +74,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTLeaderGearGamma ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 ## ERT Chaplain
 
@@ -134,7 +134,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTChaplainGearRed ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
   - type: BibleUser
 
 - type: entity
@@ -155,7 +155,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTChaplainGearGamma ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
   - type: BibleUser
 
 ## ERT Janitor
@@ -223,7 +223,7 @@
     job: ERTJanitor
   - type: Loadout
     prototypes: [ ERTJanitorGearRed ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 - type: entity
   parent: RandomHumanoidSpawnerERTJanitorAmber
@@ -250,7 +250,7 @@
     job: ERTJanitor
   - type: Loadout
     prototypes: [ ERTJanitorGearGamma ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 ## ERT Engineer
 
@@ -309,7 +309,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTEngineerGearRed ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 - type: entity
   parent: RandomHumanoidSpawnerERTEngineerAmber
@@ -329,7 +329,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTEngineerGearGamma ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 ## ERT Security
 
@@ -388,7 +388,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTSecurityGearRed ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityAmber
@@ -407,7 +407,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTSecurityGearGamma ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 ## ERT Medic
 
@@ -466,7 +466,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTMedicalGearRed ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 - type: entity
   parent: RandomHumanoidSpawnerERTMedicalAmber
@@ -486,7 +486,7 @@
   components:
   - type: Loadout
     prototypes: [ ERTMedicalGearGamma ]
-    roleLoadout: [ RoleSurvivalEVA ]
+    roleLoadout: [ RoleSurvivalERT ]
 
 ## CBURN
 
@@ -497,3 +497,34 @@
   - type: Loadout
     prototypes: [CBURNGearDeltaV]
     roleLoadout: [ RoleSurvivalEVA ]
+
+# CentComm
+
+- type: entity
+  name: centcomm intern
+  id: RandomHumanoidSpawnerCentcomIntern
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: centcom
+  - type: RandomMetadata
+    nameSegments:
+    - NamesMilitaryLast
+    nameFormat: name-format-ccintern
+  - type: RandomHumanoidSpawner
+    settings: CentcommIntern
+
+- type: randomHumanoidSettings
+  id: CentcommIntern
+  parent: EventHumanoidCentcomm
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcom-intern-name
+    description: ghost-role-information-centcom-intern-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    job: CentralCommandIntern
+  - type: Loadout
+    prototypes: [ CentcomInternGear ]
+    roleLoadout: [ RoleSurvivalStandard ]
