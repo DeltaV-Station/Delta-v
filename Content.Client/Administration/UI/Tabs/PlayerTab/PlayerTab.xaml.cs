@@ -74,11 +74,13 @@ public sealed partial class PlayerTab : Control
     private void MarkGhostedChanged(bool value)
     {
         _markGhosted = value;
+        RefreshPlayerList(_players);
     }
 
     private void MarkWatchlistedChanged(bool value)
     {
         _markWatchlisted = value;
+        RefreshPlayerList(_players);
     }
     // DeltaV - mark ghosted, watchlisted END
 
