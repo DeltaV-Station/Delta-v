@@ -3,11 +3,13 @@ using Content.Server.Chat.Managers;
 using Content.Server.Destructible;
 using Content.Server.GameTicking;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Shared._DV.CCVars;
 using Content.Shared.GameTicking;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 
@@ -17,11 +19,12 @@ public sealed class EventAlertSystem : EntitySystem
 {
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
     [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
-    private static readonly double LateJoinAlertMaxHours = 2.0;
+    private double _lateJoinAlertMaxHours;
     private HashSet<EntityUid> _eorgAlerted = new();
 
     public override void Initialize()
@@ -33,6 +36,13 @@ public sealed class EventAlertSystem : EntitySystem
         SubscribeLocalEvent<TimerTriggerComponent, ActiveTimerTriggerEvent>(OnTimerTrigger);
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         SubscribeLocalEvent<ActorComponent, AttackedEvent>(OnPlayerAttacked);
+
+        _config.OnValueChanged(DCCVars.LateJoinAlertMaxHours, OnMaxHoursCvarChanged, true); // DeltaV
+    }
+
+    private void OnMaxHoursCvarChanged(double hours)
+    {
+        _lateJoinAlertMaxHours = hours;
     }
 
     private void OnTimerTrigger(Entity<TimerTriggerComponent> ent, ref ActiveTimerTriggerEvent args)
@@ -90,7 +100,7 @@ public sealed class EventAlertSystem : EntitySystem
             return;
 
         var playtimeHours = _playTime.GetOverallPlaytime(ev.Player).TotalHours;
-        if (playtimeHours < LateJoinAlertMaxHours)
+        if (playtimeHours < _lateJoinAlertMaxHours)
         {
             AlertWithLink($"New player {ev.Player.Name} [{playtimeHours:0.#} hours] joined the round.", ev.Mob);
         }
