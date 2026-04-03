@@ -35,5 +35,3 @@ hitman-tracker-kit-description =
     A kit for those who wish to know everything.
     Provides a station master encryption key and universal pinpointer.
     Plus a spy monitor.
-
-
