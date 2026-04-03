@@ -1,0 +1,160 @@
+- type: species
+  id: Shadekin
+  name: species-name-shadekin
+  roundStart: true
+  prototype: MobShadekin
+  sprites: MobShadekinSprites
+  defaultSkinTone: "#3a2d5e"
+  markingLimits: MobShadekinMarkingLimits
+  dollPrototype: MobShadekinDummy
+  skinColoration: Hues
+  maleFirstNames: NamesShadekinFirst
+  femaleFirstNames: NamesShadekinFirst
+  lastNames: NamesShadekinLast
+
+- type: speciesBaseSprites
+  id: MobShadekinSprites
+  sprites:
+    Head: MobShadekinHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobShadekinTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobShadekinEyes
+    LArm: MobShadekinLArm
+    RArm: MobShadekinRArm
+    LHand: MobShadekinLHand
+    RHand: MobShadekinRHand
+    LLeg: MobShadekinLLeg
+    RLeg: MobShadekinRLeg
+    LFoot: MobShadekinLFoot
+    RFoot: MobShadekinRFoot
+
+- type: markingPoints
+  id: MobShadekinMarkingLimits
+  onlyWhitelisted: false
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ ShadekinTail ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ ShadekinEar ]
+    Head:
+      points: 3
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Chest:
+      points: 3
+      required: false
+    Legs:
+      points: 6
+      required: false
+    Arms:
+      points: 6
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobShadekinHead
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinHeadMale
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinHeadFemale
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobShadekinTorso
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinTorsoMale
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobShadekinTorsoFemale
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobShadekinLLeg
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobShadekinLHand
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobShadekinLArm
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobShadekinLFoot
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobShadekinRLeg
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobShadekinRHand
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobShadekinRArm
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobShadekinRFoot
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobShadekinEyes
+  baseSprite:
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: eyes

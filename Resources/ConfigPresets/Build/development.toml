@@ -1,14 +1,14 @@
 ﻿[game]
 # Straight in-game baby
-lobbyenabled = false
+lobbyenabled = true
 # Dev map for faster loading & convenience
 map = "Dev"
 role_timers = false
 
-contraband_examine = false # DeltaV
-secret_weight_prototype = "SecretDeltaV" # DeltaV
-role_timer_override = "DeltaV" # DeltaV
-showgreentext = false # DeltaV
+contraband_examine = false # NovaSector
+secret_weight_prototype = "SecretNova" # NovaSector
+role_timer_override = "NovaSector" # NovaSector
+showgreentext = false # NovaSector
 role_loadout_timers = false
 
 [events]
@@ -46,12 +46,12 @@ see_own_notes = true
 new_player_threshold = 120
 
 [ic]
-random_characters = false # DeltaV - disable development random characters
+random_characters = false # NovaSector - disable development random characters
 random_species_weights = ""
 ssd_sleep_time = 3600
 
-[server] # DeltaV
-rules_file = "DeltaVRuleset"
+[server] # NovaSector
+rules_file = "NovaSectorRuleset"
 
-[control] # DeltaV
+[control] # NovaSector
 storage_limit = 3

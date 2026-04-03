@@ -1,0 +1,61 @@
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartShadekinBase
+  components:
+  - type: Sprite
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+  - type: Icon
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+  - type: BodyPart
+    species: Shadekin
+
+- type: entity
+  parent: [ PartShadekinBase, BaseTorso ]
+  id: TorsoShadekin
+  name: "shadekin torso"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseHead ]
+  id: HeadShadekin
+  name: "shadekin head"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseLeftArm ]
+  id: LeftArmShadekin
+  name: "left shadekin arm"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseRightArm ]
+  id: RightArmShadekin
+  name: "right shadekin arm"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseLeftHand ]
+  id: LeftHandShadekin
+  name: "left shadekin hand"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseRightHand ]
+  id: RightHandShadekin
+  name: "right shadekin hand"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseLeftLeg ]
+  id: LeftLegShadekin
+  name: "left shadekin leg"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseRightLeg ]
+  id: RightLegShadekin
+  name: "right shadekin leg"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseLeftFoot ]
+  id: LeftFootShadekin
+  name: "left shadekin foot"
+
+- type: entity
+  parent: [ PartShadekinBase, BaseRightFoot ]
+  id: RightFootShadekin
+  name: "right shadekin foot"

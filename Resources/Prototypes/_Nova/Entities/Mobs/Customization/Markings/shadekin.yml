@@ -1,0 +1,142 @@
+# Shadekin Ears - merged ADJ+FRONT layers per direction
+- type: marking
+  id: ShadekinEar
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekin_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekin_secondary
+
+- type: marking
+  id: ShadekinEarSmooth
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinsmooth_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinsmooth_secondary
+
+- type: marking
+  id: ShadekinEarSaggy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinsaggy_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinsaggy_secondary
+
+- type: marking
+  id: ShadekinEarFluffy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinfluffy_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinfluffy_secondary
+
+- type: marking
+  id: ShadekinEarShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinshort_primary
+
+- type: marking
+  id: ShadekinEarRings
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinrings_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinrings_secondary
+
+- type: marking
+  id: ShadekinEarBands
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinbands_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinbands_secondary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinbands_tertiary
+
+- type: marking
+  id: ShadekinEarFluffyRings
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinfluffyrings_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinfluffyrings_secondary
+
+- type: marking
+  id: ShadekinEarShortRings
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinshortrings_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/ears.rsi
+      state: shadekinshortrings_secondary
+
+# Shadekin Tails - merged BEHIND+FRONT layers per direction
+- type: marking
+  id: ShadekinTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: shadekin_large_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: shadekin_large_secondary
+
+- type: marking
+  id: ShadekinTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: shadekinlong_large_primary
+
+- type: marking
+  id: ShadekinTailStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: shadekinlongstriped_large_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: shadekinlongstriped_large_secondary
+
+- type: marking
+  id: ShadekinTailFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: bigandfluffy_primary
+    - sprite: _Nova/Mobs/Customization/Shadekin/tails.rsi
+      state: bigandfluffy_secondary

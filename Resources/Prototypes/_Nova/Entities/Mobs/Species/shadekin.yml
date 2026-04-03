@@ -1,0 +1,125 @@
+- type: entity
+  save: false
+  name: Urist McShade
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobShadekin
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Shadekin
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _Nova/Mobs/Species/Shadekin/parts.rsi
+    state: full
+  - type: Body
+    prototype: Shadekin
+    requiredLegs: 2
+  # Nova - Night vision
+  - type: DogVision
+  # Nova - Empathic communication: whispers are broadcast to nearby Shadekin
+  - type: ShadekinEmpathy
+    range: 15
+  # Nova - Light reactive: tracks light level at entity position
+  - type: LightReactive
+    onlyWhileAlive: false
+  # Nova - Dark regeneration + light aversion
+  - type: LightLevelHealth
+    darkThreshold: 0.2
+    lightThreshold: 0.6
+    healWhenDead: false
+    darkMovementSpeedMultiplier: 1.0 # normal speed in dark
+    lightMovementSpeedMultiplier: 0.85 # 15% slower in light
+    darkDamage:
+      groups:
+        Brute: -1.5 # heal 1.5 brute per second in darkness
+        Burn: -1.0 # heal 1.0 burn per second in darkness
+    lightDamage:
+      types:
+        Heat: 0 # no damage from light, just slowdown
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+        visible: false
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "id" ]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "back" ]
+      - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "clownedon" ]
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 2
+        Slash: 3
+  - type: Perishable
+  - type: Damageable
+    damageModifierSet: Biological
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 200 # shadow creatures handle cold well
+
+- type: entity
+  save: false
+  name: Shadekin Dummy
+  parent: MobHumanDummy
+  id: MobShadekinDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy shadekin meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Shadekin
+    hideLayersOnEquip:
+    - Snout
+    - HeadTop
+    - HeadSide

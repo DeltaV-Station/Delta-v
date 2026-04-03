@@ -1,0 +1,103 @@
+[game]
+desc               = "A furry-focused high roleplay server featuring custom species, extensive character customization, and immersive worldbuilding."
+lobbyenabled       = true
+lobbyduration      = 420
+round_end_pacifist = true
+round_restart_time = 300
+contraband_examine = false
+secret_weight_prototype = "SecretNova"
+role_timer_override = "NovaSector"
+showgreentext = false
+
+[movement]
+mob_pushing = false
+
+# New players can't join a server without admins
+[game.panic_bunker]
+enabled = true
+min_overall_minutes = 240
+disable_with_admins = true
+enable_without_admins = true
+show_reason = true
+custom_reason = "You have not played on NovaSector long enough to connect to this server. Due to administrative reasons, new accounts cannot join a server with no game admins."
+
+[infolinks]
+discord    = ""
+github     = ""
+website    = ""
+wiki       = ""
+bug_report = ""
+appeal     = ""
+
+[net]
+max_connections = 1024
+tickrate = 30
+
+[vote]
+restart_required_ratio = 0.7
+preset_enabled = false
+
+[netres]
+limit    = 10.0
+
+[admin]
+see_own_notes   = true
+deadmin_on_join = true
+allow_multi_server_play = false
+[admin.alert]
+min_players_sharing_connection = 2
+
+[server]
+id         = "novasector"
+rules_file = "NovaSectorRuleset"
+uptime_restart_minutes = 2880
+
+[discord]
+rich_main_icon_id = "novasector"
+
+# general hrp stuff
+[ic]
+flavor_text = true
+punctuation = true
+
+[rules]
+time = 60
+
+[ahelp]
+admin_prefix = false
+admin_prefix_webhook = false
+
+[votekick]
+enabled = false
+eligible_number = 5
+initiator_ghost_requirement = false
+voter_ghost_requirement = false
+
+[atmos]
+space_wind = true
+
+[shuttle]
+arrivals = true
+arrivals_planet = false
+arrivals_map = "/Maps/_DV/transit_hub.yml"
+arrivals_cooldown = 90
+cooldown = 60
+travel_time = 9.5
+emergency_dock_time = 240
+emergency_transit_time_min = 30
+auto_call_time = 120
+auto_call_extension_time = 30
+emergency_early_launch_allowed = true
+recall_turning_point = 0.33
+
+[biomass]
+easy_mode = false
+
+[control]
+storage_limit = 3
+
+[nf14.respawn]
+time = 600
+
+[chat]
+max_announcement_length = 512
