@@ -21,7 +21,6 @@ public sealed class EventAlertSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
-
     private static readonly double LateJoinAlertMaxHours = 2.0;
     private HashSet<EntityUid> _eorgAlerted = new();
 

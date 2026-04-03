@@ -23,7 +23,6 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
             return;
         }
 
-
         foreach (var (playerId, records) in _notes.ConnectedPlayerWatchlists)
         {
             if (!_player.TryGetSessionById(playerId, out var sessionData))

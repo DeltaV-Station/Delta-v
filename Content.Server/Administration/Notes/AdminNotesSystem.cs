@@ -25,7 +25,6 @@ public sealed class AdminNotesSystem : EntitySystem
     [Dependency] private readonly EuiManager _euis = default!;
     [Dependency] private readonly AdminSystem _admin = default!; // DeltaV
 
-
     // DeltaV - watchlist cache defs START
     // For use by other systems
     // Used by lswatchlisted command to avoid querying database for every connected user every time it's invoked.
