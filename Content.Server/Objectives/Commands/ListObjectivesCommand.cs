@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Systems;
+using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
@@ -72,26 +73,26 @@ namespace Content.Server.Objectives.Commands
         // DeltaV - Added function START
         private void ListAllObjectives(IConsoleShell shell)
         {
-            var minds = _entities.System<SharedMindSystem>();
-            foreach (var mind in minds.GetAliveHumans())
+            var minds = _entities.EntityQueryEnumerator<MindComponent>();
+            while (minds.MoveNext(out var mindId, out var mindComp))
             {
                 ICommonSession? player = null;
-                if (mind.Comp.OwnedEntity is not null)
+                if (mindComp.OwnedEntity is not null)
                 {
-                    _players.TryGetSessionByEntity(mind.Comp.OwnedEntity.Value, out player);
+                    _players.TryGetSessionByEntity(mindComp.OwnedEntity.Value, out player);
                 }
 
-                if (mind.Comp.Objectives.Count > 0)
+                if (mindComp.Objectives.Count > 0)
                 {
-                    _entities.TryGetComponent<MetaDataComponent>(mind.Comp.OwnedEntity, out var metaData);
-                    shell.WriteMarkup($"\n[bold]{metaData?.EntityName}[/bold] ({player?.Name})");
+                    _entities.TryGetComponent<MetaDataComponent>(mindComp.OwnedEntity, out var metaData);
+                    shell.WriteMarkup($"\n[bold]{metaData?.EntityName}[/bold] ({player?.Name ?? "No player attached?"})");
 
                     var objectivesSystem = _entities.System<SharedObjectivesSystem>();
-                    var objectives = mind.Comp.Objectives;
+                    var objectives = mindComp.Objectives;
 
                     for (var i = 0; i < objectives.Count; i++)
                     {
-                        var info = objectivesSystem.GetInfo(objectives[i], mind);
+                        var info = objectivesSystem.GetInfo(objectives[i], mindId);
                         if (info == null)
                         {
                             shell.WriteLine($"- [{i}] {objectives[i]} - INVALID");
