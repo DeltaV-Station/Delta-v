@@ -69,15 +69,15 @@
 ## modifer objectives
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
-  id: HitmanBrutalObjective
-  name: Kill your target brutaly
-  description: your client wants your target to die brutaly. try to make their death as painful as possible
+  id: HitmanNiceObjective
+  name: Nice death
+  description: Your client wants you to be respectful to your target. Try to be nice and courteous to them even as you kill them.
   components:
   - type: Objective
     icon:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: heart-off
-    difficulty: 1 #not that hard, just requires doing some extra stuff to the body
+      sprite: Clothing/Hands/Gloves/Color/color.rsi
+      state: icon
+    difficulty: 1 #very vauge
     unique: true
 
 - type: entity
@@ -95,7 +95,7 @@
 
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
-  id: HitmanhumorousObjective
+  id: HitmanHumorousObjective
   name: Humorous death
   description: Your client wants to make their death a joke. Make their death funny.
   components:
@@ -109,8 +109,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanAccidentObjective
-  name: make your targets death seem like a accident
-  description: your client would rather others not realize your targets death was a assassination. try to frame it as a accident
+  name: Make your target's death seem like a accident
+  description: Your client would rather others not realize your targets death was a assassination. Try to frame it as a accident
   components:
   - type: Objective
     icon:
@@ -123,8 +123,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanIndirectlyObjective
-  name: kill your target indirectly
-  description: your client wants you to take no chances with getting spotted near the body. try to find a way to kill them indirectly
+  name: Kill your target indirectly
+  description: Your client wants you to take no chances with getting spotted near the body. Try to find a way to kill them indirectly
   components:
   - type: Objective
     icon:
@@ -137,8 +137,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanCleanObjective
-  name: try to make your kill as clean as possible
-  description: your client does not want this death making a mess. try to do as little damage to the person as you can
+  name: Try to make your kill as clean as possible
+  description: Your client does not want this death making a mess. Try to do as little damage to the person as you can
   components:
   - type: Objective
     icon:
@@ -150,8 +150,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanSufferObjective
-  name: drag out your targets murder
-  description: your client would like that your target suffers as they die. make your theyre dieing for a long time.
+  name: Drag out your targets murder
+  description: Your client would like that your target suffers as they die. Make your they're dieing for a long time.
   components:
   - type: Objective
     icon:
@@ -163,8 +163,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanPublicObjective
-  name: kill your target in a public place
-  description: your client would like to send a message. kill your target in public, in front of others if you can.
+  name: Kill your target in a public place
+  description: Your client would like to send a message. Kill your target in public, in front of others if you can.
   components:
   - type: Objective
     icon:
@@ -176,8 +176,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanNoticeObjective
-  name: inform your target they are going to be killed long before it happens
-  description: your client wants your target to know whats going on. tell your target theyll be killed and still get away with it.
+  name: Inform your target they are going to be killed long before it happens
+  description: Your client wants your target to know whats going on. Tell your target theyll be killed and still get away with it.
   components:
   - type: Objective
     icon:
@@ -190,12 +190,25 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanTraumaObjective
-  name: kill someone close to your target and make sure they know
-  description: your client wants your target to be broken mentaly and physicaly. find someone close to your target and kill them. the person need not stay dead. make sure your target knows they died.
+  name: Kill someone close to your target and make sure they know
+  description: Your client wants your target to be broken mentaly and physicaly. Find someone close to your target and kill them. the person need not stay dead. make sure your target knows they died.
   components:
   - type: Objective
     icon:
       sprite: Mobs/Species/Human/organs.rsi
       state: brain
     difficulty: 1.75 #forces a second tol but doesnt interact with the other objectives
+    unique: true
+
+- type: entity
+  parent: [BaseHitmanObjective, BaseFreeObjective]
+  id: HitmanTrustObjective
+  name: Spend a long amount of time gaining the trust of your target.
+  description: Your client wants your target to feel betrayed when you kill them. Spend a lot of time hanging out with them.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: heart-off
+    difficulty: 1.75 #spend a lot of time
     unique: true
