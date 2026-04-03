@@ -36,5 +36,4 @@ hitman-tracker-kit-description =
     Provides a station master encryption key and universal pinpointer.
     Plus a spy monitor.
 
-hitman-briefcase-window-title = hitman briefcase
-hitman-briefcase-window-description = what did you bring?
+
