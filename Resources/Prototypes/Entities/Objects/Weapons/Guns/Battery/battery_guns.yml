@@ -904,7 +904,7 @@
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energy_shotgun.rsi #Deltav - Adjust for blue shotgun
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -917,7 +917,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energy_shotgun.rsi #Deltav - Adjust for blue shotgun
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -934,7 +934,7 @@
       pacifismAllowedMode: true
   - type: Item
     size: Large
-    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/inhands_64x.rsi #Deltav - Adjust for blue shotgun
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
@@ -951,7 +951,7 @@
   description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energy_magnum.rsi #Deltav - Blue sprite for the magnum
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -965,7 +965,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energy_magnum.rsi #Deltav - Blue sprite for the magnum
   - type: Tag
     tags:
     - HighRiskItem
@@ -1047,7 +1047,7 @@
   components:
   - type: BatterySelfRecharger
     autoRechargeRate: 30
-  # "remove" wield bonus and penalty so borgs can use it 
+  # "remove" wield bonus and penalty so borgs can use it
   - type: GunWieldBonus
     minAngle: 0
     maxAngle: 0

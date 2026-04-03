@@ -88,7 +88,7 @@
   id: WeaponEnergyMagnum
   name: steal-target-groups-weapon-energy-magnum
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energy_magnum.rsi #Deltav - Adjust for blue magnum
     state: icon
 
 # Thief Collection
@@ -234,7 +234,7 @@
   sprite:
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
-  
+
 - type: stealTargetGroup
   id: ChiefEngineerToolBelt
   name: steal-target-groups-belt-ce
