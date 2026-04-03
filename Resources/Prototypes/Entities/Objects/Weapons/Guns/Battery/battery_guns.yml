@@ -738,10 +738,10 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
-    proto: RedMediumLaser
+    proto: AntiquePistol #DeltaV Was (RedMediumLaser)
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRechargeRate: 40
+    autoRechargeRate: 60 #DeltaV was (40)
   - type: MagazineVisuals
     magState: mag
     steps: 5
