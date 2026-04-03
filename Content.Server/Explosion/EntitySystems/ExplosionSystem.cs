@@ -268,8 +268,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         if (user == null)
         {
-            // DeltaV - Set to Extreme if onStation (always alert), add station name if available
-            _adminLogger.Add(LogType.Explosion, station is not null ? LogImpact.Extreme : LogImpact.High,
+            _adminLogger.Add(LogType.Explosion, station is not null ? LogImpact.Extreme : LogImpact.High, // DeltaV - Set to Extreme if onStation (always alert), add station name if available
                 $"{ToPrettyString(uid):entity} exploded ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
         }
         else
@@ -286,10 +285,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
             if (posFound)
             {
-                // DeltaV - Add stationName to log message if available
                 _adminLogger.Add(LogType.Explosion,
                     logImpact,
-                    $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{gridPos:coordinates} with intensity {totalIntensity} slope {slope}");
+                    $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{gridPos:coordinates} with intensity {totalIntensity} slope {slope}"); // DeltaV - Add stationName to log message if available
             }
             else
                 _adminLogger.Add(LogType.Explosion, logImpact, $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:[Grid or Map not found] with intensity {totalIntensity} slope {slope}");

@@ -377,9 +377,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         }
         // DeltaV - LogImpact Additions END
 
-        // DeltaV - replace default LogImpact, insert SSD indicator
-        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isSsd ? "[SSD] " : "")}{ToPrettyString(target):target}'s {slot} slot");
-
+        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isSsd ? "[SSD] " : "")}{ToPrettyString(target):target}'s {slot} slot"); // DeltaV - replace default LogImpact, insert SSD indicator
     }
 
     /// <summary>
