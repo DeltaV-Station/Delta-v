@@ -59,10 +59,8 @@ public sealed class AdminNotesSystem : EntitySystem
         if (note.NoteType != NoteType.Watchlist)
             return;
 
-        if (!_connectedPlayerWatchlists.ContainsKey(note.Player))
-            _connectedPlayerWatchlists[note.Player] = new();
-
-        _connectedPlayerWatchlists[note.Player].Add(note);
+        var notes = _connectedPlayerWatchlists.GetOrNew(note.Player);
+        notes.Add(note);
 
         if (_playerManager.TryGetSessionById(note.Player, out var session))
             _admin.UpdatePlayerList(session);
