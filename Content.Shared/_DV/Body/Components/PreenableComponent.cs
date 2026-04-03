@@ -69,7 +69,7 @@ public sealed partial class PreenableComponent : Component
     public int MaximumFeathers = 3;
 
     [DataField, AutoNetworkedField]
-    public int CurrentFeathers = 3;
+    public int CurrentFeathers;
 
     [DataField]
     public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(150);

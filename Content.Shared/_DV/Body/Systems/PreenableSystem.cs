@@ -45,6 +45,13 @@ public sealed class PreenableSystem : EntitySystem
         SubscribeLocalEvent<PreenableComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<PreenableComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<PreenableComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+        SubscribeLocalEvent<PreenableComponent, ComponentInit>(OnCompInit);
+    }
+
+    private void OnCompInit(Entity<PreenableComponent> ent, ref ComponentInit args)
+    {
+        ent.Comp.CurrentFeathers = ent.Comp.MaximumFeathers;
+        Dirty(ent);
     }
 
     private void AddVerb(Entity<PreenableComponent> ent, ref GetVerbsEvent<Verb> args)
