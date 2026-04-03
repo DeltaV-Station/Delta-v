@@ -116,6 +116,11 @@
       240: 0.85
   - type: Preenable
     featherPrototype: AvaliFeather
+    vulnerabilityModifier:
+      coefficients:
+        Blunt: 1.2
+        Slash: 1.2
+        Piercing: 1.3
   # End DeltaV additions
 
 - type: entity

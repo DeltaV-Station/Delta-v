@@ -1,3 +1,5 @@
+using Content.Shared.Chat.Prototypes;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
@@ -13,7 +15,7 @@ namespace Content.Shared._DV.Body.Components;
 public sealed partial class PreenableComponent : Component
 {
     [DataField]
-    public EntProtoId FeatherPrototype = "AvaliFeather";
+    public EntProtoId FeatherPrototype;
 
     [DataField]
     public HashSet<ProtoId<DamageGroupPrototype>>? ValidDamageGroups = new()
@@ -39,6 +41,12 @@ public sealed partial class PreenableComponent : Component
     [DataField]
     public LocId PreeningVerbString = "preening-action-verb";
 
+    [DataField]
+    public LocId DroppedFeatherString = "preening-feather-dropped-injured";
+
+    [DataField]
+    public ProtoId<EmotePrototype> ScreamEmote = "Scream";
+
     /// <summary>
     /// The minimum amount of damage that must be taken from one attack to have a chance to shed a feather.
     /// </summary>
@@ -51,6 +59,12 @@ public sealed partial class PreenableComponent : Component
     [DataField]
     public float ShedScalingChance = 0.0125f;
 
+    [DataField]
+    public DamageModifierSet? VulnerabilityModifier;
+
+    [DataField]
+    public float AimModifier = 0.75f;
+
     [DataField, AutoNetworkedField]
     public int MaximumFeathers = 3;
 
@@ -58,7 +72,7 @@ public sealed partial class PreenableComponent : Component
     public int CurrentFeathers = 3;
 
     [DataField]
-    public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(240);
+    public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(180);
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan? ReplenishTime;
