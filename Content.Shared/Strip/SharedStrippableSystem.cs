@@ -594,8 +594,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         _handsSystem.TryDrop(target, item, checkActionBlocker: false);
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth, handsComp: user.Comp);
 
-        // DeltaV - Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice.
-        _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
+        _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands"); // DeltaV - Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice.
 
         // Hand update will trigger strippable update.
     }

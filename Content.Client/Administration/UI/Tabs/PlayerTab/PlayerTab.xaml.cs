@@ -168,13 +168,15 @@ public sealed partial class PlayerTab : Control
 
         UpdateHeaderSymbols();
 
-
         SearchList.PopulateList(sortedPlayers.Select(info =>
             {
                 // DeltaV - additions START
                 var filteringStringAdditions = "";
                 if (_markGhosted && info.Ghost)
+                {
                     filteringStringAdditions += " (G)";
+                }
+
                 if (_markWatchlisted && info.Watchlisted)
                 {
                     filteringStringAdditions += " (WL)";

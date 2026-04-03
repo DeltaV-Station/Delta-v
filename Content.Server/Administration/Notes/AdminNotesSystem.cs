@@ -4,7 +4,7 @@ using Content.Server.Administration.Commands;
 using Content.Server.Administration.Systems; // DeltaV - Admin QOL
 using Content.Server.Chat.Managers;
 using Content.Server.EUI;
-using Content.Shared.Administration.Notes;
+using Content.Shared.Administration.Notes; // DeltaV - Admin QOL
 using Content.Shared.Database;
 using Content.Shared.Verbs;
 using Robust.Server.Player;
