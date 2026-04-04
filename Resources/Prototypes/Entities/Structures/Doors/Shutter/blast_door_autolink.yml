@@ -127,3 +127,24 @@
     - type: AutoLinkReceiver
       channel: Windows
 
+# Start DeltaV Additions
+
+- type: entity
+  id: BlastDoorAI
+  parent: BlastDoor
+  suffix: AI
+  components:
+  - type: AccessReader
+    access: [["StationAi"]]
+
+- type: entity
+  id: BlastDoorAIOpen
+  parent: BlastDoorOpen
+  suffix: Open, AI
+  components:
+  - type: AccessReader
+    access: [["StationAi"]]
+
+# End DeltaV Additions
+
+
