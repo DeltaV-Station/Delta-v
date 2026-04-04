@@ -11,6 +11,8 @@ public sealed partial class CargoBountyMenu : FancyWindow
 {
     public Action<string>? OnLabelButtonPressed;
     public Action<string>? OnSkipButtonPressed;
+    public Action<string>? OnClaimButtonPressed; // DeltaV
+    public Action<string, int>? OnStatusOptionSelected; // DeltaV
 
     public CargoBountyMenu()
     {
@@ -31,6 +33,8 @@ public sealed partial class CargoBountyMenu : FancyWindow
             var entry = new BountyEntry(b, untilNextSkip);
             entry.OnLabelButtonPressed += () => OnLabelButtonPressed?.Invoke(b.Id);
             entry.OnSkipButtonPressed += () => OnSkipButtonPressed?.Invoke(b.Id);
+            entry.OnClaimButtonPressed += () => OnClaimButtonPressed?.Invoke(b.Id); // DeltaV
+            entry.BountyStatusSelector.OnItemSelected += args => OnStatusOptionSelected?.Invoke(b.Id, args.Id); // DeltaV
 
             BountyEntriesContainer.AddChild(entry);
         }
