@@ -381,9 +381,9 @@
   - type: Tag
     tags:
     - Metal
-  - type: Construction
-    graph: ClothingOuterArmorImprovisedGraph
-    node: vest
+#  - type: Construction # Delta-V - Disabling crafting until I can rework these
+#    graph: ClothingOuterArmorImprovisedGraph
+#    node: vest
 
 - type: entity
   parent: BaseItem
@@ -402,9 +402,9 @@
   - type: Tag
     tags:
     - Metal
-  - type: Construction
-    graph: ClothingOuterArmorForgedGraph
-    node: vest
+#  - type: Construction # Delta-V - Disabling crafting until I can rework these
+#    graph: ClothingOuterArmorForgedGraph
+#    node: vest
 
 - type: entity
   parent: BaseItem
@@ -444,9 +444,9 @@
   - type: Tag
     tags:
     - Metal
-  - type: Construction
-    graph: ClothingHeadHelmetImprovisedGraph
-    node: helmet
+#  - type: Construction # Delta-V - Disabling crafting until I can rework these
+#    graph: ClothingHeadHelmetImprovisedGraph
+#    node: helmet
 
 - type: entity
   parent: BaseItem
@@ -465,9 +465,9 @@
   - type: Tag
     tags:
     - Metal
-  - type: Construction
-    graph: ClothingHeadHelmetForgedGraph
-    node: helmet
+#  - type: Construction # Delta-V - Disabling crafting until I can rework these
+#    graph: ClothingHeadHelmetForgedGraph
+#    node: helmet
 
 - type: entity
   parent: BaseItem
