@@ -80,9 +80,9 @@
     - Flashed
     - RadiationProtection
     - Adrenaline
-    - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
-    - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
     # Begin DeltaV additions
+    - PsionicsDisabled # PCs can have psionics disabled.
+    - PsionicallyInsulated # PCs can be made insulated from psionic powers.
     - Addicted # Psych med addictions system
     - SuppressAddiction # Psych med addictions system
     - ChronicPain # Pain system
@@ -90,9 +90,6 @@
     - ScrambledSpeech
     - RepeatingTelepath
     # End DeltaV additions
-  - type: Body
-    prototype: Human
-    requiredLegs: 2
   - type: Identity
   - type: IdExaminable
   - type: Internals
@@ -164,17 +161,21 @@
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
-  - type: CanEscapeInventory # Carrying system from nyanotrasen.
+  - type: RandomPrice
+    maxRandomPrice: 20000
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
-  - type: Carriable # DeltaV
-  - type: GrappleTarget # DeltaV - Allow targets to be grappled
-  - type: RMCSetPose # DeltaV - RMC pose port
+  # DeltaV Start.
+  - type: CanEscapeInventory # DeltaV - Carrying system from nyanotrasen.
+  - type: CosmicCenserTarget # Cosmic Cult
+  - type: Carriable
+  - type: GrappleTarget # Allow targets to be grappled
+  - type: RMCSetPose # RMC pose port
+  # DeltaV End.
 
 - type: entity
   abstract: true
