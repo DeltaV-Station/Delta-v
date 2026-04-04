@@ -172,6 +172,20 @@
     showInHands: false
     disableExplosionRecursion: true
     canBeStripped: false
+    hands: # Needed because shitmed
+      hand_right:
+        location: Right
+        blacklist:
+          components:
+          - ChameleonProjector
+      hand_left:
+        location: Left
+        blacklist:
+          components:
+          - ChameleonProjector
+    sortedHands: # Needed because shitmed
+    - hand_right
+    - hand_left
   - type: BorgChassis
     canOpenSelfUi: true
     maxModules: 2
@@ -236,6 +250,9 @@
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
+  - type: MaterialStorageMagnetPickup # DeltaV - Allow the core to suck up materials
+    magnetEnabled: true
+    range: 1
 
 - type: entity
   parent: BaseAGhostAction
