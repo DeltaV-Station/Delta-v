@@ -28,6 +28,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
 using Content.Shared._DV.Polymorph;
+using Content.Shared._Floof.OfferItem;
 using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared._DV.Carrying;
@@ -181,14 +182,15 @@ public sealed class CarryingSystem : EntitySystem
     /// </summary>
     private void OnInteractionAttempt(Entity<BeingCarriedComponent> ent, ref InteractionAttemptEvent args)
     {
-        if (args.Target is not {} target)
-            return;
-
-        var targetParent = Transform(target).ParentUid;
-
-        var carrier = ent.Comp.Carrier;
-        if (target != carrier && targetParent != carrier && targetParent != ent.Owner)
-            args.Cancelled = true;
+        // Floofstation - no - this prevents the person from escaping and more.
+        // if (args.Target is not {} target)
+        //     return;
+        //
+        // var targetParent = Transform(target).ParentUid;
+        //
+        // var carrier = ent.Comp.Carrier;
+        // if (target != carrier && targetParent != carrier && targetParent != ent.Owner)
+        //     args.Cancelled = true;
     }
 
     private void OnMoveAttempt(Entity<BeingCarriedComponent> ent, ref UpdateCanMoveEvent args)
@@ -203,8 +205,9 @@ public sealed class CarryingSystem : EntitySystem
 
     private void OnInteractedWith(Entity<BeingCarriedComponent> ent, ref GettingInteractedWithAttemptEvent args)
     {
-        if (args.Uid != ent.Comp.Carrier)
-            args.Cancelled = true;
+        // Floofstation - why?
+        // if (args.Uid != ent.Comp.Carrier)
+        //     args.Cancelled = true;
     }
 
     private void OnPullAttempt(Entity<BeingCarriedComponent> ent, ref PullAttemptEvent args)
@@ -242,7 +245,8 @@ public sealed class CarryingSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void StartCarryDoAfter(EntityUid carrier, Entity<CarriableComponent> carried)
+    // Floofstation - made public
+    public void StartCarryDoAfter(EntityUid carrier, Entity<CarriableComponent> carried)
     {
         TimeSpan length = GetPickupDuration(carrier, carried);
 
@@ -297,8 +301,12 @@ public sealed class CarryingSystem : EntitySystem
         if (_net.IsClient) // no spawning prediction
             return;
 
-        _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
-        _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
+        // Floofstation - store virtual items and add a special component to them
+        if (_virtualItem.TrySpawnVirtualItemInHand(carried, carrier, out var virt))
+            EnsureComp<OfferableVirtualItemComponent>(virt.Value);
+        if (_virtualItem.TrySpawnVirtualItemInHand(carried, carrier, out virt))
+            EnsureComp<OfferableVirtualItemComponent>(virt.Value);
+        // Floofstation section end
     }
 
     public bool TryCarry(EntityUid carrier, Entity<CarriableComponent?> toCarry)
