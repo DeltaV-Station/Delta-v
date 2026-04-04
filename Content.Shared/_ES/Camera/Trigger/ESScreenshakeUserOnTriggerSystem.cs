@@ -4,7 +4,7 @@ namespace Content.Shared._ES.Camera.Trigger;
 
 public sealed class ESScreenshakeUserOnTriggerSystem : XOnTriggerSystem<ESScreenshakeUserOnTriggerComponent>
 {
-    [Dependency] private readonly ESScreenshakeSystem _screenShake = default!;
+    [Dependency] private readonly SharedESScreenshakeSystem _screenShake = default!;
 
     protected override void OnTrigger(Entity<ESScreenshakeUserOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

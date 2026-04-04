@@ -17,7 +17,7 @@ namespace Content.Server.Damage.Systems;
 public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
 {
     // ES START
-    [Dependency] private readonly ESScreenshakeSystem _shake = default!;
+    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
     // ES END
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly GunSystem _guns = default!;
