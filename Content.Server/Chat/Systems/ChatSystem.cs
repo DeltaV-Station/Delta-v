@@ -215,7 +215,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
-            SendEntityEmote(source, emoteStr, range, nameOverride, null, ignoreActionBlocker);
+            SendEntityEmote(source, emoteStr, range, nameOverride, null, ignoreActionBlocker); // DeltaV - Had to change up for SendEntityEmote
         }
 
         // This can happen if the entire string is sanitized out.
@@ -252,7 +252,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             case InGameICChatType.Whisper:
                 SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker);
                 break;
-            case InGameICChatType.Emote: // Start - DeltaV
+            case InGameICChatType.Emote: // DeltaV - Emote now has different types of emotes.
                 var type = ProcessEmoteMessage(source, message, out var modMessage);
                 if (type == EmoteType.Audible || type == EmoteType.AudiblePossessive)
                 {
@@ -263,7 +263,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 }
                 else
                     SendEntityEmote(source, modMessage, range, nameOverride, type, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
-                break; // End - DeltaV
+                break; // DeltaV - End
             //Nyano - Summary: case adds the telepathic chat sending ability.
             case InGameICChatType.Telepathic:
                 _nyanoChatSystem.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
@@ -655,7 +655,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessage;
 
         // Emotes use Identity.Name, since it doesn't actually involve your voice at all.
-        if (emoteType == EmoteType.Possessive) // DeltaV change
+        if (emoteType == EmoteType.Possessive) // DeltaV - Emote types now get checked.
             wrappedMessage = Loc.GetString("chat-manager-entity-me-possessive-wrap-message",
                 ("entityName", name),
                 ("entity", ent),
@@ -678,7 +678,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source}: {action}");
     }
 
-    // Start - DeltaV -
+    // DeltaV - Added this to differentiate between emotes that can be heard over radio and those which can't.
     protected override void SendAudibleEntityEmote(
        EntityUid source,
        string action,
@@ -729,7 +729,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             else
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source}: {action}");
     }
-    // End - DeltaV -
+    // DeltaV - End
 
     // ReSharper disable once InconsistentNaming
     private void SendLOOC(EntityUid source, ICommonSession player, string message, bool hideChat)

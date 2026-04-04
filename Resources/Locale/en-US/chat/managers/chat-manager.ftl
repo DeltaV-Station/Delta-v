@@ -33,19 +33,6 @@ chat-manager-entity-me-wrap-message = [italic]{ PROPER($entity) ->
     *[false] The {$entityName} {$message}[/italic]
      [true] {CAPITALIZE($entityName)} {$message}[/italic]
     }
-chat-manager-entity-me-possessive-wrap-message = [italic]{ PROPER($entity) ->
-    *[false] The {$entityName}'s {$message}[/italic]
-     [true] {CAPITALIZE($entityName)}'s {$message}[/italic]
-    }
-
-chat-manager-entity-me-audible-wrap-message = [italic]{ PROPER($entity) ->
-    *[false] The {$entityName} {$message}[/italic]
-     [true] {CAPITALIZE($entityName)} {$message}[/italic]
-    }
-chat-manager-entity-me-audible-possessive-wrap-message = [italic]{ PROPER($entity) ->
-    *[false] The {$entityName}'s {$message}[/italic]
-     [true] {CAPITALIZE($entityName)}'s {$message}[/italic]
-    }
 
 chat-manager-entity-looc-wrap-message = LOOC: {$entityName}: {$message}
 chat-manager-send-ooc-wrap-message = OOC: {$playerName}: {$message}

@@ -49,9 +49,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
     }
 
-    // Start - DeltaV
+    // DeltaV
     // WARNING - Be very careful when modifying this method.
-    // The implementation right now has null forgiving operatiors in OnSpeak() and OnAudibleEmote() since this only returns true if channel is not null!
+    // The implementation right now has null forgiving operatiors in OnSpeak() and OnAudibleEmote() since this only returns true if channel is not null
     private bool CheckRadioCapable(EntityUid uid, WearingHeadsetComponent headset, RadioChannelPrototype? channel)
     {
         if (channel != null
@@ -79,13 +79,13 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             args.Channel = null;
         }
     }
-    // End - DeltaV
+    // DeltaV - End
 
     private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
     {
-        if (CheckRadioCapable(uid, component, args.Channel)) // DeltaV change
+        if (CheckRadioCapable(uid, component, args.Channel)) // DeltaV - Put all the radio checks into the CheckRadioCapable() method.
         {
-            _radio.SendRadioMessage(uid, args.Message, args.Channel!, component.Headset);
+            _radio.SendRadioMessage(uid, args.Message, args.Channel!, component.Headset); // DeltaV - Made the args.Channel null ignorant as CheckRadioCapable() guarantees it not null.
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }
