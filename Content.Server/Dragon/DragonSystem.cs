@@ -1,9 +1,11 @@
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
 using Content.Shared.Actions;
-using Content.Shared.Damage.Systems; // DeltaV
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Dragon;
+using Content.Shared.Gibbing;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -13,13 +15,13 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Dragon;
 
 public sealed partial class DragonSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!; // DeltaV
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
@@ -31,6 +33,8 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
@@ -98,20 +102,15 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // Begin DeltaV Changes
-            if (!comp.HalftimePopupShown && Math.Round(comp.RiftAccumulator) == 0.5 * comp.RiftMaxAccumulator) // at halftime tell them they gonna die
+            // Gib it, naughty dragon!
+            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
             {
-                Roar(uid, comp);
-                _popup.PopupEntity(Loc.GetString("deltav-dragon-halftime-popup"), uid, uid);
-                comp.HalftimePopupShown = true; // no spamming popups
+                Roar(uid, comp, Transform(uid).Coordinates);
+                var smoke = Spawn(comp.SmokePrototype, Transform(uid).Coordinates);
+                if (TryComp<SmokeComponent>(smoke, out var smokeComp))
+                    _smoke.StartSmoke(smoke, comp.SmokeSolution, smokeComp.Duration, smokeComp.SpreadAmount, smokeComp);
+                _gibbing.Gib(uid);
             }
-
-            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)  // dragon is out of time
-            {
-                Roar(uid, comp);
-                _damageable.TryChangeDamage(uid, comp.DeathDamage,true,true); // gib time
-            }
-            // End DeltaV Changes
         }
     }
 
@@ -180,7 +179,6 @@ public sealed partial class DragonSystem : EntitySystem
 
         component.Rifts.Add(carpUid);
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
-        component.HalftimePopupShown = false; // DeltaV - Reset popup flag
     }
 
     // TODO: just make this a move speed modifier component???
@@ -211,10 +209,15 @@ public sealed partial class DragonSystem : EntitySystem
         _faction.AddFaction(ent.Owner, ent.Comp.Faction);
     }
 
-    private void Roar(EntityUid uid, DragonComponent comp)
+    private void Roar(EntityUid uid, DragonComponent comp, EntityCoordinates? coords = null)
     {
         if (comp.SoundRoar != null)
-            _audio.PlayPvs(comp.SoundRoar, uid);
+        {
+            if (coords != null)
+                _audio.PlayPvs(comp.SoundRoar, coords.Value);
+            else
+                _audio.PlayPvs(comp.SoundRoar, uid);
+        }
     }
 
     /// <summary>
