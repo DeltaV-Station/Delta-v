@@ -29,6 +29,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSParadeMale
 
+# Head
+- type: loadout
+  id: HeadofSecurityCavalier
+  equipment:
+    head: ClothingHeadHatHeadOfSecurityCavalier
+
 # OuterClothing
 - type: loadout
   id: StasecWinterCoatHoS
@@ -62,3 +68,8 @@
       time: 180000
   equipment:
     neck: ClothingNeckHosRobe
+
+- type: loadout
+  id: HeadOfSecurityCloakBoat
+  equipment:
+    neck: ClothingNeckHeadOfSecurityCloakBoat
