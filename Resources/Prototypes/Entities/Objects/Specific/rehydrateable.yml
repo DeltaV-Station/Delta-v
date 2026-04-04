@@ -116,6 +116,10 @@
   - type: Rehydratable
     possibleSpawns:
     - MobMothroach
+    - MobMothroach # Frontier: enforced rarity
+    - MobMothroach # Frontier
+    - MobMothroach # Frontier
+    - MobRosyMothroach # Frontier
 
 - type: entity
   parent: RehydratableAnimalCube
