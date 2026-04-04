@@ -60,9 +60,9 @@ public sealed class RadioSystem : EntitySystem
     /// <summary>
     /// Send radio message to all active radio listeners
     /// </summary>
-    public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, bool escapeMarkup = true)
+    public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, bool escapeMarkup = true, EmoteType? emType = null) // DeltaV - EmoteType? added.
     {
-        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup);
+        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup, emType: emType);
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ public sealed class RadioSystem : EntitySystem
     /// </summary>
     /// <param name="messageSource">Entity that spoke the message</param>
     /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
-    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
+    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true, EmoteType? emType = null) // DeltaV - EmoteType? added.
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
@@ -92,14 +92,31 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
-            ("message", content));
+        // DeltaV - This change is to change up how the messages are wrapped up. Basically changing the formatting depending on the emote type.
+        string wrappedMessage;
+
+        if (emType == EmoteType.Audible)
+            wrappedMessage = Loc.GetString("chat-radio-message-audible-emote-wrap",
+                ("color", channel.Color),
+                ("channel", $"\\[{channel.LocalizedName}\\]"),
+                ("name", name),
+                ("message", content));
+        else if (emType == EmoteType.AudiblePossessive)
+            wrappedMessage = Loc.GetString("chat-radio-message-audible-possessive-emote-wrap",
+                ("color", channel.Color),
+                ("channel", $"\\[{channel.LocalizedName}\\]"),
+                ("name", name),
+                ("message", content));
+        else
+            wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
+                ("color", channel.Color),
+                ("fontType", speech.FontId),
+                ("fontSize", speech.FontSize),
+                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+                ("channel", $"\\[{channel.LocalizedName}\\]"),
+                ("name", name),
+                ("message", content));
+        // DeltaV - End
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         var chat = new ChatMessage(

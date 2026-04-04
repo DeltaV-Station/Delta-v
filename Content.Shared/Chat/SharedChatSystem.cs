@@ -29,6 +29,8 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char OOCPrefix = '[';
     public const char EmotesPrefix = '@';
     public const char EmotesAltPrefix = '*';
+    public const char AudibleEmotePrefix = '!'; // DeltaV - You may now scream audibly!
+    public const char PossessiveEmotePrefix = '\''; // DeltaV - You may now be possessive of things! Whatever that means.
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.  
@@ -152,6 +154,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         string input,
         out string output,
         out RadioChannelPrototype? channel,
+        bool capitalize = true, // DeltaV
         bool quiet = false)
     {
         output = input.Trim();
@@ -162,7 +165,7 @@ public abstract partial class SharedChatSystem : EntitySystem
 
         if (input.StartsWith(RadioCommonPrefix))
         {
-            output = SanitizeMessageCapital(input[1..].TrimStart());
+            output = capitalize ? SanitizeMessageCapital(input[1..].TrimStart()) : input[1..].TrimStart(); // DeltaV
             channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
             return true;
         }
@@ -172,7 +175,7 @@ public abstract partial class SharedChatSystem : EntitySystem
 
         if (input.Length < 2 || char.IsWhiteSpace(input[1]))
         {
-            output = SanitizeMessageCapital(input[1..].TrimStart());
+            output = capitalize ? SanitizeMessageCapital(input[1..].TrimStart()) : input[1..].TrimStart(); // DeltaV
             if (!quiet)
                 _popup.PopupEntity(Loc.GetString("chat-manager-no-radio-key"), source, source);
             return true;
@@ -180,7 +183,7 @@ public abstract partial class SharedChatSystem : EntitySystem
 
         var channelKey = input[1];
         channelKey = char.ToLower(channelKey);
-        output = SanitizeMessageCapital(input[2..].TrimStart());
+        output = capitalize ? SanitizeMessageCapital(input[2..].TrimStart()) : input[2..].TrimStart(); // DeltaV
 
         if (channelKey == DefaultChannelKey)
         {
@@ -314,11 +317,67 @@ public abstract partial class SharedChatSystem : EntitySystem
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
 
+    // Start - DeltaV -
+
+    public EmoteType? ProcessEmoteMessage(EntityUid source, string input, out string output)
+    {
+        output = input.Trim();
+        EmoteType? type = null;
+
+        if (input.Length == 0)
+            return type;
+
+        if (!(input.StartsWith(AudibleEmotePrefix) || input.StartsWith(PossessiveEmotePrefix)))
+        {
+            type = EmoteType.Normal;
+            return type;
+        }
+
+        var emoteType = input[0];
+        output = input[1..].TrimStart();
+
+        if (emoteType == AudibleEmotePrefix)
+        {
+            emoteType = input[1]; // For if we want AudiblePossessiveEmote
+            type = EmoteType.Audible;
+        }
+
+        if (emoteType == PossessiveEmotePrefix)
+        {
+            if (type == EmoteType.Audible)
+            {
+                type = EmoteType.AudiblePossessive;
+                output = input[2..].TrimStart();
+            }
+            else
+                type = EmoteType.Possessive;
+        }
+
+        return type;
+    }
+
+    protected virtual void SendAudibleEntityEmote(
+    EntityUid source,
+    string action,
+    ChatTransmitRange range,
+    string? nameOverride,
+    RadioChannelPrototype? channel,
+    EmoteType? emoteType,
+    bool hideLog = false,
+    bool checkEmote = true,
+    bool ignoreActionBlocker = false,
+    NetUserId? author = null
+    )
+    { }
+
+    // End - DeltaV -
+
     protected virtual void SendEntityEmote(
         EntityUid source,
         string action,
         ChatTransmitRange range,
         string? nameOverride,
+        EmoteType? emoteType,
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
@@ -487,4 +546,16 @@ public enum InGameOOCChatType : byte
 {
     Looc,
     Dead
+}
+
+// DeltaV
+/// <summary>
+/// Different ways of emoting. For that little extra in RP!
+/// </summary>
+public enum EmoteType : byte
+{
+    Normal, // Character emotes
+    Audible, // Character screams
+    Possessive, // Character's emote
+    AudiblePossessive // Character's scream
 }

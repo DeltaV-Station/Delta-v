@@ -39,3 +39,17 @@ chat-speech-verb-feroxi-1 = blubs
 chat-speech-verb-feroxi-2 = swishes
 chat-speech-verb-feroxi-3 = gnashes
 chat-speech-verb-feroxi-4 = growls
+
+chat-manager-entity-me-possessive-wrap-message = [italic]{ PROPER($entity) ->
+    *[false] The {$entityName}'s {$message}[/italic]
+     [true] {CAPITALIZE($entityName)}'s {$message}[/italic]
+    }
+
+chat-manager-entity-me-audible-wrap-message = [italic]{ PROPER($entity) ->
+    *[false] The {$entityName} {$message}[/italic]
+     [true] {CAPITALIZE($entityName)} {$message}[/italic]
+    }
+chat-manager-entity-me-audible-possessive-wrap-message = [italic]{ PROPER($entity) ->
+    *[false] The {$entityName}'s {$message}[/italic]
+     [true] {CAPITALIZE($entityName)}'s {$message}[/italic]
+    }
