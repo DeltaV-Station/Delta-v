@@ -80,9 +80,9 @@
     layers:
     - state: door_remotebase
     - state: door_remotelightscolour
-      color: "#cb0000"
+      color: "#5667c5" # Deltav - Recoloured to blue
     - state: door_remotescreencolour
-      color: "#830000"
+      color: "#36367e" # Deltav - Recoloured to blue
   - type: Access
     groups:
     - Security
@@ -96,9 +96,9 @@
     layers:
     - state: door_remotebase
     - state: door_remotelightscolour
-      color: "#e80000"
+      color: "#1130dd" # Deltav - Recoloured to blue
     - state: door_remotescreencolour
-      color: "#a80000"
+      color: "#0101a1" # Deltav - Recoloured to blue
   - type: Access
     groups:
     - Armory
