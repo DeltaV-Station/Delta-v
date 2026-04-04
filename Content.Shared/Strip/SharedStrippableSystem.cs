@@ -14,6 +14,9 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Mindshield.Components; // DeltaV - Admin QOL
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.SSDIndicator; // DeltaV - Admin QOL
 using Content.Shared.Strip.Components;
@@ -37,8 +40,9 @@ public abstract class SharedStrippableSystem : EntitySystem
 
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
-    private readonly string[] _highImpactOnStrip = ["id", "belt", "back"]; // DeltaV - high impact on player, key items
-    private readonly string[] _extremeImpactOnStrip = ["jumpsuit"]; // DeltaV - people shouldn't be stripping each others clothes off
+    private readonly string[] _keyItemSlots = ["id", "belt", "back"]; // DeltaV - high impact on player, key items
+    private readonly string[] _badStripSlots = ["jumpsuit"]; // DeltaV - people shouldn't be stripping each others clothes off
+    private readonly string[] _badSsdStripSlots = ["pocket1", "pocket2"]; // DeltaV - rummaging through pockets of ssd people is not nice
 
     public override void Initialize()
     {
@@ -358,26 +362,39 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         // DeltaV - LogImpact Additions START
         // Previously High by default. Stop chat spam from searches in Sec. Somebody with bad intentions is likely to strip from the specified slots.
+        var isTargetSsd = TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD;
+        var isTargetDead = TryComp<MobThresholdsComponent>(target, out var thresholds) &&
+                           thresholds.CurrentThresholdState == MobState.Dead;
+        var isUserShielded = HasComp<MindShieldComponent>(user);
+
         var logImpact = LogImpact.Medium;
-        if (_highImpactOnStrip.Contains(slot.ToLower()))
+
+        // If someone strips a key item from a living SSD, always alert. If not SSD or SSD and dead, alert on new player.
+        if (_keyItemSlots.Contains(slot.ToLower()))
         {
-            logImpact = LogImpact.High;
+            logImpact = isTargetSsd && !isTargetDead ? LogImpact.Extreme : LogImpact.High;
         }
 
-        if (_extremeImpactOnStrip.Contains(slot.ToLower()))
+        // In any case, alert if a player is trying to strip certain additional slots from a living SSD
+        if (_badSsdStripSlots.Contains(slot.ToLower()) && isTargetSsd && !isTargetDead)
         {
             logImpact = LogImpact.Extreme;
         }
 
-        var isSsd = false;
-        if (TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD)
+        // ... unless the user is mindshielded. Cadets search people who might disconnect.
+        if (isUserShielded)
         {
-            isSsd = true;
-            logImpact = LogImpact.Extreme;
+            logImpact = LogImpact.Medium;
+        }
+
+        // If someone strips a jumpsuit from a dead player, they're probably trying to perform surgery, alert on new player. Otherwise, always alert.
+        if (_badStripSlots.Contains(slot.ToLower()))
+        {
+            logImpact = isTargetDead ? LogImpact.High : LogImpact.Extreme;
         }
         // DeltaV - LogImpact Additions END
 
-        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isSsd ? "[SSD] " : "")}{ToPrettyString(target):target}'s {slot} slot"); // DeltaV - replace default LogImpact, insert SSD indicator
+        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isTargetSsd ? "[SSD] " : "")}{(isTargetDead ? "[DEAD] " : "")}{ToPrettyString(target):target}'s {slot} slot"); // DeltaV - replace default LogImpact, insert SSD and DEAD indicators
     }
 
     /// <summary>
@@ -592,7 +609,14 @@ public abstract class SharedStrippableSystem : EntitySystem
         _handsSystem.TryDrop(target, item, checkActionBlocker: false);
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth, handsComp: user.Comp);
 
-        _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands"); // DeltaV - Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice.
+        // DeltaV - Additions START
+        var isTargetSsd = TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD;
+        var isTargetDead = TryComp<MobThresholdsComponent>(target, out var thresholds) &&
+                     thresholds.CurrentThresholdState == MobState.Dead;
+        var isUserShielded = HasComp<MindShieldComponent>(user);
+        // DeltaV - Additions END
+
+        _adminLogger.Add(LogType.Stripping, !isUserShielded && isTargetSsd && !isTargetDead ? LogImpact.Extreme : LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands"); // DeltaV - Add conditional LogImpact. If not SSD Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice. If living SSD, always alert.
         // Hand update will trigger strippable update.
     }
 
