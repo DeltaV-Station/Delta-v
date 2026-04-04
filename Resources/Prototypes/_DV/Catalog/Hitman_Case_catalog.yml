@@ -1,0 +1,90 @@
+- type: thiefBackpackSet
+  id: HitmanSharpshooterKit
+  name: hitman-sharpshooter-kit-name
+  description: hitman-sharpshooter-kit-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    state: base
+  content:
+  - BriefcaseSyndieSniperBundleFilled
+  - ClothingEyesThermalVisionGogglesSyndie
+
+- type: thiefBackpackSet
+  id: HitmanLoudKit
+  name: hitman-loud-kit-name
+  description: hitman-loud-kit-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    state: icon
+  content:
+  - WeaponRevolverPythonAP
+  - SpeedLoaderMagnumAP
+  - SpeedLoaderMagnumAP
+  - ClothingOuterArmorBasic
+  - ClothingShoesChameleonNoSlips
+
+- type: thiefBackpackSet
+  id: HitmanAssassinKit
+  name: hitman-assassin-kit-name
+  description: hitman-assassin-kit-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    state: icon
+  content:
+  - WeaponPistolCobra
+  - MagazinePistolCaselessRifle
+  - ThrowingKnivesKit
+  - ClothingEyesNightVisionGoggles
+  - RechargingRadioJammer
+
+- type: thiefBackpackSet
+  id: HitmanInfiltrationKit
+  name: hitman-infiltration-kit-name
+  description: hitman-infiltration-kit-description
+  sprite:
+    sprite: _DV/Objects/Tools/doorjack.rsi
+    state: icon
+  content:
+  - Emag
+  - SyndicateJawsOfLife
+  - StealthBox
+
+- type: thiefBackpackSet
+  id: HitmanDisguiseKit
+  name: hitman-disguise-kit-name
+  description: hitman-disguise-kit-description
+  sprite:
+    sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+    state: icon
+  content:
+  - AgentIDCard
+  - ClothingUniformJumpsuitChameleon
+  - ClothingOuterChameleon
+  - ClothingHandsChameleon
+  - ClothingShoesChameleon
+  - BionicVoiceMaskImplanter
+  - FakeMindShieldImplanter
+
+- type: thiefBackpackSet
+  id: HitmanEscapistKit
+  name: hitman-escapist-kit-name
+  description: hitman-escapist-kit-description
+  sprite:
+    sprite: Actions/Implants/implants.rsi
+    state: freedom
+  content:
+  - DnaScramblerImplanter
+  - FreedomImplanter
+  - ScramImplanter
+
+- type: thiefBackpackSet
+  id: HitmanTrackerKit
+  name: hitman-tracker-kit-name
+  description: hitman-tracker-kit-description
+  sprite:
+    sprite: Objects/Tools/spy_device.rsi
+    state: icon
+  content:
+  - PinpointerUniversal #todo: make this a version to find the hitmans target later
+  - EncryptionKeyStationMaster
+  - SpyCrewMonitor

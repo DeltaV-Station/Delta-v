@@ -246,7 +246,22 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(agent);
         // End DeltaV Additions
-
+        // start DeltaV Additions 
+        var hitman = Loc.GetString("admin-verb-make-Hitman");
+        Verb hitmans = new()
+        {
+            Text = hitman,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "hitman"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<HitmanRuleComponent>(targetPlayer, "HitmanRule");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", hitman, Loc.GetString("admin-verb-text-make-Hitman")),
+        };
+        args.Verbs.Add(hitmans);
+        // end DeltaV additions
         // Harmony start
         var conspiratorName = Loc.GetString("admin-verb-text-make-conspirator");
         Verb conspirator = new()
