@@ -36,7 +36,7 @@ public sealed partial class TraitPrototype : IPrototype
     /// How many trait points this trait costs (positive) or grants (negative).
     /// </summary>
     [DataField]
-    public int Cost = 1;
+    public int Cost = 0;
 
     /// <summary>
     /// Conditions that must be met for this trait to be selectable and applied.
@@ -57,4 +57,12 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<TraitPrototype>> Conflicts = new();
+
+    // Floofstation section
+    /// <summary>
+    /// The priority of this trait. Higher priority traits are applied first.
+    /// </summary>
+    [DataField]
+    public int Priority = 0;
+    // Floofstation section end
 }
