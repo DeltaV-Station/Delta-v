@@ -41,11 +41,11 @@
     head: ClothingHeadHatHardhatRed
 
 - type: loadout
-  id: SeniorEngineerBeret
+  id: EngineerBeret # DeltaV - Was SeniorEngineerBeret
   startingGear: EngineeringBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+#  effects: # DeltaV - Remove Specific Role Timers
+#  - !type:GroupLoadoutEffect
+#    proto: SeniorEngineering
 
 # Jumpsuit
 - type: loadout
