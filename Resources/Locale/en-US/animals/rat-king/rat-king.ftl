@@ -1,4 +1,5 @@
-rat-king-domain-popup = A cloud of ammonia is released into the air!
+# DeltaV - Moved to a _DV file.
+#rat-king-domain-popup = A cloud of ammonia is released into the air!
 
 rat-king-too-hungry = You are too hungry to use this ability!
 
