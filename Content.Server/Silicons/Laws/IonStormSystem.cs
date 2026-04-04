@@ -213,7 +213,8 @@ public sealed class IonStormSystem : EntitySystem
         return _robustRandom.Next(0, 35) switch
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
+            1  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)), // DeltaV- replace shuttle calling law with duplicate
+            // 1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)), DeltaV
             2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
             3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),
