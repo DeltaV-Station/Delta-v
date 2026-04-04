@@ -8,9 +8,9 @@
     sprite: Nyanotrasen/Objects/Weapons/Melee/breaching_hammer.rsi
     state: icon
   - type: Item
-    size: Huge
+    size: Ginormous
   - type: MeleeWeapon
-    attackRate: 0.4
+    attackRate: 0.6
     range: 1.70
     wideAnimationRotation: -135
     damage:
@@ -20,22 +20,25 @@
         Structural: 10
     soundHit:
       path: /Audio/Nyanotrasen/Weapons/club.ogg
-    bluntStaminaDamageFactor: 1.50 # 15 stamina damage
-#  - type: MeleeStaminaCost
-#    swing: 10
-#    wieldCoefficient: 0.5 #if wielded you will only consume 5
+    bluntStaminaDamageFactor: 1.6 # 40 stamina damage wielded
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 20
+        Blunt: 25
         Piercing: 2
-        Structural: 20
+        Structural: 30
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
   - type: Tool
     qualities:
       - Prying
-    speedModifier: 0.8
   - type: Prying
+    speedModifier: 1.5
     pryPowered: !type:Bool
       true
     force: !type:Bool

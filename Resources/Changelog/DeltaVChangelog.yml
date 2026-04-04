@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Shared IPC limbs, Cybernetics and Surgical Gloves to the Medical Techfab!
-    type: Tweak
-  - message: Shared advanced Surgical tools to the exosuit fabricator!
-    type: Tweak
-  id: 1706
-  time: '2025-10-03T05:42:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4312
-- author: SirWarock
-  changes:
-  - message: Increased Oni's prying speed to 50% to match their species guidebook
-      page.
-    type: Tweak
-  - message: Fixed Truncheons and similar weapons dealing only half their stamina
-      damage on armored targets!
-    type: Fix
-  id: 1707
-  time: '2025-10-03T05:51:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4419
-- author: Lonestar827
-  changes:
-  - message: fixed a word in the revenant guidebook entry to properly refer to revenants
-      instead of wisps
-    type: Fix
-  id: 1708
-  time: '2025-10-03T21:42:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4482
-- author: AeraAuling
-  changes:
-  - message: Archivists now have the right headset
-    type: Fix
-  id: 1709
-  time: '2025-10-03T21:51:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4477
-- author: kotobdev
-  changes:
-  - message: Colossuses will now only spawn 45 minutes into the round.
-    type: Tweak
-  id: 1710
-  time: '2025-10-04T05:21:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4434
-- author: BarryNorfolk
-  changes:
-  - message: Added new Armours for k9 units, covering combat and riot hardsuits.
-    type: Add
-  - message: Secdogs (not Vulps) can now wear/use Jetpacks in space.
-    type: Add
-  id: 1711
-  time: '2025-10-04T20:57:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4172
 - author: kotobdev
   changes:
   - message: Reptilians are no longer bald! Unless they want to be.
@@ -4403,4 +4352,47 @@
   id: 2205
   time: '2026-03-31T03:57:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5504
+- author: Stxcking
+  changes:
+  - message: Removed Conspiracy from the game mode rotation (for now).
+    type: Remove
+  id: 2206
+  time: '2026-04-01T20:35:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5594
+- author: rebe83
+  changes:
+  - message: Combat medipens no longer OD on omni and have more tranex.
+    type: Tweak
+  id: 2207
+  time: '2026-04-02T12:04:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5584
+- author: TehFlaminTaco
+  changes:
+  - message: The infestation of cars has been appropriately resolved.
+    type: Fix
+  id: 2208
+  time: '2026-04-02T23:02:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5608
+- author: rebe83
+  changes:
+  - message: NT Armory has researched a better breaching hammer. It pries faster and
+      bonks harder! Permas beware.
+    type: Tweak
+  id: 2209
+  time: '2026-04-03T08:21:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5586
+- author: rebe83
+  changes:
+  - message: Shotgun slugs now do much more damage to structures.
+    type: Tweak
+  id: 2210
+  time: '2026-04-03T08:22:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5590
+- author: Woljif
+  changes:
+  - message: Vulcan firerate increased from 3.5 to 4.0
+    type: Tweak
+  id: 2211
+  time: '2026-04-03T08:28:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5583
 Order: 1
