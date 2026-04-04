@@ -46,12 +46,14 @@ namespace Content.Shared.Preferences
         { // Start DeltaV - Prevent spawning as hidden speceis (At all costs)
             get
             {
-                // If we can't spawn as the selected character, try to find the NEXT one we can, wrapping if we must.
-                for (int i = 0; i < Characters.Count; i++)
+                // Firstly, check if we CAN use the selected character.
+                if (Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile || !SpeciesHiderSystem.IsHidden(humanoidProfile.Species))
+                    return Characters[SelectedCharacterIndex]; // Valid, return it.
+                // Otherwise, return the first valid character we can find.
+                foreach (var (_index, profile) in Characters)
                 {
-                    var candidate = Characters[(SelectedCharacterIndex + i) % Characters.Count];
-                    if (candidate is not HumanoidCharacterProfile nextHumanoidProfile) return candidate;
-                    if (!SpeciesHiderSystem.IsHidden(nextHumanoidProfile.Species)) return candidate;
+                    if (profile is not HumanoidCharacterProfile nextHumanoidProfile || !SpeciesHiderSystem.IsHidden(nextHumanoidProfile.Species))
+                        return profile; // Valid, return it.
                 }
                 // If we can't find ANY valid character, make a new one.
                 return HumanoidCharacterProfile.Random();
