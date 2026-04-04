@@ -47,13 +47,22 @@ namespace Content.Shared.Preferences
             get
             {
                 // Firstly, check if we CAN use the selected character.
-                if (!Characters.ContainsKey(SelectedCharacterIndex) || Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile || !SpeciesHiderSystem.IsHidden(humanoidProfile.Species))
-                    return Characters[SelectedCharacterIndex]; // Valid, return it.
+                if (Characters.ContainsKey(SelectedCharacterIndex)) // If we've selected a character
+                {
+                    // Throughout this, we use this If(Valid)return pattern rather than the inverse if(Invalid)continue
+                    // Because the conditions in which it's valid are more seperate. This makes it slightly more readable.
+                    if (Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile)
+                        return Characters[SelectedCharacterIndex]; // If it's a non-humanoid, return it.
+                    if (!SpeciesHiderSystem.IsHidden(humanoidProfile.Species))
+                        return humanoidProfile; // Otherwise, return it if it's not hidden
+                }
                 // Otherwise, return the first valid character we can find.
                 foreach (var (_index, profile) in Characters)
                 {
-                    if (profile is not HumanoidCharacterProfile nextHumanoidProfile || !SpeciesHiderSystem.IsHidden(nextHumanoidProfile.Species))
-                        return profile; // Valid, return it.
+                    if (profile is not HumanoidCharacterProfile nextHumanoidProfile)
+                        return profile; // If it's a non-humanoid, return it.
+                    if (!SpeciesHiderSystem.IsHidden(nextHumanoidProfile.Species))
+                        return profile; // If it's not a hidden species, return it.
                 }
                 // If we can't find ANY valid character, make a new one.
                 return HumanoidCharacterProfile.Random();
