@@ -6,13 +6,6 @@
   components:
   - type: HumanoidAppearance
     species: Kitsune
-  - type: InteractionPopup
-    successChance: 0.5
-    interactSuccessString: petting-success-soft-floofy-kitsune
-    interactFailureString: petting-failure-generic
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/fox_squeak.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/hiss.ogg
