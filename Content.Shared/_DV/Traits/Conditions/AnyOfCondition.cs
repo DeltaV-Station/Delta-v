@@ -1,3 +1,4 @@
+using System.Text;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Traits.Conditions;
@@ -38,27 +39,25 @@ public sealed partial class AnyOfCondition : BaseTraitCondition
         return false;
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         if (Conditions.Count == 0)
             return string.Empty;
 
-        var requirements = new List<string>();
+        var requirementsTooltip = new StringBuilder();
 
         foreach (var condition in Conditions)
         {
-            var tooltip = condition.GetTooltip(proto, loc);
-            if (!string.IsNullOrEmpty(tooltip))
-                requirements.Add(tooltip);
+            var conditionTooltip = condition.GetTooltip(proto, loc, depth + 1);
+            if (conditionTooltip.Length > 0)
+                requirementsTooltip.Append(conditionTooltip);
         }
 
-        if (requirements.Count == 0)
+        if (requirementsTooltip.Length == 0)
             return string.Empty;
 
-        // AAAAAAAAAAA
-        var joinedRequirements = string.Join("\n• ", requirements);
+        var tooltip = loc.GetString("trait-condition-any-of", ("requirements", requirementsTooltip));
 
-        // Handle inversion in tooltip (ANY becomes NONE when inverted)
-        return Loc.GetString("trait-condition-any-of", ("requirements", joinedRequirements));
+        return new string(' ', depth * 2) + "- " + tooltip;
     }
 }

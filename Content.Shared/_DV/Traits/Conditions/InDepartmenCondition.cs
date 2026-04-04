@@ -17,16 +17,16 @@ public sealed partial class InDepartmentCondition : BaseTraitCondition
 
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
-        if (string.IsNullOrEmpty(ctx.JobId))
+        if (ctx.JobId is not { } jobId)
             return false;
 
         if (!ctx.Proto.TryIndex(Department, out var department))
             return false;
 
-        return department.Roles.Contains(ctx.JobId);
+        return department.Roles.Contains(jobId);
     }
 
-    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc)
+    public override string GetTooltip(IPrototypeManager proto, ILocalizationManager loc, int depth)
     {
         var deptName = Department.Id;
         var deptColor = "#ffffff";
@@ -37,9 +37,10 @@ public sealed partial class InDepartmentCondition : BaseTraitCondition
             deptColor = deptProto.Color.ToHex();
         }
 
-
-        return Invert
+        var tooltip = Invert
             ? loc.GetString("trait-condition-department-not", ("department", deptName), ("color", deptColor))
             : loc.GetString("trait-condition-department-is", ("department", deptName), ("color", deptColor));
+
+        return new string(' ', depth * 2) + "- " + tooltip + Environment.NewLine;
     }
 }
