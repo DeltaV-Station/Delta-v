@@ -43,7 +43,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 public abstract partial class SharedGunSystem : EntitySystem
 {
     // ES START
-    [Dependency] private ESScreenshakeSystem _shake = default!;
+    [Dependency] private SharedESScreenshakeSystem _shake = default!;
     // ES END
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;

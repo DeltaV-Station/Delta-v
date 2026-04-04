@@ -18,7 +18,7 @@ namespace Content.Server.Projectiles;
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
     // ES START
-    [Dependency] private readonly ESScreenshakeSystem _shake = default!;
+    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
     // ES END
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ColorFlashEffectSystem _color = default!;

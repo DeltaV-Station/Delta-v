@@ -301,4 +301,10 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create("cosmiccult.extra_entropy_for_finale", 1, CVar.SERVER);
+
+    /// <summary>
+    /// The delay between the monument getting upgraded to tier 3 and the finale starting.
+    /// </summary>
+    public static readonly CVarDef<bool> EsScreenshakeDisabled =
+        CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

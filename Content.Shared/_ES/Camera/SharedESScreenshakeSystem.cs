@@ -12,7 +12,8 @@ namespace Content.Shared._ES.Camera;
 ///     Handles sending rotational or translational screenshake to an entity, managing the screenshake commands
 ///     of every entity currently screenshaking, and setting offset/rotation when updated
 /// </summary>
-public sealed class ESScreenshakeSystem : EntitySystem
+// DeltaV - renamed from ESScreenshakeSystem to SharedESScreenshakeSystem
+public sealed class SharedESScreenshakeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -23,8 +24,8 @@ public sealed class ESScreenshakeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ESScreenshakeComponent, ESGetEyeRotationEvent>(OnGetEyeRotation);
-        SubscribeLocalEvent<ESScreenshakeComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
+        // SubscribeLocalEvent<ESScreenshakeComponent, ESGetEyeRotationEvent>(OnGetEyeRotation); // DeltaV - Moved to Client system
+        // SubscribeLocalEvent<ESScreenshakeComponent, GetEyeOffsetEvent>(OnGetEyeOffset); // DeltaV - Moved to Client system
         SubscribeLocalEvent<ESScreenshakeComponent, EntityUnpausedEvent>(OnEntityUnpaused);
     }
 
@@ -52,71 +53,6 @@ public sealed class ESScreenshakeSystem : EntitySystem
                 Dirty(ent, shake);
             }
         }
-    }
-
-    private void OnGetEyeOffset(Entity<ESScreenshakeComponent> ent, ref GetEyeOffsetEvent args)
-    {
-        if (!TryComp<EyeComponent>(ent, out var eye))
-            return;
-
-        var noise = new FastNoiseLite(67);
-        noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-
-        var accumulatedOffset = Vector2.Zero;
-        var maxOffset = new Vector2(0.15f, 0.15f);
-        foreach (var command in ent.Comp.Commands)
-        {
-            if (command.Translational == null)
-                continue;
-
-            var trauma =
-                CalculateTraumaValueForCurrentTime(command.Translational, command.Start);
-            if (trauma <= 0)
-                continue;
-
-            noise.SetFrequency(command.Translational.Frequency);
-
-            // using the starst c ommand for y pos kinda doesnt work in the case where multiple shakes get sent at the same time
-            // and the shakes are identical otherwise. but like dont do that or something idk
-            var offsetX = (maxOffset.X * trauma) * noise.GetNoise((float)_timing.RealTime.TotalMilliseconds, (float)command.Start.TotalMilliseconds);
-            noise.SetSeed(68);
-            var offsetY = (maxOffset.Y * trauma) * noise.GetNoise((float)_timing.RealTime.TotalMilliseconds, (float)command.Start.TotalMilliseconds);
-            noise.SetSeed(67);
-            accumulatedOffset += new Vector2(offsetX, offsetY);
-        }
-
-        args.Offset += accumulatedOffset;
-    }
-
-    private void OnGetEyeRotation(Entity<ESScreenshakeComponent> ent, ref ESGetEyeRotationEvent args)
-    {
-        if (!TryComp<EyeComponent>(ent, out var eye))
-            return;
-
-        var noise = new FastNoiseLite(67 + 420); // Epic bacon
-        noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-
-        // 20deg max
-        var accumulatedAngle = Angle.Zero;
-        var maxAngleDegrees = 20f;
-        foreach (var command in ent.Comp.Commands)
-        {
-            if (command.Rotational == null)
-                continue;
-
-            var trauma =
-                CalculateTraumaValueForCurrentTime(command.Rotational, command.Start);
-            if (trauma <= 0)
-                continue;
-
-            noise.SetFrequency(command.Rotational.Frequency);
-
-            var angle = (maxAngleDegrees * trauma) * noise.GetNoise((float)_timing.RealTime.TotalMilliseconds, (float)command.Start.TotalMilliseconds);
-            accumulatedAngle += Angle.FromDegrees(angle);
-        }
-
-        // TODO ughhh this shit breaks with something idk
-        args.Rotation += accumulatedAngle;
     }
 
     private void OnEntityUnpaused(Entity<ESScreenshakeComponent> ent, ref EntityUnpausedEvent args)
@@ -156,7 +92,8 @@ public sealed class ESScreenshakeSystem : EntitySystem
     /// <summary>
     ///     Gets the trauma value for the current time, given the decay rate and start time.
     /// </summary>
-    private float CalculateTraumaValueForCurrentTime(ESScreenshakeParameters parameters, TimeSpan start)
+    // DeltaV - make public
+    public float CalculateTraumaValueForCurrentTime(ESScreenshakeParameters parameters, TimeSpan start)
     {
         var timeDiff = _timing.CurTime - start;
 

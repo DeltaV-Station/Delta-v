@@ -37,7 +37,7 @@ namespace Content.Server.Explosion.EntitySystems;
 public sealed partial class ExplosionSystem : SharedExplosionSystem
 {
     // ES START
-    [Dependency] private readonly ESScreenshakeSystem _shake = default!;
+    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
     // ES END
 
     [Dependency] private readonly IMapManager _mapManager = default!;
