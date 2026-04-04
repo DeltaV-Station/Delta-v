@@ -3,10 +3,17 @@
 # Laika sec glasses
 
 - type: startingGear
-  id: MobSecDogLaikaGear
+  id: MobSecDogGear
+  equipment:
+    outerClothing: ClothingOuterArmorDuraVestK9
+    pocket1: DogWhistle
+
+- type: startingGear
+  id: MobLaikaGear
   equipment:
     eyes: ClothingEyesGlassesSunglasses
     outerClothing: ClothingOuterArmorDuraVestK9
+    pocket1: DogWhistle
 
 - type: startingGear
   id: MobSilviaGear
