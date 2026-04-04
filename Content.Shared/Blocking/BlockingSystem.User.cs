@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Item.ItemToggle.Components; // DeltaV
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
