@@ -47,7 +47,7 @@ namespace Content.Shared.Preferences
             get
             {
                 // Firstly, check if we CAN use the selected character.
-                if (Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile || !SpeciesHiderSystem.IsHidden(humanoidProfile.Species))
+                if (!Characters.ContainsKey(SelectedCharacterIndex) || Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile || !SpeciesHiderSystem.IsHidden(humanoidProfile.Species))
                     return Characters[SelectedCharacterIndex]; // Valid, return it.
                 // Otherwise, return the first valid character we can find.
                 foreach (var (_index, profile) in Characters)
