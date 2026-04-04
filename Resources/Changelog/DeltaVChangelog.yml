@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Halo3moth
-  changes:
-  - message: Beam Dev battery size to 250 from 500
-    type: Tweak
-  - message: Emp grenades now drain twice as much power
-    type: Tweak
-  id: 1714
-  time: '2025-10-04T22:52:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4358
 - author: kotobdev
   changes:
   - message: You can now perform surgery on yourself. Or at least, you can try.
@@ -4394,4 +4385,12 @@
   id: 2213
   time: '2026-04-04T18:21:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5601
+- author: Minerva
+  changes:
+  - message: DV-specific medical scrubs and surgical caps can now be obtained from
+      the MediDrobe.
+    type: Tweak
+  id: 2214
+  time: '2026-04-04T18:55:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5613
 Order: 1
