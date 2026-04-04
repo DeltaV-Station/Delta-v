@@ -82,7 +82,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             Log.Info($"Performing anomaly pulse. Entity: {ToPrettyString(uid)}");
 
         // if we are above the growth threshold, then grow before the pulse
-        if (component.Stability > component.GrowthThreshold)
+        if (component.AlwaysGrow || component.Stability > component.GrowthThreshold) // DeltaV - Add AlwaysGrow
         {
             ChangeAnomalySeverity(uid, GetSeverityIncreaseFromGrowth(component), component);
         }
@@ -190,7 +190,8 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
     /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
+    /// <param name="forced">Whether or not the anomaly shutdown was caused by component shutdown</param> // DeltaV - Add forced
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false, bool forced = false)  // DeltaV - Add forced
     {
         if (logged)
         {
@@ -205,7 +206,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var ev = new AnomalyShutdownEvent(uid, supercritical);
+        var ev = new AnomalyShutdownEvent(uid, supercritical, forced); // DeltaV - Add forced
         RaiseLocalEvent(uid, ref ev, true);
 
         if (Terminating(uid) || _net.IsClient)
@@ -343,7 +344,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             // if the stability is under the death threshold,
             // update it every second to start killing it slowly.
-            if (anomaly.Stability < anomaly.DecayThreshold)
+            if (!anomaly.AlwaysGrow && anomaly.Stability < anomaly.DecayThreshold) // DeltaV - Add AlwaysGrow
             {
                 ChangeAnomalyHealth(ent, anomaly.HealthChangePerSecond * frameTime, anomaly);
             }
@@ -476,6 +477,14 @@ public abstract class SharedAnomalySystem : EntitySystem
         visual = null;
         if (!Resolve(ent, ref ent.Comp, logMissing: false))
             return false;
+
+        // DeltaV - Colossus Additions START
+        if (ent.Comp.AlwaysGrow)
+        {
+            visual = AnomalyStabilityVisuals.Growing;
+            return true;
+        }
+        // DeltaV - Colossus Additions END
 
         visual = AnomalyStabilityVisuals.Stable;
         if (ent.Comp.Stability <= ent.Comp.DecayThreshold)

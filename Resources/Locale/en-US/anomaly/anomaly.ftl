@@ -97,3 +97,7 @@ anomaly-behavior-inconstancy = [color=crimson]Impermanence has been detected. Pa
 anomaly-behavior-fast = [color=crimson]The pulsation frequency is strongly increased.[/color]
 anomaly-behavior-strenght = [color=crimson]The pulsation power is significantly increased.[/color]
 anomaly-behavior-moving = [color=crimson]Coordinate instability was detected.[/color]
+
+# DeltaV - Additions START
+anomaly-behavior-always-grow = [color=red]Anomaly never stops growing.[/color]
+# DeltaV - Additions END
