@@ -101,6 +101,7 @@ namespace Content.IntegrationTests.Tests
             "Lighthouse", // DeltaV
             "Micro", // DeltaV
             "Ovni", //DeltaV
+            "Anvil", //DeltaV
             "Pebble", // DeltaV
             "PebbleHiring", // DeltaV
             "Shoukou", // DeltaV
