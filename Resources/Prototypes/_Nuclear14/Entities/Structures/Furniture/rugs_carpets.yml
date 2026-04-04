@@ -19,6 +19,11 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior # Begin DeltaV Additions
+            spawn:
+              MaterialCloth1:
+                min: 3
+                max: 3 # End DeltaV Additions
 
 - type: entity
   parent: N14CarpetSingleBase
@@ -28,14 +33,21 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs.rsi
     state: mat_blank
+  - type: Construction # DeltaV
+    graph: N14RugMatRecipe # DeltaV
+    node: matBlank # DeltaV
 
 - type: entity
-  parent: N14RugMat
+  parent: N14CarpetSingleBase # DeltaV
   id: N14RugMatWelcome
-  suffix: welcome
+  name: welcome mat # DeltaV
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs.rsi # DeltaV
     state: mat_welcome
+  - type: Construction # DeltaV
+    graph: N14RugMatWelcomeRecipe # DeltaV
+    node: matWelcome # DeltaV
 
 - type: entity
   parent: N14RugMat
@@ -111,57 +123,143 @@
 
 # 64x64 rugs
 - type: entity
-  parent: N14CarpetSingleBase
   id: N14RugBlue
-  name: rug
+  parent: N14CarpetSingleBase # DeltaV
+  name: blue rug # DeltaV
   description: A modern looking blue rug.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue
+  - type: Construction # Begin DeltaV Additions
+    graph: N14RugRecipes
+    node: blueRug
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetBlue:
+            min: 4
+            max: 4 # End DeltaV Additions
 
 - type: entity
+  id: N14RugShag # Delta V
   parent: N14RugBlue
-  id: N14RugBlueShag
-  suffix: shag
+  name: blue shag rug # DeltaV 
+  description: A blue shag rug. Looks cheap. # DeltaV 
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue_shag
+  - type: Construction # DeltaV
+    graph: N14RugRecipes # DeltaV
+    node: rugShag # DeltaV
 
 - type: entity
+  id: N14RugBrown
   parent: N14RugBlue
-  id: N14RugBrownFancy
-  description: A fancy looking rug.
+  name: brown rug
+  description: A fancy looking brown rug. 
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_fancy
+  - type: Construction # Begin DeltaV Additions
+    graph: N14RugRecipes
+    node: brownRug
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Carpet:
+            min: 2
+            max: 2
+          CarpetGreen:
+            min: 2
+            max: 2 # End DeltaV Additions
 
 - type: entity
-  parent: N14RugBlue
   id: N14RugRed
-  description: A patterned red rug.
+  parent: N14RugBlue # DeltaV
+  name: red rug # DeltaV
+  description: A fancily patterned red rug. Looks expensive. # DeltaV
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_red
+  - type: Construction # Begin DeltaV Additions
+    graph: N14RugRecipes
+    node: redRug
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Carpet:
+            min: 4
+            max: 4 # End DeltaV Additions
 
 - type: entity
-  parent: N14RugBlue
   id: N14RugYellow
-  description: A patterned yellow rug.
+  parent: N14RugBlue
+  name: orange rug
+  description: A patterned orange rug.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_yellow
+  - type: Construction # Begin DeltaV Additions
+    graph: N14RugRecipes
+    node: orangeRug
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetOrange:
+            min: 4
+            max: 4 # End DeltaV Additions
 
 - type: entity
-  parent: N14RugBlue
   id: N14RugMatRubberLarge
+  parent: N14RugBlue
   name: rubber mat
-  description: A large rubber mat.
+  description: A large laboratory-grade rubber mat. Feel safe as you spill acid on yourself!
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_rubber
+  - type: Construction # Begin DeltaV Additions
+    graph: N14RugRecipes
+    node: RubberMat
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetPlastic:
+              min: 4
+              max: 4 # End DeltaV Additions
+ 

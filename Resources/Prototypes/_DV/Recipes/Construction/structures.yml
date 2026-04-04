@@ -63,3 +63,156 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
+
+- type: construction
+  id: RailingDeltaV
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaV
+  name: structure-wall-reinforced-plasteel-railing-corner
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingCornerDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaV
+  name: structure-wall-reinforced-plasteel-railing-corner-small
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingCornerSmallDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaV
+  name: structure-wall-reinforced-plasteel-railing-round
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingRoundDeltaV
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingDeltaVGrey
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaVGrey
+  name: structure-wall-reinforced-steel-railing-corner
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingCornerDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaVGrey
+  name: structure-wall-reinforced-steel-railing-corner-small
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingCornerSmallDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaVGrey
+  name: structure-wall-reinforced-steel-railing-round
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingRoundDeltaVGrey
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingDeltaVWood
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerDeltaVWood
+  name: structure-wall-reinforced-wood-railing-corner
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingCornerDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingCornerSmallDeltaVWood
+  name: structure-wall-reinforced-wood-railing-corner-small
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingCornerSmallDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RailingRoundDeltaVWood
+  name: structure-wall-reinforced-wood-railing-round
+  graph: RailingDeltaVRecipes
+  startNode: start
+  targetNode: railingRoundDeltaVWood
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

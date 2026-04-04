@@ -1,0 +1,12 @@
+structure-wall-reinforced-steel-railing = reinforced steel railing
+structure-wall-reinforced-steel-railing-corner = reinforced steel railing corner
+structure-wall-reinforced-steel-railing-corner-small = reinforced steel railing corner (small)
+structure-wall-reinforced-steel-railing-round = reinforced steel railing (round)
+structure-wall-reinforced-plasteel-railing = reinforced plasteel railing
+structure-wall-reinforced-plasteel-railing-corner = reinforced plasteel railing corner
+structure-wall-reinforced-plasteel-railing-corner-small = reinforced plasteel railing corner (small)
+structure-wall-reinforced-plasteel-railing-round = reinforced plasteel railing (round)
+structure-wall-reinforced-wood-railing = reinforced wood railing
+structure-wall-reinforced-wood-railing-corner = reinforced wood railing corner
+structure-wall-reinforced-wood-railing-corner-small = reinforced wood railing corner (small)
+structure-wall-reinforced-wood-railing-round = reinforced wood railing (round)

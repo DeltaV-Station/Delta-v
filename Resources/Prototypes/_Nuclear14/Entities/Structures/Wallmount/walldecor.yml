@@ -81,12 +81,14 @@
   parent: N14SignBase
   id: N14WallDecorClock
   name: clock
-  description: A clock. Don't think it works.
+  description: A clock. # DeltaV
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
     snapCardinals: false
     state: clock
+  - type: Clock # Delta V - Make clocks work
+  - type: WallMount # Delta V - Clocks go on walls
 
 - type: entity
   parent: N14WallDecorClock
