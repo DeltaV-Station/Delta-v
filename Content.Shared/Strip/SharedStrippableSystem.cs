@@ -15,8 +15,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mindshield.Components; // DeltaV - Admin QOL
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs; // DeltaV - Admin QOL
+using Content.Shared.Mobs.Components; // DeltaV - Admin QOL
 using Content.Shared.Popups;
 using Content.Shared.SSDIndicator; // DeltaV - Admin QOL
 using Content.Shared.Strip.Components;
