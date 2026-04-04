@@ -5,16 +5,11 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/4397d63a55dac7d0536eb9bcc0a0f68634858c50/code/modules/hydroponics/hydroitemdefines.dm",
-    "states": 
-    [
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/f032bb1d4d982d4ee57c214c18238aaddb45d512, slightly edited by Timfa",
+    "states": [
         {
-            "name": "plantanalyzer"
-        },
-        {
-            "name": "unlit",
-            "delays": 
-            [
+            "name": "analyzer",
+            "delays": [
                 [
                     0.1,
                     0.1,
@@ -30,11 +25,9 @@
                     0.1
                 ]
             ]
-            
         },
         {
             "name": "icon"
         }
     ]
-        
 }
