@@ -209,10 +209,12 @@ public sealed partial class DCCVars
         CVarDef.Create("admin.alerts.latejoin_max_hours", 2.0, CVar.SERVERONLY);
 
     /// <summary>
-    ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
+    ///    Whether preset cooldowns should be considered by the SecretRuleSystem. Should be true in production.
+    ///    False by default to avoid breaking unit tests
+    ///    DeltaV specific, but ImpStation preset cooldown code is gated behind this.
     /// </summary>
-    public static readonly CVarDef<bool> EnableBacktoBack =
-        CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
+    public static readonly CVarDef<bool> EnablePresetCooldowns =
+        CVarDef.Create("game.enable_preset_cooldowns", false, CVar.SERVERONLY);
 
     /// <summary>
     /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
