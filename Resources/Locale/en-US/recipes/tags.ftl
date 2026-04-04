@@ -59,6 +59,7 @@ construction-graph-tag-radio = radio
 construction-graph-tag-pipe = gas pipe
 construction-graph-tag-human-head = human head
 construction-graph-tag-bucket = bucket
+construction-graph-tag-beaker = beaker
 construction-graph-tag-borg-arm = borg arm
 construction-graph-tag-borg-head = borg head
 construction-graph-tag-medkit = medkit
@@ -73,6 +74,7 @@ construction-graph-tag-apron = an apron
 construction-graph-tag-utility-belt = a utility belt
 soil-construction-graph-any-mushroom = any mushroom
 construction-graph-tag-mop-basic = mop
+construction-graph-tag-jug = jug
 
 # toys
 construction-graph-tag-rubber-ducky = a rubber ducky
