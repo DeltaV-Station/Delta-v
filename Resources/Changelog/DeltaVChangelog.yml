@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Burzah
-  changes:
-  - message: Fixed red shoe selection for atmospheric technician in loadout menu.
-    type: Fix
-  id: 1717
-  time: '2025-10-05T23:01:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4386
 - author: kotobdev
   changes:
   - message: 'TESTMERGE: Teslas will once again move toward energy sources.'
@@ -4393,4 +4386,11 @@
   id: 2216
   time: '2026-04-04T19:18:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5560
+- author: Thinbug0, DisposableCrewmember42
+  changes:
+  - message: Ghost sprites now change based on damage types [upstream cherrypick]
+    type: Add
+  id: 2217
+  time: '2026-04-04T19:39:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5516
 Order: 1
