@@ -691,18 +691,27 @@
       amount: 1
   products:
     Traumoxadone: 3
-  
+
 - type: reaction
-  id: Stelloxadone
-  impact: Medium
+  id: Warfarin
   reactants:
-    Stellibinin:
-      amount: 5
-    Cryoxadone:
-      amount: 3
-    Arithrazine:
-      amount: 2
+    SulfuricAcid:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    Sodium:
+      amount: 1
   products:
-    Stelloxadone: 5
-    Water: 3
-    Fiber: 2
+    Warfarin: 2
+
+- type: reaction
+  id: Hemorrhinol
+  reactants:
+    Warfarin:
+      amount: 2
+    Razorium:
+      amount: 2
+    Plasma:
+      amount: 1
+  products:
+    Hemorrhinol: 2

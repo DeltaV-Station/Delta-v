@@ -10,6 +10,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._DV.SmartFridge;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
+[Access(typeof(SharedSmartFridgeSystem))]
 public sealed partial class SmartFridgeComponent : Component
 {
     [DataField]
@@ -28,6 +29,7 @@ public sealed partial class SmartFridgeComponent : Component
     public HashSet<SmartFridgeEntry> Entries = new();
 
     [DataField, AutoNetworkedField]
+    [Access(typeof(SharedSmartFridgeSystem), Other = AccessPermissions.ReadExecute)]
     public Dictionary<SmartFridgeEntry, HashSet<NetEntity>> ContainedEntries = new();
 
     [DataField]
@@ -60,7 +62,7 @@ public sealed partial class SmartFridgeComponent : Component
 }
 
 [Serializable, NetSerializable, DataRecord]
-public record struct SmartFridgeEntry
+public partial record struct SmartFridgeEntry
 {
     public string Name;
 

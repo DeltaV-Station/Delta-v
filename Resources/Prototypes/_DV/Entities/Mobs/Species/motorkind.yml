@@ -39,12 +39,11 @@
       - id: SheetSteel10
         amount: 1
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Oil
-        Quantity: 1
+        Quantity: 1000
     bleedReductionAmount: 0.1
-    bloodMaxVolume: 1000
     maxBleedAmount: 10.75
     bloodlossDamage:
       types:

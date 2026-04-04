@@ -112,7 +112,7 @@
   - type: NoSlip
   - type: Respirator #It just works?
     minSaturation: 5.0
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: PressureImmunity
@@ -141,7 +141,10 @@
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
   - type: Bloodstream
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice

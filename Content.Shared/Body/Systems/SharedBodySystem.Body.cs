@@ -5,9 +5,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.DragDrop;
-using Content.Shared.Gibbing.Components;
-using Content.Shared.Gibbing.Events;
-using Content.Shared.Gibbing.Systems;
+using Content.Shared.Gibbing;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -42,8 +40,6 @@ public partial class SharedBodySystem
      */
 
     // [Dependency] private readonly InventorySystem _inventory = default!; // Shitmed - Declared in SharedBodySystem.cs
-    [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
 
     private const float GibletLaunchImpulse = 8;
@@ -62,6 +58,9 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
         SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
 
+        SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBeingGibbed);
+        SubscribeLocalEvent<BodyPartComponent, BeforeGibbedEvent>(OnPartBeforeGibbed); // Shitmed Change
+        SubscribeLocalEvent<BodyPartComponent, BeingGibbedEvent>(OnPartBeingGibbed); // Shitmed Change
     }
 
     private void OnBodyInserted(Entity<BodyComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -309,152 +308,62 @@ public partial class SharedBodySystem
         }
     }
 
-    public virtual HashSet<EntityUid> GibBody(
-        EntityUid bodyId,
-        bool acidify = false,
-        BodyComponent? body = null,
-        bool launchGibs = true,
-        Vector2? splatDirection = null,
-        float splatModifier = 1,
-        Angle splatCone = default,
-        SoundSpecifier? gibSoundOverride = null,
-        // Shitmed Change
-        GibType gib = GibType.Gib,
-        GibContentsOption contents = GibContentsOption.Drop)
+    private void OnBeingGibbed(Entity<BodyComponent> ent, ref BeingGibbedEvent args)
     {
-        var gibs = new HashSet<EntityUid>();
-
-        if (!Resolve(bodyId, ref body, logMissing: false))
-            return gibs;
-
-        var root = GetRootPartOrNull(bodyId, body);
-        if (root != null && TryComp(root.Value.Entity, out GibbableComponent? gibbable))
-        {
-            gibSoundOverride ??= gibbable.GibSound;
-        }
-        var parts = GetBodyChildren(bodyId, body).ToArray();
-        gibs.EnsureCapacity(parts.Length);
+        var parts = GetBodyChildren(ent, ent).ToArray();
+        args.Giblets.EnsureCapacity(args.Giblets.Capacity + parts.Length);
         foreach (var part in parts)
         {
-
-            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, gib, contents, ref gibs, // Shitmed Change
-                playAudio: false, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
-                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
-
-            if (!acidify)
-                continue;
-
             foreach (var organ in GetPartOrgans(part.Id, part.Component))
             {
-                _gibbingSystem.TryGibEntityWithRef(bodyId, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
-                    launchImpulseVariance:GibletLaunchImpulseVariance, launchCone: splatCone);
+                args.Giblets.Add(organ.Id);
             }
+            PredictedQueueDel(part.Id);
         }
 
-        var bodyTransform = Transform(bodyId);
-        _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
-
-        // Begin DeltaV Additions
-        var ev = new BodyGibbedEvent(gibs);
-        RaiseLocalEvent(bodyId, ref ev);
-        // End DeltaV Additions
-
-        if (acidify)
-            return gibs;
-
-        if (TryComp<InventoryComponent>(bodyId, out var inventory))
+        foreach (var item in _inventory.GetHandOrInventoryEntities(ent.Owner))
         {
-            foreach (var item in _inventory.GetHandOrInventoryEntities(bodyId))
-            {
-                SharedTransform.DropNextTo(item, (bodyId, bodyTransform));
-                gibs.Add(item);
-            }
+            args.Giblets.Add(item);
         }
-        return gibs;
     }
 
     // Shitmed Change Start
-
-    public virtual HashSet<EntityUid> GibPart(
-        EntityUid partId,
-        BodyPartComponent? part = null,
-        bool launchGibs = true,
-        Vector2? splatDirection = null,
-        float splatModifier = 1,
-        Angle splatCone = default,
-        SoundSpecifier? gibSoundOverride = null)
+    private void OnPartBeforeGibbed(Entity<BodyPartComponent> part, ref BeforeGibbedEvent args)
     {
-        var gibs = new HashSet<EntityUid>();
-
-        if (!Resolve(partId, ref part, logMissing: false))
-            return gibs;
-
-        if (part.Body is { } bodyEnt)
+        // Double check this is a root part, if it is then we can't gib it directly so cancel the whole
+        // gib event.
+        if (part.Comp.Body is { } bodyEnt)
         {
-            if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
-                return gibs;
+            if (IsPartRoot(bodyEnt, part, part: part) || !part.Comp.CanSever)
+                args.Cancel();
+        }
+    }
 
-            DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
-            foreach (var organ in GetPartOrgans(partId, part))
+    private void OnPartBeingGibbed(Entity<BodyPartComponent> part, ref BeingGibbedEvent args)
+    {
+        if (part.Comp.Body is { } bodyEnt)
+        {
+            if (IsPartRoot(bodyEnt, part, part: part) || !part.Comp.CanSever)
+                return;
+
+            DropSlotContents(part);
+            RemovePartChildren(part, bodyEnt);
+
+            var organs = GetPartOrgans(part, part).ToArray();
+            args.Giblets.EnsureCapacity(args.Giblets.Capacity + organs.Length);
+            foreach (var organ in organs)
             {
-                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
-                    launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
+                args.Giblets.Add(organ.Id);
             }
-            var ev = new BodyPartDroppedEvent((partId, part));
+
+            var ev = new BodyPartDroppedEvent(part);
             RaiseLocalEvent(bodyEnt, ref ev);
         }
 
-        _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Drop, ref gibs,
-                playAudio: true, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
-                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
-
-
-        if (HasComp<InventoryComponent>(partId))
+        foreach (var item in _inventory.GetHandOrInventoryEntities(part.Owner))
         {
-            foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
-            {
-                SharedTransform.AttachToGridOrMap(item);
-                gibs.Add(item);
-            }
+            args.Giblets.Add(item);
         }
-        _audioSystem.PlayPredicted(gibSoundOverride, Transform(partId).Coordinates, null);
-        return gibs;
-    }
-
-    public virtual bool BurnPart(EntityUid partId,
-        BodyPartComponent? part = null)
-    {
-        if (!Resolve(partId, ref part, logMissing: false))
-            return false;
-
-        if (part.Body is { } bodyEnt)
-        {
-            if (IsPartRoot(bodyEnt, partId, part: part))
-                return false;
-
-            var gibs = new HashSet<EntityUid>();
-            // Todo: Kill this in favor of husking.
-            DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
-            foreach (var organ in GetPartOrgans(partId, part))
-                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
-
-            _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Gib, ref gibs,
-                playAudio: false, launchGibs: true, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
-
-            if (HasComp<InventoryComponent>(partId))
-                foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
-                    SharedTransform.AttachToGridOrMap(item);
-
-            QueueDel(partId);
-            return true;
-        }
-
-        return false;
     }
 
     private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)

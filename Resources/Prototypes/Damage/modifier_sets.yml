@@ -226,7 +226,7 @@
     Poison: 0.0
     Radiation: 0.0
 
-# immune to everything except physical and heat damage
+# immune to everything except physical and heat damage; vulnerable to holy damage because they're undead, but not as vulnerable as a ghost or demon would be
 - type: damageModifierSet
   id: Skeleton
   coefficients:
@@ -239,7 +239,7 @@
     Asphyxiation: 0.0
     Bloodloss: 0.0
     Cellular: 0.0
-    Holy: 1.5 # DeltaV
+    Holy: 1.5 # DeltaV - was 0.5
   flatReductions:
     Blunt: 5
 

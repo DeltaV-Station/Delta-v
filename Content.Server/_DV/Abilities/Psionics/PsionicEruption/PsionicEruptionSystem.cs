@@ -13,6 +13,7 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Gibbing;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
@@ -44,6 +45,7 @@ public sealed class PsionicEruptionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private static readonly EntProtoId? Sparks = "EffectSparks";
 
@@ -217,8 +219,7 @@ public sealed class PsionicEruptionSystem : EntitySystem
             return;
 
         var pos = _transform.GetMapCoordinates(entity);
-        // acidify: false preserves inventory items when erupting
-        _body.GibBody(entity, acidify: false, body, launchGibs: true);
+        _gibbing.Gib(entity);
         int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
         {
             GlimmerTier.Minimal => 4,

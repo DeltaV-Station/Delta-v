@@ -117,11 +117,14 @@
   id: pain
   clauseWeight: -5
   addedComponents:
-  - type: PainNumbness
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 1
       80: 1
+  # Begin DeltaV Additions - Clause status effects
+  statusEffects:
+    - PainNumbnessTraitStatusEffect
+  # End DeltaV Additions - Clause status effects
 
 - type: clause
   id: chance
