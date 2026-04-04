@@ -336,3 +336,18 @@
   components:
   - type: AccessReader
     access: [["Library"]]
+
+# Evac pod
+- type: entity
+  parent: LockerBase
+  id: LockerEvacPodLocker
+  name: emergency pod locker
+  description: It's emergencies all the way down.
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: eng
+    stateDoorOpen: eng_open
+    stateDoorClosed: eng_evac_door
+  - type: AccessReader
+    access: [ [ "Maintenance" ] ]
