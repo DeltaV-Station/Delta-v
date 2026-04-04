@@ -1,5 +1,20 @@
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Marat Gadzhiev <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Andrew <blackledgecreates@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ## UI
 cargo-console-menu-title = Cargo request console
+cargo-console-menu-flavor-left = Don't forget to smile!
+cargo-console-menu-flavor-right = v2.2.1
 cargo-console-menu-account-name-label = Account:{" "}
 cargo-console-menu-account-name-none-text = None
 cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font="Monospace"]\[{$code}\][/font]
@@ -16,14 +31,18 @@ cargo-console-menu-categories-label = Categories:{" "}
 cargo-console-menu-search-bar-placeholder = Search
 cargo-console-menu-requests-label = Requests
 cargo-console-menu-orders-label = Orders
-cargo-console-menu-order-reason-description = Reasons: {$reason}
+cargo-console-menu-order-row-title = {$productName} (x{$orderAmount} for ${$orderPrice})
+cargo-console-menu-populate-orders-cargo-order-row-product-name-text = Requested by: {$orderRequester} from [color={$accountColor}]{$account}[/color]
+cargo-console-menu-order-row-product-description = Reason: {$orderReason}
+cargo-console-menu-order-row-button-approve = Approve
+cargo-console-menu-order-row-button-cancel = Cancel
+cargo-console-menu-order-row-alerts-reason-absent = The reason is not specified
+cargo-console-menu-order-row-alerts-requester-unknown = Unknown
 cargo-console-menu-populate-categories-all-text = All
-cargo-console-menu-populate-orders-cargo-order-row-product-name-text = {$productName} (x{$orderAmount}) by {$orderRequester} from [color={$accountColor}]{$account}[/color]
-cargo-console-menu-cargo-order-row-approve-button = Approve
-cargo-console-menu-cargo-order-row-cancel-button = Cancel
 cargo-console-menu-tab-title-orders = Orders
 cargo-console-menu-tab-title-funds = Transfers
-cargo-console-menu-account-action-transfer-limit = [bold]Transfer Limit:[/bold] ${$limit}
+cargo-console-menu-account-action-transfer-limit = Transfer Limit:
+cargo-console-menu-account-action-transfer-limit-amount = ${$amount}
 cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Unlimited)[/color]
 cargo-console-menu-account-action-select = [bold]Account Action:[/bold]
 cargo-console-menu-account-action-amount = [bold]Amount:[/bold] $
@@ -38,13 +57,17 @@ cargo-console-station-not-found = No available station
 cargo-console-invalid-product = Invalid product ID
 cargo-console-too-many = Too many approved orders
 cargo-console-snip-snip = Order trimmed to capacity
-cargo-console-insufficient-funds = Insufficient funds (requires ${$cost})
+cargo-console-insufficient-funds = Insufficient funds (requires {$cost})
 cargo-console-unfulfilled = No room to fulfill order
 cargo-console-trade-station = Sent to {$destination}
 cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold], which cost [bold]{$cost}[/bold], was approved by [bold]{$approver}[/bold]
 cargo-console-fund-withdraw-broadcast = [bold]{$name} withdrew {$amount} spesos from {$name1} \[{$code1}\]
 cargo-console-fund-transfer-broadcast = [bold]{$name} transferred {$amount} spesos from {$name1} \[{$code1}\] to {$name2} \[{$code2}\][/bold]
 cargo-console-fund-transfer-user-unknown = Unknown
+
+# GoobStation - cooldown on Cargo Orders (specifically gamba)
+cargo-console-cooldown-count = Cannot order more than one {$product} at a time.
+cargo-console-cooldown-active = Orders for {$product} cannot be placed for another {$timeCount} {$timeUnits}.
 
 cargo-console-paper-reason-default = None
 cargo-console-paper-approver-default = Self

@@ -1,26 +1,59 @@
-﻿<PanelContainer xmlns="https://spacestation14.io"
-                HorizontalExpand="True">
-    <Button Name="MainButton"
-            ToolTip=""
-            Access="Public"
-            HorizontalExpand="True"
-            VerticalExpand="True"
-            StyleClasses="OpenBoth"/>
-    <BoxContainer Orientation="Horizontal"
-                  HorizontalExpand="True">
-        <TextureRect Name="Icon"
-                     Access="Public"
-                     MinSize="32 32"
-                     RectClipContent="True" />
-        <Label Name="ProductName"
-               Access="Public"
-               HorizontalExpand="True" />
-        <PanelContainer StyleClasses="BackgroundDark">
-            <Label Name="PointCost"
+﻿<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+<!-- basically all of this has been changed by goobstation to a new UI, See PR #4780-->
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              HorizontalExpand="True"
+              Margin="0 0 0 2">
+    <PanelContainer HorizontalExpand="True">
+        <!-- Btn position hardcoded (args.Button.Parent?.Parent type) in CargoConsoleBUI 71 line -->
+        <Button Name="MainButton"
+                ToolTip=""
+                Access="Public"
+                VerticalExpand="False"
+                StyleClasses="OpenBoth" />
+
+        <!-- Icon & Name -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Margin="4 0">
+
+            <TextureRect Name="Icon"
+                         Access="Public"
+                         MinSize="32 32"
+                         MaxSize="32 32"
+                         Stretch="KeepCentered"
+                         RectClipContent="True" />
+
+
+            <Label Name="ProductName"
                    Access="Public"
-                   MinSize="52 32"
-                   Align="Right"
-                   Margin="0 0 5 0"/>
-        </PanelContainer>
-    </BoxContainer>
-</PanelContainer>
+                   HorizontalExpand="True"
+                   Margin="4 0"
+                   ClipText="True" />
+        </BoxContainer>
+    </PanelContainer>
+
+    <PanelContainer StyleClasses="BackgroundDark">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#22222A" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Margin="0 0 4 0">
+            <Label Name="PointCost"
+               Access="Public"
+               MinSize="72 1"
+               Align="Right"
+
+               VerticalAlignment="Center"
+            />
+        </BoxContainer>
+    </PanelContainer>
+
+</BoxContainer>
