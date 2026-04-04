@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Item.ItemToggle.Components; // DeltaV
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
@@ -51,6 +52,11 @@ public sealed partial class BlockingSystem
         // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
         if (!TryComp<DamageableComponent>(item, out var dmgComp))
             return;
+
+        // Delta V - Begin Fix Toggleable Shields always blocking
+        if (!TryComp<ItemToggleComponent>(item, out var toggleComp) || !toggleComp.Activated)
+            return;
+        // Delta V - End
 
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
         blockFraction = Math.Clamp(blockFraction, 0, 1);
