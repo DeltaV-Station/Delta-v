@@ -14,3 +14,6 @@ uplink-desword-desc = Now with twice as much energy per sword! Not the most prac
 
 uplink-harbinger-name = Harbinger Bundle
 uplink-harbinger-desc = A bundle with a full set of Harbinger armor and an Accursed scythe. Strike fear into the hearts of your enemies with this ancient design.
+
+uplink-mk98-name = Mk98-S3 Tranquilizer Pistol
+uplink-mk98-desc = A manually-operated handgun with a inbuilt silencer for agents that dont need to needlessly kill to succeed in their goals. Comes loaded with 11 tranquilizer rounds, and its able to chamber standard ammunition as well. Uses .38 special.

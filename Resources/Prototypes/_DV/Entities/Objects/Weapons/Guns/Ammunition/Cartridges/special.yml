@@ -129,3 +129,30 @@
           Quantity: 9
   - type: SolutionTransfer
     maxTransferAmount: 9
+
+- type: entity
+  parent: BaseCartridgeSpecial
+  id: CartridgeSpecialTranq
+  name: cartridge (.38 special tranqulizer)
+  description: A compact revolver cartridge lighter than its magnum cousin. Tranqulizer filled saboted darts allow for non-lethal takedowns.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialTranq
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#C0C0C0"
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 4.4
+        - ReagentId: Vestine ##yes, i am using a precursor chem but its the best chemical i can find thats already in the game that slows people down without (much) damage or adverse effect because i want it to slow people down so the follow up shot is easier for the unskilled people using this weapon as they will probably be taken by suprise as by how they operate this pistol, so may god have mercy on my soul for this mess of a chemical payload that looks like some agent forgot to properly mix their vestine to make nocturine. I do not know if this is only intensely triggering to me or anyone else looking tru my code and my screams of nerdy agony into the double hashed stone tablet that i write my suffering unto, but if it is, i am deeply sorry to you and to your soul, as well as your next of kin. Forgive me.
+          Quantity: 2.1
+  - type: SolutionTransfer
+    maxTransferAmount: 6.5
