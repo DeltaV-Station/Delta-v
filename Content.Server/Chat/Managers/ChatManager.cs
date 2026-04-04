@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Content.Server._DV.Discord;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
@@ -29,7 +30,7 @@ internal sealed partial class ChatManager : IChatManager
     private static readonly Dictionary<string, string> PatronOocColors = new()
     {
         // I had plans for multiple colors and those went nowhere so...
-        { "nuclear_operative", "#aa00ff" },
+        { "nuclear_operative", "#e60597" },
         { "syndicate_agent", "#aa00ff" },
         { "revolutionary", "#aa00ff" }
     };
@@ -45,6 +46,8 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly DiscordChatLink _discordLink = default!;
+
+    private DiscordUserLink? _discordUserLink;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -63,6 +66,8 @@ internal sealed partial class ChatManager : IChatManager
 
         _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
+
+        _discordUserLink = _entityManager.System<DiscordUserLink>();
 
         RegisterRateLimits();
     }
@@ -289,6 +294,14 @@ internal sealed partial class ChatManager : IChatManager
         {
             wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
+
+        // Delta-V Patreon Color Beginnig
+        if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && _discordUserLink!.IsPatreon(player.UserId))
+        {
+            var colorPair = PatronOocColors.First();
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", colorPair.Value),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+        }
+        // Delta-V Patreon Color End
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
