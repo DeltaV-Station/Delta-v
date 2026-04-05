@@ -12,3 +12,48 @@
         - id: ClothingUniformHarbingerTunic
         - id: ClothingOuterCoatHarbingerCoat
         - id: AccursedScythe
+
+- type: entity
+  parent: ClothingBackpackChameleonFill
+  id: ClothingBackpackChameleonFillNT
+  suffix: Fill, Chameleon, NT
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ChameleonPDA
+        - id: ClothingUniformJumpsuitChameleon
+        - id: ClothingOuterChameleon
+        - id: ClothingNeckChameleon
+        - id: ClothingMaskGasChameleon
+        - id: ClothingHeadHatChameleon
+        - id: ClothingHandsChameleon
+        - id: ClothingEyesChameleon
+        - id: ClothingHeadsetChameleon
+        - id: ClothingShoesChameleon
+        - id: ChameleonControllerImplanterNT
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelNTFan
+  name: duffelbag of loyalty
+  description: A large duffelbag for the most loyal and devoted employees of Nanotrasen.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: NTHandyFlag
+        - id: BalloonNT
+        - id: ClothingUniformJumpsuitNanotrasen
+        - id: ClothingNeckCloakNanotrasen
+        - id: NanotrasenFlippo
+        - id: ClothingOuterCorporateJacket
+        - id: ClothingLongcoatNanoTrasen
+        - id: TowelColorNT
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingHandsGlovesColorBlue
+        - id: ClothingEyesGlassesSunglasses
+        - id: ClothingHeadHatCommandSoft
+        - id: ClothingHeadHatBeretCommand

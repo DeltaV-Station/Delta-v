@@ -60,3 +60,37 @@
     node: prescdiaghud
   - type: VisionCorrection
     correctionPower: 1.75 # The hud part decreases efficiency
+
+# ERT
+
+- type: entity
+  parent: [ClothingEyesBase, BaseCentcommContraband]
+  id: ClothingEyesERTInformationHud
+  name: ERT information hud
+  description: State-of-the-art information hud with strong flash protection. These ones bear ERT markings.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Hud/erthud.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Hud/erthud.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical
+    - Inorganic
+    - Silicon
+    - HumanoidSilicon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HighRiskItem
+  - type: StaticPrice
+    price: 2500

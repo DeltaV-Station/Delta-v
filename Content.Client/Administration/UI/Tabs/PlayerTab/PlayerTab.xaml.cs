@@ -35,6 +35,8 @@ public sealed partial class PlayerTab : Control
     private AdminPlayerTabColorOption _playerTabColorSetting;
     private AdminPlayerTabRoleTypeOption _playerTabRoleSetting;
     private AdminPlayerTabSymbolOption _playerTabSymbolSetting;
+    private bool _markGhosted; // DeltaV
+    private bool _markWatchlisted; // DeltaV
 
     public event Action<GUIBoundKeyEventArgs, ListData>? OnEntryKeyBindDown;
 
@@ -51,6 +53,8 @@ public sealed partial class PlayerTab : Control
         _config.OnValueChanged(CCVars.AdminPlayerTabRoleSetting, RoleSettingChanged, true);
         _config.OnValueChanged(CCVars.AdminPlayerTabColorSetting, ColorSettingChanged, true);
         _config.OnValueChanged(CCVars.AdminPlayerTabSymbolSetting, SymbolSettingChanged, true);
+        _config.OnValueChanged(CCVars.AdminPlayerTabMarkGhosted, MarkGhostedChanged, true); // DeltaV
+        _config.OnValueChanged(CCVars.AdminPlayerTabMarkWatchlisted, MarkWatchlistedChanged, true); // DeltaV
 
         OverlayButton.OnPressed += OverlayButtonPressed;
         ShowDisconnectedButton.OnPressed += ShowDisconnectedPressed;
@@ -65,6 +69,20 @@ public sealed partial class PlayerTab : Control
 
         RefreshPlayerList(_adminSystem.PlayerList);
     }
+
+    // DeltaV - mark ghosted, watchlisted START
+    private void MarkGhostedChanged(bool value)
+    {
+        _markGhosted = value;
+        RefreshPlayerList(_players);
+    }
+
+    private void MarkWatchlistedChanged(bool value)
+    {
+        _markWatchlisted = value;
+        RefreshPlayerList(_players);
+    }
+    // DeltaV - mark ghosted, watchlisted END
 
     #region Antag Overlay
 
@@ -152,8 +170,25 @@ public sealed partial class PlayerTab : Control
 
         UpdateHeaderSymbols();
 
-        SearchList.PopulateList(sortedPlayers.Select(info => new PlayerListData(info,
-                $"{info.Username} {info.CharacterName} {info.IdentityName} {info.StartingJob}"))
+        SearchList.PopulateList(sortedPlayers.Select(info =>
+            {
+                // DeltaV - additions START
+                var filteringStringAdditions = "";
+                if (_markGhosted && info.Ghost)
+                {
+                    filteringStringAdditions += " (G)";
+                }
+
+                if (_markWatchlisted && info.Watchlisted)
+                {
+                    filteringStringAdditions += " (WL)";
+                }
+                // DeltaV - additions END
+
+                return new PlayerListData(info,
+                    $"{info.Username} {info.CharacterName} {info.IdentityName} {info.StartingJob}" +
+                    filteringStringAdditions); // DeltaV - append filteringStringAdditions
+            })
             .ToList());
     }
 
@@ -167,7 +202,10 @@ public sealed partial class PlayerTab : Control
             new StyleBoxFlat(button.Index % 2 == 0 ? _altColor : _defaultColor),
             _playerTabColorSetting,
             _playerTabRoleSetting,
-            _playerTabSymbolSetting);
+            _playerTabSymbolSetting,
+            _markGhosted, // DeltaV - Add _markGhosted
+            _markWatchlisted // DeltaV - Add _markWatchlisted
+        );
         button.AddChild(entry);
         button.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
         button.StyleClasses.Clear();

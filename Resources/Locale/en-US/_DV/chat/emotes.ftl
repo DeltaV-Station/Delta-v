@@ -15,3 +15,4 @@ delta-chat-emote-name-gnash = Gnash
 delta-chat-emote-name-harpysquish = Squish
 delta-chat-emote-name-quack = Quack
 delta-chat-emote-name-squawk = Squawk
+delta-chat-emote-name-horn = Horn
