@@ -476,11 +476,13 @@
   - type: BatteryAmmoProvider
     proto: RedSniperLaser # Delta V was - RedHeavyLaser
     fireCost: 40 # Delta V - was 100
+  # Begin DeltaV additions
   - type: SpeedModifiedOnWield
-    walkModifier: 0.85 # Delta V
-    sprintModifier: 0.85 # Delta V
-  - type: CursorOffsetRequiresWield # Delta V
-  - type: EyeCursorOffset # Delta V
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+  # End DeltaV additions
   - type: Tag
     tags:
     - TurretCompatibleWeapon
