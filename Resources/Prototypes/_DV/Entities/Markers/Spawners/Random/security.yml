@@ -14,9 +14,8 @@
       tableId: RandomSuperweaponTable
 
 - type: entity
-  id: LootSpawnerSecurityAdvancedweapons
-  name: security advanced weapons spawner
-  suffix: Advancedweapons
+  id: LootSpawnerSecurityAdvancedWeapons
+  suffix: AdvancedWeapons
   parent: MarkerBase
   components:
   - type: Sprite
