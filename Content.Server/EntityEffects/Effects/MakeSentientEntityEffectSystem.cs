@@ -46,7 +46,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
 
         ghostRole = AddComp<GhostRoleComponent>(entity);
         EnsureComp<GhostTakeoverAvailableComponent>(entity);
-        EnsureComp<PotentialPsionicComponent>(entity); // Deltav - Psionics
+            EnsureComp<PotentialPsionicComponent>(entity); // DeltaV - Psionics
 
         ghostRole.RoleName = entity.Comp.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
