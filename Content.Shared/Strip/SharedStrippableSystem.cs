@@ -340,6 +340,18 @@ public abstract class SharedStrippableSystem : EntitySystem
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
+    // DeltaV - Add utility function START
+    private (bool isTargetSsd, bool isTargetDead, bool isUserShielded) LogValuesForStripAction(EntityUid user, EntityUid target)
+    {
+        var isTargetSsd = TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD;
+        var isTargetDead = TryComp<MobThresholdsComponent>(target, out var thresholds) &&
+                           thresholds.CurrentThresholdState == MobState.Dead;
+        var isUserShielded = HasComp<MindShieldComponent>(user);
+
+        return (isTargetSsd, isTargetDead, isUserShielded);
+    }
+    // DeltaV - Add utility function END
+
     /// <summary>
     ///     Removes the item from the target's inventory and inserts it in the user's active hand.
     /// </summary>
@@ -362,11 +374,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         // DeltaV - LogImpact Additions START
         // Previously High by default. Stop chat spam from searches in Sec. Somebody with bad intentions is likely to strip from the specified slots.
-        var isTargetSsd = TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD;
-        var isTargetDead = TryComp<MobThresholdsComponent>(target, out var thresholds) &&
-                           thresholds.CurrentThresholdState == MobState.Dead;
-        var isUserShielded = HasComp<MindShieldComponent>(user);
-
+        var (isTargetSsd, isTargetDead, isUserShielded) = LogValuesForStripAction(user, target);
         var logImpact = LogImpact.Medium;
 
         // If someone strips a key item from a living SSD, always alert. If not SSD or SSD and dead, alert on new player.
@@ -609,12 +617,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         _handsSystem.TryDrop(target, item, checkActionBlocker: false);
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth, handsComp: user.Comp);
 
-        // DeltaV - Additions START
-        var isTargetSsd = TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD;
-        var isTargetDead = TryComp<MobThresholdsComponent>(target, out var thresholds) &&
-                     thresholds.CurrentThresholdState == MobState.Dead;
-        var isUserShielded = HasComp<MindShieldComponent>(user);
-        // DeltaV - Additions END
+        var (isTargetSsd, isTargetDead, isUserShielded) = LogValuesForStripAction(user, target); // DeltaV
 
         _adminLogger.Add(LogType.Stripping, !isUserShielded && isTargetSsd && !isTargetDead ? LogImpact.Extreme : LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands"); // DeltaV - Add conditional LogImpact. If not SSD Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice. If living SSD, always alert.
         // Hand update will trigger strippable update.
