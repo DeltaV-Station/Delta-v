@@ -16,6 +16,10 @@
   - type: TapeRecorder
   - type: ActiveListener
     range: 4
+  - type: ChangeVoiceInContainer
+    whitelist:
+      components:
+      - SecretStash
   - type: UseDelay
     delay: 1
   - type: Speech
