@@ -68,6 +68,9 @@
     - type: Tag
       tags:
       - Flashlight
+    - type: PhysicalComposition # DeltaV - made lantern recyclable
+      materialComposition:
+        Steel: 150
 
 - type: entity
   parent: Lantern

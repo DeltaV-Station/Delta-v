@@ -9,6 +9,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Stylesheets;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared._DV.Species; // DeltaV - Species hider
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -728,7 +729,7 @@ namespace Content.Client.Lobby.UI
             SpeciesButton.Clear();
             _species.Clear();
 
-            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart && !SpeciesHiderSystem.IsHidden(o.ID))); // DeltaV - SpeciesHider
             _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
             var speciesIds = _species.Select(o => o.ID).ToList();
 

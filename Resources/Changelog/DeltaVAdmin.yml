@@ -188,5 +188,62 @@ Entries:
   id: 24
   time: '2026-02-01T19:34:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5309
+- author: DisposableCrewmember42
+  changes:
+  - message: Curators and trialmins can now turn the panic bunker back on after joining
+      using the panicbunker command.
+    type: Tweak
+  id: 25
+  time: '2026-03-09T19:36:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5484
+- author: FieldCommand, Stxcking
+  changes:
+  - message: Admins and eventers can now make CC Interns.
+    type: Add
+  id: 26
+  time: '2026-03-26T01:52:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5527
+- author: DisposableCrewmember42
+  changes:
+  - message: lslaws command
+    type: Add
+  - message: lswatchlisted command
+    type: Add
+  - message: getping command
+    type: Add
+  - message: lsobjectives now lists objectives of every antag if no username is specified
+    type: Tweak
+  - message: ghosted players are now optionally marked with "(G)" in the F7 Players
+      tab (on by default, configurable via settings menu). While enabled, you can
+      search for the "(G)" tag to see all ghosted players.
+    type: Add
+  - message: Off-station explosions no longer send alerts. On-station explosions now
+      always send alerts.
+    type: Tweak
+  - message: Only meatspiking actual player characters or mobs being actively controlled
+      by players will send alerts.
+    type: Tweak
+  - message: New players stripping items will only send alerts for slots holding key
+      items (back, id, belt)
+    type: Tweak
+  - message: Stripping jumpsuits from others always sends alerts
+    type: Tweak
+  - message: Stripping from SSD people always sends alerts and the target's SSD status
+      is indicated in the message
+    type: Tweak
+  - message: New players (< 2 hours) latejoining will now send an admin alert.
+    type: Add
+  - message: EORG alerts sent only once for each player (attacking players, destroying,
+      activating grenades in PostRound)
+    type: Add
+  - message: watchlisted players are now marked with the [WL] suffix in the admin
+      overlay and (WL) in the Players tab (on by default, configurable via settings
+      menu)
+    type: Add
+  - message: Prayer messages now come with clickable links
+    type: Add
+  id: 27
+  time: '2026-04-04T14:38:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5436
 Name: DeltaVAdmin
 Order: 5

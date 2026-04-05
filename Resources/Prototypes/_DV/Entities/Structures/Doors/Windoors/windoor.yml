@@ -108,6 +108,42 @@
     containers:
       board: [ DoorElectronicsSurgery ]
 
+- type: entity
+  parent: WindoorSecureCommandLocked
+  id: WindoorSecureHeadOfSecurityLocked
+  suffix: HeadOfSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHeadOfSecurity ]
+
+- type: entity
+  parent: WindoorSecureCommandLocked
+  id: WindoorSecureChiefEngineerLocked
+  suffix: ChiefEngineer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefEngineer ]
+
+- type: entity
+  parent: WindoorSecureCommandLocked
+  id: WindoorSecureLogisticsOfficerLocked
+  suffix: LogisticsOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsQuartermaster ]
+
+- type: entity
+  parent: WindoorSecureCommandLocked
+  id: WindoorSecureChiefMedicalOfficerLocked
+  suffix: ChiefMedicalOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefMedicalOfficer ]
+
 #Add windoors from upstream roles
 - type: entity
   parent: WindoorSecureServiceLocked
