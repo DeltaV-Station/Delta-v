@@ -242,7 +242,7 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
                 ent);
 
             // var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High; // DeltaV - replaced below
-            var (logSeverity, hasMind) = DetermineSeverityHasMind(args.Target.Value); // DeltaV
+            var (logSeverity, hasMind) = LogValuesForTarget(args.Target.Value); // DeltaV
 
             _logger.Add(LogType.Action,
                 logSeverity,
@@ -330,7 +330,7 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
             // END DeltaV
 
             // var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High; // DeltaV - replaced below
-            var (logSeverity, hasMind) = DetermineSeverityHasMind(args.Target.Value); // DeltaV
+            var (logSeverity, hasMind) = LogValuesForTarget(args.Target.Value); // DeltaV
 
             _logger.Add(LogType.Gib,
                 logSeverity,
@@ -361,7 +361,7 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
     }
 
     // DeltaV - Added method START
-    private (LogImpact, bool) DetermineSeverityHasMind(EntityUid? butcherTarget)
+    private (LogImpact, bool) LogValuesForTarget(EntityUid? butcherTarget)
     {
         var logSeverity = LogImpact.Medium; // Never alert by default
 
