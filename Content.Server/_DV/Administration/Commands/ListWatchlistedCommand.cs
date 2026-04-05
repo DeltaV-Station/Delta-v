@@ -28,7 +28,7 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
             if (!_player.TryGetSessionById(playerId, out var sessionData))
                 return;
 
-            shell.WriteMarkup($"\n[bold]{sessionData.Name}[/bold]\n");
+            shell.WriteMarkup($"\n[bold]{sessionData.Name}[/bold]");
             foreach (var record in records)
             {
                 shell.WriteLine("");
