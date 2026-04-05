@@ -45,7 +45,6 @@
   - type: ActionGrant
     actions:
     - ActionJumpToCore
-    - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionOpenCartridges # DeltaV - AI PDA
   - type: UserInterface
@@ -611,6 +610,16 @@
   description: The AI's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: Fixtures
+    fixtures:
+      lightTrigger:
+        shape:
+          !type:PhysShapeCircle
+          radius: 8
+        density: 80
+        hard: false
+        layer:
+        - GhostImpassable
   - type: NoFTL
   - type: Tag
     tags:
@@ -630,6 +639,7 @@
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: CameraActiveOnCollideCollider
   - type: AiDetectable # DeltaV - AI detector
 
 # The holographic representation of the AI that is projected from a holopad.
