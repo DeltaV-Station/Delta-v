@@ -516,6 +516,7 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
+  - BlueMedicalBeret
   - MimeFrenchBeret
   - PsychologistGreyFlatcap
   - PsychologistBrownFlatcap
@@ -554,8 +555,19 @@
   loadouts:
   - Stethoscope
   - ScarfBlue
+  - ScarfLightBlue
 
 ## Chemist
+
+- type: loadoutGroup
+  id: ChemistHead
+  name: loadout-group-chemist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - BlueMedicalBeret
+  - SeniorChemistBeret
+
 - type: loadoutGroup
   id: ChemistNeck
   name: loadout-group-chemist-neck
@@ -564,6 +576,7 @@
   - ChemistTie
   - ScarfOrange
   - ScarfBlue
+  - ScarfLightBlue
 
 - type: loadoutGroup
   id: ChemistGloves
@@ -579,6 +592,8 @@
   name: loadout-group-chemist-shoes
   loadouts:
   - WhiteShoes
+  - LeatherShoes
+  - LaceupShoes
   - ChemistWinterBoots
   - ChemistShoes
 
@@ -586,6 +601,7 @@
 - type: loadoutGroup
   id: SurgeonHead
   name: loadout-group-surgeon-head
+  minLimit: 0
   loadouts:
   - BlueSurgeryCap
   - GreenSurgeryCap
@@ -992,3 +1008,19 @@
   hidden: true
   loadouts:
   - EmergencyIPCBox
+
+# ERT
+- type: loadoutGroup
+  id: GroupEVATankERT
+  name: loadout-group-EVA-tank
+  hidden: true
+  loadouts:
+  - LoadoutEmergencyOxygenExtendedERT
+  - LoadoutEmergencyNitrogenExtendedERT
+  - LoadoutEmergencyWaterVaporExtendedERT
+
+- type: roleLoadout
+  id: RoleSurvivalERT
+  groups:
+  - GroupEVATankERT
+  - SurvivalExtended

@@ -6,7 +6,7 @@ NTAgent-role-greeting-human =
     If you're caught, Central Command will deny everything.
 
 NTAgent-briefing =
-    You've been implanted with a CentComm Radio Implanter.
+    You've been implanted with a CentComm Radio Implanter, alongside NanoLink.
     Use :y to talk through CentComm channels.
 
 objective-issuer-NTAgent = [color=#204cc7]NanoTrasen[/color]

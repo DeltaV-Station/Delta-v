@@ -144,3 +144,29 @@
   storage:
     back:
     - BoxSurvivalHumanoidSilicon
+
+# ERT
+
+- type: loadout
+  id: LoadoutEmergencyOxygenExtendedERT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  equipment:
+    suitstorage: OxygenTankERTFilled
+
+- type: loadout
+  id: LoadoutEmergencyNitrogenExtendedERT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  equipment:
+    suitstorage: NitrogenTankERTFilled
+
+- type: loadout
+  id: LoadoutEmergencyWaterVaporExtendedERT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    suitstorage: WaterVaporTankERTFilled
