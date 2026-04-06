@@ -41,7 +41,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
 
             // Zap non-psionics only if they spent their roll already.
             if (potPsionComponent.Rolled)
-                Zap(potPsion, potPsionComponent); 
+                Zap(potPsion, potPsionComponent);
             // Then zap all other psionics regardless.
             else if (HasComp<PsionicComponent>(potPsion))
                 Zap(potPsion, potPsionComponent);
