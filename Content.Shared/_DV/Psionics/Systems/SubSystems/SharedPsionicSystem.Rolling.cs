@@ -45,42 +45,48 @@ public abstract partial class SharedPsionicSystem
         return Random.Prob(chance);
     }
 
-    public void AddRandomPsionicPower(Entity<PotentialPsionicComponent> psionic, bool midRound, int attempts = 0)
+    public void AddRandomPsionicPower(Entity<PotentialPsionicComponent> psionic, bool midRound)
     {
-
         if (!_prototypeManager.Resolve(psionic.Comp.PsionicPowerTableId, out var powerTable))
-                return;
-
-        var spawns = _entityTable.GetSpawns(powerTable);
-
-        foreach (var entProtoId in spawns)
-        {
-            if (!_prototypeManager.Resolve(entProtoId, out var psionicComponents))
-                continue;
-            // If the psionic already has that power, do not add it again and retry again.
-            if (psionicComponents.Components.Any(psionicComponent =>
-                    EntityManager.HasComponent(psionic, psionicComponent.Value.Component.GetType())))
-                continue;
-            // If they don't have it already, add it and break out.
-            EntityManager.AddComponents(psionic, psionicComponents);
-
-            if (!midRound)
-                return;
-            // For alternative means of getting psionics that aren't via spawning in, cause them to suffer.
-            _stuttering.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
-            _stun.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, drop: false);
-            _jittering.DoJitter(psionic, TimeSpan.FromSeconds(3), false);
-
             return;
+
+        var random = Random.GetRandom(); // This is called in GetSpawns(). We simply call it once to avoid calling it multiple times.
+        var attempts = 0;
+        while (attempts < 20) // 20 attempts to get a unique psionic power.
+        {
+            var spawns = _entityTable.GetSpawns(powerTable, random);
+
+            foreach (var entProtoId in spawns)
+            {
+                if (TryAddPsionicPower(psionic, midRound, entProtoId))
+                    return;
+
+                attempts++;
+            }
         }
 
-        attempts++;
-        if (attempts < 20) // 20 attempts to get a unique psionic power.
-            AddRandomPsionicPower(psionic, midRound, attempts);
-        else
-        {
-            Popup.PopupEntity(Loc.GetString("psionic-roll-failed"), psionic, psionic, PopupType.Medium);
-        }
+        Popup.PopupEntity(Loc.GetString("psionic-roll-failed"), psionic, psionic, PopupType.Medium);
+    }
+
+    private bool TryAddPsionicPower(Entity<PotentialPsionicComponent> psionic, bool midRound, EntProtoId entProtoId)
+    {
+        if (!_prototypeManager.Resolve(entProtoId, out var powerEntity))
+            return false;
+        // If the psionic already has that power, do not add it again.
+        if (powerEntity.Components.Any(psionicComponent =>
+                EntityManager.HasComponent(psionic, psionicComponent.Value.Component.GetType())))
+            return false;
+        // If they don't have it already, add it.
+        EntityManager.AddComponents(psionic, powerEntity);
+
+        if (!midRound)
+            return true;
+        // For alternative means of getting psionics that aren't via spawning in, cause them to suffer.
+        _stuttering.DoStutter(psionic, TimeSpan.FromMinutes(1), false);
+        _stun.TryKnockdown(psionic.Owner, TimeSpan.FromSeconds(3), false, drop: false);
+        _jittering.DoJitter(psionic, TimeSpan.FromSeconds(3), false);
+
+        return true;
     }
 
     public bool GrantPsionicRoll(Entity<PotentialPsionicComponent?> potPsionic)

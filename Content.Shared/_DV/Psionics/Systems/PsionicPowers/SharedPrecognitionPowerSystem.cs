@@ -4,7 +4,6 @@ using Content.Shared.Actions.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Psionics.Events;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;

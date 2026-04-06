@@ -37,7 +37,7 @@ public sealed class PsionicInvisibilityPowerSystem : BasePsionicPowerSystem<Psio
         EnsureComp<PsionicallyInvisibleComponent>(invisible);
         EnsureComp<PacifiedComponent>(invisible);
         var stealth = EnsureComp<StealthComponent>(invisible);
-        _stealth.SetVisibility(invisible, 0.66f, stealth);
+        _stealth.SetVisibility(invisible, invisible.Comp.InvisibilityStrength, stealth);
         _audio.PlayPredicted(invisible.Comp.Sound, invisible, invisible);
         Psionic.SetCanSeePsionicInvisiblity(invisible, true);
     }
@@ -50,10 +50,10 @@ public sealed class PsionicInvisibilityPowerSystem : BasePsionicPowerSystem<Psio
         RemComp<PsionicallyInvisibleComponent>(invisible);
         RemComp<PacifiedComponent>(invisible);
         RemComp<StealthComponent>(invisible);
-        _audio.PlayPvs(invisible.Comp.Sound, invisible);
+        _audio.PlayPredicted(invisible.Comp.Sound, invisible, invisible);
         Psionic.SetCanSeePsionicInvisiblity(invisible, false);
 
-        _stunSystem.TryAddParalyzeDuration(invisible, TimeSpan.FromSeconds(4));
+        _stunSystem.TryAddParalyzeDuration(invisible, invisible.Comp.StunDuration);
     }
 
     private void OnDamageChanged(Entity<PsionicInvisibilityUsedComponent> invisible, ref DamageChangedEvent args)
@@ -62,6 +62,16 @@ public sealed class PsionicInvisibilityPowerSystem : BasePsionicPowerSystem<Psio
             return;
 
         ToggleInvisibility(invisible);
+    }
+
+    protected override void OnMindBroken(Entity<PsionicInvisibilityPowerComponent> psionic, ref PsionicMindBrokenEvent args)
+    {
+        base.OnMindBroken(psionic, ref args);
+        // If the mindbreak was successful, remove the invisibility component too.
+        if (!psionic.Comp.Deleted)
+            return;
+
+        RemComp<PsionicInvisibilityUsedComponent>(psionic);
     }
 
     private void OnDispelled(Entity<PsionicInvisibilityUsedComponent> invisible, ref DispelledEvent args)
