@@ -57,7 +57,7 @@ public abstract partial class BasePsionicPowerComponent : Component
     public EntityUid? DoAfterEntityId;
 
     /// <summary>
-    /// When a power uses a DoAfter, the ID can be saved here for convenience.
+    /// When a power uses a DoAfter, the index can be saved here for convenience.
     /// It'll handle being dispelled automatically.
     /// It'll need to be broken up into the DoAfter EntityUid and ushort index first.
     /// </summary>

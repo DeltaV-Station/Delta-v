@@ -29,7 +29,7 @@ public sealed class PsionicInvisibilityPowerSystem : BasePsionicPowerSystem<Psio
     protected override void OnPowerUsed(Entity<PsionicInvisibilityPowerComponent> psionic, ref PsionicInvisibilityPowerActionEvent args)
     {
         ToggleInvisibility(args.Performer);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     private void OnInit(Entity<PsionicInvisibilityUsedComponent> invisible, ref MapInitEvent args)

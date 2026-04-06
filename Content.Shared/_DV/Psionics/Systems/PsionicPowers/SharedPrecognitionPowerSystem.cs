@@ -47,6 +47,6 @@ public abstract class SharedPrecognitionPowerSystem : BasePsionicPowerSystem<Pre
             psionic.Comp.SoundStream = player.Value.Entity;
 
         Dirty(psionic);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 }

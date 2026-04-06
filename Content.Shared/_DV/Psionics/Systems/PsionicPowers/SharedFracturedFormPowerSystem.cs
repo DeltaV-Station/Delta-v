@@ -60,7 +60,7 @@ public abstract class SharedFracturedFormPowerSystem : BasePsionicPowerSystem<Fr
 
         psionic.Comp.SaveDoAfterId(doAfterId.Value);
         Dirty(psionic);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     private void OnDoAfter(Entity<FracturedFormPowerComponent> psionic, ref FracturedFormDoAfterEvent args)

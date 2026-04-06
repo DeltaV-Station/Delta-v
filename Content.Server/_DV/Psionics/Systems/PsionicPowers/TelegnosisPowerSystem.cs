@@ -48,7 +48,7 @@ public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
             return;
         }
 
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     private void OnInhaleLocation(Entity<TelegnosisPowerComponent> entity, ref InhaleLocationEvent args)

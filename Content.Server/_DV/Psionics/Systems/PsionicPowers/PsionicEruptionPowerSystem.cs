@@ -17,7 +17,6 @@ using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
@@ -58,18 +57,13 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
     protected override void OnPowerUsed(Entity<PsionicEruptionPowerComponent> psionic, ref PsionicEruptionPowerActionEvent args)
     {
         TimeSpan detonateTime;
-        TimeSpan sparkFrom;
 
         if (_glimmer.GetGlimmerTier(_glimmer.Glimmer) == GlimmerTier.Critical)
-        {
             detonateTime = psionic.Comp.MaxDetonateDelay;
-            sparkFrom = detonateTime / 2;
-        }
         else
-        {
             detonateTime = psionic.Comp.MinDetonateDelay;
-            sparkFrom = detonateTime / 2;
-        }
+
+        var sparkFrom = detonateTime / 2;
 
         // Start the DoAfter.
         var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, detonateTime, new PsionicEruptionDoAfterEvent(), args.Performer);
@@ -84,7 +78,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         _jittering.DoJitter(args.Performer, sparkFrom, true, 10, 16);
 
         psionic.Comp.NextSpark = Timing.CurTime + sparkFrom;
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     public override void Update(float frameTime)
@@ -99,9 +93,9 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         {
             if (comp.GetDoAfterId() != null)
             {
-                if (curTime < comp.NextSpark)
-                    continue;
-                CauseSparks(psionic, comp, curTime);
+                if (curTime >= comp.NextSpark)
+                    CauseSparks(psionic, comp, curTime);
+                continue;
             }
 
             if (curTime < comp.NextAnnoy)

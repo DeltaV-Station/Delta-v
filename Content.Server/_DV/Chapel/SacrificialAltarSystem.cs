@@ -1,5 +1,4 @@
 using Content.Server.Bible.Components;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;

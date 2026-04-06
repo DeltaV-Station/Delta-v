@@ -8,3 +8,38 @@
     sprite: _DV/Clothing/Shoes/Boots/magboots-security.rsi
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/magboots-security.rsi
+
+# ERT
+
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseCentcommContraband]
+  id: ClothingShoesBootsERTMagboots
+  name: ERT magboots
+  description: State-of-the-art magnetic boots, that do not slow down their wearer and have integrated thrusters. It can hold 0.75 L of gas. These ones bear ERT markings.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Shoes/Boots/magbootsert.rsi
+    state: icon
+  - type: Clothing
+    sprite: _DV/Clothing/Shoes/Boots/magbootsert.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HighRiskItem
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 0.75
+      temperature: 293.15
+      moles:
+        Oxygen: 0.153853429 # oxygen
+        Nitrogen: 0.153853429 # nitrogen
+  - type: Item
+    sprite: null
+    size: Normal
+  - type: StaticPrice
+    price: 2500

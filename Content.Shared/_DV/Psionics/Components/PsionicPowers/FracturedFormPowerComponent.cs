@@ -18,6 +18,18 @@ public sealed partial class FracturedFormPowerComponent : BasePsionicPowerCompon
     public override int MaxGlimmerChanged { get; set; } = 30;
 
     /// <summary>
+    /// The chance for the clone to have the starting gear of the psionic.
+    /// </summary>
+    [DataField]
+    public float HasGearChance = 0.4f;
+
+    /// <summary>
+    /// The chance for the clone to have a different species than the psionic.
+    /// </summary>
+    [DataField]
+    public float DifferentSpeciesChance = 0.6f;
+
+    /// <summary>
     /// These are settings for creating the second body.
     /// </summary>
     [DataField]

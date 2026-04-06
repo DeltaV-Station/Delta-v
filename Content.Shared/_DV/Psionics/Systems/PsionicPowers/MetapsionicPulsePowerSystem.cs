@@ -32,13 +32,13 @@ public sealed class MetapsionicPulsePowerSystem : BasePsionicPowerSystem<Metapsi
                 continue;
 
             Popup.PopupClient(Loc.GetString("psionic-power-metapsionic-success"), args.Performer, args.Performer, PopupType.LargeCaution);
-            LogPowerUsed(psionic, args.Performer);
+            AfterPowerUsed(psionic, args.Performer);
 
             args.Handled = true;
             return;
         }
         Popup.PopupClient(Loc.GetString("psionic-power-metapsionic-failure"), args.Performer, args.Performer, PopupType.Large);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
 
         args.Handled = true;
     }

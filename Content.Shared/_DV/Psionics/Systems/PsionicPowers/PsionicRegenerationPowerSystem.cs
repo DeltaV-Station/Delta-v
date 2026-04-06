@@ -41,7 +41,7 @@ public sealed class PsionicRegenerationPowerSystem : BasePsionicPowerSystem<Psio
             PopupType.Medium);
 
         _audioSystem.PlayPredicted(psionic.Comp.SoundUse, args.Performer, args.Performer, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     private void OnDoAfter(Entity<PsionicRegenerationPowerComponent> psionic, ref PsionicRegenerationDoAfterEvent args)

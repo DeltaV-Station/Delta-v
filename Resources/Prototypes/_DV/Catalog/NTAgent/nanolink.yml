@@ -1,0 +1,250 @@
+# deception
+- type: listing
+  id: PenCentcom
+  name: nanolink-centcom-pen-name
+  description: nanolink-centcom-pen-desc
+  productEntity: PenCentcom
+  icon:
+    entity: PenCentcom
+  cost:
+    NanoCoin: 2
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkChameleonProjector
+  name: uplink-chameleon-projector-name
+  description: uplink-chameleon-projector-desc
+  productEntity: ChameleonProjector
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkChameleon
+  name: uplink-chameleon-name
+  description: uplink-chameleon-desc
+  productEntity: ClothingBackpackChameleonFillNT
+  icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkAgentIDCard
+  name: nanolink-agentid-name
+  description: nanolink-agentid-desc
+  productEntity: AgentIDCard
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkVoiceMask
+  name: uplink-voice-mask-name
+  description: uplink-voice-mask-desc
+  productEntity: ClothingMaskGasVoiceChameleon
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: NanolinkBoxHeadStampBase
+  name: nanolink-stampbox-name
+  description: nanolink-stampbox-desc
+  productEntity: BoxHeadStampBase
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkDeception
+
+- type: listing
+  id: FakeMindShieldImplantNT
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplantNT
+  cost:
+    NanoCoin: 2
+  categories:
+  - NanolinkDeception
+
+#Surveillance
+- type: listing
+  id: SpyCrewMonitor
+  name: nanolink-spy-monitor-name
+  description: nanolink-spy-monitor-desc
+  productEntity: SpyCrewMonitor
+  icon:
+    entity: SpyCrewMonitor
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkSurveillance
+
+- type: listing
+  id: ClothingEyesGlassesHiddenSecurity
+  name: nanolink-glasses-name
+  description: nanolink-glasses-desc
+  productEntity: ClothingEyesGlassesHiddenSecurity
+  icon:
+    entity: ClothingEyesGlassesHiddenSecurity
+  cost:
+    NanoCoin: 2
+  categories:
+  - NanolinkSurveillance
+
+- type: listing
+  id: EncryptionKeyStationMaster
+  name: nanolink-encryption-name
+  description: nanolink-encryption-desc
+  productEntity: EncryptionKeyStationMaster
+  icon:
+    entity: EncryptionKeyStationMaster
+  cost:
+    NanoCoin: 5
+  categories:
+  - NanolinkSurveillance
+
+- type: listing
+  id: NanolinkRecordsTablet
+  name: nanolink-tablet-name
+  description: nanolink-tablet-desc
+  productEntity: HandheldStationMapRecordsTablet
+  icon:
+    entity: HandheldStationMapRecordsTablet
+  categories:
+  - NanolinkSurveillance
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# framing
+- type: listing
+  id: WeaponPistolCobra
+  name: nanolink-cobra-name
+  description: nanolink-cobra-desc
+  productEntity: WeaponPistolCobra
+  icon:
+    entity: WeaponPistolCobra
+  cost:
+    NanoCoin: 8
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: WeaponEnergyGunPistol
+  name: nanolink-epistol-name
+  description: nanolink-epistol-desc
+  productEntity: WeaponEnergyGunPistol
+  icon:
+    entity: WeaponEnergyGunPistol
+  cost:
+    NanoCoin: 6
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: NanolinkJawsOfLife
+  name: uplink-syndicate-jaws-of-life-name
+  description: uplink-syndicate-jaws-of-life-desc
+  productEntity: JawsOfLife
+  icon:
+    entity: JawsOfLife
+  cost:
+    NanoCoin: 2
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: NanolinkFakeBomb
+  name: uplink-exploding-syndicate-bomb-fake-name
+  description: uplink-exploding-syndicate-bomb-fake-desc
+  productEntity: SyndicateBombFake
+  icon:
+    entity: SyndicateBombFake
+  cost:
+    NanoCoin: 4
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: NanolinkDecoyKit
+  name: nanolink-decoy-name
+  description: nanolink-decoy-desc
+  productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
+  icon:
+    { sprite: /Textures/Objects/Tools/Decoys/operative_decoy.rsi, state: folded }
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: NanolinkLobbyingBundle
+  name: uplink-bribe-name
+  description: uplink-bribe-desc
+  productEntity: BriefcaseThiefBribingBundleFilled
+  icon:
+    entity: BriefcaseThiefBribingBundleFilled
+  cost:
+    NanoCoin: 3
+  categories:
+  - NanolinkFraming
+
+- type: listing
+  id: NanolinkFakeDisk
+  name: uplink-decoy-disk-name
+  description: uplink-decoy-disk-desc
+  productEntity: NukeDiskFake
+  icon:
+    entity: NukeDiskFake
+  cost:
+    NanoCoin: 1
+  categories:
+  - NanolinkFraming
+
+# Pointless
+- type: listing
+  id: NanolinkClownCostume
+  name: uplink-costume-clown-name
+  description: uplink-costume-clown-desc
+  productEntity: ClothingBackpackDuffelSyndicateCostumeClown
+  cost:
+    NanoCoin: 2
+  categories:
+  - NanolinkPointless
+
+- type: listing
+  id: NanolinkOutlawGlasses
+  name: uplink-outlaw-glasses-name
+  description: uplink-outlaw-glasses-desc
+  productEntity: ClothingEyesGlassesOutlawGlasses
+  cost:
+    NanoCoin: 1
+  categories:
+  - NanolinkPointless
+
+- type: listing
+  id: NanolinkNTFan
+  name: nanolink-ntfan-name
+  description: nanolink-ntfan-desc
+  productEntity: ClothingBackpackDuffelNTFan
+  cost:
+    NanoCoin: 10
+  categories:
+   - NanolinkPointless
+
+- type: listing
+  id: NanolinkNTAgentStamp
+  name: nanolink-ntstamp-name
+  description: nanolink-ntstamp-desc
+  productEntity: RubberStampNTAgent
+  cost:
+    NanoCoin: 1
+  categories:
+  - NanolinkPointless

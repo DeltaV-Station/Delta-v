@@ -34,7 +34,7 @@ public abstract class SharedMindSwapPowerSystem : BasePsionicPowerSystem<MindSwa
     protected override void OnPowerUsed(Entity<MindSwapPowerComponent> psionic, ref MindSwapPowerActionEvent args)
     {
         SwapMinds(args.Performer, args.Target);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     // TODO: Fix the prediction issue when calling from server while the performer is the cause.
@@ -88,7 +88,7 @@ public abstract class SharedMindSwapPowerSystem : BasePsionicPowerSystem<MindSwa
             Popup.PopupEntity(Loc.GetString("psionic-power-mindswap-target-mindshielded"), target, target, PopupType.MediumCaution);
             return false;
         }
-        if (!Psionic.CanBeTargeted(target, HasAggressor: aggressor) && !ignorePsionicShielding)
+        if (!Psionic.CanBeTargeted(target, hasAggressor: aggressor) && !ignorePsionicShielding)
         {
             // Popup is handled in CanBeTargeted().
             return false;
@@ -208,7 +208,7 @@ public sealed class MindSwappedReturnPowerSystem : BasePsionicPowerSystem<MindSw
     protected override void OnPowerUsed(Entity<MindSwappedReturnPowerComponent> psionic, ref MindSwappedReturnPowerActionEvent args)
     {
         _mindSwap.SwapMinds(psionic, psionic.Comp.OriginalEntity);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     protected override void OnDispelled(Entity<MindSwappedReturnPowerComponent> psionic, ref DispelledEvent args)

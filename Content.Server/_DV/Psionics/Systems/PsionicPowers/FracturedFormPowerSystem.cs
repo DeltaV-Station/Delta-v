@@ -1,10 +1,10 @@
-using System.Diagnostics;
 using Content.Server.Cloning;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
+using Content.Shared._DV.Species;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Humanoid.Prototypes;
@@ -81,9 +81,9 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
 
         var xform = Transform(original);
 
-        var hasClothes = Random.Prob(0.4f);
+        var hasGear = Random.Prob(original.Comp.HasGearChance);
 
-        if (Random.Prob(0.6f) || !_cloning.TryCloning(original, _transform.GetMapCoordinates(original), hasClothes ? original.Comp.CopyClothed : original.Comp.CopyNaked, out var newBody)) // Slightly lower chance to copy the original body
+        if (Random.Prob(original.Comp.DifferentSpeciesChance) || !_cloning.TryCloning(original, _transform.GetMapCoordinates(original), hasGear ? original.Comp.CopyClothed : original.Comp.CopyNaked, out var newBody)) // Slightly lower chance to copy the original body
         {
             // Either the dice rolled poorly, or the cloning failed. Either way, make a new body instead. (Or try to)
             var validSpecies = new List<ProtoId<SpeciesPrototype>>();
@@ -92,12 +92,12 @@ public sealed class FracturedFormPowerSystem : SharedFracturedFormPowerSystem
             {
                 var speciesEntityPrototype = _prototype.Index<EntityPrototype>(proto.Prototype);
                 // If they have the PotentialPsionicComponent, they can be psionic.
-                if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out var _, Factory))
+                if (proto.RoundStart && speciesEntityPrototype.TryGetComponent<PotentialPsionicComponent>(out _, Factory) && !SpeciesHiderSystem.IsHidden(proto.ID))
                     validSpecies.Add(proto.ID);
             }
             var species = Random.Pick(validSpecies);
             var character = HumanoidCharacterProfile.RandomWithSpecies(species);
-            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasClothes ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetOwningStation(original.Owner));
+            newBody = _stationSpawning.SpawnPlayerMob(xform.Coordinates, hasGear ? original.Comp.VisitorJob : original.Comp.NakedJob, character, _station.GetOwningStation(original.Owner));
             if (newBody is not { } bodyV || Deleted(bodyV))
             {
                 Log.Error($"Failed to create a new body for {ToPrettyString(original)}. This is a bug.");

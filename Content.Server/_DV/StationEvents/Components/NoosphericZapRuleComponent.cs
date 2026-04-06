@@ -1,5 +1,4 @@
 using Content.Server._DV.StationEvents.GameRules;
-using Content.Server.Nyanotrasen.StationEvents.Events;
 
 namespace Content.Server._DV.StationEvents.Components;
 

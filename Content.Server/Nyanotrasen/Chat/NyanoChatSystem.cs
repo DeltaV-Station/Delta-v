@@ -15,6 +15,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server._DV.Psionics.Systems;
+using Content.Shared._DV.Chat.Components;
 
 namespace Content.Server.Nyanotrasen.Chat;
 
@@ -100,7 +101,7 @@ public sealed class NyanoChatSystem : EntitySystem
             _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, false, GetDreamers(clients), Color.PaleVioletRed);
         }
 
-        foreach (var repeater in EntityQuery<Shared._DV.Chat.Components.TelepathicRepeaterComponent>())
+        foreach (var repeater in EntityQuery<TelepathicRepeaterComponent>())
         {
             _chatSystem.TrySendInGameICMessage(repeater.Owner, message, InGameICChatType.Speak, false);
         }
