@@ -89,10 +89,10 @@ public abstract partial class SharedPsionicSystem : EntitySystem
     /// <param name="target">The target of the psionic ability.</param>
     /// <param name="ignorePsionicRequirement">Whether the target needs to be a potential psionic to be eligible.</param>
     /// <param name="showPopup">Whether it should show popups.</param>
-    /// <param name="HasAggressor">Whether the psionic influence originates from an entity.</param>
+    /// <param name="hasAggressor">Whether the psionic influence originates from an entity.</param>
     /// <returns>Returns true if targetable, false otherwise. Will handle popups itself.</returns>
     [PublicAPI]
-    public bool CanBeTargeted(EntityUid target, bool ignorePsionicRequirement = false, bool showPopup = true, EntityUid? HasAggressor = null)
+    public bool CanBeTargeted(EntityUid target, bool ignorePsionicRequirement = false, bool showPopup = true, EntityUid? hasAggressor = null)
     {
         // Normal abilities cannot target Borgs and Simplemobs that aren't psionic.
         if (!PotentialQuery.HasComp(target) && !PsionicQuery.HasComp(target) && !ignorePsionicRequirement)
@@ -106,7 +106,7 @@ public abstract partial class SharedPsionicSystem : EntitySystem
 
         Popup.PopupEntity(Loc.GetString("psionic-shielded-from-attempt"), target, target, PopupType.MediumCaution);
 
-        if (HasAggressor is { } aggressor)
+        if (hasAggressor is { } aggressor)
         {
             var message = Loc.GetString("psionic-cannot-target-shielded");
             Popup.PopupClient(message, aggressor, aggressor, PopupType.SmallCaution);

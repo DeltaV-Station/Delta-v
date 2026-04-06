@@ -52,7 +52,7 @@ public sealed class MassSleepPowerSystem : SharedMassSleepPowerSystem
         psionic.Comp.SaveDoAfterId(doAfterId.Value);
 
         Dirty(psionic);
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 
     private void OnMassSleepDoAfter(Entity<MassSleepPowerComponent> psionic, ref MassSleepDoAfterEvent args)

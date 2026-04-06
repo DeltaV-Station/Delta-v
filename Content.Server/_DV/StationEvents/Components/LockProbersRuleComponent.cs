@@ -1,6 +1,4 @@
 using Content.Server._DV.StationEvents.GameRules;
-using Content.Shared.Psionics.Glimmer;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.StationEvents.Components;
 
@@ -8,4 +6,4 @@ namespace Content.Server._DV.StationEvents.Components;
 /// Locks all the probers on the station and turns them into bombs.
 /// </summary>
 [RegisterComponent, Access(typeof(GlimmerMobRule))]
-public sealed partial class LockProbersRuleComponent : Component { }
+public sealed partial class LockProbersRuleComponent : Component;

@@ -13,12 +13,12 @@ public sealed class NoosphericZapPowerSystem : SharedNoosphericZapPowerSystem
 
     protected override void OnPowerUsed(Entity<NoosphericZapPowerComponent> psionic, ref NoosphericZapPowerActionEvent args)
     {
-        if (!Psionic.CanBeTargeted(args.Target, HasAggressor: args.Performer))
+        if (!Psionic.CanBeTargeted(args.Target, hasAggressor: args.Performer))
             return;
 
         _lightning.ShootLightning(args.Performer, args.Target, psionic.Comp.LightningPrototpyeId);
         _electrocution.TryDoElectrocution(args.Target, args.Performer, psionic.Comp.ShockDamage, psionic.Comp.StunDuration, true);
 
-        LogPowerUsed(psionic, args.Performer);
+        AfterPowerUsed(psionic, args.Performer);
     }
 }

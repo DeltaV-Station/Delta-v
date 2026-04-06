@@ -62,7 +62,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// </summary>
     /// <param name="psionic">The psionic who attempts to use a psionic power.</param>
     /// <param name="args">The action event for said power.</param>
-    private void OnPowerActionUsed(Entity<T> psionic,  ref T1 args)
+    private void OnPowerActionUsed(Entity<T> psionic, ref T1 args)
     {
         if (Timing.ApplyingState || args.Handled)
             return;
@@ -117,7 +117,6 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// </summary>
     /// <param name="psionic">The psionic who is being mindbroken.</param>
     /// <param name="args">The mindbreaking event.</param>
-    /// <returns>Returns true if the power was removed, false if not.</returns>
     protected virtual void OnMindBroken(Entity<T> psionic, ref PsionicMindBrokenEvent args)
     {
         if (psionic.Comp.CanBeRemoved || args.Force)
@@ -143,7 +142,6 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
             return;
 
         args.AddAction(psionicClothing.Comp.ActionEntity);
-        Dirty(psionicClothing);
     }
 
     /// <summary>
@@ -174,7 +172,12 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     {
     }
 
-    protected void LogPowerUsed(Entity<T> psionicSource, EntityUid performer)
+    /// <summary>
+    /// This will log the power usage and increase glimmer, as well as making sure metapsionics hear it.
+    /// </summary>
+    /// <param name="psionicSource">The SOURCE of the psionic power.</param>
+    /// <param name="performer">The entity that PERFORMED the power.</param>
+    protected void AfterPowerUsed(Entity<T> psionicSource, EntityUid performer)
     {
         var power = Loc.GetString(psionicSource.Comp.PowerName);
         _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(psionicSource):player} used {power}");

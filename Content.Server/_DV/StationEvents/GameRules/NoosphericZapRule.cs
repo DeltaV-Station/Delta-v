@@ -3,7 +3,6 @@ using Content.Server._DV.StationEvents.Components;
 using Content.Server.Popups;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Components;
@@ -32,9 +31,9 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
 
         var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
 
-        while (query.MoveNext(out var potPsion, out var potPsionComponent, out _))
+        while (query.MoveNext(out var potPsion, out var potPsionComponent, out var mobStateComponent))
         {
-            if (!_mobStateSystem.IsAlive(potPsion))
+            if (!_mobStateSystem.IsAlive(potPsion, mobStateComponent))
                 continue;
 
             if (!_psionic.CanBeTargeted(potPsion))
@@ -42,9 +41,8 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
 
             // Zap non-psionics only if they spent their roll already.
             if (potPsionComponent.Rolled)
-            {
-                Zap(potPsion, potPsionComponent);
-            } // Then zap all other psionics regardless.
+                Zap(potPsion, potPsionComponent); 
+            // Then zap all other psionics regardless.
             else if (HasComp<PsionicComponent>(potPsion))
                 Zap(potPsion, potPsionComponent);
         }

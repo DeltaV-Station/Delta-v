@@ -4,14 +4,14 @@
 * See AGPLv3.txt for details.
 */
 
+using Content.Server._DV.StationEvents.Components;
 using Content.Server._DV.StationEvents.GameRules;
-using Content.Server.StationEvents.Events;
 
 namespace Content.Server.StationEvents.Components;
 
 /// <summary>
 /// Spawns random debris in space around a loaded grid.
-/// Requires <see cref="LoadFarGridRuleComponent"/>.
+/// Requires <see cref="_DV.StationEvents.Components.LoadFarGridRuleComponent"/>.
 /// </summary>
 [RegisterComponent, Access(typeof(DebrisSpawnerRule))]
 public sealed partial class DebrisSpawnerRuleComponent : Component

@@ -7,7 +7,6 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Psionics;
 using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Atmos;

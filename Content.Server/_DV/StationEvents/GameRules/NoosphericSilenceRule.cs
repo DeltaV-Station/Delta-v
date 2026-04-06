@@ -1,13 +1,11 @@
 using Content.Server._DV.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.StationEvents.GameRules;

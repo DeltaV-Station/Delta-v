@@ -40,14 +40,14 @@ public abstract class SharedDispelPowerSystem : BasePsionicPowerSystem<DispelPow
 
     protected override void OnPowerUsed(Entity<DispelPowerComponent> psionic, ref DispelPowerActionEvent args)
     {
-        if (!Psionic.CanBeTargeted(args.Target, HasAggressor: args.Performer))
+        if (!Psionic.CanBeTargeted(args.Target, hasAggressor: args.Performer))
             return;
 
         var ev = new DispelledEvent(args.Performer, args.Target);
         RaiseLocalEvent(args.Target, ev);
 
         if (ev.Handled)
-            LogPowerUsed(psionic, args.Performer);
+            AfterPowerUsed(psionic, args.Performer);
     }
 
     protected override void OnPsionicallySuppressed(Entity<DispelPowerComponent> power, ref PsionicSuppressedEvent args)
