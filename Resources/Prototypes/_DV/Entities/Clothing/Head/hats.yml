@@ -387,3 +387,48 @@
     sprite: _DV/Clothing/Head/Hats/beret_paramedic.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/beret_paramedic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHeadOfSecurityCavalier
+  name: head of security cavalier hat
+  description: A well-made cavalier hat made of the finest materials for all your flamboyant needs..
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/hoscavalier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/hoscavalier.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCaptainCavalier
+  name: captain cavalier hat
+  description: A well-made cavalier hat made of the finest materials for all your flamboyant needs..
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/captaincavalier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/captaincavalier.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCentcommCavalier
+  name: centcomm cavalier hat
+  description: A well-made cavalier hat made of the finest materials for all your flamboyant needs..
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/centcommcavalier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/centcommcavalier.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
