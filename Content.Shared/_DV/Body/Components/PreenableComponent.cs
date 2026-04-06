@@ -62,9 +62,6 @@ public sealed partial class PreenableComponent : Component
     [DataField]
     public DamageModifierSet? VulnerabilityModifier;
 
-    [DataField]
-    public float AimModifier = 0.75f;
-
     [DataField, AutoNetworkedField]
     public int MaximumFeathers = 3;
 

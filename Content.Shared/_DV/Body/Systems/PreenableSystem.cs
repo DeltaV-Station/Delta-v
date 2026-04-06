@@ -14,7 +14,6 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -44,7 +43,6 @@ public sealed class PreenableSystem : EntitySystem
         SubscribeLocalEvent<PreenableComponent, PreeningEvent>(OnPreened);
         SubscribeLocalEvent<PreenableComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<PreenableComponent, DamageModifyEvent>(OnDamageModify);
-        SubscribeLocalEvent<PreenableComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<PreenableComponent, ComponentInit>(OnCompInit);
     }
 
@@ -96,7 +94,7 @@ public sealed class PreenableSystem : EntitySystem
 
     private void OnPreened(Entity<PreenableComponent> ent, ref PreeningEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || args.Handled)
             return;
 
         if (ent.Comp.CurrentFeathers <= 0)
@@ -140,15 +138,14 @@ public sealed class PreenableSystem : EntitySystem
 
         // apply a random impulse so it's flying off the body. similar code to GibbingSystem
         var scatterVector = rand.NextAngle().ToVec() * (rand.NextFloat(10, 40));
+        _physics.ApplyLinearImpulse(feather, scatterVector);
+        _physics.ApplyAngularImpulse(feather, rand.NextFloat(-30, 30));
 
         // update name/desc for increased validness
         var meta = MetaData(feather);
         _metaData.SetEntityName(feather, Loc.GetString(ent.Comp.FeatherBloodiedNameString, ("item", Name(feather))), meta);
         _metaData.SetEntityDescription(feather, Loc.GetString(ent.Comp.FeatherBloodiedDescString), meta);
         Dirty(feather, meta);
-
-        _physics.ApplyLinearImpulse(feather, scatterVector);
-        _physics.ApplyAngularImpulse(feather, rand.NextFloat(-30, 30));
 
         // yeeeowch!
         _popup.PopupClient(Loc.GetString(ent.Comp.DroppedFeatherString), ent, ent, PopupType.MediumCaution);
@@ -177,19 +174,6 @@ public sealed class PreenableSystem : EntitySystem
         }
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, damageSpecifier);
-    }
-
-    private void OnGunRefreshModifiers(Entity<PreenableComponent> ent, ref GunRefreshModifiersEvent args)
-    {
-        var featherRatio = 1f - (ent.Comp.CurrentFeathers / (float)ent.Comp.MaximumFeathers);
-        var spreadModifier = 1f + ((ent.Comp.AimModifier - 1f) * featherRatio);
-
-        // basically just oni code
-        var maxSpread = MathHelper.DegreesToRadians(180);
-        args.MinAngle = Math.Clamp(args.MinAngle * spreadModifier, 0f, maxSpread);
-        args.MaxAngle = Math.Clamp(args.MaxAngle * spreadModifier, 0f, maxSpread);
-
-        args.AngleIncrease *= spreadModifier;
     }
 
     private EntityUid SpawnFeather(Entity<PreenableComponent> ent, bool bloody)
