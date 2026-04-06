@@ -1,5 +1,4 @@
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Systems;
 using Content.Shared._DV.Xenoarcheology.XenoArtifacts.Effects.Components;
 using Content.Shared.Xenoarchaeology.Artifact;

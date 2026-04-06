@@ -10,8 +10,6 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 public abstract class SharedTelegnosisPowerSystem : BasePsionicPowerSystem<TelegnosisPowerComponent, TelegnosisPowerActionEvent>
 {
-    [Dependency] protected readonly SharedTransformSystem Transform = default!;
-
     public override void Initialize()
     {
         base.Initialize();

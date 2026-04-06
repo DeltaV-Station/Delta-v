@@ -20,6 +20,8 @@ public abstract class SharedDispelPowerSystem : BasePsionicPowerSystem<DispelPow
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffectsNew = default!;
+
 
     public override void Initialize()
     {
@@ -27,6 +29,7 @@ public abstract class SharedDispelPowerSystem : BasePsionicPowerSystem<DispelPow
 
         SubscribeLocalEvent<DispellableComponent, DispelledEvent>(OnDispelled);
         SubscribeLocalEvent<DamageOnDispelComponent, DispelledEvent>(OnDmgDispelled);
+        SubscribeLocalEvent<DispelPowerComponent, PsionicStoppedShieldedEvent>(OnPsionicShieldingStopped, null,[typeof(SharedPsionicSystem)]);
         // Upstream stuff we're just gonna handle here
         SubscribeLocalEvent<RevenantComponent, DispelledEvent>(OnRevenantDispelled);
     }
@@ -64,6 +67,20 @@ public abstract class SharedDispelPowerSystem : BasePsionicPowerSystem<DispelPow
             return;
         // Let mah people SEE
         Psionic.SetCanSeePsionicInvisiblity(args.Victim, true);
+    }
+
+    /// <summary>
+    /// This is necessary to avoid dispel users to lose their invisibility sight.
+    /// This fires after the System where losing psionic shielding makes you unable to see invisible entities.
+    /// </summary>
+    /// <param name="psionic">The psionic who lost their shielding.</param>
+    /// <param name="args">The event.</param>
+    private void OnPsionicShieldingStopped(Entity<DispelPowerComponent> psionic, ref PsionicStoppedShieldedEvent args)
+    {
+        if (_statusEffectsNew.HasStatusEffect(psionic, "StatusEffectPsionicsDisabled"))
+            return;
+        // Losing the shielding causes you to lose vision of the invisible. This is to prevent that.
+        Psionic.SetCanSeePsionicInvisiblity(args.Shielded, true);
     }
 
     protected override void OnMindBroken(Entity<DispelPowerComponent> psionic, ref PsionicMindBrokenEvent args)

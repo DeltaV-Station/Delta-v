@@ -19,6 +19,7 @@ public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -40,7 +41,7 @@ public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
 
         var projection = Spawn(psionic.Comp.Prototype, Transform(psionic).Coordinates);
 
-        Transform.AttachToGridOrMap(projection);
+        _transform.AttachToGridOrMap(projection);
         if (!_mindSwap.SwapMinds(args.Performer, projection))
         {
             // If swap didn't work out, delete the spawned projection.
@@ -57,8 +58,8 @@ public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
         if (sensorUid == default)
             return;
         // Determine the distance to the sensor, this will be used to dilute the amount of air we take in.
-        var sensorPosition = Transform.GetWorldPosition(sensorUid);
-        var projectionPosition = Transform.GetWorldPosition(entity);
+        var sensorPosition = _transform.GetWorldPosition(sensorUid);
+        var projectionPosition = _transform.GetWorldPosition(entity);
         // A linear curve from 1.0 at 7 tiles away, to 0 at 57 tiles away
         var distance = Vector2.Distance(sensorPosition, projectionPosition);
         float gasMult = Math.Clamp(1f - (distance - 7f) / 50f, 0f, 1f);

@@ -17,7 +17,6 @@ public sealed partial class ModifyPsionicChanceSpecial : JobSpecial
     [DataField]
     public float? SpeciesBonusChance;
 
-
     public override void AfterEquip(EntityUid mob)
     {
         var entityManager = IoCManager.Resolve<IEntityManager>();

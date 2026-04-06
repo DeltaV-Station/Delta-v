@@ -122,6 +122,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         if (psionic.Comp.CanBeRemoved || args.Force)
         {
             args.Success = true;
+            TryStopDoAfter(psionic, psionic.Owner); // Mindbreaking already has a popup, so no popup for breaking doAfters.
             Action.RemoveAction(psionic.Comp.ActionEntity);
             RemComp<T>(psionic);
             return;
@@ -152,14 +153,10 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     /// <param name="args">The event.</param>
     protected virtual void OnPsionicallySuppressed(Entity<T> power, ref PsionicSuppressedEvent args)
     {
-        if (Timing.ApplyingState || power.Comp.GetDoAfterId() is not { } doAfterId)
+        if (Timing.ApplyingState)
             return;
 
-        DoAfter.Cancel(doAfterId);
-        Popup.PopupClient(Loc.GetString("psionic-equipped-shielded-in-doafter"), args.Victim, args.Victim, PopupType.MediumCaution);
-        power.Comp.RemoveSavedDoAfterId();
-
-        Dirty(power);
+        TryStopDoAfter(power, args.Victim, "psionic-equipped-shielded-in-doafter");
     }
 
     /// <summary>
@@ -186,5 +183,26 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         RaiseLocalEvent(psionicSource, ev);
 
         _glimmer.Glimmer += Random.Next(psionicSource.Comp.MinGlimmerChanged, psionicSource.Comp.MaxGlimmerChanged);
+    }
+
+    /// <summary>
+    /// Stops the current DoAfter of the psionic user.
+    /// </summary>
+    /// <param name="psionic">The source of the power.</param>
+    /// <param name="performer">The entity performing the power.</param>
+    /// <param name="popup">The FTL string for the popup. If null, no popup.</param>
+    /// <returns>Returns true if an doAfter was interrupted, otherwise false.</returns>
+    private bool TryStopDoAfter(Entity<T> psionic, EntityUid performer, string? popup = null)
+    {
+        if (psionic.Comp.GetDoAfterId() is not { } doAfterId)
+            return false;
+
+        DoAfter.Cancel(doAfterId);
+        if (popup != null)
+            Popup.PopupClient(Loc.GetString(popup), performer, performer, PopupType.MediumCaution);
+
+        psionic.Comp.RemoveSavedDoAfterId();
+        Dirty(psionic);
+        return true;
     }
 }

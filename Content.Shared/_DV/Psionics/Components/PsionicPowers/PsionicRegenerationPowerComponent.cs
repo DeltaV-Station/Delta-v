@@ -22,6 +22,12 @@ public sealed partial class PsionicRegenerationPowerComponent : BasePsionicPower
     public float EssenceAmount = 20;
 
     /// <summary>
+    /// The reagent ID that will be inserted into the bloodstream.
+    /// </summary>
+    [DataField]
+    public string ReagentId = "Prometheum";
+
+    /// <summary>
     /// How long the DoAfter lasts.
     /// </summary>
     [DataField]

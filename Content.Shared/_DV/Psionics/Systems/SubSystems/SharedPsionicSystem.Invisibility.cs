@@ -20,7 +20,6 @@ public abstract partial class SharedPsionicSystem
         SubscribeLocalEvent<PsionicallyInvisibleComponent, PsionicStoppedSuppressedEvent>(OnSuppressionStop);
         SubscribeLocalEvent<PotentialPsionicComponent, PsionicShieldedEvent>(OnShielded);
         SubscribeLocalEvent<PotentialPsionicComponent, PsionicStoppedShieldedEvent>(OnShieldedStop);
-
     }
 
     private void OnInvisInit(Entity<PsionicallyInvisibleComponent> invisible, ref MapInitEvent args)

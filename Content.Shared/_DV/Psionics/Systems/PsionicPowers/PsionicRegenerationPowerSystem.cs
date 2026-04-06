@@ -48,6 +48,7 @@ public sealed class PsionicRegenerationPowerSystem : BasePsionicPowerSystem<Psio
     {
         if (args.Handled)
             return;
+
         args.Handled = true;
         psionic.Comp.RemoveSavedDoAfterId();
         Dirty(psionic);
@@ -62,7 +63,7 @@ public sealed class PsionicRegenerationPowerSystem : BasePsionicPowerSystem<Psio
         var percentageComplete = Math.Min(1f, (Timing.CurTime - args.StartedAt).TotalSeconds / psionic.Comp.UseDelay);
 
         var solution = new Solution();
-        solution.AddReagent("Prometheum", FixedPoint2.New(psionic.Comp.EssenceAmount * percentageComplete));
+        solution.AddReagent(psionic.Comp.ReagentId, FixedPoint2.New(psionic.Comp.EssenceAmount * percentageComplete));
         _bloodstreamSystem.TryAddToChemicals((psionic, stream), solution);
     }
 }

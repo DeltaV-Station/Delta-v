@@ -1,14 +1,8 @@
-using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
-using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Events.PowerActionEvents;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Speech;
-using Content.Shared.Stealth.Components;
 using JetBrains.Annotations;
 
 namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
@@ -17,8 +11,6 @@ public abstract class SharedMindSwapPowerSystem : BasePsionicPowerSystem<MindSwa
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MindSwappedReturnPowerSystem _mindSwapped = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
     private EntityQuery<MindSwappedReturnPowerComponent> _mindSwappedQuery;
     private EntityQuery<MindShieldComponent> _mindshieldQuery;
@@ -115,10 +107,10 @@ public abstract class SharedMindSwapPowerSystem : BasePsionicPowerSystem<MindSwa
 
         // Get the minds first. On transfer, they'll be gone.
         // This is here to prevent missing MindContainerComponent Resolve errors.
-        if(!_mindSystem.TryGetMind(performer, out var performerMindId, out var performerMind))
+        if (!_mindSystem.TryGetMind(performer, out var performerMindId, out var performerMind))
             performerMind = null;
 
-        if(!_mindSystem.TryGetMind(target, out var targetMindId, out var targetMind))
+        if (!_mindSystem.TryGetMind(target, out var targetMindId, out var targetMind))
             targetMind = null;
 
         switch (performerMind)
@@ -171,71 +163,5 @@ public abstract class SharedMindSwapPowerSystem : BasePsionicPowerSystem<MindSwa
         Dirty(performer, perfComp);
         Dirty(target, targetComp);
         return true;
-    }
-}
-
-/// <summary>
-/// Sorry if this is shitcode, but the return power actually should behave like a normal power - So it gets its own system.
-/// That way, we have automatical power inits, dispelled and mindbreaking, as well as checks for if someone can use a power.
-/// </summary>
-public sealed class MindSwappedReturnPowerSystem : BasePsionicPowerSystem<MindSwappedReturnPowerComponent, MindSwappedReturnPowerActionEvent>
-{
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-
-    private EntityQuery<MindSwappedReturnPowerComponent> _mindSwappedQuery;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<MindSwappedReturnPowerComponent, ComponentShutdown>(OnShutDown);
-
-        _mindSwappedQuery = GetEntityQuery<MindSwappedReturnPowerComponent>();
-    }
-
-    private void OnShutDown(Entity<MindSwappedReturnPowerComponent> psionic, ref ComponentShutdown args)
-    {
-        // If the person is gibbed or otherwise deleted, it'll remove the links.
-        if (Timing.ApplyingState
-            || !TerminatingOrDeleted(psionic)
-            || !_mindSwappedQuery.TryComp(psionic.Comp.OriginalEntity, out var targetComp))
-            return;
-
-        RemoveLink((psionic.Comp.OriginalEntity, targetComp));
-    }
-
-    protected override void OnPowerUsed(Entity<MindSwappedReturnPowerComponent> psionic, ref MindSwappedReturnPowerActionEvent args)
-    {
-        _mindSwap.SwapMinds(psionic, psionic.Comp.OriginalEntity);
-        AfterPowerUsed(psionic, args.Performer);
-    }
-
-    protected override void OnDispelled(Entity<MindSwappedReturnPowerComponent> psionic, ref DispelledEvent args)
-    {
-        _mindSwap.SwapMinds(psionic, psionic.Comp.OriginalEntity, false);
-    }
-
-    public void RemoveLink(Entity<MindSwappedReturnPowerComponent?> victim, bool showPopup = true)
-    {
-        // Sometimes people lose their link without having the component - MassMindSwap for example is a situation like that.
-        if (showPopup)
-            Popup.PopupEntity(Loc.GetString("psionic-power-mindswap-original-lost"), victim, victim, PopupType.MediumCaution);
-
-        if (!Resolve(victim, ref victim.Comp, false))
-            return;
-        // Remove the first action and link.
-        Action.RemoveAction(victim.Comp.ActionEntity);
-        RemCompDeferred(victim, victim.Comp);
-
-        if (!HasComp<TelegnosticProjectionComponent>(victim))
-            return;
-
-        RemComp<PsionicallyInvisibleComponent>(victim);
-        RemComp<StealthComponent>(victim);
-        EnsureComp<SpeechComponent>(victim);
-        EnsureComp<DispellableComponent>(victim);
-        _metaDataSystem.SetEntityName(victim, Loc.GetString("telegnostic-trapped-entity-name"));
-        _metaDataSystem.SetEntityDescription(victim, Loc.GetString("telegnostic-trapped-entity-desc"));
     }
 }
