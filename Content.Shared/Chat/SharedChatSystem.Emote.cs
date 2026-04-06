@@ -208,6 +208,48 @@ public abstract partial class SharedChatSystem
         return true;
     }
 
+    // DeltaV
+    /// <summary>
+    /// Checks which type of emote the message contains and returns the type while outputting the string without the prefixes.
+    /// </summary>
+    public static EmoteType? ProcessEmoteMessage(EntityUid source, string input, out string output)
+    {
+        output = input.Trim();
+        EmoteType? type = null;
+
+        if (input.Length == 0)
+            return type;
+
+        if (!(input.StartsWith(AudibleEmotePrefix) || input.StartsWith(PossessiveEmotePrefix)))
+        {
+            type = EmoteType.Normal;
+            return type;
+        }
+
+        var emoteType = input[0];
+        output = input[1..].TrimStart();
+
+        if (emoteType == AudibleEmotePrefix)
+        {
+            emoteType = input[1]; // Check for if we want AudiblePossessiveEmote
+            type = EmoteType.Audible;
+        }
+
+        if (emoteType == PossessiveEmotePrefix)
+        {
+            if (type == EmoteType.Audible)
+            {
+                type = EmoteType.AudiblePossessive;
+                output = input[2..].TrimStart();
+            }
+            else
+                type = EmoteType.Possessive;
+        }
+
+        return type;
+    }
+    // DeltaV - End
+
     /// <summary>
     /// Creates and raises <see cref="BeforeEmoteEvent"/> and then <see cref="EmoteEvent"/> to let other systems do things like play audio.
     /// In the case that the Before event is cancelled, EmoteEvent will NOT be raised, and will optionally show a message to the player
@@ -280,4 +322,18 @@ public abstract partial class SharedChatSystem
 
         return textInput[trimStart..trimEnd];
     }
+}
+
+// DeltaV
+// Note for future: If you want to make this more robust to handle more types of emotes while still being able to check off audible as an option for it then it would
+// probably be better to make it a struct and have audible be a flag for it and then the type of emote. This would avoid having to make two different types for audible and visual.
+/// <summary>
+/// Different ways of emoting. For that little extra in RP!
+/// </summary>
+public enum EmoteType : byte
+{
+    Normal, // Character emotes
+    Audible, // Character screams
+    Possessive, // Character's emote
+    AudiblePossessive // Character's scream
 }

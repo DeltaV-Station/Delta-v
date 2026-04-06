@@ -154,7 +154,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         string input,
         out string output,
         out RadioChannelPrototype? channel,
-        bool capitalize = true, // DeltaV
+        bool capitalize = true, // DeltaV - We might not want to capitalize the first letter if we send in emotes.
         bool quiet = false)
     {
         output = input.Trim();
@@ -317,45 +317,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
 
-    // Start - DeltaV -
-
-    public EmoteType? ProcessEmoteMessage(EntityUid source, string input, out string output)
-    {
-        output = input.Trim();
-        EmoteType? type = null;
-
-        if (input.Length == 0)
-            return type;
-
-        if (!(input.StartsWith(AudibleEmotePrefix) || input.StartsWith(PossessiveEmotePrefix)))
-        {
-            type = EmoteType.Normal;
-            return type;
-        }
-
-        var emoteType = input[0];
-        output = input[1..].TrimStart();
-
-        if (emoteType == AudibleEmotePrefix)
-        {
-            emoteType = input[1]; // For if we want AudiblePossessiveEmote
-            type = EmoteType.Audible;
-        }
-
-        if (emoteType == PossessiveEmotePrefix)
-        {
-            if (type == EmoteType.Audible)
-            {
-                type = EmoteType.AudiblePossessive;
-                output = input[2..].TrimStart();
-            }
-            else
-                type = EmoteType.Possessive;
-        }
-
-        return type;
-    }
-
+    // DeltaV
     protected virtual void SendAudibleEntityEmote(
     EntityUid source,
     string action,
@@ -369,8 +331,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     NetUserId? author = null
     )
     { }
-
-    // End - DeltaV -
+    // DeltaV - End
 
     protected virtual void SendEntityEmote(
         EntityUid source,
@@ -546,16 +507,4 @@ public enum InGameOOCChatType : byte
 {
     Looc,
     Dead
-}
-
-// DeltaV
-/// <summary>
-/// Different ways of emoting. For that little extra in RP!
-/// </summary>
-public enum EmoteType : byte
-{
-    Normal, // Character emotes
-    Audible, // Character screams
-    Possessive, // Character's emote
-    AudiblePossessive // Character's scream
 }

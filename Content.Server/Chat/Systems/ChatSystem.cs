@@ -667,7 +667,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
 
         if (checkEmote &&
-            !TryEmoteChatInput(source, action)) // TODO: TryEmoteChatInput will have to be changed to fit with audible emotes.
+            !TryEmoteChatInput(source, action))
             return;
 
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
