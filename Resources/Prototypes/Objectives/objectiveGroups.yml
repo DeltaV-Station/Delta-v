@@ -43,9 +43,10 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 0.1 # DeltaV, was 1. Very unlikely but possible.
-    TeachLessonRandomPersonObjective: 1
-    KillRandomHeadObjective: 0.5
+    TeachLessonRandomPersonObjective: 1 # DeltaV
+    KillRandomHeadObjective: 0.25
     KillRandomTraitorObjective: 0.2 # DeltaV
+    KillStationAiObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
@@ -87,22 +88,27 @@
     HeadBedsheetStealCollectionObjective: 1
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
+    # OfficerHandgunsStealCollectionObjective: 1         #sec # DeltaV
     TechnologyDiskStealCollectionObjective: 1           #sci
     MailStealCollectionObjective: 1                     #cargo
     IDCardsStealCollectionObjective: 1
-    LAMPStealCollectionObjective: 2                     #only for moth
+    LAMPStealCollectionObjective: 0.1                   #only for moth, weight decreased cause boring and insanely easy
     ReactorFuelRodStealCollectionObjective: 1 #Far Horizons/Nuclear Reactor Port
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem
   weights:
+# DeltaV Start - Removing some objectives.
+#    ChiefEngineerToolbeltStealObjective: 0.5             #command
+#    CaptainSwordStealObjective: 0.5
+#    ClothingHeadsetAltMedicalStealObjective: 1
+# DeltaV End.
     ForensicScannerStealObjective: 1                    #sec
     FlippoEngravedLighterStealObjective: 0.5
     ClothingHeadHatWardenStealObjective: 1
-    ClothingNeckShockCollarStealObjective: 1
+    WantedListCartridgeStealObjective: 1
     ClothingOuterHardsuitVoidParamedStealObjective: 1   #med
     MedicalTechFabCircuitboardStealObjective: 1
-    ClothingHeadsetAltMedicalStealObjective: 1
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
     ExpeditionsCircuitboardStealObjective: 1            #sup
