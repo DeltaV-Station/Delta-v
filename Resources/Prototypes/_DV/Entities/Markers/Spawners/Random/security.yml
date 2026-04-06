@@ -13,6 +13,20 @@
     table: !type:NestedSelector
       tableId: RandomSuperweaponTable
 
+- type: entity
+  id: LootSpawnerSecurityAdvancedWeapons
+  suffix: AdvancedWeapons
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _DV/Objects/Weapons/Guns/Battery/beam_devestator.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: AdvancedWeaponTable
+
 #Table
 - type: entityTable
   id: RandomSuperweaponTable
@@ -22,6 +36,13 @@
       tableId: RPGTable
     - !type:NestedSelector
       tableId: GamblagatorTable
+
+- type: entityTable
+  id: AdvancedWeaponTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: AdvancedLaserTable
 
 - type: entityTable
   id: RPGTable
@@ -49,3 +70,24 @@
     - id: MagazineLMGAntiMaterielBox
       amount: !type:ConstantNumberSelector
         value: 2
+
+- type: entityTable
+  id: AdvancedLaserTable
+  table: !type:AllSelector
+    children:
+    - id: WeaponColdCannon
+    - id: WeaponTemperatureGun
+    - id: PortableRecharger
+    - id: WeaponLaserCannon
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: WeaponBeamCannon
+      prob: 0.4
+    - id: WeaponXrayCannon
+      prob: 0.4
+    - id: WeaponImmolator
+      prob: 0.3
+    - id: PortableRecharger
+      prob: 0.2
+    - id: WeaponEnergyGunMini
+      prob: 0.1

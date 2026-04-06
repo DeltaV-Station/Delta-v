@@ -67,6 +67,16 @@
 
 - type: entity
   parent: BaseGunSafeSpawner
+  id: AdvancedWeaponsSafeSpawner
+  suffix: AdvancedWeapon
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeAdvancedLaser
+
+- type: entity
+  parent: BaseGunSafeSpawner
   id: SalvageweaponSafeSpawner
   suffix: LO, Random, Filled
   components:
