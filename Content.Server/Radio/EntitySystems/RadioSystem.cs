@@ -38,6 +38,7 @@ public sealed class RadioSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
+        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntityAudiblyEmotedEvent>(OnIntrinsicAudibleEmote); // DeltaV - Robots should be allowed to emote over radio.
 
         _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
     }
@@ -56,6 +57,16 @@ public sealed class RadioSystem : EntitySystem
         if (TryComp(uid, out ActorComponent? actor))
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
     }
+
+    // DeltaV
+    private void OnIntrinsicAudibleEmote(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntityAudiblyEmotedEvent args)
+    {
+        if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
+        {
+            SendRadioMessage(uid, args.Message, args.Channel, uid, emType: args.Type);
+        }
+    }
+    // DeltaV - End
 
     /// <summary>
     /// Send radio message to all active radio listeners
