@@ -8848,7 +8848,7 @@ entities:
       pos: 0.5,15.5
       parent: 1
     - type: WarpPoint
-      location: Transit Hub
+      location: Arrivals Transit Hub
 - proto: GravityGeneratorMini
   entities:
   - uid: 1833
@@ -9947,15 +9947,11 @@ entities:
   entities:
   - uid: 167
     components:
-    - type: MetaData
-      name: long-range holopad (Transit Hub)
     - type: Transform
       pos: 0.5,15.5
       parent: 1
     - type: Label
       currentLabel: Transit Hub
-    - type: NameModifier
-      baseName: long-range holopad
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 1766

@@ -103,3 +103,14 @@
         Heat: 100
         Radiation: 20
         Structural: 100
+
+- type: entity
+  parent: RedHeavyLaser
+  id: RedSniperLaser
+  name: red high-precision laser ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 42
