@@ -1,9 +1,14 @@
-﻿using Content.Server.Power.Components;
+﻿using System.Linq;
 using Content.Shared._DV.MetalDetector;
+using Content.Shared.Access.Systems;
 using Content.Shared.Contraband;
+using Content.Shared.Implants.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Power.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
+using Robust.Shared.Containers;
 
 namespace Content.Server._DV.MetalDetector;
 
@@ -12,6 +17,11 @@ namespace Content.Server._DV.MetalDetector;
 /// </summary>
 public sealed class MetalDetectorSystem : EntitySystem
 {
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly SharedIdCardSystem _idSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedStorageSystem _storageSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -33,14 +43,14 @@ public sealed class MetalDetectorSystem : EntitySystem
 
             comp.CurrentRunTime += frameTime;
 
-            if (comp.CurrentRunTime >= comp.RunTime)
-            {
-                comp.CurrentRunTime = 0.0f;
-                comp.StartRunTime = false;
-                var toggledEvent = new ItemToggledEvent(false, false, ent);
-                RaiseLocalEvent(ent, ref toggledEvent);
-                toggle.Activated = false;
-            }
+            if (comp.CurrentRunTime < comp.RunTime)
+                return;
+
+            comp.CurrentRunTime = 0.0f;
+            comp.StartRunTime = false;
+            var toggledEvent = new ItemToggledEvent(false, false, ent);
+            RaiseLocalEvent(ent, ref toggledEvent);
+            toggle.Activated = false;
         }
     }
 
@@ -52,7 +62,7 @@ public sealed class MetalDetectorSystem : EntitySystem
             return;
         }
 
-        if (TryComp<ItemToggleComponent>(uid, out var toggleComponent) && HasContraband(args.Tripper))
+        if (TryComp<ItemToggleComponent>(uid, out var toggleComponent) && CheckForContraband(args.Tripper))
         {
             var toggledEvent = new ItemToggledEvent(false, true, uid);
             RaiseLocalEvent(uid, ref toggledEvent);
@@ -63,8 +73,7 @@ public sealed class MetalDetectorSystem : EntitySystem
     private void HandleStepOffTriggered(EntityUid uid, MetalDetectorComponent component, ref StepTriggeredOffEvent args)
     {
         // Start timer to deactivate the siren
-        component.StartRunTime = true;
-
+        component.StartRunTime = TryComp<ItemToggleComponent>(uid, out var toggleComponent) && toggleComponent.Activated;
     }
 
     private void HandleStepTriggerAttempt(EntityUid uid,
@@ -74,8 +83,41 @@ public sealed class MetalDetectorSystem : EntitySystem
         args.Continue = true;
     }
 
-    private bool HasContraband(EntityUid uid)
+    private bool CheckForContraband(EntityUid characterUid)
     {
+        var foundIdCArd = _idSystem.TryFindIdCard(characterUid, out var idCard);
+
+        if (_containerSystem.TryGetContainer(characterUid, ImplanterComponent.ImplantSlotId, out var implants))
+        {
+            foreach (var implant in implants.ContainedEntities)
+            {
+                if (!TryComp<StorageComponent>(implant, out var storage))
+                    continue;
+
+                foreach (var stored in storage.Container.ContainedEntities)
+                {
+                    if (!TryComp<ContrabandComponent>(stored, out var contrabandComp))
+                        continue;
+
+                    if (!foundIdCArd)
+                        return true;
+
+                    return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+                }
+            }
+        }
+
+        foreach (var item in _inventorySystem.GetHandOrInventoryEntities(characterUid))
+        {
+            if (!TryComp<ContrabandComponent>(item, out var contrabandComp))
+                continue;
+
+            if (!foundIdCArd)
+                return true;
+
+            return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+        }
+
         return false;
     }
 }
