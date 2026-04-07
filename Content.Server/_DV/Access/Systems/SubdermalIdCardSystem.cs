@@ -25,7 +25,7 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
     }
 
     /// <summary>
-    /// Handles when a subdermal ID impant is inserted into a container matching the correct ID.
+    /// Handles when a subdermal ID implant is inserted into a container matching the correct ID.
     /// Will then spawn the relevant ID card and binding it to the owner of the implant.
     /// </summary>
     /// <param name="ent">Implant which was inserted into a container.</param>
