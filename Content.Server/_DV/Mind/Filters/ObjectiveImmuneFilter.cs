@@ -16,8 +16,8 @@ public sealed partial class ObjectiveImmuneFilter : MindFilter
             return true;
 
         // Check the attached entity, just in case
-        if (mind.Comp.OwnedEntity.HasValue &&
-            entMan.HasComponent<TargetObjectiveImmuneComponent>(mind.Comp.CurrentEntity))
+        if (mind.Comp.OwnedEntity is { } entity &&
+            entMan.HasComponent<TargetObjectiveImmuneComponent>(entity))
             return true;
 
         return false;
