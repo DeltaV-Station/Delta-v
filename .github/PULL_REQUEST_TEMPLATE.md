@@ -26,7 +26,7 @@ This just saves them the trouble. Note that AGPL or MIT licensing is only applic
 - [ ] I confirm that I am the creator of the code in this PR, and allow licensing it under the following license(s), or that the original author(s) has given me permission to do so:
   - [X] AGPL (https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-AGPLv3.txt) <!-- This one is required to contribute to DeltaV -->
   - [X] MIT (https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-MIT.txt) <!-- Optional - A lot of other SS14 forks use MIT -->
-    <!-- Feel free to add more licenses as you see fit -->
+<!-- Feel free to add more licenses as you see fit -->
 
 **Changelog**
 <!-- Add a Changelog entry to make players aware of new features or changes that could affect gameplay.
