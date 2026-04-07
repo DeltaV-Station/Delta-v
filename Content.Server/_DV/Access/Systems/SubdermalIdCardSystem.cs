@@ -39,7 +39,7 @@ public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
             !subdermalComponent.ImplantedEntity.HasValue)
             return; // We require a subdermal implant inside an entity.
 
-        if (!_container.TryGetContainer(ent, SubdermalIdCardComponent.IDCardContainerName, out var container))
+        if (!_container.TryGetContainer(ent, SubdermalContainerId, out var container))
             return; // No valid container for the IDCard to be stored in.
 
         var idCard = Spawn(ent.Comp.IdCardProto);

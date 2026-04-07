@@ -13,6 +13,9 @@ public abstract class SharedSubdermalIdCardSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
+    /// <summary>
+    /// Name for the container, inside the subdermal implant, where the ID card will be spawned.
+    /// </summary>
     public const string SubdermalContainerId = "subdermalIdCard";
 
     public override void Initialize()
