@@ -38,11 +38,11 @@
     title: objective-skeleton-haunt-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 - type: entity
   parent: SkeletonBaseObjective
