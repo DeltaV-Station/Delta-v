@@ -11,6 +11,9 @@ public sealed partial class MetalDetectorComponent : Component
     [DataField]
     public float RunTime = 10.0f;
 
+    [DataField]
+    public float FalsePositiveChance = 5.0f;
+
     public float CurrentRunTime = 0.0f;
 
     public bool StartRunTime = false;
