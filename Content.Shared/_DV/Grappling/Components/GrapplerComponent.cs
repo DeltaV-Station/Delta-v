@@ -87,7 +87,7 @@ public sealed partial class GrapplerComponent : Component
     /// How the grapple from this entity will take effect.
     /// </summary>
     [DataField]
-    public GrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
+    public IGrapplerActivationMode ActivationMode = new GrapplerActivationImmediate();
 
     /// <summary>
     /// How much damage this grappler can sustain before the grapple is forcibly broken.
