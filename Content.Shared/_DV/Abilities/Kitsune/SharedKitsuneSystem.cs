@@ -25,7 +25,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KitsuneComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
 
-        SubscribeLocalEvent<ZombieComponent, ComponentInit>(OnZombieStartup);
+        SubscribeLocalEvent<ZombieComponent, EntityZombifiedEvent>(OnKitsuneZombified);
     }
 
     private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref AppearanceLoadedEvent args)
@@ -66,7 +66,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The Zombie that has just spawned.</param>
     /// <param name="args">Args for the event.</param>
-    private void OnZombieStartup(Entity<ZombieComponent> ent, ref ComponentInit args)
+    private void OnKitsuneZombified(Entity<ZombieComponent> ent, ref EntityZombifiedEvent args)
     {
         if (!TryComp<KitsuneComponent>(ent, out var kitsune))
             return; // Not a Kitsune, nothing to do.
