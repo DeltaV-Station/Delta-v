@@ -41,7 +41,7 @@
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
     angle: 60
-    wideAnimation: WeaponArcThrust
+    animation: WeaponArcThrust
 # ES START
   - type: ESSparkOnItemToggle
     count: 1
@@ -56,6 +56,7 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
+  - type: UseDelay
   - type: Item
     heldPrefix: off
     size: Normal
@@ -151,6 +152,7 @@
         shader: unshaded
     - type: Flash
       flashingTime: 2 # DeltaV - serialize flashingTime variable here to line up with delay variable, which have to match
+    - type: RevolutionaryConverter
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon
