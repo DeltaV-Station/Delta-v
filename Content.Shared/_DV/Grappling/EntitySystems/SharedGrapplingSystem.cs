@@ -33,7 +33,7 @@ namespace Content.Shared._DV.Grappling.EntitySystems;
 /// Shared logic for grapplers.
 /// Enables some prediction of events and updates.
 /// </summary>
-public abstract partial class SharedGrapplingSystem : EntitySystem
+public sealed partial class SharedGrapplingSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
