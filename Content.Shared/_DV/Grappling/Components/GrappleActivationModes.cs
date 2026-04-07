@@ -3,7 +3,7 @@ using Content.Shared.Damage;
 namespace Content.Shared._DV.Grappling.Components;
 
 /// <summary>
-/// Interface for different ways a grapple can fully take effe effect.
+/// Interface for different ways a grapple can fully take effect.
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class GrapplerActivationMode
