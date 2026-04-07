@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: Minerva
-  changes:
-  - message: Janitorial and Engineering holosigns now emit light.
-    type: Tweak
-  id: 1726
-  time: '2025-10-06T03:45:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4377
-- author: Lonestar827
-  changes:
-  - message: fixed the EMP damage caused by EMP implants to do the intended 80 ion
-      instead of 130 ion
-    type: Fix
-  id: 1727
-  time: '2025-10-06T08:32:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4484
 - author: Proxysseia
   changes:
   - message: Promoted CMOs or Surgeons are now just as fast at surgery as their roundstart
@@ -4392,4 +4377,19 @@
   id: 2225
   time: '2026-04-06T11:04:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5591
+- author: BarryNorfolk
+  changes:
+  - message: Fixed an issue where IPCs would lose access to any radio channels given
+      by implants.
+    type: Fix
+  id: 2226
+  time: '2026-04-07T07:45:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5456
+- author: BarryNorfolk
+  changes:
+  - message: The Cosmic Colossus and Skia are no longer affected by Tasers
+    type: Fix
+  id: 2227
+  time: '2026-04-07T10:23:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5374
 Order: 1
