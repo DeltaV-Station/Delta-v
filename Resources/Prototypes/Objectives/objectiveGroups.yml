@@ -7,6 +7,7 @@
     TraitorObjectiveGroupState: 0.5 #As in, something about your character. Alive, dead, arrested, gained an ability... # DeltaV - was 1
     TraitorObjectiveGroupSocial: 0.2 #Involves helping/harming others without killing them or stealing their stuff # DeltaV - Was 1
     TraitorObjectiveGroupSpecial: 0.2 # DeltaV
+    TraitorObjectiveGroupSabotage: 1
     TraitorObjectiveGroupOther: 1
 
 - type: weightedRandom
@@ -60,6 +61,11 @@
   weights:
 #    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
+
+- type: weightedRandom
+  id: TraitorObjectiveGroupSabotage
+  weights:
+    SupercritAnomaliesObjective: 1
 
 #misc objectives that don't fall other another category
 - type: weightedRandom
