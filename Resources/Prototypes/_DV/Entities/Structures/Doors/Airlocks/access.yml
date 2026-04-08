@@ -632,3 +632,22 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNukeop ]
+
+# Centcomm external doors
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCentralCommandLocked
+  suffix: External, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassCentralCommandLocked
+  suffix: External, Glass, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
