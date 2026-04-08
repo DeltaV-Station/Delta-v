@@ -16,6 +16,11 @@
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/roboticist.rsi
 
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockERT
+  suffix: ERT
+
 # Glass
 
 - type: entity
@@ -35,3 +40,8 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Glass/roboticist.rsi
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockERTGlass
+  suffix: ERT

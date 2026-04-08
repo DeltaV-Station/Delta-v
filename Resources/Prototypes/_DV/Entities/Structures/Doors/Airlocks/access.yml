@@ -632,3 +632,31 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNukeop ]
+
+# ERT Specific Doors
+- type: entity
+  parent: AirlockERT
+  id: AirlockERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+- type: entity
+  parent: AirlockERTGlass
+  id: AirlockERTGlassLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDoorERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
