@@ -8,7 +8,20 @@
 	},
 	"states": [
 		{
-			"name": "metal_detector_1"
-		}
+			"name": "metal_detector_off"
+		},
+        {
+            "name": "metal_detector_on",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
 	]
 }

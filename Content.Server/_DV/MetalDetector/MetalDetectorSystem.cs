@@ -5,9 +5,11 @@ using Content.Shared.Contraband;
 using Content.Shared.Implants.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Power;
 using Content.Shared.Random;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Storage;
+using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
@@ -21,6 +23,7 @@ public sealed class MetalDetectorSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedIdCardSystem _idSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
     {
@@ -51,6 +54,7 @@ public sealed class MetalDetectorSystem : EntitySystem
             var toggledEvent = new ItemToggledEvent(false, false, ent);
             RaiseLocalEvent(ent, ref toggledEvent);
             toggle.Activated = false;
+            _appearanceSystem.SetData(ent, MetalDetectorVisuals.MetalDetectorActivated, false);
         }
     }
 
@@ -66,9 +70,10 @@ public sealed class MetalDetectorSystem : EntitySystem
         if (TryComp<ItemToggleComponent>(uid, out var toggleComponent) && (CheckForContraband(args.Tripper)
                 || random.NextFloat(0.0f, 100.0f) < component.FalsePositiveChance))
         {
+            toggleComponent.Activated = true;
+            _appearanceSystem.SetData(uid, MetalDetectorVisuals.MetalDetectorActivated, true);
             var toggledEvent = new ItemToggledEvent(false, true, uid);
             RaiseLocalEvent(uid, ref toggledEvent);
-            toggleComponent.Activated = true;
         }
     }
 
@@ -93,18 +98,18 @@ public sealed class MetalDetectorSystem : EntitySystem
         {
             var storageImplanter = implants.ContainedEntities.ToList().Find(HasComp<StorageComponent>);
 
-            if (!TryComp<StorageComponent>(storageImplanter, out var storage))
-                return false;
-
-            foreach (var stored in storage.Container.ContainedEntities)
+            if (TryComp<StorageComponent>(storageImplanter, out var storage))
             {
-                if (!TryComp<ContrabandComponent>(stored, out var contrabandComp))
-                    continue;
+                foreach (var stored in storage.Container.ContainedEntities)
+                {
+                    if (!TryComp<ContrabandComponent>(stored, out var contrabandComp))
+                        continue;
 
-                if (!foundIdCArd)
-                    return true;
+                    if (!foundIdCArd)
+                        return true;
 
-                return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+                    return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+                }
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.Audio;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.MetalDetector;
 
@@ -20,4 +21,16 @@ public sealed partial class MetalDetectorComponent : Component
 
     [DataField]
     public SoundSpecifier? SirenSound;
+}
+
+[Serializable, NetSerializable]
+public enum MetalDetectorVisuals : byte
+{
+    MetalDetectorActivated,
+}
+
+[Serializable, NetSerializable]
+public enum MetalDetectorVisualLayers : byte
+{
+    MetalDetectorLayer,
 }

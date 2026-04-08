@@ -7,14 +7,20 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/metal_detector.rsi
-    snapCardinals: true
     layers:
-    - state: metal_detector_1
-      map: ["enum.StorageVisualLayers.Base"]
-  - type: Transform
-    anchored: true
+    - state: metal_detector_off
+      map: [ "enum.MetalDetectorVisualLayers.MetalDetectorLayer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MetalDetectorVisuals.MetalDetectorActivated:
+        enum.MetalDetectorVisualLayers.MetalDetectorLayer:
+          True: { state: metal_detector_on }
+          False: { state: metal_detector_off }
   - type: ApcPowerReceiver
     powerLoad: 1000
+  - type: Transform
+    anchored: true
   - type: ExtensionCableReceiver
   - type: LightningTarget
     priority: 1
