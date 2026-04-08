@@ -52,9 +52,9 @@ public sealed class MetalDetectorSystem : EntitySystem
             comp.CurrentRunTime = 0.0f;
             comp.StartRunTime = false;
             var toggledEvent = new ItemToggledEvent(false, false, ent);
-            RaiseLocalEvent(ent, ref toggledEvent);
             toggle.Activated = false;
             _appearanceSystem.SetData(ent, MetalDetectorVisuals.MetalDetectorActivated, false);
+            RaiseLocalEvent(ent, ref toggledEvent);
         }
     }
 
