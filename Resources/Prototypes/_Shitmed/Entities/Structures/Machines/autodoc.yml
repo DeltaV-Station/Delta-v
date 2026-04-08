@@ -91,7 +91,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 1
+    speedModifier: 3 # DeltaV - 1.5x faster than a surgeon using a multitool and surgical gloves
   - type: GuideHelp
     guides: [ Autodoc ]
 
@@ -109,8 +109,6 @@
   # End DeltaV Additions
   - type: Machine
     board: AutodocSyndieCircuitboard
-  - type: SurgerySpeedModifier
-    speedModifier: 1.0 # as good as a surgeon using a multitool, nukies need it or something
 
 # Autodoc tools
 
