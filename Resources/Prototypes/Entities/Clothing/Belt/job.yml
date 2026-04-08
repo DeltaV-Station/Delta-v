@@ -437,6 +437,7 @@
       storagebase: !type:Container
         ents: []
       holster: !type:ContainerSlot {}
+      radio: !type:ContainerSlot {}
   - type: ItemSlots # DeltaV - add sidearm and radio slot
     slots:
       holster:
