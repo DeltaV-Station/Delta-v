@@ -105,7 +105,7 @@ public abstract class SharedDispelPowerSystem : BasePsionicPowerSystem<DispelPow
     private void OnDmgDispelled(Entity<DamageOnDispelComponent> damaged, ref DispelledEvent args)
     {
         var damage = damaged.Comp.Damage;
-        var modifier =- Random.NextFloat(-damaged.Comp.Variance, damaged.Comp.Variance);
+        var modifier = Random.NextFloat(damaged.Comp.Variance, 1 + damaged.Comp.Variance);
 
         damage *= modifier;
         DealDispelDamage(damaged, damage, args.Dispeller, damaged.Comp.DispelSound);

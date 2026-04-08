@@ -17,7 +17,8 @@ public sealed partial class DamageOnDispelComponent : Component
     public DamageSpecifier Damage = default!;
 
     /// <summary>
-    /// The variance that will be added or subtracted from the initial value.
+    /// The variance that will be multiplied with the initial value.
+    /// A variance of 0.5 will lead to the damage dealing either minimum half the damage, or 1.5x the damage maximum.
     /// </summary>
     [DataField]
     public float Variance = 0.5f;
