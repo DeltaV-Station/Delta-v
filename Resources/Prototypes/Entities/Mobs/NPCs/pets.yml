@@ -917,8 +917,10 @@
     attributes:
       proper: true
       gender: male
-  - type: Clumsy #DeltaV Changes
-    clumsyGuns: false #DeltaV Changes end
+  #DeltaV Changes - he can shoot his gun 80% of the time
+  - type: Clumsy 
+    clumsyGunShootCheck: 0.2
+    #DeltaV Changes end
 
 - type: entity
   name: Tropico
