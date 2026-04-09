@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/04/2026 17:56:09
-  entityCount: 31234
+  time: 04/09/2026 01:19:41
+  entityCount: 31235
 maps:
 - 1
 grids:
@@ -16849,7 +16849,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -195519.3
+      secondsUntilStateChange: -195846.42
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16946,11 +16946,6 @@ entities:
       parent: 2
 - proto: AirlockJusticeGlass
   entities:
-  - uid: 7235
-    components:
-    - type: Transform
-      pos: 13.5,43.5
-      parent: 2
   - uid: 10534
     components:
     - type: Transform
@@ -16960,6 +16955,13 @@ entities:
     components:
     - type: Transform
       pos: 9.5,39.5
+      parent: 2
+- proto: AirlockJusticeGlassLocked
+  entities:
+  - uid: 7235
+    components:
+    - type: Transform
+      pos: 13.5,43.5
       parent: 2
 - proto: AirlockKitchenGlassLocked
   entities:
@@ -16974,7 +16976,7 @@ entities:
       pos: 42.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17178.943
+      secondsUntilStateChange: -17506.066
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17206,9 +17208,9 @@ entities:
     - type: Transform
       pos: 12.5,35.5
       parent: 2
-- proto: AirlockMaintLawyerLocked
+- proto: AirlockMaintJusticeLocked
   entities:
-  - uid: 21369
+  - uid: 18809
     components:
     - type: Transform
       pos: 8.5,48.5
@@ -17348,7 +17350,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -264447.4
+      secondsUntilStateChange: -264774.53
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18316,7 +18318,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -226341.36
+      secondsUntilStateChange: -226668.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -163612,6 +163614,11 @@ entities:
     - type: Transform
       pos: -22.5,30.5
       parent: 2
+  - uid: 21369
+    components:
+    - type: Transform
+      pos: -20.5,30.5
+      parent: 2
 - proto: RightArmBorg
   entities:
   - uid: 28245
@@ -163625,6 +163632,13 @@ entities:
     components:
     - type: Transform
       pos: -12.355767,-0.81613564
+      parent: 2
+- proto: Roboisseur
+  entities:
+  - uid: 31235
+    components:
+    - type: Transform
+      pos: 41.5,28.5
       parent: 2
 - proto: RockGuitarInstrument
   entities:
@@ -171610,13 +171624,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,32.5
-      parent: 2
-- proto: SuperweaponSafeSpawner
-  entities:
-  - uid: 18809
-    components:
-    - type: Transform
-      pos: -20.5,30.5
       parent: 2
 - proto: SurveillanceCameraCommand
   entities:
@@ -200867,7 +200874,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -319081.94
+      secondsUntilStateChange: -319409.06
       state: Opening
 - proto: WebShield
   entities:
