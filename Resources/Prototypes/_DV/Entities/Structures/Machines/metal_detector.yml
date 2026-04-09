@@ -18,6 +18,9 @@
           False: { state: metal_detector_off }
   - type: ApcPowerReceiver
     powerLoad: 1000
+  - type: Construction
+    graph: MetalDetectorGraph
+    node: metalDetector
   - type: Transform
     anchored: true
   - type: ExtensionCableReceiver

@@ -4,17 +4,19 @@
   graph:
   - node: start
     edges:
-    - to: frame
+    - to: metalDetector
       completed:
       - !type:SetAnchor
-        value: false
+        value: true
       steps:
-#      - material: Plasteel
-#        amount: 10
-#      - material: Cable
-#        amount: 5
+      - material: Plasteel
+        amount: 10
       - material: Steel
         amount: 10
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 8
   - node: frame
     entity: MachineFrame
     edges:
@@ -24,8 +26,9 @@
       steps:
       - material: Plasteel
         amount: 5
-#      - tool: Welding
-#        doAfter: 5
+        doAfter: 5
+      - tool: Welding
+        doAfter: 5
 
   - node: metalDetector
     entity: MetalDetector
