@@ -1,15 +1,16 @@
 ﻿using System.Linq;
+using Content.Server.Power.Components;
 using Content.Shared._DV.MetalDetector;
 using Content.Shared.Access.Systems;
 using Content.Shared.Contraband;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Power;
-using Content.Shared.Random;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Storage;
-using Robust.Server.GameObjects;
+using Content.Shared.Toggleable;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
@@ -24,6 +25,7 @@ public sealed class MetalDetectorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -32,6 +34,7 @@ public sealed class MetalDetectorSystem : EntitySystem
         SubscribeLocalEvent<MetalDetectorComponent, StepTriggeredOnEvent>(HandleStepOnTriggered);
         SubscribeLocalEvent<MetalDetectorComponent, StepTriggeredOffEvent>(HandleStepOffTriggered);
         SubscribeLocalEvent<MetalDetectorComponent, StepTriggerAttemptEvent>(HandleStepTriggerAttempt);
+        SubscribeLocalEvent<MetalDetectorComponent, GotEmaggedEvent>(OnEmagged);
     }
 
     public override void Update(float frameTime)
@@ -42,19 +45,23 @@ public sealed class MetalDetectorSystem : EntitySystem
         while (query.MoveNext(out var ent, out var comp))
         {
             if (!comp.StartRunTime || !TryComp<ItemToggleComponent>(ent, out var toggle) || !toggle.Activated)
-                return;
+                continue;
+
+            var powered = TryComp<ApcPowerReceiverComponent>(ent, out var receiver) && receiver.Powered;
 
             comp.CurrentRunTime += frameTime;
+            TryComp<AppearanceComponent>(ent, out var appComp);
 
-            if (comp.CurrentRunTime < comp.RunTime)
-                return;
-
-            comp.CurrentRunTime = 0.0f;
-            comp.StartRunTime = false;
-            var toggledEvent = new ItemToggledEvent(false, false, ent);
-            toggle.Activated = false;
-            _appearanceSystem.SetData(ent, MetalDetectorVisuals.MetalDetectorActivated, false);
-            RaiseLocalEvent(ent, ref toggledEvent);
+            if (comp.CurrentRunTime >= comp.RunTime || !powered)
+            {
+                comp.CurrentRunTime = 0.0f;
+                comp.StartRunTime = false;
+                var toggledEvent = new ItemToggledEvent(false, false, ent);
+                toggle.Activated = false;
+                _appearanceSystem.SetData(ent, MetalDetectorVisuals.MetalDetectorActivated, false);
+                _appearanceSystem.SetData(ent, ToggleableVisuals.Enabled, false, appComp);
+                RaiseLocalEvent(ent, ref toggledEvent);
+            }
         }
     }
 
@@ -68,10 +75,13 @@ public sealed class MetalDetectorSystem : EntitySystem
 
         var random = new Random();
         if (TryComp<ItemToggleComponent>(uid, out var toggleComponent) && (CheckForContraband(args.Tripper)
-                || random.NextFloat(0.0f, 100.0f) < component.FalsePositiveChance))
+                || random.NextFloat(0.0f, 100.0f) < component.FalsePositiveChance
+                || HasComp<EmaggedComponent>(uid)))
         {
             toggleComponent.Activated = true;
+            TryComp<AppearanceComponent>(uid, out var appComp);
             _appearanceSystem.SetData(uid, MetalDetectorVisuals.MetalDetectorActivated, true);
+            _appearanceSystem.SetData(uid, ToggleableVisuals.Enabled, true, appComp);
             var toggledEvent = new ItemToggledEvent(false, true, uid);
             RaiseLocalEvent(uid, ref toggledEvent);
         }
@@ -87,7 +97,18 @@ public sealed class MetalDetectorSystem : EntitySystem
         MetalDetectorComponent component,
         ref StepTriggerAttemptEvent args)
     {
-        args.Continue = true;
+        args.Continue = TryComp<ApcPowerReceiverComponent>(uid, out var receiver) && receiver.Powered;
+    }
+
+    private void OnEmagged(Entity<MetalDetectorComponent> metalDetectorComponent, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(metalDetectorComponent.Owner, EmagType.Interaction))
+            return;
+
+        args.Handled = true;
     }
 
     private bool CheckForContraband(EntityUid characterUid)
