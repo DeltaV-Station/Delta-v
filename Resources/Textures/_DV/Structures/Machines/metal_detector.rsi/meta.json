@@ -1,15 +1,15 @@
 {
-	"version": 1,
-	"license": "CC-BY-SA-4.0",
-	"copyright": "From coryduck on the Delta-V Server Discord",
-	"size": {
-		"x": 32,
-		"y": 32
-	},
-	"states": [
-		{
-			"name": "metal_detector_off"
-		},
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "From coryduck on the Delta-V Server Discord",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "metal_detector_off"
+        },
         {
             "name": "metal_detector_on",
             "delays": [
@@ -23,5 +23,5 @@
                 ]
             ]
         }
-	]
+    ]
 }
