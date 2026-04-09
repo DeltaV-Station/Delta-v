@@ -91,7 +91,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 3 # DeltaV - 1.5x faster than a surgeon using a multitool and surgical gloves
+    speedModifier: 4 # DeltaV - Surgeons with surgical gloves and advanced tools have the speed of 3.
   - type: GuideHelp
     guides: [ Autodoc ]
 
@@ -118,3 +118,25 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+  # Begin DeltaV Additions - Setting all these to 1 allows to easier fine tune Autodoc speed by its value. Otherwise, the tool doubles the autodoc's speed.
+  - type: Hemostat
+    speed: 1
+  - type: Scalpel
+    speed: 1
+  - type: Drill
+    speed: 1
+  - type: BoneSetter
+    speed: 1
+  - type: Retractor
+    speed: 1
+  - type: Cautery
+    speed: 1
+  - type: BoneGel
+    speed: 1
+  - type: BoneSaw
+    speed: 1
+  - type: Tweezers
+    speed: 1
+  - type: Tending
+    speed: 1
+  # End DeltaV Additions
