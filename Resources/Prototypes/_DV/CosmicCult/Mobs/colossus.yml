@@ -10,6 +10,9 @@
     cultistText: cosmic-examine-text-cultentity
     othersText: cosmic-examine-text-entities
   - type: AntagImmune
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: StaminaResistance
     damageCoefficient: 0 # No more stunning colossi
     worn: false
@@ -122,6 +125,7 @@
     - DoorBumpOpener
     - Unimplantable
     - GhostOnlyWarp # Prevents it from being warped to or being a warp location bombing target
+    - TaserImmune
   - type: Damageable
     damageContainer: InorganicMetaphysical
     damageModifierSet: EntropicColossus

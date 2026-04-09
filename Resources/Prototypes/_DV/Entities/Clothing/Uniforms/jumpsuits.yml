@@ -478,7 +478,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformInterdyneChemist
   name: interdyne chemist uniform
-  description: An impecable uniform, sign of a good chemist.
+  description: An impeccable uniform, sign of a good chemist.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
@@ -598,3 +598,95 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
+
+# CMO
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCMOFormal
+  name: chief medical officer's formal suit
+  description: An lavish greenish blue suit with golden buttons and a green cross pin, fitted for the head of medical.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_formal.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_formal.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCMOVest
+  name: chief medical officer's vest jumpsuit
+  description: A cozy teal cotton vest with a green cross pin paired with a white button-up.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_vest.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_vest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCMOSummer
+  name: chief medical officer's summer shirt
+  description: The cyan aloha shirt with a green floral design is perfect to catch the wind on a hot summer day, it almost makes you forget you have people to heal.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_summer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_summer.rsi
+
+# Medical
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMedicalApron
+  name: medical apron jumpsuit
+  description: The white apron keeps chemical spill and blood from staining the light blue scrubs.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_apron.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_apron.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMedicalOffset
+  name: medical offset jumpsuit
+  description: An light blue asymmetrical scrub set with white accents.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_offset.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_offset.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMedicalVest
+  name: medical vest jumpsuit
+  description: A cosy light blue cotton vest and white button-up shirt combo.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_vest.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_vest.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBaseImpstation]
+  id: ClothingUniformParamedicJumper
+  name: paramedic suit jumper
+  description: A dark blue jumper with reflective strips for high high-visibility and strapes everywhere.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/paramedic_jumper.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/paramedic_jumper.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformChemistSenior
+  name: chemist senior jumpsuit
+  description: A sign of skill and prestige within the chemistry lab.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chemistry_senior.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chemistry_senior.rsi

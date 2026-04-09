@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server._DV.Administration; // DeltaV - Admin QOL
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
@@ -83,6 +84,8 @@ namespace Content.Server.Destructible
 
                     if (args.Origin != null)
                     {
+                        RaiseLocalEvent(uid, new EventAlertSystem.BrokenWithOriginEvent(args.Origin.Value), true); // DeltaV
+
                         AdminLogger.Add(LogType.Damaged,
                             logImpact,
                             $"{ToPrettyString(args.Origin.Value):actor} caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
