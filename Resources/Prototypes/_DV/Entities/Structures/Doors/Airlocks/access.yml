@@ -635,7 +635,7 @@
 
 # ERT Specific Doors
 - type: entity
-  parent: AirlockERT
+  parent: AirlockCentralCommand
   id: AirlockERTLocked
   suffix: ERT, Locked
   components:
@@ -644,7 +644,7 @@
       board: [ DoorElectronicsERT ]
 
 - type: entity
-  parent: AirlockERTGlass
+  parent: AirlockCentralCommandGlass
   id: AirlockERTGlassLocked
   suffix: ERT, Locked
   components:
