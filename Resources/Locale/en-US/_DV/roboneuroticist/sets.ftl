@@ -11,7 +11,7 @@ roboneuroticist-set-saboteur-description =
 roboneuroticist-set-mechanic-name = Field Mechanic
 roboneuroticist-set-mechanic-description =
     Leading from the front is your calling, repairing your borgs is your goal.
-    Comes with an Syndicate Thermal Hardsuit, and a set of Advanced Tools
+    Comes with an Syndicate Elite Hardsuit, and a set of Advanced Tools
 
 roboneuroticist-set-infiltrator-name = Obfuscation Specialist
 roboneuroticist-set-infiltrator-description =

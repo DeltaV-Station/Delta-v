@@ -1772,8 +1772,8 @@
 
 - type: listing
   id: UplinkHardsuitSyndieElite
-  name: uplink-hardsuit-syndieelite-delta-name # DeltaV change elite to thermal
-  description: uplink-hardsuit-syndieelite-desc-deltav # DeltaV - changed description
+  name: uplink-hardsuit-syndieelite-name
+  description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
@@ -1810,8 +1810,8 @@
       tags:
       # - NukeOpsUplink # DeltaV - Commented out as of #5462 (only commander and loneop can get suit)
   # Begin DeltaV additions - Jugsuit buy limit #5462
-      - CommanderUplink 
-      - LoneOpUplink 
+      - CommanderUplink
+      - LoneOpUplink
   - !type:ListingLimitedStockCondition
     stock: 1
   # End DeltaV additions
