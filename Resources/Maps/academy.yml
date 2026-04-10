@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/09/2026 01:19:41
-  entityCount: 31235
+  time: 04/10/2026 01:11:51
+  entityCount: 31233
 maps:
 - 1
 grids:
@@ -16849,7 +16849,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -195846.42
+      secondsUntilStateChange: -196262.83
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16976,7 +16976,7 @@ entities:
       pos: 42.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17506.066
+      secondsUntilStateChange: -17922.467
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17350,7 +17350,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -264774.53
+      secondsUntilStateChange: -265190.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18318,7 +18318,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -226668.48
+      secondsUntilStateChange: -227084.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18804,13 +18804,6 @@ entities:
     components:
     - type: Transform
       pos: -0.49278218,-46.416252
-      parent: 2
-- proto: AmmoniaCanister
-  entities:
-  - uid: 463
-    components:
-    - type: Transform
-      pos: 20.5,-45.5
       parent: 2
 - proto: AmmoTechFab
   entities:
@@ -140941,15 +140934,6 @@ entities:
     - type: Transform
       pos: -45.508358,34.478447
       parent: 2
-- proto: IngotGold1
-  entities:
-  - uid: 10851
-    components:
-    - type: Transform
-      pos: -12.750061,-2.6681757
-      parent: 2
-    - type: Stack
-      count: 5
 - proto: IngotSilver
   entities:
   - uid: 14566
@@ -140965,15 +140949,6 @@ entities:
     - type: Transform
       pos: -45.448784,34.047062
       parent: 2
-- proto: IngotSilver1
-  entities:
-  - uid: 31230
-    components:
-    - type: Transform
-      pos: -12.625061,-2.7619257
-      parent: 2
-    - type: Stack
-      count: 5
 - proto: IntercomAll
   entities:
   - uid: 2352
@@ -163609,15 +163584,15 @@ entities:
       parent: 2
 - proto: RifleSafeSpawner
   entities:
+  - uid: 10851
+    components:
+    - type: Transform
+      pos: -20.5,30.5
+      parent: 2
   - uid: 18659
     components:
     - type: Transform
       pos: -22.5,30.5
-      parent: 2
-  - uid: 21369
-    components:
-    - type: Transform
-      pos: -20.5,30.5
       parent: 2
 - proto: RightArmBorg
   entities:
@@ -171217,6 +171192,11 @@ entities:
     components:
     - type: Transform
       pos: 35.5,-49.5
+      parent: 2
+  - uid: 463
+    components:
+    - type: Transform
+      pos: 20.5,-45.5
       parent: 2
   - uid: 4237
     components:
@@ -200874,7 +200854,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -319409.06
+      secondsUntilStateChange: -319825.47
       state: Opening
 - proto: WebShield
   entities:
@@ -201122,12 +201102,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,0.5
       parent: 2
-  - uid: 30633
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 55.5,13.5
-      parent: 2
 - proto: WindoorAssemblySecure
   entities:
   - uid: 30739
@@ -201278,6 +201252,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 43.5,26.5
+      parent: 2
+  - uid: 21369
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 55.5,13.5
       parent: 2
 - proto: WindoorSecureArmoryLocked
   entities:
