@@ -50,8 +50,9 @@ public abstract class SharedFlashSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
-    private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
-    private EntityQuery<DamagedByFlashingComponent> _damagedByFlashingQuery;
+    [Dependency] private readonly EntityQuery<StatusEffectsComponent> _statusEffectsQuery = default!;
+    [Dependency] private readonly EntityQuery<DamagedByFlashingComponent> _damagedByFlashingQuery = default!;
+
     private HashSet<EntityUid> _entSet = new();
 
     // The tag to add when a flash has no charges left.
@@ -71,9 +72,6 @@ public abstract class SharedFlashSystem : EntitySystem
         SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         Subs.SubscribeWithRelay<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt, held: false);
         SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
-
-        _statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
-        _damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
     }
 
     private void OnFlashMeleeHit(Entity<FlashComponent> ent, ref MeleeHitEvent args)

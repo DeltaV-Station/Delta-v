@@ -73,6 +73,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
     // ES END
 
+    [Dependency] private readonly EntityQuery<DamageableComponent> _damageQuery = default!;
+
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
@@ -671,7 +673,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         foreach (var entity in entities)
         {
             if (entity == user ||
-                !damageQuery.HasComponent(entity))
+                !_damageQuery.HasComponent(entity))
                 continue;
 
             targets.Add(entity);
