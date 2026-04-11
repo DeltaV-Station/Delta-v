@@ -1,58 +1,4 @@
-﻿Entries:
-- author: kotobdev
-  changes:
-  - message: The Asakim Warrior, a new midround shuttle ghostrole, has been added.
-    type: Add
-  id: 1736
-  time: '2025-10-08T23:31:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4459
-- author: kotobdev
-  changes:
-  - message: Avali can now see slightly further.
-    type: Fix
-  id: 1737
-  time: '2025-10-09T01:26:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4510
-- author: BarryNorfolk
-  changes:
-  - message: Enabled any/all sec dogs to wear K9 armour
-    type: Tweak
-  id: 1738
-  time: '2025-10-11T17:04:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4514
-- author: Field Command
-  changes:
-  - message: Arms dealers now have melee weapons too. There is no longer a need to
-      barter for uranium, simply sell it for maximum profit.
-    type: Tweak
-  id: 1739
-  time: '2025-10-12T21:17:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4508
-- author: Field Command
-  changes:
-  - message: NTES Basu, Census, and Traveling cuisines have been updated to address
-      missing mapping standards.
-    type: Tweak
-  id: 1740
-  time: '2025-10-12T21:22:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4517
-- author: Spielern
-  changes:
-  - message: Removed the Synthetic & Animal Species markings for IPCs. Please make
-      sure to visit your character customization to replace any missing markings if
-      you used them.
-    type: Remove
-  id: 1741
-  time: '2025-10-13T00:11:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4516
-- author: Spielern
-  changes:
-  - message: Added a bunch of new hairstyles! Find them at a local character customization
-      near you.
-    type: Add
-  id: 1742
-  time: '2025-10-13T01:24:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4515
+Entries:
 - author: TehFlaminTaco
   changes:
   - message: Diona now heal in light but suffer in darkness.
@@ -4386,4 +4332,71 @@
   id: 2235
   time: '2026-04-09T17:13:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5641
+- author: Minerva
+  changes:
+  - message: Scientists and Roboticists can now select long labcoats in loadout. They
+      are also now available in the SciDrobe.
+    type: Tweak
+  id: 2236
+  time: '2026-04-10T08:48:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5633
+- author: rebe83
+  changes:
+  - message: Punpun has gone to gun classes and now can shoot guns safely! Well...
+      more safely.
+    type: Tweak
+  id: 2237
+  time: '2026-04-10T17:35:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5563
+- author: Coryler
+  changes:
+  - message: ERT Access
+    type: Add
+  id: 2238
+  time: '2026-04-11T12:46:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5639
+- author: Minerva
+  changes:
+  - message: Kitsune now shares more markings with Felinid and Vulpkanin.
+    type: Tweak
+  id: 2239
+  time: '2026-04-11T13:14:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5607
+- author: BarryNorfolk
+  changes:
+  - message: Secdog grapple is now breakable from damage.
+    type: Tweak
+  - message: Secdog's grapple no longer immediately knocks you down, but just drains
+      your stamina and slows you.
+    type: Tweak
+  id: 2240
+  time: '2026-04-11T15:35:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5337
+- author: BarryNorfolk
+  changes:
+  - message: 'The December, and half of January, is now here! Check the Upstream changelog
+      for more information. Some highlights:'
+    type: Add
+  - message: Ephedrine, Desoxyephedrine and Hyperzine have been rebalanced
+    type: Tweak
+  - message: New chemicals Warfarin and Hemorrhinol were added that cause bleeding
+    type: Add
+  - message: Vestine-based chems don't randomly show up in botany anymore
+    type: Tweak
+  - message: Service, Medical, and Janitor borgs no longer start with tools
+    type: Tweak
+  - message: borg maintenance panel uses screwdrivers now, borg access can be pried
+      out when they're crit
+    type: Tweak
+  - message: The Cryo Pod gets its own fancy UI
+    type: Tweak
+  - message: Camera monitors now have a map showing the locations of cameras
+    type: Add
+  - message: The TEG now generates 75% more power.
+    type: Tweak
+  - message: And more!
+    type: Add
+  id: 2242
+  time: '2026-04-11T18:27:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5316
 Order: 1
