@@ -53,3 +53,11 @@
   components:
   - type: AccessReader
     access: [["NuclearOperative"]]
+
+- type: entity
+  parent: LockableButton
+  id: LockableButtonERT
+  suffix: ERT
+  components:
+  - type: AccessReader
+    access: [["ERT"]]

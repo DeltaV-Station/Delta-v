@@ -371,7 +371,7 @@
 - type: entity
   parent: EnergySwordDouble
   id: HyperEutacticBlade
-  name: hypereutactic-blade
+  name: hypereutactic blade #DeltaV remove hyphen
   description: A supermassive weapon envisioned to cleave the very fabric of space and time itself in twain, the hypereutactic blade dynamically flash-forges a hypereutactic crystaline nanostructure capable of passing through most known forms of matter like a hot knife through butter.
   components:
   - type: MeleeWeapon
@@ -401,6 +401,7 @@
     delay: 1.5
   - type: Sprite
     sprite: Objects/Weapons/Melee/hypereutactic_blade.rsi
+    offset: 0, 0.5 #DeltaV fix offset when placing item so hilt is centered
     layers:
     - state: hypereutactic
     - state: hypereutactic_blade
@@ -416,10 +417,21 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/hypereutactic_blade_inhands.rsi
+    # DeltaV changes
+  - type: ItemToggle 
+    onUse: false # wielding events control it instead
+    onActivate: false # cannot activate on floor
+  - type: ItemToggleSize
+    activatedSize: Ginormous #cannot be put in bags while active
+  - type: Wieldable # requires wield to swing
+    unwieldOnUse: true
   - type: Reflect
-    reflectProb: 1.0
-    spread: 75
-
+    reflectProb: 0.75 # from 100% to 75% reflect
+    spread: 10 # tightened spread from 75 to 10
+    reflects:
+    - Energy
+    - NonEnergy
+    # DeltaV changes end
 # Borgs
 
 - type: entity
