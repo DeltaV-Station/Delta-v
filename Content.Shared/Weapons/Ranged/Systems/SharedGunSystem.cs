@@ -429,7 +429,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // ES START
         // this is a suspicious place to do this but whatever.
-        var gunShakeRotation = new ESScreenshakeParameters() { Trauma = 0.085f * gun.CameraRecoilScalarModified, DecayRate = 1.2f, Frequency = 0.008f};
+        var gunShakeRotation = new ESScreenshakeParameters() { Trauma = 0.085f * gun.Comp.CameraRecoilScalarModified, DecayRate = 1.2f, Frequency = 0.008f};
         _shake.Screenshake(user, null, gunShakeRotation);
         // ES END
 
