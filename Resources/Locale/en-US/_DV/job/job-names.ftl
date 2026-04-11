@@ -15,6 +15,8 @@ job-name-senior-engineer = Engineering Mentor
 job-name-senior-officer = Security Mentor
 job-name-qm = Logistics Officer
 job-name-centcomintern = CentComm Intern
+job-name-rd = Mystagogue
+job-name-brigmedic = Corpsman
 
 # Alternate titles
 job-alt-title-tourist = Tourist
@@ -78,6 +80,8 @@ JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
+JobZookeeper = Zookeeper
+JobBoxer = Boxer
 
 # Pet Roles
 RoleLaika = Laika
@@ -93,3 +97,7 @@ role-name-ifrit = Ifrit
 role-name-carpy = Carpy
 role-name-shiva = Shiva
 role-name-pun-pun = Pun Pun
+
+# Station specific
+job-name-boxer = Boxer
+job-name-zookeeper = Zookeeper
