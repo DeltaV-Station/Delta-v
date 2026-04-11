@@ -1,6 +1,7 @@
 ﻿using Content.Shared._Harmony.Conspirators.Components;
 using Content.Shared._Harmony.Conspirators.EntitySystems;
 using Content.Shared.Antag;
+using Content.Shared.Ghost; // DeltaV
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
@@ -24,7 +25,8 @@ public sealed class ConspiratorSystem : SharedConspiratorSystem
         if (_playerManager.LocalSession?.AttachedEntity is { } playerEntity)
         {
             if (!HasComp<ShowAntagIconsComponent>(playerEntity) &&
-                !HasComp<ConspiratorComponent>(playerEntity))
+                !HasComp<ConspiratorComponent>(playerEntity) &&
+                !HasComp<GhostComponent>(playerEntity)) // DeltaV - add GhostComponent
                 return;
         }
 

@@ -108,7 +108,11 @@
 #     layoutId: IPC
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
-  - type: WeldingHealable
+  - type: Repairable # DeltaV - Replace welding healable with upstream version
+    damageValue: -10 # 10 seconds to repair from crit
+    doAfterDelay: 1
+    fuelCost: 0.5
+    allowSelfRepair: true # DeltaV - was false
   - type: Fiber # DeltaV - IPCs leave fibers instead of prints
     fiberMaterial: fibers-steel
   - type: CombatMode # DeltaV - let IPCs disarm

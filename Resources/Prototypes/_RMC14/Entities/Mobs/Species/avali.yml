@@ -76,7 +76,7 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
       reagents:
       - ReagentId: AmmoniaBlood
         Quantity: 1
@@ -90,10 +90,11 @@
   - type: Damageable
     damageModifierSet: Avali
   - type: Temperature # thrives in the cold, similar to moths
-    heatDamageThreshold: 310
-    coldDamageThreshold: 223
     currentTemperature: 296.15 # lower natural body temp
     specificHeat: 25 # makes temp more lethal
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
+    heatDamageThreshold: 310
+    coldDamageThreshold: 223
     coldDamage:
       types:
         Cold : 0.05

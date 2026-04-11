@@ -71,6 +71,7 @@ loadout-group-chemist-gloves = Chemist gloves
 loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-neck = Chemist neck
 loadout-group-chemist-id = Chemist PDA
+loadout-group-chemist-head = Chemist head
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
@@ -165,6 +166,9 @@ loadout-group-martial-artist-shoes = Martial Artist shoes
 
 loadout-group-gladiator-jumpsuit = Gladiator jumpsuit
 loadout-group-gladiator-outerclothing = Gladiator outer clothing
+
+loadout-group-boxer-jumpsuit = Boxer jumpsuit
+loadout-group-boxer-gloves = Boxer gloves
 
 # Species
 loadout-group-humanoid-silicon = Silicon-friendly survival box

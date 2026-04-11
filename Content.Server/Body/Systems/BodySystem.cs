@@ -22,7 +22,6 @@ using Content.Shared.Damage.Components;
 // Shitmed Change
 using System.Linq;
 using Content.Shared.Damage;
-using Content.Shared.Gibbing.Events;
 
 namespace Content.Server.Body.Systems;
 
@@ -107,99 +106,7 @@ public sealed class BodySystem : SharedBodySystem
         _appearance.SetData(bodyEnt, layer, true); // Shitmed Change
     }
 
-    public override HashSet<EntityUid> GibBody(
-        EntityUid bodyId,
-        bool acidify = false, // DeltaV - Changed paramater from gibOrgans
-        BodyComponent? body = null,
-        bool launchGibs = true,
-        Vector2? splatDirection = null,
-        float splatModifier = 1,
-        Angle splatCone = default,
-        SoundSpecifier? gibSoundOverride = null,
-        // Shitmed Change
-        GibType gib = GibType.Gib,
-        GibContentsOption contents = GibContentsOption.Drop)
-    {
-        if (!Resolve(bodyId, ref body, logMissing: false)
-            || TerminatingOrDeleted(bodyId)
-            || EntityManager.IsQueuedForDeletion(bodyId))
-        {
-            return new HashSet<EntityUid>();
-        }
-
-        if (HasComp<GodmodeComponent>(bodyId))
-            return new HashSet<EntityUid>();
-
-        // DeltaV - If a polymorph configured to revert on death is gibbed without dying,
-        // revert it then gib so the parent is gibbed instead of the polymorph.
-        if (TryComp<PolymorphedEntityComponent>(bodyId, out var polymorph)
-            && !polymorph.Reverted
-            && polymorph.Configuration.RevertOnDeath)
-        {
-            _polymorph.Revert(bodyId);
-            if (polymorph.Configuration.TransferDamage && polymorph.Parent.HasValue)
-                GibBody(polymorph.Parent.Value, acidify, null, launchGibs: launchGibs, splatDirection: splatDirection,
-                splatModifier: splatModifier, splatCone: splatCone);
-            return new HashSet<EntityUid>();
-        }
-        // END DeltaV
-
-        var xform = Transform(bodyId);
-        if (xform.MapUid is null)
-            return new HashSet<EntityUid>();
-
-        var gibs = base.GibBody(bodyId, acidify, body, launchGibs: launchGibs,
-            splatDirection: splatDirection, splatModifier: splatModifier, splatCone: splatCone,
-            gib: gib, contents: contents); // Shitmed Change
-
-        var ev = new BeingGibbedEvent(gibs);
-        RaiseLocalEvent(bodyId, ref ev);
-
-        QueueDel(bodyId);
-
-        return gibs;
-    }
-
     // Shitmed Change Start
-    public override HashSet<EntityUid> GibPart(
-        EntityUid partId,
-        BodyPartComponent? part = null,
-        bool launchGibs = true,
-        Vector2? splatDirection = null,
-        float splatModifier = 1,
-        Angle splatCone = default,
-        SoundSpecifier? gibSoundOverride = null)
-    {
-        if (!Resolve(partId, ref part, logMissing: false)
-            || TerminatingOrDeleted(partId)
-            || EntityManager.IsQueuedForDeletion(partId))
-            return new HashSet<EntityUid>();
-
-        if (Transform(partId).MapUid is null)
-            return new HashSet<EntityUid>();
-
-        var gibs = base.GibPart(partId, part, launchGibs: launchGibs,
-            splatDirection: splatDirection, splatModifier: splatModifier, splatCone: splatCone);
-
-        var ev = new BeingGibbedEvent(gibs);
-        RaiseLocalEvent(partId, ref ev);
-
-        if (gibs.Any())
-            QueueDel(partId);
-
-        return gibs;
-    }
-
-    public override bool BurnPart(EntityUid partId, BodyPartComponent? part = null)
-    {
-        if (!Resolve(partId, ref part, logMissing: false)
-            || TerminatingOrDeleted(partId)
-            || EntityManager.IsQueuedForDeletion(partId))
-            return false;
-
-        return base.BurnPart(partId, part);
-    }
-
     protected override void ApplyPartMarkings(EntityUid target, BodyPartAppearanceComponent component)
     {
         return;
