@@ -4396,34 +4396,14 @@
     type: Tweak
   - message: And more!
     type: Add
-  id: 2241
-  time: '2026-04-11T18:27:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5316
-- author: BarryNorfolk
-  changes:
-  - message: 'The December, and half of January, is now here! Check the Upstream changelog
-      for more information. Some highlights:'
-    type: Add
-  - message: Ephedrine, Desoxyephedrine and Hyperzine have been rebalanced
-    type: Tweak
-  - message: New chemicals Warfarin and Hemorrhinol were added that cause bleeding
-    type: Add
-  - message: Vestine-based chems don't randomly show up in botany anymore
-    type: Tweak
-  - message: Service, Medical, and Janitor borgs no longer start with tools
-    type: Tweak
-  - message: borg maintenance panel uses screwdrivers now, borg access can be pried
-      out when they're crit
-    type: Tweak
-  - message: The Cryo Pod gets its own fancy UI
-    type: Tweak
-  - message: Camera monitors now have a map showing the locations of cameras
-    type: Add
-  - message: The TEG now generates 75% more power.
-    type: Tweak
-  - message: And more!
-    type: Add
   id: 2242
   time: '2026-04-11T18:27:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5316
+- author: BarryNorfolk
+  changes:
+  - message: Give several entities more than 1 blood.
+    type: Tweak
+  id: 2243
+  time: '2026-04-12T03:47:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5651
 Order: 1
