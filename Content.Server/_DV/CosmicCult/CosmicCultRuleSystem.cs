@@ -384,7 +384,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 return;
             }
 
-            var endQuery = EntityQueryEnumerator<HumanoidAppearanceComponent, MobStateComponent>();
+            var endQuery = EntityQueryEnumerator<HumanoidProfileComponent, MobStateComponent>();
             while (endQuery.MoveNext(out var player, out _, out _))
             {
                 var newSpawn = _rand.Pick(spawnPoints);
@@ -585,7 +585,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (AssociatedGamerule(uid) is not { } cult)
             return;
 
-        cult.Comp.TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame && HasComp<HumanoidAppearanceComponent>(session.AttachedEntity));
+        cult.Comp.TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame && HasComp<HumanoidProfileComponent>(session.AttachedEntity));
 
 #if DEBUG
         if (cult.Comp.TotalCrew < 25)

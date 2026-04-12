@@ -70,11 +70,6 @@ public sealed class MarkingManager
         var whitelisted = groupProto.Limits.GetValueOrDefault(layer)?.OnlyGroupWhitelisted ?? groupProto.OnlyGroupWhitelisted;
         var res = new Dictionary<string, MarkingPrototype>();
 
-        // Begin DeltaV addition - prevents errors when category is missing
-        if (!markingPoints.Points.ContainsKey(category))
-            return res;
-        // End DeltaV addition
-
         foreach (var (key, marking) in MarkingsByLayer(layer))
         {
             if (!CanBeApplied(groupProto, sex, marking, whitelisted))

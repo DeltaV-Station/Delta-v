@@ -98,7 +98,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
         }
 
         // and no golems or familiars or whatever should be sacrificing
-        if (!HasComp<HumanoidAppearanceComponent>(user))
+        if (!HasComp<HumanoidProfileComponent>(user))
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-user-humanoid"), ent, user, PopupType.SmallCaution);
             return;
@@ -119,7 +119,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
             return;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", target)), ent, user, PopupType.SmallCaution);
             return;

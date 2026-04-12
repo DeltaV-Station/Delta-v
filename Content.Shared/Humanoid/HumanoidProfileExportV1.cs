@@ -1,4 +1,6 @@
 using System.Numerics;
+using Content.Shared._CD.Records;
+using Content.Shared._DV.Traits;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -79,9 +81,17 @@ public sealed partial class HumanoidCharacterProfileV1
     [DataField]
     public PreferenceUnavailableMode PreferenceUnavailable;
 
+    // Begin CD - Character Records
+    [DataField]
+    public float Height;
+
+    [DataField]
+    public PlayerProvidedCharacterRecords PlayerProvidedCharacterRecords;
+    // End CD - Character Records
+
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, Species, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
+        return new(Name, FlavorText, Species, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts, Height, PlayerProvidedCharacterRecords); // CD Change Height and PlayerProvidedCharacterRecords
     }
 }
 

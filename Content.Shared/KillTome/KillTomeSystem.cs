@@ -166,7 +166,7 @@ public sealed class KillTomeSystem : EntitySystem
 
     private bool TryFindEntityByName(string name, [NotNullWhen(true)] out EntityUid? entityUid)
     {
-        var query = EntityQueryEnumerator<HumanoidAppearanceComponent>();
+        var query = EntityQueryEnumerator<HumanoidProfileComponent>();
 
         while (query.MoveNext(out var uid, out _))
         {
