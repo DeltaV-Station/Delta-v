@@ -1,4 +1,4 @@
-using System.Linq; // Floofstation
+using System.Linq;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
@@ -60,20 +60,15 @@ public sealed class TraitSystem : EntitySystem
         var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.JobId, speciesId, args.Profile, disabledTraits);
 
         // Apply valid traits
-        // Floofstation edit: first, sort valid traits by cost
-        var sortedPrototypes = new List<TraitPrototype>();
+        var validPrototypes = new List<TraitPrototype>();
         foreach (var traitId in validTraits)
         {
             if (!_prototype.TryIndex(traitId, out var trait))
                 continue;
-
-            sortedPrototypes.Add(trait);
+            validPrototypes.Add(trait);
         }
-
-        sortedPrototypes = sortedPrototypes.OrderBy(a => -a.Priority).ThenBy(a => a.Cost).ToList(); //Floof - get all traits from negative cost to positive cost
-        foreach (var trait in sortedPrototypes)
+        foreach (var trait in validPrototypes.OrderByDescending(a => a.Priority).ThenBy(a => a.Cost))
             ApplyTrait(args.Mob, trait);
-        // Floofstation edit end
 
         // Send disabled traits notification to client if any were rejected
         if (disabledTraits.Count > 0)

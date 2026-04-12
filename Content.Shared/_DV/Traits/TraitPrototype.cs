@@ -58,11 +58,9 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public List<ProtoId<TraitPrototype>> Conflicts = new();
 
-    // Floofstation section
     /// <summary>
     /// The priority of this trait. Higher priority traits are applied first.
     /// </summary>
     [DataField]
     public int Priority = 0;
-    // Floofstation section end
 }
