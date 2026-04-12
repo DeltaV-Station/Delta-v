@@ -109,8 +109,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanAccidentObjective
-  name: Make your target's death seem like a accident
-  description: Your client would rather others not realize your targets death was a assassination. Try to frame it as a accident
+  name: Accidental death
+  description: Your client would rather others not realize your targets death was a assassination. Try to frame it as a accident.
   components:
   - type: Objective
     icon:
@@ -123,8 +123,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanIndirectlyObjective
-  name: Kill your target indirectly
-  description: Your client wants you to take no chances with getting spotted near the body. Try to find a way to kill them indirectly
+  name: Indirect kill
+  description: Your client wants you to take no chances with getting spotted near the body. Try to find a way to kill them indirectly.
   components:
   - type: Objective
     icon:
@@ -137,8 +137,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanCleanObjective
-  name: Try to make your kill as clean as possible
-  description: Your client does not want this death making a mess. Try to do as little damage to the person as you can
+  name: Clean kill.
+  description: Your client does not want this death making a mess. Try to do as little damage to the person as you can.
   components:
   - type: Objective
     icon:
@@ -150,8 +150,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanSufferObjective
-  name: Drag out your targets murder
-  description: Your client would like that your target suffers as they die. Make your they're dieing for a long time.
+  name: Drawn-out kill
+  description: Your client would like that your target suffers as they die. Make sure the target takes a long time to die.
   components:
   - type: Objective
     icon:
@@ -163,8 +163,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanPublicObjective
-  name: Kill your target in a public place
-  description: Your client would like to send a message. Kill your target in public, in front of others if you can.
+  name: Public kill
+  description: Your client would like to send a message. Kill your target in public, in front of as many witnesses as you can.
   components:
   - type: Objective
     icon:
@@ -176,8 +176,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanNoticeObjective
-  name: Inform your target they are going to be killed long before it happens
-  description: Your client wants your target to know whats going on. Tell your target theyll be killed and still get away with it.
+  name: Impending assassination
+  description: Your client wants your target to know what's gonna happen to them. Inform your target about their inevitable demise long before it happens.
   components:
   - type: Objective
     icon:
@@ -190,8 +190,8 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanTraumaObjective
-  name: Kill someone close to your target and make sure they know
-  description: Your client wants your target to be broken mentaly and physicaly. Find someone close to your target and kill them. the person need not stay dead. make sure your target knows they died.
+  name: Mental breakdown
+  description: Your client wants your target to be broken mentally and physically. Find someone close to your target and kill them once. Make sure your target knows about their friend's death.
   components:
   - type: Objective
     icon:
@@ -203,7 +203,7 @@
 - type: entity
   parent: [BaseHitmanObjective, BaseFreeObjective]
   id: HitmanTrustObjective
-  name: Spend a long amount of time gaining the trust of your target.
+  name: Gain trust
   description: Your client wants your target to feel betrayed when you kill them. Spend a lot of time hanging out with them.
   components:
   - type: Objective
