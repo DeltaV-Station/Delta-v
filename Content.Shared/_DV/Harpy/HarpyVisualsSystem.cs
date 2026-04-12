@@ -24,8 +24,8 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _appearanceSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArmExtension, false); // Frontier: RArm<RArmExtension
-            _appearanceSystem.SetLayerVisibility(uid, HumanoidVisualLayers.Tail, false);
+            _appearanceSystem.SetData(uid, HumanoidVisualLayers.RArmExtension, false); // Frontier: RArm<RArmExtension => Delta V Nubody
+            _appearanceSystem.SetData(uid, HumanoidVisualLayers.Tail, false);
         }
     }
 
@@ -33,8 +33,8 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _appearanceSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArmExtension, true); // Frontier: RArm<RArmExtension
-            _appearanceSystem.SetLayerVisibility(uid, HumanoidVisualLayers.Tail, true);
+            _appearanceSystem.SetData(uid, HumanoidVisualLayers.RArmExtension, true); // Frontier: RArm<RArmExtension
+            _appearanceSystem.SetData(uid, HumanoidVisualLayers.Tail, true);
         }
     }
 }
