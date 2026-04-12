@@ -10,7 +10,7 @@
       sprite: _Shitmed/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered
+    - item: HandheldHealthAnalyzer
     - item: Scalpel
     - item: Hemostat
     - item: Retractor
@@ -25,7 +25,7 @@
         whitelist:
           tags:
           - Soap
-    - hand: 
+    - hand:
         emptyLabel: borg-slot-organ-empty
         emptyRepresentative: OrganHumanBrain
         whitelist:
@@ -47,7 +47,7 @@
       sprite: _Shitmed/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
-    - item: HandheldHealthAnalyzerUnpowered # DeltaV - Add Scanners to Surgery Modules.
+    - item: HandheldHealthAnalyzer # DeltaV - Add Scanners to Surgery Modules.
     - item: EnergyScalpel
       hand:
         emptyLabel: borg-slot-surgery-tool-empty
@@ -83,7 +83,7 @@
         whitelist:
           tags:
           - Soap
-    - hand: 
+    - hand:
         emptyLabel: borg-slot-organ-empty
         emptyRepresentative: OrganHumanBrain
         whitelist:

@@ -48,7 +48,7 @@
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
     - type: Stamina
-      critThreshold: 100
+      baseCritThreshold: 100
     - type: DamageStateVisuals
       states:
         Alive:
@@ -206,6 +206,7 @@
       damage:
        types: {}
     - type: Temperature
+    - type: TemperatureDamage
       heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
@@ -254,7 +255,7 @@
         0: Alive
         150: Dead
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:

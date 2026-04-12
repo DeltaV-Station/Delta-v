@@ -1,6 +1,7 @@
 - type: entity
   parent: BasicHitscan
   id: EmergencyRedLaser
+  name: emergency red laser # DeltaV - Add name for hitscans
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -11,6 +12,7 @@
 - type: entity
   parent: BasicHitscan
   id: EchionLaser
+  name: echion laser # DeltaV - Add name for hitscans
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals

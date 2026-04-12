@@ -1,3 +1,4 @@
+// using Content.Shared.Roles;
 // using Content.Shared.Whitelist; // DeltaV - Traits rework
 // using Robust.Shared.Prototypes;
 // using Content.Shared.Humanoid.Prototypes; // DeltaV - Trait species hiding
@@ -40,9 +41,17 @@
 //
 //     /// <summary>
 //     /// The components that get added to the player, when they pick this trait.
+//     /// NOTE: When implementing a new trait, it's preferable to add it as a status effect instead if possible.
 //     /// </summary>
 //     [DataField]
+//     [Obsolete("Use JobSpecial instead.")]
 //     public ComponentRegistry Components { get; private set; } = default!;
+//
+//     /// <summary>
+//     /// Special effects applied to the player who takes this Trait.
+//     /// </summary>
+//     [DataField(serverOnly: true)]
+//     public List<JobSpecial> Specials { get; private set; } = new();
 //
 //     /// <summary>
 //     /// DeltaV - Components that get added to the player, overriding any existing instances of the component if they exist.
