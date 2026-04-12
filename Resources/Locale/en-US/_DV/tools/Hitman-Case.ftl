@@ -21,4 +21,3 @@ Escapist-kit-description = a kit for those who want to get out of anything. prov
 
 Tracker-kit-name = Tracker kit
 Tracker-kit-description = a kit for those who wish to know everything. provides an all comms encryption key, pinpointer to your mark's location, and a handheld crew monitor
-
