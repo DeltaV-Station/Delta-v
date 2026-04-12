@@ -20,12 +20,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
 
-// Shitmed Change
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
-using Content.Shared._Shitmed.Targeting;
-using System.Linq;
-
 // Begin DeltaV
 using Content.Server._DV.MedicalRecords;
 using Content.Shared._DV.MedicalRecords;
@@ -39,7 +33,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
@@ -58,7 +51,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // Shitmed Change Start
         Subs.BuiEvents<HealthAnalyzerComponent>(HealthAnalyzerUiKey.Key, subs =>
         {
-            subs.Event<HealthAnalyzerPartMessage>(OnHealthAnalyzerPartSelected);
             subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
             subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
         });
@@ -82,17 +74,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                 StopAnalyzingEntity((uid, component), patient);
                 continue;
             }
-
-            // Shitmed Change Start
-            if (component.CurrentBodyPart != null
-                && (Deleted(component.CurrentBodyPart)
-                || TryComp(component.CurrentBodyPart, out BodyPartComponent? bodyPartComponent)
-                && bodyPartComponent.Body is null))
-            {
-                BeginAnalyzingEntity((uid, component), patient, null);
-                continue;
-            }
-            // Shitmed Change End
 
             component.NextUpdate = _timing.CurTime + component.UpdateInterval;
 
@@ -229,30 +210,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         healthAnalyzer.Comp.IsAnalyzerActive = false;
     }
 
-    // Shitmed Change Start
-    /// <summary>
-    /// Shitmed Change: Handle the selection of a body part on the health analyzer
-    /// </summary>
-    /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
-    /// <param name="args">The message containing the selected part</param>
-    private void OnHealthAnalyzerPartSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerPartMessage args)
-    {
-        if (!TryGetEntity(args.Owner, out var owner))
-            return;
-
-        if (args.BodyPart == null)
-        {
-            BeginAnalyzingEntity(healthAnalyzer, owner.Value, null);
-        }
-        else
-        {
-            var (targetType, targetSymmetry) = _bodySystem.ConvertTargetBodyPart(args.BodyPart.Value);
-            if (_bodySystem.GetBodyChildrenOfType(owner.Value, targetType, symmetry: targetSymmetry) is { } part)
-                BeginAnalyzingEntity(healthAnalyzer, owner.Value, part.FirstOrDefault().Id);
-        }
-    }
-    // Shitmed Change End
-
     // Begin DeltaV - Medical Records
     private void OnHealthAnalyzerTriageStatusSelected(Entity<HealthAnalyzerComponent> healthAnalyzer, ref HealthAnalyzerTriageStatusMessage args)
     {
@@ -326,12 +283,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 
-        // Shitmed Change Start
-        Dictionary<TargetBodyPart, TargetIntegrity>? body = null;
-        if (HasComp<TargetingComponent>(target))
-            body = _bodySystem.GetBodyPartStatus(entity);
-        // Shitmed Change End
-
         return new HealthAnalyzerUiState(
             GetNetEntity(entity),
             bodyTemperature,
@@ -339,10 +290,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             null,
             bleeding,
             unrevivable,
-            // Shitmed Change
-            body,
-            _medicalRecords.GetMedicalRecords(entity), // DeltaV - Medical Records
-            part != null ? GetNetEntity(part) : null
+            _medicalRecords.GetMedicalRecords(entity) // DeltaV - Medical Records
         );
     }
 }

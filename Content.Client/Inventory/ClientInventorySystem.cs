@@ -6,14 +6,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Storage;
-using Content.Shared._Shitmed.Targeting.Events; // Shitmed
 using JetBrains.Annotations;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Client.Inventory
 {

@@ -25,8 +25,6 @@ public sealed partial class DamageableSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly SharedChemistryGuideDataSystem _chemistryGuideData = default!;
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
-    [Dependency] private readonly IRobustRandom _random = default!; // Shitmed Change
 
     private EntityQuery<AppearanceComponent> _appearanceQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;

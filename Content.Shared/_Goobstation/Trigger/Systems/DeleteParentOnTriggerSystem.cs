@@ -9,7 +9,6 @@ namespace Content.Shared._Goobstation.Trigger.Systems;
 
 public sealed class DeleteParentOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
