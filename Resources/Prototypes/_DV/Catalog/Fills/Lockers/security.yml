@@ -142,6 +142,16 @@
         tableId: GamblagatorTable
 
 - type: entity
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
+  id: GunSafeAdvancedLaser
+  name: advanced laser gun safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: AdvancedLaserTable
+
+- type: entity
   id: LockerBrigmedicFilledHardsuit
   suffix: Corpsman, Filled, Hardsuit
   parent: LockerBrigmedic

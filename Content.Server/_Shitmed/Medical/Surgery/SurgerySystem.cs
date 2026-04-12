@@ -21,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Verbs;
 using Content.Shared._Goobstation.CCVar;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
@@ -35,6 +36,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly SurgeryCleanSystem _clean = default!; // DeltaV
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // DeltaV - surgery cross contamination
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private readonly HashSet<string> _dirtyDnas = new(); // DeltaV
 
@@ -251,7 +253,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
     {
         if (HasComp<AnesthesiaComponent>(args.Body)) // DeltaV
             return;
-        if (HasComp<PainNumbnessComponent>(args.Body)) // DeltaV
+        if (_statusEffects.HasEffectComp<PainNumbnessStatusEffectComponent>(ent))
             return;
 
         _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);

@@ -87,8 +87,20 @@
 #  name: trait-painnumbness-name
 #  description: trait-painnumbness-desc
 #  category: Disabilities
-#  components:
-#  - type: PainNumbness
+#  specials:
+#  - !type:ApplyStatusEffectSpecial
+#    statusEffects:
+#    - PainNumbnessTraitStatusEffect
+#
+#- type: trait
+#  id: Hemophilia
+#  name: trait-hemophilia-name
+#  description: trait-hemophilia-desc
+#  category: Disabilities
+#  specials:
+#  - !type:ApplyStatusEffectSpecial
+#    statusEffects:
+#    - StatusEffectHemophiliaTrait
 #
 #- type: trait
 #  id: ImpairedMobility
@@ -97,12 +109,5 @@
 #  traitGear: OffsetCane
 #  category: Disabilities
 #  components:
-#  - type: ImpairedMobility
+#    - type: ImpairedMobility
 #
-#- type: trait
-#  id: Hemophilia
-#  name: trait-hemophilia-name
-#  description: trait-hemophilia-desc
-#  category: Disabilities
-#  components:
-#  - type: Hemophilia

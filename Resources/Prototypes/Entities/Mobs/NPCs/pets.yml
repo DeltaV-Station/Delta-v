@@ -859,6 +859,7 @@
         Bloodloss:
           -0.8
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 800
     coldDamageThreshold: 0
   - type: MeleeWeapon
@@ -917,6 +918,10 @@
     attributes:
       proper: true
       gender: male
+  #DeltaV Changes - he can shoot his gun 80% of the time
+  - type: Clumsy 
+    clumsyGunShootCheck: 0.2
+    #DeltaV Changes end
 
 - type: entity
   name: Tropico

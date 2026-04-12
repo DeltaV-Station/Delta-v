@@ -6,7 +6,7 @@
   description: This implant lets its user adjust their voice to whoever they can think of.
   components:
   - type: SubdermalImplant
-    implantAction: ActionChangeVoiceMask
+    implantAction: ActionChangeVoiceMaskImplant
   - type: VoiceMask
   - type: UserInterface
     interfaces:
@@ -40,6 +40,21 @@
   - type: RattleOnTrigger
     targetUser: true
     radioChannel: Security
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MedicalTrackingImplant
+  categories: [ HideSpawnMenu ]
+  name: medical tracking implant
+  description: This implants transmits a message on the medical channel in case the user goes into critical state or dies.
+  components:
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+    - Dead
+  - type: RattleOnTrigger
+    targetUser: true
+    radioChannel: Medical
 
 - type: entity
   parent: BaseSubdermalImplant
