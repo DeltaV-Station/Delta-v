@@ -183,7 +183,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         solution.AddReagent(chemicalPrototype.Reagent, chemAmount);
 
         // add the chemicals to the bloodstream of the host
-        if (!_blood.TryAddToChemicals((comp.Host.Value, bloodstream), solution))
+        if (!_blood.TryAddToBloodstream((comp.Host.Value, bloodstream), solution))
             return false;
 
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));
