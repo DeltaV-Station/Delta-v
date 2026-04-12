@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2026 01:11:51
+  time: 04/12/2026 22:50:09
   entityCount: 31233
 maps:
 - 1
@@ -10621,6 +10621,9 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AccordionInstrument
   entities:
   - uid: 12562
@@ -10634,6 +10637,13 @@ entities:
     components:
     - type: Transform
       pos: -2.2399364,-33.589077
+      parent: 2
+- proto: AdvancedWeaponsSafeSpawner
+  entities:
+  - uid: 10851
+    components:
+    - type: Transform
+      pos: -20.5,30.5
       parent: 2
 - proto: AirAlarm
   entities:
@@ -16849,7 +16859,7 @@ entities:
       pos: 34.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -196262.83
+      secondsUntilStateChange: -196329.53
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16976,7 +16986,7 @@ entities:
       pos: 42.5,30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17922.467
+      secondsUntilStateChange: -17989.174
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17350,7 +17360,7 @@ entities:
       pos: -35.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -265190.94
+      secondsUntilStateChange: -265257.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18318,7 +18328,7 @@ entities:
       pos: -19.5,40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -227084.89
+      secondsUntilStateChange: -227151.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -71128,8 +71138,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 15048
@@ -84234,23 +84244,6 @@ entities:
       parent: 2
     - type: FaxMachine
       name: captain
-- proto: FigureSpawner
-  entities:
-  - uid: 11808
-    components:
-    - type: Transform
-      pos: 29.5,26.5
-      parent: 2
-  - uid: 11809
-    components:
-    - type: Transform
-      pos: 29.5,25.5
-      parent: 2
-  - uid: 11810
-    components:
-    - type: Transform
-      pos: 29.5,24.5
-      parent: 2
 - proto: filingCabinetDrawerRandom
   entities:
   - uid: 8825
@@ -144458,6 +144451,23 @@ entities:
     - type: Transform
       pos: -59.61274,-24.585884
       parent: 2
+- proto: MechFigurineSpawner50
+  entities:
+  - uid: 11808
+    components:
+    - type: Transform
+      pos: 29.5,26.5
+      parent: 2
+  - uid: 11809
+    components:
+    - type: Transform
+      pos: 29.5,25.5
+      parent: 2
+  - uid: 11810
+    components:
+    - type: Transform
+      pos: 29.5,24.5
+      parent: 2
 - proto: MedicalBed
   entities:
   - uid: 854
@@ -147511,6 +147521,38 @@ entities:
     components:
     - type: Transform
       pos: -1.1694014,-68.649536
+      parent: 2
+- proto: PlushieSpawner50
+  entities:
+  - uid: 5684
+    components:
+    - type: Transform
+      pos: -18.5,-55.5
+      parent: 2
+  - uid: 29094
+    components:
+    - type: Transform
+      pos: -18.5,-51.5
+      parent: 2
+  - uid: 29095
+    components:
+    - type: Transform
+      pos: -18.5,-51.5
+      parent: 2
+  - uid: 29096
+    components:
+    - type: Transform
+      pos: -18.5,-51.5
+      parent: 2
+  - uid: 29097
+    components:
+    - type: Transform
+      pos: -18.5,-55.5
+      parent: 2
+  - uid: 29099
+    components:
+    - type: Transform
+      pos: -18.5,-55.5
       parent: 2
 - proto: PortableFlasher
   entities:
@@ -163584,11 +163626,6 @@ entities:
       parent: 2
 - proto: RifleSafeSpawner
   entities:
-  - uid: 10851
-    components:
-    - type: Transform
-      pos: -20.5,30.5
-      parent: 2
   - uid: 18659
     components:
     - type: Transform
@@ -178411,38 +178448,6 @@ entities:
     components:
     - type: Transform
       pos: 19.233624,1.4923196
-      parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 5684
-    components:
-    - type: Transform
-      pos: -18.5,-55.5
-      parent: 2
-  - uid: 29094
-    components:
-    - type: Transform
-      pos: -18.5,-51.5
-      parent: 2
-  - uid: 29095
-    components:
-    - type: Transform
-      pos: -18.5,-51.5
-      parent: 2
-  - uid: 29096
-    components:
-    - type: Transform
-      pos: -18.5,-51.5
-      parent: 2
-  - uid: 29097
-    components:
-    - type: Transform
-      pos: -18.5,-55.5
-      parent: 2
-  - uid: 29099
-    components:
-    - type: Transform
-      pos: -18.5,-55.5
       parent: 2
 - proto: trayScanner
   entities:
@@ -200854,7 +200859,7 @@ entities:
       pos: -60.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -319825.47
+      secondsUntilStateChange: -319892.2
       state: Opening
 - proto: WebShield
   entities:
