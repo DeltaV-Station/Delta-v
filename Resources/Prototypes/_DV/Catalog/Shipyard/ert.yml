@@ -3,9 +3,27 @@
 # in the case that the station does see it in their console (could be a random bug, idk!)
 
 - type: vessel
+  id: NTCCRaptor
+  name: NTCC Viscount Raptor
+  description: A medium-sized interceptor with 3 laser machine guns facing forward.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_viscount_interceptor.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCIncursion
+  name: NTCC Viscount Incursion
+  description: A medium-sized trop transport with space for 10 troops.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_viscount_incursion.yml
+  categories:
+  - ERT
+
+- type: vessel
   id: NTCCPaladin
   name: NTCC Marquess Paladin
-  description: A medium-sized warship with two laser cannons facing port side
+  description: A medium-sized warship with two laser cannons facing port side.
   price: 1000000
   path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_assault.yml
   categories:
@@ -21,8 +39,8 @@
   - ERT
 
 - type: vessel
-  id: NTCCAbsolvet
-  name: NTCC Marquess Absolvet
+  id: NTCCAbsolver
+  name: NTCC Marquess Absolver
   description: A medium-sized janitorial shuttle with all the equipment to handle even the most severe biohazards.
   price: 1000000
   path: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_jani.yml

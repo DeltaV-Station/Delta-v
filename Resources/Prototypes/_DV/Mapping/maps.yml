@@ -244,7 +244,7 @@
   - Stamps # CC stamp
 
 - type: mapCategories
-  id: Absolvet
+  id: Absolver
   map: /Maps/_DV/Shuttles/Centcomm/ntcc_marquess_jani.yml
   allowed:
   - Centcomm
@@ -326,3 +326,31 @@
   allowed:
   - Centcomm
   - Stamps # CC stamp
+
+- type: mapCategories
+  id: Deliverance
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_medevac.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
+- type: mapCategories
+  id: Vector
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_viscount_base.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
+- type: mapCategories
+  id: Incursion
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_viscount_incursion.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+- type: mapCategories
+  id: Raptor
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_viscount_interceptor.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
