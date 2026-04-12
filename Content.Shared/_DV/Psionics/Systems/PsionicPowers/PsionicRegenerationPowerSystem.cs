@@ -64,6 +64,6 @@ public sealed class PsionicRegenerationPowerSystem : BasePsionicPowerSystem<Psio
 
         var solution = new Solution();
         solution.AddReagent(psionic.Comp.ReagentId, FixedPoint2.New(psionic.Comp.EssenceAmount * percentageComplete));
-        _bloodstreamSystem.TryAddToChemicals((psionic, stream), solution);
+        _bloodstreamSystem.TryAddToBloodstream((psionic, stream), solution);
     }
 }
