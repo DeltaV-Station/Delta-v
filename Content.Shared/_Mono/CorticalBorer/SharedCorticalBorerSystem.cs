@@ -3,20 +3,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Shared.Actions;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Examine;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Components;
-using Content.Shared.IdentityManagement;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
@@ -27,7 +20,6 @@ namespace Content.Shared._Mono.CorticalBorer;
 
 public partial class SharedCorticalBorerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;

@@ -10,6 +10,7 @@ using Content.Shared._DV.Abilities.Psionics;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
@@ -41,7 +42,6 @@ public sealed class PsionicEruptionSystem : EntitySystem
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;

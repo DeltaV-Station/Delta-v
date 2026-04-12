@@ -15,7 +15,6 @@ using Content.Server._Goobstation.Possession;
 using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Devil.Condemned;
 using Content.Shared._Goobstation.Devil.Contract;
-using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
@@ -46,7 +45,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
-    [Dependency] private readonly BodySystem _bodySystem = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SubdermalImplantSystem _implant = null!;
     [Dependency] private readonly PolymorphSystem _polymorph = null!;

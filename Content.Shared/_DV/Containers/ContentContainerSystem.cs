@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Shared._DV.Polymorph;
-using Content.Shared.Body.Organ;
+using Content.Shared.Body;
 using Content.Shared.Intellicard;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;
@@ -44,8 +44,9 @@ public sealed class ContentContainerSystem : EntitySystem
                     // we need to make sure that we don't end up dropping our
                     // own brain, since that can gain a MindContainer if it was
                     // operated on.
-                    if (TryComp<OrganComponent>(entity, out var organ)
-                        && organ.Body.HasValue) // Yeah so that's KINDA in use.
+                    if (TryComp<BodyComponent>(entity, out var body)
+                        && body.Organs != null
+                        && body.Organs.ContainedEntities.Contains(entity)) // Yeah so that's KINDA in use.
                         continue;
 
                     if (HasComp<MindContainerComponent>(entity))
