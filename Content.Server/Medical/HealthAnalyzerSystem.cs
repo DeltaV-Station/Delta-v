@@ -48,13 +48,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<HealthAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer);
         SubscribeLocalEvent<HealthAnalyzerComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<HealthAnalyzerComponent, DroppedEvent>(OnDropped);
-        // Shitmed Change Start
+        // Delta V - Change Start for Medical Records?
         Subs.BuiEvents<HealthAnalyzerComponent>(HealthAnalyzerUiKey.Key, subs =>
         {
             subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
             subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
         });
-        // Shitmed Change End
+        // Delta V - Change End
     }
 
     public override void Update(float frameTime)
@@ -83,12 +83,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             if (component.MaxScanRange != null && !_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange.Value))
             {
                 //Range too far, disable updates
-                PauseAnalyzingEntity((uid, component), patient, component.CurrentBodyPart); // DeltaV - Analyzer Reactivation
+                PauseAnalyzingEntity((uid, component), patient); // DeltaV - Analyzer Reactivation
                 continue;
             }
 
             component.IsAnalyzerActive = true; // DeltaV - Analyzer Reactivation
-            UpdateScannedUser(uid, patient, true, component.CurrentBodyPart); // Shitmed Change
+            UpdateScannedUser(uid, patient, true);
         }
     }
 
@@ -169,16 +169,14 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that should receive the updates</param>
     /// <param name="target">The entity to start analyzing</param>
-    /// <param name="part">Shitmed Change: The body part to analyze, if any</param>
-    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null) // Mono - make public
+    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target) // Mono - make public
     {
         //Link the health analyzer to the scanned entity
         healthAnalyzer.Comp.ScannedEntity = target;
-        healthAnalyzer.Comp.CurrentBodyPart = part; // Shitmed Change
 
         _toggle.TryActivate(healthAnalyzer.Owner);
 
-        UpdateScannedUser(healthAnalyzer, target, true, part); // Shitmed Change
+        UpdateScannedUser(healthAnalyzer, target, true);
     }
 
     /// <summary>
@@ -190,7 +188,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     {
         //Unlink the analyzer
         healthAnalyzer.Comp.ScannedEntity = null;
-        healthAnalyzer.Comp.CurrentBodyPart = null; // Shitmed Change
         _toggle.TryDeactivate(healthAnalyzer.Owner);
 
         UpdateScannedUser(healthAnalyzer, target, false);
@@ -201,12 +198,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>
-    private void PauseAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null)
+    private void PauseAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
     {
         if (!healthAnalyzer.Comp.IsAnalyzerActive)
             return;
 
-        UpdateScannedUser(healthAnalyzer, target, false, part);
+        UpdateScannedUser(healthAnalyzer, target, false);
         healthAnalyzer.Comp.IsAnalyzerActive = false;
     }
 
@@ -234,14 +231,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// <param name="healthAnalyzer">The health analyzer</param>
     /// <param name="target">The entity being scanned</param>
     /// <param name="scanMode">True makes the UI show ACTIVE, False makes the UI show INACTIVE</param>
-    /// <param name="part">Shitmed Change: The body part being scanned, if any</param>
-    public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode, EntityUid? part = null)
+    public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode)
     {
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key)
             || !HasComp<DamageableComponent>(target))
             return;
 
-        var uiState = GetHealthAnalyzerUiState(target, part); // Shitmed Change
+        var uiState = GetHealthAnalyzerUiState(target);
         uiState.ScanMode = scanMode;
 
         _uiSystem.ServerSendUiMessage(
@@ -255,9 +251,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// Creates a HealthAnalyzerState based on the current state of an entity.
     /// </summary>
     /// <param name="target">The entity being scanned</param>
-    /// <param name="part">Shitmed Change: The body part being scanned, if any</param>
     /// <returns></returns>
-    public HealthAnalyzerUiState GetHealthAnalyzerUiState(EntityUid? target, EntityUid? part = null)
+    public HealthAnalyzerUiState GetHealthAnalyzerUiState(EntityUid? target)
     {
         if (!target.HasValue || !HasComp<DamageableComponent>(target))
             return new HealthAnalyzerUiState();

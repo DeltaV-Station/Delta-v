@@ -1,11 +1,6 @@
 ## Static
 
 - type: latheRecipePack
-  parent:
-  - IPCPartsStatic # Shitmed
-  id: RoboticsStaticDeltaV
-
-- type: latheRecipePack
   id: RoboticsEmagStatic
   recipes:
   - IdChipSyndie
@@ -64,11 +59,6 @@
   id: RoboticsDeltaV
   recipes:
   - ClothingEyesHudDiagnostic
-
-- type: latheRecipePack
-  parent:
-  - BorgModulesShitmed # Shitmed
-  id: BorgModulesDeltaV
 
 - type: latheRecipePack
   id: BorgModulesSecurityDeltaV

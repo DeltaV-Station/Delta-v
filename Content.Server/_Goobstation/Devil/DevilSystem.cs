@@ -110,7 +110,7 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<TemperatureSpeedComponent>(devil);
         RemComp<CondemnedComponent>(devil);
         RemComp<DestructibleComponent>(devil);
-        RemComp<RespiratorComponent>(devil); // Delta V - Remove Respirator since no more _shitmed.BreathingImmunity
+        RemComp<RespiratorComponent>(devil); // Delta V - Remove Respirator since no more BreathingImmunity
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);

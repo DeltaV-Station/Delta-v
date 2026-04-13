@@ -11,9 +11,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-using Content.Shared.Body.Systems; // Shitmed Change
-using Robust.Shared.Random; // Shitmed Change
-
 namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem : EntitySystem
@@ -52,8 +49,7 @@ public sealed partial class DamageableSystem : EntitySystem
         Entity<DamageableComponent> ent,
         DamageSpecifier? damageDelta = null,
         bool interruptsDoAfters = true,
-        EntityUid? origin = null,
-        bool canSever = true // Shitmed
+        EntityUid? origin = null
     )
     {
         ent.Comp.Damage.GetDamagePerGroup(_prototypeManager, ent.Comp.DamagePerGroup);
@@ -72,7 +68,7 @@ public sealed partial class DamageableSystem : EntitySystem
 
         // TODO DAMAGE
         // byref struct event.
-        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin, canSever: canSever)); // Shitmed
+        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin));
     }
     private void DamageableGetState(Entity<DamageableComponent> ent, ref ComponentGetState args)
     {

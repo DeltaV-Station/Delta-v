@@ -25,11 +25,6 @@
     startingCharge: 1000
   - type: StaticPrice
     price: 500
-  - type: Cautery # Shitmed
-    speed: 0.9
-  - type: SurgeryTool # Shitmed
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   parent: [BaseWeaponBattery, BaseGunWieldable]
@@ -104,11 +99,6 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
-  - type: Cautery # Shitmed
-    speed: 0.9
-  - type: SurgeryTool # Shitmed
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponBatterySmall

@@ -67,7 +67,8 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
     private bool TryApplyRestyle(Entity<HumanoidProfileComponent> ent, HumanoidVisualLayers visualLayer,  float noMarkingsChance)
     {
         var newMarkingColor = new Color(_random.NextFloat(), _random.NextFloat(), _random.NextFloat());
-        var availableMarkings = _markingManager.MarkingsByLayer(visualLayer);
+        var availableMarkings =
+            _markingManager.MarkingsByLayerAndGroupAndSex(visualLayer, ent.Comp.Species.Id, ent.Comp.Sex);
         if (availableMarkings.Count == 0)
             return false;
 
