@@ -34,13 +34,13 @@ public sealed class WearerGetsExamineTextSystem : EntitySystem
                 return;
         }
 
-        entity.Comp.Wearer = args.Equipee;
+        entity.Comp.Wearer = args.EquipTarget;
         Dirty(entity);
 
         //GIVE THEM INSPECT TEXT
-        var obviousExamine = EnsureComp<ExtraExamineTextComponent>(args.Equipee);
+        var obviousExamine = EnsureComp<ExtraExamineTextComponent>(args.EquipTarget);
         obviousExamine.Lines.TryAdd(entity.Owner,  //using try so that we don't cause an error if we move something from slot to slot
-            ConstructExamineText(entity, !isCorrectSlot, args.Equipee));
+            ConstructExamineText(entity, !isCorrectSlot, args.EquipTarget));
     }
 
 
