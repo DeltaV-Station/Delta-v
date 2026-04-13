@@ -1,0 +1,50 @@
+- type: entity
+  name: pardon request
+  parent: PaperTemplate
+  id: PaperTemplateJusticePardonRequest
+  description: 'I pwomise your honour it twas awn uwpsie.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-justice-pardon-request
+
+- type: entity
+  name: restraining order
+  parent: PaperTemplate
+  id: PaperTemplateJusticeRestrainingOrder
+  description: 'a restraining order, tell them to get the fuck away.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-justice-restraining-order
+
+- type: entity
+  name: civil trial docket
+  parent: PaperTemplate
+  id: PaperTemplateJusticeTrialDocketCivil
+  description: 'a notice that a Civil Trial has been requested.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-justice-trial-docket-civil
+
+- type: entity
+  name: criminal trial docket
+  parent: PaperTemplate
+  id: PaperTemplateJusticeTrialDocketCriminal
+  description: 'a notice that a Criminal trial has been requested.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-justice-trial-docket-criminal
+
+- type: entity
+  name: written testimony
+  parent: PaperTemplate
+  id: PaperTemplateJusticeTrialDocketTestimony
+  description: 'a written account of what happened, admissible in court.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-justice-written-testimony
+

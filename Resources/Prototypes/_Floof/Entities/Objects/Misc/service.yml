@@ -1,0 +1,19 @@
+- type: entity
+  name: botany request
+  parent: PaperTemplate
+  id: PaperTemplateServiceBotanyRequest
+  description: 'make botany do your bidding'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-service-botany-request
+
+- type: entity
+  name: restricted plant permit
+  parent: PaperTemplate
+  id: PaperTemplateServiceRestrictedPlantPermit
+  description: 'for that dank weed'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-service-restricted-plant-permit

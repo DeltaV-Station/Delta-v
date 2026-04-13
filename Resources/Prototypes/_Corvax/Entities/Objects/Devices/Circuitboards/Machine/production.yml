@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: PrinterDocMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: document printer machine board
+  description: A machine printed circuit board for a document printer
+  components:
+  - type: MachineBoard
+    prototype: PrinterDoc
+    stackRequirements: #Euphoria - new recipe format
+      #MatterBin: 3 Euphoria - matterbins dont exist here, now its all arms
+      Manipulator: 4
+      Glass: 1

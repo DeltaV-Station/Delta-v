@@ -1,0 +1,79 @@
+- type: entity
+  name: arrest report
+  parent: PaperTemplate
+  id: PaperTemplateSecurityArrestReport
+  description: 'report why somebody was arrested'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-arrest-report
+
+- type: entity
+  name: arrest warrant
+  parent: PaperTemplate
+  id: PaperTemplateSecurityArrestWarrant
+  description: 'a warrant for somebodies arrest'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-arrest-warrant
+
+- type: entity
+  name: department search warrant
+  parent: PaperTemplate
+  id: PaperTemplateSecurityDepartSearchWarrant
+  description: 'a search warrant for an entire department.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-department-search-warrant
+
+- type: entity
+  name: detective report
+  parent: PaperTemplate
+  id: PaperTemplateSecurityDetectiveReport
+  description: 'reports the detectives findings'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-detective-report
+
+- type: entity
+  name: furlough request
+  parent: PaperTemplate
+  id: PaperTemplateSecurityFurloughRequest
+  description: 'let s an inmate walk free for a period of time'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-furlough-request
+
+- type: entity
+  name: individual search warrant
+  parent: PaperTemplate
+  id: PaperTemplateSecurityIndividualSearchWarrant
+  description: 'Search warrant for an individual'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-individual-search-warrant
+
+- type: entity
+  name: inmate request
+  parent: PaperTemplate
+  id: PaperTemplateSecurityInmateRequest
+  description: 'He is dead Jim.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-inmate-request
+
+- type: entity
+  name: visitation request
+  parent: PaperTemplate
+  id: PaperTemplateSecurityVisitationRequest
+  description: Let's you visit a prisoner for a period of time.
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-visitation-request

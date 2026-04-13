@@ -1,0 +1,45 @@
+﻿- type: latheRecipePack
+  id: PrinterDocuments
+  recipes:
+  - PaperTemplateCommandEmergencyPersonalRequest
+  - PaperTemplateCommandStationRequestForAssistanceRecipe
+  - PaperTemplateEngineeringBuildingPermitRecipe
+  - PaperTemplateEpistemicsBorgificationNoticeRecipe
+  - PaperTemplateEpistemicsProductionRequestRecipe
+  - PaperTemplateEpistemicsPsionicSelfIdentificationRecipe
+  - PaperTemplateHopAccessPermitRecipe
+  - PaperTemplateHopJobTransferRequestRecipe
+  - PaperTemplateHopCrewmateIdentificationRecipe
+  - PaperTemplateHopFormalComplaintRecipe
+  - PaperTemplateHopOrderOfDismissalRecipe
+  - PaperTemplateHopDismissalOfDepartmentHeadRecipe
+  - PaperTemplateHopEmploymentApplicationRecipe
+  - PaperTemplateHopRestrictedEquipmentPermitRecipe
+  - PaperTemplateHopRestrictedWeaponsPermitRecipe
+  - PaperTemplateJusticePardonRequestRecipe
+  - PaperTemplateJusticeRestrainingOrderRecipe
+  - PaperTemplateJusticeTrialDocketCivilRecipe
+  - PaperTemplateJusticeTrialDocketCriminalRecipe
+  - PaperTemplateJusticeTrialDocketTestimonyRecipe
+  - PaperTemplateLogisticsCargoRequestRecipe
+  - PaperTemplateMedicalOrderOfDismissalRecipe
+  - PaperTemplateMedicalDeathCertificateRecipe
+  - PaperTemplateSecurityArrestReportRecipe
+  - PaperTemplateSecurityArrestWarrantRecipe
+  - PaperTemplateSecurityDepartSearchWarrantRecipe
+  - PaperTemplateSecurityDetectiveReportRecipe
+  - PaperTemplateSecurityFurloughRequestRecipe
+  - PaperTemplateSecurityIndividualSearchWarrantRecipe
+  - PaperTemplateSecurityInmateRequestRecipe
+  - PaperTemplateSecurityVisitationRequestRecipe
+  - PaperTemplateServiceBotanyRequestRecipe
+  - PaperTemplateServiceRestrictedPlantPermitRecipe
+
+- type: latheRecipePack
+  id: EmagPrinterDocuments
+  recipes:
+  - PrintedDocumentErrorLoadingFormHeaderRecipe
+  - PrintedDocumentNoticeOfLiquidationRecipe
+  - PrintedDocumentBusinessDealRecipe
+  - PrintedDocumentNoteBeginningMilitaryActionsRecipe
+  - PrintedDocumentReportAccomplishmentGoalsRecipe

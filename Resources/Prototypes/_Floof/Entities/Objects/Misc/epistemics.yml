@@ -1,0 +1,29 @@
+- type: entity
+  name: borgification notice
+  parent: PaperTemplate
+  id: PaperTemplateEpistemicsBorgificationNotice
+  description: 'track when and why a person was borged'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-separator-epistemics-borgification-notice
+
+- type: entity
+  name: production request
+  parent: PaperTemplate
+  id: PaperTemplateEpistemicsProductionRequest
+  description: 'Request the production of a certain item.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-separator-epistemics-production-request
+
+- type: entity
+  name: psionic self identification
+  parent: PaperTemplate
+  id: PaperTemplateEpistemicsPsionicSelfIdentification
+  description: 'Self identify as a psionic.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-separator-epistemics-psionic-self-identification

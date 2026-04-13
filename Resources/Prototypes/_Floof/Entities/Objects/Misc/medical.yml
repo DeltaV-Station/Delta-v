@@ -1,0 +1,19 @@
+- type: entity
+  name: death certificate
+  parent: PaperTemplate
+  id: PaperTemplateMedicalDeathCertificate
+  description: 'He is dead Jim.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-medical-death-certificate
+
+- type: entity
+  name: order of dismissal
+  parent: PaperTemplate
+  id: PaperTemplateMedicalOrderOfDismissal
+  description: 'For those insane people who are just unfit to work.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-medical-order-of-dismissal

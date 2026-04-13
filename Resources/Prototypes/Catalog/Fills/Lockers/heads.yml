@@ -14,6 +14,7 @@
     - id: DoorRemoteCargo
     - id: AstroNavCartridge
     #- id: ClothingHandsKnuckleDustersQM # DeltaV - No weaponry for LO.
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -50,6 +51,7 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
     - id: HeadSkeleton # A skull to accompany your skeleton crew
       conditions:
       - !type:PlayerCountCondition
@@ -137,6 +139,7 @@
     - id: HoPIDCard
     #- id: WeaponDisabler # DeltaV - There is no reason for the service head to have a disabler.
     - id: ClothingEyesHudCommand
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -172,6 +175,7 @@
     - id: AirGrenade # DeltaV
     - id: HolotapeProjector # DeltaV - engineering tape
     - id: BoxFolderCeClipboard # DeltaV - Power Digi-Board
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -230,6 +234,7 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -282,6 +287,7 @@
     - id: HandTeleporter
     - id: RubberStampRd
     - id: BibleMystagogue  # DeltaV - steal objective and source of abilities
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -345,6 +351,7 @@
     - id: WeaponTaser
     #- id: WantedListCartridge # DeltaV - replaced by secwatch
     - id: DrinkHosFlask
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -392,6 +399,7 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+    - id: PrinterDocFlatpack #Euphoria - Document Printer
 
 - type: entity
   id: LockerFreezerVaultFilled

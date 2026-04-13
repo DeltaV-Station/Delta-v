@@ -89,6 +89,12 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
+  # Corvax-Printer-Start
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      SheetPrinter: 100
+  # Corvax-Printer-End
 
 - type: entity
   name: paper scrap

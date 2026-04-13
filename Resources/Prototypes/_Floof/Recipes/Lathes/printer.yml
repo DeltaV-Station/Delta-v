@@ -1,0 +1,262 @@
+﻿# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  id: BasePaperTemplateRecipe
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    SheetPrinter: 100
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateCommandRecipe
+  categories:
+    - PaperTemplateCommand
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateCommonRecipe
+  categories:
+    - PaperTemplateCommon
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateEngineeringRecipe
+  categories:
+    - PaperTemplateEngineering
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateEpistemicsRecipe
+  categories:
+    - PaperTemplateEpistemics
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateHopRecipe
+  categories:
+    - PaperTemplateHop
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateJusticeRecipe
+  categories:
+    - PaperTemplateJustice
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateLogisticsRecipe
+  categories:
+     - PaperTemplateLogistics
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateMedicalRecipe
+  categories:
+    - PaperTemplateMedical
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateSecurityRecipe
+  categories:
+    - PaperTemplateSecurity
+
+- type: latheRecipe
+  abstract: true
+  parent: BasePaperTemplateRecipe
+  id: BasePaperTemplateServiceRecipe
+  categories:
+    - PaperTemplateService
+
+# Command
+
+- type: latheRecipe
+  parent: BasePaperTemplateCommandRecipe
+  id: PaperTemplateCommandEmergencyPersonalRequest
+  result: PaperTemplateCommandEmergencyPersonalRecovery
+
+- type: latheRecipe
+  parent: BasePaperTemplateCommandRecipe
+  id: PaperTemplateCommandStationRequestForAssistanceRecipe
+  result: PaperTemplateCommandStationRequestForAssistance
+
+# Engineering
+
+- type: latheRecipe
+  parent: BasePaperTemplateEngineeringRecipe
+  id: PaperTemplateEngineeringBuildingPermitRecipe
+  result: PaperTemplateEngineeringBuildingPermit
+
+# Epistemics
+
+- type: latheRecipe
+  parent: BasePaperTemplateEpistemicsRecipe
+  id: PaperTemplateEpistemicsBorgificationNoticeRecipe
+  result: PaperTemplateEpistemicsBorgificationNotice
+
+- type: latheRecipe
+  parent: BasePaperTemplateEpistemicsRecipe
+  id: PaperTemplateEpistemicsProductionRequestRecipe
+  result: PaperTemplateEpistemicsProductionRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateEpistemicsRecipe
+  id: PaperTemplateEpistemicsPsionicSelfIdentificationRecipe
+  result: PaperTemplateEpistemicsPsionicSelfIdentification
+
+# Head of Personnel
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopAccessPermitRecipe
+  result: PaperTemplateHopAccessPermit
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopJobTransferRequestRecipe
+  result: PaperTemplateHopJobTransferRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopCrewmateIdentificationRecipe
+  result: PaperTemplateHopCrewmateIdentification
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopFormalComplaintRecipe
+  result: PaperTemplateHopFormalComplaint
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopOrderOfDismissalRecipe
+  result: PaperTemplateHopOrderOfDismissal
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopDismissalOfDepartmentHeadRecipe
+  result: PaperTemplateHopDismissalOfDepartmentHead
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopEmploymentApplicationRecipe
+  result: PaperTemplateHopEmploymentApplication
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopRestrictedEquipmentPermitRecipe
+  result: PaperTemplateHopRestrictedEquipmentPermit
+
+- type: latheRecipe
+  parent: BasePaperTemplateHopRecipe
+  id: PaperTemplateHopRestrictedWeaponsPermitRecipe
+  result: PaperTemplateHopRestrictedWeaponsPermit
+
+# Justice
+
+- type: latheRecipe
+  parent: BasePaperTemplateJusticeRecipe
+  id: PaperTemplateJusticePardonRequestRecipe
+  result: PaperTemplateJusticePardonRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateJusticeRecipe
+  id: PaperTemplateJusticeRestrainingOrderRecipe
+  result: PaperTemplateJusticeRestrainingOrder
+
+- type: latheRecipe
+  parent: BasePaperTemplateJusticeRecipe
+  id: PaperTemplateJusticeTrialDocketCivilRecipe
+  result: PaperTemplateJusticeTrialDocketCivil
+
+- type: latheRecipe
+  parent: BasePaperTemplateJusticeRecipe
+  id: PaperTemplateJusticeTrialDocketCriminalRecipe
+  result: PaperTemplateJusticeTrialDocketCriminal
+
+- type: latheRecipe
+  parent: BasePaperTemplateJusticeRecipe
+  id: PaperTemplateJusticeTrialDocketTestimonyRecipe
+  result: PaperTemplateJusticeTrialDocketTestimony
+
+# Logistics
+
+- type: latheRecipe
+  parent: BasePaperTemplateLogisticsRecipe
+  id: PaperTemplateLogisticsCargoRequestRecipe
+  result: PaperTemplateLogisticsCargoRequest
+
+# Medical
+
+- type: latheRecipe
+  parent: BasePaperTemplateMedicalRecipe
+  id: PaperTemplateMedicalOrderOfDismissalRecipe
+  result: PaperTemplateMedicalOrderOfDismissal
+
+- type: latheRecipe
+  parent: BasePaperTemplateMedicalRecipe
+  id: PaperTemplateMedicalDeathCertificateRecipe
+  result: PaperTemplateMedicalDeathCertificate
+
+# Security
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityArrestReportRecipe
+  result: PaperTemplateSecurityArrestReport
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityArrestWarrantRecipe
+  result: PaperTemplateSecurityArrestWarrant
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityDepartSearchWarrantRecipe
+  result: PaperTemplateSecurityDepartSearchWarrant
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityDetectiveReportRecipe
+  result: PaperTemplateSecurityDetectiveReport
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityFurloughRequestRecipe
+  result: PaperTemplateSecurityFurloughRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityIndividualSearchWarrantRecipe
+  result: PaperTemplateSecurityIndividualSearchWarrant
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityInmateRequestRecipe
+  result: PaperTemplateSecurityInmateRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityVisitationRequestRecipe
+  result: PaperTemplateSecurityVisitationRequest
+
+# Service
+
+- type: latheRecipe
+  parent: BasePaperTemplateServiceRecipe
+  id: PaperTemplateServiceBotanyRequestRecipe
+  result: PaperTemplateServiceBotanyRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateServiceRecipe
+  id: PaperTemplateServiceRestrictedPlantPermitRecipe
+  result: PaperTemplateServiceRestrictedPlantPermit

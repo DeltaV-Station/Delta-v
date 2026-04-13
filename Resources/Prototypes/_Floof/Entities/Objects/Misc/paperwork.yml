@@ -1,0 +1,18 @@
+- type: entity
+  abstract: true
+  parent: Paper
+  id: PaperTemplate
+  description: 'Access Authorization'
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#cccccc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false

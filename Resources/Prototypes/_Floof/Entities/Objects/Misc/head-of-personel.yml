@@ -1,0 +1,89 @@
+- type: entity
+  name: access permit
+  parent: PaperTemplate
+  id: PaperTemplateHopAccessPermit
+  description: 'Request additional access.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-access-permit
+
+- type: entity
+  name: job transfer request
+  parent: PaperTemplate
+  id: PaperTemplateHopJobTransferRequest
+  description: 'Job transfer request'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-job-transfer-request
+
+- type: entity
+  name: crewmate identification
+  parent: PaperTemplate
+  id: PaperTemplateHopCrewmateIdentification
+  description: 'Your CV'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-crewmate-identification
+
+- type: entity
+  name: formal complaint
+  parent: PaperTemplate
+  id: PaperTemplateHopFormalComplaint
+  description: 'Do you have a complaint, fax it to CC.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-formal-complaint
+
+- type: entity
+  name: order of dismissal
+  parent: PaperTemplate
+  id: PaperTemplateHopOrderOfDismissal
+  description: 'Formal dismissal of staff'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-order-of-dismissal
+
+- type: entity
+  name: dismissal of department head
+  parent: PaperTemplate
+  id: PaperTemplateHopDismissalOfDepartmentHead
+  description: 'Formal dismissal of a head of staff'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-dismissal-of-department-head
+
+- type: entity
+  name: employment application
+  parent: PaperTemplate
+  id: PaperTemplateHopEmploymentApplication
+  description: 'Want a job? Welp gotta fill this out first.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-employment-application
+
+- type: entity
+  name: restricted equipment permit
+  parent: PaperTemplate
+  id: PaperTemplateHopRestrictedEquipmentPermit
+  description: 'those juicy jaws of life, sec will take em away if you don#t have this.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-restricted-equipment-permit
+
+- type: entity
+  name: restricted weapons permit
+  parent: PaperTemplate
+  id: PaperTemplateHopRestrictedWeaponsPermit
+  description: 'Do you want to carry that boom stick? Gotta have this.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-hop-restricted-weapons-permit
