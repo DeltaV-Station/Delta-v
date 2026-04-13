@@ -277,23 +277,16 @@ public sealed class DamageChangedEvent : EntityEventArgs
     /// </summary>
     public readonly EntityUid? Origin;
 
-    /// <summary>
-    ///     Shitmed Change: Can this damage event sever parts?
-    /// </summary>
-    public readonly bool CanSever;
-
     public DamageChangedEvent(
         DamageableComponent damageable,
         DamageSpecifier? damageDelta,
         bool interruptsDoAfters,
-        EntityUid? origin,
-        bool canSever = true // Shitmed
+        EntityUid? origin
     )
     {
         Damageable = damageable;
         DamageDelta = damageDelta;
         Origin = origin;
-        CanSever = canSever;
 
         if (DamageDelta is null)
             return;

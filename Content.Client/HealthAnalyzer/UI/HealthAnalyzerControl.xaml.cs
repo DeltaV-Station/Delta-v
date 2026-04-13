@@ -109,7 +109,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // Patient Information
 
         SpriteView.Visible = state.ScanMode.HasValue && state.ScanMode.Value;
-        PartView.Visible = SpriteView.Visible; // Shitmed Change
         NoDataTex.Visible = !SpriteView.Visible;
 
         var name = new FormattedMessage();

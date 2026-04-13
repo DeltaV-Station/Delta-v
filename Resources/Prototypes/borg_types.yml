@@ -212,8 +212,6 @@
     fiberColor: fibers-white
   - type: AccessReader # DeltaV - departmental access
     access: [["Command"], ["Robotics"], ["Medical"]]
-  - type: SurgeryTarget # Shitmed
-  - type: Sanitized # Shitmed
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -230,7 +228,6 @@
   # Sounds
   footstepCollection:
     collection: FootstepHoverBorg
-
 
 # Service borg
 - type: borgType

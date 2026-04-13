@@ -10,17 +10,6 @@
   name: "asakim body part"
   abstract: true
   components:
-  - type: Icon # Shitmed Change
-    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
-  - type: BodyPart # Shitmed Change
-    species: Asakim
-  - type: Destructible # Shitmed Change: Let blunt weapons break bones
-    thresholds:
-    - trigger: !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 350
-      behaviors:
-      - !type:GibPartBehavior
   - type: Extractable
     juiceSolution:
       reagents:

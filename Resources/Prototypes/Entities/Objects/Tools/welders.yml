@@ -116,13 +116,6 @@
         Piercing: -15
         Slash: -15
     bleedingModifier: -20 # DeltaV - IPCs bleed
-  - type: Cautery # Shitmed
-    speed: 0.7
-  - type: SurgeryTool # Shitmed
-    startSound:
-      collection: Welder
-    endSound:
-      collection: WelderOff
   - type: Tag # DeltaV - To make it work w/ the guns
     tags:
     - WeldingTool

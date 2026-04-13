@@ -1,5 +1,3 @@
-# Im not even gonna bother marking this file with Shitmed Change(s), I'm fucking with almost everything.
-
 # Base
 
 - type: entity
@@ -204,15 +202,13 @@
 - type: entity
   name: hemostat
   id: Hemostat
-  parent: BaseToolSurgery # Shitmed Change
+  parent: Retractor
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
     state: hemostat
   - type: Item
     heldPrefix: hemostat
-    sprite: Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
     storedRotation: 90
 
 # Saws
