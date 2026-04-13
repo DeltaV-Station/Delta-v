@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/28/2026 05:54:17
-  entityCount: 1161
+  time: 04/13/2026 13:20:17
+  entityCount: 1170
 maps: []
 grids:
 - 1
@@ -643,6 +643,9 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 539
@@ -668,6 +671,10 @@ entities:
       - 436
       - 437
       - 431
+      - 592
+      - 593
+      - 536
+      - 591
     - type: Fixtures
       fixtures: {}
   - uid: 902
@@ -740,128 +747,128 @@ entities:
     - type: Transform
       pos: 1.5,5.5
       parent: 1
-- proto: AirlockCentralCommandLocked
+- proto: AirlockERTLocked
   entities:
-  - uid: 569
-    components:
-    - type: MetaData
-      name: Sovereign Interior Airlock
-    - type: Transform
-      pos: -5.5,-6.5
-      parent: 1
-  - uid: 570
+  - uid: 425
     components:
     - type: MetaData
       name: Sovereign Interior Airlock
     - type: Transform
       pos: -5.5,-8.5
       parent: 1
-  - uid: 571
+  - uid: 497
+    components:
+    - type: MetaData
+      name: Sovereign Interior Airlock
+    - type: Transform
+      pos: -5.5,-6.5
+      parent: 1
+  - uid: 498
     components:
     - type: MetaData
       name: Sovereign Hallway
     - type: Transform
       pos: -2.5,-7.5
       parent: 1
-  - uid: 572
+  - uid: 501
     components:
     - type: MetaData
       name: Sovereign Hallway
     - type: Transform
       pos: 3.5,-7.5
       parent: 1
-  - uid: 573
-    components:
-    - type: MetaData
-      name: Sovereign Interior Airlock
-    - type: Transform
-      pos: 6.5,-6.5
-      parent: 1
-  - uid: 574
+  - uid: 502
     components:
     - type: MetaData
       name: Sovereign Interior Airlock
     - type: Transform
       pos: 6.5,-8.5
       parent: 1
-  - uid: 575
+  - uid: 503
+    components:
+    - type: MetaData
+      name: Sovereign Interior Airlock
+    - type: Transform
+      pos: 6.5,-6.5
+      parent: 1
+  - uid: 504
     components:
     - type: MetaData
       name: Engineering
     - type: Transform
       pos: 0.5,-9.5
       parent: 1
-  - uid: 576
-    components:
-    - type: MetaData
-      name: Morgue
-    - type: Transform
-      pos: -4.5,-4.5
-      parent: 1
-  - uid: 577
+  - uid: 505
     components:
     - type: MetaData
       name: Morgue
     - type: Transform
       pos: -3.5,-4.5
       parent: 1
-  - uid: 578
+  - uid: 557
     components:
     - type: MetaData
-      name: Bio Reclaiming
+      name: Morgue
     - type: Transform
-      pos: 4.5,-4.5
+      pos: -4.5,-4.5
       parent: 1
-  - uid: 579
+  - uid: 558
     components:
     - type: MetaData
       name: Bio Reclaiming
     - type: Transform
       pos: 5.5,-4.5
       parent: 1
-  - uid: 989
+  - uid: 559
     components:
     - type: MetaData
-      name: Ward
+      name: Bio Reclaiming
     - type: Transform
-      pos: -4.5,-0.5
+      pos: 4.5,-4.5
       parent: 1
-  - uid: 990
-    components:
-    - type: MetaData
-      name: Ward
-    - type: Transform
-      pos: -3.5,-0.5
-      parent: 1
-  - uid: 991
-    components:
-    - type: MetaData
-      name: Ward
-    - type: Transform
-      pos: 4.5,-0.5
-      parent: 1
-  - uid: 992
+  - uid: 560
     components:
     - type: MetaData
       name: Ward
     - type: Transform
       pos: 5.5,-0.5
       parent: 1
-  - uid: 993
+  - uid: 561
+    components:
+    - type: MetaData
+      name: Ward
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 1
+  - uid: 568
+    components:
+    - type: MetaData
+      name: Ward
+    - type: Transform
+      pos: -3.5,-0.5
+      parent: 1
+  - uid: 569
+    components:
+    - type: MetaData
+      name: Ward
+    - type: Transform
+      pos: -4.5,-0.5
+      parent: 1
+  - uid: 570
     components:
     - type: MetaData
       name: Cryogenic
     - type: Transform
       pos: 4.5,4.5
       parent: 1
-  - uid: 994
+  - uid: 571
     components:
     - type: MetaData
       name: Chemistry
     - type: Transform
       pos: -3.5,15.5
       parent: 1
-  - uid: 995
+  - uid: 572
     components:
     - type: MetaData
       name: Cloning
@@ -1159,111 +1166,111 @@ entities:
     - type: Transform
       pos: 7.5,-2.5
       parent: 1
-- proto: BlastDoorOpen
+- proto: BlastDoorUnlinkedERTOpen
   entities:
-  - uid: 497
+  - uid: 573
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,-2.5
       parent: 1
-  - uid: 498
+  - uid: 574
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,-1.5
       parent: 1
-  - uid: 501
-    components:
-    - type: Transform
-      pos: 1.5,1.5
-      parent: 1
-  - uid: 502
+  - uid: 575
     components:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-  - uid: 503
+  - uid: 576
     components:
     - type: Transform
-      pos: -0.5,1.5
+      pos: 1.5,1.5
       parent: 1
-  - uid: 504
+  - uid: 577
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,-1.5
       parent: 1
-  - uid: 505
+  - uid: 578
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+  - uid: 990
+    components:
+    - type: Transform
+      pos: 6.5,14.5
+      parent: 1
+  - uid: 991
+    components:
+    - type: Transform
+      pos: 6.5,15.5
+      parent: 1
+  - uid: 992
+    components:
+    - type: Transform
+      pos: 1.5,20.5
+      parent: 1
+  - uid: 993
+    components:
+    - type: Transform
+      pos: 0.5,20.5
+      parent: 1
+  - uid: 994
+    components:
+    - type: Transform
+      pos: -0.5,20.5
+      parent: 1
+  - uid: 995
+    components:
+    - type: Transform
+      pos: -6.5,3.5
+      parent: 1
+  - uid: 1025
+    components:
+    - type: Transform
+      pos: -6.5,5.5
+      parent: 1
+  - uid: 1026
+    components:
+    - type: Transform
+      pos: -6.5,1.5
+      parent: 1
+  - uid: 1027
+    components:
+    - type: Transform
+      pos: -5.5,11.5
+      parent: 1
+  - uid: 1028
+    components:
+    - type: Transform
+      pos: -5.5,12.5
+      parent: 1
+  - uid: 1029
+    components:
+    - type: Transform
+      pos: -5.5,13.5
+      parent: 1
+  - uid: 1031
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,-2.5
       parent: 1
-  - uid: 1025
-    components:
-    - type: Transform
-      pos: -6.5,1.5
-      parent: 1
-  - uid: 1026
-    components:
-    - type: Transform
-      pos: -6.5,3.5
-      parent: 1
-  - uid: 1027
-    components:
-    - type: Transform
-      pos: -6.5,5.5
-      parent: 1
-  - uid: 1028
+  - uid: 1033
     components:
     - type: Transform
       pos: -6.5,7.5
       parent: 1
-  - uid: 1029
-    components:
-    - type: Transform
-      pos: 6.5,14.5
-      parent: 1
-  - uid: 1030
-    components:
-    - type: Transform
-      pos: 6.5,15.5
-      parent: 1
-  - uid: 1031
-    components:
-    - type: Transform
-      pos: 6.5,16.5
-      parent: 1
-  - uid: 1032
-    components:
-    - type: Transform
-      pos: 0.5,20.5
-      parent: 1
-  - uid: 1033
-    components:
-    - type: Transform
-      pos: -0.5,20.5
-      parent: 1
   - uid: 1034
     components:
     - type: Transform
-      pos: 1.5,20.5
-      parent: 1
-  - uid: 1130
-    components:
-    - type: Transform
-      pos: -5.5,11.5
-      parent: 1
-  - uid: 1131
-    components:
-    - type: Transform
-      pos: -5.5,12.5
-      parent: 1
-  - uid: 1132
-    components:
-    - type: Transform
-      pos: -5.5,13.5
+      pos: 6.5,16.5
       parent: 1
 - proto: BluespaceBeaker
   entities:
@@ -3293,6 +3300,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 902
+      - 539
   - uid: 591
     components:
     - type: Transform
@@ -3301,6 +3309,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 902
+      - 539
   - uid: 592
     components:
     - type: Transform
@@ -3309,6 +3318,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 902
+      - 539
   - uid: 593
     components:
     - type: Transform
@@ -3317,6 +3327,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 902
+      - 539
   - uid: 1069
     components:
     - type: Transform
@@ -5405,9 +5416,9 @@ entities:
     - type: Transform
       pos: -1.5,-4.5
       parent: 1
-- proto: HighSecCentralCommandLocked
+- proto: HighSecDoorERTLocked
   entities:
-  - uid: 568
+  - uid: 1030
     components:
     - type: MetaData
       name: Helm
@@ -5530,54 +5541,47 @@ entities:
     - type: Transform
       pos: -2.0169773,16.729488
       parent: 1
-- proto: LockableButtonCentcomm
+- proto: LockableButtonERT
   entities:
-  - uid: 557
+  - uid: 738
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-0.5
+      pos: -1.5,19.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        497:
+        994:
         - - Pressed
           - Toggle
-        498:
+        993:
         - - Pressed
           - Toggle
-        503:
-        - - Pressed
-          - Toggle
-        502:
-        - - Pressed
-          - Toggle
-        501:
-        - - Pressed
-          - Toggle
-        504:
-        - - Pressed
-          - Toggle
-        505:
+        992:
         - - Pressed
           - Toggle
     - type: Fixtures
       fixtures: {}
-  - uid: 1074
+  - uid: 989
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       pos: 1.5,4.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
+        1026:
+        - - Pressed
+          - Toggle
+        995:
+        - - Pressed
+          - Toggle
         1025:
         - - Pressed
           - Toggle
-        1026:
+        1033:
         - - Pressed
           - Toggle
         1027:
@@ -5586,54 +5590,61 @@ entities:
         1028:
         - - Pressed
           - Toggle
-        1130:
-        - - Pressed
-          - Toggle
-        1132:
-        - - Pressed
-          - Toggle
-        1131:
+        1029:
         - - Pressed
           - Toggle
     - type: Fixtures
       fixtures: {}
-  - uid: 1078
+  - uid: 1032
     components:
     - type: MetaData
-      name: Toggle Blast Door
-    - type: Transform
-      pos: -1.5,19.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        1033:
-        - - Pressed
-          - Toggle
-        1032:
-        - - Pressed
-          - Toggle
-        1034:
-        - - Pressed
-          - Toggle
-    - type: Fixtures
-      fixtures: {}
-  - uid: 1079
-    components:
-    - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,14.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
+        1034:
+        - - Pressed
+          - Toggle
+        991:
+        - - Pressed
+          - Toggle
+        990:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1156
+    components:
+    - type: MetaData
+      name: Toggle Blastdoors
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-0.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        573:
+        - - Pressed
+          - Toggle
+        574:
+        - - Pressed
+          - Toggle
+        578:
+        - - Pressed
+          - Toggle
+        575:
+        - - Pressed
+          - Toggle
+        576:
+        - - Pressed
+          - Toggle
+        577:
+        - - Pressed
+          - Toggle
         1031:
-        - - Pressed
-          - Toggle
-        1030:
-        - - Pressed
-          - Toggle
-        1029:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -5736,11 +5747,6 @@ entities:
     - type: Transform
       pos: 3.4746113,12.595554
       parent: 1
-  - uid: 738
-    components:
-    - type: Transform
-      pos: 3.7246113,12.423679
-      parent: 1
   - uid: 1055
     components:
     - type: Transform
@@ -5755,6 +5761,26 @@ entities:
     components:
     - type: Transform
       pos: -1.6505575,16.481846
+      parent: 1
+  - uid: 1167
+    components:
+    - type: Transform
+      pos: 3.7750077,12.644479
+      parent: 1
+  - uid: 1168
+    components:
+    - type: Transform
+      pos: 3.2593827,12.331979
+      parent: 1
+  - uid: 1169
+    components:
+    - type: Transform
+      pos: 3.3843827,12.331979
+      parent: 1
+  - uid: 1170
+    components:
+    - type: Transform
+      pos: 3.5406327,12.566354
       parent: 1
 - proto: MaterialCloth
   entities:
@@ -6067,76 +6093,6 @@ entities:
     components:
     - type: Transform
       pos: 0.08560091,19.69264
-      parent: 1
-- proto: PlasmaWindoorSecureCentralCommandLocked
-  entities:
-  - uid: 558
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,-8.5
-      parent: 1
-  - uid: 559
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,-6.5
-      parent: 1
-  - uid: 560
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,-6.5
-      parent: 1
-  - uid: 561
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,-8.5
-      parent: 1
-  - uid: 1152
-    components:
-    - type: Transform
-      pos: -7.5,-5.5
-      parent: 1
-  - uid: 1153
-    components:
-    - type: Transform
-      pos: -6.5,-5.5
-      parent: 1
-  - uid: 1154
-    components:
-    - type: Transform
-      pos: 7.5,-5.5
-      parent: 1
-  - uid: 1155
-    components:
-    - type: Transform
-      pos: 8.5,-5.5
-      parent: 1
-  - uid: 1156
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,-9.5
-      parent: 1
-  - uid: 1157
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,-9.5
-      parent: 1
-  - uid: 1158
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -7.5,-9.5
-      parent: 1
-  - uid: 1160
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,-9.5
       parent: 1
 - proto: Portafib
   entities:
@@ -6545,11 +6501,6 @@ entities:
     - type: Transform
       pos: -2.5,-2.5
       parent: 1
-  - uid: 425
-    components:
-    - type: Transform
-      pos: 3.5,-1.5
-      parent: 1
   - uid: 426
     components:
     - type: Transform
@@ -6569,6 +6520,11 @@ entities:
     components:
     - type: Transform
       pos: 1.5,1.5
+      parent: 1
+  - uid: 579
+    components:
+    - type: Transform
+      pos: 3.5,-1.5
       parent: 1
   - uid: 670
     components:
@@ -8011,14 +7967,122 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,3.5
       parent: 1
-  - uid: 1053
+- proto: WindoorSecureERTLocked
+  entities:
+  - uid: 1157
+    components:
+    - type: Transform
+      pos: -0.5,15.5
+      parent: 1
+  - uid: 1158
     components:
     - type: Transform
       pos: 0.5,15.5
       parent: 1
+  - uid: 1160
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-1.5
+      parent: 1
+  - uid: 1162
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-2.5
+      parent: 1
+  - uid: 1163
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-3.5
+      parent: 1
+  - uid: 1164
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-1.5
+      parent: 1
+  - uid: 1165
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-2.5
+      parent: 1
+  - uid: 1166
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-3.5
+      parent: 1
+- proto: WindoorSecurePlasmaERTLocked
+  entities:
+  - uid: 1053
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-9.5
+      parent: 1
   - uid: 1054
     components:
     - type: Transform
-      pos: -0.5,15.5
+      rot: 3.141592653589793 rad
+      pos: 8.5,-9.5
+      parent: 1
+  - uid: 1074
+    components:
+    - type: Transform
+      pos: 8.5,-5.5
+      parent: 1
+  - uid: 1078
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
+      parent: 1
+  - uid: 1079
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,-8.5
+      parent: 1
+  - uid: 1130
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,-6.5
+      parent: 1
+  - uid: 1131
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-8.5
+      parent: 1
+  - uid: 1132
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-6.5
+      parent: 1
+  - uid: 1152
+    components:
+    - type: Transform
+      pos: -7.5,-5.5
+      parent: 1
+  - uid: 1153
+    components:
+    - type: Transform
+      pos: -6.5,-5.5
+      parent: 1
+  - uid: 1154
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-9.5
+      parent: 1
+  - uid: 1155
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-9.5
       parent: 1
 ...

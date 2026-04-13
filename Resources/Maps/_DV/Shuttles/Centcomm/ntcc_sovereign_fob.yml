@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/28/2026 05:40:48
-  entityCount: 1204
+  time: 04/13/2026 12:22:18
+  entityCount: 1217
 maps: []
 grids:
 - 1
@@ -719,6 +719,9 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AdvancedJetInjector
   entities:
   - uid: 1040
@@ -751,6 +754,10 @@ entities:
       - 436
       - 437
       - 431
+      - 592
+      - 593
+      - 536
+      - 591
     - type: Fixtures
       fixtures: {}
   - uid: 1071
@@ -760,6 +767,41 @@ entities:
     - type: Transform
       pos: 0.5,9.5
       parent: 1
+    - type: DeviceList
+      devices:
+      - 592
+      - 593
+      - 536
+      - 591
+      - 626
+      - 681
+      - 627
+      - 682
+      - 664
+      - 678
+      - 632
+      - 679
+      - 665
+      - 677
+      - 666
+      - 680
+      - 771
+      - 764
+      - 669
+      - 672
+      - 670
+      - 673
+      - 671
+      - 674
+      - 675
+      - 668
+      - 676
+      - 667
+      - 998
+      - 801
+    - type: AccessReader
+      accessListsOriginal:
+      - - Atmospherics
     - type: Fixtures
       fixtures: {}
 - proto: AirCanister
@@ -897,13 +939,6 @@ entities:
     - type: Transform
       pos: 0.5,15.5
       parent: 1
-  - uid: 996
-    components:
-    - type: MetaData
-      name: ERT Leader Bedroom
-    - type: Transform
-      pos: -3.5,15.5
-      parent: 1
   - uid: 997
     components:
     - type: MetaData
@@ -945,6 +980,15 @@ entities:
       name: CC Bedroom
     - type: Transform
       pos: 2.5,17.5
+      parent: 1
+- proto: AirlockERTLocked
+  entities:
+  - uid: 987
+    components:
+    - type: MetaData
+      name: ERT Leader Bedroom
+    - type: Transform
+      pos: -3.5,15.5
       parent: 1
 - proto: AirlockExternalGlassShuttleLocked
   entities:
@@ -1350,21 +1394,6 @@ entities:
     - type: Transform
       pos: -5.5,11.5
       parent: 1
-  - uid: 987
-    components:
-    - type: Transform
-      pos: -5.5,18.5
-      parent: 1
-  - uid: 988
-    components:
-    - type: Transform
-      pos: -5.5,17.5
-      parent: 1
-  - uid: 989
-    components:
-    - type: Transform
-      pos: -5.5,16.5
-      parent: 1
   - uid: 990
     components:
     - type: Transform
@@ -1389,6 +1418,23 @@ entities:
     components:
     - type: Transform
       pos: 6.5,17.5
+      parent: 1
+- proto: BlastDoorUnlinkedERTOpen
+  entities:
+  - uid: 988
+    components:
+    - type: Transform
+      pos: -5.5,16.5
+      parent: 1
+  - uid: 989
+    components:
+    - type: Transform
+      pos: -5.5,17.5
+      parent: 1
+  - uid: 996
+    components:
+    - type: Transform
+      pos: -5.5,18.5
       parent: 1
 - proto: BoozeDispenser
   entities:
@@ -2850,7 +2896,7 @@ entities:
       parent: 1
 - proto: Chair
   entities:
-  - uid: 1081
+  - uid: 1003
     components:
     - type: Transform
       pos: -1.5,14.5
@@ -3360,6 +3406,48 @@ entities:
     - type: Transform
       pos: -2.5,16.5
       parent: 1
+- proto: DrinkGlass
+  entities:
+  - uid: 1205
+    components:
+    - type: Transform
+      pos: 6.3022175,7.2875767
+      parent: 1
+  - uid: 1206
+    components:
+    - type: Transform
+      pos: 6.5365925,7.4438267
+      parent: 1
+  - uid: 1207
+    components:
+    - type: Transform
+      pos: 6.7601156,2.3716204
+      parent: 1
+  - uid: 1208
+    components:
+    - type: Transform
+      pos: 6.7553425,7.5063267
+      parent: 1
+  - uid: 1209
+    components:
+    - type: Transform
+      pos: 6.463178,7.2687035
+      parent: 1
+  - uid: 1210
+    components:
+    - type: Transform
+      pos: 6.6038656,2.5434954
+      parent: 1
+  - uid: 1211
+    components:
+    - type: Transform
+      pos: 6.3069906,2.6216204
+      parent: 1
+  - uid: 1212
+    components:
+    - type: Transform
+      pos: 6.2444906,2.5122454
+      parent: 1
 - proto: DrinkGreenTea
   entities:
   - uid: 1077
@@ -3434,31 +3522,53 @@ entities:
     - type: Transform
       pos: 4.5,-4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 539
+      - 1071
   - uid: 591
     components:
     - type: Transform
       pos: 5.5,-4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 539
+      - 1071
   - uid: 592
     components:
     - type: Transform
       pos: -4.5,-4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 539
+      - 1071
   - uid: 593
     components:
     - type: Transform
       pos: -3.5,-4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 539
+      - 1071
   - uid: 801
     components:
     - type: Transform
       pos: -1.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
   - uid: 998
     components:
     - type: Transform
       pos: -0.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
 - proto: FlippoEngravedLighter
   entities:
   - uid: 1169
@@ -3501,6 +3611,16 @@ entities:
     - type: Transform
       pos: 6.447663,7.574141
       parent: 1
+  - uid: 1216
+    components:
+    - type: Transform
+      pos: 6.405593,7.812818
+      parent: 1
+  - uid: 1217
+    components:
+    - type: Transform
+      pos: 6.639968,7.781568
+      parent: 1
 - proto: FoodKebabSkewer
   entities:
   - uid: 1022
@@ -3512,6 +3632,25 @@ entities:
     components:
     - type: Transform
       pos: 6.526475,2.7529156
+      parent: 1
+- proto: FoodPlateMuffinTin
+  entities:
+  - uid: 1213
+    components:
+    - type: Transform
+      pos: 6.530593,2.4455757
+      parent: 1
+  - uid: 1214
+    components:
+    - type: Transform
+      pos: 6.358718,2.6174507
+      parent: 1
+- proto: FoodPlateTin
+  entities:
+  - uid: 1215
+    components:
+    - type: Transform
+      pos: 6.718093,2.6643257
       parent: 1
 - proto: FoodShakerPepper
   entities:
@@ -5186,6 +5325,9 @@ entities:
     - type: Transform
       pos: -3.5,17.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5195,6 +5337,9 @@ entities:
     - type: Transform
       pos: 0.5,17.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5205,6 +5350,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,17.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5215,6 +5363,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,13.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5225,6 +5376,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,11.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5234,6 +5388,9 @@ entities:
     - type: Transform
       pos: 1.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5244,6 +5401,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,2.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5254,6 +5414,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,2.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5263,6 +5426,9 @@ entities:
     - type: Transform
       pos: -4.5,7.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5273,6 +5439,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5283,6 +5452,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,-1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5292,6 +5464,9 @@ entities:
     - type: Transform
       pos: -0.5,12.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -5395,6 +5570,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5405,6 +5583,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,-3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5415,6 +5596,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5425,6 +5609,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5434,6 +5621,9 @@ entities:
     - type: Transform
       pos: -0.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5444,6 +5634,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,6.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5454,6 +5647,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,11.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5464,6 +5660,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,13.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5473,6 +5672,9 @@ entities:
     - type: Transform
       pos: -3.5,16.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5482,6 +5684,9 @@ entities:
     - type: Transform
       pos: 0.5,18.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5492,6 +5697,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,17.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5501,6 +5709,9 @@ entities:
     - type: Transform
       pos: 0.5,12.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 1071
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -5748,7 +5959,9 @@ entities:
     - type: Transform
       pos: 0.5,-3.5
       parent: 1
-  - uid: 1003
+- proto: HighSecDoorERTLocked
+  entities:
+  - uid: 1081
     components:
     - type: MetaData
       name: Armory
@@ -5849,7 +6062,7 @@ entities:
   - uid: 557
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-0.5
@@ -5882,7 +6095,7 @@ entities:
   - uid: 1087
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,5.5
@@ -5909,7 +6122,7 @@ entities:
   - uid: 1091
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       pos: -0.5,15.5
       parent: 1
@@ -5941,7 +6154,7 @@ entities:
   - uid: 1092
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,18.5
@@ -5959,31 +6172,10 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
-  - uid: 1093
-    components:
-    - type: MetaData
-      name: Toggle Blast Door
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,18.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        987:
-        - - Pressed
-          - Toggle
-        988:
-        - - Pressed
-          - Toggle
-        989:
-        - - Pressed
-          - Toggle
-    - type: Fixtures
-      fixtures: {}
   - uid: 1156
     components:
     - type: MetaData
-      name: Toggle Blast Door
+      name: Toggle Blastdoors
     - type: Transform
       pos: 5.5,19.5
       parent: 1
@@ -5996,6 +6188,29 @@ entities:
         - - Pressed
           - Toggle
         347:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+- proto: LockableButtonERT
+  entities:
+  - uid: 1083
+    components:
+    - type: MetaData
+      name: Toggle Blastdoors
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,18.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        996:
+        - - Pressed
+          - Toggle
+        989:
+        - - Pressed
+          - Toggle
+        988:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -6288,11 +6503,6 @@ entities:
       parent: 1
 - proto: PottedPlantRandom
   entities:
-  - uid: 1141
-    components:
-    - type: Transform
-      pos: 1.5,16.5
-      parent: 1
   - uid: 1153
     components:
     - type: Transform
@@ -7151,6 +7361,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,17.5
+      parent: 1
+- proto: VendingMachineCentDrobe
+  entities:
+  - uid: 1093
+    components:
+    - type: Transform
+      pos: 1.5,16.5
       parent: 1
 - proto: VendingMachineChefvend
   entities:
@@ -8269,9 +8486,9 @@ entities:
     - type: Transform
       pos: -5.3587375,3.491328
       parent: 1
-- proto: WindoorSecureCentralCommandLocked
+- proto: WindoorSecureERTLocked
   entities:
-  - uid: 1083
+  - uid: 1141
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
