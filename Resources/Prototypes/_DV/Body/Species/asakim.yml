@@ -33,6 +33,31 @@
   id: AppearanceAsakim
   name: asakim appearance
   components:
+  - type: Inventory
+    speciesId: asakim
+    # WWDP-Edit-Start
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
   - type: InitialBody
     organs:
       Torso: OrganAsakimTorso
@@ -59,7 +84,125 @@
     species: Asakim
 
 - type: entity
-
+  parent:
+  - AppearanceAsakim
+  - BaseSpeciesMobOrganic
+  id: MobAsakim
+  components:
+  - type: Puller
+    needsHands: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.65
+    weightlessAcceleration: 1.5 # Slightly more manueverable in space.
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 275 # Its an abandoned bioweapon species with 4 arms, of course it should be able to fight a Oni.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.7
+  - type: BonusMeleeDamage
+    damageModifierSet:
+      coefficients:
+        Blunt: 1.1
+        Slash: 1.1
+        Piercing: 1.1
+        Asphyxiation: 1
+  - type: Icon
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: full
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatLizard
+      amount: 7
+  #- type: LizardAccent # DeltaV - replaced with language accent
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Thump']
+  - type: TypingIndicator
+    proto: lizard
+  - type: Vocal
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
+  #- type: LanguageKnowledge # DeltaV - ee language port when
+  #  speaks:
+  #  - Draconic
+  #  - Azaziba
+  #  understands:
+  #  - Draconic
+  #  - Azaziba
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: GenemoddedScale
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+        Structural: 24
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: GastroToxin
+          Quantity: 20
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: GastroToxin
+        Quantity: 20
+  #- type: NightVision # DeltaV - moved to eye organ
+  #  isEquipment: false
+  #  color: "#ae65bf"
+  #  activateSound: null
+  #  deactivateSound: null
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.6 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  - type: Wagging
+  - type: NpcFactionMember
+    factions:
+    - Syndicate # Making new AI factions is annoying with all the hostilities I have to add, whatever.
+  # Begin DeltaV Additions
+  - type: SyllableObfuscationAccent # unintelligable language
+    accent: draconian
+  - type: BlockWriting # can't speak common can't write common. better get an AAC tablet
+  # End DeltaV Additions
 
 - type: entity
   parent: OrganBase
