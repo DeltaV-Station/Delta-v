@@ -179,7 +179,7 @@
   suffix: Thaven
 
 - type: entity
-  parent: ThavenOrgan
+  parent: OrganThaven
   id: OrganThavenInternal
   abstract: true
   components:
@@ -187,7 +187,7 @@
     sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
-  parent: ThavenOrgan
+  parent: OrganThaven
   id: OrganThavenExternal
   abstract: true
   components:
