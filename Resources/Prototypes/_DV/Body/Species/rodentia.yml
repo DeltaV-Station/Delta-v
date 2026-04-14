@@ -3,34 +3,40 @@
   id: Rodentia
   onlyGroupWhitelisted: true
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    FacialHair:
-      points: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ RodentiaTailDefault ]
-    Legs:
-      points: 6
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 6
       required: false
-    Arms:
-      points: 6
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 6
       required: false
-    Snout:
-      points: 1
+    enum.HumanoidVisualLayers.LArm:
+      limit: 6
       required: false
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.RArm:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
       defaultMarkings: [ RodentiaHeadTopEarDefault ]
-    HeadSide:
-      points: 1
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
       required: false
-    Chest:
-      points: 2
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
       required: false
 
 - type: entity
@@ -64,6 +70,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Rodentia
+  - type: ScaleVisuals
+    scale: 0.8, 0.8
 
 - type: entity
   parent:
@@ -143,10 +151,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _DV/Organs/Species/Rodentia/parts.rsi
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
   - type: VisualOrgan
     data:
-      sprite: _DV/Organs/Species/Rodentia/parts.rsi
+      sprite: _DV/Mobs/Species/Rodentia/parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: Rodentia

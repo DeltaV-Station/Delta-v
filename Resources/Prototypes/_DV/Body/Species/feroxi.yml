@@ -2,34 +2,40 @@
   parent: Undergarments
   id: Feroxi
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    FacialHair:
-      points: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
       required: false
-    Head:
-      points: 3
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
       required: false
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
       defaultMarkings: [ FeroxiEars ]
-    Snout:
-      points: 1
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
       required: true
       defaultMarkings: [ FeroxiSnout ]
-    Chest:
-      points: 3
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
       required: false
-    Arms:
-      points: 4
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
       required: false
-    Legs:
-      points: 4
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ FeroxiTailAndDorsal ]
 

@@ -2,30 +2,33 @@
   id: Thaven
   onlyGroupWhitelisted: true
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    HeadTop:
-      points: 4 # DeltaV - was previously 2, more markings require more space
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 4 # DeltaV - was previously 2, more markings require more space
       required: false
-    HeadSide:
-      points: 1
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
       required: true
       defaultMarkings: [ ThavenEars1 ]
-    Head:
-      points: 4
+    enum.HumanoidVisualLayers.Head:
+      limit: 4
       required: false
-    Chest:
-      points: 4
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
       required: false
-    Arms:
-      points: 4
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
       required: false
-    Overlay:
-      points: 6
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
       required: false
-    Snout:
-      points: 1
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
       required: false
 
 - type: entity
@@ -99,6 +102,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Thaven
+  - type: ScaleVisuals
+    scale: 1.0, 1.05
 
 - type: entity
   parent:
@@ -197,11 +202,11 @@
     data:
       sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
   - type: VisualOrganMarkings
-    markingsData:
+    markingData:
       group: Thaven
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganThavenInternal ]
+  parent: [ OrganBaseEyes, OrganThavenExternal ]
   id: OrganThavenEyes
 
 - type: entity
@@ -265,7 +270,3 @@
   id: OrganThavenBrain
   name: thaven brain
   description: "An organic positronic brain. Quite remarkable, really."
-  components:
-  - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
-    state: brain-thaven

@@ -339,8 +339,6 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    - PowerAugments # DeltaV - augments
-    - ToolAugments # DeltaV - augments
     - BorgDVModulesStatic # DeltaV - modules
     - BorgIdentificationStaticDeltaV # DeltaV - Borg IDs
     dynamicPacks:
@@ -349,14 +347,12 @@
     - MechParts
     - MechEquipment
     - RoboticsDeltaV # DeltaV
-    - PsionicProsthetics # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
     # Being DeltaV Additions
     - EVASuit
     emagDynamicPacks:
-    - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
     - BorgModulesSecurityDeltaV
     - SalvageHardsuits
@@ -568,10 +564,6 @@
     # Being DeltaV Additions
     - ReportingStatic
     - EVASuit
-    - PowerCellsStatic
-    - IPCLimbsStatic
-    - PowerAugments
-    - ToolAugments
     - SimpleToolsStaticDeltaV
     # End DeltaV Additions
     dynamicPacks:

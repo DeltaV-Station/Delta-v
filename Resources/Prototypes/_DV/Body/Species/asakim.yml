@@ -2,30 +2,36 @@
   id: Asakim
   onlyWhitelisted: true
   limits:
-    Hair:
-      points: 0
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
       required: false
-    FacialHair:
-      points: 0
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ LizardTailSmooth ]
-    HeadTop:
-      points: 2
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 2
       required: false
-    HeadSide:
-      points: 2 # WWDP-Edit
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 2 # WWDP-Edit
       required: false
-    Chest:
-      points: 3
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
       required: false
-    Legs:
-      points: 2
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
       required: false
-    Arms:
-      points: 2
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
       required: false
 
 - type: entity
@@ -222,6 +228,9 @@
   parent: OrganAsakim
   id: OrganAsakimInternal
   abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Customization/asakimeyes.rsi
 
 - type: entity
   parent: OrganAsakim
@@ -297,8 +306,6 @@
   parent: [ OrganBaseEyes, OrganAsakimInternal ]
   id: OrganAsakimEyes
   components:
-  - type: Sprite
-    sprite: _Mono/Mobs/Customization/asakimeyes.rsi
   - type: Organ
     onAdd:
     - type: NightVision
