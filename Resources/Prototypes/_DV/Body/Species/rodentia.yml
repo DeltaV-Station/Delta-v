@@ -1,4 +1,5 @@
 ﻿- type: markingsGroup
+  parent: Undergarments
   id: Rodentia
   onlyGroupWhitelisted: true
   limits:
@@ -53,12 +54,14 @@
       FootRight: OrganRodentiaFootRight
       Brain: OrganHumanBrain
       Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
       Ears: OrganHumanEars
       Appendix: OrganHumanAppendix
       Lungs: OrganHumanLungs
       Heart: OrganAnimalHeart
       Stomach: OrganAnimalStomach
       Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Rodentia
 
@@ -144,8 +147,8 @@
   - type: VisualOrgan
     data:
       sprite: _DV/Organs/Species/Rodentia/parts.rsi
-  - type: VisualOrganMarkins
-    markinData:
+  - type: VisualOrganMarkings
+    markingData:
       group: Rodentia
 
 - type: entity
