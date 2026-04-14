@@ -3,17 +3,20 @@
   id: ChiefMedicalOfficerLongcoat
   equipment:
     outerClothing: ClothingLongcoatCMO
+  groupBy: "longcoat"
 
 - type: loadout
   id: ChiefMedicalOfficerLongLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabLongCMO
+  groupBy: "labcoat"
 
 # Shoes
 - type: loadout
   id: ChiefMedicalOfficerWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterChiefMedicalOfficer
+  groupBy: "winterboots"
 
 # Neck
 - type: loadout
@@ -32,23 +35,28 @@
   id: ChiefMedicalOfficerFormalJumpsuit
   equipment:
     jumpsuit: ClothingUniformCMOFormal
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ChiefMedicalOfficerFormalJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMOFormal
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ChiefMedicalOfficerVestJumpsuit
   equipment:
     jumpsuit: ClothingUniformCMOVest
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ChiefMedicalOfficerVestJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMOVest
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ChiefMedicalOfficerSummerShirt
   equipment:
     jumpsuit: ClothingUniformCMOSummer
+  groupBy: "jumpsuit"

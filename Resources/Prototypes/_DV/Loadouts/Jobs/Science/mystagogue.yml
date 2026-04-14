@@ -20,14 +20,17 @@
   id: MystaLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRndMysta
+  groupBy: "labcoat"
 
 - type: loadout
   id: ResearchDirectorLongcoat
   equipment:
     outerClothing: ClothingLongcoatRD
+  groupBy: "longcoat"
 
 # Shoes
 - type: loadout
   id: ResearchDirectorWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterMystagogue
+  groupBy: "winterboots"

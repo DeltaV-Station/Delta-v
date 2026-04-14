@@ -9,11 +9,13 @@
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
+  groupBy: "jumpskirt" #DeltaV
 
 # Back
 - type: loadout
@@ -36,9 +38,11 @@
   id: CargoTechnicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCargo
+  groupBy: "wintercoat" #DeltaV
 
 # Shoes
 - type: loadout
   id: CargoWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterCargo
+  groupBy: "winterboots" #DeltaV

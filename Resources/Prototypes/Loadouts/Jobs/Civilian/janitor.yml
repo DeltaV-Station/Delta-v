@@ -18,27 +18,32 @@
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+  groupBy: "jumpskirt" #DeltaV
 
 # Gloves
 - type: loadout
   id: JanitorRubberGloves
   equipment:
     gloves: ClothingHandsGlovesJanitor
+  groupBy: "glove" #DeltaV
 
 - type: loadout
   id: OrangeGloves
   equipment:
     gloves: ClothingHandsGlovesColorOrange
+  groupBy: "glove" #DeltaV
 
 - type: loadout
   id: PurpleGloves
   equipment:
     gloves: ClothingHandsGlovesColorPurple
+  groupBy: "glove" #DeltaV
 
 
 # Outer clothing
@@ -46,3 +51,4 @@
   id: JanitorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterJani
+  groupBy: "wintercoat" #DeltaV

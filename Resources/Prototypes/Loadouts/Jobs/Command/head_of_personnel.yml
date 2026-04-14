@@ -1,7 +1,7 @@
 # For mantles
 #- type: loadoutEffectGroup # DeltaV - No time requirement
 #  id: MasterHoP
-#  effects: 
+#  effects:
 #  - !type:JobRequirementLoadoutEffect
 #    requirement:
 #      !type:RoleTimeRequirement
@@ -23,11 +23,13 @@
   id: HoPJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoP
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: HoPJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoP
+  groupBy: "jumpskirt" #DeltaV
 
 # Head
 - type: loadout
@@ -65,3 +67,4 @@
   id: HoPWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHoP
+  groupBy: "wintercoat" #DeltaV

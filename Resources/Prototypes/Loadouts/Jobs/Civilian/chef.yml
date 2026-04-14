@@ -15,11 +15,13 @@
   id: ChefJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChef
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ChefJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChef
+  groupBy: "jumpskirt" #DeltaV
 
 # Outer clothing
 - type: loadout
@@ -36,3 +38,4 @@
   id: ChefWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChef
+  groupBy: "wintercoat" #DeltaV

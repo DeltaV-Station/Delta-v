@@ -52,27 +52,32 @@
   id: ForensicSpecJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitForensicSpec
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ForensicSpecJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtForensicSpec
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ForensicSpecTurtlesuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetTurtle
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ForensicSpecTurtleskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetTurtle
+  groupBy: "jumpskirt"
 
 #OuterClothing
 - type: loadout
   id: StasecWinterCoatDet
   equipment:
     outerClothing: ClothingOuterCoatStasecDet
+  groupBy: "wintercoat"
 
 - type: loadout
   id: DetPlatedCoat

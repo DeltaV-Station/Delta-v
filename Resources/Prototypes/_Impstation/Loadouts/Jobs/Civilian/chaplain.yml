@@ -2,8 +2,10 @@
   id: ClothingUniformFuneralSuit
   equipment:
     jumpsuit: ClothingUniformFuneralSuit #imp
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ClothingUniformFuneralSuitSkirt
   equipment:
     jumpsuit: ClothingUniformFuneralSuitSkirt #imp
+  groupBy: "jumpskirt" #DeltaV

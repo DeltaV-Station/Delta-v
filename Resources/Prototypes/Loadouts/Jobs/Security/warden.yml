@@ -14,11 +14,13 @@
   id: WardenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitWarden
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: WardenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtWarden
+  groupBy: "jumpskirt" #DeltaV
 
 # OuterClothing
 - type: loadout
@@ -30,3 +32,4 @@
   id: WardenArmoredWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterWarden
+  groupBy: "wintercoat" #DeltaV

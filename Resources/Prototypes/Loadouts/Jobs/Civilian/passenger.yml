@@ -33,11 +33,13 @@
   id: GreyJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
+  groupBy: "jumpskirt" #DeltaV
 
 # Rainbow
 - type: loadout
@@ -47,6 +49,7 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformColorRainbow
+  groupBy: "jumpsuit" #DeltaV
 
 # Rainbow Jumpskirt
 - type: loadout
@@ -56,6 +59,7 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRainbow
+  groupBy: "jumpskirt" #DeltaV
 
 # Ancient
 - type: loadout
@@ -110,14 +114,17 @@
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
+  groupBy: "wintercoat" #DeltaV
 
 # Shoes
 - type: loadout
   id: BlackShoes
   equipment:
     shoes: ClothingShoesColorBlack
+  groupBy: "coloredshoe" #DeltaV
 
 - type: loadout
   id: WinterBoots
   equipment:
     shoes: ClothingShoesBootsWinter
+  groupBy: "winterboots" #DeltaV

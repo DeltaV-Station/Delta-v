@@ -3,31 +3,39 @@
   id: HeadofSecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSGrey
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: HeadofSecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSGrey
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: HeadofSecurityJumpsuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSBlue
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: HeadofSecurityJumpskirtBlue
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSBlue
+  groupBy: "jumpskirt"
+
 
 - type: loadout
   id: HeadofSecurityParadeSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSParadeMale
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: HeadofSecurityParadeSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSParadeMale
+  groupBy: "jumpskirt"
+
 
 # Head
 - type: loadout
@@ -40,6 +48,7 @@
   id: StasecWinterCoatHoS
   equipment:
     outerClothing: ClothingOuterCoatStasecHoS
+  groupBy: "wintercoat"
 
 - type: loadout
   id: HeadOfSecurityTrenchcoat
@@ -50,12 +59,14 @@
   id: HeadofSecurityLongcoat
   equipment:
     outerClothing: ClothingLongcoatHoS
+  groupBy: "longcoat"
 
 # Shoes
 - type: loadout
   id: HeadOfSecurityWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterHeadOfSecurity
+  groupBy: "winterboots"
 
 # Neck
 - type: loadout

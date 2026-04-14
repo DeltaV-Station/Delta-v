@@ -46,11 +46,13 @@
   id: SecurityJumpsuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SecurityJumpskirtBlue
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecBlue
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: SeniorSecOfficerJumpsuit
@@ -59,6 +61,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecSenior
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorSecOfficerJumpskirt
@@ -67,6 +70,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecSenior
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: SeniorSecOfficerTurtlesuit
@@ -75,6 +79,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecTurtle
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorSecOfficerTurtleskirt
@@ -83,6 +88,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecTurtle
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: SeniorSecOfficerFormalSuit
@@ -91,6 +97,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecFormal
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorSecOfficerFormalSkirt
@@ -99,6 +106,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecFormal
+  groupBy: "jumpskirt"
 
 # OuterClothing
 
@@ -126,6 +134,7 @@
   id: LongcoatSecurity
   equipment:
     outerClothing: ClothingLongcoatSecurity
+  groupBy: "longcoat"
 
 # Neck
 

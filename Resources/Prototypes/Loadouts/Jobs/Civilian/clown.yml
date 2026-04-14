@@ -14,16 +14,19 @@
   id: ClownSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: JesterSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJester
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: JesterAltSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
+  groupBy: "jumpsuit" #DeltaV
 
 # Back
 - type: loadout
@@ -62,3 +65,4 @@
   id: ClownWintercoat
   equipment:
     outerClothing: ClothingOuterWinterClown
+  groupBy: "wintercoat" #DeltaV

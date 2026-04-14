@@ -13,21 +13,25 @@
   id: ChiefMedicalOfficerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCMO
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ChiefMedicalOfficerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMO
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: ChiefMedicalOfficerTurtleneckJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCMOTurtle
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ChiefMedicalOfficerTurtleneckJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMOTurtle
+  groupBy: "jumpskirt" #DeltaV
 
 # Head
 - type: loadout
@@ -56,8 +60,10 @@
   id: ChiefMedicalOfficerLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabCmo
+  groupBy: "labcoat" #DeltaV
 
 - type: loadout
   id: ChiefMedicalOfficerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCMO
+  groupBy: "wintercoat" #DeltaV

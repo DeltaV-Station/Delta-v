@@ -14,21 +14,25 @@
   id: BrigMedicJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitBrigmedic
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: BrigMedicJumpskirt
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedic
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: BrigMedicTurtlesuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitBrigmedicTurtle
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: BrigMedicTurtleskirt
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedicTurtle
+  groupBy: "jumpskirt"
 
 # Back
 - type: loadout
@@ -52,11 +56,13 @@
   id: StasecWinterCoatCorpsman
   equipment:
     outerClothing: ClothingOuterCoatStasecCorpsman
+  groupBy: "wintercoat"
 
 - type: loadout
   id: LongcoatBrigmedic
   equipment:
     outerClothing: ClothingLongcoatBrigmedic
+  groupBy: "longcoat"
 
 # Eyewear
 - type: loadout

@@ -9,12 +9,14 @@
   storage:
     back:
     - GoldRing
+  groupBy: "rings"
 
 - type: loadout
   id: SilverRing
   storage:
     back:
     - SilverRing
+  groupBy: "rings"
 
 - type: loadout
   id: WhiteCane
@@ -50,9 +52,11 @@
   storage:
     back:
     - PlushieExperiment
+  groupBy: "plushie"
 
 - type: loadout
   id: PlushieBee
   storage:
     back:
     - PlushieBee
+  groupBy: "plushie"

@@ -3,11 +3,13 @@
   id: ChemistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemistry
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ChemistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
+  groupBy: "jumpskirt" #DeltaV
 
 # Back
 - type: loadout
@@ -30,8 +32,10 @@
   id: ChemistLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabChem
+  groupBy: "labcoat" #DeltaV
 
 - type: loadout
   id: ChemistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChem
+  groupBy: "wintercoat" #DeltaV

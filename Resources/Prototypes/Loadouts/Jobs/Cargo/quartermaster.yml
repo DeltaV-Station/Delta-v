@@ -2,7 +2,7 @@
 #- type: loadoutEffectGroup # Delta-V - No time requirements
 #  id: MasterQM
 #  effects:
-#  - !type:JobRequirementLoadoutEffect 
+#  - !type:JobRequirementLoadoutEffect
 #    requirement:
 #      !type:RoleTimeRequirement
 #      role: JobQuartermaster
@@ -13,26 +13,31 @@
   id: QuartermasterJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQM
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: QuartermasterJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQM
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: QuartermasterTurtleneck
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMTurtleneck
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: QuartermasterTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: QuartermasterFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
+  groupBy: "jumpsuit" #DeltaV
 
 # Head
 - type: loadout
@@ -69,3 +74,4 @@
   id: QuartermasterWintercoat
   equipment:
     outerClothing: ClothingOuterWinterQM
+  groupBy: "wintercoat" #DeltaV

@@ -23,16 +23,19 @@
   id: BartenderJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartender
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: BartenderJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBartender
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
+  groupBy: "jumpsuit" #DeltaV
 
 # Outer clothing
 - type: loadout
@@ -49,6 +52,7 @@
   id: BartenderWintercoat
   equipment:
     outerClothing: ClothingOuterWinterBar
+  groupBy: "wintercoat" #DeltaV
 
 # Misc
 - type: loadout

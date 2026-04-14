@@ -14,27 +14,32 @@
   id: DetectiveTie
   equipment:
     neck: ClothingNeckTieDet
+  groupBy: "necktie" #DeltaV
 
 # Jumpsuit
 - type: loadout
   id: DetectiveJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: DetectiveJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetective
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: NoirJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetectiveGrey
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: NoirJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetectiveGrey
+  groupBy: "jumpskirt" #DeltaV
 
 # OuterClothing
 - type: loadout

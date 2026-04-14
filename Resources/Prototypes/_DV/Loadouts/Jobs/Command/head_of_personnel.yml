@@ -4,26 +4,31 @@
   id: HoPFormal
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoPFormal
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: HoPFormalDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoPFormal
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: HoPMessSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoPMess
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: HoPMessSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoPMess
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: HoPBoatswain
   equipment:
     jumpsuit: ClothingUniformJumpsuitBoatswain
+  groupBy: "jumpsuit"
 
 # Back
 - type: loadout
@@ -56,6 +61,7 @@
   id: HoPLongcoat
   equipment:
     outerClothing: ClothingLongcoatHoP
+  groupBy: "longcoat"
 
 # Gloves
 - type: loadout
@@ -68,18 +74,22 @@
   id: BrownLeatherShoes
   equipment:
     shoes: ClothingShoesLeather
+  groupBy: "leathershoes"
 
 - type: loadout
   id: WhiteLeatherShoes
   equipment:
     shoes: ClothingShoesMiscWhite
+  groupBy: "leathershoes"
 
 - type: loadout
   id: LaceupShoes
   equipment:
     shoes: ClothingShoesBootsLaceup
+  groupBy: "leathershoes"
 
 - type: loadout
   id: HoPWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterHeadOfPersonel
+  groupBy: "winterboots"

@@ -35,11 +35,13 @@
   id: MimeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMime
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: MimeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMime
+  groupBy: "jumpskirt" #DeltaV
 
 # Back
 - type: loadout
@@ -62,6 +64,7 @@
   id: MimeWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMime
+  groupBy: "wintercoat" #DeltaV
 
 # Belt
 - type: loadout

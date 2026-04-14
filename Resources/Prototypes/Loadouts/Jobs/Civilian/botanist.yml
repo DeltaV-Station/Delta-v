@@ -14,16 +14,19 @@
   id: BotanistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHydroponics
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: BotanistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHydroponics
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: BotanistOveralls
   equipment:
     jumpsuit: ClothingUniformOveralls
+  groupBy: "jumpsuit" #DeltaV
 
 # Back
 - type: loadout
@@ -51,3 +54,4 @@
   id: BotanistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHydro
+  groupBy: "wintercoat" #DeltaV

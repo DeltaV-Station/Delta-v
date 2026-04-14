@@ -3,6 +3,7 @@
   id: ParamedicWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterParamedic
+  groupBy: "winterboots"
 
 # Head
 - type: loadout
@@ -15,11 +16,13 @@
   id: ParamedicJumpSuitJumper
   equipment:
     jumpsuit: ClothingUniformParamedicJumper
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ParamedicJumpSkirtJumper
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedicJumper
+  groupBy: "jumpskirt"
 
 # OuterClothing
 - type: loadout

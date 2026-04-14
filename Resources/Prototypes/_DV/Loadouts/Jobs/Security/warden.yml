@@ -3,31 +3,37 @@
   id: WardenJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitWardenGrey
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: WardenJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtWardenGrey
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: WardenJumpsuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitWardenBlue
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: WardenJumpskirtBlue
   equipment:
     jumpsuit: ClothingUniformJumpskirtWardenBlue
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: WardenTurtlesuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitWardenTurtle
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: WardenTurtleskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtWardenTurtle
+  groupBy: "jumpskirt"
 
 # OuterClothing
 - type: loadout
@@ -40,3 +46,4 @@
   id: WardenLongcoat
   equipment:
     outerClothing: ClothingLongcoatWarden
+  groupBy: "longcoat"

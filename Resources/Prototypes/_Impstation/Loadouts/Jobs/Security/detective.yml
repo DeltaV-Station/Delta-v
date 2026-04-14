@@ -2,18 +2,22 @@
   id: ClothingUniformMiamiVice
   equipment:
     jumpsuit: ClothingUniformMiamiVice #imp
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ClothingUniformMiamiViceSkirt
   equipment:
     jumpsuit: ClothingUniformMiamiViceSkirt #imp
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: ClothingUniformDetectiveSuit
   equipment:
     jumpsuit: ClothingUniformDetectiveSuit #imp
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ClothingUniformDetectiveSuitSkirt
   equipment:
     jumpsuit: ClothingUniformDetectiveSuitSkirt #imp
+  groupBy: "jumpskirt" #DeltaV

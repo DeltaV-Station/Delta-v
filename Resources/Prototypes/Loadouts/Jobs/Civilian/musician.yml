@@ -3,14 +3,17 @@
   id: MusicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: MusicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
+  groupBy: "jumpskirt" #DeltaV
 
 # Outerclothing
 - type: loadout
   id: MusicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMusician
+  groupBy: "wintercoat" #DeltaV

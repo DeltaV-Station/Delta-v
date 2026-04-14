@@ -31,31 +31,37 @@
   id: MedicalApronJumpsuit
   equipment:
     jumpsuit: ClothingUniformMedicalApron
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: MedicalApronJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalApron
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: MedicalOffsetJumpsuit
   equipment:
     jumpsuit: ClothingUniformMedicalOffset
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: MedicalOffsetJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalOffset
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: MedicalVestJumpsuit
   equipment:
     jumpsuit: ClothingUniformMedicalVest
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: MedicalVestJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalVest
+  groupBy: "jumpskirt"
 
 # OuterClothing
 
@@ -63,13 +69,16 @@
   id: MedicalLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabMedical
+  groupBy: "labcoat"
 
 - type: loadout
   id: MedicalLongLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabLongMedical
+  groupBy: "labcoat"
 
 - type: loadout
   id: LongLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabLong
+  groupBy: "labcoat"

@@ -2,7 +2,7 @@
 #- type: loadoutEffectGroup # DeltaV - No time requirement
 #  id: MasterRD
 #  effects:
-#  - !type:JobRequirementLoadoutEffect 
+#  - !type:JobRequirementLoadoutEffect
 #    requirement:
 #      !type:RoleTimeRequirement
 #      role: JobResearchDirector
@@ -31,19 +31,23 @@
   id: ResearchDirectorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitResearchDirector
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ResearchDirectorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
+  groupBy: "jumpskirt" #DeltaV
 
 # OuterClothing
 - type: loadout
   id: ResearchDirectorLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRD
+  groupBy: "labcoat" #DeltaV
 
 - type: loadout
   id: ResearchDirectorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRD
+  groupBy: "wintercoat" #DeltaV

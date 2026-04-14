@@ -36,17 +36,20 @@
   id: PsychologistGreyFlatcap
   equipment:
     head: ClothingHeadHatGreyFlatcap
+  groupBy: "flatcap"
 
 - type: loadout
   id: PsychologistBrownFlatcap
   equipment:
     head: ClothingHeadHatBrownFlatcap
+  groupBy: "flatcap"
 
 # OuterClothing
 - type: loadout
   id: PsychologistWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
+  groupBy: "wintercoat"
 
 - type: loadout
   id: PsychologistCoatBomber

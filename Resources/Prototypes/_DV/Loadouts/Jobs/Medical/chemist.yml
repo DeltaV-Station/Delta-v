@@ -3,11 +3,13 @@
   id: ChemistFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemShirt
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ChemistFormalSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemShirt
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: SeniorChemistJumpsuit
@@ -19,6 +21,7 @@
       time: 216000
   equipment:
     jumpsuit: ClothingUniformChemistSenior
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorChemistJumpskirt
@@ -30,6 +33,7 @@
       time: 216000
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistSenior
+  groupBy: "jumpskirt"
 
 # OuterClothing
 - type: loadout
@@ -47,23 +51,27 @@
       time: 216000
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorChemist
+  groupBy: "labcoat"
 
 - type: loadout
   id: ChemistLongLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabLongChemist
+  groupBy: "labcoat"
 
 # Gloves
 - type: loadout
   id: ChemistGloves
   equipment:
     gloves: ClothingHandsGlovesChemist
+  groupBy: "glove"
 
 # Shoes
 - type: loadout
   id: ChemistWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterChem
+  groupBy: "winterboots"
 
 - type: loadout
   id: ChemistShoes
@@ -75,6 +83,7 @@
   id: ChemistTie
   equipment:
     neck: ClothingNeckTieChem
+  groupBy: "necktie"
 
 # Chemist alt title
 - type: loadout

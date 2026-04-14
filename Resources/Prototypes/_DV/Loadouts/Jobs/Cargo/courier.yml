@@ -9,11 +9,13 @@
   id: CourierJumpsuit
   equipment:
       jumpsuit: ClothingUniformCourier
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: CourierJumpskirt
   equipment:
       jumpsuit: ClothingUniformSkirtCourier
+  groupBy: "jumpskirt"
 
 # Backpack
 - type: loadout

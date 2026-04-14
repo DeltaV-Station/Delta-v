@@ -9,11 +9,13 @@
   id: ParamedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ParamedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
+  groupBy: "jumpskirt" #DeltaV
 
 # Outer clothing
 - type: loadout
@@ -25,9 +27,11 @@
   id: ParamedicWintercoat
   equipment:
     outerClothing: ClothingOuterWinterPara
+  groupBy: "wintercoat" #DeltaV
 
 # Shoes
 - type: loadout
   id: BlueShoes
   equipment:
     shoes: ClothingShoesColorBlue
+  groupBy: "coloredshoe" #DeltaV

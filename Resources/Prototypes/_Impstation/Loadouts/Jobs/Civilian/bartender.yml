@@ -11,11 +11,13 @@
   id: ClothingUniformNightclubSuit
   equipment:
     jumpsuit: ClothingUniformNightclubSuit #imp
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ClothingUniformNightclubSuitSkirt
   equipment:
     jumpsuit: ClothingUniformNightclubSuitSkirt #imp
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: ClothingUniformSeniorBartender
@@ -24,6 +26,7 @@
     proto: SeniorBartender
   equipment:
     jumpsuit: ClothingUniformSeniorBartender #imp
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ClothingUniformSeniorBartenderSkirt
@@ -32,3 +35,4 @@
     proto: SeniorBartender
   equipment:
     jumpsuit: ClothingUniformSeniorBartenderSkirt #imp
+  groupBy: "jumpskirt" #DeltaV

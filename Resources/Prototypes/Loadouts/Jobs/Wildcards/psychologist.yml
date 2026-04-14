@@ -3,8 +3,10 @@
   id: PsychologistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitPsychologist
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: PsychologistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtPsychologist
+  groupBy: "jumpskirt" #DeltaV

@@ -3,8 +3,10 @@
   id: RedJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: RedJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRed
+  groupBy: "jumpskirt" #DeltaV

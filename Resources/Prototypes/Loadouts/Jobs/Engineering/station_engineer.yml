@@ -52,16 +52,19 @@
   id: StationEngineerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineering
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: SeniorEngineerJumpsuit
@@ -111,6 +114,7 @@
   id: EngineeringWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterEngi
+  groupBy: "winterboots" #DeltaV
 
 # ID
 - type: loadout

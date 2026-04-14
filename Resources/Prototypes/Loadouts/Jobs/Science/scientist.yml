@@ -31,6 +31,7 @@
   id: SkullBandana
   equipment:
     head: ClothingHeadBandSkull
+  groupBy: "headband"
 
 # Neck
 
@@ -38,12 +39,14 @@
   id: ScientistTie
   equipment:
     neck: ClothingNeckTieSci
+  groupBy: "necktie" #DeltaV
 
 # Jumpsuit
 - type: loadout
   id: ScientistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientist
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: ScientistJumpskirt
@@ -54,11 +57,13 @@
   id: RoboticistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitRoboticist
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: RoboticistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
+  groupBy: "jumpskirt" #DeltaV
 
 - type: loadout
   id: SeniorResearcherJumpsuit
@@ -67,6 +72,7 @@
     proto: SeniorResearcher
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorResearcher
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: SeniorResearcherJumpskirt
@@ -75,6 +81,7 @@
     proto: SeniorResearcher
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorResearcher
+  groupBy: "jumpskirt" #DeltaV
 
 # Back
 - type: loadout
@@ -97,26 +104,31 @@
   id: RegularLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLab
+  groupBy: "labcoat" #DeltaV
 
 - type: loadout
   id: ScienceLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRnd
+  groupBy: "labcoat" #DeltaV
 
 - type: loadout
   id: ScienceWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSci
+  groupBy: "wintercoat" #DeltaV
 
 - type: loadout
   id: RoboticistLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRobo
+  groupBy: "labcoat" #DeltaV
 
 - type: loadout
   id: RoboticistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRobo
+  groupBy: "wintercoat" #DeltaV
 
 - type: loadout
   id: SeniorResearcherLabCoat
@@ -125,23 +137,27 @@
     proto: SeniorResearcher
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorResearcher
+  groupBy: "labcoat" #DeltaV
 
 # Gloves
 - type: loadout
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
+  groupBy: "glove" #DeltaV
 
 - type: loadout
   id: RobohandsGloves
   equipment:
     gloves: ClothingHandsGlovesRobohands
+  groupBy: "glove" #DeltaV
 
 # Shoes
 - type: loadout
   id: ScienceWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterSci
+  groupBy: "winterboots" #DeltaV
 
 # ID
 - type: loadout

@@ -9,26 +9,31 @@
   id: ChiefJusticeJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitChiefJustice
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ChiefJusticeJumpskirt
   equipment:
       jumpsuit: ClothingUniformJumpskirtChiefJustice
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ChiefJusticeFormalJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitChiefJusticeFormal
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ChiefJusticeFormalJumpskirt
   equipment:
       jumpsuit: ClothingUniformJumpskirtCJFormal
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ChiefJusticeWhiteJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitChiefJusticeWhite
+  groupBy: "jumpsuit"
 
 # Neck
 - type: loadout
@@ -46,9 +51,3 @@
   id: ChiefJusticeRobe
   equipment:
       outerClothing: ClothingOuterChiefJustice
-
-# Shoes
-- type: loadout
-  id: LeatherShoes
-  equipment:
-      shoes: ClothingShoesLeather

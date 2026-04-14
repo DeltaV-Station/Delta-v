@@ -3,8 +3,10 @@
   id: ReporterJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitReporter
+  groupBy: "jumpsuit" #DeltaV
 
 - type: loadout
   id: JournalistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJournalist
+  groupBy: "jumpskirt" #DeltaV

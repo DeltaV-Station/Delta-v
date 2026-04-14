@@ -3,29 +3,35 @@
   id: BoxerShorts
   equipment:
     jumpsuit: UniformShortsRed
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: BoxerShortsWithTop
   equipment:
     jumpsuit: UniformShortsRedWithTop
+  groupBy: "jumpskirt"
 
 # Gloves
 - type: loadout
   id: RedBoxingGloves
   equipment:
     gloves: ClothingHandsGlovesBoxingRed
+  groupBy: "glove"
 
 - type: loadout
   id: BlueBoxingGloves
   equipment:
     gloves: ClothingHandsGlovesBoxingBlue
+  groupBy: "glove"
 
 - type: loadout
   id: GreenBoxingGloves
   equipment:
     gloves: ClothingHandsGlovesBoxingGreen
+  groupBy: "glove"
 
 - type: loadout
   id: YellowBoxingGloves
   equipment:
     gloves: ClothingHandsGlovesBoxingYellow
+  groupBy: "glove"
