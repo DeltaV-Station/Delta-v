@@ -1,0 +1,180 @@
+﻿- type: markingsGroup
+  id: Felinid
+  limits:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ FelinidTailBasic ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ FelinidEarsBasic ]
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 6
+      required: false
+    Arms:
+      points: 6
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceFelinid
+  name: felinid appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganFelinidTorso
+      Head: OrganFelinidHead
+      ArmLeft: OrganFelinidArmLeft
+      ArmRight: OrganFelinidArmRight
+      HandRight: OrganFelinidHandRight
+      HandLeft: OrganFelinidHandLeft
+      LegLeft: OrganFelinidLegLeft
+      LegRight: OrganFelinidLegRight
+      FootLeft: OrganFelinidFootLeft
+      FootRight: OrganFelinidFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganVulpkaninStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Felinid
+
+- type: entity
+  parent:
+  - AppearanceFelinid
+  - BaseSpeciesMobOrganic
+  id: MobFelinid
+  components:
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 150
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageModifierSet: Felinid
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.85  # 0.7 is base speed.
+      80: 0.75  # 0.5 is base speed.
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 4
+        Piercing: 1
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Felinid
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl']
+  - type: DamageOnHighSpeedImpact # Landing on all fours!
+    damage:
+      types:
+        Blunt: 1
+  - type: Stamina
+    baseCritThreshold: 85
+  - type: TypingIndicator
+    proto: felinid
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
+  - type: Vocal
+    wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
+  - type: ItemCougher
+    item: Hairball
+    action: ActionHairball
+    coughPopup: hairball-cough
+  - type: Felinid
+  - type: NoShoesSilentFootsteps
+
+
+- type: entity
+  parent: OrganBase
+  id: OrganFelinid
+  abstract: true
+  suffix: felinid
+
+- type: entity
+  parent: OrganFelinid
+  id: OrganFelinidExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Species/Human/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      species: Felinid
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseTorso ]
+  id: OrganFelinidTorso
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseHead ]
+  id: OrganFelinidHead
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseArmLeft ]
+  id: OrganFelinidArmLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseArmRight ]
+  id: OrganFelinidArmRight
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseHandLeft ]
+  id: OrganFelinidHandLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseHandRight ]
+  id: OrganFelinidHandRight
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseLegLeft ]
+  id: OrganFelinidLegLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseLegRight ]
+  id: OrganFelinidLegRight
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseFootLeft ]
+  id: OrganFelinidFootLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseFootRight ]
+  id: OrganFelinidFootRight

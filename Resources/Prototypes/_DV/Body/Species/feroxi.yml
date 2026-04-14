@@ -64,6 +64,55 @@
     species: Feroxi
 
 - type: entity
+  parent:
+  - AppearanceFeroxi
+  - BaseSpeciesMobOrganic
+  id: MobFeroxi
+  name: Urist McFin
+  components:
+  - type: Wagging
+  - type: Inventory
+    speciesId: feroxi
+  - type: Thirst
+    baseDecayRate: 0.2
+  - type: Icon
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: full
+  - type: Speech
+    speechSounds: Tenor
+    speechVerb: Feroxi
+    allowedEmotes: [ "Gnash", "Thump" ]
+  - type: Vocal
+    sounds:
+      Male: MaleFeroxi
+      Female: FemaleFeroxi
+      Unsexed: MaleFeroxi
+  - type: BodyEmotes
+    soundsId: FeroxiBodyEmotes
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 30
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 7 # oooh scary extra damage~
+  - type: Perishable
+  - type: Damageable
+    damageModifierSet: Feroxi
+  - type: TypingIndicator
+    proto: feroxi
+  - type: FeroxiDehydrate
+    hydratedMetabolizer: Feroxi
+    dehydratedMetabolizer: FeroxiDehydrated
+    dehydrationThreshold: 150
+  - type: SharkVision
+    pulseTime: 5
+    activateSound: null
+    deactivateSound: null
+
+- type: entity
   parent: OrganBase
   id: OrganFeroxi
   abstract: true
