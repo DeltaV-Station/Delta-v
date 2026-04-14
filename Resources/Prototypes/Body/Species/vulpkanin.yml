@@ -150,7 +150,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
-    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Growl' ] # Delta V - Awoo Addition
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
@@ -161,6 +161,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg
+    angle: 30 # Delta V - Addition
     animation: WeaponArcClaw
     damage:
       types:
@@ -182,16 +183,24 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
-  - type: JumpAbility
-    action: ActionVulpkaninGravityJump
-    canCollide: true
-    jumpDistance: 3
-    jumpSound:
-      path: /Audio/Weapons/punchmiss.ogg
-      params:
-        pitch: 1.33
-        volume: -5
-        variation: 0.05
+  # Delta V - Addition Begin
+  - type: Vocal
+    sounds:
+      Male: MaleVulpkanin
+      Female: FemaleVulpkanin
+      Unsexed: MaleVulpkanin
+  - type: DogVision
+  # Delta V - Addition End
+#  - type: JumpAbility # Delta V - No Jump Ability, Sadge
+#    action: ActionVulpkaninGravityJump
+#    canCollide: true
+#    jumpDistance: 3
+#    jumpSound:
+#      path: /Audio/Weapons/punchmiss.ogg
+#      params:
+#        pitch: 1.33
+#        volume: -5
+#        variation: 0.05
 
 - type: entity
   parent: OrganBase
@@ -220,7 +229,7 @@
   components:
   - type: VisualOrgan
     data:
-      sprite: Mobs/Species/Vulpkanin/parts.rsi
+      sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi # Delta V - Changed to our Sprites
   - type: VisualOrganMarkings
     markingData:
       group: Vulpkanin

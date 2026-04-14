@@ -1,0 +1,165 @@
+﻿- type: markingsGroup
+  id: Asakim
+  onlyWhitelisted: true
+  limits:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ LizardTailSmooth ]
+    HeadTop:
+      points: 2
+      required: false
+    HeadSide:
+      points: 2 # WWDP-Edit
+      required: false
+    Chest:
+      points: 3
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAsakim
+  name: asakim appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganAsakimTorso
+      Head: OrganAsakimHead
+      ArmLeft: OrganAsakimArmLeft
+      ArmRight: OrganAsakimArmRight
+      HandRight: OrganAsakimHandRight
+      HandLeft: OrganAsakimHandLeft
+      LegLeft: OrganAsakimLegLeft
+      LegRight: OrganAsakimLegRight
+      FootLeft: OrganAsakimFootLeft
+      FootRight: OrganAsakimFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganAsakimEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganReptilianStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Asakim
+
+- type: entity
+
+
+- type: entity
+  parent: OrganBase
+  id: OrganAsakim
+  abstract: true
+  suffix: asakim
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: OrganAsakim
+  id: OrganAsakimInternal
+  abstract: true
+
+- type: entity
+  parent: OrganAsakim
+  id: OrganAsakimExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+  - type: VisualOrganMarkings
+    markingGroup:
+      group: Asakim
+
+- type: entity
+  id: OrganAsakimTorso
+  parent: [ OrganBaseTorso, OrganAsakimExternal ]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: OrganAsakimHead
+  parent: [ OrganBaseHead, OrganAsakimExternal]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: OrganAsakimArmLeft
+  parent: [ OrganBaseArmLeft, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimArmRight
+  parent: [ OrganBaseArmRight, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimHandLeft
+  parent: [ OrganBaseHandLeft, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimHandRight
+  parent: [ OrganBaseHandRight, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimLegLeft
+  parent: [ OrganBaseLegLeft, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimLegRight
+  parent: [ OrganBaseLegRight, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimFootLeft
+  parent: [ OrganBaseFootLeft, OrganAsakimExternal ]
+
+- type: entity
+  id: OrganAsakimFootRight
+  parent: [ OrganBaseFootRight, OrganAsakimExternal ]
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganAsakimInternal ]
+  id: OrganAsakimEyes
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Customization/asakimeyes.rsi
+  - type: Organ
+    onAdd:
+    - type: NightVision
+      isEquipment: false
+      color: "#ae65bf"
+      activateSound: null
+      deactivateSound: null
