@@ -13,11 +13,12 @@
       - !type:ReduceRotting
         seconds: 10
         conditions:
-        - !type:HasComponentCondition
-          bodyPart: Torso
-          explanation: reagent-explanation-netinadone-ribcage
-          components:
-          - type: RibcageOpen
+#        Nubody Commented out until we get surgeyr or somethin
+#        - !type:HasComponentCondition
+#          bodyPart: Torso
+#          explanation: reagent-explanation-netinadone-ribcage
+#          components:
+#          - type: RibcageOpen
         - !type:TemperatureCondition
           max: 150.0
         - !type:MobStateCondition

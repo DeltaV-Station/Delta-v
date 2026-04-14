@@ -57,15 +57,6 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: AutodocSyndieFlatpack
-  name: syndie autodoc flatpack
-  description: A flatpack used for constructing a syndicate Autodoc.
-  components:
-  - type: Flatpack
-    entity: AutodocSyndie
-
-- type: entity
-  parent: BaseFlatpack
   id: OperatingTableFlatpack
   name: operating table flatpack
   description: A flatpack used for constructing an operating table.
