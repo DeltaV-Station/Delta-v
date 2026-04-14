@@ -33,7 +33,7 @@
   parent: ClothingHeadset
   id: ClothingHeadsetPrison
   name: prison headset
-  description: Headset used by anybody who needs direct contact with prisoners
+  description: Headset used by anybody who needs direct contact with prisoners.
   components:
   - type: ContainerFill
     containers:
@@ -50,6 +50,19 @@
   id: ClothingHeadsetPrisonGuard
   name: guard headset
   description: Headset used by prison guards.
+
+- type: entity
+  parent: ClothingHeadsetSecurity
+  id: ClothingHeadsetDetective
+  name: detective headset
+  description: A headset that helps gather clues.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+      - EncryptionKeyJustice
 
 - type: entity
   parent: ClothingHeadsetGrey

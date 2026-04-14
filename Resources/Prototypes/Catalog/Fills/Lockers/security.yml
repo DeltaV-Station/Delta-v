@@ -200,7 +200,7 @@
     #- id: ClothingOuterVestDetective
     #- id: ClothingOuterCoatDetectiveLoadout
     # End DeltaV Removals
-    - id: ClothingHeadsetSecurity # DeltaV - add spare headset.
+    - id: ClothingHeadsetDetective # DeltaV - add spare headset, a detective specific one.
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner
@@ -383,7 +383,7 @@
     - id: MagazinePistolSubMachineGunTopMounted
       amount: 4
 
-- type: entity 
+- type: entity
   parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
   id: GunSafeLaserCarbine
   name: laser gun safe # DeltaV - Added "gun"
