@@ -1,28 +1,34 @@
 ﻿- type: markingsGroup
   id: Felinid
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    FacialHair:
-      points: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ FelinidTailBasic ]
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
       defaultMarkings: [ FelinidEarsBasic ]
-    Chest:
-      points: 2
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
       required: false
-    Legs:
-      points: 6
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 6
       required: false
-    Arms:
-      points: 6
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 6
       required: false
 
 - type: entity
@@ -131,6 +137,7 @@
   abstract: true
   components:
   - type: Sprite
+    scale: 0.8, 0.8
     sprite: Mobs/Species/Human/parts.rsi
   - type: VisualOrgan
     data:

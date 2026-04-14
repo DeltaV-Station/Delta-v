@@ -1,33 +1,39 @@
 ﻿- type: markingsGroup
   id: Ovinia
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    FacialHair:
-      points: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: false
-    NeckFluff:
-      points: 1
+    enum.HumanoidVisualLayers.NeckFluff:
+      limit: 1
       required: false
-    HeadTop:
-      points: 2
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 2
       required: true
       defaultMarkings: [ OviniaEars ]
-    Snout:
-      points: 2
+    enum.HumanoidVisualLayers.Snout:
+      limit: 2
       required: false
-    Chest:
-      points: 4
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
       required: false
-    Legs:
-      points: 4
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
       required: false
-    Arms:
-      points: 4
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
       required: false
 
 - type: entity
@@ -88,6 +94,8 @@
       Kidneys: OrganAnimalKidneys
   - type: HumanoidProfile
     species: Ovinia
+  - type: ScaleVisuals
+    scale: 0.9, 0.9
 
 - type: entity
   parent:
@@ -136,11 +144,13 @@
 - type: entity
   parent: OrganBase
   id: OrganOvinia
+  abstract: true
   suffix: ovinia
 
 - type: entity
   parent: OrganOvinia
   id: OrganOviniaExternal
+  abstract: true
   components:
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi

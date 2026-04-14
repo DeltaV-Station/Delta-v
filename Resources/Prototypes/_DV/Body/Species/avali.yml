@@ -2,42 +2,48 @@
   id: Avali
   #onlyWhitelisted: true # DeltaV - some categories (underwear) must not be whitelisted
   limit:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
       onlyWhitelisted: true
-    FacialHair:
-      points: 0
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
       required: false
       onlyWhitelisted: true
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ AvaliTailBase ]
-    Snout:
-      points: 1
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
       required: false
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: false
-    HeadSide:
-      points: 1
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
       required: true
       defaultMarkings: [ AvaliEarsBase ]
-    Chest:
-      points: 2 # DeltaV
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2 # DeltaV
       required: false
-    UndergarmentBottom: # DeltaV - modified point name
-      points: 1
+    enum.HumanoidVisualLayers.UndergarmentBottom: # DeltaV - modified point name
+      limit: 1
       required: false # DeltaV - no mandatory underwear
-    UndergarmentTop: # DeltaV - modified point name
-      points: 1
+    enum.HumanoidVisualLayers.UndergarmentTop: # DeltaV - modified point name
+      limit: 1
       required: false # DeltaV - no mandatory underwear
-    Legs:
-      points: 2
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
       required: false
-    Arms:
-      points: 4
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
       required: false
 
 - type: entity
@@ -86,6 +92,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Avali
+  - type: ScaleVisuals
+    scale: 0.8, 0.8
 
 - type: entity
   parent:

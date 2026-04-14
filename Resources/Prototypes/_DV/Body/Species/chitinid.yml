@@ -2,37 +2,43 @@
   id: Chitinid
   onlyWhitelisted: true
   limits:
-    Hair:
-      points: 0
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
       required: false
-    FacialHair:
-      points: 0
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ ChitinidWingsDefault ]
-    Snout:
-      points: 1
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
       required: false
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
       defaultMarkings: [ ChitinidAntennasDefault ]
-    HeadSide:
-      points: 1
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
       required: false
-    Head:
-      points: 1
+    enum.HumanoidVisualLayers.Head:
+      limit: 1
       required: false
-    Chest:
-      points: 1
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
       required: false
-    Legs:
-      points: 6
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 6
       required: false
-    Arms:
-      points: 6
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 6
       required: false
 
 - type: entity

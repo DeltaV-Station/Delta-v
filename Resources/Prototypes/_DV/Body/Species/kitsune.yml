@@ -2,37 +2,43 @@
   parent: Undergarments
   id: Kitsune
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    FacialHair:
-      points: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
       required: false
-    Snout:
-      points: 1
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ KitsuneTailDefault ]
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
       defaultMarkings: [ KitsuneEarsDefault ]
-    UndergarmentTop:
-      points: 1
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
       required: false
-    UndergarmentBottom:
-      points: 1
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
       required: false
-    Chest:
-      points: 2
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
       required: false
-    Legs:
-      points: 4
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
       required: false
-    Arms:
-      points: 4
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
       required: false
 
 - type: entity

@@ -235,7 +235,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi # Delta V- change to our sprites
 
 - type: entity
   parent: [ OrganBaseTorso, OrganVulpkaninExternal ]

@@ -1,29 +1,44 @@
 ﻿- type: markingsGroup
   id: Harpy
   limits:
-    Hair:
-      points: 1
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
       required: false
-    FacialHair:
-      points: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
       required: false
-    Tail:
-      points: 1
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
       defaultMarkings: [ HarpyTailPhoenix ]
-    HeadTop:
-      points: 1
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
       defaultMarkings: [ HarpyEarsDefault ]
-    Chest:
-      points: 2
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
       required: true
       defaultMarkings: [ HarpyChestDefault ]
-    Legs:
-      points: 2
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
       required: false
-    Arms:
-      points: 1
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+      defaultMarkings: [ HarpyWingDefaultHuescale ]
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: true
+      defaultMarkings: [ HarpyWingDefaultHuescale ]
+    enum.HumanoidVisualLayers.LArmExtension:
+      limit: 1
+      required: true
+      defaultMarkings: [ HarpyWingDefaultHuescale ]
+    enum.HumanoidVisualLayers.RArmExtension:
+      limit: 1
       required: false
       defaultMarkings: [ HarpyWingDefaultHuescale ]
 
@@ -64,6 +79,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Harpy
+  - type: ScaleVisuals
+    scale: 0.9, 0.9
 
 - type: entity
   parent:
@@ -168,7 +185,7 @@
     data:
       sprite: _DV/Mobs/Species/Harpy/parts.rsi
   - type: VisualOrganMarkings
-    markingsData:
+    markingData:
       group: Harpy
 
 - type: entity

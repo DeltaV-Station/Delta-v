@@ -1,18 +1,24 @@
 ﻿- type: markingsGroup
   id: Motorkind
   onlyWhitelisted: true
-  points:
-    Chest:
-      points: 4
+  limits:
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
       required: false
-    Head:
-      points: 3
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
       required: false
-    Arms:
-      points: 2
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
       required: false
-    Legs:
-      points: 2
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
       required: false
 
 - type: entity
@@ -261,7 +267,7 @@
     data:
       sprite: _DV/Mobs/Species/Motorkind/parts.rsi
   - type: VisualOrganMarkings
-    markingsData:
+    markingData:
       group: Motorkind
 
 - type: entity
