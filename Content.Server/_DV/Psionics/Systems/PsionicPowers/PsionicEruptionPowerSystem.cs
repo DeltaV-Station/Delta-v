@@ -8,7 +8,6 @@ using Content.Shared._DV.Psionics.Events.PowerActionEvents;
 using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gibbing;
 using Content.Shared.Popups;
@@ -26,7 +25,6 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;

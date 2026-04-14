@@ -1,3 +1,4 @@
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events.PowerActionEvents;
 using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;
@@ -17,12 +18,14 @@ public sealed class MassSleepPowerSystem : SharedMassSleepPowerSystem
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     public static readonly EntProtoId MassSleepSlowdown = "MassSleepSlowdownStatusEffect";
+    private EntityQuery<PsionicPowerDetectorComponent> _psionicDetectorQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MassSleepPowerComponent, MassSleepDoAfterEvent>(OnMassSleepDoAfter);
+        _psionicDetectorQuery = GetEntityQuery<PsionicPowerDetectorComponent>();
     }
 
     protected override void OnPowerUsed(Entity<MassSleepPowerComponent> psionic, ref MassSleepPowerActionEvent args)
@@ -38,7 +41,8 @@ public sealed class MassSleepPowerSystem : SharedMassSleepPowerSystem
 
         foreach (var target in _lookup.GetEntitiesInRange(args.Performer, psionic.Comp.WarningRadius))
         {
-            if (args.Performer != target && Psionic.CanBeTargeted(target))
+            // TODO: Metapsionic Users won't see this message, as it would otherwise overlap their usual power detected popup. Fix it.
+            if (args.Performer != target && Psionic.CanBeTargeted(target) && !_psionicDetectorQuery.HasComp(target))
             {
                 Popup.PopupEntity(Loc.GetString("psionic-power-mass-sleep-warning"),
                     target,
