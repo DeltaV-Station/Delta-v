@@ -1,0 +1,84 @@
+﻿- type: markingsGroups
+  id: Oni
+  limits:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ OniHornDoubleCurved ]
+    HeadSide:
+      points: 1
+      required: false
+      defaultMarkings: [ PointyEarsUpwards ]
+    Snout:
+      points: 2
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 6
+      required: false
+    Arms:
+      points: 6
+      required: false
+
+# TODO: Do we need a scale here or is the one in Species/oni.yml enoguh
+- type: entity
+  parent: AppearanceHuman
+  id: AppearanceOni
+  name: oni appearance
+  components:
+  - type: HumanoidProfile
+    species: Oni
+
+- type: entity
+  parent:
+  - AppearanceOni
+  - BaseSpeciesMobOrganic
+  id: MobOni
+  name: Urist McOni
+  components:
+  - type: Speech
+    speechSounds: Baritone
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.42
+        density: 220
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.5
+  - type: PlayerAccuracyModifier
+    spreadMultiplier: 15
+    maxSpreadAngle: 180
+  - type: BonusStaminaDamage
+    multiplier: 1.25
+  - type: BonusMeleeDamage
+    damageModifierSet:
+      coefficients:
+        Blunt: 1.35
+        Slash: 1.2
+        Piercing: 1.2
+        Asphyxiation: 1.35
+  - type: ClothingSlowResistance
+    modifier: 0.25 # Slowdowns incurred by worn clothing are 25% less effective.
+  - type: Damageable
+    damageModifierSet: Oni
+  - type: Stamina
+    baseCritThreshold: 115
