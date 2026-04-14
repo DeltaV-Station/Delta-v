@@ -261,8 +261,8 @@
     data:
       sprite: _DV/Mobs/Species/Motorkind/parts.rsi
   - type: VisualOrganMarkings
-    markingsGroup:
-      species: Motorkind
+    markingsData:
+      group: Motorkind
 
 - type: entity
   parent: [ OrganBaseTorso, OrganMotorkindExternal ]

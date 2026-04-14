@@ -128,8 +128,6 @@
   - type: ProtectedFromStepTriggers
   - type: TypingIndicator
     proto: ovinia
-  - type: HumanoidAppearance
-    species: Ovinia
   - type: Hunger
     baseDecayRate: 0.026 #25% slower than normal (chewin they cud)
   - type: Thirst
@@ -144,14 +142,14 @@
   parent: OrganOvinia
   id: OrganOviniaExternal
   components:
-  - Sprite:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+  - type: VisualOrgan
+    data:
       sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
-  - VisualOrgan:
-      date:
-        sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
-  - VisualOrganMarkings:
-      markingGroup:
-        group: Ovinia
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ovinia
   - type: Extractable
     juiceSolution:
       reagents:
