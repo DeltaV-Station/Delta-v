@@ -46,33 +46,33 @@
         weight: 0.015 # DeltaV - original probability was 0.001 but that seems WAY too low
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
-- type: entity
-  id: KingRatMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
-    earliestStart: 15
-    weight: 6
-    duration: 30 # DeltaV: was 50, used as a delay now
-    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-  - type: PrecognitionResult # DeltaV - Precogniton
-    message: psionic-power-precognition-king-rat-migration-result-message
-  - type: VentCrittersRule
-    min: 10 # DeltaV
-    max: 20 # DeltaV
-    playerRatio: 70 # DeltaV: Mostly ignore player scaling
-    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
-      children:
-      - id: MobMouse
-      - id: MobMouse1
-      - id: MobMouse2
-      #- id: MobMouseCancer # DeltaV - no
-    specialEntries:
-    - id: SpawnPointGhostRatKing
-      prob: 0.001
+#- type: entity #Delta-V - Disables Rat King spawns. Direction knows best.
+#  id: KingRatMigration
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/_DV/Announcements/attention.ogg # DeltaV: custom announcer
+#    earliestStart: 15
+#    weight: 6
+#    duration: 30 # DeltaV: was 50, used as a delay now
+#    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+#  - type: PrecognitionResult # DeltaV - Precogniton
+#    message: psionic-power-precognition-king-rat-migration-result-message
+#  - type: VentCrittersRule
+#    min: 10 # DeltaV
+#    max: 20 # DeltaV
+#    playerRatio: 70 # DeltaV: Mostly ignore player scaling
+#    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+#      children:
+#      - id: MobMouse
+#      - id: MobMouse1
+#      - id: MobMouse2
+#      #- id: MobMouseCancer # DeltaV - no
+#    specialEntries:
+#    - id: SpawnPointGhostRatKing
+#      prob: 0.001
 
 - type: entity
   id: CockroachMigration
