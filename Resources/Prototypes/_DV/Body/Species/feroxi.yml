@@ -1,0 +1,202 @@
+﻿- type: markingsGroup
+  parent: Undergarments
+  id: Feroxi
+  limits:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Head:
+      points: 3
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiEars ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiSnout ]
+    Chest:
+      points: 3
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Legs:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiTailAndDorsal ]
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceFeroxi
+  name: feroxi appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganFeroxiTorso
+      Head: OrganFeroxiHead
+      ArmLeft: OrganFeroxiArmLeft
+      ArmRight: OrganFeroxiArmRight
+      HandRight: OrganFeroxiHandRight
+      HandLeft: OrganFeroxiHandLeft
+      LegLeft: OrganFeroxiLegLeft
+      LegRight: OrganFeroxiLegRight
+      FootLeft: OrganFeroxiFootLeft
+      FootRight: OrganFeroxiFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganFeroxiLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganFeroxiStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Feroxi
+
+- type: entity
+  parent: OrganBase
+  id: OrganFeroxi
+  abstract: true
+  suffix: Feroxi
+
+- type: entity
+  parent: OrganFeroxi
+  id: OrganFeroxiExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Feroxi
+
+- type: entity
+  parent: OrganFeroxi
+  id: OrganFeroxiInternal
+  abstract: true
+
+- type: entity
+  parent: [ OrganBaseHead, OrganFeroxiExternal ]
+  id: OrganFeroxiHead
+
+- type: entity
+  parent: [ OrganFeroxiHead ]
+  id: OrganFeroxiHeadMale
+
+- type: entity
+  parent: [ OrganFeroxiHead ]
+  id: OrganFeroxiHeadFemale
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganFeroxiExternal ]
+  id: OrganFeroxiTorso
+
+- type: entity
+  parent: [ OrganFeroxiTorso ]
+  id: OrganFeroxiTorsoMale
+
+- type: entity
+  parent: [ OrganFeroxiTorso ]
+  id: OrganFeroxiTorsoFemale
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiLegLeft
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiHandLeft
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiArmLeft
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiFootLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganFeroxiExternal ]
+  id: OrganFeroxiLegRight
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganFeroxiExternal ]
+  id: OrganFeroxiHandRight
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganFeroxiExternal ]
+  id: OrganFeroxiArmRight
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganFeroxiExternal ]
+  id: OrganFeroxiFootRight
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganFeroxiInternal ]
+  id: OrganFeroxiStomach
+  name: feroxian stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Feroxi, Animal ]
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganFeroxiInternal ]
+  id: OrganFeroxiLungs
+  name: feroxian lungs and gills
+  description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
+  components:
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Feroxi ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100
+        canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
