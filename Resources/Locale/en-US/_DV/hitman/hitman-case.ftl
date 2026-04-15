@@ -13,7 +13,7 @@ hitman-loud-kit-description =
 hitman-assassin-kit-name = Assassin kit
 hitman-assassin-kit-description =
     A kit for the quiet killers.
-    Provides a Cobra with an extra magazine and 4 throwing knives.
+    Provides a Cobra with an extra magazine and armor piercing throwing knives.
     alongside night vision goggles and a radio jammer.
 
 hitman-poisoner-kit-name = Poisoner kit

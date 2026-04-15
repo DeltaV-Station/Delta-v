@@ -1,9 +1,9 @@
 - type: antag
   id: Hitman
   name: roles-antag-hitman-name
+  objective: roles-antag-hitman-objective
   antagonist: true
   setPreference: true
-  objective: roles-antag-hitman-objective
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 24h # works for thief works for me
