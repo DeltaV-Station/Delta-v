@@ -191,7 +191,7 @@
           - id: ChemistryEmptyBottle04
         - id: Beaker
         - id: LargeBeaker
-        - id: BaseChemistryEmptyVial
+        - id: ChemistryEmptyVial
         - id: Syringe
         - id: Dropper
         - id: Jug
@@ -204,7 +204,7 @@
       #Glowsticks
       - !type:GroupSelector
         children:
-        - id: GlowstickBase
+        - id: GlowstickGreen
           amount: !type:RangeNumberSelector
             range: 1, 4
         - id: GlowstickRed

@@ -144,7 +144,10 @@
   loadouts:
   - CaptainHead
   - CaptainCap
-  - CaptainBeret # DeltaV
+  # Begin DeltaV changes
+  - CaptainBeret
+  - CaptainCavalier
+  # End DeltaV changes
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -163,6 +166,7 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
+  - CaptainBoatCloak # DeltaV
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -1337,6 +1341,7 @@
   minLimit: 0
   loadouts:
   - RegularLabCoat
+  - LongLabCoat # DeltaV
   - ScienceLabCoat
   - ScienceWintercoat
   - SeniorResearcherLabCoat
@@ -1397,6 +1402,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - HeadofSecurityCavalier # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1429,6 +1435,7 @@
   - ScarfBlack
   - SecurityPoncho
   - HeadOfSecurityRobe
+  - HeadOfSecurityCloakBoat
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1718,6 +1725,13 @@
   - BlueSurgeryCap
   - GreenSurgeryCap
   - PurpleSurgeryCap
+  # Begin DeltaV Additions
+  - BlackSurgeryCap
+  - CyanSurgeryCap
+  - PinkSurgeryCap
+  - WhiteSurgeryCap
+  - RainbowSurgeryCap
+  # End DeltaV Additions
   - NurseHat
 
 - type: loadoutGroup
@@ -1731,6 +1745,13 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  # Begin DeltaV Additions
+  - MedicalBlackScrubs
+  - MedicalCyanScrubs
+  - MedicalPinkScrubs
+  - MedicalWhiteScrubs
+  - MedicalRainbowScrubs
+  # End DeltaV Additions
   # Begin DeltaV Additions - Medical Clothing Overhaul
   - MedicalApronJumpsuit
   - MedicalApronJumpskirt
@@ -1973,36 +1994,6 @@
   loadouts:
   - LizardPlushiePsychologist
 
-- type: loadoutGroup
-  id: BoxerJumpsuit
-  name: loadout-group-boxer-jumpsuit
-  loadouts:
-  - BoxerShorts
-  - BoxerShortsWithTop
-
-- type: loadoutGroup
-  id: BoxerGloves
-  name: loadout-group-boxer-gloves
-  loadouts:
-  - RedBoxingGloves
-  - BlueBoxingGloves
-  - GreenBoxingGloves
-  - YellowBoxingGloves
-
-- type: loadoutGroup
-  id: BoxerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBoxer
-
-- type: loadoutGroup
-  id: ZookeeperJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieZookeeper
-
 # Other
 - type: loadoutGroup
   id: SurvivalSyndicate
@@ -2015,6 +2006,15 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # DeltaV
   - EmergencyWaterVaporSyndicate # DeltaV
+
+- type: loadoutGroup
+  id: SurvivalMilitaryDouble
+  name: loadout-group-survival-military
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMilitaryDouble
+  - EmergencyOxygenMilitaryDouble
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
