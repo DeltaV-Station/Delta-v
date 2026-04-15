@@ -1,28 +1,4 @@
-Entries:
-- author: TehFlaminTaco
-  changes:
-  - message: Diona now heal in light but suffer in darkness.
-    type: Tweak
-  - message: Diona are no-longer affected by spacewind when rooted.
-    type: Fix
-  id: 1743
-  time: '2025-10-13T08:31:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4502
-- author: BarryNorfolk
-  changes:
-  - message: Laika can now indeed wear K9 armour again
-    type: Fix
-  id: 1744
-  time: '2025-10-13T18:40:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4523
-- author: kotobdev
-  changes:
-  - message: The Head of Security's trenchcoat is available once more, in both loadouts
-      and their locker.
-    type: Add
-  id: 1745
-  time: '2025-10-13T18:57:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4509
+﻿Entries:
 - author: EmberAstra
   changes:
   - message: Fixed the criminal records computer board being called "security records"
@@ -4399,4 +4375,72 @@ Entries:
   id: 2242
   time: '2026-04-11T18:27:39.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5316
+- author: BarryNorfolk
+  changes:
+  - message: Give several entities more than 1 blood.
+    type: Tweak
+  id: 2243
+  time: '2026-04-12T03:47:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5651
+- author: cargomouse
+  changes:
+  - message: Added a button to withdraw 30 material sheets from any machine that uses
+      the materials system. Techfabs, imprinters, etc..
+    type: Tweak
+  id: 2244
+  time: '2026-04-14T06:29:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5663
+- author: Radezolid
+  changes:
+  - message: The turret at the syndicate ruin is no longer on the outside.
+    type: Tweak
+  id: 2245
+  time: '2026-04-14T12:14:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5655
+- author: SirWarock, AeraAulin, BarryNorfolk
+  changes:
+  - message: Refactored EVERYTHING PSIONIC RELATED! THE PSIONIC REFACTOR IS HERE OH
+      MY FUCKING GOD IT TOOK SO LONG
+    type: Tweak
+  - message: Mindshields now shield your mind, wow! Mindswaps and Telegnosis are not
+      possible with mindshields. MassMindswaps do not give a fuck about cheap nanotrasen
+      equipment though.
+    type: Tweak
+  - message: Mindswaps do not unlink when one dies.
+    type: Tweak
+  - message: Mindswaps do not stun anymore or make an obvious statement. This is because
+      we used upstreams version, and now we use DeltaV's version.
+    type: Tweak
+  - message: Psionics with the Dispel Power can now see psionically invisible entities.
+    type: Tweak
+  - message: Dispelling a psionic will stop active doAfters.
+    type: Tweak
+  - message: Fractured Form psionics will reset their forced swap timer when dispelled.
+    type: Tweak
+  - message: Added Ambrosia, a reagent gifted by the Oracle. It is VERY filling and
+      speeds you up.
+    type: Add
+  - message: Added Nectar, same as above. It quenches your thirst and shields you
+      from psionic influences, but lets you use your own.
+    type: Add
+  - message: Added Sanctus Sal, which shields and suppresses psionic activity when
+      consumed.
+    type: Add
+  - message: Added Learnae, which suppresses psionic activity when consumed.
+    type: Add
+  - message: Hitting Mindswapped entities with the psionic knife will attempt to swap
+      them back.
+    type: Add
+  - message: Hitting Psionics with the psionic knife has a chance to disable psionic
+      usage for a short moment.
+    type: Add
+  - message: Metapsionic Pulse is now an Area of Effect around your cursor, and much
+      smaller radius, making it easier to sus out psionics.
+    type: Tweak
+  - message: It is now more likely to be a psionic! Roles and Species account to a
+      higher chance too.
+    type: Tweak
+  id: 2246
+  time: '2026-04-15T20:33:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/4788
 Order: 1

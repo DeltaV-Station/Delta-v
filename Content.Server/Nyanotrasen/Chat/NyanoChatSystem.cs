@@ -2,7 +2,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -15,114 +14,116 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Server._DV.Psionics.Systems;
+using Content.Shared._DV.Chat.Components;
 
-namespace Content.Server.Nyanotrasen.Chat
+namespace Content.Server.Nyanotrasen.Chat;
+
+/// <summary>
+/// Extensions for nyano's chat stuff
+/// </summary>
+
+public sealed class NyanoChatSystem : EntitySystem
 {
-    /// <summary>
-    /// Extensions for nyano's chat stuff
-    /// </summary>
+    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly PsionicSystem _psionicSystem = default!;
 
-    public sealed class NyanoChatSystem : EntitySystem
+    private IEnumerable<INetChannel> GetPsionicChatClients()
     {
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        private IEnumerable<INetChannel> GetPsionicChatClients()
+        return Filter.Empty()
+            .AddWhereAttachedEntity(IsEligibleForTelepathy)
+            .Recipients
+            .Select(p => p.Channel);
+    }
+
+    private IEnumerable<INetChannel> GetAdminClients()
+    {
+        return _adminManager.ActiveAdmins
+            .Select(p => p.Channel);
+    }
+
+    private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
+    {
+        var filtered = Filter.Empty()
+            .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && IsEligibleForTelepathy(entity))
+            .Recipients
+            .Select(p => p.Channel);
+
+        var filteredList = filtered.ToList();
+
+        foreach (var entity in removeList)
+            filteredList.Remove(entity);
+
+        return filteredList;
+    }
+
+    private bool IsEligibleForTelepathy(EntityUid entity)
+    {
+        return _psionicSystem.CanUsePsionicAbility(entity)
+               && (!TryComp<MobStateComponent>(entity, out var mobstate)
+                   || mobstate.CurrentState == MobState.Alive);
+    }
+
+    public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
+    {
+        if (!IsEligibleForTelepathy(source))
+            return;
+
+        var clients = GetPsionicChatClients();
+        var admins = GetAdminClients();
+        string messageWrap;
+        string adminMessageWrap;
+
+        messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
+            ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
+
+        adminMessageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message-admin",
+            ("source", source), ("message", message));
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {ToPrettyString(source):Player}: {message}");
+
+        _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, true, clients.ToList(), Color.PaleVioletRed);
+
+        _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, adminMessageWrap, source, hideChat, true, admins, Color.PaleVioletRed);
+
+        if (_random.Prob(0.1f))
+            _glimmerSystem.Glimmer++;
+
+        if (_random.Prob(Math.Min(0.33f + ((float) _glimmerSystem.Glimmer / 1500), 1)))
         {
-            return Filter.Empty()
-                .AddWhereAttachedEntity(IsEligibleForTelepathy)
-                .Recipients
-                .Select(p => p.Channel);
+            float obfuscation = (0.25f + (float) _glimmerSystem.Glimmer / 2000);
+            var obfuscated = ObfuscateMessageReadability(message, obfuscation);
+            _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, false, GetDreamers(clients), Color.PaleVioletRed);
         }
 
-        private IEnumerable<INetChannel> GetAdminClients()
+        foreach (var repeater in EntityQuery<TelepathicRepeaterComponent>())
         {
-            return _adminManager.ActiveAdmins
-                .Select(p => p.Channel);
+            _chatSystem.TrySendInGameICMessage(repeater.Owner, message, InGameICChatType.Speak, false);
         }
+    }
 
-        private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
+    private string ObfuscateMessageReadability(string message, float chance)
+    {
+        var modifiedMessage = new StringBuilder(message);
+
+        for (var i = 0; i < message.Length; i++)
         {
-            var filtered = Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsStatusEffectComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
-                .Recipients
-                .Select(p => p.Channel);
-
-            var filteredList = filtered.ToList();
-
-            foreach (var entity in removeList)
-                filteredList.Remove(entity);
-
-            return filteredList;
-        }
-
-        private bool IsEligibleForTelepathy(EntityUid entity)
-        {
-            return HasComp<PsionicComponent>(entity)
-                && !HasComp<PsionicsDisabledComponent>(entity)
-                && !HasComp<PsionicInsulationComponent>(entity)
-                && (!TryComp<MobStateComponent>(entity, out var mobstate) || mobstate.CurrentState == MobState.Alive);
-        }
-
-        public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
-        {
-            if (!IsEligibleForTelepathy(source))
-                return;
-
-            var clients = GetPsionicChatClients();
-            var admins = GetAdminClients();
-            string messageWrap;
-            string adminMessageWrap;
-
-            messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
-                ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
-
-            adminMessageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message-admin",
-                ("source", source), ("message", message));
-
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {ToPrettyString(source):Player}: {message}");
-
-            _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, true, clients.ToList(), Color.PaleVioletRed);
-
-            _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, adminMessageWrap, source, hideChat, true, admins, Color.PaleVioletRed);
-
-            if (_random.Prob(0.1f))
-                _glimmerSystem.Glimmer++;
-
-            if (_random.Prob(Math.Min(0.33f + ((float) _glimmerSystem.Glimmer / 1500), 1)))
+            if (char.IsWhiteSpace((modifiedMessage[i])))
             {
-                float obfuscation = (0.25f + (float) _glimmerSystem.Glimmer / 2000);
-                var obfuscated = ObfuscateMessageReadability(message, obfuscation);
-                _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, false, GetDreamers(clients), Color.PaleVioletRed);
+                continue;
             }
 
-            foreach (var repeater in EntityQuery<TelepathicRepeaterComponent>())
+            if (_random.Prob(1 - chance))
             {
-                _chatSystem.TrySendInGameICMessage(repeater.Owner, message, InGameICChatType.Speak, false);
+                modifiedMessage[i] = '~';
             }
         }
 
-        private string ObfuscateMessageReadability(string message, float chance)
-        {
-            var modifiedMessage = new StringBuilder(message);
-
-            for (var i = 0; i < message.Length; i++)
-            {
-                if (char.IsWhiteSpace((modifiedMessage[i])))
-                {
-                    continue;
-                }
-
-                if (_random.Prob(1 - chance))
-                {
-                    modifiedMessage[i] = '~';
-                }
-            }
-
-            return modifiedMessage.ToString();
-        }
+        return modifiedMessage.ToString();
     }
 }
