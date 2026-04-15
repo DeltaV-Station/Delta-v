@@ -1,6 +1,7 @@
 ﻿- type: markingsGroup
+  parent: Undergarments
   id: Chitinid
-  onlyWhitelisted: true
+  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 0
@@ -11,14 +12,14 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ ChitinidWingsDefault ]
+      default: [ ChitinidWingsDefault ]
     enum.HumanoidVisualLayers.Snout:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      defaultMarkings: [ ChitinidAntennasDefault ]
+      default: [ ChitinidAntennasDefault ]
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
       required: false
@@ -108,10 +109,10 @@
       reagents:
       - ReagentId: InsectBlood
         Quantity: 1
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        color: "#808A51"
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        color: "#808A51"
   - type: Vocal
     sounds:
       Male: UnisexChitinid
@@ -189,10 +190,6 @@
   - type: VisualOrganMarkings
     markingData:
       group: Chitinid
-
-- type: entity
-  parent: [ OrganBaseEyes, OrganChitinidExternal ]
-  id: OrganChitinidEyes
 
 - type: entity
   parent: [ OrganBaseHead, OrganChitinidExternal ]
