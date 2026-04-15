@@ -1,5 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
+  onlyGroupWhitelisted: true
   id: Kitsune
   limits:
     enum.HumanoidVisualLayers.Hair:
@@ -14,17 +15,11 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ KitsuneTailDefault ]
+      default: [ KitsuneTailDefault ]
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      defaultMarkings: [ KitsuneEarsDefault ]
-    enum.HumanoidVisualLayers.UndergarmentTop:
-      limit: 1
-      required: false
-    enum.HumanoidVisualLayers.UndergarmentBottom:
-      limit: 1
-      required: false
+      default: [ KitsuneEarsDefault ]
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: false
@@ -55,16 +50,16 @@
             state: jumpsuit-female
   - type: InitialBody
     organs:
-      Torso: OrganHumanTorso
-      Head: OrganHumanHead
-      ArmLeft: OrganHumanArmLeft
-      ArmRight: OrganHumanArmRight
-      HandLeft: OrganHumanHandLeft
-      HandRight: OrganHumanHandRight
-      LegLeft: OrganHumanLegLeft
-      LegRight: OrganHumanLegRight
-      FootLeft: OrganHumanFootLeft
-      FootRight: OrganHumanFootRight
+      Torso: OrganKitsuneTorso
+      Head: OrganKitsuneHead
+      ArmLeft: OrganKitsuneArmLeft
+      ArmRight: OrganKitsuneArmRight
+      HandLeft: OrganKitsuneHandLeft
+      HandRight: OrganKitsuneHandRight
+      LegLeft: OrganKitsuneLegLeft
+      LegRight: OrganKitsuneLegRight
+      FootLeft: OrganKitsuneFootLeft
+      FootRight: OrganKitsuneFootRight
       Brain: OrganHumanBrain
       Eyes: OrganHumanEyes
       Tongue: OrganHumanTongue
@@ -100,6 +95,13 @@
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Kitsune
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#808A51"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Speech
     speechSounds: Alto
     allowedEmotes: ['Growl', 'Squeak']
@@ -133,3 +135,71 @@
     - 0,0,1,4
     - 0,2,3,4
     - 4,0,5,4
+
+- type: entity
+  parent: OrganBase
+  id: OrganKitsune
+  abstract: true
+  suffix: Kitsune
+
+- type: entity
+  parent: OrganBase
+  id: OrganKitsuneInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: OrganKitsune
+  id: OrganKitsuneExternal
+  abstract: true
+  component:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Species/Human/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Kitsune
+
+- type: entity
+  parent: [ OrganBaseHead, OrganKitsuneExternal ]
+  id: OrganKitsuneHead
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganKitsuneExternal ]
+  id: OrganKitsuneTorso
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganKitsuneExternal ]
+  id: OrganKitsuneArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganKitsuneExternal ]
+  id: OrganKitsuneArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganKitsuneExternal ]
+  id: OrganKitsuneHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganKitsuneExternal ]
+  id: OrganKitsuneHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganKitsuneExternal ]
+  id: OrganKitsuneLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganKitsuneExternal ]
+  id: OrganKitsuneLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganKitsuneExternal ]
+  id: OrganKitsuneFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganKitsuneExternal ]
+  id: OrganKitsuneFootRight

@@ -1,6 +1,6 @@
 ﻿- type: markingsGroup
   id: Motorkind
-  onlyWhitelisted: true
+  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Chest:
       limit: 4
@@ -325,7 +325,7 @@
       map: ["base"]
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganMotorkindInternal ]
+  parent: [ OrganBaseEyes, OrganMotorkindInternal, OrganMotorkindExternal ]
   id: OrganMotorkindEyes
   name: windshield
   description: "A single windshield that serves to protect the cabin of the Motorkind, as well as provide vision, somehow."

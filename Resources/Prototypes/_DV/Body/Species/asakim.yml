@@ -303,7 +303,7 @@
   parent: [ OrganBaseFootRight, OrganAsakimExternal ]
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganAsakimInternal ]
+  parent: [ OrganBaseEyes, OrganAsakimInternal, OrganAsakimExternal ]
   id: OrganAsakimEyes
   components:
   - type: Organ
