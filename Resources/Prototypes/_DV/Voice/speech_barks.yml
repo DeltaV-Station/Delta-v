@@ -1,0 +1,74 @@
+# The sound collections for the speech bark voices themselves
+# The collection groups audio files for individual voices
+# Collection order is Bass, Baritone, Tenor, Alto because it makes sense!
+# Reference and verification for which speak_#.ogg files match the pitch were located in Upstream voice YAML
+
+- type: soundCollection
+  id: BarkBass
+  files:
+  - /Audio/Voice/Talk/speak_4.ogg
+  - /Audio/Voice/Talk/speak_4_ask.ogg
+  - /Audio/Voice/Talk/speak_4_exclaim.ogg
+
+- type: soundCollection
+  id: BarkBaritone
+  files:
+  - /Audio/Voice/Talk/speak_1.ogg
+  - /Audio/Voice/Talk/speak_1_ask.ogg
+  - /Audio/Voice/Talk/speak_1_exclaim.ogg
+
+- type: soundCollection
+  id: BarkTenor
+  files:
+  - /Audio/Voice/Talk/speak_3.ogg
+  - /Audio/Voice/Talk/speak_3_ask.ogg
+  - /Audio/Voice/Talk/speak_3_exclaim.ogg
+
+- type: soundCollection
+  id: BarkAlto
+  files:
+  - /Audio/Voice/Talk/speak_2.ogg
+  - /Audio/Voice/Talk/speak_2_ask.ogg
+  - /Audio/Voice/Talk/speak_2_exclaim.ogg
+
+# Speech Bark prototypes for the voices
+# The prototypes reference a soundCollection then define the playback
+- type: bark
+  id: Bass
+  sounds:
+    collection: BarkBass
+  minPitch: 0.45
+  maxPitch: 0.65
+  volume: 0
+  frequency: 1
+  predictable: true
+
+- type: bark
+  id: Baritone
+  sounds:
+    collection: BarkBaritone
+  minPitch: 0.6
+  maxPitch: 0.8
+  volume: 0
+  frequency: 1
+  predictable: true
+
+- type: bark
+  id: Tenor
+  sounds:
+    collection: BarkTenor
+  minPitch: 1.0
+  maxPitch: 1.4
+  volume: 0
+  frequency: 1
+  predictable: true
+
+- type: bark
+  id: Alto
+  sounds:
+    collection: BarkAlto
+  minPitch: 0.85
+  maxPitch: 1.15
+  volume: 0
+  frequency: 1
+  predictable: true
