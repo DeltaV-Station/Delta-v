@@ -3,38 +3,54 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Speech.Barks;
 
-// Defining speech bark voices
+/// <summary>
+/// Defining speech bark voices, and which sounds to play based on character speech.
+/// </summary>
 [Prototype]
 public sealed partial class BarkPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    // Sound collection to pull the blips from
+    /// <summary>
+    /// Sound collection to pull the blips from
+    /// </summary>
     [DataField(required: true)]
     public SoundSpecifier Sounds = default!;
 
-    // Pitch multiplier, minimum
+    /// <summary>
+    /// Pitch multiplier, minimum
+    /// </summary>
     [DataField]
-    public float MinPitch = 0.9F;
+    public float MinPitch = 0.9f;
 
-    // Pitch multiplier, maximum
+    /// <summary>
+    /// Pitch multiplier, maximum
+    /// </summary>
     [DataField]
-    public float MaxPitch = 1.1F;
+    public float MaxPitch = 1.1f;
 
-    // Base volume. Negative = quiet. Positive = loud
+    /// <summary>
+    /// Base volume. Negative = quiet. Positive = loud
+    /// </summary>
     [DataField]
-    public float Volume = 0F;
-
-    // Blips per letter.
+    public float Volume = 0f;
+    
+    /// <summary>
+    /// Blips per letter.
+    /// </summary>
     [DataField]
-    public float Frequency = 1F;
+    public float Frequency = 1f;
 
-    // Determine if pitch and sound is the same relative to a character.
+    /// <summary>
+    /// Determine if pitch and sound is the same relative to a character.
+    /// </summary>
     [DataField]
     public bool Predictable = true;
 
-    // Species to use Barks. Null makes it available to all.
+    /// <summary>
+    /// Species to use Barks. Null makes it available to all.
+    /// </summary>
     [DataField]
     public List<string>? SpeciesWhitelist;
 }

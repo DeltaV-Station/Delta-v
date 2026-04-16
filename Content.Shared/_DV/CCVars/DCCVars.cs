@@ -316,5 +316,5 @@ public sealed partial class DCCVars
     /// Local volume multiplier for speech barks.
     /// </summary>
     public static readonly CVarDef<float> BarksVolume =
-        CVarDef.Create("voice.barks_volume", 1.0F, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("voice.barks_volume", 1.0f, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
