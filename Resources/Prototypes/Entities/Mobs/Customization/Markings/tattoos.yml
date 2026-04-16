@@ -1,7 +1,7 @@
 - type: marking
   id: TattooHiveChest
   bodyPart: Chest
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
+  groupWhitelist: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
   sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
@@ -15,7 +15,7 @@
 - type: marking
   id: TattooNightlingChest
   bodyPart: Chest
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
+  groupWhitelist: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
   sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
@@ -29,7 +29,7 @@
 - type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -42,7 +42,7 @@
 - type: marking
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -55,7 +55,7 @@
 - type: marking
   id: TattooCampbellLeftArm
   bodyPart: LArm
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -68,7 +68,7 @@
 - type: marking
   id: TattooCampbellRightArm
   bodyPart: RArm
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -81,7 +81,7 @@
 - type: marking
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -94,7 +94,7 @@
 - type: marking
   id: TattooCampbellRightLeg
   bodyPart: RLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Dwarf, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -107,7 +107,7 @@
 - type: marking
   id: TattooEyeRight
   bodyPart: Eyes
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia, Feroxi, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia, Feroxi, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
@@ -120,7 +120,7 @@
 - type: marking
   id: TattooEyeLeft
   bodyPart: Eyes
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia, Feroxi, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia, Feroxi, Kitsune] # DeltaV - Felinid-Kitsune
   coloring:
     default:
       type:
