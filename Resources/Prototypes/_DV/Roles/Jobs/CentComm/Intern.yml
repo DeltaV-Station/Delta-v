@@ -1,0 +1,39 @@
+- type: job
+  id: CentralCommandIntern
+  name: job-name-centcomintern
+  description: job-description-centcomintern
+  playTimeTracker: JobCentralCommandIntern
+  setPreference: false
+  startingGear: CentcomInternGear
+  icon: "JobIconCentCommIntern"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Command
+  - Medical
+  - Service
+  - Cargo
+  - Engineering
+  - Research
+  - Security
+  - Justice
+  - Maintenance
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Changed Mindshield implant to Centcomm implant
+
+- type: startingGear
+  id: CentcomInternGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelCentcom
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatBeretCentcomm
+    eyes: ClothingEyesGlassesSunglasses
+    id: CentcomInternPDA
+    ears: ClothingHeadsetCentCom
+    belt: ClothingBeltPaperworkFilled
+    pocket1: BoxFolderCentComClipboardThreePapers
+    pocket2: FoodSnackEnergy

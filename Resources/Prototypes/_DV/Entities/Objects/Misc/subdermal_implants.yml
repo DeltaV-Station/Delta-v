@@ -6,7 +6,7 @@
   description: This implant lets its user adjust their voice to whoever they can think of.
   components:
   - type: SubdermalImplant
-    implantAction: ActionChangeVoiceMask
+    implantAction: ActionChangeVoiceMaskImplant
   - type: VoiceMask
   - type: UserInterface
     interfaces:
@@ -31,13 +31,30 @@
   id: WatchdogImplant
   categories: [ HideSpawnMenu ]
   name: watchdog implant
-  description: This implant transmits a message on the security channel in case the user goes into critical state.
+  description: This implant transmits a message on the security channel in case the user goes into critical state or if they die.
   components:
   - type: TriggerOnMobstateChange
     mobState:
     - Critical
+    - Dead
   - type: RattleOnTrigger
+    targetUser: true
     radioChannel: Security
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MedicalTrackingImplant
+  categories: [ HideSpawnMenu ]
+  name: medical tracking implant
+  description: This implants transmits a message on the medical channel in case the user goes into critical state or dies.
+  components:
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+    - Dead
+  - type: RattleOnTrigger
+    targetUser: true
+    radioChannel: Medical
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -81,3 +98,39 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+
+# NTAgent
+
+- type: entity
+  parent: [ BaseSubdermalImplant, StorePresetNanolink ]
+  id: NanolinkSubImplant
+  name: Nanolink implant
+  description: This implant lets the user access a hidden NanoTrasen uplink at will.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionOpenNanolinkImplant
+    whitelist:
+      components:
+      - Hands
+  - type: Store
+    balance:
+      NanoCoin: 10
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+
+- type: entity
+  parent: ActionIntrinsicStore
+  id: ActionOpenNanolinkImplant
+  name: Open Nanolink
+  description: Opens the NanoTrasen uplink embedded under your skin.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Devices/communication.rsi
+      state: old-radio

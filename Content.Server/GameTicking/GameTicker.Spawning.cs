@@ -8,6 +8,7 @@ using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared._DV.Species; // DeltaV - Hidden species
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -196,7 +197,7 @@ namespace Content.Server.GameTicking
                     var speciesPrototypes = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>();
                     foreach (var proto in speciesPrototypes)
                     {
-                        if (proto.RoundStart)
+                        if (proto.RoundStart && !SpeciesHiderSystem.IsHidden(proto.ID)) // DeltaV - Don't include hidden species
                             roundStart.Add(proto.ID);
                     }
 

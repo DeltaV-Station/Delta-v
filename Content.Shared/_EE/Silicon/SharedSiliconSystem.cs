@@ -9,17 +9,19 @@ using Content.Shared.PowerCell.Components;
 namespace Content.Shared._EE.Silicon.Systems;
 
 
-public sealed class SharedSiliconChargeSystem : EntitySystem
+public abstract class SharedSiliconChargeSystem : EntitySystem // DeltaV - Make class abstract to split into Client/Server
 {
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    // [Dependency] private readonly AlertsSystem _alertsSystem = default!; // DeltaV - Moved alert handling to Client
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SiliconComponent, ComponentInit>(OnSiliconInit);
-        SubscribeLocalEvent<SiliconComponent, SiliconChargeStateUpdateEvent>(OnSiliconChargeStateUpdate);
+        // Begin DeltaV - Moved alert handling to Client
+        // SubscribeLocalEvent<SiliconComponent, ComponentInit>(OnSiliconInit);
+        // SubscribeLocalEvent<SiliconComponent, SiliconChargeStateUpdateEvent>(OnSiliconChargeStateUpdate);
+        // End DeltaV - Moved alert handling to Client
         SubscribeLocalEvent<SiliconComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<SiliconComponent, ItemSlotInsertAttemptEvent>(OnItemSlotInsertAttempt);
         SubscribeLocalEvent<SiliconComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
@@ -48,18 +50,20 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
-    {
-        if (!component.BatteryPowered)
-            return;
+    // Begin DeltaV - Moved alert handling to Client
+    // private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
+    // {
+    //     if (!component.BatteryPowered)
+    //         return;
 
-        _alertsSystem.ShowAlert(uid, component.BatteryAlert, component.ChargeState);
-    }
+    //     _alertsSystem.ShowAlert(uid, component.BatteryAlert, component.ChargeState);
+    // }
 
-    private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconComponent component, SiliconChargeStateUpdateEvent ev)
-    {
-        _alertsSystem.ShowAlert(uid, component.BatteryAlert, ev.ChargePercent);
-    }
+    // private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconComponent component, SiliconChargeStateUpdateEvent ev)
+    // {
+    //     _alertsSystem.ShowAlert(uid, component.BatteryAlert, ev.ChargePercent);
+    // }
+    // End DeltaV - Moved alert handling to Client
 
     private void OnRefreshMovespeed(EntityUid uid, SiliconComponent component, RefreshMovementSpeedModifiersEvent args)
     {

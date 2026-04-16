@@ -172,12 +172,18 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
+      # Begin DeltaV - Fuel eaters
+      - !type:SatiateHunger
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Fuel]
+      # End DeltaV
     Poison:
       effects:
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox]
+          type: [Vox, Fuel] # DeltaV - Fuel eaters are also unharmed by welding fuel
           inverted: true
         damage:
           types:

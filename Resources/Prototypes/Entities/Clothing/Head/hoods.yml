@@ -350,9 +350,9 @@
   name: chief medical officer's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodcmo.rsi # DeltaV - Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodcmo.rsi # DeltaV - Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -416,9 +416,9 @@
   name: medic coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodmed.rsi # DeltaV - Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodmed.rsi # DeltaV - Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase

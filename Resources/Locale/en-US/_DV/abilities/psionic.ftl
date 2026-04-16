@@ -1,15 +1,50 @@
-psionic-nosebleed-message = Your nose starts gushing blood!
+## Names of Psionic Powers
+psionic-power-name-dispel = Dispel
+psionic-power-name-eruption = Psionic Eruption
+psionic-power-name-fractured-form = Fractured Form
+psionic-power-name-mass-sleep = Mass Sleep
+psionic-power-name-mindswap = Mind Swap
+psionic-power-name-mindswap-return = Mind Swap Return
+psionic-power-name-metapsionic = Metapsionic Pulse
+psionic-power-name-noospheric-zap = Noospheric Zap
+psionic-power-name-precognition = Precognition
+psionic-power-name-psychokinetic = Psychokinetic Scream
+psionic-power-name-psionic-invisibility = Psionic Invisibility
+psionic-power-name-psionic-regeneration = Psionic Regeneration
+psionic-power-name-pyrokinesis = Pyrokinesis
+psionic-power-name-telegnosis = Telegnosis
 
-mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
+## Psionic Rolling & Mindbreaking Messages
+psionic-roll-failed = The noöspheric influence leaves no mark on your mind...
+psionic-partly-mindbroken = The psionic influence on your mind weakens..
+psionic-mindbroken = Your mind retreats from abstraction to reality.
 
-mass-mind-swap-event-sender = Sophic Grammateus
+## Base Psionic messages
+psionic-cannot-use-psionics = Your psionic energy can't escape your mind!
+psionic-shielded-from-attempt = A psionic influence faltered against your shield!
+psionic-cannot-target-shielded = They remain steadfast against your psionic grasp!
+psionic-equipped-shielded-in-doafter = The insulative gear broke your concentration..
+psionic-dispelled = Someone dispelled your psionic concentration!
 
-minor-mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Minor Mass Consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immedieately.
+## Specific Psionic messages
+# Fractured Form
+psionic-power-fractured-form-nobodies = You have no alternate forms to switch to!
+psionic-power-fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
+psionic-power-fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
+psionic-power-fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
+psionic-power-fractured-form-dispelled = Someone dispelled your sleepiness..
 
-minor-mass-mind-swap-event-sender = Sophic Grammateus
+# Metapsionic Pulse
+psionic-power-metapsionic-success = You detect psychic presence there.
+psionic-power-metapsionic-failure = You don't detect any psychic presence there.
+psionic-power-metapsionic-power-detected = You detect that {$power} was used nearby.
 
-psionic-power-mass-sleep-warning = Your eyelids begin to droop...
+# Mindswap
+psionic-power-mindswap-target-mindshielded = Your mindshield.. surprisingly shielded your mind from an psionic influence.
+psionic-power-mindswap-own-mindshield = Your mindshield.. stops your mind from leaving your body.
+psionic-power-mindswap-original-lost = The psionic tether to your original body was severed!
 
+# Precognition
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
 psionic-power-precognition-no-event-result-message = You see a vision of an undisturbed lake.
 
@@ -62,6 +97,7 @@ psionic-power-precognition-syndicate-armsdealer-result-message = You see a visio
 psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 psionic-power-precognition-asakim-spawn-result-message = You smell stale air from a cryopod opening, and the faint echo of an intelligence far away but very near.
 
+# Psionic Eruption
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
 psionic-eruption-annoy-minimal = You feel a pressure building up in your mind.
 psionic-eruption-annoy-low = Your head aches from the psionic energy.
@@ -86,11 +122,20 @@ eruption-warning-window-prompt-text-part = You feel a strong pressure building u
                                             Do you understand?
 eruption-warning-window-acknowledge-button = I Understand
 
-telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
+## Psionic Gamerule Messages
+gamerule-noospheric-zap-seize = An external eruption overwhelms your mind!
+gamerule-noospheric-zap-seize-potential-regained = Your mind restructures.. it demands knowledge...
 
-fractured-form-nobodies = You have no alternate forms to switch to!
-fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
-fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
-fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
+psionic-nosebleed-message = Your nose starts gushing blood!
+
+mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
+mass-mind-swap-event-sender = Sophic Grammateus
+
+minor-mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Minor Mass Consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immedieately.
+minor-mass-mind-swap-event-sender = Sophic Grammateus
+
+psionic-power-mass-sleep-warning = Your eyelids begin to droop...
+
+telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
 
 glimmer-restyle-event = You feel like something changed about your looks...

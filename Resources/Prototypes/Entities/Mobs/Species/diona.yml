@@ -33,10 +33,10 @@
       - id: FoodMeatPlant
         amount: 5
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Sap
-        Quantity: 1
+        Quantity: 300
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -113,9 +113,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # DeltaV
-    leftBarePrint: "footprint-left-bare-diona"
-    rightBarePrint: "footprint-right-bare-diona"
   - type: MovementSpeedModifier # DeltaV
     baseWalkSpeed: 1.0
     baseSprintSpeed: 3.0

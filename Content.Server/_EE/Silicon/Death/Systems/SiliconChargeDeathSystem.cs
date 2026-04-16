@@ -1,7 +1,7 @@
 using Content.Shared.Power.Components;
 using Content.Shared._EE.Silicon.Systems;
 using Content.Shared.Bed.Sleep;
-using Content.Server._EE.Silicon.Charge;
+using Content.Server._DV.Silicons.Charge; // DeltaV - Moved IPC charge to shared and split into server/client
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 
@@ -10,7 +10,7 @@ namespace Content.Server._EE.Silicon.Death;
 public sealed class SiliconDeathSystem : EntitySystem
 {
     [Dependency] private readonly SleepingSystem _sleep = default!;
-    [Dependency] private readonly SiliconChargeSystem _silicon = default!;
+    [Dependency] private readonly SiliconDrainSystem _silicon = default!; // DeltaV - Renamed type from "Charge" to "Drain" to disambiguate
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
 
     public override void Initialize()

@@ -65,7 +65,12 @@
 - type: quickPhrase
   parent: BaseCommandJobPhrase
   id: CentralCommandOfficialPhrase
-  text: job-name-centcomoff
+  text: job-name-centcommoff
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: CentralCommandInternPhrase
+  text: job-name-centcomintern
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
