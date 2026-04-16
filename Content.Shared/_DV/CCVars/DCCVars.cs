@@ -301,4 +301,20 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create("cosmiccult.extra_entropy_for_finale", 1, CVar.SERVER);
+
+    /*
+     * Speech Barks
+     */
+
+    /// <summary>
+    /// Whether speech barks is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> BarksEnabled =
+        CVarDef.Create("voice.barks_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Local volume multiplier for speech barks.
+    /// </summary>
+    public static readonly CVarDef<float> BarksVolume =
+        CVarDef.Create("voice.barks_volume", 1.0F, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
