@@ -619,7 +619,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         var (isTargetSsd, isTargetDead, isUserShielded) = LogValuesForStripAction(user, target); // DeltaV
 
-        _adminLogger.Add(LogType.Stripping, !isUserShielded && isTargetSsd && !isTargetDead ? LogImpact.Extreme : LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands"); // DeltaV - Add conditional LogImpact. If not SSD Lower LogImpact to Medium, if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice. If living SSD, always alert.
+        _adminLogger.Add(LogType.Stripping, !isUserShielded && isTargetSsd && !isTargetDead ? LogImpact.High : LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands"); // DeltaV - Add conditional LogImpact. If not SSD Lower LogImpact to Medium; if someone is stripping from hands, the item was probably being offered to them. If not, the target is much more likely to notice. If living SSD, alert on new players.
         // Hand update will trigger strippable update.
     }
 
