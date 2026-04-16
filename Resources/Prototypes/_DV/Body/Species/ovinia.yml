@@ -16,7 +16,7 @@
     enum.HumanoidVisualLayers.HeadTop:
       limit: 2
       required: true
-      defaultMarkings: [ OviniaEars ]
+      default: [ OviniaEars ]
     enum.HumanoidVisualLayers.Snout:
       limit: 2
       required: false

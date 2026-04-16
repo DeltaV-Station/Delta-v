@@ -47,10 +47,12 @@ namespace Content.Shared.Humanoid
                     break;
                 case HumanoidVisualLayers.LArm:
                     yield return HumanoidVisualLayers.LArm;
+                    yield return HumanoidVisualLayers.LArmExtension; // Delta V Harpies
                     yield return HumanoidVisualLayers.LHand;
                     break;
                 case HumanoidVisualLayers.RArm:
                     yield return HumanoidVisualLayers.RArm;
+                    yield return HumanoidVisualLayers.RArmExtension; // Delta V HArpies
                     yield return HumanoidVisualLayers.RHand;
                     break;
                 case HumanoidVisualLayers.LLeg:

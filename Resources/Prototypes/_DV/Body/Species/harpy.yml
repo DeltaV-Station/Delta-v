@@ -31,7 +31,7 @@
       limit: 1
       required: false
       default: [ HarpyWingDefaultHuescale ]
-    enum.HumanoidVisualLayers.RArm:
+    enum.HumanoidVisualLayers.RArmExtension:
       limit: 1
       required: true
       default: [ HarpyWingDefaultHuescale ]
@@ -250,6 +250,11 @@
 - type: entity
   parent: [ OrganBaseArmRight, OrganHarpyExternal ]
   id: OrganHarpyArmRight
+  components:
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RArmExtension
 
 - type: entity
   parent: [ OrganBaseFootRight, OrganHarpyExternal ]

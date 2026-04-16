@@ -69,6 +69,11 @@
       state: "creampie_human"
       visible: false
 
+    # Delta V Begin - Harpies
+    - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
+    - map: [ "enum.HumanoidVisualLayers.LArmExtension" ]
+    # Delta V End
+
 - type: entity
   id: BaseSpeciesAppearance
   parent:
