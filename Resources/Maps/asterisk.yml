@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 22:58:35
-  entityCount: 13126
+  time: 03/09/2026 23:40:28
+  entityCount: 13127
 maps:
 - 7928
 grids:
@@ -6765,13 +6765,11 @@ entities:
       parent: 2
 - proto: AntiMeteorZoneArrivals
   entities:
-  - uid: 2207
+  - uid: 13102
     components:
     - type: Transform
-      pos: -7.5,20.5
+      pos: -11.5,30.5
       parent: 2
-    - type: AntiMeteorZoneStandardRate
-      zoneRadius: 7
 - proto: AntiMeteorZoneEvac
   entities:
   - uid: 8474
@@ -7260,6 +7258,20 @@ entities:
       parent: 2
 - proto: ArrivalsShuttleTimer
   entities:
+  - uid: 2207
+    components:
+    - type: Transform
+      pos: -11.5,32.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 11468
+    components:
+    - type: Transform
+      pos: -15.5,24.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 12683
     components:
     - type: Transform
@@ -8007,19 +8019,19 @@ entities:
     - type: Transform
       pos: 4.5,-25.5
       parent: 2
-- proto: BenchParkLeft
-  entities:
-  - uid: 1477
-    components:
-    - type: Transform
-      pos: -44.5,-8.5
-      parent: 2
-- proto: BenchParkRight
+- proto: BenchParkLeftDV
   entities:
   - uid: 3380
     components:
     - type: Transform
       pos: -45.5,-8.5
+      parent: 2
+- proto: BenchParkRightDV
+  entities:
+  - uid: 1477
+    components:
+    - type: Transform
+      pos: -44.5,-8.5
       parent: 2
 - proto: BenchPewLeft
   entities:
@@ -8145,40 +8157,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -35.5,-12.5
       parent: 2
-- proto: BenchSofaCorpLeft
-  entities:
-  - uid: 3733
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -7.5,-24.5
-      parent: 2
-  - uid: 4647
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 45.5,-0.5
-      parent: 2
-  - uid: 11243
-    components:
-    - type: Transform
-      pos: -16.5,28.5
-      parent: 2
-  - uid: 11267
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -24.5,28.5
-      parent: 2
-- proto: BenchSofaCorpMiddle
-  entities:
-  - uid: 3735
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -7.5,-25.5
-      parent: 2
-- proto: BenchSofaCorpRight
+- proto: BenchSofaCorpLeftDV
   entities:
   - uid: 3734
     components:
@@ -8203,21 +8182,54 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -24.5,27.5
       parent: 2
-- proto: BenchSofaLeft
+- proto: BenchSofaCorpMiddle
   entities:
-  - uid: 2936
+  - uid: 3735
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,-25.5
+      parent: 2
+- proto: BenchSofaCorpRightDV
+  entities:
+  - uid: 3733
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,-24.5
+      parent: 2
+  - uid: 4647
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -31.5,12.5
+      pos: 45.5,-0.5
       parent: 2
-- proto: BenchSofaRight
+  - uid: 11243
+    components:
+    - type: Transform
+      pos: -16.5,28.5
+      parent: 2
+  - uid: 11267
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.5,28.5
+      parent: 2
+- proto: BenchSofaLeftDV
   entities:
   - uid: 2867
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -30.5,12.5
+      parent: 2
+- proto: BenchSofaRightDV
+  entities:
+  - uid: 2936
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -31.5,12.5
       parent: 2
 - proto: BenchSteelLeft
   entities:
@@ -33805,8 +33817,7 @@ entities:
   - uid: 11505
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -11.5,20.5
+      pos: -10.5,20.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -55839,18 +55850,6 @@ entities:
     - type: Transform
       pos: -13.5,-18.5
       parent: 2
-- proto: HoloprojectorEngineering
-  entities:
-  - uid: 2837
-    components:
-    - type: Transform
-      pos: 31.386017,-2.6490197
-      parent: 2
-  - uid: 9022
-    components:
-    - type: Transform
-      pos: 31.656849,-2.377998
-      parent: 2
 - proto: HoloprojectorSecurity
   entities:
   - uid: 12029
@@ -55862,6 +55861,18 @@ entities:
     components:
     - type: Transform
       pos: -27.827864,10.703309
+      parent: 2
+- proto: HolotapeProjector
+  entities:
+  - uid: 2837
+    components:
+    - type: Transform
+      pos: 31.386017,-2.6490197
+      parent: 2
+  - uid: 9022
+    components:
+    - type: Transform
+      pos: 31.656849,-2.377998
       parent: 2
 - proto: HospitalCurtainsOpen
   entities:
@@ -65780,20 +65791,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 11468
-    components:
-    - type: Transform
-      pos: -11.5,32.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 11469
-    components:
-    - type: Transform
-      pos: -15.5,24.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 12455
     components:
     - type: Transform
@@ -65884,13 +65881,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-19.5
-      parent: 2
-- proto: SentientSmileCore
-  entities:
-  - uid: 9326
-    components:
-    - type: Transform
-      pos: -30.47015,-23.592941
       parent: 2
 - proto: ServiceTechFab
   entities:
@@ -66966,6 +66956,22 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: SignArrivals
+  entities:
+  - uid: 930
+    components:
+    - type: Transform
+      pos: -11.5,20.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 11469
+    components:
+    - type: Transform
+      pos: -11.5,27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: SignAtmos
   entities:
   - uid: 9531
@@ -67625,13 +67631,6 @@ entities:
       fixtures: {}
 - proto: SignShipDock
   entities:
-  - uid: 930
-    components:
-    - type: Transform
-      pos: -11.5,27.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 10110
     components:
     - type: Transform
@@ -68167,6 +68166,13 @@ entities:
     components:
     - type: Transform
       pos: 12.5,18.5
+      parent: 2
+- proto: SpawnMobSmileCore
+  entities:
+  - uid: 9326
+    components:
+    - type: Transform
+      pos: -30.5,-23.5
       parent: 2
 - proto: SpawnMobWalter
   entities:

@@ -71,6 +71,17 @@
     stealGroup: BibleMystagogue
     owner: job-name-rd
 
+# Chief Engineer steal objective
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CeClipboardStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: StealCondition
+    stealGroup: BoxFolderCeClipboard
+    owner: job-name-ce
+
 # teach lesson
 - type: entity
   abstract: true
@@ -101,12 +112,12 @@
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 # Kill fellow traitor objective
 - type: entity

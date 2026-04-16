@@ -26,6 +26,14 @@ public sealed partial class ClumsyComponent : Component
     [DataField, AutoNetworkedField]
     public float ClumsyDefaultCheck = 0.5f;
 
+    // Begin DeltaV Changes - Gun
+    /// <summary>
+    /// Chance for a clumsy entity to fail when shooting a weapon
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ClumsyGunShootCheck = 0.5f;
+    // End DeltaV Changes - Gun
+
     /// <summary>
     ///     Default stun time.
     ///     If a system needs to use something else, add a new variable in the component, do not modify this number.

@@ -8,7 +8,7 @@
     },
     "states": [
         {
-            "name": "base",
+            "name": "security",
             "directions": 1
         },
         {
@@ -16,7 +16,7 @@
             "directions": 1
         },
         {
-            "name": "door",
+            "name": "security-door",
             "directions": 1
         },
         {
@@ -85,6 +85,26 @@
         },
         {
             "name": "m90",
+            "directions": 1
+        },
+        {
+            "name": "base",
+            "directions": 1
+        },
+        {
+            "name": "door",
+            "directions": 1
+        },
+        {
+            "name": "salvage",
+            "directions": 1
+        },
+        {
+            "name": "salvage-door",
+            "directions": 1
+        },
+        {
+            "name": "salvage-open",
             "directions": 1
         }
     ]

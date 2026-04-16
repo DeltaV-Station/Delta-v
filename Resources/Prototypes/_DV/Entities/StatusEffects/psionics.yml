@@ -1,0 +1,35 @@
+# Prevents the affected entity from using psionic powers.
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectPsionicsDisabled
+  name: psionics disabled
+  components:
+  - type: PsionicsDisabled
+
+# Shields the affected entity from external psionic powers.
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectShieldedFromPsionics
+  name: shielded from psionics
+  components:
+  - type: ShieldedFromPsionics
+
+# Causes the entity to repeat what is said in telepathic chat.
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectTelepathicRepeater
+  name: telepathic repeater
+  components:
+  - type: TelepathicRepeater
+
+# Slows down the user when using the precognition ability.
+- type: entity
+  parent: [ StatusEffectSlowdown, MobStatusEffectDebuff ]
+  id: PrecognitionSlowdownStatusEffect
+  name: slowed by precognition power
+
+# Slows down the user when using the mass sleep ability.
+- type: entity
+  parent: [ StatusEffectSlowdown, MobStatusEffectDebuff ]
+  id: MassSleepSlowdownStatusEffect
+  name: slowed by mass sleep power

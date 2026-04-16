@@ -1166,7 +1166,7 @@
   productPrototypes:
     - FoodPoppy
   mutationPrototypes:
-    - lily
+    - spacemansTrumpet # Delta-V - Makes Trumpets Easier to get over Deus! Was lily
   lifespan: 25
   maturation: 10
   production: 3
@@ -1564,8 +1564,8 @@
       PotencyDivisor: 50
     PolypyryliumOligomers:
       Min: 1
-      Max: 15
-      PotencyDivisor: 5
+      Max: 5 # Delta-V - Was 15
+      PotencyDivisor: 20 # Delta-V - Was 5 (50 potency/5 = 10u of Polyp in one Trumpet, now 3.5u)
 
 - type: seed
   id: koibean

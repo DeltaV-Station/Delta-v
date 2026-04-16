@@ -1,7 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Lightning;
 using Content.Server.Popups;
-using Content.Server._EE.Silicon.Charge;
+using Content.Server._DV.Silicons.Charge; // DeltaV - Moved IPC charge to shared and split into server/client
 using Content.Shared._EE.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -26,7 +26,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly SiliconChargeSystem _siliconChargeSystem = default!;
+    [Dependency] private readonly SiliconDrainSystem _siliconChargeSystem = default!; // DeltaV - Renamed type from "Charge" to "Drain" to disambiguate
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedBatterySystem _battery = default!;
 

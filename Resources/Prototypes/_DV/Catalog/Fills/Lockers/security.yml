@@ -1,7 +1,7 @@
 - type: entity
-  parent: GunSafeHandgunDV
+  parent: SecurityGunSafeHandgunDV
   id: GunSafePistolUniversal
-  name: mk32 safe
+  name: mk32 gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: pistol
@@ -15,9 +15,9 @@
           amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeSniperGrand
-  name: mark 1 rifle safe
+  name: mark 1 rifle gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: sniper
@@ -31,9 +31,9 @@
           amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeVulcanRifle
-  name: vulcan safe
+  name: vulcan gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: vulcan
@@ -47,9 +47,9 @@
           amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeAdjutantShotgun
-  name: adjutant safe
+  name: adjutant gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: rifle
@@ -63,7 +63,7 @@
           amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeEnergyGun
   name: energy gun safe
   components:
@@ -76,7 +76,7 @@
         amount: 3
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeEnergyGunMini
   name: miniature energy gun safe
   components:
@@ -87,9 +87,9 @@
         amount: 3
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeM90Rifle
-  name: M-90 rifle safe
+  name: m-90 rifle gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: m90
@@ -103,9 +103,9 @@
           amount: 4
 
 - type: entity
-  parent: GunSafeSuperweaponBaseSecureDV
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
   id: GunSafeRocketLauncher
-  name: RPG safe
+  name: RPG gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: rpg
@@ -118,9 +118,9 @@
           prob: 0.2
 
 - type: entity
-  parent: GunSafeSuperweaponBaseSecureDV
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
   id: GunSafeBeamDevastator
-  name: Devastator safe
+  name: devastator gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: devastator
@@ -130,9 +130,9 @@
         id: WeaponBeamDevastator
 
 - type: entity
-  parent: GunSafeSuperweaponBaseSecureDV
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
   id: GunSafeGamblagator
-  name: Gamblagator safe
+  name: gamblagator gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: gamblagator
@@ -140,6 +140,16 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: GamblagatorTable
+
+- type: entity
+  parent: SecurityGunSafeSuperweaponBaseSecureDV
+  id: GunSafeAdvancedLaser
+  name: advanced laser gun safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: AdvancedLaserTable
 
 - type: entity
   id: LockerBrigmedicFilledHardsuit
@@ -165,7 +175,7 @@
     - id: ClothingMaskBreath
 
 - type: entity
-  parent: GunSafeNonlethalDV
+  parent: SecurityGunSafeNonlethalDV
   id: GunSafeNonLethalShotgun
   name: non-lethal shotgun safe
   suffix: Security, Locked
@@ -186,9 +196,9 @@
           amount: 2
 
 - type: entity
-  parent: GunSafeBaseSecureDV
+  parent: SecurityGunSafeBaseSecureDV
   id: GunSafeSubMachineGunPatos
-  name: patos safe
+  name: patos gun safe
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: smg
