@@ -26,7 +26,7 @@ public sealed class ListWatchlistedCommand : LocalizedEntityCommands
         foreach (var (playerId, records) in _notes.ConnectedPlayerWatchlists)
         {
             if (!_player.TryGetSessionById(playerId, out var sessionData))
-                return;
+                continue;
 
             shell.WriteMarkup($"\n[bold]{sessionData.Name}[/bold]");
             foreach (var record in records)
