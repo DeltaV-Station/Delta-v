@@ -124,7 +124,7 @@
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSource
-    range: 50
+    range: 1000
     ports:
       - NuclearReactorDataSender
   - type: DeviceLinkSink
