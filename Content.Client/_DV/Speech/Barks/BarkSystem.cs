@@ -44,6 +44,25 @@ public sealed class BarkSystem : EntitySystem
         SubscribeNetworkEvent<PlayBarkEvent>(OnPlayBark);
     }
 
+    /// <summary>
+    /// Counts digraphs/syllables within the text
+    /// </summary>
+    private int DigraphCount(string text)
+    {
+        int count = 0;
+        bool lastWasVowel = false;
+
+        foreach (var ch in text.ToLower())
+        {
+            var isVowel = "aeiouy".Contains(ch);
+            if (isVowel && (lastWasVowel == false))
+                count++;
+            lastWasVowel = isVowel;
+        }
+
+        return Math.Max(1, count);
+    }
+
     private void OnPlayBark(PlayBarkEvent args)
     {
         var entity = GetEntity(args.Speaker);
@@ -59,12 +78,13 @@ public sealed class BarkSystem : EntitySystem
 
         // Caps the message length for the audio calculations
         var message = args.Message ?? "";
-        if (message.Length > 50)
-            message = message[..50];
+        if (message.Length > 100)
+            message = message[..100];
 
-        // Calculates the timing
-        var interval = 0.08f / prototype.Frequency;
-        var totalSounds = Math.Max(1, (int)(message.Length * 0.05f / interval));
+        // Calculates the timing. interval is spacing, digraphs is the total message count, totalSounds is min digraphs or max 25
+        var interval = 0.85f;
+        var digraphs = DigraphCount(message);
+        var totalSounds = Math.Min(digraphs, 25);
 
         _activeBarks.Add(new ActiveBark
         {
