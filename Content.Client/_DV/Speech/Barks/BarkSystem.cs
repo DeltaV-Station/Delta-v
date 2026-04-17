@@ -158,7 +158,7 @@ public sealed class BarkSystem : EntitySystem
             _audio.PlayPvs(
                 proto.Sounds,
                 bark.Entity,
-                AudioParams.Default.WithPitchScale(pitch).WithVolume(volu));
+                AudioParams.Default.WithPitchScale(pitch));
 
             bark.CurrentChar++;
             bark.TotalSounds--;
