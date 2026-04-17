@@ -49,11 +49,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: eyes
       ears:
         sizeMaps:
           32:
@@ -211,6 +206,18 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _Impstation/Mobs/Species/Thaven/parts.rsi # Delta V - Using DV Eyes
+      state: eyes
+  - type: VisualOrganMarkings
+    markingsDisplacement:
+      Eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: eyes
 
 - type: entity
   parent: [ OrganBaseHead, OrganThavenExternal ]
