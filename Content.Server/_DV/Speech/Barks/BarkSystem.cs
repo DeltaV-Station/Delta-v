@@ -56,7 +56,8 @@ public sealed class BarkSystem : EntitySystem
         var barkev = new PlayBarkEvent
         {
             Speaker = GetNetEntity(uid),
-            IsWhisper = args.ObfuscatedMessage != null
+            IsWhisper = args.ObfuscatedMessage != null,
+            Message = args.Message
         };
 
         RaiseNetworkEvent(barkev, Filter.Pvs(uid));

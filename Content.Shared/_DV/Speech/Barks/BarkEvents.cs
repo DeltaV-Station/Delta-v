@@ -10,6 +10,7 @@ public sealed class PlayBarkEvent : EntityEventArgs
 {
     public NetEntity Speaker;
     public bool IsWhisper;
+    public string Message = "";
 }
 
 ///<summary>
