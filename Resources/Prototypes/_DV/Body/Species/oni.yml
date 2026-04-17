@@ -10,11 +10,11 @@
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      defaultMarkings: [ OniHornDoubleCurved ]
+      default: [ OniHornDoubleCurved ]
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
       required: false
-      defaultMarkings: [ PointyEarsUpwards ]
+      default: [ PointyEarsUpwards ]
     enum.HumanoidVisualLayers.Snout:
       limit: 2
       required: false
@@ -138,11 +138,11 @@
   abstract: true
 
 - type: entity
-  parent: [ OrganBaseHead, OrganOniExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganOniExternal ]
   id: OrganOniHead
 
 - type: entity
-  parent: [ OrganBaseTorso, OrganOniExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganOniExternal ]
   id: OrganOniTorso
 
 - type: entity

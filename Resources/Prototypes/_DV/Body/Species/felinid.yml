@@ -10,11 +10,11 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ FelinidTailBasic ]
+      default: [ FelinidTailBasic ]
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      defaultMarkings: [ FelinidEarsBasic ]
+      default: [ FelinidEarsBasic ]
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: false
@@ -150,11 +150,11 @@
       group: Felinid
 
 - type: entity
-  parent: [ OrganFelinidExternal, OrganBaseTorso ]
+  parent: [ OrganBaseTorsoSexed, OrganFelinidExternal, OrganBaseTorso ]
   id: OrganFelinidTorso
 
 - type: entity
-  parent: [ OrganFelinidExternal, OrganBaseHead ]
+  parent: [ OrganBaseHeadSexed, OrganFelinidExternal, OrganBaseHead ]
   id: OrganFelinidHead
 
 - type: entity

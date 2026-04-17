@@ -60,7 +60,7 @@
       FootLeft: OrganChitinidFootLeft
       FootRight: OrganChitinidFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: OrganChitinidEyes
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
@@ -192,7 +192,7 @@
       group: Chitinid
 
 - type: entity
-  parent: [ OrganBaseHead, OrganChitinidExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganChitinidExternal ]
   id: OrganChitinidHead
   components:
   - type: Extractable
@@ -204,15 +204,7 @@
         Quantity: 10
 
 - type: entity
-  parent: [ OrganChitinidHead ]
-  id: OrganChitinidHeadMale
-
-- type: entity
-  parent: [ OrganChitinidHead ]
-  id: OrganChitinidHeadFemale
-
-- type: entity
-  parent: [ OrganBaseTorso, OrganChitinidExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganChitinidExternal ]
   id: OrganChitinidTorso
   components:
   - type: Extractable
@@ -262,6 +254,16 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganChitinidExternal ]
   id: OrganChitinidFootRight
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganChitinidInternal, OrganChitinidExternal ]
+  id: OrganChitinidEyes
+  components:
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _DV/Mobs/Species/Chitinid/parts.rsi # Delta V - Using DV Eyes
+      state: eyes
 
 - type: entity
   parent: [ OrganAnimalStomach, OrganChitinidInternal ]

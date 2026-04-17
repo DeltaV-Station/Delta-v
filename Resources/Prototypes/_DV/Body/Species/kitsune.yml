@@ -164,11 +164,11 @@
       group: Kitsune
 
 - type: entity
-  parent: [ OrganBaseHead, OrganKitsuneExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganKitsuneExternal ]
   id: OrganKitsuneHead
 
 - type: entity
-  parent: [ OrganBaseTorso, OrganKitsuneExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganKitsuneExternal ]
   id: OrganKitsuneTorso
 
 - type: entity

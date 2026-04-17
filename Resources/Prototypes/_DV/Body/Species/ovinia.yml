@@ -170,7 +170,7 @@
 
 - type: entity
   id: OrganOviniaTorso
-  parent: [ OrganBaseTorso, OrganOviniaExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganOviniaExternal ]
   components:
   - type: Extractable
     juiceSolution:
@@ -183,7 +183,7 @@
 
 - type: entity
   id: OrganOviniaHead
-  parent: [ OrganBaseHead, OrganOviniaExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganOviniaExternal ]
   components:
   - type: Extractable
     juiceSolution:

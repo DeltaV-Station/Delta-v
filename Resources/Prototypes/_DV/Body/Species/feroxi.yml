@@ -14,11 +14,11 @@
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      defaultMarkings: [ FeroxiEars ]
+      default: [ FeroxiEars ]
     enum.HumanoidVisualLayers.Snout:
       limit: 1
       required: true
-      defaultMarkings: [ FeroxiSnout ]
+      default: [ FeroxiSnout ]
     enum.HumanoidVisualLayers.Chest:
       limit: 3
       required: false
@@ -37,7 +37,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ FeroxiTailAndDorsal ]
+      default: [ FeroxiTailAndDorsal ]
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -144,19 +144,11 @@
   abstract: true
 
 - type: entity
-  parent: [ OrganBaseHead, OrganFeroxiExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganFeroxiExternal ]
   id: OrganFeroxiHead
 
 - type: entity
-  parent: [ OrganFeroxiHead ]
-  id: OrganFeroxiHeadMale
-
-- type: entity
-  parent: [ OrganFeroxiHead ]
-  id: OrganFeroxiHeadFemale
-
-- type: entity
-  parent: [ OrganBaseTorso, OrganFeroxiExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganFeroxiExternal ]
   id: OrganFeroxiTorso
 
 - type: entity

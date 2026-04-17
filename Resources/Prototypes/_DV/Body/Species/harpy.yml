@@ -191,19 +191,11 @@
       sprite: _DV/Mobs/Species/Harpy/organs.rsi
 
 - type: entity
-  parent: [ OrganBaseHead, OrganHarpyExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganHarpyExternal ]
   id: OrganHarpyHead
 
 - type: entity
-  parent: [ OrganHarpyHead ]
-  id: OrganHarpyHeadMale
-
-- type: entity
-  parent: [ OrganHarpyHead ]
-  id: OrganHarpyHeadFemale
-
-- type: entity
-  parent: [ OrganBaseTorso, OrganHarpyExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganHarpyExternal ]
   id: OrganHarpyTorso
 
 - type: entity

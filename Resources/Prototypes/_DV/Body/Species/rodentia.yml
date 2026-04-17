@@ -12,7 +12,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ RodentiaTailDefault ]
+      default: [ RodentiaTailDefault ]
     enum.HumanoidVisualLayers.LLeg:
       limit: 6
       required: false
@@ -31,7 +31,7 @@
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      defaultMarkings: [ RodentiaHeadTopEarDefault ]
+      default: [ RodentiaHeadTopEarDefault ]
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
       required: false
@@ -160,28 +160,12 @@
       group: Rodentia
 
 - type: entity
-  parent: [ OrganBaseHead, OrganRodentiaExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganRodentiaExternal ]
   id: OrganRodentiaHead
 
 - type: entity
-  parent: [ OrganRodentiaHead ]
-  id: OrganRodentiaHeadMale
-
-- type: entity
-  parent: [ OrganRodentiaHead ]
-  id: OrganRodentiaHeadFemale
-
-- type: entity
-  parent: [ OrganBaseTorso, OrganRodentiaExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganRodentiaExternal ]
   id: OrganRodentiaTorso
-
-- type: entity
-  parent: [ OrganRodentiaTorso ]
-  id: OrganRodentiaTorsoMale
-
-- type: entity
-  parent: [ OrganRodentiaTorso ]
-  id: OrganRodentiaTorsoFemale
 
 - type: entity
   parent: [ OrganBaseLegLeft, OrganRodentiaExternal ]

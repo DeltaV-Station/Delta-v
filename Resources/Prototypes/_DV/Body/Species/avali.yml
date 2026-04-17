@@ -211,11 +211,11 @@
 
 - type: entity
   id: OrganAvaliTorso
-  parent: [ OrganBaseTorso, OrganAvaliExternal]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAvaliExternal]
 
 - type: entity
   id: OrganAvaliHead
-  parent: [ OrganBaseHead, OrganAvaliExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganAvaliExternal ]
 
 - type: entity
   id: OrganAvaliArmLeft
