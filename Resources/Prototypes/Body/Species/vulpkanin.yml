@@ -1,5 +1,5 @@
 - type: markingsGroup
-  parent: Undergarments
+#  parent: Undergarments
   id: Vulpkanin
   limits:
     enum.HumanoidVisualLayers.Hair:
@@ -54,11 +54,11 @@
     enum.HumanoidVisualLayers.UndergarmentTop:
       limit: 1
       required: false
-      nudityDefault: [ UndergarmentTopTanktopVulpkanin ]
+#      nudityDefault: [ UndergarmentTopTanktopVulpkanin ]
     enum.HumanoidVisualLayers.UndergarmentBottom:
       limit: 1
       required: false
-      nudityDefault: [ UndergarmentBottomBoxersVulpkanin ]
+#      nudityDefault: [ UndergarmentBottomBoxersVulpkanin ]
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -89,54 +89,55 @@
       Kidneys: OrganVulpkaninKidneys
   - type: HumanoidProfile
     species: Vulpkanin
-  - type: Inventory
-    speciesId: vulpkanin
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit
-      back:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: back
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: outerwear
-      gloves:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: hand
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: shoes
-      head:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: head
-      neck:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: neck
-      eyes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: eyes
-      belt:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: belt
+# Delta V - We got no Displacement.rsi for vulpkanin
+#  - type: Inventory
+#    speciesId: vulpkanin
+#    displacements:
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: jumpsuit
+#      back:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: back
+#      outerClothing:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: outerwear
+#      gloves:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: hand
+#      shoes:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: shoes
+#      head:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: head
+#      neck:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: neck
+#      eyes:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: eyes
+#      belt:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: belt
 
 - type: entity
   parent:
@@ -244,23 +245,24 @@
 - type: entity
   parent: [ OrganBaseHead, OrganVulpkaninExternal ]
   id: OrganVulpkaninHead
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.FacialHair
-    dependentHidingLayers:
-      enum.HumanoidVisualLayers.Snout:
-      - enum.HumanoidVisualLayers.SnoutCover
-    markingsDisplacement:
-      Hair:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: hair
+# Delta V - We got no Displacement.rsi for vulpkanin
+#  components:
+#  - type: VisualOrganMarkings
+#    hideableLayers:
+#    - enum.HumanoidVisualLayers.Snout
+#    - enum.HumanoidVisualLayers.HeadTop
+#    - enum.HumanoidVisualLayers.HeadSide
+#    - enum.HumanoidVisualLayers.Hair
+#    - enum.HumanoidVisualLayers.FacialHair
+#    dependentHidingLayers:
+#      enum.HumanoidVisualLayers.Snout:
+#      - enum.HumanoidVisualLayers.SnoutCover
+#    markingsDisplacement:
+#      Hair:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: hair
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
@@ -301,6 +303,12 @@
 - type: entity
   parent: [ OrganVulpkaninVisual, OrganBaseEyes, OrganVulpkaninInternal ]
   id: OrganVulpkaninEyes
+  components:
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi # Delta V - Using DV Eyes
+      state: eyes
 
 - type: entity
   parent: [ OrganBaseTongue, OrganVulpkaninInternal ]
@@ -327,9 +335,9 @@
   id: OrganVulpkaninStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseLiver, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninKidneys

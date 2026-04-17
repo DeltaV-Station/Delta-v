@@ -254,6 +254,11 @@
   id: OrganAvaliEyes
   description: They seem as if they're looking at something far away...
   components:
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _Starlight/Mobs/Species/Avali/parts.rsi
+      state: eyes
   - type: Organ
     onAdd:
     - type: EyeCursorOffset
