@@ -130,7 +130,7 @@
     sprite: _DV/Mobs/Species/Motorkind/parts.rsi
     state: full
   - type: Damageable
-    damageContainer: HumanoidSilicon
+    damageContainer: Silicon # Nubody - Deleted all HumanoidSilicon until we get a new IPC thing
     damageModifierSet: Motorkind
   - type: DamageVisuals
     thresholds: [25, 50, 75, 100]
