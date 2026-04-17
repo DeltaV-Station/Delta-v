@@ -1,7 +1,7 @@
 - type: markingsGroup
   id: Avali
   #onlyWhitelisted: true # DeltaV - some categories (underwear) must not be whitelisted
-  limit:
+  limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -13,7 +13,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ AvaliTailBase ]
+      default: [ AvaliTailBase ]
     enum.HumanoidVisualLayers.Snout:
       limit: 1
       required: false
@@ -23,7 +23,7 @@
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
       required: true
-      defaultMarkings: [ AvaliEarsBase ]
+      default: [ AvaliEarsBase ]
     enum.HumanoidVisualLayers.Chest:
       limit: 2 # DeltaV
       required: false
@@ -92,8 +92,6 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Avali
-  - type: ScaleVisuals
-    scale: 0.8, 0.8
 
 - type: entity
   parent:
@@ -179,6 +177,8 @@
       279: 0.95
       265: 0.9
       240: 0.85
+  - type: CosmicMarkVisuals
+    subtleState: moth
   # End DeltaV additions
 
 - type: entity

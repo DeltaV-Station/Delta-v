@@ -246,6 +246,10 @@
     damage:
       types:
         Slash: 5 # Reduce?
+  # Delta V - Begin Addition
+  - type: CosmicMarkVisuals
+    subtleState: vox
+  # Delta V - End Addition
 
 - type: entity
   parent: OrganBase
