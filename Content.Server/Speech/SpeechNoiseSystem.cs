@@ -5,6 +5,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Configuration;
+using Content.Shared._DV.CCVars;
+using Content.Shared._DV.Speech.Barks;
 
 namespace Content.Server.Speech
 {
@@ -14,6 +17,7 @@ namespace Content.Server.Speech
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {
@@ -58,6 +62,10 @@ namespace Content.Server.Speech
 
         private void OnEntitySpoke(EntityUid uid, SpeechComponent component, EntitySpokeEvent args)
         {
+            // Delta-V Edit: Speech Barks - This will suppress the default sounds when Speech Barks are active
+            if (HasComp<SpeechSynthesisComponent>(uid) && _cfg.GetCVar(DCCVars.BarksEnabled))
+                return;
+
             if (component.SpeechSounds == null)
                 return;
 
