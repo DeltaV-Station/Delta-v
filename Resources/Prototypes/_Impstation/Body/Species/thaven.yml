@@ -224,24 +224,8 @@
   id: OrganThavenHead
 
 - type: entity
-  parent: [ OrganThavenHead ]
-  id: OrganThavenHeadMale
-
-- type: entity
-  parent: [ OrganThavenHead ]
-  id: OrganThavenHeadFemale
-
-- type: entity
   parent: [ OrganBaseTorso, OrganThavenExternal ]
   id: OrganThavenTorso
-
-- type: entity
-  parent: [ OrganThavenTorso ]
-  id: OrganThavenTorsoMale
-
-- type: entity
-  parent: [ OrganThavenTorso ]
-  id: OrganThavenTorsoFemale
 
 - type: entity
   parent: [ OrganBaseLegLeft, OrganThavenExternal ]

@@ -18,8 +18,7 @@
       default: [ VulpEar ]
     enum.HumanoidVisualLayers.Snout:
       limit: 1
-      required: true
-      default: [ VulpSnout ]
+      required: false # Delta V - No requirement
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
       required: false
@@ -71,8 +70,8 @@
       Head: OrganVulpkaninHead
       ArmLeft: OrganVulpkaninArmLeft
       ArmRight: OrganVulpkaninArmRight
-      HandRight: OrganVulpkaninHandRight
       HandLeft: OrganVulpkaninHandLeft
+      HandRight: OrganVulpkaninHandRight
       LegLeft: OrganVulpkaninLegLeft
       LegRight: OrganVulpkaninLegRight
       FootLeft: OrganVulpkaninFootLeft
@@ -243,7 +242,7 @@
   id: OrganVulpkaninTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganVulpkaninExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ]
   id: OrganVulpkaninHead
 # Delta V - We got no Displacement.rsi for vulpkanin
 #  components:
