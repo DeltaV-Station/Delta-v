@@ -191,6 +191,9 @@
   parent: OrganAvali
   id: OrganAvaliInternal
   abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
   parent: OrganAvali
@@ -247,7 +250,7 @@
   parent: [ OrganBaseFootRight, OrganAvaliExternal ]
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganAvaliExternal ]
+  parent: [ OrganBaseEyes, OrganAvaliInternal, OrganAvaliExternal ]
   id: OrganAvaliEyes
   description: They seem as if they're looking at something far away...
   components:

@@ -60,12 +60,15 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Felinid
+  - type: ScaleVisuals
+    scale: 0.75, 0.75
 
 - type: entity
   parent:
   - AppearanceFelinid
   - BaseSpeciesMobOrganic
   id: MobFelinid
+  name: Urist McCat
   components:
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.

@@ -96,12 +96,12 @@
       Head: OrganMotorkindHead
       ArmLeft: OrganMotorkindFrontLeft
       ArmRight: OrganMotorkindFrontRight
-      HandRight: OrganHumanHandRight
-      HandLeft: OrganHumanHandLeft
+#      HandRight: OrganHumanHandRight
+#      HandLeft: OrganHumanHandLeft
       LegLeft: OrganMotorkindBackLeft
       LegRight: OrganMotorkindBackRight
-      FootLeft: OrganHumanFootLeft
-      FootRight: OrganHumanFootRight
+#      FootLeft: OrganHumanFootLeft
+#      FootRight: OrganHumanFootRight
       Brain: OrganMotorkindBrainEngine
       Eyes: OrganMotorkindEyes
       Tongue: OrganHumanTongue
@@ -114,6 +114,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Motorkind
+  - type: ScaleVisuals
+    scale: 2, 2
 
 - type: entity
   name: Urist McQueen
@@ -287,7 +289,7 @@
   description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
 
 - type: entity
-  id: OrganMotorkindBacktLeft
+  id: OrganMotorkindBackLeft
   name: "back-left wheel"
   description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
   parent: [ OrganBaseLegLeft, OrganMotorkindExternal ]
@@ -331,7 +333,14 @@
   description: "A single windshield that serves to protect the cabin of the Motorkind, as well as provide vision, somehow."
   components:
   - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/organs.rsi
     state: windshield
+    layers:
+    - state: windshield
+  - type: VisualOrgan
+    data:
+      sprite: _DV/Mobs/Species/Motorkind/organs.rsi
+      state: windshield
 
 - type: entity
   parent: [ OrganBaseStomach, OrganMotorkindInternal ]
@@ -340,7 +349,8 @@
   description: "A fuel tank that stores various fuels to power the motorkind's engine."
   components:
   - type: Sprite
-    state: fuel_tank
+    layers:
+    - state: fuel_tank
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -371,7 +381,8 @@
   description: "An oil filter that cleans the motorkind's oil to ensure smooth operation of its engine."
   components:
   - type: Sprite
-    state: oil_filter
+    layers:
+    - state: oil_filter
 
 - type: entity
   parent: [ OrganBaseLungs, OrganMotorkindInternal ]
@@ -380,10 +391,7 @@
   description: "Helps purify the output of a Motorkind's engine into something less toxic. Motorkind are often hunted for these valuable trophies."
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Motorkind/organs.rsi
-    state: catalytic_converter
     layers:
-    - state: catalytic_converter
     - state: catalytic_converter
   - type: Metabolizer
     removeEmpty: true

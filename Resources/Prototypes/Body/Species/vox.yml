@@ -351,7 +351,8 @@
     heldPrefix: brain
   - type: Sprite
     sprite: _DV/Mobs/Species/Vox/organs.rsi
-    state: cortical-stack
+    layers:
+    - state: cortical-stack
   - type: SolutionContainerManager
     solutions:
       organ:

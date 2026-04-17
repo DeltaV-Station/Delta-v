@@ -206,8 +206,11 @@
       group: Thaven
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganThavenExternal ]
+  parent: [ OrganBaseEyes, OrganThavenExternal, OrganThavenInternal ]
   id: OrganThavenEyes
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
   parent: [ OrganBaseHead, OrganThavenExternal ]

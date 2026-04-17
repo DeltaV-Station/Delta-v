@@ -306,6 +306,8 @@
   parent: [ OrganBaseEyes, OrganAsakimInternal, OrganAsakimExternal ]
   id: OrganAsakimEyes
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
     onAdd:
     - type: NightVision
