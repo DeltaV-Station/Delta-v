@@ -39,7 +39,7 @@
   parent: BaseSpeciesAppearance
   id: AppearanceKitsune
   name: kitsune appearance
-  component:
+  components:
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -78,7 +78,7 @@
   - BaseSpeciesMobOrganic
   id: MobKitsune
   name: Urist McKitsune
-  component:
+  components:
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -153,7 +153,7 @@
   parent: OrganKitsune
   id: OrganKitsuneExternal
   abstract: true
-  component:
+  components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
   - type: VisualOrgan
