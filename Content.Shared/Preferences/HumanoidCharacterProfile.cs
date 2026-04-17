@@ -18,6 +18,7 @@ using Robust.Shared.Utility;
 using Content.Shared._CD.Records; // CD - Character Records
 using Content.Shared._DV.Traits; // DeltaV - Traits rework
 using Content.Shared._DV.Species; // DeltaV - Species hiding
+using Content.Shared._DV.Speech.Barks;  // Delta-V Edit: Speech Barks
 
 namespace Content.Shared.Preferences
 {
@@ -142,6 +143,10 @@ namespace Content.Shared.Preferences
         public PlayerProvidedCharacterRecords? CDCharacterRecords;
         // End CD - Character records
 
+        // Delta-V Edit: Speech Barks - Characters get a Speech Barks voice, defaults to Alto
+        [DataField]
+        public string? BarkVoice = "Alto";
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -158,8 +163,10 @@ namespace Content.Shared.Preferences
             Dictionary<string, RoleLoadout> loadouts,
             // Begin CD - Character Records
             float height,
-            PlayerProvidedCharacterRecords? cdCharacterRecords
+            PlayerProvidedCharacterRecords? cdCharacterRecords,
             // End CD - Character Records
+            // Delta-V Edit: Speech Barks - Select Speech Barks voice, default is Alto
+            string? barkVoice = "Alto"
         )
         {
             Name = name;
@@ -179,6 +186,8 @@ namespace Content.Shared.Preferences
             Height = height;
             CDCharacterRecords = cdCharacterRecords;
             // End CD - Character Records
+            // Delta-V Edit: Speech Barks - Takes Speech Bark voice value and stores it within the object
+            BarkVoice = barkVoice;
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -211,7 +220,8 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
                 other.Height, // CD - Character Records
-                other.CDCharacterRecords) // CD - Character Records
+                other.CDCharacterRecords, // CD - Character Records
+                other.BarkVoice) // Delta-V Edit: Speech Barks - When cloning a profile, clones the Speech Bark voice
         {
         }
 
@@ -520,6 +530,7 @@ namespace Content.Shared.Preferences
             if (Height != other.Height) return false; // CD
             if (CDCharacterRecords != null && other.CDCharacterRecords != null && // CD
                !CDCharacterRecords.MemberwiseEquals(other.CDCharacterRecords)) return false; // CD
+            if (BarkVoice != other.BarkVoice) return false; // Delta-V Edit: Speech Barks - If the Speech Barks voice doesn't match the profile's, means not equal
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -687,6 +698,9 @@ namespace Content.Shared.Preferences
                 CDCharacterRecords!.EnsureValid();
             }
             // End CD - Character Records
+            // Delta-V Edit: Speech Barks - If Speech Barks voice is set, but matches no known prototype, default to Alto
+            if (BarkVoice != null && !prototypeManager.HasIndex<BarkPrototype>(BarkVoice))
+                BarkVoice = "Alto";
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -794,6 +808,7 @@ namespace Content.Shared.Preferences
             hashCode.Add((int)SpawnPriority);
             hashCode.Add((int)PreferenceUnavailable);
             hashCode.Add(Height); // CD - Character Records
+            hashCode.Add(BarkVoice); // Delta-V Edit: Speech Barks
             return hashCode.ToHashCode();
         }
 
