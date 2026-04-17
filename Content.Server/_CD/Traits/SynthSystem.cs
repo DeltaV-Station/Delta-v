@@ -31,11 +31,12 @@ public sealed class SynthSystem : EntitySystem
             Dirty(uid, indicator);
         }
 
-        // DeltaV - Change blood amount according to 
+        // Begin DeltaV - Change blood amount according to original BloodstreamCompoentn.ReferenceSolution volume
         if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
         {
             // Give them synth blood. Ion storm notif is handled in that system
             _bloodstream.ChangeBloodReagents((uid, bloodstream), new([new(SynthBloodReagent, bloodstream.BloodReferenceSolution.Volume)]));
         }
+        // End DeltaV
     }
 }
