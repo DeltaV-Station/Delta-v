@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -7,6 +8,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SubFloor;
+
+// DeltaV- add Tray toggle event
+public sealed partial class ToggleTrayScannerEvent : InstantActionEvent { }
 
 public abstract class SharedTrayScannerSystem : EntitySystem
 {
@@ -30,6 +34,8 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedEvent>(OnTrayUnequipped);
 
         SubscribeLocalEvent<TrayScannerUserComponent, GetVisMaskEvent>(OnUserGetVis);
+        //DeltaV - Listening to Tray toggle event
+        SubscribeLocalEvent<TrayScannerComponent, ToggleTrayScannerEvent>(OnToggleAction);
     }
 
     private void OnUserGetVis(Entity<TrayScannerUserComponent> ent, ref GetVisMaskEvent args)
@@ -127,6 +133,20 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         scanner.Range = state.Range;
         SetScannerEnabled(uid, state.Enabled, scanner);
     }
+
+    /// DeltaV additions begin
+
+    private void OnToggleAction(EntityUid uid, TrayScannerComponent component, ToggleTrayScannerEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // Toggle Logic
+        SetScannerEnabled(uid, !component.Enabled, component);
+
+        args.Handled = true;
+    }
+    /// DeltaV additions end
 }
 
 [Serializable, NetSerializable]
