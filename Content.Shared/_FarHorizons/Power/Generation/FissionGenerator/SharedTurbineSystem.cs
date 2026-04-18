@@ -35,7 +35,7 @@ public abstract class SharedTurbineSystem : EntitySystem
         SubscribeLocalEvent<TurbineComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
-        SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
+        SubscribeLocalEvent<TurbineComponent, RepairDoAfterEvent>(OnRepairTurbineFinished);
     }
 
     private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
