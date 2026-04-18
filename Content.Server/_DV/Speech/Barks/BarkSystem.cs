@@ -31,16 +31,32 @@ public sealed class BarkSystem : EntitySystem
     {
         var profile = args.Profile;
         var mob = args.Mob;
+        var voice = profile.BarkVoice;
 
-        if (profile.BarkVoice == null)
-            return;
+        // If player hasn't selected a voice, assign a Species default
+        if (voice == null || _proto.HasIndex<BarkPrototype>(voice) == false)
+            voice = GetSpeciesDefaultVoice(profile.Species);
 
-        if (_proto.HasIndex<BarkPrototype>(profile.BarkVoice) == false)
-            return;
+        // If still nothing, just default to Alto voice as a safety fallback
+        voice ??= "Alto";
 
         var comp = EnsureComp<SpeechSynthesisComponent>(mob);
-        comp.VoicePrototypeId = profile.BarkVoice;
+        comp.VoicePrototypeId = voice;
     }
+
+    private string? GetSpeciesDefaultVoice(string species)
+    {
+
+        // Go through the Speech Bark prototypes and compare species whitelisting, and assign the Species default Speech Barks voice
+        foreach (var proto in _proto.EnumeratePrototypes<BarkPrototype>())
+        {
+            if (proto.SpeciesWhitelist != null && proto.SpeciesWhitelist.Contains(species))
+                return proto.ID;
+        }
+
+        return null;
+    }
+
     /// <summary>
     /// Verifies the Speech Bark component is set correctly then sends PlayBarkEvent to available clients
     /// </summary>
