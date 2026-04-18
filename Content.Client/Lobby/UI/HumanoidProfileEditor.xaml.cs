@@ -421,6 +421,13 @@ namespace Content.Client.Lobby.UI
 
             #endregion SpawnPriority
 
+            #region SpeechBarks Delta-V
+            BarkVoiceButton.OnItemSelected += OnBarkVoiceChanged;
+            BarkPreviewButton.OnPressed += _ =>
+            {
+                // Preview button goes here
+            };
+            #endregion SpeechBarks Delta-V
             #region Eyes
 
             EyeColorPicker.OnEyeColorPicked += newColor =>
@@ -901,6 +908,7 @@ namespace Content.Client.Lobby.UI
             // End CD - Character Records
 
             UpdateTraitsSelection(); // DeltaV - Traits
+            UpdateBarkVoiceSelector(); // Delta-V Edit: Speech Barks
 
             RefreshAntags();
             RefreshJobs();

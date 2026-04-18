@@ -101,6 +101,13 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Delta-V Edit: Speech Barks -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'ui-character-editor-bark-voice'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="BarkVoiceButton" HorizontalAlignment="Right" />
+                                    <Button Name="BarkPreviewButton" Text="{Loc 'ui-character-editor-bark-preview'}" Margin="5 0 0 0" />
+                                </BoxContainer>
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">

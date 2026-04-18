@@ -361,6 +361,12 @@ namespace Content.Shared.Preferences
         }
         // End CD - Character Records
 
+        // Delta-V Edit: Speech barks
+        public HumanoidCharacterProfile WithBarkVoice(string? barkVoice)
+        {
+            return new(this) { BarkVoice = barkVoice };
+        }
+
         public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<ProtoId<JobPrototype>, JobPriority>> jobPriorities)
         {
             var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(jobPriorities);
