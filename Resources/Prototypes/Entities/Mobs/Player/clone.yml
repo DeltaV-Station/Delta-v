@@ -9,14 +9,17 @@
   id: Body
   components:
   # general
+  - CreamPied
   - DetailExaminable
   - Dna
   - Fingerprint
   - Grammar # Pronouns
   - HumanoidProfile # Age, Sex, Gender
+  - MeleeWeapon # Attack animation, damage and sound
   - NpcFactionMember
   - RandomPrice
-  - CreamPied
+  - TemperatureDamage
+  - TemperatureSpeed
   # traits
   - BlackAndWhiteOverlay
   - Clumsy
@@ -86,6 +89,7 @@
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
   eventComponents:
+  - Puller
   - Vocal # voice sounds
 
 # for job-specific traits etc.
