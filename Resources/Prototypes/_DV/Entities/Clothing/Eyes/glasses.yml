@@ -111,9 +111,7 @@
   components:
   - type: ToggleClothing
     action: ActionToggleTray
-  - type: ComponentToggler
-    components:
-    - type: TrayScanner
+  - type: TrayScanner
   - type: FlashImmunity
   - type: Sprite
     sprite: _DV/Clothing/Eyes/Glasses/traymeson.rsi
