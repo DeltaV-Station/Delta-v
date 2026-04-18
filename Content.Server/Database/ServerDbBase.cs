@@ -298,7 +298,8 @@ namespace Content.Server.Database
                 traits.ToHashSet(),
                 loadouts,
                 profile.CDProfile?.Height ?? 1.0f, // CD - Character Records
-                cdRecords // CD - Character Records
+                cdRecords, // CD - Character Records
+                profile.BarkVoice // Delta-V Edit: Speech Barks
             );
         }
 
@@ -329,6 +330,7 @@ namespace Content.Server.Database
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
+            profile.BarkVoice = humanoid.BarkVoice; // Delta-V Edit: Speech Barks
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(
