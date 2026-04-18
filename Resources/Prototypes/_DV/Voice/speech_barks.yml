@@ -169,8 +169,8 @@
   id: Moff
   sounds:
     collection: BarkMoff
-  minPitch: 0.8
-  maxPitch: 1.2
+  minPitch: 0.6
+  maxPitch: 0.8
   volume: 0
   frequency: 1
   predictable: true
@@ -178,12 +178,24 @@
   - Moth
 
 - type: bark
-  id: Vox
+  id: Vox High
   sounds:
     collection: BarkVox
-  minPitch: 0.8
-  maxPitch: 1.2
-  volume: 0
+  minPitch: 0.90
+  maxPitch: 1.05
+  volume: -2
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - Vox
+
+- type: bark
+  id: Vox Low
+  sounds:
+    collection: BarkVox
+  minPitch: 0.4
+  maxPitch: 0.55
+  volume: -2
   frequency: 1
   predictable: true
   speciesWhitelist:

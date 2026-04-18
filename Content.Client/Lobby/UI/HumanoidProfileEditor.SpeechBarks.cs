@@ -52,7 +52,10 @@ public sealed partial class HumanoidProfileEditor
     private void OnBarkVoiceChanged(OptionButton.ItemSelectedEventArgs args)
     {
         BarkVoiceButton.SelectId(args.Id);
-        var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>().ToList();
+        var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>()
+            .Where(p => p.SpeciesWhitelist == null || p.SpeciesWhitelist.Contains(Profile?.Species ?? ""))
+            .ToList();
+
         if (args.Id >= 0 && args.Id < sbmproto.Count)
         {
             SetProfile(Profile?.WithBarkVoice(sbmproto[args.Id].ID), CharacterSlot);
