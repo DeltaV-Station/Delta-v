@@ -1,35 +1,62 @@
 # The sound collections for the speech bark voices themselves
 # The collection groups audio files for individual voices
-# Collection order is Bass, Baritone, Tenor, Alto because it makes sense!
-# Reference and verification for which speak_#.ogg files match the pitch were located in Upstream voice YAML
+# Voices sourced from Goonstation, SS13 (CC-BY-SA-3.0)
 
 - type: soundCollection
   id: BarkBass
   files:
-  - /Audio/Voice/Talk/speak_4.ogg
-  - /Audio/Voice/Talk/speak_4_ask.ogg
-  - /Audio/Voice/Talk/speak_4_exclaim.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_4.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_4_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_4_exclaim.ogg
 
 - type: soundCollection
   id: BarkBaritone
   files:
-  - /Audio/Voice/Talk/speak_1.ogg
-  - /Audio/Voice/Talk/speak_1_ask.ogg
-  - /Audio/Voice/Talk/speak_1_exclaim.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_1.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_1_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_1_exclaim.ogg
 
 - type: soundCollection
   id: BarkTenor
   files:
-  - /Audio/Voice/Talk/speak_3.ogg
-  - /Audio/Voice/Talk/speak_3_ask.ogg
-  - /Audio/Voice/Talk/speak_3_exclaim.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_3.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_3_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_3_exclaim.ogg
 
 - type: soundCollection
   id: BarkAlto
   files:
-  - /Audio/Voice/Talk/speak_2.ogg
-  - /Audio/Voice/Talk/speak_2_ask.ogg
-  - /Audio/Voice/Talk/speak_2_exclaim.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_2.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_2_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_speak_2_exclaim.ogg
+
+- type: soundCollection
+  id: BarkLizard
+  files:
+  - /Audio/_DV/Voice/Barks/gs_dv_lizard.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_lizard_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_lizard_exclaim.ogg
+
+- type: soundCollection
+  id: BarkBlub
+  files:
+  - /Audio/_DV/Voice/Barks/gs_dv_blub.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_blub_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_blub_exclaim.ogg
+
+- type: soundCollection
+  id: BarkBug
+  files:
+  - /Audio/_DV/Voice/Barks/gs_dv_bug.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_bug_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_bug_exclaim.ogg
+
+- type: soundCollection
+  id: BarkSkelly
+  files:
+  - /Audio/_DV/Voice/Barks/gs_dv_skelly.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_skelly_ask.ogg
+  - /Audio/_DV/Voice/Barks/gs_dv_skelly_exclaim.ogg
 
 # Speech Bark prototypes for the voices
 # The prototypes reference a soundCollection then define the playback
@@ -72,3 +99,54 @@
   volume: 0
   frequency: 1
   predictable: true
+
+- type: bark
+  id: Lizard
+  sounds:
+    collection: BarkLizard
+  minPitch: 0.9
+  maxPitch: 1.2
+  volume: 0
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - Reptilian
+
+- type: bark
+  id: Blub
+  sounds:
+    collection: BarkBlub
+  minPitch: 0.8
+  maxPitch: 1.1
+  volume: 0
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - SlimePerson
+  - Diona
+
+- type: bark
+  id: Bug
+  sounds:
+    collection: BarkBug
+  minPitch: 0.9
+  maxPitch: 1.3
+  volume: 0
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - Arachnid
+  - Moth
+  - Chitinid
+
+- type: bark
+  id: Skelly
+  sounds:
+    collection: BarkSkelly
+  minPitch: 0.8
+  maxPitch: 1.2
+  volume: 0
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - Skeleton
