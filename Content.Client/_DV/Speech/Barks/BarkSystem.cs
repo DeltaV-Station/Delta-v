@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
+using System.Linq;
 
 namespace Content.Client._DV.Speech.Barks;
 
@@ -29,6 +30,7 @@ public sealed class BarkSystem : EntitySystem
         public BarkPrototype Prototype = default!;
         public string Message = default!;
         public bool IsWhisper;
+        public bool IsExclaim;
         public int CurrentChar;
         public int TotalSounds;
         public float Timer;
@@ -85,6 +87,7 @@ public sealed class BarkSystem : EntitySystem
         var interval = 1f;
         var digraphs = DigraphCount(message);
         var totalSounds = Math.Min(digraphs, 15);
+        var isExclaim = message.EndsWith("!!");
 
         _activeBarks.Add(new ActiveBark
         {
@@ -92,6 +95,7 @@ public sealed class BarkSystem : EntitySystem
             Prototype = prototype,
             Message = message,
             IsWhisper = args.IsWhisper,
+            IsExclaim = isExclaim,
             CurrentChar = 0,
             TotalSounds = totalSounds,
             Timer = 0f,
@@ -152,13 +156,19 @@ public sealed class BarkSystem : EntitySystem
             // Calculates the volume
             var volu = proto.Volume + (volume / 3f);
             if (bark.IsWhisper)
-                volu *= 0.25f;
+                volu -= 5f;
 
+            if (bark.IsExclaim)
+            {
+                volu += 15f;
+                pitch += 0.35f;
+            }
+             
             // Playing the sound
             _audio.PlayPvs(
                 proto.Sounds,
                 bark.Entity,
-                AudioParams.Default.WithPitchScale(pitch));
+                AudioParams.Default.WithPitchScale(pitch).WithVolume(volu));
 
             bark.CurrentChar++;
             bark.TotalSounds--;
