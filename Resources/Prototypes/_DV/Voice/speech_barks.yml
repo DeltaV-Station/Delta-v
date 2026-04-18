@@ -58,6 +58,18 @@
   - /Audio/_DV/Voice/Barks/gs_dv_skelly_ask.ogg
   - /Audio/_DV/Voice/Barks/gs_dv_skelly_exclaim.ogg
 
+- type: soundCollection
+  id: BarkMoff
+  files:
+  - /Audio/_DV/Voice/Barks/dv_moff.ogg
+  - /Audio/_DV/Voice/Barks/dv_moff_2.ogg
+
+- type: soundCollection
+  id: BarkVox
+  files:
+  - /Audio/_DV/Voice/Barks/dv_vox.ogg
+  - /Audio/_DV/Voice/Barks/dv_vox_2.ogg
+
 # Speech Bark prototypes for the voices
 # The prototypes reference a soundCollection then define the playback
 - type: bark
@@ -138,7 +150,7 @@
   predictable: true
   speciesWhitelist:
   - Arachnid
-  - Moth
+  - Chitinid
   - Harpy
 
 - type: bark
@@ -152,3 +164,27 @@
   predictable: true
   speciesWhitelist:
   - Skeleton
+
+- type: bark
+  id: Moff
+  sounds:
+    collection: BarkMoff
+  minPitch: 0.8
+  maxPitch: 1.2
+  volume: 0
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - Moth
+
+- type: bark
+  id: Vox
+  sounds:
+    collection: BarkVox
+  minPitch: 0.8
+  maxPitch: 1.2
+  volume: 0
+  frequency: 1
+  predictable: true
+  speciesWhitelist:
+  - Vox
