@@ -145,7 +145,7 @@ namespace Content.Shared.Preferences
 
         // Delta-V Edit: Speech Barks - Characters get a Speech Barks voice, defaults to Alto
         [DataField]
-        public string? BarkVoice = "Alto";
+        public string? BarkVoice = null;
 
         public HumanoidCharacterProfile(
             string name,
@@ -166,7 +166,7 @@ namespace Content.Shared.Preferences
             PlayerProvidedCharacterRecords? cdCharacterRecords,
             // End CD - Character Records
             // Delta-V Edit: Speech Barks - Select Speech Barks voice, default is Alto
-            string? barkVoice = "Alto"
+            string? barkVoice = null
         )
         {
             Name = name;

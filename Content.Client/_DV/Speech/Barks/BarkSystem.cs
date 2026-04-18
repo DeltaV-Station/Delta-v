@@ -78,13 +78,13 @@ public sealed class BarkSystem : EntitySystem
 
         // Caps the message length for the audio calculations
         var message = args.Message ?? "";
-        if (message.Length > 100)
-            message = message[..100];
+        if (message.Length > 50)
+            message = message[..50];
 
         // Calculates the timing. interval is spacing, digraphs is the total message count, totalSounds is min digraphs or max 25
-        var interval = 0.85f;
+        var interval = 1f;
         var digraphs = DigraphCount(message);
-        var totalSounds = Math.Min(digraphs, 25);
+        var totalSounds = Math.Min(digraphs, 15);
 
         _activeBarks.Add(new ActiveBark
         {
@@ -139,7 +139,7 @@ public sealed class BarkSystem : EntitySystem
 
             if (proto.Predictable)
             {
-                // The same characters get the same pitch, every time
+                // The same digraphs get the same pitch, every time
                 var hash = ch.GetHashCode();
                 pitch = proto.MinPitch + (Math.Abs(hash) % 100) / 100f * (proto.MaxPitch - proto.MinPitch);
             }

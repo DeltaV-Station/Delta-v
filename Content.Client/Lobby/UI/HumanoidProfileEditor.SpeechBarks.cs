@@ -14,13 +14,32 @@ public sealed partial class HumanoidProfileEditor
     {
         BarkVoiceButton.Clear();
 
-        var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>();
+        var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>().ToList();
         var index = 0;
         var selected = 0;
 
+        // When the BarkVoice value is null, eg not defaulted or selected by a player, finds the Species default
+        var voiceChoice = Profile?.BarkVoice;
+        if (voiceChoice == null && Profile?.Species != null)
+        {
+            foreach (var proto in sbmproto)
+            {
+                if (proto.SpeciesWhitelist != null && proto.SpeciesWhitelist.Contains(Profile.Species))
+                {
+                    voiceChoice = proto.ID;
+                    break;
+                }
+            }
+            voiceChoice ??= "Alto";
+        }
+
+        // Species whitelisting limits what voices are available in character creation.
         foreach (var proto in sbmproto)
         {
-            if (Profile?.BarkVoice == proto.ID)
+            if (proto.SpeciesWhitelist != null && !proto.SpeciesWhitelist.Contains(Profile?.Species ?? ""))
+                continue;
+
+            if (voiceChoice == proto.ID)
                 selected = index;
 
             BarkVoiceButton.AddItem(proto.ID);
