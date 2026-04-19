@@ -38,7 +38,7 @@ public sealed class BarkSystem : EntitySystem
             voice = GetSpeciesDefaultVoice(profile.Species);
 
         // If still nothing, just default to Alto voice as a safety fallback
-        voice ??= "Alto";
+        voice ??= "Generic High";
 
         var comp = EnsureComp<SpeechSynthesisComponent>(mob);
         comp.VoicePrototypeId = voice;

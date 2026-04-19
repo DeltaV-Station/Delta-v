@@ -30,7 +30,7 @@ public sealed partial class HumanoidProfileEditor
                     break;
                 }
             }
-            voiceChoice ??= "Alto";
+            voiceChoice ??= "Generic High";
         }
 
         // Species whitelisting limits what voices are available in character creation.
@@ -60,5 +60,20 @@ public sealed partial class HumanoidProfileEditor
         {
             SetProfile(Profile?.WithBarkVoice(sbmproto[args.Id].ID), CharacterSlot);
         }
+    }
+
+    /// <summary>
+    /// For Previewing Speech Bark voice sounds
+    /// </summary>
+    private void OnBarkPreviewPressed()
+    {
+        var voice = Profile?.BarkVoice;
+        if (voice == null)
+            return;
+
+        var ev = new PreviewBarkEvent { VoiceId = voice };
+        IoCManager.Resolve<IEntitySystemManager>()
+            .GetEntitySystem<Content.Client._DV.Speech.Barks.BarkSystem>()
+            .PreviewVoice(ev);
     }
 }

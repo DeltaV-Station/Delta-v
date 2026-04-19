@@ -10,13 +10,6 @@
   - /Audio/_DV/Voice/Barks/gs_dv_speak_4_exclaim.ogg
 
 - type: soundCollection
-  id: BarkBaritone
-  files:
-  - /Audio/_DV/Voice/Barks/gs_dv_speak_1.ogg
-  - /Audio/_DV/Voice/Barks/gs_dv_speak_1_ask.ogg
-  - /Audio/_DV/Voice/Barks/gs_dv_speak_1_exclaim.ogg
-
-- type: soundCollection
   id: BarkTenor
   files:
   - /Audio/_DV/Voice/Barks/gs_dv_speak_3.ogg
@@ -73,7 +66,7 @@
 # Speech Bark prototypes for the voices
 # The prototypes reference a soundCollection then define the playback
 - type: bark
-  id: Bass
+  id: Generic Low
   sounds:
     collection: BarkBass
   minPitch: 0.7
@@ -83,31 +76,21 @@
   predictable: true
 
 - type: bark
-  id: Baritone
-  sounds:
-    collection: BarkBaritone
-  minPitch: 0.8
-  maxPitch: 1.1
-  volume: 0
-  frequency: 1
-  predictable: true
-
-- type: bark
-  id: Tenor
+  id: Generic Medium
   sounds:
     collection: BarkTenor
-  minPitch: 1.0
+  minPitch: 1.1
   maxPitch: 1.3
   volume: 0
   frequency: 1
   predictable: true
 
 - type: bark
-  id: Alto
+  id: Generic High
   sounds:
     collection: BarkAlto
-  minPitch: 1.1
-  maxPitch: 1.4
+  minPitch: 1.4
+  maxPitch: 1.6
   volume: 0
   frequency: 1
   predictable: true

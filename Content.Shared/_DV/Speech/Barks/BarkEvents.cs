@@ -16,5 +16,7 @@ public sealed class PlayBarkEvent : EntityEventArgs
 ///<summary>
 /// Local previews of a Speech Bark voice within the character editor
 /// </summary>
-[Serializable, NetSerializable]
-public sealed class PreviewBarkEvent : EntityEventArgs;
+public sealed class PreviewBarkEvent : EntityEventArgs
+{
+    public string VoiceId = "";
+}

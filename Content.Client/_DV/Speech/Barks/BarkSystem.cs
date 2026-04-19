@@ -7,6 +7,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 using System.Linq;
+using Robust.Client.Player;
+using Robust.Shared.Player;
 
 namespace Content.Client._DV.Speech.Barks;
 
@@ -20,6 +22,7 @@ public sealed class BarkSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     /// <summary>
     /// Tracks an active Speech Bark playing blips
@@ -31,6 +34,7 @@ public sealed class BarkSystem : EntitySystem
         public string Message = default!;
         public bool IsWhisper;
         public bool IsExclaim;
+        public bool IsPreview;
         public int CurrentChar;
         public int TotalSounds;
         public float Timer;
@@ -80,13 +84,13 @@ public sealed class BarkSystem : EntitySystem
 
         // Caps the message length for the audio calculations
         var message = args.Message ?? "";
-        if (message.Length > 50)
-            message = message[..50];
+        if (message.Length > 30)
+            message = message[..30];
 
         // Calculates the timing. interval is spacing, digraphs is the total message count, totalSounds is min digraphs or max 25
         var interval = 1f;
         var digraphs = DigraphCount(message);
-        var totalSounds = Math.Min(digraphs, 15);
+        var totalSounds = Math.Min(digraphs, 12);
         var isExclaim = message.EndsWith("!!");
 
         _activeBarks.Add(new ActiveBark
@@ -163,16 +167,53 @@ public sealed class BarkSystem : EntitySystem
                 volu += 15f;
                 pitch += 0.35f;
             }
-             
-            // Playing the sound
-            _audio.PlayPvs(
-                proto.Sounds,
-                bark.Entity,
-                AudioParams.Default.WithPitchScale(pitch).WithVolume(volu));
+
+            // Playing the sound, checks if it's a Preview sound while in lobby first - Suggestions on making this better are welcome
+            if (bark.IsPreview)
+            {
+                _audio.PlayGlobal(
+                    proto.Sounds,
+                    Filter.Local(),
+                    false,
+                    AudioParams.Default.WithPitchScale(pitch).WithVolume(volu));
+            }
+            else
+            {
+                _audio.PlayPvs(
+                    proto.Sounds,
+                    bark.Entity,
+                    AudioParams.Default.WithPitchScale(pitch).WithVolume(volu));
+            }
 
             bark.CurrentChar++;
             bark.TotalSounds--;
         }
     }
+
+    // For previewing Speech Barks voice sounds
+    public void PreviewVoice(PreviewBarkEvent ev)
+    {
+        if (_proto.TryIndex<BarkPrototype>(ev.VoiceId, out var prototype) == false)
+            return;
+
+        var message = "This is a voice test!";
+        var interval = 1f;
+        var digraphs = DigraphCount(message);
+        var totalSounds = Math.Min(digraphs, 12);
+
+        _activeBarks.Add(new ActiveBark
+        {
+            Entity = _player.LocalEntity ?? EntityUid.Invalid,
+            IsPreview = true,
+            Prototype = prototype,
+            Message = message,
+            IsWhisper = false,
+            IsExclaim = false,
+            CurrentChar = 0,
+            TotalSounds = totalSounds,
+            Timer = 0f,
+            Interval = interval
+        });
+    } 
 }
 

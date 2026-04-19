@@ -143,7 +143,7 @@ namespace Content.Shared.Preferences
         public PlayerProvidedCharacterRecords? CDCharacterRecords;
         // End CD - Character records
 
-        // Delta-V Edit: Speech Barks - Characters get a Speech Barks voice, defaults to Alto
+        // Delta-V Edit: Speech Barks - Characters get a Speech Barks voice, defaults to Generic High
         [DataField]
         public string? BarkVoice = null;
 
@@ -165,7 +165,7 @@ namespace Content.Shared.Preferences
             float height,
             PlayerProvidedCharacterRecords? cdCharacterRecords,
             // End CD - Character Records
-            // Delta-V Edit: Speech Barks - Select Speech Barks voice, default is Alto
+            // Delta-V Edit: Speech Barks - Select Speech Barks voice, default is Generic High
             string? barkVoice = null
         )
         {
@@ -704,9 +704,9 @@ namespace Content.Shared.Preferences
                 CDCharacterRecords!.EnsureValid();
             }
             // End CD - Character Records
-            // Delta-V Edit: Speech Barks - If Speech Barks voice is set, but matches no known prototype, default to Alto
+            // Delta-V Edit: Speech Barks - If Speech Barks voice is set, but matches no known prototype, default to Generic High
             if (BarkVoice != null && !prototypeManager.HasIndex<BarkPrototype>(BarkVoice))
-                BarkVoice = "Alto";
+                BarkVoice = "Generic High";
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();

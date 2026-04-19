@@ -423,10 +423,7 @@ namespace Content.Client.Lobby.UI
 
             #region SpeechBarks Delta-V
             BarkVoiceButton.OnItemSelected += OnBarkVoiceChanged;
-            BarkPreviewButton.OnPressed += _ =>
-            {
-                // Preview button goes here
-            };
+            BarkPreviewButton.OnPressed += _ => OnBarkPreviewPressed();
             #endregion SpeechBarks Delta-V
             #region Eyes
 
