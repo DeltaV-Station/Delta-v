@@ -3,6 +3,7 @@ using Content.Shared._DV.Speech.Barks;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Speech;
+using Content.Shared.Humanoid;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -55,6 +56,26 @@ public sealed class BarkSystem : EntitySystem
         }
 
         return null;
+    }
+
+    ///<summary>
+    /// Assigns none-player humanoid mobs that are spawned any available Speech Barks voices
+    /// </summary>
+    private void OnHumanoidInit(EntityUid uid, HumanoidAppearanceComponent comp, ComponentInit args)
+    {
+        // Skips players
+        if (HasComp<ActorComponent>(uid))
+            return;
+
+        if (_cfg.GetCVar(DCCVars.BarksEnabled) == false)
+            return;
+
+        var voice = GetSpeciesDefaultVoice(comp.Species);
+        if (voice == null)
+            return;
+
+        var barkCOmp = EnsureComp<SpeechSynthesisComponent>(uid);
+        barkCOmp.VoicePrototypeId = voice;
     }
 
     /// <summary>

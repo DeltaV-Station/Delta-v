@@ -307,14 +307,14 @@ public sealed partial class DCCVars
      */
 
     /// <summary>
-    /// Whether speech barks is enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> BarksEnabled =
-        CVarDef.Create("voice.barks_enabled", true, CVar.SERVER | CVar.REPLICATED);
-
-    /// <summary>
     /// Local volume multiplier for speech barks.
     /// </summary>
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("voice.barks_volume", 1.0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether Speech Barks enabled on the server 
+    /// </summary>
+    public static readonly CVarDef<bool> BarksEnabled =
+        CVarDef.Create("voice.barks_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }

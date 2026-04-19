@@ -158,7 +158,7 @@ public sealed class BarkSystem : EntitySystem
             }
 
             // Calculates the volume
-            var volu = proto.Volume + (volume / 3f);
+            var volu = proto.Volume + (float)(10 * Math.Log10(Math.Max(volume, 0.001f)));
             if (bark.IsWhisper)
                 volu -= 5f;
 
