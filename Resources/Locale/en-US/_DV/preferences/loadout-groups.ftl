@@ -140,6 +140,7 @@ loadout-group-all-gun = Security Sidearm
 loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
 loadout-group-all-ammo = Ammunition
+security-utility = Utility
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
