@@ -82,10 +82,10 @@ public sealed partial class HumanoidCharacterProfileV1
     public PreferenceUnavailableMode PreferenceUnavailable;
 
     // Begin CD - Character Records
-    [DataField]
+    [DataField("cosmaticDriftCharacterHeight")]
     public float Height;
 
-    [DataField]
+    [DataField("cosmaticDriftCharacterRecords")]
     public PlayerProvidedCharacterRecords PlayerProvidedCharacterRecords;
     // End CD - Character Records
 

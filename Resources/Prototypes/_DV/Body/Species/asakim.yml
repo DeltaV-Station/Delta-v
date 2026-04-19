@@ -248,7 +248,7 @@
 
 - type: entity
   id: OrganAsakimTorso
-  parent: [ OrganBaseTorso, OrganAsakimExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAsakimExternal ]
   components:
   - type: Extractable
     juiceSolution:
@@ -260,7 +260,7 @@
 
 - type: entity
   id: OrganAsakimHead
-  parent: [ OrganBaseHead, OrganAsakimExternal]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganAsakimExternal]
   components:
   - type: Extractable
     juiceSolution:
@@ -307,7 +307,10 @@
   id: OrganAsakimEyes
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+    sprite: _Mono/Mobs/Customization/asakimeyes.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Mono/Mobs/Customization/asakimeyes.rsi
   - type: Organ
     onAdd:
     - type: NightVision
