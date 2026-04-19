@@ -53,4 +53,10 @@ public sealed partial class BarkPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<string>? SpeciesWhitelist;
+
+    /// <summary>
+    /// Used to sort the different voices in the Selection dropw down menu. Lower numbers are first
+    /// </summary>
+    [DataField]
+    public int SortOrder = 100;
 }

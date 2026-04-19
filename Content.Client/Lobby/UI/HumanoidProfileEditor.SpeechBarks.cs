@@ -14,7 +14,9 @@ public sealed partial class HumanoidProfileEditor
     {
         BarkVoiceButton.Clear();
 
-        var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>().ToList();
+        var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>()
+            .OrderBy(p => p.SortOrder)
+            .ToList();
         var index = 0;
         var selected = 0;
 
@@ -54,6 +56,7 @@ public sealed partial class HumanoidProfileEditor
         BarkVoiceButton.SelectId(args.Id);
         var sbmproto = _prototypeManager.EnumeratePrototypes<BarkPrototype>()
             .Where(p => p.SpeciesWhitelist == null || p.SpeciesWhitelist.Contains(Profile?.Species ?? ""))
+            .OrderBy(p => p.SortOrder)
             .ToList();
 
         if (args.Id >= 0 && args.Id < sbmproto.Count)

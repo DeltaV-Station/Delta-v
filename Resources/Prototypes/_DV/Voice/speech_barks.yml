@@ -74,9 +74,10 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 1
 
 - type: bark
-  id: Generic Medium
+  id: Generic Mid
   sounds:
     collection: BarkTenor
   minPitch: 1.1
@@ -84,6 +85,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 2
 
 - type: bark
   id: Generic High
@@ -94,6 +96,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 3
 
 - type: bark
   id: Lizard
@@ -104,6 +107,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 8
   speciesWhitelist:
   - Reptilian
   - Harpy
@@ -117,6 +121,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 7
   speciesWhitelist:
   - SlimePerson
   - Diona
@@ -131,6 +136,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 6
   speciesWhitelist:
   - Arachnid
   - Chitinid
@@ -145,6 +151,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 5
   speciesWhitelist:
   - Skeleton
 
@@ -157,6 +164,7 @@
   volume: 0
   frequency: 1
   predictable: true
+  sortOrder: 5
   speciesWhitelist:
   - Moth
 
@@ -169,6 +177,7 @@
   volume: -2
   frequency: 1
   predictable: true
+  sortOrder: 5
   speciesWhitelist:
   - Vox
 
@@ -181,5 +190,6 @@
   volume: -2
   frequency: 1
   predictable: true
+  sortOrder: 5
   speciesWhitelist:
   - Vox

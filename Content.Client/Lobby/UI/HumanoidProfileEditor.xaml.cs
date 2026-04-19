@@ -1351,6 +1351,7 @@ namespace Content.Client.Lobby.UI
             RefreshLoadouts();
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
+            UpdateBarkVoiceSelector();
             SetDirty();
             ReloadPreview();
         }
