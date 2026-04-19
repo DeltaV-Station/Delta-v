@@ -806,6 +806,26 @@ public partial class AtmosphereSystem
         return contains;
     }
 
+    /// <summary>
+    /// Applies an exponential moving average to a value, given a new value, an old value, and a time delta.
+    /// </summary>
+    /// <param name="newValue">The new value to factor into the average.</param>
+    /// <param name="oldValue">The old value to factor into the average.</param>
+    /// <param name="deltaTime">The time delta to factor into the average.</param>
+    /// <param name="tau">The time constant to use for the average.
+    /// Higher values will make the average change more slowly,
+    /// while lower values will make it change more quickly.</param>
+    /// <returns>The result of the exponential moving average.</returns>
+    [PublicAPI]
+    public static float ExponentialMovingAverage(float newValue,
+        float oldValue,
+        float deltaTime,
+        float tau = 0.5f)
+    {
+        var a = deltaTime / tau;
+        return a * newValue + (1 - a) * oldValue;
+    }
+
     [ByRefEvent]
     private record struct SetSimulatedGridMethodEvent(
         EntityUid Grid,
