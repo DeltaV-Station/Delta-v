@@ -24,6 +24,7 @@ public sealed class BarkSystem : EntitySystem
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<SpeechSynthesisComponent, EntitySpokeEvent>(OnEntitySpoke);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MapInitEvent>(OnHumanoidInit);
     }
     /// <summary>
     /// Attaches and verifies the existence of Speech Bark components upon a character spawning
@@ -61,7 +62,7 @@ public sealed class BarkSystem : EntitySystem
     ///<summary>
     /// Assigns none-player humanoid mobs that are spawned any available Speech Barks voices
     /// </summary>
-    private void OnHumanoidInit(EntityUid uid, HumanoidAppearanceComponent comp, ComponentInit args)
+    private void OnHumanoidInit(EntityUid uid, HumanoidAppearanceComponent comp, MapInitEvent args)
     {
         // Skips players
         if (HasComp<ActorComponent>(uid))
