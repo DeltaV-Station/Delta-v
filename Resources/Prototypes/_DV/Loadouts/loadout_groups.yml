@@ -414,6 +414,20 @@
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
 
+## Security utility
+- type: loadoutGroup
+  id: SecurityUtility
+  name: security-utility
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  - FlashBangLoadout
+  - TearGasLoadout
+  - StingerGrenadeLoadout
+  - RadioHandheldSecurityLoadout
+  - SecHoloProjectorLoadout
+  - HandcuffsLoadout
+
 ## Security Gloves
 - type: loadoutGroup
   id: SecurityGloves
