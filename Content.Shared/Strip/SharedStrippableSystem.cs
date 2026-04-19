@@ -404,7 +404,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         }
 
         // ... unless the user is an (admin) observer, admins setting up ghost roles in ATAG shouldn't trigger alerts
-        if (isUserShielded)
+        if (isUserGhost)
         {
             logImpact = LogImpact.Medium;
         }
