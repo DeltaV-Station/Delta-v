@@ -35,7 +35,7 @@ public sealed partial class BarkPrototype : IPrototype
     /// </summary>
     [DataField]
     public float Volume = 0f;
-    
+
     /// <summary>
     /// Blips per letter.
     /// </summary>

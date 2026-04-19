@@ -214,6 +214,5 @@ public sealed class BarkSystem : EntitySystem
             Timer = 0f,
             Interval = interval
         });
-    } 
+    }
 }
-
