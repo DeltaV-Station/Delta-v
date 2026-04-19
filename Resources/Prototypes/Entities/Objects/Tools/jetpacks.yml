@@ -27,7 +27,9 @@
   components:
     - type: Sprite
       sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-      state: icon
+      layers:
+      - state: icon
+        map: [ "enum.JetpackVisuals.Layer" ]
     - type: Item
       sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
       size: Huge
@@ -46,17 +48,21 @@
         - Back
         - SuitStorage # DeltaV - Allow all jetpacks to fit in the suit storage slot
     - type: GasTank
-      outputPressure: 21.3
+      releasePressure: 21.3
       air:
         volume: 5
         temperature: 293.15
     - type: Jetpack
       moleUsage: 0.00085
     - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.JetpackVisuals.Enabled:
+          enum.JetpackVisuals.Layer:
+            True: {state: icon-on}
+            False: {state: icon}
     - type: StaticPrice
       price: 100
-#    - type: DynamicPrice
-#      price: 100
     - type: ReverseEngineering # DeltaV: all jetpacks can RE to void jetpacks, the best kind which can't be bought
       difficulty: 3
       recipes:
@@ -103,7 +109,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -140,7 +146,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -160,10 +166,9 @@
     sprite: Objects/Tanks/Jetpacks/captain.rsi
   - type: Clothing
     sprite: Objects/Tanks/Jetpacks/captain.rsi
-    # DeltaV modifications - Covered by modifications on parent
-    #slots:
-    #  - Back
-    # End DeltaV modifications
+    slots:
+    - Back
+    - SuitStorage
   - type: Item
     sprite: Objects/Tanks/Jetpacks/captain.rsi
     size: Normal
@@ -181,7 +186,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -209,7 +214,8 @@
         - suitStorage
         - Belt
     - type: GasTank
-      outputPressure: 42.6
+      overpressure: 1519.875 # Poorly manufactured, they also lose pressure quickly so this makes exploding them easier, at the cost of the explosion being tiny.
+      releasePressure: 42.6
       air:
         volume: 1.5
 
@@ -221,7 +227,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 4 minutes of thrust
       volume: 1.5
@@ -238,9 +244,17 @@
   description: A compact jetpack utilized by station security when patrolling the station's exterior. Not intended for long range travel, it holds only 1.5 L of gas.
   suffix: Empty
   components:
-  # DeltaV - Add override to gas tank for empty security jetpack to correspond with filled jetpack (So empty sec jetpacks aren't 5L while filled jetpacks are 3L)
+  - type: Item
+    sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: Sprite
+    sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: Clothing
+    sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
   - type: GasTank
-    outputPressure: 42.6
+    maxIntegrity: 5 # You may ask why this microbalance? The answer is: Sec jetpacks sprite is based off regular jetpacks, and I'm too lazy to make their sprite data different.
+    integrity: 5
+  # DeltaV - Add override to gas tank for empty security jetpack to correspond with filled jetpack (So empty sec jetpacks aren't 5L while filled jetpacks are 3L)
+    releasePressure: 42.6
     air:
       # 8 minutes of thrust
       volume: 3
@@ -249,12 +263,8 @@
         Oxygen: 0.0
         Nitrogen: 0.0
   # End DeltaV
-  - type: Item
-    sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-  - type: Sprite
-    sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-  - type: Clothing
-    sprite: _DV/Objects/Tanks/Jetpacks/security.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: MaxPressureVisuals
+    steps: 5
 
 #Filled security
 - type: entity
@@ -264,7 +274,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 8 minutes of thrust
       volume: 3 # DeltaV - Increase from 1.5L to 3L
@@ -301,7 +311,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -318,7 +328,7 @@
   suffix: Infinite
   components:
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       volume: 5
       temperature: 293.15
