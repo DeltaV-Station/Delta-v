@@ -140,9 +140,10 @@
       Brute:
         sprite: _DV/Mobs/Species/Motorkind/brute_damage.rsi
         color: "#444444"
-      Burn:
-        sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
-        color: "#888888"
+#   Delta V - Commented out until damageModifierSet with Burn is added
+#      Burn:
+#        sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
+#        color: "#888888"
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -343,7 +344,7 @@
       state: windshield
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganMotorkindInternal ]
+  parent: [ OrganMotorkindInternal ]
   id: OrganMotorkindStomachFuelTank
   name: fuel tank
   description: "A fuel tank that stores various fuels to power the motorkind's engine."
@@ -360,6 +361,10 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 5
+  - type: GibbableOrgan
+  - type: Organ
+    category: Stomach
+  - type: Stomach
   - type: Metabolizer
     maxReagents: 6
     metabolizerTypes: [ Fuel ]
@@ -385,7 +390,7 @@
     - state: oil_filter
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganMotorkindInternal ]
+  parent: [ OrganMotorkindInternal ]
   id: OrganMotorkindLungsCatalyticConverter
   name: catalytic converter
   description: "Helps purify the output of a Motorkind's engine into something less toxic. Motorkind are often hunted for these valuable trophies."
@@ -393,6 +398,12 @@
   - type: Sprite
     layers:
     - state: catalytic_converter
+  - type: GibbableOrgan
+  - type: Organ
+    category: Lungs
+  - type: Lung
+  - type: Item
+    heldPrefix: lungs
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false

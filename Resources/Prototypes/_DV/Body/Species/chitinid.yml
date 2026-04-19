@@ -259,6 +259,8 @@
   parent: [ OrganBaseEyes, OrganChitinidInternal, OrganChitinidExternal ]
   id: OrganChitinidEyes
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi # Delta V - Eye ball
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.Eyes
     data:

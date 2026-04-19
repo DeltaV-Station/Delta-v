@@ -14,6 +14,6 @@ public abstract partial class SharedVisualBodySystem
         if (!TryComp<HumanoidProfileComponent>(ent, out var humanoidProfile))
             return;
 
-        ApplyAppearanceTo(ent.AsNullable(), HumanoidCharacterAppearance.DefaultWithSpecies(humanoidProfile.Species, humanoidProfile.Sex), humanoidProfile.Sex);
+        ApplyAppearanceTo(ent.AsNullable(), HumanoidCharacterAppearance.DefaultWithSpecies(humanoidProfile.Species, humanoidProfile.Sex), humanoidProfile.Sex, humanoidProfile.Height); // Delta V - CD Height
     }
 }

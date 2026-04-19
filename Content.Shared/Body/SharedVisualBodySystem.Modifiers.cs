@@ -117,7 +117,7 @@ public abstract partial class SharedVisualBodySystem
         RaiseLocalEvent(ent, ref markingsEvt);
     }
 
-    private void ApplyAppearanceTo(Entity<VisualBodyComponent?> ent, HumanoidCharacterAppearance appearance, Sex sex)
+    private void ApplyAppearanceTo(Entity<VisualBodyComponent?> ent, HumanoidCharacterAppearance appearance, Sex sex, float height) // Delta V - CD Height
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -128,6 +128,7 @@ public abstract partial class SharedVisualBodySystem
             Sex = sex,
             SkinColor = appearance.SkinColor,
             EyeColor = appearance.EyeColor,
+            Height =  height,
         });
 
         var markingsEvt = new ApplyOrganMarkingsEvent(appearance.Markings);
@@ -136,7 +137,7 @@ public abstract partial class SharedVisualBodySystem
 
     public void ApplyProfileTo(Entity<VisualBodyComponent?> ent, HumanoidCharacterProfile profile)
     {
-        ApplyAppearanceTo(ent, profile.Appearance, profile.Sex);
+        ApplyAppearanceTo(ent, profile.Appearance, profile.Sex, profile.Height);
     }
 
     public void ApplyProfile(EntityUid ent, OrganProfileData profile)

@@ -54,5 +54,13 @@ public partial record struct OrganProfileData
     /// </summary>
     [DataField]
     public Color SkinColor = Color.White;
+
+    // Delta V - Begin CD Height
+    /// <summary>
+    /// The "height" used in CD
+    /// </summary>
+    [DataField]
+    public float Height = 1f;
+    // Delta V - End CD Height
 }
 
