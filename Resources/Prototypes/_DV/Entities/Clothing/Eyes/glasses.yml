@@ -107,13 +107,18 @@
   parent: [ClothingEyesGlassesMeson, BaseToggleClothing]
   id: ClothingEyesGlassesMesonTray
   name: advanced engineering goggles
-  description: Protective meson goggles that have an integrated T-ray scanner and protects from any intense flash.
+  description: Protective meson goggles that have an integrated T-ray scanner and diagnostic HUD. The multilayer laminate protects from any intense flash.
   components:
   - type: ToggleClothing
     action: ActionToggleTray
   - type: TrayScanner
     enabled: false
   - type: FlashImmunity
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - HumanoidSilicon # DeltaV - IPCs
   - type: Sprite
     sprite: _DV/Clothing/Eyes/Glasses/traymeson.rsi
   - type: Clothing
