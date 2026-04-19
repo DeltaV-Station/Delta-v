@@ -417,7 +417,7 @@
 ## Security utility
 - type: loadoutGroup
   id: SecurityUtility
-  name: security-utility
+  name: Utility
   minLimit: 0
   maxLimit: 4
   loadouts:
@@ -427,6 +427,7 @@
   - RadioHandheldSecurityLoadout
   - SecHoloProjectorLoadout
   - HandcuffsLoadout
+  - SecLiteLoadout
 
 ## Security Gloves
 - type: loadoutGroup
