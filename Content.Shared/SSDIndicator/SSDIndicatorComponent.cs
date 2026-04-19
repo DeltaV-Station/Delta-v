@@ -46,4 +46,35 @@ public sealed partial class SSDIndicatorComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
+    // DeltaV - SSD Recency Additions START
+
+    /// <summary>
+    /// The time at which the Entity became SSD.
+    /// </summary>
+    [AutoNetworkedField, AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan SsdSince = TimeSpan.Zero;
+
+    /// <summary>
+    /// Whether or not the entity only became SSD recently.
+    /// </summary>
+    [AutoNetworkedField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsRecent = true;
+
+    /// <summary>
+    /// The time at which the Entity will no longer be considered recently SSD.
+    /// </summary>
+    [AutoNetworkedField, AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NonRecentSsdTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// The icon displayed next to the associated entity when it only recently became SSD.
+    /// </summary>
+    [DataField]
+    public ProtoId<SsdIconPrototype> IconRecent = "RecentSSDIcon";
+
+    // DeltaV END
 }

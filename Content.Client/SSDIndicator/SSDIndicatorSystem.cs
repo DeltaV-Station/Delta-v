@@ -35,12 +35,20 @@ public sealed class SSDIndicatorSystem : EntitySystem
             !HasComp<ActiveNPCComponent>(uid) &&
             HasComp<MindExaminableComponent>(uid))
         {
-            // Begin DeltaV Addition
+            // Begin DeltaV Additions
             var ev = new ShowSSDIndicatorEvent();
             RaiseLocalEvent(uid, ref ev);
             if (ev.Hidden)
                 return;
-            // End DeltaV Addition
+
+            // SSD Recency Indicator
+            if (component.IsRecent)
+            {
+                args.StatusIcons.Add(_prototype.Index(component.IconRecent));
+                return;
+            }
+            // End DeltaV Additions
+
             args.StatusIcons.Add(_prototype.Index(component.Icon));
         }
     }

@@ -308,4 +308,11 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> EsScreenshakeDisabled =
         CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The time for which an SSD player is considered to be recently SSD, in seconds.
+    /// Default is 10 minutes.
+    /// </summary>
+    public static readonly CVarDef<float> SsdIndicatorRecentSeconds =
+        CVarDef.Create("deltav.ssd.recent_seconds", 600f, CVar.SERVER);
 }

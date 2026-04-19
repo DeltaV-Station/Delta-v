@@ -1,3 +1,4 @@
+using Content.Shared._DV.CCVars; // DeltaV - SSD Recency
 using Content.Shared.CCVar;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
@@ -21,6 +22,8 @@ public sealed class SSDIndicatorSystem : EntitySystem
     private bool _icSsdSleep;
     private float _icSsdSleepTime;
 
+    private float _recentSsdSeconds; // DeltaV
+
     public override void Initialize()
     {
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerAttachedEvent>(OnPlayerAttached);
@@ -29,7 +32,27 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorRecentSeconds, OnRecentDurationChanged, true); // DeltaV - Recency
     }
+
+    // DeltaV - Add method START
+    private void OnRecentDurationChanged(float obj)
+    {
+        _recentSsdSeconds = obj;
+
+        var query = EntityQueryEnumerator<SSDIndicatorComponent>();
+        while (query.MoveNext(out var entity, out var ssd))
+        {
+            if (!ssd.IsSSD || TerminatingOrDeleted(entity))
+                continue;
+
+            ssd.IsRecent = true;
+            ssd.NonRecentSsdTime = ssd.SsdSince + TimeSpan.FromSeconds(_recentSsdSeconds);
+
+            Dirty(entity, ssd);
+        }
+    }
+    // DeltaV END
 
     private void OnPlayerAttached(EntityUid uid, SSDIndicatorComponent component, PlayerAttachedEvent args)
     {
@@ -55,6 +78,12 @@ public sealed class SSDIndicatorSystem : EntitySystem
             component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
         }
 
+        // DeltaV - Recency START
+        component.SsdSince = _timing.CurTime;
+        component.IsRecent = true;
+        component.NonRecentSsdTime = _timing.CurTime + TimeSpan.FromSeconds(_recentSsdSeconds);
+        // DeltaV END
+
         Dirty(uid, component);
     }
 
@@ -73,8 +102,10 @@ public sealed class SSDIndicatorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_icSsdSleep)
-            return;
+        // DeltaV - Don't return, we're checking SSD duration below. Moved down.
+        // if (!_icSsdSleep)
+        //    return;
+        // DeltaV END
 
         var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<SSDIndicatorComponent>();
@@ -84,9 +115,17 @@ public sealed class SSDIndicatorSystem : EntitySystem
             // Forces the entity to sleep when the time has come
             if (!ssd.IsSSD
                 || ssd.NextUpdate > curTime
-                || ssd.FallAsleepTime > curTime
+                // || ssd.FallAsleepTime > curTime // DeltaV - moved down
                 || TerminatingOrDeleted(uid))
                 continue;
+
+            // DeltaV - Recency START
+            ssd.IsRecent = ssd.NonRecentSsdTime > curTime; // DeltaV
+            Dirty(uid, ssd);
+
+            if (!_icSsdSleep || ssd.FallAsleepTime > curTime)
+                continue;
+            // DeltaV END
 
             _statusEffects.TryUpdateStatusEffectDuration(uid, StatusEffectSSDSleeping);
             ssd.NextUpdate += ssd.UpdateInterval;
