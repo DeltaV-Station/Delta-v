@@ -142,6 +142,9 @@
   parent: OrganFeroxi
   id: OrganFeroxiInternal
   abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganFeroxiExternal ]

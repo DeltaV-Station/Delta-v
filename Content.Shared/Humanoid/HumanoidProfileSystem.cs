@@ -28,6 +28,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
         ent.Comp.Sex = profile.Sex;
+        ent.Comp.Height = profile.Height; // Delta V - CD Height
         Dirty(ent);
 
         if (TryComp<GrammarComponent>(ent, out var grammar))
