@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/17/2026 21:53:51
+  time: 04/19/2026 18:00:10
   entityCount: 29002
 maps:
 - 1
@@ -15492,6 +15492,13 @@ entities:
       parent: 2
 - proto: AirlockSecurityGlass
   entities:
+  - uid: 6035
+    components:
+    - type: MetaData
+      name: Fishing Room
+    - type: Transform
+      pos: 54.5,-28.5
+      parent: 2
   - uid: 10361
     components:
     - type: MetaData
@@ -15549,11 +15556,6 @@ entities:
       name: Security Checkpoint
     - type: Transform
       pos: -13.5,-7.5
-      parent: 2
-  - uid: 6035
-    components:
-    - type: Transform
-      pos: 54.5,-28.5
       parent: 2
   - uid: 8661
     components:
