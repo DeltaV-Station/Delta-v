@@ -950,6 +950,8 @@
   - type: BatterySelfRecharger #Delta V - Self recharging not removed
     autoRechargeRate: 72 # Delta V - Was 10
     autoRechargePauseTime: 30
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun # DeltaV- traitor steal target added
 
 - type: entity
   name: energy magnum
