@@ -82,8 +82,8 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent, LungComponent>(); // DeltaV: Need BodyComponent for additions
-        while (query.MoveNext(out var uid, out var respirator, out var lung)) // DeltaV: Need BodyComponent for additions
+        var query = EntityQueryEnumerator<RespiratorComponent>(); // DeltaV: Need BodyComponent for additions
+        while (query.MoveNext(out var uid, out var respirator)) // DeltaV: Need BodyComponent for additions
         {
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
@@ -93,11 +93,7 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid) || HasComp<SpecialBreathingImmunityComponent>(uid))
                 continue;
 
-            // Begin DeltaV Additions
-            var multiplier = -1f;
-            multiplier *= lung.SaturationLoss;
-            // End DeltaV Additions
-            UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
+            UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             if (!_mobState.IsIncapacitated(uid)
                 || TryComp<AffectedByCPRComponent>(uid, out var cprComp) && cprComp.IsActive) // DeltaV - Addition of CPR
