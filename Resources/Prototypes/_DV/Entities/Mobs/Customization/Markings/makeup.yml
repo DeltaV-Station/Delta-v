@@ -1,7 +1,7 @@
 - type: marking
   id: MakeupLips
   bodyPart: Head
-  groupWhitelist: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Kitsune]
+  groupWhitelist: [Human, Slime, Felinid, Oni, Harpy, Kitsune]
   coloring:
     default:
       type:
@@ -14,7 +14,7 @@
 - type: marking
   id: MakeupBlush
   bodyPart: Head
-  groupWhitelist: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy, Rodentia, Feroxi, Kitsune]
+  groupWhitelist: [Human, Reptilian, Slime, Felinid, Oni, Vulpkanin, Harpy, Rodentia, Feroxi, Kitsune]
   coloring:
     default:
       type:
@@ -27,7 +27,7 @@
 - type: marking
   id: MakeupNailPolishRight
   bodyPart: RHand
-  groupWhitelist: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
+  groupWhitelist: [Human, Reptilian, Arachnid, Slime, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
   coloring:
     default:
       type:
@@ -40,7 +40,7 @@
 - type: marking
   id: MakeupNailPolishLeft
   bodyPart: LHand
-  groupWhitelist: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
+  groupWhitelist: [Human, Reptilian, Arachnid, Slime, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
   coloring:
     default:
       type:

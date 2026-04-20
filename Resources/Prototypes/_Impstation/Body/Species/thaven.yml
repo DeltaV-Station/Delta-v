@@ -11,7 +11,7 @@
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
       required: true
-      defaultMarkings: [ ThavenEars1 ]
+      default: [ ThavenEars1 ]
     enum.HumanoidVisualLayers.Head:
       limit: 4
       required: false
