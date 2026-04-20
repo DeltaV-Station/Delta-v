@@ -39,6 +39,12 @@
   parent: [ OrganBaseKidneys, OrganAnimalInternal, OrganAnimalMetabolizer ]
   id: OrganAnimalKidneys
 
+# Delta V - Start Animal Brains
+- type: entity
+  parent: [ OrganBaseBrain, OrganAnimalInternal ]
+  id: OrganAnimalBrain
+# Delta V - End Animal Brains
+
 - type: entity
   id: BaseMobAnimal
   abstract: true
@@ -48,6 +54,7 @@
     containers:
       body_organs: !type:AllSelector
         children:
+        - id: OrganAnimalBrain # Animal Brains
         - id: OrganAnimalLungs
         - id: OrganAnimalHeart
         - id: OrganAnimalStomach
