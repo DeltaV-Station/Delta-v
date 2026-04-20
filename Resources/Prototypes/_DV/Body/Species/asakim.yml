@@ -1,6 +1,6 @@
 - type: markingsGroup
   id: Asakim
-  onlyWhitelisted: true
+  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 0
@@ -11,7 +11,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ LizardTailSmooth ]
+      default: [ LizardTailSmooth ]
     enum.HumanoidVisualLayers.HeadTop:
       limit: 2
       required: false
