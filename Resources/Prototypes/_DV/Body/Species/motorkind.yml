@@ -390,7 +390,7 @@
     - state: oil_filter
 
 - type: entity
-  parent: [ OrganMotorkindInternal ]
+  parent: [ OrganBaseLungs, OrganMotorkindInternal ]
   id: OrganMotorkindLungsCatalyticConverter
   name: catalytic converter
   description: "Helps purify the output of a Motorkind's engine into something less toxic. Motorkind are often hunted for these valuable trophies."
@@ -406,8 +406,6 @@
     heldPrefix: lungs
   - type: Metabolizer
     removeEmpty: true
-    solutionOnBody: false
-    solution: "Lung"
     metabolizerTypes: [ Fuel ]
     groups:
     - id: Gas
