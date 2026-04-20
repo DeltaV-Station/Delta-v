@@ -1,12 +1,14 @@
 using System.Linq;
 using Content.Shared.DragDrop;
 using Robust.Shared.Containers;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Shared.Body;
 
 public sealed partial class BodySystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
 
     private EntityQuery<BodyComponent> _bodyQuery;
     private EntityQuery<OrganComponent> _organQuery;
@@ -23,8 +25,7 @@ public sealed partial class BodySystem : EntitySystem
         SubscribeLocalEvent<BodyComponent, EntInsertedIntoContainerMessage>(OnBodyEntInserted);
         SubscribeLocalEvent<BodyComponent, EntRemovedFromContainerMessage>(OnBodyEntRemoved);
 
-        SubscribeLocalEvent<BodyComponent, OrganInsertedIntoEvent>(OnOrganInserted);
-        SubscribeLocalEvent<BodyComponent, OrganRemovedFromEvent>(OnOrganRemoved);
+        SubscribeLocalEvent<BodyComponent, OrganInsertedIntoEvent>(OnOrganInserted); // Delta V - Nubody Organ Functionality Workaround
 
         _bodyQuery = GetEntityQuery<BodyComponent>();
         _organQuery = GetEntityQuery<OrganComponent>();
@@ -97,30 +98,15 @@ public sealed partial class BodySystem : EntitySystem
         if (!TryComp<OrganComponent>(args.Organ, out var organ) || organ.onAdd == null)
             return;
 
-        // Delta V - Begin Organ Functionality Solution
         foreach (var (key, comp) in organ.onAdd)
         {
             var compType = comp.Component.GetType();
             if (HasComp(ent, compType))
                 continue;
 
-            EntityManager.AddComponent(ent, comp.Component);
-        }
-    }
-
-    private void OnOrganRemoved(Entity<BodyComponent> ent, ref OrganRemovedFromEvent args)
-    {
-        if (!TryComp<OrganComponent>(args.Organ, out var organ) || organ.onAdd == null)
-            return;
-
-        // Delta V - Begin Organ Functionality Solution
-        foreach (var (key, comp) in organ.onAdd)
-        {
-            var compType = comp.Component.GetType();
-            if (!HasComp(ent, compType))
-                continue;
-
-            EntityManager.RemoveComponent(ent, comp.Component);
+            var newComp = _serializationManager.CreateCopy(comp.Component, notNullableOverride: true);
+            newComp.Owner = ent;
+            EntityManager.AddComponent(ent.Owner, newComp, true);
         }
     }
     // Delta V - End
