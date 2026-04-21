@@ -1,6 +1,6 @@
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Timing;
 
@@ -33,7 +33,7 @@ public sealed partial class SharedResurrectWhenAbleSystem : EntitySystem
                 continue;
             }
 
-            if (!_mobThreshold.TryGetThresholdForState(uid, Mobs.MobState.Dead, out var threshold))
+            if (!_mobThreshold.TryGetThresholdForState(uid, MobState.Dead, out var threshold))
                 continue;
 
             if (!TryComp<DamageableComponent>(uid, out var damageable))
@@ -58,7 +58,7 @@ public sealed partial class SharedResurrectWhenAbleSystem : EntitySystem
                 continue;
 
             // Resurrect the entity.
-            _mobState.ChangeMobState(uid, Mobs.MobState.Alive);
+            _mobState.ChangeMobState(uid, MobState.Alive);
             comp.ResurrectAt = null;
         }
     }

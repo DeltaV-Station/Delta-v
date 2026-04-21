@@ -33,3 +33,22 @@
   parent: [ StatusEffectSlowdown, MobStatusEffectDebuff ]
   id: MassSleepSlowdownStatusEffect
   name: slowed by mass sleep power
+
+# Increases the critical threshold by 50
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCriticalWill
+  name: affected by indomitable will power
+  components:
+  - type: ModifyMobStateThresholdsEffect
+    thresholds:
+      critical: 75
+  - type: IgnoreSlowOnDamage
+
+# Increases the critical threshold by 50
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectIndomitableWill
+  name: affected by indomitable will power
+  components:
+  - type: IgnoreSlowOnDamage

@@ -17,6 +17,8 @@ public abstract partial class SharedPsionicSystem
         SubscribeLocalEvent<PsionicsDisabledComponent, StatusEffectRemovedEvent>(OnStatusEffectRemoved);
         SubscribeLocalEvent<ShieldedFromPsionicsComponent, StatusEffectAppliedEvent>(OnStatusEffectApplied);
         SubscribeLocalEvent<ShieldedFromPsionicsComponent, StatusEffectRemovedEvent>(OnStatusEffectRemoved);
+
+        SubscribeLocalEvent<IndomitableWillRemovedStatusEffectComponent, StatusEffectRelayedEvent<IndomitableWillSuccessEvent>>(OnIndomitableWill);
     }
 
     private void OnPowerUseAttempt(Entity<PsionicsDisabledComponent> psionic, ref StatusEffectRelayedEvent<PsionicPowerUseAttemptEvent> args)
@@ -61,5 +63,10 @@ public abstract partial class SharedPsionicSystem
 
         var ev = new PsionicStoppedShieldedEvent(args.Target);
         RaiseLocalEvent(args.Target, ref ev);
+    }
+
+    private void OnIndomitableWill(Entity<IndomitableWillRemovedStatusEffectComponent> statusEffect, ref StatusEffectRelayedEvent<IndomitableWillSuccessEvent> args)
+    {
+        PredictedQueueDel(statusEffect.Owner);
     }
 }

@@ -40,6 +40,7 @@ public sealed partial class StatusEffectsSystem
         // DeltaV Start - Psionics Refactor
         SubscribeLocalEvent<StatusEffectContainerComponent, PsionicPowerUseAttemptEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, TargetedByPsionicPowerEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, IndomitableWillSuccessEvent>(RefRelayStatusEffectEvent);
         // DeltaV End - Psionics Refactor
     }
 

@@ -2,6 +2,7 @@
 psionic-power-name-dispel = Dispel
 psionic-power-name-eruption = Psionic Eruption
 psionic-power-name-fractured-form = Fractured Form
+psionic-power-name-indomitable-will = Indomitable Will
 psionic-power-name-mass-sleep = Mass Sleep
 psionic-power-name-mindswap = Mind Swap
 psionic-power-name-mindswap-return = Mind Swap Return
@@ -33,6 +34,14 @@ psionic-power-fractured-form-sleepy = You feel very sleepy... You should find so
 psionic-power-fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
 psionic-power-fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
 psionic-power-fractured-form-dispelled = Someone dispelled your sleepiness..
+
+# Indomitable Will
+psionic-power-indomitable-will-self = Your will purges your body from distractions.
+psionic-power-indomitable-will-others = {CAPITALIZE(THE($user))} locks in!
+psionic-power-indomitable-will-crit-self = Your mind focuses and you force yourself up!
+psionic-power-indomitable-will-crit-others = {CAPITALIZE(THE($user))} suddenly stands up in a defiant surge!
+psionic-power-indomitable-will-uncuff-self = A sudden burst of strength breaks your cuffs!
+psionic-power-indomitable-will-uncuff-others = {CAPITALIZE(THE($user))} tears apart their cuffs!
 
 # Metapsionic Pulse
 psionic-power-metapsionic-success = You detect psychic presence there.

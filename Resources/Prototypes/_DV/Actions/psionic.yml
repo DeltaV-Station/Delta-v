@@ -228,3 +228,19 @@
     checkCanInteract: false
   - type: InstantAction
     event: !type:FracturedFormPowerActionEvent
+
+- type: entity
+  parent: BasePsionicAction
+  id: ActionIndomitableWill
+  name: Lock in
+  description: Cleanse yourself of debuffs, uncuff yourself OR stand up from the critical state!
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics_small.rsi
+      state: fractured_form
+    useDelay: 120
+    checkCanInteract: false
+    checkConsciousness: false
+  - type: InstantAction
+    event: !type:IndomitableWillPowerActionEvent

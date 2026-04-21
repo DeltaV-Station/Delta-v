@@ -76,6 +76,8 @@ public abstract partial class SharedStunSystem
         SubscribeAllEvent<ForceStandUpEvent>(OnForceStandup);
         SubscribeLocalEvent<KnockedDownComponent, KnockedDownAlertEvent>(OnKnockedDownAlert);
 
+        InitializeDVKnockdown(); // DeltaV - Partial System.
+
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ToggleKnockdown, InputCmdHandler.FromDelegate(HandleToggleKnockdown, handle: false))
             .Register<SharedStunSystem>();
