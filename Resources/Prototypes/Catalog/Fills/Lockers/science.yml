@@ -20,5 +20,18 @@
     - id: NodeScanner
     - id: NetworkConfigurator
       prob: 0.5
+    # DeltaV Changes begin
+    - id: AnomalyLocator
+    - id: Wrench
+    - id: ClothingBeltUtility
+    - id: PowerCellPotato
+      prob: 0.2
+    - id: PowerCellSmall
+      prob: 0.3
+    - id: PersonalAI
+      prob: 0.1
+    - id: ClothingHeadTinfoil
+      prob: 0.2
     - id: LunchboxEpistemicsFilledRandom # Delta-V Lunchboxes!
       prob: 0.3
+      # DeltaV Changes end
