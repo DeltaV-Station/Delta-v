@@ -40,7 +40,7 @@
   id: StatusEffectCriticalWill
   name: affected by indomitable will power
   components:
-  - type: ModifyMobStateThresholdsEffect
+  - type: ModifyMobStateThresholdsStatusEffect
     thresholds:
       critical: 75
   - type: IgnoreSlowOnDamage
