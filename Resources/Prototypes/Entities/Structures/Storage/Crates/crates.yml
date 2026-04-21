@@ -595,11 +595,11 @@
     layers:
     - state: base
     - state: overlay
-      color: "#c12d30"
+      color: "#34476c" # DeltaV - blue security resprite
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#c12d30"
+      color: "#34476c" # DeltaV - blue security resprite
       map: [ lid_overlay ]
     - state: welded
       visible: false
