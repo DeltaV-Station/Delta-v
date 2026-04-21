@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Mobs.Components;
+using Content.Shared._DV.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffectNew;
 

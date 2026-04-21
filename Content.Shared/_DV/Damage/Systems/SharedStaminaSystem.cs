@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.Damage.Components;
 
 namespace Content.Shared.Damage.Systems;

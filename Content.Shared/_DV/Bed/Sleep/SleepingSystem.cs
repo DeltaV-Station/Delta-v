@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Psionics.Events;
 
 namespace Content.Shared.Bed.Sleep;
 
