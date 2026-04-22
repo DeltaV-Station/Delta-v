@@ -31,6 +31,7 @@
     outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
+    eyes: ClothingEyesGlassesSecurity # DeltaV - let cadet spawn with sec glasses
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponDisabler # DeltaV - loadouts, Security Cadet doesn't spawn with a gun
     pocket2: BookSecurity
@@ -45,7 +46,7 @@
   hasMindShield: true
   equipment:
     head: ClothingHeadHelmetBasic
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesGlassesSecurity # DeltaV - cadets have actual glasses
     mask: ClothingMaskGasSecurity
     neck: ClothingNeckScarfStripedRed
     belt: ClothingBeltSecurity
