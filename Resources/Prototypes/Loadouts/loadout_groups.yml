@@ -10,10 +10,6 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
-  # Begin DeltaV Additions
-  - PlushieExperiment
-  - PlushieBee
-  # End DeltaV Additions
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -43,7 +39,6 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
-  - ClothingNeckLanyard
   - OffsetCane
   - OffsetCaneWood
   - OffsetCaneClown
@@ -51,24 +46,10 @@
   - OffsetCaneNT
   - Cane
   - TowelColorWhite
-  - TowelColorGray
-  - TowelColorBlack
-  - TowelColorRed
-  - TowelColorOrange
-  - TowelColorLightBrown
-  - TowelColorYellow
-  - TowelColorDarkGreen
-  - TowelColorGreen
-  - TowelColorLightBlue
-  - TowelColorDarkBlue
-  - TowelColorPurple
-  - TowelColorMaroon
-  - TowelColorMime
-  - TowelColorSilver
-  #- TowelColorWhite # DeltaV - Removed due because of being a duplicate
-  #- TowelColorYellow # DeltaV - Removed due because of being a duplicate
-  - TowelColorGold
   # Begin DeltaV Additions
+  - PlushieExperiment
+  - PlushieBee
+  - ClothingNeckLanyard
   - AACTablet
   - GoldRing
   - SilverRing
@@ -193,13 +174,13 @@
   - CaptainWintercoat
   - CaptainWintercoatArmored #DeltaV
 
-- type: loadoutGroup
-  id: CaptainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieCaptain
-  - LighterCentComm # DeltaV
+#- type: loadoutGroup
+#  id: CaptainJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
+#  - LizardPlushieCaptain
+#  - LighterCentComm
 
 - type: loadoutGroup
   id: HoPHead
@@ -207,7 +188,6 @@
   minLimit: 0
   loadouts:
   - HoPHead
-  - HoPBeret
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -259,12 +239,12 @@
   # End DeltaV additions
   - HoPWintercoat
 
-- type: loadoutGroup
-  id: HoPJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieHeadOfPersonnel
+#- type: loadoutGroup
+#  id: HoPJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
+#  - LizardPlushieHeadOfPersonnel
 
 # Civilian
 - type: loadoutGroup
@@ -436,12 +416,12 @@
   - WhiteCowboyBoots
   # End DeltaV additions
 
-- type: loadoutGroup
-  id: PassengerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushiePassenger
+#- type: loadoutGroup
+#  id: PassengerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
+#  - LizardPlushiePassenger
 
 - type: loadoutGroup
   id: BartenderHead
@@ -481,15 +461,13 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieBartender
   - BartenderGoldenShaker
 
-- type: loadoutGroup
-  id: ServiceWorkerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieServiceWorker
+#- type: loadoutGroup
+#  id: ServiceWorkerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ChefHead
@@ -522,12 +500,11 @@
   - ChefJacket
   - ChefWintercoat
 
-- type: loadoutGroup
-  id: ChefJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChef
+#- type: loadoutGroup
+#  id: ChefJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -542,12 +519,11 @@
   - ClothingUniformCreamSuitSkirt
   # End Imp additions
 
-- type: loadoutGroup
-  id: LibrarianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieLibrarian
+#- type: loadoutGroup
+#  id: LibrarianJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -581,12 +557,11 @@
   - ScarfPurple
   # End DeltaV additions
 
-- type: loadoutGroup
-  id: LawyerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieLawyer
+#- type: loadoutGroup
+#  id: LawyerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ChaplainHead
@@ -637,12 +612,11 @@
   - ChaplainNeck
   - ScarfBlack # DeltaV
 
-- type: loadoutGroup
-  id: ChaplainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChaplain
+#- type: loadoutGroup
+#  id: ChaplainJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ChaplainBible
@@ -691,7 +665,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieJanitor
   - JanitorGoldenPlunger
 
 - type: loadoutGroup
@@ -728,12 +701,11 @@
   - BotanistWintercoat
   - BomberService # DeltaV
 
-- type: loadoutGroup
-  id: BotanistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBotanist
+#- type: loadoutGroup
+#  id: BotanistJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ClownHead
@@ -749,7 +721,7 @@
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
-  - ClownSkirt # Starlight
+  - ClownSkirt
   - JesterSuit
   - JesterAltSuit
 
@@ -792,7 +764,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieClown
   - FlowerWaterClown
 
 - type: loadoutGroup
@@ -867,12 +838,11 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyWaterVaporMime # DeltaV
 
-- type: loadoutGroup
-  id: MimeJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMime
+#- type: loadoutGroup
+#  id: MimeJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -928,12 +898,11 @@
   - Bagpipe
   - SuperSynthesizerInstrument # DeltaV - Make SuperSynths musician only
 
-- type: loadoutGroup
-  id: MusicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMusician
+#- type: loadoutGroup
+#  id: MusicianJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 # Cargo
 - type: loadoutGroup
@@ -982,12 +951,11 @@
   - CargoWinterBoots
   - QuartermasterWinterBoots # DeltaV
 
-- type: loadoutGroup
-  id: QuartermasterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieQuartermaster
+#- type: loadoutGroup
+#  id: QuartermasterJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -1031,11 +999,17 @@
   - CargoWinterBoots
 
 - type: loadoutGroup
-  id: CargoTechnicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
+  id: CargoTechnicianID
+  name: loadout-group-cargo-technician-id
   loadouts:
-  - LizardPlushieCargoTechnician
+  - CargoTechnicianPDA
+  - SeniorCourierPDA
+
+#- type: loadoutGroup
+#  id: CargoTechnicianJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -1062,12 +1036,11 @@
   - SalvageWinterBoots
   # End DeltaV changes
 
-- type: loadoutGroup
-  id: SalvageSpecialistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSalvageSpecialist
+#- type: loadoutGroup
+#  id: SalvageSpecialistJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 # Engineering
 - type: loadoutGroup
@@ -1127,12 +1100,11 @@
   - GreenShoes
   # End DeltaV Additions
 
-- type: loadoutGroup
-  id: ChiefEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChiefEngineer
+#- type: loadoutGroup
+#  id: ChiefEngineerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1141,12 +1113,11 @@
   - YellowJumpsuit
   - YellowJumpskirt
 
-- type: loadoutGroup
-  id: TechnicalAssistantJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieTechnicalAssistant
+#- type: loadoutGroup
+#  id: TechnicalAssistantJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: StationEngineerHead
@@ -1209,12 +1180,11 @@
   - NuclearScientistPDA
   # End DeltaV additions
 
-- type: loadoutGroup
-  id: StationEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieStationEngineer
+#- type: loadoutGroup
+#  id: StationEngineerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1255,12 +1225,11 @@
   - AtmosWinterBoots
   # End DeltaV Additions
 
-- type: loadoutGroup
-  id: AtmosphericTechnicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieAtmosphericTechnician
+#- type: loadoutGroup
+#  id: AtmosphericTechnicianJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -1280,7 +1249,6 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
-  - ResearchDirectorHood
   - MystagogueBeret # DeltaV
 
 - type: loadoutGroup
@@ -1321,12 +1289,11 @@
   - ScienceWinterBoots
   - ResearchDirectorWinterBoots # DeltaV
 
-- type: loadoutGroup
-  id: ResearchDirectorJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieResearchDirector
+#- type: loadoutGroup
+#  id: ResearchDirectorJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1377,8 +1344,18 @@
   - LongLabCoat # DeltaV
   - ScienceLabCoat
   - ScienceWintercoat
-  - BomberEpistemic # DeltaV
+  - RoboticistLabCoat
+  - RoboticistWintercoat
   - SeniorResearcherLabCoat
+  - BomberEpistemic # DeltaV
+
+- type: loadoutGroup
+  id: ScientistShoes
+  name: loadout-group-scientist-shoes
+  loadouts:
+  - WhiteShoes
+  - BlackShoes
+  - ScienceWinterBoots
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1388,13 +1365,6 @@
   - LatexGloves
   - PurpleGloves
   #- RobohandsGloves # DeltaV: Moved to RoboticistGloves
-
-- type: loadoutGroup
-  id: ScientistShoes
-  name: loadout-group-scientist-shoes
-  loadouts:
-  - WhiteShoes
-  - ScienceWinterBoots
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1407,12 +1377,11 @@
   - XenoarchPDA
   # End DeltaV changes
 
-- type: loadoutGroup
-  id: ScientistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieScientist
+#- type: loadoutGroup
+#  id: ScientistJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1421,12 +1390,11 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
 
-- type: loadoutGroup
-  id: ResearchAssistantJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieResearchAssistant
+#- type: loadoutGroup
+#  id: ResearchAssistantJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 # Security
 - type: loadoutGroup
@@ -1478,23 +1446,22 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
 
+  # Begin DeltaV changes
 - type: loadoutGroup # DeltaV
   id: HeadofSecurityShoes
   name: loadout-group-head-of-security-shoes
   loadouts:
-  # Begin DeltaV changes
   - CombatBoots
   - JackBoots
   - HeadOfSecurityWinterBoots
-  # End DeltaV changes
   - SecurityWinterBoots
+  # End DeltaV changes
 
 - type: loadoutGroup
   id: HeadofSecurityJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieHeadofSecurity
   - SecStar
 
 - type: loadoutGroup
@@ -1533,7 +1500,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieWarden
   - SecStar
 
 - type: loadoutGroup
@@ -1612,7 +1578,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieSecurity
   - SecStar
 
 - type: loadoutGroup
@@ -1647,13 +1612,14 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
+  - DetectiveCoatGrey
+  - SecurityOfficerWintercoat
 
 - type: loadoutGroup
   id: DetectiveJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieDetective
   - SecStar
 
 - type: loadoutGroup
@@ -1663,12 +1629,11 @@
   - SecurityCadetJumpsuit # DeltaV - was RedJumpsuit
   - SecurityCadetJumpskirt # DeltaV - was RedJumpskirt
 
-- type: loadoutGroup
-  id: SecurityCadetJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSecurityCadet
+#- type: loadoutGroup
+#  id: SecurityCadetJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: SurvivalSecurity
@@ -2016,12 +1981,11 @@
   loadouts:
   - ReporterPressVest
 
-- type: loadoutGroup
-  id: ReporterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieReporter
+#- type: loadoutGroup
+#  id: ReporterJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
@@ -2039,12 +2003,12 @@
   - WhiteTurtleneckJumpsuit
   - WhiteTurtleneckJumpskirt
   # End DeltaV Additions
-- type: loadoutGroup
-  id: PsychologistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushiePsychologist
+
+#- type: loadoutGroup
+#  id: PsychologistJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 # Other
 - type: loadoutGroup
