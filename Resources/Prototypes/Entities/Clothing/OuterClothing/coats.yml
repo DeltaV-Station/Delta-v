@@ -10,10 +10,10 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing] # DeltaV - remove ClothingOuterArmorBase as it is no longer security equipment.
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
   id: ClothingOuterCoatDetective
-  name: detective trenchcoat
-  description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
+  name: detective's armored trenchcoat
+  description: An 20th-century trenchcoat with an armored underlay. Someone who wears this means serious business.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective.rsi
@@ -25,20 +25,18 @@
         children:
         - id: SmokingPipeFilledTobacco
         - id: FlippoEngravedLighter
-  - type: ExplosionResistance
-    damageCoefficient: 1 #its a coat. it doesnt do shit
 
-# DeltaV: Sprite doesn't exist
-#- type: entity
-#  parent: [ClothingOuterCoatDetectiveLoadout]
-#  id: ClothingOuterCoatDetectiveLoadoutGrey
-#  name: noir trenchcoat
-#  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
-#  - type: Clothing
-#    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+- type: entity
+  parent: [ClothingOuterCoatDetectiveLoadout]
+  id: ClothingOuterCoatDetectiveLoadoutGrey
+  name: noir armored trenchcoat
+  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+
 
 - type: entity
   parent: ClothingOuterCoatDetective
@@ -64,7 +62,7 @@
 
 - type: entity
   abstract: true
-  parent: AllowSuitStorageClothing
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase ]
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
@@ -75,12 +73,10 @@
         Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
 
 - type: entity
   abstract: true
-  parent: AllowSuitStorageClothing
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase ]
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
@@ -92,11 +88,9 @@
         Piercing: 0.70 # Was 0.7
         Heat: 0.80 # Was 0.7
 #End DeltaV modifications
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -105,17 +99,6 @@
     sprite: _DV/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi # DeltaV - resprite
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatInspector
-  name: inspector's coat
-  description: A strict inspector's coat for being intimidating during inspections.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -129,6 +112,16 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
+
+- type: entity
+  parent: ClothingOuterCoatJensen
+  id: ClothingOuterCoatJensenSyndie
+  suffix: Syndie
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: SyndieHandyFlag
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -332,7 +325,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband]
+  parent: [ClothingOuterArmorWarden, BaseSecurityContraband]
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -424,13 +417,13 @@
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
-  - type: Armor # DeltaV - tweak for Velta armour
+  - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
+        Blunt: 0.8
         Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
+        Piercing: 0.65
+        Heat: 0.85
         Caustic: 0.75
 
 - type: entity
