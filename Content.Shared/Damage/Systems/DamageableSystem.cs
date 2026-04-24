@@ -25,6 +25,7 @@ public sealed partial class DamageableSystem : EntitySystem
 
     [Dependency] private readonly EntityQuery<AppearanceComponent> _appearanceQuery = default!;
     [Dependency] private readonly EntityQuery<DamageableComponent> _damageableQuery = default!;
+    [Dependency] private readonly EntityQuery<InjurableComponent> _injurableQuery = default!;
 
     public float UniversalAllDamageModifier { get; private set; } = 1f;
     public float UniversalAllHealModifier { get; private set; } = 1f;
@@ -95,10 +96,10 @@ public sealed partial class DamageableSystem : EntitySystem
         return damageTypes;
     }
 
-    // Delta V - Begin Workaround to Change the Camdage Container
-    public void ChangeDamageContainer(Entity<DamageableComponent> ent, ProtoId<DamageContainerPrototype> damageContainer)
+    // Delta V - Begin Workaround to Change the damage Container
+    public void ChangeDamageContainer(Entity<InjurableComponent> ent, ProtoId<DamageContainerPrototype> damageContainer)
     {
-        ent.Comp.DamageContainerID = damageContainer;
+        ent.Comp.DamageContainer = damageContainer;
     }
     // Delta V - End
 }
