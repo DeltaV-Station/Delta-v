@@ -1,19 +1,27 @@
+using Content.Shared.Database;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
-using Robust.Shared.GameStates;
+using Content.Shared.Timing;
+using Content.Shared.Verbs;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Serialization;
-using Content.Shared._DV.Clothing.Events; //DeltaV - ToggleTrayScanner event
+using Robust.Shared.Utility;
+using Content.Shared._DV.Clothing.Events;
+using Content.Shared.Inventory; //DeltaV - ToggleTrayScanner event
 
 namespace Content.Shared.SubFloor;
 
 public abstract class SharedTrayScannerSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public const float SubfloorRevealAlpha = 0.8f;
 
@@ -21,20 +29,62 @@ public abstract class SharedTrayScannerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TrayScannerComponent, ComponentGetState>(OnTrayScannerGetState);
-        SubscribeLocalEvent<TrayScannerComponent, ComponentHandleState>(OnTrayScannerHandleState);
         SubscribeLocalEvent<TrayScannerComponent, ActivateInWorldEvent>(OnTrayScannerActivate);
-
+        SubscribeLocalEvent<TrayScannerComponent, GetVerbsEvent<AlternativeVerb>>(OnAddSwitchModeVerb);
         SubscribeLocalEvent<TrayScannerComponent, GotEquippedHandEvent>(OnTrayHandEquipped);
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedHandEvent>(OnTrayHandUnequipped);
         SubscribeLocalEvent<TrayScannerComponent, GotEquippedEvent>(OnTrayEquipped);
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedEvent>(OnTrayUnequipped);
-
         SubscribeLocalEvent<TrayScannerUserComponent, GetVisMaskEvent>(OnUserGetVis);
         SubscribeLocalEvent<TrayScannerComponent, ToggleTrayScannerEvent>(OnToggleAction); //DeltaV - Listening to Tray toggle event
     }
 
-    private void OnUserGetVis(Entity<TrayScannerUserComponent> ent, ref GetVisMaskEvent args)
+    private void OnAddSwitchModeVerb(Entity<TrayScannerComponent> scanner, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || !args.Using.HasValue && !_inventory.InSlotWithAnyFlags(scanner.Owner, SlotFlags.WITHOUT_POCKET) || !scanner.Comp.Enabled) // DeltaV - T-Ray scanners are implemented in goggles.
+            return;
+
+        var user = args.User;
+
+        AlternativeVerb verb = new()
+        {
+            Text = Loc.GetString("tray-scanner-switch-mode"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            Act = () => SwitchMode(scanner, user),
+            Impact = LogImpact.Low
+        };
+        args.Verbs.Add(verb);
+    }
+
+    private static TrayScannerMode Next(TrayScannerMode mode)
+    {
+        return mode switch
+        {
+            TrayScannerMode.All => TrayScannerMode.Wiring,
+            TrayScannerMode.Wiring => TrayScannerMode.Piping,
+            TrayScannerMode.Piping => TrayScannerMode.All,
+            _ => TrayScannerMode.All,
+        };
+    }
+
+    private void SwitchMode(Entity<TrayScannerComponent> scanner, EntityUid? userUid)
+    {
+        if (!userUid.HasValue)
+            return;
+
+        // Prevents ping spam
+        if (!_delay.TryResetDelay(scanner, checkDelayed: true))
+            return;
+
+        scanner.Comp.Mode = Next(scanner.Comp.Mode);
+        Dirty(scanner);
+
+        // Play a slightly different sound when we're back to All mode
+        var pitch = scanner.Comp.Mode == TrayScannerMode.All ? 1 : 0.8f;
+        _audio.PlayPredicted(scanner.Comp.SoundSwitchMode, scanner, userUid, AudioParams.Default.WithVolume(1.5f).WithPitchScale(pitch));
+    }
+
+    private void OnUserGetVis(Entity<TrayScannerUserComponent> scanner, ref GetVisMaskEvent args)
     {
         args.VisibilityMask |= (int)VisibilityFlags.Subfloor;
     }
@@ -90,44 +140,20 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         OnEquip(args.EquipTarget);
     }
 
-    private void OnTrayScannerActivate(EntityUid uid, TrayScannerComponent scanner, ActivateInWorldEvent args)
+    private void OnTrayScannerActivate(Entity<TrayScannerComponent> ent, ref ActivateInWorldEvent args)
     {
         if (args.Handled || !args.Complex)
             return;
 
-        SetScannerEnabled(uid, !scanner.Enabled, scanner);
-        args.Handled = true;
-    }
+        ent.Comp.Enabled = !ent.Comp.Enabled;
+        Dirty(ent);
 
-    private void SetScannerEnabled(EntityUid uid, bool enabled, TrayScannerComponent? scanner = null)
-    {
-        if (!Resolve(uid, ref scanner) || scanner.Enabled == enabled)
-            return;
-
-        scanner.Enabled = enabled;
-        Dirty(uid, scanner);
-
-        // We don't remove from _activeScanners on disabled, because the update function will handle that, as well as
-        // managing the revealed subfloor entities
-
-        if (TryComp<AppearanceComponent>(uid, out var appearance))
+        if (TryComp<AppearanceComponent>(ent, out var appearance))
         {
-            _appearance.SetData(uid, TrayScannerVisual.Visual, scanner.Enabled ? TrayScannerVisual.On : TrayScannerVisual.Off, appearance);
+            _appearance.SetData(ent, TrayScannerVisual.Visual, ent.Comp.Enabled ? TrayScannerVisual.On : TrayScannerVisual.Off, appearance);
         }
-    }
 
-    private void OnTrayScannerGetState(EntityUid uid, TrayScannerComponent scanner, ref ComponentGetState args)
-    {
-        args.State = new TrayScannerState(scanner.Enabled, scanner.Range);
-    }
-
-    private void OnTrayScannerHandleState(EntityUid uid, TrayScannerComponent scanner, ref ComponentHandleState args)
-    {
-        if (args.Current is not TrayScannerState state)
-            return;
-
-        scanner.Range = state.Range;
-        SetScannerEnabled(uid, state.Enabled, scanner);
+        args.Handled = true;
     }
 
     /// DeltaV additions begin
@@ -137,17 +163,15 @@ public abstract class SharedTrayScannerSystem : EntitySystem
             return;
 
         // Toggle Logic
-        SetScannerEnabled(scanner, !scanner.Comp.Enabled, scanner);
+        scanner.Comp.Enabled = !scanner.Comp.Enabled;
+        Dirty(scanner);
+
+        if (TryComp<AppearanceComponent>(scanner, out var appearance))
+        {
+            _appearance.SetData(scanner, TrayScannerVisual.Visual, scanner.Comp.Enabled ? TrayScannerVisual.On : TrayScannerVisual.Off, appearance);
+        }
 
         args.Handled = true;
     }
     /// DeltaV additions end
-}
-
-[Serializable, NetSerializable]
-public enum TrayScannerVisual : sbyte
-{
-    Visual,
-    On,
-    Off
 }
