@@ -372,7 +372,7 @@
   parent: BaseComputerAiAccess
   id: ComputerCriminalRecords
   name: criminal records computer
-  description: This can be used to check criminal records. Only security and justice can modify them. # DeltaV Justice can access too 
+  description: This can be used to check criminal records. Only security and justice can modify them. # DeltaV Justice can access too
   components:
   - type: CriminalRecordsConsole
   - type: UserInterface
@@ -408,7 +408,7 @@
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
-    access: [["Security"], ["Justice"]] # DeltaV Justice can access too 
+    access: [["Security"], ["Justice"]] # DeltaV Justice can access too
   - type: GuideHelp
     guides:
     - CriminalRecords
@@ -717,8 +717,9 @@
     energy: 4.0
     color: "#3c5eb5"
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: GuideHelp # DeltaV guide
     guides:
     - AlertProcedure
@@ -1268,8 +1269,9 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: GuideHelp
     guides:
     - Cloning
