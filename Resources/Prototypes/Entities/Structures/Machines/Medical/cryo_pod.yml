@@ -107,10 +107,9 @@
   - type: EmptyOnMachineDeconstruct
     containers:
       - scanner-body
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      injectionBuffer:
-        maxVol: 50
+    - SolutionCryoBuffer
   - type: CryoPod
     beakerTransferAmount: 0.5 # DeltaV - Inject Evenly
     injectEvenly: true # DeltaV - Inject Evenly
@@ -126,7 +125,15 @@
     reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
-  parent: BaseStructure
+  parent: SolutionSmall
+  id: SolutionCryoBuffer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: injectionBuffer
+
+- type: entity
+  parent: BaseMachine
   id: CryoPodDestroyed
   name: destroyed cryo pod
   description: A cryo pod that has seen better days. It's entirely inoperable; not good for anything but scrap.
@@ -137,22 +144,17 @@
     noRot: true
     offset: 0, 0.5
     state: pod-cracked
-  - type: Transform
-    noRot: true
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.90"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 200
         mask:
         - MachineMask
         layer:
         - MachineLayer
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:

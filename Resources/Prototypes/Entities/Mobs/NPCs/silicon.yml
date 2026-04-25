@@ -116,7 +116,7 @@
   - type: AnimatedEmotes # DeltaV - Allow bots to emote
 
 - type: entity
-  parent: MobSiliconBase
+  parent: [MobSiliconBase, SolutionFireExtinguisherMini]
   id: MobFireBot
   name: firebot
   description: A little fire extinguishing bot. He looks rather anxious.
@@ -130,13 +130,6 @@
   - type: HTN
     rootTask:
       task: FirebotCompound
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 10
-        reagents:
-        - ReagentId: Water
-          Quantity: 10
   - type: SolutionRegeneration
     solution: spray
     generated:
@@ -271,7 +264,7 @@
     canCreateVacuum: false
 
 - type: entity
-  parent: MobSiliconBase
+  parent: [MobSiliconBase, SolutionMopNormal]
   id: MobCleanBot
   name: cleanbot
   description: The creep of automation now threatening space janitors.
@@ -311,18 +304,12 @@
     preserve:
       - Water
     quantity: 10
-  - type: SolutionContainerManager
-    solutions:
-      absorbed:
-        maxVol: 50
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
   - type: HTN
     rootTask:
       task: CleanbotCompound
-  - type: DrainableSolution
-    solution: drainBuffer
   - type: InteractionPopup
     interactSuccessString: petting-success-cleanbot
     interactFailureString: petting-failure-cleanbot
