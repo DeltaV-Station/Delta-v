@@ -179,7 +179,6 @@
   - type: Pinpointer
     component: ReplicatorNest
     targetName: replicator nest
-    isActive: true
     activateImmediately: true
 
 - type: entity
@@ -251,7 +250,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: AACTablet
-    phraseGroup: ReplicatorPhrases
   - type: VoiceMask
   - type: Speech
     speechVerb: Robotic
