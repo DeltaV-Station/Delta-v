@@ -74,6 +74,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestFallingComponent, GettingPickedUpAttemptEvent>(OnFallingGettingPickedUpAttempt);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, PullAttemptEvent>(OnFallingPullAttempt);
         SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestroyed);
+        SubscribeLocalEvent<ReplicatorNestComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -119,16 +120,26 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     private void OnMapInit(Entity<ReplicatorNestComponent> ent, ref MapInitEvent args)
     {
         if (!Transform(ent).Coordinates.IsValid(EntityManager))
+        {
             QueueDel(ent);
+            return;
+        }
 
         ent.Comp.Hole = _containerSystem.EnsureContainer<Container>(ent, "hole");
         ent.Comp.NextSpawnAt = ent.Comp.SpawnNewAt;
         ent.Comp.NextUpgradeAt = ent.Comp.UpgradeAt;
         ent.Comp.NextTileConvertAt = ent.Comp.TileConvertAt;
 
+        CleanupPointsStorage(ent);
         var pointsStorageEnt = Spawn("ReplicatorNestPointsStorage", Transform(ent).Coordinates);
+        _xform.SetParent(pointsStorageEnt, ent);
         EnsureComp<ReplicatorNestPointsStorageComponent>(pointsStorageEnt);
         ent.Comp.PointsStorage = pointsStorageEnt;
+    }
+
+    private void OnShutdown(Entity<ReplicatorNestComponent> ent, ref ComponentShutdown args)
+    {
+        CleanupPointsStorage(ent);
     }
 
     private void OnStepTriggerAttempt(Entity<ReplicatorNestComponent> ent, ref StepTriggerAttemptEvent args)
@@ -312,6 +323,18 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
             _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), uid, uid, PopupType.LargeCaution);
         }
+    }
+
+    private void CleanupPointsStorage(Entity<ReplicatorNestComponent> ent)
+    {
+        var pointsStorage = ent.Comp.PointsStorage;
+        if (pointsStorage == default)
+            return;
+
+        if (Exists(pointsStorage) && pointsStorage != ent.Owner)
+            QueueDel(pointsStorage);
+
+        ent.Comp.PointsStorage = default;
     }
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent args)
