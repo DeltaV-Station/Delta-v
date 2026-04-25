@@ -62,3 +62,42 @@
   - type: RevealRevenantOnCollide
   - type: CollisionWake
     enabled: false
+
+- type: entity
+  parent: BaseSword
+  id: Dualsword
+  name: dual swords
+  description: a pair of weak but incredibly light swords.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
+  - type: MeleeWeapon
+    attackRate: 10
+    wideAnimationRotation: 225
+    swingLeft: true
+    damage:
+      types:
+        Slash: 2
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 2.5
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
+  - type: JumpAbility
+    jumpDistance: 2
+    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: ActionGrant
+    actions:
+    - ActionGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionGravityJump
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage

@@ -75,3 +75,17 @@
     whitelist:
     - Chaplain
     - Botanist
+
+- type: listing
+  id: UplinkDualswords
+  name: uplink-dualswords-name
+  description: uplink-dualswords-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Melee/dualswords.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  productEntity: Dualsword
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
