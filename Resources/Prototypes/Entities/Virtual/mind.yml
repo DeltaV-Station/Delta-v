@@ -4,6 +4,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Mind
+  - type: LastWords #DeltaV - Round end screen last words port
   - type: ContainerContainer
     containers:
       mind_roles: !type:Container
