@@ -229,6 +229,7 @@ public abstract partial class SharedBorgSystem
             _hands.RemoveHand((chassis.Owner, hands), handId);
         }
 
+        module.Comp.Spawned = false;
         Dirty(module);
     }
 }

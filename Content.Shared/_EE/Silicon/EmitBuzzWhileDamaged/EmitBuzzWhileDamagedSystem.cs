@@ -23,4 +23,10 @@ public sealed partial class EmitBuzzWhileDamagedComponent : Component
 
     [DataField("sound")]
     public SoundSpecifier Sound = new SoundCollectionSpecifier("buzzes");
+
+    [DataField("singleBuzzUntilRecovered")]
+    public bool SingleBuzzUntilRecovered = false;
+
+    [ViewVariables]
+    public bool HasBuzzedWhileDamaged;
 }

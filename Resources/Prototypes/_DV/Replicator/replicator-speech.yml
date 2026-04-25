@@ -1,0 +1,40 @@
+- type: typingIndicator
+  id: replicator
+  spritePath: /Textures/_Impstation/Mobs/Replicator/replicator.rsi
+  typingState: replicator0
+  idleState: replicator0
+
+- type: speechSounds
+  id: Replicator
+  saySound:
+    path: /Audio/_Impstation/Effects/replicator_speak.ogg
+  askSound:
+    path: /Audio/_Impstation/Effects/replicator_ask.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Effects/replicator_exclaim.ogg
+
+- type: emoteSounds
+  id: ReplicatorEmotes
+  params:
+    variation: 0.05
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Misc/tomscream.ogg
+    Beep:
+      path: /Audio/Machines/twobeep.ogg
+    Chime:
+      path: /Audio/Machines/chime.ogg
+    Buzz:
+      path: /Audio/Machines/buzz-sigh.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Honk:
+      path: /Audio/Items/bikehorn.ogg
+    Ping:
+      path: /Audio/Effects/Cargo/ping.ogg
+    Boop:
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg
+    Whirr:
+      collection: IPCWhirrs
+      params:
+        variation: 0

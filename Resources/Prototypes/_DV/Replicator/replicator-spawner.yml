@@ -1,0 +1,47 @@
+- type: entity
+  id: SpawnPointGhostReplicatorBase
+  name: replicator spawn point
+  abstract: true
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-replicator-name
+    description: ghost-role-information-replicator-desc
+    rules: ghost-role-information-replicator-rules
+    mindRoles:
+    - MindRoleReplicator
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobReplicator
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Impstation/Mobs/Replicator/replicator.rsi
+      state: icon
+
+- type: entity
+  id: SpawnPointGhostReplicator
+  parent: SpawnPointGhostReplicatorBase
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: SpawnPointGhostReplicatorQueen
+  parent: SpawnPointGhostReplicatorBase
+  suffix: Queen
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobReplicatorQueen
+
+- type: entity
+  parent: MarkerBase
+  id: ReplicatorNestPointsStorage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ReplicatorNestPointsStorage
+  - type: AmbientSound
+    volume: 2
+    range: 2
+    sound:
+      path: /Audio/_Impstation/Ambience/replicator_ambiance.ogg

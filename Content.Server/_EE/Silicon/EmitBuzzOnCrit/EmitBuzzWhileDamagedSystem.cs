@@ -32,10 +32,22 @@ public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var emitBuzzOnCritComponent, out var mobStateComponent, out var thresholdsComponent, out var damageableComponent))
         {
-
             if (_mobState.IsDead(uid, mobStateComponent)
-                || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholdsComponent)
-                || damageableComponent.TotalDamage < threshold / 2)
+                || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholdsComponent))
+            {
+                emitBuzzOnCritComponent.HasBuzzedWhileDamaged = false;
+                emitBuzzOnCritComponent.AccumulatedFrametime = 0f;
+                continue;
+            }
+
+            if (damageableComponent.TotalDamage < threshold / 2)
+            {
+                emitBuzzOnCritComponent.HasBuzzedWhileDamaged = false;
+                emitBuzzOnCritComponent.AccumulatedFrametime = 0f;
+                continue;
+            }
+
+            if (emitBuzzOnCritComponent.SingleBuzzUntilRecovered && emitBuzzOnCritComponent.HasBuzzedWhileDamaged)
                 continue;
 
             emitBuzzOnCritComponent.AccumulatedFrametime += frameTime;
@@ -50,6 +62,7 @@ public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
 
             // Start buzzing
             emitBuzzOnCritComponent.LastBuzzPopupTime = _gameTiming.CurTime;
+            emitBuzzOnCritComponent.HasBuzzedWhileDamaged = true;
             _popupSystem.PopupEntity(Loc.GetString("silicon-behavior-buzz"), uid);
             Spawn("EffectSparks", Transform(uid).Coordinates);
             _audio.PlayPvs(emitBuzzOnCritComponent.Sound, uid, AudioHelpers.WithVariation(0.05f, _robustRandom));

@@ -1,0 +1,107 @@
+# Base abstract module for all replicator tiers.
+# Uses the borg module system (BorgChassis) to provide items in hands
+# instead of the Body+Loadout approach.
+- type: entity
+  id: BaseReplicatorModule
+  parent: BaseBorgModule
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-all
+  - type: SelectableBorgModule
+    moduleSwapAction: ActionReplicatorSwapModule
+  - type: ContainerContainer
+    containers:
+      holding_container: !type:Container { }
+
+# Tier 1: attack module (stun projector)
+- type: entity
+  id: ReplicatorModuleT1
+  parent: BaseReplicatorModule
+  name: replicator attack module
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t1weapon
+  - type: Icon
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t1weapon
+  - type: ItemBorgModule
+    hands:
+    - item: ReplicatorT1Weapon
+    - item: PinpointerReplicatorUnremoveable
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: t1weapon }
+
+# Tier 2: Deconstructor tool module
+- type: entity
+  id: ReplicatorModuleT2Dec
+  parent: BaseReplicatorModule
+  name: replicator tool module
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: alive_level2
+  - type: Icon
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: alive_level2
+  - type: ItemBorgModule
+    hands:
+    - item: OmnitoolUnremoveable
+    - item: WelderExperimentalUnremoveable
+    - item: CableApcStack5
+      hand:
+        emptyRepresentative: CableApcStack5
+        emptyLabel: borg-slot-cables-empty
+        whitelist:
+          tags:
+          - CableCoil
+    - item: PinpointerReplicatorUnremoveable
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: alive_level2 }
+
+# Tier 2 Alt: Defender weapon module
+- type: entity
+  id: ReplicatorModuleT2Alt
+  parent: BaseReplicatorModule
+  name: replicator defender module
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t2altweapon
+  - type: Icon
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t2altweapon
+  - type: ItemBorgModule
+    hands:
+    - item: ReplicatorT2AltWeapon
+    - item: ReplicatorT2AltMeleeWeapon
+    - item: PinpointerReplicatorUnremoveable
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: t2altweapon }
+
+# Tier 3: Protector weapon module
+- type: entity
+  id: ReplicatorModuleT3
+  parent: BaseReplicatorModule
+  name: replicator protector module
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t3weapon
+  - type: Icon
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t3weapon
+  - type: ItemBorgModule
+    hands:
+    - item: ReplicatorT3Weapon
+    - item: ReplicatorAAC
+    - item: PinpointerReplicatorUnremoveable
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: t3weapon }
