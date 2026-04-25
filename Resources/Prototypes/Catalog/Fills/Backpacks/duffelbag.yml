@@ -4,14 +4,16 @@
   name: surgical duffel bag
   description: "A large duffel bag for holding extra medical supplies - this one seems to be designed for holding surgical tools."
   components:
-  - type: StorageFill
-    contents:
-      - id: Hemostat
-      - id: Saw
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
-      - id: Scalpel
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Hemostat
+        - id: Saw
+        - id: Drill
+        - id: Cautery
+        - id: Retractor
+        - id: Scalpel
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -43,14 +45,10 @@
       storagebase: !type:AllSelector
         children:
         - id: JugBicaridine
-        - id: JugPuncturase
-        - id: JugDermaline
-        - id: JugDylovene
-        - id: JugHyronalin
-        - id: JugSaline
+        - id: JugPunctTranex
+        - id: JugPyraDerma
         #- id: JugDexalinPlus # DeltaV - removed Dex+ Jug (it didn't spawn anyways)
         - id: JugSalbutamol # DeltaV - Add salbu jug
-        - id: JugTranexamicAcid
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -262,6 +260,27 @@
       storagebase: !type:AllSelector
         children:
         - id: ChameleonPDA
+        - id: ClothingUniformJumpsuitChameleon
+        - id: ClothingOuterChameleon
+        - id: ClothingNeckChameleon
+        - id: ClothingMaskGasChameleon
+        - id: ClothingHeadHatChameleon
+        - id: ClothingHandsChameleon
+        - id: ClothingEyesChameleon
+        - id: ClothingHeadsetChameleon
+        - id: ClothingShoesChameleon
+        - id: ChameleonControllerImplanter
+
+- type: entity
+  parent: ClothingBackpackChameleon
+  id: ClothingBackpackChameleonFillAgent
+  suffix: Fill, Chameleon, Syndie
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ChameleonAgentPDA
         - id: ClothingUniformJumpsuitChameleon
         - id: ClothingOuterChameleon
         - id: ClothingNeckChameleon

@@ -301,7 +301,7 @@
     thingType: obvious-type-pride-aut
 
 - type: entity
-  parent: BaseItem
+  parent: [SolutionSpray, SolutionTiny, BaseItem]
   id: SprayFlowerPin
   name: flower pin
   description: A cute flower pin. Something seems off with it...
@@ -319,13 +319,11 @@
     - neck
   - type: EquipSpray
     verbLocId: equip-spray-verb-press
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 30
-        reagents:
-        - ReagentId: Water
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 30
   - type: RefillableSolution
     solution: spray
   - type: DrainableSolution
