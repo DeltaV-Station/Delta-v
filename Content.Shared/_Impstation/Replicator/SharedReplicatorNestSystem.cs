@@ -20,6 +20,7 @@ using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
+using Content.Shared._Impstation.SpawnedFromTracker;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -29,7 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._DV.Replicator;
+namespace Content.Shared._Impstation.Replicator;
 
 public abstract class SharedReplicatorNestSystem : EntitySystem
 {

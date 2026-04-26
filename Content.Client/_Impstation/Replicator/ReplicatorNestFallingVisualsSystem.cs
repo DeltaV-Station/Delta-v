@@ -1,9 +1,9 @@
-using Content.Shared._DV.Replicator;
+using Content.Shared._Impstation.Replicator;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
 
-namespace Content.Client._DV.Replicator;
+namespace Content.Client._Impstation.Replicator;
 
 public sealed class ReplicatorNestFallingVisualsSystem : EntitySystem
 {

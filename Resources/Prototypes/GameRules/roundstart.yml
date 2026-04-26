@@ -27,7 +27,7 @@
     - id: Devil # Goob
       prob: 0.05 # DeltaV - Was 0.02
     - id: Replicator
-      prob: 0.25
+      prob: 0.25 # DeltaV - sounds like good odds
     # Begin DeltaV additions - Disable Xenoborgs
     #- id: Xenoborgs
     #  prob: 0.05
@@ -44,7 +44,7 @@
     - id: Devil # Goob
       prob: 0.05 # DeltaV - Was 0.02
     - id: Replicator
-      prob: 0.25
+      prob: 0.25 # DeltaV - sounds like good odds
     # Begin DeltaV additions - Disable Xenoborgs
     #- id: Xenoborgs
     #  prob: 0.05
@@ -61,7 +61,7 @@
     - id: SubWizard
       prob: 0.05
     - id: Replicator
-      prob: 0.25
+      prob: 0.25 # DeltaV - sounds like good odds
 
 - type: entity
   parent: BaseGameRule
@@ -72,7 +72,7 @@
     - id: Thief
       prob: 0.5
     - id: Replicator
-      prob: 0.25
+      prob: 0.25 # DeltaV - sounds like good odds
 
 - type: entity
   parent: BaseGameRule

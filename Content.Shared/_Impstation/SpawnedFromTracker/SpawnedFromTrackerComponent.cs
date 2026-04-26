@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._DV.Replicator;
+namespace Content.Shared._Impstation.SpawnedFromTracker;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpawnedFromTrackerComponent : Component

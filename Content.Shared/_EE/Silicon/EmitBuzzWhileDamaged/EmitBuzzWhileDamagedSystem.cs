@@ -23,10 +23,12 @@ public sealed partial class EmitBuzzWhileDamagedComponent : Component
 
     [DataField("sound")]
     public SoundSpecifier Sound = new SoundCollectionSpecifier("buzzes");
+    // DeltaV - Start recover buzz damaged anti-spam.
 
     [DataField("singleBuzzUntilRecovered")]
     public bool SingleBuzzUntilRecovered = false;
 
     [ViewVariables]
     public bool HasBuzzedWhileDamaged;
+    // DeltaV - End recover buzz damaged anti-spam.
 }

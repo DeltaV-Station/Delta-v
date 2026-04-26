@@ -74,11 +74,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, ref ent.Comp3))
             return;
 
-        // Some borg-like entities intentionally do not define the Light layer.
-        // Skip visual updates in that case instead of throwing and breaking the client.
+        // DeltaV - Start Skip Light layer for Replicators.
         if (!_sprite.LayerMapTryGet((ent.Owner, ent.Comp3), BorgVisualLayers.Light, out _, false))
             return;
-
+        // DeltaV - End Skip Light layer for Replicators.
         if (_appearance.TryGetData<MobState>(ent.Owner, MobStateVisuals.State, out var state, ent.Comp2))
         {
             if (state != MobState.Alive)

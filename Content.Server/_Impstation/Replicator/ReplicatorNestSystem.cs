@@ -28,7 +28,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
-using Content.Shared._DV.Replicator;
+using Content.Shared._Impstation.Replicator;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -36,7 +36,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._DV.Replicator;
+namespace Content.Server._Impstation.Replicator;
 
 public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 {

@@ -1,6 +1,4 @@
-# Base abstract module for all replicator tiers.
-# Uses the borg module system (BorgChassis) to provide items in hands
-# instead of the Body+Loadout approach.
+# DeltaV additions - Replicator modules loadouts
 - type: entity
   id: BaseReplicatorModule
   parent: BaseBorgModule
@@ -16,7 +14,6 @@
     containers:
       holding_container: !type:Container { }
 
-# Tier 1: attack module (stun projector)
 - type: entity
   id: ReplicatorModuleT1
   parent: BaseReplicatorModule
@@ -36,7 +33,6 @@
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: t1weapon }
 
-# Tier 2: Deconstructor tool module
 - type: entity
   id: ReplicatorModuleT2Dec
   parent: BaseReplicatorModule
@@ -64,7 +60,6 @@
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: alive_level2 }
 
-# Tier 2 Alt: Defender weapon module
 - type: entity
   id: ReplicatorModuleT2Alt
   parent: BaseReplicatorModule
@@ -85,7 +80,6 @@
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Mobs/Replicator/replicator.rsi, state: t2altweapon }
 
-# Tier 3: Protector weapon module
 - type: entity
   id: ReplicatorModuleT3
   parent: BaseReplicatorModule

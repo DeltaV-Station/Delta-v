@@ -1,7 +1,7 @@
-using Content.Shared._DV.Replicator;
+using Content.Shared._Impstation.Replicator;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._DV.Replicator;
+namespace Content.Client._Impstation.Replicator;
 
 public sealed partial class ReplicatorNestVisualsSystem : SharedReplicatorNestSystem
 {

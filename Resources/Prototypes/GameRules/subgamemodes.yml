@@ -112,9 +112,9 @@
   components:
   - type: GameRule
     minPlayers: 20
-    minTotalPlayers: 30
+    minTotalPlayers: 30 # DeltaV - very arbitrary
     delay:
-      min: 1800
+      min: 1800 # DeltaV - midround antag
       max: 1800
   - type: AntagSelection
     definitions:

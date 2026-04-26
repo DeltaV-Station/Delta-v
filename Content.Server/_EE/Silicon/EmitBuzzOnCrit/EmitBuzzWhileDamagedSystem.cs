@@ -32,6 +32,7 @@ public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var emitBuzzOnCritComponent, out var mobStateComponent, out var thresholdsComponent, out var damageableComponent))
         {
+            // DeltaV - Start replicator buzz near critical anti-spam.
             if (_mobState.IsDead(uid, mobStateComponent)
                 || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholdsComponent))
             {
@@ -49,6 +50,8 @@ public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
 
             if (emitBuzzOnCritComponent.SingleBuzzUntilRecovered && emitBuzzOnCritComponent.HasBuzzedWhileDamaged)
                 continue;
+
+            // DeltaV - End replicator buzz near critical anti-spam.
 
             emitBuzzOnCritComponent.AccumulatedFrametime += frameTime;
 

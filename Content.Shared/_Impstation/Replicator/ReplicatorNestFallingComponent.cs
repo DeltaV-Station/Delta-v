@@ -2,7 +2,7 @@ using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._DV.Replicator;
+namespace Content.Shared._Impstation.Replicator;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class ReplicatorNestFallingComponent : Component

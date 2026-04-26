@@ -16,13 +16,14 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Pinpointer;
 using Content.Shared.Popups;
-using Content.Shared._DV.Replicator;
+using Content.Shared._Impstation.Replicator;
+using Content.Shared._Impstation.SpawnedFromTracker;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using System.Linq;
 
-namespace Content.Server._DV.Replicator;
+namespace Content.Server._Impstation.Replicator;
 
 public sealed class ReplicatorSystem : EntitySystem
 {
