@@ -25,8 +25,8 @@
     #- id: SubWizard # Delta V - Removed until overhauled
     #  prob: 0.05
     - id: Devil # Goob
-      prob: 0.05 # DeltaV - Was 0.02
-    - id: Replicator
+      prob: 0.05
+    - id: Replicator # DeltaV - Was 0.02
       prob: 0.25 # DeltaV - sounds like good odds
     # Begin DeltaV additions - Disable Xenoborgs
     #- id: Xenoborgs
@@ -42,8 +42,8 @@
     - id: Thief
       prob: 0.5
     - id: Devil # Goob
-      prob: 0.05 # DeltaV - Was 0.02
-    - id: Replicator
+      prob: 0.05
+    - id: Replicator # DeltaV - Was 0.02
       prob: 0.25 # DeltaV - sounds like good odds
     # Begin DeltaV additions - Disable Xenoborgs
     #- id: Xenoborgs
@@ -60,7 +60,7 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
-    - id: Replicator
+    - id: Replicator # DeltaV - Was 0.02
       prob: 0.25 # DeltaV - sounds like good odds
 
 - type: entity
@@ -71,7 +71,7 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: Replicator
+    - id: Replicator # DeltaV - Was 0.02
       prob: 0.25 # DeltaV - sounds like good odds
 
 - type: entity

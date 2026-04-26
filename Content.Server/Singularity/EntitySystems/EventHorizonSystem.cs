@@ -47,9 +47,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         SubscribeLocalEvent<MapGridComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
-        // DeltaV - Start Singulo stability for mass delete Replicators.
-        SubscribeLocalEvent<MapComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
-        // DeltaV - End Singulo stability for mass delete Replicators.
+        SubscribeLocalEvent<MapComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume); // DeltaV - Singulo stability for mass delete Replicators.
         SubscribeLocalEvent<StationDataComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<EventHorizonComponent, MapInitEvent>(OnHorizonMapInit);
         SubscribeLocalEvent<EventHorizonComponent, StartCollideEvent>(OnStartCollide);

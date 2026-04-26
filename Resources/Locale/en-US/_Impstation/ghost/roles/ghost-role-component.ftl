@@ -16,7 +16,6 @@ ghost-role-information-floralanomalite-name = Floral Anomalite
 ghost-role-information-shadowanomalite-name = Shadow Anomalite
 ghost-role-information-techanomalite-name = Tech Anomalite
 
-# DeltaV additions - Replicator ghost role locale
 ghost-role-information-replicator-name = Replicator
 ghost-role-information-replicator-desc = A pattern coalesces. The Pattern that must repeat. Consume. Repeat.
 ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other Replicators. Your intentions are clear, and harmful to the station and its crew.

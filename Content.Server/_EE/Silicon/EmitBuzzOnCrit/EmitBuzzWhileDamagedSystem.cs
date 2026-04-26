@@ -63,7 +63,7 @@ public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
             if (_gameTiming.CurTime <= emitBuzzOnCritComponent.LastBuzzPopupTime + emitBuzzOnCritComponent.BuzzPopupCooldown)
                 continue;
 
-            // Start buzzing
+            // DeltaV - Start buzzing
             emitBuzzOnCritComponent.LastBuzzPopupTime = _gameTiming.CurTime;
             emitBuzzOnCritComponent.HasBuzzedWhileDamaged = true;
             _popupSystem.PopupEntity(Loc.GetString("silicon-behavior-buzz"), uid);
