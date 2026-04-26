@@ -135,7 +135,7 @@ namespace Content.Client.RoundEnd
             {
                 var panel = new PanelContainer
                 {
-                    StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
+                    StyleClasses = { StyleClass.PanelDark },
                     Margin = new Thickness(0, 0, 0, 6)
                 };
 
@@ -181,7 +181,7 @@ namespace Content.Client.RoundEnd
                     var playerNameText = new Label
                     {
                         VerticalAlignment = VAlignment.Bottom,
-                        StyleClasses = { StyleNano.StyleClassLabelHeading },
+                        StyleClasses = { StyleClass.LabelHeading },
                         Margin = new Thickness(0, 0, 6, 0),
                         Text = playerInfo.PlayerICName
                     };
@@ -191,7 +191,7 @@ namespace Content.Client.RoundEnd
                     var playerRoleText = new Label
                     {
                         VerticalAlignment = VAlignment.Bottom,
-                        StyleClasses = { StyleNano.StyleClassLabelSubText },
+                        StyleClasses = { StyleClass.LabelSubText },
                         Text = Loc.GetString("round-end-summary-window-player-name",
                             ("player", playerInfo.PlayerOOCName))
                     };
@@ -290,7 +290,7 @@ namespace Content.Client.RoundEnd
                         };
                         var damagePanel = new PanelContainer
                         {
-                            StyleClasses = { StyleNano.StyleClassBackgroundBaseLight },
+                            StyleClasses = { StyleClass.PanelLight },
                             Margin = new Thickness(2, 2, 2, 2)
                         };
                         var damageBox = new BoxContainer
