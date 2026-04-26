@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/26/2026 17:54:31
-  entityCount: 31872
+  time: 04/26/2026 18:00:44
+  entityCount: 31871
 maps:
 - 8
 grids:
@@ -26828,6 +26828,13 @@ entities:
       parent: 1
 - proto: BlastDoorUnlinkedLogistics
   entities:
+  - uid: 25179
+    components:
+    - type: Transform
+      pos: -45.5,-43.5
+      parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 25665
     components:
     - type: Transform
@@ -26836,13 +26843,6 @@ entities:
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 25666
-    components:
-    - type: Transform
-      pos: -45.5,-43.5
-      parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
-  - uid: 25667
     components:
     - type: Transform
       pos: -41.5,-36.5
@@ -26856,7 +26856,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-  - uid: 31872
+  - uid: 31870
     components:
     - type: Transform
       pos: -41.5,-37.5
@@ -145703,21 +145703,21 @@ entities:
       fixtures: {}
 - proto: LockableSwitchSalvage
   entities:
-  - uid: 31869
+  - uid: 25667
     components:
     - type: Transform
       pos: -40.5,-35.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        25667:
+        25666:
         - - On
           - Toggle
         - - Off
           - Toggle
         - - Status
           - Toggle
-        31872:
+        31870:
         - - On
           - Toggle
         - - Off
@@ -145816,14 +145816,14 @@ entities:
           - Off
     - type: Fixtures
       fixtures: {}
-  - uid: 31870
+  - uid: 31869
     components:
     - type: Transform
       pos: -44.5,-43.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        25666:
+        25179:
         - - On
           - Toggle
         - - Off
@@ -149819,13 +149819,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -29.48827,38.71972
       parent: 1
-  - uid: 25179
-    components:
-    - type: Transform
-      pos: 25.418808,42.739098
-      parent: 1
-    - type: Paper
-      content: "Test Log #979\n\nAttempt to make fully sentient slime.\n\nComponents:\n     - 20u slime\n     - 10u weh juice\n     - 4u happiness\n     - 1 slime core\n\nMethod: Mixing liquids at room temperature. Injecting mixture into core.\n\nSuccess: Negative\n\nNotes: I feel like I'm close. All previous tests have indicated the components are correct. However, it seems we've been missing a step. \n\nSynopsis: Further testing and analysis needed. "
   - uid: 25573
     components:
     - type: Transform
@@ -204319,7 +204312,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236840.84
+      secondsUntilStateChange: -237204.52
       state: Opening
   - uid: 5096
     components:
@@ -204336,7 +204329,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236840.84
+      secondsUntilStateChange: -237204.52
       state: Opening
   - uid: 5498
     components:
@@ -204352,7 +204345,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236564.47
+      secondsUntilStateChange: -236928.14
       state: Opening
   - uid: 8696
     components:
@@ -204385,7 +204378,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236562.58
+      secondsUntilStateChange: -236926.25
       state: Opening
   - uid: 18835
     components:
@@ -204397,7 +204390,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236559.58
+      secondsUntilStateChange: -236923.25
       state: Opening
   - uid: 23917
     components:
