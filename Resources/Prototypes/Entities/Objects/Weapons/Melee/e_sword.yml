@@ -425,7 +425,7 @@
   - type: Wieldable # requires wield to swing
     unwieldOnUse: true
   - type: Reflect
-    reflectProb: 1.0 
+    reflectProb: 75 # DeltaV - from 100 to 75% 
     spread: 10 # tightened spread from 75 to 10
     reflects:
     - Energy
