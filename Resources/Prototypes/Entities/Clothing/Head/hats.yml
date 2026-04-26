@@ -1516,3 +1516,18 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretViro
+  name: virology beret
+  description: A white beret with a green stripe that reminds you to wash your hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_viro.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_viro.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
