@@ -41,30 +41,30 @@
   parent: ClothingHeadHatGreyFlatcap
   id: RazorGreyFlatcap
   name: grey flatcap
-  description: A grey flatcap with razor blades sewn into the brim. Scary.
+  description: Fashionable for both the working class and old man Jenkins. This one has razor blades sewn in. Scary.
   components:
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
       types:
-        Slash: 15
+        Slash: 8
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 8
+        Slash: 14
 - type: entity
   parent: ClothingHeadHatBrownFlatcap
   id: RazorBrownFlatcap
   name: brown flatcap
-  description: A brown flatcap with razor blades sewn into the brim. Scary.
+  description: Stupid clown! You made me look bad! This one has razor blades sewn in. Scary.
   components:
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
       types:
-        Slash: 15
+        Slash: 8
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 8
+        Slash: 14
 
