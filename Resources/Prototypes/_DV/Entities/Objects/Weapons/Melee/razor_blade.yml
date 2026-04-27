@@ -1,9 +1,28 @@
 - type: entity
+  id: RazorbladeDull
+  parent: BaseItem
+  name: dull razor blade
+  description: A razor blade that requires sharpening.
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel
+  - type: Construction
+    graph: Razorblade
+    node: incomplete
+  - type: ContainerContainer
+    containers:
+      construction: !type:Container
+
+- type: entity
   parent: BaseItem
   id: Razorblade
   name: razor blade
   description: A small, hastily crafted razor blade. Perfect for shaving!
   components:
+  - type: Construction
+    graph: Razorblade
+    node: razorsharp
   - type: Item
     size: Tiny
   - type: Sprite
@@ -41,10 +60,14 @@
   parent: ClothingHeadHatGreyFlatcap
   id: RazorGreyFlatcap
   name: grey flatcap
+  suffix: Razor
   description: Fashionable for both the working class and old man Jenkins. This one has razor blades sewn in. Scary.
   components:
+  - type: Construction
+    graph: RazorGreyFlatcap
+    node: icon
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 1.5
     damage:
       types:
         Slash: 8
@@ -52,14 +75,19 @@
     damage:
       types:
         Slash: 14
+
 - type: entity
   parent: ClothingHeadHatBrownFlatcap
   id: RazorBrownFlatcap
   name: brown flatcap
+  suffix: Razor
   description: Stupid clown! You made me look bad! This one has razor blades sewn in. Scary.
   components:
+  - type: Construction
+    graph: RazorGreyFlatcap
+    node: icon
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 1.5
     damage:
       types:
         Slash: 8
@@ -67,4 +95,5 @@
     damage:
       types:
         Slash: 14
+
 

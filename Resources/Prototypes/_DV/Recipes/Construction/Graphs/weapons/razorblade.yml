@@ -4,12 +4,17 @@
   graph:
   - node: start
     edges:
-    - to: icon
+    - to: incomplete
       steps:
       - material: Steel
         amount: 1
         doAfter: 2
+  - node: incomplete
+    entity: RazorbladeDull
+    edges:
+    - to: razorsharp
+      steps:
       - tool: Cutting
-        doAfter: 2
-  - node: icon
+        doAfter: 5
+  - node: razorsharp
     entity: Razorblade
