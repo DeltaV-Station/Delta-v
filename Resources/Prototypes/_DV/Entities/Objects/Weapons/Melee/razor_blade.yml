@@ -22,11 +22,11 @@
         Slash: 6
   - type: SolutionContainerManager
     solutions:
-    food:
-      maxVol: 5
-      reagents:
-      - ReagentId: Razorblade
-        Quantity: 5
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Razorblade
+          Quantity: 5
   - type: DrainableSolution
     solution: food
   - type: SolutionTransfer
@@ -35,3 +35,35 @@
     transferAmount: 5
   - type: TrashOnSolutionEmpty
     solution: food
+
+- type: entity
+  parent: ClothingHeadHatGreyFlatcap
+  id: RazorGreyFlatcap
+  name: grey flatcap
+  description: A grey flatcap with razor blades sewn into the brim. Scary.
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 8
+- type: entity
+  parent: ClothingHeadHatBrownFlatcap
+  id: RazorBrownFlatcap
+  name: brown flatcap
+  description: A brown flatcap with razor blades sewn into the brim. Scary.
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 8
+
