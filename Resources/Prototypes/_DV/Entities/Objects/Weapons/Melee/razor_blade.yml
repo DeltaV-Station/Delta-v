@@ -67,10 +67,12 @@
     graph: RazorGreyFlatcap
     node: icon
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.6
+    wideAnimationRotation: 90
     damage:
       types:
         Slash: 8
+  - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
       types:
@@ -87,10 +89,12 @@
     graph: RazorGreyFlatcap
     node: icon
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.6
+    wideAnimationRotation: 90
     damage:
       types:
         Slash: 8
+  - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
       types:
