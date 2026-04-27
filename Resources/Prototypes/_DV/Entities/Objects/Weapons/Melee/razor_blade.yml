@@ -1,0 +1,37 @@
+- type: entity
+  id: Razorblade
+  name: razor blade
+  description: A small, hastily crafted razor blade. Perfect for shaving!
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Materials/Shards/shard.rsi
+    state: shard1
+  - type: Tag
+    tags:
+    - Razorblade
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 6
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6
+  - type: SolutionContainerManager
+    solutions:
+    food:
+      maxVol: 5
+      reagents:
+      - ReagentId: Razorblade
+        Quantity: 5
+  - type: DrainableSolution
+    solution: food
+  - type: SolutionTransfer
+    canSend: true
+    canReceive: false
+    transferAmount: 5
+  - type: TrashOnSolutionEmpty
+    solution: food
