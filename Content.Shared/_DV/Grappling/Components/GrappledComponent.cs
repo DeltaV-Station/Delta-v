@@ -37,6 +37,18 @@ public sealed partial class GrappledComponent : Component
     /// </summary>
     [DataField]
     public List<string> DisabledHands = new();
+
+    /// <summary>
+    /// Whether the grapple has fully taken effect and the grappled entity should be prone'd.
+    /// </summary>
+    [DataField]
+    public bool GrappleActivated = false;
+
+    /// <summary>
+    /// How much this entity should be slowed, before the grapple fully activates.
+    /// </summary>
+    [DataField]
+    public float? MovementSpeedModifier = null;
 }
 
 /// <summary>

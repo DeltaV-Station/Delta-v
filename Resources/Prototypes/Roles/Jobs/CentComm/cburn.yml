@@ -5,7 +5,7 @@
   playTimeTracker: JobCBURN
   setPreference: false
   startingGear: CBURNGearDeltaV # DeltaV - Different startingGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconCBURN"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements: # DeltaV - Playtime requirements
@@ -19,6 +19,7 @@
   - AllAccess
   access:
   - CentralCommand
+  - ERT # Delta V - Add ERT Access
   special:
   - !type:AddImplantSpecial
     implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant

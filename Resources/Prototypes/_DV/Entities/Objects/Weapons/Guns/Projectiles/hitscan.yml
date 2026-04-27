@@ -1,6 +1,7 @@
 - type: entity
   parent: BasicHitscan
   id: WispLash
+  name: wisp lash
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals
@@ -22,6 +23,7 @@
 - type: entity
   parent: BasicHitscan
   id: ColdLaser
+  name: cold laser
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals
@@ -44,6 +46,7 @@
 - type: entity
   parent: BasicHitscan
   id: BeamLaser
+  name: beam laser
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals
@@ -64,6 +67,7 @@
 - type: entity
   parent: BasicHitscan
   id: BeamDev
+  name: devastator beam
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals
@@ -85,6 +89,7 @@
 - type: entity
   parent: BasicHitscan
   id: GamblagatorLaser
+  name: gamblagator laser
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals

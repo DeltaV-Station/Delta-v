@@ -32,15 +32,11 @@
   - type: TypingIndicator
     proto: kitsune
   - type: InteractionPopup
-    successChance: 0.5
     interactSuccessString: petting-success-soft-floofy-kitsune
-    interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Kitsune
-  - type: PsionicBonusChance
-    flatBonus: 0.5
   - type: LightweightDrunk
     boozeStrengthMultiplier: 3
   - type: PseudoItem
