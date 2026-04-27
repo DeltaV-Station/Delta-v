@@ -12,6 +12,8 @@ using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -120,7 +122,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 continue; // TODO Perf: this could be faster if we get rid of the trycomp in the update loop altogether
                           //  There was a reason I did this in the Update loop but I can't remember.
 
-            var newCard = pda.ContainedId;
+            GetCardEntity(cartridge.LoaderUid.Value, out var newCardEnt);
+            var newCard = newCardEnt.Owner;
             var currentCard = nanoChat.Card;
 
             // If the cards match, nothing to do
@@ -191,6 +194,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         out Entity<NanoChatCardComponent> card)
     {
         card = default;
+
+        if (TryComp<NanoChatCardComponent>(loaderUid, out var selfCard))
+        {
+            card = (loaderUid, selfCard);
+            return true;
+        }
 
         // Get the PDA and check if it has an ID card
         if (!_pdaQuery.TryComp(loaderUid, out var pda) ||
@@ -628,6 +637,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             if (card.Number != number)
                 continue;
 
+            if (HasComp<BorgChassisComponent>(uid))
+            {
+                if (!TryComp<BorgSwitchableTypeComponent>(uid, out var switchable) || switchable.SelectedBorgType is not { } borgType)
+                    return new NanoChatRecipient(number, MetaData(uid).EntityName, null);
+
+                return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"borg-type-{borgType}-transponder"));
+            }
+            if (HasComp<StationAiHeldComponent>(uid))
+            {
+                return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"station-ai-transponder"));
+            }
+
             // Try to get job title from ID card if possible
             string? jobTitle = null;
             var name = "Unknown";
@@ -666,6 +687,25 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                     contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName));
                 }
             }
+
+            var borgQuery = AllEntityQuery<NanoChatCardComponent, BorgChassisComponent>();
+            while (borgQuery.MoveNext(out var borgId, out var borgChatCard, out var _))
+            {
+                if (borgChatCard.ListNumber && borgChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(borgId) == station)
+                {
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, MetaData(borgId).EntityName));
+                }
+            }
+
+            var aiQuery = AllEntityQuery<NanoChatCardComponent, StationAiHeldComponent>();
+            while (aiQuery.MoveNext(out var aiId, out var aiChatCard, out var _))
+            {
+                if (aiChatCard.ListNumber && aiChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(aiId) == station)
+                {
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, MetaData(aiId).EntityName));
+                }
+            }
+
             contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
         }
         else
