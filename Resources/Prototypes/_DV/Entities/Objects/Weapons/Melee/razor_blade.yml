@@ -24,16 +24,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 1
         reagents:
         - ReagentId: Razorblade
-          Quantity: 5
+          Quantity: 1
   - type: DrainableSolution
     solution: food
   - type: SolutionTransfer
     canSend: true
     canReceive: false
-    transferAmount: 5
+    transferAmount: 1
   - type: DeleteOnSolutionEmpty
     solution: food
 
