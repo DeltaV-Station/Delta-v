@@ -1,0 +1,15 @@
+- type: constructionGraph
+  id: Razorblade
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+  - node: icon
+    entity: Razorblade

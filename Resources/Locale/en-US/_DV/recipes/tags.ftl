@@ -46,3 +46,4 @@ construction-graph-tag-ancientbook = Damaged Ancient Book
 
 # Weapons
 construction-graph-tag-silversword = silver sword
+construction-graph-tag-razorblade = razor blade
