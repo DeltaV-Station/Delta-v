@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseItem
   id: Razorblade
   name: razor blade
   description: A small, hastily crafted razor blade. Perfect for shaving!
@@ -33,7 +34,7 @@
     canSend: true
     canReceive: false
     transferAmount: 5
-  - type: TrashOnSolutionEmpty
+  - type: DeleteOnSolutionEmpty
     solution: food
 
 - type: entity
