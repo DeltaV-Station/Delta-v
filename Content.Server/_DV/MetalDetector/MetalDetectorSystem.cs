@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Power.Components;
 using Content.Shared._DV.MetalDetector;
 using Content.Shared.Access.Systems;
