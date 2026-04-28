@@ -1,0 +1,6 @@
+round-end-summary-window-player-name-role = as the {$role}, played by {$player}.
+round-end-summary-window-player-name = played by {$player}.
+round-end-summary-window-last-words = [italic][color=gray]"{$lastWords}"[/color][/italic]
+round-end-summary-window-death = They died a {$severity} {$type} death.
+round-end-summary-window-death-unknown = Their body could not be found.
+
