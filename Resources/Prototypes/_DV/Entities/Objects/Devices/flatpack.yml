@@ -78,7 +78,8 @@
   id: HeavyFlatpackBase
   name: heavy flatpack
   description: A large flatpack used to store a worryingly large machine.
-  categories: HideSpawnMenu
+  categories:
+  - HideSpawnMenu
   components:
   - type: Sprite
     sprite: Objects/Devices/flatpack.rsi
