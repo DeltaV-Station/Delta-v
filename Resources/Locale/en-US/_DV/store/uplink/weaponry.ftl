@@ -16,4 +16,4 @@ uplink-harbinger-name = Harbinger Bundle
 uplink-harbinger-desc = A bundle with a full set of Harbinger armor and an Accursed scythe. Strike fear into the hearts of your enemies with this ancient design.
 
 uplink-dualswords-name = Dual Swords
-uplink-dualswords-desc = These dual blades are sponsored by the Spider Clan. While not as strong as their iconic energy katanas, they are still sure to strike fear in the hearts of your enemies.
+uplink-dualswords-desc = A set of dual swords made for those who prefer something a bit faster. Where they suffer in individual power, they excel in speed and mobility.

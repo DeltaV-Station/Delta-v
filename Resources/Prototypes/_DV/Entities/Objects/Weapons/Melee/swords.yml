@@ -72,7 +72,8 @@
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
   - type: MeleeWeapon
-    attackRate: 10
+    autoAttack: true
+    attackRate: 7
     wideAnimationRotation: 225
     swingLeft: true
     damage:
@@ -84,7 +85,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 2.5
+        Slash: 3
   - type: Item
     sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
   - type: JumpAbility
