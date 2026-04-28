@@ -1,46 +1,5 @@
-# Begin Delta-V additions
-# A unique parent type for the unique flatpacks
 - type: entity
-  parent: BaseStructureDynamic
-  id: HeavyFlatpack
-  name: heavy flatpack
-  description: A large flatpack that behaves similarly to a crate.
-  categories: HideSpawnMenu
-  components:
-  - type: Sprite
-    sprite: Objects/Devices/flatpack.rsi
-    layers:
-    - state: large
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.29"
-        density: 100
-        mask:
-        - CrateMask
-        layer:
-        - MachineLayer
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: InteractionOutline
-    # End Delta-V Additions
-
-- type: entity
-  parent: HeavyFlatpack # Delta-V was CrateEngineering
+  parent: HeavyFlatpackBase # Delta-V was CrateEngineering
   id: NuclearReactorFlatpack
   name: nuclear reactor flatpack
   description: A flatpack used for constructing a nuclear reactor. Parts sold separately.
@@ -53,7 +12,7 @@
     entity: NuclearReactorEmpty
 
 - type: entity
-  parent: HeavyFlatpack # Delta-V was CrateEngineering
+  parent: HeavyFlatpackBase # Delta-V was CrateEngineering
   id: GasTurbineFlatpack
   name: gas turbine flatpack
   description: A flatpack used for constructing a gas turbine.
