@@ -46,3 +46,14 @@ construction-graph-tag-ancientbook = Damaged Ancient Book
 
 # Weapons
 construction-graph-tag-silversword = silver sword
+
+# Implanters
+construction-graph-tag-implanter = implanter
+construction-graph-tag-zapcrystal = zap crystal
+construction-graph-tag-telegcrystal = teleg crystal
+construction-graph-tag-precogcrystal = precog crystal
+construction-graph-tag-screamcrystal = scream crystal
+construction-graph-tag-dispelcrystal = dispel crystal
+construction-graph-tag-pulsecrystal = pulse crystal
+construction-graph-tag-regencrystal = regen crystal
+construction-graph-tag-pyrocrystal = pyro crystal

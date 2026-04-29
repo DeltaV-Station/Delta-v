@@ -1,0 +1,167 @@
+- type: constructionGraph
+  id: ZapImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: zapimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: ZapCrystal
+        name: construction-graph-tag-zapcrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: zapimplanter
+    entity: PsionicImplanterZap
+
+- type: constructionGraph
+  id: TelegImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: telegimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: TelegCrystal
+        name: construction-graph-tag-telegcrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: telegimplanter
+    entity: PsionicImplanterTelegnosis
+
+- type: constructionGraph
+  id: PrecogImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: precogimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: PrecogCrystal
+        name: construction-graph-tag-precogcrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: precogimplanter
+    entity: PsionicImplanterPrecog
+
+- type: constructionGraph
+  id: ScreamImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screamimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: ScreamCrystal
+        name: construction-graph-tag-screamcrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: screamimplanter
+    entity: PsionicImplanterPsychokinetic
+
+- type: constructionGraph
+  id: DispelImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: dispelimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: DispelCrystal
+        name: construction-graph-tag-dispelcrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: dispelimplanter
+    entity: PsionicImplanterDispel
+
+- type: constructionGraph
+  id: PulseImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pulseimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: PulseCrystal
+        name: construction-graph-tag-pulsecrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: pulseimplanter
+    entity: PsionicImplanterMetapsionic
+
+- type: constructionGraph
+  id: RegenImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: regenimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: RegenCrystal
+        name: construction-graph-tag-regencrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: regenimplanter
+    entity: PsionicImplanterRegen
+
+- type: constructionGraph
+  id: PyroImplanter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pyroimplanter
+      steps:
+      - tag: Implanter
+        name: construction-graph-tag-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter0
+      - tag: PyroCrystal
+        name: construction-graph-tag-pyrocrystal
+        icon:
+          sprite: _DV/Objects/Materials/psicrystal.rsi
+          state: psicrystal
+  - node: pyroimplanter
+    entity: PsionicImplanterPyro

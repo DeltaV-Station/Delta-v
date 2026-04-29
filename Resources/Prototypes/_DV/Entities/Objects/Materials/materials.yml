@@ -125,3 +125,110 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: BaseItem
+  id: BasePsionCrystal
+  name: psion crystal
+  categories: [ HideSpawnMenu ]
+  description: a small crystal of attuned psionic energy.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Materials/psicrystal.rsi
+    state: psicrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalZap
+  name: zap crystal
+  description: a small psionic crystal humming with electricity
+  components:
+  - type: Sprite
+    color: "#ebd039"
+  - type: Tag
+    tags:
+    - ZapCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalTeleg
+  name: telegnosis crystal
+  description: a small psionic crystal. everything reflected in it can be seen almost too clearly.
+  components:
+  - type: Sprite
+    color: "#9947b3"
+  - type: Tag
+    tags:
+    - TelegCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalPrecog
+  name: precognition crystal
+  description: a small psionic crystal. it makes you feel as if your foresight is clearer.
+  components:
+  - type: Sprite
+    color: "#3e81a0"
+  - type: Tag
+    tags:
+    - PrecogCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalScream
+  name: scream crystal
+  description: a small psionic crystal. holding it makes you feel like screaming out all your emotion.
+  components:
+  - type: Sprite
+    color: "#f12121"
+  - type: Tag
+    tags:
+    - ScreamCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalDispel
+  name: dispel crystal
+  description: a small psionic crystal. holding it makes the world feel more real around you.
+  components:
+  - type: Sprite
+    color: "#e1f8f7"
+  - type: Tag
+    tags:
+    - DispelCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalPulse
+  name: pulse crystal
+  description: a small psionic crystal. holding it makes you feel as though your senses have been sharpened.
+  components:
+  - type: Sprite
+    color: "#49b852"
+  - type: Tag
+    tags:
+    - PulseCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalRegen
+  name: regen crystal
+  description: a small psionic crystal. holding it makes you feel healthier, but hungrier.
+  components:
+  - type: Sprite
+    color: "#e0305c"
+  - type: Tag
+    tags:
+    - RegenCrystal
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalPyro
+  name: pyro crystal
+  description: a small psionic crystal. holding it makes your rage flare up.
+  components:
+  - type: Sprite
+    color: "#e93313"
+  - type: Tag
+    tags:
+    - PyroCrystal
