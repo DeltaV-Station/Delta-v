@@ -981,6 +981,7 @@
   - type: StealTarget
     stealGroup: HoSSidearm # Delta V - to work along side the X-01
   - type: Gun
+    fireRate: 1.5 # Delta V - in line with Inspector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
