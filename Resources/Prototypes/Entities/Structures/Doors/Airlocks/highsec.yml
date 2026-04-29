@@ -127,6 +127,8 @@
   - type: Construction
     graph: Airlock
     node: highSecDoor
+  - type: RadiationBlocker # DeltaV - Added Rad Resistance
+    resistance: 8
   - type: Tag
     tags:
       - HighSecDoor
