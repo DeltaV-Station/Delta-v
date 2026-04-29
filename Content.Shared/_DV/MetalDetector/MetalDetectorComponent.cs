@@ -1,5 +1,7 @@
+using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._DV.MetalDetector;
 
@@ -21,6 +23,12 @@ public sealed partial class MetalDetectorComponent : Component
 
     [DataField]
     public SoundSpecifier? SirenSound;
+
+    /// <summary>
+    ///     The port that gets signaled when the the metal detector fires
+    /// </summary>
+    [DataField("triggerPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string triggerPort = "Trigger";
 }
 
 [Serializable, NetSerializable]

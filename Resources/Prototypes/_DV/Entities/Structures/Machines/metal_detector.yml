@@ -24,21 +24,37 @@
   - type: Transform
     anchored: true
   - type: ExtensionCableReceiver
+  - type: Lock
+    locked: true
+  - type: AccessReader
+    access: [[ "Security" ]]
   - type: LightningTarget
     priority: 1
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - Trigger
+  - type: LockedWiresPanel
+  - type: LockedAnchorable
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: Anchorable
   - type: Physics
     bodyType: Static
+  - type: ToggleableVisuals
+    spriteLayer: null
   - type: ItemToggle
+    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
     onActivate: false
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
-    radius: 1.4
-    energy: 2.5
+    radius: 2.5
+    energy: 3
     color: red
     netsync: false
     mask: /Textures/Effects/LightMasks/double_cone.png

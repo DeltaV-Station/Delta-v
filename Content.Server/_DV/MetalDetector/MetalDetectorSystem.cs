@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.DeviceLinking.Systems;
 using Content.Server.Power.Components;
 using Content.Shared._DV.MetalDetector;
 using Content.Shared.Access.Systems;
@@ -26,6 +27,7 @@ public sealed class MetalDetectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
 
     public override void Initialize()
     {
@@ -84,6 +86,8 @@ public sealed class MetalDetectorSystem : EntitySystem
             _appearanceSystem.SetData(uid, ToggleableVisuals.Enabled, true, appComp);
             var toggledEvent = new ItemToggledEvent(false, true, uid);
             RaiseLocalEvent(uid, ref toggledEvent);
+
+            _deviceLink.InvokePort(uid, component.triggerPort);
         }
     }
 
