@@ -1,0 +1,43 @@
+- type: entity
+  parent: KitchenKnife
+  id: CGauntlet
+  name: Prototype Gauntlet MK-00c
+  description: A new experiment made to level the playing field... litterally. NOW GO BEAT UP PEOPLE!!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/C_Gauntlet.rsi
+    state: icon
+  - type: MeleeWeapon
+    range: 1.20 # so you can actually use the pull
+    attackRate: 0.65 # heavy friggin fists bro
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Slash: 5
+        Blunt: 30
+        Structural: 35
+    - type: GunRequiresWield #gotta steady your arm to aim duhhh
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 2
+  - type: Gun
+    projectileSpeed: 6
+    soundGunshot: /Audio/_DV/Weapons/scytheshot.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 55
+  - type: BasicEntityAmmoProvider
+    proto: TaserShot # no idea if this is real ammo btw fix it
+    capacity: 1
+    count: 1
+    - type: MeleeThrowOnHit
+      speed: 5
+      distance: -3
+    - type: Clothing
+    sprite: _DV/Objects/Weapons/C_Gauntlet.rsi
+    quickEquip: false
+    slots:
+  - belt
+  - suitStorage
