@@ -366,7 +366,7 @@
   parent: [ClothingUniformRollableBase, BaseCommandContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitHoSGrey
   name: head of security's grey jumpsuit
-  description: A grey Station Security shirt with charcoal trousers. Stands out with red highlights, gold emblems, and commander's epaulettes. # DeltaV - improved description
+  description: A grey Station Security shirt with charcoal trousers. Stands out with blue highlights, gold emblems, and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
@@ -595,7 +595,7 @@
   parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitSec
   name: security jumpsuit
-  description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
+  description: Charcoal trousers and a blue shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
@@ -617,7 +617,7 @@
   parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitSecGrey
   name: grey security jumpsuit
-  description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
+  description: A light grey shirt with bright blue highlights, for dedicated and responsive security officers. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
@@ -628,7 +628,7 @@
   parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
   id: ClothingUniformJumpsuitWarden
   name: warden's jumpsuit # DeltaV - renamed to mirror other security uniforms
-  description: Red shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
+  description: Blue shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer.rsi # DeltaV - resprite
