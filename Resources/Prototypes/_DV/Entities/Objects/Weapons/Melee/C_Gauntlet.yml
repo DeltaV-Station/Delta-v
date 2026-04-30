@@ -8,9 +8,12 @@
     sprite: _DV/Objects/Weapons/Melee/C_Gauntlet.rsi
     state: icon
   - type: MeleeWeapon
-    range: 1.20 # so you can actually use the pull
-    attackRate: 0.65 # heavy friggin fists bro
-    wideAnimationRotation: 90
+    size: large
+    range: 1.2 # so you can actually use the pull
+    attackRate: 0.55 # heavy friggin fists bro
+    angle: 0
+    animation: WeaponArcFist
+    wideAnimationRotation: 145
     damage:
       types:
         Slash: 5
@@ -35,8 +38,8 @@
     capacity: 1
     count: 1
   - type: MeleeThrowOnHit
-    speed: 5
-    distance: -3
+    speed: 5.75
+    distance: -.75
   - type: Clothing
     sprite: _DV/Objects/Weapons/C_Gauntlet.rsi
     quickEquip: false
