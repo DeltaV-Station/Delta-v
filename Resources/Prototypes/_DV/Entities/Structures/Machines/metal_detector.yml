@@ -1,4 +1,5 @@
 - type: entity
+  parent: ConstructibleMachine
   id: MetalDetector
   name: Metal Detector
   description: Beeps when metal and contraband is detected by a passing person.
@@ -18,11 +19,13 @@
           False: { state: metal_detector_off }
   - type: ApcPowerReceiver
     powerLoad: 1000
-  - type: Construction
-    graph: MetalDetectorGraph
-    node: metalDetector
+  - type: InteractionOutline
+  - type: Pullable
+  - type: Machine
+    board: MetalDetectorMachineCircuitBoard
   - type: Transform
     anchored: true
+    noRot: true
   - type: ExtensionCableReceiver
   - type: Lock
     locked: true
@@ -37,6 +40,23 @@
   - type: DeviceLinkSource
     ports:
     - Trigger
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: LockedWiresPanel
   - type: LockedAnchorable
   - type: Damageable
@@ -68,14 +88,21 @@
   - type: Appearance
   - type: Fixtures
     fixtures:
-      fix1:
+      overlap:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
-        density: 100
+          bounds: "-0.5,-0.5,0.5,0.5"
         hard: false
         layer:
-        - LowImpassable
+        - Impassable
+      shape:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
   - type: MetalDetector
   - type: StepTrigger
     requiredTriggeredSpeed: 0

@@ -117,6 +117,10 @@ public sealed class MetalDetectorSystem : EntitySystem
 
     private bool CheckForContraband(EntityUid characterUid)
     {
+        // In it's just a contraband item
+        if (HasComp<ContrabandComponent>(characterUid))
+            return true;
+
         var foundIdCArd = _idSystem.TryFindIdCard(characterUid, out var idCard);
 
         if (_containerSystem.TryGetContainer(characterUid, ImplanterComponent.ImplantSlotId, out var implants))
