@@ -245,5 +245,44 @@ Entries:
   id: 27
   time: '2026-04-04T14:38:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5436
+- author: BarryNorfolk
+  changes:
+  - message: 'The December, and half of January, is now here! Check the Upstream changelog
+      for more information. Some highlights:'
+    type: Add
+  - message: Admins can export logs in the UI now (38206)
+    type: Add
+  - message: statuseffect toolshed command (41670)
+    type: Add
+  - message: msg toolshet command (41936)
+    type: Add
+  - message: Admin anomaly scanner (42443)
+    type: Add
+  - message: And more!
+    type: Add
+  id: 28
+  time: '2026-04-11T18:27:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5316
+- author: FieldCommand
+  changes:
+  - message: 'CC ships: The long awaited CC Shuttles have been added to the CC shipyard'
+    type: Add
+  id: 29
+  time: '2026-04-16T01:11:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5346
+- author: FieldCommand
+  changes:
+  - message: 'CC ships: Some CC Shuttles can now travel to ATS.'
+    type: Tweak
+  id: 30
+  time: '2026-04-19T17:29:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5676
+- author: FieldCommand
+  changes:
+  - message: CBURN now have updated gear and ERT access.
+    type: Tweak
+  id: 31
+  time: '2026-04-22T21:30:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5682
 Name: DeltaVAdmin
 Order: 5

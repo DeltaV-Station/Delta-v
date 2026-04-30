@@ -71,6 +71,22 @@
     access: [["Command"], ["Medical"]]
 
 - type: entity
+  id: BlastDoorUnlinkedERT
+  parent: BlastDoor
+  suffix: ERT
+  components:
+  - type: AccessReader
+    access: [["ERT"]]
+
+- type: entity
+  id: BlastDoorUnlinkedERTOpen
+  parent: BlastDoorOpen
+  suffix: Open, ERT
+  components:
+  - type: AccessReader
+    access: [["ERT"]]
+
+- type: entity
   id: BlastDoorUnlinkedMedicalOpen
   parent: BlastDoorOpen
   suffix: Open, Medical
