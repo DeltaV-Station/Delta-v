@@ -796,9 +796,9 @@
   description: A suit for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hosformal.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hosformal.rsi # DeltaV - resprite
 
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
