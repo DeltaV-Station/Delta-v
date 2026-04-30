@@ -29,7 +29,7 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 55
   - type: BasicEntityAmmoProvider
-    proto: TaserShot # no idea if this is real ammo btw fix it
+    proto: BulletTaser # no idea if this is real ammo btw fix it
     capacity: 1
     count: 1
     - type: MeleeThrowOnHit
