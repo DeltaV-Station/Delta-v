@@ -5,8 +5,11 @@
   description: A razor blade that requires sharpening.
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/metal.rsi
-    state: steel
+    sprite: Objects/Weapons/Melee/_DV/razorblade.rsi
+    state: razordull
+  - type: Item
+    size: Tiny
+    heldPrefix: razordull
   - type: Construction
     graph: Razorblade
     node: incomplete
@@ -25,9 +28,10 @@
     node: razorsharp
   - type: Item
     size: Tiny
+    heldPrefix: razorsharp
   - type: Sprite
-    sprite: Objects/Materials/Shards/shard.rsi
-    state: shard1
+    sprite: Objects/Weapons/Melee/_DV/razorblade.rsi
+    state: razorsharpened
   - type: Tag
     tags:
     - Razorblade
