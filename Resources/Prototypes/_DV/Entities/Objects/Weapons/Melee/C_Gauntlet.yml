@@ -1,5 +1,5 @@
 - type: entity
-  parent: KitchenKnife
+  parent: BaseItem
   id: CGauntlet
   name: Prototype Gauntlet MK-00c
   description: A new experiment made to level the playing field... litterally. NOW GO BEAT UP PEOPLE!!
@@ -16,7 +16,9 @@
         Slash: 5
         Blunt: 30
         Structural: 35
-    - type: GunRequiresWield #gotta steady your arm to aim duhhh
+  - type: Wieldable
+    unweieldOnUse: false
+  - type: GunRequiresWield #gotta steady your arm to aim duhhh
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -32,12 +34,12 @@
     proto: BulletTaser # no idea if this is real ammo btw fix it
     capacity: 1
     count: 1
-    - type: MeleeThrowOnHit
-      speed: 5
-      distance: -3
-    - type: Clothing
+  - type: MeleeThrowOnHit
+    speed: 5
+    distance: -3
+  - type: Clothing
     sprite: _DV/Objects/Weapons/C_Gauntlet.rsi
     quickEquip: false
     slots:
-  - belt
-  - suitStorage
+      - belt
+      - suitStorage
