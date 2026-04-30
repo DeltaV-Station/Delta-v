@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Gameplay;
 using Content.Client.Hands.Systems;
 using Content.Shared.Atmos.Components;

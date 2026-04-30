@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Items;
 using Content.Client.Message;
 using Content.Shared.RCD.Components;

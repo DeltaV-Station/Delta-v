@@ -22,14 +22,14 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Linq;
-using Content.Shared.Atmos.EntitySystems;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Hands.Components;
-using System.Numerics;
-using Content.Shared.Verbs;
-using Robust.Shared.Utility;
-using Content.Shared.NodeContainer;
-using Content.Shared.Atmos;
+using Content.Shared.Atmos.EntitySystems; //DeltaV - RPD
+using Content.Shared.Atmos.Components; //DeltaV - RPD
+using Content.Shared.Hands.Components; //DeltaV - RPD
+using System.Numerics; //DeltaV - RPD
+using Content.Shared.Verbs; //DeltaV - RPD
+using Robust.Shared.Utility; //DeltaV - RPD
+using Content.Shared.NodeContainer; //DeltaV - RPD
+using Content.Shared.Atmos; //DeltaV - RPD
 
 namespace Content.Shared.RCD.Systems;
 
@@ -52,9 +52,9 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
-    [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly PipeRestrictOverlapSystem _pipeOverlap = default!;
+    [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!; //DeltaV - RPD
+    [Dependency] private readonly IEntityManager _entityManager = default!; //DeltaV - RPD
+    [Dependency] private readonly PipeRestrictOverlapSystem _pipeOverlap = default!; //DeltaV - RPD
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -63,24 +63,24 @@ public sealed class RCDSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
-    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary;
+    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary; //DeltaV - RPD
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RCDComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<RCDComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<RCDComponent, ComponentStartup>(OnStartup); //DeltaV - RPD
         SubscribeLocalEvent<RCDComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RCDComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<RCDComponent, RCDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
-        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
-        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent);
-        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(OnGetUtilityVerb);
-        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
+        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); //DeltaV - RPD
+        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent); //DeltaV - RPD
+        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(OnGetUtilityVerb); //DeltaV - RPD
+        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb); //DeltaV - RPD
     }
 
     #region Event handling
@@ -90,10 +90,12 @@ public sealed class RCDSystem : EntitySystem
         // On map startup, set the RCD to its first available recipe
         if (component.AvailablePrototypes.Count > 0)
         {
+            //DeltaV - RPD Begin
             if (component.IsRpd)
                 component.ProtoId = "PipeStraight";
             else
                 component.ProtoId = component.AvailablePrototypes.ElementAt(0);
+            //DeltaV - RPD End
             Dirty(uid, component);
 
             return;
@@ -103,6 +105,7 @@ public sealed class RCDSystem : EntitySystem
         QueueDel(uid);
     }
 
+    //DeltaV - RPD Begin
     private void OnStartup(EntityUid uid, RCDComponent component, ComponentStartup args)
     {
         UpdateCachedPrototype(uid, component);
@@ -110,6 +113,7 @@ public sealed class RCDSystem : EntitySystem
 
         return;
     }
+    //DeltaV - RPD End
 
     private void OnRCDSystemMessage(EntityUid uid, RCDComponent component, RCDSystemMessage args)
     {
@@ -122,7 +126,7 @@ public sealed class RCDSystem : EntitySystem
 
         // Set the current RCD prototype to the one supplied
         component.ProtoId = args.ProtoId;
-        UpdateCachedPrototype(uid, component);
+        UpdateCachedPrototype(uid, component); //DeltaV - RPD
 
         _adminLogger.Add(LogType.RCD, LogImpact.Low, $"{args.Actor} set RCD mode to: {prototype.Mode} : {prototype.Prototype}");
 
@@ -134,8 +138,8 @@ public sealed class RCDSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        UpdateCachedPrototype(uid, component);
-        var prototype = component.CachedPrototype;
+        UpdateCachedPrototype(uid, component); //DeltaV - RPD
+        var prototype = component.CachedPrototype; //DeltaV - RPD
 
         var msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", Loc.GetString(prototype.SetName)));
 
@@ -151,7 +155,7 @@ public sealed class RCDSystem : EntitySystem
         }
 
         args.PushMarkup(msg);
-
+        //DeltaV - RPD Begin
         if (component.IsRpd)
         {
             var modeLoc = $"rcd-rpd-mode-{component.CurrentMode.ToString().ToLowerInvariant()}";
@@ -214,7 +218,7 @@ public sealed class RCDSystem : EntitySystem
 
         args.Verbs.Add(verb);
     }
-
+    //DeltaV - RPD End
     private void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -223,7 +227,7 @@ public sealed class RCDSystem : EntitySystem
         var user = args.User;
         var location = args.ClickLocation;
 
-        var prototype = component.CachedPrototype;
+        var prototype = component.CachedPrototype; //DeltaV - RPD
 
         // Initial validity checks
         if (!location.IsValid(EntityManager))
@@ -236,10 +240,9 @@ public sealed class RCDSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
             return;
         }
-
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
-
+        //DeltaV - RPD Begin
         if (component.IsRpd && prototype.HasLayers)
         {
             var tileSize = mapGrid.TileSize;
@@ -319,6 +322,7 @@ public sealed class RCDSystem : EntitySystem
                     break;
             }
         }
+        //DeltaV - RPD End
 
         if (!IsRCDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, component.ConstructionDirection, args.Target, args.User))
             return;
@@ -487,7 +491,7 @@ public sealed class RCDSystem : EntitySystem
         rcd.ConstructionDirection = ev.Direction;
         Dirty(uid, rcd);
     }
-
+    //DeltaV - RPD Begin
     private void OnRCDConstructionGhostFlipEvent(RCDConstructionGhostFlipEvent ev, EntitySessionEventArgs session)
     {
         var uid = GetEntity(ev.NetEntity);
@@ -525,7 +529,7 @@ public sealed class RCDSystem : EntitySystem
         if (user != null)
             _audio.PlayPredicted(component.SoundSwitchMode, uid, user.Value);
     }
-
+    //DeltaV - RPD End
     #endregion
 
     #region Entity construction/deconstruction rule checks
@@ -538,9 +542,9 @@ public sealed class RCDSystem : EntitySystem
     public bool IsRCDOperationStillValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user, bool popMsgs = true)
     {
         // Update cached prototype if required
-        UpdateCachedPrototype(uid, component);
+        UpdateCachedPrototype(uid, component); //DeltaV - RPD
 
-        var prototype = component.CachedPrototype;
+        var prototype = component.CachedPrototype; //DeltaV - RPD
 
         // Check that the RCD has enough ammo to get the job done
         var charges = _sharedCharges.GetCurrentCharges(uid);
@@ -577,7 +581,7 @@ public sealed class RCDSystem : EntitySystem
             case RcdMode.ConstructObject:
                 return IsConstructionLocationValid(uid, component, gridUid, mapGrid, tile, position, direction, user, popMsgs);
             case RcdMode.Deconstruct:
-                return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs);
+                return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs); //DeltaV - RPD
         }
 
         return false;
@@ -586,9 +590,9 @@ public sealed class RCDSystem : EntitySystem
     private bool IsConstructionLocationValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid user, bool popMsgs = true)
     {
         // Update cached prototype if required
-        UpdateCachedPrototype(uid, component);
+        UpdateCachedPrototype(uid, component); //DeltaV - RPD
 
-        var prototype = component.CachedPrototype;
+        var prototype = component.CachedPrototype; //DeltaV - RPD
 
         // Check rule: Must build on empty tile
         if (prototype.ConstructionRules.Contains(RcdConstructionRule.MustBuildOnEmptyTile) && !tile.Tile.IsEmpty)
@@ -707,7 +711,7 @@ public sealed class RCDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)prototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) prototype.CollisionMask) == 0) 
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
@@ -727,11 +731,12 @@ public sealed class RCDSystem : EntitySystem
         return true;
     }
 
-    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true)
+    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true) //DeltaV - RPD
     {
         // Attempt to deconstruct a floor tile
         if (target == null)
         {
+            //DeltaV - RPD Begin
             if (component.IsRpd)
             {
                 if (popMsgs)
@@ -739,6 +744,7 @@ public sealed class RCDSystem : EntitySystem
 
                 return false;
             }
+            //DeltaV - RPD End
             // The tile is empty
             if (tile.Tile.IsEmpty)
             {
@@ -772,6 +778,7 @@ public sealed class RCDSystem : EntitySystem
         // Attempt to deconstruct an object
         else
         {
+            //DeltaV - RPD Begin
             // The object is not in the RPD whitelist
             if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.RpdDeconstructable && component.IsRpd)
             {
@@ -780,9 +787,10 @@ public sealed class RCDSystem : EntitySystem
 
                 return false;
             }
+            //DeltaV - RPD End
 
             // The object is not in the whitelist
-            if (!deconstructible.Deconstructable)
+            if (!deconstructible.Deconstructable) //DeltaV - RPD
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -791,6 +799,7 @@ public sealed class RCDSystem : EntitySystem
             }
 
         }
+
         return true;
     }
 
@@ -803,7 +812,7 @@ public sealed class RCDSystem : EntitySystem
         if (!_net.IsServer)
             return;
 
-        var prototype = component.CachedPrototype;
+        var prototype = component.CachedPrototype; //DeltaV - RPD
 
         if (prototype.Prototype == null)
             return;
@@ -819,6 +828,7 @@ public sealed class RCDSystem : EntitySystem
                 break;
 
             case RcdMode.ConstructObject:
+            //DeltaV - RPD Begin
                 var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype))
                     ? prototype.MirrorPrototype
                     : prototype.Prototype;
@@ -878,7 +888,7 @@ public sealed class RCDSystem : EntitySystem
                 var mapCoords = new MapCoordinates(entityCoords.ToMapPos(EntityManager, _transform), entityCoords.GetMapId(EntityManager));
 
                 var ent = Spawn(proto, mapCoords, rotation: rotation);
-
+                //DeltaV - RPD End
                 switch (prototype.Rotation)
                 {
                     case RcdRotation.Fixed:
@@ -925,7 +935,7 @@ public sealed class RCDSystem : EntitySystem
 
         return boundingPolygon.ComputeAABB(boundingTransform, 0).Intersects(fixture.Shape.ComputeAABB(entXform, 0));
     }
-
+    //DeltaV - RPD Begin
     public void UpdateCachedPrototype(EntityUid uid, RCDComponent component)
     {
         if (component.ProtoId.Id != component.CachedPrototype?.Prototype ||
@@ -943,7 +953,7 @@ public sealed class RCDSystem : EntitySystem
 
         return component.CurrentMode;
     }
-
+    //DeltaV - RPD End
     #endregion
 }
 

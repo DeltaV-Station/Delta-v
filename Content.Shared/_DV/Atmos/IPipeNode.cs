@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-License-Identifier: MIT
-
-
-
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos;
 

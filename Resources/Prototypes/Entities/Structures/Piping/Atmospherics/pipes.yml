@@ -23,11 +23,11 @@
   - type: CollideOnAnchor
   - type: Anchorable
   - type: Rotatable
-  - type: RCDDeconstructable
-    cost: 5
-    delay: 2
-    fx: EffectRCDDeconstruct2
-    rpd: true
+  - type: RCDDeconstructable #DeltaV - RPD
+    cost: 1 #DeltaV - RPD
+    delay: 2 #DeltaV - RPD
+    fx: EffectRCDDeconstruct2 #DeltaV - RPD
+    rpd: true #DeltaV - RPD
   - type: Destructible
     thresholds:
     - trigger: # for nukes

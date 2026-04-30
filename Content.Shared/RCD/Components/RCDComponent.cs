@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Robust.Shared.Serialization; //DeltaV - RPD
 
 namespace Content.Shared.RCD.Components;
 
@@ -34,6 +34,7 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
+    //DeltaV - RPD Begin
     /// <summary>
     /// A cached copy of currently selected RCD prototype
     /// </summary>
@@ -54,6 +55,7 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
+    //DeltaV - RPD End
 
     /// <summary>
     /// The direction constructed entities will face upon spawning
@@ -80,6 +82,7 @@ public sealed partial class RCDComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
 
+    //DeltaV - RPD Begin
     /// <summary>
     /// Stores player rotation
     /// This is a workaround to the fact eye rotation is not currently networked and required for pipe layering
@@ -106,3 +109,4 @@ public enum RpdMode : byte
     Tertiary = 2,
     Free = 3,
 }
+//DeltaV - RPD End
