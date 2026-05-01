@@ -24,8 +24,8 @@
   id: MeteorSwarm
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 7.5
+    earliestStart: 15 #DeltaV was 30
+    weight: 6 #DeltaV was 7.5
     minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
@@ -48,7 +48,7 @@
       path: /Audio/_DV/Announcements/aliens.ogg
     earliestStart: 25
     minimumPlayers: 30
-    weight: 2
+    weight: 3 #DeltaV was 2
     duration: 30
   - type: PrecognitionResult
     message: psionic-power-precognition-xeno-vents-result-message
@@ -95,7 +95,7 @@
   id: ListeningPost
   components:
   - type: StationEvent
-    earliestStart: 30
+    earliestStart: 45 #DeltaV was 30
     weight: 4
     minimumPlayers: 25
     maxOccurrences: 1
@@ -143,8 +143,8 @@
   id: MalignRiftSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
-    weight: 6
+    earliestStart: 30 #DeltaV was 15
+    weight: 4 #DeltaV was 6
   - type: PrecognitionResult
     message: psionic-power-precognition-rift-spawn-result-message
   - type: RandomMultipleSpawnRule

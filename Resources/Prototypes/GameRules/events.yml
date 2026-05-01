@@ -111,7 +111,7 @@
     startAudio:
       path: /Audio/Announcements/announce.ogg
     weight: 12 # DeltaV - was 8
-    duration: 35
+    duration: 20 #DeltaV was 35
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-anomaly-spawn-result-message
   - type: AnomalySpawnRule
@@ -152,7 +152,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 10
+    weight: 4 #DeltaV was 10
     duration: 1
     minimumPlayers: 15
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -212,7 +212,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 2.5 # DeltaV - was 6.5
+    weight: 4 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
@@ -347,7 +347,7 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 2 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
+    weight: 4 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -457,7 +457,7 @@
   id: SolarFlare
   components:
   - type: StationEvent
-    weight: 10
+    weight: 7 #DeltaV was 10
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
@@ -510,7 +510,7 @@
       path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 6 #DeltaV was 5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-slimes-spawn-result-message
@@ -531,7 +531,7 @@
       path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 6 #DeltaV was 5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snake-spawn-result-message
@@ -570,7 +570,7 @@
       path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
-    weight: 1 # DeltaV - was 1.5
+    weight: 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-clown-spawn-result-message
@@ -595,7 +595,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 4 # DeltaV - was 3
+      max: 5 # DeltaV - was 3
       playerRatio: 10
       blacklist:
         components:
@@ -667,7 +667,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 5 # DeltaV - Was 8 now 5
+    weight: 4 # DeltaV - Was 8 now 4
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
@@ -714,8 +714,8 @@
   id: IonStorm
   components:
   - type: StationEvent
-    weight: 10
-    reoccurrenceDelay: 30 # DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
+    weight: 14 #DeltaV was 10
+    reoccurrenceDelay: 20
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ion-storm-result-message
@@ -740,7 +740,7 @@
   - type: StationEvent
     startAudio:
       path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
-    weight: 5
+    weight: 8 #DeltaV was 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
   - type: GreytideVirusRule
