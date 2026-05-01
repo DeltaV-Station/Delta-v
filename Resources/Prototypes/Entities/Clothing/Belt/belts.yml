@@ -184,7 +184,7 @@
       storagebase: !type:Container
         ents: []
       holster: !type:ContainerSlot {}
-      radio: !type:ContainerSlot {}
+      radio: !type:ContainerSlot {} # DeltaV - add radio holster
   - type: Appearance # DeltaV
 
 - type: entity
