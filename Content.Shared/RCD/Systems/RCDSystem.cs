@@ -846,7 +846,7 @@ public sealed class RCDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user, AtmosPipeLayer layer)
+    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user, AtmosPipeLayer layer) // DeltaV - RPD
     {
         if (!_net.IsServer)
             return;
@@ -876,7 +876,7 @@ public sealed class RCDSystem : EntitySystem
                 {
                     if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId))
+                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId)) 
                     {
                         proto = newProtoId;
                     }
@@ -905,7 +905,7 @@ public sealed class RCDSystem : EntitySystem
                             {
                                 var proposed = new PipeRestrictOverlapSystem.ProposedPipe(
                                     pipeNode.Direction,
-                                    layer,
+                                    layer, 
                                     rotation
                                 );
 
@@ -1019,7 +1019,7 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
 
     private RCDDoAfterEvent() { }
 
-    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, AtmosPipeLayer layer, NetEntity? effect = null)
+    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, AtmosPipeLayer layer, NetEntity? effect = null) //DeltaV - RPD
     {
         Location = location;
         Direction = direction;
