@@ -2,7 +2,7 @@
   parent: BaseItem
   id: CGauntlet
   name: Grav Gauntlet MK-00c
-  description: A new experimental gauntlet equiped with a mini gravity generator to make sure theres no running FROM JUSTICE!!!!
+  description: A experimental gauntlet equiped with a mini gravity generator to make sure theres no running FROM JUSTICE!!!!
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/C_Gauntlet.rsi
@@ -26,7 +26,7 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 2
-  - type: Gun
+  - type: Gun #apersos was here
     projectileSpeed: 6
     soundGunshot: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
     fireRate: 1
