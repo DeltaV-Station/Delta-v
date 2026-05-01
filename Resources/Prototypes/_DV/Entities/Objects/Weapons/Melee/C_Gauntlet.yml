@@ -2,22 +2,22 @@
   parent: BaseItem
   id: CGauntlet
   name: Prototype Gauntlet MK-00c
-  description: A new experiment made to level the playing field... literally. NOW GO BEAT UP PEOPLE!!
+  description: A new experimental gauntlet equiped with a mini gravity generator to make sure theres no running FROM JUSTICE!!!!
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/C_Gauntlet.rsi
     state: icon
   - type: MeleeWeapon
     size: large
-    range: 1.3 # so you can actually use the pull
-    attackRate: 0.55 # heavy friggin fists bro
+    range: 1.35 # so you can actually use the pull
+    attackRate: 0.75 # heavy friggin fists bro
     angle: 0
     animation: WeaponArcFist
     wideAnimationRotation: 145
     damage:
       types:
-        Slash: 5
-        Blunt: 30
+        Slash: 3
+        Blunt: 37
         Structural: 35
   - type: Wieldable
     unweieldOnUse: false
