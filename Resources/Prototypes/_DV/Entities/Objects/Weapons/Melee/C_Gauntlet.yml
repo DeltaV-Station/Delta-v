@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: CGauntlet
-  name: Gauntlet MK-00c
+  name: Grav Gauntlet MK-00c
   description: A new experimental gauntlet equiped with a mini gravity generator to make sure theres no running FROM JUSTICE!!!!
   components:
   - type: Sprite
@@ -16,8 +16,8 @@
     wideAnimationRotation: 145
     damage:
       types:
-        Slash: 3
-        Blunt: 37
+        Slash: 2
+        Blunt: 33
         Structural: 35
   - type: Wieldable
     unweieldOnUse: false
