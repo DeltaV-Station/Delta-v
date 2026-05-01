@@ -74,12 +74,11 @@
     entity: OperatingTable
 
 - type: entity
+  abstract: true
   parent: BaseStructureDynamic
   id: HeavyFlatpackBase
   name: heavy flatpack
   description: A large flatpack used to store a worryingly large machine.
-  categories:
-  - HideSpawnMenu
   components:
   - type: Sprite
     sprite: Objects/Devices/flatpack.rsi
