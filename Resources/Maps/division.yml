@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/29/2026 21:15:57
-  entityCount: 26250
+  time: 05/01/2026 19:22:53
+  entityCount: 26252
 maps:
 - 1
 grids:
@@ -56308,6 +56308,11 @@ entities:
       parent: 2
 - proto: ChairFolding
   entities:
+  - uid: 7396
+    components:
+    - type: Transform
+      pos: 51.46752,-58.355164
+      parent: 2
   - uid: 9384
     components:
     - type: Transform
@@ -56703,6 +56708,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 57.588074,13.567057
+      parent: 2
+  - uid: 26251
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 52.62377,-57.855164
       parent: 2
 - proto: ChairFoldingSpawnFolded
   entities:
@@ -58459,15 +58470,10 @@ entities:
       parent: 2
 - proto: ClosetRadiationSuitFilled
   entities:
-  - uid: 7396
-    components:
-    - type: Transform
-      pos: 52.5,-57.5
-      parent: 2
   - uid: 11425
     components:
     - type: Transform
-      pos: 52.5,-56.5
+      pos: 51.5,-59.5
       parent: 2
   - uid: 11881
     components:
@@ -58493,6 +58499,11 @@ entities:
     components:
     - type: Transform
       pos: 1.5,42.5
+      parent: 2
+  - uid: 17443
+    components:
+    - type: Transform
+      pos: 52.5,-59.5
       parent: 2
   - uid: 17771
     components:
@@ -60547,25 +60558,10 @@ entities:
       parent: 2
 - proto: CrateCerenkiteFuelRod
   entities:
-  - uid: 8121
-    components:
-    - type: Transform
-      pos: 50.5,-59.5
-      parent: 2
-  - uid: 17443
-    components:
-    - type: Transform
-      pos: 52.5,-59.5
-      parent: 2
-  - uid: 20237
-    components:
-    - type: Transform
-      pos: 51.5,-59.5
-      parent: 2
   - uid: 21895
     components:
     - type: Transform
-      pos: 49.5,-59.5
+      pos: 50.5,-56.5
       parent: 2
 - proto: CrateChemistrySecure
   entities:
@@ -123195,6 +123191,15 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: PosterLegitSafetyReport
+  entities:
+  - uid: 8121
+    components:
+    - type: Transform
+      pos: 50.5,-60.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: PosterLegitVacation
   entities:
   - uid: 18748
@@ -127169,6 +127174,11 @@ entities:
     components:
     - type: Transform
       pos: -14.5,33.5
+      parent: 2
+  - uid: 20237
+    components:
+    - type: Transform
+      pos: 49.5,-59.5
       parent: 2
   - uid: 21215
     components:
@@ -133410,6 +133420,13 @@ entities:
       parent: 2
     - type: Stack
       count: 10
+  - uid: 26252
+    components:
+    - type: Transform
+      pos: 49.49877,-59.480164
+      parent: 2
+    - type: Stack
+      count: 15
 - proto: SheetSteel
   entities:
   - uid: 17863
