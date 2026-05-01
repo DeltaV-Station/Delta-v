@@ -63,8 +63,6 @@ public sealed class RCDSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
-    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary; //DeltaV - RPD
-
     public override void Initialize()
     {
         base.Initialize();
@@ -243,6 +241,7 @@ public sealed class RCDSystem : EntitySystem
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
         //DeltaV - RPD Begin
+        var layer = AtmosPipeLayer.Primary;
         if (component.IsRpd && prototype.HasLayers)
         {
             var tileSize = mapGrid.TileSize;
@@ -250,20 +249,18 @@ public sealed class RCDSystem : EntitySystem
             var mouseCoordsDiff = args.ClickLocation.Position - tileCenter - new Vector2(0.5f, 0.5f);
             var mouseDeadzoneRadius = 0.25f;
 
-            _currentLayer = AtmosPipeLayer.Primary;
-
             switch (component.CurrentMode)
             {
                 case RpdMode.Primary:
-                    _currentLayer = AtmosPipeLayer.Primary;
+                    layer = AtmosPipeLayer.Primary;
                     break;
 
                 case RpdMode.Secondary:
-                    _currentLayer = AtmosPipeLayer.Secondary;
+                    layer = AtmosPipeLayer.Secondary;
                     break;
 
                 case RpdMode.Tertiary:
-                    _currentLayer = AtmosPipeLayer.Tertiary;
+                    layer = AtmosPipeLayer.Tertiary;
                     break;
 
                 case RpdMode.Free:
@@ -275,47 +272,7 @@ public sealed class RCDSystem : EntitySystem
                         var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
                         var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
 
-                        _currentLayer = (direction == Direction.North || direction == Direction.East)
-                            ? AtmosPipeLayer.Secondary
-                            : AtmosPipeLayer.Tertiary;
-                    }
-                    break;
-            }
-        }
-
-        if (component.IsRpd && prototype.HasLayers)
-        {
-            var tileSize = mapGrid.TileSize;
-            var tileCenter = new Vector2(tile.X + tileSize / 2, tile.Y + tileSize / 2);
-            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter - new Vector2(0.5f, 0.5f);
-            var mouseDeadzoneRadius = 0.25f;
-
-            _currentLayer = AtmosPipeLayer.Primary;
-
-            switch (component.CurrentMode)
-            {
-                case RpdMode.Primary:
-                    _currentLayer = AtmosPipeLayer.Primary;
-                    break;
-
-                case RpdMode.Secondary:
-                    _currentLayer = AtmosPipeLayer.Secondary;
-                    break;
-
-                case RpdMode.Tertiary:
-                    _currentLayer = AtmosPipeLayer.Tertiary;
-                    break;
-
-                case RpdMode.Free:
-                    // Only use mouse direction in Free mode
-                    if (mouseCoordsDiff.Length() > mouseDeadzoneRadius && component.LastKnownEyeRotation.HasValue)
-                    {
-                        var gridRotation = _transform.GetWorldRotation(gridUid.Value);
-                        var angle = new Angle(mouseCoordsDiff);
-                        var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
-                        var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
-
-                        _currentLayer = (direction == Direction.North || direction == Direction.East)
+                        layer = (direction == Direction.North || direction == Direction.East)
                             ? AtmosPipeLayer.Secondary
                             : AtmosPipeLayer.Tertiary;
                     }
@@ -387,7 +344,7 @@ public sealed class RCDSystem : EntitySystem
 
         // Try to start the do after
         var effect = Spawn(effectPrototype, location);
-        var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
+        var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, layer, GetNetEntity(effect)); //DeltaV - RPD
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
         {
@@ -466,7 +423,7 @@ public sealed class RCDSystem : EntitySystem
             return;
 
         // Finalize the operation (this should handle prediction properly)
-        FinalizeRCDOperation(uid, component, gridUid.Value, mapGrid, tile, position, args.Direction, args.Target, args.User);
+        FinalizeRCDOperation(uid, component, gridUid.Value, mapGrid, tile, position, args.Direction, args.Target, args.User, args.Layer);
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -566,20 +523,41 @@ public sealed class RCDSystem : EntitySystem
             return false;
         }
 
-        // Exit if the target / target location is obstructed
-        var unobstructed = (target == null)
-            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), popup: popMsgs)
-            : _interaction.InRangeUnobstructed(user, target.Value, popup: popMsgs);
+        // DeltaV - RPD Begin
+        bool unobstructed;
+        var worldPos = _mapSystem.GridTileToWorld(gridUid, mapGrid, position);
+
+       if (component.IsRpd)
+        {
+            unobstructed = _interaction.InRangeUnobstructed(user, worldPos, 
+                predicate: (entity) => !HasComp<PipeRestrictOverlapComponent>(entity), 
+                popup: popMsgs);
+        }
+        else
+        {
+            unobstructed = (target == null)
+                ? _interaction.InRangeUnobstructed(user, worldPos, popup: popMsgs)
+                : _interaction.InRangeUnobstructed(user, target.Value, popup: popMsgs);
+        }
+        // DeltaV - RPD End
 
         if (!unobstructed)
             return false;
+
+        // DeltaV - RPD Begin
+        var layer = AtmosPipeLayer.Primary;
+        if (component.IsRpd)
+        {
+            layer = GetLayerFromState(component, gridUid, mapGrid, tile, worldPos.Position);
+        }
+        // DeltaV - RPD End
 
         // Return whether the operation location is valid
         switch (prototype.Mode)
         {
             case RcdMode.ConstructTile:
             case RcdMode.ConstructObject:
-                return IsConstructionLocationValid(uid, component, gridUid, mapGrid, tile, position, direction, user, popMsgs);
+                return IsConstructionLocationValid(uid, component, gridUid, mapGrid, tile, position, direction, user, layer, popMsgs); //DeltaV - RPD
             case RcdMode.Deconstruct:
                 return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs); //DeltaV - RPD
         }
@@ -587,7 +565,39 @@ public sealed class RCDSystem : EntitySystem
         return false;
     }
 
-    private bool IsConstructionLocationValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid user, bool popMsgs = true)
+    // DeltaV - RPD Begin
+    private AtmosPipeLayer GetLayerFromState(RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2 clickPos)
+    {
+        if (!component.IsRpd || component.CachedPrototype == null || !component.CachedPrototype.HasLayers)
+            return AtmosPipeLayer.Primary;
+
+        var tileSize = mapGrid.TileSize;
+        var tileCenter = new Vector2(tile.X + tileSize / 2f, tile.Y + tileSize / 2f);
+        var mouseCoordsDiff = clickPos - tileCenter;
+        var mouseDeadzoneRadius = 0.25f;
+
+        switch (component.CurrentMode)
+        {
+            case RpdMode.Primary: return AtmosPipeLayer.Primary;
+            case RpdMode.Secondary: return AtmosPipeLayer.Secondary;
+            case RpdMode.Tertiary: return AtmosPipeLayer.Tertiary;
+            case RpdMode.Free:
+                if (mouseCoordsDiff.Length() > mouseDeadzoneRadius && component.LastKnownEyeRotation.HasValue)
+                {
+                    var gridRotation = _transform.GetWorldRotation(gridUid);
+                    var angle = new Angle(mouseCoordsDiff);
+                    var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
+                    var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
+                    return (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
+                }
+                return AtmosPipeLayer.Primary;
+            default: return AtmosPipeLayer.Primary;
+        }
+    }
+
+    // DeltaV - RPD End
+
+    private bool IsConstructionLocationValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid user, AtmosPipeLayer layer, bool popMsgs = true)
     {
         // Update cached prototype if required
         UpdateCachedPrototype(uid, component); //DeltaV - RPD
@@ -677,9 +687,32 @@ public sealed class RCDSystem : EntitySystem
             // This is to prevent spamming objects on the same tile (e.g. lights)
             if (prototype.Prototype != null && MetaData(ent).EntityPrototype?.ID == prototype.Prototype)
             {
+                // DeltaV - RPD Begin
                 var isIdentical = true;
 
-                if (prototype.AllowMultiDirection)
+                if (component.IsRpd)
+                {
+                    // A pipe is only "identical" if it exists on the same layer we are trying to build on.
+                    // We check the nodes of the existing entity to find its layer.
+                    if (TryComp<NodeContainerComponent>(ent, out var nodeContainer))
+                    {
+                        var existingLayerMatch = false;
+                        foreach (var node in nodeContainer.Nodes.Values)
+                        {
+                            if (node is IPipeNode pipeNode && pipeNode.Layer == layer)
+                            {
+                                existingLayerMatch = true;
+                                break;
+                            }
+                        }
+
+                        // If no nodes match the target layer, it's not identical (we can build here!)
+                        if (!existingLayerMatch)
+                            isIdentical = false;
+                    }
+                }
+                
+                else if (prototype.AllowMultiDirection)
                 {
                     var entDirection = Transform(ent).LocalRotation.GetCardinalDir();
                     if (entDirection != direction)
@@ -688,11 +721,10 @@ public sealed class RCDSystem : EntitySystem
 
                 if (isIdentical)
                 {
-                    if (popMsgs)
-                        _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-identical-entity"), uid, user);
-
+                    if (popMsgs) _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-identical-entity"), uid, user);
                     return false;
                 }
+                // DeltaV - RPD End
             }
 
             if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
@@ -705,6 +737,13 @@ public sealed class RCDSystem : EntitySystem
 
                 return false;
             }
+
+            // DeltaV - RPD Begin
+            if (component.IsRpd && HasComp<PipeRestrictOverlapComponent>(ent))
+            {
+                continue; 
+            }
+            // DeltaV - RPD End
 
             if (prototype.CollisionMask != CollisionGroup.None && TryComp<FixturesComponent>(ent, out var fixtures))
             {
@@ -807,7 +846,7 @@ public sealed class RCDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user)
+    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user, AtmosPipeLayer layer)
     {
         if (!_net.IsServer)
             return;
@@ -837,7 +876,7 @@ public sealed class RCDSystem : EntitySystem
                 {
                     if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
+                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId))
                     {
                         proto = newProtoId;
                     }
@@ -866,7 +905,7 @@ public sealed class RCDSystem : EntitySystem
                             {
                                 var proposed = new PipeRestrictOverlapSystem.ProposedPipe(
                                     pipeNode.Direction,
-                                    _currentLayer,
+                                    layer,
                                     rotation
                                 );
 
@@ -975,14 +1014,18 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
     [DataField("fx")]
     public NetEntity? Effect { get; private set; }
 
+    [DataField] //DeltaV - RPD
+    public AtmosPipeLayer Layer { get; private set; } = AtmosPipeLayer.Primary; //DeltaV - RPD
+
     private RCDDoAfterEvent() { }
 
-    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, NetEntity? effect = null)
+    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, AtmosPipeLayer layer, NetEntity? effect = null)
     {
         Location = location;
         Direction = direction;
         StartingProtoId = startingProtoId;
         Cost = cost;
+        Layer = layer; //DeltaV - RPD
         Effect = effect;
     }
 
