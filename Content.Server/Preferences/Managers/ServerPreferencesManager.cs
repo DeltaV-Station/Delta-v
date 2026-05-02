@@ -3,9 +3,12 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._CD.Records;
 using Content.Server.Database;
+using Content.Shared._CD.Records;
 using Content.Shared.Body;
-using Content.Shared._DV.Species; // Delta-V Hidden species
+using Content.Shared._DV.Species;
+using Content.Shared._DV.Traits; // Delta-V Hidden species
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Humanoid;
@@ -132,7 +135,7 @@ namespace Content.Server.Preferences.Managers
 
                     if (parsed is null) continue;
 
-                    markingsList.Add(parsed.Value);
+                    markingsList.Add(parsed);
                 }
 
                 if (Marking.ParseFromDbString($"{profile.HairName}@{profile.HairColor}") is { } facialMarking)
