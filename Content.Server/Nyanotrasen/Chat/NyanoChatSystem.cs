@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using Content.Server._DV.Psionics.Systems;
 using Content.Shared._DV.Chat.Components;
+using Content.Shared._DV.Psionics.Components;
 
 namespace Content.Server.Nyanotrasen.Chat;
 
@@ -65,6 +66,7 @@ public sealed class NyanoChatSystem : EntitySystem
     private bool IsEligibleForTelepathy(EntityUid entity)
     {
         return _psionicSystem.CanUsePsionicAbility(entity)
+               && HasComp<PsionicComponent>(entity)
                && (!TryComp<MobStateComponent>(entity, out var mobstate)
                    || mobstate.CurrentState == MobState.Alive);
     }
