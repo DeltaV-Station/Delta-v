@@ -3,3 +3,6 @@ energy-magnum-bundle-description = A heavy duty, slow recharging, energy revolve
 
 x01-bundle-name = X-01
 x01-bundle-description = A fast firing, high capacity, compact, energy gun perfect for dishing out consistent quick damage.
+
+Grav-Gauntlet-bundle-name = Grav Gauntlet
+Grav-Gauntlet-bundle-description = A gauntlet that pulls targets hit in while dealing substantial damage, has a taser to make sure theres no resisting against JUSTICE!!

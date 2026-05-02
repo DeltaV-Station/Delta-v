@@ -46,3 +46,9 @@
     slots:
       - belt
       - suitStorage
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StealTarget
+    stealGroup: HoSSidearm
