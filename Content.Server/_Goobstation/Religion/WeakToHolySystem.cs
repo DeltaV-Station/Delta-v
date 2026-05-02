@@ -17,7 +17,7 @@ using Content.Shared.Inventory;
 using Robust.Shared.Timing;
 using Content.Shared.Timing;
 using Content.Server.Bible.Components;
-using Content.Shared.Body;
+using Content.Shared.Body; // Delta V - Nubody Merge
 
 namespace Content.Server._Goobstation.Religion;
 
