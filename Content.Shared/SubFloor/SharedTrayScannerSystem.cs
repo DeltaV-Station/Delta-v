@@ -131,7 +131,7 @@ public abstract class SharedTrayScannerSystem : EntitySystem
     }
 
     /// DeltaV additions begin
-    private void OnToggleAction(Entity<TrayScannerComponent> scanner, ToggleTrayScannerEvent args)
+    private void OnToggleAction(Entity<TrayScannerComponent> scanner, ref ToggleTrayScannerEvent args)
     {
         if (args.Handled)
             return;
