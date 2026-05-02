@@ -1,7 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
   id: Harpy
-  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 1
@@ -12,14 +11,17 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
+      onlyGroupWhitelisted: true
       default: [ HarpyTailPhoenix ]
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
+      onlyGroupWhitelisted: true
       default: [ HarpyEarsDefault ]
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: true
+      onlyGroupWhitelisted: true
       default: [ HarpyChestDefault ]
     enum.HumanoidVisualLayers.LLeg:
       limit: 2
@@ -30,10 +32,12 @@
     enum.HumanoidVisualLayers.LArm:
       limit: 1
       required: false
+      onlyGroupWhitelisted: true
       default: [ HarpyWingDefaultHuescale ]
     enum.HumanoidVisualLayers.RArmExtension:
       limit: 1
       required: true
+      onlyGroupWhitelisted: true
       default: [ HarpyWingDefaultHuescale ]
 
 - type: entity
