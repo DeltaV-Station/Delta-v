@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/26/2026 18:00:44
-  entityCount: 31871
+  time: 05/02/2026 00:01:22
+  entityCount: 31874
 maps:
 - 8
 grids:
@@ -150823,6 +150823,13 @@ entities:
     - type: Transform
       pos: 102.48838,-13.4013
       parent: 1
+- proto: PlantPotPreSeededPlastic
+  entities:
+  - uid: 31874
+    components:
+    - type: Transform
+      pos: -23.638887,-30.669054
+      parent: 1
 - proto: PlaqueAtmos
   entities:
   - uid: 6420
@@ -151201,6 +151208,18 @@ entities:
     components:
     - type: Transform
       pos: -49.5,-38.5
+      parent: 1
+- proto: PlasticFlapsAirtightOpaque
+  entities:
+  - uid: 31872
+    components:
+    - type: Transform
+      pos: -52.5,-38.5
+      parent: 1
+  - uid: 31873
+    components:
+    - type: Transform
+      pos: -52.5,-42.5
       parent: 1
 - proto: PlayerStationAi
   entities:
@@ -204312,7 +204331,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -237204.52
+      secondsUntilStateChange: -237421.61
       state: Opening
   - uid: 5096
     components:
@@ -204329,7 +204348,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -237204.52
+      secondsUntilStateChange: -237421.61
       state: Opening
   - uid: 5498
     components:
@@ -204345,7 +204364,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236928.14
+      secondsUntilStateChange: -237145.23
       state: Opening
   - uid: 8696
     components:
@@ -204378,7 +204397,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236926.25
+      secondsUntilStateChange: -237143.34
       state: Opening
   - uid: 18835
     components:
@@ -204390,7 +204409,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -236923.25
+      secondsUntilStateChange: -237140.34
       state: Opening
   - uid: 23917
     components:
