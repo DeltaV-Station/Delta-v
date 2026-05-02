@@ -8,16 +8,15 @@
 
 using System.Linq;
 using Content.Shared._Goobstation.Devil;
-using Content.Shared.Body;
+using Content.Shared.Body; // Delta V - Nubody
 using Content.Shared.Body.Components;
-using Robust.Shared.Containers;
+using Robust.Shared.Containers; // Delta V - Nubody
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Devil.Contract;
 
 public sealed partial class DevilContractSystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
     private void InitializeSpecialActions()

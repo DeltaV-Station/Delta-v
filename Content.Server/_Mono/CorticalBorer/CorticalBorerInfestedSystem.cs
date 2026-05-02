@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Mono.CorticalBorer;
-using Content.Shared.Body;
+using Content.Shared.Body; // Delta V - Nubody Merge
 using Content.Shared.Examine;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -26,7 +26,7 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, ExaminedEvent>(OnExaminedInfested);
 
-        SubscribeLocalEvent<CorticalBorerInfestedComponent, OrganGotRemovedEvent>(OnBodyPartRemoved);
+        SubscribeLocalEvent<CorticalBorerInfestedComponent, OrganGotRemovedEvent>(OnBodyPartRemoved); // Delta V - Nubody Merge
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MobStateChangedEvent>(OnStateChange);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MindRemovedMessage>(OnMindRemoved);
     }
@@ -64,7 +64,7 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
             _borer.EndControl(infected.Comp.Borer);
     }
 
-    private void OnBodyPartRemoved(Entity<CorticalBorerInfestedComponent> infected, ref OrganGotRemovedEvent args)
+    private void OnBodyPartRemoved(Entity<CorticalBorerInfestedComponent> infected, ref OrganGotRemovedEvent args /* Delta V - Nubody */)
     {
         _borer.EndControl(infected.Comp.Borer);
         _borer.TryEjectBorer(infected.Comp.Borer);

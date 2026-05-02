@@ -95,10 +95,10 @@ public sealed partial class BodySystem : EntitySystem
     // Delta V - Organ Functionality Solution
     private void OnOrganInserted(Entity<BodyComponent> ent, ref OrganInsertedIntoEvent args)
     {
-        if (!TryComp<OrganComponent>(args.Organ, out var organ) || organ.onAdd == null)
+        if (!TryComp<OrganComponent>(args.Organ, out var organ) || organ.OnAdd == null)
             return;
 
-        foreach (var (key, comp) in organ.onAdd)
+        foreach (var (key, comp) in organ.OnAdd)
         {
             var compType = comp.Component.GetType();
             if (HasComp(ent, compType))

@@ -25,5 +25,5 @@ public sealed partial class OrganComponent : Component
     /// When attached, the organ ensures that these components are added onto the entity
     /// </summary>
     [DataField]
-    public ComponentRegistry? onAdd;
+    public ComponentRegistry? OnAdd;
 }
