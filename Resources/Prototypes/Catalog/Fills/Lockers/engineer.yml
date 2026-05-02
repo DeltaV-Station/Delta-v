@@ -210,6 +210,7 @@
     - id: LunchboxEngineeringFilledRandom # DeltaV - Lunchboxes!
       prob: 0.3
     - id: HolotapeProjector # DeltaV - engineering tape
+    - id: PillCanisterPotassiumIodide # Far Horizons / Nuclear Reactor Port
 
 - type: entityTable
   id: FillEngineerHardsuit
@@ -237,9 +238,11 @@
     - id: ClothingOuterSuitRad
       amount: 2
     - id: GeigerCounter
-      amount: 2
-    - id: PillCanisterPotassiumIodide
-      prob: 0.75
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: PillCanisterPotassiumIodide # Far Horizons / Nuclear Reactor Port Start
+      amount: !type:ConstantNumberSelector
+        value: 2 # Far Horizons / Nuclear Reactor Port End
 
 - type: entity
   parent: LockerEvacRepair
