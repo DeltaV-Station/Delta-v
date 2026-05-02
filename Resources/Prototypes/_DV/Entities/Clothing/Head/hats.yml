@@ -432,3 +432,33 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.12"
+
+
+# Wrestling masks
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaRed
+  name: Red Lucha Libre Mask
+  description: The luchador never removes his mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaBlue
+  name: Blue Lucha Libre Mask
+  description: Don't touch the mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
