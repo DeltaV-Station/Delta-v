@@ -1,4 +1,4 @@
-﻿using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.Controls;
 using Content.Shared._DV.Light.Events;
 using Content.Shared.Light.Components;
 using JetBrains.Annotations;
