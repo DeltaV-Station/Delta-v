@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._DV.Light.Components;
 using Content.Shared._DV.Light.Events;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -26,26 +27,26 @@ public sealed class DVLightReplacerSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, UseInHandEvent>(OnUse);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, InteractUsingEvent>(HandleInteract);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, AfterInteractEvent>(HandleAfterInteract);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, EjectLightTypeMessage>(OnEjectMessage);
-        SubscribeLocalEvent<Components.DVLightReplacerComponent, SwitchLightTypeMessage>(OnSwitchMessage);
+        SubscribeLocalEvent<DVLightReplacerComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<DVLightReplacerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DVLightReplacerComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<DVLightReplacerComponent, UseInHandEvent>(OnUse);
+        SubscribeLocalEvent<DVLightReplacerComponent, InteractUsingEvent>(HandleInteract);
+        SubscribeLocalEvent<DVLightReplacerComponent, AfterInteractEvent>(HandleAfterInteract);
+        SubscribeLocalEvent<DVLightReplacerComponent, EjectLightTypeMessage>(OnEjectMessage);
+        SubscribeLocalEvent<DVLightReplacerComponent, SwitchLightTypeMessage>(OnSwitchMessage);
 
         _lightBulbQuery = GetEntityQuery<LightBulbComponent>();
         _metaDataQuery = GetEntityQuery<MetaDataComponent>();
     }
 
-    private void OnInit(Entity<Components.DVLightReplacerComponent> replacer, ref ComponentInit args)
+    private void OnInit(Entity<DVLightReplacerComponent> replacer, ref ComponentInit args)
     {
         // This needs to be handled on CompInit because otherwise, it's empty on the client.
         replacer.Comp.InsertedBulbs = _container.EnsureContainer<Container>(replacer, "light_replacer_storage");
     }
 
-    private void OnMapInit(Entity<Components.DVLightReplacerComponent> replacer, ref MapInitEvent args)
+    private void OnMapInit(Entity<DVLightReplacerComponent> replacer, ref MapInitEvent args)
     {
         var xform = Transform(replacer);
         foreach (var spawn in EntitySpawnCollection.GetSpawns(replacer.Comp.StartingContent))
@@ -55,9 +56,9 @@ public sealed class DVLightReplacerSystem : EntitySystem
         }
     }
 
-    private void OnExamined(Entity<Components.DVLightReplacerComponent> replacer, ref ExaminedEvent args)
+    private void OnExamined(Entity<DVLightReplacerComponent> replacer, ref ExaminedEvent args)
     {
-        using (args.PushGroup(nameof(Components.DVLightReplacerComponent)))
+        using (args.PushGroup(nameof(DVLightReplacerComponent)))
         {
             if (!replacer.Comp.InsertedBulbs.ContainedEntities.Any())
             {
@@ -80,7 +81,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
         }
     }
 
-    private void OnUse(Entity<Components.DVLightReplacerComponent> replacer, ref UseInHandEvent args)
+    private void OnUse(Entity<DVLightReplacerComponent> replacer, ref UseInHandEvent args)
     {
         if (args.Handled)
             return;
@@ -97,7 +98,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
         _ui.OpenUi(replacer.Owner, LightReplacerUiKey.Key, args.User);
     }
 
-    private void HandleAfterInteract(Entity<Components.DVLightReplacerComponent> replacer, ref AfterInteractEvent eventArgs)
+    private void HandleAfterInteract(Entity<DVLightReplacerComponent> replacer, ref AfterInteractEvent eventArgs)
     {
         if (eventArgs.Handled
             || !eventArgs.CanReach // standard interaction checks
@@ -114,7 +115,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
             eventArgs.Handled = TryInsertBulb(replacer.AsNullable(), (targetUid, bulb), eventArgs.User, true);
     }
 
-    private void HandleInteract(Entity<Components.DVLightReplacerComponent> replacer, ref InteractUsingEvent eventArgs)
+    private void HandleInteract(Entity<DVLightReplacerComponent> replacer, ref InteractUsingEvent eventArgs)
     {
         if (eventArgs.Handled)
             return;
@@ -129,7 +130,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
             eventArgs.Handled = TryInsertBulbsFromStorage(replacer.AsNullable(), (usedUid, storage), eventArgs.User);
     }
 
-    private void OnEjectMessage(Entity<Components.DVLightReplacerComponent> replacer, ref EjectLightTypeMessage args)
+    private void OnEjectMessage(Entity<DVLightReplacerComponent> replacer, ref EjectLightTypeMessage args)
     {
         HashSet<EntityUid> lightsToEject = [];
         foreach (var light in replacer.Comp.InsertedBulbs.ContainedEntities)
@@ -144,7 +145,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
         }
     }
 
-    private void OnSwitchMessage(Entity<Components.DVLightReplacerComponent> replacer, ref SwitchLightTypeMessage args)
+    private void OnSwitchMessage(Entity<DVLightReplacerComponent> replacer, ref SwitchLightTypeMessage args)
     {
         if (args.LightType == LightBulbType.Tube)
             replacer.Comp.ActiveLightTube = args.LightName;
@@ -161,7 +162,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
     /// <param name="fixture">The fixture whose light is being replaced.</param>
     /// <param name="userUid">The user who is replacing the light.</param>
     /// <returns>True if successfully replaced light, false otherwise</returns>
-    public bool TryReplaceBulb(Entity<Components.DVLightReplacerComponent?> replacer, Entity<PoweredLightComponent?> fixture, EntityUid? userUid = null)
+    public bool TryReplaceBulb(Entity<DVLightReplacerComponent?> replacer, Entity<PoweredLightComponent?> fixture, EntityUid? userUid = null)
     {
         if (!Resolve(replacer, ref replacer.Comp)
             || !Resolve(fixture, ref fixture.Comp))
@@ -235,7 +236,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
     /// <param name="userUid">The user who is inserting the light.</param>
     /// <param name="showPopup">Whether to show a popup.</param>
     /// <returns>True if successfully inserted light, false otherwise</returns>
-    public bool TryInsertBulb(Entity<Components.DVLightReplacerComponent?> replacer, Entity<LightBulbComponent?> bulb, EntityUid? userUid = null, bool showPopup = false)
+    public bool TryInsertBulb(Entity<DVLightReplacerComponent?> replacer, Entity<LightBulbComponent?> bulb, EntityUid? userUid = null, bool showPopup = false)
     {
         if (!Resolve(replacer, ref replacer.Comp)
             || !Resolve(bulb, ref bulb.Comp))
@@ -274,7 +275,7 @@ public sealed class DVLightReplacerSystem : EntitySystem
     /// Returns true if storage contained at least one light bulb
     /// which was successfully inserted inside light replacer
     /// </returns>
-    public bool TryInsertBulbsFromStorage(Entity<Components.DVLightReplacerComponent?> replacer, Entity<StorageComponent?> storage, EntityUid? userUid = null)
+    public bool TryInsertBulbsFromStorage(Entity<DVLightReplacerComponent?> replacer, Entity<StorageComponent?> storage, EntityUid? userUid = null)
     {
         if (!Resolve(replacer, ref replacer.Comp)
             || !Resolve(storage, ref storage.Comp))
