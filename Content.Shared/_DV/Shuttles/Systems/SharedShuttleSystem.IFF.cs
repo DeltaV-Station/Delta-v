@@ -1,4 +1,4 @@
-﻿using Content.Shared.Shuttles.Components;
+using Content.Shared.Shuttles.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 

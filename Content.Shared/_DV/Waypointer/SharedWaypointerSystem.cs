@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared._DV.Waypointer.Components;
 using Content.Shared._DV.Waypointer.Events;
 using Content.Shared.Actions;

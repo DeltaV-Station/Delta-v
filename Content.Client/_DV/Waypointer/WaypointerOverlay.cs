@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Shuttles.Systems;
 using Content.Client.Station;
 using Content.Shared._DV.Waypointer;

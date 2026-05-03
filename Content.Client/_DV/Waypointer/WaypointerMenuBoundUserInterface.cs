@@ -1,4 +1,4 @@
-﻿using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.Controls;
 using Content.Shared._DV.Waypointer;
 using Content.Shared._DV.Waypointer.Components;
 using Content.Shared._DV.Waypointer.Events;
