@@ -46,7 +46,7 @@ psionic-power-mindswap-original-lost = The psionic tether to your original body 
 
 # Noospheric Zap
 psionic-power-noospheric-zap-user = Lightning shoots out of {THE($user)}'s fingertips!
-psionic-power-noospheric-zap-battery = {CAPITALIZE(THE($user))}'s charge ramps up!
+psionic-power-noospheric-zap-battery = {CAPITALIZE(THE($battery))}'s charge ramps up!
 
 # Precognition
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
