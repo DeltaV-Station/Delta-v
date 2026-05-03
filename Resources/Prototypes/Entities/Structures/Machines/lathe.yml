@@ -67,7 +67,7 @@
     boardName: wires-board-name-autolathe
     layoutId: Fabicator
     alwaysRandomize: true
-  - type: StationAiWhitelist 
+  - type: StationAiWhitelist
   - type: MaterialStorageMagnetPickup
     magnetEnabled: True
     range: 0.30
@@ -297,6 +297,7 @@
     - MechBoards
     - ShuttleBoards
     - EngineeringBoardsGoob #Goob Factorio port
+    - ReactorCircuitboards # FH edit
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards

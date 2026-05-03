@@ -435,6 +435,34 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaRed
+  name: Red Lucha Libre Mask
+  description: The luchador never removes his mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaBlue
+  name: Blue Lucha Libre Mask
+  description: Don't touch the mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretViro
   name: virology beret
   description: A white beret with a green stripe that reminds you to wash your hands.

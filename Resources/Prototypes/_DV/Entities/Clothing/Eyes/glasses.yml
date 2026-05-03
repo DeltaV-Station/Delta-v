@@ -102,3 +102,15 @@
   description: Do the impossible, see the invisible!
   components:
   - type: EyeProtection
+
+# Wrestling gear--Domino mask, which we're treating like glasses that don't actually cover your eyes
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesWrestlerMaskDomino
+  name: Domino Mask
+  description: No CGI here.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Glasses/WrestlerMaskDomino.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Glasses/WrestlerMaskDomino.rsi
