@@ -25,7 +25,7 @@ public abstract class SharedKitsuneSystem : EntitySystem
         SubscribeLocalEvent<KitsuneComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KitsuneComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
 
-        SubscribeLocalEvent<ZombieComponent, EntityZombifiedEvent>(OnKitsuneZombified);
+        SubscribeLocalEvent<KitsuneComponent, EntityZombifiedEvent>(OnKitsuneZombified);
     }
 
     private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref AppearanceLoadedEvent args)
@@ -64,15 +64,12 @@ public abstract class SharedKitsuneSystem : EntitySystem
     /// <summary>
     /// Handles when a Kitsune becomes a zombie, removing their abilities.
     /// </summary>
-    /// <param name="ent">The Zombie that has just spawned.</param>
+    /// <param name="kitsune">The Kitsune zombie that has just spawned.</param>
     /// <param name="args">Args for the event.</param>
-    private void OnKitsuneZombified(Entity<ZombieComponent> ent, ref EntityZombifiedEvent args)
+    private void OnKitsuneZombified(Entity<KitsuneComponent> kitsune, ref EntityZombifiedEvent args)
     {
-        if (!TryComp<KitsuneComponent>(ent, out var kitsune))
-            return; // Not a Kitsune, nothing to do.
-
-        _actions.RemoveAction(kitsune.KitsuneActionEntity);
-        _actions.RemoveAction(kitsune.FoxfireAction);
+        _actions.RemoveAction(kitsune.Comp.KitsuneActionEntity);
+        _actions.RemoveAction(kitsune.Comp.FoxfireAction);
     }
 
     private void OnCreateFoxfire(Entity<KitsuneComponent> ent, ref CreateFoxfireActionEvent args)
