@@ -1,0 +1,16 @@
+﻿# The following entities are solely used for sprites in the radial menu.
+- type: entity
+  id: EjectTubes
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/light_replacer.rsi
+    state: eject-tubes
+
+- type: entity
+  id: EjectBulbs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/light_replacer.rsi
+    state: eject-bulbs

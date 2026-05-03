@@ -14,7 +14,7 @@ using Robust.Shared.Containers;
 namespace Content.Server.Light.EntitySystems;
 
 [UsedImplicitly]
-public sealed class LightReplacerSystem : SharedLightReplacerSystem
+public sealed class LightReplacerSystem : SharedLightReplacerSystem // THIS HAS BEEN REPLACED BY DVLightReplacerSystem!
 {
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;

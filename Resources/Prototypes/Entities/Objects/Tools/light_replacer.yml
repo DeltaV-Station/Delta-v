@@ -9,8 +9,8 @@
     state: icon
   - type: Item
     sprite: Objects/Specific/Janitorial/light_replacer.rsi
-  - type: LightReplacer
-    contents:
+  - type: DVLightReplacer # DeltaV - Replaced the LightReplacer System.
+    startingContent: # DeltaV - Renamed the field more descriptive.
     - id: LightTube
       amount: 8
     - id: LightBulb
@@ -20,13 +20,19 @@
   - type: ContainerContainer
     containers:
       light_replacer_storage: !type:Container
+  # Begin DeltaV Additions - Added Radial Menu to Light Replacers
+  - type: UserInterface
+    interfaces:
+      enum.LightReplacerUiKey.Key:
+        type: LightReplacerMenuBoundUserInterface
+  # Begin DeltaV Additions - Added Radial Menu to Light Replacers
 
 - type: entity
   parent: LightReplacer
   id: LightReplacerEmpty
   suffix: Empty
   components:
-  - type: LightReplacer
-    contents:
+  - type: DVLightReplacer # DeltaV - Replaced the LightReplacer System.
+    startingContent: # DeltaV - Renamed the field more descriptive.
     - id: LightTube
       amount: 0
