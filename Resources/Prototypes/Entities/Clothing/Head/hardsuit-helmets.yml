@@ -232,6 +232,13 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - WreckWaypointer
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
   - type: Tag
     tags:
     - CorgiWearable
@@ -254,6 +261,13 @@
   - type: PointLight
     radius: 7
     energy: 3
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - WreckWaypointer
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
   - type: Tag
     tags:
     - CorgiWearable
@@ -320,6 +334,13 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - WreckWaypointer
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
   - type: Tag
     tags:
     - CorgiWearable
@@ -371,6 +392,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
   - type: Tag
     tags:
     - CorgiWearable
@@ -425,6 +452,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #Captain's Hardsuit
 - type: entity
@@ -444,6 +477,12 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -599,6 +638,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -618,6 +663,13 @@
   - type: PointLight
     radius: 7
     energy: 3
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - WreckWaypointer
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -892,6 +944,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -914,6 +972,10 @@
   - type: GuideHelp
     guides:
     - Psionics
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
   # End DeltaV Additions
 
 #ERT Engineer Hardsuit
@@ -938,6 +1000,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #ERT Medical Hardsuit
 - type: entity
@@ -952,6 +1020,12 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #ERT Security Hardsuit
 - type: entity
@@ -973,6 +1047,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -987,6 +1067,12 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #CBURN Hardsuit
 - type: entity
@@ -1063,6 +1149,12 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
+  # End DeltaV Additions - Add Waypointers
 
 #MISC. HARDSUITS
 #Clown Hardsuit
