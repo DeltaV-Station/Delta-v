@@ -437,12 +437,19 @@
       storagebase: !type:Container
         ents: []
       holster: !type:ContainerSlot {}
-  - type: ItemSlots # DeltaV - add sidearm slot
+      radio: !type:ContainerSlot {}
+  - type: ItemSlots # DeltaV - add sidearm and radio slot
     slots:
       holster:
         name: clothing-belt-sidearm
         whitelist:
           tags:
           - Sidearm
+        insertOnInteract: false
+      radio:
+        name: clothing-belt-radio
+        whitelist:
+          tags:
+          - Radio
         insertOnInteract: false
   - type: Appearance

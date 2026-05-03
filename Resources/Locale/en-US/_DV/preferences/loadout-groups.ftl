@@ -169,6 +169,7 @@ loadout-group-gladiator-outerclothing = Gladiator outer clothing
 
 loadout-group-boxer-jumpsuit = Boxer jumpsuit
 loadout-group-boxer-gloves = Boxer gloves
+loadout-group-boxer-mask = Wrestling mask
 
 # Species
 loadout-group-humanoid-silicon = Silicon-friendly survival box
