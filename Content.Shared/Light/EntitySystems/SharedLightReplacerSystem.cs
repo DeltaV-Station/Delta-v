@@ -74,7 +74,7 @@ public sealed class SharedLightReplacerSystem : EntitySystem // There is no Clie
 
             foreach (var (name, amount) in groups)
             {
-                args.PushMarkup(Loc.GetString("comp-light-replacer-light-listing", ("amount", amount), ("name", name)));
+                args.PushMarkup(Loc.GetString("comp-light-replacer-light-listing-dv", ("amount", amount), ("light-name", name)));
             }
         }
     }
@@ -181,7 +181,7 @@ public sealed class SharedLightReplacerSystem : EntitySystem // There is no Clie
                 && _metaDataQuery.TryComp(fixtureBulbUid, out var metaData)
                 && metaData.EntityName == activeType)
             {
-                _popup.PopupClient(Loc.GetString("comp-light-replacer-same-light", ("light", fixtureBulbUid)), fixture, userUid, PopupType.Medium);
+                _popup.PopupClient(Loc.GetString("comp-light-replacer-same-light", ("light-name", fixtureBulbUid)), fixture, userUid, PopupType.Medium);
                 return false;
             }
         }

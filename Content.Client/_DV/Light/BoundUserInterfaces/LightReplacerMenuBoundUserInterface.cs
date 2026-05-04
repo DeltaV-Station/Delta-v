@@ -76,7 +76,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
             var toggleLightTubes = new RadialMenuActionOption<string>(EjectLights, replacer.ActiveLightTube)
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(replacer.EjectTubes),
-                ToolTip = Loc.GetString("comp-light-replacer-eject-specified-lights", ("light", replacer.ActiveLightTube)),
+                ToolTip = Loc.GetString("comp-light-replacer-eject-specified-lights", ("light-name", replacer.ActiveLightTube)),
             };
             options.Add(toggleLightTubes);
         }
@@ -86,7 +86,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
             var toggleLightBulbs = new RadialMenuActionOption<string>(EjectLights, replacer.ActiveLightBulb)
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(replacer.EjectBulbs),
-                ToolTip = Loc.GetString("comp-light-replacer-eject-specified-lights", ("light", replacer.ActiveLightBulb)),
+                ToolTip = Loc.GetString("comp-light-replacer-eject-specified-lights", ("light-name", replacer.ActiveLightBulb)),
             };
             options.Add(toggleLightBulbs);
         }
@@ -105,12 +105,12 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
         return options;
     }
 
-    private void PopulateOptions(string name, EntityUid uid, LightBulbType lightType, ref List<RadialMenuOptionBase> options)
+    private void PopulateOptions(string name, EntityUid light, LightBulbType lightType, ref List<RadialMenuOptionBase> options)
     {
         var switchLight = new RadialMenuActionOption<(string, LightBulbType)>(SwitchActiveLight, (name, lightType))
         {
-            IconSpecifier = RadialMenuIconSpecifier.With(uid),
-            ToolTip = Loc.GetString("comp-light-replacer-select-lights", ("light", uid)),
+            IconSpecifier = RadialMenuIconSpecifier.With(light),
+            ToolTip = Loc.GetString("comp-light-replacer-select-lights", ("light-name", light)),
         };
         options.Add(switchLight);
     }
