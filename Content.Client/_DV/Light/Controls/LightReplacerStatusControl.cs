@@ -13,7 +13,7 @@ namespace Content.Client._DV.Light.Controls;
 public sealed class LightReplacerStatusControl : Control
 {
 
-    private readonly Entity<Shared._DV.Light.Components.DVLightReplacerComponent> _parent;
+    private readonly Entity<LightReplacerComponent> _parent;
     private readonly RichTextLabel _label;
 
     private string? _prevActiveLightTube;
@@ -21,7 +21,7 @@ public sealed class LightReplacerStatusControl : Control
     private string? _labelTube;
     private string? _labelBulb;
 
-    public LightReplacerStatusControl(Entity<Shared._DV.Light.Components.DVLightReplacerComponent> parent)
+    public LightReplacerStatusControl(Entity<LightReplacerComponent> parent)
     {
         _parent = parent;
         _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };

@@ -11,6 +11,6 @@ public sealed class LightReplacerStatusControlSystem : EntitySystem
 {
     public override void Initialize()
     {
-        Subs.ItemStatus<Shared._DV.Light.Components.DVLightReplacerComponent>(replacer => new LightReplacerStatusControl(replacer));
+        Subs.ItemStatus<LightReplacerComponent>(replacer => new LightReplacerStatusControl(replacer));
     }
 }

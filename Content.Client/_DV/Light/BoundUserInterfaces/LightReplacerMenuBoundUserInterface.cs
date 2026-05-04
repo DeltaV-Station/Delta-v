@@ -25,7 +25,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
         _lightBulbQuery = EntMan.GetEntityQuery<LightBulbComponent>();
         _metaDataQuery = EntMan.GetEntityQuery<MetaDataComponent>();
 
-        if (!EntMan.TryGetComponent<Shared._DV.Light.Components.DVLightReplacerComponent>(Owner, out var replacer))
+        if (!EntMan.TryGetComponent<LightReplacerComponent>(Owner, out var replacer))
             return;
 
         var lightTypes = CreateButtons(replacer);

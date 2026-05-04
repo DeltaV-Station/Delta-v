@@ -9,8 +9,8 @@
     state: icon
   - type: Item
     sprite: Objects/Specific/Janitorial/light_replacer.rsi
-  - type: DVLightReplacer # DeltaV - Replaced the LightReplacer System.
-    startingContent: # DeltaV - Renamed the field more descriptive.
+  - type: LightReplacer
+    contents:
     - id: LightTube
       amount: 8
     - id: LightBulb
@@ -32,7 +32,7 @@
   id: LightReplacerEmpty
   suffix: Empty
   components:
-  - type: DVLightReplacer # DeltaV - Replaced the LightReplacer System.
-    startingContent: # DeltaV - Renamed the field more descriptive.
+  - type: LightReplacer
+    contents:
     - id: LightTube
       amount: 0
