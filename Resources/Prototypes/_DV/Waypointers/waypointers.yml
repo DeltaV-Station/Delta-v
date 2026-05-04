@@ -4,7 +4,7 @@
 - type: waypointer
   abstract: true
   id: BaseWaypointer
-  rsiPath: Markers/Waypointers/waypointer.rsi
+  rsiPath: _DV/Markers/Waypointers/waypointer.rsi
   waypointerStates: 5
   color: White
 
@@ -15,7 +15,7 @@
   trackedComponents:
   - type: StationData
   color: Blue
-  radialMenuIconPath: Markers/Waypointers/station_waypointer.rsi
+  radialMenuIconPath: _DV/Markers/Waypointers/station_waypointer.rsi
 
 - type: waypointer
   parent: BaseWaypointer
@@ -24,7 +24,7 @@
   trackedComponents:
   - type: TradeStation
   color: Green
-  radialMenuIconPath: Markers/Waypointers/trade_station_waypointer.rsi
+  radialMenuIconPath: _DV/Markers/Waypointers/trade_station_waypointer.rsi
 
 - type: waypointer
   parent: BaseWaypointer
@@ -39,7 +39,7 @@
     - EscapePod
   color: Orange
   maxRange: 50
-  radialMenuIconPath: Markers/Waypointers/wreck_waypointer.rsi
+  radialMenuIconPath: _DV/Markers/Waypointers/wreck_waypointer.rsi
 
 - type: waypointer
   parent: BaseWaypointer
@@ -50,4 +50,4 @@
   workOnGrid: true
   color: Red
   maxRange: 50
-  radialMenuIconPath: Markers/Waypointers/rift_waypointer.rsi
+  radialMenuIconPath: _DV/Markers/Waypointers/rift_waypointer.rsi

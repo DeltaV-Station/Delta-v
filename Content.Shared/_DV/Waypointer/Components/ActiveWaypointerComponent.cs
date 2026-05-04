@@ -40,5 +40,5 @@ public sealed partial class ActiveWaypointerComponent : Component
     /// The resource path for the "Disable/Enable all waypointers" menu option.
     /// </summary>
     [DataField]
-    public ResPath RadialMenuIconPath = new("Markers/Waypointers/waypointer_action.rsi");
+    public ResPath RadialMenuIconPath = new("_DV/Markers/Waypointers/waypointer_action.rsi");
 }

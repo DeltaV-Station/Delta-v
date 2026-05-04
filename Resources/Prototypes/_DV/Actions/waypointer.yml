@@ -7,10 +7,10 @@
   - type: Action
     toggled: true
     icon:
-      sprite: Markers/Waypointers/waypointer_action.rsi
+      sprite: _DV/Markers/Waypointers/waypointer_action.rsi
       state: action_icon_off
     iconOn:
-      sprite: Markers/Waypointers/waypointer_action.rsi
+      sprite: _DV/Markers/Waypointers/waypointer_action.rsi
       state: action_icon_on
   - type: InstantAction
     event: !type:ActionManageWaypointersEvent

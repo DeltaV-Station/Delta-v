@@ -5,7 +5,6 @@ using Content.Shared._DV.Waypointer;
 using Content.Shared.CombatMode;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Station.Components;
-using Content.Shared.Waypointer.Components;
 using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;

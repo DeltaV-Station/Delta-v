@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared._DV.Waypointer;
 using Content.Shared._DV.Waypointer.Components;
-using Content.Shared.Waypointer.Components;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Server.GameStates;
