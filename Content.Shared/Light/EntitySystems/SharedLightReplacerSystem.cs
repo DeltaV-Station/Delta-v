@@ -181,7 +181,7 @@ public sealed class SharedLightReplacerSystem : EntitySystem // There is no Clie
                 && _metaDataQuery.TryComp(fixtureBulbUid, out var metaData)
                 && metaData.EntityName == activeType)
             {
-                _popup.PopupClient(Loc.GetString("comp-light-replacer-same-light", ("light-name", fixtureBulbUid)), fixture, userUid, PopupType.Medium);
+                _popup.PopupClient(Loc.GetString("comp-light-replacer-same-light", ("light-name", fixtureBulbUid)), fixture, userUid);
                 return false;
             }
         }

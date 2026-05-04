@@ -15,9 +15,6 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
 
     private SimpleRadialMenu? _menu;
 
-    private readonly EntProtoId _ejectTubes = "EjectTubes";
-    private readonly EntProtoId _ejectBulbs = "EjectBulbs";
-
     protected override void Open()
     {
         base.Open();
