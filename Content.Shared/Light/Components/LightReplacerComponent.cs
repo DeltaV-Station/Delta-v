@@ -61,6 +61,5 @@ public sealed partial class LightReplacerComponent : Component
     /// </summary>
     [DataField]
     public SpriteSpecifier EjectBulbs = new SpriteSpecifier.Rsi(new ResPath("_DV/Objects/Specific/Janitorial/light_replacer.rsi"), "eject-bulbs");
-
     // End DeltaV - Predicting Light Replacers & Adding Radial Menu
 }
