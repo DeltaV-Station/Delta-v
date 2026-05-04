@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseItem
+  id: GravGauntlet
+  name: Grav Gauntlet MK-00c
+  description: A experimental gauntlet equipped with a mini gravity generator to make sure there is no running from JUSTICE!!!!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/grav_gauntlet.rsi
+    state: icon
+  - type: MeleeWeapon
+    size: large
+    range: 1.2 # so you can actually use the pull
+    attackRate: 0.70 # heavy friggin fists bro
+    angle: 0
+    animation: WeaponArcFist
+    wideAnimationRotation: 145
+    damage:
+      types:
+        Slash: 2
+        Blunt: 33
+        Structural: 35
+  - type: Wieldable
+    unweieldOnUse: false
+  - type: GunRequiresWield #gotta steady your arm to aim duhhh
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 2
+  - type: Gun #apersos was here
+    projectileSpeed: 6
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 55
+  - type: BasicEntityAmmoProvider
+    proto: BulletTaser # most balanced kinda, better than a stun shotgun
+    capacity: 1
+    count: 1
+  - type: MeleeThrowOnHit
+    speed: 5.75
+    distance: -.75
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/grav_gauntlet.rsi
+    quickEquip: false
+    slots:
+    - belt
+    - suitStorage
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StealTarget
+    stealGroup: HoSSidearm
