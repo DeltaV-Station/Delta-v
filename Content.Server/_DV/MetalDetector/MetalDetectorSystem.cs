@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Power.Components;
 using Content.Shared._DV.MetalDetector;
+using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Contraband;
 using Content.Shared.Emag.Components;
@@ -67,42 +68,40 @@ public sealed class MetalDetectorSystem : EntitySystem
         }
     }
 
-    private void HandleStepOnTriggered(EntityUid uid, MetalDetectorComponent component, ref StepTriggeredOnEvent args)
+    private void HandleStepOnTriggered(Entity<MetalDetectorComponent> ent, ref StepTriggeredOnEvent args)
     {
-        if (component.IsSirenRunning)
+        if (ent.Comp.IsSirenRunning)
         {
-            component.EndOfSirenSound = _timing.CurTime + component.SirenRunTime;
+            ent.Comp.EndOfSirenSound = _timing.CurTime + ent.Comp.SirenRunTime;
             return;
         }
 
         var random = new Random();
-        if (TryComp<ItemToggleComponent>(uid, out var toggleComponent) && (CheckForContraband(args.Tripper)
-                || random.NextFloat(0.0f, 100.0f) < component.FalsePositiveChance
-                || HasComp<EmaggedComponent>(uid)))
+        if (TryComp<ItemToggleComponent>(ent, out var toggleComponent) && (CheckForContraband(args.Tripper)
+                || random.NextFloat(0.0f, 100.0f) < ent.Comp.FalsePositiveChance
+                || HasComp<EmaggedComponent>(ent)))
         {
             toggleComponent.Activated = true;
-            TryComp<AppearanceComponent>(uid, out var appComp);
-            _appearanceSystem.SetData(uid, MetalDetectorVisuals.MetalDetectorActivated, true);
-            _appearanceSystem.SetData(uid, ToggleableVisuals.Enabled, true, appComp);
-            var toggledEvent = new ItemToggledEvent(false, true, uid);
-            component.EndOfSirenSound = _timing.CurTime + component.SirenRunTime;
-            RaiseLocalEvent(uid, ref toggledEvent);
+            TryComp<AppearanceComponent>(ent, out var appComp);
+            _appearanceSystem.SetData(ent, MetalDetectorVisuals.MetalDetectorActivated, true);
+            _appearanceSystem.SetData(ent, ToggleableVisuals.Enabled, true, appComp);
+            var toggledEvent = new ItemToggledEvent(false, true, ent);
+            ent.Comp.EndOfSirenSound = _timing.CurTime + ent.Comp.SirenRunTime;
+            RaiseLocalEvent(ent, ref toggledEvent);
 
-            _deviceLink.InvokePort(uid, component.TriggerPort);
+            _deviceLink.InvokePort(ent, ent.Comp.TriggerPort);
         }
     }
 
-    private void HandleStepOffTriggered(EntityUid uid, MetalDetectorComponent component, ref StepTriggeredOffEvent args)
+    private void HandleStepOffTriggered(Entity<MetalDetectorComponent> ent, ref StepTriggeredOffEvent args)
     {
         // Start timer to deactivate the siren
-        component.IsSirenRunning = TryComp<ItemToggleComponent>(uid, out var toggleComponent) && toggleComponent.Activated;
+        ent.Comp.IsSirenRunning = TryComp<ItemToggleComponent>(ent, out var toggleComponent) && toggleComponent.Activated;
     }
 
-    private void HandleStepTriggerAttempt(EntityUid uid,
-        MetalDetectorComponent component,
-        ref StepTriggerAttemptEvent args)
+    private void HandleStepTriggerAttempt(Entity<MetalDetectorComponent> ent, ref StepTriggerAttemptEvent args)
     {
-        args.Continue = TryComp<ApcPowerReceiverComponent>(uid, out var receiver) && receiver.Powered;
+        args.Continue = TryComp<ApcPowerReceiverComponent>(ent, out var receiver) && receiver.Powered;
     }
 
     private void OnEmagged(Entity<MetalDetectorComponent> metalDetectorComponent, ref GotEmaggedEvent args)
@@ -122,7 +121,7 @@ public sealed class MetalDetectorSystem : EntitySystem
         if (HasComp<ContrabandComponent>(characterUid))
             return true;
 
-        var foundIdCArd = _idSystem.TryFindIdCard(characterUid, out var idCard);
+        _idSystem.TryFindIdCard(characterUid, out var idCard);
 
         if (_containerSystem.TryGetContainer(characterUid, ImplanterComponent.ImplantSlotId, out var implants))
         {
@@ -132,28 +131,25 @@ public sealed class MetalDetectorSystem : EntitySystem
             {
                 foreach (var stored in storage.Container.ContainedEntities)
                 {
-                    if (!TryComp<ContrabandComponent>(stored, out var contrabandComp))
-                        continue;
-
-                    if (!foundIdCArd)
-                        return true;
-
-                    return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+                    IsEntityContraband(stored, idCard);
                 }
             }
         }
 
         foreach (var item in _inventorySystem.GetHandOrInventoryEntities(characterUid))
         {
-            if (!TryComp<ContrabandComponent>(item, out var contrabandComp))
-                continue;
-
-            if (!foundIdCArd)
-                return true;
-
-            return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+            IsEntityContraband(item, idCard);
         }
 
         return false;
     }
+
+    private bool IsEntityContraband(EntityUid item, Entity<IdCardComponent> icCard)
+    {
+        if (!TryComp<ContrabandComponent>(item, out var contrabandComp))
+            return false;
+
+        return icCard == null || !icCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+    }
+
 }

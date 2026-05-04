@@ -19,6 +19,7 @@
           False: { state: metal_detector_off }
   - type: ApcPowerReceiver
     powerLoad: 1000
+  - type: Clickable
   - type: InteractionOutline
   - type: Pullable
   - type: Machine
@@ -88,13 +89,6 @@
   - type: Appearance
   - type: Fixtures
     fixtures:
-      overlap:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        hard: false
-        layer:
-        - Impassable
       shape:
         shape:
           !type:PhysShapeAabb
@@ -103,6 +97,13 @@
         - TabletopMachineMask
         layer:
         - TabletopMachineLayer
+      overlap:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        hard: false
+        layer:
+        - Impassable
   - type: MetalDetector
   - type: StepTrigger
     requiredTriggeredSpeed: 0
