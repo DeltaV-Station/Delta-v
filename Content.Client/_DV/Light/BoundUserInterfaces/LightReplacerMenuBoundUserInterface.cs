@@ -39,7 +39,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
         _menu.OpenCentered();
     }
 
-    private IEnumerable<RadialMenuOptionBase>? CreateButtons(Shared._DV.Light.Components.DVLightReplacerComponent replacer)
+    private List<RadialMenuOptionBase>? CreateButtons(LightReplacerComponent replacer)
     {
         var options = new List<RadialMenuOptionBase>();
 
@@ -75,7 +75,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
         {
             var toggleLightTubes = new RadialMenuActionOption<string>(EjectLights, replacer.ActiveLightTube)
             {
-                IconSpecifier = RadialMenuIconSpecifier.With(_ejectTubes),
+                IconSpecifier = RadialMenuIconSpecifier.With(replacer.EjectTubes),
                 ToolTip = Loc.GetString("comp-light-replacer-eject-specified-lights", ("light", replacer.ActiveLightTube)),
             };
             options.Add(toggleLightTubes);
@@ -85,7 +85,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
         {
             var toggleLightBulbs = new RadialMenuActionOption<string>(EjectLights, replacer.ActiveLightBulb)
             {
-                IconSpecifier = RadialMenuIconSpecifier.With(_ejectBulbs),
+                IconSpecifier = RadialMenuIconSpecifier.With(replacer.EjectBulbs),
                 ToolTip = Loc.GetString("comp-light-replacer-eject-specified-lights", ("light", replacer.ActiveLightBulb)),
             };
             options.Add(toggleLightBulbs);
