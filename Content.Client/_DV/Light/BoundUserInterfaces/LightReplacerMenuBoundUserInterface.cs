@@ -107,7 +107,7 @@ public sealed class LightReplacerMenuBoundUserInterface(EntityUid owner, Enum ui
         var switchLight = new RadialMenuActionOption<(string, LightBulbType)>(SwitchActiveLight, (name, lightType))
         {
             IconSpecifier = RadialMenuIconSpecifier.With(light),
-            ToolTip = Loc.GetString("comp-light-replacer-select-lights", ("light-name", light)),
+            ToolTip = Loc.GetString("comp-light-replacer-select-lights", ("light-name", name)),
         };
         options.Add(switchLight);
     }
