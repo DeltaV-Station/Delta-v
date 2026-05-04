@@ -14,11 +14,12 @@ using Content.Shared.Storage;
 using Content.Shared.Toggleable;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.MetalDetector;
 
 /// <summary>
-/// WIP
+/// Systems related to the Metal Detector and how it functions.
 /// </summary>
 public sealed class MetalDetectorSystem : EntitySystem
 {
@@ -28,6 +29,7 @@ public sealed class MetalDetectorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -46,18 +48,16 @@ public sealed class MetalDetectorSystem : EntitySystem
         using var query = EntityQueryEnumerator<MetalDetectorComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
-            if (!comp.StartRunTime || !TryComp<ItemToggleComponent>(ent, out var toggle) || !toggle.Activated)
+            if (!comp.IsSirenRunning || !TryComp<ItemToggleComponent>(ent, out var toggle) || !toggle.Activated)
                 continue;
 
             var powered = TryComp<ApcPowerReceiverComponent>(ent, out var receiver) && receiver.Powered;
 
-            comp.CurrentRunTime += frameTime;
             TryComp<AppearanceComponent>(ent, out var appComp);
 
-            if (comp.CurrentRunTime >= comp.RunTime || !powered)
+            if (comp.EndOfSirenSound <= _timing.CurTime || !powered)
             {
-                comp.CurrentRunTime = 0.0f;
-                comp.StartRunTime = false;
+                comp.IsSirenRunning = false;
                 var toggledEvent = new ItemToggledEvent(false, false, ent);
                 toggle.Activated = false;
                 _appearanceSystem.SetData(ent, MetalDetectorVisuals.MetalDetectorActivated, false);
@@ -69,9 +69,9 @@ public sealed class MetalDetectorSystem : EntitySystem
 
     private void HandleStepOnTriggered(EntityUid uid, MetalDetectorComponent component, ref StepTriggeredOnEvent args)
     {
-        if (component.StartRunTime)
+        if (component.IsSirenRunning)
         {
-            component.CurrentRunTime = 0.0f;
+            component.EndOfSirenSound = _timing.CurTime + component.SirenRunTime;
             return;
         }
 
@@ -85,16 +85,17 @@ public sealed class MetalDetectorSystem : EntitySystem
             _appearanceSystem.SetData(uid, MetalDetectorVisuals.MetalDetectorActivated, true);
             _appearanceSystem.SetData(uid, ToggleableVisuals.Enabled, true, appComp);
             var toggledEvent = new ItemToggledEvent(false, true, uid);
+            component.EndOfSirenSound = _timing.CurTime + component.SirenRunTime;
             RaiseLocalEvent(uid, ref toggledEvent);
 
-            _deviceLink.InvokePort(uid, component.triggerPort);
+            _deviceLink.InvokePort(uid, component.TriggerPort);
         }
     }
 
     private void HandleStepOffTriggered(EntityUid uid, MetalDetectorComponent component, ref StepTriggeredOffEvent args)
     {
         // Start timer to deactivate the siren
-        component.StartRunTime = TryComp<ItemToggleComponent>(uid, out var toggleComponent) && toggleComponent.Activated;
+        component.IsSirenRunning = TryComp<ItemToggleComponent>(uid, out var toggleComponent) && toggleComponent.Activated;
     }
 
     private void HandleStepTriggerAttempt(EntityUid uid,

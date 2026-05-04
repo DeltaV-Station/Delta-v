@@ -12,23 +12,33 @@ namespace Content.Shared._DV.MetalDetector;
 public sealed partial class MetalDetectorComponent : Component
 {
     [DataField]
-    public float RunTime = 10.0f;
+    public TimeSpan SirenRunTime = TimeSpan.FromSeconds(10);
 
+	/// <summary>
+	/// Value to determine tha chance that the Metal Detecto simply fires and gives a false positive. from 0 to 100.
+	/// </summary>
     [DataField]
     public float FalsePositiveChance = 5.0f;
 
-    public float CurrentRunTime = 0.0f;
+    /// <summary>
+	/// Timespan which is set runtime to determine when the Siren should stop running
+	/// </summary>
+	[DataField]
+    public TimeSpan EndOfSirenSound = TimeSpan.FromSeconds(0);
 
-    public bool StartRunTime = false;
+    public bool IsSirenRunning = false;
 
+	/// <summary>
+	/// Siren Sound which is played when the Metal Detector fires.
+	/// </summary>
     [DataField]
     public SoundSpecifier? SirenSound;
 
     /// <summary>
     ///     The port that gets signaled when the the metal detector fires
     /// </summary>
-    [DataField("triggerPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string triggerPort = "Trigger";
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string TriggerPort = "Trigger";
 }
 
 [Serializable, NetSerializable]
