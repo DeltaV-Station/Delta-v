@@ -138,7 +138,7 @@
       - GoldenPlunger
       - WireBrush
       components:
-      - LightReplacer
+      - DVLightReplacer # DeltaV - Replaced the LightReplacerSystem.
       - SmokeOnTrigger
   - type: ItemMapper
     sprite: *BeltOverlay
@@ -418,7 +418,7 @@
       - Whistle
       - BalloonPopper
   - type: ItemMapper # DeltaV - Custom sprite and item mapper
-    sprite: _DV/Clothing/Belt/belt_overlay.rsi 
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
     mapLayers:
       baton:
         whitelist:
