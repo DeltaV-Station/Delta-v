@@ -121,8 +121,6 @@ public sealed class MetalDetectorSystem : EntitySystem
         if (HasComp<ContrabandComponent>(characterUid))
             return true;
 
-        _idSystem.TryFindIdCard(characterUid, out var idCard);
-
         if (_containerSystem.TryGetContainer(characterUid, ImplanterComponent.ImplantSlotId, out var implants))
         {
             var storageImplanter = implants.ContainedEntities.ToList().Find(HasComp<StorageComponent>);
@@ -131,25 +129,30 @@ public sealed class MetalDetectorSystem : EntitySystem
             {
                 foreach (var stored in storage.Container.ContainedEntities)
                 {
-                    IsEntityContraband(stored, idCard);
+                    if (IsEntityContraband(characterUid, stored))
+                        return true;
                 }
             }
         }
 
         foreach (var item in _inventorySystem.GetHandOrInventoryEntities(characterUid))
         {
-            IsEntityContraband(item, idCard);
+            if (IsEntityContraband(characterUid, item))
+                return true;
         }
 
         return false;
     }
 
-    private bool IsEntityContraband(EntityUid item, Entity<IdCardComponent> icCard)
+    private bool IsEntityContraband(EntityUid characterUid, EntityUid item)
     {
         if (!TryComp<ContrabandComponent>(item, out var contrabandComp))
             return false;
 
-        return icCard == null || !icCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
+        if (!_idSystem.TryFindIdCard(characterUid, out var idCard))
+            return true;
+
+        return !idCard.Comp.JobDepartments.Intersect(contrabandComp.AllowedDepartments).Any();
     }
 
 }
