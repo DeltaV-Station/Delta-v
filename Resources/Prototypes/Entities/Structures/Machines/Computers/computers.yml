@@ -1653,7 +1653,7 @@
   - type: Computer
     board: StationAiUploadCircuitboard
   - type: AccessReader
-    access: [ [ "ResearchDirector" ] ]
+    access: [ [ "ResearchDirector" ], ["ChiefEngineer" ] ] # DeltaV - added chief engineer
   - type: Lock
     unlockOnClick: false
   - type: SiliconLawUpdater
