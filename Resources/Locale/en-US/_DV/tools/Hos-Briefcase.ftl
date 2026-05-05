@@ -5,4 +5,4 @@ x01-bundle-name = X-01
 x01-bundle-description = A fast firing, high capacity, compact, energy gun perfect for dishing out consistent quick damage.
 
 grav-gauntlet-bundle-name = Grav Gauntlet
-grav-gauntlet-bundle-description = A gauntlet that pulls targets hit in while dealing substantial damage, has a taser to make sure there's no resisting against JUSTICE!!
+grav-gauntlet-bundle-description = A strong, slow hitting, gauntlet that can pull targets hit in and has a taser just in case.
