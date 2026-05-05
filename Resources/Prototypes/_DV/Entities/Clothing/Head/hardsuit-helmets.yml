@@ -31,6 +31,10 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
 
 # Medical Combat Hardsuits
 - type: entity
@@ -65,6 +69,10 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/corpsman.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/corpsman.rsi
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
 
 # Riot Combat Hardsuits
 - type: entity
@@ -99,6 +107,10 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
 
 # Advanced Combat Hardsuits
 - type: entity
@@ -135,6 +147,10 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
 
 #Roboneuroticist Helmet
 - type: entity
@@ -189,6 +205,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - TradeStationWaypointer
 
 #ERT Chaplain Hardsuit
 - type: entity
