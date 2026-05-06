@@ -74,6 +74,7 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: NTNet # DeltaV
+    transmitFrequencyId: NTNet # DeltaV
     prefix: device-address-prefix-console
     savableAddress: false
   - type: WirelessNetworkConnection

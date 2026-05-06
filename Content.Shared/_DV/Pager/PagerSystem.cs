@@ -42,7 +42,7 @@ public sealed class PagerSystem : EntitySystem
 
     private void OnAfterInteract(Entity<PagerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !TryComp<DeviceNetworkComponent>(args.Target, out var targetNetwork))
+        if (args.Handled || !TryComp<DeviceNetworkComponent>(args.Target, out var targetNetwork) || !HasComp<PageSenderComponent>(args.Target))
             return;
 
         var ourNetwork = Comp<DeviceNetworkComponent>(ent);
