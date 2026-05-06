@@ -1,44 +1,4 @@
 ﻿Entries:
-- author: BriBrooo
-  changes:
-  - message: Surgery room reorganized
-    type: Tweak
-  - message: Detective room has its own bedroom to fit an evidence locker
-    type: Tweak
-  - message: Library now has a display case
-    type: Tweak
-  - message: Prison intercoms now are the right ones
-    type: Fix
-  - message: Departmental lock boxes are now available
-    type: Fix
-  id: 1769
-  time: '2025-10-25T22:45:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4489
-- author: SirWarock
-  changes:
-  - message: Cryotubes are now smart - They'll evenly inject 0.5u of every chemical
-      present in the beaker! No overloading anymore!
-    type: Tweak
-  - message: Trinoxadone's metabolism has been nerfed to 0.5u/s to accommodate the
-      above change.
-    type: Tweak
-  id: 1770
-  time: '2025-10-25T23:47:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4456
-- author: EmberAstra
-  changes:
-  - message: Fixed Space Adders being attacked by other salvage mobs.
-    type: Fix
-  id: 1771
-  time: '2025-10-26T00:09:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4503
-- author: MantasDab360
-  changes:
-  - message: Fixed IPC's not being able to polymorph.
-    type: Fix
-  id: 1772
-  time: '2025-10-26T18:35:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4545
 - author: EmberAstra
   changes:
   - message: Added scar markings for Vox!
@@ -4429,4 +4389,34 @@
   id: 2269
   time: '2026-05-03T19:46:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5770
+- author: Stxcking
+  changes:
+  - message: Added an Avali Plushie !
+    type: Add
+  id: 2270
+  time: '2026-05-04T07:49:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5761
+- author: Sugarcane
+  changes:
+  - message: Paper can no longer be attached to nuclear reactor flatpacks
+    type: Fix
+  id: 2271
+  time: '2026-05-04T08:55:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5747
+- author: Velcroboy
+  changes:
+  - message: 'The Hive: Removed superweapon fun!'
+    type: Remove
+  - message: 'The Hive: Reinforced Logi a little'
+    type: Tweak
+  id: 2272
+  time: '2026-05-04T09:16:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5733
+- author: Sugarcane, ErrorByte
+  changes:
+  - message: A beret for the virology department, obtainable from the Virodrobe!
+    type: Add
+  id: 2273
+  time: '2026-05-04T09:44:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5729
 Order: 1
