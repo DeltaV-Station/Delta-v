@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
@@ -68,7 +69,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
-        _nanoChat.SetClosed(nanoChatCard.AsNullable(), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
+        _nanoChat.SetClosed(nanoChatCard.Value.AsNullable(), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
     }
 
     private void OnUiOpened(Entity<CartridgeLoaderComponent> ent, ref BoundUIOpenedEvent args)
@@ -79,8 +80,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
-        if (nanoChatCard.Comp.IsClosed)
-            _nanoChat.SetClosed(nanoChatCard.AsNullable(), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
+        if (nanoChatCard.Value.Comp.IsClosed)
+            _nanoChat.SetClosed(nanoChatCard.Value.AsNullable(), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
 
     }
 
@@ -93,8 +94,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             return;
 
         // Since the UI got closed we always set it to be closed
-        if (!nanoChatCard.Comp.IsClosed)
-            _nanoChat.SetClosed(nanoChatCard.AsNullable(), true);
+        if (!nanoChatCard.Value.Comp.IsClosed)
+            _nanoChat.SetClosed(nanoChatCard.Value.AsNullable(), true);
     }
 
     public override void Update(float frameTime)
@@ -114,7 +115,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                           //  There was a reason I did this in the Update loop but I can't remember.
 
             GetCardEntity(cartridge.LoaderUid.Value, out var newCardEnt);
-            var newCard = newCardEnt.Owner;
+            var newCard = newCardEnt?.Owner;
             var currentCard = nanoChat.Card;
 
             // If the cards match, nothing to do
@@ -143,31 +144,31 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         switch (msg.Type)
         {
             case NanoChatUiMessageType.NewChat:
-                HandleNewChat(card, msg);
+                HandleNewChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.SelectChat:
-                HandleSelectChat(card, msg);
+                HandleSelectChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.EditChat:
-                HandleEditChat(card, msg);
+                HandleEditChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.CloseChat:
-                HandleCloseChat(card);
+                HandleCloseChat(card.Value);
                 break;
             case NanoChatUiMessageType.ToggleMute:
-                HandleToggleMute(card);
+                HandleToggleMute(card.Value);
                 break;
             case NanoChatUiMessageType.ToggleMuteChat:
-                HandleToggleMuteChat(card, msg);
+                HandleToggleMuteChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.DeleteChat:
-                HandleDeleteChat(card, msg);
+                HandleDeleteChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.SendMessage:
-                HandleSendMessage(ent, card, msg);
+                HandleSendMessage(ent, card.Value, msg);
                 break;
             case NanoChatUiMessageType.ToggleListNumber:
-                HandleToggleListNumber(card);
+                HandleToggleListNumber(card.Value);
                 break;
         }
 
@@ -182,9 +183,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <returns>True if a valid NanoChat card was found</returns>
     private bool GetCardEntity(
         EntityUid loaderUid,
-        out Entity<NanoChatCardComponent> card)
+        [NotNullWhen(true)] out Entity<NanoChatCardComponent>? card)
     {
-        card = default;
+        card = null;
 
         if (TryComp<NanoChatCardComponent>(loaderUid, out var selfCard))
         {
@@ -207,9 +208,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// </summary>
     private bool GetCartridgeLoader(
         Entity<NanoChatCardComponent> card,
-        out Entity<CartridgeLoaderComponent> loader)
+        [NotNullWhen(true)] out Entity<CartridgeLoaderComponent>? loader)
     {
-        loader = default;
+        loader = null;
 
         if (TryComp<CartridgeLoaderComponent>(card, out var selfLoader))
         {
@@ -589,8 +590,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             !GetCartridgeLoader(recipient, out var loader) ||
             // Don't notify if the recipient has the NanoChat program open with this chat selected.
             (hasSelectedCurrentChat &&
-                _ui.IsUiOpen(loader.Owner, PdaUiKey.Key) &&
-                HasComp<NanoChatCartridgeComponent>(loader.Comp.ActiveProgram)))
+                _ui.IsUiOpen(loader.Value.Owner, PdaUiKey.Key) &&
+                HasComp<NanoChatCartridgeComponent>(loader.Value.Comp.ActiveProgram)))
             return;
 
         var title = "";
@@ -603,10 +604,10 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         else
             title = Loc.GetString("nano-chat-new-message-title", ("sender", senderName));
 
-        _cartridge.SendNotification(loader,
+        _cartridge.SendNotification(loader.Value,
             title,
             Loc.GetString("nano-chat-new-message-body", ("message", SharedNanoChatSystem.Truncate(message.Content, NotificationMaxLength, " [...]"))),
-            loader);
+            loader.Value);
     }
 
     /// <summary>
