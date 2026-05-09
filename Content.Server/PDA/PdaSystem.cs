@@ -19,7 +19,6 @@ using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
 using Content.Shared.Silicons.Borgs.Components; // DeltaV - silicon PDAs
-using Content.Shared.Silicons.Borgs.Components; // DeltaV - silicon PDAs
 using Content.Shared.Silicons.StationAi; // DeltaV - silicon PDAs
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;

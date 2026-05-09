@@ -65,13 +65,10 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
     private void OnActiveProgramChanged(Entity<CartridgeLoaderComponent> ent, ref ActiveProgramChangedEvent args)
     {
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
+        if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        _nanoChat.SetClosed((cardUid, nanoChatCard), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
+        _nanoChat.SetClosed(nanoChatCard.AsNullable(), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
     }
 
     private void OnUiOpened(Entity<CartridgeLoaderComponent> ent, ref BoundUIOpenedEvent args)
@@ -79,14 +76,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!PdaUiKey.Key.Equals(args.UiKey))
             return;
 
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
+        if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        if (nanoChatCard.IsClosed)
-            _nanoChat.SetClosed((cardUid, nanoChatCard), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
+        if (nanoChatCard.Comp.IsClosed)
+            _nanoChat.SetClosed(nanoChatCard.AsNullable(), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
 
     }
 
@@ -95,15 +89,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!PdaUiKey.Key.Equals(args.UiKey))
             return;
 
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
-            return;
-
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
+        if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
         // Since the UI got closed we always set it to be closed
-        if (!nanoChatCard.IsClosed)
-            _nanoChat.SetClosed((cardUid, nanoChatCard), true);
+        if (!nanoChatCard.Comp.IsClosed)
+            _nanoChat.SetClosed(nanoChatCard.AsNullable(), true);
     }
 
     public override void Update(float frameTime)
@@ -209,6 +200,30 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         card = (pda.ContainedId.Value, idCard);
         return true;
+    }
+
+    /// <summary>
+    ///     Gets the cartridge loader associated with a card.
+    /// </summary>
+    private bool GetCartridgeLoader(
+        Entity<NanoChatCardComponent> card,
+        out Entity<CartridgeLoaderComponent> loader)
+    {
+        loader = default;
+
+        if (TryComp<CartridgeLoaderComponent>(card, out var selfLoader))
+        {
+            loader = (card, selfLoader);
+            return true;
+        }
+
+        if (card.Comp.PdaUid is { } pdaUid && TryComp<CartridgeLoaderComponent>(pdaUid, out var pdaLoader))
+        {
+            loader = (pdaUid, pdaLoader);
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -571,12 +586,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         HashSet<uint> mutedChats = recipient.Comp.MutedChats;
         if (recipient.Comp.NotificationsMuted ||
             mutedChats.Contains(message.SenderId) ||
-            recipient.Comp.PdaUid is not { } pdaUid ||
-            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
+            !GetCartridgeLoader(recipient, out var loader) ||
             // Don't notify if the recipient has the NanoChat program open with this chat selected.
             (hasSelectedCurrentChat &&
-                _ui.IsUiOpen(pdaUid, PdaUiKey.Key) &&
-                HasComp<NanoChatCartridgeComponent>(loader.ActiveProgram)))
+                _ui.IsUiOpen(loader.Owner, PdaUiKey.Key) &&
+                HasComp<NanoChatCartridgeComponent>(loader.Comp.ActiveProgram)))
             return;
 
         var title = "";
@@ -589,7 +603,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         else
             title = Loc.GetString("nano-chat-new-message-title", ("sender", senderName));
 
-        _cartridge.SendNotification(pdaUid,
+        _cartridge.SendNotification(loader,
             title,
             Loc.GetString("nano-chat-new-message-body", ("message", SharedNanoChatSystem.Truncate(message.Content, NotificationMaxLength, " [...]"))),
             loader);

@@ -1,7 +1,6 @@
 using Content.Shared.PDA;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
-using Robust.Shared.GameObjects;
 
 namespace Content.Shared._DV.Silicon;
 
