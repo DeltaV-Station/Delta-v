@@ -6,7 +6,7 @@ paperwork-security-arrest-report =
     { paperwork-separator-security }
         {"["}head=2]ARREST REPORT[/head]
     { paperwork-separator-security }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]HEAD OF SECURITY:[/bold]
@@ -18,43 +18,41 @@ paperwork-security-arrest-report =
     { paperwork-separator-security }
     {"["}head=3]Charges:[/head]
     1XX Misdemeanor Crimes:
-    \[  ] Code:SL1-01 (Fearmongering) - 5mins Max
-    \[  ] Code:SL1-03 (Animal Cruelty) - 3mins
-    \[  ] Code:SL1-04 (Theft) - 2mins
-    \[  ] Code:SL1-06 (Vandalism) - 2mins
-    \[  ] Code:SL1-09 (Brandishing) - 2mins
-    \[  ] Code:SL1-11 (Possession) - 5mins Max
-    \[  ] Code:SL1-12 (Trespass) - 2mins
-    \[  ] Code:SL1-15 (Hooliganism) - 'As Determined'
-    \[  ] Code:SL1-17 (Failure To Comply) - 2mins
+    \[  ] Code:101 (Animal Cruelty) - 2mins
+    \[  ] Code:102 (Harassment) - 4mins
+    \[  ] Code:103(vigilantism) - 4mins
+    \[  ] Code:104 (Petty Larceny) - 2mins
+    \[  ] Code:105 (Trespass) - 2mins
+    \[  ] Code:106 (Vandalism) - 2mins
+    \[  ] Code:107 (Hooliganism) - 'As Determined'
     {"["}color=gray]Warnings may be issued for a first misdemeanor offense.[/color]
     { paperwork-separator-security }
     2XX Felony Crimes:
-    \[  ] Code:SL2-01 (Perjury or False Report) - 3 mins
-    \[  ] Code:SL2-03 (Manslaughter) - 8mins
-    \[  ] Code:SL2-04 (Grand Theft) - 8mins
-    \[  ] Code:SL2-05 (Black Marketeering) - 6mins
-    \[  ] Code:SL2-06 (Sabotage) - 6mins
-    \[  ] Code:SL2-07 (Mindbreaking) - 5mins
-    \[  ] Code:SL2-08 (Kidnapping) - 8mins
-    \[  ] Code:SL2-09 (Assault)- 5mins
-    \[  ] Code:SL2-10 (Abuse of Power) - 5mins
-    \[  ] Code:SL2-11 (Felony Possession) - 10mins Max
-    \[  ] Code:SL2-12 (Secure Trespass) - 4mins
-    \[  ] Code:SL2-13 (Endangerment) - 4mins
-    \[  ] Code:SL2-14 (Harassment) - 4mins
-    \[  ] Code:SL2-15 (Rioting) - 4mins
-    \[  ] Code:SL2-16 (Contempt of Court) - 4mins
-    \[  ] Code:SL2-17 (Obstruction of Justice) - 2mins
+    \[  ] Code:201 (Assault)- 5mins
+    \[  ] Code:202 (Breaking and Entering) - 5mins
+    \[  ] Code:203 (Rioting) - 4mins
+    \[  ] Code:204 (Endangerment) - 6mins
+    \[  ] Code:205 (Possession) - 8mins Max
+    \[  ] Code:206 (Obstruction of Justice) - 4mins
+    \[  ] Code:207 (Perjury or False Report) - 4mins
+    \[  ] Code:208 (Contempt of Court) - 4mins
+    { paperwork-separator-security }
+    2XX Grand Felony Crimes:
+    \[  ] Code:301 (Manslaughter) - 10mins
+    \[  ] Code:302 (Kidnapping) - 10mins
+    \[  ] Code:303 (Grand Possession) - 20mins Max
+    \[  ] Code:305 (Sabotage) - 8mins
+    \[  ] Code:306 (Abuse of Power) - 10mins
+    \[  ] Code:307 (Grand Larceny) - 8mins
+    \[  ] Code:308 (Black Marketeering) - 8mins
     { paperwork-separator-security }
     3XX Capital Crimes:
-    \[  ] Code:SL3-01 (Terrorism)
-    \[  ] Code:SL3-03 (Murder)
-    \[  ] Code:SL3-06 (Grand Sabotage)
-    \[  ] Code:SL3-07 (Decorporealization)
-    \[  ] Code:SL3-08 (Hostage Taking)
-    \[  ] Code:SL3-13 (Grand Endangerment)
-    \[  ] Code:SL3-15 (Sedition)
+    \[  ] Code:402 (Terrorism)
+    \[  ] Code:401 (Murder)
+    \[  ] Code:403 (Grand Sabotage)
+    \[  ] Code:404 (Prevention of Revival)
+    \[  ] Code:406 (Breach of Custody)
+    \[  ] Code:405 (Sedition)
     {"["}color=gray]All Capital crimes necessitate a mandatory trial.[/color]
     { paperwork-separator-security }
     Crime Modifiers:
@@ -88,7 +86,7 @@ paperwork-security-arrest-warrant =
     { paperwork-separator-security }
         {"["}head=2]ARREST WARRANT [/head]
     { paperwork-separator-security }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]ARRESTING OFFICER: [/bold]
@@ -113,7 +111,7 @@ paperwork-security-department-search-warrant =
     { paperwork-separator-security }
         {"["}head=2]DEPARTMENT SEARCH WARRANT [/head]
     { paperwork-separator-security }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]PROSECUTOR:[/bold]
@@ -200,7 +198,7 @@ paperwork-security-individual-search-warrant =
     { paperwork-separator-security }
         {"["}head=2]INDIVIDUAL SEARCH WARRANT [/head]
     { paperwork-separator-security }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]PROSECUTOR:[/bold]
@@ -229,7 +227,7 @@ paperwork-security-inmate-request =
     { paperwork-separator-security }
         {"["}head=2]Inmate Request form [/head]
     { paperwork-separator-security }
-        {"["}bold]  SECTOR:[/bold] Floof Station
+        {"["}bold]  SECTOR:[/bold] Delta-V
         {"["}bold]  STATION:[/bold] {$stationName}
         {"["}bold]  SHIFT TIME:[/bold] XX:XX
         {"["}bold]  WARDEN:[/bold]

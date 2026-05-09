@@ -6,7 +6,7 @@ paperwork-medical-death-certificate =
     { paperwork-separator-medical }
         {"["}head=2]DEATH CERTIFICATE[/head]
     { paperwork-separator-medical }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]CMO:[/bold]
@@ -30,7 +30,7 @@ paperwork-medical-order-of-dismissal =
     { paperwork-separator-medical }
         {"["}head=2]ORDER OF DISMISSAL - MEDICALLY UNFIT [/head]
     { paperwork-separator-medical }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]CAPTAIN:[/bold]
@@ -44,7 +44,7 @@ paperwork-medical-order-of-dismissal =
     { paperwork-separator-medical }
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}italic][color=gray]NOTE: The initialization of dismissal can only be carried out by the station's Chief Medical Officer in agreement with the Head of Personnel and the Head of Security ([bold]with the permission of Central Command[/bold]). This document must have the signature of the dismissed person (except in cases of direct refusal to sign the order). The document is only valid if all three listed department heads seals and signatures are present.[/italic][/color]
+    {"["}italic][color=gray]NOTE: The initialization of dismissal can only be carried out by the station's Chief Medical Officer in agreement with the Head of Personnel or the Head of Security ([bold]with the permission of Central Command[/bold]). This document must have the signature of the dismissed person (except in cases of direct refusal to sign the order). The document is only valid if at least two listed department heads seals and signatures are present.[/italic][/color]
 
     {"["}bold]Chief Medical Officer's Signature:[/bold]
     {"["}bold]Head Of Personnel's Signature:[/bold]

@@ -6,7 +6,7 @@ paperwork-separator-engineering-building-permit =
     { paperwork-separator-engineering }
         {"["}head=2]BUILDING PERMIT [/head]
     { paperwork-separator-engineering }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]HEAD OF PERSONNEL:[/bold]

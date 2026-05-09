@@ -11,7 +11,7 @@ paperwork-command-emergency-personal-recovery =
         {"["}bold]CAPTAIN:[/bold]
         {"["}bold]HEAD OF PERSONNEL:[/bold]
         {"["}bold]HEAD OF SECURITY:[/bold]
-        {"["}bold]QUARTERMASTER:[/bold]
+        {"["}bold]lOGISTICS OFFICER:[/bold]
     { paperwork-command-separator }
     Reason for Faxing Central Command:
     Desired Response From Central Command:
@@ -32,7 +32,7 @@ paperwork-command-station-request-for-assistance =
     { paperwork-command-separator }
         {"["}bold]STATION REQUEST FOR ASSISTANCE[/bold]
     { paperwork-command-separator }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]CAPTAIN:[/bold]
@@ -40,8 +40,8 @@ paperwork-command-station-request-for-assistance =
         {"["}bold]HEAD OF SECURITY:[/bold]
         {"["}bold]CHIEF ENGINEER:[/bold]
         {"["}bold]CHIEF MEDICAL OFFICER:[/bold]
-        {"["}bold]QUARTERMASTER:[/bold]
-        {"["}bold]RESEARCH DIRECTOR:[/bold]
+        {"["}bold]LOGISTICS OFFICER:[/bold]
+        {"["}bold]MYSTAGOGUE:[/bold]
     { paperwork-command-separator }
 
     Reason for Faxing Central Command:
@@ -60,5 +60,5 @@ paperwork-command-station-request-for-assistance =
     {"["}bold]HEAD OF SECURITY SIGNATURE:[/bold]
     {"["}bold]CHIEF ENGINEER SIGNATURE:[/bold]
     {"["}bold]CHIEF MEDICAL OFFICER SIGNATURE:[/bold]
-    {"["}bold]QUARTERMASTER SIGNATURE:[/bold]
-    {"["}bold]RESEARCH DIRECTOR SIGNATURE:[/bold]
+    {"["}bold]LOGISTICS OFFICER SIGNATURE:[/bold]
+    {"["}bold]MYSTAGOGUE SIGNATURE:[/bold]

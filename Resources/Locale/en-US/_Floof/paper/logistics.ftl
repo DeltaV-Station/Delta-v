@@ -6,10 +6,10 @@ paperwork-logistics-cargo-request =
     { paperwork-separator-logistics }
         {"["}head=2]CARGO REQUEST[/head]
     { paperwork-separator-logistics }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] NT14-NAME-XXX
         {"["}bold]SHIFT TIME:[/bold] XX:XX
-        {"["}bold]QUARTERMASTER:[/bold]
+        {"["}bold]LOGISTICS OFFICER:[/bold]
         {"["}bold]RECIEVER:[/bold]
         {"["}bold]DEPARTMENT:[/bold]
     { paperwork-separator-logistics }
@@ -19,5 +19,5 @@ paperwork-logistics-cargo-request =
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    • Quartermasters Signature:
-    • Quartermasters Stamp:
+    • Logistics Officer's Signature:
+    • Logistics Officer's Stamp:

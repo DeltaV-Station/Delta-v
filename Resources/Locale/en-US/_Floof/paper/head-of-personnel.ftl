@@ -6,7 +6,7 @@ paperwork-hop-access-permit =
     { paperwork-separator-hop }
         {"["}head=2]Access Permit [/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]PERSONS:[/bold]
@@ -27,7 +27,7 @@ paperwork-hop-job-transfer-request =
     { paperwork-separator-hop }
         {"["}head=2]Job Transfer Request[/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]APPLICANT:[/bold]
@@ -50,7 +50,7 @@ paperwork-hop-crewmate-identification =
     { paperwork-separator-hop }
         {"["}head=2]CREWMATE IDENTIFICATION[/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]NAME:[/bold]
         {"["}bold]PLACE OF ORIGIN:[/bold]
         {"["}bold]DATE OF BIRTH:[/bold]
@@ -76,7 +76,7 @@ paperwork-hop-formal-complaint =
     { paperwork-separator-hop }
         {"["}head=2]Formal Complaint [/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]HEAD OF PERSONNEL:[/bold]
@@ -93,7 +93,7 @@ paperwork-hop-formal-complaint =
     {"["}italic]If other, please skip to Section C[/italic]
 
     Department of the Subject of Complaint:
-    \[  ] Sci     \[  ] Engi  \[  ] Service         \[  ] Cargo        \[  ] Grey
+    \[  ] Epi     \[  ] Engi  \[  ] Service         \[  ] Cargo        \[  ] Grey
     \[  ] Med  \[  ] Sec   \[  ] Command   \[  ] CentCom  \[  ] Other
 
     {"["}italic]If you are complaining about a person, please answer the following.[/italic]
@@ -125,7 +125,7 @@ paperwork-hop-order-of-dismissal =
     { paperwork-separator-hop }
         {"["}head=2]ORDER OF DISMISSAL [/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]ACCOUNTABLE PERSON:[/bold]
@@ -147,7 +147,7 @@ paperwork-hop-dismissal-of-department-head =
     { paperwork-separator-hop }
         {"["}bold]DISMISSAL OF DEPARTMENT HEAD [/bold]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]COMMANDING OFFICER:[/bold]
@@ -202,7 +202,7 @@ paperwork-hop-restricted-equipment-permit =
     { paperwork-separator-hop }
         {"["}head=2]Restricted Equipment Permit [/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]EQUIPMENT USER: [/bold]
@@ -227,7 +227,7 @@ paperwork-hop-restricted-weapons-permit =
     { paperwork-separator-hop }
         {"["}head=2]Restricted Weapons Permit [/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]WEAPON USER: [/bold]

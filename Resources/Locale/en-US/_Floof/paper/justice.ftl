@@ -7,7 +7,7 @@ paperwork-justice-pardon-request =
     { paperwork-separator-justice }
         {"["}head=2]PARDON REQUEST[/head]
     { paperwork-separator-justice }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]CAPTAIN:[/bold]
@@ -15,7 +15,7 @@ paperwork-justice-pardon-request =
         {"["}bold]TARGET OF PARDON:[/bold]
     { paperwork-separator-justice }
     This document if approved, allows the release of a inmate sentenced to Permanent Confinement (Perma), under the stipulations agreed upon by authorized personnel.
-    {"["}color=red][italic]Inmates may be issued for parole by the Warden, the Head of Security, or may apply for parole at the discretion and availability of the Chief Justice or the Clerk of Court. This document must be approved and stamped by an authorized personnel member to be valid: the Warden, the Head of Security, or the Commanding Officer.[/italic][/color]
+    {"["}color=red][italic]Inmates may be issued for parole by the Warden, the Head of Security, or may apply for parole at the discretion and availability of the Chief Justice. This document must be approved and stamped by an authorized personnel member to be valid: the Warden, the Head of Security, or the Commanding Officer.[/italic][/color]
     { paperwork-separator-justice }
     {"["}bold]Inmate's Reasoning for Parole[/bold]
 
@@ -37,7 +37,7 @@ paperwork-justice-restraining-order =
     { paperwork-separator-justice }
     {"["}head=2]RESTRAINING ORDER[/head]
     { paperwork-separator-justice }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]DOCUMENT COMPLIER:[/bold]
@@ -61,7 +61,7 @@ paperwork-justice-trial-docket-civil =
     { paperwork-separator-justice }
     {"["}head=2]TRIAL DOCKET - CIVIL[/head]
     { paperwork-separator-justice }
-    {"["}bold]SECTOR:[/bold] Floof Station
+    {"["}bold]SECTOR:[/bold] Delta-V
     {"["}bold]STATION:[/bold] {$stationName}
     {"["}bold]CASE:[/bold] (PLAINTIFF) v. (DEFENDANT)
 
@@ -93,7 +93,7 @@ paperwork-justice-trial-docket-criminal =
     { paperwork-separator-justice }
         {"["}head=2]TRIAL DOCKET - CRIMINAL[/head]
     { paperwork-separator-justice }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]CASE:[/bold] STATION SECURITY v. (DEFENDANT)
         {"["}bold]CAPTAIN:[/bold]

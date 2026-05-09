@@ -7,7 +7,7 @@ paperwork-separator-epistemics-borgification-notice =
     { paperwork-separator-epistemics }
         {"["}head=2]BORGIFCATION NOTICE[/head]
     { paperwork-separator-epistemics }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]BORG APPLICATE:[/bold]
@@ -27,7 +27,7 @@ paperwork-separator-epistemics-borgification-notice =
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
     •[bold]Chief Medical Officer Signature:
-    •Research Chief Signature:[/bold]
+    •Mystagogue Signature:[/bold]
 
 
 paperwork-separator-epistemics-production-request =
@@ -35,7 +35,7 @@ paperwork-separator-epistemics-production-request =
     { paperwork-separator-epistemics }
         {"["}head=2]PRODUCTION REQUEST[/head]
     { paperwork-separator-epistemics }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold] {$stationName}
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]MYSTAGOGUE:[/bold]
@@ -56,7 +56,7 @@ paperwork-separator-epistemics-psionic-self-identification =
     { paperwork-separator-epistemics }
         {"["}head=2]PSIONIC SELF-IDENTIFICATION[/head]
     { paperwork-separator-epistemics }
-        {"["}bold]SECTOR:[/bold] Floof Station
+        {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]NAME:[/bold]
         {"["}bold]PLACE OF ORIGIN:[/bold]
         {"["}bold]DATE OF BIRTH:[/bold]
