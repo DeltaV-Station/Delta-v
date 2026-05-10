@@ -21,7 +21,7 @@ paperwork-command-emergency-personal-recovery =
 
     {"["}color=red]This document is not valid unless stamped by a command member.[/color]
 
-    {"["}italic]Note: Please note, Central Command is not liable for any personal lost, as that is responsibility placed upon the applicable department head. Central Command will take this form into consideration, however they are allowed to deny it on the grounds the department must recover said personnel.[/italic]
+    {"["}italic]Note: Please note, Central Command is not liable for any personnel lost, as that is responsibility placed upon the applicable department head. Central Command will take this form into consideration, however they are allowed to deny it on the grounds the department must recover said personnel.[/italic]
 
     {"["}bold]COMMAND MEMBER'S SIGNATURE:[/bold]
 

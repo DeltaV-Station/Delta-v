@@ -109,7 +109,7 @@ paperwork-justice-trial-docket-criminal =
     1XX Misdemeanor Crimes:
     \[  ] Code:101 (Animal Cruelty) - 2mins
     \[  ] Code:102 (Harassment) - 4mins
-    \[  ] Code:103(vigilantism) - 4mins
+    \[  ] Code:103 (Vigilantism) - 4mins
     \[  ] Code:104 (Petty Larceny) - 2mins
     \[  ] Code:105 (Trespass) - 2mins
     \[  ] Code:106 (Vandalism) - 2mins

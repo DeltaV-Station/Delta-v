@@ -32,7 +32,7 @@
   name: formal complaint
   parent: PaperTemplate
   id: PaperTemplateHopFormalComplaint
-  description: 'Do you have a complaint, fax it to CC.'
+  description: 'if you have a complaint, fax it to CC.'
   components:
   - type: Paper
     contentSize: 10000
@@ -72,7 +72,7 @@
   name: restricted equipment permit
   parent: PaperTemplate
   id: PaperTemplateHopRestrictedEquipmentPermit
-  description: 'those juicy jaws of life, sec will take em away if you don#t have this.'
+  description: 'those juicy jaws of life, sec will take it away if your missing this.'
   components:
   - type: Paper
     contentSize: 10000

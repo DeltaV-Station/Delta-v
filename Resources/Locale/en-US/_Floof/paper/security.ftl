@@ -20,7 +20,7 @@ paperwork-security-arrest-report =
     1XX Misdemeanor Crimes:
     \[  ] Code:101 (Animal Cruelty) - 2mins
     \[  ] Code:102 (Harassment) - 4mins
-    \[  ] Code:103(vigilantism) - 4mins
+    \[  ] Code:103 (Vigilantism) - 4mins
     \[  ] Code:104 (Petty Larceny) - 2mins
     \[  ] Code:105 (Trespass) - 2mins
     \[  ] Code:106 (Vandalism) - 2mins
@@ -53,7 +53,7 @@ paperwork-security-arrest-report =
     \[  ] Code:404 (Prevention of Revival)
     \[  ] Code:406 (Breach of Custody)
     \[  ] Code:405 (Sedition)
-    {"["}color=gray]All Capital crimes necessitate a mandatory trial.[/color]
+    {"["}color=gray]All Capital crimes necessitate a mandatory hearing.[/color]
     { paperwork-separator-security }
     Crime Modifiers:
     {"["}color=gray]Time matches crimes commited or attempted.[/color]
@@ -161,7 +161,7 @@ paperwork-security-furlough-request =
     { paperwork-separator-security }
         {"["}head=2]FURLOUGH REQUEST[/head]
     { paperwork-separator-security }
-    This document if approved, allows an inmate to leave his cell under direct supervision of security personnel for no more than 20 minutes. Inmate agrees to a strip search after furlough has concluded to ensure there is no contraband.
+    This document, if approved, allows an inmate to leave their cell under direct supervision of security personnel for no more than 20 minutes. Inmate agrees to a strip search after furlough has concluded to ensure there is no contraband.
     {"["}color=red][bold]This document must be approved and stamped by the Warden or Head of Security, and signed by the inmate to be valid![/bold][/color]
 
     Inmate:  [color=#002AAF]Name Here[/color]
@@ -210,7 +210,7 @@ paperwork-security-individual-search-warrant =
 
     • Reason for the search:
     { paperwork-separator-security }
-    If illegal items are found in the posession of the searched individual they will be confiscated and the owner of these items may be detained at the officer's discretion.
+    If illegal items are found in the possession of the searched individual they will be confiscated and the owner of these items may be detained at the officer's discretion.
 
     {"["}bold]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer, the Head of Security, or the Warden.[/bold]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
@@ -251,7 +251,7 @@ paperwork-security-visitation-request =
     { paperwork-separator-security }
         {"["}head=2]VISITATION REQUEST[/head]
     { paperwork-separator-security }
-    This document, if approved, allows the one time visitation between an inmate and an employee of NanoTressen stations. Visitor agrees to be searched before entering the vistation area. The inmate also agrees to be searched after the visitation has concluded.
+    This document, if approved, allows the one time visitation between an inmate and an employee of NanoTrasen stations. Visitor agrees to be searched before entering the visitation area. The inmate also agrees to be searched after the visitation has concluded.
     {"["}color=red][bold]This document must be approved and stamped by the Warden, and signed by both the visitor and inmate to be valid![/bold][/color]
 
     Inmate: [color=#002AAF]Name Here[/color]

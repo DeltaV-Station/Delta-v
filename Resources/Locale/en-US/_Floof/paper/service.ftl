@@ -28,7 +28,7 @@ paperwork-service-restricted-plant-permit =
         {"["}head=2]Restricted Plant Permit [/head]
     { paperwork-separator-service }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] 
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]BOTANIST:[/bold]
         {"["}bold]HEAD OF PERSONNEL:[/bold]

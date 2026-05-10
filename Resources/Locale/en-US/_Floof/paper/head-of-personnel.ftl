@@ -192,7 +192,7 @@ paperwork-hop-employment-application =
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}italic]NOTE: This document is valid only if reliable information about the person is provided. Providing false information is a reason for refusal of employment. This document is valid only if there is a stamp of the Head of the department where the accountable person is employed, unless explicitly stated otherwise. The accountable person confirms that they have all the necessary skills to work in the desired employment, is a healthy person. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/italic]
+    {"["}italic]NOTE: This document is valid only if reliable information about the person is provided. Providing false information is a reason for refusal of employment. This document is valid only if there is a stamp of the Head of the department where the accountable person is employed, unless explicitly stated otherwise. The accountable person confirms that they have all the necessary skills to work in the desired employment and is currently in good health. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/italic]
 
     {"["}bold] Command Member's Signature:[/bold]
 
@@ -216,7 +216,7 @@ paperwork-hop-restricted-equipment-permit =
     { paperwork-separator-hop }
     {"["}color=red]This document gives [insert name] the ability to carry {"{stated gear}"} unhindered.[/color]
 
-    {"["}color=gray]This Permit can be revoked as at a moment's notice if the applicable party violates Space Law in the use of said Equipment.[/color]
+    {"["}color=gray]This Permit can be revoked at a moment's notice if the applicable party violates Space Law in the use of said Equipment.[/color]
 
     {"["}color=red]This document must be signed and stamped by the Commanding Officer, Head of Security, or Warden to be considered valid.[/color]
 
