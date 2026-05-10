@@ -41,7 +41,7 @@
   - type: SalvageMagnet
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["Salvage"]]
+    access: [["Salvage"]] #Delta V: made the salvage magnet only open it's UI if you have Salvage access on your ID card
   - type: ApcPowerReceiver
     powerLoad: 2500 # TODO change this to a HV power draw that really hits the grid hard WHEN active
   - type: Machine
