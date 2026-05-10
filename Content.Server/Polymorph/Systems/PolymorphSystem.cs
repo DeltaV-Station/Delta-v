@@ -243,11 +243,9 @@ public sealed partial class PolymorphSystem : EntitySystem
             _stamina.TakeStaminaDamage(child, staminaDamage);
         }
 
-        // Delta V Nubody - Commenting this out for now until we actually have something which can infest your brain
-        // Currently recognizes the players brain as an MindContainer and drops it.
         // DeltaV - Drop MindContainer entities on polymorph
-        // var beforePolymorphedEv = new BeforePolymorphedEvent();
-        // RaiseLocalEvent(uid, ref beforePolymorphedEv);
+        var beforePolymorphedEv = new BeforePolymorphedEvent();
+        RaiseLocalEvent(uid, ref beforePolymorphedEv);
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
