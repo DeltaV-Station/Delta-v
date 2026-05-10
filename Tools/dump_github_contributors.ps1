@@ -14,7 +14,7 @@ function load_contribs([string] $repo)
     # We use the ?anon=1 query param for reasons explained later.
     $qParams = @{
         "per_page" = 100
-        "anon" = 1
+        "anon" = true
     }
 
     $headers = @{
@@ -39,7 +39,7 @@ function load_contribs([string] $repo)
     # GitHub's API, for some reason, has a hard cap on 500 email addresses per repo which it will collate
     # SS14 has gone past this limit for quite some time, so GitHub will stop including accounts, starting
     # with those that have lower contributions, as valid distinct users with a `login` field.
-    # 
+    #
     # This is obviously a problem.
     # To remedy, we first use the ?anon=1 parameter to force GitHub to include all committers emails, even
     # those that it has, in its great and infinite wisdom, chosen to not properly attach to a GitHub account.
@@ -63,7 +63,7 @@ function load_contribs([string] $repo)
     #    correctly than not.
     # 5) Then, we just add a `login` field to our object with their true username and let the rest of the code do its job.
 
-    foreach ($contributor in $r) 
+    foreach ($contributor in $r)
     {
         if ($null -ne $contributor.name `
             -And $null -ne $contributor.email `
@@ -81,7 +81,7 @@ function load_contribs([string] $repo)
             {
                 continue
             }
-            
+
             $contributor | Add-Member -MemberType NoteProperty -Name "login" -Value $username
         }
         elseif ($null -eq $contributor.login `
@@ -113,11 +113,11 @@ function load_contribs([string] $repo)
 }
 
 $engineJson = load_contribs("space-wizards/RobustToolbox")
-$contentJson = load_contribs("DeltaV-Station/Delta-v-rebase")
+$contentJson = load_contribs("DeltaV-Station/Delta-v")
 
 ($engineJson).login + ($contentJson).login `
-    | select -unique `
+    | Select-Object -CaseInsensitive -Unique `
     | Where-Object { -not $ignore[$_] }`
     | ForEach-Object { if($replacements[$_] -eq $null){ $_ } else { $replacements[$_] }} `
-    | Sort-object `
+    | Sort-object -CaseSensitive `
     | Join-String -Separator ", "
