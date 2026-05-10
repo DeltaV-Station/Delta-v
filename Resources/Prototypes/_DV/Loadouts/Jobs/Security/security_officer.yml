@@ -145,3 +145,47 @@
   id: SecurityClothingHandsGlovesFingerless
   equipment:
     gloves: ClothingHandsGlovesFingerless
+
+# SecBelt utility
+
+- type: loadout
+  id: FlashBangLoadout
+  storage:
+    belt:
+    - GrenadeFlashBang
+
+- type: loadout
+  id: TearGasLoadout
+  storage:
+    belt:
+    - TearGasGrenade
+
+- type: loadout
+  id: SecHoloProjectorLoadout
+  storage:
+    belt:
+    - HoloprojectorSecurity
+
+- type: loadout
+  id: StingerGrenadeLoadout
+  storage:
+    belt:
+    - GrenadeStinger
+
+- type: loadout
+  id: RadioHandheldSecurityLoadout
+  storage:
+    belt:
+    - RadioHandheldSecurity
+
+- type: loadout
+  id: HandcuffsLoadout
+  storage:
+    belt:
+    - Handcuffs
+
+- type: loadout
+  id: SecLiteLoadout
+  storage:
+    belt:
+    - FlashlightSeclite
