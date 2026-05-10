@@ -414,6 +414,7 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
+    snapCardinals: true #DeltaV - Follow Camera Rotation
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -485,6 +486,7 @@
   components:
     - type: Sprite
       sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
+      snapCardinals: true #DeltaV - Follow Camera Rotation
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]

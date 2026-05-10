@@ -8,6 +8,7 @@ contraband_examine = false # Doubtful that it's desired at all, and would requir
 secret_weight_prototype = "SecretDeltaV"
 role_timer_override = "DeltaV"
 showgreentext = false # focus more on telling a story
+round_end_pvs_overrides = false # Fix EOR lag due to sending every player model to every player on the server (80 times 80 on highpop)
 
 [movement]
 mob_pushing = false

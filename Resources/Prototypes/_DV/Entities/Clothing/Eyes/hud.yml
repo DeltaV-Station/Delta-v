@@ -12,7 +12,7 @@
     graph: PrescriptionMedHud
     node: prescmedhud
   - type: VisionCorrection
-    correctionPower: 1.75 # The hud part decreases efficiency
+    correctionPower: 2.5 # The hud part decreases efficiency
 
 - type: entity
   parent: ClothingEyesHudSecurity
@@ -28,7 +28,7 @@
     graph: PrescriptionSecHud
     node: prescsechud
   - type: VisionCorrection
-    correctionPower: 1.75 # The hud part decreases efficiency
+    correctionPower: 2.5 # The hud part decreases efficiency
 
 - type: entity
   parent: ClothingEyesHudDiagnostic
@@ -59,7 +59,7 @@
     graph: PrescriptionDiagHud
     node: prescdiaghud
   - type: VisionCorrection
-    correctionPower: 1.75 # The hud part decreases efficiency
+    correctionPower: 2.5 # The hud part decreases efficiency
 
 # ERT
 

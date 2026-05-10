@@ -26,6 +26,30 @@
         - id: EmergencyMedipen
 
 - type: entity
+  id: ClothingBeltSecurityBeltCustom
+  parent: ClothingBeltSecurity
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Stunbaton
+        - id: Handcuffs
+
+- type: entity
+  id: ClothingBeltSecurityWebbingCustom
+  parent: ClothingBeltSecurityWebbing
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Stunbaton
+        - id: Handcuffs
+
+- type: entity
   id: ClothingBeltFoamSheathFilled
   parent: ClothingBeltFoamSheath
   suffix: Filled
