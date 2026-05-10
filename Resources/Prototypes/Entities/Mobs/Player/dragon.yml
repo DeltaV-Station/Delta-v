@@ -175,6 +175,12 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
+  # Begin DeltaV Additions - Add Waypointers
+  - type: InnateWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+    - DragonRiftWaypointer
+  # Begin DeltaV Additions - Add Waypointers
 
 - type: entity
   parent: BaseMobDragon

@@ -123,6 +123,11 @@
     radius: 5
     energy: 2
     color: "#00ffff"
+  # Begin DeltaV Additions - Add Waypointers
+  - type: ClothingShowWaypointer
+    waypointerProtoIds:
+    - NTStationWaypointer
+  # End DeltaV Additions - Add Waypointers
   - type: Tag
     tags:
     - CorgiWearable
