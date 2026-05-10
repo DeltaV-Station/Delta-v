@@ -6,6 +6,9 @@
   components:
   - type: WallMount
     arc: 360
+  - type: Construction
+    graph: PagerButtonGraph
+    node: PagerButtonNode
   - type: StationAiWhitelist
   - type: Sprite
     drawdepth: SmallObjects
