@@ -7,15 +7,15 @@ paperwork-separator-engineering-building-permit =
         {"["}head=2]BUILDING PERMIT [/head]
     { paperwork-separator-engineering }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]HEAD OF PERSONNEL:[/bold]
         {"["}bold]CHIEF ENGINEER:[/bold]
         {"["}bold]APPLICANT:[/bold]
         {"["}bold]DEPARTMENT:[/bold]
     { paperwork-separator-engineering }
-    Reason for remodeling?:
-    Any Addtional Resources needed?:
+    Reason for remodeling:
+    Additional Resources needed:
 
     { paperwork-separator-engineering }
 
@@ -24,5 +24,5 @@ paperwork-separator-engineering-building-permit =
     {"["}italic][colour=gray]NOTE: Completion of this form may require you to fill out an addtional form for additional resources.[/color][/italic]
 
     • Chief Engineer Signature:
-    • Head of Personnel Stamp:
+    • Applicant's Signature:
 

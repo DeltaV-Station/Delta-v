@@ -8,7 +8,7 @@ paperwork-separator-epistemics-borgification-notice =
         {"["}head=2]BORGIFCATION NOTICE[/head]
     { paperwork-separator-epistemics }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]BORG APPLICATE:[/bold]
         {"["}bold]FORMER JOB:[/bold]
@@ -22,7 +22,7 @@ paperwork-separator-epistemics-borgification-notice =
 
     { paperwork-separator-epistemics }
 
-    {"["}italic]NOTE: The belongings of an employee who died in the workplace must be transferred to the department in which they worked in. It is allowed, not to transfer items for objective reasons.[/italic]
+    {"["}italic]NOTE: The belongings of an employee who died in the workplace must be transferred to the department in which they worked in. [/italic]
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
@@ -36,7 +36,7 @@ paperwork-separator-epistemics-production-request =
         {"["}head=2]PRODUCTION REQUEST[/head]
     { paperwork-separator-epistemics }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]MYSTAGOGUE:[/bold]
         {"["}bold]RECIEVER:[/bold]
@@ -48,7 +48,7 @@ paperwork-separator-epistemics-production-request =
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}bold]MYSTAGOGUE SIGNATURE[/bold]
+    {"["}bold]MYSTAGOGUE SIGNATURE:[/bold]
 
 
 paperwork-separator-epistemics-psionic-self-identification =
@@ -73,7 +73,7 @@ paperwork-separator-epistemics-psionic-self-identification =
     { paperwork-separator-epistemics }
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}italic][color=gray]NOTE: The document is valid only if reliable information about the person is provided. The document is valid only if there is a Signature of Psionic mantis or Mystagogue. The accountable person confirms that this is a true documentation of the person's Identity. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul, Psionic ability and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/color][/italic]
+    {"["}italic][color=gray]NOTE: The document is valid only if reliable information about the person is provided. The document is valid only if there is a signature of Psionic Mantis or Mystagogue. The accountable person confirms that this is a true documentation of the person's identity. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul, Psionic ability and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/color][/italic]
 
     {"["}bold] Psionic Mantis Signature:[/bold]
     {"["}bold] Mystagogue Stamp:[/bold]

@@ -8,14 +8,14 @@ paperwork-justice-pardon-request =
         {"["}head=2]PARDON REQUEST[/head]
     { paperwork-separator-justice }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]CAPTAIN:[/bold]
         {"["}bold]WARDEN:[/bold]
         {"["}bold]TARGET OF PARDON:[/bold]
     { paperwork-separator-justice }
     This document if approved, allows the release of a inmate sentenced to Permanent Confinement (Perma), under the stipulations agreed upon by authorized personnel.
-    {"["}color=red][italic]Inmates may be issued for parole by the Warden, the Head of Security, or may apply for parole at the discretion and availability of the Chief Justice. This document must be approved and stamped by an authorized personnel member to be valid: the Warden, the Head of Security, or the Commanding Officer.[/italic][/color]
+    {"["}color=red][italic]Inmates may be issued for parole by the Warden, the Head of Security, or may apply for parole at the discretion and availability of the Chief Justice/Commanding Officer. This document must be approved and stamped by an authorized personnel member to be valid: the Warden, the Head of Security, or the Commanding Officer.[/italic][/color]
     { paperwork-separator-justice }
     {"["}bold]Inmate's Reasoning for Parole[/bold]
 
@@ -38,7 +38,7 @@ paperwork-justice-restraining-order =
     {"["}head=2]RESTRAINING ORDER[/head]
     { paperwork-separator-justice }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]DOCUMENT COMPLIER:[/bold]
         {"["}bold]JOB:[/bold]
@@ -62,7 +62,7 @@ paperwork-justice-trial-docket-civil =
     {"["}head=2]TRIAL DOCKET - CIVIL[/head]
     { paperwork-separator-justice }
     {"["}bold]SECTOR:[/bold] Delta-V
-    {"["}bold]STATION:[/bold] {$stationName}
+    {"["}bold]STATION:[/bold]
     {"["}bold]CASE:[/bold] (PLAINTIFF) v. (DEFENDANT)
 
     { paperwork-separator-justice }
@@ -94,7 +94,7 @@ paperwork-justice-trial-docket-criminal =
         {"["}head=2]TRIAL DOCKET - CRIMINAL[/head]
     { paperwork-separator-justice }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]CASE:[/bold] STATION SECURITY v. (DEFENDANT)
         {"["}bold]CAPTAIN:[/bold]
         {"["}bold]HEAD OF SECURITY:[/bold]
@@ -107,45 +107,41 @@ paperwork-justice-trial-docket-criminal =
     { paperwork-separator-justice }
     {"["}head=3]Charges:[/head]
     1XX Misdemeanor Crimes:
-    \[  ] Code:SL1-01 (Fearmongering)
-    \[  ] Code:SL1-03 (Animal Cruelty)
-    \[  ] Code:SL1-04 (Theft)
-    \[  ] Code:SL1-06 (Vandalism)
-    \[  ] Code:SL1-09 (Brandishing)
-    \[  ] Code:SL1-11 (Possession)
-    \[  ] Code:SL1-12 (Trespass)
-    \[  ] Code:SL1-15 (Hooliganism)
-    \[  ] Code:SL1-17 (Failure To Comply)
-
+    \[  ] Code:101 (Animal Cruelty) - 2mins
+    \[  ] Code:102 (Harassment) - 4mins
+    \[  ] Code:103(vigilantism) - 4mins
+    \[  ] Code:104 (Petty Larceny) - 2mins
+    \[  ] Code:105 (Trespass) - 2mins
+    \[  ] Code:106 (Vandalism) - 2mins
+    \[  ] Code:107 (Hooliganism) - 'As Determined'
+    {"["}color=gray]Warnings may be issued for a first misdemeanor offense.[/color]
     { paperwork-separator-justice }
     2XX Felony Crimes:
-    \[  ] Code:SL2-01 (Perjury or False Report)
-    \[  ] Code:SL2-03 (Manslaughter)
-    \[  ] Code:SL2-04 (Grand Theft)
-    \[  ] Code:SL2-05 (Black Marketeering)
-    \[  ] Code:SL2-06 (Sabotage)
-    \[  ] Code:SL2-07 (Mindbreaking)
-    \[  ] Code:SL2-08 (Kidnapping)
-    \[  ] Code:SL2-09 (Assault)
-    \[  ] Code:SL2-10 (Abuse of Power)
-    \[  ] Code:SL2-11 (Felony Possession)
-    \[  ] Code:SL2-12 (Secure Trespass)
-    \[  ] Code:SL2-13 (Endangerment)
-    \[  ] Code:SL2-14 (Harassment)
-    \[  ] Code:SL2-15 (Rioting)
-    \[  ] Code:SL2-16 (Contempt of Court)
-    \[  ] Code:SL2-17 (Obstruction of Justice)
-
+    \[  ] Code:201 (Assault)- 5mins
+    \[  ] Code:202 (Breaking and Entering) - 5mins
+    \[  ] Code:203 (Rioting) - 4mins
+    \[  ] Code:204 (Endangerment) - 6mins
+    \[  ] Code:205 (Possession) - 8mins Max
+    \[  ] Code:206 (Obstruction of Justice) - 4mins
+    \[  ] Code:207 (Perjury or False Report) - 4mins
+    \[  ] Code:208 (Contempt of Court) - 4mins
+    { paperwork-separator-justice }
+    2XX Grand Felony Crimes:
+    \[  ] Code:301 (Manslaughter) - 10mins
+    \[  ] Code:302 (Kidnapping) - 10mins
+    \[  ] Code:303 (Grand Possession) - 20mins Max
+    \[  ] Code:305 (Sabotage) - 8mins
+    \[  ] Code:306 (Abuse of Power) - 10mins
+    \[  ] Code:307 (Grand Larceny) - 8mins
+    \[  ] Code:308 (Black Marketeering) - 8mins
     { paperwork-separator-justice }
     3XX Capital Crimes:
-    \[  ] Code:SL3-01 (Terrorism)
-    \[  ] Code:SL3-03 (Murder)
-    \[  ] Code:SL3-06 (Grand Sabotage)
-    \[  ] Code:SL3-07 (Decorporealization)
-    \[  ] Code:SL3-08 (Hostage Taking)
-    \[  ] Code:SL3-13 (Grand Endangerment)
-    \[  ] Code:SL3-15 (Sedition)
-
+    \[  ] Code:402 (Terrorism)
+    \[  ] Code:401 (Murder)
+    \[  ] Code:403 (Grand Sabotage)
+    \[  ] Code:404 (Prevention of Revival)
+    \[  ] Code:406 (Breach of Custody)
+    \[  ] Code:405 (Sedition)
     { paperwork-separator-justice }
     Crime Modifiers:
     {"["}color=gray]Time matches crimes commited or attempted.[/color]
@@ -166,10 +162,9 @@ paperwork-justice-trial-docket-criminal =
     { paperwork-separator-justice }
 
     {"["}bold]TOTAL TIME SENTENCED:[/bold]
-    {"["}bold]REQUESTING PERMENANT CONFINEMENT?:[/bold]
+    {"["}bold]REQUESTING PERMANENT CONFINEMENT?:[/bold]
     {"["}color=red]This document is not valid unless stamped by the presiding judge or the Clerk of Court.[/color]
 
-    {"["}color=#aaaaaa]For charges totaling 25 minutes or greater, the trial must be held within one hour following the filing of those charges.[/color]
     {"["}color=gray]Evidence not provided to the Clerk of Court for certification prior to the court proceedings, if available, will not be accepted into the record. All evidence collected should be shared with representatives from both parties.[/color]
     { paperwork-separator-justice }
     {"["}bold]Attorney's Signature:[/bold]

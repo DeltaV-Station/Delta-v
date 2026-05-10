@@ -7,14 +7,14 @@ paperwork-security-arrest-report =
         {"["}head=2]ARREST REPORT[/head]
     { paperwork-separator-security }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]HEAD OF SECURITY:[/bold]
         {"["}bold]ARRESTING OFFICER:[/bold]
         {"["}bold]ARRESTED PERSON:[/bold]
         {"["}bold]JOB:[/bold]
     { paperwork-separator-security }
-    • Reason for arrest:
+    {"["}bold]Reason for arrest:[/bold]
     { paperwork-separator-security }
     {"["}head=3]Charges:[/head]
     1XX Misdemeanor Crimes:
@@ -87,7 +87,7 @@ paperwork-security-arrest-warrant =
         {"["}head=2]ARREST WARRANT [/head]
     { paperwork-separator-security }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]ARRESTING OFFICER: [/bold]
         {"["}bold]HEAD OF SECURITY: [/bold]
@@ -95,7 +95,7 @@ paperwork-security-arrest-warrant =
         {"["}bold]WARRANT TARGET: [/bold]
         {"["}bold]JOB: [/bold]
     { paperwork-separator-security }
-    • Reason for arrest:
+    {"["}bold]Reason for arrest:[/bold]
     { paperwork-separator-security }
     {"["}color=gray]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer, the Head of Security, or the Warden.[/color]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
@@ -112,7 +112,7 @@ paperwork-security-department-search-warrant =
         {"["}head=2]DEPARTMENT SEARCH WARRANT [/head]
     { paperwork-separator-security }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]PROSECUTOR:[/bold]
         {"["}bold]HEAD OF SECURITY:[/bold]
@@ -122,7 +122,7 @@ paperwork-security-department-search-warrant =
 
     • Reason for the search:
     { paperwork-separator-security }
-    If illegal items are found in the searched department they will be confiscated and the owner of these items may be detained at the officer's discretion. Search Warrants should include an area, a brief description of the probable cause, and a list of individuals if applicable.
+    If illegal items are found in the searched department they will be confiscated and the owner of these items may be detained at the officer's discretion. Search warrants should include an area, a brief description of the probable cause, and a list of individuals if applicable.
 
     {"["}bold]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer, the Head of Security, or the Warden.[/bold]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
@@ -148,9 +148,9 @@ paperwork-security-detective-report =
     { paperwork-separator-security }
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}color=gray]Evidence not provided to the Clerk of Court for certification prior to the court proceedings, if available, will not be accepted into the record. All evidence collected should be shared with the Defendant's Attorney.[/color]
+    {"["}color=gray]Evidence not provided to the Clerk of Court for certification prior to the court proceedings, if available, will not be accepted into the record. All evidence collected should be shared with the defendant's attorney.[/color]
 
-    {"["}color=gray]Failure to appear to a Court Summons is a violation of Space Law and will be considered Contempt of Court.[/color]
+    {"["}color=gray]Failure to appear to a court summons is a violation of Space Law and will be considered Contempt of Court.[/color]
 
     { paperwork-separator-security }
     {"["}bold]Prosecutor's Signature:[/bold]
@@ -171,7 +171,7 @@ paperwork-security-furlough-request =
     Head of Security:   [color=#002AAF]Name Here[/color]
                                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
     If contraband is discovered or given to the inmate, sentences may be applied or extended.
-    Furlough may end early at the Warden's discretion, for the safety of employees and inmates. Public displays of affection must be limited to single kiss, or hug.
+    Furlough may end early at the Warden's discretion, for the safety of employees and inmates.
     { paperwork-separator-security }
     {"["}bold]Inmate's reason for furlough:[/bold]
 
@@ -199,7 +199,7 @@ paperwork-security-individual-search-warrant =
         {"["}head=2]INDIVIDUAL SEARCH WARRANT [/head]
     { paperwork-separator-security }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]PROSECUTOR:[/bold]
         {"["}bold]HEAD OF SECURITY:[/bold]
@@ -228,7 +228,7 @@ paperwork-security-inmate-request =
         {"["}head=2]Inmate Request form [/head]
     { paperwork-separator-security }
         {"["}bold]  SECTOR:[/bold] Delta-V
-        {"["}bold]  STATION:[/bold] {$stationName}
+        {"["}bold]  STATION:[/bold]
         {"["}bold]  SHIFT TIME:[/bold] XX:XX
         {"["}bold]  WARDEN:[/bold]
         {"["}bold]  INMATE:[/bold]
@@ -251,7 +251,7 @@ paperwork-security-visitation-request =
     { paperwork-separator-security }
         {"["}head=2]VISITATION REQUEST[/head]
     { paperwork-separator-security }
-    This document, if approved, allows the one time visitation between an inmate and an employee of NanoTressen stations. Visitor agrees to be searched before entering the vistation area. The inmate also agrees to be strip searched after the visitation has concluded.
+    This document, if approved, allows the one time visitation between an inmate and an employee of NanoTressen stations. Visitor agrees to be searched before entering the vistation area. The inmate also agrees to be searched after the visitation has concluded.
     {"["}color=red][bold]This document must be approved and stamped by the Warden, and signed by both the visitor and inmate to be valid![/bold][/color]
 
     Inmate: [color=#002AAF]Name Here[/color]

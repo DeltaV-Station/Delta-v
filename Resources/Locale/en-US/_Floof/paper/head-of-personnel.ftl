@@ -7,7 +7,7 @@ paperwork-hop-access-permit =
         {"["}head=2]Access Permit [/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]PERSONS:[/bold]
         {"["}bold]ACCESS GRANTED:[/bold]
@@ -17,9 +17,10 @@ paperwork-hop-access-permit =
     {"•"} Other Notes:
     {"["}color=red]This document gives {"{"}insert name{"}"} the ability to Access stated areas unhindered.
 
-    This document must be signed, and stamped by the Head of Personnel to be considered valid.[/color]
+    This document must be signed, and stamped by the Head of Personnel and/or the Commanding Officer to be considered valid.[/color]
 
     {"["}bold]Applicant's Signature:[/bold]
+    {"["}bold]Commanding Officer's Signature:[/bold]
     {"["}bold]Head of Personnel's Signature:[/bold]
 
 paperwork-hop-job-transfer-request =
@@ -28,7 +29,7 @@ paperwork-hop-job-transfer-request =
         {"["}head=2]Job Transfer Request[/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]APPLICANT:[/bold]
         {"["}bold]JOB:[/bold]
@@ -39,16 +40,17 @@ paperwork-hop-job-transfer-request =
     { paperwork-separator-hop }
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}italic]NOTE: The document is valid if a seal of the Head of the department where the accountable person is employed, unless explicitly stated otherwise. The accountable person confirms that they have all the necessary skills to work in a new workplace.[/italic]
+    {"["}italic]NOTE: The document is valid if a seal is present of the relevant department head, where the accountable person seeks to be employed. The accountable person confirms that they have all the necessary skills to work in the applied workplace.[/italic]
 
     {"["}bold]Applicants's Signature:[/bold]
-    {"["}bold]Head Of Personnel's Signature:[/bold]
+    {"["}bold]Commanding Officer's Signature:[/bold]
+    {"["}bold]Department Head's Signature:[/bold]
 
 
 paperwork-hop-crewmate-identification =
     { paperwork-header-hop }
     { paperwork-separator-hop }
-        {"["}head=2]CREWMATE IDENTIFICATION[/head]
+        {"["}head=2]CREW IDENTIFICATION[/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]NAME:[/bold]
@@ -66,10 +68,10 @@ paperwork-hop-crewmate-identification =
     { paperwork-separator-hop }
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}italic][color=gray]NOTE: The document is valid only if reliable information about the person is provided. The document is valid only if there is a stamp of the Head of the department. The accountable person confirms that this is a true documentation of the person's Identity. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul, and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/color][/italic]
+    {"["}italic][color=gray]NOTE: The document is valid only if reliable information about the person is provided. The document is valid only if there is a stamp of one command member. The accountable person confirms that this is a true documentation of the person's identity. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul, and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/color][/italic]
 
-    {"["}bold] Head of Personnel Signature:[/bold]
-    {"["}bold] Head of Personnel Stamp:[/bold]
+    {"["}bold] Command Member's Signature:[/bold]
+    {"["}bold] Command Member's Stamp:[/bold]
 
 paperwork-hop-formal-complaint =
     { paperwork-header-hop }
@@ -77,14 +79,14 @@ paperwork-hop-formal-complaint =
         {"["}head=2]Formal Complaint [/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]HEAD OF PERSONNEL:[/bold]
     { paperwork-separator-hop }
     {"["}head=3]Section A[/head]
-    Complaintant's Name:               [color=#002AAF]Sample Person[/color]
+    Complaintant's Name:               [color=#002AAF]insert name here[/color]
                                                   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-    Complaintant's Role:                  [color=#002AAF]Sample Role[/color]
+    Complaintant's Role:                  [color=#002AAF]insert role here[/color]
                                                   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
     { paperwork-separator-hop }
     {"["}head=3]Section B[/head]
@@ -116,7 +118,7 @@ paperwork-hop-formal-complaint =
     {"["}bold]Please provide a detailed explanation of the missconduct below, providing all details relevant to the story.[/bold]
 
     {"["}color=#1b67a5]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color]
-    {"["}color=red][italic]Please either submit it to the Head of Personnel; if unavaliable, submit form to the Commanding Officer or to CentCom via fax for review. Please refrain from involving multiple commanding officers unless it is absolutely nessecary.[/italic][/color]
+    {"["}color=red][italic]Please either submit this document to the Head of Personnel; if unavaliable, submit form to the Commanding Officer or to CentCom via fax for review. Please refrain from involving multiple command members unless it is absolutely necessary.[/italic][/color]
 
     {"["}bold]Signature of Complaintant:[/bold]
 
@@ -126,7 +128,7 @@ paperwork-hop-order-of-dismissal =
         {"["}head=2]ORDER OF DISMISSAL [/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]ACCOUNTABLE PERSON:[/bold]
         {"["}bold]JOB:[/bold]
@@ -136,7 +138,7 @@ paperwork-hop-order-of-dismissal =
     {"•"} The reason for the dismissal:
     { paperwork-separator-hop }
 
-    {"["}italic]NOTE: This form of document is valid only for employees who do not have the status of Head of Department. The document must be sealed with the stamp of the department in which the dismissed employee worked, unless explicitly stated otherwise. After dismissal, the employee is obliged to receive the passenger's uniform, the passenger's headset and the passenger's PDA, having handed over all the professional inventory of the previous position.[/italic]
+    {"["}italic]NOTE: This form of document is valid only for employees who do not have the status as a Head of a Department. The document must be sealed with the stamp of the department in which the dismissed employee worked, unless explicitly stated otherwise. After dismissal, the employee is obliged to receive the passenger's uniform, the passenger's headset and the passenger's PDA, having handed over all the professional inventory of the previous position.[/italic]
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
@@ -148,7 +150,7 @@ paperwork-hop-dismissal-of-department-head =
         {"["}bold]DISMISSAL OF DEPARTMENT HEAD [/bold]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]COMMANDING OFFICER:[/bold]
         {"["}bold]ACCOUNTABLE PERSON:[/bold]
@@ -162,12 +164,11 @@ paperwork-hop-dismissal-of-department-head =
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    {"["}italic]NOTE: The initialization of dismissal can only be carried out by the Commanding Officer or the Head of Personnel (with the permission of the Commanding Officer or Central Command). This document must have the signature of the dismissed person (except in cases of direct refusal to sign the order). This document is only valid if there is a stamp of the Commanding Officer, or the stamp of Central Command.[/italic]
+    {"["}italic]NOTE: The initialization of dismissal can only be carried out by the Commanding Officer or the Head of Personnel (with the permission of the Commanding Officer or Central Command). This document must have the signature of the dismissed person (except in cases of direct refusal to sign the order). This document is only valid if there is a stamp of the Commanding Officer or the stamp of Central Command.[/italic]
 
-    {"["}bold]Commanding Officer's Signature:
-    Head Of Personnel's Signature:[/bold]
-
-    Signature of the dismissed:
+    {"["}bold]Commanding Officer's Signature:[/bold]
+    {"["}bold]Head Of Personnel's Signature:[/bold]
+    {"["}bold]Signature of the dismissed:[/bold]
 
 
 paperwork-hop-employment-application =
@@ -175,10 +176,10 @@ paperwork-hop-employment-application =
     { paperwork-separator-hop }
         {"["}head=2]EMPLOYMENT APPLICATION[/head]
     { paperwork-separator-hop }
-        {"["}bold]SECTOR:[/bold] Floof Station
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]SECTOR:[/bold] Delta-V
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
-        {"["}bold]ACCOUNTABLE PERSON:[/bold]
+        {"["}bold]APPLICANT'S NAME:[/bold]
         {"["}bold]JOB:[/bold]
     { paperwork-separator-hop }
     {"•"} Desired employment:
@@ -193,20 +194,21 @@ paperwork-hop-employment-application =
 
     {"["}italic]NOTE: This document is valid only if reliable information about the person is provided. Providing false information is a reason for refusal of employment. This document is valid only if there is a stamp of the Head of the department where the accountable person is employed, unless explicitly stated otherwise. The accountable person confirms that they have all the necessary skills to work in the desired employment, is a healthy person. The accountable person confirms the transfer of the right to dispose of the life, health, inventory, soul and assets of the accountable person to NanoTrasen Corporation. NanoTrasen Corporation is not responsible for loss of life/injury/loss of property/otherwise within the framework of Standard Operating Procedures, Space Law or other acts.[/italic]
 
-    {"["}bold] Head of Personnel Signature:[/bold]
+    {"["}bold] Command Member's Signature:[/bold]
 
 
 
 paperwork-hop-restricted-equipment-permit =
     { paperwork-header-hop }
     { paperwork-separator-hop }
-        {"["}head=2]Restricted Equipment Permit [/head]
+        {"["}head=2]Restricted Equipment License [/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]EQUIPMENT USER: [/bold]
-        {"["}bold]EQUIPMENT TYPE: [/bold]
+        {"["}bold]CLASS OF CONTRIBAND: [/bold]
+        {"["}bold]SPECIFIC ITEM'S REQUESTED FOR LICENSE: [/bold]
         {"["}bold]JOB: [/bold]
     { paperwork-separator-hop }
     {"•"}  Reasons for desired Equipment:
@@ -216,10 +218,11 @@ paperwork-hop-restricted-equipment-permit =
 
     {"["}color=gray]This Permit can be revoked as at a moment's notice if the applicable party violates Space Law in the use of said Equipment.[/color]
 
-    {"["}color=red]This document must be signed and stamped by Head of Personnels & Head of Security to be considered valid.[/color]
+    {"["}color=red]This document must be signed and stamped by the Commanding Officer, Head of Security, or Warden to be considered valid.[/color]
 
-    {"["}bold]Head of Personnels' Stamp & Signature:[/bold]
+    {"["}bold]Warden's Stamp & Signature:[/bold]
     {"["}bold]Head of Security Stamp & Signature:[/bold]
+    {"["}bold]Commanding Officer Stamp & Signature:[/bold]
 
 
 paperwork-hop-restricted-weapons-permit =
@@ -228,7 +231,7 @@ paperwork-hop-restricted-weapons-permit =
         {"["}head=2]Restricted Weapons Permit [/head]
     { paperwork-separator-hop }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]WEAPON USER: [/bold]
         {"["}bold]WEAPON TYPE: [/bold]
@@ -238,11 +241,12 @@ paperwork-hop-restricted-weapons-permit =
     {"•"} Other Notes:
     { paperwork-separator-hop }
 
-    {"["}color=red]This document gives [insert name] the ability to carry L3 class armaments.[/color]
+    {"["}color=red]This document gives [insert name] the ability to carry contriband class armaments.[/color]
 
-    {"["}color=gray]Class three armaments include but are not limited to: automatic weapons, combat explosives, and energy based melee weaponry.[/color]
+    {"["}color=gray]armaments include but are not limited to: automatic weapons, combat explosives, and/or energy based melee weaponry.[/color]
 
-    {"["}color=red]This document must be signed and stamped by Head of Personnels & Head of Security to be considered valid.[/color]
+    {"["}color=red]This document must be signed and stamped by the Commanding Officer, Head of Security, or Warden to be considered valid.[/color]
 
-    {"["}bold]Head of Personnels' Stamp & Signature:[/bold]
-    {"["}bold]Head of Security Stamp & Signature:[/bold]
+    {"["}bold]Warden's Stamp & Signature:[/bold]
+    {"["}bold]Head of Security's Stamp & Signature:[/bold]
+    {"["}bold]Commanding Officer's Stamp & Signature:[/bold]

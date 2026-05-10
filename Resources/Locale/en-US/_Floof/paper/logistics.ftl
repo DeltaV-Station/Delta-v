@@ -7,7 +7,7 @@ paperwork-logistics-cargo-request =
         {"["}head=2]CARGO REQUEST[/head]
     { paperwork-separator-logistics }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] NT14-NAME-XXX
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]LOGISTICS OFFICER:[/bold]
         {"["}bold]RECIEVER:[/bold]
@@ -19,5 +19,4 @@ paperwork-logistics-cargo-request =
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
-    • Logistics Officer's Signature:
-    • Logistics Officer's Stamp:
+    {"["}bold]Logistics Officer's Signature and Stamp:[/bold]

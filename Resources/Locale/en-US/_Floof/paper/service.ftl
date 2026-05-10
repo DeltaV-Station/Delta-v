@@ -7,7 +7,7 @@ paperwork-service-botany-request =
         {"["}head=2]BOTANY REQUEST[/head]
     { paperwork-separator-service }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]BOTANIST:[/bold]
         {"["}bold]RECIEVER:[/bold]
@@ -28,7 +28,7 @@ paperwork-service-restricted-plant-permit =
         {"["}head=2]Restricted Plant Permit [/head]
     { paperwork-separator-service }
         {"["}bold]SECTOR:[/bold] Delta-V
-        {"["}bold]STATION:[/bold] {$stationName}
+        {"["}bold]STATION:[/bold] 
         {"["}bold]SHIFT TIME:[/bold] XX:XX
         {"["}bold]BOTANIST:[/bold]
         {"["}bold]HEAD OF PERSONNEL:[/bold]
