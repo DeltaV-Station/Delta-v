@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseWallmountMetallic
+  id: PagerButton
+  name: departmental pager button
+  description: A button used to request the presence of anyone in the department.
+  components:
+  - type: WallMount
+    arc: 360
+  - type: StationAiWhitelist
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _DV/Structures/Wallmounts/pager.rsi
+    state: doorbell
+  - type: UseDelay
+    delay: 0.5 # prevent light-toggling auto-clickers.
+  - type: Rotatable
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: NTNet
+    transmitFrequencyId: NTNet
+  - type: Transform
+    anchored: false
+  - type: PageSender
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
