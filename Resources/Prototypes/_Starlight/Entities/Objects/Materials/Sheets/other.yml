@@ -1,0 +1,70 @@
+- type: entity
+  parent: BaseItem
+  id: CheapInsulatedFabric
+  name: cheap insulated fabric
+  description: A bolt of rough insulated fabric, not much use in it's current form.
+  components:
+    - type: Sprite
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: cheapinsulativefabric
+    - type: Item
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: cheapinsulativefabric
+    - type: Butcherable
+      butcheringType: Knife
+      spawned:
+        - id: InsulatedThread
+    - type: Tag
+      tags:
+        - CheapInsulatedFabric
+    
+- type: entity
+  parent: BaseItem
+  id: PlasteelFilament
+  name: plasteel filament
+  description: A spool of thin plasteel filaments, useful for making cheap insulated fabric truly insulated.
+  components:
+    - type: Sprite
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: plasteelfilament
+    - type: Item
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: plasteelfilament
+    - type: Tag
+      tags:
+        - PlasteelFilament
+
+- type: entity
+  parent: BaseItem
+  id: InsulatedThread
+  name: insulated thread
+  description: A spool of insulated thread, useful for stitching together gloves.
+  components:
+    - type: Sprite
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: insulativethread
+    - type: Item
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: insulativethread
+    - type: Tag
+      tags:
+        - InsulatedThread
+      
+- type: entity
+  parent: BaseItem
+  id: InsulatedFabric
+  name: insulated fabric
+  description: A bolt of smooth insulated fabric, not much use in it's current form.
+  components:
+    - type: Sprite
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: insulativefabric
+    - type: Item
+      sprite: _Starlight/Objects/Misc/insults.rsi
+      state: insulativefabric
+    - type: Tag
+      tags:
+        - InsulatedFabric
+    - type: Construction
+      graph: StandardInsulFabric
+      node: fabric
