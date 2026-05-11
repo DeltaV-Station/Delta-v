@@ -23,46 +23,18 @@
 - type: entity
   id: SpeedLoaderMagnumImprovised
   name: "speed loader (.45 magnum)"
-  parent: BaseSpeedLoaderMagnum
+  parent: [BaseItem, BaseMinorContraband]
   components:
+  - type: Tag
+    tags:
+      - SpeedLoaderMagnum
+  - type: SpeedLoader
   - type: BallisticAmmoProvider
     proto: null
     whitelist:
       tags:
         - CartridgeMagnum
         - CartridgeMagnumImprovised
-    capacity: 4
-  - type: MagazineVisuals
-    magState: base
-    steps: 5
-    zeroVisible: false
-  - type: Sprite
-    sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/improvised_magnum_speed_loader.rsi
-    layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: base-4
-        map: [ "enum.GunVisualLayers.Mag" ]
-      # Unshaded tip layer removed to avoid missing state errors (no corresponding 'base-unshaded-*' states in RSI)
-  - type: Construction
-    graph: ImprovisedMagnumSpeedLoaderGraph
-    node: shell
-
-- type: entity
-  id: SpeedLoaderMagnumImprovised
-  name: "speed loader (.45 magnum)"
-  parent: [BaseItem, BaseMinorContraband]
-  components:
-  - type: Tag
-    tags:
-    - SpeedLoaderMagnum
-  - type: SpeedLoader
-  - type: BallisticAmmoProvider
-    proto: null
-    whitelist:
-      tags:
-      - CartridgeMagnum
-      - CartridgeMagnumImprovised
     capacity: 4
   - type: ContainerContainer
     containers:
@@ -71,13 +43,11 @@
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/improvised_magnum_speed_loader.rsi
     layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: base-4
-      map: [ "enum.GunVisualLayers.Mag" ]
-    - state: base-tip-4
-      map: [ "enum.GunVisualLayers.Tip" ]
-      color: "#717171"
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-4
+        map: [ "enum.GunVisualLayers.Mag" ]
+        # Unshaded tip layer removed to avoid missing state errors (no corresponding 'base-unshaded-*' states in RSI)
   - type: MagazineVisuals
     magState: base
     steps: 5
@@ -96,10 +66,10 @@
     proto: null
     whitelist:
       tags:
-      - CartridgeMagnum
-      - CartridgeMagnumImprovised
-      - CartridgeLightRifle
-      - CartridgeLightRifleImprovised
+        - CartridgeMagnum
+        - CartridgeMagnumImprovised
+        - CartridgeLightRifle
+        - CartridgeLightRifleImprovised
     capacity: 8
   - type: MagazineVisuals
     magState: base
@@ -112,13 +82,11 @@
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/improvised_lever_action_speed_loader.rsi
     layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: base-8
-      map: [ "enum.GunVisualLayers.Mag" ]
-    - state: base-tip-8
-      map: [ "enum.GunVisualLayers.Tip" ]
-      color: "#717171"
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-8
+        map: [ "enum.GunVisualLayers.Mag" ]
+        # Unshaded tip layer removed to avoid missing state errors (no corresponding 'base-unshaded-*' states in RSI)
   - type: Construction
     graph: SpeedLoaderMagnumLeverImprovisedGraph
     node: shell
