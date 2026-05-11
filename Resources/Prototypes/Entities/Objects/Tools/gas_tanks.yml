@@ -46,6 +46,9 @@
       Steel: 185
   - type: StaticPrice
     price: 30
+  - type: Tag
+    tags:
+    - GasTank
 
 - type: entity
   abstract: true
@@ -69,9 +72,10 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
-  - type: Tag # Funkystation - Crash Carts
+  - type: Tag
     tags:
     - OxygenTank
+    - GasTank
 
 - type: entity
   parent: GasTankRoundBase
