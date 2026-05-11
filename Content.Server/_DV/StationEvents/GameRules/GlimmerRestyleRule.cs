@@ -77,7 +77,7 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
             return false; //Do not show the popup if you go from no markings to no markings.
 
         var newMarking = _random.Pick(availableMarkings.Values.ToList()).AsMarking();
-        newMarking.SetColor(newMarkingColor);
+        newMarking.WithColor(newMarkingColor);
 
         // TODO: God has seen this and feels the same pain as I. There must be a better way.
         var markings = new Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>>();
