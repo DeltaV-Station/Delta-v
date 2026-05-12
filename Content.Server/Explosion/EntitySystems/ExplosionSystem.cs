@@ -7,7 +7,7 @@ using Content.Server.Destructible;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
 using Content.Server.Station.Systems; // DeltaV - Admin QOL
-using Content.Shared._ES.Camera;
+using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Atmos.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;

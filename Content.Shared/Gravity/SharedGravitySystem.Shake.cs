@@ -1,7 +1,7 @@
 using Content.Shared._ES.Camera; // ES
-using Content.Shared.GameTicking;
+using Content.Shared.GameTicking; // ES
 using Robust.Shared.Player; // ES
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // ES
 
 namespace Content.Shared.Gravity;
 

@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._ES.Camera;
+using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Camera;

@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._ES.Camera;
+using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
