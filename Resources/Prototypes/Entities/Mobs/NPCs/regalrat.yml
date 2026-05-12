@@ -1,7 +1,7 @@
 - type: entity
   name: rat king
   id: MobRatKing
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
   - type: CombatMode
@@ -57,14 +57,6 @@
       types:
         Slash: 12
         Piercing: 8
-  - type: Body
-    prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -173,7 +165,7 @@
 - type: entity
   name: rat servant
   id: MobRatServant
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat ]
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
@@ -257,14 +249,6 @@
       types:
         Slash: 4 #Delta-V was 5
         Piercing: 2 #Delta-V was 3
-  - type: Body
-    prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200

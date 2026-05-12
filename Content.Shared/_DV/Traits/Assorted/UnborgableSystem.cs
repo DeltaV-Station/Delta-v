@@ -1,9 +1,7 @@
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Organ;
-using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Movement.Components; // TODO: use BrainComponent instead of InputMover if it gets moved to shared
-using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.Traits.Assorted;
 
@@ -12,7 +10,7 @@ namespace Content.Shared._DV.Traits.Assorted;
 /// </summary>
 public sealed class UnborgableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly BodySystem _body = default!;
 
     public override void Initialize()
     {
@@ -28,7 +26,7 @@ public sealed class UnborgableSystem : EntitySystem
     public bool IsUnborgable(Entity<BodyComponent?> ent)
     {
         // technically this will apply for any organ not just brain, but assume nobody will be evil and do that
-        return _body.GetBodyOrganEntityComps<UnborgableComponent>(ent).Count > 0;
+        return _body.TryGetOrgansWithComponent<UnborgableComponent>(ent, out var organs) && organs.Count != 0;
     }
 
     private void OnMapInit(Entity<UnborgableComponent> ent, ref MapInitEvent args)
@@ -36,7 +34,7 @@ public sealed class UnborgableSystem : EntitySystem
         if (!TryComp<BodyComponent>(ent, out var body))
             return;
 
-        var brains = _body.GetBodyOrganEntityComps<InputMoverComponent>((ent.Owner, body));
+        _body.TryGetOrgansWithComponent<InputMoverComponent>(ent.Owner, out var brains);
         foreach (var brain in brains)
         {
             EnsureComp<UnborgableComponent>(brain);

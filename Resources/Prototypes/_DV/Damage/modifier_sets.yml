@@ -173,3 +173,15 @@
     Slash: 40
     Piercing: 15
     Heat: 10
+
+- type: damageModifierSet
+  id: GenemoddedScale # Strong brute-focused scales.
+  coefficients:
+    Cold: 1.2
+    Radiation: 1.2
+    Poison: 1.2
+    Piercing: 0.8
+    Slash: 0.95 # DeltaV - emphasize slash weakness, was 0.75
+    Blunt: 0.75
+    Heat: 1.1
+    Shock: 1.1

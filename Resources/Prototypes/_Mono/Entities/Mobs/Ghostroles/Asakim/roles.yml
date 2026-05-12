@@ -11,7 +11,7 @@
   components:
   - type: RandomHumanoidAppearance
     randomizeName: True
-  - type: HumanoidAppearance
+#  - type: HumanoidAppearance
     #height: 1.2 # DeltaV - non-functional
     #width: 1.2 # DeltaV - non-functional
   - type: Loadout
@@ -33,8 +33,9 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-  - type: SurgerySpeedModifier
-    speedModifier: 1.5
+  # Delta V Commented Olut for Nubody
+#  - type: SurgerySpeedModifier
+#    speedModifier: 1.5
   #- type: IntrinsicRadioReceiver # DeltaV - unused
   #- type: IntrinsicRadioTransmitter
   #  channels:

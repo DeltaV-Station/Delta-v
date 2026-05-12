@@ -38,11 +38,19 @@ public abstract class SharedScaleVisualsSystem : EntitySystem
     public void SetSpriteScale(EntityUid uid, Vector2 scale)
     {
         var comp = EnsureComp<ScaleVisualsComponent>(uid);
+
+        // Delta V - Begin Species Scaling
+
+        var diff = scale - Vector2.One;
+        var newScale = comp.SpeciesScale + diff;
+
+        // Delta V - End Species Scaling
+
         comp.Scale = scale;
         Dirty(uid, comp);
 
         var appearanceComponent = EnsureComp<AppearanceComponent>(uid);
-        _appearance.SetData(uid, ScaleVisuals.Scale, scale, appearanceComponent);
+        _appearance.SetData(uid, ScaleVisuals.Scale, newScale /* Delta V - Custom Species Scale */, appearanceComponent);
 
         // Raise an event for content use.
         var ev = new ScaleEntityEvent(uid, scale);

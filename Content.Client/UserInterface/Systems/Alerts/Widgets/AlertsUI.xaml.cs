@@ -20,7 +20,6 @@ public sealed partial class AlertsUI : UIWidget
     public AlertsUI()
     {
         RobustXamlLoader.Load(this);
-        LayoutContainer.SetGrowHorizontal(this, LayoutContainer.GrowDirection.Begin); // Shitmed?
     }
 
     public void SyncControls(AlertsSystem alertsSystem,

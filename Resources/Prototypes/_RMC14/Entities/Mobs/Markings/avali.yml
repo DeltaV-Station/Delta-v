@@ -1,8 +1,7 @@
 - type: marking
   id: AvaliHairBigPonytail
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_bigponytail_primary
@@ -14,8 +13,7 @@
 - type: marking
   id: AvaliHairCockatiel
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_cockatiel_primary
@@ -25,8 +23,7 @@
 - type: marking
   id: AvaliHairCockatoo
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_cockatoo_primary
@@ -36,8 +33,7 @@
 - type: marking
   id: AvaliHairDuelFeather
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_dualfeather_primary
@@ -47,8 +43,7 @@
 - type: marking
   id: AvaliHairHooked
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_hooked_primary
@@ -58,8 +53,7 @@
 - type: marking
   id: AvaliHairJay
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_jay_primary
@@ -69,8 +63,7 @@
 - type: marking
   id: AvaliHairLongFeather
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_longfeather_primary
@@ -80,8 +73,7 @@
 - type: marking
   id: AvaliHairPunk
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
     - sprite: _Starlight/Mobs/Customization/Avali/avali_crests.rsi # DeltaV - Using Starlight Avali sprites
       state: avali_crest_punk_primary
@@ -93,10 +85,8 @@
 - type: marking
   id: AvaliEarsBase
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  followSkinColor: true
   forcedColoring: true
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: ears_avalibase_primary
@@ -106,10 +96,8 @@
 - type: marking
   id: AvaliTailBase
   bodyPart: Tail
-  markingCategory: Tail
-  followSkinColor: true
   forcedColoring: true
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: tail_avalibase
@@ -119,8 +107,7 @@
 - type: marking
   id: AvaliEarsStripeOne
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: ears_avalibase_primary
@@ -138,8 +125,7 @@
 - type: marking
   id: AvaliHeadStripeOne
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: head_primary
@@ -149,8 +135,7 @@
 - type: marking
   id: AvaliTorsoStripeOne
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: torso_primary
@@ -160,8 +145,7 @@
 - type: marking
   id: AvaliLArmStripeOne
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: larm_primary
@@ -171,8 +155,7 @@
 - type: marking
   id: AvaliRArmStripeOne
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: rarm_primary
@@ -182,8 +165,7 @@
 - type: marking
   id: AvaliLHandStripeOne
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: lhand_primary
@@ -193,8 +175,7 @@
 - type: marking
   id: AvaliRHandStripeOne
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: rhand_primary
@@ -204,8 +185,7 @@
 - type: marking
   id: AvaliLLegStripeOne
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: lleg
@@ -213,8 +193,7 @@
 - type: marking
   id: AvaliRLegStripeOne
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_stripes_one.rsi # DeltaV - Using Starlight Avali sprites
     state: rleg
@@ -222,8 +201,7 @@
 - type: marking
   id: AvaliTailStripeOne
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: tail_avalibase
@@ -237,8 +215,7 @@
 - type: marking
   id: AvaliEarsTrimOne
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: ears_avalibase_primary
@@ -256,8 +233,7 @@
 - type: marking
   id: AvaliHeadTrimOne
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: head_primary
@@ -267,8 +243,7 @@
 - type: marking
   id: AvaliTorsoTrimOne
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: torso_primary
@@ -278,8 +253,7 @@
 - type: marking
   id: AvaliLArmTrimOne
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: larm_primary
@@ -289,8 +263,7 @@
 - type: marking
   id: AvaliRArmTrimOne
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: rarm_primary
@@ -300,8 +273,7 @@
 - type: marking
   id: AvaliRHandTrimOne
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: rhand_primary
@@ -311,8 +283,7 @@
 - type: marking
   id: AvaliLHandTrimOne
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: lhand_primary
@@ -322,8 +293,7 @@
 - type: marking
   id: AvaliLLegTrimOne
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: lleg_primary
@@ -333,8 +303,7 @@
 - type: marking
   id: AvaliRLegTrimOne
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_one.rsi # DeltaV - Using Starlight Avali sprites
     state: rleg_primary
@@ -344,8 +313,7 @@
 - type: marking
   id: AvaliTailTrimOne
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: tail_avalibase
@@ -359,8 +327,7 @@
 - type: marking
   id: AvaliEarsTrimTwo
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: ears_avalibase_primary
@@ -378,8 +345,7 @@
 - type: marking
   id: AvaliHeadTrimTwo
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_two.rsi # DeltaV - Using Starlight Avali sprites
     state: head_primary
@@ -389,8 +355,7 @@
 - type: marking
   id: AvaliTorsoTrimTwo
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_two.rsi # DeltaV - Using Starlight Avali sprites
     state: torso_primary
@@ -400,8 +365,7 @@
 - type: marking
   id: AvaliLArmTrimTwo
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_two.rsi # DeltaV - Using Starlight Avali sprites
     state: larm_primary
@@ -411,8 +375,7 @@
 - type: marking
   id: AvaliRArmTrimTwo
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_two.rsi # DeltaV - Using Starlight Avali sprites
     state: rarm_primary
@@ -422,8 +385,7 @@
 - type: marking
   id: AvaliLHandTrimTwo
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_two.rsi # DeltaV - Using Starlight Avali sprites
     state: lhand_primary
@@ -433,8 +395,7 @@
 - type: marking
   id: AvaliRHandTrimTwo
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_trim_two.rsi # DeltaV - Using Starlight Avali sprites
     state: rhand_primary
@@ -444,8 +405,7 @@
 - type: marking
   id: AvaliTailTrimTwo
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Avali ]
+  groupWhitelist: [ Avali ] # Delta V - Nubody speciesRestriction to groupWhitelist
   sprites:
   - sprite: _Starlight/Mobs/Customization/Avali/avali_parts.rsi # DeltaV - Using Starlight Avali sprites
     state: tail_avalibase

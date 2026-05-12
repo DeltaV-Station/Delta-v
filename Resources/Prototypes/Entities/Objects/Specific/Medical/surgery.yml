@@ -1,5 +1,3 @@
-# Im not even gonna bother marking this file with Shitmed Change(s), I'm fucking with almost everything.
-
 # Base
 
 - type: entity
@@ -13,8 +11,6 @@
   - type: Tag
     tags:
     - SurgeryTool
-  - type: SurgeryTool
-  - type: SurgeryDirtiness # DeltaV - make sure surgery tools start with surgery dirtiness component
 
 # Cautery
 
@@ -25,10 +21,10 @@
   description: A surgical tool used to cauterize open wounds.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     storedRotation: 90
   - type: MeleeWeapon
     damage:
@@ -36,14 +32,6 @@
         Heat: 5
     soundHit:
       path: /Audio/Effects/lightburn.ogg
-  # Shitmed Change
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
-  - type: Cautery
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Drill
 
@@ -54,10 +42,10 @@
   description: A surgical drill for making holes into hard material.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    sprite: Objects/Specific/Medical/Surgery/drill.rsi
     shape:
     - 0,0,1,0
     - 1,1,1,1
@@ -75,12 +63,6 @@
       path: /Audio/Items/drill_hit.ogg
   - type: StaticPrice
     price: 40
-  # Shitmed Change
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-  - type: Drill
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Scalpel
 
@@ -100,10 +82,10 @@
     types:
       - Knife
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -114,14 +96,6 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  # Shitmed Change
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
-  - type: Scalpel
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: shiv
@@ -155,13 +129,6 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  # Shitmed Change
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
-  - type: Scalpel
   # END DeltaV
   - type: Fixtures
     fixtures:
@@ -173,7 +140,6 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
-
 
 - type: entity
   name: advanced scalpel
@@ -192,9 +158,6 @@
     damage:
       types:
         Slash: 12
-  - type: Scalpel # Shitmed
-    speed: 1.25
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: laser scalpel
@@ -216,10 +179,6 @@
         Slash: 4
         Heat: 4
   # End DeltaV additions
-  - type: Scalpel # Shitmed
-    speed: 1.5
-  # TODO: prevent bleeding from incisions
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Retractor
 
@@ -230,73 +189,25 @@
   description: A surgical tool used to hold open incisions.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 90
-  # Shitmed Change
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
-  - type: Retractor
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Hemostat
 
 - type: entity
   name: hemostat
   id: Hemostat
-  parent: BaseToolSurgery # Shitmed Change
+  parent: Retractor
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
     state: hemostat
   - type: Item
     heldPrefix: hemostat
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
     storedRotation: 90
-  # Shitmed Change
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
-  - type: Hemostat
-  - type: Tweezers # Shitmed
-  - type: Tending # Shitmed
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-# Bone setter - Shitmed Change
-- type: entity
-  parent: BaseToolSurgery
-  id: Bonesetter
-  name: bone setter
-  description: Used for setting bones back into place.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
-    state: bonesetter
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
-  - type: BoneSetter
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-# Bone Gel - Shitmed Change
-- type: entity
-  parent: BaseToolSurgery
-  id: BoneGel
-  name: bottle of bone gel
-  description: A container for bone gel that often needs to be refilled from a specialized machine.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
-    state: bone-gel
-  - type: BoneGel
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 # Saws
 - type: entity
@@ -319,12 +230,6 @@
   - type: Tool
     qualities:
       - Sawing
-  # Shitmed Change
-  - type: BoneSaw
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
   # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -347,8 +252,6 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
     speedModifier: 0.5
-  - type: BoneSaw # Shitmed
-    speed: 0.5
 
 - type: entity
   name: circular saw
@@ -357,11 +260,9 @@
   description: For heavy duty cutting.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
-    state: circular-saw
+    state: electric
   - type: Item
-    size: Normal
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    heldPrefix: electric
   - type: MeleeWeapon
     # Start DeltaV additions
     autoAttack: true
@@ -378,9 +279,6 @@
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
     speedModifier: 1.5
-  - type: BoneSaw # Shitmed
-    speed: 1.5
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
 
 - type: entity
   name: advanced circular saw
@@ -404,160 +302,3 @@
         Structural: 20 # DeltaV: Added 20 structural damage
   - type: Tool
     speedModifier: 2.0
-  - type: BoneSaw # Shitmed
-    speed: 2
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-# Shitmed Tools
-
-- type: entity
-  name: searing tool
-  id: EnergyCautery
-  parent: Cautery
-  description: A cautery with an energy tip, also serves as a drill in its powered state.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
-    state: e-cautery-on
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
-    inhandVisuals:
-      left:
-      - state: inhand-left-on
-      right:
-      - state: inhand-right-on
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 45 # DeltaV: Added wideAnimationRotation
-    damage:
-      types:
-        Piercing: 6 # DeltaV: Changed from 10 to 6
-        Heat: 6 # DeltaV: Changed from 1 to 6
-  - type: Cautery
-    speed: 1.5
-  - type: Drill
-    speed: 1.5
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-- type: entity
-  name: energy scalpel
-  id: EnergyScalpel
-  parent: Scalpel
-  description: A scalpel which uses an energy blade, also serves as a saw in its powered state.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
-    state: e-scalpel-on
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
-    inhandVisuals:
-      left:
-      - state: inhand-left-on
-      right:
-      - state: inhand-right-on
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 6 # DeltaV: Changed from 10 to 6
-        Heat: 6 # DeltaV: Changed from 1 to 6
-  - type: Scalpel
-    speed: 1.5
-  - type: BoneSaw
-    speed: 1.5
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-- type: entity
-  name: mechanical pinches
-  id: AdvancedRetractor
-  parent: Retractor
-  description: A retractor with mechanical pinches, also serves as a hemostat in its powered state.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
-    state: adv-retractor-on
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
-    inhandVisuals:
-      left:
-      - state: inhand-left-on
-      right:
-      - state: inhand-right-on
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
-  - type: MeleeWeapon
-    # Start DeltaV additions
-    wideAnimationRotation: -90
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-    # End DeltaV additions
-    damage:
-      types:
-        Slash: 4 # DeltaV: Changed to 4
-        Heat: 2 # DeltaV: Increased by 1
-
-  - type: Hemostat
-    speed: 1.5
-  - type: Retractor
-    speed: 1.5
-  - type: Tweezers
-    speed: 1.5
-  - type: Tending
-    speed: 1.5
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-- type: entity
-  name: medical multitool
-  id: OmnimedTool
-  parent: BaseToolSurgery
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-    state: omnimed
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-  - type: Hemostat
-    speed: 2
-  - type: Scalpel
-    speed: 2
-  - type: Drill
-    speed: 2
-  - type: BoneSetter
-    speed: 2
-  - type: Retractor
-    speed: 2
-  - type: Cautery
-    speed: 2
-  - type: BoneGel
-    speed: 2
-  - type: BoneSaw
-    speed: 2
-  - type: Tweezers
-    speed: 2
-  - type: Tending
-    speed: 2
-  - type: MedicalSurgeryTool # DeltaV Shitmed - Used for borg hand whitelists for surgery module
-
-- type: entity
-  parent: [ OmnimedTool, BaseSyndicateContraband ]
-  id: OmnimedToolSyndie
-  components:
-  - type: Sprite
-    state: evil
-  - type: Item
-    size: Small
-    heldPrefix: evil

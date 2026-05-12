@@ -8,10 +8,6 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 12h # DeltaV - was 1h
-  - !type:SpeciesRequirement # DeltaV
-    inverted: true
-    species:
-    - IPC
 
 - type: antag
   id: Zombie
@@ -20,8 +16,4 @@
   setPreference: false
   objective: roles-antag-zombie-objective
   requirements:
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - IPC
   guides: [ Zombies ]
