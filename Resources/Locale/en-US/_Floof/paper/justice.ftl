@@ -108,7 +108,7 @@ paperwork-justice-trial-docket-criminal =
     {"["}head=3]Charges:[/head]
     1XX Misdemeanor Crimes:
     \[  ] Code:101 (Animal Cruelty) - 2mins
-    \[  ] Code:102 (Harassment) - 4mins
+    \[  ] Code:102 (Harassment) - 3mins
     \[  ] Code:103 (Vigilantism) - 4mins
     \[  ] Code:104 (Petty Larceny) - 2mins
     \[  ] Code:105 (Trespass) - 2mins
@@ -125,23 +125,25 @@ paperwork-justice-trial-docket-criminal =
     \[  ] Code:206 (Obstruction of Justice) - 4mins
     \[  ] Code:207 (Perjury or False Report) - 4mins
     \[  ] Code:208 (Contempt of Court) - 4mins
+    \[  ] Code:209 (Identity Theft) - 5mins
     { paperwork-separator-justice }
     2XX Grand Felony Crimes:
     \[  ] Code:301 (Manslaughter) - 10mins
     \[  ] Code:302 (Kidnapping) - 10mins
     \[  ] Code:303 (Grand Possession) - 20mins Max
+    \[  ] Code:304 (Noospheric Tampering) - 8mins
     \[  ] Code:305 (Sabotage) - 8mins
     \[  ] Code:306 (Abuse of Power) - 10mins
     \[  ] Code:307 (Grand Larceny) - 8mins
     \[  ] Code:308 (Black Marketeering) - 8mins
     { paperwork-separator-justice }
     3XX Capital Crimes:
-    \[  ] Code:402 (Terrorism)
     \[  ] Code:401 (Murder)
+    \[  ] Code:402 (Terrorism)
     \[  ] Code:403 (Grand Sabotage)
     \[  ] Code:404 (Prevention of Revival)
-    \[  ] Code:406 (Breach of Custody)
     \[  ] Code:405 (Sedition)
+    \[  ] Code:406 (Breach of Custody)
     { paperwork-separator-justice }
     Crime Modifiers:
     {"["}color=gray]Time matches crimes commited or attempted.[/color]
@@ -149,14 +151,14 @@ paperwork-justice-trial-docket-criminal =
     \[  ] Accessory
     \[  ] Attempt
     \[  ] Conspiracy
-    {"["}color=gray]150% max additional modifier of original sentence.[/color]
+    {"["}color=gray]At most, +50% of the original sentence.[/color]
     \[  ] Deadly Weapon
     \[  ] Aggravation
     \[  ] Discriminatory Intent
-    {"["}color=gray]200% max additional modifier of original sentence.[/color]
+    {"["}color=gray]At most, x2 of the original sentence.[/color]
     \[  ] Recidivism
     {"["}color=gray]Sentence reduction or pardon.[/color]
-    \[  ] Cooperation - 50% reduction of original sentence.
+    \[  ] Cooperation - Up to 50% reduction of original sentence.
     \[  ] Dire Emergency - Sentence reduction or full pardon.
     \[  ] Self-Defence - Sentence reduction or full pardon.
     { paperwork-separator-justice }

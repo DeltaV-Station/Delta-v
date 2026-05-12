@@ -2,7 +2,7 @@
   name: pardon request
   parent: PaperTemplate
   id: PaperTemplateJusticePardonRequest
-  description: 'apply to be pardoned of your Permanent Confinement.'
+  description: 'Apply to be pardoned of your Permanent Confinement.'
   components:
   - type: Paper
     contentSize: 10000
@@ -12,7 +12,7 @@
   name: restraining order
   parent: PaperTemplate
   id: PaperTemplateJusticeRestrainingOrder
-  description: 'a restraining order, tell them to get the fuck away.'
+  description: 'A restraining order to keep someone away.'
   components:
   - type: Paper
     contentSize: 10000
@@ -22,7 +22,7 @@
   name: civil trial docket
   parent: PaperTemplate
   id: PaperTemplateJusticeTrialDocketCivil
-  description: 'a notice that a Civil Trial has been requested.'
+  description: 'A request for a Civil Trial.'
   components:
   - type: Paper
     contentSize: 10000
@@ -32,7 +32,7 @@
   name: criminal trial docket
   parent: PaperTemplate
   id: PaperTemplateJusticeTrialDocketCriminal
-  description: 'a notice that a Criminal trial has been requested.'
+  description: 'A request for a Criminal Trial.'
   components:
   - type: Paper
     contentSize: 10000
@@ -42,7 +42,7 @@
   name: written testimony
   parent: PaperTemplate
   id: PaperTemplateJusticeTrialDocketTestimony
-  description: 'a written account of what happened, admissible in court.'
+  description: 'A written account of what happened, admissible in court.'
   components:
   - type: Paper
     contentSize: 10000

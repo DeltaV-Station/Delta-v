@@ -2,7 +2,7 @@
   name: arrest report
   parent: PaperTemplate
   id: PaperTemplateSecurityArrestReport
-  description: 'report why somebody was arrested'
+  description: 'Report why somebody was arrested'
   components:
   - type: Paper
     contentSize: 10000
@@ -12,7 +12,7 @@
   name: arrest warrant
   parent: PaperTemplate
   id: PaperTemplateSecurityArrestWarrant
-  description: 'a warrant for somebodies arrest'
+  description: 'A warrant for someones arrest'
   components:
   - type: Paper
     contentSize: 10000
@@ -22,7 +22,7 @@
   name: department search warrant
   parent: PaperTemplate
   id: PaperTemplateSecurityDepartSearchWarrant
-  description: 'a search warrant for an entire department.'
+  description: 'A search warrant for an entire department.'
   components:
   - type: Paper
     contentSize: 10000
@@ -32,7 +32,7 @@
   name: detective report
   parent: PaperTemplate
   id: PaperTemplateSecurityDetectiveReport
-  description: 'reports the detectives findings'
+  description: 'Reports the detectives findings'
   components:
   - type: Paper
     contentSize: 10000
@@ -42,7 +42,7 @@
   name: furlough request
   parent: PaperTemplate
   id: PaperTemplateSecurityFurloughRequest
-  description: 'let s an inmate walk free for a period of time'
+  description: 'Let an inmate walk free for a period of time'
   components:
   - type: Paper
     contentSize: 10000
@@ -62,7 +62,7 @@
   name: inmate request
   parent: PaperTemplate
   id: PaperTemplateSecurityInmateRequest
-  description: 'He is dead Jim.'
+  description: 'For an Inmate to request something.'
   components:
   - type: Paper
     contentSize: 10000
@@ -72,8 +72,29 @@
   name: visitation request
   parent: PaperTemplate
   id: PaperTemplateSecurityVisitationRequest
-  description: Let's you visit a prisoner for a period of time.
+  description: 'Visit a prisoner for a period of time.'
   components:
   - type: Paper
     contentSize: 10000
     content: paperwork-security-visitation-request
+
+- type: entity
+  name: restricted equipment permit
+  parent: PaperTemplate
+  id: PaperTemplateSecurityRestrictedEquipmentPermit
+  description: 'Those juicy jaws of life, sec will take it away if your missing this.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-restricted-equipment-permit
+
+
+- type: entity
+  name: restricted weapons permit
+  parent: PaperTemplate
+  id: PaperTemplateSecurityRestrictedWeaponsPermit
+  description: 'A permit for restricted weapons.'
+  components:
+  - type: Paper
+    contentSize: 10000
+    content: paperwork-security-restricted-weapons-permit

@@ -1,10 +1,10 @@
 paperwork-command-header = {"["}color=#009100]◥[bold]N[/bold]◣ [head=3][bold]Central Command[/bold][/head][/color]
 paperwork-command-separator = {"["}color=#009100]‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾[/color]
 
-paperwork-command-emergency-personal-recovery =
+paperwork-command-emergency-personnel-recovery =
     { paperwork-command-header }
     { paperwork-command-separator }
-        {"["}bold]EMERGENCY PERSONAL RECOVERY[/bold]
+        {"["}bold]EMERGENCY PERSONNEL RECOVERY[/bold]
     { paperwork-command-separator }
         {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX

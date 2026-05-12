@@ -1,18 +1,18 @@
 - type: entity
-  name: emergency personal recovery
+  name: emergency personnel recovery
   parent: PaperTemplate
-  id: PaperTemplateCommandEmergencyPersonalRecovery
+  id: PaperTemplateCommandEmergencyPersonnelRecovery
   description: 'Another salvager lost in space? Central Command might know how to help.'
   components:
   - type: Paper
     contentSize: 10000
-    content: paperwork-command-emergency-personal-recovery
+    content: paperwork-command-emergency-personnel-recovery
 
 - type: entity
   name: station request for assistance
   parent: PaperTemplate
   id: PaperTemplateCommandStationRequestForAssistance
-  description: 'Use this to call the emergency response team.'
+  description: 'Use this to request an emergency response team.'
   components:
   - type: Paper
     contentSize: 10000

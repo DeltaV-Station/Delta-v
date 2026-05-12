@@ -22,7 +22,7 @@
   name: crewmate identification
   parent: PaperTemplate
   id: PaperTemplateHopCrewmateIdentification
-  description: 'Your CV'
+  description: 'Identify yourself or an individual'
   components:
   - type: Paper
     contentSize: 10000
@@ -32,7 +32,7 @@
   name: formal complaint
   parent: PaperTemplate
   id: PaperTemplateHopFormalComplaint
-  description: 'if you have a complaint, fax it to CC.'
+  description: 'If you have a complaint, fax it to CC.'
   components:
   - type: Paper
     contentSize: 10000
@@ -68,22 +68,5 @@
     contentSize: 10000
     content: paperwork-hop-employment-application
 
-- type: entity
-  name: restricted equipment permit
-  parent: PaperTemplate
-  id: PaperTemplateHopRestrictedEquipmentPermit
-  description: 'those juicy jaws of life, sec will take it away if your missing this.'
-  components:
-  - type: Paper
-    contentSize: 10000
-    content: paperwork-hop-restricted-equipment-permit
 
-- type: entity
-  name: restricted weapons permit
-  parent: PaperTemplate
-  id: PaperTemplateHopRestrictedWeaponsPermit
-  description: 'Do you want to carry that boom stick? Gotta have this.'
-  components:
-  - type: Paper
-    contentSize: 10000
-    content: paperwork-hop-restricted-weapons-permit
+

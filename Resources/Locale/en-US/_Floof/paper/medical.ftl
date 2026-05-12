@@ -28,7 +28,7 @@ paperwork-medical-death-certificate =
     {"["}bold]Chief Medical Officers Signature:[/bold]
 
 
-paperwork-medical-order-of-dismissal =
+paperwork-medical-order-of-dismissal-medically-unfit =
     { paperwork-header-medical }
     { paperwork-separator-medical }
         {"["}head=2]ORDER OF DISMISSAL - MEDICALLY UNFIT [/head]
@@ -47,7 +47,7 @@ paperwork-medical-order-of-dismissal =
     { paperwork-separator-medical }
     {"["}color=red]This document is not valid unless stamped by at least two of the required personnel, with one being the Chief Medical Officer.[/color]
 
-    {"["}italic][color=gray]NOTE: The initialization of dismissal can only be carried out by the station's Chief Medical Officer in agreement with the Head of Personnel or the Head of Security ([bold]or with the permission of Central Command[/bold]). This document must have the signature of the dismissed person (except in cases of direct refusal to sign the order). The document is only valid if at least two listed department heads seals and signatures are present ([bold]or with the permission of Central Command[/bold]).[/italic][/color]
+    {"["}italic][color=gray]NOTE: The initialization of dismissal can only be carried out by the station's Chief Medical Officer, or by the Head of Personnel / Head of Security ([bold]with the express permission of Central Command[/bold]). This document must have the signature of the dismissed person (except in cases of direct refusal to sign the order). The document is only valid if at least two listed department heads seals and signatures are present ([bold]or with the permission of Central Command[/bold]).[/italic][/color]
 
     {"["}bold]Chief Medical Officer's Signature:[/bold]
     {"["}bold]Head Of Personnel's Signature:[/bold]

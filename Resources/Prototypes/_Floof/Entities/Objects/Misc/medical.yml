@@ -2,18 +2,18 @@
   name: death certificate
   parent: PaperTemplate
   id: PaperTemplateMedicalDeathCertificate
-  description: 'He is dead Jim.'
+  description: 'A way to Certify death of an individual.'
   components:
   - type: Paper
     contentSize: 10000
     content: paperwork-medical-death-certificate
 
 - type: entity
-  name: order of dismissal
+  name: order of dismissal (medically unfit)
   parent: PaperTemplate
-  id: PaperTemplateMedicalOrderOfDismissal
-  description: 'For those insane people who are just unfit to work.'
+  id: PaperTemplateMedicalOrderOfDismissalMedicallyUnfit
+  description: 'To declare someone Medically unfit to work.'
   components:
   - type: Paper
     contentSize: 10000
-    content: paperwork-medical-order-of-dismissal
+    content: paperwork-medical-order-of-dismissal-medically-unfit

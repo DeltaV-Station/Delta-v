@@ -19,7 +19,7 @@ paperwork-security-arrest-report =
     {"["}head=3]Charges:[/head]
     1XX Misdemeanor Crimes:
     \[  ] Code:101 (Animal Cruelty) - 2mins
-    \[  ] Code:102 (Harassment) - 4mins
+    \[  ] Code:102 (Harassment) - 3mins
     \[  ] Code:103 (Vigilantism) - 4mins
     \[  ] Code:104 (Petty Larceny) - 2mins
     \[  ] Code:105 (Trespass) - 2mins
@@ -36,23 +36,25 @@ paperwork-security-arrest-report =
     \[  ] Code:206 (Obstruction of Justice) - 4mins
     \[  ] Code:207 (Perjury or False Report) - 4mins
     \[  ] Code:208 (Contempt of Court) - 4mins
+    \[  ] Code:209 (Identity Theft) - 5mins
     { paperwork-separator-security }
     2XX Grand Felony Crimes:
     \[  ] Code:301 (Manslaughter) - 10mins
     \[  ] Code:302 (Kidnapping) - 10mins
     \[  ] Code:303 (Grand Possession) - 20mins Max
+    \[  ] Code:304 (Noospheric Tampering) - 8mins
     \[  ] Code:305 (Sabotage) - 8mins
     \[  ] Code:306 (Abuse of Power) - 10mins
     \[  ] Code:307 (Grand Larceny) - 8mins
     \[  ] Code:308 (Black Marketeering) - 8mins
     { paperwork-separator-security }
     3XX Capital Crimes:
-    \[  ] Code:402 (Terrorism)
     \[  ] Code:401 (Murder)
+    \[  ] Code:402 (Terrorism)
     \[  ] Code:403 (Grand Sabotage)
     \[  ] Code:404 (Prevention of Revival)
-    \[  ] Code:406 (Breach of Custody)
     \[  ] Code:405 (Sedition)
+    \[  ] Code:406 (Breach of Custody)
     {"["}color=gray]All Capital crimes necessitate a mandatory hearing.[/color]
     { paperwork-separator-security }
     Crime Modifiers:
@@ -61,21 +63,21 @@ paperwork-security-arrest-report =
     \[  ] Accessory
     \[  ] Attempt
     \[  ] Conspiracy
-    {"["}color=gray]150% max additional modifier of original sentence.[/color]
+    {"["}color=gray]At most, +50% of the original sentence.[/color]
     \[  ] Deadly Weapon
     \[  ] Aggravation
     \[  ] Discriminatory Intent
-    {"["}color=gray]200% max additional modifier of original sentence.[/color]
+    {"["}color=gray]At most, x2 of the original sentence.[/color]
     \[  ] Recidivism
     {"["}color=gray]Sentence reduction or pardon.[/color]
-    \[  ] Cooperation - 50% reduction of original sentence.
+    \[  ] Cooperation - Up to 50% reduction of original sentence.
     \[  ] Dire Emergency - Sentence reduction or full pardon.
     \[  ] Self-Defence - Sentence reduction or full pardon.
 
     {"["}color=red]This document is not valid unless stamped by at least one of the required personnel.[/color]
     {"["}color=gray]This form follows NT space law.[/color]
     {"["}color=gray]Those who abuse granted permission can be fined up to 5000 Spesos.[/color]
-    {"["}bold]Warden or Head of Securiy's Signature:[/bold]
+    {"["}bold]Warden or Head of Security's Signature:[/bold]
     {"["}bold]Attorney's Signature:[/bold]
     {"["}bold]Prosecutor's Signature:[/bold]
 
@@ -124,7 +126,7 @@ paperwork-security-department-search-warrant =
     { paperwork-separator-security }
     If illegal items are found in the searched department they will be confiscated and the owner of these items may be detained at the officer's discretion. Search warrants should include an area, a brief description of the probable cause, and a list of individuals if applicable.
 
-    {"["}bold]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer, the Head of Security, or the Warden.[/bold]
+    {"["}bold]Warrants are only valid when issued by either the Chief Justice, or in their absence, The Commanding Officer / Head of Security.[/bold]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
     {"["}color=gray]This form follows NT space law.[/color]
@@ -265,7 +267,8 @@ paperwork-security-visitation-request =
     { paperwork-separator-security }
     {"["}bold]Guest's reason for visitation:[/bold]
 
-    /[ ]Conjugal - [color=red]STRICTLY 1HR MAX[/color]
+    /[ ]Official Visit (Prosecutor and Attourney Only)
+    /[ ]Social Visit
     {"["}color=red][bold]DO NOT SIGN UNTIL INMATE SIGNS!!![/color][/bold]
     { paperwork-separator-security }
     {"["}bold]Inmate's reason for denial (if denied):[/bold]
@@ -278,3 +281,55 @@ paperwork-security-visitation-request =
     {"["}color=red][italic]By signing here, the visitor and Inmate agree to adheare to the conditions listed within this form.[/color][/italic]
     {"["}bold]Requesting Visitor's Signature:[/bold]
     {"["}bold]Inmate's Signature:[/bold]
+
+paperwork-security-restricted-weapons-permit =
+     { paperwork-header-security }
+     { paperwork-separator-security }
+         {"["}head=2]Restricted Weapons Permit [/head]
+     { paperwork-separator-security }
+         {"["}bold]SECTOR:[/bold] Delta-V
+         {"["}bold]STATION:[/bold]
+         {"["}bold]SHIFT TIME:[/bold] XX:XX
+         {"["}bold]WEAPON USER: [/bold]
+         {"["}bold]WEAPON TYPE: [/bold]
+         {"["}bold]JOB: [/bold]
+     { paperwork-separator-security }
+     {"•"} Reasons for desired Equipment:
+        {"•"} Other Notes:
+     { paperwork-separator-security }
+
+     {"["}color=red]This document gives [insert name] the ability to carry contraband class armaments.[/color]
+
+     {"["}color=gray]Armaments include but are not limited to: automatic weapons, combat explosives, and/or energy based melee weaponry.[/color]
+
+     {"["}color=red]This document must be signed and stamped by the Commanding Officer, Head of Security, or Warden to be considered valid.[/color]
+
+     {"["}bold]Warden's Stamp & Signature:[/bold]
+     {"["}bold]Head of Security's Stamp & Signature:[/bold]
+     {"["}bold]Commanding Officer's Stamp & Signature:[/bold]
+
+paperwork-security-restricted-equipment-permit =
+    { paperwork-header-security }
+    { paperwork-separator-security }
+        {"["}head=2]Restricted Equipment License [/head]
+    { paperwork-separator-security }
+        {"["}bold]SECTOR:[/bold] Delta-V
+        {"["}bold]STATION:[/bold]
+        {"["}bold]SHIFT TIME:[/bold] XX:XX
+        {"["}bold]EQUIPMENT USER: [/bold]
+        {"["}bold]CLASS OF CONTRIBAND: [/bold]
+        {"["}bold]SPECIFIC ITEM'S REQUESTED FOR LICENSE: [/bold]
+        {"["}bold]JOB: [/bold]
+    { paperwork-separator-security }
+    {"•"}  Reasons for desired Equipment:
+    {"•"}  Other Notes:
+    { paperwork-separator-security }
+    {"["}color=red]This document gives [insert name] the ability to carry {"{stated gear}"} unhindered.[/color]
+
+    {"["}color=gray]This Permit can be revoked at a moment's notice if the applicable party violates Space Law in the use of said Equipment.[/color]
+
+    {"["}color=red]This document must be signed and stamped by the Commanding Officer, Head of Security, or Warden to be considered valid.[/color]
+
+    {"["}bold]Warden's Stamp & Signature:[/bold]
+    {"["}bold]Head of Security Stamp & Signature:[/bold]
+    {"["}bold]Commanding Officer Stamp & Signature:[/bold]
