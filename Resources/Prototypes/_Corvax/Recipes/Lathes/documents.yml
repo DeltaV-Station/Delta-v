@@ -1,7 +1,7 @@
 ﻿- type: latheRecipePack
   id: PrinterDocuments
   recipes:
-  - PaperTemplateCommandEmergencyPersonalRequest
+  - PaperTemplateCommandEmergencyPersonnelRequest
   - PaperTemplateCommandStationRequestForAssistanceRecipe
   - PaperTemplateEngineeringBuildingPermitRecipe
   - PaperTemplateEpistemicsBorgificationNoticeRecipe
@@ -14,15 +14,13 @@
   - PaperTemplateHopOrderOfDismissalRecipe
   - PaperTemplateHopDismissalOfDepartmentHeadRecipe
   - PaperTemplateHopEmploymentApplicationRecipe
-  - PaperTemplateHopRestrictedEquipmentPermitRecipe
-  - PaperTemplateHopRestrictedWeaponsPermitRecipe
   - PaperTemplateJusticePardonRequestRecipe
   - PaperTemplateJusticeRestrainingOrderRecipe
   - PaperTemplateJusticeTrialDocketCivilRecipe
   - PaperTemplateJusticeTrialDocketCriminalRecipe
   - PaperTemplateJusticeTrialDocketTestimonyRecipe
   - PaperTemplateLogisticsCargoRequestRecipe
-  - PaperTemplateMedicalOrderOfDismissalRecipe
+  - PaperTemplateMedicalOrderOfDismissalMedicallyUnfitRecipe
   - PaperTemplateMedicalDeathCertificateRecipe
   - PaperTemplateSecurityArrestReportRecipe
   - PaperTemplateSecurityArrestWarrantRecipe
@@ -32,6 +30,8 @@
   - PaperTemplateSecurityIndividualSearchWarrantRecipe
   - PaperTemplateSecurityInmateRequestRecipe
   - PaperTemplateSecurityVisitationRequestRecipe
+  - PaperTemplateSecurityRestrictedEquipmentPermitRecipe
+  - PaperTemplateSecurityRestrictedWeaponsPermitRecipe
   - PaperTemplateServiceBotanyRequestRecipe
   - PaperTemplateServiceRestrictedPlantPermitRecipe
 
