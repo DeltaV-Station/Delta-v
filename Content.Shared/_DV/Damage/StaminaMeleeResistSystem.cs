@@ -15,7 +15,7 @@ public sealed class StaminaMeleeResistanceSystem : EntitySystem
 
     private void OnGetMeleeResistance(Entity<ArmorComponent> ent, ref InventoryRelayedEvent<BeforeStaminaDamageEvent> args)
     {
-        if (args.Args.FromMelee && ent.Comp.StaminaMeleeDamageCoefficient.HasValue)
-            args.Args.Value *= ent.Comp.StaminaMeleeDamageCoefficient.Value;
+        if (args.Args.FromMelee)
+            args.Args.Value *= ent.Comp.StaminaMeleeDamageCoefficient;
     }
 }

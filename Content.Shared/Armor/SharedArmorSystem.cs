@@ -25,20 +25,7 @@ public abstract class SharedArmorSystem : EntitySystem
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
-
-        SubscribeLocalEvent<ArmorComponent, MapInitEvent>(OnMapInit); // DeltaV - Give armor melee stamina resistance
     }
-
-    // Start DeltaV - Give armor melee stamina resistance
-    private void OnMapInit(Entity<ArmorComponent> armor, ref MapInitEvent args)
-    {
-        if (armor.Comp.StaminaMeleeDamageCoefficient is not null)
-            return;
-
-        armor.Comp.StaminaMeleeDamageCoefficient = armor.Comp.Modifiers.Coefficients.GetValueOrDefault("Blunt", 1.0f);
-        Dirty(armor);
-    }
-    // End DeltaV - Give armor melee stamina resistance
 
     /// <summary>
     /// Get the total Damage reduction value of all equipment caught by the relay.
@@ -116,16 +103,16 @@ public abstract class SharedArmorSystem : EntitySystem
             ));
         }
 
-        // Start DeltaV - Add melee stamina resistance information if it has any
-        if (component.StaminaMeleeDamageCoefficient == null || MathHelper.CloseTo(component.StaminaMeleeDamageCoefficient.Value, 1.0f))
-            return msg;
-
-        msg.PushNewline();
-        var reduction = (1 - component.StaminaMeleeDamageCoefficient) * 100;
-        msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-melee-coefficient-value",
-            ("value", MathF.Round(reduction.Value, 2))
-        ));
-        // End DeltaV - Add melee stamina resistance information if it has any
+        // Begin DeltaV Additions - Add melee stamina resistance information if it has any
+        if (!MathHelper.CloseTo(component.StaminaMeleeDamageCoefficient, 1.0f))
+        {
+            msg.PushNewline();
+            var reduction = (1 - component.StaminaMeleeDamageCoefficient) * 100;
+            msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-melee-coefficient-value",
+                ("value", MathF.Round(reduction, 1))
+            ));
+        }
+        // End DeltaV
 
         return msg;
     }
