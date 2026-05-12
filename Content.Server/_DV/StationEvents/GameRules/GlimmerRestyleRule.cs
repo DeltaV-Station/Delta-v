@@ -72,7 +72,6 @@ public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleCo
         if (availableMarkings.Count == 0)
             return false;
 
-        // TODO: Needs to be rewritten here, due to the Nubody Visual Merge
         if (_random.Prob(noMarkingsChance))
             return false; //Do not show the popup if you go from no markings to no markings.
 
