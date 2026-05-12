@@ -82,8 +82,8 @@
 
 - type: latheRecipe
   parent: BasePaperTemplateCommandRecipe
-  id: PaperTemplateCommandEmergencyPersonalRequest
-  result: PaperTemplateCommandEmergencyPersonalRecovery
+  id: PaperTemplateCommandEmergencyPersonnelRecovery
+  result: PaperTemplateCommandEmergencyPersonnelRecovery
 
 - type: latheRecipe
   parent: BasePaperTemplateCommandRecipe
@@ -151,16 +151,6 @@
   id: PaperTemplateHopEmploymentApplicationRecipe
   result: PaperTemplateHopEmploymentApplication
 
-- type: latheRecipe
-  parent: BasePaperTemplateHopRecipe
-  id: PaperTemplateHopRestrictedEquipmentPermitRecipe
-  result: PaperTemplateHopRestrictedEquipmentPermit
-
-- type: latheRecipe
-  parent: BasePaperTemplateHopRecipe
-  id: PaperTemplateHopRestrictedWeaponsPermitRecipe
-  result: PaperTemplateHopRestrictedWeaponsPermit
-
 # Justice
 
 - type: latheRecipe
@@ -199,8 +189,8 @@
 
 - type: latheRecipe
   parent: BasePaperTemplateMedicalRecipe
-  id: PaperTemplateMedicalOrderOfDismissalRecipe
-  result: PaperTemplateMedicalOrderOfDismissal
+  id: PaperTemplateMedicalOrderOfDismissalMedicallyUnfitRecipe
+  result: PaperTemplateMedicalOrderOfDismissalMedicallyUnfit
 
 - type: latheRecipe
   parent: BasePaperTemplateMedicalRecipe
@@ -248,6 +238,16 @@
   parent: BasePaperTemplateSecurityRecipe
   id: PaperTemplateSecurityVisitationRequestRecipe
   result: PaperTemplateSecurityVisitationRequest
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityRestrictedEquipmentPermitRecipe
+  result: PaperTemplateSecurityRestrictedEquipmentPermit
+
+- type: latheRecipe
+  parent: BasePaperTemplateSecurityRecipe
+  id: PaperTemplateSecurityRestrictedWeaponsPermitRecipe
+  result: PaperTemplateSecurityRestrictedWeaponsPermit
 
 # Service
 
