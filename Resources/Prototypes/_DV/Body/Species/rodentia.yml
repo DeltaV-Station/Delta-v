@@ -1,7 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
   id: Rodentia
-  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 1
@@ -12,6 +11,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
+      onlyGroupWhitelisted: true
       default: [ RodentiaTailDefault ]
     enum.HumanoidVisualLayers.LLeg:
       limit: 6
