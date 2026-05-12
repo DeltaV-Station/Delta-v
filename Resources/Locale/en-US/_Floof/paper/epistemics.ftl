@@ -16,9 +16,9 @@ paperwork-separator-epistemics-borgification-notice =
 
     •[bold]DATE:[/bold]
     •[bold]STATED REASON:[/bold]
-    • Name:
-    • Job:
-    • Cause of death:
+    •[bold]NAME:[/bold]
+    •[bold]JOB:[/bold]
+    •[bold]CAUSE OF DEATH:[/bold]
 
     { paperwork-separator-epistemics }
 

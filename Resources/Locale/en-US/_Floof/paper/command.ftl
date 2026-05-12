@@ -33,13 +33,15 @@ paperwork-command-station-request-for-assistance =
         {"["}bold]SECTOR:[/bold] Delta-V
         {"["}bold]STATION:[/bold]
         {"["}bold]SHIFT TIME:[/bold] XX:XX
-        {"["}bold]CAPTAIN:[/bold]
-        {"["}bold]HEAD OF PERSONNEL:[/bold]
-        {"["}bold]HEAD OF SECURITY:[/bold]
-        {"["}bold]CHIEF ENGINEER:[/bold]
-        {"["}bold]CHIEF MEDICAL OFFICER:[/bold]
-        {"["}bold]LOGISTICS OFFICER:[/bold]
-        {"["}bold]MYSTAGOGUE:[/bold]
+        {"["}bold]CAPTAIN:[/bold] {"{ }"}
+        {"["}bold]HEAD OF PERSONNEL:[/bold] {"{ }"}
+        {"["}bold]HEAD OF SECURITY:[/bold] {"{ }"}
+        {"["}bold]CHIEF ENGINEER:[/bold] {"{ }"}
+        {"["}bold]CHIEF MEDICAL OFFICER:[/bold] {"{ }"}
+        {"["}bold]LOGISTICS OFFICER:[/bold] {"{ }"}
+        {"["}bold]MYSTAGOGUE:[/bold] {"{ }"}
+
+    {"["}italic]Note: Please place an "X" in the boxes indicating command members present on station[/italic]
     { paperwork-command-separator }
 
     Reason for faxing Central Command:
@@ -53,10 +55,6 @@ paperwork-command-station-request-for-assistance =
 
     {"["}italic]Note: Please place an "X" in the two "really sure" boxes if you ready to fully commit to this course of action. These boxes will be taken into consideration by Central Command.[/italic]
 
-    {"["}bold]CAPTAIN SIGNATURE:[/bold]
-    {"["}bold]HEAD OF PERSONNEL SIGNATURE:[/bold]
-    {"["}bold]HEAD OF SECURITY SIGNATURE:[/bold]
-    {"["}bold]CHIEF ENGINEER SIGNATURE:[/bold]
-    {"["}bold]CHIEF MEDICAL OFFICER SIGNATURE:[/bold]
-    {"["}bold]LOGISTICS OFFICER SIGNATURE:[/bold]
-    {"["}bold]MYSTAGOGUE SIGNATURE:[/bold]
+    {"["}bold]COMMAND MEMBER SIGNATURE:[/bold]
+    {"["}bold]COMMAND MEMBER STAMP:[/bold]
+

@@ -99,7 +99,7 @@ paperwork-security-arrest-warrant =
     { paperwork-separator-security }
     {"["}bold]Reason for arrest:[/bold]
     { paperwork-separator-security }
-    {"["}color=gray]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer, the Head of Security, or the Warden.[/color]
+    {"["}color=gray]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer or the Head of Security[/color]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
     {"["}color=gray]This form follows NT space law.[/color]
@@ -126,7 +126,7 @@ paperwork-security-department-search-warrant =
     { paperwork-separator-security }
     If illegal items are found in the searched department they will be confiscated and the owner of these items may be detained at the officer's discretion. Search warrants should include an area, a brief description of the probable cause, and a list of individuals if applicable.
 
-    {"["}bold]Warrants are only valid when issued by either the Chief Justice, or in their absence, The Commanding Officer / Head of Security.[/bold]
+    {"["}bold]Warrants are only valid when issued by either the Chief Justice, or in their absence, The Commanding Officer or Head of Security.[/bold]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
     {"["}color=gray]This form follows NT space law.[/color]
@@ -163,7 +163,7 @@ paperwork-security-furlough-request =
     { paperwork-separator-security }
         {"["}head=2]FURLOUGH REQUEST[/head]
     { paperwork-separator-security }
-    This document, if approved, allows an inmate to leave their cell under direct supervision of security personnel for no more than 20 minutes. Inmate agrees to a strip search after furlough has concluded to ensure there is no contraband.
+    This document, if approved, allows an inmate to leave their cell under direct supervision of security personnel for no more than 20 minutes. Inmate agrees to a search after furlough has concluded to ensure there is no contraband.
     {"["}color=red][bold]This document must be approved and stamped by the Warden or Head of Security, and signed by the inmate to be valid![/bold][/color]
 
     Inmate:  [color=#002AAF]Name Here[/color]
@@ -214,7 +214,7 @@ paperwork-security-individual-search-warrant =
     { paperwork-separator-security }
     If illegal items are found in the possession of the searched individual they will be confiscated and the owner of these items may be detained at the officer's discretion.
 
-    {"["}bold]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer, the Head of Security, or the Warden.[/bold]
+    {"["}bold]Warrants are only valid when issued by either the Chief Justice or the Clerk of Court, or in their absence, the Commanding Officer or Head of Security.[/bold]
     {"["}color=#cb0000]This document is not valid unless stamped by at least one of the required personnel.[/color]
 
     {"["}color=gray]This form follows NT space law.[/color]
@@ -294,8 +294,8 @@ paperwork-security-restricted-weapons-permit =
          {"["}bold]WEAPON TYPE: [/bold]
          {"["}bold]JOB: [/bold]
      { paperwork-separator-security }
-     {"•"} Reasons for desired Equipment:
-        {"•"} Other Notes:
+     {"•"} Reasons for desired equipment:
+        {"•"} Other notes:
      { paperwork-separator-security }
 
      {"["}color=red]This document gives [insert name] the ability to carry contraband class armaments.[/color]
@@ -321,12 +321,12 @@ paperwork-security-restricted-equipment-permit =
         {"["}bold]SPECIFIC ITEM'S REQUESTED FOR LICENSE: [/bold]
         {"["}bold]JOB: [/bold]
     { paperwork-separator-security }
-    {"•"}  Reasons for desired Equipment:
-    {"•"}  Other Notes:
+    {"•"}  Reasons for desired equipment:
+    {"•"}  Other notes:
     { paperwork-separator-security }
     {"["}color=red]This document gives [insert name] the ability to carry {"{stated gear}"} unhindered.[/color]
 
-    {"["}color=gray]This Permit can be revoked at a moment's notice if the applicable party violates Space Law in the use of said Equipment.[/color]
+    {"["}color=gray]This Permit can be revoked at a moment's notice if the applicable party violates Space Law in the use of said equipment.[/color]
 
     {"["}color=red]This document must be signed and stamped by the Commanding Officer, Head of Security, or Warden to be considered valid.[/color]
 

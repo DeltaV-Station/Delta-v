@@ -36,7 +36,7 @@ paperwork-service-restricted-plant-permit =
     {"•"} Plants this Botanist is allowed to grow:
     {"•"} Stated Reason for growing these:
     { paperwork-separator-service }
-    {"["}color=red]This document gives [insert name] the ability to grow {"{stated plant}"} unhindered.[/color]
+    {"["}color=red]This document gives {"{insert name}"} the ability to grow {"{stated plant}"} unhindered.[/color]
 
     {"["}color=gray]This Permit can be revoked at a moment's notice if the applicable party violates Space Law.[/color]
 
