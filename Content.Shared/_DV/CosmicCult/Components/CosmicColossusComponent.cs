@@ -72,7 +72,6 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public DamageSpecifier BonusDamage = new();
 
-    [DataField] public ProtoId<DamageTypePrototype> BonusDamageType = "Blunt";
 
 }
 

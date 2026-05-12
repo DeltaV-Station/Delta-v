@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._DV.CosmicCult.Abilities.Colossus;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
@@ -8,20 +9,15 @@ using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Anomaly.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Warps;
-using Content.Shared.Weapons.Melee;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -36,11 +32,9 @@ public sealed class CosmicEffigySystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly CosmicCultObjectiveSystem _cultObjective = default!;
     [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
@@ -71,23 +65,8 @@ public sealed class CosmicEffigySystem : EntitySystem
 
         var colossus = ent.Comp.Colossus.Value;
 
-        if (TryComp<MeleeWeaponComponent>(colossus, out var weapon))
-        {
-            weapon.AttackRate *= ent.Comp.ColossusAttackRateMultiplier;
-        }
-
-        if (TryComp<CosmicCorruptingComponent>(colossus, out var corrupting))
-        {
-            corrupting.CorruptionSpeed *= ent.Comp.ColossusCorruptionSpeedMultiplier;
-        }
-
-        if (ent.Comp.ColossusHeal && TryComp<DamageableComponent>(colossus, out var damageable))
-        {
-            _damage.TryChangeDamage(ent.Comp.Colossus.Value, damageable.Damage / 2 * -1, true);
-        }
-
-        colossusComp.BonusDamage +=
-            new DamageSpecifier(_proto.Index(colossusComp.BonusDamageType), ent.Comp.ColossusBonusDamage);
+        var ev = new CosmicColossusEffigySupercriticalEvent(ent);
+        RaiseLocalEvent(colossus, ref ev);
 
         var transform = Transform(ent.Comp.Colossus.Value);
         Spawn(colossusComp.BuffVfx, transform.Coordinates);
