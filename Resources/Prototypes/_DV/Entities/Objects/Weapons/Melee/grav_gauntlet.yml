@@ -8,8 +8,6 @@
     sprite: _DV/Objects/Weapons/Melee/grav_gauntlet.rsi
     state: icon
   - type: MeleeWeapon
-    size: large
-    useKey: true
     range: 1.2 # so you can actually use the pull
     attackRate: 0.70 # heavy friggin fists bro
     angle: 0
@@ -25,7 +23,6 @@
       types:
         Heat: 7
         Structural: 5
-    unwieldOnUse: false
   - type: Gun #apersos was here
     resetOnHandSelected: false
     projectileSpeed: 15
@@ -33,7 +30,6 @@
   - type: BatteryAmmoProvider
     proto: BulletTaser # most balanced kinda, better than a stun shotgun
     fireCost: 600
-    count: 1
   - type: GunRequiresWield #gotta steady your arm to aim duhhh
   - type: AmmoCounter
   - type: MeleeThrowOnHit
