@@ -5,13 +5,6 @@
   id: KitsuneTailDefault
   bodyPart: Tail
   groupWhitelist: [Kitsune]
-  coloring:
-    default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SimpleColoring
-        color: "#fffafa"
   sprites:
   - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
     state: kitsune_primary
@@ -22,13 +15,6 @@
   id: KitsuneTailsNine
   bodyPart: Tail
   groupWhitelist: [Kitsune]
-  coloring:
-    default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SimpleColoring
-        color: "#fffafa"
   sprites:
   - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
     state: foxninetailstone1
@@ -39,13 +25,6 @@
   id: KitsuneTailsThree
   bodyPart: Tail
   groupWhitelist: [Kitsune]
-  coloring:
-    default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SimpleColoring
-        color: "#fffafa"
   sprites:
   - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
     state: foxthreetailstone1
@@ -56,13 +35,6 @@
   id: KitsuneTailsTwo
   bodyPart: Tail
   groupWhitelist: [Kitsune]
-  coloring:
-    default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SimpleColoring
-        color: "#fffafa"
   sprites:
   - sprite: _DV/Mobs/Customization/kitsune/tails.rsi
     state: foxtwotailstone1
@@ -73,15 +45,8 @@
 
 - type: marking
   id: KitsuneEarsDefault
-  bodyPart: Head
+  bodyPart: HeadTop
   groupWhitelist: [Kitsune]
-  coloring:
-    default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SimpleColoring
-        color: "#fffafa"
   sprites:
   - sprite: _DV/Mobs/Customization/kitsune/ears.rsi
     state: kitsune_fluffy_ears
@@ -90,15 +55,8 @@
 
 - type: marking
   id: KitsuneEarsFox
-  bodyPart: Head
+  bodyPart: HeadTop
   groupWhitelist: [Kitsune]
-  coloring:
-    default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SimpleColoring
-        color: "#fffafa"
   sprites:
   - sprite: _DV/Mobs/Customization/kitsune/ears.rsi
     state: foxears

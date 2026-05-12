@@ -25,6 +25,22 @@
   - type: Inventory
     speciesId: fox
     templateId: pet
+  - type: InteractionPopup
+    interactSuccessString: petting-success-soft-floofy-kitsune
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Speech
+    speechSounds: Alto
+    allowedEmotes: ['Growl', 'Squeak']
+  - type: Vocal
+    sounds:
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
   - type: DamageStateVisuals
     states:
       Alive:
