@@ -285,6 +285,8 @@
   parent: MobSpaceBasic
   description: Long fangs and a glowing hood, and the alluring look begs to come closer.
   components:
+    - type: Body # Shitmed Change
+      prototype: SpaceCobra
     - type: Sprite
       drawdepth: Mobs
       sprite: Mobs/Animals/spacecobra.rsi
@@ -373,13 +375,13 @@
     - type: SalvageMobRestrictions
 
 - type: entity
-  parent:
-  - SimpleSpaceMobBase
-  - BaseMobAnimal
+  parent: SimpleSpaceMobBase
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
   components:
+  - type: Body
+    prototype: Mouse
   - type: GhostRole
     makeSentient: true
     allowSpeech: false
@@ -568,10 +570,12 @@
   - type: MovementAlwaysTouching
 
 - type: entity
-  parent: [ BaseMobMothroach, MobSnail ]
+  parent: MobSnail
   id: MobSnailMoth
   name: Snoth
   components:
+  - type: Body
+    prototype: Mothroach
   - type: GhostRole
     name: ghost-role-information-snoth-name
     description: ghost-role-information-snoth-description

@@ -137,7 +137,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         _eye.RefreshVisibilityMask(ent.Owner);
         _alerts.ShowAlert(ent.Owner, ent.Comp.EntropyAlert);
 
-        if (!HasComp<HumanoidProfileComponent>(ent)) return; // Non-humanoids don't get abilities
+        if (!HasComp<HumanoidAppearanceComponent>(ent)) return; // Non-humanoids don't get abilities
         foreach (var actionId in ent.Comp.CosmicCultActions)
         {
             var actionEnt = _actions.AddAction(ent, actionId);
@@ -152,7 +152,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (_cultRule.AssociatedGamerule(ent) is not { } cult)
             return;
-        if (!HasComp<HumanoidProfileComponent>(ent)) return; // Non-humanoids don't get abilities
+        if (!HasComp<HumanoidAppearanceComponent>(ent)) return; // Non-humanoids don't get abilities
 
         if (!cult.Comp.MonumentPlaced) // There's no monument, grant them an action to place one
             _actions.AddAction(ent, ref ent.Comp.CosmicMonumentPlaceActionEntity, ent.Comp.CosmicMonumentPlaceAction, ent);

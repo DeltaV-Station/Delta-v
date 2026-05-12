@@ -77,7 +77,7 @@
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
-    - HumanoidProfile # Delta V: will cause problems for downstream felinids getting cloned as Urists
+    - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
 
@@ -107,7 +107,7 @@
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
-    - HumanoidProfile # will cause problems for downstream felinids getting cloned as Urists
+    - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
 

@@ -11,7 +11,7 @@ public sealed class SiliconDeathSystem : EntitySystem
 {
     [Dependency] private readonly SleepingSystem _sleep = default!;
     [Dependency] private readonly SiliconDrainSystem _silicon = default!; // DeltaV - Renamed type from "Charge" to "Drain" to disambiguate
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
 
     public override void Initialize()
     {
@@ -48,9 +48,10 @@ public sealed class SiliconDeathSystem : EntitySystem
         EntityManager.EnsureComponent<SleepingComponent>(uid);
         EntityManager.EnsureComponent<ForcedSleepingStatusEffectComponent>(uid);
 
-        if (TryComp(uid, out AppearanceComponent? appearanceComponent))
+        if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
-            _appearance.SetData(uid, HumanoidVisualLayers.HeadSide, false);
+            var layers = HumanoidVisualLayersExtension.Sublayers(HumanoidVisualLayers.HeadSide);
+            _humanoidAppearanceSystem.SetLayersVisibility((uid, humanoidAppearanceComponent), layers, visible: false);
         }
 
         siliconDeadComp.Dead = true;

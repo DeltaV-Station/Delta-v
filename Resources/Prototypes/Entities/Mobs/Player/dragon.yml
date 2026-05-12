@@ -6,6 +6,8 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
+  - type: Body # Shitmed
+    prototype: SpaceDragon
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -141,7 +143,7 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidProfile
+      - HumanoidAppearance
     stomachStorageWhitelist:
       components:
       - MobState

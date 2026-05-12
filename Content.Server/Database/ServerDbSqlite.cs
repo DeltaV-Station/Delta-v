@@ -13,7 +13,6 @@ using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Database
@@ -37,9 +36,8 @@ namespace Content.Server.Database
             bool inMemory,
             IConfigurationManager cfg,
             bool synchronous,
-            ISawmill opsLog,
-            ISerializationManager serialization)
-            : base(opsLog, serialization)
+            ISawmill opsLog)
+            : base(opsLog)
         {
             _options = options;
 

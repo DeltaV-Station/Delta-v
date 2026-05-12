@@ -1,4 +1,5 @@
 using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.MedicalScanner;
@@ -29,11 +30,13 @@ public struct HealthAnalyzerUiState
     public bool? ScanMode;
     public bool? Bleeding;
     public bool? Unrevivable;
+    public Dictionary<TargetBodyPart, TargetIntegrity>? Body; // Shitmed Change
+    public NetEntity? Part; // Shitmed Change
     public MedicalRecord? MedicalRecord; // DeltaV - Medical Records
 
     public HealthAnalyzerUiState() {}
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, MedicalRecord? medicalRecord = null) // DeltaV - Medical Records
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, Dictionary<TargetBodyPart, TargetIntegrity>? body, MedicalRecord? medicalRecord = null, NetEntity? part = null) // Shitmed Change // DeltaV - Medical Records
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -41,6 +44,18 @@ public struct HealthAnalyzerUiState
         ScanMode = scanMode;
         Bleeding = bleeding;
         Unrevivable = unrevivable;
+        Body = body; // Shitmed Change
+        Part = part; // Shitmed Change
         MedicalRecord = medicalRecord; // DeltaV - Medical Records
     }
 }
+
+// Shitmed Change Start
+[Serializable, NetSerializable]
+public sealed class HealthAnalyzerPartMessage(NetEntity? owner, TargetBodyPart? bodyPart) : BoundUserInterfaceMessage
+{
+    public readonly NetEntity? Owner = owner;
+    public readonly TargetBodyPart? BodyPart = bodyPart;
+
+}
+// Shitmed Change End

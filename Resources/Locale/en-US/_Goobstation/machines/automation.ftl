@@ -80,6 +80,11 @@ signal-port-description-machine-failed = Signal port that gets pulsed after a ma
 signal-port-name-automation-slot-tool = Item: Tool
 signal-port-description-automation-slot-tool = An automation slot for an interactor's held tool.
 
+# Autodoc
+
+signal-port-name-automation-slot-autodoc-hand = Item: Autodoc Hand
+signal-port-description-automation-slot-autodoc-hand = An automation slot for an autodoc's held organ/part/etc from STORE ITEM / GRAB ITEM instructions.
+
 # Gas Canister
 
 signal-port-name-automation-slot-gas-tank = Item: Gas Tank

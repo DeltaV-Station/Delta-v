@@ -15,6 +15,7 @@ using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Server.Voting.Managers;
 using Content.Server.Voting;
@@ -26,8 +27,10 @@ using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.Roles;
 using Content.Shared.Alert;
 using Content.Shared.Audio;
+using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Gibbing;
@@ -89,6 +92,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -384,7 +388,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 return;
             }
 
-            var endQuery = EntityQueryEnumerator<HumanoidProfileComponent, MobStateComponent>();
+            var endQuery = EntityQueryEnumerator<HumanoidAppearanceComponent, MobStateComponent>();
             while (endQuery.MoveNext(out var player, out _, out _))
             {
                 var newSpawn = _rand.Pick(spawnPoints);
@@ -585,7 +589,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (AssociatedGamerule(uid) is not { } cult)
             return;
 
-        cult.Comp.TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame && HasComp<HumanoidProfileComponent>(session.AttachedEntity));
+        cult.Comp.TotalCrew = _playerMan.Sessions.Count(session => session.Status == SessionStatus.InGame && HasComp<HumanoidAppearanceComponent>(session.AttachedEntity));
 
 #if DEBUG
         if (cult.Comp.TotalCrew < 25)

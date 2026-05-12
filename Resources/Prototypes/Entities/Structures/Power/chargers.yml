@@ -279,6 +279,7 @@
       components:
       - BorgChassis
       - Silicon # EE IPCs
+      - AugmentStationRecharge # DeltaV augment power cells
   - type: Construction
     containers:
     - machine_parts
@@ -323,6 +324,7 @@
       components:
       - BorgChassis
       - Silicon # EE IPCs
+      - AugmentStationRecharge # DeltaV augment power cells
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

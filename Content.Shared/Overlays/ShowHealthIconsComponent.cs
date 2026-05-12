@@ -14,7 +14,7 @@ public sealed partial class ShowHealthIconsComponent : Component
     /// <summary>
     /// Displays health status icons of the damage containers.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField] // Shitmed Change
     public List<ProtoId<DamageContainerPrototype>> DamageContainers = new()
     {
         "Biological"

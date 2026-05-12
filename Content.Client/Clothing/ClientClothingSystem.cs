@@ -279,7 +279,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
 
-        var equipeeSex = CompOrNull<HumanoidProfileComponent>(equipee)?.Sex;
+        var equipeeSex = CompOrNull<HumanoidAppearanceComponent>(equipee)?.Sex;
         if (equipeeSex != null)
         {
             switch (equipeeSex)

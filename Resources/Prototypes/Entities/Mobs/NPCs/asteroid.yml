@@ -5,7 +5,6 @@
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
-  - BaseMobAnimal
   abstract: true
   components:
   - type: Reactive
@@ -13,6 +12,8 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
+  - type: Body
+    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -33,6 +34,8 @@
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
+  - type: Body # Shitmed Change
+    prototype: Goliath
   - type: Sprite
     sprite: _DV/Mobs/Aliens/Asteroid/goliath.rsi # DeltaV - upstream uses ancient goliath sprites for some reason
     layers:

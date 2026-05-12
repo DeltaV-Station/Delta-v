@@ -301,7 +301,7 @@
     heldPrefix: icon
   - type: Healing
     damageContainers:
-    - Silicon
+    - HumanoidSilicon
     damage:
       groups:
         Burn: 0 # funny cant remove
@@ -311,6 +311,14 @@
     count: 5
   - type: StackPrice
     price: 10
+
+- type: entity
+  parent: Oilpack
+  id: Oilpack1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
 
 - type: entity
   parent: Oilpack
@@ -325,6 +333,7 @@
     sprite: _DV/Objects/Medical/Omnipatch.rsi
   - type: Healing
     damageContainers:
+    - HumanoidSilicon
     - Silicon
     damage:
       groups:

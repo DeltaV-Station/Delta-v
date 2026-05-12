@@ -190,6 +190,7 @@
       - Pill
       - HandLabeler
       - Defibrillator # DeltaV - Add PortaFib to EMT belt
+      - SurgeryTool # Shitmed
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -417,7 +418,7 @@
       - Whistle
       - BalloonPopper
   - type: ItemMapper # DeltaV - Custom sprite and item mapper
-    sprite: _DV/Clothing/Belt/belt_overlay.rsi
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi 
     mapLayers:
       baton:
         whitelist:

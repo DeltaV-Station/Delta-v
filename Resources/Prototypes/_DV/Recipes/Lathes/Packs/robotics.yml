@@ -1,6 +1,11 @@
 ## Static
 
 - type: latheRecipePack
+  parent:
+  - IPCPartsStatic # Shitmed
+  id: RoboticsStaticDeltaV
+
+- type: latheRecipePack
   id: RoboticsEmagStatic
   recipes:
   - IdChipSyndie
@@ -32,6 +37,7 @@
   - BorgModuleAdvancedTool
   - BorgModuleAdvancedTopical
   - BorgModuleAdvancedMining
+  - BorgModuleAdvancedSurgery
 
 - type: latheRecipePack
   id: BorgModulesSecurityDeltaVStatic
@@ -60,9 +66,36 @@
   - ClothingEyesHudDiagnostic
 
 - type: latheRecipePack
+  parent:
+  - BorgModulesShitmed # Shitmed
+  id: BorgModulesDeltaV
+
+- type: latheRecipePack
   id: BorgModulesSecurityDeltaV
   recipes:
   - BorgModuleSecurityChase
   - BorgModuleSecurityEscalate
   - BorgModuleSecurityBastion
   - BorgModuleFauna
+
+- type: latheRecipePack
+  id: PowerAugments
+  recipes:
+  - AugmentPowerCellSlotCasing
+  - AugmentRechargerCasing
+
+- type: latheRecipePack
+  id: ToolAugments
+  recipes:
+  - AugmentToolPanelCasing
+  - AugmentUtilityPanelElectronics
+  - AugmentBotanyPanelElectronics
+  - AugmentSurgeryPanelElectronics
+  - AugmentPaperworkPanelElectronics
+
+- type: latheRecipePack
+  id: PsionicProsthetics
+  recipes:
+  - DispelLeftArm
+  - RecallLeftArm
+  - ForcewallLeftArm

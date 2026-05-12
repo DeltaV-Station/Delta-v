@@ -1,7 +1,8 @@
 - type: marking
   id: CatEars
   bodyPart: Special
-  groupWhitelist: [Human]
+  markingCategory: Special
+  speciesRestriction: [Human]
   coloring:
     default:
       type:
@@ -23,7 +24,8 @@
 - type: marking
   id: CatTail
   bodyPart: Tail
-  groupWhitelist: [Human]
+  markingCategory: Tail
+  speciesRestriction: [Human]
   coloring:
     default:
       type:

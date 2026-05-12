@@ -226,6 +226,8 @@
     fiberColor: fibers-white
   - type: AccessReader # DeltaV - departmental access
     access: [["Command"], ["Robotics"], ["Medical"]]
+  - type: SurgeryTarget # Shitmed
+  - type: Sanitized # Shitmed
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -247,6 +249,7 @@
   pdaBorderColor: "#d7d7d0"
   pdaAccentVerticalColor: "#447987"
   # End DeltaV - Borg PDAs
+
 
 # Service borg
 - type: borgType

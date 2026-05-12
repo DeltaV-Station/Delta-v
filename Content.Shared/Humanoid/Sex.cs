@@ -17,6 +17,5 @@ namespace Content.Shared.Humanoid
     ///     Raised when entity has changed their sex.
     ///     This doesn't handle gender changes.
     /// </summary>
-    [ByRefEvent]
     public record struct SexChangedEvent(Sex OldSex, Sex NewSex);
 }

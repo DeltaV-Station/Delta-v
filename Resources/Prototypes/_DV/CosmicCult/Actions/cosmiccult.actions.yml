@@ -14,7 +14,7 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - HumanoidProfile
+      - HumanoidAppearance
     blacklist:
       components:
       - CosmicCult
@@ -38,7 +38,7 @@
     canTargetSelf: true
     whitelist:
       components:
-      - HumanoidProfile
+      - HumanoidAppearance
     blacklist:
       components:
       - CosmicCult
@@ -118,7 +118,7 @@
     canTargetSelf: true
     whitelist:
       components:
-      - HumanoidProfile
+      - HumanoidAppearance
     blacklist:
       components:
       - BibleUser

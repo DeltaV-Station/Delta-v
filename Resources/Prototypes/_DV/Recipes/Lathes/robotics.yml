@@ -207,3 +207,84 @@
   parent: IdChipSyndie
   id: IdChipRoboNeuroticist
   result: IdChipRoboNeuroticist
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentPowerCellSlotCasing
+  result: AugmentPowerCellSlotCasing
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentRechargerCasing
+  result: AugmentRechargerCasing
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentToolPanelCasing
+  result: AugmentToolPanelCasing
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentUtilityPanelElectronics
+  result: AugmentUtilityPanelElectronics
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentBotanyPanelElectronics
+  result: AugmentBotanyPanelElectronics
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentSurgeryPanelElectronics
+  result: AugmentSurgeryPanelElectronics
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: AugmentPaperworkPanelElectronics
+  result: AugmentPaperworkPanelElectronics
+
+- type: latheRecipe
+  parent: BaseIPCOrganRecipe
+  id: OrganIPCSpacePump
+  result: OrganIPCSpacePump
+  materials:
+    Steel: 2000
+    Plasma: 1000
+    Plastic: 1000
+    Gold: 500
+
+- type: latheRecipe
+  id: ForcewallLeftArm
+  result: ForcewallLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300
+
+- type: latheRecipe
+  id: DispelLeftArm
+  result: DispelLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300
+
+- type: latheRecipe
+  id: RecallLeftArm
+  result: RecallLeftArm
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 100
+    Plasma: 500
+    Bluespace: 300

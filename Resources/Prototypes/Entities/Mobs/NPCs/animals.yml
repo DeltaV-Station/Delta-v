@@ -492,7 +492,7 @@
 
 - type: entity
   name: mothroach
-  parent: [ BaseMobMothroach, MobCockroach ]
+  parent: MobCockroach
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
@@ -610,6 +610,9 @@
   - type: NpcFactionMember
     factions:
     - Mouse
+  - type: Body
+    prototype: Mothroach
+  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -629,6 +632,8 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -876,7 +881,7 @@
 
 - type: entity
   name: cow
-  parent: [ SimpleMobBase, BaseMobRuminant ]
+  parent: SimpleMobBase
   id: MobCow
   description: Moo.
   components:
@@ -949,6 +954,13 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: Body
+    prototype: AnimalRuminant
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -959,7 +971,7 @@
 
 - type: entity
   name: crab
-  parent: [ SimpleMobBase, BaseMobHemocyanin ]
+  parent: SimpleMobBase
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -1026,10 +1038,17 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: Body
+    prototype: AnimalHemocyanin
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
 
 - type: entity
   name: goat
-  parent: [ SimpleMobBase, BaseMobRuminant ]
+  parent: SimpleMobBase
   id: MobGoat
   description: Her spine consists of long sharp segments, no wonder she is so grumpy.
   components:
@@ -1122,6 +1141,13 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: Body
+    prototype: AnimalRuminant
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1360,7 +1386,164 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase]
+  description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
+  abstract: true
+  components:
+  - type: CombatMode
+    canDisarm: true
+  # Shitmed Change Start
+  - type: SurgeryTarget
+  - type: Targeting
+  - type: HumanoidAppearance
+    species: Monkey
+  # Shitmed Change End
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
+  - type: Inventory
+    templateId: monkey
+    speciesId: monkey
+  - type: Deathgasp
+    prototype: MonkeyDeathgasp
+  - type: Cuffable
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Stripping
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+  # Shitmed Change Start
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  # Shitmed Change End
+  - type: Carriable # DeltaV
+  - type: Hands
+  - type: ComplexInteraction
+  - type: GenericVisualizer
+    visuals:
+      enum.CreamPiedVisuals.Creamed:
+        clownedon:
+          True: {visible: true}
+          False: {visible: false}
+  - type: Body # Shitmed Change
+    prototype: Monkey
+    requiredLegs: 2
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: CreamPied
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: InteractionPopup
+    successChance: 0.9
+    interactSuccessString: petting-success-monkey
+    interactFailureString: petting-failure-monkey
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/ferret_happy.ogg
+    interactFailureSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 30
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 3
+        Piercing: 3
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Puller
+    needsHands: false
+  - type: CanHostGuardian
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: IdExaminable
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+
+
+# DV - For ancestors without shitmed components (scurrets)
+- type: entity
+  name: genetic ancestor
+  id: MobBaseAncestorNoShitmed
+  parent: [SimpleMobBase, StripableInventoryBase]
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -1410,10 +1593,6 @@
       visible: false
   - type: Carriable # DeltaV
   - type: Hands
-    activeHandId: Hand
-    hands:
-      Hand:
-        location: Left
   - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
@@ -1421,6 +1600,9 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1 # TODO: More than 1 leg
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1574,6 +1756,13 @@
   - type: LizardAccent
   - type: ReplacementAccent
     accent: kobold
+  # Shitmed Change Start
+  - type: HumanoidAppearance
+    species: Kobold
+  - type: Body
+    prototype: Kobold
+    requiredLegs: 2
+  # Shitmed Change End
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
@@ -1696,12 +1885,17 @@
 
 - type: entity
   name: mouse
-  parent:
-  - SimpleMobBase
-  - BaseMobAnimal
+  parent: SimpleMobBase
   id: MobMouse
   description: Squeak!
   components:
+  - type: Body
+    prototype: Mouse
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -2495,7 +2689,7 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat ]
   id: MobSpiderBase
   abstract: true
   components:
@@ -2517,6 +2711,13 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
+  - type: Body
+    prototype: AnimalHemocyanin
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -3679,7 +3880,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
@@ -3924,18 +4125,14 @@
             sprite: Mobs/Pets/displacements.rsi
             state: corgi_head_displacement
   - type: Hands # HANDS!
-    activeHandId: Right
-    hands:
-      Right:
-        location: Right
-      Left:
-        location: Left
   - type: Puller
   - type: Cuffable # bad dog!
   - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
   - type: Stripping
   - type: ComplexInteraction
   # Implement custom borgi body type
+  - type: Body
+    prototype: SmartCorgi
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 180
