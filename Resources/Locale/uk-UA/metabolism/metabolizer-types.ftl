@@ -1,0 +1,11 @@
+metabolizer-type-animal = Тварина
+metabolizer-type-bloodsucker = Кровосос
+metabolizer-type-dragon = Дракон
+metabolizer-type-human = Людина
+metabolizer-type-slime = слиз
+metabolizer-type-vox = Vox
+metabolizer-type-rat = Щур
+metabolizer-type-plant = Завод
+metabolizer-type-dwarf = Карлик
+metabolizer-type-moth = Моль
+metabolizer-type-arachnid = Павукоподібні

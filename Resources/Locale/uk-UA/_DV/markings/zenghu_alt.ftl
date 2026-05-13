@@ -1,0 +1,10 @@
+marking-CyberLimbsMarkingZenghuHeadAlt = Заступник керівника Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuChestAlt = Альтернативне роботизоване шасі від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRHandAlt = Альтернативна права рука робота від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRArmAlt = Альтернативна права роботизована рука від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLHandAlt = Альтернативна ліва роботизована рука від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLArmAlt = Альтернативна ліва роботизована рука від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRLegAlt = Альтернативна права роботизована нога від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuRFootAlt = Альтернативна права роботизована нога від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLLegAlt = Альтернативна ліва роботизована нога від Zenghu Pharmaceuticals
+marking-CyberLimbsMarkingZenghuLFootAlt = Альтернативна ліва роботизована нога від Zenghu Pharmaceuticals

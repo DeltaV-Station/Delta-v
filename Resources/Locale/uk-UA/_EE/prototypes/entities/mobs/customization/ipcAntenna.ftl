@@ -1,0 +1,17 @@
+marking-RobotAntennaTv = скелети
+marking-RobotAntennaTv-ipc_antenna_tv = телевізор
+marking-RobotAntennaTesla = Тесла
+marking-RobotAntennaTesla-ipc_antenna_tesla = Тесла
+marking-RobotAntennaLightb = Світло (альт)
+marking-RobotAntennaLight = світло
+marking-RobotAntennaCyberhead = Кіберголова
+marking-RobotAntennaCyberhead-ipc_antenna_cyberhead = Кіберголова
+marking-RobotAntennaSidelights = Бічні ліхтарі
+marking-RobotAntennaAntlers = Панти
+marking-RobotAntennaAntlers-ipc_antenna_antlers = Панти
+marking-RobotAntennaDroneeyes = Drone Eyes
+marking-RobotAntennaDroneeyes-ipc_antenna_droneeyes = Drone Eyes
+marking-RobotAntennaCrowned = Коронований
+marking-RobotAntennaCrowned-ipc_antenna_crowned = Корона
+marking-RobotAntennaTowers = Вежі
+marking-RobotAntennaTowers-ipc_antenna_towers = Вежі

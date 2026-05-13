@@ -1,0 +1,1 @@
+species-name-ovinia = Овінія

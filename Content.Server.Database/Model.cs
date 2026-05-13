@@ -47,6 +47,7 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<DVModel.SeenTip> DVSeenTips { get; set; } = null!; // DeltaV - Tips
+        public DbSet<RpCommendation> RpCommendations { get; set; } = null!; // Commendations - RP Rating
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -80,6 +81,28 @@ namespace Content.Server.Database
                 .HasPrincipalKey(p => p.UserId)
                 .IsRequired();
             // End DeltaV
+
+            // Commendations - RP Rating
+            modelBuilder.Entity<RpCommendation>()
+                .HasOne<Player>()
+                .WithMany()
+                .HasForeignKey(c => c.SenderUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RpCommendation>()
+                .HasOne<Player>()
+                .WithMany()
+                .HasForeignKey(c => c.ReceiverUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RpCommendation>()
+                .HasOne<Round>()
+                .WithMany()
+                .HasForeignKey(c => c.RoundId)
+                .OnDelete(DeleteBehavior.Cascade);
+            // End Commendations
 
             modelBuilder.Entity<Antag>()
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})

@@ -1,0 +1,10 @@
+cmd-spawnplayer-desc = Створює вибраного гравця як його поточного персонажа на позиції АДМІНАРА.
+cmd-spawnplayer-help = Використання: spawnplayer [player_name][job_id][transfer_mind?]
+cmd-spawnplayer-complete = З'явився персонаж гравця.
+cmd-spawnplayer-arg-player = [player name]
+cmd-spawnplayer-arg-job = [job id]
+cmd-spawnplayer-arg-transfer-mind = [передати розум? (за замовчуванням: false)]
+cmd-spawnplayer-error-player = Гравець '{$player}не знайдено.
+cmd-spawnplayer-error-job = Вакансія недійсна або не надана. За замовчуванням перед пасажиром.
+cmd-spawnplayer-error-args = Наведено недостатньо аргументів.
+cmd-spawnplayer-info-mind-not-transferred = Розум не перенесений. Щоб передати розум, запустіть 'setmind {$entId}{$player}'

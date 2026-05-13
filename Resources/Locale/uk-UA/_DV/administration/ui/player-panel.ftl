@@ -1,0 +1,1 @@
+player-panel-job-whitelists = Білі списки вакансій

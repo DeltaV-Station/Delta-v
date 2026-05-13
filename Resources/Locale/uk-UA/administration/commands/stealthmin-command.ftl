@@ -1,0 +1,2 @@
+cmd-stealthmin-desc = Увімкніть, чи можуть інші бачити вас у adminwho.
+cmd-stealthmin-help = Використання: stealthmin\nВикористовуйте stealthmin, щоб увімкнути чи показувати вас у виводі команди adminwho.

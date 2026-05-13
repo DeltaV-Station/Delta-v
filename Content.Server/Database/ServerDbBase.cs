@@ -1927,6 +1927,204 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
+        #region RP Commendations
+
+        /// <summary>
+        /// Add a commendation from one player to another.
+        /// Returns false if this sender already voted in this round.
+        /// </summary>
+        public async Task<bool> AddCommendation(int roundId, Guid senderUserId, Guid receiverUserId)
+        {
+            await using var db = await GetDb();
+
+            // Check if sender already voted this round
+            var exists = await db.DbContext.RpCommendations
+                .AnyAsync(c => c.RoundId == roundId && c.SenderUserId == senderUserId);
+
+            if (exists)
+                return false;
+
+            db.DbContext.RpCommendations.Add(new RpCommendation
+            {
+                RoundId = roundId,
+                SenderUserId = senderUserId,
+                ReceiverUserId = receiverUserId,
+                Timestamp = DateTime.UtcNow,
+                IsAdminGrant = false,
+            });
+
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        /// <summary>
+        /// Admin-granted commendation points. These bypass the one-per-round limit.
+        /// </summary>
+        public async Task AddAdminCommendation(int roundId, Guid receiverUserId, int count, string reason)
+        {
+            await using var db = await GetDb();
+
+            for (var i = 0; i < count; i++)
+            {
+                db.DbContext.RpCommendations.Add(new RpCommendation
+                {
+                    RoundId = roundId,
+                    SenderUserId = Guid.Empty, // admin grant marker
+                    ReceiverUserId = receiverUserId,
+                    Timestamp = DateTime.UtcNow,
+                    IsAdminGrant = true,
+                    Reason = reason,
+                });
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// Get the top N players by commendation count within a given time window.
+        /// </summary>
+        public async Task<List<(Guid UserId, string UserName, int Count)>> GetTopCommendations(int topN, TimeSpan window)
+        {
+            await using var db = await GetDb();
+
+            var since = DateTime.UtcNow - window;
+
+            var results = await db.DbContext.RpCommendations
+                .Where(c => c.Timestamp >= since)
+                .GroupBy(c => c.ReceiverUserId)
+                .Select(g => new { UserId = g.Key, Count = g.Count() })
+                .OrderByDescending(x => x.Count)
+                .Take(topN)
+                .ToListAsync();
+
+            // Resolve usernames
+            var userIds = results.Select(r => r.UserId).ToList();
+            var players = await db.DbContext.Player
+                .Where(p => userIds.Contains(p.UserId))
+                .ToDictionaryAsync(p => p.UserId, p => p.LastSeenUserName);
+
+            return results.Select(r => (
+                r.UserId,
+                players.GetValueOrDefault(r.UserId, "Unknown"),
+                r.Count
+            )).ToList();
+        }
+
+        /// <summary>
+        /// Get the commendation log (who voted for whom) within a time window.
+        /// </summary>
+        public async Task<List<(string SenderName, string ReceiverName, int RoundId, DateTime Time)>> GetCommendationLog(TimeSpan window)
+        {
+            await using var db = await GetDb();
+
+            var since = DateTime.UtcNow - window;
+
+            var commendations = await db.DbContext.RpCommendations
+                .Where(c => c.Timestamp >= since && !c.IsAdminGrant)
+                .OrderByDescending(c => c.Timestamp)
+                .ToListAsync();
+
+            var allUserIds = commendations.Select(c => c.SenderUserId)
+                .Concat(commendations.Select(c => c.ReceiverUserId))
+                .Distinct()
+                .ToList();
+
+            var players = await db.DbContext.Player
+                .Where(p => allUserIds.Contains(p.UserId))
+                .ToDictionaryAsync(p => p.UserId, p => p.LastSeenUserName);
+
+            return commendations.Select(c => (
+                players.GetValueOrDefault(c.SenderUserId, "Unknown"),
+                players.GetValueOrDefault(c.ReceiverUserId, "Unknown"),
+                c.RoundId,
+                c.Timestamp
+            )).ToList();
+        }
+
+        /// <summary>
+        /// Wipe all commendations older than the given time window (weekly reset).
+        /// Returns the number of deleted rows.
+        /// </summary>
+        public async Task<int> WipeCommendations(TimeSpan window)
+        {
+            await using var db = await GetDb();
+
+            var since = DateTime.UtcNow - window;
+
+            return await db.DbContext.RpCommendations
+                .Where(c => c.Timestamp < since)
+                .ExecuteDeleteAsync();
+        }
+
+        /// <summary>
+        /// Wipe ALL commendations (full weekly reset).
+        /// Returns the number of deleted rows.
+        /// </summary>
+        public async Task<int> WipeAllCommendations()
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.RpCommendations.ExecuteDeleteAsync();
+        }
+
+        /// <summary>
+        /// Get the total commendation count for a specific player.
+        /// </summary>
+        public async Task<int> GetPlayerCommendationCount(Guid playerUserId, TimeSpan? window = null)
+        {
+            await using var db = await GetDb();
+
+            var query = db.DbContext.RpCommendations
+                .Where(c => c.ReceiverUserId == playerUserId);
+
+            if (window.HasValue)
+            {
+                var since = DateTime.UtcNow - window.Value;
+                query = query.Where(c => c.Timestamp >= since);
+            }
+
+            return await query.CountAsync();
+        }
+
+        /// <summary>
+        /// Get the total commendation counts for multiple players at once.
+        /// </summary>
+        public async Task<Dictionary<Guid, int>> GetPlayerCommendationCounts(List<Guid> playerUserIds, TimeSpan? window = null)
+        {
+            await using var db = await GetDb();
+
+            var query = db.DbContext.RpCommendations
+                .Where(c => playerUserIds.Contains(c.ReceiverUserId));
+
+            if (window.HasValue)
+            {
+                var since = DateTime.UtcNow - window.Value;
+                query = query.Where(c => c.Timestamp >= since);
+            }
+
+            var results = await query
+                .GroupBy(c => c.ReceiverUserId)
+                .Select(g => new { UserId = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.UserId, x => x.Count);
+
+            return results;
+        }
+
+        public async Task<Dictionary<Guid, int>> GetPlayerCommendationCountsForRound(List<Guid> playerUserIds, int roundId)
+        {
+            await using var db = await GetDb();
+
+            var results = await db.DbContext.RpCommendations
+                .Where(c => c.RoundId == roundId && playerUserIds.Contains(c.ReceiverUserId))
+                .GroupBy(c => c.ReceiverUserId)
+                .Select(g => new { UserId = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.UserId, x => x.Count);
+
+            return results;
+        }
+
+        #endregion
+
         public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.

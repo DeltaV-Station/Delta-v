@@ -1,0 +1,1 @@
+hand-placeholder-name = Гніздо для модуля

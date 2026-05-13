@@ -1,0 +1,1 @@
+emp-disabled-comp-on-examine = кукурудза

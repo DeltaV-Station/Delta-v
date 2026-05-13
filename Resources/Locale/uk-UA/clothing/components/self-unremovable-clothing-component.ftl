@@ -1,0 +1,1 @@
+comp-self-unremovable-clothing = Це неможливо видалити без сторонньої допомоги.

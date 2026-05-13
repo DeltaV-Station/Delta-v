@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -21,6 +21,7 @@ namespace Content.Server.Database
             options.ConfigureWarnings(x =>
             {
                 x.Ignore(CoreEventId.ManyServiceProvidersCreatedWarning);
+                x.Ignore(RelationalEventId.PendingModelChangesWarning);
 #if DEBUG
                 // for tests
                 x.Ignore(CoreEventId.SensitiveDataLoggingEnabledWarning);

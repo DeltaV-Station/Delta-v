@@ -1,0 +1,10 @@
+build-info-window-title = Інформація про збірку
+build-info-button = Інформація про збірку
+build-info-tooltip = Метадані гри, яку ви запускаєте
+build-info-version-label = Версія гри:
+build-info-engine-version-label = Версія двигуна:
+build-info-fork-label = ID форка:
+build-info-download-url-label = Завантаження клієнта:
+build-info-build-hash-label = Хеш клієнта:
+build-info-build-manifest-url-label = URL-адреса маніфесту:
+build-info-build-manifest-hash-label = Хеш маніфесту:

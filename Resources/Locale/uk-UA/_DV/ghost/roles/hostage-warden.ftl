@@ -1,0 +1,3 @@
+ghost-role-information-warden-nukeop-reinforcement-name = Наглядач заручників
+ghost-role-information-warden-nukeop-reinforcement-description = Ядерникам потрібен охоронець із заручниками. Ви, фахівець із заручників, допоможете їм.
+ghost-role-information-warden-nukeop-reinforcement-rules = Ви — [color=red][bold]команда антагоністів[/bold][/color]з ядерними оперативниками, які викликали вас, ваше завдання — тримати заручників під контролем, а не захоплювати їх.

@@ -178,6 +178,10 @@ namespace Content.Shared.GameTicking
             [DataField, NonSerialized]
             public string[] JobPrototypes;
 
+            public int TotalCommendations;
+
+            public int RoundCommendations;
+
             [DataField, NonSerialized]
             public string[] AntagPrototypes;
 

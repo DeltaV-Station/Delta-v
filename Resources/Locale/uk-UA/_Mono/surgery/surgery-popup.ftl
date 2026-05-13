@@ -1,0 +1,1 @@
+surgery-popup-step-SurgeryStepRemoveCorticalBorer = {$user}видаляє Cortical Borer з {$target}{$part}!

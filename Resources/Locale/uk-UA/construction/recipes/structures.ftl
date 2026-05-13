@@ -1,0 +1,27 @@
+construction-recipe-diagonal-shuttle-wall = човникова стінка (діагональ)
+construction-window-diagonal = Т-подібне з'єднання газової труби
+construction-recipe-reinforced-window-diagonal = посилене вікно (діагональ)
+construction-recipe-clockwork-window-diagonal = годинникове вікно (діагональ)
+construction-recipe-plasma-window-diagonal = плазмове вікно (діагональ)
+construction-recipe-reinforced-plasma-window-diagonal = посилене плазмове вікно (діагональ)
+construction-recipe-uranium-window-diagonal = уранове вікно (діагональ)
+construction-recipe-reinforced-uranium-window-diagonal = армоване уранове вікно (діагональ)
+construction-recipe-firelock-edge = спрямований вогонь
+construction-recipe-fence-metal-corner = Ваша роль [колір = [[0]]][[1]][[2]]
+construction-recipe-fence-metal-end = ланцюг огорожі кінця
+construction-recipe-barricade-directional = спрямована барикада
+construction-recipe-railing-corner = перила куточок
+construction-recipe-railing-corner-small = куточок перил (маленький)
+construction-recipe-railing-round = перила (круглі)
+construction-recipe-fence-wood-end = торець дерев'яного паркану
+construction-recipe-fence-wood-corner = дерев'яний паркан кутовий
+construction-recipe-fence-wood-t-junction = дерев'яна огорожа Т-подібне перехрестя
+construction-recipe-fence-wood-end-small = невелика дерев'яна огорожа
+construction-recipe-fence-wood-corner-small = маленький куточок дерев'яного паркану
+construction-recipe-fence-wood-t-junction-small = невеликий дерев'яний паркан Т-подібного перехрестя
+construction-recipe-fence-wood-gate-small = невеликий дерев'яний паркан ворота
+construction-recipe-pinion-airlock = заводний шлюз
+construction-recipe-pinion-airlock-glass = скляний заводний шлюз
+construction-recipe-airlock-glass-shuttle = скляний човник повітряний шлюз
+construction-recipe-plastic-flaps-clear = пластикові клапани (прозорі)
+construction-recipe-plastic-flaps-opaque = пластикові клапани (непрозорі)

@@ -1,0 +1,1 @@
+attach-to-self-verb-get-data-text = Прикріпити до себе

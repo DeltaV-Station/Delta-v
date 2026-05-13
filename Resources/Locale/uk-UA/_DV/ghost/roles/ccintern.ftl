@@ -1,0 +1,2 @@
+ghost-role-information-centcom-intern-name = CentComm Intern
+ghost-role-information-centcom-intern-description = Виконуйте завдання, надані офіційними особами CentComm, і допомагайте виконувати їхні обов’язки, наприклад перевіряти станцію, робити нотатки та керувати факсом.

@@ -1,0 +1,1 @@
+ghost-role-information-syndicate-cyborg-medical-name = Синдикат Медичний Кіборг

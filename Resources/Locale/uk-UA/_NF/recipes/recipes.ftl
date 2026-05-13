@@ -1,0 +1,2 @@
+construction-recipe-maple-mothroach-cloak = плащ з кленової мокриці
+construction-recipe-description-maple-mothroach-cloak = Дивлячись у ці мертві очі, ти розумієш, що це те, чого ти, я маю на увазі, вони хотіли б.

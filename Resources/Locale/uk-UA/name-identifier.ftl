@@ -1,0 +1,9 @@
+name-identifier-format-monkey = МК-{$number}
+name-identifier-format-kobold = Південь
+name-identifier-format-holoparasite = ГОЛОС-{$number}
+name-identifier-format-mmi = південний схід
+name-identifier-format-positronic-brain = PB-{$number}
+name-identifier-format-silicon = Si-{$number}
+name-identifier-format-xenoborg = Xi-{$number}
+name-identifier-format-station-ai = AI-{$number}
+name-identifier-format-telepad = TELE-{$number}

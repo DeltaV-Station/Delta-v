@@ -1,0 +1,1 @@
+ent-EscapeShuttleObjective = Втікайте до Мідпойнту живим і нестримним

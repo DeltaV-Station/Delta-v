@@ -1,0 +1,3 @@
+shared-interaction-system-in-range-unobstructed-cannot-reach = Туди не дотягнешся!
+interaction-system-user-interaction-cannot-reach = Туди не дотягнешся!
+interaction-rate-limit-admin-announcement = Гравець { $player } порушив обмеження на швидкість взаємодії. Вони можуть використовувати макроси, автоматичні клікери або модифікований клієнт. Хоча вони можуть просто спамити кнопки або мати проблеми з мережею.

@@ -1,0 +1,1 @@
+specialized-clothing-default-failure = Ви не можете вписатися в це

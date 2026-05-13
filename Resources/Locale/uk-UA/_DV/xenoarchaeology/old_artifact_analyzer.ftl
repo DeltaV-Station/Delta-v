@@ -1,0 +1,1 @@
+old-analysis-console-glimmer-multiplier-text = Ψ_МНОЖНИК: {$mult}

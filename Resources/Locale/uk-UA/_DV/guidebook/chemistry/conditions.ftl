@@ -1,0 +1,1 @@
+reagent-explanation-netinadone-ribcage = грудна клітка цілі відкрита

@@ -1,0 +1,1 @@
+research-technology-psionic-countermeasures = Псіонічні контрзаходи

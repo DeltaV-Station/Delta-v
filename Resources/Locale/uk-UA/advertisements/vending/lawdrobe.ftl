@@ -1,0 +1,14 @@
+advertisement-lawdrobe-1 = Придурків у нас тільки половина,інші — шахраї.
+advertisement-lawdrobe-2 = Доглядайте за охороною, доки вони не дотримуватимуться ваших власних правил!
+advertisement-lawdrobe-3 = Щойно надійшла нова справа? Витягни їх із в'язниці!
+advertisement-lawdrobe-4 = Знижка Ден, він справжній!
+advertisement-lawdrobe-5 = Ніхто не вище закону!
+advertisement-lawdrobe-6 = Ні офіцер, я не даю згоди на обшук!
+advertisement-lawdrobe-7 = Введення космічних наркотиків не залишає доказів!
+advertisement-lawdrobe-8 = Ви чи близька людина постраждали від Nanotrasen? Шкода!
+advertisement-lawdrobe-9 = Справу закрито! У відповідача занадто багато крапельниці!
+thankyou-lawdrobe-1 = У такому вбранні можна виграти будь-яку справу!
+thankyou-lawdrobe-2 = Отримайте один і для свого клієнта!
+thankyou-lawdrobe-3 = Виграйте чи програйте, ви отримаєте гроші в будь-якому випадку!
+thankyou-lawdrobe-4 = Пам’ятайте: це незаконно, лише якщо вас спіймають!
+thankyou-lawdrobe-5 = ЗАПЕРЕЧЕННЯ! Це вбрання занадто круте для суду!

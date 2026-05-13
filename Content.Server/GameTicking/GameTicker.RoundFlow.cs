@@ -587,6 +587,41 @@ namespace Content.Server.GameTicking
 
             // This ordering mechanism isn't great (no ordering of minds) but functions
             var listOfPlayerInfoFinal = listOfPlayerInfo.OrderBy(pi => pi.PlayerOOCName).ToArray();
+
+            // Fetch commendations counts from the DB
+            try
+            {
+                var userIds = listOfPlayerInfoFinal
+                    .Where(p => p.PlayerGuid != null)
+                    .Select(p => p.PlayerGuid!.Value.UserId)
+                    .ToList();
+                
+                #pragma warning disable RA0004
+                var counts = System.Threading.Tasks.Task.Run(async () => await _db.GetPlayerCommendationCounts(userIds)).Result;
+                var roundCounts = System.Threading.Tasks.Task.Run(async () => await _db.GetPlayerCommendationCountsForRound(userIds, RoundId)).Result;
+                #pragma warning restore RA0004
+
+                for (var i = 0; i < listOfPlayerInfoFinal.Length; i++)
+                {
+                    if (listOfPlayerInfoFinal[i].PlayerGuid != null)
+                    {
+                        var userId = listOfPlayerInfoFinal[i].PlayerGuid!.Value.UserId;
+                        if (counts.TryGetValue(userId, out var count))
+                        {
+                            listOfPlayerInfoFinal[i].TotalCommendations = count;
+                        }
+                        if (roundCounts.TryGetValue(userId, out var rCount))
+                        {
+                            listOfPlayerInfoFinal[i].RoundCommendations = rCount;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Error fetching commendation counts for round end: {e}");
+            }
+
             var sound = RoundEndSoundCollection == null ? null : _audio.ResolveSound(new SoundCollectionSpecifier(RoundEndSoundCollection));
 
             var roundEndMessageEvent = new RoundEndMessageEvent(

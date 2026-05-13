@@ -1,0 +1,96 @@
+## Nyano
+flavor-base-acidic = кислий
+flavor-complex-nuggie = як "курка"
+flavor-complex-enthralling = захоплюючий
+flavor-complex-sublime = піднесений
+flavor-base-seeds = насіння
+flavor-complex-vanilla = як ваніль
+flavor-complex-soju = як жирний алкогольний рис
+flavor-complex-orangecreamcicle = як вершковий, алкогольний апельсиновий сік
+flavor-complex-silverjack = як мрія рок-зірки
+flavor-complex-brainbomb = як пошкодження печінки
+flavor-complex-atomicpunch = як гірко-солодке випромінювання
+flavor-complex-circusjuice = надзвичайно смішно
+flavor-complex-pinkdrink = переважно як рожевий
+flavor-complex-sapopicante = як помідори та спеції
+flavor-complex-graveyard = як міцний холодний напій
+flavor-complex-bubbletea = як вершкова солодкість
+flavor-complex-corncob = як поганий жарт
+
+## Delta
+flavor-complex-gunmetal = гірко-солодкий і вершковий
+flavor-complex-lemondrop = освіжаючий терпкий
+flavor-complex-greengrass = як свято під сонцем
+flavor-complex-fashionable = модно
+flavor-complex-arsonistsbrew = як попіл і полум'я
+flavor-complex-healthcodeviolation = зловісний
+flavor-complex-blellow = як неможливий колір
+flavor-complex-candy-strawberry = як полуниця
+flavor-complex-candy-bubblegum = як жувальна гумка
+flavor-complex-double-ice-cream = як морозиво, двічі
+flavor-complex-drgibbbloodred = як серйозна недбалість
+flavor-complex-lemon-lime-bitters = як австралійський десерт
+flavor-complex-spicy-pickle = як гострі крекери з маринованих огірків
+
+## Delta-V additional drink flavors
+flavor-complex-absinthe-deltav = як зелена смерть
+flavor-complex-blue-curacao-deltav = як ферментовані апельсини
+flavor-complex-deadrum-deltav = як невдале вбивство
+flavor-complex-n-t-cahors-deltav = п'ятсот доларів занадто дорого
+flavor-complex-poison-wine-deltav = як темний оксамит
+flavor-complex-allies-cocktail-deltav = як воєнне товариство
+flavor-complex-amasec-deltav = як димляча рушниця
+flavor-complex-andalusia-deltav = як літо
+flavor-complex-b52-deltav = як гонка ядерних озброєнь
+flavor-complex-bahama-mama-deltav = як тропічна відпустка
+flavor-complex-barefoot-deltav = як ягідки, але без взуття
+flavor-complex-booger-deltav = ніби ніхто не дивиться
+flavor-complex-brave-bull-deltav = ніби ти бачиш червоне
+flavor-complex-demons-blood-deltav = як сірка
+flavor-complex-devils-kiss-deltav = як спокуса
+flavor-complex-doctors-delight-deltav = як медичне диво
+flavor-complex-driest-martini-deltav = як сухе почуття гумору
+flavor-complex-erika-surprise-deltav = як зелений сон, ідеальний для теплого дня
+flavor-complex-gin-fizz-deltav = як шипучий лимон
+flavor-complex-gildlager-deltav = як пікантний секрет, розказаний на весняних канікулах
+flavor-complex-grog-deltav = як день у відкритому морі
+flavor-complex-hippies-delight-deltav = на кшталт, зовсім триппи, чоловіче
+flavor-complex-hooch-deltav = як саморобна вогнева вода
+flavor-complex-irish-cream-deltav = як віскі та вершки
+flavor-complex-kira-special-deltav = каваї
+flavor-complex-manhattan-deltav = темний і таємничий
+flavor-complex-manhattan-project-deltav = як дві хвилини до півночі
+flavor-complex-margarita-deltav = як рай у космосі
+flavor-complex-martini-deltav = як почуття гумору
+flavor-complex-mojito-deltav = м'ятний свіжий і трохи солодкий
+flavor-complex-neurotoxin-deltav = як поїздка в швидку допомогу
+flavor-complex-patron-deltav = як розкіш
+flavor-complex-red-mead-deltav = як перебродив мед із бризками крові
+flavor-complex-rewriter-deltav = як ночувати всю ніч
+flavor-complex-sbiten-deltav = як тобі знадобиться склянка молока
+flavor-complex-silencer-deltav = як порушена обітниця
+flavor-complex-snow-white-deltav = Діє тимчасове ембарго. Спробувати пізніше?
+flavor-complex-sui-dream-deltav = як фруктовий салат, ідеально підходить для працюючої жінки
+flavor-complex-syndicate-bomb-deltav = ніби це вразить вас
+flavor-complex-toxins-special-deltav = як плазмовий вогонь
+flavor-complex-vodka-martini-deltav = струшують, не перемішують
+flavor-complex-vodka-tonic-deltav = як депресія в запереченні
+flavor-complex-kvass-deltav = як хліб, кинутий у блендер
+flavor-complex-mothamphetamine-deltav = ніби в роті дзижчать крила
+flavor-complex-unholy-water = як щось холодне і неправильне
+flavor-complex-old-fashioned = як гірко-солодкий віскі
+flavor-complex-mnatsa-collins = як кисло-солодкий бренді
+flavor-complex-affogato = як п'яне морозиво
+flavor-complex-five-oclock = як міцний чай
+flavor-complex-mliko = як прикол
+
+## DeltaV deep fryer
+flavor-base-crispy = хрусткий
+flavor-base-stale = несвіжий
+flavor-base-burnt = спалені
+flavor-base-rancid = згірклий
+flavor-base-awful = жахливо
+
+candy-flavor-profile = Цей має мати смак {$flavor}.
+candy-flavor-profile-multiple = Цей має мати смак {$flavors}і {$lastFlavor}.
+candy-flavor-profile-unknown = Ви не уявляєте, який цей смак має бути.

@@ -1,0 +1,1 @@
+flash-protection = Він забезпечує захист від [color=lightblue]яскравих спалахів[/color].

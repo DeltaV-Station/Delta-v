@@ -1,0 +1,8 @@
+# Examination for different levels of wiring protection
+wires-panel-component-on-examine-security-level1 = Є сталева пластина, яка перешкоджає доступу до внутрішньої проводки. Використовуйте [color=cyan]Лом[/color], щоб видалити його.
+wires-panel-component-on-examine-security-level2 = Сталева пластина була приварена до внутрішньої сторони [color=lightgray]панелі обслуговування[/color]. Використовуйте [color=cyan]зварювальник[/color], щоб звільнити його.
+wires-panel-component-on-examine-security-level3 = Доступ до внутрішньої проводки перешкоджає пластиковій пластині. Використовуйте [color=cyan]Лом[/color], щоб видалити його.
+wires-panel-component-on-examine-security-level4 = До внутрішньої сторони [color=lightgray]обслуговуючої панелі[/color]була приварена пластина з пластмаси. Використовуйте [color=cyan]зварювальник[/color], щоб звільнити його.
+wires-panel-component-on-examine-security-level5 = Внутрішня частина [color=lightgray]панелі обслуговування[/color]захищена захисною решіткою. Використовуйте [color=cyan]різаки для дроту[/color], щоб видалити його.
+wires-panel-component-on-examine-security-level6 = Усередині [color=lightgray]панелі технічного обслуговування[/color]знаходиться пластина з пластмаси. Використовуйте [color=cyan]Лом[/color], щоб видалити його.
+wires-panel-component-on-examine-security-level7 = Зварна пластина з пластмаси захищає внутрішню частину [color=lightgray]панелі обслуговування[/color]. Використовуйте [color=cyan]зварювальник[/color], щоб звільнити його.

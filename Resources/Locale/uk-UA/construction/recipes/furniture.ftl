@@ -1,0 +1,12 @@
+construction-recipe-red-comf-bench = зручна лавка (червона)
+construction-recipe-blue-comf-bench = зручна лава (синя)
+construction-recipe-table-fancy-black = нарядний стіл (чорний)
+construction-recipe-table-fancy-blue = стильний стіл (синій)
+construction-recipe-table-fancy-sky-blue = шикарний стіл (блакитний)
+construction-recipe-table-fancy-cyan = модний стіл (блакитний)
+construction-recipe-table-fancy-green = Генератори
+construction-recipe-table-fancy-orange = Сингулярність / Тесла
+construction-recipe-table-fancy-purple = стильний стіл (фіолетовий)
+construction-recipe-table-fancy-pink = шикарний стіл (рожевий)
+construction-recipe-table-fancy-red = шикарний стіл (червоний)
+construction-recipe-table-fancy-white = Двірник

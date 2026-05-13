@@ -1,0 +1,1 @@
+damage-on-shoot-leviathan = Ну, Неллі!

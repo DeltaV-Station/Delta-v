@@ -1,0 +1,1 @@
+﻿biomass-reclaimer-suicide-others = {CAPITALIZE(THE($victim))} кинулися в регенератор біомаси!

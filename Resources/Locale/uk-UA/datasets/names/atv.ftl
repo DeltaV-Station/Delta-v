@@ -1,0 +1,16 @@
+descriptions-atv-dataset-1 = Автомобіль із плиткою.
+descriptions-atv-dataset-2 = Ant-Thwarting Vehicle.
+descriptions-atv-dataset-3 = Будь-який овоч.
+descriptions-atv-dataset-4 = Насправді - дві машини.
+descriptions-atv-dataset-5 = Змінна будь-якого типу.
+descriptions-atv-dataset-6 = Автомобіль допомоги при травмах.
+descriptions-atv-dataset-7 = Вірус, що передається алгоритмом.
+descriptions-atv-dataset-8 = Алкоголік-Toddler Вакансія.
+descriptions-atv-dataset-9 = Вулкан, що розриває мудак.
+descriptions-atv-dataset-10 = A-Tele Vision.
+descriptions-atv-dataset-11 = Незграбний бродяга.
+descriptions-atv-dataset-12 = Волонтер арт-трагедії.
+descriptions-atv-dataset-13 = Вакансія Automatic-Taco.
+descriptions-atv-dataset-14 = Ще один-чудовий вид.
+descriptions-atv-dataset-15 = Всіх Богородиць.
+descriptions-atv-dataset-16 = А-Жахливий транспортний засіб.

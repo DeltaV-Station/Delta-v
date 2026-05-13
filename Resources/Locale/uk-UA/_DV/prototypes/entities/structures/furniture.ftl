@@ -1,0 +1,12 @@
+structure-furniture-fancy-counter = стильна дерев'яна стійка
+structure-furniture-fancy-counter-corner = стильний дерев'яний стіл (кут)
+structure-furniture-fancy-counter-junction = стильна дерев'яна стійка (т-подібне з'єднання)
+structure-furniture-fancy-counter-cross = стильна дерев'яна стійка (перетин)
+structure-furniture-shoddy-counter = поганий дерев'яний прилавок
+structure-furniture-shoddy-counter-corner = неякісна дерев'яна стійка (куточок)
+structure-furniture-shoddy-counter-junction = неякісна дерев'яна стійка (т-подібне з'єднання)
+structure-furniture-shoddy-counter-cross = поганий дерев'яний прилавок (перетин)
+structure-furniture-fancy-steel-counter = сталевий лічильник
+structure-furniture-fancy-steel-counter-corner = сталевий прилавок (куточок)
+structure-furniture-fancy-steel-counter-junction = сталевий лічильник (Т-подібне з'єднання)
+structure-furniture-fancy-steel-counter-cross = сталевий лічильник (перехрестя)

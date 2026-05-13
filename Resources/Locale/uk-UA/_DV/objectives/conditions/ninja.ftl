@@ -1,0 +1,1 @@
+objective-ninja-kill-head-title = Виконати {$targetName}, {CAPITALIZE($job)}

@@ -354,6 +354,20 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region RP Commendations
+
+        Task<bool> AddCommendation(int roundId, Guid senderUserId, Guid receiverUserId);
+        Task AddAdminCommendation(int roundId, Guid receiverUserId, int count, string reason);
+        Task<List<(Guid UserId, string UserName, int Count)>> GetTopCommendations(int topN, TimeSpan window);
+        Task<List<(string SenderName, string ReceiverName, int RoundId, DateTime Time)>> GetCommendationLog(TimeSpan window);
+        Task<int> WipeCommendations(TimeSpan window);
+        Task<int> WipeAllCommendations();
+        Task<int> GetPlayerCommendationCount(Guid playerUserId, TimeSpan? window = null);
+        Task<Dictionary<Guid, int>> GetPlayerCommendationCounts(List<Guid> playerUserIds, TimeSpan? window = null);
+        Task<Dictionary<Guid, int>> GetPlayerCommendationCountsForRound(List<Guid> playerUserIds, int roundId);
+
+        #endregion
+
         #region DB Notifications
 
         void SubscribeToNotifications(Action<DatabaseNotification> handler);
@@ -1093,6 +1107,64 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.ResetAllSeenTips(player));
+        }
+
+        #endregion
+
+        #region RP Commendations
+
+        public Task<bool> AddCommendation(int roundId, Guid senderUserId, Guid receiverUserId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddCommendation(roundId, senderUserId, receiverUserId));
+        }
+
+        public Task AddAdminCommendation(int roundId, Guid receiverUserId, int count, string reason)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddAdminCommendation(roundId, receiverUserId, count, reason));
+        }
+
+        public Task<List<(Guid UserId, string UserName, int Count)>> GetTopCommendations(int topN, TimeSpan window)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetTopCommendations(topN, window));
+        }
+
+        public Task<List<(string SenderName, string ReceiverName, int RoundId, DateTime Time)>> GetCommendationLog(TimeSpan window)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCommendationLog(window));
+        }
+
+        public Task<int> WipeCommendations(TimeSpan window)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.WipeCommendations(window));
+        }
+
+        public Task<int> WipeAllCommendations()
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.WipeAllCommendations());
+        }
+
+        public Task<int> GetPlayerCommendationCount(Guid playerUserId, TimeSpan? window = null)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerCommendationCount(playerUserId, window));
+        }
+
+        public Task<Dictionary<Guid, int>> GetPlayerCommendationCounts(List<Guid> playerUserIds, TimeSpan? window = null)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerCommendationCounts(playerUserIds, window));
+        }
+
+        public Task<Dictionary<Guid, int>> GetPlayerCommendationCountsForRound(List<Guid> playerUserIds, int roundId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerCommendationCountsForRound(playerUserIds, roundId));
         }
 
         #endregion

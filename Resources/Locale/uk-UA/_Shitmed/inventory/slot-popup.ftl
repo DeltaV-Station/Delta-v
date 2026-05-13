@@ -1,0 +1,1 @@
+equip-part-missing-error = {$target}не має {$part}!

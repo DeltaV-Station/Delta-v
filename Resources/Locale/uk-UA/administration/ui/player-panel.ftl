@@ -1,0 +1,25 @@
+player-panel-title = інформація для {$player}
+player-panel-username = Ім'я користувача: {$player}
+player-panel-whitelisted = У білому списку:
+player-panel-bans = Загальна кількість заборон: {$totalBans}
+player-panel-rolebans = Загальна кількість заборон ролей: {$totalRoleBans}
+player-panel-notes = Усього приміток: {$totalNotes}
+player-panel-playtime = Загальний час відтворення: {$days}д:{$hours}год:{$minutes}хв
+player-panel-shared-connections = Спільні підключення: {$sharedConnections}
+
+player-panel-copy-username = Копія
+player-panel-show-notes = Примітки
+player-panel-show-bans = Показати заборони
+player-panel-help = Допоможіть
+player-panel-freeze-and-mute = Заморозити та вимкнути звук
+player-panel-freeze = Заморозити
+player-panel-unfreeze = Розморозити
+player-panel-kick = удар ногою
+player-panel-ban = Забанити
+player-panel-logs = Журнали
+player-panel-delete = Видалити
+player-panel-rejuvenate = Омолодити
+player-panel-false = Неправда
+player-panel-true = правда
+player-panel-follow = Слідуйте
+player-panel-camera = Камера

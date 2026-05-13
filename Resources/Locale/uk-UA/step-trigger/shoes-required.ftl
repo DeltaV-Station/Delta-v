@@ -1,0 +1,1 @@
+﻿clothing-required-step-trigger-examine = Мабуть, не варто наступати на це босоніж.

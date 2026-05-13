@@ -1,0 +1,3 @@
+﻿### Messages that pop up when metabolizing Frost Oil.
+
+frost-oil-effect-light-cold = Ви відчуваєте легке холодне першіння в горлі...

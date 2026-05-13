@@ -1,0 +1,12 @@
+ui-options-header-targeting = Націлювання
+ui-options-function-target-head = Цільова голова
+ui-options-function-target-torso = Цільовий торс
+ui-options-function-target-left-arm = Цільова ліва рука
+ui-options-function-target-left-hand = Цільова ліва рука
+ui-options-function-target-right-arm = Цільова права рука
+ui-options-function-target-right-hand = Ціль правою рукою
+ui-options-function-target-left-leg = Цільова ліва нога
+ui-options-function-target-left-foot = Цільова ліва нога
+ui-options-function-target-right-leg = Цільова права нога
+ui-options-function-target-right-foot = Цільова права нога
+ui-options-function-toggle-standing = Повзати/стояти

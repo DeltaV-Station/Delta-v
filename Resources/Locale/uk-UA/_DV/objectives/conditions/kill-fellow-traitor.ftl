@@ -1,0 +1,1 @@
+objective-condition-traitor-kill-title = Убити товариша-зрадника {$targetName}, {CAPITALIZE($job)}

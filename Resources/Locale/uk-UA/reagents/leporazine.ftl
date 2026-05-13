@@ -1,0 +1,1 @@
+﻿leporazine-effect-temperature-adjusting = Ви відчуваєте, як температура вашого тіла швидко пристосовується.

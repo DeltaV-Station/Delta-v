@@ -1,0 +1,1 @@
+﻿food-sequence-content-pear = груша

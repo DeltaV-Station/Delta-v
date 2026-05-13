@@ -1,0 +1,3 @@
+damage-on-unequip-examine = [color=red]Ви вважаєте, що видалити це погана ідея...[/color]
+damage-on-unequip-begin = {$item}починає скрипіти та стогнати...
+damage-on-unequip-finish = {$item}відривається від тіла {$wearer}!

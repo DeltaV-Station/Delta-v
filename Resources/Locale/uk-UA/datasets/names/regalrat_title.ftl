@@ -1,0 +1,36 @@
+names-regal-rat-title-dataset-1 = Король
+names-regal-rat-title-dataset-2 = Господи
+names-regal-rat-title-dataset-3 = Принц
+names-regal-rat-title-dataset-4 = Імператор
+names-regal-rat-title-dataset-5 = Верховний
+names-regal-rat-title-dataset-6 = Оверлорд
+names-regal-rat-title-dataset-7 = майстер
+names-regal-rat-title-dataset-8 = Сьогун
+names-regal-rat-title-dataset-9 = Бояр
+names-regal-rat-title-dataset-10 = Цар
+names-regal-rat-title-dataset-11 = Фанат проти
+names-regal-rat-title-dataset-12 = Невидимість
+names-regal-rat-title-dataset-13 = президент
+names-regal-rat-title-dataset-14 = міський голова
+names-regal-rat-title-dataset-15 = Бос
+names-regal-rat-title-dataset-16 = Пророк
+names-regal-rat-title-dataset-17 = Сир
+# Delta-V additions
+names-regal-rat-title-dataset-18 = Королева
+names-regal-rat-title-dataset-19 = Принцеса
+names-regal-rat-title-dataset-20 = Імператриця
+names-regal-rat-title-dataset-21 = Гончо
+names-regal-rat-title-dataset-22 = Кахуна
+names-regal-rat-title-dataset-23 = Гуру
+names-regal-rat-title-dataset-24 = Барон
+names-regal-rat-title-dataset-25 = Граф
+names-regal-rat-title-dataset-26 = Віконт
+names-regal-rat-title-dataset-27 = Міністр
+names-regal-rat-title-dataset-28 = Льєж
+names-regal-rat-title-dataset-29 = Хавер
+names-regal-rat-title-dataset-30 = Регент
+names-regal-rat-title-dataset-31 = Загальний
+names-regal-rat-title-dataset-32 = Командир
+names-regal-rat-title-dataset-33 = Полковник
+names-regal-rat-title-dataset-34 = Ніблер
+# End Delta-V additions

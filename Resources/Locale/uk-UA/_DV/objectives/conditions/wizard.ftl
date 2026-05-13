@@ -1,0 +1,2 @@
+objective-condition-wizard-preserve-person-title = Підтримуйте {$targetName}, {CAPITALIZE($job)}, незважаючи на ціну.
+objective-condition-wizard-kill-person-title = Випотрошіть {$targetName}, {CAPITALIZE($job)} з цієї смертельної спіралі.

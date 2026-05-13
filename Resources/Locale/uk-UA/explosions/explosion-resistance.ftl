@@ -1,0 +1,2 @@
+explosion-resistance-coefficient-value = - Шкода від [color=orange]вибуху[/color]зменшена на [color=lightblue]{$value}%[/color].
+explosion-resistance-contents-coefficient-value = - шкода [color=orange]Вибуху[/color] [color=white]для сутності[/color] зменшена на [color=lightblue]{$value}%[/color].

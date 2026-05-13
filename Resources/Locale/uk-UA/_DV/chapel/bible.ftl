@@ -1,0 +1,1 @@
+bible-summon-respawn-gone = {CAPITALIZE(THE($book))} сила зникла. {CAPITALIZE(POSS-ADJ($book))} резидент не повернеться.

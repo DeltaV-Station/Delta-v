@@ -14,6 +14,7 @@ public sealed class RoundEndSummaryUIController : UIController,
     IOnSystemLoaded<ClientGameTicker>
 {
     [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     private RoundEndSummaryWindow? _window;
 
@@ -39,8 +40,12 @@ public sealed class RoundEndSummaryUIController : UIController,
         if (_window?.RoundId == message.RoundId)
             return;
 
+        // Get local player OOC name for self-filtering in commendation tab
+        var localPlayerName = _playerManager.LocalSession?.Name;
+
         _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText,
-            message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager);
+            message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager,
+            localPlayerName);
     }
 
     public void OnSystemLoaded(ClientGameTicker system)

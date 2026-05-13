@@ -1,0 +1,1 @@
+station-event-greytide-virus-start-announcement = Система захисту від втручання підкислює вміст {THE($container)}!

@@ -1,0 +1,1 @@
+fire-protection-reduction-value = - Шкода від [color=orange]пожежі[/color]зменшена на [color=lightblue]{$value}%[/color].

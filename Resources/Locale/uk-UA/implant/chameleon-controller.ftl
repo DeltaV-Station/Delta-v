@@ -1,0 +1,1 @@
+﻿chameleon-controller-ui-window-name = Хамелеон управління

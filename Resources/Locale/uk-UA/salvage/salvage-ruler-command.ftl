@@ -1,0 +1,2 @@
+salvage-ruler-command-description = Вимірює сітки на цій карті, щоб отримати загальний AABB світу. Використовуйте для специфікацій меж утилізації.
+salvage-ruler-command-help-text = Використання: {$command}
