@@ -134,28 +134,52 @@
       - state: equipped-head
       - state: equipped-head-unshaded
         shader: unshaded
+      - state: strip-head
+        map: ["colorlayer1"]
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
+      - state: strip-head
+        map: ["colorlayer1"]
       head-reptilian:
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
         shader: unshaded
+      - state: strip-head
+        map: ["colorlayer1"]
+      head-dog:
+      - state: equipped-head-dog
+      - state: equipped-head-unshaded-dog
+        shader: unshaded
+      - state: strip-head
+        map: ["colorlayer1"]
       # Begin DeltaV species helmets
       head-vulpkanin:
       - state: equipped-head-vulpkanin
       - state: equipped-head-unshaded-vulpkanin
         shader: unshaded
+      - state: strip-head
+        map: ["colorlayer1"]
       head-feroxi:
       - state: equipped-head-feroxi
       - state: equipped-head-unshaded-feroxi
         shader: unshaded
+      - state: strip-feroxi
+        map: ["colorlayer1"]
       # End DeltaV species helmets
-      head-dog:
-      - state: equipped-head-dog
-      - state: equipped-head-unshaded-dog
-        shader: unshaded
+  - type: JobColor
+    jobMap:
+      JobIconStationEngineer:
+        colorlayer1: "#ffa62b"
+      JobIconAtmosphericTechnician:
+        colorlayer1: "#00a5ff"
+      JobIconTechnicalAssistant:
+        colorlayer1: "#aaaaaa"
+      JobIconSeniorEngineer:
+        colorlayer1: "#b5fff7"
+      JobIconUnknown:
+        colorlayer1: "#aaaaaa"
   - type: PointLight
     color: "#ffdbad"
   - type: PressureProtection

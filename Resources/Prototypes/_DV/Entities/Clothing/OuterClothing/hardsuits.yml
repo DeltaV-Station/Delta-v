@@ -47,10 +47,41 @@
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+    layers:
+      - state: icon
+      - state: strip-icon
+        map: ["officersuit1"]
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: strip-human
+        map: ["officersuit1"]
+      outerClothing-harpy:
+      - state: equipped-OUTERCLOTHING-harpy
+      - state: strip-harpy
+        map: ["officersuit1"]
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      - state: strip-vox
+        map: ["officersuit1"]
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatOfficer
+  - type: JobColor
+    jobMap:
+      JobIconDetective:
+        officersuit1: "#7c644a"
+      JobIconSecurityCadet:
+        officersuit1: "#aaaaaa"
+      JobIconSecurityOfficer:
+        officersuit1: "#424f6b"
+      JobIconSeniorOfficer:
+        officersuit1: "#1a273b"
+      JobIconPrisonGuard:
+        officersuit1: "#ff6b35"
+      JobIconUnknown:
+        officersuit1: "#aaaaaa"
 
 # Medical Combat Hardsuits
 - type: entity
