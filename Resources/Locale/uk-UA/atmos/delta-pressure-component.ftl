@@ -1,1 +1,0 @@
-window-taking-damage = Розподільча петля

@@ -1,1 +1,0 @@
-steal-target-groups-anti-psychic-knife = антипсихічний ніж

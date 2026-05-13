@@ -1,1 +1,0 @@
-invalid-floor-placement = Неможливо розмістити там

@@ -1,1 +1,0 @@
-ghost-role-information-deltav-clippy-description = Вірний вихованець кур'єра, пахне картоном і паперами.

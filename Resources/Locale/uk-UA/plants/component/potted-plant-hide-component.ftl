@@ -1,1 +1,0 @@
-potted-plant-hide-component-interact-hand-got-no-item-message = Ви сунули руку поміж коріння.

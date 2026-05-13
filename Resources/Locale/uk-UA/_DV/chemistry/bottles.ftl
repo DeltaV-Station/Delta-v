@@ -1,1 +1,0 @@
-chemistry-bottle-firebugs-friend = Друг Firebug

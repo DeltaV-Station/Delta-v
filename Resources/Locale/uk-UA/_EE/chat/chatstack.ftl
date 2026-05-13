@@ -1,1 +1,0 @@
-chat-system-repeated-message-counter = {" "[розмір шрифту={$size}][color=#DD3333][bold]x{$count}![/bold][/color][/font]

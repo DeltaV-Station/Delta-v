@@ -1,8 +1,0 @@
-lathe-recipe-Medkit-name = аптечка (порожня)
-lathe-recipe-MedkitBurn-name = набір для лікування опіків (порожній)
-lathe-recipe-MedkitToxin-name = набір для лікування токсинів (порожній)
-lathe-recipe-MedkitO2-name = набір для лікування кисневої депривації (порожній)
-lathe-recipe-MedkitBrute-name = набір для лікування грубих травм (порожній)
-lathe-recipe-MedkitAdvanced-name = вдосконалена аптечка (порожня)
-lathe-recipe-MedkitRadiation-name = набір для променевої терапії (порожній)
-lathe-recipe-MedkitCombat-name = медична аптечка (порожня)

@@ -1,1 +1,0 @@
-ce-clipboard-computer-verb-text = Перемкнути монітор живлення

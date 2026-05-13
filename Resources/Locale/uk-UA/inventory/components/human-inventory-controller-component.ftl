@@ -1,1 +1,0 @@
-set-outfit-verb-get-data-text = Набір спорядження

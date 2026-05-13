@@ -1,1 +1,0 @@
-whitelist-not-whitelisted-peri = Вас немає в білому списку. Щоб потрапити в білий список, подайте заявку на нашому форумі. Його можна знайти в #whitelist-applications на нашому Discord за адресою https://discord.gg/deltav

@@ -1,1 +1,0 @@
-﻿station-event-communication-interception = Увага! Зв'язок ворога перехоплено. Рівень безпеки підвищений.

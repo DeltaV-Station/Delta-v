@@ -1,1 +1,0 @@
-ent-BoxQMStamps = Скринька для марок LO

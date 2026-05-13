@@ -1,2 +1,0 @@
-cmd-mappingclientsidesetup-desc = Налаштовує керування освітленням і такі налаштування на стороні клієнта. Надсилається клієнту за допомогою «відображення».
-cmd-mappingclientsidesetup-help = Використання: mappingclientsidesetup

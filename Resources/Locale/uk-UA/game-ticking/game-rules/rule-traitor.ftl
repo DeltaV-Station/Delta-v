@@ -1,1 +1,0 @@
-rule-traitor-added-announcement = Привіт команді! Гарної зміни!

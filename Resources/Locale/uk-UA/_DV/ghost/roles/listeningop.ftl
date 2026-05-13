@@ -1,3 +1,0 @@
-ghost-role-information-listeningop-name = Прослуховування після операції
-ghost-role-information-listeningop-description = Ви — оперативний працівник служби підслуховування. Потрапте в зону дії, спостерігайте за станцією, перехоплюйте комунікації та допомагайте будь-яким оперативникам у цьому районі!
-ghost-role-information-listeningop-rules =	You are a Syndicate Operative tasked with the continuous reporting and monitoring of the station and its activities, as well as assisting any fellow operatives who may be aboard the station. As an antagonist, do whatever is required for you to complete this task. Make sure your station doesn't fall into enemy hands and DO NOT abandon your station! Hide your existence at any cost!

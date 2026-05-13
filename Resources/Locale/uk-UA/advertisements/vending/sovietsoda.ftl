@@ -1,9 +1,0 @@
-﻿advertisement-sovietsoda-1 = За товариша і батьківщину.
-advertisement-sovietsoda-2 = Махно мій батько, правду кажу!
-advertisement-sovietsoda-3 = Чудово, комради!
-advertisement-sovietsoda-4 = Ми проста люді, нічіво нізнаєм
-advertisement-sovietsoda-5 = Якщо є людина, то є проблема. Якщо немає людини, то немає проблеми.
-advertisement-sovietsoda-6 = Якщо його достатньо для повсякденного життя, це достатньо для нас!
-thankyou-sovietsoda-1 = Насолоджуйтесь, товаришу!
-thankyou-sovietsoda-2 = Тепер повертайся до роботи.
-thankyou-sovietsoda-3 = Це все, що ви отримуєте.

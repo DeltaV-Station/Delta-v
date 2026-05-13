@@ -1,1 +1,0 @@
-no-sing-while-no-speak = Ти зараз не можеш співати.

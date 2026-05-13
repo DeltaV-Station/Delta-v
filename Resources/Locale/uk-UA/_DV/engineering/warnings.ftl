@@ -1,1 +1,0 @@
-ame-controller-component-low-fuel-warning = УВАГА! Паливо антиматерії на {$percentage}%

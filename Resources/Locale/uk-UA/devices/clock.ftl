@@ -1,1 +1,0 @@
-clock-examine = Час читається: [color=white]{$time}[/color]

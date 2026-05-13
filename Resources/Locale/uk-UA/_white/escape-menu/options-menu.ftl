@@ -1,1 +1,0 @@
-ui-options-function-auto-get-up = Автоматично вставати після падіння

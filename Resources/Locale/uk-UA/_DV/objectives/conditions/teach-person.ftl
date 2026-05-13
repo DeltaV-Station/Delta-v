@@ -1,1 +1,0 @@
-objective-condition-teach-person-title = Проведіть {$targetName}, {CAPITALIZE($job)} урок

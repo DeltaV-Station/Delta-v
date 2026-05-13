@@ -1,1 +1,0 @@
-armor-surgery-speed-coefficient-value = Хірургічні операції

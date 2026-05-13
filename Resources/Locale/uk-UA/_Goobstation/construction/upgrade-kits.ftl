@@ -1,1 +1,0 @@
-upgrade-kit-automation = [color=cyan]Автоматизація[/color]: забезпечує [color=green]з’єднання сигналів[/color]і [color=green]порти елементів роботизованої руки[/color].

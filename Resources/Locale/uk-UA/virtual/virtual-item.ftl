@@ -1,1 +1,0 @@
-﻿virtual-item-dropped-other = Ви випустили {THE($dropped)}!

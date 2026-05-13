@@ -1,1 +1,0 @@
-simple-tool-usage-blocked-message = Вам потрібен інструмент, який може виконати {$quality}!

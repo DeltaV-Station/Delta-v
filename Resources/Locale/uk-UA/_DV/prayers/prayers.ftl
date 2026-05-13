@@ -1,3 +1,0 @@
-prayer-verbs-fountainwish = бажання
-prayer-chat-notify-fountainwish = ФОНТАН БАЖАНЬ
-prayer-popup-notify-fountainwish-sent = Ви кинули монетку у фонтан і загадали бажання...

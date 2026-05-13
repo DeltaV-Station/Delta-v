@@ -1,1 +1,0 @@
-candle-extinguish-failed = Полум'я блимає, але не гасне

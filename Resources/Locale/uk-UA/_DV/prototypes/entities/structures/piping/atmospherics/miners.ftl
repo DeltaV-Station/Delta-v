@@ -1,1 +1,0 @@
-ent-GasMinerAmmonia = міазма газовий шахтар

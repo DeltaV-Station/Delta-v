@@ -1,1 +1,0 @@
-item-recall-item-steal-target = Потенціал {CAPITALIZE(THE($item))} відхиляє марку.

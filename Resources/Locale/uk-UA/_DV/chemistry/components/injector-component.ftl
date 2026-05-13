@@ -1,1 +1,0 @@
-injector-component-deny-user-chitnid = Екзоскелет занадто товстий!

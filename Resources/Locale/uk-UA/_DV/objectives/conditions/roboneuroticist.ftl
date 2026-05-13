@@ -1,1 +1,0 @@
-objective-roboneuroticist-kill-title = Засудити {$targetName}, {CAPITALIZE($job)} на метал

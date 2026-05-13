@@ -1,1 +1,0 @@
-attach-to-grid-verb-get-data-text = Прикріпіть до сітки

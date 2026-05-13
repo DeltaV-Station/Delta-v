@@ -1,1 +1,0 @@
-batteryslotrequireslock-component-alert-owner = {$user}псує вашу панель обслуговування!

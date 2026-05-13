@@ -1,1 +1,0 @@
-cd-character-records-viewer-title-generic = Записи екіпажу

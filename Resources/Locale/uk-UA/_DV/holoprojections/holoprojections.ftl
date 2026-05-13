@@ -1,1 +1,0 @@
-timed-despawn-holoprojection-examine = Для цієї голопроекції залишилося [color=#ffa500]{$remaining}[/color]секунд.

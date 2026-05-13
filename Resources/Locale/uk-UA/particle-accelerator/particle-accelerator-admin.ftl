@@ -1,1 +1,0 @@
-particle-accelerator-admin-power-strength-warning = змінено потужність PA {$machine}на {$powerState}у координатах: {$coordinates}

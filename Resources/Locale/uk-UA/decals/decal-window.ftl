@@ -1,9 +1,0 @@
-﻿decal-placer-window-title = Розсип для наклейок
-decal-placer-window-use-color = Спеціальний колір
-decal-placer-window-rotation = Обертання
-decal-placer-window-zindex = Глибина малювання
-decal-placer-window-enable-auto = Використовуйте автоматичні налаштування
-decal-placer-window-enable-snap = Прив’язка до плитки
-decal-placer-window-enable-cleanable = Чиститься
-decal-placer-window-palette = Палітра
-palette-color-picker-window-title = Палітри

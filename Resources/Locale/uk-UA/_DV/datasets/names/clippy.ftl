@@ -1,1 +1,0 @@
-names-cat-clippy-dataset-1 = Кліппі

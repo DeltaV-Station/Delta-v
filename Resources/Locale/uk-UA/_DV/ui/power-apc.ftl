@@ -1,1 +1,0 @@
-apc-menu-power-state-disabled = Вимкнено

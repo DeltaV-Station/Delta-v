@@ -1,1 +1,0 @@
-emergency-shuttle-left-deltav = Екстрений автобус виїхав зі станції. Приблизно {$transitTime}секунд до прибуття шатла на станцію Midpoint.
