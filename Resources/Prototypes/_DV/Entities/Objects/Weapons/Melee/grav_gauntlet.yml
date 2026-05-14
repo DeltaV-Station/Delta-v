@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseItem, BaseWeaponPowerCell, BaseGunWieldable]
+  parent: [BaseItem, BaseWeaponBatterySmall, BaseGunWieldable, BaseGrandTheftContraband]
   id: GravGauntlet
   name: Grav Gauntlet MK-00c
   description: A developmental prototype of Nanotrasen's Melee Arms Department. When striking an enemy, a gravitational pulses and sweeps them in for a follow-up.
@@ -25,11 +25,14 @@
         Structural: 5
   - type: Gun #apersos was here
     resetOnHandSelected: false
-    projectileSpeed: 15
+    projectileSpeed: 25
     soundGunshot: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: BatteryAmmoProvider
     proto: BulletTaser # most balanced kinda, better than a stun shotgun
-    fireCost: 600
+    fireCost: 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1000
+    autoRechargePauseTime: 55
   - type: GunRequiresWield #gotta steady your arm to aim duhhh
   - type: AmmoCounter
   - type: MeleeThrowOnHit
