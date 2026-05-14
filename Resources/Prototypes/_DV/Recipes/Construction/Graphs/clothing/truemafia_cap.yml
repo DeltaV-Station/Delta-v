@@ -1,0 +1,55 @@
+- type: constructionGraph
+  id: RazorGreyFlatcap
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: Razorblade
+        name: construction-graph-tag-razorblade
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: Razorblade
+        name: construction-graph-tag-razorblade
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapGrey
+        name: construction-graph-tag-grey-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/greyflatcap.rsi
+          state: icon
+  - node: icon
+    entity: RazorGreyFlatcap
+
+- type: constructionGraph
+  id: RazorBrownFlatcap
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: Razorblade
+        name: construction-graph-tag-razorblade
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: Razorblade
+        name: construction-graph-tag-razorblade
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+      - tag: BrimFlatcapBrown
+        name: construction-graph-tag-brown-flatcap
+        icon:
+          sprite: Clothing/Head/Hats/brownflatcap.rsi
+          state: icon
+  - node: icon
+    entity: RazorBrownFlatcap

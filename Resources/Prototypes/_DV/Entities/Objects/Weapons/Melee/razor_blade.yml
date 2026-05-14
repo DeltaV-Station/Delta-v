@@ -1,0 +1,105 @@
+- type: entity
+  id: RazorbladeDull
+  parent: BaseItem
+  name: dull razor blade
+  description: A razor blade that requires sharpening.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/razorblade.rsi
+    state: razordull
+  - type: Item
+    size: Tiny
+    heldPrefix: razordull
+  - type: Construction
+    graph: Razorblade
+    node: incomplete
+  - type: ContainerContainer
+    containers:
+      construction: !type:Container
+
+- type: entity
+  parent: BaseItem
+  id: Razorblade
+  name: razor blade
+  description: A small, hastily crafted razor blade. Perfect for shaving!
+  components:
+  - type: Construction
+    graph: Razorblade
+    node: razorsharp
+  - type: Item
+    size: Tiny
+    heldPrefix: razorsharp
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/razorblade.rsi
+    state: razorsharpened
+  - type: Tag
+    tags:
+    - Razorblade
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 6
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Razorblade
+          Quantity: 1
+  - type: DrainableSolution
+    solution: food
+  - type: SolutionTransfer
+    canSend: true
+    canReceive: false
+    transferAmount: 1
+  - type: DeleteOnSolutionEmpty
+    solution: food
+
+- type: entity
+  parent: ClothingHeadHatGreyFlatcap
+  id: RazorGreyFlatcap
+  name: grey flatcap
+  suffix: Razor
+  description: Fashionable for both the working class and old man Jenkins. This one has razor blades sewn in. Scary.
+  components:
+  - type: Construction
+    graph: RazorGreyFlatcap
+    node: icon
+  - type: MeleeWeapon
+    attackRate: 1.6
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Slash: 8
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 14
+
+- type: entity
+  parent: ClothingHeadHatBrownFlatcap
+  id: RazorBrownFlatcap
+  name: brown flatcap
+  suffix: Razor
+  description: Stupid clown! You made me look bad! This one has razor blades sewn in. Scary.
+  components:
+  - type: Construction
+    graph: RazorBrownFlatcap
+    node: icon
+  - type: MeleeWeapon
+    attackRate: 1.6
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Slash: 8
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 14
