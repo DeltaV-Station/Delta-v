@@ -117,8 +117,8 @@
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Kitsune
-  - type: PsionicBonusChance
-    flatBonus: 0.5
+  - type: PotentialPsionic
+    speciesBonusChance: 0.05 # Additional 5% chance to roll a psionic power.
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/hiss.ogg
