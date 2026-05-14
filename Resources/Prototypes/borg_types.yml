@@ -76,6 +76,11 @@
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
+  # Begin DeltaV - Borg PDAs
+  pdaBorderColor: "#bf803a"
+  pdaAccentVerticalColor: "#ffd187"
+  # End DeltaV - Borg PDAs
+
 
 # Salvage borg
 - type: borgType
@@ -122,6 +127,11 @@
   petSuccessString: petting-success-salvage-cyborg
   petFailureString: petting-failure-salvage-cyborg
 
+  # Begin DeltaV - Borg PDAs
+  pdaBorderColor: "#af9366"
+  pdaAccentVerticalColor: "#8900c9"
+  # End DeltaV - Borg PDAs
+
 
 # Janitor borg
 - type: borgType
@@ -165,6 +175,10 @@
   # Pet
   petSuccessString: petting-success-janitor-cyborg
   petFailureString: petting-failure-janitor-cyborg
+
+  # Begin DeltaV - Borg PDAs
+  pdaBorderColor: "#5D2D56"
+  # End DeltaV - Borg PDAs
 
 
 # Medical borg
@@ -231,6 +245,11 @@
   footstepCollection:
     collection: FootstepHoverBorg
 
+  # Begin DeltaV - Borg PDAs
+  pdaBorderColor: "#d7d7d0"
+  pdaAccentVerticalColor: "#447987"
+  # End DeltaV - Borg PDAs
+
 
 # Service borg
 - type: borgType
@@ -271,3 +290,8 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+  # Begin DeltaV - Borg PDAs
+  pdaBorderColor: "#717059"
+  pdaAccentVerticalColor: "#00cc35"
+  # End DeltaV - Borg PDAs

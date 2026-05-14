@@ -97,6 +97,7 @@ role-name-ifrit = Ifrit
 role-name-carpy = Carpy
 role-name-shiva = Shiva
 role-name-pun-pun = Pun Pun
+role-name-baba = Baba
 
 # Station specific
 job-name-boxer = Boxer

@@ -67,7 +67,7 @@
     boardName: wires-board-name-autolathe
     layoutId: Fabicator
     alwaysRandomize: true
-  - type: StationAiWhitelist 
+  - type: StationAiWhitelist
   - type: MaterialStorageMagnetPickup
     magnetEnabled: True
     range: 0.30
@@ -297,6 +297,7 @@
     - MechBoards
     - ShuttleBoards
     - EngineeringBoardsGoob #Goob Factorio port
+    - ReactorCircuitboards # FH edit
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -424,6 +425,7 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
+    snapCardinals: true #DeltaV - Follow Camera Rotation
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -496,6 +498,7 @@
   components:
     - type: Sprite
       sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
+      snapCardinals: true #DeltaV - Follow Camera Rotation
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]

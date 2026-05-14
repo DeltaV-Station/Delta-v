@@ -10,7 +10,6 @@
   color: "#081a80"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectScrambled
@@ -18,14 +17,6 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoozy
         time: 10.0 # DeltaV - 20 is ridiculous
-      - !type:GenericStatusEffect # DeltaV
-        key: PsionicsDisabled
-        component: PsionicsDisabled
-        type: Add
-      - !type:GenericStatusEffect # DeltaV
-        key: PsionicallyInsulated
-        component: PsionicInsulation
-        type: Add
 
 - type: reagent
   id: Dylovene
