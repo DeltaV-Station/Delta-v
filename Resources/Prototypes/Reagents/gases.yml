@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Feroxi, Harpy ] # DeltaV
+          type: [ Human, Animal, Rat, Plant, Feroxi, Harpy, Moth, Arachnid ] # DeltaV
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -56,7 +56,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Feroxi, Harpy ] # DeltaV
+          type: [ Human, Animal, Rat, Plant, Feroxi, Harpy, Moth, Arachnid ] # DeltaV
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
