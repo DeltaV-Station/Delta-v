@@ -54,6 +54,7 @@ marking-VulpSnoutAlt = Vulpkanin Muzzle 2
 
 marking-VulpSnout-muzzle = Muzzle
 marking-VulpSnout-nose = Nose
+marking-VulpSnout-snout = Snout
 marking-VulpSnout = Vulpkanin Muzzle
 
 marking-VulpSnoutSharp-muzzle_sharp = Muzzle

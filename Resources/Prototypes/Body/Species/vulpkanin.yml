@@ -244,24 +244,24 @@
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ]
   id: OrganVulpkaninHead
-# Delta V - We got no Displacement.rsi for vulpkanin
-#  components:
-#  - type: VisualOrganMarkings
-#    hideableLayers:
-#    - enum.HumanoidVisualLayers.Snout
-#    - enum.HumanoidVisualLayers.HeadTop
-#    - enum.HumanoidVisualLayers.HeadSide
-#    - enum.HumanoidVisualLayers.Hair
-#    - enum.HumanoidVisualLayers.FacialHair
-#    dependentHidingLayers:
-#      enum.HumanoidVisualLayers.Snout:
-#      - enum.HumanoidVisualLayers.SnoutCover
-#    markingsDisplacement:
-#      Hair:
-#        sizeMaps:
-#          32:
-#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-#            state: hair
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.FacialHair
+    dependentHidingLayers:
+      enum.HumanoidVisualLayers.Snout:
+      - enum.HumanoidVisualLayers.SnoutCover
+    # Delta V - We got no Displacement.rsi for vulpkanin
+    # markingsDisplacement:
+    #   Hair:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Mobs/Species/Vulpkanin/displacement.rsi
+    #         state: hair
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
