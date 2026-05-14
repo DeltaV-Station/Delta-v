@@ -1,3 +1,30 @@
+# Off-station
+
+- type: entity
+  id: BaseVisitorPDA
+  abstract: true
+  components:
+  - type: Pager
+    autoLinkDepartments: []
+    autoLinkJobs: []
+
+- type: entity
+  id: BaseCentralPDA
+  abstract: true
+  components:
+  - type: Pager
+    autoLinkDepartments: [CentralCommand]
+    autoLinkJobs: []
+
+# Engineering
+
+- type: entity
+  id: BaseEngineeringPDA
+  abstract: true
+  components:
+  - type: Pager
+    autoLinkDepartments: [Engineering]
+
 # Security
 
 - type: entity
@@ -27,6 +54,9 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-corpsman
+  - type: Pager
+    autoLinkDepartments: [Medical, Security]
+    autoLinkJobs: [Brigmedic]
 
 - type: entity
   parent: ClearPDA
@@ -36,6 +66,8 @@
   components:
   - type: Pda
     id: PrisonerJobIDCard
+  - type: Pager
+    autoLinkJobs: [Prisoner]
 
 - type: entity
   parent: PrisonerPDA
@@ -86,6 +118,8 @@
     - CrimeAssistCartridge
     - SecWatchCartridge
     - NanoChatCartridge
+  - type: Pager
+    autoLinkDepartments: [Justice]
 
 - type: entity
   parent: BaseJusticePDA
@@ -103,6 +137,9 @@
     borderColor: "#470823"
   - type: Icon
     state: pda-chiefjustice
+  - type: Pager
+    autoLinkDepartments: [Command, Justice]
+    autoLinkJobs: [ChiefJustice]
 
 - type: entity
   parent: BaseJusticePDA
@@ -120,6 +157,8 @@
     borderColor: "#611528"
   - type: Icon
     state: pda-clerk
+  - type: Pager
+    autoLinkJobs: [Clerk]
 
 - type: entity
   parent: BaseJusticePDA
@@ -137,6 +176,8 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-prosecutor
+  - type: Pager
+    autoLinkJobs: [Prosecutor]
 
 # Misc
 
@@ -157,7 +198,7 @@
         pda-syndi-agent
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA]
   id: MartialArtistPDA
   name: martial artist PDA
   description: Smells like straw.
@@ -175,6 +216,13 @@
     state: pda-martialartist
 
 # Logistics
+
+- type: entity
+  id: BaseLogisticsPDA
+  abstract: true
+  components:
+  - type: Pager
+    autoLinkDepartments: [Logistics]
 
 - type: entity
   parent: BasePDA
@@ -232,6 +280,13 @@
 # Epistemics
 
 - type: entity
+  id: BaseEpistemicsPDA
+  abstract: true
+  components:
+  - type: Pager
+    autoLinkDepartments: [Epistemics]
+
+- type: entity
   parent: SciencePDA
   id: PsionicMantisPDA
   name: psionic mantis PDA
@@ -240,6 +295,14 @@
   - type: Pda
     id: ForensicMantisIDCard
 
+# Service
+
+- type: entity
+  id: BaseServicePDA
+  abstract: true
+  components:
+  - type: Pager
+    autoLinkDepartments: [Civilian]
 
 ## Alternate Job Titles
 

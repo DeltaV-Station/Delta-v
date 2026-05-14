@@ -166,8 +166,12 @@
   name: recharger
   description: A modern recharging station that can fit both power cells and small electronic devices.
   components:
+# Begin DeltaV Changes - Directional Sprite
   - type: Sprite
-    sprite: Structures/Power/recharger.rsi
+    sprite: _DV/Structures/Power/recharger.rsi
+    snapCardinals: false
+  - type: Rotatable
+# End DeltaV Changes - Directional Sprite
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
   - type: ItemSlots
@@ -190,8 +194,12 @@
   name: turbo recharger
   description: An overclocked recharger. Not recommended for use around asthmatics.
   components:
+# Begin DeltaV Changes - Directional Sprite
   - type: Sprite
-    sprite: Structures/Power/turbo_recharger.rsi
+    sprite: _DV/Structures/Power/turbo_recharger.rsi
+    snapCardinals: false
+  - type: Rotatable
+# End DeltaV Changes - Directional Sprite
   - type: Machine
     board: TurboItemRechargerCircuitboard
   - type: Charger
@@ -216,8 +224,12 @@
   name: wall recharger
   description: A compact wall-mounted recharger. It can only recharge electronic devices and has no space for power cells.
   components:
+# Begin DeltaV Changes - Directional Sprite
+  - type: Rotatable
   - type: Sprite
-    sprite: Structures/Power/wall_recharger.rsi
+    sprite: _DV/Structures/Power/wall_recharger.rsi
+    snapCardinals: false
+# End DeltaV Changes - Directional Sprite
     layers:
     - map: ["enum.PowerChargerVisualLayers.Base"]
       state: "empty"

@@ -102,10 +102,11 @@
     resurrectDesc: skia-resurrecting-desc
   - type: Bloodstream
     maxBleedAmount: 0
-  - type: ShatterLightsAbility
-    lineOfSight: true
+  - type: PsychokineticScreamPower
     radius: 7.0
     penetratingRadius: 2.0
+    actionProtoId: ActionPsychokineticScreamSkia
+    canBeRemoved: false
   - type: TechnokineticPulseAbility
     range: 5.0
     energyConsumption: 20000

@@ -278,3 +278,38 @@
       - FootstepSound
     - type: StealTarget
       stealGroup: AnimalSilvia
+
+- type: entity
+  parent: MobBaseScurret
+  id: MobScurretBaba
+  name: Baba
+  description: Wawa?
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Mobs/Animals/scurret/scurret.rsi
+      state: scurret
+      color: "#e69d00"
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-baba-name
+    description: ghost-role-information-baba-description
+    rules: ghost-role-information-nonantagonist-rules
+    job: RoleBaba
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [MobScurretBaba]
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost
