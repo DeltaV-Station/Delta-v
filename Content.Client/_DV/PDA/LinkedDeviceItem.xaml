@@ -1,0 +1,6 @@
+<PanelContainer HorizontalExpand="True" xmlns="https://spacestation14.io">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4">
+        <Label Name="DeviceName" Access="Public" HorizontalExpand="True" />
+        <Button Name="Unlink" Access="Public" StyleClasses="ButtonSmall" Text="{Loc 'comp-pda-ui-linked-devices-unlink'}"/>
+    </BoxContainer>
+</PanelContainer>

@@ -140,6 +140,7 @@ loadout-group-all-gun = Security Sidearm
 loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
 loadout-group-all-ammo = Ammunition
+security-utility = Utility
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
@@ -169,6 +170,7 @@ loadout-group-gladiator-outerclothing = Gladiator outer clothing
 
 loadout-group-boxer-jumpsuit = Boxer jumpsuit
 loadout-group-boxer-gloves = Boxer gloves
+loadout-group-boxer-mask = Wrestling mask
 
 # Species
 loadout-group-humanoid-silicon = Silicon-friendly survival box

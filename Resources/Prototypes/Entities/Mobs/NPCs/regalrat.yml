@@ -109,9 +109,11 @@
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: MobsterAccent
+  - type: ReplacementAccent # DeltaV - replace mobster accent with mouse speech replacement
+    accent: mouse
   - type: Speech
     speechVerb: SmallMob
+    speechSounds: Squeak # DeltaV addition
   - type: Butcherable
     spawned:
     - id: ClothingHeadHatFancyCrown #how did that get there?
@@ -130,7 +132,6 @@
     attributes:
       gender: male
   - type: Sharp
-  - type: PotentialPsionic # Nyano
   - type: NightVision #Delta-v - Added nightvision
     color: "#808080"
 

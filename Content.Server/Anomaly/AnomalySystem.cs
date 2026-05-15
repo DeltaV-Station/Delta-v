@@ -57,8 +57,6 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         InitializeGenerator();
         InitializeVessel();
         InitializeCommands();
-
-        InitializePsionics(); //Nyano - Summary: stats up psionic related behavior.
     }
 
     private void OnMapInit(Entity<AnomalyComponent> anomaly, ref MapInitEvent args)

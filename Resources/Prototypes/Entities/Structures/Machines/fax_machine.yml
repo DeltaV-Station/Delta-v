@@ -79,9 +79,12 @@
   - type: DeviceNetworkRequiresPower
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: Fax
-    transmitFrequencyId: Fax
+    receiveFrequencyId: NTNet # DeltaV
+    transmitFrequencyId: NTNet # DeltaV
   - type: RequireProjectileTarget
+  # Begin DeltaV
+  - type: PageSender
+  # End DeltaV
 
 # Special
 - type: entity
@@ -98,6 +101,10 @@
   - type: FaxMachine
     name: "Central Command"
     notifyAdmins: true
+  # Begin DeltaV
+  - type: PageSender
+    autoLinkDepartments: [CentralCommand]
+  # End DeltaV
 
 - type: entity
   parent: FaxMachineBase
@@ -128,3 +135,7 @@
       receiveNukeCodes: true
     - type: StealTarget
       stealGroup: FaxMachineCaptain
+    # Begin DeltaV
+    - type: PageSender
+      autoLinkJobs: [Captain]
+    # End DeltaV
