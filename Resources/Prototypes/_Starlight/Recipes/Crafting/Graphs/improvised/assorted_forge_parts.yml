@@ -7,10 +7,10 @@
     - to: finish
       steps:
       - material: Plasteel
-        amount: 2
+        amount: 5
         doAfter: 5
       - material: Cable
-        amount: 4
+        amount: 10
         doAfter: 2
       - tag: Igniter
         icon:
