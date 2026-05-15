@@ -155,16 +155,17 @@
   materials:
     Steel: 600
 
-- type: latheRecipe
-  id: GreatPaladinTA
-  result: UnfinishedPaladinShieldGreat
-  completetime: 120
-  materials:
-    Steel: 2000
-    Glass: 300
-    Plastic: 750
-    Cloth: 900
-    Plasteel: 2000
+# DeltaV - Make unobtainable
+#- type: latheRecipe
+#  id: GreatPaladinTA
+#  result: UnfinishedPaladinShieldGreat
+#  completetime: 120
+#  materials:
+#    Steel: 2000
+#    Glass: 300
+#    Plastic: 750
+#   Cloth: 900
+#   Plasteel: 2000
 
 - type: latheRecipe
   id: HelmetPaladinTA
