@@ -108,13 +108,15 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         RaiseLocalEvent(target, ev);
 
-        foreach (var compProtectiveDamageType in ent.Comp.ProtectiveDamageTypes)
-        {
-            if (!ev.DamageModifiers.Coefficients.TryGetValue(compProtectiveDamageType, out var coefficient))
-                continue;
-            if (coefficient < 1f - ent.Comp.DevourPreventionPercentageThreshold)
-                return true;
-        }
+        // Begin DV Removals
+        // foreach (var compProtectiveDamageType in ent.Comp.ProtectiveDamageTypes)
+        // {
+        //    if (!ev.DamageModifiers.Coefficients.TryGetValue(compProtectiveDamageType, out var coefficient))
+        //        continue;
+        //    if (coefficient < 1f - ent.Comp.DevourPreventionPercentageThreshold)
+        //        return true;
+        // }
+        // End DV Removals
 
         return false;
     }

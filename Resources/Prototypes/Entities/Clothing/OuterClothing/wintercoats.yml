@@ -15,9 +15,11 @@
     size: Normal
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageTider
+      # End DeltaV - Armor
     priceMultiplier: 0
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.55
@@ -124,11 +126,11 @@
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
   - type: Armor # DeltaV - adds resists to coat, same as HoS coat. Still better than nothing, but nowhere as good as a carapace
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -243,10 +245,12 @@
       - state: CHEM-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.75
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageTider
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterChem
@@ -273,10 +277,12 @@
 #      - state: CMO-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.75
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageTider
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCMO
@@ -336,10 +342,12 @@
       - state: GENE-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci
@@ -408,11 +416,13 @@
     clothingPrototype: ClothingHeadHatHoodWinterHOS
   - type: Armor # DeltaV - adds resists to coat. As good as Cap's, but I don't know why you'd wear this over a trench coat
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+      # Begin DeltaV - armor
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
+      # End DeltaV - armor
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -459,10 +469,12 @@
       - state: JANI-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.9
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterJani
@@ -489,10 +501,12 @@
 #      - state: MED-equipped-OUTERCLOTHING 
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMed
@@ -565,10 +579,12 @@
       - state: PARA-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.75
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageTider
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterPara
@@ -619,10 +635,12 @@
       - state: RD-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterRD
@@ -673,10 +691,12 @@
       - state: SCI-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci
@@ -705,11 +725,13 @@
     clothingPrototype: ClothingHeadHatHoodWinterSec
   - type: Armor # DeltaV - adds resists to coat. Make sure to update ClothingLongcoatSecurity if these values change.
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85 # DeltaV - not as resistant as pre-rebase, but still better than nothing
-        Heat: 0.75
+      # Begin DeltaV - Armor
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamagePistol
+      # End DeltaV - Armor
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -733,10 +755,12 @@
       - state: VIRO-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+      # Begin DeltaV - Armor
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV - Armor
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci

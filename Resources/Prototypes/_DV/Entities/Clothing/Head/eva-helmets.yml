@@ -10,8 +10,8 @@
     sprite: _DV/Clothing/Head/Helmets/eva_epistemics.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.9
+      armor:
+        Radiation: DamageUnarmed
   - type: ExplosionResistance
     damageCoefficient: 0.95
   - type: Tag

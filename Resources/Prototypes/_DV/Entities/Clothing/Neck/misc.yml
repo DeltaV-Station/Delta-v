@@ -28,8 +28,8 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.90
+      armor:
+        Heat: DamageUnarmed
 
 - type: entity
   parent: ClothingNeckCWPSec
@@ -54,11 +54,11 @@
     sprite: _DV/Clothing/Neck/Misc/cwpgorlex.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.80
-        Cold: 0.40
-        Heat: 0.90
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageTider
+        Cold: DamageRifle
+        Heat: DamageUnarmed
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 0.95

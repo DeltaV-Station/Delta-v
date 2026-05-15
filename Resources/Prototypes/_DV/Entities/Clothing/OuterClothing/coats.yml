@@ -11,11 +11,11 @@
     sprite: _DV/Clothing/OuterClothing/Coats/ryuzocoat.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -29,11 +29,11 @@
     sprite: _DV/Clothing/OuterClothing/Coats/hop.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
   - type: AllowSuitStorage
 
 - type: entity
@@ -50,9 +50,9 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.9
-        Heat: 0.75
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageTider
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -68,9 +68,9 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.9
-        Heat: 0.75
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageTider
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -86,11 +86,11 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.75
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageTider
   - type: AllowSuitStorage #Syndicate Windbreaker, so gun.
 
 - type: entity
@@ -149,11 +149,11 @@
     sprite: _DV/Clothing/OuterClothing/Coats/detectivearmouredcoat.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
   - type: AllowSuitStorage
   - type: TemperatureProtection
     coolingCoefficient: 0.1
@@ -171,13 +171,13 @@
     sprite: _DV/Clothing/OuterClothing/Coats/harbingercoat.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-        Holy: 0.60
-        Shadow: 0.60
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
+        Holy: DamagePistol
+        Shadow: DamagePistol
   - type: AllowSuitStorage
   - type: TemperatureProtection
     coolingCoefficient: 0.1
@@ -211,8 +211,8 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.9
+      armor:
+        Heat: DamageUnarmed
 
 # Medical
 ## Lab coats
@@ -229,8 +229,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/medical_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -244,8 +244,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/chemistry_senior_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -259,8 +259,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/cybersun_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCybersun]
@@ -281,8 +281,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/long_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLong]
@@ -301,8 +301,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/medical_long_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLongMedical]
@@ -321,8 +321,8 @@
     sprite: _DV/Clothing/OuterClothing/Coats/chemistry_long_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLongChemist]
@@ -341,10 +341,10 @@
     sprite: _DV/Clothing/OuterClothing/Coats/cmo_long_lab.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.95
-        Caustic: 0.65
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamagePistol
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLongCMO]

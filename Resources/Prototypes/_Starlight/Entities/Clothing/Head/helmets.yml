@@ -6,11 +6,13 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.97
-        Slash: 0.96
-        Piercing: 0.97
-        Heat: 0.98
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # Begin DeltaV
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Helmets/makeshift.rsi
   - type: Clothing
@@ -27,11 +29,13 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.93
-        Piercing: 0.95
-        Heat: 0.96
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # Begin DeltaV
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Helmets/improvised.rsi
   - type: Clothing
@@ -45,11 +49,13 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.92
-        Slash: 0.90
-        Piercing: 0.92
-        Heat: 0.94
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # Begin DeltaV
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Helmets/forged.rsi
   - type: Clothing
@@ -63,11 +69,13 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.88
-        Piercing: 0.90
-        Heat: 0.92
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # Begin DeltaV
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Helmets/paladin.rsi
   - type: Clothing

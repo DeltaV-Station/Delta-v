@@ -231,8 +231,10 @@
     node: jumpsuit
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.8
+      # Begin DeltaV
+      armor:
+        Radiation: DamageTider
+      # End DeltaV
 
 - type: entity
   parent: ClothingUniformBase

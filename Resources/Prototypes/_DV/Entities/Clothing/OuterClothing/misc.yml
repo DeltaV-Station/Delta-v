@@ -11,8 +11,8 @@
     sprite: _DV/Clothing/OuterClothing/Misc/chemapron.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.25
+      armor:
+        Caustic: DamageSniper
 
 - type: entity
   parent: ClothingOuterBaseToggleable
@@ -26,8 +26,8 @@
     sprite: _DV/Clothing/OuterClothing/Misc/interdynechemsuit.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.40
+      armor:
+        Caustic: DamageRifle
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatInterdyneChemistryHood
 

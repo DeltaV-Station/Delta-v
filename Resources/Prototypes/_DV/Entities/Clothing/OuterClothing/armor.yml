@@ -11,11 +11,11 @@
     sprite: _DV/Clothing/OuterClothing/Armor/platecarrier.rsi
   - type: Armor # Good against gunshots, decent against everything else. Balanced by reduced movement speed.
     modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.50
-        Heat: 0.80
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageRifle
+        Heat: DamageTider
   - type: StaminaResistance
     damageCoefficient: 0.6 # Decent at stopping disablers
   - type: ClothingSpeedModifier
@@ -41,11 +41,11 @@
     sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
   - type: Armor # Good against stabs and knocks, offers minimal protection from gunshots and lasfire.
     modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.90
-        Heat: 0.90
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
@@ -67,11 +67,11 @@
     sprite: _DV/Clothing/OuterClothing/Armor/riot.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.40
-        Slash: 0.40
-        Piercing: 0.70
-        Heat: 0.70
+      armor:
+        Blunt: DamageSniper
+        Slash: DamageSniper
+        Piercing: DamageRifle
+        Heat: DamageRifle
   - type: StaminaResistance
     damageCoefficient: 0.5
   - type: ClothingSpeedModifier

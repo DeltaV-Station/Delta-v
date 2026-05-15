@@ -218,13 +218,25 @@ namespace Content.Server.Zombies
             RaiseLocalEvent(uid, armorEv);
             foreach (var resistanceEffectiveness in zombieComponent.ResistanceEffectiveness.DamageDict)
             {
-                if (armorEv.DamageModifiers.Coefficients.TryGetValue(resistanceEffectiveness.Key, out var coefficient))
+                // Begin DeltaV changes - we have armour and need to bridge the gap to this
+                foreach (var modifier in armorEv.DamageModifiers)
                 {
+                    if (!modifier.Coefficients.TryGetValue(resistanceEffectiveness.Key, out var coefficient) &&
+                        modifier.Armor.TryGetValue(resistanceEffectiveness.Key, out var armor))
+                    {
+                        coefficient = 1f - Math.Clamp(0.1f * armor, 0f, 1f); // shitty approximation
+                    }
+                    else
+                    {
+                        continue;
+                    }
+
                     // Scale the coefficient by the resistance effectiveness, very descriptive I know
                     // For example. With 30% slash resist (0.7 coeff), but only a 60% resistance effectiveness for slash,
                     // you'll end up with 1 - (0.3 * 0.6) = 0.82 coefficient, or a 18% resistance
                     var adjustedCoefficient = 1 - ((1 - coefficient) * resistanceEffectiveness.Value.Float());
                     chance *= adjustedCoefficient;
+                    // End DeltaV changes - we have armour and need to bridge the gap to this
                 }
             }
 

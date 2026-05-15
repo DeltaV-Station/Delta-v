@@ -14,23 +14,20 @@
       size: Ginormous
       #heldPrefix: riot #Harmony Change: Removed due to being redundant
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
+        armor:
+          Blunt: DamageUnarmed
+          Slash: DamageUnarmed
+          Piercing: DamageUnarmed
+          Heat: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
-          Heat: 0.8
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageTider
+          Heat: DamageTider
+      # End DeltaV
     - type: Damageable
       damageContainer: Shield
     - type: ExaminableDamage
@@ -114,17 +111,16 @@
     - type: StaticPrice
       price: 90
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
+        armor:
+          Blunt: DamagePistol
+          Slash: DamagePistol
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.5
-          Slash: 0.5
-        flatReductions:
-          Blunt: 1
-          Slash: 1
+        armor:
+          Blunt: DamageRifle
+          Slash: DamageRifle
+      # End DeltaV
 
 - type: entity
   name: laser shield
@@ -148,14 +144,14 @@
       - suitStorage
 # End of Harmony Change
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Heat: 0.7
+        armor:
+          Heat: DamagePistol
       activeBlockModifier:
-        coefficients:
-          Heat: 0.5
-        flatReductions:
-          Heat: 1
+        armor:
+          Heat: DamageRifle
+      # End DeltaV
 
 - type: entity
   name: ballistic shield
@@ -179,14 +175,14 @@
       - suitStorage
 # End of Harmony Change
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Piercing: 0.7
+        armor:
+          Piercing: DamagePistol
       activeBlockModifier:
-        coefficients:
-          Piercing: 0.5
-        flatReductions:
-          Piercing: 1
+        armor:
+          Piercing: DamageRifle
+      # End DeltaV
 
 #Craftable shields
 
@@ -212,22 +208,18 @@
       - suitStorage
 # End of Harmony Change
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 2
+        armor:
+          Blunt: DamageUnarmed
+          Slash: DamageUnarmed
+          Piercing: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 2
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageTider
+      # End DeltaV
     - type: Construction
       graph: WoodenBuckler
       node: woodenBuckler
@@ -267,20 +259,18 @@
     - type: Item
       heldPrefix: cardshield
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 1
-          Slash: 2
-          Piercing: 0.6
-          Heat: 3
+        armor:
+          Blunt: DamageUnarmed
+          Slash: DamageUnarmed
+          Piercing: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.9
-          Slash: 1.8
-          Piercing: 0.5
-          Heat: 2.5
-        flatReductions:
-          Blunt: 0.5
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageTider
+      # End DeltaV
     - type: Construction
       graph: CardShield
       node: cardShield
@@ -330,23 +320,18 @@
       - suitStorage
   # End of Harmony Change
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 0.9
+        armor:
+          Blunt: DamageUnarmed
+          Slash: DamageUnarmed
+          Piercing: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.8
-        flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
-          Heat: 1
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageTider
+      # End DeltaV
     - type: Construction
       graph: MakeshiftShield
       node: makeshiftShield
@@ -388,20 +373,18 @@
       sprite: Objects/Weapons/Melee/web-shield.rsi
       heldPrefix: icon
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
+        armor:
+          Blunt: DamageUnarmed
+          Slash: DamageUnarmed
+          Piercing: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-        flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageTider
+      # End DeltaV
     - type: Construction
       graph: WebObjects
       node: shield
@@ -441,23 +424,18 @@
     - type: Item
       heldPrefix: ratvarian
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
-          Heat: 1.5
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageTider
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-          Piercing: 0.7
-          Heat: 1.5
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-      #Have it break into brass when clock cult is in
+        armor:
+          Blunt: DamagePistol
+          Slash: DamagePistol
+          Piercing: DamagePistol
+      # End DeltaV
 
 - type: entity
   name: mirror shield
@@ -474,20 +452,14 @@
       reflects:
         - Energy
     - type: Blocking #Mirror shield reflects heat/laser, but is relatively weak to everything else.
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 1.2
-          Slash: 1.2
-          Piercing: 1.2
-          Heat: .7
+        armor:
+          Heat: DamagePistol
       activeBlockModifier:
-        coefficients:
-          Blunt: 1.2
-          Slash: 1.2
-          Piercing: 1.2
-          Heat: .6
-        flatReductions:
-          Heat: 1
+        armor:
+          Heat: DamageRifle
+      # End DeltaV
       blockSound: !type:SoundPathSpecifier
         path: /Audio/Effects/glass_step.ogg
     - type: Destructible
@@ -563,21 +535,18 @@
       reflects:
         - Energy
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 1.0
-          Slash: 0.9
-          Piercing: 0.7 # DeltaV - Was 0.85
-          Heat: 0.5 # DeltaV - Was 0.6
+        armor:
+          Slash: DamageTider
+          Piercing: DamagePistol
+          Heat: DamageRifle
       activeBlockModifier:
-        coefficients:
-          Blunt: 1.2
-          Slash: 0.85
-          Piercing: 0.5
-          Heat: 0.4
-        flatReductions:
-          Heat: 1
-          Piercing: 1
+        armor:
+          Slash: DamagePistol
+          Piercing: DamageRifle
+          Heat: DamageSniper
+      # End DeltaV
     - type: Appearance
     - type: Damageable
       damageContainer: Shield

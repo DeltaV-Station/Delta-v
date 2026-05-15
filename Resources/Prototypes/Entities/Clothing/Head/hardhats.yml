@@ -14,9 +14,9 @@
     equippedPrefix: off
   - type: Armor #Delta V - Personal protective equipment is now protective!
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.95
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -150,8 +150,10 @@
     sprite: Clothing/Head/Hardhats/armored.rsi
   - type: Armor #Copied from the sec helmet, as it's hard to give these sane values without locational damage existing.
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.8
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
+      # End DeltaV

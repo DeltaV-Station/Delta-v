@@ -164,6 +164,14 @@ namespace Content.Shared.Damage
                 if (modifierSet.Coefficients.TryGetValue(key, out var coefficient))
                     newValue *= coefficient; // coefficients can heal you, e.g. cauterizing bleeding
 
+                // Begin DeltaV Additions
+                if (modifierSet.Armor.TryGetValue(key, out var armor) && 2 * armor > value)
+                {
+                    var blocked = Math.Max(0f, 1f - Math.Min(newValue / (2f * armor), 1f));
+                    newValue = (1f - blocked) * newValue;
+                }
+                // End DeltaV Additions
+
                 if (newValue != 0)
                     newDamage.DamageDict[key] = FixedPoint2.New(newValue);
             }

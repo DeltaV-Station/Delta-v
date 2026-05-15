@@ -5,11 +5,11 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
 
 - type: entity
   abstract: true
@@ -38,11 +38,11 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/cc_warden_winter_coat.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.4 #Stronger than the warden's armored jacket, because shenanigans and CC spends alot of money.
-        Heat: 0.75
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamageSniper #Stronger than the warden's armored jacket, because shenanigans and CC spends alot of money.
+        Heat: DamagePistol
 
 - type: entity
   parent: ClothingOuterWinterCoat

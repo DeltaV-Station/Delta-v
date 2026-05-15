@@ -40,13 +40,13 @@
     sprite: _DV/Clothing/Head/Hoods/harbingerhood.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-        Holy: 0.9
-        Shadow: 0.9
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+        Holy: DamageUnarmed
+        Shadow: DamageUnarmed
   - type: Tag
     tags:
     - WhitelistChameleon

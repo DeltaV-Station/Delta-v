@@ -342,11 +342,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #Security Hardsuit
 - type: entity
@@ -366,11 +368,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - CorgiWearable
@@ -391,13 +395,15 @@
     color: "#00FFFF"
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
-        Radiation: 0.90
-        Caustic: 0.90
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+        Radiation: DamageUnarmed
+        Caustic: DamageUnarmed
+      # End DeltaV
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
@@ -420,11 +426,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #Captain's Hardsuit
 - type: entity
@@ -594,11 +602,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -638,11 +648,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - CorgiWearable
@@ -666,11 +678,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -695,11 +709,13 @@
     reduction: 0.2
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95 # DeltaV - was 0.9
-        Slash: 0.95 # DeltaV - was 0.9
-        Piercing: 0.95 # DeltaV - was 0.9
-        Heat: 0.85 # DeltaV - was 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - CorgiWearable
@@ -723,11 +739,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - CorgiWearable
@@ -751,11 +769,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - CorgiWearable
@@ -779,11 +799,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - CorgiWearable
@@ -865,11 +887,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -887,11 +911,13 @@
     color: "#addbff"
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -933,11 +959,13 @@
     reduction: 0.2
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #ERT Medical Hardsuit
 - type: entity
@@ -968,11 +996,13 @@
     color: "#ffadc6"
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -1029,11 +1059,13 @@
     coolingCoefficient: 0.005
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.75
 
@@ -1056,13 +1088,15 @@
     reduction: 0.2
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-        Radiation: 0.80
-        Caustic: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
+        Radiation: DamageTider
+        Caustic: DamageUnarmed
+      # End DeltaV
   - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
     tags: []
 

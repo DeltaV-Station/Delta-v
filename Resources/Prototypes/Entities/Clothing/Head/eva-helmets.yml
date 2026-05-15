@@ -116,9 +116,11 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.90
-        Radiation: 0.75
+      # Begin DeltaV
+      armor:
+        Heat: DamageUnarmed
+        Radiation: DamageTider
+      # End DeltaV
   - type: PointLight
     radius: 5
     energy: 2

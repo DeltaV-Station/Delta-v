@@ -34,11 +34,13 @@
     sprite: Clothing/Mask/gassecurity.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -54,11 +56,13 @@
   - type: EyeProtection
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: ClothingMaskGas
@@ -72,8 +76,10 @@
     sprite: Clothing/Mask/gasatmos.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.80
+      # Begin DeltaV
+      armor:
+        Heat: DamageTider
+      # End DeltaV
 
 - type: entity
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
@@ -113,11 +119,13 @@
     sprite: Clothing/Mask/gasexplorer.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -158,11 +166,13 @@
     sprite: Clothing/Mask/medicalsecurity.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -272,11 +282,13 @@
     sprite: Clothing/Mask/clown_security.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag
     tags:
     - ClownMask
@@ -424,11 +436,13 @@
     hideOnToggle: true
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: [ ClothingMaskGas, BaseSecurityCargoContraband ]
@@ -442,11 +456,13 @@
     sprite: Clothing/Mask/merc.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: [ ClothingMaskGas, BaseCentcommContraband ]
@@ -470,11 +486,13 @@
   - type: EyeProtection
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: ClothingMaskGasERT
@@ -493,11 +511,13 @@
     - HeadSide
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.90
-        Heat: 0.90
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
   - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
     tags: []
 
@@ -719,11 +739,13 @@
     sprite: Clothing/Mask/mime_security.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: ClothingMaskBase

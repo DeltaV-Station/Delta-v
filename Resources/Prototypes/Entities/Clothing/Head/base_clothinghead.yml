@@ -171,12 +171,14 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.95
-        Heat: 0.90
-        Radiation: 0.25
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+        Radiation: DamageRifle
+      # End DeltaV
   - type: GroupExamine
   - type: IngestionBlocker
   - type: Tag
@@ -269,7 +271,7 @@
     zombificationResistanceCoefficient: 0.90
   - type: Armor # so zombification resistance shows up
     modifiers:
-      coefficients: { }
+      armor: { } # DeltaV
   - type: GroupExamine
   - type: HideLayerClothing
     slots:

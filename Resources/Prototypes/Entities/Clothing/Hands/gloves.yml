@@ -124,8 +124,10 @@
     fiberColor: fibers-black
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
+      # Begin DeltaV
+      armor:
+        Slash: DamageUnarmed
+      # End DeltaV
   - type: FingerprintMask
 
 #### Medical

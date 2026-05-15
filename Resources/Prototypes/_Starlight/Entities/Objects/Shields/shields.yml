@@ -17,23 +17,20 @@
       - Back
       - suitStorage
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.5 #Encourages long swordfights, which I really, really want to see.
-          Piercing: 0.8
-          Heat: 0.85
+        armor:
+          Blunt: DamageTider
+          Slash: DamagePistol
+          Piercing: DamageTider
+          Heat: DamageTider
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.5
-          Slash: 0.3
-          Piercing: 0.7
-          Heat: 0.75
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+        armor:
+          Blunt: DamagePistol
+          Slash: DamageRifle
+          Piercing: DamagePistol
+          Heat: DamagePistol
+      # End DeltaV
     - type: MeleeWeapon
       damage:
         types:
@@ -82,18 +79,20 @@
     - type: Clothing
       sprite: _Starlight/Objects/Weapons/Melee/paladin_greatshield.rsi
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-          Piercing: 0.7
-          Heat: 0.85
+        armor:
+          Blunt: DamagePistol
+          Slash: DamagePistol
+          Piercing: DamagePistol
+          Heat: DamagePistol
       activeBlockModifier:
-        coefficients: #Insanely high resist because normal shields suck when raising. This is a WALL.
-          Blunt: 0.1
-          Slash: 0.1
-          Piercing: 0.1
-          Heat: 0.75 # Achilles Heel
+        armor: #Insanely high resist because normal shields suck when raising. This is a WALL.
+          Blunt: DamageSniper
+          Slash: DamageSniper
+          Piercing: DamageSniper
+          Heat: DamagePistol # Achilles Heel
+      # End DeltaV
     - type: MeleeWeapon
       attackRate: 0.50 # Large and heavy but god help you if someone hits you with this thing.
       damage:
@@ -148,18 +147,20 @@
     - type: Clothing
       sprite: _Starlight/Objects/Weapons/Melee/forged_buckler_shield.rsi
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.6
-          Piercing: 0.7
-          Heat: 0.9
+        armor:
+          Blunt: DamagePistol
+          Slash: DamagePistol
+          Piercing: DamagePistol
+          Heat: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.6
-          Slash: 0.5
-          Piercing: 0.6
-          Heat: 0.8
+        armor:
+          Blunt: DamageRifle
+          Slash: DamageRifle
+          Piercing: DamageRifle
+          Heat: DamageTider
+      # End DeltaV
     - type: MeleeWeapon
       damage:
         types:
@@ -259,18 +260,20 @@
     - type: Clothing
       sprite: _Starlight/Objects/Weapons/Melee/improvised_shield.rsi
     - type: Blocking
+      # Begin DeltaV
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.7
-          Piercing: 0.9
-          Heat: 0.95
+        armor:
+          Blunt: DamageTider
+          Slash: DamageTider
+          Piercing: DamageUnarmed
+          Heat: DamageUnarmed
       activeBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.6
-          Piercing: 0.8
-          Heat: 0.85
+        armor:
+          Blunt: DamagePistol
+          Slash: DamagePistol
+          Piercing: DamageTider
+          Heat: DamageTider
+      # End DeltaV
     - type: MeleeWeapon
       damage:
         types:

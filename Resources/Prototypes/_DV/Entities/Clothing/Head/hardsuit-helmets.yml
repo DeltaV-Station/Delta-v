@@ -16,11 +16,11 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.90
-        Heat: 0.90
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitCombatStandard
@@ -50,11 +50,11 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitCombatMedical
@@ -84,11 +84,11 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitCombatRiot
@@ -118,11 +118,11 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
   - type: FlashImmunity # Counterpoint: the HoS can't see
   - type: EyeProtection # They're blind as hell
 
@@ -184,11 +184,11 @@
     color: "#addbff"
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -226,11 +226,11 @@
     color: "#f4ffad"
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
 
 #ERT Medical Hardsuit
 - type: entity
@@ -261,11 +261,11 @@
     color: "#ffadc6"
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -296,8 +296,8 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.95
+      armor:
+        Radiation: DamageUnarmed
   - type: Sprite
     sprite: _DV/Clothing/Head/Helmets/engineering-light.rsi
     layers:

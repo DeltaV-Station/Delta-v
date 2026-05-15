@@ -37,10 +37,7 @@ public abstract class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
             return;
 
-        foreach (var armorCoefficient in ent.Comp.Modifiers.Coefficients)
-        {
-            args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] = args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient) ? coefficient * armorCoefficient.Value : armorCoefficient.Value;
-        }
+        args.Args.DamageModifiers.Add(ent.Comp.Modifiers); // DeltaV - new armour stacking
     }
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
@@ -102,6 +99,19 @@ public abstract class SharedArmorSystem : EntitySystem
                 ("value", flatArmor.Value)
             ));
         }
+
+        // Begin DeltaV Additions
+        foreach (var factor in component.Modifiers.Armor)
+        {
+            msg.PushNewline();
+
+            var armorType = Loc.GetString("armor-damage-type-" + factor.Key.Id.ToLower());
+            msg.AddMarkupOrThrow(Loc.GetString("armor-armor-value",
+                ("type", armorType),
+                ("value", MathF.Round(factor.Value))
+            ));
+        }
+        // End DeltaV Additions
 
         // Begin DeltaV Additions - Add melee stamina resistance information if it has any
         if (!MathHelper.CloseTo(component.StaminaMeleeDamageCoefficient, 1.0f))

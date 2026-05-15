@@ -62,11 +62,13 @@ public sealed partial class BlockingSystem
         blockFraction = Math.Clamp(blockFraction, 0, 1);
         _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
 
-        var modify = new DamageModifierSet();
-        foreach (var key in dmgComp.Damage.DamageDict.Keys)
-        {
-            modify.Coefficients.TryAdd(key, 1 - blockFraction);
-        }
+        var modify = blocking.IsBlocking ? blocking.ActiveBlockDamageModifier : blocking.PassiveBlockDamageModifer; new DamageModifierSet();
+        // Begin DV Removals
+        // foreach (var key in dmgComp.Damage.DamageDict.Keys)
+        // {
+        //    modify.Coefficients.TryAdd(key, 1 - blockFraction);
+        // }
+        // End DV Removals
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
 

@@ -10,11 +10,11 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Coats/mantis_jacket.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
   - type: TemperatureProtection
     coolingCoefficient: 0.3
 
@@ -30,5 +30,5 @@
     sprite: _DV/Clothing/OuterClothing/Coats/mystacoat.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      armor:
+        Caustic: DamagePistol

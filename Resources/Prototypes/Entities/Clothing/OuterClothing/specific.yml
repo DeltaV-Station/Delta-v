@@ -19,7 +19,9 @@
       coolingCoefficient: 0.1
     - type: Armor
       modifiers:
-        coefficients:
-          Slash: 0.95
-          Heat: 0.90
+        # Begin DeltaV
+        armor:
+          Slash: DamageUnarmed
+          Heat: DamageUnarmed
+        # End DeltaV
       showArmorOnExamine: false

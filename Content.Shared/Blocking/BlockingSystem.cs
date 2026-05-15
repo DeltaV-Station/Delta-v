@@ -331,5 +331,16 @@ public sealed partial class BlockingSystem : EntitySystem
                 ("value", flat.Value)
             ));
         }
+
+        // Begin DeltaV Additions
+        foreach (var armor in modifiers.Armor)
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Robust.Shared.Localization.Loc.GetString("blocking-coefficient-value",
+                ("type", armor.Key),
+                ("value", MathF.Round(armor.Value))
+            ));
+        }
+        // End DeltaV Additions
     }
 }

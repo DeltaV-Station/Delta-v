@@ -25,11 +25,13 @@
     sprintModifier: 0.75 # DeltaV - slower for insulation, originally 0.8
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.75
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageTider
+      # End DeltaV
   - type: ExplosionResistance
     damageCoefficient: 0.10 # DeltaV - made more resistant, originally 0.15
   - type: GroupExamine
@@ -88,10 +90,12 @@
     reduction: 0.65 # doesnt have a full seal so not as good
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.9
-        Heat: 0.8
-        Cold: 0.8
+      # Begin DeltaV
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageTider
+        Cold: DamageTider
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -138,10 +142,12 @@
     reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.9
-        Heat: 0.8
-        Cold: 0.8
+      # Begin DeltaV
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageTider
+        Cold: DamageTider
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -169,9 +175,11 @@
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.90
-        Radiation: 0.01
+      # Begin DeltaV
+      armor:
+        Heat: DamageUnarmed
+        Radiation: DamageSuper
+      # End DeltaV
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
     clothingVisuals: # Delta V - Need this for harpies
@@ -222,12 +230,14 @@
     coolingCoefficient: 0.01
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
-        Ion: 0 # DeltaV - I love self gibbing as ninja IPC!!
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
+        Ion: DamageSuper
+      # End DeltaV
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak

@@ -16,11 +16,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+      # Begin DeltaV - Armor
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV - Armor
   # DeltaV start
   # - type: ClothingGrantComponent
   #   component:

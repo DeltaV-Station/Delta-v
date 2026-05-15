@@ -10,8 +10,8 @@
     sprite: _DV/Clothing/Eyes/Glasses/safetyglasses.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.85
+      armor:
+        Caustic: DamageTider
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons, BaseSecurityContraband]

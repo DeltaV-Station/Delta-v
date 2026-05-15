@@ -40,7 +40,11 @@ public sealed partial class HandHeldArmorComponent : Component
     /// DeltaV - Gets the effective stamina melee damage coefficient, based on the armor's blunt protection.
     /// </summary>
     [ViewVariables]
-    public float StaminaMeleeDamageCoefficient => Modifiers.Coefficients.GetValueOrDefault("Blunt", 1.0f);
+    public float StaminaMeleeDamageCoefficient => Modifiers.Coefficients.TryGetValue("Blunt", out var coefficient)
+                                                      ? coefficient
+                                                      : Modifiers.Armor.TryGetValue("Blunt", out var armor)
+                                                          ? 1f - Math.Clamp(0.01f * armor, 0f, 1f)
+                                                          : 1f;
 
     /// <summary>
     /// The required components for the held armor to be active while held.

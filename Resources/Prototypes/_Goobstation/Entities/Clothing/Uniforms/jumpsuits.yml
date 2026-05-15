@@ -11,8 +11,10 @@
   - type: CrematoriumImmune
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.75
+      # Begin DeltaV
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
+      # End DeltaV

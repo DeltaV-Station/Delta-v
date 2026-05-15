@@ -46,8 +46,8 @@
     fiberColor: fibers-black
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.95
+      armor:
+        Caustic: DamageUnarmed
 
 - type: entity
   parent: [ClothingHandsBase, BaseCentcommContraband]

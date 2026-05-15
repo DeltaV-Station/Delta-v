@@ -21,11 +21,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.8
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
+      # End DeltaV
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 15

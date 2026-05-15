@@ -10,10 +10,10 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Armor/gladiator.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
 
 - type: entity
   parent: ClothingOuterBase
@@ -27,9 +27,9 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Armor/bogu.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.9
+      armor:
+        Blunt: DamageTider
+        Slash: DamageUnarmed
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.85
@@ -46,8 +46,8 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Armor/touseigusoku.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.60
-        Piercing: 0.85
+      armor:
+        Blunt: DamageTider
+        Slash: DamagePistol
+        Piercing: DamageTider
         

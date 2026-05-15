@@ -1,7 +1,9 @@
+using Content.Shared._DV.Damage; // DeltaV
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Prototypes; // DeltaV
 
 namespace Content.Shared.Damage
 {
@@ -24,5 +26,8 @@ namespace Content.Shared.Damage
 
         [DataField("flatReductions", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, DamageTypePrototype>))]
         public Dictionary<string, float> FlatReduction = new();
+
+        [DataField(customTypeSerializer: typeof(DVDamageValueDictionarySerializer<ProtoId<DamageTypePrototype>>))]
+        public Dictionary<ProtoId<DamageTypePrototype>, float> Armor = new();
     }
 }

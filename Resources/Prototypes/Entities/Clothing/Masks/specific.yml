@@ -72,10 +72,12 @@
   - type: SelfEquipOnly
   - type: CursedMask
     despairDamageModifier:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.4
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageSniper
+      # End DeltaV
   - type: HideLayerClothing
     slots:
     - Snout

@@ -161,9 +161,11 @@
     sprite: Clothing/Head/Hoods/rad.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.95
-        Radiation: 0.65
+      # Begin DeltaV
+      armor:
+        Heat: DamageUnarmed
+        Radiation: DamageRifle
+      # End DeltaV
   - type: IdentityBlocker
   - type: BreathMask
   - type: HideLayerClothing

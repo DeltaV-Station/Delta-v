@@ -17,9 +17,9 @@
       toggleable-under-clothing: !type:ContainerSlot {}
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.2 # Little easier to steal the core when you have a rad suit
-        Heat: 0.75 # Take an extra shot or two
+      armor:
+        Radiation: DamageSniper # Little easier to steal the core when you have a rad suit
+        Heat: DamagePistol # Take an extra shot or two
   - type: ClothingSpeedModifier # Make em a bit more nimble so they can hide/Run
     walkModifier: 1
     sprintModifier: 1
@@ -37,9 +37,9 @@
     sprite: _DV/Clothing/OuterClothing/Suits/eva_epistemics.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.6
-        Caustic: 0.8 # Wouldn't want John Scientist getting obliterated by the funny caustic chem artifact.
+      armor:
+        Radiation: DamagePistol
+        Caustic: DamagePistol # Wouldn't want John Scientist getting obliterated by the funny caustic chem artifact.
   - type: ExplosionResistance
     damageCoefficient: 0.7 # Practically a budget bombsuit, so it absorbs a lot of explosion damage.
   - type: ClothingSpeedModifier
@@ -87,9 +87,9 @@
         shader: unshaded
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.5
-        Heat: 0.95
+      armor:
+        Radiation: DamageRifle
+        Heat: DamageUnarmed
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: ClothingSpeedModifier

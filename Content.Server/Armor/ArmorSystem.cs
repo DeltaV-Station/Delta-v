@@ -30,5 +30,13 @@ public sealed class ArmorSystem : SharedArmorSystem
             var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
             args.Price += component.PriceMultiplier * damageType.ArmorPriceFlat * modifier.Value;
         }
+
+        // Begin DeltaV Additions
+        foreach (var modifier in component.Modifiers.Armor)
+        {
+            var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
+            args.Price += component.PriceMultiplier * damageType.ArmorPrice * modifier.Value;
+        }
+        // End DeltaV Additions
     }
 }

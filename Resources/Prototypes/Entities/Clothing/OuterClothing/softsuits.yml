@@ -207,10 +207,12 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Heat: 0.90
-        Radiation: 0.75
-        Caustic: 0.5
+      # Begin DeltaV
+      armor:
+        Heat: DamageTider
+        Radiation: DamagePistol
+        Caustic: DamageSniper
+      # End DeltaV
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed

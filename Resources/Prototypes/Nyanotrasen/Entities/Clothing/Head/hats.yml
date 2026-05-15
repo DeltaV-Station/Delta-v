@@ -59,8 +59,8 @@
     canBeFried: true
   - type: Armor
     modifiers:
-      coefficients:
-        Radiation: 0.95
+      armor:
+        Radiation: DamageUnarmed
   - type: Construction
     graph: TinfoilHat
     node: tinfoilhat
@@ -116,11 +116,11 @@
   - type: PsionicallyInsulative
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.95
-        Radiation: 0.95
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageUnarmed
+        Radiation: DamageUnarmed
 
 - type: entity
   parent: ClothingHeadBase
@@ -156,10 +156,10 @@
     sprite: Nyanotrasen/Clothing/Head/Helmets/men.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.95
-        Piercing: 0.95
+      armor:
+        Blunt: DamageTider
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
 
 - type: entity
   parent: ClothingHeadBase

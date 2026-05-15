@@ -111,9 +111,11 @@
     size: Normal
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
+      # Begin DeltaV - Armor
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+      # End DeltaV - Armor
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50

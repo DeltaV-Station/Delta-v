@@ -14,8 +14,10 @@
     - Tail
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Caustic: DamagePistol
+      # End DeltaV
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.35
   - type: GroupExamine
@@ -48,8 +50,10 @@
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.4
+      # Begin DeltaV
+      armor:
+        Caustic: DamageRifle
+      # End DeltaV
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -76,10 +80,12 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.8
-        Slash: 0.6
-        Piercing: 0.8
+      # Begin DeltaV
+      armor:
+        Caustic: DamageTider
+        Slash: DamagePistol
+        Piercing: DamageTider
+      # Begin DeltaV
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: GroupExamine

@@ -36,12 +36,14 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.8
-        Radiation: 0.5
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+        Radiation: DamageRifle
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -85,13 +87,15 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.2
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamageRifle
+        Radiation: DamageSniper
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -133,12 +137,14 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Radiation: 0.3 #salv is supposed to have radiation hazards in the future
-        Caustic: 0.8
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Radiation: DamageRifle
+        Caustic: DamageTider
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -183,13 +189,15 @@
     damageCoefficient: 0.7
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.6
-        Piercing: 0.7
-        Heat: 0.7
-        Radiation: 0.3
-        Caustic: 0.7
+      # Begin DeltaV
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamagePistol
+        Radiation: DamageRifle
+        Caustic: DamagePistol
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -233,13 +241,15 @@
     damageCoefficient: 0.3
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
-        Radiation: 0.3
-        Caustic: 0.8
+      # Begin DeltaV
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamageRifle
+        Heat: DamagePistol #Goliath hide gets grilled instead of you
+        Radiation: DamageSniper
+        Caustic: DamageTider
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -280,12 +290,14 @@
     sprintModifier: 1.0
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
-        Heat: 0.3
-        Radiation: 0.1
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamageSniper
+        Radiation: DamageSuper
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -317,12 +329,14 @@
     damageCoefficient: 0.4
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
-        Caustic: 0.7
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamagePistol
+        Caustic: DamagePistol
+      # End DeltaV
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -353,10 +367,12 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.7
+      # Begin DeltaV
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+      # End DeltaV
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -384,12 +400,14 @@
     damageCoefficient: 0.4
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.4
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.8
-        Caustic: 0.7
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamagePistol
+        Heat: DamageTider
+        Caustic: DamageTider
+      # End DeltaV
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -429,13 +447,15 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.6
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.6
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamagePistol
+        Heat: DamagePistol
+        Radiation: DamagePistol
+        Caustic: DamagePistol
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -488,13 +508,15 @@
     damageCoefficient: 0.2
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.4
-        Radiation: 0.0
-        Caustic: 0.7
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageSniper
+        Radiation: DamageSuper
+        Caustic: DamagePistol
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -538,8 +560,10 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.1
+      # Begin DeltaV
+      armor:
+        Caustic: DamageSuper
+      # End DeltaV
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
@@ -571,15 +595,17 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.3
-        Radiation: 0.1
-        Caustic: 0.2
-        Holy: 0.7 # DeltaV
-        Shadow: 0.7 # DeltaV
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageTider
+        Piercing: DamageUnarmed
+        Heat: DamageSniper
+        Radiation: DamageSuper
+        Caustic: DamageSuper
+        Holy: DamagePistol
+        Shadow: DamagePistol
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -627,13 +653,15 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.8
-        Radiation: 0.5
-        Caustic: 0.6
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamagePistol
+        Radiation: DamageRifle
+        Caustic: DamageRifle
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -679,13 +707,15 @@
     damageCoefficient: 0.9
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.9
-        Radiation: 0.5
-        Caustic: 0.8
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageTider
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+        Radiation: DamageSniper
+        Caustic: DamagePistol
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -735,14 +765,16 @@
     damageCoefficient: 0.2 # DeltaV - was 0.75
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
-        Cold: 0.8 # DeltaV - Cold res
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamageRifle
+        Radiation: DamageRifle
+        Caustic: DamageRifle
+        Cold: DamagePistol
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -841,14 +873,16 @@
     damageCoefficient: 0.3 # DeltaV - was 0.6
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8 # DeltaV - was 0.6
-        Slash: 0.8 # DeltaV - was 0.6
-        Piercing: 0.6
-        Heat: 0.2
-        Radiation: 0.01
-        Caustic: 0.5
-        Cold: 0.4 # DeltaV - Cold res
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageRifle
+        Heat: DamageSniper
+        Radiation: DamageSuper
+        Caustic: DamageRifle
+        Cold: DamageRifle
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -901,14 +935,16 @@
     damageCoefficient: 0.2 # DeltaV - was 0.6
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.3
-        Heat: 0.5
-        Radiation: 0.25
-        Caustic: 0.4
-        Cold: 0.8 # DeltaV - Cold res
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageSniper
+        Heat: DamageRifle
+        Radiation: DamageSniper
+        Caustic: DamageRifle
+        Cold: DamagePistol
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -963,14 +999,16 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.2
-        Slash: 0.2
-        Piercing: 0.2
-        Heat: 0.2
-        Radiation: 0.2
-        Caustic: 0.2
-        Cold: 0.6 # DeltaV - Cold res
+      # Begin DeltaV
+      armor:
+        Blunt: DamageSniper
+        Slash: DamageSniper
+        Piercing: DamageSniper
+        Heat: DamageSniper
+        Radiation: DamageSniper
+        Caustic: DamageSniper
+        Cold: DamageRifle
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -1018,13 +1056,15 @@
     damageCoefficient: 0.5
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.4
-        Heat: 0.25
-        Radiation: 0.25
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamageSniper
+        Radiation: DamageSniper
+        Caustic: DamagePistol
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -1063,11 +1103,12 @@
     damageCoefficient: 0.2
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 1
-        Heat: 0.5
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Heat: DamageRifle
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1099,12 +1140,14 @@
     damageCoefficient: 0.7
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.4
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageRifle
+        Caustic: DamagePistol
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
@@ -1137,12 +1180,14 @@
     damageCoefficient: 0.6
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.4
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Blunt: DamagePistol
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageRifle
+        Caustic: DamagePistol
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1290,13 +1335,15 @@
     damageCoefficient: 0.15 # Needs 21 hits with a disabler to stun :godo:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.1 #best armor in the game
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-        Radiation: 0.1
-        Caustic: 0.1
+      # Begin DeltaV
+      armor:
+        Blunt: DamageSuper
+        Slash: DamageSuper
+        Piercing: DamageSuper
+        Heat: DamageSuper
+        Radiation: DamageSuper
+        Caustic: DamageSuper
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -1344,15 +1391,17 @@
     damageCoefficient: 0.7
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
-        Radiation: 0.1
-        Caustic: 0.1
+      # Begin DeltaV
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamageSuper
+        Cold: DamageSuper
+        Shock: DamageSuper
+        Radiation: DamageSuper
+        Caustic: DamageSuper
+      # End DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -1464,11 +1513,13 @@
     damageCoefficient: 0.85
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.9
-        Piercing: 0.85
-        Caustic: 0.8
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Caustic: DamageTider
+      # End DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

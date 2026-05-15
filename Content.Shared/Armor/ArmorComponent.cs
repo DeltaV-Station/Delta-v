@@ -37,7 +37,12 @@ public sealed partial class ArmorComponent : Component
     [DataField("staminaMeleeDamageCoefficient")]
     private float? _staminaMeleeDamageCoefficient;
 
-    public float StaminaMeleeDamageCoefficient => _staminaMeleeDamageCoefficient ?? Modifiers.Coefficients.GetValueOrDefault("Blunt", 1.0f);
+    public float StaminaMeleeDamageCoefficient => _staminaMeleeDamageCoefficient ??
+                                                  (Modifiers.Coefficients.TryGetValue("Blunt", out var coefficient)
+                                                      ? coefficient
+                                                      : Modifiers.Armor.TryGetValue("Blunt", out var armor)
+                                                          ? 1f - Math.Clamp(0.01f * armor, 0f, 1f)
+                                                          : 1f);
     // End DeltaV - Give armor melee stamina resistance
 }
 
@@ -61,7 +66,7 @@ public sealed class CoefficientQueryEvent : EntityEventArgs, IInventoryRelayEven
     /// <summary>
     /// The Total of all Coefficients.
     /// </summary>
-    public DamageModifierSet DamageModifiers { get; set; } = new DamageModifierSet();
+    public List<DamageModifierSet> DamageModifiers = new(); // DeltaV - stack modifiers instead of doing weird math
 
     public CoefficientQueryEvent(SlotFlags slots)
     {

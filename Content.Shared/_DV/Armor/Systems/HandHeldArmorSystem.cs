@@ -41,13 +41,7 @@ public sealed class HandHeldArmorSystem : EntitySystem
             || _whitelist.IsWhitelistPass(armor.Comp.Blacklist, armor.Comp.Holder.Value))
             return;
 
-        foreach (var armorCoefficient in armor.Comp.Modifiers.Coefficients)
-        {
-            args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] =
-                args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient)
-                ? coefficient * armorCoefficient.Value
-                : armorCoefficient.Value;
-        }
+        args.Args.DamageModifiers.Add(armor.Comp.Modifiers);
     }
 
     private void OnDamageModify(Entity<HandHeldArmorComponent> armor, ref HeldRelayedEvent<DamageModifyEvent> args)
@@ -110,6 +104,15 @@ public sealed class HandHeldArmorSystem : EntitySystem
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
                 ("value", flatArmor.Value)
+            ));
+        }
+
+        foreach (var factor in armor.Modifiers.Armor)
+        {
+            var armorType = Loc.GetString("armor-damage-type-" + factor.Key.Id.ToLower());
+            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
+                ("type", armorType),
+                ("value", MathF.Round(factor.Value))
             ));
         }
 

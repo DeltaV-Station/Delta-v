@@ -215,8 +215,10 @@
       core_slot: !type:ContainerSlot
   - type: DamageOnAttackedProtection
     damageProtection:
-      flatReductions:
-        Heat: 100
-        Cold: 100
-        Radiation: 100
+      # Begin DeltaV Changes - armor
+      armor:
+        Heat: DamageSuper
+        Cold: DamageSuper
+        Radiation: DamageSuper
+      # End DeltaV Changes - armor
     slots: NONE

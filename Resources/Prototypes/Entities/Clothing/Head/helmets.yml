@@ -21,11 +21,13 @@
   components:
   - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # End DeltaV
 
 #Basic Helmet (Security Helmet)
 - type: entity
@@ -74,13 +76,15 @@
     sprite: Clothing/Head/Helmets/swat.rsi
   - type: Armor #This is intentionally not spaceproof, when the time comes to port the values from SS13 this should be buffed from what it was.
     modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-        Radiation: 0.80
-        Caustic: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
+        Radiation: DamageTider
+        Caustic: DamageUnarmed
+      # End DeltaV
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: HideLayerClothing
@@ -117,10 +121,12 @@
   - type: IngestionBlocker
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageUnarmed
+      # Begin DeltaV
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -141,10 +147,12 @@
     damageCoefficient: 0.9
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageUnarmed
+        Piercing: DamageUnarmed
+      # Begin DeltaV
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -180,11 +188,13 @@
   - type: IngestionBlocker
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+        Slash: DamageTider
+        Piercing: DamageUnarmed
+        Heat: DamageUnarmed
+      # Begin DeltaV
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -335,11 +345,13 @@
     sprite: Clothing/Head/Helmets/linghelmet.rsi
   - type: Armor #admeme item so it should be fine being overpowered while helmets are still intentionally kneecapped.
     modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.9
+      # Begin DeltaV
+      armor:
+        Blunt: DamageSniper
+        Slash: DamageSniper
+        Piercing: DamageSniper
+        Heat: DamageTider
+      # End DeltaV
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -432,11 +444,13 @@
     sprite: Clothing/Head/Helmets/syndie-raid.rsi
   - type: Armor
     modifiers: #There's gotta be SOME reason to use this over other helmets.
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamageTider
+      # End DeltaV
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -585,8 +599,10 @@
   - type: IngestionBlocker
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.95
+      # Begin DeltaV
+      armor:
+        Blunt: DamageUnarmed
+      # End DeltaV
   - type: Construction
     graph: cardHelmet
     node: cardhelmet

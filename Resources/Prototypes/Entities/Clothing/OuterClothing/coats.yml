@@ -69,12 +69,14 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.7
-        Caustic: 0.75 # not the full 90% from ss13 because of the head
+      # Begin DeltaV - Armor
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamageRifle
+        Caustic: DamageRifle
+      # End DeltaV - Armor
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -85,13 +87,13 @@
   components:
   - type: Armor
     modifiers:
-      coefficients:
-#Begin DeltaV modifications
-        Blunt: 0.70 # Was 0.65
-        Slash: 0.70 # Was 0.65
-        Piercing: 0.70 # Was 0.7
-        Heat: 0.80 # Was 0.7
-#End DeltaV modifications
+      # Begin DeltaV - Armor
+      armor:
+        Blunt: DamageRifle
+        Slash: DamageRifle
+        Piercing: DamageRifle
+        Heat: DamageRifle
+      # End DeltaV - Armor
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -145,8 +147,10 @@
     coolingCoefficient: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
+      # Begin DeltaV
+      armor:
+        Slash: DamageUnarmed
+      # End DeltaV
   - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -169,8 +173,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Slash: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
@@ -189,8 +195,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Slash: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabChem]
@@ -209,8 +217,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Slash: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
@@ -229,8 +239,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Slash: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabGene]
@@ -249,10 +261,12 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Slash: 0.95
-        Heat: 0.95
-        Caustic: 0.65
+      # Begin DeltaV
+      armor:
+        Slash: DamageUnarmed
+        Heat: DamageUnarmed
+        Caustic: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCmo]
@@ -271,8 +285,10 @@
     sprite: _DV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Caustic: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRnd]
@@ -291,8 +307,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Caustic: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRobo]
@@ -311,9 +329,11 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
-        Radiation: 0.9
+      # Begin DeltaV
+      armor:
+        Caustic: DamagePistol
+        Radiation: DamageUnarmed
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
@@ -376,10 +396,12 @@
     sprite: Clothing/OuterClothing/Coats/dogi.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.65
-        Piercing: 0.85
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageRifle
+        Piercing: DamageTider
+      # End DeltaV
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -426,12 +448,14 @@
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
   - type: Armor # DeltaV - tweak for Velta armour
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Blunt: DamageTider
+        Slash: DamageTider
+        Piercing: DamageTider
+        Heat: DamagePistol
+        Caustic: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -445,8 +469,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Caustic: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorResearcher]
@@ -465,8 +491,10 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Caustic: 0.75
+      # Begin DeltaV
+      armor:
+        Caustic: DamagePistol
+      # End DeltaV
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorPhysician]

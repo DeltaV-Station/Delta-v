@@ -19,13 +19,12 @@
     damageCoefficient: 0.8 #  was 0.65
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7 # was 0.65
-        Slash: 0.7 # was 0.65
-        Piercing: 0.6 # unchanged
-        Heat: 0.8 # was 0.6
-        Radiation: 0.8 # was 0.55
-        #Caustic: 0.7 
+      armor:
+        Blunt: DamagePistol
+        Slash: DamagePistol
+        Piercing: DamagePistol
+        Heat: DamageTider
+        Radiation: DamageTider
   - type: StaminaResistance 
     damageCoefficient: 0.7
   # DeltaV changes end
