@@ -64,6 +64,9 @@
         Slash: 0.65
         Piercing: 0.70
         Heat: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.90
 
@@ -77,6 +80,8 @@
     sprite: _Starlight/Clothing/OuterClothing/Armor/paladin.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/OuterClothing/Armor/paladin.rsi
+  - type: Item
+    size: Ginormous #Delta-V Made it Ginormous from huge
   - type: Armor 
     modifiers:
       coefficients:
@@ -85,7 +90,7 @@
         Piercing: 0.55
         Heat: 0.85
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.70
+    sprintModifier: 0.70
   - type: ExplosionResistance
     damageCoefficient: 0.85
