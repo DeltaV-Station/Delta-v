@@ -338,9 +338,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
-  - type: Construction #SL start
-    graph: InsulsFinal
-    node: insuls #SL end
+# DeltaV made it uncraftable
+#  - type: Construction #SL start
+#    graph: InsulsFinal
+#    node: insuls #SL end
 
 # Budget Insulated Gloves
 - type: entity
@@ -368,10 +369,11 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
-  - type: Butcherable #SL start
-    butcheringType: Knife
-    spawned:
-      - id: CheapInsulatedFabric #SL end
+# DeltaV made it uncraftable
+#  - type: Butcherable #SL start
+#    butcheringType: Knife
+#    spawned:
+#      - id: CheapInsulatedFabric #SL end
 
 # Conductive Insulated Gloves
 - type: entity
