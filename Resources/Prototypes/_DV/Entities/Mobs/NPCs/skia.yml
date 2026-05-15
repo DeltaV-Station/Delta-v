@@ -10,6 +10,8 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: skia
+  - type: Stealth
+    lastVisibility: 0.8
   - type: DamageStateVisuals
     states:
       Alive:
