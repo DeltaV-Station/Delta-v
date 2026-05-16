@@ -3890,7 +3890,8 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
-  - type: Carriable # DeltaV changes begin
+  # DeltaV changes begin
+  - type: Carriable 
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -3898,7 +3899,8 @@
     name: ghost-role-information-nymph-name
     description: ghost-role-information-nymph-description
     rules: ghost-role-information-nonantagonist-rules
-  - type: GhostTakeoverAvailable # DeltaV changes end
+  - type: GhostTakeoverAvailable
+  # DeltaV changes end
   - type: Physics
   - type: Fixtures
     fixtures:
