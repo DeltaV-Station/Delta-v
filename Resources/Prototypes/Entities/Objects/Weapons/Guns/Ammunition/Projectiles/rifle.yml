@@ -8,6 +8,7 @@
     damage:
       types:
         Piercing: 17
+        Penetration: 10 # DeltaV
 
 - type: entity
   parent: BaseBulletPractice
@@ -31,6 +32,7 @@
       types:
         Piercing: 12
         Heat: 5
+        Penetration: 10 # DeltaV
 
 - type: entity
   parent: BaseBulletUranium
@@ -43,4 +45,5 @@
       types:
         Radiation: 7
         Piercing: 8
+        Penetration: 10 # DeltaV
         

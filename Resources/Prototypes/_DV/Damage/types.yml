@@ -3,9 +3,18 @@
   name: damage-type-ion
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+  armorPrice: 1
 
 - type: damageType
   id: Shadow
   name: damage-type-shadow
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+  armorPrice: 1
+
+- type: damageType
+  id: Penetration # not a real damage type but i am NOT rewriting all of damageable for this
+  name: damage-type-penetration
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1
+  armorPrice: 1

@@ -130,6 +130,8 @@ namespace Content.Shared.Damage
         }
         #endregion constructors
 
+        private static readonly ProtoId<DamageTypePrototype> Penetration = "Penetration"; // DeltaV - penetration
+
         /// <summary>
         ///     Reduce (or increase) damages by applying a damage modifier set.
         /// </summary>
@@ -144,6 +146,8 @@ namespace Content.Shared.Damage
             // more cause they're just bloody stumps.
             DamageSpecifier newDamage = new();
             newDamage.DamageDict.EnsureCapacity(damageSpec.DamageDict.Count);
+
+            var penetration = damageSpec.DamageDict.GetValueOrDefault(Penetration).Float(); // DeltaV - penetration
 
             foreach (var (key, value) in damageSpec.DamageDict)
             {
@@ -165,9 +169,10 @@ namespace Content.Shared.Damage
                     newValue *= coefficient; // coefficients can heal you, e.g. cauterizing bleeding
 
                 // Begin DeltaV Additions
-                if (modifierSet.Armor.TryGetValue(key, out var armor) && 2 * armor > value)
+                if (modifierSet.Armor.TryGetValue(key, out var armor) && 2 * Math.Max(armor - penetration, 0f) > newValue)
                 {
-                    var blocked = Math.Max(0f, 1f - Math.Min(newValue / (2f * armor), 1f));
+                    var reducedArmor = Math.Max(armor - penetration, 0f);
+                    var blocked = Math.Max(0f, 1f - Math.Min(newValue / (2f * reducedArmor), 1f));
                     newValue = (1f - blocked) * newValue;
                 }
                 // End DeltaV Additions

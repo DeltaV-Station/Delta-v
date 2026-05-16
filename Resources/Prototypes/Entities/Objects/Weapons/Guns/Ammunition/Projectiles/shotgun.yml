@@ -42,6 +42,7 @@
       types:
         Piercing: 10
         Structural: 15
+        Penetration: 5 # DeltaV
 
 - type: entity
   parent: PelletShotgun
@@ -64,6 +65,7 @@
       types:
         Piercing: 7
         Heat: 3
+        Penetration: 5 # DeltaV
   - type: IgnitionSource
     ignited: true
 

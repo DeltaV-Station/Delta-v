@@ -6,6 +6,7 @@
   name: damage-type-asphyxiation
   armorCoefficientPrice: 5
   armorFlatPrice: 50
+  armorPrice: 25 # DeltaV
 
 
 # Damage representing not having enough blood.
@@ -15,6 +16,7 @@
   name: damage-type-bloodloss
   armorCoefficientPrice: 5
   armorFlatPrice: 50
+  armorPrice: 25 # DeltaV
 
 - type: damageType
   id: Blunt
@@ -27,30 +29,35 @@
   name: damage-type-cellular
   armorCoefficientPrice: 5
   armorFlatPrice: 30
+  armorPrice: 15 # DeltaV
 
 - type: damageType
   id: Caustic
   name: damage-type-caustic
   armorCoefficientPrice: 5
   armorFlatPrice: 30
+  armorPrice: 15 # DeltaV
 
 - type: damageType
   id: Cold
   name: damage-type-cold
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+  armorPrice: 10 # DeltaV
 
 - type: damageType
   id: Heat
   name: damage-type-heat
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+  armorPrice: 10 # DeltaV
 
 - type: damageType
   id: Piercing
   name: damage-type-piercing
   armorCoefficientPrice: 2
   armorFlatPrice: 10
+  armorPrice: 5 # DeltaV
 
 # Poison damage. Generally caused by various reagents being metabolised.
 - type: damageType
@@ -58,24 +65,28 @@
   name: damage-type-poison
   armorCoefficientPrice: 10
   armorFlatPrice: 60
+  armorPrice: 30 # DeltaV
 
 - type: damageType
   id: Radiation
   name: damage-type-radiation
   armorCoefficientPrice: 2.5
   armorFlatPrice: 16
+  armorPrice: 8 # DeltaV
 
 - type: damageType
   id: Shock
   name: damage-type-shock
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+  armorPrice: 10 # DeltaV
 
 - type: damageType
   id: Slash
   name: damage-type-slash
   armorCoefficientPrice: 2
   armorFlatPrice: 10
+  armorPrice: 5 # DeltaV
 
 # Damage represent structures internal integrity.
 # Exclusive for structures such as walls, airlocks and others.
@@ -84,6 +95,7 @@
   name: damage-type-structural
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+  armorPrice: 1 # DeltaV
 
 # Metaphysical damage. Damage represents supernatural injuries that emphasize the fantasy elements in the game
 - type: damageType
@@ -91,4 +103,5 @@
   name: damage-type-holy
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+  armorPrice: 1 # DeltaV
 
