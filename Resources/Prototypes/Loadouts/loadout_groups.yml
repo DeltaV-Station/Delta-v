@@ -1402,7 +1402,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
-  - HeadofSecurityCavalier
+  - HeadofSecurityCavalier # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1627,8 +1627,8 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - SecurityCadetJumpsuit # DeltaV
-  - SecurityCadetJumpskirt # DeltaV
+  - SecurityCadetJumpsuit # DeltaV - was RedJumpsuit
+  - SecurityCadetJumpskirt # DeltaV - was RedJumpskirt
 
 - type: loadoutGroup
   id: SecurityCadetJobTrinkets
