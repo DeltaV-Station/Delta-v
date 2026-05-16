@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: MolpeTheSeiren
-  changes:
-  - message: Moved secrecy law to above the non-emagged laws
-    type: Tweak
-  id: 1797
-  time: '2025-11-14T19:26:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4139
 - author: DisposableCrewmember42
   changes:
   - message: The pAI Software Catalog can be opened again
@@ -4358,4 +4351,17 @@
   id: 2297
   time: '2026-05-15T17:17:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5569
+- author: mirrorcult, neomoth, DisposableCrewmember42
+  changes:
+  - message: Fancy Screenshake ported from Ephemeral Space
+    type: Add
+  - message: The old screenshake slider has been renamed to "Camera kick intensity"
+      and controls the basic camera kick that may still be used in some places.
+    type: Tweak
+  - message: A new checkbox has been added to the Accessibility options to disable
+      screenshake. Make sure to check it if you are prone to motion sickness!
+    type: Tweak
+  id: 2298
+  time: '2026-05-15T21:32:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5503
 Order: 1
