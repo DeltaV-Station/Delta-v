@@ -108,7 +108,7 @@ public abstract class SharedArmorSystem : EntitySystem
             var armorType = Loc.GetString("armor-damage-type-" + factor.Key.Id.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-armor-value",
                 ("type", armorType),
-                ("value", MathF.Round(factor.Value))
+                ("value", MathF.Round(factor.Value * 2f))
             ));
         }
         // End DeltaV Additions

@@ -1,1 +1,1 @@
-blocking-armor-value = - It has an armor value of [color=lightblue]{$value}[/color] against [color=yellow]{$type}[/color] damage.
+blocking-armor-value = - It provides [color=yellow]{$type}[/color] armor up to [color=lightblue]{$value}[/color] damage.

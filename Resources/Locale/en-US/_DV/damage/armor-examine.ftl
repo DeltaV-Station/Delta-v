@@ -1,1 +1,1 @@
-armor-armor-value = - Armor value of [color=lightblue]{$value}[/color] for [color=yellow]{$type}[/color].
+armor-armor-value = - [color=yellow]{$type}[/color] armor up to [color=lightblue]{$value}[/color] damage.

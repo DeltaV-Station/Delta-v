@@ -48,6 +48,8 @@ public sealed class DamageExamineSystem : EntitySystem
         message.AddMessage(markup);
     }
 
+    private static readonly ProtoId<DamageTypePrototype> Penetration = "Penetration"; // DeltaV - penetration
+
     /// <summary>
     /// Retrieves the damage examine values.
     /// </summary>
@@ -66,12 +68,20 @@ public sealed class DamageExamineSystem : EntitySystem
 
         foreach (var damage in damageSpecifier.DamageDict)
         {
-            if (damage.Value != FixedPoint2.Zero)
+            if (damage.Value != FixedPoint2.Zero && damage.Key != Penetration) // DeltaV - penetration
             {
                 msg.PushNewline();
                 msg.AddMarkupOrThrow(Loc.GetString("damage-value", ("type", _prototype.Index<DamageTypePrototype>(damage.Key).LocalizedName), ("amount", damage.Value)));
             }
         }
+
+        // Begin DeltaV - i know this is a hack but i am NOT rewriting all of damageable to wire in an extra number
+        if (damageSpecifier.DamageDict.TryGetValue(Penetration, out var penetration))
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("damage-examine-penetration", ("amount", MathF.Round(penetration * 2f))));
+        }
+        // End DeltaV
 
         return msg;
     }

@@ -336,9 +336,9 @@ public sealed partial class BlockingSystem : EntitySystem
         foreach (var armor in modifiers.Armor)
         {
             msg.PushNewline();
-            msg.AddMarkupOrThrow(Robust.Shared.Localization.Loc.GetString("blocking-coefficient-value",
+            msg.AddMarkupOrThrow(Robust.Shared.Localization.Loc.GetString("blocking-armor-value",
                 ("type", armor.Key),
-                ("value", MathF.Round(armor.Value))
+                ("value", MathF.Round(armor.Value * 2f))
             ));
         }
         // End DeltaV Additions
