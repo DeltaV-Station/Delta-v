@@ -1,3 +1,4 @@
+using Content.Shared.DoAfter;
 using Content.Shared.Eye;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
@@ -20,6 +21,7 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -33,6 +35,7 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<NodeCrawlerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<NodeCrawlerComponent, NodeCrawlEnterDoAfterEvent>(OnNodeCrawlEnterDoAfter);
         SubscribeLocalEvent<NodeCrawlerComponent, NodeCrawlerArrivedAtNodeEvent>(OnArrivedAtNode);
         SubscribeLocalEvent<NodeCrawlerComponent, GetVisMaskEvent>(OnGetVisMask);
 
@@ -57,15 +60,28 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
         args.Verbs.Add(new InnateVerb
         {
-            Act = () =>
-            {
-                if (!_interaction.InRangeAndAccessible(ent.Owner, target))
-                    return;
-
-                NodeCrawl(ent, target);
-            },
+            Act = () => StartDoAfter(ent, target),
             Text = Loc.GetString("node-crawl-enter", ("target", target)),
         });
+    }
+
+    private void StartDoAfter(Entity<NodeCrawlerComponent> ent, EntityUid target)
+    {
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.EnterDelay, new NodeCrawlEnterDoAfterEvent(), ent.Owner, target)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnNodeCrawlEnterDoAfter(Entity<NodeCrawlerComponent> ent, ref NodeCrawlEnterDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Target is not { } target)
+            return;
+
+        NodeCrawl(ent, target);
     }
 
     private void NodeCrawl(Entity<NodeCrawlerComponent> ent, EntityUid target)

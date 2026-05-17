@@ -1,5 +1,7 @@
+using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.NodeCrawl;
 
@@ -27,4 +29,13 @@ public sealed partial class NodeCrawlerComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? ExitNodes;
+
+    /// <summary>
+    /// How long it takes to enter a node.
+    /// </summary>
+    [DataField]
+    public TimeSpan EnterDelay = TimeSpan.FromSeconds(1);
 }
+
+[Serializable, NetSerializable]
+public sealed partial class NodeCrawlEnterDoAfterEvent : SimpleDoAfterEvent;
