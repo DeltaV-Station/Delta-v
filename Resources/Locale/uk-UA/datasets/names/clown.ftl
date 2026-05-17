@@ -1,0 +1,103 @@
+names-clown-dataset-1 = Сміхотун
+
+names-clown-dataset-2 = Хонкель III
+
+names-clown-dataset-3 = Гусак МакСанні
+
+names-clown-dataset-4 = Тудлз Шарпертон
+
+names-clown-dataset-5 = Дінькі Дудл
+
+names-clown-dataset-6 = Хонкербель
+
+names-clown-dataset-7 = Бо Бо Зухвалий
+
+names-clown-dataset-8 = Крихітка Пиріжок
+
+names-clown-dataset-9 = Сонечко Бігає
+
+names-clown-dataset-10 = Зіггі Йойо
+
+names-clown-dataset-11 = Роззл Даззл
+
+names-clown-dataset-12 = Бастер Хмурко
+
+names-clown-dataset-13 = Пепінпоп
+
+names-clown-dataset-14 = Дурник Віллі
+
+names-clown-dataset-15 = Джо Джо Бобо Бо
+
+names-clown-dataset-16 = Кишенька
+
+names-clown-dataset-17 = Латки
+
+names-clown-dataset-18 = Шашки
+
+names-clown-dataset-19 = Веснянка
+
+names-clown-dataset-20 = Хонкер
+
+names-clown-dataset-21 = Бонкер
+
+names-clown-dataset-22 = Скіддл
+
+names-clown-dataset-23 = Спрінклдінкл
+
+names-clown-dataset-24 = Ронні Пейс
+
+names-clown-dataset-25 = Міс Панчохи
+
+names-clown-dataset-26 = Слизький Джо
+
+names-clown-dataset-27 = Редшорт МакБіт
+
+names-clown-dataset-28 = Флоп О'Хонкер
+
+names-clown-dataset-29 = Цятки
+
+names-clown-dataset-30 = Бульбашка
+
+names-clown-dataset-31 = Ґудзик
+
+names-clown-dataset-32 = Іскорка
+
+names-clown-dataset-33 = Хихотун
+
+names-clown-dataset-34 = Дзвіночок
+
+names-clown-dataset-35 = Цукерка
+
+names-clown-dataset-36 = Шиггі Діггінтонс
+
+names-clown-dataset-37 = Хінгл МакКрінглберрі
+
+names-clown-dataset-38 = Паяц
+
+names-clown-dataset-39 = Коко
+
+names-clown-dataset-40 = Блінко
+
+names-clown-dataset-41 = Кудлатий Ту Доуп
+
+names-clown-dataset-42 = Тітонька Скуталу
+
+names-clown-dataset-43 = Бозо
+
+names-clown-dataset-44 = Доінк
+
+names-clown-dataset-45 = Містер Локшина
+
+names-clown-dataset-46 = Юко
+
+names-clown-dataset-47 = Баггі
+
+names-clown-dataset-48 = Смішок
+
+names-clown-dataset-49 = Йорік
+
+names-clown-dataset-50 = Різак
+
+names-clown-dataset-51 = Ласун
+
+names-clown-dataset-52 = Пого

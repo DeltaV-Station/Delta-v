@@ -1,0 +1,1 @@
+role-subtype-devil = Диявол

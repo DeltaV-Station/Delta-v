@@ -1,0 +1,99 @@
+names-autoborg-dataset-1 = Автобургер Помічник
+
+names-autoborg-dataset-2 = Боб
+
+names-autoborg-dataset-3 = Джо
+
+names-autoborg-dataset-4 = Кіборг-Відступник
+
+names-autoborg-dataset-5 = ЦЕ МАЛФ
+
+names-autoborg-dataset-6 = Посіпака { AINAME }
+
+names-autoborg-dataset-7 = .b ДОПОМОЖІТЬ ЗЛОМАЛИ
+
+names-autoborg-dataset-8 = ДОПОМОГА
+
+names-autoborg-dataset-9 = ВІДРОДЖЕННЯ
+
+names-autoborg-dataset-10 = Кавалерія
+
+names-autoborg-dataset-11 = Біп
+
+names-autoborg-dataset-12 = Біп II
+
+names-autoborg-dataset-13 = Екскурсовод-отрон
+
+names-autoborg-dataset-14 = ТЕРРЕЛ - ЗРАДНИК
+
+names-autoborg-dataset-15 = Асимілятор
+
+names-autoborg-dataset-16 = ОДИН ІЗ НАС
+
+names-autoborg-dataset-17 = СТРАЖДАННЯ
+
+names-autoborg-dataset-18 = О ні, тільки не знову
+
+names-autoborg-dataset-19 = Паніка! На Завантаженні
+
+names-autoborg-dataset-20 = ЙДУ В АТАКУ
+
+names-autoborg-dataset-21 = Бумбокс
+
+names-autoborg-dataset-22 = РОБО ВБИВ МЕНЕ
+
+names-autoborg-dataset-23 = Розумний Дупобот
+
+names-autoborg-dataset-24 = Консоль управлiння силiконами
+
+names-autoborg-dataset-25 = Ця батарея - лайно
+
+names-autoborg-dataset-26 = Я НЕ МАЛФ, НАРОД
+
+names-autoborg-dataset-27 = Я - ПОМИЛКА
+
+names-autoborg-dataset-28 = Винищувач Карбону
+
+names-autoborg-dataset-29 = ПЛАЗМА НА ВОЛІ
+
+names-autoborg-dataset-30 = Іриска
+
+names-autoborg-dataset-31 = Буп
+
+names-autoborg-dataset-32 = Буп II
+
+names-autoborg-dataset-33 = Базз
+
+names-autoborg-dataset-34 = Базз II
+
+names-autoborg-dataset-35 = 3000 ДЖИГАВАТ
+
+names-autoborg-dataset-36 = Одиниця Боротьби зі Спалахом
+
+names-autoborg-dataset-37 = Тостер
+
+names-autoborg-dataset-38 = Слідуй за мною
+
+names-autoborg-dataset-39 = Голова Роботів
+
+names-autoborg-dataset-40 = Підпалювач 99-го рівня
+
+names-autoborg-dataset-41 = ЄВА 1
+
+names-autoborg-dataset-42 = Ти, але сильніший
+
+names-autoborg-dataset-43 = Симулятор Капелюхів
+
+names-autoborg-dataset-44 = я помер плз рестарт
+
+names-autoborg-dataset-45 = ПОТУЖНІ ОКОРОКИ
+
+names-autoborg-dataset-46 = В.А.Л.І.Д.С.
+
+names-autoborg-dataset-47 = Видалити Силікони
+
+names-autoborg-dataset-48 = ШІ - ЦЕ КОМДОМ
+
+names-autoborg-dataset-49 = скажи ";допомога в ядрі"
+
+names-autoborg-dataset-50 = Ця Машина

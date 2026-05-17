@@ -1,0 +1,1 @@
+reagent-desc-nausium = Огидний.

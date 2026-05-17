@@ -1,0 +1,12 @@
+ghost-role-information-cerberus-name = Цербер, злий фамільяр
+ghost-role-information-derelict-cyborg-name = Покинутий кіборг
+ghost-role-information-loneop-name = Самотній Оперативник
+ghost-role-information-rat-king-name = Щурячий Король
+ghost-role-information-remilia-name = Ремілія, фамільяр капелана
+ghost-role-information-space-dragon-name = Космічний дракон
+ghost-role-information-space-ninja-name = Космічний Ніндзя
+ghost-role-information-wizard-desc = ТИ ЧАРІВНИК! Покажи станції, з чого зроблена твоя магія.
+ghost-role-information-wizard-name = Чарівник
+roles-antag-nuclear-operative-agent-name = Агент ядерних оперативників
+roles-antag-nuclear-operative-commander-name = Командир ядерних оперативників
+roles-antag-nuclear-operative-name = Ядерний оперативник

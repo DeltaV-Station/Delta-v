@@ -1,0 +1,31 @@
+descriptions-atv-dataset-1 = Всюдихід.
+
+descriptions-atv-dataset-2 = Анти-мурашиний Транспорт.
+
+descriptions-atv-dataset-3 = Будь-який Овоч.
+
+descriptions-atv-dataset-4 = Насправді-Два Транспорти.
+
+descriptions-atv-dataset-5 = Будь-яка Типізована Змінна.
+
+descriptions-atv-dataset-6 = Допоміжний Травматичний Транспорт.
+
+descriptions-atv-dataset-7 = Алгоритмічно-Переданий Вірус.
+
+descriptions-atv-dataset-8 = Вакансія для Малюка-Алкоголіка.
+
+descriptions-atv-dataset-9 = Вулкан, що Розриває Дупи.
+
+descriptions-atv-dataset-10 = Теле-Бачення.
+
+descriptions-atv-dataset-11 = Незграбно-Налаштований Волоцюга.
+
+descriptions-atv-dataset-12 = Доброволець Мистецької Трагедії.
+
+descriptions-atv-dataset-13 = Автоматична Вакансія Тако.
+
+descriptions-atv-dataset-14 = Ще Один Чудовий Краєвид.
+
+descriptions-atv-dataset-15 = Усі-Цнотливі.
+
+descriptions-atv-dataset-16 = Жахливий Транспорт.

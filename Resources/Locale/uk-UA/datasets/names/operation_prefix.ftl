@@ -1,0 +1,203 @@
+names-operation-prefix-dataset-1 = Стародавня
+
+names-operation-prefix-dataset-2 = Сердита
+
+names-operation-prefix-dataset-3 = Павуча
+
+names-operation-prefix-dataset-4 = Атомна
+
+names-operation-prefix-dataset-5 = Доброзичлива
+
+names-operation-prefix-dataset-6 = Чорна
+
+names-operation-prefix-dataset-7 = Благословенна
+
+names-operation-prefix-dataset-8 = Кривава
+
+names-operation-prefix-dataset-9 = Синя
+
+names-operation-prefix-dataset-10 = Тупа
+
+names-operation-prefix-dataset-11 = Кипляча
+
+names-operation-prefix-dataset-12 = Яскрава
+
+names-operation-prefix-dataset-13 = Палаюча
+
+names-operation-prefix-dataset-14 = Чиста
+
+names-operation-prefix-dataset-15 = Клоунська
+
+names-operation-prefix-dataset-16 = Холодна
+
+names-operation-prefix-dataset-17 = Проклята
+
+names-operation-prefix-dataset-18 = Темна
+
+names-operation-prefix-dataset-19 = Мертва
+
+names-operation-prefix-dataset-20 = Глибока
+
+names-operation-prefix-dataset-21 = Покинута
+
+names-operation-prefix-dataset-22 = Пустельна
+
+names-operation-prefix-dataset-23 = Диявольська
+
+names-operation-prefix-dataset-24 = Діамантова
+
+names-operation-prefix-dataset-25 = Похмура
+
+names-operation-prefix-dataset-26 = Гномська
+
+names-operation-prefix-dataset-27 = Східна
+
+names-operation-prefix-dataset-28 = Нескінченна
+
+names-operation-prefix-dataset-29 = Ворожа
+
+names-operation-prefix-dataset-30 = Зла
+
+names-operation-prefix-dataset-31 = Захоплююча
+
+names-operation-prefix-dataset-32 = Вибухова
+
+names-operation-prefix-dataset-33 = Екстремальна
+
+names-operation-prefix-dataset-34 = Осіння
+
+names-operation-prefix-dataset-35 = Свіжа
+
+names-operation-prefix-dataset-36 = Славна
+
+names-operation-prefix-dataset-37 = Божа
+
+names-operation-prefix-dataset-38 = Золота
+
+names-operation-prefix-dataset-39 = Зелена
+
+names-operation-prefix-dataset-40 = Сіра
+
+names-operation-prefix-dataset-41 = Щаслива
+
+names-operation-prefix-dataset-42 = Свята
+
+names-operation-prefix-dataset-43 = Гаряча
+
+names-operation-prefix-dataset-44 = Людська
+
+names-operation-prefix-dataset-45 = Незаконна
+
+names-operation-prefix-dataset-46 = Вражаюча
+
+names-operation-prefix-dataset-47 = Залізна
+
+names-operation-prefix-dataset-48 = Велика
+
+names-operation-prefix-dataset-49 = Ящірська
+
+names-operation-prefix-dataset-50 = Чарівна
+
+names-operation-prefix-dataset-51 = Щаслива
+
+names-operation-prefix-dataset-52 = Магічна
+
+names-operation-prefix-dataset-53 = Мавпяча
+
+names-operation-prefix-dataset-54 = Метеликова
+
+names-operation-prefix-dataset-55 = Північна
+
+names-operation-prefix-dataset-56 = Ядерна
+
+names-operation-prefix-dataset-57 = Помаранчева
+
+names-operation-prefix-dataset-58 = Незаконна
+
+names-operation-prefix-dataset-59 = Болісна
+
+names-operation-prefix-dataset-60 = Фантасмагорична
+
+names-operation-prefix-dataset-61 = Плазмова
+
+names-operation-prefix-dataset-62 = Пластикова
+
+names-operation-prefix-dataset-63 = Фіолетова
+
+names-operation-prefix-dataset-64 = Червона
+
+names-operation-prefix-dataset-65 = Суперницька
+
+names-operation-prefix-dataset-66 = Роботизована
+
+names-operation-prefix-dataset-67 = Надійна
+
+names-operation-prefix-dataset-68 = Сумна
+
+names-operation-prefix-dataset-69 = Секретна
+
+names-operation-prefix-dataset-70 = Тіньова
+
+names-operation-prefix-dataset-71 = Хвора
+
+names-operation-prefix-dataset-72 = Срібна
+
+names-operation-prefix-dataset-73 = Мавпяча
+
+names-operation-prefix-dataset-74 = Скелетна
+
+names-operation-prefix-dataset-75 = Слизова
+
+names-operation-prefix-dataset-76 = Південна
+
+names-operation-prefix-dataset-77 = Космічна
+
+names-operation-prefix-dataset-78 = Весняна
+
+names-operation-prefix-dataset-79 = Прихована
+
+names-operation-prefix-dataset-80 = Сталева
+
+names-operation-prefix-dataset-81 = Дивна
+
+names-operation-prefix-dataset-82 = Літня
+
+names-operation-prefix-dataset-83 = Підозріла
+
+names-operation-prefix-dataset-84 = Смачна
+
+names-operation-prefix-dataset-85 = Та
+
+names-operation-prefix-dataset-86 = Зрадницька
+
+names-operation-prefix-dataset-87 = Турбо
+
+names-operation-prefix-dataset-88 = Нечиста
+
+names-operation-prefix-dataset-89 = Нечестива
+
+names-operation-prefix-dataset-90 = Незвичайна
+
+names-operation-prefix-dataset-91 = Мстива
+
+names-operation-prefix-dataset-92 = Отруйна
+
+names-operation-prefix-dataset-93 = Жорстока
+
+names-operation-prefix-dataset-94 = Військова
+
+names-operation-prefix-dataset-95 = Тепла
+
+names-operation-prefix-dataset-96 = Дивакувата
+
+names-operation-prefix-dataset-97 = Західна
+
+names-operation-prefix-dataset-98 = Мокра
+
+names-operation-prefix-dataset-99 = Біла
+
+names-operation-prefix-dataset-100 = Дика
+
+names-operation-prefix-dataset-101 = Зимова
+
+names-operation-prefix-dataset-102 = Жовта

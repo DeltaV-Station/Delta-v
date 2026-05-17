@@ -1,0 +1,117 @@
+names-death-commando-dataset-1 = Купа павуків у спецназівському костюмі
+
+names-death-commando-dataset-2 = АМЕРИКА
+
+names-death-commando-dataset-3 = Бит Панчбіф
+
+names-death-commando-dataset-4 = Бласт Хардчіз
+
+names-death-commando-dataset-5 = Бласт Сікнек
+
+names-death-commando-dataset-6 = Болд Бігфленк
+
+names-death-commando-dataset-7 = Болт Вандерхьюдж
+
+names-death-commando-dataset-8 = Брік Хардміт
+
+names-death-commando-dataset-9 = Бак Планкчест
+
+names-death-commando-dataset-10 = Бафф Дрінклотс
+
+names-death-commando-dataset-11 = Бафф Хардбек
+
+names-death-commando-dataset-12 = Бутч Дедліфт
+
+names-death-commando-dataset-13 = Круд Боунміл
+
+names-death-commando-dataset-14 = Кранч Батстейк
+
+names-death-commando-dataset-15 = Краш МакСтомпбоунс
+
+names-death-commando-dataset-16 = Дюк Кіллінгтон
+
+names-death-commando-dataset-17 = Фіст Рокбоун
+
+names-death-commando-dataset-18 = Флінт Айронстаг
+
+names-death-commando-dataset-19 = Фрідж Ларджбіт
+
+names-death-commando-dataset-20 = ҐОР Відал
+
+names-death-commando-dataset-21 = Джордж Мелонс
+
+names-death-commando-dataset-22 = Ґіббс МакЛарджхьюдж
+
+names-death-commando-dataset-23 = Ґрістл МакТорнБоді
+
+names-death-commando-dataset-24 = Хенк Честхейр
+
+names-death-commando-dataset-25 = Ганс Тестостеронсон
+
+names-death-commando-dataset-26 = Я вб'ю тебе, я навіть не жартую
+
+names-death-commando-dataset-27 = Кілліам Шекспір
+
+names-death-commando-dataset-28 = Кіллінг МакКіллінгалот
+
+names-death-commando-dataset-29 = Ленс Кілліам
+
+names-death-commando-dataset-30 = Леонардо Да Вікінг
+
+names-death-commando-dataset-31 = Ламп Біфрок
+
+names-death-commando-dataset-32 = Пак Блоуфіст
+
+names-death-commando-dataset-33 = Панч Рокгроін
+
+names-death-commando-dataset-34 = Панч Сайдайрон
+
+names-death-commando-dataset-35 = Пант Спідчанк
+
+names-death-commando-dataset-36 = Ріф Бластбоді
+
+names-death-commando-dataset-37 = Рекс Дудкіллер VII
+
+names-death-commando-dataset-38 = Ріп Сайдчік
+
+names-death-commando-dataset-39 = Ріп Стейкфейс
+
+names-death-commando-dataset-40 = Ролл Фізлбіф
+
+names-death-commando-dataset-41 = Шеймус МакТостерон
+
+names-death-commando-dataset-42 = Сержант Слотер
+
+names-death-commando-dataset-43 = Сер Кілласлот
+
+names-death-commando-dataset-44 = Слеб Балкхед
+
+names-death-commando-dataset-45 = Слеб Сквоттраст
+
+names-death-commando-dataset-46 = Слейк Фісткранч
+
+names-death-commando-dataset-47 = Слейт Слеброк
+
+names-death-commando-dataset-48 = Смеш Лемпджо
+
+names-death-commando-dataset-49 = Смоук Менмаскл
+
+names-death-commando-dataset-50 = Сплінт Честхейр
+
+names-death-commando-dataset-51 = Стеббі МакГі
+
+names-death-commando-dataset-52 = Стамп Біфно
+
+names-death-commando-dataset-53 = Стамп Чанкмен
+
+names-death-commando-dataset-54 = ЦЕЙ ПРОКЛЯТИЙ ЗРАДНИК ДЖОРДЖ МЕЛОНС
+
+names-death-commando-dataset-55 = Останнє, що ти побачиш у своєму житті
+
+names-death-commando-dataset-56 = Теодор Пейн
+
+names-death-commando-dataset-57 = Тік МакРанфаст
+
+names-death-commando-dataset-58 = Тач Растрод
+
+names-death-commando-dataset-59 = Транк Слемчест

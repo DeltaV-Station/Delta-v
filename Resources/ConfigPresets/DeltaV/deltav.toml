@@ -10,6 +10,12 @@ role_timer_override = "DeltaV"
 showgreentext = false # focus more on telling a story
 round_end_pvs_overrides = false # Fix EOR lag due to sending every player model to every player on the server (80 times 80 on highpop)
 
+# Ukrainian localization settings
+[ic]
+restricted_names = true  # Enable name validation
+name_case = true         # Auto-capitalize names
+flavor_text = true       # Enable character descriptions
+
 [movement]
 mob_pushing = false
 

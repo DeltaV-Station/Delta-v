@@ -1,0 +1,3 @@
+comp-generator-failsafe = {$target} трясеться, коли спрацьовує система аварійного захисту!
+
+comp-generator-failsafe-disabled = Щось всередині {$target} з шипінням гасне...
