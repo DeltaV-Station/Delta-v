@@ -130,6 +130,12 @@ public sealed partial class DCCVars
     public static readonly CVarDef<string> HiddenSpecies =
         CVarDef.Create("species.hidden", "Motorkind", CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// What species to hide, as a comma seperated list.
+    /// </summary>
+    public static readonly CVarDef<bool> ShowStunVisuals =
+        CVarDef.Create("game.see_stun_visuals", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
      * Traits
      */
