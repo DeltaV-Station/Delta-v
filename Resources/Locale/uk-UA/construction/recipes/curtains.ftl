@@ -1,0 +1,21 @@
+construction-recipe-curtains-cloth = штори (тканинні)
+
+construction-recipe-curtains-black = штори (чорні)
+
+construction-recipe-curtains-blue = штори (сині)
+
+construction-recipe-curtains-sky-blue = curtains (sky blue)
+
+construction-recipe-curtains-cyan = штори (блакитні)
+
+construction-recipe-curtains-green = штори (зелені)
+
+construction-recipe-curtains-orange = штори (помаранчеві)
+
+construction-recipe-curtains-pink = штори (рожеві)
+
+construction-recipe-curtains-purple = штори (фіолетові)
+
+construction-recipe-curtains-red = штори (червоні)
+
+construction-recipe-curtains-white = штори (білі)

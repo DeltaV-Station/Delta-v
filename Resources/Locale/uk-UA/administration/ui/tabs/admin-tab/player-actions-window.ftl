@@ -1,0 +1,15 @@
+admin-player-actions-window-ban = Панель бану
+
+admin-player-actions-window-admin-ghost = Привид Адміністратора
+
+admin-player-actions-window-permissions = Панель Дозволів
+
+admin-player-actions-window-announce = Оголосити
+
+admin-player-actions-window-shuttle = (Пере)виклик Шаттлу
+
+admin-player-actions-window-admin-logs = Журнали Адміністратора
+
+admin-player-actions-window-admin-fax = Факс Адміністратора
+
+admin-player-actions-window-admin-chat = Адмін Чат

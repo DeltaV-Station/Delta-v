@@ -1,0 +1,13 @@
+tips-dataset-140 = Lotophagoi oil from the Oracle will drug you up for a long time, but is one of the most reliable sources of psionics.
+tips-dataset-141 = Turn off glimmer probers when glimmer approaches concerning levels.
+tips-dataset-142 = Glimmer probers power themselves when glimmer gets too high.
+tips-dataset-143 = Oneirophages have psionic invisiblity. Psionic insulation will allow you to see them.
+tips-dataset-144 = Someone who looks just like you may be a paradox anomaly.
+tips-dataset-145 = Rat kings can command their rats to attack someone by pointing at them.
+tips-dataset-146 = If you see shimmering at the edges of your vision, glimmer may be getting too high.
+tips-dataset-147 = The reverse engineering machine can reverse engineer blood red hardsuits.
+tips-dataset-148 = Glimmer wisps will only attack you if they detect you are psionic, or you aggravate them by damaging them or dragging away a body they are trying to drain.
+tips-dataset-149 = Bibles, holy water, and the anti-psychic knife can deal holy damage, which has strong effects against some creatures.
+tips-dataset-150 = Ectoplasm is used in the recipe for normality crystals.
+tips-dataset-151 = As a Security Officer, if you're not sure how to determine the severity of a crime or the appropriate punishment, take a look at the Crime Assist application in your PDA!
+tips-dataset-152 = Psionic insulation prevents you from using or being targeted by psionic abilities. Look for insulative headgear or cryptobiolin pills.

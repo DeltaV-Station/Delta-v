@@ -1,0 +1,303 @@
+food-sequence-no-space = Більше класти не можна!
+
+food-sequence-content-chicken = курча
+
+food-sequence-content-duck = качка
+
+food-sequence-content-crab = краб
+
+food-sequence-content-dragon = дракон
+
+food-sequence-content-snake = змія
+
+food-sequence-content-xeno = ксено
+
+food-sequence-content-rouny = рум'яний
+
+food-sequence-content-tomato = помідор
+
+food-sequence-content-salami = салямі
+
+food-sequence-content-slime = слиз
+
+food-sequence-content-clown = клоун
+
+food-sequence-content-pea = горох
+
+food-sequence-content-world-pea = світовий горох
+
+food-sequence-content-bungo = бунго
+
+food-sequence-content-banana = банан
+
+food-sequence-content-mimana = мімана
+
+food-sequence-content-lemon = лимон
+
+food-sequence-content-lemoon = лимон
+
+food-sequence-content-lime = вапно
+
+food-sequence-content-orange = помаранчевий
+
+food-sequence-content-potato = картопля
+
+food-sequence-content-apple = яблуко
+
+food-sequence-content-cocoa = какао
+
+food-sequence-content-corn = кукурудза
+
+food-sequence-content-chili = чилі
+
+food-sequence-content-chilly = прохолодно
+
+food-sequence-content-mushroom = гриби
+
+food-sequence-content-aloe = алое
+
+food-sequence-content-poppy = мак
+
+food-sequence-content-lily = лілі
+
+food-sequence-content-soy = соя
+
+food-sequence-content-cheese = сир
+
+food-sequence-content-chevre = шевр
+
+food-sequence-content-tofu = тофу
+
+food-sequence-content-brain = мозок
+
+food-sequence-content-tongue = язик
+
+food-sequence-content-ears = вухо
+
+food-sequence-content-stomach = шлунок
+
+food-sequence-content-liver = печінка
+
+food-sequence-content-clump = купка
+
+food-sequence-content-raw-meat = сире м'ясо
+
+food-sequence-content-meat = м'ясо
+
+food-sequence-content-carp = м'ясо коропа
+
+food-sequence-content-bear = ведмеже м'ясо
+
+food-sequence-content-penguin = м'ясо пінгвіна
+
+food-sequence-content-corgi = м'ясо коргі
+
+food-sequence-content-goliath = м'ясо голіафа
+
+food-sequence-content-rat = щур
+
+food-sequence-content-lizard = м'ясо ящірок
+
+food-sequence-content-plant = рослинне м'ясо
+
+food-sequence-content-rotten = гниле м'ясо
+
+food-sequence-content-spider = павукові лапки
+
+food-sequence-content-carrot = морква
+
+food-sequence-content-cabbage = капуста
+
+food-sequence-content-garlic = часник
+
+food-sequence-content-pineapple = ананас
+
+food-sequence-content-onion = цибуля
+
+food-sequence-content-ambrosia = амброзія
+
+food-sequence-content-galaxy = розторопша
+
+food-sequence-content-glasstle = склянуша
+
+food-sequence-content-gatfruit = гатфрут
+
+food-sequence-content-koibean = койбеан
+
+food-sequence-content-watermelon = кавун
+
+food-sequence-content-holymelon = свята диня
+
+food-sequence-content-cannabis = канабіс
+
+food-sequence-content-rainbow-cannabis = райдужний канабіс
+
+food-sequence-content-tobacco = тютюн
+
+food-sequence-content-hamster = хом'як
+
+food-sequence-content-suppermatter = надречовина
+
+food-sequence-content-capfruit = капфрут
+
+food-sequence-content-berries = ягоди
+
+food-sequence-content-spacemans-trumpet = сурма космонавта
+
+food-sequence-content-cherry = вишня
+
+food-sequence-content-snail = равлик
+
+food-sequence-content-anomaly-berry = аномальна ягода
+
+food-sequence-burger-gen = {$content}бургер
+
+food-sequence-burger-content-raw-meat = сирий
+
+food-sequence-burger-content-meat = м'ясистий
+
+food-sequence-burger-content-carp = короп
+
+food-sequence-burger-content-bear = ведмідь
+
+food-sequence-burger-content-crab = краби
+
+food-sequence-burger-content-penguin = пенг
+
+food-sequence-burger-content-corgi = коргі
+
+food-sequence-burger-content-goliath = голі
+
+food-sequence-burger-content-rat = щур
+
+food-sequence-burger-content-lizard = ліззі
+
+food-sequence-burger-content-plant = завод
+
+food-sequence-burger-content-rotten = сміття
+
+food-sequence-burger-content-spider = павутина
+
+food-sequence-burger-content-carrot = морква
+
+food-sequence-burger-content-cabbage = кабба
+
+food-sequence-burger-content-garlic = гарлі
+
+food-sequence-burger-content-pineapple = сосна
+
+food-sequence-burger-content-onion = вони
+
+food-sequence-burger-content-ambrosia = амбро
+
+food-sequence-burger-content-galaxy = галактика
+
+food-sequence-burger-content-glasstle = скло
+
+food-sequence-burger-content-gatfruit = гат
+
+food-sequence-burger-content-capfruit = шапка
+
+food-sequence-burger-content-rice = рис
+
+food-sequence-burger-content-soy = соя
+
+food-sequence-burger-content-koibean = кой
+
+food-sequence-burger-content-watermelon = вода
+
+food-sequence-burger-content-holymelon = святий
+
+food-sequence-burger-content-cannabis = кумедно
+
+food-sequence-burger-content-rainbow-cannabis = СМІШНО
+
+food-sequence-burger-content-tobacco = тютюн
+
+food-sequence-burger-content-suppermatter = вечеря
+
+food-sequence-burger-content-hamster = шинки
+
+food-sequence-burger-content-berries = ягода
+
+food-sequence-burger-content-spacemans-trumpet = spacetrump
+
+food-sequence-burger-content-anomaly-berry = аном
+
+food-sequence-burger-content-extradimensional-orange = 3d
+
+food-sequence-burger-content-world-pea = мир
+
+food-sequence-cotton-burger-gen = {$content}бургер
+
+food-sequence-cotton-burger-content-cotton-bol = бавовняний
+
+food-sequence-cotton-burger-content-pyrotton-bol = піро
+
+food-sequence-cotton-burger-content-plushie-throngler = тронґл
+
+food-sequence-cotton-burger-content-plushie-ghost = моторошний
+
+food-sequence-cotton-burger-content-plushie-revenant = страшніший
+
+food-sequence-cotton-burger-content-plushie-bee = бжжж
+
+food-sequence-cotton-burger-content-plushie-hamptr = хемпт
+
+food-sequence-cotton-burger-content-plushie-nukie = нюкі
+
+food-sequence-cotton-burger-content-plushie-rouny = рауні
+
+food-sequence-cotton-burger-content-plushie-lamp = ламповий
+
+food-sequence-cotton-burger-content-plushie-arachnid = павучий
+
+food-sequence-cotton-burger-content-plushie-lizard = вех
+
+food-sequence-cotton-burger-content-plushie-experiment = експериментальний
+
+food-sequence-cotton-burger-content-plushie-spacelizard = космо
+
+food-sequence-cotton-burger-content-plushie-lizard-inversed = хев
+
+food-sequence-cotton-burger-content-plushie-diona = діон
+
+food-sequence-cotton-burger-content-plushie-shark = шонк
+
+food-sequence-cotton-burger-content-plushie-ratvar = ратваріанський
+
+food-sequence-cotton-burger-content-plushie-narsie = нар'
+
+food-sequence-cotton-burger-content-plushie-carp = карповий
+
+food-sequence-cotton-burger-content-plushie-magicarp = магі
+
+food-sequence-cotton-burger-content-plushie-holocarp = голо
+
+food-sequence-cotton-burger-content-plushie-slime = слизовий
+
+food-sequence-cotton-burger-content-plushie-snake = змій
+
+food-sequence-cotton-burger-content-plushie-mouse = мишачий
+
+food-sequence-cotton-burger-content-plushie-vox = скрі
+
+food-sequence-cotton-burger-content-plushie-atmosian = атмос
+
+food-sequence-cotton-burger-content-plushie-xeno = ксено
+
+food-sequence-cotton-burger-content-plushie-penguin = пенг
+
+food-sequence-cotton-burger-content-plushie-human = урістмк
+
+food-sequence-cotton-burger-content-plushie-moth = пухнастий
+
+food-sequence-cotton-burger-content-plushie-vulp = vulp
+
+food-sequence-cotton-burger-content-plushie-ian = коргі
+
+food-sequence-cotton-burger-content-among-pequeno = сус
+
+food-sequence-taco-gen = тако з {$content}
+
+food-sequence-skewer-gen = {$content} шашлик

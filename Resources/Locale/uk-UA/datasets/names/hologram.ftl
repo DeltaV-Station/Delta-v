@@ -1,0 +1,27 @@
+names-hologram-dataset-1 = Аполлон
+
+names-hologram-dataset-2 = Дата
+
+names-hologram-dataset-3 = МЕРЕХТІННЯ
+
+names-hologram-dataset-4 = Ель Рой
+
+names-hologram-dataset-5 = Гефест
+
+names-hologram-dataset-6 = Голо-ШІ
+
+names-hologram-dataset-7 = Голо-Друг
+
+names-hologram-dataset-8 = Голограма
+
+names-hologram-dataset-9 = Одіссей
+
+names-hologram-dataset-10 = Персефона
+
+names-hologram-dataset-11 = Петра
+
+names-hologram-dataset-12 = Процесор
+
+names-hologram-dataset-13 = Прометей
+
+names-hologram-dataset-14 = Тезей

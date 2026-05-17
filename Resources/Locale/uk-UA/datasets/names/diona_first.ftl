@@ -1,0 +1,177 @@
+names-diona-first-dataset-1 = Мох
+
+names-diona-first-dataset-2 = Гриб
+
+names-diona-first-dataset-3 = Трава
+
+names-diona-first-dataset-4 = Плющ
+
+names-diona-first-dataset-5 = Стебло
+
+names-diona-first-dataset-6 = Пелюстка
+
+names-diona-first-dataset-7 = Пелюстки
+
+names-diona-first-dataset-8 = Шип
+
+names-diona-first-dataset-9 = Шипи
+
+names-diona-first-dataset-10 = Лоза
+
+names-diona-first-dataset-11 = Лози
+
+names-diona-first-dataset-12 = Гілка
+
+names-diona-first-dataset-13 = Гілки
+
+names-diona-first-dataset-14 = Бур'ян
+
+names-diona-first-dataset-15 = Бур'яни
+
+names-diona-first-dataset-16 = Троянда
+
+names-diona-first-dataset-17 = Кульбаба
+
+names-diona-first-dataset-18 = Бузок
+
+names-diona-first-dataset-19 = Лілія
+
+names-diona-first-dataset-20 = Береза
+
+names-diona-first-dataset-21 = Дуб
+
+names-diona-first-dataset-22 = Ялина
+
+names-diona-first-dataset-23 = Верба
+
+names-diona-first-dataset-24 = Кипарис
+
+names-diona-first-dataset-25 = Мангр
+
+names-diona-first-dataset-26 = Пень
+
+names-diona-first-dataset-27 = Сік
+
+names-diona-first-dataset-28 = Затока
+
+names-diona-first-dataset-29 = Бухта
+
+names-diona-first-dataset-30 = Озеро
+
+names-diona-first-dataset-31 = Річка
+
+names-diona-first-dataset-32 = Струмок
+
+names-diona-first-dataset-33 = Луг
+
+names-diona-first-dataset-34 = Каньйон
+
+names-diona-first-dataset-35 = Гора
+
+names-diona-first-dataset-36 = Пік
+
+names-diona-first-dataset-37 = Сад
+
+names-diona-first-dataset-38 = Океан
+
+names-diona-first-dataset-39 = Арктика
+
+names-diona-first-dataset-40 = Море
+
+names-diona-first-dataset-41 = Джерело
+
+names-diona-first-dataset-42 = Болото
+
+names-diona-first-dataset-43 = Потік
+
+names-diona-first-dataset-44 = Ліс
+
+names-diona-first-dataset-45 = Тропічний ліс
+
+names-diona-first-dataset-46 = Ґрунт
+
+names-diona-first-dataset-47 = Долина
+
+names-diona-first-dataset-48 = Пустище
+
+names-diona-first-dataset-49 = Степ
+
+names-diona-first-dataset-50 = Фруктовий сад
+
+names-diona-first-dataset-51 = Орхідея
+
+names-diona-first-dataset-52 = Льодовик
+
+names-diona-first-dataset-53 = Пустеля
+
+names-diona-first-dataset-54 = Тундра
+
+names-diona-first-dataset-55 = Тайга
+
+names-diona-first-dataset-56 = Рівнина
+
+names-diona-first-dataset-57 = Рівнини
+
+names-diona-first-dataset-58 = Плато
+
+names-diona-first-dataset-59 = Скеля
+
+names-diona-first-dataset-60 = Узбережжя
+
+names-diona-first-dataset-61 = Берег
+
+names-diona-first-dataset-62 = Джунглі
+
+names-diona-first-dataset-63 = Тропіки
+
+names-diona-first-dataset-64 = Квітка
+
+names-diona-first-dataset-65 = Трава
+
+names-diona-first-dataset-66 = Кора
+
+names-diona-first-dataset-67 = Осінь
+
+names-diona-first-dataset-68 = Літо
+
+names-diona-first-dataset-69 = Зима
+
+names-diona-first-dataset-70 = Плід
+
+names-diona-first-dataset-71 = Листя
+
+names-diona-first-dataset-72 = Зарості
+
+names-diona-first-dataset-73 = Атмосфера
+
+names-diona-first-dataset-74 = Клімат
+
+names-diona-first-dataset-75 = Прохолода
+
+names-diona-first-dataset-76 = Вітри
+
+names-diona-first-dataset-77 = Цвіт
+
+names-diona-first-dataset-78 = Цвітіння
+
+names-diona-first-dataset-79 = Шапка
+
+names-diona-first-dataset-80 = Насиченість
+
+names-diona-first-dataset-81 = Проникнення
+
+names-diona-first-dataset-82 = Світло
+
+names-diona-first-dataset-83 = Смак
+
+names-diona-first-dataset-84 = Жолудь
+
+names-diona-first-dataset-85 = Оболонка
+
+names-diona-first-dataset-86 = Лід
+
+names-diona-first-dataset-87 = Мусон
+
+names-diona-first-dataset-88 = Хмарність
+
+names-diona-first-dataset-89 = Шторм

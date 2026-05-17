@@ -1,0 +1,325 @@
+names-reptilian-female-dataset-1 = Адзі
+
+names-reptilian-female-dataset-2 = Ах
+
+names-reptilian-female-dataset-3 = Ахахт
+
+names-reptilian-female-dataset-4 = Аджим
+
+names-reptilian-female-dataset-5 = Акінус
+
+names-reptilian-female-dataset-6 = Акіш
+
+names-reptilian-female-dataset-7 = Акішан
+
+names-reptilian-female-dataset-8 = Аліто
+
+names-reptilian-female-dataset-9 = Ам
+
+names-reptilian-female-dataset-10 = Амусса
+
+names-reptilian-female-dataset-11 = Ан
+
+names-reptilian-female-dataset-12 = Анозз
+
+names-reptilian-female-dataset-13 = Ашимар
+
+names-reptilian-female-dataset-14 = Асска
+
+names-reptilian-female-dataset-15 = Авас
+
+names-reptilian-female-dataset-16 = Азала
+
+names-reptilian-female-dataset-17 = Азбай
+
+names-reptilian-female-dataset-18 = Азіз
+
+names-reptilian-female-dataset-19 = Азум
+
+names-reptilian-female-dataset-20 = Банальз
+
+names-reptilian-female-dataset-21 = Бар
+
+names-reptilian-female-dataset-22 = Басінар
+
+names-reptilian-female-dataset-23 = Бік
+
+names-reptilian-female-dataset-24 = Бікатан
+
+names-reptilian-female-dataset-25 = Бікус
+
+names-reptilian-female-dataset-26 = Біла
+
+names-reptilian-female-dataset-27 = Білей
+
+names-reptilian-female-dataset-28 = Бім
+
+names-reptilian-female-dataset-29 = Бівос
+
+names-reptilian-female-dataset-30 = Біджин
+
+names-reptilian-female-dataset-31 = Бер
+
+names-reptilian-female-dataset-32 = Бетзі
+
+names-reptilian-female-dataset-33 = Бішалус
+
+names-reptilian-female-dataset-34 = Бокеус
+
+names-reptilian-female-dataset-35 = Бур
+
+names-reptilian-female-dataset-36 = Бура
+
+names-reptilian-female-dataset-37 = Чаларі
+
+names-reptilian-female-dataset-38 = Чана
+
+names-reptilian-female-dataset-39 = Чаніл
+
+names-reptilian-female-dataset-40 = Чі
+
+names-reptilian-female-dataset-41 = Чіш
+
+names-reptilian-female-dataset-42 = Чіматей
+
+names-reptilian-female-dataset-43 = Хірурджен
+
+names-reptilian-female-dataset-44 = Чоласісту
+
+names-reptilian-female-dataset-45 = Чуна
+
+names-reptilian-female-dataset-46 = Чурасу
+
+names-reptilian-female-dataset-47 = Крат
+
+names-reptilian-female-dataset-48 = Дар
+
+names-reptilian-female-dataset-49 = Діджа
+
+names-reptilian-female-dataset-50 = Дісей
+
+names-reptilian-female-dataset-51 = Діш
+
+names-reptilian-female-dataset-52 = Дітсан
+
+names-reptilian-female-dataset-53 = Дітвос
+
+names-reptilian-female-dataset-54 = Дука
+
+names-reptilian-female-dataset-55 = Дружа
+
+names-reptilian-female-dataset-56 = Іпа
+
+names-reptilian-female-dataset-57 = Ей
+
+names-reptilian-female-dataset-58 = Ейкс
+
+names-reptilian-female-dataset-59 = Ел
+
+names-reptilian-female-dataset-60 = Еріл
+
+names-reptilian-female-dataset-61 = Ейтей
+
+names-reptilian-female-dataset-62 = Гай
+
+names-reptilian-female-dataset-63 = Гіх
+
+names-reptilian-female-dataset-64 = Гілм
+
+names-reptilian-female-dataset-65 = Гіш
+
+names-reptilian-female-dataset-66 = Го
+
+names-reptilian-female-dataset-67 = Хал
+
+names-reptilian-female-dataset-68 = Хул
+
+names-reptilian-female-dataset-69 = Джа
+
+names-reptilian-female-dataset-70 = Джасін
+
+names-reptilian-female-dataset-71 = Джасуда
+
+names-reptilian-female-dataset-72 = Джід
+
+names-reptilian-female-dataset-73 = Джін
+
+names-reptilian-female-dataset-74 = Каджул
+
+names-reptilian-female-dataset-75 = Кал
+
+names-reptilian-female-dataset-76 = Каса
+
+names-reptilian-female-dataset-77 = Кіл
+
+names-reptilian-female-dataset-78 = Кірава
+
+names-reptilian-female-dataset-79 = Кіурз
+
+names-reptilian-female-dataset-80 = Куд
+
+names-reptilian-female-dataset-81 = Ла
+
+names-reptilian-female-dataset-82 = Лі
+
+names-reptilian-female-dataset-83 = Лей
+
+names-reptilian-female-dataset-84 = Ліфтс
+
+names-reptilian-female-dataset-85 = Ліурз
+
+names-reptilian-female-dataset-86 = Лураша
+
+names-reptilian-female-dataset-87 = Ма
+
+names-reptilian-female-dataset-88 = Мах
+
+names-reptilian-female-dataset-89 = Марз
+
+names-reptilian-female-dataset-90 = Мідіш
+
+names-reptilian-female-dataset-91 = Міїх
+
+names-reptilian-female-dataset-92 = Міма
+
+names-reptilian-female-dataset-93 = Мін
+
+names-reptilian-female-dataset-94 = Міна
+
+names-reptilian-female-dataset-95 = Мінус
+
+names-reptilian-female-dataset-96 = Мірана
+
+names-reptilian-female-dataset-97 = Місей
+
+names-reptilian-female-dataset-98 = Меус
+
+names-reptilian-female-dataset-99 = Мей
+
+names-reptilian-female-dataset-100 = Міла
+
+names-reptilian-female-dataset-101 = Мім
+
+names-reptilian-female-dataset-102 = Мота
+
+names-reptilian-female-dataset-103 = Мудеска
+
+names-reptilian-female-dataset-104 = Муз
+
+names-reptilian-female-dataset-105 = На
+
+names-reptilian-female-dataset-106 = Накума
+
+names-reptilian-female-dataset-107 = Нам
+
+names-reptilian-female-dataset-108 = Насса
+
+names-reptilian-female-dataset-109 = Нату
+
+names-reptilian-female-dataset-110 = Ніша
+
+names-reptilian-female-dataset-111 = Нітізей
+
+names-reptilian-female-dataset-112 = Нітра
+
+names-reptilian-female-dataset-113 = Ніус
+
+names-reptilian-female-dataset-114 = Нііма
+
+names-reptilian-female-dataset-115 = Нумін
+
+names-reptilian-female-dataset-116 = Нуралг
+
+names-reptilian-female-dataset-117 = Наш
+
+names-reptilian-female-dataset-118 = Очіва
+
+names-reptilian-female-dataset-119 = Окур
+
+names-reptilian-female-dataset-120 = Оланк
+
+names-reptilian-female-dataset-121 = Он
+
+names-reptilian-female-dataset-122 = Онаша
+
+names-reptilian-female-dataset-123 = Ошіка
+
+names-reptilian-female-dataset-124 = Паша
+
+names-reptilian-female-dataset-125 = Ра
+
+names-reptilian-female-dataset-126 = Рана
+
+names-reptilian-female-dataset-127 = Раніур
+
+names-reptilian-female-dataset-128 = Рі
+
+names-reptilian-female-dataset-129 = Ріса
+
+names-reptilian-female-dataset-130 = Рей
+
+names-reptilian-female-dataset-131 = Са
+
+names-reptilian-female-dataset-132 = Саак
+
+names-reptilian-female-dataset-133 = Санакс
+
+names-reptilian-female-dataset-134 = Сіба
+
+names-reptilian-female-dataset-135 = Сід
+
+names-reptilian-female-dataset-136 = Сін
+
+names-reptilian-female-dataset-137 = Шах
+
+names-reptilian-female-dataset-138 = Шахві
+
+names-reptilian-female-dataset-139 = Шаліз
+
+names-reptilian-female-dataset-140 = Шаталг
+
+names-reptilian-female-dataset-141 = Шир
+
+names-reptilian-female-dataset-142 = Шей
+
+names-reptilian-female-dataset-143 = Сігерте
+
+names-reptilian-female-dataset-144 = Скаліл
+
+names-reptilian-female-dataset-145 = Суді
+
+names-reptilian-female-dataset-146 = Тейл
+
+names-reptilian-female-dataset-147 = Тар
+
+names-reptilian-female-dataset-148 = Таша
+
+names-reptilian-female-dataset-149 = Тей
+
+names-reptilian-female-dataset-150 = Теліксіт
+
+names-reptilian-female-dataset-151 = Тумма
+
+names-reptilian-female-dataset-152 = Вік
+
+names-reptilian-female-dataset-153 = Ван
+
+names-reptilian-female-dataset-154 = Вазей
+
+names-reptilian-female-dataset-155 = Відум
+
+names-reptilian-female-dataset-156 = Вівіш
+
+names-reptilian-female-dataset-157 = Вітсейдутсей
+
+names-reptilian-female-dataset-158 = Вуджа
+
+names-reptilian-female-dataset-159 = Вуджита
+
+names-reptilian-female-dataset-160 = Вуша
+
+names-reptilian-female-dataset-161 = Ксіл
+
+names-reptilian-female-dataset-162 = Зіш
+
+names-reptilian-female-dataset-163 = Золласса

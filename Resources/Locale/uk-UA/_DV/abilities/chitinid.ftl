@@ -1,0 +1,1 @@
+chitzite-cough = {CAPITALIZE(THE($name))} починає відкашлювати шматок Чітзиту!

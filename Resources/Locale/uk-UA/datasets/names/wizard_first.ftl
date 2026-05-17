@@ -1,0 +1,87 @@
+names-wizard-first-dataset-1 = Ашензарі
+
+names-wizard-first-dataset-2 = Канцлер
+
+names-wizard-first-dataset-3 = Клірик
+
+names-wizard-first-dataset-4 = Цирцея
+
+names-wizard-first-dataset-5 = Доктор
+
+names-wizard-first-dataset-6 = Дітменос
+
+names-wizard-first-dataset-7 = Елівілон
+
+names-wizard-first-dataset-8 = Фауст
+
+names-wizard-first-dataset-9 = Грімм
+
+names-wizard-first-dataset-10 = Гозаг
+
+names-wizard-first-dataset-11 = Джим
+
+names-wizard-first-dataset-12 = Джиїва
+
+names-wizard-first-dataset-13 = Ліразель
+
+names-wizard-first-dataset-14 = Лугону
+
+names-wizard-first-dataset-15 = Кощій
+
+names-wizard-first-dataset-16 = Креол
+
+names-wizard-first-dataset-17 = Ліна
+
+names-wizard-first-dataset-18 = Мерлін
+
+names-wizard-first-dataset-19 = Морган
+
+names-wizard-first-dataset-20 = Немелекс
+
+names-wizard-first-dataset-21 = Распутін
+
+names-wizard-first-dataset-22 = Ру
+
+names-wizard-first-dataset-23 = Сіф
+
+names-wizard-first-dataset-24 = Тривія
+
+names-wizard-first-dataset-25 = Трог
+
+names-wizard-first-dataset-26 = Ускайав
+
+names-wizard-first-dataset-27 = Вехумет
+
+names-wizard-first-dataset-28 = Ксом
+
+names-wizard-first-dataset-29 = Іределемнул
+
+names-wizard-first-dataset-30 = Зін
+
+names-wizard-first-dataset-31 = Сіф
+
+names-wizard-first-dataset-32 = Спеллберг
+
+names-wizard-first-dataset-33 = Трог
+
+names-wizard-first-dataset-34 = Тривія
+
+names-wizard-first-dataset-35 = Аскейо
+
+names-wizard-first-dataset-36 = Вехумет
+
+names-wizard-first-dataset-37 = Ванда
+
+names-wizard-first-dataset-38 = Вандрю
+
+names-wizard-first-dataset-39 = Візні
+
+names-wizard-first-dataset-40 = Ксом
+
+names-wizard-first-dataset-41 = Іределемнул
+
+names-wizard-first-dataset-42 = Йодальф
+
+names-wizard-first-dataset-43 = Зартеміс
+
+names-wizard-first-dataset-44 = Зін

@@ -1,0 +1,3 @@
+histamine-effect-light-itchiness = Ви відчуваєте легкий свербіж...
+
+histamine-effect-heavy-itchiness = Ви відчуваєте ДУЖЕ сильний свербіж!

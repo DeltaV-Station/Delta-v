@@ -1,0 +1,45 @@
+names-syndicate-elite-dataset-1 = Альфа
+
+names-syndicate-elite-dataset-2 = Бета
+
+names-syndicate-elite-dataset-3 = Гамма
+
+names-syndicate-elite-dataset-4 = Дельта
+
+names-syndicate-elite-dataset-5 = Епсилон
+
+names-syndicate-elite-dataset-6 = Дзета
+
+names-syndicate-elite-dataset-7 = Ета
+
+names-syndicate-elite-dataset-8 = Тета
+
+names-syndicate-elite-dataset-9 = Йота
+
+names-syndicate-elite-dataset-10 = Лямбда
+
+names-syndicate-elite-dataset-11 = Мю
+
+names-syndicate-elite-dataset-12 = Ню
+
+names-syndicate-elite-dataset-13 = Ксі
+
+names-syndicate-elite-dataset-14 = Омікрон
+
+names-syndicate-elite-dataset-15 = Пі
+
+names-syndicate-elite-dataset-16 = Ро
+
+names-syndicate-elite-dataset-17 = Сигма
+
+names-syndicate-elite-dataset-18 = Тау
+
+names-syndicate-elite-dataset-19 = Іпсилон
+
+names-syndicate-elite-dataset-20 = Фі
+
+names-syndicate-elite-dataset-21 = Хі
+
+names-syndicate-elite-dataset-22 = Псі
+
+names-syndicate-elite-dataset-23 = Омега

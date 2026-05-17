@@ -1,0 +1,31 @@
+cage-resist-second-person = You start removing your {$cage}.
+cage-resist-third-person = {CAPITALIZE(THE($user))} starts removing {POSS-ADJ($user)} {$cage}.
+
+cage-uncage-verb = Uncage
+
+accept-psionics-window-title = Psionic!
+accept-psionics-window-prompt-text-part = You rolled a psionic power!
+                                         It's possible that certain anti-psychic forces may hunt you,
+                                         so you should consider keeping it secret.
+                                         Do you still wish to be psionic?
+
+glimmer-report = Current Glimmer Level: {$level}Ψ.
+glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}Ψ.
+glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}Ψ.
+glimmer-event-awakened-prefix = awakened {$entity}
+
+mindswap-trapped = Seems you're trapped in this vessel.
+
+telegnostic-trapped-entity-name = severed telegnostic projection
+telegnostic-trapped-entity-desc = Its many eyes betray sadness.
+
+psionic-burns-up = {CAPITALIZE(THE($item))} burns up with arcs of strange energy!
+psionic-burn-resist = Strange arcs dance across {THE($item)}!
+
+pyrokinesis-power-used = A wisp of flame engulfs {THE($target)}, igniting {OBJECT($target)}!
+
+action-name-psychokinesis = Psychokinesis
+action-description-psychokinesis = Bend the fabric of space to instantly move across it.
+
+action-name-rf-sensitivity = Toggle RF Sensitivity
+action-desc-rf-sensitivity = Toggle your ability to interpret radio waves on and off.

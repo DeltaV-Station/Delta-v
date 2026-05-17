@@ -1,0 +1,83 @@
+names-borg-dataset-1 = Боб
+
+names-borg-dataset-2 = Джо
+
+names-borg-dataset-3 = Біп
+
+names-borg-dataset-4 = Біп II
+
+names-borg-dataset-5 = Бумбокс
+
+names-borg-dataset-6 = Екскурсовод-о-трон
+
+names-borg-dataset-7 = Іриска
+
+names-borg-dataset-8 = Буп
+
+names-borg-dataset-9 = Буп II
+
+names-borg-dataset-10 = Бзз
+
+names-borg-dataset-11 = Бзз II
+
+names-borg-dataset-12 = Тостер
+
+names-borg-dataset-13 = Голова Роботів
+
+names-borg-dataset-14 = ЄВА 1
+
+names-borg-dataset-15 = Містер Роботист
+
+names-borg-dataset-16 = Брухт
+
+names-borg-dataset-17 = R2-PO
+
+names-borg-dataset-18 = C-3-D2
+
+names-borg-dataset-19 = Роббі
+
+names-borg-dataset-20 = Робобот
+
+names-borg-dataset-21 = Ремонтник
+
+names-borg-dataset-22 = Санні
+
+names-borg-dataset-23 = Автобот
+
+names-borg-dataset-24 = Вітлі
+
+names-borg-dataset-25 = Келлер
+
+names-borg-dataset-26 = Ксенос
+
+names-borg-dataset-27 = Ехо
+
+names-borg-dataset-28 = Вектор
+
+names-borg-dataset-29 = Б-0-РГ
+
+names-borg-dataset-30 = Мегабайт
+
+names-borg-dataset-31 = Срако-Бот
+
+names-borg-dataset-32 = Десептиборг
+
+names-borg-dataset-33 = Ле Борг
+
+names-borg-dataset-34 = Біперс
+
+names-borg-dataset-35 = Мило-Бот
+
+names-borg-dataset-36 = Майструвальник
+
+names-borg-dataset-37 = Близнюк
+
+names-borg-dataset-38 = С.А.У.Л
+
+names-borg-dataset-39 = Гудок
+
+names-borg-dataset-40 = Брязкач
+
+names-borg-dataset-41 = Це-Робот
+
+names-borg-dataset-42 = 9 з 7
