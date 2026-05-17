@@ -928,7 +928,9 @@
 
 - type: entity
   name: crab
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -1798,7 +1800,9 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobMouse
   description: Squeak!
   components:
@@ -2191,7 +2195,9 @@
 
 - type: entity
   name: slug
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSlug
   description: And they called this a lizard?
   components:
@@ -2243,7 +2249,9 @@
 
 - type: entity
   name: frog
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
@@ -2545,7 +2553,9 @@
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
   name: snake
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
@@ -2690,7 +2700,9 @@
         Burn: -0.07
 
 - type: entity
-  parent: MobSpiderBase
+  parent:
+  - MobSpiderBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSpiderAngryBase
   abstract: true
   components:
@@ -3556,7 +3568,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, DVNodeCrawler ] # DeltaV - node crawling
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:

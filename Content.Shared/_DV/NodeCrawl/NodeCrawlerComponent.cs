@@ -39,3 +39,6 @@ public sealed partial class NodeCrawlerComponent : Component
 
 [Serializable, NetSerializable]
 public sealed partial class NodeCrawlEnterDoAfterEvent : SimpleDoAfterEvent;
+
+[ByRefEvent]
+public readonly record struct NodeCrawlerStartedCrawlingEvent(Entity<NodeCrawlerMovementComponent> Mover);

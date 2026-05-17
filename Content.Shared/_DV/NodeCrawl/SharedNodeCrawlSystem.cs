@@ -1,8 +1,10 @@
+using System.Linq;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.RatKing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -26,6 +28,7 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly NodeCrawlerMovementSystem _nodeCrawler = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
 
     private const string MoverContainer = "mover-container";
     private static readonly EntProtoId MoverProto = "DVNodeCrawlMover";
@@ -44,6 +47,8 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
         SubscribeLocalEvent<NodeCrawlerComponent, ComponentShutdown>(OnCrawlerShutdown);
 
         SubscribeLocalEvent<CrawlableNodeComponent, AnchorStateChangedEvent>(OnCrawlableAnchorChanged);
+
+        SubscribeLocalEvent<RatKingComponent, NodeCrawlerStartedCrawlingEvent>(OnRatKingStartedCrawling);
     }
 
     private void OnGetVerbs(Entity<NodeCrawlerComponent> ent, ref GetVerbsEvent<InnateVerb> args)
@@ -98,6 +103,9 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
         ent.Comp.Mover = mover;
         Dirty(ent);
 
+        var evt = new NodeCrawlerStartedCrawlingEvent((mover, crawler));
+        RaiseLocalEvent(ent, ref evt);
+
         _nodeCrawler.SetNode((mover, crawler), target);
         _nodeCrawler.SetHeldCrawler((mover, crawler), ent);
 
@@ -121,6 +129,16 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
         var container = _container.GetContainer(mover, MoverContainer);
         _container.Remove(ent.Owner, container);
+
+        foreach (var other in _container.EmptyContainer(container))
+        {
+            if (!TryComp<NodeCrawlerComponent>(other, out var otherCrawler))
+                continue;
+
+            otherCrawler.Mover = null;
+            Dirty(other, otherCrawler);
+        }
+
         RemComp<RelayInputMoverComponent>(ent);
         if (_net.IsServer && !TerminatingOrDeleted(mover))
             QueueDel(mover);
@@ -190,6 +208,24 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
                 continue;
 
             ExitNodeCrawl((held, Comp<NodeCrawlerComponent>(held)));
+        }
+    }
+
+    private void OnRatKingStartedCrawling(Entity<RatKingComponent> ent, ref NodeCrawlerStartedCrawlingEvent args)
+    {
+        var entities = new HashSet<Entity<RatKingServantComponent>>();
+        _entityLookup.GetEntitiesInRange(Transform(ent).Coordinates,
+            ent.Comp.VentCrawlRecruitRadius,
+            entities);
+
+        var container = _container.GetContainer(args.Mover, MoverContainer);
+
+        foreach (var servant in entities)
+        {
+            if (servant.Comp.King != ent)
+                continue;
+
+            _container.Insert(servant.Owner, container);
         }
     }
 }
