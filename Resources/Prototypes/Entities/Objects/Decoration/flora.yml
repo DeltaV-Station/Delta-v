@@ -231,14 +231,14 @@
         tree04: ""
         tree05: ""
         tree06: ""
-  # DeltaV add rootspeak
+  # DeltaV add Rootsong
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Rootspeak
+    - Rootsong
   - type: ActiveRadio
     channels:
-    - Rootspeak
+    - Rootsong
   # DeltaV end
 
 - type: entity
