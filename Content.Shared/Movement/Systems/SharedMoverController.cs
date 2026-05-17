@@ -51,7 +51,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly TagSystem _tags = default!;
     [Dependency] private   readonly TileMovementSystem _tileMovement = default!; // DeltaV
-    [Dependency] private   readonly NodeCrawlerSystem _nodeCrawler = default!; // DeltaV - node crawling
+    [Dependency] private   readonly NodeCrawlerMovementSystem _nodeCrawlerMovement = default!; // DeltaV - node crawling
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -267,7 +267,7 @@ public abstract partial class SharedMoverController : VirtualController
         // End DeltaV Additions
 
         // Begin DeltaV Additions - node crawling
-        if (_nodeCrawler.TryTick((uid, mover, physicsComponent, xform)))
+        if (_nodeCrawlerMovement.TryTick((uid, mover, physicsComponent, xform)))
             return;
         // End DeltaV Additions
 

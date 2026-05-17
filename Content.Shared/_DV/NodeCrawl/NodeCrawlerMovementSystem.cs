@@ -1,49 +1,24 @@
 using System.Numerics;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Verbs;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._DV.NodeCrawl;
 
-public sealed class NodeCrawlerSystem : EntitySystem
+public sealed class NodeCrawlerMovementSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<NodeCrawlerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
-    }
-
-    private void OnGetVerbs(Entity<NodeCrawlerComponent> ent, ref GetVerbsEvent<InnateVerb> args)
-    {
-        var target = args.Target;
-        if (!HasComp<NodeCrawlComponent>(target))
-            return;
-
-        args.Verbs.Add(new InnateVerb()
-        {
-            Act = () =>
-            {
-                ent.Comp.Node = target;
-                Dirty(ent);
-            },
-            Text = "node crawl",
-        });
-    }
-
     public bool TryTick(
         Entity<InputMoverComponent, PhysicsComponent, TransformComponent> sharedMover)
     {
-        if (!TryComp<NodeCrawlerComponent>(sharedMover, out var crawler) || crawler.Node is null)
+        if (!TryComp<NodeCrawlerMovementComponent>(sharedMover, out var crawler) || crawler.Node is null)
             return false;
 
-        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> mover = (sharedMover.Owner, sharedMover.Comp1, sharedMover.Comp2, sharedMover.Comp3, crawler);
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover = (sharedMover.Owner, sharedMover.Comp1, sharedMover.Comp2, sharedMover.Comp3, crawler);
 
         if (mover.Comp4.TargetNode is { } target)
             OngoingMovement(mover, target);
@@ -54,7 +29,7 @@ public sealed class NodeCrawlerSystem : EntitySystem
     }
 
     private void StartMovement(
-        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> mover)
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover)
     {
         if (GetDestination(mover, mover.Comp1.HeldMoveButtons) is not { } target)
             return;
@@ -64,14 +39,14 @@ public sealed class NodeCrawlerSystem : EntitySystem
     }
 
     private void StopMovement(
-        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> mover)
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover)
     {
         _physics.SetLinearVelocity(mover, Vector2.Zero, body: mover.Comp2);
         _physics.SetAngularVelocity(mover, 0, body: mover.Comp2);
     }
 
     private void OngoingMovement(
-        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> mover,
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover,
         EntityUid target)
     {
         var speed = MoveSpeed(mover);
@@ -82,6 +57,13 @@ public sealed class NodeCrawlerSystem : EntitySystem
             mover.Comp4.Node = target;
             mover.Comp4.TargetNode = null;
             Dirty(mover, mover.Comp4);
+
+            if (TryComp<MovementRelayTargetComponent>(mover, out var movementTarget))
+            {
+                var evt = new NodeCrawlerArrivedAtNodeEvent(target);
+                RaiseLocalEvent(movementTarget.Source, ref evt);
+            }
+
             return;
         }
 
@@ -98,7 +80,7 @@ public sealed class NodeCrawlerSystem : EntitySystem
     }
 
     private void UpdateMovement(
-        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> mover,
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover,
         EntityUid target,
         float speed)
     {
@@ -111,12 +93,13 @@ public sealed class NodeCrawlerSystem : EntitySystem
         velocity.Normalize();
         velocity *= speed;
 
+        _physics.SetCanCollide(mover, false);
         _physics.SetLinearVelocity(mover, velocity, body: mover.Comp2);
         _physics.SetAngularVelocity(mover, 0, body: mover.Comp2);
     }
 
     private bool ReachedDestination(
-        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> mover,
+        Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover,
         EntityUid target,
         float speed)
     {
@@ -124,7 +107,7 @@ public sealed class NodeCrawlerSystem : EntitySystem
         return delta.EqualsApprox(Vector2.Zero, speed * 0.01f);
     }
 
-    private EntityUid? GetDestination(Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerComponent> ent, MoveButtons buttons)
+    private EntityUid? GetDestination(Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> ent, MoveButtons buttons)
     {
         if ((buttons & MoveButtons.AnyDirection) == 0)
             return null;

@@ -1,5 +1,9 @@
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Systems;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes;
 using Content.Shared._DV.NodeCrawl;
+using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
 
 namespace Content.Server._DV.NodeCrawl;
@@ -11,6 +15,62 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         base.Initialize();
 
         SubscribeLocalEvent<NodeCrawlComponent, NodeGroupsRebuilt>(OnNodeGroupsRebuilt);
+
+        SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
+        SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
+        SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
+    }
+
+    private Entity<NodeContainerComponent>? GetNodeContainer(Entity<NodeCrawlerComponent> crawler)
+    {
+        if (!TryComp<NodeCrawlerMovementComponent>(crawler.Comp.Mover, out var mover) || mover.Node is not { } node)
+            return null;
+
+        if (!TryComp<NodeContainerComponent>(node, out var nodeContainer))
+            return null;
+
+        return (node, nodeContainer);
+    }
+
+    private GasMixture? GetAir(Entity<NodeCrawlerComponent> crawler)
+    {
+        if (GetNodeContainer(crawler) is not { } nodeContainer)
+            return null;
+
+        foreach (var containedNode in nodeContainer.Comp.Nodes.Values)
+        {
+            if (containedNode is not PipeNode pipe)
+                continue;
+
+            return pipe.Air;
+        }
+
+        return null;
+    }
+
+    private void OnInhaleLocation(Entity<NodeCrawlerComponent> ent, ref InhaleLocationEvent args)
+    {
+        if (GetAir(ent) is not { } air)
+            return;
+
+        args.Gas = air;
+    }
+
+    private void OnExhaleLocation(Entity<NodeCrawlerComponent> ent, ref ExhaleLocationEvent args)
+    {
+        if (GetAir(ent) is not { } air)
+            return;
+
+        args.Gas = air;
+    }
+
+    private void OnGetAir(Entity<NodeCrawlerComponent> ent, ref AtmosExposedGetAirEvent args)
+    {
+        if (args.Handled || GetAir(ent) is not { } air)
+            return;
+
+        args.Gas = air;
+        args.Handled = true;
     }
 
     private void OnNodeGroupsRebuilt(Entity<NodeCrawlComponent> ent, ref NodeGroupsRebuilt args)

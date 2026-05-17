@@ -1,33 +1,30 @@
-using System.Numerics;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.NodeCrawl;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(NodeCrawlerSystem))]
+/// <summary>
+/// Handles entities that can enter and exit node-constrained movement.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[Access(typeof(SharedNodeCrawlSystem))]
 public sealed partial class NodeCrawlerComponent : Component
 {
     /// <summary>
-    /// The current node.
+    /// The mover this crawler is currently being carried by, if any
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? Node;
+    public EntityUid? Mover;
 
     /// <summary>
-    /// The target node being moved to.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? TargetNode;
-
-    /// <summary>
-    /// The required angle to be within for deciding which node to move from the target direction
+    /// Components of entities to reveal while inside a mover
     /// </summary>
     [DataField]
-    public double RequiredAngle = Math.PI / 4f;
+    public Type[] RevealedComponents;
 
     /// <summary>
-    /// The time between moves.
+    /// Whitelist for entities that will be considered as exit nodes.
     /// </summary>
     [DataField]
-    public TimeSpan MoveStep = TimeSpan.FromSeconds(0.25f);
+    public EntityWhitelist? ExitNodes;
 }

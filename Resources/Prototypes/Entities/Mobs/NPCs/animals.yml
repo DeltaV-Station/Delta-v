@@ -3783,7 +3783,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, DVNodeCrawler] # DeltaV - node crawling
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
