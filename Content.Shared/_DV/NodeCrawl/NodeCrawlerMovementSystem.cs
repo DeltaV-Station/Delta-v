@@ -11,6 +11,7 @@ public sealed class NodeCrawlerMovementSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedNodeCrawlSystem _nodeCrawl = default!;
 
     public bool TryTick(
         Entity<InputMoverComponent, PhysicsComponent, TransformComponent> sharedMover)
@@ -32,10 +33,25 @@ public sealed class NodeCrawlerMovementSystem : EntitySystem
         Entity<InputMoverComponent, PhysicsComponent, TransformComponent, NodeCrawlerMovementComponent> mover)
     {
         if (GetDestination(mover, mover.Comp1.HeldMoveButtons) is not { } target)
+        {
+            if (mover.Comp4.Node is not { } node)
+                return;
+
+            var nodeComp = Comp<CrawlableNodeComponent>(node);
+            if (!nodeComp.DeadEnd)
+                return;
+
+            if (mover.Comp4.HeldCrawler is not { } crawler)
+                return;
+
+            _nodeCrawl.ExitNodeCrawl((crawler, Comp<NodeCrawlerComponent>(crawler)));
             return;
+        }
 
         mover.Comp4.TargetNode = target;
         Dirty(mover, mover.Comp4);
+
+        OngoingMovement(mover, target);
     }
 
     private void StopMovement(
@@ -54,7 +70,7 @@ public sealed class NodeCrawlerMovementSystem : EntitySystem
         if (ReachedDestination(mover, target, speed))
         {
             StopMovement(mover);
-            mover.Comp4.Node = target;
+            SetNode((mover, mover), target);
             mover.Comp4.TargetNode = null;
             Dirty(mover, mover.Comp4);
 
@@ -64,6 +80,7 @@ public sealed class NodeCrawlerMovementSystem : EntitySystem
                 RaiseLocalEvent(movementTarget.Source, ref evt);
             }
 
+            StartMovement(mover);
             return;
         }
 
@@ -114,7 +131,7 @@ public sealed class NodeCrawlerMovementSystem : EntitySystem
 
         var target = _mover.DirVecForButtons(buttons);
         target = _mover.GetParentGridAngle(ent.Comp1).RotateVec(target);
-        if (ent.Comp4.Node is not { } node || !Exists(node) || !TryComp<NodeCrawlComponent>(node, out var nodeCrawl))
+        if (ent.Comp4.Node is not { } node || !Exists(node) || !TryComp<CrawlableNodeComponent>(node, out var nodeCrawl))
             return null;
 
         var nodeXform = Transform(node);
@@ -142,5 +159,37 @@ public sealed class NodeCrawlerMovementSystem : EntitySystem
             return null;
 
         return smallestTarget;
+    }
+
+    public void SetNode(Entity<NodeCrawlerMovementComponent> ent, EntityUid? node)
+    {
+        if (ent.Comp.Node == node)
+            return;
+
+        if (ent.Comp.Node is { } oldNode)
+        {
+            var oldNodeComp = Comp<CrawlableNodeComponent>(oldNode);
+            oldNodeComp.Crawlers.Remove(ent);
+            Dirty(oldNode, oldNodeComp);
+        }
+
+        if (node is { } newNode)
+        {
+            var newNodeComp = Comp<CrawlableNodeComponent>(newNode);
+            newNodeComp.Crawlers.Add(ent);
+            Dirty(newNode, newNodeComp);
+        }
+
+        ent.Comp.Node = node;
+        Dirty(ent);
+    }
+
+    public void SetHeldCrawler(Entity<NodeCrawlerMovementComponent> ent, EntityUid? held)
+    {
+        if (ent.Comp.HeldCrawler == held)
+            return;
+
+        ent.Comp.HeldCrawler = held;
+        Dirty(ent);
     }
 }

@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.NodeContainer.EntitySystems;
@@ -14,7 +15,7 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NodeCrawlComponent, NodeGroupsRebuilt>(OnNodeGroupsRebuilt);
+        SubscribeLocalEvent<CrawlableNodeComponent, NodeGroupsRebuilt>(OnNodeGroupsRebuilt);
 
         SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
@@ -73,17 +74,24 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         args.Handled = true;
     }
 
-    private void OnNodeGroupsRebuilt(Entity<NodeCrawlComponent> ent, ref NodeGroupsRebuilt args)
+    private void OnNodeGroupsRebuilt(Entity<CrawlableNodeComponent> ent, ref NodeGroupsRebuilt args)
     {
         if (!TryComp<NodeContainerComponent>(ent, out var nodeContainer))
             return;
 
+        ent.Comp.DeadEnd = false;
         var set = new HashSet<EntityUid>();
         foreach (var node in nodeContainer.Nodes.Values)
         {
             foreach (var reachable in node.ReachableNodes)
             {
                 set.Add(reachable.Owner);
+            }
+
+            if (node is PipeNode pipeNode &&
+                node.ReachableNodes.Count != BitOperations.PopCount((uint)pipeNode.CurrentPipeDirection))
+            {
+                ent.Comp.DeadEnd = true;
             }
         }
 

@@ -7,7 +7,4 @@
     - Content.Shared.Atmos.Components.PipeAppearanceComponent
     exitNodes:
       components:
-      - GasOutletInjector
-      - GasPassiveVent
-      - GasVentPump
-      - GasVentScrubber
+      - NodeCrawlVentEntry

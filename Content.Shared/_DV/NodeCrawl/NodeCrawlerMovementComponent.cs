@@ -6,7 +6,7 @@ namespace Content.Shared._DV.NodeCrawl;
 /// Handles node-confined movement for an entity.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(NodeCrawlerMovementSystem), typeof(SharedNodeCrawlSystem))]
+[Access(typeof(NodeCrawlerMovementSystem))]
 public sealed partial class NodeCrawlerMovementComponent : Component
 {
     /// <summary>
@@ -20,6 +20,12 @@ public sealed partial class NodeCrawlerMovementComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? TargetNode;
+
+    /// <summary>
+    /// The crawler being carried by this entity.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? HeldCrawler;
 
     /// <summary>
     /// The required angle to be within for deciding which node to move from the target direction
