@@ -48,7 +48,18 @@
   id: BorgDVModulesStatic
   recipes:
   - BorgModuleDecoration
+  - BorgModuleFishing
 
+# Service Modules
+
+- type: latheRecipePack
+  id: BorgModulesServiceStaticDV
+  recipes:
+  - BorgModuleBureaucracy
+  - BorgModuleBoxing
+  - BorgModuleReporter
+  - BorgModuleMusique
+  - BorgModuleClowning
 
 # If you add anything to this, know that the SyndicateExosuitFabricator does not
 # get this pack due to IdChipBorgAA not being available to SRNs. Probably should
@@ -99,3 +110,11 @@
   - DispelLeftArm
   - RecallLeftArm
   - ForcewallLeftArm
+
+- type: latheRecipePack
+  id: BorgModulesServiceDynamicDV
+  recipes:
+  - BorgModuleAdvancedBotany
+  - BorgModuleAdvancedChef
+  - BorgModuleAdvancedBartender
+  - BorgModuleDJ

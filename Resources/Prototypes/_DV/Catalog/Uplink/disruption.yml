@@ -62,3 +62,21 @@
     Telecrystal: 2
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkSyndicateCircuitBoard
+  name: uplink-syndicate-law-name
+  description: uplink-syndicate-law-desc
+  productEntity: SyndicateCircuitBoard
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+     blacklist:
+       tags:
+       - NukeOpsUplink

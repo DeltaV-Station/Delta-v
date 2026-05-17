@@ -23,6 +23,7 @@ namespace Content.Server.Construction.Commands
         public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "FloorReinforced";
         public static readonly ProtoId<TagPrototype> WindowTag = "Window";
         public static readonly ProtoId<TagPrototype> DirectionalTag = "Directional";
+        public static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -80,7 +81,7 @@ namespace Content.Server.Construction.Commands
                     continue;
                 }
 
-                if (tagSystem.HasTag(child, DirectionalTag))
+                if (tagSystem.HasTag(child, DirectionalTag) || tagSystem.HasTag(child, DiagonalTag))
                 {
                     continue;
                 }

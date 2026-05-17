@@ -228,3 +228,19 @@
   - type: Icon
     sprite: _DV/Objects/Consumable/Drinks/mliko.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkFireboltGlass
+  suffix: firebolt
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Firebolt
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/firebolt.rsi
+    state: icon

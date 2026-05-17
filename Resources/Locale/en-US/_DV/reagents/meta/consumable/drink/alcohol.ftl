@@ -15,3 +15,6 @@ reagent-desc-five-oclock = In space, even tea-time contains alcohol.
 
 reagent-name-mliko = Mliko
 reagent-desc-mliko = A bartender's sick idea of a joke. The entire glass is filled with beer foam!
+
+reagent-name-firebolt = Firebolt
+reagent-desc-firebolt = A wizard's mix of choice.
