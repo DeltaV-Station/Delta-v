@@ -266,6 +266,19 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/brigmedic_alt.rsi
 
+# Officer uniform
+
+- type: entity
+  parent: ClothingUniformRollableBase
+  id: ClothingUniformJumpsuitSecWhite
+  name: white security jumpsuit
+  description: A cool white shirt over charcoal trousers, for the calm and collected security officer.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
+
 # Detective uniform
 
 - type: entity
@@ -320,7 +333,7 @@
   parent: ClothingUniformRollableBase
   id: ClothingUniformJumpsuitWardenWhite
   name: white warden's jumpsuit
-  description: A cool white shirt with blue markings and warden's epaulettes.
+  description: A cool white shirt with blue markings and warden's markings and epaulettes.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_white.rsi
@@ -358,9 +371,20 @@
   description: A comfortable and tight-fitting turtleneck for those with the tenacity to reach the position of Head of Security.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_alt.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_alt.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
+
+- type: entity
+  parent: ClothingUniformRollableBase
+  id: ClothingUniformJumpsuitHoSWhite
+  name: head of security's white uniform
+  description: A white station security shirt with blue trousers. Features dull gold emblems and commander's epaulettes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
 
 # Central Command Uniform - ported from Velta
 

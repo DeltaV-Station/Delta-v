@@ -385,7 +385,7 @@
   parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
-  description: A charcoal skirt and a blue shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
+  description: A charcoal skirt and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
@@ -396,7 +396,7 @@
   parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtWarden
   name: warden's jumpskirt # DeltaV - renamed to mirror other security uniforms
-  description: Blue shirt on a charcoal skirt, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
+  description: Red shirt on a charcoal skirt, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer.rsi # DeltaV - resprite
@@ -666,7 +666,7 @@
   parent: [ClothingUniformSkirtFoldableBase, BaseSecurityContraband] # DeltaV - add foldable jumpsuits
   id: ClothingUniformJumpskirtSecGrey
   name: grey security jumpskirt
-  description: A light grey shirt with bright blue highlights, for dedicated and responsive security officers. # DeltaV - improved description
+  description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
