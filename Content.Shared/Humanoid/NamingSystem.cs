@@ -77,11 +77,11 @@ namespace Content.Shared.Humanoid
 
                     if (Loc.TryGetString($"{firstId}.intersperse", out var firstIntersperse, ("last", last), ("lastPlural", plural)))
                     {
-                        _locSawmill.Level = oldLeve;
+                        _locSawmill.Level = oldLevel;
                         return firstIntersperse;
                     }
 
-                    _locSawmill.Level = oldLeve;
+                    _locSawmill.Level = oldLevel;
                     return Loc.GetString("namepreset-firstlast",
                         ("first", Loc.GetString(firstId)),
                         ("last", last),
