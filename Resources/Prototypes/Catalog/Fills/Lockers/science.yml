@@ -12,6 +12,8 @@
   id: FillLockerScientist
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV additions
+      tableId: LockerFillScientistDV
     - id: ClothingHandsGlovesLatex
     - id: ClothingHeadsetScience
     - id: ClothingMaskSterile
@@ -20,5 +22,3 @@
     - id: NodeScanner
     - id: NetworkConfigurator
       prob: 0.5
-    - !type:NestedSelector # DeltaV - toolbelt, wrench, anom locator, and random trinkets
-      tableId: LockerFillScientistDV
