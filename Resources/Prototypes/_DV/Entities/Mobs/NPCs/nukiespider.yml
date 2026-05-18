@@ -1,11 +1,11 @@
 # Nuclear spider for Delta-V because critters are neat.
 # Used nukie mouse as a starting point, added/removed/modified properties as necessary
 - type: entity
-  name: nuclear operative tarantula
   parent: MobGiantSpiderAngry
   id: MobNukieSpider
-  description: A spider? A NUKIE SPIDER?!
+  name: nuclear operative tarantula
   suffix: syndicate
+  description: A spider? A NUKIE SPIDER?!
   components:
   - type: GhostRole
     makeSentient: true
@@ -18,6 +18,7 @@
     - MindRoleGhostRoleTeamAntagonist
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
+    nameFormat: name-format-nukie-operator
     nameSegments: [NamesNukieSpider]
   - type: NpcFactionMember
     factions:

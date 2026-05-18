@@ -1,21 +1,21 @@
 {
     "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Edited from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b and Nimfar11 (github) by Sal_DragonsNOA for SS14. Gameplay implementation by RoboBozu.",
     "size": {
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Edited from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b and Nimfar11 (github) by Sal_DragonsNOA for SS14. Gameplay implementation by RoboBozu.",
     "states": [
+        {
+            "name": "icon"
+        },
         {
             "name": "syndicate-spider",
             "directions": 4
         },
         {
             "name": "syndicate-spider-egg"
-        },
-        {
-            "name": "icon"
         },
         {
             "name": "syndicate-spider-dead"
