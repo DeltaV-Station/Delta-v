@@ -45,7 +45,7 @@ namespace Content.Shared.Humanoid
                         ("first1", GetFirstName(speciesProto, gender)), ("first2", GetFirstName(speciesProto, gender)));
                 case SpeciesNaming.FirstDashLast: // Goobstation
                     return Loc.GetString("namepreset-firstdashlast",
-                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto)));                        
+                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto)));
                 case SpeciesNaming.LastFirst: // DeltaV: Rodentia name scheme
                     return Loc.GetString("namepreset-lastfirst",
                         ("last", GetLastName(speciesProto)), ("first", GetFirstName(speciesProto, gender)));
@@ -57,6 +57,7 @@ namespace Content.Shared.Humanoid
                     var lastId = GetLastNameId(speciesProto);
                     var plural = false;
 
+                    Logger.GetSawmill("loc").Level = LogLevel.Fatal; // this is a hack to avoid testfails because TryGetString still logs errors for not-found stuff anyways (wtf)
                     if (Loc.TryGetString($"{lastId}.plural", out var pluralStr))
                         plural = pluralStr == "true";
 
@@ -64,9 +65,11 @@ namespace Content.Shared.Humanoid
 
                     if (Loc.TryGetString($"{firstId}.intersperse", out var firstIntersperse, ("last", last), ("lastPlural", plural)))
                     {
+                        Logger.GetSawmill("loc").Level = null;
                         return firstIntersperse;
                     }
 
+                    Logger.GetSawmill("loc").Level = null;
                     return Loc.GetString("namepreset-firstlast",
                         ("first", Loc.GetString(firstId)),
                         ("last", last),
