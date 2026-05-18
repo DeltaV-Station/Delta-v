@@ -8,6 +8,8 @@
     sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBaseImpstation] # imp - Add foldable uniform jumpsuits

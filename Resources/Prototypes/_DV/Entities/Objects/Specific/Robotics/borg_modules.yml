@@ -485,3 +485,491 @@
   - type: Sprite
     sprite: Objects/Tools/access_breaker.rsi # Finally using this awesome icon
     state: icon
+
+# Service Modules
+
+- type: entity
+  id: BaseBorgModuleServiceDV
+  parent: BaseBorgModuleService
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-icon-inhand-left
+        color: "#e6d2d2"
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-module-inhand-left
+        color: "#508242"
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-part-inhand-left
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-stripes-inhand-left
+        color: "#275e2a"
+      right:
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-icon-inhand-right
+        color: "#e6d2d2"
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-module-inhand-right
+        color: "#508242"
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-part-inhand-right
+      - sprite: Objects/Specific/Robotics/borgmodule.rsi
+        state: base-stripes-inhand-right
+        color: "#275e2a"
+
+- type: entity
+  id: BorgModuleBureaucracy
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: bureaucracy cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-pen
+  - type: ItemBorgModule
+    hands:
+    - item: LuxuryPen
+    - item: Paper
+      hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: Paper
+        whitelist: &paper-hand-whitelist
+          tags:
+          - Book
+          - Dice
+          - Document
+          - Figurine
+          - TabletopBoard
+          - Write
+          - Folder
+    - item: BoxFolderClipboardThreePapers
+      hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: BoxFolderClipboardEmpty
+        whitelist: *paper-hand-whitelist
+    - hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: d20Dice
+        whitelist: *paper-hand-whitelist
+    - hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: BookBase
+        whitelist: *paper-hand-whitelist
+    - item: BooksBag
+    - item: HandLabeler
+    - item: RubberStampApproved
+      hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: RubberStampApproved
+        whitelist: &stamp-hand-whitelist
+          tags:
+          - Document
+          - Write
+          - Folder
+          components:
+          - Stamp
+    - item: RubberStampDenied
+      hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: RubberStampDenied
+        whitelist: *stamp-hand-whitelist
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-bureaucracy-module }
+
+- type: entity
+  id: BorgModuleBoxing
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: boxing cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-boxing
+  - type: ItemBorgModule
+    hands:
+    - item: ClothingHandsGlovesBoxingRedBorg
+    - item: Brutepack
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Brutepack
+        whitelist:
+          tags:
+          - Brutepack
+    - hand:
+        emptyLabel: borg-slot-medals-empty
+        emptyRepresentative: ClothingNeckGoldmedal
+        whitelist:
+          tags:
+          - Medal
+    - item: Whistle
+    - item: BoxingBellBorg
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-boxing-module }
+
+- type: entity
+  id: BorgModuleGardeningDV
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: botany cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-gardening
+  - type: ItemBorgModule
+    hands:
+    - item: HydroponicsToolMiniHoe
+    - item: HydroponicsToolSpade
+    - item: HydroponicsToolClippers
+    - item: HydroponicsToolScythe
+    - item: HydroponicsToolHatchet
+    - item: Bucket
+    - item: PlantBag
+    - hand:
+        emptyLabel: borg-slot-produce-empty
+        emptyRepresentative: WheatSeeds
+        whitelist: &produce-hand-whitelist
+          components:
+          - Seed
+          - Produce
+    - hand:
+        emptyLabel: borg-slot-produce-empty
+        emptyRepresentative: WheatBushel
+        whitelist: *produce-hand-whitelist
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
+
+- type: entity
+  id: BorgModuleAdvancedBotany
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: advanced botany cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-adv-botany
+  - type: ItemBorgModule
+    hands:
+    - item: PlantAnalyzerUnpowered
+    - item: BoxMouthSwabBorg
+    - item: DiseaseSwab
+      hand:
+        emptyLabel: borg-slot-swabs-empty
+        emptyRepresentative: DiseaseSwab
+        whitelist:
+          components:
+          - BotanySwab
+    - item: BorgDropper
+      hand:
+        emptyLabel: borg-slot-injector-dropper-empty
+        emptyRepresentative: Dropper
+        whitelist:
+          tags:
+          - Dropper
+          - Syringe
+    - item: ChemistryBottleRobustHarvest
+      hand: &small-container-hand
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: Beaker
+        whitelist:
+          tags:
+          - Bottle
+          - GlassBeaker
+          - Dropper
+    - item: ChemistryBottleUnstableMutagen
+      hand: *small-container-hand
+    - item: PlantBagOfHolding
+    - hand:
+        emptyLabel: borg-slot-produce-empty
+        emptyRepresentative: WheatSeeds
+        whitelist: *produce-hand-whitelist
+    - hand:
+        emptyLabel: borg-slot-produce-empty
+        emptyRepresentative: WheatBushel
+        whitelist: *produce-hand-whitelist
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
+
+- type: entity
+  id: BorgModuleChef
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: chef cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-chef
+  - type: ItemBorgModule
+    hands:
+    - item: KitchenKnife
+    - item: RollingPin
+    - item: Beaker
+      hand: *small-container-hand
+    - item: ReagentContainerFlour
+      hand: &ingredients-hand
+        emptyLabel: borg-slot-ingredients-empty
+        emptyRepresentative: ReagentContainerFlour
+        whitelist:
+          components:
+          - Produce
+          - SliceableFood
+          tags:
+          - Ingredients
+          - Fruit
+          - Vegetable
+          - Slice
+          - DrinkBottle
+    - hand: &edible-hand
+        emptyLabel: borg-slot-food-empty
+        emptyRepresentative: FoodPizzaMargheritaSlice
+        whitelist:
+          components:
+          - Edible
+    - hand: *edible-hand
+    - item: FoodShakerSalt
+      hand:
+        emptyLabel: borg-slot-condiments-empty
+        emptyRepresentative: FoodCondimentBottleKetchup
+        whitelist:
+          tags:
+          - SaltShaker
+          - PepperShaker
+          - BBQsauce
+          - Ketchup
+          - Hotsauce
+          - Coldsauce
+          - Enzyme
+    - item: FoodPlate
+      hand: &dinnerware-hand
+        emptyLabel: borg-slot-dinnerware-empty
+        emptyRepresentative: FoodPlateSmall
+        whitelist:
+          tags:
+          - Dinnerware
+    - hand: &kitchenware-hand
+        emptyLabel: borg-slot-kitchenware-empty
+        emptyRepresentative: FoodPlateTin
+        whitelist:
+          tags:
+          - Kitchenware
+          - Skewer
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-chef-module }
+
+- type: entity
+  id: BorgModuleAdvancedChef
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: advanced chef cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-adv-chef
+  - type: ItemBorgModule
+    hands:
+    - item: AdvancedMicrowaveBorg
+    - item: Beaker
+      hand: *small-container-hand
+    - item: ReagentContainerFlourBorg
+    - hand: *ingredients-hand
+    - hand: *edible-hand
+    - hand: *edible-hand
+    - item: FoodPlate
+      hand: *dinnerware-hand
+    - hand: *kitchenware-hand
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-adv-chef-module }
+
+- type: entity
+  id: BorgModuleBartender
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: bartender cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-bar
+  - type: ItemBorgModule
+    hands:
+    - item: DrinkShaker
+      hand: &shaker-hand
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: DrinkShaker
+        whitelist:
+          components:
+          - Shakeable
+    - item: BarSpoon
+      hand: &spoon-hand
+        emptyLabel: borg-slot-injector-dropper-empty
+        emptyRepresentative: BarSpoon
+        whitelist:
+          components:
+          - ReactionMixer
+    - item: Skimmer
+      hand: &skimmer-hand
+        emptyLabel: borg-slot-injector-dropper-empty
+        emptyRepresentative: Skimmer
+        whitelist:
+          tags:
+          - Dropper
+    - hand: &bottle-hand
+        emptyLabel: borg-slot-drinkbottle-empty
+        emptyRepresentative: DrinkVodkaBottleFull
+        whitelist: &bottle-hand-whitelist
+          tags:
+          - DrinkBottle
+    - item: DrinkGlass
+      hand: &glass-hand
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: DrinkGlass
+        whitelist:
+          components:
+          - FitsInDispenser
+    - item: DrinkGlass
+      hand: *glass-hand
+    - item: RagItem
+    - item: HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-bar-module }
+
+- type: entity
+  id: BorgModuleAdvancedBartender
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: advanced bartender cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-adv-bar
+  - type: ItemBorgModule
+    hands:
+    - item: DrinkShaker
+      hand: *shaker-hand
+    - item: BoozeDispenserBorg
+    - item: SodaDispenserBorg
+    - hand: *bottle-hand
+    - item: DrinkGlass
+      hand: *glass-hand
+    - item: DrinkGlass
+      hand: *glass-hand
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-adv-bar-module }
+
+- type: entity
+  id: BorgModuleReporter
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: reporter cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-reporter
+  - type: ItemBorgModule
+    hands:
+    - item: LuxuryPen
+    - item: BoxFolderClipboardThreePapers
+      hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: BoxFolderClipboardEmpty
+        whitelist: *paper-hand-whitelist
+    - item: TapeRecorder
+    - item: CassetteTape
+      hand:
+        emptyLabel: borg-slot-documents-empty
+        emptyRepresentative: CassetteTape
+        whitelist:
+          components:
+          - FitsInTapeRecorder
+    - item: CameraBugBorg
+    - item: SurveillanceWirelessCameraBorg
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-reporter-module }
+
+- type: entity
+  id: BorgModuleFishing
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: fishing cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-fish
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-all
+  - type: Tag
+    tags:
+    - BorgModuleGeneric
+  - type: ItemBorgModule
+    hands:
+    - item: FishingRod
+      hand:
+        emptyLabel: borg-slot-rod-empty
+        emptyRepresentative: FishingRod
+        whitelist:
+          components:
+          - FishingRod
+    - item: FishBasket
+    - hand: &fish-hand
+        emptyLabel: borg-slot-fish-empty
+        emptyRepresentative: FishBass
+        whitelist:
+          components:
+          - Fish
+    - hand: *fish-hand
+    - hand:
+        emptyLabel: borg-slot-drinkbottle-empty
+        emptyRepresentative: DrinkBeerBottleFull
+        whitelist: *bottle-hand-whitelist
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-fish-module }
+
+- type: entity
+  id: BorgModuleDJ
+  parent: [ BaseBorgModuleServiceDV, BaseProviderBorgModule ]
+  name: DJ cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-dj
+  - type: ItemBorgModule
+    hands:
+    - item: MicrophoneInstrument
+      hand:
+        emptyLabel: borg-slot-instruments-empty
+        emptyRepresentative: MicrophoneInstrument
+        whitelist: &instrument-hand-whitelist
+          components:
+          - Instrument
+    - item: DJSetInstrument
+      hand:
+        emptyLabel: borg-slot-instruments-empty
+        emptyRepresentative: DJSetInstrument
+        whitelist: *instrument-hand-whitelist
+    - item: SuperSynthesizerInstrument
+      hand:
+        emptyLabel: borg-slot-instruments-empty
+        emptyRepresentative: SuperSynthesizerInstrument
+        whitelist: *instrument-hand-whitelist
+    - item: SynthesizerInstrument
+      hand:
+        emptyLabel: borg-slot-instruments-empty
+        emptyRepresentative: SynthesizerInstrument
+        whitelist: *instrument-hand-whitelist
+    - item: ElectricGuitarInstrument
+      hand:
+        emptyLabel: borg-slot-instruments-empty
+        emptyRepresentative: ElectricGuitarInstrument
+        whitelist: *instrument-hand-whitelist
+    - item: SaxophoneInstrument
+      hand:
+        emptyLabel: borg-slot-instruments-empty
+        emptyRepresentative: SaxophoneInstrument
+        whitelist: *instrument-hand-whitelist
+  - type: BorgModuleIcon
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: service-dj-module }

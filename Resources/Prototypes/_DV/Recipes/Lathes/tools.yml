@@ -36,3 +36,14 @@
   materials:
     Plastic: 250
     Glass: 150
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: TrayGoggles
+  result: ClothingEyesGlassesMesonTray
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 200
+    Glass: 200
+    Plasma: 50
