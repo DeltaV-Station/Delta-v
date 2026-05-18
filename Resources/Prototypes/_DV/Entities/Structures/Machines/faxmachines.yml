@@ -14,3 +14,447 @@
     name: "Unknown?"
     responsePings: false
   - type: Emagged
+
+# Departmentwide fax machines
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineCommand
+  suffix: Command
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Command]
+  - type: FaxMachine
+    name: "Command"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineEngineering
+  suffix: Engineering
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Engineering]
+  - type: FaxMachine
+    name: "Command"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineEpistemics
+  suffix: Epistemics
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Epistemics]
+  - type: FaxMachine
+    name: "Engineering"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineLogistics
+  suffix: Logistics
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Logistics]
+  - type: FaxMachine
+    name: "Logistics"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineJustice
+  suffix: Justice
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Justice]
+  - type: FaxMachine
+    name: "Justice"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineSecurity
+  suffix: Security
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Security]
+  - type: FaxMachine
+    name: "Security"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMedical
+  suffix: Medical
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Medical]
+  - type: FaxMachine
+    name: "Medical"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineCivilian
+  suffix: Civilian
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Civilian]
+  - type: FaxMachine
+    name: "Civilian"
+
+# Job-specific fax machines
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineAtmosphericTechnician
+  suffix: Atmospheric Technician
+  components:
+  - type: PageSender
+    autoLinkJobs: [AtmosphericTechnician]
+  - type: FaxMachine
+    name: "Atmospherics"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineBartender
+  suffix: Bartender
+  components:
+  - type: PageSender
+    autoLinkJobs: [Bartender]
+  - type: FaxMachine
+    name: "Bar"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineBotanist
+  suffix: Botanist
+  components:
+  - type: PageSender
+    autoLinkJobs: [Botanist]
+  - type: FaxMachine
+    name: "Hydroponics"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineBoxer
+  suffix: Boxer
+  components:
+  - type: PageSender
+    autoLinkJobs: [Boxer]
+  - type: FaxMachine
+    name: "Boxing"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineBrigmedic
+  suffix: Corpsman
+  components:
+  - type: PageSender
+    autoLinkJobs: [Brigmedic]
+  - type: FaxMachine
+    name: "Corpsman"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineCargoTechnician
+  suffix: Cargo Technician
+  components:
+  - type: PageSender
+    autoLinkJobs: [CargoTechnician]
+  - type: FaxMachine
+    name: "Cargo Technician"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineChaplain
+  suffix: Chaplain
+  components:
+  - type: PageSender
+    autoLinkJobs: [Chaplain]
+  - type: FaxMachine
+    name: "Chaplain"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineChef
+  suffix: Chef
+  components:
+  - type: PageSender
+    autoLinkJobs: [Chef]
+  - type: FaxMachine
+    name: "Chef"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineChemist
+  suffix: Chemist
+  components:
+  - type: PageSender
+    autoLinkJobs: [Chemist]
+  - type: FaxMachine
+    name: "Chemistry"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineChiefEngineer
+  suffix: Chief Engineer
+  components:
+  - type: PageSender
+    autoLinkJobs: [ChiefEngineer]
+  - type: FaxMachine
+    name: "Chief Engineer"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineChiefJustice
+  suffix: Chief Justice
+  components:
+  - type: PageSender
+    autoLinkJobs: [ChiefJustice]
+  - type: FaxMachine
+    name: "Chief Justice"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineChiefMedicalOfficer
+  suffix: Chief Medical Officer
+  components:
+  - type: PageSender
+    autoLinkJobs: [ChiefMedicalOfficer]
+  - type: FaxMachine
+    name: "Chief Medical Officer"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineClerk
+  suffix: Clerk
+  components:
+  - type: PageSender
+    autoLinkJobs: [Clerk]
+  - type: FaxMachine
+    name: "Clerk"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineClown
+  suffix: Clown
+  components:
+  - type: PageSender
+    autoLinkJobs: [Clown]
+  - type: FaxMachine
+    name: "Clown"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineCourier
+  suffix: Courier
+  components:
+  - type: PageSender
+    autoLinkJobs: [Courier]
+  - type: FaxMachine
+    name: "Courier"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineDetective
+  suffix: Detective
+  components:
+  - type: PageSender
+    autoLinkJobs: [Detective]
+  - type: FaxMachine
+    name: "Detective"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineHeadOfPersonnel
+  suffix: Head Of Personnel
+  components:
+  - type: PageSender
+    autoLinkJobs: [HeadOfPersonnel]
+  - type: FaxMachine
+    name: "Head Of Personnel"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineHeadOfSecurity
+  suffix: Head Of Security
+  components:
+  - type: PageSender
+    autoLinkJobs: [HeadOfSecurity]
+  - type: FaxMachine
+    name: "Head Of Security"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineJanitor
+  suffix: Janitor
+  components:
+  - type: PageSender
+    autoLinkJobs: [Janitor]
+  - type: FaxMachine
+    name: "Janitorial"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineLawyer
+  suffix: Lawyer
+  components:
+  - type: PageSender
+    autoLinkJobs: [Lawyer]
+  - type: FaxMachine
+    name: "Lawyer"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineLibrarian
+  suffix: Librarian
+  components:
+  - type: PageSender
+    autoLinkJobs: [Librarian]
+  - type: FaxMachine
+    name: "Library"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMedicalDoctor
+  suffix: Medical Doctor
+  components:
+  - type: PageSender
+    autoLinkJobs: [MedicalDoctor]
+  - type: FaxMachine
+    name: "Medical Doctor"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMime
+  suffix: Mime
+  components:
+  - type: PageSender
+    autoLinkJobs: [Mime]
+  - type: FaxMachine
+    name: "Mime"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMusician
+  suffix: Musician
+  components:
+  - type: PageSender
+    autoLinkJobs: [Musician]
+  - type: FaxMachine
+    name: "Musician"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineParamedic
+  suffix: Paramedic
+  components:
+  - type: PageSender
+    autoLinkJobs: [Paramedic]
+  - type: FaxMachine
+    name: "Paramedic"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineProsecutor
+  suffix: Prosecutor
+  components:
+  - type: PageSender
+    autoLinkJobs: [Prosecutor]
+  - type: FaxMachine
+    name: "Prosecutor"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachinePsychologist
+  suffix: Psychologist
+  components:
+  - type: PageSender
+    autoLinkJobs: [Psychologist]
+  - type: FaxMachine
+    name: "Psychologist"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineQuartermaster
+  suffix: Logistics Officer
+  components:
+  - type: PageSender
+    autoLinkJobs: [Quartermaster]
+  - type: FaxMachine
+    name: "Logistics Officer"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineReporter
+  suffix: Reporter
+  components:
+  - type: PageSender
+    autoLinkJobs: [Reporter]
+  - type: FaxMachine
+    name: "Reporter"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineResearchDirector
+  suffix: Research Director
+  components:
+  - type: PageSender
+    autoLinkJobs: [ResearchDirector]
+  - type: FaxMachine
+    name: "Mystagogue"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineRoboticist
+  suffix: Roboticist
+  components:
+  - type: PageSender
+    autoLinkJobs: [Roboticist]
+  - type: FaxMachine
+    name: "Robotics"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineSalvageSpecialist
+  suffix: Salvage Specialist
+  components:
+  - type: PageSender
+    autoLinkJobs: [SalvageSpecialist]
+  - type: FaxMachine
+    name: "Salvage"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineStationEngineer
+  suffix: Station Engineer
+  components:
+  - type: PageSender
+    autoLinkJobs: [StationEngineer]
+  - type: FaxMachine
+    name: "Station Engineer"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineSurgeon
+  suffix: Surgeon
+  components:
+  - type: PageSender
+    autoLinkJobs: [Surgeon]
+  - type: FaxMachine
+    name: "Surgery"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineWarden
+  suffix: Warden
+  components:
+  - type: PageSender
+    autoLinkJobs: [Warden]
+  - type: FaxMachine
+    name: "Warden"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineZookeeper
+  suffix: Zookeeper
+  components:
+  - type: PageSender
+    autoLinkJobs: [Zookeeper]
+  - type: FaxMachine
+    name: "Zoo"
