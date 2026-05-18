@@ -46,10 +46,9 @@
   # Begin Starlight Additions
     orange:
       announcement: alert-level-orange-announcement
-      selectable: true
+      selectable: false # DeltaV - Don't allow the station to set it manually
       sound:
         path: /Audio/_Starlight/misc/orange.ogg
-      disableSelection: true # DeltaV - Don't allow the station to set it manually
       color: "#ff8119"
       emergencyLightColor: "#ff8119"
       forceEnableEmergencyLights: true
