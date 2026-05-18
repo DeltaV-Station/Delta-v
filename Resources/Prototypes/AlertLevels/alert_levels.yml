@@ -49,6 +49,7 @@
       selectable: true
       sound:
         path: /Audio/_Starlight/misc/orange.ogg
+      disableSelection: true # DeltaV - Don't allow the station to set it manually
       color: "#ff8119"
       emergencyLightColor: "#ff8119"
       forceEnableEmergencyLights: true
