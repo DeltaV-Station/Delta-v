@@ -1,0 +1,25 @@
+dv-names-diona-first-1 = To Sleep Beneath
+dv-names-diona-first-2 = Wind Over the
+dv-names-diona-first-3 = Embrace of the
+dv-names-diona-first-4 = Dreams of the
+dv-names-diona-first-5 = Witnessing
+dv-names-diona-first-6 = To Walk Beneath the
+dv-names-diona-first-7 = Approaching
+dv-names-diona-first-8 = Growing
+dv-names-diona-first-9 = Eternal
+dv-names-diona-first-10 = Persistent
+
+dv-names-diona-last-1 = Void
+dv-names-diona-last-2 = Sky
+dv-names-diona-last-3 = Encroaching Night
+dv-names-diona-last-4 = Planetsong
+dv-names-diona-last-5 = Starsong
+dv-names-diona-last-6 = Wandering Star
+dv-names-diona-last-7 = Empty Day
+dv-names-diona-last-8 = Daybreak
+dv-names-diona-last-9 = Nightfall
+dv-names-diona-last-10 = Rain
+dv-names-diona-last-11 = Rifts
+dv-names-diona-last-12 = Hope
+dv-names-diona-last-13 = Dreams
+dv-names-diona-last-14 = Despair
