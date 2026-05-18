@@ -17,6 +17,17 @@ namespace Content.Shared.Humanoid
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+        // DeltaV - i hate this hack but https://github.com/space-wizards/RobustToolbox/issues/6576
+        private ISawmill _locSawmill = default!;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            _locSawmill = Logger.GetSawmill("loc");
+        }
+        // End DeltaV - i hate this hack
+
         public string GetName(string species, Gender? gender = null)
         {
             // if they have an old species or whatever just fall back to human I guess?
@@ -57,7 +68,8 @@ namespace Content.Shared.Humanoid
                     var lastId = GetLastNameId(speciesProto);
                     var plural = false;
 
-                    Logger.GetSawmill("loc").Level = LogLevel.Fatal; // this is a hack to avoid testfails because TryGetString still logs errors for not-found stuff anyways (wtf)
+                    var oldLevel =_locSawmill.Level;
+                    _locSawmill.Level = LogLevel.Fatal; // this is a hack to avoid testfails because TryGetString still logs errors for not-found stuff anyways (wtf)
                     if (Loc.TryGetString($"{lastId}.plural", out var pluralStr))
                         plural = pluralStr == "true";
 
@@ -65,11 +77,11 @@ namespace Content.Shared.Humanoid
 
                     if (Loc.TryGetString($"{firstId}.intersperse", out var firstIntersperse, ("last", last), ("lastPlural", plural)))
                     {
-                        Logger.GetSawmill("loc").Level = null;
+                        _locSawmill.Level = oldLeve;
                         return firstIntersperse;
                     }
 
-                    Logger.GetSawmill("loc").Level = null;
+                    _locSawmill.Level = oldLeve;
                     return Loc.GetString("namepreset-firstlast",
                         ("first", Loc.GetString(firstId)),
                         ("last", last),
