@@ -50,31 +50,63 @@ namespace Content.Shared.Humanoid
                     return Loc.GetString("namepreset-lastfirst",
                         ("last", GetLastName(speciesProto)), ("first", GetFirstName(speciesProto, gender)));
                 case SpeciesNaming.FirstLast:
+                // Begin DeltaV - more complex naming
                 default:
+                {
+                    var firstId = GetFirstNameId(speciesProto, gender);
+                    var lastId = GetLastNameId(speciesProto);
+                    var plural = false;
+
+                    if (Loc.TryGetString($"{lastId}.plural", out var pluralStr))
+                        plural = pluralStr == "true";
+
+                    var last = Loc.GetString(lastId);
+
+                    if (Loc.TryGetString($"{firstId}.intersperse", out var firstIntersperse, ("last", last), ("lastPlural", plural)))
+                    {
+                        return firstIntersperse;
+                    }
+
                     return Loc.GetString("namepreset-firstlast",
-                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto)));
+                        ("first", Loc.GetString(firstId)),
+                        ("last", last),
+                        ("lastPlural", plural));
+                }
+                // End DeltaV - more complex naming
             }
         }
 
+        // Begin DeltaV - we want IDs
         public string GetFirstName(SpeciesPrototype speciesProto, Gender? gender = null)
+        {
+            return Loc.GetString(GetFirstNameId(speciesProto, gender));
+        }
+
+        public string GetFirstNameId(SpeciesPrototype speciesProto, Gender? gender = null)
         {
             switch (gender)
             {
                 case Gender.Male:
-                    return _random.Pick(_prototypeManager.Index(speciesProto.MaleFirstNames));
+                    return _random.PickId(_prototypeManager.Index(speciesProto.MaleFirstNames));
                 case Gender.Female:
-                    return _random.Pick(_prototypeManager.Index(speciesProto.FemaleFirstNames));
+                    return _random.PickId(_prototypeManager.Index(speciesProto.FemaleFirstNames));
                 default:
                     if (_random.Prob(0.5f))
-                        return _random.Pick(_prototypeManager.Index(speciesProto.MaleFirstNames));
+                        return _random.PickId(_prototypeManager.Index(speciesProto.MaleFirstNames));
                     else
-                        return _random.Pick(_prototypeManager.Index(speciesProto.FemaleFirstNames));
+                        return _random.PickId(_prototypeManager.Index(speciesProto.FemaleFirstNames));
             }
+        }
+
+        public string GetLastNameId(SpeciesPrototype speciesProto)
+        {
+            return _random.PickId(_prototypeManager.Index(speciesProto.LastNames));
         }
 
         public string GetLastName(SpeciesPrototype speciesProto)
         {
-            return _random.Pick(_prototypeManager.Index(speciesProto.LastNames));
+            return Loc.GetString(GetLastNameId(speciesProto));
         }
+        // End DeltaV - we want IDs
     }
 }
