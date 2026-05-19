@@ -52,7 +52,7 @@
   - type: EyeProtection
     protectionTime: 5
   - type: VisionCorrection
-    correctionPower: 1.50 # Being flash proof comes at the cost of less range of vision
+    correctionPower: 2 # Being flash proof comes at the cost of less range of vision
   - type: IdentityBlocker
     coverage: EYES
 
@@ -102,3 +102,36 @@
   description: Do the impossible, see the invisible!
   components:
   - type: EyeProtection
+
+- type: entity
+  parent: [ClothingEyesGlassesMeson, BaseToggleClothing]
+  id: ClothingEyesGlassesMesonTray
+  name: advanced engineering goggles
+  description: Protective meson goggles that have an integrated T-ray scanner and diagnostic HUD. The multilayer laminate protects from any intense flash.
+  components:
+  - type: ToggleClothing
+    action: ActionToggleTray
+  - type: TrayScanner
+    enabled: false
+  - type: FlashImmunity
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - HumanoidSilicon # DeltaV - IPCs
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Glasses/traymeson.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Glasses/traymeson.rsi
+
+# Wrestling gear--Domino mask, which we're treating like glasses that don't actually cover your eyes
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesWrestlerMaskDomino
+  name: Domino Mask
+  description: No CGI here.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Glasses/WrestlerMaskDomino.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Glasses/WrestlerMaskDomino.rsi

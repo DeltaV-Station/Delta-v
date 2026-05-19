@@ -241,26 +241,8 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
                 args.Target.Value,
                 ent);
 
-            // DeltaV - Replace logSeverity START
-            var logSeverity = LogImpact.Medium;
-
-            // Extreme impact if SSD indicator comp is present on target (as of writing only regular player characters have it), always alerting
-            if (HasComp<SSDIndicatorComponent>(args.Target.Value))
-            {
-                logSeverity = LogImpact.Extreme;
-            }
-
-            var hasMind = false;
-            // Extreme impact if a mind is attached to the target, always alerting
-            if (TryComp<MindContainerComponent>(args.Target.Value, out var mindContainer))
-            {
-                if (mindContainer.HasMind)
-                {
-                    hasMind = true;
-                    logSeverity = LogImpact.Extreme;
-                }
-            }
-            // DeltaV - Replace logSeverity END
+            // var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High; // DeltaV - replaced below
+            var (logSeverity, hasMind) = LogValuesForTarget(args.Target.Value); // DeltaV
 
             _logger.Add(LogType.Action,
                 logSeverity,
@@ -347,11 +329,12 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
             }
             // END DeltaV
 
-            var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High;
+            // var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High; // DeltaV - replaced below
+            var (logSeverity, hasMind) = LogValuesForTarget(args.Target.Value); // DeltaV
 
             _logger.Add(LogType.Gib,
                 logSeverity,
-                $"{ToPrettyString(args.User):user} finished butchering {ToPrettyString(args.Target):target} on the {ToPrettyString(ent):spike}");
+                $"{ToPrettyString(args.User):user} finished butchering {ToPrettyString(args.Target):target}{(hasMind ? " (MIND ATTACHED)" : "")} on the {ToPrettyString(ent):spike}"); // DeltaV - Add hasMind indicator
         }
         else
         {
@@ -376,6 +359,28 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
 
         args.Handled = true;
     }
+
+    // DeltaV - Added method START
+    private (LogImpact, bool) LogValuesForTarget(EntityUid? butcherTarget)
+    {
+        var logSeverity = LogImpact.Medium; // Never alert by default
+
+        // Extreme impact if SSD indicator comp is present on target (as of writing only regular player characters have it), always alerting
+        if (HasComp<SSDIndicatorComponent>(butcherTarget))
+        {
+            logSeverity = LogImpact.Extreme;
+        }
+
+        var hasMind = TryComp<MindContainerComponent>(butcherTarget, out var mindContainer) && mindContainer.HasMind;
+        // Extreme impact if a mind is attached to the target, always alerting
+        if (hasMind)
+        {
+            logSeverity = LogImpact.Extreme;
+        }
+
+        return (logSeverity, hasMind);
+    }
+    // DeltaV - Added method END
 
     private void OnSpikeExamined(Entity<KitchenSpikeComponent> ent, ref ExaminedEvent args)
     {

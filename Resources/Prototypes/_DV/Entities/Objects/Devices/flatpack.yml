@@ -72,3 +72,41 @@
   components:
   - type: Flatpack
     entity: OperatingTable
+
+- type: entity
+  abstract: true
+  parent: BaseStructureDynamic
+  id: HeavyFlatpackBase
+  name: heavy flatpack
+  description: A large flatpack used to store a worryingly large machine.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/flatpack.rsi
+    layers:
+    - state: large
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 100
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: InteractionOutline

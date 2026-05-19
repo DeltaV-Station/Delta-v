@@ -714,6 +714,8 @@
       orGroup: Plushie
     - id: PlushieThaven
       orGroup: Plushie
+    - id: PlushieAvali
+      orGroup: Plushie
 
 # Random snacks, replaces MailChocolate (lousy animal organs)
 - type: entity
@@ -1267,11 +1269,15 @@
       orGroup: Produce
       amount: 5
       prob: 0.5
-    - id: FoodAmbrosiaDeus
+    - id: FoodAmbrosiaNobilis
       orGroup: Produce
       amount: 5
       prob: 0.5
     - id: FoodSpacemansTrumpet
+      orGroup: Produce
+      amount: 5
+      prob: 0.25
+    - id: FoodAmbrosiaDeus
       orGroup: Produce
       amount: 5
       prob: 0.25
@@ -1447,6 +1453,8 @@
       - id: ClothingUniformJumpsuitGalaxyRed
         orGroup: Clothes
         prob: 0.25
+      - id: ClothingNeckCloakRosy
+        orGroup: Clothes
 
 - type: entity
   parent: BaseMail
@@ -1475,7 +1483,11 @@
         # Uncommon
       - id: MobMothroach
         orGroup: Critter
-        prob: 0.2
+        prob: 0.15
+        # Rare
+      - id: MobRosyMothroach
+        orGroup: Critter
+        prob: 0.05
       # Small reptiles (weight: 1)
       - id: MobLizard
         orGroup: Critter

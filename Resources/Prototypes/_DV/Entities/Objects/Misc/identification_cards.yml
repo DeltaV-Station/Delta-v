@@ -202,6 +202,20 @@
   - type: PresetIdCard
     job: Prosecutor
 
+# Service
+
+- type: entity
+  parent: BartenderIDCard
+  id: BabaIDCard
+  name: Baba ID card
+  components:
+  - type: PresetIdCard
+    job: Bartender
+    name: BaBa
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
 # Other
 
 - type: entity

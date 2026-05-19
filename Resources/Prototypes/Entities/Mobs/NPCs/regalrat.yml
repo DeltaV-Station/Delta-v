@@ -109,9 +109,11 @@
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: MobsterAccent
+  - type: ReplacementAccent # DeltaV - replace mobster accent with mouse speech replacement
+    accent: mouse
   - type: Speech
     speechVerb: SmallMob
+    speechSounds: Squeak # DeltaV addition
   - type: Butcherable
     spawned:
     - id: ClothingHeadHatFancyCrown #how did that get there?
@@ -366,7 +368,7 @@
   parent: BaseAction
   id: ActionRatKingDomain
   name: Rat King's Domain
-  description: Spend some hunger to release a cloud of ammonia into the air.
+  description: Spend some hunger to release a cloud of miasma into the air. # DeltaV
   components:
   - type: Action
     useDelay: 6

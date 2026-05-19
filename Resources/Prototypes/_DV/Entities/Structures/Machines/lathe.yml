@@ -24,6 +24,7 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
+    snapCardinals: true
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -210,6 +211,7 @@
     - ReportingStatic
     - SimpleElectronicsStatic
     - EVASuit
+    - EpistemicsStaticDeltaV
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing

@@ -39,8 +39,8 @@
     collection: FootstepGrass
   heatCapacity: 10000
   weather: true
-- type: tile
 
+- type: tile
   id: FloorGrassLightIndoors
   name: tiles-light-grass-floor-indoors
   sprite: /Textures/Tiles/grasslight.png
@@ -82,3 +82,28 @@
   footstepSounds:
     collection: FootstepSnow
   itemDrop: FloorTileItemMowedAstroSnow
+
+- type: tile
+  id: FloorAstroSnowDug
+  parent: [ BaseStationTile, FloorSnowDug ]
+  name: tiles-astro-snow-dug
+  isSubfloor: false
+  sprite: /Textures/Tiles/Planet/Snow/snow_dug.png
+  footstepSounds:
+    collection: FootstepSnow
+  deconstructTools: [ Cutting ]
+  itemDrop: FloorTileItemSnow # Need entity + sprite. Placeholder for now.
+  weather: true
+
+- type: tile
+  id: FloorMowedAstroSnowDug
+  name: tiles-mowed-astro-snow-dug
+  baseTurf: Plating
+  isSubfloor: false
+  sprite: /Textures/Tiles/Planet/Snow/snow_dug.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  footstepSounds:
+    collection: FootstepSnow
+  weather: true

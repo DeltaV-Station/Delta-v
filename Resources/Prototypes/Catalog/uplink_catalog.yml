@@ -1646,15 +1646,20 @@
   description: uplink-voice-mask-implanter-desc
   icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
   productEntity: VoiceMaskImplanter
-  # Begin DeltaV Removals
-  # discountCategory: usualDiscounts
-  # discountDownTo:
-  #   Telecrystal: 1
-  # End DeltaV Removals
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 1 # DeltaV - was 2
+    Telecrystal: 2
   categories:
   - UplinkImplants
+# Begin DeltaV additions
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV additions
 
 # Wearables
 

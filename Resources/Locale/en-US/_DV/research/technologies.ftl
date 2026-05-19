@@ -16,6 +16,7 @@ research-technology-directed-radiation = Directed Radiation
 research-technology-civilian-mechs = Civilian Mechs
 research-technology-paramedic-eva = Emergency Services EVA suits
 research-technology-plant-analyzer = Plant Analyzer
+research-technology-service-borg-module = Advance Service Borg Modules
 
 # Biochemical
 research-technology-basic-augmentation = Basic Augmentation
