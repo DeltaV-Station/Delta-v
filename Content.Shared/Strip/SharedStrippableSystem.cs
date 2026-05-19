@@ -42,8 +42,8 @@ public abstract class SharedStrippableSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     private readonly string[] _keyItemSlots = ["id", "belt", "back"]; // DeltaV - high impact on player, key items
-    private readonly string[] _badStripSlots = ["jumpsuit"]; // DeltaV - people shouldn't be stripping each others clothes off
-    private readonly string[] _badSsdStripSlots = ["pocket1", "pocket2"]; // DeltaV - rummaging through pockets of ssd people is not nice
+    private readonly string[] _extremeStripSlots = ["jumpsuit"]; // DeltaV - people shouldn't be stripping each others clothes off
+    private readonly string[] _highSsdStripSlots = ["pocket1", "pocket2"]; // DeltaV - rummaging through pockets of ssd people is not nice
 
     public override void Initialize()
     {
@@ -385,10 +385,10 @@ public abstract class SharedStrippableSystem : EntitySystem
             logImpact = isTargetSsd && !isTargetDead ? LogImpact.Extreme : LogImpact.High;
         }
 
-        // In any case, alert if a player is trying to strip certain additional slots from a living SSD
-        if (_badSsdStripSlots.Contains(slot.ToLower()) && isTargetSsd && !isTargetDead)
+        // In any case, alert if a new player is trying to strip certain additional slots from a living SSD
+        if (_highSsdStripSlots.Contains(slot.ToLower()) && isTargetSsd && !isTargetDead)
         {
-            logImpact = LogImpact.Extreme;
+            logImpact = LogImpact.High;
         }
 
         // ... unless the user is mindshielded. Security searches people who might disconnect.
@@ -398,7 +398,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         }
 
         // If someone strips a jumpsuit from a dead player, they're probably trying to perform surgery, alert on new player. Otherwise, always alert, even if shielded.
-        if (_badStripSlots.Contains(slot.ToLower()))
+        if (_extremeStripSlots.Contains(slot.ToLower()))
         {
             logImpact = isTargetDead ? LogImpact.High : LogImpact.Extreme;
         }
