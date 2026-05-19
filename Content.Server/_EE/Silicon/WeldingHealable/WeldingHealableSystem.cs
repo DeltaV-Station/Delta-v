@@ -82,7 +82,7 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             || !component.DamageContainers.Contains(damageable.DamageContainerID)
             || !HasDamage((args.Target, damageable), component, args.User)
             || !_toolSystem.HasQuality(args.Used, component.QualityNeeded)
-            || args.User == args.Target && !(component.AllowSelfHeal && healableComponent.AllowSelfHeal)) // DeltaV - self heal disabled by WeldingHealable
+            || args.User == args.Target && !component.AllowSelfHeal)
             return;
 
         float delay = args.User == args.Target
