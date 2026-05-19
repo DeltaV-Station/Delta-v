@@ -458,3 +458,12 @@
     autoLinkJobs: [Zookeeper]
   - type: FaxMachine
     name: "Zoo"
+
+#hitman
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineHitman
+  components:
+  - type: FaxMachine
+    name: "Unknown?"
+    responsePings: false
