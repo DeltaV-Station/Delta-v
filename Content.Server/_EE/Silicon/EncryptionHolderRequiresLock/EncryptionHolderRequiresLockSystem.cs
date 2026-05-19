@@ -23,7 +23,6 @@ public sealed class EncryptionHolderRequiresLockSystem : EntitySystem
             return;
 
         keyHolder.KeysUnlocked = !lockComp.Locked;
-        Dirty(uid, keyHolder); // DeltaV
         _encryptionKeySystem.UpdateChannels(uid, keyHolder);
     }
 }
