@@ -62,7 +62,6 @@
           damage: 400
         behaviors:
           - !type:GibBehavior { }
-  - type: Polymorphable # DeltaV
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
