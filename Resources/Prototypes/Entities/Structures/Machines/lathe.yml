@@ -340,8 +340,6 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    - PowerAugments # DeltaV - augments
-    - ToolAugments # DeltaV - augments
     - BorgDVModulesStatic # DeltaV - modules
     - BorgIdentificationStaticDeltaV # DeltaV - Borg IDs
     dynamicPacks:
@@ -350,15 +348,12 @@
     - MechParts
     - MechEquipment
     - RoboticsDeltaV # DeltaV
-    - BorgModulesDeltaV # DeltaV
-    - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
     # Being DeltaV Additions
     - EVASuit
     emagDynamicPacks:
-    - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
     - BorgModulesSecurityDeltaV
     - SalvageHardsuits
@@ -571,8 +566,6 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
-    - PowerAugments
-    - ToolAugments
     - SimpleToolsStaticDeltaV
     # End DeltaV Additions
     dynamicPacks:
@@ -580,7 +573,6 @@
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
-    - Cybernetics
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard

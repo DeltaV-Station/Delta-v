@@ -5,7 +5,6 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
-using Content.Shared._Shitmed.Body.Organ; // Shitmed
 
 namespace Content.Shared.Body.Systems;
 
@@ -31,8 +30,6 @@ public sealed class BrainSystem : EntitySystem
         brain.Active = false;
         if (!CheckOtherBrains(args.OldBody))
         {
-            // Prevents revival, should kill the user within a given timespan too.
-            EnsureComp<DebrainedComponent>(args.OldBody);
             HandleMind(uid, args.OldBody);
         }
     }
@@ -44,7 +41,6 @@ public sealed class BrainSystem : EntitySystem
 
         if (!CheckOtherBrains(args.Body))
         {
-            RemComp<DebrainedComponent>(args.Body);
             HandleMind(args.Body, uid, brain);
         }
     }

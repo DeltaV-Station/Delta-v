@@ -17,7 +17,6 @@
       - Trash
 
 - type: entity
-  parent: [ PartHarpyBase, BaseTorso ]
   id: TorsoHarpy
   name: "harpy torso"
   parent: PartHarpy
@@ -33,7 +32,6 @@
     partType: Torso
 
 - type: entity
-  parent: [ PartHarpyBase, BaseHead ]
   id: HeadHarpy
   name: "harpy head"
   parent: PartHarpy
@@ -57,7 +55,6 @@
       - Head
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftArm ]
   id: LeftArmHarpy
   name: "left harpy arm"
   parent: PartHarpy
@@ -74,7 +71,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightArm ]
   id: RightArmHarpy
   name: "right harpy arm"
   parent: PartHarpy
@@ -91,7 +87,6 @@
     symmetry: Right
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftHand ]
   id: LeftHandHarpy
   name: "left harpy hand"
   parent: PartHarpy
@@ -108,7 +103,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightHand ]
   id: RightHandHarpy
   name: "right harpy hand"
   parent: PartHarpy
@@ -126,7 +120,7 @@
 
 - type: entity
   abstract: true
-  parent: PartHarpyBase
+  parent: PartHarpy
   id: BaseHarpyLeg
   components:
   - type: MovementBodyPart
@@ -134,7 +128,6 @@
     sprintSpeed: 5
 
 - type: entity
-  parent: [ BaseHarpyLeg, BaseLeftLeg ]
   id: LeftLegHarpy
   name: "left harpy leg"
   parent: PartHarpy
@@ -152,7 +145,6 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ BaseHarpyLeg, BaseRightLeg ]
   id: RightLegHarpy
   name: "right harpy leg"
   parent: PartHarpy
@@ -170,7 +162,6 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftFoot ]
   id: LeftFootHarpy
   name: "left harpy foot"
   parent: PartHarpy
@@ -187,7 +178,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightFoot ]
   id: RightFootHarpy
   name: "right harpy foot"
   parent: PartHarpy

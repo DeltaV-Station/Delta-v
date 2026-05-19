@@ -1,4 +1,33 @@
 # TODO: Add descriptions (many)
+# body part with regular organic destruction
+- type: entity
+  abstract: true
+  parent: BasePartInorganic
+  id: BasePart
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# organic torsos have higher health
+# this doesn't affect gibbing bodies as there is code to prevent torso gibbing while part of a body
+- type: entity
+  abstract: true
+  parent: BaseTorsoInorganic
+  id: BaseTorso
+  components:
+  - type: Extractable # torso is meatier
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
 # TODO BODY: Part damage
 - type: entity
   abstract: true

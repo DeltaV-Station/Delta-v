@@ -72,7 +72,6 @@
           Quantity: 10
 
 - type: entity
-  parent: [ PartVoxBase, BaseLeftArm ]
   id: LeftArmVox
   name: "left vox arm"
   parent: PartVox
@@ -118,7 +117,6 @@
       symmetry: Left
 
 - type: entity
-  parent: [ PartVoxBase, BaseRightHand ]
   id: RightHandVox
   name: "right vox hand"
   parent: PartVox

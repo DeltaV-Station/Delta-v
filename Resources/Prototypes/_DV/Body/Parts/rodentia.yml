@@ -21,7 +21,6 @@
       - Trash
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseTorso ]
   id: TorsoRodentia
   name: "rodentia torso"
   parent: PartRodentia
@@ -34,7 +33,6 @@
     partType: Torso
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseHead ]
   id: HeadRodentia
   name: "rodentia head"
   parent: PartRodentia
@@ -55,7 +53,6 @@
       - Head
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseLeftArm ]
   id: LeftArmRodentia
   name: "left rodentia arm"
   parent: PartRodentia
@@ -69,7 +66,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseRightArm ]
   id: RightArmRodentia
   name: "right rodentia arm"
   parent: PartRodentia
@@ -83,7 +79,6 @@
     symmetry: Right
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseLeftHand ]
   id: LeftHandRodentia
   name: "left rodentia hand"
   parent: PartRodentia
@@ -97,7 +92,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseRightHand ]
   id: RightHandRodentia
   name: "right rodentia hand"
   parent: PartRodentia
@@ -111,7 +105,6 @@
     symmetry: Right
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseLeftLeg ]
   id: LeftLegRodentia
   name: "left rodentia leg"
   parent: PartRodentia
@@ -126,7 +119,6 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseRightLeg ]
   id: RightLegRodentia
   name: "right rodentia leg"
   parent: PartRodentia
@@ -141,7 +133,6 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseLeftFoot ]
   id: LeftFootRodentia
   name: "left rodentia foot"
   parent: PartRodentia
@@ -155,7 +146,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseRightFoot ]
   id: RightFootRodentia
   name: "right rodentia foot"
   parent: PartRodentia

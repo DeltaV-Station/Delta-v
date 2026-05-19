@@ -17,7 +17,6 @@
       - Trash
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseTorso ]
   id: TorsoVulpkanin
   name: "vulpkanin torso"
   parent: PartVulpkanin
@@ -33,7 +32,6 @@
     partType: Torso
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseHead ]
   id: HeadVulpkanin
   name: "vulpkanin head"
   parent: PartVulpkanin
@@ -57,7 +55,6 @@
       - Head
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseLeftArm ]
   id: LeftArmVulpkanin
   name: "left vulpkanin arm"
   parent: PartVulpkanin
@@ -74,7 +71,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseRightArm ]
   id: RightArmVulpkanin
   name: "right vulpkanin arm"
   parent: PartVulpkanin
@@ -91,7 +87,6 @@
     symmetry: Right
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseLeftHand ]
   id: LeftHandVulpkanin
   name: "left vulpkanin hand"
   parent: PartVulpkanin
@@ -108,7 +103,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseRightHand ]
   id: RightHandVulpkanin
   name: "right vulpkanin hand"
   parent: PartVulpkanin
@@ -125,7 +119,6 @@
     symmetry: Right
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseLeftLeg ]
   id: LeftLegVulpkanin
   name: "left vulpkanin leg"
   parent: PartVulpkanin
@@ -143,7 +136,6 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseRightLeg ]
   id: RightLegVulpkanin
   name: "right vulpkanin leg"
   parent: PartVulpkanin
@@ -161,7 +153,6 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseLeftFoot ]
   id: LeftFootVulpkanin
   name: "left vulpkanin foot"
   parent: PartVulpkanin
@@ -178,7 +169,6 @@
     symmetry: Left
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseRightFoot ]
   id: RightFootVulpkanin
   name: "right vulpkanin foot"
   parent: PartVulpkanin

@@ -4,10 +4,6 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
-using Content.Shared.Body.Systems; // Shitmed Change
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Robust.Shared.Random; // Shitmed Change
-
 namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
@@ -74,21 +70,12 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false,
-        // Shitmed Changes
-        bool canSever = true,
-        bool canEvade = false,
-        float partMultiplier = 0.5f,
-        TargetBodyPart? targetPart = null,
-        bool doPartDamage = true,
-        bool onlyDamageParts = false
-        // END Shitmed Changes
+        bool ignoreGlobalModifiers = false
     )
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers,
-            canSever: canSever, canEvade: canEvade, partMultiplier: partMultiplier, targetPart: targetPart, doPartDamage: doPartDamage, onlyDamageParts: onlyDamageParts); // Shitmed
+        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
     }
 
     /// <summary>
@@ -109,21 +96,12 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false,
-        // Shitmed Changes
-        bool canSever = true,
-        bool canEvade = false,
-        float partMultiplier = 0.5f,
-        TargetBodyPart? targetPart = null,
-        bool doPartDamage = true,
-        bool onlyDamageParts = false
-        // END Shitmed Changes
+        bool ignoreGlobalModifiers = false
     )
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers,
-            canSever: canSever, canEvade: canEvade, partMultiplier: partMultiplier, targetPart: targetPart, doPartDamage: doPartDamage, onlyDamageParts: onlyDamageParts); // Shitmed
+        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
         return !newDamage.Empty;
     }
 
@@ -149,7 +127,6 @@ public sealed partial class DamageableSystem
         bool canSever = true,
         bool canEvade = false,
         float partMultiplier = 0.5f,
-        TargetBodyPart? targetPart = null,
         bool doPartDamage = true,
         bool onlyDamageParts = false // DeltaV - Fix EvenHealing on Limbs && Standardize PartDamage.
         // END Shitmed Changes
@@ -171,17 +148,6 @@ public sealed partial class DamageableSystem
         if (before.Cancelled)
             return damageDone;
 
-        // Shitmed - Do Part Damage
-        if (doPartDamage) // DeltaV - Fix EvenHealing with Limbs.
-        {
-            var partDamage = new BeforePartDamageChangedEvent(damage, origin, targetPart, ignoreResistances, canSever, canEvade, partMultiplier); // DeltaV - Standardize PartDamage.
-            RaiseLocalEvent(ent.Owner, ref partDamage);
-
-            if (partDamage.Evaded || partDamage.Cancelled)
-                return damageDone;
-        }
-        // END Shitmed
-
         // Apply resistances
         if (!ignoreResistances)
         {
@@ -193,7 +159,7 @@ public sealed partial class DamageableSystem
 
             // TODO DAMAGE
             // byref struct event.
-            var ev = new DamageModifyEvent(damage, origin, targetPart: targetPart); // Shitmed - Add TargetPart
+            var ev = new DamageModifyEvent(damage, origin);
             RaiseLocalEvent(ent, ev);
             damage = ev.Damage;
 
@@ -244,12 +210,7 @@ public sealed partial class DamageableSystem
         Entity<DamageableComponent?> ent,
         FixedPoint2 amount,
         ProtoId<DamageGroupPrototype>? group = null,
-        EntityUid? origin = null,
-        // Begin DeltaV additions - Adapt to shitmed changes
-        TargetBodyPart? targetPart = null,
-        bool doPartDamage = true,
-        bool onlyDamageParts = false // Fix EvenHealing on Limbs && Standardize PartDamage.
-        // End DeltaV additions - Adapt to shitmed changes
+        EntityUid? origin = null
         )
     {
         var damageChange = new DamageSpecifier();
@@ -305,7 +266,7 @@ public sealed partial class DamageableSystem
             }
         }
 
-        return ChangeDamage(ent, damageChange, true, false, origin, targetPart: targetPart, doPartDamage: doPartDamage, onlyDamageParts: onlyDamageParts); // DeltaV - Adapt to shitmed
+        return ChangeDamage(ent, damageChange, true, false, origin); // DeltaV - Adapt to shitmed
     }
 
     /// <summary>
@@ -470,14 +431,6 @@ public sealed partial class DamageableSystem
         // Setting damage does not count as 'dealing' damage, even if it is set to a larger value, so we pass an
         // empty damage delta.
         OnEntityDamageChanged((ent, ent.Comp), new DamageSpecifier());
-
-        // Shitmed Change Start
-        if (HasComp<TargetingComponent>(ent.Owner))
-        {
-            foreach (var (part, _) in _body.GetBodyChildren(ent.Owner))
-                SetAllDamage(part, newValue);
-        }
-        // Shitmed Change End
     }
 
     /// <summary>

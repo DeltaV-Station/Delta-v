@@ -1,5 +1,6 @@
 ﻿using Content.Shared.MedicalScanner;
-using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
+using Content.Shared._DV.MedicalRecords;
+using JetBrains.Annotations; // DeltaV - Medical Records
 using Robust.Client.UserInterface;
 
 namespace Content.Client.HealthAnalyzer.UI

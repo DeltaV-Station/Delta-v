@@ -89,8 +89,7 @@ public abstract partial class SharedHandsSystem
         container.OccludesLight = false;
 
         ent.Comp.Hands.Add(handName, hand);
-        //ent.Comp.SortedHands.Add(handName); // Shitmed Change
-        AddToSortedHands(ent.Comp, handName, hand.Location); // Shitmed Change
+        ent.Comp.SortedHands.Add(handName);
         Dirty(ent);
 
         OnPlayerAddHand?.Invoke((ent, ent.Comp), handName, hand.Location);
