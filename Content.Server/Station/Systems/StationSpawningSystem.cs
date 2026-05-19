@@ -23,7 +23,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Server._EE.Silicon.IPC; // Goobstation
 
 namespace Content.Server.Station.Systems;
 
@@ -155,7 +154,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
-            _internalEncryption.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager); // Goobstation
         }
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
