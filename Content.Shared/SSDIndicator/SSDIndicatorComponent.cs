@@ -57,24 +57,49 @@ public sealed partial class SSDIndicatorComponent : Component
     public TimeSpan SsdSince = TimeSpan.Zero;
 
     /// <summary>
-    /// Whether or not the entity only became SSD recently.
+    /// Enum value indicating how long someone has bene gone and what icon should be displayed.
     /// </summary>
     [AutoNetworkedField]
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool IsRecent = true;
+    public SsdStage Stage = SsdStage.VeryRecent;
 
     /// <summary>
-    /// The time at which the Entity will no longer be considered recently SSD.
+    /// The time after which the Entity will be considered "second-stage" SSD (yellow).
+    /// They are unlikely to just be recovering from a crash, but haven't been away for that long.
+    /// If the time is less than this, they are considered "first-stage" SSD (red),
+    /// indicating that they probably crashed very recently.
     /// </summary>
     [AutoNetworkedField, AutoPausedField]
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NonRecentSsdTime = TimeSpan.Zero;
+    public TimeSpan RecentSsdTime = TimeSpan.Zero;
 
     /// <summary>
-    /// The icon displayed next to the associated entity when it only recently became SSD.
+    /// The time after which the Entity will no longer be considered recently SSD and players may cryo them.
+    /// </summary>
+    [AutoNetworkedField, AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan CryoableSsdTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// The icon displayed next to the associated entity when it is recently SSD (stage 2).
     /// </summary>
     [DataField]
-    public ProtoId<SsdIconPrototype> IconRecent = "RecentSSDIcon";
+    public ProtoId<SsdIconPrototype> RecentIcon = "RecentSSDIcon";
+
+    /// <summary>
+    /// The icon displayed next to the associated entity when it is very recently SSD (stage 1).
+    /// </summary>
+    [DataField]
+    public ProtoId<SsdIconPrototype> VeryRecentIcon = "VeryRecentSSDIcon";
 
     // DeltaV END
 }
+
+// DeltaV - SSD Recency START
+public enum SsdStage: byte
+{
+    VeryRecent, // Stage 1: SSD Indicator is red. They might just be recovering from a crash/timeout.
+    Recent, // Stage 2: SSD Indicator is yellow. They've been gone for a bit, but they shouldn't be moved to cryo yet.
+    Cryoable // Stage 3: SSD Indicator is green/default. They've been gone for a long time, they can be moved to cryo.
+}
+// DeltaV END

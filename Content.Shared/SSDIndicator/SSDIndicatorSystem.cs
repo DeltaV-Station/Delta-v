@@ -22,6 +22,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
     private bool _icSsdSleep;
     private float _icSsdSleepTime;
 
+    private float _cryoableSsdSeconds; // DeltaV
     private float _recentSsdSeconds; // DeltaV
 
     public override void Initialize()
@@ -32,10 +33,11 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
-        _cfg.OnValueChanged(DCCVars.SsdIndicatorRecentSeconds, OnRecentDurationChanged, true); // DeltaV - Recency
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorCryoableAfterSeconds, OnCryoableDurationChanged, true); // DeltaV - Recency
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorRecentAfterSeconds, OnRecentDurationChanged, true); // DeltaV - Recency
     }
 
-    // DeltaV - Add method START
+    // DeltaV - SSD Recency START
     private void OnRecentDurationChanged(float obj)
     {
         _recentSsdSeconds = obj;
@@ -46,8 +48,25 @@ public sealed class SSDIndicatorSystem : EntitySystem
             if (!ssd.IsSSD || TerminatingOrDeleted(entity))
                 continue;
 
-            ssd.IsRecent = true;
-            ssd.NonRecentSsdTime = ssd.SsdSince + TimeSpan.FromSeconds(_recentSsdSeconds);
+            ssd.RecentSsdTime = ssd.SsdSince + TimeSpan.FromSeconds(_recentSsdSeconds);
+            ssd.Stage = SsdStage.VeryRecent;
+
+            Dirty(entity, ssd);
+        }
+    }
+
+    private void OnCryoableDurationChanged(float obj)
+    {
+        _cryoableSsdSeconds = obj;
+
+        var query = EntityQueryEnumerator<SSDIndicatorComponent>();
+        while (query.MoveNext(out var entity, out var ssd))
+        {
+            if (!ssd.IsSSD || TerminatingOrDeleted(entity))
+                continue;
+
+            ssd.CryoableSsdTime = ssd.SsdSince + TimeSpan.FromSeconds(_cryoableSsdSeconds);
+            ssd.Stage = SsdStage.VeryRecent;
 
             Dirty(entity, ssd);
         }
@@ -80,8 +99,8 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
         // DeltaV - Recency START
         component.SsdSince = _timing.CurTime;
-        component.IsRecent = true;
-        component.NonRecentSsdTime = _timing.CurTime + TimeSpan.FromSeconds(_recentSsdSeconds);
+        component.RecentSsdTime = _timing.CurTime + TimeSpan.FromSeconds(_recentSsdSeconds);
+        component.CryoableSsdTime = _timing.CurTime + TimeSpan.FromSeconds(_cryoableSsdSeconds);
         // DeltaV END
 
         Dirty(uid, component);
@@ -120,8 +139,22 @@ public sealed class SSDIndicatorSystem : EntitySystem
                 continue;
 
             // DeltaV - Recency START
-            ssd.IsRecent = ssd.NonRecentSsdTime > curTime; // DeltaV
-            Dirty(uid, ssd);
+            if (ssd.Stage != SsdStage.Cryoable) // Avoid unnecessary dirtying once last stage reached.
+            {
+                if (ssd.CryoableSsdTime < curTime)
+                {
+                    ssd.Stage = SsdStage.Cryoable;
+                }
+                else if (ssd.RecentSsdTime < curTime)
+                {
+                    ssd.Stage = SsdStage.Recent;
+                }
+                else
+                {
+                    ssd.Stage = SsdStage.VeryRecent;
+                }
+                Dirty(uid, ssd);
+            }
 
             if (!_icSsdSleep || ssd.FallAsleepTime > curTime)
                 continue;

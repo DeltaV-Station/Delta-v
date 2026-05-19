@@ -310,9 +310,17 @@ public sealed partial class DCCVars
         CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// The time for which an SSD player is considered to be recently SSD, in seconds.
-    /// Default is 10 minutes.
+    /// The total time a player has to be SSD to be considered cryoable (stage 3).
+    /// Default is 20 minutes. Value should be bigger than <see cref="SsdIndicatorRecentAfterSeconds"/>.
     /// </summary>
-    public static readonly CVarDef<float> SsdIndicatorRecentSeconds =
-        CVarDef.Create("deltav.ssd.recent_seconds", 600f, CVar.SERVER);
+    public static readonly CVarDef<float> SsdIndicatorCryoableAfterSeconds =
+        CVarDef.Create("deltav.ssd.cryoable_after_seconds", 1200f, CVar.SERVER);
+
+    /// <summary>
+    /// The total time a player has to be SSD to be considered recently SSD (stage 2).
+    /// If the player has been SSD for less than this time, they are considered "very recently" SSD (stage 1).
+    /// Default is 5 minutes. Value should be smaller than <see cref="SsdIndicatorCryoableAfterSeconds"/>.
+    /// </summary>
+    public static readonly CVarDef<float> SsdIndicatorRecentAfterSeconds =
+        CVarDef.Create("deltav.ssd.recent_after_seconds", 300f, CVar.SERVER);
 }
