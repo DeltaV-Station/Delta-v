@@ -109,7 +109,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: Assistant
+      role: JobAssistant
       time: 36000 # 10hr
   storage:
     back:
@@ -122,7 +122,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: Chemist
+      role: JobChemist
       time: 36000 # 10hr
   storage:
     back:
