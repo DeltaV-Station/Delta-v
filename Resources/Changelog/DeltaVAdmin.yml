@@ -284,5 +284,19 @@ Entries:
   id: 31
   time: '2026-04-22T21:30:43.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5682
+- author: DisposableCrewmember42
+  changes:
+  - message: SSD Stripping alerts are now less spammy
+    type: Fix
+  - message: /lslaws no longer lists law board entities
+    type: Fix
+  - message: finishing to butcher monkeys/kobolds no longer alerts either
+    type: Tweak
+  - message: /lslwatchlisted now works properly. It will no longer display a partial/empty
+      list.
+    type: Fix
+  id: 32
+  time: '2026-05-19T10:00:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5618
 Name: DeltaVAdmin
 Order: 5

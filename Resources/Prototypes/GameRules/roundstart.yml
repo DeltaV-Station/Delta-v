@@ -32,6 +32,10 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -49,6 +53,10 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -62,6 +70,10 @@
       prob: 0.05
     - id: Replicator # DeltaV - Was 0.02, sounds like good odds now
       prob: 0.25 
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -73,6 +85,10 @@
       prob: 0.5
     - id: Replicator # DeltaV - Was 0.02, sounds like good odds now
       prob: 0.25 
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
