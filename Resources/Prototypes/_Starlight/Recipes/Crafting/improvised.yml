@@ -101,15 +101,16 @@
   objectType: Item
   description: crafting-menu-text-MB
 
-- type: construction
-  name: crafting-menu-name-IS
-  id: WeaponSubMachineGunImprovised
-  graph: ImprovisedSMGGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IS
+# DeltaV made it uncraftable
+#- type: construction
+#  name: crafting-menu-name-IS
+#  id: WeaponSubMachineGunImprovised
+#  graph: ImprovisedSMGGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IS
 
 # DeltaV made it uncraftable
 #- type: construction
