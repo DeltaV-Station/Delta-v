@@ -639,10 +639,13 @@ public abstract class SharedStrippableSystem : EntitySystem
             {
                 logImpact = LogImpact.High;
             }
-            // ... and living, and the user is not mindshielded, always alert.
+            // TODO: ... and living, and the user is not mindshielded, alert on recent SSD
+            // Previously this was setting it to Extreme always if not shielded, but that's going to lead to a lot of false positives.
+            // Set it to extreme again once SSD Recency is merged and it happened in the first stage.
             else if (!isUserShielded)
             {
-                logImpact = LogImpact.Extreme;
+                // logImpact = LogImpact.Extreme;
+                logImpact = LogImpact.High;
             }
         }
 
