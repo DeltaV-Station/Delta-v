@@ -4,7 +4,7 @@
 - type: entity
   save: false
   name: Urist McQueen
-  parent: PlayerSiliconHumanoidBase
+  parent: BaseSpeciesDummy
   id: BaseMobMotorkind
   abstract: true
   components:
@@ -169,7 +169,6 @@
       Unsexed: MaleMotorkind
   - type: Speech
     speechSounds: Alto
-  - type: EncryptionHolderRequiresLock
   - type: EncryptionKeyHolder
     keySlots: 4
     examineWhileLocked: false

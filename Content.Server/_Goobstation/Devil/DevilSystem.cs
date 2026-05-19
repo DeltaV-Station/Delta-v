@@ -54,7 +54,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Body.Part;
 using Content.Server.Bible.Components;
-using Content.Shared._EE.Silicon.Components;
 
 namespace Content.Server._Goobstation.Devil;
 
