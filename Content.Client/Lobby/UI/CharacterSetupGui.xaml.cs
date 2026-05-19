@@ -11,7 +11,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby.UI
@@ -23,10 +22,10 @@ namespace Content.Client.Lobby.UI
     public sealed partial class CharacterSetupGui : Control
     {
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
+        [Dependency] private readonly IEntityManager _entManager = default!;
         [Dependency] private readonly IPrototypeManager _protomanager = default!;
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
         private readonly Button _createNewCharacterButton;
 
@@ -97,8 +96,8 @@ namespace Content.Client.Lobby.UI
                     continue;
                 // End DeltaV
                 numberOfFullSlots++;
-                var characterPickerButton = new CharacterPickerButton(_protomanager,
-                    _playerManager,
+                var characterPickerButton = new CharacterPickerButton(_entManager,
+                    _protomanager,
                     characterButtonsGroup,
                     character,
                     slot == selectedSlot);

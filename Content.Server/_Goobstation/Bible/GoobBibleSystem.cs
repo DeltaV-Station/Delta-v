@@ -10,6 +10,7 @@ using Content.Server.Bible.Components;
 using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Exorcism;
 using Content.Shared._Goobstation.Religion;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -66,7 +67,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
             var popup = Loc.GetString("weaktoholy-component-bible-sizzle", ("target", target), ("item", bible));
             _popupSystem.PopupPredicted(popup, target, performer, PopupType.LargeCaution);
             _audio.PlayPvs(bibleComp.SizzleSoundPath, target);
-            _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible);
+            _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible, targetPart: TargetBodyPart.All);
             _stun.TryAddParalyzeDuration(target, bibleComp.SmiteStunDuration * multiplier);
             _delay.TryResetDelay((bible, useDelay));
         }

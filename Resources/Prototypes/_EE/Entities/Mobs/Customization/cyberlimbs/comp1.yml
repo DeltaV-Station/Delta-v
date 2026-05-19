@@ -1,7 +1,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1LArm
   bodyPart: LArm
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Arms
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: l_arm-primary
@@ -13,7 +14,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1LHand
   bodyPart: LHand
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Arms
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: l_hand
@@ -21,7 +23,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1LLeg
   bodyPart: LLeg
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Legs
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: l_leg-primary
@@ -32,7 +35,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1LFoot
   bodyPart: LFoot
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Legs
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: l_foot
@@ -42,7 +46,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1RArm
   bodyPart: RArm
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Arms
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: r_arm-primary
@@ -55,7 +60,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1RHand
   bodyPart: RHand
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Arms
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: r_hand
@@ -63,7 +69,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1RLeg
   bodyPart: RLeg
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Legs
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: r_leg-primary
@@ -74,7 +81,8 @@
 - type: marking
   id: CyberLimbsMarkingComp1RFoot
   bodyPart: RFoot
-  groupWhitelist: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
+  markingCategory: Legs
+  speciesRestriction: [Moth, Human, Arachnid, Felinid, Oni, Vulpkanin, Reptilian, Rodentia, Feroxi, Kitsune] # DeltaV - Feroxi, Kitsune
   sprites:
   - sprite: _EE/Mobs/Customization/cyberlimbs/comp1/comp1_main.rsi
     state: r_foot

@@ -4,7 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Mono.CorticalBorer;
-using Content.Shared.Body; // Delta V - Nubody Merge
+using Content.Shared._Shitmed.Body.Events;
+using Content.Shared.Body.Part;
 using Content.Shared.Examine;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -26,7 +27,7 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, ExaminedEvent>(OnExaminedInfested);
 
-        SubscribeLocalEvent<CorticalBorerInfestedComponent, OrganGotRemovedEvent>(OnBodyPartRemoved); // Delta V - Nubody Merge
+        SubscribeLocalEvent<CorticalBorerInfestedComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MobStateChangedEvent>(OnStateChange);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MindRemovedMessage>(OnMindRemoved);
     }
@@ -64,10 +65,14 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
             _borer.EndControl(infected.Comp.Borer);
     }
 
-    private void OnBodyPartRemoved(Entity<CorticalBorerInfestedComponent> infected, ref OrganGotRemovedEvent args /* Delta V - Nubody */)
+    private void OnBodyPartRemoved(Entity<CorticalBorerInfestedComponent> infected, ref BodyPartRemovedEvent args)
     {
-        _borer.EndControl(infected.Comp.Borer);
-        _borer.TryEjectBorer(infected.Comp.Borer);
+        if (TryComp<BodyPartComponent>(args.Part, out var part) &&
+            part.PartType == BodyPartType.Head)
+        {
+            _borer.EndControl(infected.Comp.Borer);
+            _borer.TryEjectBorer(infected.Comp.Borer);
+        }
     }
 
     private void OnMindRemoved(Entity<CorticalBorerInfestedComponent> infected, ref MindRemovedMessage args)

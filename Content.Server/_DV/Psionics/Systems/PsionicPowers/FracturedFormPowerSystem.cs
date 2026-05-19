@@ -6,7 +6,7 @@ using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared._DV.Species;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Body;
+using Content.Shared.Body.Components;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;

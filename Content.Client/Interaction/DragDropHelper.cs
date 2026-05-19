@@ -70,6 +70,7 @@ public sealed class DragDropHelper<T>
         _onBeginDrag = onBeginDrag;
         _onEndDrag = onEndDrag;
         _onContinueDrag = onContinueDrag;
+        _cfg.OnValueChanged(CCVars.DragDropDeadZone, SetDeadZone, true);
     }
 
     /// <summary>
@@ -89,7 +90,6 @@ public sealed class DragDropHelper<T>
         Dragged = target;
         _state = DragState.MouseDown;
         _mouseDownScreenPos = _inputManager.MouseScreenPosition;
-        _deadzone = _cfg.GetCVar(CCVars.DragDropDeadZone);
     }
 
     /// <summary>
@@ -97,9 +97,9 @@ public sealed class DragDropHelper<T>
     /// </summary>
     public void EndDrag()
     {
+        Dragged = default;
         _state = DragState.NotDragging;
         _onEndDrag.Invoke();
-        Dragged = default;
     }
 
     private void StartDragging()
@@ -142,6 +142,11 @@ public sealed class DragDropHelper<T>
                 break;
             }
         }
+    }
+
+    private void SetDeadZone(float value)
+    {
+        _deadzone = value;
     }
 }
 

@@ -1,10 +1,11 @@
 # These options are kept very sparse to not put emphasis on nudity, and to provide a base for players to feel comfortable with.
-# It's unlikely more will be added to upstream for cosmetic reasons.
+# It's unlikely more will be added to upstream for cosmetic reasons. 
 
 - type: marking
   id: UndergarmentBottomBoxers
   bodyPart: UndergarmentBottom
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentBottom
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -16,7 +17,8 @@
 - type: marking
   id: UndergarmentBottomBriefs
   bodyPart: UndergarmentBottom
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentBottom
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -28,7 +30,8 @@
 - type: marking
   id: UndergarmentBottomSatin
   bodyPart: UndergarmentBottom
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentBottom
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -40,7 +43,8 @@
 - type: marking
   id: UndergarmentTopBra
   bodyPart: UndergarmentTop
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -52,7 +56,8 @@
 - type: marking
   id: UndergarmentTopSportsbra
   bodyPart: UndergarmentTop
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -64,7 +69,8 @@
 - type: marking
   id: UndergarmentTopBinder
   bodyPart: UndergarmentTop
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -76,7 +82,8 @@
 - type: marking
   id: UndergarmentTopTanktop
   bodyPart: UndergarmentTop
-  groupWhitelist: null # DeltaV - removed restrictions
+  markingCategory: UndergarmentTop
+  speciesRestriction: null # DeltaV - removed restrictions
   coloring:
     default:
       type: null
@@ -88,7 +95,8 @@
 - type: marking
   id: UndergarmentBottomBoxersVox # Voxers.
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -100,7 +108,8 @@
 - type: marking
   id: UndergarmentBottomBriefsVox
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -112,7 +121,8 @@
 - type: marking
   id: UndergarmentBottomSatinVox
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -124,7 +134,8 @@
 - type: marking
   id: UndergarmentTopBraVox
   bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -136,7 +147,8 @@
 - type: marking
   id: UndergarmentTopSportsbraVox
   bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -148,7 +160,8 @@
 - type: marking
   id: UndergarmentTopBinderVox
   bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -160,7 +173,8 @@
 - type: marking
   id: UndergarmentTopTanktopVox
   bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
   coloring:
     default:
       type: null
@@ -172,7 +186,8 @@
 - type: marking
   id: UndergarmentBottomBoxersReptilian
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Reptilian]
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
   coloring:
     default:
       type: null
@@ -184,7 +199,8 @@
 - type: marking
   id: UndergarmentBottomBriefsReptilian
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Reptilian]
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
   coloring:
     default:
       type: null
@@ -196,7 +212,8 @@
 - type: marking
   id: UndergarmentBottomSatinReptilian
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Reptilian]
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
   coloring:
     default:
       type: null
@@ -204,88 +221,3 @@
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: satin_reptilian
-
-# Delta V - We ain't got the files
-#- type: marking
-#  id: UndergarmentBottomBoxersVulpkanin
-#  bodyPart: UndergarmentBottom
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: boxers_vulpkanin
-#
-#- type: marking
-#  id: UndergarmentBottomBriefsVulpkanin
-#  bodyPart: UndergarmentBottom
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: briefs_vulpkanin
-#
-#- type: marking
-#  id: UndergarmentBottomSatinVulpkanin
-#  bodyPart: UndergarmentBottom
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: satin_vulpkanin
-#
-#- type: marking
-#  id: UndergarmentTopBraVulpkanin
-#  bodyPart: UndergarmentTop
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: classic_vulpkanin
-#
-#- type: marking
-#  id: UndergarmentTopSportsbraVulpkanin
-#  bodyPart: UndergarmentTop
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: sports_vulpkanin
-#
-#- type: marking
-#  id: UndergarmentTopBinderVulpkanin
-#  bodyPart: UndergarmentTop
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: binder_vulpkanin
-#
-#- type: marking
-#  id: UndergarmentTopTanktopVulpkanin
-#  bodyPart: UndergarmentTop
-#  groupWhitelist: [Vulpkanin]
-#  coloring:
-#    default:
-#      type: null
-#      fallbackColor: '#FFFFFF'
-#  sprites:
-#  - sprite: Mobs/Customization/undergarments.rsi
-#    state: tanktop_vulpkanin

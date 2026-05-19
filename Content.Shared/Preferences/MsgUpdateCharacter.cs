@@ -13,7 +13,7 @@ namespace Content.Shared.Preferences
         public override MsgGroups MsgGroup => MsgGroups.Command;
 
         public int Slot;
-        public HumanoidCharacterProfile Profile = default!;
+        public ICharacterProfile Profile = default!;
 
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
         {
@@ -21,7 +21,7 @@ namespace Content.Shared.Preferences
             var length = buffer.ReadVariableInt32();
             using var stream = new MemoryStream(length);
             buffer.ReadAlignedMemory(stream, length);
-            Profile = serializer.Deserialize<HumanoidCharacterProfile>(stream);
+            Profile = serializer.Deserialize<ICharacterProfile>(stream);
         }
 
         public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)

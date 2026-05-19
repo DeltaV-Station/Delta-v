@@ -1,0 +1,64 @@
+- type: entity
+  parent: LeftArmCyberneticBase
+  id: ForcewallLeftArm
+  name: FWL left arm
+  description: A prosthetic arm made by blending advanced cybernetics and powerful psionics. This one grants the use of the ability forcewall.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: ActionGrant
+      actions:
+      - ActionForceWall
+    - type: Psionic
+
+- type: entity
+  parent: LeftArmCyberneticBase
+  id: RecallLeftArm
+  name: RCL left arm
+  description: A prosthetic arm made by blending advanced cybernetics and powerful psionics. This one grants the use of the ability Recall.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: ActionGrant
+      actions:
+      - ActionItemRecall
+    - type: Psionic
+
+- type: entity
+  parent: LeftArmCyberneticBase
+  id: DispelLeftArm
+  name: DSP left arm
+  description: A prosthetic arm made by blending advanced cybernetics and powerful psionics. This one grants the use of the ability Dispel.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: ActionGrant
+      actions:
+      - ActionDispel
+    - type: Psionic
+
+- type: entity
+  parent: LeftArmCyberneticBase
+  id: PyroLeftArm
+  name: BRN left arm
+  description: A prosthetic arm made by blending advanced cybernetics and powerful psionics. This one grants the use of the ability Pyrokinesis.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: ActionGrant
+      actions:
+      - ActionPyrokinesis
+    - type: Psionic
+
+- type: entity
+  parent: LeftArmCyberneticBase
+  id: ZapLeftArm
+  name: ZAP left arm
+  description: A prosthetic arm made by blending advanced cybernetics and powerful psionics. This one grants the use of the ability Noospheric Zap.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: ActionGrant
+      actions:
+      - ActionNoosphericZap
+    - type: Psionic

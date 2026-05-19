@@ -228,7 +228,7 @@
     implantAction: ActionActivateDnaScramblerImplant
     whitelist:
       components:
-      - HumanoidProfile # syndies cant turn hamlet into a human
+      - HumanoidAppearance # syndies cant turn hamlet into a human
   - type: TriggerOnActivateImplant
   - type: DnaScrambleOnTrigger
     targetUser: true

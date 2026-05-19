@@ -19,6 +19,7 @@ using Content.Server.Actions;
 using Content.Shared.Administration.Systems;
 using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Destructible;
 using Content.Server.Hands.Systems;
 using Content.Server.Jittering;
@@ -31,6 +32,7 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Shared.Zombies;
 using Content.Shared._Lavaland.Chasm;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
@@ -50,10 +52,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Part;
 using Content.Server.Bible.Components;
-using Content.Server.Body.Components; // Delta V - Nubody Merge
 using Content.Shared._EE.Silicon.Components;
-using Content.Shared.Body; // Delta V - Nubody Merge
 
 namespace Content.Server._Goobstation.Devil;
 
@@ -109,10 +110,10 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<TemperatureSpeedComponent>(devil);
         RemComp<CondemnedComponent>(devil);
         RemComp<DestructibleComponent>(devil);
-        RemComp<RespiratorComponent>(devil); // Delta V - Remove Respirator since no more BreathingImmunity
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
+        EnsureComp<BreathingImmunityComponent>(devil);
         EnsureComp<PressureImmunityComponent>(devil);
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
@@ -128,6 +129,16 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         _damageable.SetDamageModifierSetId(devil.Owner, devil.Comp.DevilDamageModifierSet);
+
+        // No decapitating the devil
+        foreach (var part in _body.GetBodyChildren(devil))
+        {
+            if (!TryComp(part.Id, out BodyPartComponent? woundable)) // DeltaV - Use Bodypart instead of woundable.
+                continue;
+
+            woundable.CanSever = false; // DeltaV - Use bodypart instead of Woundable
+            Dirty(part.Id, woundable);
+        }
 
         // Add base actions
         foreach (var actionId in devil.Comp.BaseDevilActions)

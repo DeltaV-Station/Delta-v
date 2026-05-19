@@ -1,6 +1,14 @@
 using System.Linq;
+using Content.Shared.EntityEffects;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.EntityConditions;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Localization;
 
 namespace Content.Shared._DV.EntityConditions.Conditions;
 
@@ -11,10 +19,13 @@ namespace Content.Shared._DV.EntityConditions.Conditions;
 public sealed partial class HasComponentsConditionSystem : EntityConditionSystem<MetaDataComponent, HasComponentCondition>
 {
     [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HasComponentCondition> args)
     {
-        var targetEntity = entity.Owner;
+        var targetEntity = args.Condition.BodyPart is { } bodyPart
+                ? _body.GetBodyChildrenOfType(entity.Owner, bodyPart, symmetry: args.Condition.BodyPartSymmetry).Select(it => it.Id).FirstOrDefault()
+                : entity.Owner;
 
         if (!targetEntity.IsValid())
         {
@@ -57,6 +68,18 @@ public sealed partial class HasComponentCondition : EntityConditionBase<HasCompo
     /// </summary>
     [DataField(required: true)]
     public LocId Explanation;
+
+    /// <summary>
+    ///     The body part of the entity to test for the components
+    /// </summary>
+    [DataField]
+    public BodyPartType? BodyPart;
+
+    /// <summary>
+    ///     The side of the entity's body to test for the components
+    /// </summary>
+    [DataField]
+    public BodyPartSymmetry? BodyPartSymmetry;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype) => Loc.GetString(Explanation);
 }

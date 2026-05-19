@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseCyberneticEyes
+  id: OrganAsakimEyes
+  name: asakim eyes
+  components:
+  - type: Organ
+    onAdd:
+    - type: NightVision
+      isEquipment: false
+      color: "#ae65bf"
+      activateSound: null
+      deactivateSound: null

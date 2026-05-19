@@ -16,6 +16,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Shared.Clumsy;
 
@@ -199,7 +200,7 @@ public sealed class ClumsySystem : EntitySystem
         {
             stunTime = bonkComp.BonkTime;
             if (bonkComp.BonkDamage != null)
-                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true);
+                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true, targetPart: TargetBodyPart.Head); // Shitmed Change
         }
 
         _stun.TryUpdateParalyzeDuration(target, stunTime);

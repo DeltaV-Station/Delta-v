@@ -3,7 +3,8 @@
 - type: marking
   id: bubble
   bodyPart: Chest
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
   sprites:
   - sprite: _Starlight/Mobs/Customization/SlimePerson/chest.rsi
     state: bubble
@@ -11,7 +12,8 @@
 - type: marking
   id: fishbowl
   bodyPart: Chest
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
   sprites:
   - sprite: _Starlight/Mobs/Customization/SlimePerson/chest.rsi
     state: fishbowl1
@@ -21,7 +23,8 @@
 - type: marking
   id: SlimeBonechest
   bodyPart: Chest
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -34,7 +37,9 @@
 - type: marking
   id: SlimeCore
   bodyPart: Chest
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  followSkinColor: false
   coloring:
     default:
       type:
@@ -46,7 +51,9 @@
 - type: marking
   id: SlimeLungs
   bodyPart: Chest
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  followSkinColor: true
   sprites:
   - sprite: _Starlight/Mobs/Customization/SlimePerson/chest.rsi
     state: lungs
@@ -56,7 +63,8 @@
 - type: marking
   id: FadingStars
   bodyPart: Head
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
   sprites:
   - sprite: _Starlight/Mobs/Customization/SlimePerson/head.rsi
     state: fadingstars1
@@ -68,7 +76,8 @@
 - type: marking
   id: fizz
   bodyPart: Head
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
   sprites:
   - sprite: _Starlight/Mobs/Customization/SlimePerson/head.rsi
     state: fizz
@@ -76,7 +85,8 @@
 - type: marking
   id: SlimeBonehead
   bodyPart: Head
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -89,7 +99,9 @@
 - type: marking
   id: SlimeBrain
   bodyPart: Head
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
+  followSkinColor: true
   sprites:
   - sprite: _Starlight/Mobs/Customization/SlimePerson/head.rsi
     state: brain
@@ -103,7 +115,8 @@
 - type: marking
   id: SlimeBonearmright
   bodyPart: RArm
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Arms
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -118,7 +131,8 @@
 - type: marking
   id: SlimeBonearmleft
   bodyPart: LArm
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Arms
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -133,7 +147,8 @@
 - type: marking
   id: SlimeBonelegright
   bodyPart: RLeg
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Legs
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -148,7 +163,8 @@
 - type: marking
   id: SlimeBonelegleft
   bodyPart: LLeg
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Legs
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -167,7 +183,8 @@
 - type: marking
   id: SlimeBonefootleft
   bodyPart: LFoot
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Legs
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -182,7 +199,8 @@
 - type: marking
   id: SlimeBonefootright
   bodyPart: RFoot
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Legs
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -197,7 +215,8 @@
 - type: marking
   id: SlimeBonehandleft
   bodyPart: LHand
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Arms
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:
@@ -212,7 +231,8 @@
 - type: marking
   id: SlimeBonehandright
   bodyPart: RHand
-  groupWhitelist: [ Slime ] # Delta V - Renamed to Slime for convenience
+  markingCategory: Arms
+  speciesRestriction: [ SlimePerson ]
   coloring:
     default:
       type:

@@ -6,6 +6,7 @@
   components:
   - type: Damageable
     damageContainer: Biological
+  - type: BodyPart
   - type: ContainerContainer
     containers:
       bodypart: !type:Container
@@ -34,6 +35,9 @@
   - type: Icon
     sprite: Objects/Consumable/Food/meat.rsi
     state: spiderleg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
   - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
     walkSpeed : 2.7
     sprintSpeed : 5
@@ -49,6 +53,9 @@
   - type: Icon
     sprite: Objects/Consumable/Food/meat.rsi
     state: spiderleg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
   - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
     walkSpeed : 2.7
     sprintSpeed : 5

@@ -66,6 +66,7 @@
     solution: soap
   - type: BadFood
   - type: CleansForensics
+  - type: SurgeryCleansDirt # DeltaV - surgery cross contamination
   - type: Residue
     residueAdjective: residue-slippery
 
@@ -146,6 +147,8 @@
       - punishment
   - type: CleansForensics
     cleanDelay: 8.0
+  - type: SurgeryCleansDirt # DeltaV - evil soap is fast
+    cleanDelay: 2
   - type: Residue
     residueColor: residue-red
   - type: StaticPrice
@@ -251,5 +254,7 @@
         reagents:
         - ReagentId: SoapReagent
           Quantity: 240
+  - type: SurgeryCleansDirt # DeltaV - omega soap is fast
+    cleanDelay: 2
   - type: Residue
     residueColor: residue-blue

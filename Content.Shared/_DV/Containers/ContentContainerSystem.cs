@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Shared._DV.Polymorph;
-using Content.Shared.Body;
+using Content.Shared.Body.Organ;
 using Content.Shared.Intellicard;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;

@@ -1,7 +1,8 @@
 - type: marking
   id: OniTwoToedFeet
   bodyPart: RFoot # Can't be LFoot to avoid visual glitches
-  groupWhitelist: [Oni]
+  markingCategory: Legs
+  speciesRestriction: [Oni]
   coloring:
     default:
       type:

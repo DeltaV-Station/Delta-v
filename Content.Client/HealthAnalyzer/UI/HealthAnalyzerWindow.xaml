@@ -3,7 +3,7 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:ui="clr-namespace:Content.Client.HealthAnalyzer.UI"
     MaxHeight="525"
-    MinWidth="350"> <!-- Delta V - Triage size -->
+    MinWidth="350"> <!-- Shitmed Change -->
     <ScrollContainer
         Margin="5 5 5 5"
         ReturnMeasure="True"
@@ -11,6 +11,6 @@
 
         <ui:HealthAnalyzerControl
             Name="HealthAnalyzer"
-            Access="Public" /> <!-- DeltaV Change - Make Public-->
+            Access="Public" /> <!-- DeltaV / Shitmed Change - Make Public-->
     </ScrollContainer>
 </controls:FancyWindow>
