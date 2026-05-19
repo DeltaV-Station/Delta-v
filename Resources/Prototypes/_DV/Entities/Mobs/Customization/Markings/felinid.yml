@@ -1,7 +1,8 @@
 - type: marking
   id: FelinidFluffyTailRings
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
@@ -11,7 +12,8 @@
 - type: marking
   id: FelinidFluffyTail
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
@@ -19,7 +21,8 @@
 - type: marking
   id: FelinidAlternativeTail
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
     - sprite: _DV/Mobs/Customization/Felinid/alternative_tail.rsi
       state: m_waggingtail_cat_FRONT
@@ -27,7 +30,8 @@
 - type: marking
   id: FelinidTiger
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
     - sprite: _DV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_primary
@@ -39,7 +43,8 @@
 - type: marking
   id: FurredLeftArm
   bodyPart: LArm
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Arms
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_l_arm
@@ -47,7 +52,8 @@
 - type: marking
   id: FurredRightArm
   bodyPart: RArm
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Arms
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_r_arm
@@ -55,7 +61,8 @@
 - type: marking
   id: FurredLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Legs
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_l_leg
@@ -63,7 +70,8 @@
 - type: marking
   id: FurredRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Legs
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_r_leg
@@ -71,7 +79,8 @@
 - type: marking
   id: FurredLeftFoot
   bodyPart: LFoot
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Legs
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_l_foot
@@ -79,7 +88,8 @@
 - type: marking
   id: FurredRightFoot
   bodyPart: RFoot
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Legs
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_r_foot
@@ -87,7 +97,8 @@
 - type: marking
   id: FurredLeftHand
   bodyPart: LHand
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Arms
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_l_hand
@@ -95,7 +106,8 @@
 - type: marking
   id: FurredRightHand
   bodyPart: RHand
-  groupWhitelist: [Felinid, Kitsune]
+  markingCategory: Arms
+  speciesRestriction: [Felinid, Kitsune]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_r_hand

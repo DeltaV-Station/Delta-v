@@ -1,4 +1,4 @@
-namespace Content.Shared.Humanoid.Markings.ColoringTypes;
+namespace Content.Shared.Humanoid.Markings;
 
 /// <summary>
 ///     Colors layer in a specified color
@@ -8,7 +8,7 @@ public sealed partial class SimpleColoring : LayerColoringType
     [DataField("color", required: true)]
     public Color Color = Color.White;
 
-    public override Color? GetCleanColor(Color? skin, Color? eyes, List<Marking> otherMarkings)
+    public override Color? GetCleanColor(Color? skin, Color? eyes, MarkingSet markingSet)
     {
         return Color;
     }

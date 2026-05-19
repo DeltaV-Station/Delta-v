@@ -17,6 +17,10 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using System.Linq;
+
 namespace Content.Shared.Medical.Healing;
 
 public sealed class HealingSystem : EntitySystem
@@ -24,6 +28,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedTargetingSystem _targetingSystem = default!; // Shitmed Change
     [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedStackSystem _stacks = default!;
@@ -31,6 +36,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
 
     public override void Initialize()
     {
@@ -77,7 +83,7 @@ public sealed class HealingSystem : EntitySystem
         if (healing.ModifyBloodLevel != 0 && bloodstream != null)
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
-        if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User, canSever: false) && healing.BloodlossModifier != 0) // Shitmed Change
             return;
 
         var total = healed.GetTotal();
@@ -110,7 +116,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = HasDamage((args.Used.Value, healing), target) && !dontRepeat;
+        args.Repeat = (HasDamage((args.Used.Value, healing), target) || IsPartDamaged(args.User, target)) && !dontRepeat; // Shitmed Change
         args.Handled = true;
 
         if (!args.Repeat)
@@ -156,6 +162,23 @@ public sealed class HealingSystem : EntitySystem
         return false;
     }
 
+    // Shitmed Change Start
+    private bool IsPartDamaged(EntityUid user, EntityUid target)
+    {
+        if (!TryComp(user, out TargetingComponent? targeting))
+            return false;
+
+        var (targetType, targetSymmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
+        foreach (var part in _bodySystem.GetBodyChildrenOfType(target, targetType, symmetry: targetSymmetry))
+            if (TryComp<DamageableComponent>(part.Id, out var damageable)
+                && damageable.TotalDamage > part.Component.MinIntegrity)
+                return true;
+
+        return false;
+    }
+
+    // Shitmed Change End
+
     private void OnHealingUse(Entity<HealingComponent> healing, ref UseInHandEvent args)
     {
         if (args.Handled)
@@ -192,7 +215,8 @@ public sealed class HealingSystem : EntitySystem
         if (TryComp<StackComponent>(healing, out var stack) && stack.Count < 1)
             return false;
 
-        if (!HasDamage(healing, target!))
+        //if (!HasDamage((target, targetDamage), component) && !IsPartDamaged(user, target)) // Shitmed Change
+        if (!HasDamage(healing, target!) && !IsPartDamaged(user, target.Owner)) // Shitmed Change
         {
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;

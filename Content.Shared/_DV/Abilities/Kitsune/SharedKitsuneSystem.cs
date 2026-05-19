@@ -1,10 +1,8 @@
 using Content.Shared._DV.Humanoid;
 using Content.Shared.Actions;
-using Content.Shared.Body;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Popups;
 using Content.Shared.Zombies;
 
@@ -17,8 +15,6 @@ public abstract class SharedKitsuneSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly MarkingManager _markingManager = default!;
 
     public override void Initialize()
     {
@@ -35,12 +31,11 @@ public abstract class SharedKitsuneSystem : EntitySystem
     private void OnProfileLoadFinished(Entity<KitsuneComponent> ent, ref AppearanceLoadedEvent args)
     {
         // Eye color is stored on component to be used for fox fire/fox form color.
-        if (TryComp<HumanoidProfileComponent>(ent, out var humanComp))
+        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanComp))
         {
-            // TODO: Re-add Colored Fire once I figure out how to get Eyescolor...
-            // Apparently all organs have eyecolor, based on OrganProfileData, just need that.
+            ent.Comp.Color = humanComp.EyeColor;
 
-            var lightColor = Color.White;
+            var lightColor = ent.Comp.Color.Value;
             var max = MathF.Max(lightColor.R, MathF.Max(lightColor.G, lightColor.B));
             // Don't let it divide by 0
             if (max == 0)

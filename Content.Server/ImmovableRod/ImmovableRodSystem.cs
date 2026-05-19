@@ -1,7 +1,8 @@
+using Content.Server.Body.Systems;
 using Content.Server.Destructible;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
-using Content.Shared.Body;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Gibbing;
@@ -111,7 +112,7 @@ public sealed class ImmovableRodSystem : EntitySystem
         }
 
         // gib or damage em
-        if (HasComp<BodyComponent>(ent))
+        if (TryComp<BodyComponent>(ent, out var body))
         {
             component.MobCount++;
             _popup.PopupEntity(Loc.GetString("immovable-rod-penetrated-mob", ("rod", uid), ("mob", ent)), uid, PopupType.LargeCaution);

@@ -20,7 +20,7 @@ public sealed partial class ItemStatusPanel : Control
     [ViewVariables] private Hand? _hand;
 
     // Tracked so we can re-run SetSide() if the theme changes.
-    private HandLocation _side;
+    private HandUILocation _side;
 
     public ItemStatusPanel()
     {
@@ -28,7 +28,7 @@ public sealed partial class ItemStatusPanel : Control
         IoCManager.InjectDependencies(this);
     }
 
-    public void SetSide(HandLocation location)
+    public void SetSide(HandUILocation location)
     {
         // AN IMPORTANT REMINDER ABOUT THIS CODE:
         // In the UI, the RIGHT hand is on the LEFT on the screen.
@@ -43,14 +43,14 @@ public sealed partial class ItemStatusPanel : Control
 
         switch (location)
         {
-            case HandLocation.Right or HandLocation.Middle:
+            case HandUILocation.Right:
                 texture = Theme.ResolveTexture("item_status_right");
                 textureHighlight = Theme.ResolveTexture("item_status_right_highlight");
                 cutOut = StyleBox.Margin.Left;
                 flat = StyleBox.Margin.Right;
                 contentMargin = MarginFromThemeColor("_itemstatus_content_margin_right");
                 break;
-            case HandLocation.Left:
+            case HandUILocation.Left:
                 texture = Theme.ResolveTexture("item_status_left");
                 textureHighlight = Theme.ResolveTexture("item_status_left_highlight");
                 cutOut = StyleBox.Margin.Right;

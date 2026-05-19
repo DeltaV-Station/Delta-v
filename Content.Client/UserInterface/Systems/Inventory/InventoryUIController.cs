@@ -147,7 +147,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             if (!container.TryGetButton(data.SlotName, out var button))
             {
                 button = CreateSlotButton(data);
-                container.TryAddButton(button);
+                container.AddButton(button);
             }
 
             var showStorage = _entities.HasComponent<StorageComponent>(data.HeldEntity);
@@ -373,7 +373,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             return;
 
         var button = CreateSlotButton(data);
-        slotGroup.TryAddButton(button);
+        slotGroup.AddButton(button);
     }
 
     private void RemoveSlot(SlotData data)
@@ -381,7 +381,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
         if (!_slotGroups.TryGetValue(data.SlotGroup, out var slotGroup))
             return;
 
-        slotGroup.TryRemoveButton(data.SlotName, out _);
+        slotGroup.RemoveButton(data.SlotName);
     }
 
     public void ReloadSlots()

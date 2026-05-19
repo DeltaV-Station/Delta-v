@@ -14,36 +14,54 @@ public interface IItemslotUIContainer
 [Virtual]
 public abstract class ItemSlotUIContainer<T> : GridContainer, IItemslotUIContainer where T : SlotControl
 {
-    private readonly Dictionary<string, T> _buttons = new();
+    protected readonly Dictionary<string, T> Buttons = new();
 
-    public int? MaxColumns { get; set; }
+    private int? _maxColumns;
 
-    public virtual void ClearButtons()
+    public int? MaxColumns
     {
-        foreach (var button in _buttons.Values)
+        get => _maxColumns;
+        set => _maxColumns = value;
+    }
+
+    public virtual bool TryAddButton(T newButton, out T button)
+    {
+        var tempButton = AddButton(newButton);
+        if (tempButton == null)
         {
-            button.Orphan();
+            button = newButton;
+            return false;
         }
 
-        _buttons.Clear();
+        button = newButton;
+        return true;
+    }
+
+    public void ClearButtons()
+    {
+        foreach (var button in Buttons.Values)
+        {
+            button.Dispose();
+        }
+
+        Buttons.Clear();
     }
 
     public bool TryRegisterButton(SlotControl control, string newSlotName)
     {
         if (newSlotName == "")
             return false;
-        if (control is not T slotButton)
+        if (!(control is T slotButton))
             return false;
-
-        if (_buttons.TryGetValue(newSlotName, out var foundButton))
+        if (Buttons.TryGetValue(newSlotName, out var foundButton))
         {
             if (control == foundButton)
                 return true; //if the slotName is already set do nothing
             throw new Exception("Could not update button to slot:" + newSlotName + " slot already assigned!");
         }
 
-        _buttons.Remove(slotButton.SlotName);
-        TryAddButton(slotButton);
+        Buttons.Remove(slotButton.SlotName);
+        AddButton(slotButton);
         return true;
     }
 
@@ -51,54 +69,69 @@ public abstract class ItemSlotUIContainer<T> : GridContainer, IItemslotUIContain
     {
         if (control is not T newButton)
             return false;
-        return TryAddButton(newButton) != null;
+        return AddButton(newButton) != null;
     }
 
-    public T? TryAddButton(T newButton)
+    public virtual T? AddButton(T newButton)
+    {
+        if (!Children.Contains(newButton) && newButton.Parent == null && newButton.SlotName != "")
+            AddChild(newButton);
+        Columns = _maxColumns ?? ChildCount;
+        return AddButtonToDict(newButton);
+    }
+
+    protected virtual T? AddButtonToDict(T newButton)
     {
         if (newButton.SlotName == "")
         {
-            Log.Warning($"{newButton.Name} because it has no slot name");
-            return null;
+            Logger.Warning("Could not add button " + newButton.Name + "No slotname");
         }
 
-        if (Children.Contains(newButton) || newButton.Parent != null)
-            return null;
-
-        if (!_buttons.TryAdd(newButton.SlotName, newButton))
-            return null;
-
-        AddButton(newButton);
-        return newButton;
+        return !Buttons.TryAdd(newButton.SlotName, newButton) ? null : newButton;
     }
 
-    protected virtual void AddButton(T newButton)
+    public virtual void RemoveButton(string slotName)
     {
-        AddChild(newButton);
-        Columns = MaxColumns ?? ChildCount;
-    }
-
-    public bool TryRemoveButton(string slotName, [NotNullWhen(true)] out T? button)
-    {
-        if (!_buttons.TryGetValue(slotName, out button))
-            return false;
-
-        _buttons.Remove(button.SlotName);
+        if (!Buttons.TryGetValue(slotName, out var button))
+            return;
         RemoveButton(button);
-        return true;
     }
 
-    protected virtual void RemoveButton(T button)
+    public virtual void RemoveButtons(params string[] slotNames)
     {
+        foreach (var slotName in slotNames)
+        {
+            RemoveButton(slotName);
+        }
+    }
+
+    public virtual void RemoveButtons(params T?[] buttons)
+    {
+        foreach (var button in buttons)
+        {
+            if (button != null)
+                RemoveButton(button);
+        }
+    }
+
+    protected virtual void RemoveButtonFromDict(T button)
+    {
+        Buttons.Remove(button.SlotName);
+    }
+
+    public virtual void RemoveButton(T button)
+    {
+        RemoveButtonFromDict(button);
         Children.Remove(button);
+        button.Dispose();
     }
 
-    public T? GetButton(string slotName)
+    public virtual T? GetButton(string slotName)
     {
-        return _buttons.GetValueOrDefault(slotName);
+        return !Buttons.TryGetValue(slotName, out var button) ? null : button;
     }
 
-    public bool TryGetButton(string slotName, [NotNullWhen(true)] out T? button)
+    public virtual bool TryGetButton(string slotName, [NotNullWhen(true)] out T? button)
     {
         return (button = GetButton(slotName)) != null;
     }

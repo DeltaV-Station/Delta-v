@@ -1,0 +1,134 @@
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartAsakim
+  parent: [BaseItem, BasePart]
+  name: "asakim body part"
+  abstract: true
+  components:
+  - type: Icon # Shitmed Change
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Asakim
+  - type: Destructible # Shitmed Change: Let blunt weapons break bones
+    thresholds:
+    - trigger: !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 350
+      behaviors:
+      - !type:GibPartBehavior
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: TorsoAsakim
+  name: "asakim torso"
+  parent: [PartAsakim, BaseTorso]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: HeadAsakim
+  name: "asakim head"
+  parent: [PartAsakim, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmAsakim
+  name: "left asakim arm"
+  parent: [PartAsakim, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmAsakim
+  name: "right asakim arm"
+  parent: [PartAsakim, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandAsakim
+  name: "left asakim hand"
+  parent: [PartAsakim, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandAsakim
+  name: "right asakim hand"
+  parent: [PartAsakim, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegAsakim
+  name: "left asakim leg"
+  parent: [PartAsakim, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegAsakim
+  name: "right asakim leg"
+  parent: [PartAsakim, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootAsakim
+  name: "left asakim foot"
+  parent: [PartAsakim, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootAsakim
+  name: "right asakim foot"
+  parent: [PartAsakim, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: "r_foot"

@@ -9,10 +9,12 @@
       storagebase: !type:AllSelector
         children:
         - id: Hemostat
+        - id: SawElectric # Shitmed Change
         - id: Drill
         - id: Cautery
         - id: Retractor
         - id: Scalpel
+        - id: BoneGel # Shitmed Change
         - id: NitrousOxideTankFilled # DeltaV - add anesthesia
         - id: SoapNT # DeltaV - add soap
         - id: ClothingMaskSterile # DeltaV
@@ -37,6 +39,7 @@
         - id: ScalpelAdvanced
         - id: ClothingHandsGlovesNitrile
         - id: EmergencyRollerBedSpawnFolded
+        - id: BoneGel # Shitmed Change
         - id: NitrousOxideTankFilled # DeltaV - add anesthesia
         - id: SoapSyndie # DeltaV - add soap
         - id: ClothingMaskSterile # DeltaV
