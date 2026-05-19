@@ -58,6 +58,13 @@
     - PlushieBee
 
 - type: loadout
+  id: LighterFlippo
+  storage:
+    back:
+    - FlippoLighter
+  groupBy: "smokeables"
+
+- type: loadout
   id: LighterDonkCo
   effects:
   - !type:JobRequirementLoadoutEffect
