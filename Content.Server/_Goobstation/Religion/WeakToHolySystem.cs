@@ -8,22 +8,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Shared._Goobstation.Religion;
 using Content.Server._Goobstation.Bible;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Timing;
 using Content.Server.Bible.Components;
-using Content.Shared.Damage.Prototypes;
-using Robust.Shared.Prototypes; // Shitmed Change
+using Content.Shared.Body; // Delta V - Nubody Merge
 
 namespace Content.Server._Goobstation.Religion;
 
@@ -33,7 +27,6 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GoobBibleSystem _goobBible = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     public override void Initialize()
     {
@@ -103,16 +96,15 @@ public sealed class WeakToHolySystem : EntitySystem
                 continue;
 
             if (TerminatingOrDeleted(uid)
-                || _body.GetRootPartOrNull(uid, body: body) is not { }
                 || !damageable.Damage.DamageDict.TryGetValue("Holy", out _))
                 continue;
 
             // Rune healing.
             if (weakToHoly.IsColliding)
-                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreResistances: true, targetPart: TargetBodyPart.All);
+                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreResistances: true);
 
             // Passive healing.
-            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreResistances: true, targetPart: TargetBodyPart.All);
+            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreResistances: true);
         }
     }
 

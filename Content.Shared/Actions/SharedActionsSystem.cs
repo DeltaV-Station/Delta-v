@@ -1056,7 +1056,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         Dirty(ent);
     }
 
-    // Shitmed Change Start - Starlight Abductors
+    // Goob Start - Requires this for Possessed
     public EntityUid[] HideActions(EntityUid performer, ActionsComponent? comp = null)
     {
         if (!Resolve(performer, ref comp, false))
@@ -1077,5 +1077,5 @@ public abstract partial class SharedActionsSystem : EntitySystem
             comp.Actions.Add(action);
         Dirty(performer, comp);
     }
-    // Shitmed Change End
+    // Goob End
 }

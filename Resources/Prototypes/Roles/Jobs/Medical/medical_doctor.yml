@@ -23,12 +23,6 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: DoctorDay
     prototype: WehMedipen
-  # Begin DeltaV Removals
-  #- !type:AddComponentSpecial # Shitmed change
-  #  components:
-  #  - type: SurgerySpeedModifier
-  #    speedModifier: 1.75
-  # End DeltaV Removals
 
 - type: startingGear
   id: DoctorGear

@@ -1,6 +1,6 @@
 - type: entity
   name: Kitsune
-  parent: [SimpleMobBase, StripableInventoryBase, BaseMobKitsune]
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: MobKitsuneFox
   description: A Kitsune's fox form.
   components:
@@ -59,6 +59,7 @@
       task: IdleCompound
   - type: MindContainer
   - type: MindExaminable
+  - type: Kitsune
   - type: CosmicMarkVisuals
     subtleState: kitsunefox
     starState: kitsunefox
