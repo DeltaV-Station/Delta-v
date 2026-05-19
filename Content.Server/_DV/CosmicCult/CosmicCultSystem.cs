@@ -12,7 +12,6 @@ using Content.Server.Radio;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
-using Content.Server._EE.Radio;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye;
@@ -93,8 +92,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, ComponentInit>(OnStartImposition);
         SubscribeLocalEvent<CosmicImposingComponent, ComponentRemove>(OnEndImposition);
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
-
-        SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
 
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<CosmicJammerComponent, AnchorStateChangedEvent>(OnJammerAnchorStateChange);

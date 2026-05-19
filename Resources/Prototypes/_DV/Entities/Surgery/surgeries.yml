@@ -35,9 +35,6 @@
   - type: SurgeryOrganSlotCondition
     organSlot: powerCell
     inverse: true
-  - type: SurgeryBodyCondition
-    accepted: [ IPC ]
-    inverse: true
 
 - type: entity
   parent: SurgeryBase
@@ -92,9 +89,6 @@
     part: Torso
   - type: SurgeryOrganSlotCondition
     organSlot: charger
-    inverse: true
-  - type: SurgeryBodyCondition
-    accepted: [ IPC ]
     inverse: true
 
 - type: entity

@@ -58,8 +58,6 @@ public abstract partial class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
-        SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
-        Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
 
         InitializeRelay();
     }
@@ -397,67 +395,31 @@ public abstract partial class SharedMechSystem : EntitySystem
         return true;
     }
 
+
     /// <summary>
     /// Attempts to eject the current pilot from the mech
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
+    /// <param name="pilot">The pilot to eject</param>
     /// <returns>Whether or not the pilot was ejected.</returns>
-    public bool TryEject(EntityUid uid, MechComponent? component = null)
+    public bool TryEject(EntityUid uid, MechComponent? component = null, EntityUid? pilot = null)
     {
         if (!Resolve(uid, ref component))
             return false;
 
-        if (component.PilotSlot.ContainedEntity == null)
+        if (component.PilotSlot.ContainedEntity != null)
+            pilot = component.PilotSlot.ContainedEntity.Value;
+
+        if (pilot == null)
             return false;
 
-        var pilot = component.PilotSlot.ContainedEntity.Value;
-
-        RemoveUser(uid, pilot);
-        _container.RemoveEntity(uid, pilot);
+        RemoveUser(uid, pilot.Value);
+        _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
         return true;
     }
 
-    // Goobstation Change Start
-    private void UpdateHands(EntityUid uid, EntityUid mech, bool active)
-    {
-        if (!TryComp<HandsComponent>(uid, out var handsComponent))
-            return;
-        if (active)
-            BlockHands(uid, mech, handsComponent);
-        else
-            FreeHands(uid, mech);
-    }
-    private void BlockHands(EntityUid uid, EntityUid mech, HandsComponent handsComponent)
-    {
-        var freeHands = 0;
-        foreach (var hand in _hands.EnumerateHands((uid, handsComponent)))
-        {
-            var heldEnt = _hands.GetHeldItem((uid, handsComponent), hand);  // DV - hand refactor fixes
-            if (heldEnt == null)
-            {
-                freeHands++;
-                continue;
-            }
-            // Is this entity removable? (they might have handcuffs on)
-            if (HasComp<UnremoveableComponent>(heldEnt) && heldEnt != mech)
-                continue;
-            _hands.DoDrop((uid, handsComponent), hand, true); // DV - hand refactor fixes
-            freeHands++;
-            if (freeHands == 2)
-                break;
-        }
-        if (_virtualItem.TrySpawnVirtualItemInHand(mech, uid, out var virtItem1))
-            EnsureComp<UnremoveableComponent>(virtItem1.Value);
-        if (_virtualItem.TrySpawnVirtualItemInHand(mech, uid, out var virtItem2))
-            EnsureComp<UnremoveableComponent>(virtItem2.Value);
-    }
-    private void FreeHands(EntityUid uid, EntityUid mech)
-    {
-        _virtualItem.DeleteInHandsMatching(uid, mech);
-    }
-    // Goobstation Change End
     private void OnGetMeleeWeapon(EntityUid uid, MechPilotComponent component, GetMeleeWeaponEvent args)
     {
         if (args.Handled)
