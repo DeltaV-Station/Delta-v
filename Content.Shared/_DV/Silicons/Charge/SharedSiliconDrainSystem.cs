@@ -13,12 +13,8 @@ using Robust.Shared.Utility;
 using SharedCVars = Content.Shared.CCVar.CCVars;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
-using Content.Shared.PowerCell;
-using Content.Shared.Power.EntitySystems;
-// Begin TheDen - IPC Dynamic Power draw
-using Content.Shared.Movement.Components;
-using Robust.Shared.Physics.Components;
-// End TheDen
+using Content.Server._EE.Silicon.Death;
+using Content.Server._EE.Power.Components;
 
 namespace Content.Shared._DV.Silicons.Charge;
 
@@ -29,8 +25,7 @@ public abstract class SharedSiliconDrainSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -113,9 +108,7 @@ public abstract class SharedSiliconDrainSystem : EntitySystem
             // Maybe use something similar to refreshmovespeedmodifiers, where it's stored in the component.
             // Maybe it doesn't matter, and stuff should just use static drain?
             if (!siliconComp.EntityType.Equals(SiliconType.Npc)) // Don't bother checking heat if it's an NPC. It's a waste of time, and it'd be delayed due to the update time.
-            {
-                drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
-            }
+                drainRateFinalAddi += SiliconHeatEffects(silicon, siliconComp, frameTime) - 1; // This will need to be changed at some point if we allow external batteries, since the heat of the Silicon might not be applicable.
 
             // DeltaV - Sanity check
             if (float.IsNaN(drainRateFinalAddi))
@@ -153,30 +146,5 @@ public abstract class SharedSiliconDrainSystem : EntitySystem
 
         _moveMod.RefreshMovementSpeedModifiers(uid);
         UpdateChargeIcon((uid, component), chargePercent);
-    }
-
-    // TheDen - IPC Dynamic Power draw
-    private float SiliconMovementEffects(EntityUid silicon, SiliconComponent siliconComp)
-    {
-        // Calculate dynamic power draw.
-        if (!TryComp(silicon, out MovementSpeedModifierComponent? movement) ||
-            !TryComp(silicon, out PhysicsComponent? physics) ||
-            !TryComp(silicon, out InputMoverComponent? input))
-            return 0;
-
-        if (input.HeldMoveButtons == MoveButtons.None || _jetpack.IsUserFlying(silicon)) // If nothing is being held or jet packing
-        {
-            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
-        }
-
-        // DeltaV - Prevent divide by zero errors, smh
-        if (movement.CurrentSprintSpeed == 0)
-            return 0;
-
-        // LinearVelocity is relative to the parent
-        return Math.Clamp(
-            siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a negative percentage of the movement
-            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction (negative)
-            0f); // Minimum reduction is no change to power draw
     }
 }
