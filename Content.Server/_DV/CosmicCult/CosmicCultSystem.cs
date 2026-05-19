@@ -248,23 +248,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     #region Edge cases
     /// <summary>
-    /// Edge Case to handle IPCs losing astral murmur after panel operations.
-    /// </summary>
-    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args)
-    {
-        if (!TryComp<IntrinsicRadioTransmitterComponent>(uid, out IntrinsicRadioTransmitterComponent? transmitter) || !TryComp<ActiveRadioComponent>(uid, out ActiveRadioComponent? activeRadio))
-            return;
-
-        if (transmitter.Channels.Contains(CosmicRadio) && activeRadio.Channels.Contains(CosmicRadio))
-            return;
-
-        transmitter.Channels.Add(CosmicRadio);
-        activeRadio.Channels.Add(CosmicRadio);
-
-
-    }
-
-    /// <summary>
     /// When a cultist gets polymorphed, ensure that the resulting entity has all the necessary components. Mostly there for kitsune my behated.
     /// </summary>
     private void OnCultistPolymorphed(Entity<CosmicCultComponent> ent, ref PolymorphedEvent args)
