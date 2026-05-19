@@ -131,7 +131,7 @@ public sealed partial class DCCVars
         CVarDef.Create("species.hidden", "Motorkind", CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// What species to hide, as a comma seperated list.
+    /// Whether a stunned entity will show the stun visuals (seeing stars effect) above their head.
     /// </summary>
     public static readonly CVarDef<bool> ShowStunVisuals =
         CVarDef.Create("game.see_stun_visuals", false, CVar.CLIENTONLY | CVar.ARCHIVE);
