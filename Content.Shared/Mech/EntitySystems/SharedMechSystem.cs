@@ -401,21 +401,19 @@ public abstract partial class SharedMechSystem : EntitySystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
-    /// <param name="pilot">The pilot to eject</param>
     /// <returns>Whether or not the pilot was ejected.</returns>
-    public bool TryEject(EntityUid uid, MechComponent? component = null, EntityUid? pilot = null)
+    public bool TryEject(EntityUid uid, MechComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return false;
 
-        if (component.PilotSlot.ContainedEntity != null)
-            pilot = component.PilotSlot.ContainedEntity.Value;
-
-        if (pilot == null)
+        if (component.PilotSlot.ContainedEntity == null)
             return false;
 
-        RemoveUser(uid, pilot.Value);
-        _container.RemoveEntity(uid, pilot.Value);
+        var pilot = component.PilotSlot.ContainedEntity.Value;
+
+        RemoveUser(uid, pilot);
+        _container.RemoveEntity(uid, pilot);
         UpdateAppearance(uid, component);
         return true;
     }
