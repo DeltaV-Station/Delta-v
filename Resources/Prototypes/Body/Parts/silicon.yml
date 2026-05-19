@@ -28,6 +28,9 @@
   id: LeftArmBorg
   name: cyborg left arm
   components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
   - type: Sprite
     state: borg_l_arm
   - type: Icon
@@ -45,6 +48,9 @@
   id: RightArmBorg
   name: cyborg right arm
   components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
   - type: Sprite
     state: borg_r_arm
   - type: Icon
@@ -62,6 +68,9 @@
   id: LeftLegBorg
   name: cyborg left leg
   components:
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
   - type: Sprite
     state: borg_l_leg
   - type: Icon
@@ -79,6 +88,9 @@
   id: RightLegBorg
   name: cyborg right leg
   components:
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
   - type: Sprite
     state: borg_r_leg
   - type: Icon
@@ -96,6 +108,8 @@
   id: LightHeadBorg
   name: cyborg head
   components:
+  - type: BodyPart
+    partType: Head
   - type: Sprite
     state: borg_head
   - type: Icon
@@ -112,6 +126,8 @@
   id: TorsoBorg
   name: cyborg torso
   components:
+  - type: BodyPart
+    partType: Torso
   - type: Sprite
     state: borg_chest
   - type: Icon

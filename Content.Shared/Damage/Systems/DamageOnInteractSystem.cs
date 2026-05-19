@@ -13,9 +13,7 @@ using Content.Shared.Random;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Effects;
 using Content.Shared.Stunnable;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems; // Shitmed Change
 
 namespace Content.Shared.Damage.Systems;
 
@@ -79,28 +77,9 @@ public sealed class DamageOnInteractSystem : EntitySystem
             }
         }
 
-        // Shitmed Change Start
-        TargetBodyPart? targetPart = null;
-        var hands = CompOrNull<HandsComponent>(args.User);
-        if (hands != null
-            && _hands.GetActiveHand((args.User, hands)) is { } activeHand
-            && _hands.TryGetHand((args.User, hands), activeHand, out var hand))
-        {
-            targetPart = hand.Value.Location switch
-            {
-                HandLocation.Left => TargetBodyPart.LeftHand,
-                HandLocation.Right => TargetBodyPart.RightHand,
-                _ => null
-            };
-        }
-
-        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart);
-        // Shitmed Change End
+        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, origin: args.Target);
 
         if (totalDamage.AnyPositive())
-        {
-            // Record this interaction and determine when a user is allowed to interact with this entity again
-            entity.Comp.LastInteraction = _gameTiming.CurTime;
             entity.Comp.NextInteraction = _gameTiming.CurTime + TimeSpan.FromSeconds(entity.Comp.InteractTimer);
 
             args.Handled = true;

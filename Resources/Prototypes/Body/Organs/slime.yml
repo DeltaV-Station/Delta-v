@@ -8,8 +8,6 @@
       sprite: Mobs/Species/Slime/organs.rsi
       state: brain-slime
     - type: Stomach
-    - type: Organ
-      slotId: core
     - type: Metabolizer
       maxReagents: 6
       metabolizerTypes: [ Slime ]
@@ -50,8 +48,6 @@
     layers:
       - state: lung-l-slime
       - state: lung-r-slime
-  - type: Organ # Shitmed
-    slotId: lungs
   - type: Lung
     alert: LowNitrogen
   - type: Metabolizer

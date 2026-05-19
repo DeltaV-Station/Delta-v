@@ -1,14 +1,15 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Standing;
-
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class StandingStateComponent : Component
+namespace Content.Shared.Standing
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
-    public SoundSpecifier DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    [Access(typeof(StandingStateSystem))]
+    public sealed partial class StandingStateComponent : Component
+    {
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        public SoundSpecifier? DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
 
     [DataField, AutoNetworkedField]
     public bool Standing { get; set; } = true;

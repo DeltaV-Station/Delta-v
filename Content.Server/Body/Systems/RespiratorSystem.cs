@@ -1,8 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Shared._Shitmed.Body.Components; // Shitmed Change
-using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
 using Content.Shared._DV.Body.Components; // DeltaV - Addition of CPR
 using Content.Shared.Body.Systems;
@@ -28,7 +26,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 using Content.Shared._Goobstation.Body.Components; // Goobstation
-
 
 namespace Content.Server.Body.Systems;
 
@@ -84,7 +81,7 @@ public sealed class RespiratorSystem : EntitySystem
 
             respirator.NextUpdate += respirator.AdjustedUpdateInterval;
 
-            if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid) || HasComp<SpecialBreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity Goob immunity too
+            if (_mobState.IsDead(uid) || HasComp<SpecialBreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity Goob immunity too
                 continue;
 
             // Begin DeltaV Additions
@@ -98,8 +95,7 @@ public sealed class RespiratorSystem : EntitySystem
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             if ((!_mobState.IsIncapacitated(uid)
-                || TryComp<AffectedByCPRComponent>(uid, out var cprComp) && cprComp.IsActive) // DeltaV - Addition of CPR
-                && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
+                || TryComp<AffectedByCPRComponent>(uid, out var cprComp) && cprComp.IsActive)) // DeltaV - Addition of CPR.
             {
                 switch (respirator.Status)
                 {
