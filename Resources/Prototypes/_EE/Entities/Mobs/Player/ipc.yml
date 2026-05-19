@@ -108,13 +108,7 @@
 #     layoutId: IPC
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
-  - type: Repairable # DeltaV - Replace welding healable with upstream version
-    damageValue: -10 # 10 seconds to repair from crit
-    doAfterDelay: 1
-    fuelCost: 0.5
-    allowSelfRepair: true # DeltaV - was false
-  - type: Fiber # DeltaV - IPCs leave fibers instead of prints
-    fiberMaterial: fibers-steel
+  - type: WeldingHealable
   - type: CombatMode # DeltaV - let IPCs disarm
     canDisarm: true
   - type: SnoutHelmet # DeltaV - IPC Snouts
