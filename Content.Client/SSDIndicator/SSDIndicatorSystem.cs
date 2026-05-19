@@ -45,7 +45,6 @@ public sealed class SSDIndicatorSystem : EntitySystem
             ProtoId<SsdIconPrototype> icon;
             switch (component.Stage)
             {
-
                 case SsdStage.VeryRecent:
                     icon = component.VeryRecentIcon;
                     break;

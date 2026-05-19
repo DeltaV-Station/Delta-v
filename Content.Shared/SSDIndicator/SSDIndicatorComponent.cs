@@ -96,6 +96,7 @@ public sealed partial class SSDIndicatorComponent : Component
 }
 
 // DeltaV - SSD Recency START
+// If you change this enum, remember to update `Resources/Locale/en-US/_DV/ssdIndicator/examine.ftl`
 public enum SsdStage: byte
 {
     VeryRecent, // Stage 1: SSD Indicator is red. They might just be recovering from a crash/timeout.

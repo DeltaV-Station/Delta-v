@@ -1,5 +1,6 @@
 using Content.Shared._DV.CCVars; // DeltaV - SSD Recency
 using Content.Shared.CCVar;
+using Content.Shared.Examine;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -33,11 +34,26 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
-        _cfg.OnValueChanged(DCCVars.SsdIndicatorCryoableAfterSeconds, OnCryoableDurationChanged, true); // DeltaV - Recency
-        _cfg.OnValueChanged(DCCVars.SsdIndicatorRecentAfterSeconds, OnRecentDurationChanged, true); // DeltaV - Recency
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorCryoableAfterSeconds, OnCryoableDurationChanged, true); // DeltaV - SSD Recency
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorRecentAfterSeconds, OnRecentDurationChanged, true); // DeltaV - SSD Recency
+
+        SubscribeLocalEvent<SSDIndicatorComponent, ExaminedEvent>(OnExamine); // DeltaV - SSD Recency
     }
 
     // DeltaV - SSD Recency START
+    private void OnExamine(Entity<SSDIndicatorComponent> ent, ref ExaminedEvent args)
+    {
+        if (!ent.Comp.IsSSD)
+            return;
+
+        using (args.PushGroup(nameof(SSDIndicatorComponent)))
+        {
+            var timestamp = (_timing.CurTime - ent.Comp.SsdSince).ToString("%hh':'mm':'ss");
+            args.PushMarkup(Loc.GetString("ssd-examine-duration", ("time", timestamp)));
+            args.PushMarkup(Loc.GetString($"ssd-examine-{ent.Comp.Stage.ToString().ToLower()}"));
+        }
+    }
+
     private void OnRecentDurationChanged(float obj)
     {
         _recentSsdSeconds = obj;
@@ -76,6 +92,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
     private void OnPlayerAttached(EntityUid uid, SSDIndicatorComponent component, PlayerAttachedEvent args)
     {
         component.IsSSD = false;
+        component.Stage = SsdStage.VeryRecent; // DeltaV - SSD Recency
 
         // Removes force sleep and resets the time to zero
         if (_icSsdSleep)
