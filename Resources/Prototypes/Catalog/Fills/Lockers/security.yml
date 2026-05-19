@@ -131,7 +131,7 @@
     - id: TrackingImplanter
       amount: 2
     #- id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
-    - id: BoxSterileMask
+    # - id: BoxSterileMask # DeltaV - removed, locker is very cluttered and these are not useful
     # - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret. # DeltaV - added corpsman uniform to secdrobe
     - id: ClothingHeadsetBrigmedic # DeltaV - add spare headset.
 #   - id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
@@ -151,8 +151,8 @@
     - !type:GroupSelector
       prob: 0.7
       children:
-      - id: MedkitCombatFilled
-        weight: 1.6
+      #- id: MedkitCombatFilled #DeltaV - corps doesn't need 2+ combat kits, often more are mapped
+      #  weight: 1.6
       - id: MedkitAdvancedFilled
       - id: MedkitOxygenFilled
         weight: 0.8
@@ -172,11 +172,12 @@
   id: FillLockerBrigmedicHarduit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
+    - id: ClothingOuterHardsuitCombatCorpsman 
     - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingMaskBreath
+    - id: JetpackSecurityFilled # DeltaV - Security jetpacks
 # END DeltaV - adding corpsman locker w/ hardsuit
 
 - type: entity
