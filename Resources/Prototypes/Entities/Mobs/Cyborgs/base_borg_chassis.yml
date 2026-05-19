@@ -81,7 +81,6 @@
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       # End DeltaV - borg PDAs
-  - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -117,7 +116,6 @@
     fuelCost: 0.5
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
-  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
   - type: Fiber # DeltaV - borgs leave metal fibers
     fiberMaterial: fibers-plasteel
   - type: LockingWhitelist

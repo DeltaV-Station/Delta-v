@@ -216,8 +216,6 @@
   name: scrimpering whimperlet
   description: A pitiful creature. It loses a lot of salt through its tears.
   components:
-  - type: Body
-    prototype: Animal
   - type: GhostRole
     name: ghost-role-information-whimperlet-name
     description: ghost-role-information-whimperlet-description
@@ -437,9 +435,6 @@
     - CannotSuicide
     - VimPilot
   - type: CanEscapeInventory
-  - type: Body
-    prototype: Mothroach
-  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -459,8 +454,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
