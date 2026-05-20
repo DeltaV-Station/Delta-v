@@ -31,7 +31,7 @@
       120: Dead
   - type: Damageable
     damageContainer: BiologicalMetaphysical
-    damageModifierSet: CorporealSpirit
+    damageModifierSet: Spirit
   - type: Fixtures
     fixtures:
       fix1:
@@ -42,7 +42,7 @@
         mask:
         - SmallMobMask
         layer:
-        - Opaque
+        - SmallMobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.75
