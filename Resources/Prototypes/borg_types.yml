@@ -148,6 +148,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -196,6 +197,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -271,6 +273,7 @@
 #  - BorgModuleService
 #  - BorgModuleClowning
 #  - BorgModuleHarvesting
+  - BorgModuleTool # Readd Tool Module
   - BorgModuleGardeningDV
   - BorgModuleChef
   - BorgModuleBartender

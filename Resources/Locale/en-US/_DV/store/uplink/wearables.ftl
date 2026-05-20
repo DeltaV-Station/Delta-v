@@ -18,3 +18,6 @@ uplink-night-vision-goggles-desc = High-tech goggles that allow you to see in th
 
 uplink-thermal-goggles-name = Thermal Goggles
 uplink-thermal-goggles-desc = High-tech goggles that allow you to see heat signatures. These ones look like Night Vision Goggles to avoid detection.
+
+uplink-voice-mask-name = Voice Mask
+uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.

@@ -5,7 +5,7 @@
   components:
   - type: Cybernetics
   - type: Edible # DeltaV - can't eat it no more
-    requiresSpecialDigestion: true 
+    requiresSpecialDigestion: true
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/IPC/organs.rsi
     state: "eyes"
@@ -46,10 +46,6 @@
     - type: FlashImmunity
     - type: EyeProtection
     - type: ShowHealthBars
-      damageContainers:
-      - Biological
-      - BiologicalMetaphysical # DeltaV - Kitsune
-    - type: ShowHealthIcons
       damageContainers:
       - Biological
       - BiologicalMetaphysical # DeltaV - Kitsune

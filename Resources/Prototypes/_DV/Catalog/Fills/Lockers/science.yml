@@ -37,3 +37,21 @@
           - id: ClothingOuterHardsuitEVAScience
           - id: ClothingHeadHelmetEVAScience
           - id: AirTankFilled
+
+- type: entityTable
+  id: LockerFillScientistDV
+  table: !type:AllSelector
+    children:
+    - id: AnomalyLocator
+    - id: Wrench
+    - id: ClothingBeltUtility
+    - id: PowerCellPotato
+      prob: 0.2
+    - id: PowerCellSmall
+      prob: 0.3
+    - id: PersonalAI
+      prob: 0.1
+    - id: ClothingHeadTinfoil
+      prob: 0.2
+    - id: LunchboxEpistemicsFilledRandom
+      prob: 0.3

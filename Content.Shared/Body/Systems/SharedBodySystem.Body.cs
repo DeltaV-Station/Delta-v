@@ -187,7 +187,7 @@ public partial class SharedBodySystem
                 cameFromEntities[connection] = childPart;
 
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
-                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, out var partSlot, parentPartComponent);
+                var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
                 Dirty(childPart, childPartComponent);
@@ -214,7 +214,7 @@ public partial class SharedBodySystem
     {
         foreach (var (organSlotId, organProto) in organs)
         {
-            TryCreateOrganSlot(ent, organSlotId, out var slot); // Shitmed Change
+            var slot = CreateOrganSlot((ent, ent), organSlotId);
             SpawnInContainerOrDrop(organProto, ent, GetOrganContainerId(organSlotId));
 
             if (slot is null)

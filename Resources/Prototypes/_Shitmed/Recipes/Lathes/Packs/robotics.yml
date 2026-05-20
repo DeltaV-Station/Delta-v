@@ -1,31 +1,6 @@
 ## Static
 
 - type: latheRecipePack
-  id: IPCLimbsStatic # DeltaV - Share Surgery Parts between Epi and Med. Non-Medical Parts moved to IPCPartsStatic
-  recipes:
-  # - TorsoIPC # DeltaV - Moved to IPCLimbsStatic
-  - LeftArmIPC
-  - RightArmIPC
-  - LeftLegIPC
-  - RightLegIPC
-  # - HeadIPC # DeltaV - Moved to IPCLimbsStatic
-  - LeftHandIPC
-  - RightHandIPC
-  - LeftFootIPC
-  - RightFootIPC
-
-# Begin DeltaV additions
-- type: latheRecipePack
-  parent: IPCLimbsStatic
-  id: IPCPartsStatic
-  recipes:
-  - TorsoIPC
-  - HeadIPC
-# End DeltaV additions
-  - OrganIPCEyes
-  - OrganIPCPump
-
-- type: latheRecipePack
   id: BorgModulesStaticShitmed
   recipes:
   - BorgModuleSurgery
@@ -54,5 +29,4 @@
   id: CyberneticsRobotics
   recipes:
   - BasicCyberneticEyes
-  - OrganIPCSpacePump
   # End DeltaV additions

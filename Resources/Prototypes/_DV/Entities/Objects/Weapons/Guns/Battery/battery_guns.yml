@@ -233,9 +233,9 @@
     price: 750
 
 - type: entity
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponGunLaserCarbineAutomatic
-  name: IK-60 energy carbine
+  name: IK-60
   description: "A 30 round hybrid-fire energy carbine."
   components:
   - type: Sprite
@@ -258,6 +258,13 @@
     availableModes:
       - SemiAuto
       - FullAuto
+    minAngle: 21
+    maxAngle: 32
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -20
+    angleIncrease: 3
+    angleDecay: 12
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
