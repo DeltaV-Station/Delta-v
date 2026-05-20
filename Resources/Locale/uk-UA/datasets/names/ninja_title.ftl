@@ -1,0 +1,91 @@
+names-ninja-title-dataset-1 = Майстер
+
+names-ninja-title-dataset-2 = Сенсей
+
+names-ninja-title-dataset-3 = Спритний
+
+names-ninja-title-dataset-4 = Безжальний
+
+names-ninja-title-dataset-5 = Асасин
+
+names-ninja-title-dataset-6 = Розбійник
+
+names-ninja-title-dataset-7 = Мисливець
+
+names-ninja-title-dataset-8 = Вдівець
+
+names-ninja-title-dataset-9 = Творець Сиріт
+
+names-ninja-title-dataset-10 = Переслідувач
+
+names-ninja-title-dataset-11 = Вбивця
+
+names-ninja-title-dataset-12 = Мовчазний
+
+names-ninja-title-dataset-13 = Заглушувач
+
+names-ninja-title-dataset-14 = Швидкий
+
+names-ninja-title-dataset-15 = Меткий
+
+names-ninja-title-dataset-16 = Милосердний
+
+names-ninja-title-dataset-17 = Ніндзя
+
+names-ninja-title-dataset-18 = Шинобі
+
+names-ninja-title-dataset-19 = Посвячений
+
+names-ninja-title-dataset-20 = Гросмейстер
+
+names-ninja-title-dataset-21 = Мандрівник
+
+names-ninja-title-dataset-22 = Ударник
+
+names-ninja-title-dataset-23 = Знищувач
+
+names-ninja-title-dataset-24 = Неймовірний
+
+names-ninja-title-dataset-25 = Вершитель
+
+names-ninja-title-dataset-26 = Д-р.
+
+names-ninja-title-dataset-27 = Новачок
+
+names-ninja-title-dataset-28 = Ніч
+
+names-ninja-title-dataset-29 = Багряний
+
+names-ninja-title-dataset-30 = Борець
+
+names-ninja-title-dataset-31 = Абсолютний
+
+names-ninja-title-dataset-32 = Нещадний
+
+names-ninja-title-dataset-33 = Глибокий
+
+names-ninja-title-dataset-34 = Дракон
+
+names-ninja-title-dataset-35 = Жорстокий
+
+names-ninja-title-dataset-36 = Беладона
+
+names-ninja-title-dataset-37 = Чорний
+
+names-ninja-title-dataset-38 = Сірий
+
+names-ninja-title-dataset-39 = Твердий
+
+names-ninja-title-dataset-40 = Рідкий
+
+names-ninja-title-dataset-41 = Солідус
+
+names-ninja-title-dataset-42 = Сталь
+
+names-ninja-title-dataset-43 = Нікель
+
+names-ninja-title-dataset-44 = Срібло
+
+names-ninja-title-dataset-45 = Співучий
+
+names-ninja-title-dataset-46 = Змія

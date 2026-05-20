@@ -1,0 +1,77 @@
+names-ninja-dataset-1 = Тінь
+
+names-ninja-dataset-2 = Сарутобі
+
+names-ninja-dataset-3 = Дим
+
+names-ninja-dataset-4 = Дощ
+
+names-ninja-dataset-5 = Нуль
+
+names-ninja-dataset-6 = Рафаель
+
+names-ninja-dataset-7 = Мікеланджело
+
+names-ninja-dataset-8 = Донателло
+
+names-ninja-dataset-9 = Леонардо
+
+names-ninja-dataset-10 = Сплінтер
+
+names-ninja-dataset-11 = Шреддер
+
+names-ninja-dataset-12 = Хазукі
+
+names-ninja-dataset-13 = Хіен
+
+names-ninja-dataset-14 = Хірю
+
+names-ninja-dataset-15 = Хаябуса
+
+names-ninja-dataset-16 = Північ
+
+names-ninja-dataset-17 = Сім
+
+names-ninja-dataset-18 = МакНіндзя
+
+names-ninja-dataset-19 = Ханзо
+
+names-ninja-dataset-20 = Кров
+
+names-ninja-dataset-21 = Іґа
+
+names-ninja-dataset-22 = Коґа
+
+names-ninja-dataset-23 = Герой
+
+names-ninja-dataset-24 = Хіро
+
+names-ninja-dataset-25 = Фантом
+
+names-ninja-dataset-26 = Бакі
+
+names-ninja-dataset-27 = Огр
+
+names-ninja-dataset-28 = Демон
+
+names-ninja-dataset-29 = Гоемон
+
+names-ninja-dataset-30 = МакКрутий
+
+names-ninja-dataset-31 = Горло
+
+names-ninja-dataset-32 = Смерть
+
+names-ninja-dataset-33 = Арія
+
+names-ninja-dataset-34 = Братан
+
+names-ninja-dataset-35 = Лис
+
+names-ninja-dataset-36 = Самурай
+
+names-ninja-dataset-37 = Пожирач
+
+names-ninja-dataset-38 = Рю
+
+names-ninja-dataset-39 = Райден

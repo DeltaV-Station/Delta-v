@@ -1,0 +1,53 @@
+names-skeleton-first-dataset-1 = Грудина
+
+names-skeleton-first-dataset-2 = Ребра
+
+names-skeleton-first-dataset-3 = Хребець
+
+names-skeleton-first-dataset-4 = Криж
+
+names-skeleton-first-dataset-5 = Щелепа
+
+names-skeleton-first-dataset-6 = Ключиця
+
+names-skeleton-first-dataset-7 = Лопатка
+
+names-skeleton-first-dataset-8 = Плечова
+
+names-skeleton-first-dataset-9 = Променева
+
+names-skeleton-first-dataset-10 = Ліктьова
+
+names-skeleton-first-dataset-11 = Зап'ястя
+
+names-skeleton-first-dataset-12 = Фаланга
+
+names-skeleton-first-dataset-13 = Таз
+
+names-skeleton-first-dataset-14 = Стегнова
+
+names-skeleton-first-dataset-15 = Великогомілкова
+
+names-skeleton-first-dataset-16 = Малогомілкова
+
+names-skeleton-first-dataset-17 = Мозок
+
+names-skeleton-first-dataset-18 = Передплесно
+
+names-skeleton-first-dataset-19 = Наколінник
+
+names-skeleton-first-dataset-20 = Куприк
+
+names-skeleton-first-dataset-21 = Стояк
+
+names-skeleton-first-dataset-22 = Ребро
+
+names-skeleton-first-dataset-23 = Під'язикова
+
+names-skeleton-first-dataset-24 = Куприк
+
+names-skeleton-first-dataset-25 = Передплесно
+
+names-skeleton-first-dataset-26 = Слізна
+
+names-skeleton-first-dataset-27 = Кістка

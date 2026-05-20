@@ -1,0 +1,35 @@
+names-revenant-adjective-dataset-1 = жахливий
+
+names-revenant-adjective-dataset-2 = безодній
+
+names-revenant-adjective-dataset-3 = жорстокий
+
+names-revenant-adjective-dataset-4 = темний
+
+names-revenant-adjective-dataset-5 = нескінченний
+
+names-revenant-adjective-dataset-6 = вічний
+
+names-revenant-adjective-dataset-7 = вогненний
+
+names-revenant-adjective-dataset-8 = ненависний
+
+names-revenant-adjective-dataset-9 = огидний
+
+names-revenant-adjective-dataset-10 = кумедний
+
+names-revenant-adjective-dataset-11 = байдужий
+
+names-revenant-adjective-dataset-12 = зловмисний
+
+names-revenant-adjective-dataset-13 = мирний
+
+names-revenant-adjective-dataset-14 = пекучий
+
+names-revenant-adjective-dataset-15 = тихий
+
+names-revenant-adjective-dataset-16 = злісний
+
+names-revenant-adjective-dataset-17 = злий
+
+names-revenant-adjective-dataset-18 = насильницький

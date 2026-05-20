@@ -1,0 +1,137 @@
+names-borer-dataset-1 = Альціоніум
+
+names-borer-dataset-2 = Аномія
+
+names-borer-dataset-3 = Афродіта
+
+names-borer-dataset-4 = Арка
+
+names-borer-dataset-5 = Аргонавт
+
+names-borer-dataset-6 = Аскаріс
+
+names-borer-dataset-7 = Астеріас
+
+names-borer-dataset-8 = Букцинум
+
+names-borer-dataset-9 = Булла
+
+names-borer-dataset-10 = Кардіум
+
+names-borer-dataset-11 = Хама
+
+names-borer-dataset-12 = Хітон
+
+names-borer-dataset-13 = Конус
+
+names-borer-dataset-14 = Кораліна
+
+names-borer-dataset-15 = Ципрея
+
+names-borer-dataset-16 = Денталіум
+
+names-borer-dataset-17 = Донакс
+
+names-borer-dataset-18 = Доріс
+
+names-borer-dataset-19 = Ехінус
+
+names-borer-dataset-20 = Ешара
+
+names-borer-dataset-21 = Фасциола
+
+names-borer-dataset-22 = Фурія
+
+names-borer-dataset-23 = Гордіус
+
+names-borer-dataset-24 = Горгонія
+
+names-borer-dataset-25 = Галіотіс
+
+names-borer-dataset-26 = Гелікс
+
+names-borer-dataset-27 = Гірудо
+
+names-borer-dataset-28 = Голотурія
+
+names-borer-dataset-29 = Гідра
+
+names-borer-dataset-30 = Ісіда
+
+names-borer-dataset-31 = Лепас
+
+names-borer-dataset-32 = Лернея
+
+names-borer-dataset-33 = Лімакс
+
+names-borer-dataset-34 = Лумбрікус
+
+names-borer-dataset-35 = Мадрепора
+
+names-borer-dataset-36 = Медуза
+
+names-borer-dataset-37 = Міллепора
+
+names-borer-dataset-38 = Мурекс
+
+names-borer-dataset-39 = Міес
+
+names-borer-dataset-40 = Мітілус
+
+names-borer-dataset-41 = Міксин
+
+names-borer-dataset-42 = Наутілус
+
+names-borer-dataset-43 = Нереїс
+
+names-borer-dataset-44 = Неріта
+
+names-borer-dataset-45 = Острея
+
+names-borer-dataset-46 = Пателла
+
+names-borer-dataset-47 = Пеннатула
+
+names-borer-dataset-48 = Фолас
+
+names-borer-dataset-49 = Пінна
+
+names-borer-dataset-50 = Пріапус
+
+names-borer-dataset-51 = Сциллея
+
+names-borer-dataset-52 = Сепія
+
+names-borer-dataset-53 = Серпула
+
+names-borer-dataset-54 = Сертуларія
+
+names-borer-dataset-55 = Солен
+
+names-borer-dataset-56 = Спондилус
+
+names-borer-dataset-57 = Стромбус
+
+names-borer-dataset-58 = Тенія
+
+names-borer-dataset-59 = Телліна
+
+names-borer-dataset-60 = Тередо
+
+names-borer-dataset-61 = Тетіс
+
+names-borer-dataset-62 = Тритон
+
+names-borer-dataset-63 = Трохус
+
+names-borer-dataset-64 = Тубіпора
+
+names-borer-dataset-65 = Тубуларія
+
+names-borer-dataset-66 = Турбо
+
+names-borer-dataset-67 = Венера
+
+names-borer-dataset-68 = Волюта
+
+names-borer-dataset-69 = Вольвокс

@@ -1,0 +1,55 @@
+names-moth-last-dataset-1 = Чорна Відьма
+
+names-moth-last-dataset-2 = Мертва Голова
+
+names-moth-last-dataset-3 = Імператор
+
+names-moth-last-dataset-4 = Обпалене Крило
+
+names-moth-last-dataset-5 = Темнора
+
+names-moth-last-dataset-6 = Уста
+
+names-moth-last-dataset-7 = Біла Відьма
+
+names-moth-last-dataset-8 = Зима
+
+names-moth-last-dataset-9 = Епіолос
+
+names-moth-last-dataset-10 = Меллер
+
+names-moth-last-dataset-11 = Нічний Пурхун
+
+names-moth-last-dataset-12 = Вісник
+
+names-moth-last-dataset-13 = Леандр
+
+names-moth-last-dataset-14 = Людинометелик
+
+names-moth-last-dataset-15 = Вершник Комети
+
+names-moth-last-dataset-16 = Вечірня Зоря
+
+names-moth-last-dataset-17 = Світляк
+
+names-moth-last-dataset-18 = Вогняний Пензель
+
+names-moth-last-dataset-19 = Вогняний Плащ
+
+names-moth-last-dataset-20 = Світлоткач
+
+names-moth-last-dataset-21 = Місячний Танцюрист
+
+names-moth-last-dataset-22 = Нічне Бажання
+
+names-moth-last-dataset-23 = Нічні Очі
+
+names-moth-last-dataset-24 = Совина Погибель
+
+names-moth-last-dataset-25 = Шовковий Язик
+
+names-moth-last-dataset-26 = Притягнутий Іскрою
+
+names-moth-last-dataset-27 = Звіздар
+
+names-moth-last-dataset-28 = Шукач Зірок

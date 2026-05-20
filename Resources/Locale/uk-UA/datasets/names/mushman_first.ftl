@@ -1,0 +1,107 @@
+names-mushman-first-dataset-1 = Плевроцибела
+
+names-mushman-first-dataset-2 = Геаструм
+
+names-mushman-first-dataset-3 = Трихолома
+
+names-mushman-first-dataset-4 = Ганодерма
+
+names-mushman-first-dataset-5 = Галерина
+
+names-mushman-first-dataset-6 = Фістуліна
+
+names-mushman-first-dataset-7 = Гіромітра
+
+names-mushman-first-dataset-8 = Лекцинум
+
+names-mushman-first-dataset-9 = Круцибулум
+
+names-mushman-first-dataset-10 = Кратереллус
+
+names-mushman-first-dataset-11 = Геоглосум
+
+names-mushman-first-dataset-12 = Гельвелла
+
+names-mushman-first-dataset-13 = Ексидія
+
+names-mushman-first-dataset-14 = Клітоцибе
+
+names-mushman-first-dataset-15 = Псилоцибе
+
+names-mushman-first-dataset-16 = Панеолус
+
+names-mushman-first-dataset-17 = Аманіта
+
+names-mushman-first-dataset-18 = Паксилус
+
+names-mushman-first-dataset-19 = Сфероболус
+
+names-mushman-first-dataset-20 = Спарасис
+
+names-mushman-first-dataset-21 = Лепіота
+
+names-mushman-first-dataset-22 = Леотія
+
+names-mushman-first-dataset-23 = Клавіарідельфус
+
+names-mushman-first-dataset-24 = Анулогіпоксилон
+
+names-mushman-first-dataset-25 = Пізолітус
+
+names-mushman-first-dataset-26 = Плютеус
+
+names-mushman-first-dataset-27 = Фламмуліна
+
+names-mushman-first-dataset-28 = Марасміус
+
+names-mushman-first-dataset-29 = Клавія
+
+names-mushman-first-dataset-30 = Стереум
+
+names-mushman-first-dataset-31 = Кортінаріус
+
+names-mushman-first-dataset-32 = Ліофіллум
+
+names-mushman-first-dataset-33 = Гіднум
+
+names-mushman-first-dataset-34 = Порія
+
+names-mushman-first-dataset-35 = Армілярія
+
+names-mushman-first-dataset-36 = Гіпсизигус
+
+names-mushman-first-dataset-37 = Агарікус
+
+names-mushman-first-dataset-38 = Омфалотус
+
+names-mushman-first-dataset-39 = Болетус
+
+names-mushman-first-dataset-40 = Болетопсис
+
+names-mushman-first-dataset-41 = Гімнопілус
+
+names-mushman-first-dataset-42 = Герицій
+
+names-mushman-first-dataset-43 = Грифола
+
+names-mushman-first-dataset-44 = Морхелла
+
+names-mushman-first-dataset-45 = Клатер
+
+names-mushman-first-dataset-46 = Плеврот
+
+names-mushman-first-dataset-47 = Дісцина
+
+names-mushman-first-dataset-48 = Хальципорус
+
+names-mushman-first-dataset-49 = Кальвація
+
+names-mushman-first-dataset-50 = Каулориза
+
+names-mushman-first-dataset-51 = Тремелла
+
+names-mushman-first-dataset-52 = Вольварієлла
+
+names-mushman-first-dataset-53 = Гіфолома
+
+names-mushman-first-dataset-54 = Лактаріус

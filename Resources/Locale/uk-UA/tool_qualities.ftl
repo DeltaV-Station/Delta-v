@@ -1,0 +1,11 @@
+tool-quality-anchoring-name = Пригвинчування
+tool-quality-brushing-name = Чищення щіткою
+tool-quality-cutting-name = Різання
+tool-quality-honking-name = Хонкінг
+tool-quality-prying-name = Зняття
+tool-quality-pulsing-name = З'єднання
+tool-quality-rolling-name = Прокатка
+tool-quality-sawing-name = Пиляння
+tool-quality-screwing-name = Викручування
+tool-quality-slicing-name = Нарізка
+tool-quality-welding-name = Зварювання

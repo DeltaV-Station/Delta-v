@@ -1,0 +1,1261 @@
+verbs-dataset-1 = прийняти
+
+verbs-dataset-2 = додати
+
+verbs-dataset-3 = милуватися
+
+verbs-dataset-4 = визнати
+
+verbs-dataset-5 = радити
+
+verbs-dataset-6 = дозволити собі
+
+verbs-dataset-7 = погодитися
+
+verbs-dataset-8 = сповістити
+
+verbs-dataset-9 = дозволити
+
+verbs-dataset-10 = розважати
+
+verbs-dataset-11 = аналізувати
+
+verbs-dataset-12 = оголосити
+
+verbs-dataset-13 = дратувати
+
+verbs-dataset-14 = відповісти
+
+verbs-dataset-15 = вибачитися
+
+verbs-dataset-16 = з'явитися
+
+verbs-dataset-17 = аплодувати
+
+verbs-dataset-18 = цінувати
+
+verbs-dataset-19 = схвалити
+
+verbs-dataset-20 = сперечатися
+
+verbs-dataset-21 = організувати
+
+verbs-dataset-22 = заарештувати
+
+verbs-dataset-23 = прибути
+
+verbs-dataset-24 = запитати
+
+verbs-dataset-25 = прикріпити
+
+verbs-dataset-26 = атакувати
+
+verbs-dataset-27 = намагатися
+
+verbs-dataset-28 = відвідати
+
+verbs-dataset-29 = привабити
+
+verbs-dataset-30 = уникати
+
+verbs-dataset-31 = повернутися
+
+verbs-dataset-32 = пекти
+
+verbs-dataset-33 = балансувати
+
+verbs-dataset-34 = заборонити
+
+verbs-dataset-35 = вдарити
+
+verbs-dataset-36 = оголити
+
+verbs-dataset-37 = бити битою
+
+verbs-dataset-38 = купатися
+
+verbs-dataset-39 = битися
+
+verbs-dataset-40 = сяяти
+
+verbs-dataset-41 = благати
+
+verbs-dataset-42 = поводитися
+
+verbs-dataset-43 = належати
+
+verbs-dataset-44 = відбілювати
+
+verbs-dataset-45 = благословити
+
+verbs-dataset-46 = засліпити
+
+verbs-dataset-47 = блимати
+
+verbs-dataset-48 = промокнути
+
+verbs-dataset-49 = червоніти
+
+verbs-dataset-50 = хвалитися
+
+verbs-dataset-51 = кип'ятити
+
+verbs-dataset-52 = закрутити
+
+verbs-dataset-53 = бомбити
+
+verbs-dataset-54 = забронювати
+
+verbs-dataset-55 = нудьгувати
+
+verbs-dataset-56 = позичити
+
+verbs-dataset-57 = відскакувати
+
+verbs-dataset-58 = вклонитися
+
+verbs-dataset-59 = боксувати
+
+verbs-dataset-60 = гальмувати
+
+verbs-dataset-61 = гальмувати
+
+verbs-dataset-62 = розгалужуватися
+
+verbs-dataset-63 = дихати
+
+verbs-dataset-64 = завдати синців
+
+verbs-dataset-65 = чистити щіткою
+
+verbs-dataset-66 = булькати
+
+verbs-dataset-67 = вдаритися
+
+verbs-dataset-68 = палити
+
+verbs-dataset-69 = ховати
+
+verbs-dataset-70 = дзижчати
+
+verbs-dataset-71 = обчислювати
+
+verbs-dataset-72 = кликати
+
+verbs-dataset-73 = таборувати
+
+verbs-dataset-74 = піклуватися
+
+verbs-dataset-75 = нести
+
+verbs-dataset-76 = вирізати
+
+verbs-dataset-77 = спричиняти
+
+verbs-dataset-78 = кидати виклик
+
+verbs-dataset-79 = змінювати
+
+verbs-dataset-80 = заряджати
+
+verbs-dataset-81 = переслідувати
+
+verbs-dataset-82 = обманювати
+
+verbs-dataset-83 = перевіряти
+
+verbs-dataset-84 = підбадьорювати
+
+verbs-dataset-85 = жувати
+
+verbs-dataset-86 = душити
+
+verbs-dataset-87 = рубати
+
+verbs-dataset-88 = заявляти
+
+verbs-dataset-89 = плескати
+
+verbs-dataset-90 = чистити
+
+verbs-dataset-91 = очистити
+
+verbs-dataset-92 = обрізати
+
+verbs-dataset-93 = закривати
+
+verbs-dataset-94 = тренувати
+
+verbs-dataset-95 = намотувати
+
+verbs-dataset-96 = збирати
+
+verbs-dataset-97 = розфарбовувати
+
+verbs-dataset-98 = розчісувати
+
+verbs-dataset-99 = наказувати
+
+verbs-dataset-100 = спілкуватися
+
+verbs-dataset-101 = порівнювати
+
+verbs-dataset-102 = змагатися
+
+verbs-dataset-103 = скаржитися
+
+verbs-dataset-104 = завершувати
+
+verbs-dataset-105 = концентруватися
+
+verbs-dataset-106 = турбувати
+
+verbs-dataset-107 = зізнаватися
+
+verbs-dataset-108 = плутати
+
+verbs-dataset-109 = з'єднувати
+
+verbs-dataset-110 = розглядати
+
+verbs-dataset-111 = складатися
+
+verbs-dataset-112 = містити
+
+verbs-dataset-113 = продовжувати
+
+verbs-dataset-114 = копіювати
+
+verbs-dataset-115 = виправляти
+
+verbs-dataset-116 = кашляти
+
+verbs-dataset-117 = рахувати
+
+verbs-dataset-118 = накривати
+
+verbs-dataset-119 = тріскати
+
+verbs-dataset-120 = розбиватися
+
+verbs-dataset-121 = повзти
+
+verbs-dataset-122 = перетинати
+
+verbs-dataset-123 = трощити
+
+verbs-dataset-124 = плакати
+
+verbs-dataset-125 = лікувати
+
+verbs-dataset-126 = завивати
+
+verbs-dataset-127 = вигинати
+
+verbs-dataset-128 = циклювати
+
+verbs-dataset-129 = перегороджувати
+
+verbs-dataset-130 = пошкоджувати
+
+verbs-dataset-131 = танцювати
+
+verbs-dataset-132 = насмілюватися
+
+verbs-dataset-133 = гнити
+
+verbs-dataset-134 = обманювати
+
+verbs-dataset-135 = вирішувати
+
+verbs-dataset-136 = прикрашати
+
+verbs-dataset-137 = затримувати
+
+verbs-dataset-138 = радувати
+
+verbs-dataset-139 = доставляти
+
+verbs-dataset-140 = залежати
+
+verbs-dataset-141 = описувати
+
+verbs-dataset-142 = залишати
+
+verbs-dataset-143 = заслуговувати
+
+verbs-dataset-144 = знищувати
+
+verbs-dataset-145 = виявляти
+
+verbs-dataset-146 = розвивати
+
+verbs-dataset-147 = не погоджуватися
+
+verbs-dataset-148 = зникати
+
+verbs-dataset-149 = не схвалювати
+
+verbs-dataset-150 = роззброювати
+
+verbs-dataset-151 = відкривати
+
+verbs-dataset-152 = не любити
+
+verbs-dataset-153 = ділити
+
+verbs-dataset-154 = подвоювати
+
+verbs-dataset-155 = сумніватися
+
+verbs-dataset-156 = тягнути
+
+verbs-dataset-157 = зливати
+
+verbs-dataset-158 = мріяти
+
+verbs-dataset-159 = одягати
+
+verbs-dataset-160 = капати
+
+verbs-dataset-161 = кидати
+
+verbs-dataset-162 = тонути
+
+verbs-dataset-163 = барабанити
+
+verbs-dataset-164 = сушити
+
+verbs-dataset-165 = припорошувати
+
+verbs-dataset-166 = заробляти
+
+verbs-dataset-167 = навчати
+
+verbs-dataset-168 = бентежити
+
+verbs-dataset-169 = наймати
+
+verbs-dataset-170 = спорожнювати
+
+verbs-dataset-171 = заохочувати
+
+verbs-dataset-172 = закінчувати
+
+verbs-dataset-173 = насолоджуватися
+
+verbs-dataset-174 = входити
+
+verbs-dataset-175 = розважати
+
+verbs-dataset-176 = втікати
+
+verbs-dataset-177 = оглядати
+
+verbs-dataset-178 = хвилювати
+
+verbs-dataset-179 = вибачати
+
+verbs-dataset-180 = тренуватися
+
+verbs-dataset-181 = існувати
+
+verbs-dataset-182 = розширювати
+
+verbs-dataset-183 = очікувати
+
+verbs-dataset-184 = пояснювати
+
+verbs-dataset-185 = вибухати
+
+verbs-dataset-186 = продовжувати
+
+verbs-dataset-187 = стикатися
+
+verbs-dataset-188 = згасати
+
+verbs-dataset-189 = зазнавати невдачі
+
+verbs-dataset-190 = подобатися
+
+verbs-dataset-191 = закріплювати
+
+verbs-dataset-192 = відправляти факсом
+
+verbs-dataset-193 = боятися
+
+verbs-dataset-194 = огороджувати
+
+verbs-dataset-195 = приносити
+
+verbs-dataset-196 = подавати
+
+verbs-dataset-197 = наповнювати
+
+verbs-dataset-198 = знімати фільм
+
+verbs-dataset-199 = стріляти
+
+verbs-dataset-200 = пасувати
+
+verbs-dataset-201 = лагодити
+
+verbs-dataset-202 = махати
+
+verbs-dataset-203 = спалахувати
+
+verbs-dataset-204 = плавати
+
+verbs-dataset-205 = затоплювати
+
+verbs-dataset-206 = текти
+
+verbs-dataset-207 = цвісти
+
+verbs-dataset-208 = складати
+
+verbs-dataset-209 = слідувати
+
+verbs-dataset-210 = дурити
+
+verbs-dataset-211 = змушувати
+
+verbs-dataset-212 = формувати
+
+verbs-dataset-213 = засновувати
+
+verbs-dataset-214 = обрамляти
+
+verbs-dataset-215 = лякати
+
+verbs-dataset-216 = смажити
+
+verbs-dataset-217 = збирати
+
+verbs-dataset-218 = вдивлятися
+
+verbs-dataset-219 = світитися
+
+verbs-dataset-220 = клеїти
+
+verbs-dataset-221 = хапати
+
+verbs-dataset-222 = терти
+
+verbs-dataset-223 = змащувати
+
+verbs-dataset-224 = вітати
+
+verbs-dataset-225 = посміхатися
+
+verbs-dataset-226 = стискати
+
+verbs-dataset-227 = стогнати
+
+verbs-dataset-228 = гарантувати
+
+verbs-dataset-229 = охороняти
+
+verbs-dataset-230 = вгадувати
+
+verbs-dataset-231 = направляти
+
+verbs-dataset-232 = забивати молотком
+
+verbs-dataset-233 = вручати
+
+verbs-dataset-234 = керувати
+
+verbs-dataset-235 = вішати
+
+verbs-dataset-236 = траплятися
+
+verbs-dataset-237 = переслідувати
+
+verbs-dataset-238 = шкодити
+
+verbs-dataset-239 = ненавидіти
+
+verbs-dataset-240 = переслідувати (про привидів)
+
+verbs-dataset-241 = очолювати
+
+verbs-dataset-242 = лікувати
+
+verbs-dataset-243 = нагромаджувати
+
+verbs-dataset-244 = нагрівати
+
+verbs-dataset-245 = допомагати
+
+verbs-dataset-246 = чіпляти гаком
+
+verbs-dataset-247 = стрибати
+
+verbs-dataset-248 = сподіватися
+
+verbs-dataset-249 = зависати
+
+verbs-dataset-250 = обіймати
+
+verbs-dataset-251 = наспівувати
+
+verbs-dataset-252 = полювати
+
+verbs-dataset-253 = поспішати
+
+verbs-dataset-254 = ідентифікувати
+
+verbs-dataset-255 = ігнорувати
+
+verbs-dataset-256 = уявляти
+
+verbs-dataset-257 = вражати
+
+verbs-dataset-258 = покращувати
+
+verbs-dataset-259 = включати
+
+verbs-dataset-260 = збільшувати
+
+verbs-dataset-261 = впливати
+
+verbs-dataset-262 = інформувати
+
+verbs-dataset-263 = вводити ін'єкцію
+
+verbs-dataset-264 = травмувати
+
+verbs-dataset-265 = інструктувати
+
+verbs-dataset-266 = мати намір
+
+verbs-dataset-267 = цікавити
+
+verbs-dataset-268 = втручатися
+
+verbs-dataset-269 = переривати
+
+verbs-dataset-270 = представляти
+
+verbs-dataset-271 = винаходити
+
+verbs-dataset-272 = запрошувати
+
+verbs-dataset-273 = дратувати
+
+verbs-dataset-274 = свербіти
+
+verbs-dataset-275 = ув'язнювати
+
+verbs-dataset-276 = заклинювати
+
+verbs-dataset-277 = бігти підтюпцем
+
+verbs-dataset-278 = приєднуватися
+
+verbs-dataset-279 = жартувати
+
+verbs-dataset-280 = судити
+
+verbs-dataset-281 = жонглювати
+
+verbs-dataset-282 = стрибати
+
+verbs-dataset-283 = копати
+
+verbs-dataset-284 = вбивати
+
+verbs-dataset-285 = цілувати
+
+verbs-dataset-286 = ставати на коліна
+
+verbs-dataset-287 = в'язати
+
+verbs-dataset-288 = стукати
+
+verbs-dataset-289 = зав'язувати вузол
+
+verbs-dataset-290 = маркувати
+
+verbs-dataset-291 = приземлятися
+
+verbs-dataset-292 = тривати
+
+verbs-dataset-293 = сміятися
+
+verbs-dataset-294 = запускати
+
+verbs-dataset-295 = вчити
+
+verbs-dataset-296 = вирівнювати
+
+verbs-dataset-297 = ліцензувати
+
+verbs-dataset-298 = лизати
+
+verbs-dataset-299 = брехати
+
+verbs-dataset-300 = освітлювати
+
+verbs-dataset-301 = подобатися
+
+verbs-dataset-302 = перераховувати
+
+verbs-dataset-303 = слухати
+
+verbs-dataset-304 = жити
+
+verbs-dataset-305 = завантажувати
+
+verbs-dataset-306 = замикати
+
+verbs-dataset-307 = тужити
+
+verbs-dataset-308 = дивитися
+
+verbs-dataset-309 = любити
+
+verbs-dataset-310 = керувати
+
+verbs-dataset-311 = вправлятися
+
+verbs-dataset-312 = марширувати
+
+verbs-dataset-313 = позначати
+
+verbs-dataset-314 = одружуватися
+
+verbs-dataset-315 = відповідати
+
+verbs-dataset-316 = паруватися
+
+verbs-dataset-317 = мати значення
+
+verbs-dataset-318 = вимірювати
+
+verbs-dataset-319 = втручатися
+
+verbs-dataset-320 = танути
+
+verbs-dataset-321 = запам'ятовувати
+
+verbs-dataset-322 = лагодити
+
+verbs-dataset-323 = напартачити
+
+verbs-dataset-324 = доїти
+
+verbs-dataset-325 = добувати
+
+verbs-dataset-326 = сумувати
+
+verbs-dataset-327 = змішувати
+
+verbs-dataset-328 = стогнати
+
+verbs-dataset-329 = швартуватися
+
+verbs-dataset-330 = оплакувати
+
+verbs-dataset-331 = рухатися
+
+verbs-dataset-332 = плутати
+
+verbs-dataset-333 = грабувати
+
+verbs-dataset-334 = множити
+
+verbs-dataset-335 = вбивати
+
+verbs-dataset-336 = прибивати
+
+verbs-dataset-337 = називати
+
+verbs-dataset-338 = потребувати
+
+verbs-dataset-339 = гніздитися
+
+verbs-dataset-340 = кивати
+
+verbs-dataset-341 = занотовувати
+
+verbs-dataset-342 = помічати
+
+verbs-dataset-343 = нумерувати
+
+verbs-dataset-344 = слухатися
+
+verbs-dataset-345 = заперечувати
+
+verbs-dataset-346 = спостерігати
+
+verbs-dataset-347 = отримувати
+
+verbs-dataset-348 = траплятися
+
+verbs-dataset-349 = ображати
+
+verbs-dataset-350 = пропонувати
+
+verbs-dataset-351 = відкривати
+
+verbs-dataset-352 = наказувати
+
+verbs-dataset-353 = переповнювати
+
+verbs-dataset-354 = заборгувати
+
+verbs-dataset-355 = володіти
+
+verbs-dataset-356 = пакувати
+
+verbs-dataset-357 = веслувати
+
+verbs-dataset-358 = фарбувати
+
+verbs-dataset-359 = паркуватися
+
+verbs-dataset-360 = розділяти
+
+verbs-dataset-361 = проходити
+
+verbs-dataset-362 = вставляти
+
+verbs-dataset-363 = поплескувати
+
+verbs-dataset-364 = зупинятися
+
+verbs-dataset-365 = клювати
+
+verbs-dataset-366 = натискати на педаль
+
+verbs-dataset-367 = чистити
+
+verbs-dataset-368 = підглядати
+
+verbs-dataset-369 = виконувати
+
+verbs-dataset-370 = дозволяти
+
+verbs-dataset-371 = телефонувати
+
+verbs-dataset-372 = обирати
+
+verbs-dataset-373 = щипати
+
+verbs-dataset-374 = тужити
+
+verbs-dataset-375 = розміщувати
+
+verbs-dataset-376 = планувати
+
+verbs-dataset-377 = садити
+
+verbs-dataset-378 = грати
+
+verbs-dataset-379 = догоджати
+
+verbs-dataset-380 = підключати
+
+verbs-dataset-381 = вказувати
+
+verbs-dataset-382 = тикати
+
+verbs-dataset-383 = полірувати
+
+verbs-dataset-384 = вискакувати
+
+verbs-dataset-385 = володіти
+
+verbs-dataset-386 = публікувати
+
+verbs-dataset-387 = наливати
+
+verbs-dataset-388 = практикувати
+
+verbs-dataset-389 = молитися
+
+verbs-dataset-390 = проповідувати
+
+verbs-dataset-391 = передувати
+
+verbs-dataset-392 = надавати перевагу
+
+verbs-dataset-393 = готувати
+
+verbs-dataset-394 = презентувати
+
+verbs-dataset-395 = зберігати
+
+verbs-dataset-396 = натискати
+
+verbs-dataset-397 = прикидатися
+
+verbs-dataset-398 = запобігати
+
+verbs-dataset-399 = колоти
+
+verbs-dataset-400 = друкувати
+
+verbs-dataset-401 = виробляти
+
+verbs-dataset-402 = програмувати
+
+verbs-dataset-403 = обіцяти
+
+verbs-dataset-404 = захищати
+
+verbs-dataset-405 = надавати
+
+verbs-dataset-406 = тягнути
+
+verbs-dataset-407 = качати
+
+verbs-dataset-408 = бити
+
+verbs-dataset-409 = проколювати
+
+verbs-dataset-410 = карати
+
+verbs-dataset-411 = штовхати
+
+verbs-dataset-412 = питати
+
+verbs-dataset-413 = стояти в черзі
+
+verbs-dataset-414 = змагатися
+
+verbs-dataset-415 = випромінювати
+
+verbs-dataset-416 = дощити
+
+verbs-dataset-417 = піднімати
+
+verbs-dataset-418 = досягати
+
+verbs-dataset-419 = усвідомлювати
+
+verbs-dataset-420 = отримувати
+
+verbs-dataset-421 = впізнавати
+
+verbs-dataset-422 = записувати
+
+verbs-dataset-423 = зменшувати
+
+verbs-dataset-424 = відбивати
+
+verbs-dataset-425 = відмовлятися
+
+verbs-dataset-426 = шкодувати
+
+verbs-dataset-427 = царювати
+
+verbs-dataset-428 = відхиляти
+
+verbs-dataset-429 = радіти
+
+verbs-dataset-430 = розслаблятися
+
+verbs-dataset-431 = випускати
+
+verbs-dataset-432 = покладатися
+
+verbs-dataset-433 = залишатися
+
+verbs-dataset-434 = пам'ятати
+
+verbs-dataset-435 = нагадувати
+
+verbs-dataset-436 = видаляти
+
+verbs-dataset-437 = ремонтувати
+
+verbs-dataset-438 = повторювати
+
+verbs-dataset-439 = замінювати
+
+verbs-dataset-440 = відповідати
+
+verbs-dataset-441 = повідомляти
+
+verbs-dataset-442 = відтворювати
+
+verbs-dataset-443 = просити
+
+verbs-dataset-444 = рятувати
+
+verbs-dataset-445 = йти у відставку
+
+verbs-dataset-446 = повертатися
+
+verbs-dataset-447 = римувати
+
+verbs-dataset-448 = прополіскувати
+
+verbs-dataset-449 = ризикувати
+
+verbs-dataset-450 = грабувати
+
+verbs-dataset-451 = гойдати
+
+verbs-dataset-452 = котитися
+
+verbs-dataset-453 = гнити
+
+verbs-dataset-454 = терти
+
+verbs-dataset-455 = руйнувати
+
+verbs-dataset-456 = правити
+
+verbs-dataset-457 = поспішати
+
+verbs-dataset-458 = звільняти
+
+verbs-dataset-459 = плавати
+
+verbs-dataset-460 = задовольняти
+
+verbs-dataset-461 = зберігати
+
+verbs-dataset-462 = пиляти
+
+verbs-dataset-463 = лякати
+
+verbs-dataset-464 = розкидати
+
+verbs-dataset-465 = сварити
+
+verbs-dataset-466 = обпалювати
+
+verbs-dataset-467 = скребти
+
+verbs-dataset-468 = дряпати
+
+verbs-dataset-469 = кричати
+
+verbs-dataset-470 = закручувати
+
+verbs-dataset-471 = нашвидкоруч писати
+
+verbs-dataset-472 = терти
+
+verbs-dataset-473 = запечатувати
+
+verbs-dataset-474 = шукати
+
+verbs-dataset-475 = розділяти
+
+verbs-dataset-476 = служити
+
+verbs-dataset-477 = влаштовуватися
+
+verbs-dataset-478 = затінювати
+
+verbs-dataset-479 = ділитися
+
+verbs-dataset-480 = голитися
+
+verbs-dataset-481 = прихищати
+
+verbs-dataset-482 = тремтіти
+
+verbs-dataset-483 = шокувати
+
+verbs-dataset-484 = робити покупки
+
+verbs-dataset-485 = пронизливо кричати
+
+verbs-dataset-486 = знизувати плечима
+
+verbs-dataset-487 = зітхати
+
+verbs-dataset-488 = підписувати
+
+verbs-dataset-489 = сигналити
+
+verbs-dataset-490 = грішити
+
+verbs-dataset-491 = сьорбати
+
+verbs-dataset-492 = кататися на лижах
+
+verbs-dataset-493 = пропускати
+
+verbs-dataset-494 = давати ляпаса
+
+verbs-dataset-495 = ковзати
+
+verbs-dataset-496 = сповільнювати
+
+verbs-dataset-497 = розбивати
+
+verbs-dataset-498 = нюхати
+
+verbs-dataset-499 = посміхатися
+
+verbs-dataset-500 = курити
+
+verbs-dataset-501 = вихоплювати
+
+verbs-dataset-502 = чхати
+
+verbs-dataset-503 = сопіти
+
+verbs-dataset-504 = хропіти
+
+verbs-dataset-505 = сніжити
+
+verbs-dataset-506 = промокати
+
+verbs-dataset-507 = заспокоювати
+
+verbs-dataset-508 = звучати
+
+verbs-dataset-509 = жаліти
+
+verbs-dataset-510 = іскрити
+
+verbs-dataset-511 = виблискувати
+
+verbs-dataset-512 = вимовляти по буквах
+
+verbs-dataset-513 = проливати
+
+verbs-dataset-514 = псувати
+
+verbs-dataset-515 = помічати
+
+verbs-dataset-516 = розпилювати
+
+verbs-dataset-517 = проростати
+
+verbs-dataset-518 = роздавлювати
+
+verbs-dataset-519 = пищати
+
+verbs-dataset-520 = вищати
+
+verbs-dataset-521 = стискати
+
+verbs-dataset-522 = плямувати
+
+verbs-dataset-523 = штампувати
+
+verbs-dataset-524 = витріщатися
+
+verbs-dataset-525 = починати
+
+verbs-dataset-526 = залишатися
+
+verbs-dataset-527 = керувати
+
+verbs-dataset-528 = крокувати
+
+verbs-dataset-529 = перемішувати
+
+verbs-dataset-530 = зшивати
+
+verbs-dataset-531 = зупиняти
+
+verbs-dataset-532 = зберігати
+
+verbs-dataset-533 = прив'язувати
+
+verbs-dataset-534 = зміцнювати
+
+verbs-dataset-535 = розтягувати
+
+verbs-dataset-536 = гладити
+
+verbs-dataset-537 = набивати
+
+verbs-dataset-538 = віднімати
+
+verbs-dataset-539 = досягати успіху
+
+verbs-dataset-540 = смоктати
+
+verbs-dataset-541 = страждати
+
+verbs-dataset-542 = пропонувати
+
+verbs-dataset-543 = пасувати
+
+verbs-dataset-544 = постачати
+
+verbs-dataset-545 = підтримувати
+
+verbs-dataset-546 = припускати
+
+verbs-dataset-547 = дивувати
+
+verbs-dataset-548 = оточувати
+
+verbs-dataset-549 = підозрювати
+
+verbs-dataset-550 = призупиняти
+
+verbs-dataset-551 = перемикати
+
+verbs-dataset-552 = розмовляти
+
+verbs-dataset-553 = приручати
+
+verbs-dataset-554 = постукувати
+
+verbs-dataset-555 = куштувати
+
+verbs-dataset-556 = дражнити
+
+verbs-dataset-557 = телефонувати
+
+verbs-dataset-558 = спокушати
+
+verbs-dataset-559 = жахати
+
+verbs-dataset-560 = тестувати
+
+verbs-dataset-561 = дякувати
+
+verbs-dataset-562 = розморожувати
+
+verbs-dataset-563 = тікати
+
+verbs-dataset-564 = лоскотати
+
+verbs-dataset-565 = зав'язувати
+
+verbs-dataset-566 = засікати час
+
+verbs-dataset-567 = давати на чай
+
+verbs-dataset-568 = втомлювати
+
+verbs-dataset-569 = торкатися
+
+verbs-dataset-570 = гастролювати
+
+verbs-dataset-571 = буксирувати
+
+verbs-dataset-572 = простежувати
+
+verbs-dataset-573 = торгувати
+
+verbs-dataset-574 = тренувати
+
+verbs-dataset-575 = транспортувати
+
+verbs-dataset-576 = ловити в пастку
+
+verbs-dataset-577 = подорожувати
+
+verbs-dataset-578 = пригощати
+
+verbs-dataset-579 = тремтіти
+
+verbs-dataset-580 = обманювати
+
+verbs-dataset-581 = спотикатися
+
+verbs-dataset-582 = йти риссю
+
+verbs-dataset-583 = турбувати
+
+verbs-dataset-584 = довіряти
+
+verbs-dataset-585 = намагатися
+
+verbs-dataset-586 = тягнути
+
+verbs-dataset-587 = падати
+
+verbs-dataset-588 = повертати
+
+verbs-dataset-589 = крутити
+
+verbs-dataset-590 = друкувати
+
+verbs-dataset-591 = розстібати
+
+verbs-dataset-592 = об'єднувати
+
+verbs-dataset-593 = відмикати
+
+verbs-dataset-594 = розпаковувати
+
+verbs-dataset-595 = робити безлад
+
+verbs-dataset-596 = використовувати
+
+verbs-dataset-597 = зникати
+
+verbs-dataset-598 = відвідувати
+
+verbs-dataset-599 = голосити
+
+verbs-dataset-600 = чекати
+
+verbs-dataset-601 = гуляти
+
+verbs-dataset-602 = блукати
+
+verbs-dataset-603 = хотіти
+
+verbs-dataset-604 = гріти
+
+verbs-dataset-605 = попереджати
+
+verbs-dataset-606 = мити
+
+verbs-dataset-607 = марнувати
+
+verbs-dataset-608 = спостерігати
+
+verbs-dataset-609 = поливати
+
+verbs-dataset-610 = махати
+
+verbs-dataset-611 = зважувати
+
+verbs-dataset-612 = вітати
+
+verbs-dataset-613 = скиглити
+
+verbs-dataset-614 = хльостати
+
+verbs-dataset-615 = кружляти
+
+verbs-dataset-616 = свистіти
+
+verbs-dataset-617 = моргати
+
+verbs-dataset-618 = витирати
+
+verbs-dataset-619 = бажати
+
+verbs-dataset-620 = хитатися
+
+verbs-dataset-621 = дивуватися
+
+verbs-dataset-622 = працювати
+
+verbs-dataset-623 = хвилюватися
+
+verbs-dataset-624 = загортати
+
+verbs-dataset-625 = ламати
+
+verbs-dataset-626 = боротися
+
+verbs-dataset-627 = звиватися
+
+verbs-dataset-628 = позіхати
+
+verbs-dataset-629 = кричати
+
+verbs-dataset-630 = застібати
+
+verbs-dataset-631 = наближати

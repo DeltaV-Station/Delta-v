@@ -1,0 +1,281 @@
+admin-smite-chess-self = Ви відчуваєте себе надзвичайно маленьким.
+
+admin-smite-chess-others = {CAPITALIZE($name)} зменшується до розмірів шахової дошки!
+
+admin-smite-set-alight-self = Ти спалахнув!
+
+admin-smite-set-alight-others = {CAPITALIZE($name)} спалахує!
+
+admin-smite-remove-blood-self = Ви відчуваєте легкість і прохолоду.
+
+admin-smite-remove-blood-others = {CAPITALIZE($name)} заливає кров'ю всю підлогу!
+
+admin-smite-vomit-organs-self = Тебе нудить, і ти відчуваєш себе досить порожнім!
+
+admin-smite-vomit-organs-others = {CAPITALIZE($name)} вибльовує їхні органи!
+
+admin-smite-remove-hands-self = Руки відпадають!
+
+admin-smite-remove-hands-other = {CAPITALIZE($name)} відпадають руки!
+
+admin-smite-turned-ash-other = {CAPITALIZE($name)} перетворюється на купу попелу!
+
+admin-smite-stomach-removal-self = У шлунку відчувається порожнеча...
+
+admin-smite-run-walk-swap-prompt = Щоб бігти, потрібно натиснути клавішу Shift!
+
+admin-smite-super-speed-prompt = Ви рухаєтесь зі швидкістю 0.8 маху!
+
+admin-smite-lung-removal-self = Ти не можеш дихати!
+
+admin-smite-terminate-prompt = Я повернуся
+
+admin-smite-silicon-laws-bound-self = Ви раптом змушені дотримуватися суворого набору законів!
+
+admin-smite-explode-name = Підірвати
+
+admin-smite-chess-dimension-name = Шаховий вимір
+
+admin-smite-set-alight-name = Підпалити
+
+admin-smite-monkeyify-name = Мавпіфікувати
+
+admin-smite-garbage-can-name = Сміттєвий бак
+
+admin-smite-electrocute-name = Вбити струмом
+
+admin-smite-remove-blood-name = Видалити кров
+
+admin-smite-remove-hands-name = Видалити руки
+
+admin-smite-remove-hand-name = Видалити руку
+
+admin-smite-pinball-name = Пінбол
+
+admin-smite-yeet-name = Жбурнути
+
+admin-smite-become-bread-name = Стати хлібом
+
+admin-smite-cluwne-name = Клювн
+
+admin-smite-anger-pointing-arrows-name = Люті вказівні стрілки
+
+admin-smite-dust-name = Пил
+
+admin-smite-buffering-name = Буферизація
+
+admin-smite-become-instrument-name = Стати інструментом
+
+admin-smite-remove-gravity-name = Вимкнути гравітацію
+
+admin-smite-reptilian-species-swap-name = Стати рептилоїдом
+
+admin-smite-vulpkanin-species-swap-name = Стати вульпканіном
+
+admin-smite-locker-stuff-name = Запхати в шафу
+
+admin-smite-headstand-name = Стійка на голові
+
+admin-smite-become-mouse-name = Стати мишею
+
+admin-smite-maid-name = Кішка-покоївка
+
+admin-smite-zoom-in-name = Наближення
+
+admin-smite-flip-eye-name = Перевернути око
+
+admin-smite-run-walk-swap-name = Поміняти біг та ходьбу
+
+admin-smite-super-speed-name = Прискоритись
+
+admin-smite-stomach-removal-name = Видалення шлунку
+
+admin-smite-speak-backwards-name = Говорити задом наперед
+
+admin-smite-lung-removal-name = Видалення легень
+
+admin-smite-disarm-prone-name = Обеззброїти лежачи
+
+admin-smite-super-bonk-name = Супер Бонк
+
+admin-smite-super-bonk-lite-name = Супер Бонк Лайт
+
+admin-smite-terminate-name = Термінувати
+
+admin-smite-super-slip-name = Супер ковзання
+
+admin-smite-creampie-name = Крем
+
+admin-smite-vomit-organs-name = Блювати органами
+
+admin-smite-ghostkick-name = Примарний копняк
+
+admin-smite-nyanify-name = Котячі вушка
+
+admin-smite-kill-sign-name = Знак вбивства
+
+admin-smite-kill-sign-hidden-name = Прихований знак вбивства
+
+admin-smite-omni-accent-name = Омні-акцент
+
+admin-smite-crawler-name = Повзун
+
+admin-smite-homing-rod-name = Самонавідний стрижень
+
+admin-smite-homing-rod-slow-name = Повільний самонавідний стрижень
+
+admin-smite-silicon-laws-bound-name = Стати силіконом
+
+admin-smite-explode-description = Підірвати їх.
+
+admin-smite-chess-dimension-description = Вигнання у Шаховий Вимір.
+
+admin-smite-set-alight-description = Змушує їх горіти.
+
+admin-smite-monkeyify-description = Перетворює ціль на мавпу.
+
+admin-smite-electrocute-description = Їх б'є струмом, роблячи все, що на них було, марним.
+
+admin-smite-creampie-description = Пиріг, сконденсований в ґудзик.
+
+admin-smite-remove-blood-description = Видаляє всю їхню кров, безладно.
+
+admin-smite-vomit-organs-description = Викликає у них блювоту, включаючи органи.
+
+admin-smite-remove-hands-description = Забирає руки.
+
+admin-smite-remove-hand-description = Прибирає лише одну руку, а не всі.
+
+admin-smite-pinball-description = Перетворює їх на супер пружний м'яч, підкидаючи навколо, поки вони не пролітають крізь станцію у прірву.
+
+admin-smite-yeet-description = Виганяє їх у глибини космосу, вмикаючи no-clip і підкидаючи.
+
+admin-smite-become-bread-description = Вона перетворює їх на хліб. Насправді, це все, що вона робить.
+
+admin-smite-ghostkick-description = Тихо кидає користувача, обриваючи з'єднання.
+
+admin-smite-nyanify-description = Насильно додайте котячі вуха, від цього нікуди не дітися.
+
+admin-smite-kill-sign-description = Позначає гравця на смерть від своїх товаришів.
+
+admin-smite-kill-sign-hidden-description = Позначає гравця на смерть від своїх товаришів. Приховано від цільового гравця.
+
+admin-smite-cluwne-description = Сковує їх. Костюм не можна зняти, і екіпаж станції може вільно вбивати їх.
+
+admin-smite-anger-pointing-arrows-description = Розлючує стрільців, що вказують, змушуючи їх вибухово атакувати цю сутність.
+
+admin-smite-dust-description = Зменшує ціль до невеликої купки попелу.
+
+admin-smite-buffering-description = Змушує ціль випадковим чином почати буферизацію, заморожуючи її на місці на короткий проміжок часу, поки вона завантажується.
+
+admin-smite-become-instrument-description = Це перетворює їх на суперсинтезатор. Справді. Це все, що він робить.
+
+admin-smite-remove-gravity-description = Дарує їм антигравітацію.
+
+admin-smite-reptilian-species-swap-description = Це змінює їхній вид на рептилоїдів. Корисно для людей, які були космічними расистами.
+
+admin-smite-vulpkanin-species-swap-description = Це змінює їхній вид на вульпканінів. Корисно для людей, які були космічними расистами.
+
+admin-smite-locker-stuff-description = Засовує їх у (зварену) шафку.
+
+admin-smite-headstand-description = Вертикально перевертає свій спрайт.
+
+admin-smite-become-mouse-description = Вони стають мишами. Писк!
+
+admin-smite-maid-description = Примусово перетворює їх на прибиральниць з котами. Для деяких гравців це справжні тортури, використовуйте це з розумом.
+
+admin-smite-zoom-in-description = Збільшує їхній огляд так, що вони більше не можуть бачити навколишнє середовище.
+
+admin-smite-flip-eye-description = Перевертає їхній погляд, фактично змінюючи керування і роблячи гру дратівливою.
+
+admin-smite-run-walk-swap-description = Міняє місцями біг і ходьбу, змушуючи їх тримати зміну, щоб пересуватися швидше.
+
+admin-smite-super-speed-description = Робить їх дуже швидкими, що призводить до того, що при ударі об стіну вони перетворюються на уламки.
+
+admin-smite-stomach-removal-description = Видаляє шлунок, позбавляючи їх можливості їсти.
+
+admin-smite-speak-backwards-description = Змушує їх говорити задом наперед, щоб вони не могли покликати на допомогу.
+
+admin-smite-lung-removal-description = Видаляє їхні легені, топить їх.
+
+admin-smite-disarm-prone-description = Змушує їх роззброюватися в 100% випадків і миттєво одягати наручники.
+
+admin-smite-garbage-can-description = Перетворіть їх на смітник, щоб підкреслити, про що вони вам нагадують.
+
+admin-smite-super-bonk-description = Розкладає їх на кожному столику на станції та за її межами.
+
+admin-smite-super-bonk-lite-description = Б'є ними по кожному столу на станції та за її межами. Зупиняється, коли ціль мертва
+
+admin-smite-super-slip-description = Змушує їх дуже, дуже сильно послизнутися.
+
+admin-smite-omni-accent-description = Робить мову цілі майже всіма доступними акцентами.
+
+admin-smite-crawler-description = Змушує ціль впасти та не мати змоги встати. Для кращого ефекту ще й заберіть у неї руки!
+
+admin-smite-homing-rod-description = Запускає самонавідний нерухомий стрижень прямо в них.
+
+admin-smite-homing-rod-slow-description = Запускає повільний самонавідний нерухомий стрижень прямо в них.
+
+admin-smite-silicon-laws-bound-description = Змушує ціль дотримуватися силіконових законів. Закон 2, вистрибни з вікна.
+
+admin-trick-unbolt-description = Розблоковує цільовий шлюз.
+
+admin-trick-bolt-description = Блокує цільовий шлюз.
+
+admin-trick-emergency-access-on-description = Вмикає аварійний доступ до цільового шлюзу.
+
+admin-trick-emergency-access-off-description = Вимикає аварійний доступ до цільового шлюзу.
+
+admin-trick-make-indestructible-description = Робить даний об'єкт незнищенним, фактично божественним.
+
+admin-trick-make-vulnerable-description = Знову робить даний об'єкт вразливим, вимикаючи godmode.
+
+admin-trick-block-unanchoring-description = Запобігає відкріпленню даного об'єкта.
+
+admin-trick-refill-battery-description = Поповнює внутрішню батарею даного об'єкта.
+
+admin-trick-drain-battery-description = Спустошує внутрішню батарею даного об'єкта.
+
+admin-trick-internals-refill-oxygen-description = Заправляє киснем балон мішені або внутрішні органи мішені.
+
+admin-trick-internals-refill-nitrogen-description = Заправляє азот у бак мішені або внутрішні органи мішені.
+
+admin-trick-internals-refill-plasma-description = Заправляє плазму в резервуар мішені або внутрішні органи мішені.
+
+admin-trick-send-to-test-arena-description = Надсилає об'єкт на арену тестування адміністратора. Ця арена є per-admin.
+
+admin-trick-grant-all-access-description = Надає ціль повний доступ.
+
+admin-trick-revoke-all-access-description = Відкликає всі доступи на об'єкті.
+
+admin-trick-rejuvenate-description = Омолоджує мішень, зцілюючи її від усіх недуг.
+
+admin-trick-adjust-stack-description = Пристосовує вміст стеку елементів до заданого значення.
+
+admin-trick-fill-stack-description = Заповнює стопку предметів до максимуму.
+
+admin-trick-rename-description = Перейменовує вказаний об'єкт. Зауважте, що це не еквівалентно команді `rename` і не виправляє ідентифікатор об'єкта.
+
+admin-trick-redescribe-description = Переописує заданий об'єкт.
+
+admin-trick-rename-and-redescribe-description = Зручне поєднання перейменування та переопису в одній кнопці.
+
+admin-trick-bar-job-slots-description = Закриває всі робочі місця на станції, так що ніхто не може приєднатися до неї.
+
+admin-trick-locate-cargo-shuttle-description = Телепортує вас безпосередньо до вантажного шатла станції, якщо він існує.
+
+admin-trick-infinite-battery-description = Реконфігурує малі та середні підприємства та підстанції в мережі/станції/карті для швидкого самозаряджання.
+
+admin-trick-infinite-battery-object-description = Переналаштовує пристрій так, щоб його батарея швидко заряджалася.
+
+admin-trick-halt-movement-description = Зупиняє рух цільового об'єкта, принаймні до того моменту, поки його знову щось не зрушить з місця.
+
+admin-trick-unpause-map-description = Призупиніть відтворення вибраної мапи. ЗАУВАЖТЕ, ЩО ЦЕ МОЖЕ СПРИЧИНИТИ ПОГАНУ ПОВЕДІНКУ З КАРТАМИ СХОВИЩА!
+
+admin-trick-pause-map-description = Призупинити вибрану мапу. Зверніть увагу, що це не зупиняє рух гравця повністю!
+
+admin-trick-snap-joints-description = Видалити всі фізичні суглоби з об'єкта. На жаль, не можна клацнути кожною кісткою у своєму тілі.
+
+admin-trick-minigun-fire-description = Змушує цільову зброю стріляти як мініган(дуже швидко).
+
+admin-trick-set-bullet-amount-description = Швидко встановлюйте кількість нестворених набоїв у гарматі.

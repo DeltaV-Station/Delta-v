@@ -1,33 +1,4 @@
 ﻿Entries:
-- author: ShepardToTheStars
-  changes:
-  - message: Fixed some icons missing from the emote wheel and item descriptions.
-    type: Fix
-  id: 1785
-  time: '2025-11-07T14:50:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4614
-- author: ShepardToTheStars
-  changes:
-  - message: Kitsune no longer need to confirm that they would like to revert back
-      to human form.
-    type: Fix
-  id: 1786
-  time: '2025-11-07T15:48:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4612
-- author: ShepardToTheStars
-  changes:
-  - message: More missing icon fixes!
-    type: Fix
-  id: 1787
-  time: '2025-11-09T16:29:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4623
-- author: SirWarock
-  changes:
-  - message: Fixed Magazines Visuals not properly reflecting their ammo count!
-    type: Fix
-  id: 1788
-  time: '2025-11-09T19:30:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4626
 - author: Niomi0
   changes:
   - message: Censer is now spillable to prevent cult soft-lock
@@ -4337,4 +4308,36 @@
   id: 2285
   time: '2026-05-11T03:21:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5697
+- author: rebe83
+  changes:
+  - message: Cybersun stealth suits are slightly slower, and no longer have perfect
+      cloaking after a Spider Clan attack on production facilities.
+    type: Tweak
+  id: 2286
+  time: '2026-05-12T02:51:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5739
+- author: SirWarock
+  changes:
+  - message: Melee Resistance values of armor can now be fine tuned!
+    type: Tweak
+  - message: Reduced the web vest's melee stamina resistance from 40 -> 10!
+    type: Tweak
+  id: 2287
+  time: '2026-05-12T02:59:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5627
+- author: FieldCommand
+  changes:
+  - message: Can purchase the cargo shuttle for 30000 spesos.
+    type: Add
+  id: 2288
+  time: '2026-05-12T15:04:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5789
+- author: Halo3moth
+  changes:
+  - message: Xenoborg laser cannon nerfed from 2 fire rate to 1 (84 dps to 42) to
+      be in line with the sec laser cannon changes
+    type: Tweak
+  id: 2289
+  time: '2026-05-12T16:36:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5661
 Order: 1

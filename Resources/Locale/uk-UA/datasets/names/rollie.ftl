@@ -1,0 +1,73 @@
+names-rollie-dataset-1 = косяк
+
+names-rollie-dataset-2 = штакет
+
+names-rollie-dataset-3 = пташка
+
+names-rollie-dataset-4 = блант
+
+names-rollie-dataset-5 = буфер
+
+names-rollie-dataset-6 = буфер
+
+names-rollie-dataset-7 = бомбер
+
+names-rollie-dataset-8 = кістка
+
+names-rollie-dataset-9 = булка
+
+names-rollie-dataset-10 = дудка
+
+names-rollie-dataset-11 = дуб
+
+names-rollie-dataset-12 = дубер
+
+names-rollie-dataset-13 = дубі
+
+names-rollie-dataset-14 = датч
+
+names-rollie-dataset-15 = жирний
+
+names-rollie-dataset-16 = здоровань
+
+names-rollie-dataset-17 = гудок
+
+names-rollie-dataset-18 = гуді
+
+names-rollie-dataset-19 = джей
+
+names-rollie-dataset-20 = джиммі
+
+names-rollie-dataset-21 = джуджу
+
+names-rollie-dataset-22 = джібі вібі
+
+names-rollie-dataset-23 = номер
+
+names-rollie-dataset-24 = сова
+
+names-rollie-dataset-25 = жирдяй
+
+names-rollie-dataset-26 = пихкач
+
+names-rollie-dataset-27 = риф
+
+names-rollie-dataset-28 = рифа
+
+names-rollie-dataset-29 = самокрутка
+
+names-rollie-dataset-30 = скубі
+
+names-rollie-dataset-31 = коротун
+
+names-rollie-dataset-32 = спіф
+
+names-rollie-dataset-33 = спліф
+
+names-rollie-dataset-34 = затяжка
+
+names-rollie-dataset-35 = торпеда
+
+names-rollie-dataset-36 = зут
+
+names-rollie-dataset-37 = зутер

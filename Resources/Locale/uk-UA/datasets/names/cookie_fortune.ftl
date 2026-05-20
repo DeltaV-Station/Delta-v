@@ -1,0 +1,157 @@
+descriptions-cookie-fortune-dataset-1 = Кінець близький... і це все твоя провина.
+
+descriptions-cookie-fortune-dataset-2 = Ми знаємо, що ти зробив.
+
+descriptions-cookie-fortune-dataset-3 = Остерігайся.
+
+descriptions-cookie-fortune-dataset-4 = Не озирайся.
+
+descriptions-cookie-fortune-dataset-5 = Ніколи не довіряй людині в рипучому взутті.
+
+descriptions-cookie-fortune-dataset-6 = Ніколи не довіряй людині в червоній уніформі.
+
+descriptions-cookie-fortune-dataset-7 = Ніколи не довіряй людині в зеленій уніформі.
+
+descriptions-cookie-fortune-dataset-8 = Ніколи не довіряй людині в синій уніформі.
+
+descriptions-cookie-fortune-dataset-9 = Ніколи не довіряй людині в жовтій уніформі.
+
+descriptions-cookie-fortune-dataset-10 = Ніколи не довіряй людині в чорній уніформі.
+
+descriptions-cookie-fortune-dataset-11 = Ніколи не довіряй людині без уніформи.
+
+descriptions-cookie-fortune-dataset-12 = Завжди довіряй людині в рипучому взутті.
+
+descriptions-cookie-fortune-dataset-13 = Клоун знає, що ти знаєш, що він знає. Остерігайся.
+
+descriptions-cookie-fortune-dataset-14 = Остерігайся мовчазної людини в тихих технічних тунелях.
+
+descriptions-cookie-fortune-dataset-15 = Будь обережним у темних технічних тунелях.
+
+descriptions-cookie-fortune-dataset-16 = У технічних тунелях на тебе чекає сюрприз.
+
+descriptions-cookie-fortune-dataset-17 = У гуртожитку на вас чекає приємний сюрприз.
+
+descriptions-cookie-fortune-dataset-18 = У кафетерії на вас чекає приємний сюрприз.
+
+descriptions-cookie-fortune-dataset-19 = У зоні прибуття на вас чекає приємний сюрприз.
+
+descriptions-cookie-fortune-dataset-20 = У церкві на вас чекає приємний сюрприз.
+
+descriptions-cookie-fortune-dataset-21 = У сховищі інструментів на вас чекає приємний сюрприз.
+
+descriptions-cookie-fortune-dataset-22 = Серед нас є самозванець.
+
+descriptions-cookie-fortune-dataset-23 = У технічних тунелях на тебе чекає весела пригода.
+
+descriptions-cookie-fortune-dataset-24 = ЦентКом пишається тобою!
+
+descriptions-cookie-fortune-dataset-25 = Голова твого відділу пишається тобою!
+
+descriptions-cookie-fortune-dataset-26 = Ян пишається тобою!
+
+descriptions-cookie-fortune-dataset-27 = Зроби це для Яна!
+
+descriptions-cookie-fortune-dataset-28 = Завжди носи з собою аварійний ящик.
+
+descriptions-cookie-fortune-dataset-29 = Червоний шпигун на базі.
+
+descriptions-cookie-fortune-dataset-30 = У найближчі хвилини твоє заповітне бажання здійсниться.
+
+descriptions-cookie-fortune-dataset-31 = Швидко поглянь у дзеркало!
+
+descriptions-cookie-fortune-dataset-32 = Не дивись сьогодні в дзеркало!
+
+descriptions-cookie-fortune-dataset-33 = Дружба скоро прийде до тебе.
+
+descriptions-cookie-fortune-dataset-34 = Сіра людина в протигазі скоро прийде до тебе.
+
+descriptions-cookie-fortune-dataset-35 = Той, хто отримає цю записку, отримає плитку шоколаду.
+
+descriptions-cookie-fortune-dataset-36 = Молоко корисне для твоїх кісток.
+
+descriptions-cookie-fortune-dataset-37 = Кричи "Ура!" і отримай ізольовані рукавички.
+
+descriptions-cookie-fortune-dataset-38 = Обійми свого капітана і отримаєш подарунок.
+
+descriptions-cookie-fortune-dataset-39 = Сумнівний друг може виявитися ворогом у червоному камуфляжі.
+
+descriptions-cookie-fortune-dataset-40 = Вірний колега - це надійний захист.
+
+descriptions-cookie-fortune-dataset-41 = Друг просить лише твого часу, а не твого лома.
+
+descriptions-cookie-fortune-dataset-42 = Твоє життя не стає кращим випадково, воно стає кращим, коли ти добре виконуєш свою роботу.
+
+descriptions-cookie-fortune-dataset-43 = Бу!
+
+descriptions-cookie-fortune-dataset-44 = Справжній скарб - це друзі, яких ти знайшов за зміну.
+
+descriptions-cookie-fortune-dataset-45 = Алане, будь ласка, додай деталі
+
+descriptions-cookie-fortune-dataset-46 = Ти найвеличніша людина, яка коли-небудь жила!
+
+descriptions-cookie-fortune-dataset-47 = НаноТрейзен змушує мене писати пророцтва для цього печива, допоможіть!
+
+descriptions-cookie-fortune-dataset-48 = Купуйте Містера Чанга сьогодні!
+
+descriptions-cookie-fortune-dataset-49 = Ви любите Містера Чанга!
+
+descriptions-cookie-fortune-dataset-50 = Не купуйте Дисконтного Дена. Купуйте Містера Чанга!
+
+descriptions-cookie-fortune-dataset-51 = Не купуйте шоколад "Гетмор". Купуйте Містера Чанга!
+
+descriptions-cookie-fortune-dataset-52 = Що сховано в технічній шафці?
+
+descriptions-cookie-fortune-dataset-53 = Вся твоя важка праця скоро окупиться.
+
+descriptions-cookie-fortune-dataset-54 = Не просто думай, дій!
+
+descriptions-cookie-fortune-dataset-55 = Яблуко на день тримає лікаря на відстані.
+
+descriptions-cookie-fortune-dataset-56 = Не пий, коли налаштовуєш сингулярність.
+
+descriptions-cookie-fortune-dataset-57 = Вдивляйся в сингулярність, і сингулярність вдивлятиметься в тебе.
+
+descriptions-cookie-fortune-dataset-58 = Кожен добрий і досконалий дар - від ЦентКому.
+
+descriptions-cookie-fortune-dataset-59 = Не існує ніякої Космічної Станції 13.
+
+descriptions-cookie-fortune-dataset-60 = Є час для обережності, але не для страху.
+
+descriptions-cookie-fortune-dataset-61 = Розумно почати довіряти своїй інтуїції.
+
+descriptions-cookie-fortune-dataset-62 = Час дорогоцінний, але ізольовані рукавички дорожчі за час.
+
+descriptions-cookie-fortune-dataset-63 = Фортуна і дає, і забирає. Зроби це.
+
+descriptions-cookie-fortune-dataset-64 = Фортуна і квіти не вічні. Зроби це.
+
+descriptions-cookie-fortune-dataset-65 = Зроби це. Просто зроби це.
+
+descriptions-cookie-fortune-dataset-66 = Коли життя дає тобі лимони замість апельсинів, роби лимонад.
+
+descriptions-cookie-fortune-dataset-67 = Відкривши це печиво, ти запустив жахливий ланцюг подій, молодець.
+
+descriptions-cookie-fortune-dataset-68 = Повертайся до роботи!
+
+descriptions-cookie-fortune-dataset-69 = Cookie.print() не знайдено
+
+descriptions-cookie-fortune-dataset-70 = НА ЦІЙ СТАНЦІЇ НЕМАЄ КЛОНАТОРА
+
+descriptions-cookie-fortune-dataset-71 = Вмикати датчики скафандра на максимум - завжди гарна ідея.
+
+descriptions-cookie-fortune-dataset-72 = Синдикат наймає. Зв'яжіться з нами.
+
+descriptions-cookie-fortune-dataset-73 = Людина поруч з тобою щось замислила. Ти знаєш, що робити.
+
+descriptions-cookie-fortune-dataset-74 = Чи знаєте ви? Мавпи не ті, ким здаються.
+
+descriptions-cookie-fortune-dataset-75 = Чи знаєте ви, що половина утилізаторів зникає безвісти на роботі?
+
+descriptions-cookie-fortune-dataset-76 = Також спробуйте сашимі з соусом з галактичного будяка!
+
+descriptions-cookie-fortune-dataset-77 = Чи знаєте ви, що 70% кандидатів НаноТрейзен зникають протягом перших років контракту? Чим більше знаєш!!
+
+descriptions-cookie-fortune-dataset-78 = У цю зміну ти зробиш дуже крутий мув на очах у всіх.
+
+descriptions-cookie-fortune-dataset-79 = Крутість - це не тільки те, наскільки ти вправний, а й те, наскільки ти хороша людина.
