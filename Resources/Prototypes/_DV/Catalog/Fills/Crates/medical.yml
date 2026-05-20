@@ -32,10 +32,10 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: JugPotassium
+        - id: FoodGalaxythistle
+          amount: 4
         - id: JugNitrogen
         - id: JugHydrogen
-        - id: JugSilicon
         - id: Skimmer
         - id: BoxBottle
         - id: BoxSyringe

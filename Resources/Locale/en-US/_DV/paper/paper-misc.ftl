@@ -53,6 +53,7 @@ paper-viral-care-package-manual = [color=#134975]░░██░░ [head=2]Vira
 
       ​[head=2][color=#134975]How to mix Ambuzol:[/color][/head]
       ​[bullet] Pour [bold]15u Hydrogen[/bold] and [bold]5u Nitrogen[/bold] into a bottle to mix [color=#77b58e][bold]Ammonia[/bold][/color].
+      [bullet] Grind the Galaxythistle bulbs in a reagent grinder to extract [bold][color=#2b2f77]Stellibinin[/color][/bold].
       ​[bullet] Mix [bold][color=#77b58e]5u Ammonia[/color][/bold] and [bold][color=#2b2f77]5u Stellibinin[/color][/bold] with [bold][color=#2b0700]10u Zombie Blood[/color][/bold] to synthesize [bold][color=#86caf7]40u Ambuzol[/color][/bold].
 
       ​[head=2][color=#134975]How to use Ambuzol:[/color][/head]
