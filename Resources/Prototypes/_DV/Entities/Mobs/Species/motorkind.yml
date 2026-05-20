@@ -22,17 +22,18 @@
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Motorkind
-  # - type: DamageVisuals # DV - Shit Med Removal
-  #   thresholds: [25, 50, 75, 100]
-  #   targetLayers:
-  #   - "enum.HumanoidVisualLayers.Chest"
-  #   damageOverlayGroups:
-  #     Brute:
-  #       sprite: _DV/Mobs/Species/Motorkind/brute_damage.rsi
-  #       color: "#444444"
-  #     Burn:
-  #       sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
-  #       color: "#888888"
+  - type: DamageVisuals
+    thresholds: [25, 50, 75, 100]
+    targetLayers:
+    - "enum.HumanoidVisualLayers.Chest"
+    damageOverlayGroups:
+      Brute:
+        sprite: _DV/Mobs/Species/Motorkind/brute_damage.rsi
+        color: "#444444"
+      # DV - Commented out until we get a damage ModifierSet for this (or at least seems bugged)
+      # Burn:
+      #   sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
+      #   color: "#888888"
   - type: Butcherable
     butcheringType: Spike
     spawned:
