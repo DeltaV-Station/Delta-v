@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2026 00:00:07
-  entityCount: 29038
+  time: 05/20/2026 00:59:01
+  entityCount: 29039
 maps:
 - 1
 grids:
@@ -183612,6 +183612,16 @@ entities:
     - type: Transform
       pos: -36.5,43.5
       parent: 2
+- proto: WaterDispenser
+  entities:
+  - uid: 29039
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 45.5,-32.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: WaterTankFull
   entities:
   - uid: 918
