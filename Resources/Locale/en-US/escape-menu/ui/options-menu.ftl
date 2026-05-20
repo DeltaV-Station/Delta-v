@@ -363,7 +363,8 @@ ui-options-accessability-header-content = Content
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
-ui-options-screen-shake-intensity = Screen shake intensity
+# DeltaV - Moved to _DV file
+# ui-options-screen-shake-intensity = Screen shake intensity
 
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
@@ -393,9 +394,6 @@ ui-options-admin-player-tab-color-setting-character = Colorize antag character n
 ui-options-admin-player-tab-color-setting-roletype = Colorize all role types
 ui-options-admin-player-tab-color-setting-both = Colorize both
 
-ui-options-admin-logs-title = Admin Logs
-ui-options-admin-logs-highlight-color = Highlight Color
-
 ui-options-admin-overlay-title = Admin Overlay
 
 ui-options-admin-overlay-antag-format = Antag label style
@@ -413,4 +411,3 @@ ui-options-admin-enable-overlay-starting-job = Show starting job
 ui-options-admin-overlay-merge-distance = Stack merge distance
 ui-options-admin-overlay-ghost-fade-distance = Ghost overlay fade range from mouse
 ui-options-admin-overlay-ghost-hide-distance = Ghost overlay hide range from mouse
-

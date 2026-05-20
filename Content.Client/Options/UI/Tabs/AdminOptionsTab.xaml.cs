@@ -51,11 +51,11 @@ public sealed partial class AdminOptionsTab : Control
             playerTabSymbolSettings.Add(new OptionDropDownCVar<string>.ValueOption(setting.ToString()!, Loc.GetString($"ui-options-admin-player-tab-symbol-setting-{setting.ToString()!.ToLower()}")));
         }
 
-        Control.AddOptionColorSlider(CCVars.AdminLogsHighlightColor, ColorSliderLogsHighlight);
-
         Control.AddOptionDropDown(CCVars.AdminPlayerTabSymbolSetting, DropDownPlayerTabSymbolSetting, playerTabSymbolSettings);
         Control.AddOptionDropDown(CCVars.AdminPlayerTabRoleSetting, DropDownPlayerTabRoleSetting, playerTabRoleSettings);
         Control.AddOptionDropDown(CCVars.AdminPlayerTabColorSetting, DropDownPlayerTabColorSetting, playerTabColorSettings);
+        Control.AddOptionCheckBox(CCVars.AdminPlayerTabMarkGhosted, EnablePlayerTabMarkGhosted); // DeltaV
+        Control.AddOptionCheckBox(CCVars.AdminPlayerTabMarkWatchlisted, EnablePlayerTabMarkWatchlisted); // DeltaV
 
         Control.AddOptionDropDown(CCVars.AdminOverlayAntagFormat, DropDownOverlayAntagFormat, antagFormats);
         Control.AddOptionDropDown(CCVars.AdminOverlaySymbolStyle, DropDownOverlayAntagSymbol, antagSymbolStyles);

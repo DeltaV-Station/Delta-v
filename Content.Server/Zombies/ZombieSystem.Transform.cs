@@ -1,3 +1,4 @@
+using Content.Server._DV.Psionics.Systems;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -13,7 +14,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
-using Content.Shared.Abilities.Psionics; // DeltaV
+using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -71,6 +72,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly PsionicSystem _psionic = default!; // DeltaV
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -144,18 +146,11 @@ public sealed partial class ZombieSystem
         RemComp<ComplexInteractionComponent>(target);
         RemComp<SentienceTargetComponent>(target);
 
-        if (TryComp<PsionicComponent>(target, out var psionic)) // DeltaV - Prevent psionic zombies
-        {
-            if (psionic.ActivePowers.Count > 0)
-            {
-                foreach (var power in psionic.ActivePowers)
-                {
-                    RemComp(target, power);
-                }
-                psionic.ActivePowers.Clear();
-            }
-            RemComp<PsionicComponent>(target);
-        }
+        // DeltaV Start - Prevent Psionic Zombies
+        RemComp<PotentialPsionicComponent>(target);
+        if (HasComp<PsionicComponent>(target))
+            _psionic.MindBreakEntity(target, false, true);
+        // DeltaV End - Prevent Psionic Zombies
 
         //funny voice
         var accentType = "zombie";
@@ -208,7 +203,7 @@ public sealed partial class ZombieSystem
             zombiecomp.BeforeZombifiedSkinColor = huApComp.SkinColor;
             zombiecomp.BeforeZombifiedEyeColor = huApComp.EyeColor;
             zombiecomp.BeforeZombifiedCustomBaseLayers = new(huApComp.CustomBaseLayers);
-            if (TryComp<BloodstreamComponent>(target, out var stream) && stream.BloodReagents is { } reagents)
+            if (TryComp<BloodstreamComponent>(target, out var stream) && stream.BloodReferenceSolution is { } reagents)
                 zombiecomp.BeforeZombifiedBloodReagents = reagents.Clone();
 
             _humanoidAppearance.SetSkinColor(target, zombiecomp.SkinColor, verify: false, humanoid: huApComp);
@@ -257,7 +252,7 @@ public sealed partial class ZombieSystem
         _mind.MakeSentient(target);
 
         //Make the zombie not die in the cold. Good for space zombies
-        if (TryComp<TemperatureComponent>(target, out var tempComp))
+        if (TryComp<TemperatureDamageComponent>(target, out var tempComp))
             tempComp.ColdDamage.ClampMax(0);
 
         //Heals the zombie from all the damage it took while human

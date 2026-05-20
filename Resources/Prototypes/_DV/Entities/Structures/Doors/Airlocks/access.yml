@@ -197,6 +197,14 @@
     containers:
       board: [ DoorElectronicsRobotics ]
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleEscapePodDV
+  suffix: External, DV, Escape 5x7, Glass, Docking
+  components:
+  - type: GridFill
+    path: /Maps/_DV/Shuttles/Misc/escape_pod_dv.yml
+
 # Add airlocks from upstream roles
 - type: entity
   parent: AirlockServiceLocked
@@ -632,3 +640,50 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNukeop ]
+
+# ERT Specific Doors
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockERTGlassLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDoorERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+# Centcomm external doors
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCentralCommandLocked
+  suffix: External, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassCentralCommandLocked
+  suffix: External, Glass, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]

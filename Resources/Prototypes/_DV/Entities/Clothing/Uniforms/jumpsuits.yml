@@ -478,7 +478,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformInterdyneChemist
   name: interdyne chemist uniform
-  description: An impecable uniform, sign of a good chemist.
+  description: An impeccable uniform, sign of a good chemist.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
@@ -662,7 +662,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformMedicalVest
   name: medical vest jumpsuit
-  description: A cosy light blue cotton vest and white button-up shirt combo.
+  description: A cozy light blue cotton vest and white button-up shirt combo.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/medical_vest.rsi
@@ -673,7 +673,7 @@
   parent: [ClothingUniformBase, ClothingUniformFoldableBaseImpstation]
   id: ClothingUniformParamedicJumper
   name: paramedic suit jumper
-  description: A dark blue jumper with reflective strips for high high-visibility and strapes everywhere.
+  description: A dark blue jumper with reflective strips for high visibility and stripes everywhere.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpsuit/paramedic_jumper.rsi
@@ -690,3 +690,49 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/chemistry_senior.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/chemistry_senior.rsi
+
+# Wrestling gear--collegiate, prowrestling, lucha libre
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWrestlerCostumeGreen
+  name: Plain Wrestler Leotard
+  description: When you wanta show off your muscles, but don't wanta show off too much skin.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeGreen.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeGreen.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWrestlerCostumeRed
+  name: Bold Wrestler Trunks
+  description: OOHHH YEAH, SNAP INTO A SUS JERKY, BROTHER!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeRed.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeRed.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWrestlerCostumeYellow
+  name: Striped Wrestler Leotard
+  description: Punching tiger, hidden dragon.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeYellow.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeYellow.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWrestlerCostumeBlue
+  name: Glamorous Wrestler Leotard
+  description: Power, Technique, and Beauty! Master the basics!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeBlue.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeBlue.rsi

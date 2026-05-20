@@ -414,6 +414,21 @@
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
 
+## Security utility
+- type: loadoutGroup
+  id: SecurityUtility
+  name: security-utility
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  - FlashBangLoadout
+  - TearGasLoadout
+  - StingerGrenadeLoadout
+  - RadioHandheldSecurityLoadout
+  - SecHoloProjectorLoadout
+  - HandcuffsLoadout
+  - SecLiteLoadout
+
 ## Security Gloves
 - type: loadoutGroup
   id: SecurityGloves
@@ -470,6 +485,7 @@
   - WardenLongcoat
   - StasecWinterCoatWarden
   - ArmorVestSlim
+  - WardenArmoredWinterCoat
 
 ## Head of Security
 - type: loadoutGroup
@@ -482,6 +498,7 @@
   - StasecWinterCoatHoS
   - HeadOfSecurityTrenchcoat
   - ArmorVestSlim
+  - HeadofSecurityWinterCoat
 
 ## Detective
 - type: loadoutGroup
@@ -601,6 +618,7 @@
 - type: loadoutGroup
   id: SurgeonHead
   name: loadout-group-surgeon-head
+  minLimit: 0
   loadouts:
   - BlueSurgeryCap
   - GreenSurgeryCap
@@ -809,6 +827,7 @@
   - RoboticistLabCoat
   - RoboticistWintercoat
   - RegularLabCoat
+  - LongLabCoat
   - ScienceLabCoat
   - CardborgCostume
 
@@ -999,15 +1018,6 @@
   - ScarfBlack
   - ScarfZebra
 
-# Species
-- type: loadoutGroup
-  id: GroupHumanoidSilicon
-  name: loadout-group-humanoid-silicon
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - EmergencyIPCBox
-
 # ERT
 - type: loadoutGroup
   id: GroupEVATankERT
@@ -1023,3 +1033,47 @@
   groups:
   - GroupEVATankERT
   - SurvivalExtended
+
+# Wildcards
+- type: loadoutGroup
+  id: BoxerJumpsuit
+  name: loadout-group-boxer-jumpsuit
+  loadouts:
+  - BoxerShorts
+  - BoxerShortsWithTop
+  - WrestlerCostumeGreen
+  - WrestlerCostumeRed
+  - WrestlerCostumeBlue
+  - WrestlerCostumeYellow
+
+- type: loadoutGroup
+  id: BoxerGloves
+  name: loadout-group-boxer-gloves
+  loadouts:
+  - RedBoxingGloves
+  - BlueBoxingGloves
+  - GreenBoxingGloves
+  - YellowBoxingGloves
+
+- type: loadoutGroup
+  id: BoxerMask
+  name: loadout-group-boxer-mask
+  minLimit: 0
+  loadouts:
+  - BoxerDominoMask
+  - WrestlingMaskLuchaRed
+  - WrestlingMaskLuchaBlue
+
+- type: loadoutGroup
+  id: BoxerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieBoxer
+
+- type: loadoutGroup
+  id: ZookeeperJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieZookeeper

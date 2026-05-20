@@ -4,7 +4,7 @@
 - type: entity
   save: false
   name: Urist McQueen
-  parent: PlayerSiliconHumanoidBase
+  parent: BaseSpeciesDummy
   id: BaseMobMotorkind
   abstract: true
   components:
@@ -20,7 +20,7 @@
     prototype: Motorkind
     requiredLegs: 2
   - type: Damageable
-    damageContainer: HumanoidSilicon
+    damageContainer: Silicon
     damageModifierSet: Motorkind
   - type: DamageVisuals
     thresholds: [25, 50, 75, 100]
@@ -39,12 +39,11 @@
       - id: SheetSteel10
         amount: 1
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Oil
-        Quantity: 1
+        Quantity: 1000
     bleedReductionAmount: 0.1
-    bloodMaxVolume: 1000
     maxBleedAmount: 10.75
     bloodlossDamage:
       types:
@@ -170,10 +169,8 @@
       Unsexed: MaleMotorkind
   - type: Speech
     speechSounds: Alto
-  - type: EncryptionHolderRequiresLock
   - type: EncryptionKeyHolder
     keySlots: 4
-    examineWhileLocked: false
     keysExtractionMethod: Cutting
     keysUnlocked: false
   - type: Lock

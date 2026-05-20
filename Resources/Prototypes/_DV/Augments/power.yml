@@ -116,9 +116,6 @@
   components:
   - type: Sprite
     state: apc
-  - type: Organ
-    onAdd:
-    - type: BatteryDrinker
   - type: Construction
     graph: CreatePowerCellChargerAugment
     node: apc

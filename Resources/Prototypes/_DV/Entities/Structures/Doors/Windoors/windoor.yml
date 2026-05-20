@@ -234,3 +234,30 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsHydroponics ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+- type: entity
+  parent: WindoorSecurePlasma
+  id: WindoorSecurePlasmaERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]
+
+- type: entity
+  parent: WindoorSecureUranium
+  id: WindoorSecureUraniumERTLocked
+  suffix: ERT, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsERT ]

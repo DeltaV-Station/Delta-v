@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: PagerButtonGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: PagerButtonNode
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2.0
+      - material: Cable
+        amount: 1
+  - node: PagerButtonNode
+    entity: PagerButton
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:GivePrototype
+        prototype: CableApcStack1
+        amount: 1
+      - !type:DeleteEntity

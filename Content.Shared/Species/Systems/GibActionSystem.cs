@@ -1,6 +1,7 @@
 using Content.Shared.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
+using Content.Shared.Gibbing;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -12,7 +13,7 @@ namespace Content.Shared.Species;
 public sealed partial class GibActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
@@ -52,8 +53,7 @@ public sealed partial class GibActionSystem : EntitySystem
     {
         // When they use the action, gib them.
         _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", uid)), uid, uid);
-        // DeltaV acidify: false drops inventory items instead of deleting them
-        _bodySystem.GibBody(uid, false);
+        _gibbing.Gib(uid, user: args.Performer);
     }
 
 

@@ -88,7 +88,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     // Per round
     private int _currentRoundId;
     private int _currentLogId;
-    private TimeSpan _currentRoundStartTime;
     private int NextLogId => Interlocked.Increment(ref _currentLogId);
     private GameRunLevel _runLevel = GameRunLevel.PreRoundLobby;
 
@@ -268,7 +267,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
 
     public void RoundStarting(int id)
     {
-        _currentRoundStartTime = _timing.CurTime;
         _currentRoundId = id;
         CacheNewRound();
     }
@@ -338,7 +336,6 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
             Type = type,
             Impact = impact,
             Date = DateTime.UtcNow,
-            CurTime = (_timing.CurTime - _currentRoundStartTime).Ticks,
             Message = message,
             Json = json,
             Players = players,
@@ -495,7 +492,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Creates a list of tpto command links of the given players
     /// </summary>
-    private bool CreateTpLinks(List<(NetEntity NetEnt, string CharacterName)> players, out string outString)
+    // DeltaV - Make public static
+    public static bool CreateTpLinks(List<(NetEntity NetEnt, string CharacterName)> players, out string outString)
     {
         outString = string.Empty;
 
@@ -519,7 +517,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Creates a list of toto command links for the given map coordinates.
     /// </summary>
-    private bool CreateCordLinks(List<MapCoordinates> cords, out string outString)
+    // DeltaV - Make public static
+    public static bool CreateCordLinks(List<MapCoordinates> cords, out string outString)
     {
         outString = string.Empty;
 
@@ -543,7 +542,8 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     /// <summary>
     /// Escape the given text to not allow breakouts of the cmdlink tags.
     /// </summary>
-    private string EscapeText(string text)
+    // DeltaV - Make public static
+    public static string EscapeText(string text)
     {
         return FormattedMessage.EscapeText(text).Replace("\"", "\\\"").Replace("'", "\\'");
     }

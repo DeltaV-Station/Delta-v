@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DV.Mind; // DeltaV
-using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Emoting;
@@ -31,12 +30,10 @@ namespace Content.Shared.Mind;
 public abstract partial class SharedMindSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedPlayerSystem _player = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -52,8 +49,8 @@ public abstract partial class SharedMindSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MindContainerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MindContainerComponent, SuicideEvent>(OnSuicide);
+
         SubscribeLocalEvent<VisitingMindComponent, EntityTerminatingEvent>(OnVisitingTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
         SubscribeLocalEvent<MindComponent, ComponentStartup>(OnMindStartup);
@@ -164,46 +161,6 @@ public abstract partial class SharedMindSystem : EntitySystem
     {
         if (component.MindId != null)
             UnVisit(component.MindId.Value);
-    }
-
-    private void OnExamined(EntityUid uid, MindContainerComponent mindContainer, ExaminedEvent args)
-    {
-        if (!mindContainer.ShowExamineInfo || !args.IsInDetailsRange)
-            return;
-
-        // TODO: Move this out of the SharedMindSystem into its own comp and predict it
-        if (_net.IsClient)
-            return;
-
-        // Begin DeltaV Addition
-        var ev = new ShowSSDIndicatorEvent();
-        RaiseLocalEvent(uid, ref ev);
-        if (ev.Hidden)
-            return;
-        // End DeltaV Addition
-
-        var dead = _mobState.IsDead(uid);
-        var mind = CompOrNull<MindComponent>(mindContainer.Mind);
-        var hasUserId = mind?.UserId;
-        var hasActiveSession = hasUserId != null && _playerManager.ValidSessionId(hasUserId.Value);
-
-        // Scenarios:
-        // 1. Dead + No User ID: Entity is permanently dead with no player ever attached
-        // 2. Dead + Has User ID + No Session: Player died and disconnected
-        // 3. Dead + Has Session: Player is dead but still connected
-        // 4. Alive + No User ID: Entity was never controlled by a player
-        // 5. Alive + No Session: Player disconnected while alive (SSD)
-
-        if (dead && hasUserId == null)
-            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("comp-mind-examined-dead-and-irrecoverable", ("ent", uid))}[/color]");
-        else if (dead && !hasActiveSession)
-            args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-dead-and-ssd", ("ent", uid))}[/color]");
-        else if (dead)
-            args.PushMarkup($"[color=red]{Loc.GetString("comp-mind-examined-dead", ("ent", uid))}[/color]");
-        else if (hasUserId == null)
-            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("comp-mind-examined-catatonic", ("ent", uid))}[/color]");
-        else if (!hasActiveSession)
-            args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-ssd", ("ent", uid))}[/color]");
     }
 
     /// <summary>
@@ -654,7 +611,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
     /// A new hashset is allocated for every call, consider using <see cref="AddAliveHumans"/> instead.
     /// </summary>
-    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null, bool excludeSilicon = false) // Goobstation - Add excludeSilicon
+    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null)
     {
         var allHumans = new HashSet<Entity<MindComponent>>();
         AddAliveHumans(allHumans, exclude);
@@ -674,11 +631,6 @@ public abstract partial class SharedMindSystem : EntitySystem
             // the player has to be alive
             if (!TryGetMind(uid, out var mind, out var mindComp) || mind == exclude || !_mobState.IsAlive(uid, mobState))
                 continue;
-
-            // Goobstation: Skip IPCs from selections
-            if (excludeSilicon && HasComp<SiliconComponent>(uid))
-                continue;
-            // END Goobstation
 
             allHumans.Add((mind, mindComp));
         }

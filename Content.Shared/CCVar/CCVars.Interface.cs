@@ -38,12 +38,6 @@ public sealed partial class CCVars
         CVarDef.Create("outline.enabled", true, CVar.CLIENTONLY);
 
     /// <summary>
-    /// Determines the color to use when highlighting search results in the admin log browser.
-    /// </summary>
-    public static readonly CVarDef<string> AdminLogsHighlightColor =
-        CVarDef.Create("ui.admin_logs_highlight_color", Color.Red.ToHex(), CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
     /// Determines how antagonist status/roletype is displayed. Based on AdminOverlayAntagFormats enum
     /// Binary: Roletypes of interest get an "ANTAG" label
     /// Roletype: Roletypes of interest will have their roletype name displayed in their specific color
@@ -92,6 +86,21 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> AdminPlayerTabRoleSetting =
         CVarDef.Create("ui.admin_player_tab_role", "Subtype", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    // DeltaV - Additions START
+
+    /// <summary>
+    /// Whether to prepend "(G)" to player character names in the players tab
+    /// </summary>
+    public static readonly CVarDef<bool> AdminPlayerTabMarkGhosted =
+        CVarDef.Create("ui.admin_player_tab_mark_ghosted", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether to prepend "(WL)" to player character names in the players tab
+    /// </summary>
+    public static readonly CVarDef<bool> AdminPlayerTabMarkWatchlisted =
+        CVarDef.Create("ui.admin_player_tab_mark_watchlisted", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+    // DeltaV - Additions END
 
     /// <summary>
     /// Determines how antagonist status/roletype is displayed. Based on AdminOverlayAntagSymbolStyles enum

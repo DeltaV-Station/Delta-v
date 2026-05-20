@@ -7,6 +7,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Movement.Components;
+using Content.Shared.Standing;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -382,13 +383,25 @@ public partial class SharedBodySystem
         if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
             return;
 
-        if (legEnt.Comp.PartType == BodyPartType.Leg)
-        {
-            bodyEnt.Comp.LegEntities.Remove(legEnt);
-            UpdateMovementSpeed(bodyEnt);
-            Dirty(bodyEnt, bodyEnt.Comp);
-            Standing.Down(bodyEnt); // Shitmed Change
-        }
+        if (legEnt.Comp.PartType != BodyPartType.Leg)
+            return;
+
+        bodyEnt.Comp.LegEntities.Remove(legEnt);
+        UpdateMovementSpeed(bodyEnt);
+        Dirty(bodyEnt, bodyEnt.Comp);
+
+        // Begin DeltaV Additions - Always down on leg removal
+        if (!TryComp<StandingStateComponent>(bodyEnt, out var standingState)
+            || !standingState.Standing
+            || !Standing.Down(bodyEnt, standingState: standingState))
+            return;
+
+        if (bodyEnt.Comp.LegEntities.Count != 0)
+            return;
+        // End DeltaV Additions - Always down on leg removal
+
+        var ev = new DropHandItemsEvent();
+        RaiseLocalEvent(bodyEnt, ref ev);
     }
 
     // Shitmed Change: made virtual, bleeding damage is done on server
@@ -517,8 +530,7 @@ public partial class SharedBodySystem
         Containers.EnsureContainer<ContainerSlot>(partId.Value, GetPartSlotContainerId(slotId));
         slot = new BodyPartSlot(slotId, partType);
 
-        if (!part.Children.ContainsKey(slotId) // Shitmed Change
-            && !part.Children.TryAdd(slotId, slot.Value))
+        if (!part.Children.TryAdd(slotId, slot.Value))
             return false;
 
         Dirty(partId.Value, part);
