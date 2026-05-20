@@ -5,6 +5,10 @@
   id: PartSkeletonBase
   name: skeleton body part
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Skeleton/parts.rsi
+  - type: Icon
+    sprite: Mobs/Species/Skeleton/parts.rsi
   - type: Damageable
     damageContainer: Biological
   - type: BodyPart

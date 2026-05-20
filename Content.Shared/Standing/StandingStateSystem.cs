@@ -5,8 +5,6 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Rotation;
-using Content.Shared.Standing;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -14,21 +12,12 @@ using Robust.Shared.Physics.Systems;
 namespace Content.Shared.Standing;
 public sealed class StandingStateSystem : EntitySystem
 {
-    [Dependency]
-    private readonly SharedAppearanceSystem _appearance = default!;
-
-    [Dependency]
-    private readonly SharedAudioSystem _audio =
-
-    default!;
-
-    [Dependency]
-    private readonly SharedPhysicsSystem _physics =
-
-    default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
-    public const int StandingCollisionLayer = (int)CollisionGroup.MidImpassable;
+    public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
 
     public override void Initialize()
     {
@@ -56,8 +45,7 @@ public sealed class StandingStateSystem : EntitySystem
         }
     }
 
-    private void OnRefreshFrictionModifiers(Entity<StandingStateComponent> entity,
-        ref RefreshFrictionModifiersEvent args)
+    private void OnRefreshFrictionModifiers(Entity<StandingStateComponent> entity, ref RefreshFrictionModifiersEvent args)
     {
         if (entity.Comp.Standing)
             return;
@@ -166,8 +154,6 @@ public sealed class StandingStateSystem : EntitySystem
             RaiseLocalEvent(uid, msg, false);
             if (msg.Cancelled)
                 return false;
-
-            return !standingState.Standing;
         }
 
         standingState.Standing = true;
@@ -193,11 +179,7 @@ public sealed class StandingStateSystem : EntitySystem
                 continue;
 
             entity.Comp1.ChangedFixtures.Add(key);
-            _physics.SetCollisionMask(entity,
-                key,
-                fixture,
-                fixture.CollisionMask & ~StandingCollisionLayer,
-                manager: entity.Comp2);
+            _physics.SetCollisionMask(entity, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: entity.Comp2);
         }
     }
 
@@ -213,11 +195,7 @@ public sealed class StandingStateSystem : EntitySystem
         foreach (var key in entity.Comp1.ChangedFixtures)
         {
             if (entity.Comp2.Fixtures.TryGetValue(key, out var fixture) && fixture.Hard)
-                _physics.SetCollisionMask(entity,
-                    key,
-                    fixture,
-                    fixture.CollisionMask | StandingCollisionLayer,
-                    entity.Comp2);
+                _physics.SetCollisionMask(entity, key, fixture, fixture.CollisionMask | StandingCollisionLayer, entity.Comp2);
         }
 
         entity.Comp1.ChangedFixtures.Clear();
