@@ -35,6 +35,56 @@
     receiveFrequencyId: ShuttleTimer
 
 - type: entity
+  parent: BaseWallmountMachine
+  id: ScreenDV
+  name: status display
+  description: Displays the current status of the station.
+  components:
+  - type: Rotatable
+  - type: DVTextVisuals
+    rows:
+    - text: "-ETA-"
+      layer: enum.DVTextScreenVisualLayers.Line1
+      offset: 0.03125,0.15625 # 1/32, 5/32
+    - text: "19:42"
+      layer: enum.DVTextScreenVisualLayers.Line2
+      offset: 0.03125,-0.0625 # 1/32, 0/32
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV/Structures/Wallmounts/screen.rsi
+    noRot: true
+    layers:
+    - state: frame
+    - shader: StencilClear
+      state: mask
+    - shader: StencilMask
+      state: mask
+    - map: ["enum.DVTextScreenVisualLayers.Line1"]
+      shader: StencilDraw
+      color: "#22ccff"
+    - map: ["enum.DVTextScreenVisualLayers.Line2"]
+      shader: StencilDraw
+      color: "#22ccff"
+  - type: Appearance
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+
+- type: entity
+  parent: ScreenDV
+  id: ScreenDVMarquee
+  name: marquee status display
+  description: marquee!!
+  components:
+  - type: DVTextVisuals
+    rows:
+    - text: "Coordinates"
+      layer: enum.DVTextScreenVisualLayers.Line1
+      offset: 0.03125,0.15625 # 1/32, 5/32
+    - text: "Please"
+      layer: enum.DVTextScreenVisualLayers.Line2
+      offset: 0.03125,-0.0625 # 1/32, 0/32
+
+- type: entity
   id: ArrivalsShuttleTimer
   parent: Screen
   name: arrivals screen
