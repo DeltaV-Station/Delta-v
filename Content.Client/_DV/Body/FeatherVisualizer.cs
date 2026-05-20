@@ -14,21 +14,22 @@ public sealed class FeatherVisualizer : VisualizerSystem<FeatherComponent>
 
     protected override void OnAppearanceChange(EntityUid uid, FeatherComponent component, ref AppearanceChangeEvent args)
     {
-        if (AppearanceSystem.TryGetData<Color>(uid, FeatherVisuals.FeatherColor, out var featherColor, args.Component))
+        if (!AppearanceSystem.TryGetData<Color>(uid, FeatherVisuals.BloodColor, out var bloodColor, args.Component) ||
+            AppearanceSystem.TryGetData<Color>(uid, FeatherVisuals.FeatherColor, out var featherColor, args.Component))
         {
-            SpriteSystem.LayerSetColor(uid, FeatherVisualLayers.Feather, featherColor);
-
-            if (TryComp<ClothingComponent>(uid, out var clothing))
-            {
-                foreach (var slotPair in clothing.ClothingVisuals)
-                {
-                    _clothing.SetLayerColor(clothing, slotPair.Key, "feather", featherColor);
-                }
-            }
+            return;
         }
 
-        if (AppearanceSystem.TryGetData<Color>(uid, FeatherVisuals.BloodColor, out var bloodColor, args.Component))
-            SpriteSystem.LayerSetColor(uid, FeatherVisualLayers.Blood, bloodColor);
+        SpriteSystem.LayerSetColor(uid, FeatherVisualLayers.Feather, featherColor);
+        SpriteSystem.LayerSetColor(uid, FeatherVisualLayers.Blood, bloodColor);
+
+        if (TryComp<ClothingComponent>(uid, out var clothing))
+        {
+            foreach (var slotPair in clothing.ClothingVisuals)
+            {
+                _clothing.SetLayerColor(clothing, slotPair.Key, "feather", featherColor);
+            }
+        }
     }
 }
 

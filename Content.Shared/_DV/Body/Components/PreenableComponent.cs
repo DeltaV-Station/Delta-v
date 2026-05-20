@@ -11,7 +11,7 @@ namespace Content.Shared._DV.Body.Components;
 /// <summary>
 /// This is used for Avali feather preening functionality.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class PreenableComponent : Component
 {
     [DataField]
@@ -71,6 +71,6 @@ public sealed partial class PreenableComponent : Component
     [DataField]
     public TimeSpan ReplenishDelay = TimeSpan.FromSeconds(150);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? ReplenishTime;
 }

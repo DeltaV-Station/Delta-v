@@ -100,6 +100,7 @@ public sealed class PreenableSystem : EntitySystem
         if (ent.Comp.CurrentFeathers <= 0)
             return;
 
+		args.Handled = true;
         var feather = SpawnFeather(ent, false);
 
         _hands.TryPickupAnyHand(args.User, feather);
@@ -107,7 +108,7 @@ public sealed class PreenableSystem : EntitySystem
 
     private void OnDamaged(Entity<PreenableComponent> ent, ref DamageChangedEvent args)
     {
-        if (args.DamageDelta == null || ent.Comp.ValidDamageGroups == null)
+        if (args.DamageDelta == null || ent.Comp.ValidDamageGroups == null || !args.DamageIncreased)
             return;
 
         if (ent.Comp.CurrentFeathers <= 0)
@@ -209,7 +210,7 @@ public sealed class PreenableSystem : EntitySystem
 
         while (preenableQuery.MoveNext(out var uid, out var preenable))
         {
-            if (preenable.ReplenishTime == null || !(preenable.ReplenishTime <= _timing.CurTime))
+            if (preenable.ReplenishTime == null || _timing.CurTime < preenable.ReplenishTime)
                 continue;
 
             if (preenable.CurrentFeathers >= preenable.MaximumFeathers)
