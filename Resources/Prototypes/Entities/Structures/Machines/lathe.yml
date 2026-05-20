@@ -341,7 +341,6 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    - RoboticsStaticDeltaV # DeltaV
     - PowerAugments # DeltaV - augments
     - ToolAugments # DeltaV - augments
     - BorgDVModulesStatic # DeltaV - modules
@@ -357,6 +356,7 @@
     - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
     - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
     - PsionicProsthetics # DeltaV
+    - BorgModulesServiceDynamicDV # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
@@ -519,7 +519,7 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
-    # Start DeltaV Additions 
+    # Start DeltaV Additions
       - SecurityShotgunDrumsStatic
       - AmmoFabPracticeStatic # Removes practice guns
       - SecurityRubberAmmoStatic
@@ -578,7 +578,6 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
-    - IPCLimbsStatic
     - PowerAugments
     - ToolAugments
     - SimpleToolsStaticDeltaV

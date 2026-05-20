@@ -51,6 +51,58 @@
   id: BorgModuleDecoration
   result: BorgModuleDecoration
 
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleFishing
+  result: BorgModuleFishing
+
+# Service Modules
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleBureaucracy
+  result: BorgModuleBureaucracy
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleBoxing
+  result: BorgModuleBoxing
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleAdvancedBotany
+  result: BorgModuleAdvancedBotany
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedChef
+  result: BorgModuleAdvancedChef
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedBartender
+  result: BorgModuleAdvancedBartender
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleReporter
+  result: BorgModuleReporter
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleDJ
+  result: BorgModuleDJ
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleClowning
+  result: BorgModuleClowning
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleMusique
+  result: BorgModuleMusique
+
 # Robo Neuroling recipes
 
 - type: latheRecipe
@@ -242,16 +294,6 @@
   parent: BaseBorgModuleRecipe
   id: AugmentPaperworkPanelElectronics
   result: AugmentPaperworkPanelElectronics
-
-- type: latheRecipe
-  parent: BaseIPCOrganRecipe
-  id: OrganIPCSpacePump
-  result: OrganIPCSpacePump
-  materials:
-    Steel: 2000
-    Plasma: 1000
-    Plastic: 1000
-    Gold: 500
 
 - type: latheRecipe
   id: ForcewallLeftArm

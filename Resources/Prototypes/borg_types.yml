@@ -148,6 +148,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -196,6 +197,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -266,11 +268,16 @@
     - BorgModuleService
 
   defaultModules:
-  - BorgModuleMusique
-  - BorgModuleService
-  - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+# Start of DeltaV Additions - Rework Service Borg
+#  - BorgModuleMusique
+#  - BorgModuleService
+#  - BorgModuleClowning
+#  - BorgModuleHarvesting
+  - BorgModuleTool # Readd Tool Module
+  - BorgModuleGardeningDV
+  - BorgModuleChef
+  - BorgModuleBartender
+# End of DeltaV Additions - Rework Service Borg
   radioChannels:
   - Science
   - Service

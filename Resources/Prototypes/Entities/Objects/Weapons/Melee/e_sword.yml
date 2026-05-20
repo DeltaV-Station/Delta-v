@@ -390,12 +390,12 @@
     activatedDamage:
       types:
         Slash: 20
-        Heat: 20
-        Structural: 20
+        Heat: 30 # DeltaV - 20 to 30
+        Structural: 40 # DeltaV - 20 to 40
   - type: MeleeRequiresWield
   - type: HeldSpeedModifier #slowdown is what balances this compared to a dsword
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.7 # DeltaV - .6 to .7
+    sprintModifier: 0.7 # DeltaV - .6 to .7
   - type: UseDelay
     delay: 1.5
   - type: Sprite
@@ -425,7 +425,7 @@
   - type: Wieldable # requires wield to swing
     unwieldOnUse: true
   - type: Reflect
-    reflectProb: 0.75 # from 100% to 75% reflect
+    reflectProb: .75 # DeltaV - from 100 to 75% 
     spread: 10 # tightened spread from 75 to 10
     reflects:
     - Energy
