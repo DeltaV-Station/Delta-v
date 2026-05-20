@@ -5,7 +5,6 @@ using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Effects;
 using Content.Shared.Interaction;
 using Content.Shared.Light.Components;
@@ -70,7 +69,7 @@ public sealed class CosmicGlareSystem : EntitySystem
 
             _flash.Flash(targetEnt, uid, args.Action, uid.Comp.CosmicGlareDuration, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
 
-            if (HasComp<BorgChassisComponent>(targetEnt) || HasComp<SiliconComponent>(targetEnt)) //For paralyzing borgs and IPCs specifically.
+            if (HasComp<BorgChassisComponent>(targetEnt)) //For paralyzing borgs and IPCs specifically.
             {
                 _stun.TryUpdateParalyzeDuration(targetEnt, uid.Comp.CosmicGlareDuration / 2);
             }

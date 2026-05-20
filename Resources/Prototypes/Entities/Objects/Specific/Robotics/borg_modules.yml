@@ -1248,6 +1248,24 @@
     - item: BikeHorn
     - item: ClownRecorder
     - item: BikeHornInstrument
+# Beginning of DeltaV Additions
+    - item: Soap
+      hand:
+        emptyLabel: borg-slot-slip-empty
+        emptyRepresentative: TrashBananaPeel
+        whitelist:
+          tags:
+          - Soap
+          - BananaPeel
+    - item: FoodPieBananaCream
+      hand:
+        emptyLabel: borg-slot-pie-empty
+        emptyRepresentative: FoodPieBananaCream
+        whitelist:
+          tags:
+          - Pie
+          - Trash
+# End of DeltaV Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 

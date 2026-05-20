@@ -4,7 +4,7 @@
 - type: entity
   save: false
   name: Urist McQueen
-  parent: PlayerSiliconHumanoidBase
+  parent: BaseSpeciesDummy
   id: BaseMobMotorkind
   abstract: true
   components:
@@ -20,7 +20,7 @@
     prototype: Motorkind
     requiredLegs: 2
   - type: Damageable
-    damageContainer: HumanoidSilicon
+    damageContainer: Silicon
     damageModifierSet: Motorkind
   - type: DamageVisuals
     thresholds: [25, 50, 75, 100]
@@ -169,10 +169,8 @@
       Unsexed: MaleMotorkind
   - type: Speech
     speechSounds: Alto
-  - type: EncryptionHolderRequiresLock
   - type: EncryptionKeyHolder
     keySlots: 4
-    examineWhileLocked: false
     keysExtractionMethod: Cutting
     keysUnlocked: false
   - type: Lock
