@@ -149,6 +149,21 @@
       tableId: RandomHatTable
       prob: 0.80
 
+- type: entity
+  parent: MarkerBase
+  id: RandomWinterCoatSpawner
+  name: random winter coat spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomWinterCoatTable
+      prob: 0.80
+
 #Tables
 - type: entityTable
   id: RandomClothingTable
@@ -234,6 +249,7 @@
   id: RandomEyeGlassesTable
   table: !type:GroupSelector
     children:
+    #General
     - !type:GroupSelector
      children:
       - id: ClothingEyesHudBeer
@@ -415,9 +431,9 @@
       #Scarfs
       - !type:GroupSelector
         children:
-      - id: ClothingNeckScarfStripedCentcom
-      - id: ClothingNeckScarfStripedSyndieRed
-      - id: ClothingNeckScarfStripedSyndieGreen
+        - id: ClothingNeckScarfStripedCentcom
+        - id: ClothingNeckScarfStripedSyndieRed
+        - id: ClothingNeckScarfStripedSyndieGreen
 
 - type: entityTable
   id: RandomOuterClothingTable
@@ -727,12 +743,12 @@
         - id: ClothingUniformJumpsuitCossack
         - id: UniformShortsRed
         - id: UniformShortsRedWithTop
-      #Pajamas
-      - !type:GroupSelector
-        children:
-        - id: ClothingUniformJumpsuitPyjamaSyndicateBlack
-        - id: ClothingUniformJumpsuitPyjamaSyndicatePink
-        - id: ClothingUniformJumpsuitPyjamaSyndicateRed
+        #Pajamas
+        - !type:GroupSelector
+          children:
+          - id: ClothingUniformJumpsuitPyjamaSyndicateBlack
+          - id: ClothingUniformJumpsuitPyjamaSyndicatePink
+          - id: ClothingUniformJumpsuitPyjamaSyndicateRed
 
 - type: entityTable
   id: RandomHatTable
