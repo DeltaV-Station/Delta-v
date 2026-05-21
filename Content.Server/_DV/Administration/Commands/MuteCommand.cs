@@ -30,7 +30,7 @@ public sealed class MuteCommand : LocalizedEntityCommands
     private static readonly string ChannelListText = string.Join(", ", ChannelCompletionOptions);
 
     public override string Command => "mute";
-    public override string Help => Loc.GetString("cmd-mute-help", ("channels", ChannelListText));
+    public override string Help => Loc.GetString("cmd-mute-help", ("channels", ChannelListText), ("command", Command));
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
