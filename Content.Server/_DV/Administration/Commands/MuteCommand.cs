@@ -17,7 +17,7 @@ namespace Content.Server._DV.Administration.Commands;
 ///
 /// After adding/removing a channel in <see cref="Execute"/>, don't forget to:
 /// - Update <see cref="CHANNEL_COMPLETION_OPTIONS"/>
-/// - Update "cmd-mute-help" in Resources/Locale/en-US/_DV/administration/commands/mute.ftl
+/// - Document behavior in "cmd-mute-help" in Resources/Locale/en-US/_DV/administration/commands/mute.ftl
 
 [AdminCommand(AdminFlags.Ban)]
 public sealed class MuteCommand : LocalizedEntityCommands
@@ -26,8 +26,11 @@ public sealed class MuteCommand : LocalizedEntityCommands
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IAdminLogManager _adminLogs = default!;
 
-    public override string Command => "mute";
     private static readonly string[] ChannelCompletionOptions = ["OOC", "LOOC", "DEADCHAT"];
+    private static readonly string ChannelListText = string.Join(", ", ChannelCompletionOptions);
+
+    public override string Command => "mute";
+    public override string Help => Loc.GetString("cmd-mute-help", ("channels", ChannelListText));
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -86,7 +89,7 @@ public sealed class MuteCommand : LocalizedEntityCommands
                 break;
 
             default:
-                shell.WriteLine(Loc.GetString("cmd-mute-err-unknown-channel", ("channels", string.Join(", ", ChannelCompletionOptions))));
+                shell.WriteLine(Loc.GetString("cmd-mute-err-unknown-channel", ("channels", ChannelListText)));
                 return;
         }
 

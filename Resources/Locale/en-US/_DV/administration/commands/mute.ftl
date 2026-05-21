@@ -1,5 +1,7 @@
 cmd-mute-desc = Mutes or unmutes the specified player in the specified OOC channel.
 cmd-mute-help = Usage: {$command} <channel> <username>
+                Supported channels: {$channels}
+
                 OOC mutes persist until server restart.
                 LOOC and DEADCHAT mutes persist until round end.
 
