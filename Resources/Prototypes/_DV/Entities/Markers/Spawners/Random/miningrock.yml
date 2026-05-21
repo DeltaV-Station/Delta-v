@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomRockSpawner
-  name: Mining Rock Spawner
+  name: random rock spawner
   components:
   - type: Sprite
     layers:
@@ -20,7 +20,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomCrystalSpawner
-  name: Crystal Spawner
+  name: random crystal spawner
   suffix: 100%
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomWallRockSpawner
-  name: Wall Rock Spawner
+  name: wall rock spawner
   components:
   - type: Sprite
     layers:
@@ -81,7 +81,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomBasaltRockSpawner
-  name: Basalt Rock Spawner
+  name: basalt rock spawner
   components:
   - type: Sprite
     layers:

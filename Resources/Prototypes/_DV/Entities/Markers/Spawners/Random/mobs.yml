@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: CarpSpawnerMundane
-  name: NPC Carp Spawner
+  name: random carp spawner
   suffix: No Ghost Takeover
   components:
   - type: Sprite
@@ -22,7 +22,7 @@
 - type: entity
   parent: MarkerBase
   id: SnakeSpawnerMundane
-  name: NPC Snake Spawner
+  name: random snake spawner
   components:
   - type: Sprite
     layers:
@@ -40,8 +40,8 @@
 - type: entity
   parent: MarkerBase
   id: SnakeMobMundane
-  name: Salvage Snake Spawner
-  suffix: 75%
+  name: random snake spawner
+  suffix: Salvage, 75%
   components:
   - type: Sprite
     layers:
@@ -60,8 +60,8 @@
 - type: entity
   parent: MarkerBase
   id: SnakeMobMundane25
-  name: Salvage Snake Spawner
-  suffix: 25%
+  name: random snake spawner
+  suffix: Salvage, 25%
   components:
   - type: Sprite
     layers:
@@ -80,7 +80,7 @@
 - type: entity
   parent: MarkerBase
   id: XenoAISpawner
-  name: Xeno Spawner
+  name: random xeno spawner
   suffix: No Ghost Takeover
   components:
   - type: Sprite
@@ -105,7 +105,8 @@
 - type: entity
   parent: MarkerBase
   id: ArgocyteAISpawner
-  name: Argocyte Spawner
+  name: random argocyte spawner
+  suffix: No Ghost Takeover
   components:
   - type: Sprite
     layers:
@@ -131,7 +132,8 @@
 - type: entity
   parent: MarkerBase
   id: WatcherAISpawner
-  name: Watcher Spawner
+  name: random watcher spawner
+  suffix: No Ghost Takeover
   components:
   - type: Sprite
     layers:
@@ -151,7 +153,8 @@
 - type: entity
   parent: MarkerBase
   id: SpaceCreatureAISpawner
-  name: Space Creature Spawner
+  name: random space creature spawner
+  suffix: No Ghost Takeover
   components:
   - type: Sprite
     layers:
@@ -169,7 +172,7 @@
 - type: entity
   parent: MarkerBase
   id: AngrySlimeSpawner
-  name: Angry Slime Spawner
+  name: random angry slime spawner
   components:
   - type: Sprite
     layers:
@@ -188,7 +191,7 @@
 - type: entity
   parent: MarkerBase
   id: ArenaSpawner
-  name: Arena Spawner
+  name: Arena spawner
   suffix: Small, Single Mob
   components:
   - type: Sprite
@@ -207,7 +210,7 @@
 - type: entity
   parent: MarkerBase
   id: ArenaSpawnerLarge
-  name: Arena Spawner
+  name: Arena spawner
   suffix: Large, Single Mob
   components:
   - type: Sprite
@@ -228,7 +231,7 @@
 - type: entity
   parent: MarkerBase
   id: ArenaSpawnerSmallGroup
-  name: Arena Spawner
+  name: Arena spawner
   suffix: Small, Group
   components:
   - type: Sprite
@@ -244,7 +247,7 @@
 - type: entity
   parent: MarkerBase
   id: ArenaSpawnerLargeGroup
-  name: Arena Spawner
+  name: Arena spawner
   suffix: Any Size, Any Range
   components:
   - type: Sprite
