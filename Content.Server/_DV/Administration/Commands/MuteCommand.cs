@@ -16,8 +16,8 @@ namespace Content.Server._DV.Administration.Commands;
 /// </summary>
 ///
 /// After adding/removing a channel in <see cref="Execute"/>, don't forget to:
-/// - Update "cmd-mute-err-unknown-channel" and "cmd-mute-help" in Resources/Locale/en-US/_DV/administration/commands/mute.ftl
-/// - Update the hardcoded array in <see cref="GetCompletion"/>
+/// - Update <see cref="CHANNEL_COMPLETION_OPTIONS"/>
+/// - Update "cmd-mute-help" in Resources/Locale/en-US/_DV/administration/commands/mute.ftl
 
 [AdminCommand(AdminFlags.Ban)]
 public sealed class MuteCommand : LocalizedEntityCommands
@@ -27,6 +27,7 @@ public sealed class MuteCommand : LocalizedEntityCommands
     [Dependency] private readonly IAdminLogManager _adminLogs = default!;
 
     public override string Command => "mute";
+    private static readonly string[] ChannelCompletionOptions = ["OOC", "LOOC", "DEADCHAT"];
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -85,7 +86,7 @@ public sealed class MuteCommand : LocalizedEntityCommands
                 break;
 
             default:
-                shell.WriteLine(Loc.GetString("cmd-mute-err-unknown-channel"));
+                shell.WriteLine(Loc.GetString("cmd-mute-err-unknown-channel", ("channels", string.Join(", ", ChannelCompletionOptions))));
                 return;
         }
 
@@ -109,7 +110,7 @@ public sealed class MuteCommand : LocalizedEntityCommands
         switch (args.Length)
         {
             case 1:
-                return CompletionResult.FromHintOptions(["OOC", "LOOC", "DEADCHAT"], "channel");
+                return CompletionResult.FromHintOptions(ChannelCompletionOptions, "channel");
             case 2:
                 return CompletionResult.FromOptions(CompletionHelper.SessionNames());
             default:
