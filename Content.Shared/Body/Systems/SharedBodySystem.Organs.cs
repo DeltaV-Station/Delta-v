@@ -115,13 +115,7 @@ public partial class SharedBodySystem
 
         Containers.EnsureContainer<ContainerSlot>(parent.Value, GetOrganContainerId(slotId));
         slot = new OrganSlot(slotId);
-        // Shitmed Change Start
-        if (!part.Organs.ContainsKey(slotId)
-            && !part.Organs.TryAdd(slotId, slot.Value))
-            return false;
-
-        return true;
-        // Shitmed Change End
+        return part.Organs.TryAdd(slotId, slot.Value);
     }
 
     /// <summary>

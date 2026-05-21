@@ -3900,6 +3900,13 @@
     description: ghost-role-information-nymph-description
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
   # DeltaV changes end
   - type: Physics
   - type: Fixtures

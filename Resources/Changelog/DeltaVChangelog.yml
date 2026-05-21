@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: The random animation glimmer event is now a LOT more scary.
-    type: Tweak
-  id: 1813
-  time: '2025-11-18T18:27:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4641
-- author: snowywinters
-  changes:
-  - message: Added an experimental RCD and air grenade to chief engineer's locker
-    type: Tweak
-  id: 1814
-  time: '2025-11-18T18:33:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4648
-- author: Toby222
-  changes:
-  - message: Impermanent anomalies now trigger the scanned effect instead of the newly
-      generated one
-    type: Tweak
-  id: 1815
-  time: '2025-11-18T18:40:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4662
-- author: SirWarock
-  changes:
-  - message: Removed the Beam Devastator from random spawn tables.
-    type: Remove
-  id: 1816
-  time: '2025-11-18T18:51:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4636
-- author: pootslap
-  changes:
-  - message: Walking through puddles no longer makes the puddle smaller. Call your
-      local janitor!
-    type: Tweak
-  id: 1817
-  time: '2025-11-18T18:57:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4674
 - author: EmberAstra
   changes:
   - message: Added vox and harpy sprites for Rhino hardsuits
@@ -4359,4 +4322,49 @@
   id: 2313
   time: '2026-05-19T08:30:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5122
+- author: Cepelinas1
+  changes:
+  - message: To reduce further accidents, NanoTrasen has invented an anomaly warning
+      projector for Epistemics to print in their fabricator! Management asks to place
+      down these signs to alleviate future law suits.
+    type: Add
+  id: 2314
+  time: '2026-05-19T18:37:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5716
+- author: Cepelinas1
+  changes:
+  - message: Re-added Voice Mask to the Uplink.
+    type: Add
+  - message: Removed the Bionic Larynx Implant from the Uplink, due to an already
+      existing Voice Mask Implant from upstream.
+    type: Remove
+  - message: Increased the price of Voice Mask Implant to 2 tc. Though it could come
+      with a discount!
+    type: Tweak
+  - message: Fixed the missing Voice Mask title and description in Nanolink.
+    type: Fix
+  id: 2315
+  time: '2026-05-19T18:42:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5702
+- author: Coryler
+  changes:
+  - message: Removed IPCs
+    type: Remove
+  id: 2316
+  time: '2026-05-19T22:53:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5840
+- author: rebe83
+  changes:
+  - message: Diona may now communicate using Rootspeak with :r.
+    type: Add
+  id: 2317
+  time: '2026-05-20T01:04:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5827
+- author: kotobdev
+  changes:
+  - message: Avali now have feather mechanics! Read more about it in the guidebook.
+    type: Add
+  id: 2318
+  time: '2026-05-20T21:07:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5609
 Order: 1
