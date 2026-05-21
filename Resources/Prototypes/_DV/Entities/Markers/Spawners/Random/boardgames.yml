@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: BoardGameSpawner
-  name: Board Game Spawner
+  name: random board game spawner
   components:
   - type: Sprite
     layers:
@@ -22,7 +22,7 @@
 - type: entity
   parent: MarkerBase
   id: BattlemapBoardSpawner
-  name: Battlemap Board Spawner
+  name: random battlemap spawner
   components:
   - type: Sprite
     layers:
