@@ -19,10 +19,10 @@ public sealed partial class DVScreenComponent : Component
     #region Text Screens
 
     [DataField, AutoNetworkedField]
-    public string Line1;
+    public string Line1 = string.Empty;
 
     [DataField, AutoNetworkedField]
-    public string Line2;
+    public string Line2 = string.Empty;
 
     #endregion
 
@@ -32,11 +32,10 @@ public sealed partial class DVScreenComponent : Component
     public bool ScreenIsAtDestination;
 
     [DataField, AutoNetworkedField, AutoPausedField]
-    public TimeSpan DestinationTime;
+    public TimeSpan TargetTime = TimeSpan.Zero;
 
     #endregion
 }
-
 
 [Serializable, NetSerializable]
 public enum DVScreenVisuals : byte
@@ -44,10 +43,6 @@ public enum DVScreenVisuals : byte
     AlertLevel,
     ShowAlertBorder,
     Content,
-    Line1,
-    Line2,
-    ScreenIsAtDestination,
-    TargetTime,
 }
 
 [Serializable, NetSerializable]
@@ -56,4 +51,5 @@ public enum DVScreenContent : byte
     Text,
     CurrentTime,
     EstimatedTimeOfArrival,
+    AlertLevel,
 }

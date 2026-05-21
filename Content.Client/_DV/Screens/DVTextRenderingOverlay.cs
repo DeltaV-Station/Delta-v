@@ -53,6 +53,12 @@ public sealed class DVTextRenderingOverlay : Overlay
             var font = queued.Font;
             foreach (var row in queued.Entity.Comp.Rows)
             {
+                if (row.Text == string.Empty)
+                {
+                    _sprite.LayerSetTexture(queued.Entity.Owner, row.Layer, null);
+                    continue;
+                }
+
                 var dimensions = screenHandle.GetDimensions(queued.Font, row.Text, 1f);
                 var dimensionsInt = new Vector2i((int)MathF.Round(dimensions.X), (int)MathF.Round(dimensions.Y));
 
@@ -85,7 +91,7 @@ public sealed class DVTextRenderingOverlay : Overlay
 
     private Animation? CreateMarqueeAnimation(Entity<DVTextVisualsComponent> ent)
     {
-        var largestRowWidth = ent.Comp.Rows.Aggregate(0, (i, row) => Math.Max(i, row.Texture!.Size.X));
+        var largestRowWidth = ent.Comp.Rows.Aggregate(0, (i, row) => Math.Max(i, row.Texture?.Size.X ?? 0));
         var animationTime = ent.Comp.MarqueeRate * largestRowWidth;
         var marqueeWidth = new Vector2((float)ent.Comp.MarqueeWidth / EyeManager.PixelsPerMeter, 0);
 
@@ -96,9 +102,12 @@ public sealed class DVTextRenderingOverlay : Overlay
 
         foreach (var row in ent.Comp.Rows)
         {
-            var rowHalfWidth = new Vector2(row.Texture!.Size.X / 2f / EyeManager.PixelsPerMeter, 0f);
+            if (row.Texture is null)
+                continue;
 
-            if (row.Texture!.Size.X <= ent.Comp.MarqueeWidth)
+            var rowHalfWidth = new Vector2(row.Texture.Size.X / 2f / EyeManager.PixelsPerMeter, 0f);
+
+            if (row.Texture.Size.X <= ent.Comp.MarqueeWidth)
                 continue;
 
             animation.AnimationTracks.Add(new AnimationTrackLayerOffset()
