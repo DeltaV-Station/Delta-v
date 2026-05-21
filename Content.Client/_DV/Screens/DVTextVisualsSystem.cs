@@ -55,4 +55,19 @@ public sealed class DVTextVisualsSystem : EntitySystem
 
         _animationPlayer.Play(ent.Owner, animation, DVTextRenderingOverlay.MarqueeKey);
     }
+
+    public void SetText(Entity<DVTextVisualsComponent?> ent, params string[] rows)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        var count = Math.Min(rows.Length, ent.Comp.Rows.Count);
+        for (var i = 0; i < count; i++)
+        {
+            ent.Comp.Rows[i].Text = rows[i];
+        }
+
+        ent.Comp.Token?.Cancel();
+        ent.Comp.Token = _textRendering.QueueRender((ent, ent.Comp), _font);
+    }
 }

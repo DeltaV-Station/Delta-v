@@ -9,7 +9,6 @@ namespace Content.Server._DV.Screens;
 
 public sealed class DVScreenSystem : DVSharedScreenSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
 
@@ -60,8 +59,10 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
         if (!args.Data.TryGetValue(key, out TimeSpan duration))
             return;
 
-        _appearance.SetData(ent.Owner, DVScreenVisuals.ScreenIsAtDestination, screenIsAtDestination);
-        _appearance.SetData(ent.Owner, DVScreenVisuals.TargetTime, _timing.CurTime + duration);
+        ent.Comp.ScreenIsAtDestination = screenIsAtDestination;
+        ent.Comp.TargetTime = _timing.CurTime + duration;
+        Dirty(ent);
+        UpdateVisuals(ent);
     }
 
     private void OnTextPacket(Entity<DVScreenComponent> ent, string text, ref DeviceNetworkPacketEvent args)
@@ -69,25 +70,29 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
         var lines = text.Split('\n');
         if (lines.Length >= 2)
         {
-            _appearance.SetData(ent.Owner, DVScreenVisuals.Line1, lines[0]);
-            _appearance.SetData(ent.Owner, DVScreenVisuals.Line2, lines[1]);
+            ent.Comp.Line1 = lines[0];
+            ent.Comp.Line2 = lines[1];
         }
         else
         {
-            _appearance.SetData(ent.Owner, DVScreenVisuals.Line1, text);
-            _appearance.SetData(ent.Owner, DVScreenVisuals.Line2, string.Empty);
+            ent.Comp.Line1 = text;
+            ent.Comp.Line2 = string.Empty;
         }
+        Dirty(ent);
+        UpdateVisuals(ent);
     }
 
     private void OnAlertLevelChanged(AlertLevelChangedEvent ev)
     {
         var query = EntityQueryEnumerator<DVScreenComponent>();
-        while (query.MoveNext(out var uid, out _))
+        while (query.MoveNext(out var uid, out var screen))
         {
             if (_station.GetOwningStation(uid) != ev.Station)
                 continue;
 
-            _appearance.SetData(uid, DVScreenVisuals.AlertLevel, ev.AlertLevel);
+            screen.AlertLevel = ev.AlertLevel;
+            Dirty(uid, screen);
+            UpdateVisuals((uid, screen));
         }
     }
 }

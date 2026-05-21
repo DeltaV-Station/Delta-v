@@ -24,7 +24,7 @@ public sealed partial class DVTextVisualsComponent : Component
 
     public Animation? Animation;
 
-    public CancellationTokenSource Token;
+    public CancellationTokenSource? Token;
 }
 
 [DataDefinition]

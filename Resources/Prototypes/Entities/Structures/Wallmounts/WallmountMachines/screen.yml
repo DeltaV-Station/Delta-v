@@ -43,12 +43,13 @@
   - type: Rotatable
   - type: DVTextVisuals
     rows:
-    - text: "-ETA-"
+    - text: ""
       layer: enum.DVTextScreenVisualLayers.Line1
       offset: 0.03125,0.15625 # 1/32, 5/32
-    - text: "19:42"
+    - text: ""
       layer: enum.DVTextScreenVisualLayers.Line2
       offset: 0.03125,-0.0625 # 1/32, 0/32
+  - type: DVScreen
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _DV/Structures/Wallmounts/screen.rsi
@@ -62,27 +63,56 @@
     - map: ["enum.DVTextScreenVisualLayers.Line1"]
       shader: StencilDraw
       color: "#22ccff"
+      visible: false
     - map: ["enum.DVTextScreenVisualLayers.Line2"]
       shader: StencilDraw
       color: "#22ccff"
+      visible: false
+    - map: ["alert_status"]
+      visible: false
+      state: status_display_green
+    - map: ["alert_border"]
+      visible: false
+      state: alert_border_green
   - type: Appearance
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
-
-- type: entity
-  parent: ScreenDV
-  id: ScreenDVMarquee
-  name: marquee status display
-  description: marquee!!
-  components:
-  - type: DVTextVisuals
-    rows:
-    - text: "Coordinates"
-      layer: enum.DVTextScreenVisualLayers.Line1
-      offset: 0.03125,0.15625 # 1/32, 5/32
-    - text: "Please"
-      layer: enum.DVTextScreenVisualLayers.Line2
-      offset: 0.03125,-0.0625 # 1/32, 0/32
+  - type: GenericVisualizer
+    visuals:
+      enum.DVScreenVisuals.ShowAlertBorder:
+        alert_border:
+          True: { visible: true }
+          False: { visible: false }
+      enum.DVScreenVisuals.AlertLevel:
+        alert_border:
+          green: { state: alert_border_green }
+          blue: { state: alert_border_blue }
+          red: { state: alert_border_red }
+          delta: { state: alert_border_delta }
+        alert_status:
+          green: { state: status_display_green }
+          blue: { state: status_display_blue }
+          red: { state: status_display_red }
+          delta: { state: status_display_delta }
+      enum.DVScreenVisuals.Content:
+        enum.DVTextScreenVisualLayers.Line1:
+          Text: { visible: true }
+          CurrentTime: { visible: true }
+          EstimatedTImeOfArrival: { visible: true }
+          AlertLevel: { visible: false }
+        enum.DVTextScreenVisualLayers.Line2:
+          Text: { visible: true }
+          CurrentTime: { visible: true }
+          EstimatedTImeOfArrival: { visible: true }
+          AlertLevel: { visible: false }
+        alert_status:
+          Text: { visible: false }
+          CurrentTime: { visible: false }
+          EstimatedTImeOfArrival: { visible: false }
+          AlertLevel: { visible: true }
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: ShuttleTimer
 
 - type: entity
   id: ArrivalsShuttleTimer
