@@ -54,6 +54,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Body.Part;
 using Content.Server.Bible.Components;
+using Content.Shared._EE.Silicon.Components;
 
 namespace Content.Server._Goobstation.Devil;
 
@@ -214,6 +215,7 @@ public sealed partial class DevilSystem : EntitySystem
         // Other Devils and entities without souls have no authority over you.
         if (HasComp<DevilComponent>(args.Source)
         || HasComp<CondemnedComponent>(args.Source)
+        || HasComp<SiliconComponent>(args.Source)
         || args.Source == devil.Owner)
             return;
 

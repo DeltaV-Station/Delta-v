@@ -34,6 +34,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.StatusEffectNew; // DeltaV - Clause status effects
 
 namespace Content.Server._Goobstation.Devil.Contract;
@@ -237,6 +238,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     public bool IsUserValid(EntityUid user, out string failReason)
     {
         if (HasComp<CondemnedComponent>(user)
+            || HasComp<SiliconComponent>(user)
             || HasComp<BorgChassisComponent>(user))
         {
             failReason = Loc.GetString("devil-contract-no-soul-sign-failed");

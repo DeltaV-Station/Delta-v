@@ -164,6 +164,7 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
+    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSilicon
     wilhelmProbability: 0.001 # DeltaV
@@ -256,6 +257,7 @@
     - FootstepSound
     - CanPilot
     - SiliconEmotes
+    - SiliconOrIPCEmotes # DeltaV
     - Honker # DeltaV - Can honk
     - Unimplantable
   - type: Emoting
@@ -526,6 +528,7 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
+    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSiliconXenoborg
     wilhelmProbability: 0.001 # DeltaV

@@ -1,4 +1,5 @@
 using Content.Server.Ghost;
+using Content.Shared._EE.Silicon.Components; // EE
 using Content.Server.Hands.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
@@ -172,7 +173,10 @@ public sealed class SuicideSystem : EntitySystem
             return;
         }
 
-        args.DamageType ??= "Bloodloss";
+        if (HasComp<SiliconComponent>(victim)) // Goobstation
+            args.DamageType ??= "Shock";
+        else
+            args.DamageType ??= "Bloodloss";
         _suicide.ApplyLethalDamage(victim, args.DamageType);
         args.Handled = true;
     }
