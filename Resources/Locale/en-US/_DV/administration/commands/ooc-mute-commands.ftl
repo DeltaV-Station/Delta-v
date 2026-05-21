@@ -10,8 +10,5 @@ cmd-mute_deadchat-help = Usage: {$command} [username]
 
 ooc-mute-cmds-err-missing-mind = The specified player lacks a Mind.
 
-ooc-mute-cmds-admin-notif-muted = {$player} has been muted in {$chat} by {$admin}.
-ooc-mute-cmds-admin-notif-unmuted = {$player} has been unmuted in {$chat} by {$admin}.
-
 ooc-mute-cmds-player-notif-muted = You have been muted in {$chat}.
 ooc-mute-cmds-player-notif-unmuted = You have been unmuted in {$chat}.
