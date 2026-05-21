@@ -1,0 +1,123 @@
+- type: entity
+  parent: MarkerBase
+  id: HatSpawner
+  name: random hat spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Head/Hats/tophat.rsi
+        state: icon
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.80
+      children:
+       - id: ClothingHeadHatCentcom
+       - id: ClothingHeadHatOutlawHat
+       - id: ClothingHeadHatWizardFake
+       - id: ClothingHeadHatPirate
+       - id: ClothingHeadHatPlaguedoctor
+       - id: ClothingHeadHatSantahat
+       - id: ClothingHeadHatXmasCrown
+       - id: ClothingHeadHelmetCosmonaut
+       - id: ClothingHeadHelmetBasic
+       - id: ClothingHeadHelmetTemplar
+       - id: ClothingHeadHelmetThunderdome
+       - id: ClothingHeadHelmetFire
+       - id: ClothingHeadHatChef
+       - id: ClothingHeadHatBunny
+       - id: ClothingHeadHatHoodBioGeneral
+       - id: ClothingHeadHatHoodRad
+       - id: ClothingHeadHatCake
+       - id: ClothingHeadHatChickenhead
+       - id: FoodPoppy
+       - id: ClothingHeadHatPumpkin
+       - id: ClothingHeadHatRichard
+       - id: ClothingHeadHatSkub
+       - id: ClothingHeadHatShrineMaidenWig
+       - id: ClothingHeadHatSquid
+       - id: ClothingHeadHatBizarreSoft
+       - id: ClothingHeadHatWeldingMaskFlame
+       - id: ClothingHeadHatWeldingMaskFlameBlue
+       - id: ClothingHeadHatWeldingMaskPainted
+       - id: ClothingHeadCage
+       - id: ClothingHeadHelmetKendoMen
+       - id: ClothingHeadBandMerc
+       - id: ClothingHeadHatCowboyWhite
+       - id: ClothingHeadHatCowboyGrey
+       - id: ClothingHeadHatCowboyBrown
+       - id: ClothingHeadHatBrownFlatcap
+       - id: ClothingHeadHatGreyFlatcap
+       - id: ClothingHeadHatPartyRed
+       - id: ClothingHeadHatPartyYellow
+       - id: ClothingHeadHatPartyGreen
+       - id: ClothingHeadHatPartyBlue
+       - id: ClothingHeadHatWatermelon
+       - id: WaterDropletHat
+       - id: ClothingHeadHatRedRacoon
+       - !type:GroupSelector
+        weight: 0.25
+        children:
+        - id: ClothingHeadHatAnimalCat
+        - id: ClothingHeadHatAnimalCatBrown
+        - id: ClothingHeadHatAnimalCatBlack
+        - id: ClothingHeadHatAnimalHeadslime
+        - id: ClothingHeadHatAnimalMonkey
+        - id: ClothingHeadBandBlack
+        - id: ClothingHeadBandBlue
+        - id: ClothingHeadBandGold
+        - id: ClothingHeadBandGreen
+        - id: ClothingHeadBandGrey
+        - id: ClothingHeadBandRed
+        - id: ClothingHeadBandSkull
+        - id: ClothingHeadBandBrown
+        - id: ClothingHeadHatHardhatBlue
+        - id: ClothingHeadHatHardhatOrange
+        - id: ClothingHeadHatHardhatRed
+        - id: ClothingHeadHatHardhatWhite
+        - id: ClothingHeadHatHardhatYellow
+        - id: ClothingHeadHatHardhatYellowDark
+        - id: ClothingHeadHatBeaverHat
+        - id: ClothingHeadHatBeret
+        - id: ClothingHeadHatBowlerHat
+        - id: ClothingHeadHatCardborg
+        - id: ClothingHeadHatFedoraBrown
+        - id: ClothingHeadHatFedoraGrey
+        - id: ClothingHeadHatFedoraBlack
+        - id: ClothingHeadHatFedoraChoc
+        - id: ClothingHeadHatFedoraWhite
+        - id: ClothingHeadHatPaper
+        - id: ClothingHeadHatSombrero
+        - id: ClothingHeadHatTophat
+        - id: ClothingHeadHatUshanka
+        - id: ClothingHeadHatTrucker
+        - id: ClothingHeadPaperSack
+        - id: ClothingHeadPaperSackSmile
+        - id: ClothingHeadFishCap
+        - id: ClothingHeadRastaHat
+        - id: ClothingHeadSafari
+        - id: ClothingHeadHatFlowerWreath
+        - id: ClothingHeadHatCone
+        - id: ClothingHeadHatCasa
+        - id: ClothingHeadHatBluesoft
+        - id: ClothingHeadHatCorpsoftFlipped
+        - id: ClothingHeadHatGreensoft
+        - id: ClothingHeadHatGreysoft
+        - id: ClothingHeadHatOrangesoft
+        - id: ClothingHeadHatPurplesoftFlipped
+        - id: ClothingHeadHatRedsoftFlipped
+        - id: ClothingHeadHatYellowsoft
+        - id: ClothingHeadHatWelding
+        - id: ClothingHeadHatFlatBlack
+        - id: ClothingHeadHatFlatBrown
+        - id: ClothingHeadTinfoil
+        - id: ClothingHeadHatStrawHat
+        - id: ClothingHeadHatCowboyBountyHunter
+        - id: ClothingHeadHatCowboyRed
+        - id: ClothingHeadHatCowboyBlack
+        - id: ClothingHeadHatGladiator
+        - id: ClothingHeadHatMagician
+        - id: ClothingHeadHatHetmanHat
+        - id: ClothingHeadHatTacticalMaidHeadband
+        - id: ClothingHeadHatPirateTricord
