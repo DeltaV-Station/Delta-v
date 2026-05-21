@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: CondimentSpawner
-  name: Condiment Random Spawner
+  name: condiment random spawner
   placement:
     mode: PlaceFree
   components:
@@ -12,7 +12,6 @@
     layers:
     - state: packet-hotsauce
   - type: EntityTableSpawner
-    offset: 0
     table: !type:GroupSelector
       prob: 0.90
       children:
@@ -43,3 +42,4 @@
         - id: FoodShakerSalt
         - id: FoodShakerPepper
         - id: ReagentContainerOliveoil
+    offset: 0
