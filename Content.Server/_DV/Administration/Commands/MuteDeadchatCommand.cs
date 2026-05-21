@@ -48,7 +48,7 @@ public sealed class MuteDeadchatCommand : LocalizedEntityCommands
             LogImpact.Extreme,
             $"{session.Name} has been {(mute.MuteDeadchat ? "muted" : "unmuted")} in Deadchat by {shell.Player?.Name ?? "Unknown"}");
 
-        (string, object)[] locArgs = [("player", session.Name), ("chat", "Deadchat")];
+        var locArgs = ("chat", "Deadchat");
         _chat.DispatchServerMessage(session,
             mute.MuteDeadchat
                 ? Loc.GetString("ooc-mute-cmds-player-notif-muted", locArgs)

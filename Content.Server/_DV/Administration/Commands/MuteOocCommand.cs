@@ -44,7 +44,7 @@ public sealed class MuteOocCommand : LocalizedCommands
             LogImpact.Extreme,
             $"{session.Name} has been {(playerData.OocMuted ? "muted" : "unmuted")} in OOC by {shell.Player?.Name ?? "Unknown"}");
 
-        (string, object)[] locArgs = [("player", session.Name), ("chat", "OOC")];
+        var locArgs = ("chat", "OOC");
         _chat.DispatchServerMessage(session,
             playerData.OocMuted
                 ? Loc.GetString("ooc-mute-cmds-player-notif-muted", locArgs)

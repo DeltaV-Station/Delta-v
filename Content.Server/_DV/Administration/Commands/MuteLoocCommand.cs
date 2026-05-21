@@ -49,7 +49,7 @@ public sealed class MuteLooc : LocalizedEntityCommands
             LogImpact.Extreme,
             $"{session.Name} has been {(mute.MuteLooc ? "muted" : "unmuted")} in LOOC by {shell.Player?.Name ?? "Unknown"}");
 
-        (string, object)[] locArgs = [("player", session.Name), ("chat", "LOOC")];
+        var locArgs = ("chat", "LOOC");
         _chat.DispatchServerMessage(session,
             mute.MuteLooc
                 ? Loc.GetString("ooc-mute-cmds-player-notif-muted", locArgs)
