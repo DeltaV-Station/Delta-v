@@ -30,16 +30,6 @@ namespace Content.Client.Cargo.UI
         private readonly EntityQuery<CargoOrderConsoleComponent> _orderConsoleQuery;
         private readonly EntityQuery<StationBankAccountComponent> _bankQuery;
 
-        private readonly IEntityManager _entityManager;
-        private readonly IPrototypeManager _protoManager;
-        private readonly CargoSystem _cargoSystem;
-        private readonly SpriteSystem _spriteSystem;
-        private EntityUid _owner;
-        private EntityUid? _station;
-
-        private readonly EntityQuery<CargoOrderConsoleComponent> _orderConsoleQuery;
-        private readonly EntityQuery<StationBankAccountComponent> _bankQuery;
-
         public event Action<CargoProductRow?>? OnItemSelected;
         public event Action<CargoOrderData?>? OnOrderApproved;
         public event Action<CargoOrderData?>? OnOrderCanceled;
@@ -225,11 +215,13 @@ namespace Content.Client.Cargo.UI
 
             foreach (var order in orders)
             {
-                if (order.Approved)
+                if (order.Approved || !_protoManager.Resolve(order.Product, out var productProto))
                     continue;
 
-                var product = _protoManager.Index<EntityPrototype>(order.ProductId);
-                var productName = product.Name;
+                var product = _protoManager.Index<EntityPrototype>(productProto.Product);
+                var productName = productProto.Name;
+                var requester = !string.IsNullOrEmpty(order.Requester) ?
+                    order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown");
                 var account = _protoManager.Index(order.Account);
 
                 var row = new CargoOrderRow
@@ -260,23 +252,29 @@ namespace Content.Client.Cargo.UI
                     {
                         Text = Loc.GetString(
                             "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
-                            ("productName", productName),
-                            ("orderAmount", order.OrderQuantity),
-                            ("orderRequester", order.Requester),
+                            ("orderRequester", requester),
                             ("accountColor", account.Color),
                             ("account", Loc.GetString(account.Code)))
                     },
+
                     Description =
                     {
-                        Text = Loc.GetString("cargo-console-menu-order-reason-description",
-                                                        ("reason", order.Reason))
+                        Text = !string.IsNullOrEmpty(order.Reason) ?
+                            Loc.GetString(
+                                "cargo-console-menu-order-row-product-description",
+                                ("orderReason", order.Reason))
+                        :
+                            Loc.GetString(
+                                "cargo-console-menu-order-row-product-description",
+                                ("orderReason", Loc.GetString("cargo-console-menu-order-row-alerts-reason-absent")))
                     }
                 };
-                row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
+
+                row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(order); };
 
                 // TODO: Disable based on access.
                 row.SetApproveVisible(orderConsole.Mode != CargoOrderConsoleMode.SendToPrimary);
-                row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
+                row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(order); };
                 Requests.AddChild(row);
             }
         }
@@ -329,8 +327,7 @@ namespace Content.Client.Cargo.UI
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
 
-            OrdersSpacer.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
-            Orders.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
+            RightPart.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
         }
     }
 }

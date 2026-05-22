@@ -191,7 +191,7 @@ namespace Content.Client.Cargo.BUI
             if (OrderCount >= OrderCapacity)
                 return;
 
-            SendMessage(new CargoConsoleApproveOrderMessage(row.Order.OrderId));
+            SendMessage(new CargoConsoleApproveOrderMessage(order.OrderId));
         }
     }
 }
