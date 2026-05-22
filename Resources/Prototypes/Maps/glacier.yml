@@ -17,6 +17,8 @@
           prefixCreator: 'NY'
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_vertex.yml
+      - type: StationCargoShuttle
+        path: /Maps/Shuttles/cargo.yml
       - type: StationPlanetSpawner
         planet: GlacierSurface
         gridPath: /Maps/_DV/Nonstations/glacier_surface_outpost.yml
