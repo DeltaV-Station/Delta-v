@@ -163,6 +163,13 @@
     sprite: Objects/Tools/lantern.rsi
     state: lantern
 
+- type: stealTargetGroup
+  id: ClothingEyesHuds
+  name: steal-target-groups-huds
+  sprite:
+    sprite: Clothing/Eyes/Hud/sec.rsi
+    state: icon
+
 # Thief single item
 
 - type: stealTargetGroup
@@ -234,7 +241,7 @@
   sprite:
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
-  
+
 - type: stealTargetGroup
   id: ChiefEngineerToolBelt
   name: steal-target-groups-belt-ce

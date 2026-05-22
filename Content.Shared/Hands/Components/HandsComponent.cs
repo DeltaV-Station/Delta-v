@@ -173,9 +173,9 @@ public sealed class HandsComponentState : ComponentState
 /// <seealso cref="HandLocationExt"/>
 public enum HandLocation : byte
 {
-    Left,
+    Right,
     Middle,
-    Right
+    Left
 }
 
 /// <summary>

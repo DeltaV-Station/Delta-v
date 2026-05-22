@@ -25,11 +25,5 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
 
         [DataField]
         public Gas? FilteredGas;
-
-        /// <summary>
-        /// Frontier - Start the filter with the map.
-        /// </summary>
-        [DataField]
-        public bool StartOnMapInit { get; set; } = false;
     }
 }

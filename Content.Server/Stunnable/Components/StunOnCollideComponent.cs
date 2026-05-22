@@ -1,5 +1,4 @@
 using Content.Server.Stunnable.Systems;
-using Content.Shared.Whitelist;
 
 namespace Content.Server.Stunnable.Components;
 

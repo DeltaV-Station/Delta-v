@@ -218,7 +218,7 @@
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 1
+      steps: 5
       zeroVisible: true
     - type: Appearance
 
@@ -283,12 +283,12 @@
     zeroVisible: true
   - type: Appearance
 
-# Rubber
 - type: entity
-  name: Drozd
-  parent: WeaponSubMachineGunDrozd
-  id: WeaponSubMachineGunDrozdRubber
-  suffix: Non-Lethal
+  name: brown briefcase
+  parent: [BaseWeaponSubMachineGun]
+  id: WeaponSubMachineGunBriefcase
+  description: Useful for carrying items in your hands.
+  suffix: Gun
   components:
     - type: ItemSlots
       slots:
@@ -347,3 +347,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8

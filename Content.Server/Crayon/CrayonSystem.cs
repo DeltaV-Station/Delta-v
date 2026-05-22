@@ -77,8 +77,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        if (_charges.GetCurrentCharges(uid) != int.MaxValue)
-            _charges.TryUseCharge(uid);
+        _charges.TryUseCharge(uid);
 
         _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;

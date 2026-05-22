@@ -5,6 +5,7 @@
   description: Useful both for security and cargonia.
   suffix: Chameleon
   components:
+    - type: FlashImmunity
     - type: Tag
       tags: # intentionally no WhitelistChameleon tag
       - PetWearable

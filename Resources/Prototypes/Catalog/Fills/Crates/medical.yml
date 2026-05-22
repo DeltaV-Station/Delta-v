@@ -67,15 +67,10 @@
   name: surgical supplies crate
   description: Surgical instruments.
   components:
-  - type: StorageFill
-    contents:
-      - id: Scalpel
-      - id: Retractor
-      - id: Cautery
-      - id: Drill
-      - id: Saw
-      - id: Hemostat
-      - id: ClothingMaskSterile
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: BoxVial
 
 - type: entity
   parent: CrateMedical

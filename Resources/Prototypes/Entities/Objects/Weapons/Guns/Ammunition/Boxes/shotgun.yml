@@ -39,6 +39,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
+    - type: MagazineVisuals
+      magState: mag-beanbag
+      steps: 5
+      zeroVisible: false
     - type: Sprite
       layers:
       - state: base

@@ -32,7 +32,8 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             (targeted.Target == null || targeted.Target == ent))
             return;
 
-        if (TryComp(other, out ProjectileComponent? projectile))
+        if (TryComp(other, out ProjectileComponent? projectile) &&
+            CompOrNull<TargetedProjectileComponent>(other)?.Target != ent)
         {
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;

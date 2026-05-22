@@ -1,7 +1,6 @@
 using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server._DV.GameTicking.Rules.Components; // DeltaV
 using Content.Server._Harmony.GameTicking.Rules.Components; // Harmony
-using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -295,5 +294,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(conspirator);
         // Harmony end
+        if (HasComp<HumanoidProfileComponent>(args.Target)) // only humanoids can be cloned
+            args.Verbs.Add(paradox);
     }
 }

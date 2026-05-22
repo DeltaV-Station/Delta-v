@@ -138,7 +138,6 @@ public sealed class SuicideCommandTests
         MindComponent mindComponent = default;
         MobStateComponent mobStateComp = default;
         MobThresholdsComponent mobThresholdsComp = default;
-        DamageableComponent damageableComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
@@ -146,7 +145,6 @@ public sealed class SuicideCommandTests
 
             mobStateComp = entManager.GetComponent<MobStateComponent>(player);
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
-            damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
             var slashProto = protoMan.Index(DamageType);
             damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
@@ -214,7 +212,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV: 
+                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV:
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });

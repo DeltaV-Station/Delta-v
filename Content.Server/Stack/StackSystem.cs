@@ -24,7 +24,7 @@ namespace Content.Server.Stack
         /// <param name="amount"> How much to move to the new entity. </param>
         /// <returns>Null if StackComponent doesn't resolve, or amount to move is greater than ent has available.</returns>
         [PublicAPI]
-        public override EntityUid? Split(Entity<StackComponent?> ent, int amount, EntityCoordinates spawnPosition)
+        public EntityUid? Split(Entity<StackComponent?> ent, int amount, EntityCoordinates spawnPosition)
         {
             if (!Resolve(ent.Owner, ref ent.Comp))
                 return null;

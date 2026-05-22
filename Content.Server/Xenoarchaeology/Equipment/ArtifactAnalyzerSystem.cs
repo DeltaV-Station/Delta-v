@@ -1,15 +1,13 @@
 using System; // DeltaV
+using Content.Shared.Psionics.Glimmer;// DeltaV
+using Content.Shared._DV.Xenoarchaeology.BUI;// DeltaV
+using Robust.Server.GameObjects; // DeltaV
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Popups;
-using Content.Shared.Psionics.Glimmer;// DeltaV
-using Content.Shared._DV.Xenoarchaeology.BUI;// DeltaV
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
-
-using Robust.Server.GameObjects; // DeltaV
 using Robust.Shared.Audio.Systems;
-
 
 namespace Content.Server.Xenoarchaeology.Equipment;
 
@@ -66,7 +64,7 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         if (sumResearch <= 0)
             return;
 
-        _glimmerSystem.Glimmer += sumGlimmer; // DeltaV - Add glimmer based on extracted points.    
+        _glimmerSystem.Glimmer += sumGlimmer; // DeltaV - Add glimmer based on extracted points.
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);

@@ -32,17 +32,10 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Content.Shared.Hands.Components; // Begin Imp Changes
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction.Components;
-using Robust.Shared.Player;
-using Content.Shared.StatusEffect;
-using Content.Shared.Flash.Components;
 using Robust.Shared.Audio.Systems; // End Imp Changes
 
 namespace Content.Server.Revenant.EntitySystems;
 
-public sealed partial class RevenantSystem
-{
     [Dependency] private readonly EmagSystem _emagSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
@@ -54,11 +47,6 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // Begin Imp Changes
-    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string RevenantEssenceRegen = "EssenceRegen";
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string FlashedId = "Flashed"; // End Imp Changes
@@ -96,7 +84,7 @@ public sealed partial class RevenantSystem
             return;
         }
 
-        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevenantComponent>(target))
+        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidProfileComponent>(target) || HasComp<RevenantComponent>(target))
             return;
 
         args.Handled = true;

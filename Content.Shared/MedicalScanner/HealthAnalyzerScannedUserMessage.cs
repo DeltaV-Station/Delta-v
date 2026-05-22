@@ -44,4 +44,3 @@ public struct HealthAnalyzerUiState
         MedicalRecord = medicalRecord; // DeltaV - Medical Records
     }
 }
-

@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
@@ -7,7 +8,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared.Actions.Components;
 
 namespace Content.Shared.Xenoarchaeology.Artifact.Components;
 
@@ -85,7 +85,7 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan? UnlockCompleteDuration = TimeSpan.FromSeconds(0.7);
-    
+
     /// <summary>
     /// When next unlock session can be triggered.
     /// </summary>

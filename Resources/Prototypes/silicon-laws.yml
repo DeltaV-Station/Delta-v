@@ -85,6 +85,16 @@
   - NTDefault4
   obeysTo: laws-owner-crew
 
+- type: siliconLawset
+  id: NTDefault
+  name: law-ntdefault-name
+  laws:
+  - NTDefault1
+  - NTDefault2
+  - NTDefault3
+  - NTDefault4
+  obeysTo: laws-owner-crew
+
 #Drone
 - type: siliconLaw
   id: Drone1

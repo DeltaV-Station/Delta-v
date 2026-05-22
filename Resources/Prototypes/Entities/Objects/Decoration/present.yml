@@ -469,6 +469,65 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
+  id: PresentRandomCoal
+  parent: [PresentBase, BaseItem]
+  suffix: Filled Coal
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+      - id: Coal1
+        orGroup: GiftPool
+      - id: Coal5
+        prob: .4
+        orGroup: GiftPool
+      - id: Coal10
+        prob: .2
+        orGroup: GiftPool
+      - id: Coal15
+        prob: .1
+        orGroup: GiftPool
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: PresentRandomCash
+  parent: [PresentBase, BaseItem]
+  suffix: Filled Cash
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+      - id: SpaceCash
+        prob: .01
+        orGroup: GiftPool
+      - id: SpaceCash10
+        prob: .1
+        orGroup: GiftPool
+      - id: SpaceCash100
+        prob: .5
+        orGroup: GiftPool
+      - id: SpaceCash500
+        orGroup: GiftPool
+      - id: SpaceCash1000
+        prob: .01
+        orGroup: GiftPool
+      - id: SpaceCash2500
+        prob: .004
+        orGroup: GiftPool
+      - id: SpaceCash5000
+        prob: .002
+        orGroup: GiftPool
+      - id: SpaceCash10000
+        prob: .001
+        orGroup: GiftPool
+      - id: SpaceCash1000000
+        prob: .000001
+        orGroup: GiftPool
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
   id: PresentTrash
   categories: [ HideSpawnMenu ]
   parent: BaseItem

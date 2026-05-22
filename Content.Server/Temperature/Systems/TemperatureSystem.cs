@@ -5,8 +5,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Temperature;
 using Content.Shared.Projectiles;
-using Content.Shared._Goobstation.Temperature.Components;
-using Content.Shared._Goobstation.Temperature;
+using Content.Shared._Goobstation.Temperature.Components; // Goob?
+using Content.Shared._Goobstation.Temperature; // Goob?
 using Content.Shared.Temperature.Components;
 using Content.Shared.Temperature.Systems;
 

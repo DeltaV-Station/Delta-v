@@ -43,7 +43,7 @@
         - to: reinforcedGirder
           completed:
             - !type:SnapToGrid
-              southRotation: true
+              southRotation: false
           conditions:
             - !type:EntityAnchored {}
           steps:

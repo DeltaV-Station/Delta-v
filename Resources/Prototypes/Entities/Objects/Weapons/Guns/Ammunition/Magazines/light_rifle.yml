@@ -180,13 +180,13 @@
         color: "#ff6e52"
 
 - type: entity
-  id: MagazineLightRifleMaxim
-  name: "pan magazine (.30 rifle)"
-  parent: BaseMagazineLightRifle
+  parent: MagazineLightRifle
+  id: MagazineLightRifleIncendiary
+  name: "magazine (.30 rifle incendiary)"
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifle
-    capacity: 96
+    proto: CartridgeLightRifleIncendiary
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/maxim.rsi
 

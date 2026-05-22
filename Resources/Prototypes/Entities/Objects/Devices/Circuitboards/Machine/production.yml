@@ -341,6 +341,37 @@
 
 - type: entity
   parent: BaseMachineCircuitboard
+  id: AnomalyVesselExperimentalCircuitboard
+  name: experimental anomaly vessel machine board
+  description: A machine printed circuit board for an experimental anomaly vessel.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: MachineAnomalyVesselExperimental
+    stackRequirements:
+      Manipulator: 3
+      Cable: 5
+      PlasmaGlass: 15
+      MetalRod: 4
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: AnomalySynchronizerCircuitboard
+  name: anomaly synchronizer machine board
+  description: A machine printed circuit board for an anomaly synchronizer.
+  components:
+    - type: Sprite
+      state: science
+    - type: MachineBoard
+      prototype: MachineAnomalySynchronizer
+      stackRequirements:
+        Manipulator: 7
+        PlasmaGlass: 5
+        Cable: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
   id: APECircuitboard
   name: A.P.E. machine board
   description: A machine printed circuit board for an A.P.E.
@@ -466,6 +497,20 @@
     difficulty: 2
     recipes:
       - PortableScrubberMachineCircuitBoard
+
+- type: entity
+  id: SpaceHeaterMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: space heater machine board
+  description: A machine printed circuit board for a space heater.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: SpaceHeater
+    stackRequirements:
+      Manipulator: 3
+      Cable: 5
 
 - type: entity
   id: SpaceHeaterMachineCircuitBoard
@@ -1287,6 +1332,20 @@
       difficulty: 4
       recipes:
       - CargoTelepadMachineCircuitboard
+
+- type: entity
+  id: MailTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mail teleporter machine board
+  description: A machine printed circuit board for a mail teleporter.
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: CargoMailTeleporter
+    stackRequirements:
+      Manipulator: 2
+      Steel: 5
 
 - type: entity
   id: SodaDispenserMachineCircuitboard

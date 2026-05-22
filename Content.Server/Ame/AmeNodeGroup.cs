@@ -175,7 +175,7 @@ public sealed class AmeNodeGroup : BaseNodeGroup
 
         // The adjustment for cores make it so that a 1 core AME at 2 injections is better than a 2 core AME at 2 injections.
         // However, for the relative amounts for each (1 core at 2 and 2 core at 4), more cores has more output.
-        // return 200000f * MathF.Log10(fuel * fuel) * MathF.Pow(0.75f, cores - 1); 
+        // return 200000f * MathF.Log10(fuel * fuel) * MathF.Pow(0.75f, cores - 1);
 
         // DeltaV code
         // Check if there's any cores attached to the controller
@@ -183,14 +183,14 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         {
             return 0f;
         }
-        
+
         //more parametrized and linear AME power function https://www.desmos.com/calculator/r523dxiqna
         float wattsPerCore = 80000f;
         float startEfficency = 0.5f;
         float tailPenaltyFactor = 0.9f;
-        
+
         float efficency = startEfficency * fuel / (2 * cores);
-        
+
         if (fuel >= 2 * cores - 1)
             efficency += (fuel - (2 * cores - 1)) * (1 - startEfficency);
 

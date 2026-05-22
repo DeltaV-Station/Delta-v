@@ -1,5 +1,4 @@
 using Content.Shared.Remotes.EntitySystems;
-using Content.Shared.Remotes.Components;
 
 namespace Content.Server.Remotes;
 

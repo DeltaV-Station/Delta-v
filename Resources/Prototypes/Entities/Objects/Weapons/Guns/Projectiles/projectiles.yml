@@ -320,7 +320,7 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 33
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -631,8 +631,8 @@
         - MobState
     damage:
       types:
-        Blunt: 20
-        Slash: 5
+        Blunt: 18
+        Slash: 4
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -641,6 +641,21 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
+
+  # Deals less damage, glaive has better HP recovery
+- type: entity
+  id: BulletChargeGlaive
+  name: leech bolt
+  parent: BulletCharge
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+        - MobState
+    damage:
+      types:
+        Blunt: 1
+        Slash: 5
 
 - type: entity
   parent: BaseBullet
@@ -783,6 +798,33 @@
     damage:
       types:
         Heat: 30 # DeltaV raised to 30 from 20
+
+- type: entity
+  parent: AnomalousParticleDelta
+  id: AnomalousParticleSigma
+  name: sigma particles
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#8d38c2"
+    radius: 2.0
+    energy: 7.0
+  - type: Sprite
+    layers:
+      - state: magicm
+        shader: unshaded
+  - type: AnomalousParticle
+    particleType: Sigma
+
+- type: entity
+  parent: AnomalousParticleSigma
+  id: AnomalousParticleSigmaStrong
+  name: sigma particles
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AnomalousParticle
+    particleType: Sigma
 
 - type: entity
   parent: AnomalousParticleDelta

@@ -31,22 +31,6 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     public float StartingChaos;
     */
 
-    /// <summary>
-    ///     DeltaV - Key points which determine during what period will events last on average.
-    ///     X is duration of the setting in minutes. Y is time until next event in minutes.
-    /// </summary>
-    [DataField(required: true)]
-    public List<Vector2> TimeKeyPoints = new()
-    {
-        new Vector2(0f, 1f)
-    };
-
-    /// <summary>
-    ///     DeltaV - Maximum possible error when randomly offsetting time until next event.
-    /// </summary>
-    [DataField]
-    public float TimeDeviation = 1;
-
     [DataField]
     public float TimeUntilNextEvent;
 

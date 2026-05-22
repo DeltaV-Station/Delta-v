@@ -190,6 +190,7 @@
     startAnnouncement: null #dont nark on antags
     weight: 1 #  lower because antags.
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+    weight: 0.1 #  approximately 1/1000 on the random hostile shuttle table. Golden Legendary!
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/instigator.yml
 

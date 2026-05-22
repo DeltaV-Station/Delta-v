@@ -112,6 +112,7 @@
     transmutesTo: ScytheCosmicCult
     requiredGlyphType: CosmicGlyphBlades
 
+# Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusher
@@ -137,8 +138,10 @@
     delay: 0.9
   - type: LeechOnMarker
     leech:
-      groups:
-        Brute: -10
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -175,6 +178,7 @@
   - type: DisarmMalus
   - type: Prying
 
+# No mark ability in exchange for wideswing, autoattack, and being one-handed
 - type: entity
   parent: [ BaseKnife, BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherDagger
@@ -219,7 +223,7 @@
         restitution: 0.3
         friction: 0.2
 
-# Like a crusher... but better
+# Less mark damage in exchange for more healing. Also has a better ratio of blunt to slash damage, but less structural.
 - type: entity
   parent: [ WeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherGlaive

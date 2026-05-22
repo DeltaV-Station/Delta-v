@@ -38,7 +38,7 @@ namespace Content.Client.Atmos.UI
             Update();
         }
 
-        private void OnToggleStatusButtonPressed()
+        private void OnToggleStatusButtonPressed(bool status)
         {
             if (_window is null) return;
 

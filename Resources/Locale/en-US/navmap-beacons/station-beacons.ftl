@@ -9,6 +9,7 @@ station-beacon-hop = HOP
 
 station-beacon-security = Security
 station-beacon-brig = Brig
+station-beacon-brig-med = Brig Med
 station-beacon-warden = Warden
 station-beacon-hos = HOS
 station-beacon-armory = Armory
@@ -25,6 +26,8 @@ station-beacon-cryonics = Cryopods
 station-beacon-cmo = CMO
 station-beacon-morgue = Morgue
 station-beacon-surgery = Surgery
+station-beacon-psychology = Psychology
+station-beacon-clinic = Clinic
 
 station-beacon-science = Science
 station-beacon-research-and-development = Research

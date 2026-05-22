@@ -3,9 +3,9 @@ using System.Numerics;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs;
@@ -47,6 +47,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     public event Action<TriageStatus>? OnTriageStatusChanged;
     public event Action? OnClaimPatient;
     // End DeltaV - Medical Records
+    private readonly DamageableSystem _damageable;
 
     public HealthAnalyzerControl()
     {
@@ -81,6 +82,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         StatusBox.Children.Last().RemoveStyleClass("ButtonSquare");
         ClaimButton.OnPressed += _ => OnClaimPatient?.Invoke();
         // End DeltaV - Medical Records
+        _damageable = _entityManager.System<DamageableSystem>();
     }
 
     public void Populate(HealthAnalyzerUiState state)
@@ -108,6 +110,10 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         // Patient Information
 
+        SpriteView.SetEntity(target.Value);
+        SpriteView.Visible = state.ScanMode.HasValue && state.ScanMode.Value;
+        NoDataTex.Visible = !SpriteView.Visible;
+
         var name = new FormattedMessage();
         name.PushColor(Color.White);
         name.AddText(_entityManager.HasComponent<MetaDataComponent>(target.Value)
@@ -116,9 +122,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         NameLabel.SetMessage(name);
 
         SpeciesLabel.Text =
-            _entityManager.TryGetComponent<HumanoidAppearanceComponent>(target.Value,
-                out var humanoidAppearanceComponent)
-                ? Loc.GetString(_prototypes.Index<SpeciesPrototype>(humanoidAppearanceComponent.Species).Name)
+            _entityManager.TryGetComponent<HumanoidProfileComponent>(target.Value,
+                out var humanoidComponent)
+                ? Loc.GetString(_prototypes.Index(humanoidComponent.Species).Name)
                 : Loc.GetString("health-analyzer-window-entity-unknown-species-text");
 
         // Basic Diagnostic
@@ -198,7 +204,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // Damage Groups
 
         var damageSortedGroups =
-            damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
+            _damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
                 .ToDictionary(x => x.Key, x => x.Value);
 
         IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
@@ -225,6 +231,16 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             ClaimButton.Text = Loc.GetString("health-analyzer-window-triage-claim");
         }
         // End DeltaV - Medical Records
+        // Damage Groups
+
+        var damageSortedGroups =
+            damageable.GetDamagePerGroup(target.Value)
+                .OrderByDescending(damage => damage.Value)
+                .ToDictionary(x => x.Key, x => x.Value);
+
+        var damagePerType = damageable.GetAllDamage(target.Value).DamageDict;
+
+        DrawDiagnosticGroups(damageSortedGroups, damagePerType);
     }
 
     private static string GetStatus(MobState mobState)
@@ -239,8 +255,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     private void DrawDiagnosticGroups(
-        Dictionary<string, FixedPoint2> groups,
-        IReadOnlyDictionary<string, FixedPoint2> damageDict)
+        Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
+        IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
     {
         GroupsContainer.RemoveAllChildren();
 

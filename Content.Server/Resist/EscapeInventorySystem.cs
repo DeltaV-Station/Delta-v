@@ -1,7 +1,4 @@
 using Content.Server.Popups;
-using Content.Shared.Storage;
-using Content.Shared.Inventory;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -13,7 +10,6 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Resist;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Resist;
 
@@ -26,10 +22,6 @@ public sealed class EscapeInventorySystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!; // DeltaV
 
-    /// <summary>
-    /// You can't escape the hands of an entity this many times more massive than you.
-    /// </summary>
-    public const float MaximumMassDisadvantage = 6f;
     /// <summary>
     /// DeltaV - action to cancel inventory escape
     /// </summary>

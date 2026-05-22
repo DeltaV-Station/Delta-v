@@ -1,8 +1,4 @@
-using Content.Server.Antag;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Components;
-using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Content.Shared.Storage;
@@ -90,6 +86,9 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         _locations.Clear();
         while (locations.MoveNext(out var uid, out _, out var transform))
         {
+            if (!transform.Anchored)
+                continue;
+
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
             {
                 _locations.Add(transform.Coordinates);

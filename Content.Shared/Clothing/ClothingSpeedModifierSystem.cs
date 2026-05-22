@@ -63,6 +63,9 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
         if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
             return;
 
+        if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
+            return;
+
         // DeltaV Start - Introduce ClothingSlowResistance to Species
         if (_container.TryGetContainingContainer((uid, null), out var container))
         {

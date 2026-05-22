@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Devour;
+using Content.Shared._Goobstation.Devour; // Goob?
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;

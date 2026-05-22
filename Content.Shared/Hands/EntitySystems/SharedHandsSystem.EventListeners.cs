@@ -45,8 +45,8 @@ public abstract partial class SharedHandsSystem
             // For some reason, this feels a bit dirty
             // 0 free hands out of 1 total hands = (1-(1-0)*.50) = 50% additional reduction to current move speed mod
             // 1 free hand out of 2 total hands = (1-(2-1)*.25) = 75%
-            // 1 free hand out of 4 total hands = (1-(4-1)*.125) = 62.5% 
-            // 6 free hands out of 10 total hands hands = (1-(10-6)*0.05) = 80% 
+            // 1 free hand out of 4 total hands = (1-(4-1)*.125) = 62.5%
+            // 6 free hands out of 10 total hands hands = (1-(10-6)*0.05) = 80%
             var reductionPerHand = 1f / (totalHands + totalHands);
             args.SpeedModifier *= (float)Math.Clamp(1f - (totalHands - freeHands) * reductionPerHand, 0.5, 1.0);
         }

@@ -91,7 +91,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 150 # DeltaV - Increased health by 75 (more than plasma) 
+        damage: 150 # DeltaV - Increased health by 75 (more than plasma)
       behaviors:
       - !type:PlaySoundBehavior
         sound:

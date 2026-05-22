@@ -149,7 +149,7 @@ MAPS:
 - remove: Mapname: Removed fun!
 - tweak: Mapname: Changed fun!
 - fix: Mapname: Fixed fun!
-``` 
+```
 
 # Before you submit
 

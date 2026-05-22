@@ -21,6 +21,7 @@ public sealed partial class DragonSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!; // DeltaV
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -109,6 +110,7 @@ public sealed partial class DragonSystem : EntitySystem
             {
                 Roar(uid, comp);
                 _damageable.TryChangeDamage(uid, comp.DeathDamage,true,true); // gib time
+                QueueDel(uid);
             }
             // End DeltaV Changes
         }
@@ -233,10 +235,9 @@ public sealed partial class DragonSystem : EntitySystem
         comp.Rifts.Clear();
 
         // stop here if not trying to reset the objective's rift count
-        if (!resetRole || !TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
+        if (!resetRole || !_mind.TryGetMind(uid, out _, out var mind))
             return;
 
-        var mind = Comp<MindComponent>(mindContainer.Mind.Value);
         foreach (var objId in mind.Objectives)
         {
             if (_objQuery.TryGetComponent(objId, out var obj))
@@ -255,10 +256,9 @@ public sealed partial class DragonSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
-        if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
+        if (!_mind.TryGetMind(uid, out _, out var mind))
             return;
 
-        var mind = Comp<MindComponent>(mindContainer.Mind.Value);
         foreach (var objId in mind.Objectives)
         {
             if (_objQuery.TryGetComponent(objId, out var obj))

@@ -57,16 +57,6 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        //if (!ent.Comp.ImplantedEntity.HasValue)
-        //    return;
-
-        //if (ent.Comp.ImplantAction.HasValue)
-        //    _actionsSystem.RemoveProvidedActions(ent.Comp.ImplantedEntity.Value, ent);
-
-        //var ev = new ImplantRemovedEvent(ent, ent.Comp.ImplantedEntity.Value); // DeltaV
-        //RaiseLocalEvent(ent, ref ev); // DeltaV
-
-        //if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
         if (args.Container.ID != ImplanterComponent.ImplantSlotId)
             return;
 

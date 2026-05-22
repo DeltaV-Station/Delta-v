@@ -18,7 +18,7 @@ public abstract partial class SharedFloatingVisualizerSystem : EntitySystem // D
         SubscribeLocalEvent<FloatingVisualsComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<FloatingVisualsComponent, WeightlessnessChangedEvent>(OnWeightlessnessChanged);
 
-        SubscribeNetworkEvent<FlightEvent>(OnFlight);
+        SubscribeNetworkEvent<FlightEvent>(OnFlight); // EE?
     }
 
     /// <summary>

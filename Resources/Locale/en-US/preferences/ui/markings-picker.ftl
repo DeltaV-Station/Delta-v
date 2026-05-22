@@ -1,15 +1,30 @@
-markings-used = Used Markings
-markings-unused = Unused Markings
-markings-add = Add Marking
-markings-remove = Remove Marking
-markings-rank-up = Up
-markings-rank-down = Down
 markings-search = Search
-marking-points-remaining = Markings left: {$points}
-marking-used = {$marking-name}
-marking-used-forced = {$marking-name} (Forced)
-marking-slot-add = Add
-marking-slot-remove = Remove
+-markings-selection = { $selectable ->
+    [0] You have no markings remaining.
+    [one] You can select one more marking.
+   *[other] You can select { $selectable } more markings.
+}
+markings-limits = { $required ->
+    [true] { $count ->
+        [-1] Select at least one marking.
+        [0] You cannot select any markings, but somehow, you have to? This is a bug.
+        [one] Select one marking.
+       *[other] Select at least one marking and up to {$count} markings. { -markings-selection(selectable: $selectable) }
+    }
+   *[false] { $count ->
+        [-1] Select any number of markings.
+        [0] You cannot select any markings.
+        [one] Select up to one marking.
+       *[other] Select up to {$count} markings. { -markings-selection(selectable: $selectable) }
+    }
+}
+markings-reorder = Reorder markings
+
+humanoid-marking-modifier-respect-limits = Respect limits
+humanoid-marking-modifier-respect-group-sex = Respect group & sex restrictions
+humanoid-marking-modifier-base-layers = Base layers
+humanoid-marking-modifier-enable = Enable
+humanoid-marking-modifier-prototype-id = Prototype id:
 
 humanoid-marking-modifier-force = Force
 humanoid-marking-modifier-ignore-species = Ignore Species
@@ -34,3 +49,4 @@ markings-category-Arms = Arms
 markings-category-Legs = Legs
 markings-category-Tail = Tail
 markings-category-Overlay = Overlay
+markings-category-RArmExtension = Wings

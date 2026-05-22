@@ -83,6 +83,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             }
         }
         // End DeltaV Changes
+        ConfirmTypeButton.Disabled = false;
 
         NameLabel.Text = PrototypeName(prototype);
         DescriptionLabel.Text = Loc.GetString($"borg-type-{prototype.ID}-desc");

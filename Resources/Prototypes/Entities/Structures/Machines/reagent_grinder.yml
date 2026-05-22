@@ -54,6 +54,10 @@
         - Extractable # shitcode doesnt require this with container attempt events just in interaction
       containerId: inputContainer
       maxItems: 6 # manually have to sync it with ReagentGrinderComponent :
+    powerLoad: 0
+  - type: PowerState
+    idlePowerDraw: 0
+    workingPowerDraw: 750 # medium power blender
   - type: ItemSlots
     slots:
       beakerSlot:

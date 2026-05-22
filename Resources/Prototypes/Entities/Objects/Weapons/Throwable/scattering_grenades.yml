@@ -148,6 +148,7 @@
     - state: syndie-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: ScatteringGrenade
+    triggerKey: trigger
     fillPrototype: SoapletSyndie
     capacity: 30
     delayBeforeTriggerContents: 60

@@ -1,4 +1,3 @@
-﻿using Content.Shared.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Robust.Shared.Prototypes;

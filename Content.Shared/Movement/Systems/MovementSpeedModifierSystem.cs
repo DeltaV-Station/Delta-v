@@ -5,7 +5,6 @@ using Content.Shared.Standing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
-
 namespace Content.Shared.Movement.Systems
 {
     public sealed class MovementSpeedModifierSystem : EntitySystem

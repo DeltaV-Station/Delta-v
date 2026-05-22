@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.BarSign;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.BarSign.Ui;

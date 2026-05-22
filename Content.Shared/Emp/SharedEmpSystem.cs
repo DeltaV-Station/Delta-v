@@ -6,10 +6,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Content.Shared._NF.Emp.Components;
-using Robust.Shared.GameStates;
+using Content.Shared._NF.Emp.Components; // Frontier??
 using Robust.Shared.Configuration; // Frontier
-using Robust.Shared;
 using Content.Shared.Damage; // Frontier
 using Robust.Shared.Utility;
 

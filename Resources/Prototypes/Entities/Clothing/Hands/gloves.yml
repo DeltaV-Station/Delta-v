@@ -1,13 +1,8 @@
 - type: entity
+  abstract: true
   parent: ClothingHandsBase
-  id: ClothingHandsGlovesBoxingRed
-  name: red boxing gloves
-  description: Red gloves for competitive boxing.
+  id: ClothingHandsGlovesBoxingBase
   components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
   - type: StaminaDamageOnHit
     damage: 8 #Stam damage values seem a bit higher than regular damage because of the decay, etc
     # This needs to be moved to boxinggloves
@@ -31,7 +26,22 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingRed
+  parent: ClothingHandsGlovesBoxingBase
+  id: ClothingHandsGlovesBoxingRed
+  name: red boxing gloves
+  description: Red gloves for competitive boxing.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-red
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsGlovesBoxingBase
   id: ClothingHandsGlovesBoxingBlue
   name: blue boxing gloves
   description: Blue gloves for competitive boxing.
@@ -47,7 +57,7 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingRed
+  parent: ClothingHandsGlovesBoxingBase
   id: ClothingHandsGlovesBoxingGreen
   name: green boxing gloves
   description: Green gloves for competitive boxing.
@@ -63,7 +73,7 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingRed
+  parent: ClothingHandsGlovesBoxingBase
   id: ClothingHandsGlovesBoxingYellow
   name: yellow boxing gloves
   description: Yellow gloves for competitive boxing.
@@ -79,8 +89,9 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingBlue
-  id: ClothingHandsGlovesBoxingRigged
+  abstract: true
+  parent: ClothingHandsGlovesBoxingBase
+  id: ClothingHandsGlovesBoxingRiggedBase
   suffix: Rigged
   components:
   - type: StaminaDamageOnHit

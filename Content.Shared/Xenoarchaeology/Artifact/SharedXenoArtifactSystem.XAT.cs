@@ -67,9 +67,9 @@ public abstract partial class SharedXenoArtifactSystem
             return;
 
         // DeltaV - start of node scanner overhaul
-        (Entity<XenoArtifactNodeComponent> node, int index)? parsedNode = 
-            (node == null) 
-            ? null 
+        (Entity<XenoArtifactNodeComponent> node, int index)? parsedNode =
+            (node == null)
+            ? null
             : (node.Value, GetIndex(ent, node.Value));
 
         bool partOfRelatedTriggersSet = true;
@@ -92,13 +92,13 @@ public abstract partial class SharedXenoArtifactSystem
             var relatedNodeIndices = GetRelatedNodes((ent, ent), parsedNode.Value.index);
             partOfRelatedTriggersSet = unlockingComp.TriggeredNodeIndexesRelated.All(x => relatedNodeIndices.Contains(x));
 
-            // Checking for trigger "relatedness" is a much more accurate measurement 
+            // Checking for trigger "relatedness" is a much more accurate measurement
             //   of "is this locking phase going to fail" than upstream's predecessor/successor check.
             // Upstream's version of this check had edge-cases where time would not add, even though the
             //   unlocking phase ends up succeeding.
             // See definition of GetRelatedNodes() for details on the concept of "relatedness".
             if (
-                unlockingComp.TriggeredNodeIndexes.Count == unlockingComp.TriggeredNodeIndexesRelated.Count 
+                unlockingComp.TriggeredNodeIndexes.Count == unlockingComp.TriggeredNodeIndexesRelated.Count
                 && partOfRelatedTriggersSet
             )
                 // we add time on each new trigger, if it is not going to fail us

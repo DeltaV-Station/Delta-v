@@ -1,7 +1,12 @@
 {
     "version": 1,
+<<<<<<<< HEAD:Resources/Textures/_DV/Objects/Weapons/Guns/Rifles/tenebra.rsi/meta.json
     "license": "CC0-1.0",
     "copyright": "Original work by TJohnson.",
+========
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited for Space Station 14 by august-sun (GitHub)/augustsun (Discord).",
+>>>>>>>> 116e09e1cc66bca8601cbd2ec6b146425b269b70:Resources/Textures/Objects/Weapons/Guns/Rifles/estoc.rsi/meta.json
     "size": {
         "x": 32,
         "y": 32
@@ -28,7 +33,19 @@
             "directions": 4
         },
         {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
             "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
             "directions": 4
         }
     ]

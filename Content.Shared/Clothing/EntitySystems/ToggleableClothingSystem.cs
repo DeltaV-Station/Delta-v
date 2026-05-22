@@ -140,12 +140,12 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
             || toggleCom.Container == null)
             return;
 
-        var parent = Transform(uid).ParentUid; // DeltaV - Allow hats under toggleable helms 
+        var parent = Transform(uid).ParentUid; // DeltaV - Allow hats under toggleable helms
         if (!_inventorySystem.TryUnequip(Transform(uid).ParentUid, toggleCom.Slot, force: true))
             return;
 
         _containerSystem.Insert(uid, toggleCom.Container);
-        TryEquipUnderClothing(parent, component); // DeltaV - Allow hats under toggleable helms 
+        TryEquipUnderClothing(parent, component); // DeltaV - Allow hats under toggleable helms
         args.Handled = true;
     }
 

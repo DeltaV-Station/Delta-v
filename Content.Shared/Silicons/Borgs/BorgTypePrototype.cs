@@ -2,8 +2,8 @@
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Roles; // DeltaV
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws; // DeltaV
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

@@ -20,7 +20,7 @@
   - type: TriggerOnSignal
   - type: DeviceLinkSink # This should be changed into separate behavior where triggering via signal makes beep, while triggering manually is quiet.
     ports:
-      - Trigger
+    - Trigger
   - type: EmitSoundOnUse
     handle: false # don't want the sound to stop the explosion from triggering
   - type: AddComponentsOnTrigger # make them embed into the target, but only when activated so that they can't be metagamed

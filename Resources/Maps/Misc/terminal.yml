@@ -15,6 +15,7 @@ nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
+  1: FloorAstroAsteroidSandBorderless
   29: FloorDark
   38: FloorDarkPlastic
   47: FloorGrass
@@ -1611,6 +1612,7 @@ entities:
     - type: Godmode
     missingComponents:
     - ApcPowerReceiver
+    - PowerState
     - Anchorable
     - Construction
     - Destructible
@@ -1623,6 +1625,7 @@ entities:
     - type: Godmode
     missingComponents:
     - ApcPowerReceiver
+    - PowerState
     - Anchorable
     - Construction
     - Destructible
@@ -3815,6 +3818,12 @@ entities:
     - Construction
 - proto: Catwalk
   entities:
+  - uid: 301
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-17.5
+      parent: 818
   - uid: 580
     components:
     - type: Transform
@@ -3925,6 +3934,48 @@ entities:
     - Construction
     - Destructible
     - RCDDeconstructable
+  - uid: 918
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-10.5
+      parent: 818
+  - uid: 930
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,-10.5
+      parent: 818
+  - uid: 931
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,-17.5
+      parent: 818
+  - uid: 932
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-17.5
+      parent: 818
+  - uid: 933
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-10.5
+      parent: 818
+  - uid: 934
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-10.5
+      parent: 818
+  - uid: 935
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-17.5
+      parent: 818
 - proto: Chair
   entities:
   - uid: 592

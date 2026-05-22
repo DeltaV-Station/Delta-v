@@ -38,6 +38,11 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
         return NinjaQuery.HasComp(uid);
     }
 
+    public bool IsNinja([NotNullWhen(true)] EntityUid? uid)
+    {
+        return NinjaQuery.HasComp(uid);
+    }
+
     /// <summary>
     /// Set the ninja's worn suit entity
     /// </summary>
@@ -107,7 +112,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        // If the damage doesn't have a source, we need to check the type, in case it 
+        // If the damage doesn't have a source, we need to check the type, in case it
         // was a grenade or explosion. We want to ignore airloss and toxin damage types.
         if (!args.Origin.HasValue)
         {

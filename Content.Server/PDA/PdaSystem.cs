@@ -20,9 +20,10 @@ using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
 using Content.Shared.Silicons.Borgs.Components; // DeltaV - silicon PDAs
 using Content.Shared.Silicons.StationAi; // DeltaV - silicon PDAs
+using Robust.Shared.Configuration; // DeltaV - PDA date
+using Content.Shared.VoiceMask;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
-using Robust.Shared.Configuration; // DeltaV - PDA date
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -66,6 +67,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
+            SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnRelayedEventToIdCard);
 
             // Begin DeltaV additions
             Subs.CVar(_config,

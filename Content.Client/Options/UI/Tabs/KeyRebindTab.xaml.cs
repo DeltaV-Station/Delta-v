@@ -36,9 +36,64 @@ namespace Content.Client.Options.UI.Tabs
 
         private readonly List<Action> _deferCommands = new();
 
-        private void HandleToggleUSQWERTYCheckbox(BaseButton.ButtonToggledEventArgs args)
+        private void InitToggleWalk()
         {
-            _cfg.SetCVar(CVars.DisplayUSQWERTYHotkeys, args.Pressed);
+            if (_cfg.GetCVar(CCVars.ToggleWalk))
+            {
+                ToggleFunctions.Add(EngineKeyFunctions.Walk);
+            }
+            else
+            {
+                ToggleFunctions.Remove(EngineKeyFunctions.Walk);
+            }
+        }
+
+        private void HandleToggleWalk(BaseButton.ButtonToggledEventArgs args)
+        {
+            _cfg.SetCVar(CCVars.ToggleWalk, args.Pressed);
+            _cfg.SaveToFile();
+            InitToggleWalk();
+
+            if (!_keyControls.TryGetValue(EngineKeyFunctions.Walk, out var keyControl))
+            {
+                return;
+            }
+
+            var bindingType = args.Pressed ? KeyBindingType.Toggle : KeyBindingType.State;
+            for (var i = 0; i <= 1; i++)
+            {
+                var binding = (i == 0 ? keyControl.BindButton1 : keyControl.BindButton2).Binding;
+                if (binding == null)
+                {
+                    continue;
+                }
+
+                var registration = new KeyBindingRegistration
+                {
+                    Function = EngineKeyFunctions.Walk,
+                    BaseKey = binding.BaseKey,
+                    Mod1 = binding.Mod1,
+                    Mod2 = binding.Mod2,
+                    Mod3 = binding.Mod3,
+                    Priority = binding.Priority,
+                    Type = bindingType,
+                    CanFocus = binding.CanFocus,
+                    CanRepeat = binding.CanRepeat,
+                };
+
+                _deferCommands.Add(() =>
+                {
+                    _inputManager.RemoveBinding(binding);
+                    _inputManager.RegisterBinding(registration);
+                });
+            }
+
+            _deferCommands.Add(_inputManager.SaveToUserData);
+        }
+
+        private void HandleStaticStorageUI(BaseButton.ButtonToggledEventArgs args)
+        {
+            _cfg.SetCVar(CCVars.StaticStorageUI, args.Pressed);
             _cfg.SaveToFile();
         }
 
@@ -150,8 +205,23 @@ namespace Content.Client.Options.UI.Tabs
                 KeybindsContainer.AddChild(newCheckBox);
             }
 
+            void AddToggleCvarCheckBox(string checkBoxName, CVarDef<bool> cvar)
+            {
+                CheckBox newCheckBox = new CheckBox() { Text = Loc.GetString(checkBoxName) };
+                newCheckBox.Pressed = _cfg.GetCVar(cvar);
+                newCheckBox.OnToggled += (e) =>
+                {
+                    _cfg.SetCVar(cvar, e.Pressed);
+                    _cfg.SaveToFile();
+                };
+
+                KeybindsContainer.AddChild(newCheckBox);
+            }
+
             AddHeader("ui-options-header-general");
-            AddCheckBox("ui-options-hotkey-keymap", _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys), HandleToggleUSQWERTYCheckbox);
+            AddToggleCvarCheckBox("ui-options-hotkey-keymap", CVars.DisplayUSQWERTYHotkeys);
+            AddToggleCvarCheckBox("ui-options-hold-to-attack-melee", CCVars.ControlHoldToAttackMelee);
+            AddToggleCvarCheckBox("ui-options-hold-to-attack-ranged", CCVars.ControlHoldToAttackRanged);
 
             AddHeader("ui-options-header-movement");
             AddButton(EngineKeyFunctions.MoveUp);

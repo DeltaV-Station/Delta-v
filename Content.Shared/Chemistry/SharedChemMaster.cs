@@ -179,6 +179,8 @@ namespace Content.Shared.Chemistry
 
         public readonly ChemMasterSortingType SortingType;
 
+        public readonly ChemMasterSortingType SortingType;
+
         public readonly FixedPoint2? BufferCurrentVolume;
         public readonly uint SelectedPillType;
 

@@ -4,7 +4,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Chemistry.Prototypes;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -393,45 +392,45 @@ public sealed partial class InjectorSystem : EntitySystem
         {
             // Handle injecting/drawing for solutions
             case InjectorBehavior.Inject:
-                {
-                    if (isOpenOrIgnored && _solutionContainer.TryGetInjectableSolution(target, out var injectableSolution, out _))
-                        return TryInject(injector, user, target, injectableSolution.Value, false);
+            {
+                if (isOpenOrIgnored && _solutionContainer.TryGetInjectableSolution(target, out var injectableSolution, out _))
+                    return TryInject(injector, user, target, injectableSolution.Value, false);
 
-                    if (isOpenOrIgnored && _solutionContainer.TryGetRefillableSolution(target, out var refillableSolution, out _))
-                        return TryInject(injector, user, target, refillableSolution.Value, true);
-                    break;
-                }
+                if (isOpenOrIgnored && _solutionContainer.TryGetRefillableSolution(target, out var refillableSolution, out _))
+                    return TryInject(injector, user, target, refillableSolution.Value, true);
+                break;
+            }
             case InjectorBehavior.Draw:
+            {
+                // Draw from a bloodstream if the target has that
+                if (TryComp<BloodstreamComponent>(target, out var stream) &&
+                    _solutionContainer.ResolveSolution(target, stream.BloodSolutionName, ref stream.BloodSolution))
                 {
-                    // Draw from a bloodstream if the target has that
-                    if (TryComp<BloodstreamComponent>(target, out var stream) &&
-                        _solutionContainer.ResolveSolution(target, stream.BloodSolutionName, ref stream.BloodSolution))
-                    {
-                        return TryDraw(injector, user, (target, stream), stream.BloodSolution.Value);
-                    }
-
-                    // Draw from an object (food, beaker, etc)
-                    if (isOpenOrIgnored && _solutionContainer.TryGetDrawableSolution(target, out var drawableSolution, out _))
-                        return TryDraw(injector, user, target, drawableSolution.Value);
-
-                    msg = target == user ? "injector-component-cannot-draw-message-self" : "injector-component-cannot-draw-message";
-                    _popup.PopupClient(Loc.GetString(msg, ("target", Identity.Entity(target, EntityManager))), injector, user);
-                    break;
+                    return TryDraw(injector, user, (target, stream), stream.BloodSolution.Value);
                 }
+
+                // Draw from an object (food, beaker, etc)
+                if (isOpenOrIgnored && _solutionContainer.TryGetDrawableSolution(target, out var drawableSolution, out _))
+                    return TryDraw(injector, user, target, drawableSolution.Value);
+
+                msg = target == user ? "injector-component-cannot-draw-message-self" : "injector-component-cannot-draw-message";
+                _popup.PopupClient(Loc.GetString(msg, ("target", Identity.Entity(target, EntityManager))), injector, user);
+                break;
+            }
             case InjectorBehavior.Dynamic:
+            {
+                // If it's a mob, inject. We're using injectableSolution so I don't have to code a sole method for injecting into bloodstreams.
+                if (HasComp<BloodstreamComponent>(target)
+                    && _solutionContainer.TryGetInjectableSolution(target, out var injectableSolution, out _))
                 {
-                    // If it's a mob, inject. We're using injectableSolution so I don't have to code a sole method for injecting into bloodstreams.
-                    if (HasComp<BloodstreamComponent>(target)
-                        && _solutionContainer.TryGetInjectableSolution(target, out var injectableSolution, out _))
-                    {
-                        return TryInject(injector, user, target, injectableSolution.Value, false);
-                    }
-
-                    // Draw from an object (food, beaker, etc.)
-                    if (isOpenOrIgnored && _solutionContainer.TryGetDrawableSolution(target, out var drawableSolution, out _))
-                        return TryDraw(injector, user, target, drawableSolution.Value);
-                    break;
+                    return TryInject(injector, user, target, injectableSolution.Value, false);
                 }
+
+                // Draw from an object (food, beaker, etc.)
+                if (isOpenOrIgnored && _solutionContainer.TryGetDrawableSolution(target, out var drawableSolution, out _))
+                    return TryDraw(injector, user, target, drawableSolution.Value);
+                break;
+            }
             default:
                 throw new ArgumentOutOfRangeException();
         }

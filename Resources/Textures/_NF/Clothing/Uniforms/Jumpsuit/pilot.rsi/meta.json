@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<<< HEAD:Resources/Textures/_NF/Clothing/Uniforms/Jumpsuit/pilot.rsi/meta.json
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c838ba21dae97db345e0113f99596decd1d66039, monkey made by brainfood1183 (github) for ss14 | Resprited for pilot by erhardsteinhauer (discord)",
+========
+  "copyright": "Taken from Baystation12 at commit https://github.com/Baystation12/Baystation12/commit/c5dc6953e6e1fde87c2ded60038144f1d21fbd48",
+>>>>>>>> 116e09e1cc66bca8601cbd2ec6b146425b269b70:Resources/Textures/Clothing/Multiple/towel.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -10,16 +14,22 @@
     {
       "name": "icon"
     },
+	{
+	  "name": "iconstripe"
+	},
+	{
+	  "name": "NTmono"
+	},
     {
       "name": "equipped-INNERCLOTHING",
       "directions": 4
     },
     {
-      "name": "equipped-INNERCLOTHING-monkey",
+      "name": "equipped-BELT",
       "directions": 4
     },
-    {
-      "name": "equipped-INNERCLOTHING-vox",
+	{
+      "name": "equipped-HELMET",
       "directions": 4
     },
     {

@@ -15,7 +15,7 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
     [Dependency] private readonly IPlayerManager _player = default!;
 
     [ViewVariables]
-    protected bool IsActive;
+    public bool IsActive { get; private set; }
     protected virtual SlotFlags TargetSlots => ~SlotFlags.POCKET;
 
     public override void Initialize()
@@ -97,6 +97,7 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
         // Goobstation edit
         args.Args.Active = true;
         args.Args.Components.Add(ent.Comp);
+        OnRefreshComponentHud(ent, ref args.Args);
     }
 
     protected virtual void OnRefreshComponentHud(Entity<T> ent, ref RefreshEquipmentHudEvent<T> args)

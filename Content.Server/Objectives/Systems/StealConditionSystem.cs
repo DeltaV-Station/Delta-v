@@ -1,4 +1,5 @@
 using Content.Server.Objectives.Components;
+using Content.Shared.CartridgeLoader;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -183,6 +184,11 @@ public sealed class StealConditionSystem : EntitySystem
             return 0;
 
         if (target.StealGroup != condition.StealGroup)
+            return 0;
+
+        // check if cartridge is installed
+        if (TryComp<CartridgeComponent>(entity, out var cartridge) &&
+            cartridge.InstallationStatus is not InstallationStatus.Cartridge)
             return 0;
 
         // check if needed target alive

@@ -3,7 +3,6 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Systems;
-using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;

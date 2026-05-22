@@ -22,6 +22,9 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public ChemMasterSortingType SortingType = ChemMasterSortingType.None;
 
+        [DataField]
+        public ChemMasterSortingType SortingType = ChemMasterSortingType.None;
+
         [DataField("pillDosageLimit", required: true), ViewVariables(VVAccess.ReadWrite)]
         public uint PillDosageLimit;
 

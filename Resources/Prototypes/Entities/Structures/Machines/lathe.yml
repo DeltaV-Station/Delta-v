@@ -72,6 +72,11 @@
     magnetEnabled: True
     range: 0.30
   # End DeltaV additions
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity

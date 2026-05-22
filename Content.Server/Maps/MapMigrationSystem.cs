@@ -85,16 +85,13 @@ public sealed class MapMigrationSystem : EntitySystem
 
         foreach (var mapping in mappings) // DeltaV - iterate a list of mappings
         {
-            foreach (var (key, value) in mapping)
-            {
-                if (value is not ValueDataNode valueNode)
-                    continue;
+            if (value is not ValueDataNode valueNode)
+                continue;
 
-                if (string.IsNullOrWhiteSpace(valueNode.Value) || valueNode.Value == "null")
-                    ev.DeletedPrototypes.Add(key);
-                else
-                    ev.RenamedPrototypes.Add(key, valueNode.Value);
-            }
+            if (string.IsNullOrWhiteSpace(valueNode.Value) || valueNode.Value == "null")
+                ev.DeletedPrototypes.Add(key);
+            else
+                ev.RenamedPrototypes.Add(key, valueNode.Value);
         }
     }
 }

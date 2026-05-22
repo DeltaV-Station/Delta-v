@@ -3,13 +3,13 @@ using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events
 using Content.Shared.Disposal;
 using Content.Shared.Disposal.Components;
 using Content.Shared.Disposal.Unit;
+using Content.Shared.Placeable;
+using JetBrains.Annotations;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
-using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
-using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -42,10 +42,12 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, DumpableComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled)
+        if (!args.CanReach || args.Handled || args.Target is not { } target)
             return;
 
-        if (!HasComp<DisposalUnitComponent>(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
+        var evt = new GetDumpableVerbEvent(args.User, null);
+        RaiseLocalEvent(target, ref evt);
+        if (evt.Verb is null)
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -54,7 +56,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!storage.Container.ContainedEntities.Any())
             return;
 
-        StartDoAfter(uid, args.Target.Value, args.User, component);
+        StartDoAfter(uid, target, args.User, component);
         args.Handled = true;
     }
 
@@ -86,33 +88,22 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - add fridge check
-        {
-            UtilityVerb verb = new()
-            {
-                Act = () =>
-                {
-                    StartDoAfter(uid, args.Target, args.User, dumpable);
-                },
-                Text = Loc.GetString("dump-disposal-verb-name", ("unit", args.Target)),
-                IconEntity = GetNetEntity(uid)
-            };
-            args.Verbs.Add(verb);
-        }
+        var evt = new GetDumpableVerbEvent(args.User, null);
+        RaiseLocalEvent(args.Target, ref evt);
 
-        if (HasComp<PlaceableSurfaceComponent>(args.Target))
+        if (evt.Verb is not { } verbText)
+            return;
+
+        UtilityVerb verb = new()
         {
-            UtilityVerb verb = new()
+            Act = () =>
             {
-                Act = () =>
-                {
-                    StartDoAfter(uid, args.Target, args.User, dumpable);
-                },
-                Text = Loc.GetString("dump-placeable-verb-name", ("surface", args.Target)),
-                IconEntity = GetNetEntity(uid)
-            };
-            args.Verbs.Add(verb);
-        }
+                StartDoAfter(uid, args.Target, args.User, dumpable);
+            },
+            Text = verbText,
+            IconEntity = GetNetEntity(uid)
+        };
+        args.Verbs.Add(verb);
     }
 
     private void StartDoAfter(EntityUid storageUid, EntityUid targetUid, EntityUid userUid, DumpableComponent dumpable)
@@ -203,9 +194,9 @@ public sealed class DumpableSystem : EntitySystem
             }
         }
 
-        if (dumped)
+        if (evt.PlaySound)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, user);
+            _audio.PlayPredicted(component.DumpSound, uid, args.User);
         }
     }
 }

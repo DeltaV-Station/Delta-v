@@ -41,6 +41,7 @@
     idleState: core-idle
     runningState: core-active
     staticPacks:
+    - XenoborgMachines
     - EmptyXenoborgs
     - XenoborgUpgradeModules
   - type: MaterialStorage
@@ -49,6 +50,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - XenoborgCrystal
   - type: PointLight
     color: "#0033ff"
     enabled: true

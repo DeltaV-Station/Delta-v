@@ -1,7 +1,6 @@
 using Content.Shared.Damage; // DeltaV - EMP damage
 using Robust.Shared.GameStates;
 
-
 namespace Content.Shared.Trigger.Components.Effects;
 
 /// <summary>

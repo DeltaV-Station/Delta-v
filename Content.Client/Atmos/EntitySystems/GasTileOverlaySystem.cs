@@ -3,24 +3,25 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.GameStates;
 
-namespace Content.Client.Atmos.EntitySystems
+namespace Content.Client.Atmos.EntitySystems;
+
+[UsedImplicitly]
+public sealed class GasTileOverlaySystem : SharedGasTileOverlaySystem
 {
-    [UsedImplicitly]
-    public sealed class GasTileOverlaySystem : SharedGasTileOverlaySystem
+    public override void Initialize()
     {
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
         [Dependency] private readonly SpriteSystem _spriteSys = default!;
         [Dependency] private readonly SharedTransformSystem _xformSys = default!;
 
-        private GasTileOverlay _overlay = default!;
+    private void OnHandleState(EntityUid gridUid, GasTileOverlayComponent comp, ref ComponentHandleState args)
+    {
+        Dictionary<Vector2i, GasOverlayChunk> modifiedChunks;
 
-        public override void Initialize()
+        switch (args.Current)
         {
             base.Initialize();
             SubscribeNetworkEvent<GasOverlayUpdateEvent>(HandleGasOverlayUpdate);
@@ -71,11 +72,11 @@ namespace Content.Client.Atmos.EntitySystems
 
             foreach (var (index, data) in modifiedChunks)
             {
-                comp.Chunks[index] = data;
+                comp.Chunks.Remove(index);
             }
         }
 
-        private void HandleGasOverlayUpdate(GasOverlayUpdateEvent ev)
+        foreach (var (nent, gridData) in ev.UpdatedChunks)
         {
             foreach (var (nent, removedIndicies) in ev.RemovedChunks)
             {

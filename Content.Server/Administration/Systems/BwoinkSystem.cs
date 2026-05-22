@@ -132,7 +132,7 @@ namespace Content.Server.Administration.Systems
                 _gameTicker.RunLevel,
                 playedSound: false
             );
-            _maxAdditionalChars = GenerateAHelpMessage(defaultParams, _discordReplyPrefix).Message.Length;
+            _maxAdditionalChars = GenerateAHelpMessage(defaultParams).Message.Length;
             _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
 
             SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameRunLevelChanged);
@@ -145,46 +145,6 @@ namespace Content.Server.Administration.Systems
                     CCVars.AhelpRateLimitCount,
                     PlayerRateLimitedAction)
                 );
-        }
-
-        private void OnDiscordReplyColorChanged(string newValue)
-        {
-            _discordReplyColor = newValue;
-        }
-
-        private void OnAdminBwoinkColorChanged(string newValue)
-        {
-            _adminBwoinkColor = newValue;
-        }
-
-        private void OnDiscordReplyPrefixChanged(string newValue)
-        {
-            var defaultParams = new AHelpMessageParams(
-                string.Empty,
-                string.Empty,
-                true,
-                _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss"),
-                _gameTicker.RunLevel,
-                playedSound: false
-            );
-
-            _discordReplyPrefix = newValue;
-            _maxAdditionalChars = GenerateAHelpMessage(defaultParams, _discordReplyPrefix).Message.Length;
-        }
-
-        private void OnUseDiscordRoleNameChanged(bool newValue)
-        {
-            _useDiscordRoleName = newValue;
-        }
-
-        private void OnUseDiscordRoleColorChanged(bool newValue)
-        {
-            _useDiscordRoleColor = newValue;
-        }
-
-        private void OnUseAdminOOCColorInBwoinksChanged(bool newValue)
-        {
-            _useAdminOOCColorInBwoinks = newValue;
         }
 
         private async void OnCallChanged(string url)
@@ -241,7 +201,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Check if the user has been banned
-                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
+                var ban = await _dbManager.GetBanAsync(null, e.Session.UserId, null, null);
                 if (ban != null)
                 {
                     var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
@@ -344,7 +304,7 @@ namespace Content.Server.Administration.Systems
                 var queue = _messageQueues.GetOrNew(session.UserId);
                 var escapedText = FormattedMessage.EscapeText(message);
                 messageParams.Message = escapedText;
-                var discordMessage = GenerateAHelpMessage(messageParams, _discordReplyPrefix);
+                var discordMessage = GenerateAHelpMessage(messageParams);
                 queue.Enqueue(discordMessage);
             }
         }
@@ -721,7 +681,7 @@ namespace Content.Server.Administration.Systems
         protected override void OnBwoinkTextMessage(BwoinkTextMessage message, EntitySessionEventArgs eventArgs)
         {
             base.OnBwoinkTextMessage(message, eventArgs);
-
+            _activeConversations[message.UserId] = DateTime.Now;
             var senderSession = eventArgs.SenderSession;
 
             // TODO: Sanitize text?
@@ -750,36 +710,6 @@ namespace Content.Server.Administration.Systems
 
             if (_rateLimit.CountAction(eventArgs.SenderSession, RateLimitKey) != RateLimitStatus.Allowed)
                 return;
-
-            var bwoinkParams = new BwoinkParams(message,
-                eventArgs.SenderSession.UserId,
-                senderAdmin,
-                eventArgs.SenderSession.Name,
-                eventArgs.SenderSession.Channel,
-                false,
-                true,
-                false);
-            OnBwoinkInternal(bwoinkParams);
-        }
-
-        /// <summary>
-        /// Sends a bwoink. Common to both internal messages (sent via the ahelp or admin interface) and webhook messages (sent through the webhook, e.g. via Discord)
-        /// </summary>
-        /// <param name="bwoinkParams">The parameters of the message being sent.</param>
-        private void OnBwoinkInternal(BwoinkParams bwoinkParams)
-        {
-            var fromWebhook = bwoinkParams.FromWebhook;
-            var message = bwoinkParams.Message;
-            var roleColor = bwoinkParams.RoleColor;
-            var roleName = bwoinkParams.RoleName;
-            var senderAdmin = bwoinkParams.SenderAdmin;
-            var senderChannel = bwoinkParams.SenderChannel;
-            var senderId = bwoinkParams.SenderId;
-            var senderName = bwoinkParams.SenderName;
-            var userOnly = bwoinkParams.UserOnly;
-            var sendWebhook = bwoinkParams.SendWebhook;
-
-            _activeConversations[message.UserId] = DateTime.Now;
 
             var escapedText = FormattedMessage.EscapeText(message.Text);
             var adminColor = _adminBwoinkColor;
@@ -826,8 +756,8 @@ namespace Content.Server.Administration.Systems
             bwoinkText = $"{(message.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : !message.PlaySound ? Loc.GetString("bwoink-message-silent") : "")} {bwoinkText}: {escapedText}";
 
             // If it's not an admin / admin chooses to keep the sound and message is not an admin only message, then play it.
-            var playSound = (senderAdmin == null || message.PlaySound) && !message.AdminOnly;
-            var msg = new BwoinkTextMessage(message.UserId, senderId, bwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
+            var playSound = (!senderAHelpAdmin || message.PlaySound) && !message.AdminOnly;
+            var msg = new BwoinkTextMessage(message.UserId, senderSession.UserId, bwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
 
             LogBwoink(msg);
 
@@ -840,6 +770,13 @@ namespace Content.Server.Administration.Systems
                 {
                     RaiseNetworkEvent(msg, channel);
                 }
+            }
+
+            string adminPrefixWebhook = "";
+
+            if (_config.GetCVar(CCVars.AhelpAdminPrefixWebhook) && senderAdmin is not null && senderAdmin.Title is not null)
+            {
+                adminPrefixWebhook = $"[bold]\\[{senderAdmin.Title}\\][/bold] ";
             }
 
             string adminPrefixWebhook = "";
@@ -874,7 +811,7 @@ namespace Content.Server.Administration.Systems
                         overrideMsgText = $"{(message.PlaySound ? "" : "(S) ")}{overrideMsgText}: {escapedText}";
 
                         RaiseNetworkEvent(new BwoinkTextMessage(message.UserId,
-                                senderId,
+                                senderSession.UserId,
                                 overrideMsgText,
                                 playSound: playSound),
                             session.Channel);

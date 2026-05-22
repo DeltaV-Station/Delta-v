@@ -106,7 +106,7 @@ public abstract partial class SharedXenoArtifactSystem
         // one day we'll get a HashSet.AddRange
         foreach (var i in unlockingComponent.TriggeredNodeIndexesRelated)
             artifactComponent.LastUnlockingTriggeredNodeIndexesRelated.Add(i);
-        
+
         artifactComponent.LastUnlockingEndTime = unlockingComponent.EndTime;
 
         Dirty(ent, artifactComponent);

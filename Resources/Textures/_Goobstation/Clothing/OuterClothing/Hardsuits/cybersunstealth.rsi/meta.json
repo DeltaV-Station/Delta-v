@@ -1,18 +1,22 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<<< HEAD:Resources/Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi/meta.json
   "copyright": "made by InfinityPandaRed for goob station",
+========
+  "copyright": "Drawn by Ubaser.",
+>>>>>>>> 116e09e1cc66bca8601cbd2ec6b146425b269b70:Resources/Textures/Clothing/Neck/Stoles/chaplain.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "icon"
+      "name": "equipped-NECK",
+      "directions": 4
     },
     {
-      "name": "equipped-OUTERCLOTHING",
-      "directions": 4
+      "name": "icon"
     },
     {
       "name": "inhand-left",

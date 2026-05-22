@@ -224,7 +224,7 @@ accent-cowboy-words-75 = secoff
 accent-cowboy-replacement-75 = deputy
 
 accent-cowboy-words-76 = security
-accent-cowboy-replacement-76 = law 
+accent-cowboy-replacement-76 = law
 
 accent-cowboy-words-77 = shitsec
 accent-cowboy-replacement-77 = crooked law

@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<<< HEAD:Resources/Textures/_NF/Clothing/OuterClothing/Hardsuits/pilot.rsi/meta.json
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a. Further modifications and derivate works (inhand-left and inhand-right) under same license, derivative monkey made by brainfood1183 (github) for ss14 | Resprited for pilot by erhardsteinhauer (discord)",
+========
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/6b3f58d7de4d4e374282819a7001eaa9bde1676d. Vox state made by Flareguy for SS14. Tail sprites by Tiniest Shark (github).",
+>>>>>>>> 116e09e1cc66bca8601cbd2ec6b146425b269b70:Resources/Textures/Clothing/OuterClothing/Hardsuits/maxim.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -15,7 +19,11 @@
       "directions": 4
     },
     {
-      "name": "equipped-OUTERCLOTHING-monkey",
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
       "directions": 4
     },
     {

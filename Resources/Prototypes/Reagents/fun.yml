@@ -12,7 +12,7 @@
     maxOnTileWhitelist:
       tags: [ Carpet ]
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -35,7 +35,7 @@
   flavor: fiber
   color: "#808080"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -62,7 +62,7 @@
   - !type:CleanTileReaction # Bees are extremely obsessive about cleanliness within what they consider their hive.
     cleanCost: 0 # Consume absolutely zero bees. Buzz buzz.
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -163,8 +163,8 @@
   flavor: shocking
   color: "#FDD023"
   metabolisms:
-    Poison:
-      metabolismRate: 3.00 # DeltaV - licoxide is cheaper now, so adjust it accordingly
+    Bloodstream:
+      metabolismRate: 2.0
       effects:
       - !type:Emote # DeltaV - licoxide makes you scream now
         emote: Scream
@@ -376,7 +376,7 @@
   flavor: hew
   color: "#a64dc5"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:Emote
@@ -403,6 +403,40 @@
           min: 50
 
 - type: reagent
+  id: CorgiJuice
+  name: reagent-name-corgiessence
+  group: Toxins
+  desc: reagent-desc-corgiessence
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: dogfood
+  color: "#ed9715"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: CorgiJuice
+          min: 15
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:Polymorph
+        prototype: SmartCorgiMorph
+        conditions:
+        - !type:ReagentCondition
+          reagent: CorgiJuice
+          min: 50
+      - !type:AdjustReagent
+        reagent: CorgiJuice
+        amount: -20
+        conditions:
+        - !type:ReagentCondition
+          reagent: CorgiJuice
+          min: 50
+
+- type: reagent
   id: Felinase
   name: reagent-name-catessence
   group: Toxins
@@ -411,7 +445,7 @@
   flavor: cannedtuna
   color: "#d8bed8"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -462,7 +496,7 @@
   flavor: dogfood
   color: "#b87333"
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange

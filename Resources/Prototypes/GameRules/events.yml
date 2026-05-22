@@ -139,7 +139,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 1
+    weight: 2
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
@@ -152,7 +152,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 10
+    weight: 7
     duration: 1
     minimumPlayers: 15
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -168,7 +168,7 @@
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
       path: /Audio/_DV/Announcements/bureaucratic_error.ogg # DeltaV - custom announcer
     minimumPlayers: 25
-    weight: 5
+    weight: 3
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-bureaucratic-error-result-message
@@ -439,7 +439,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 10
+    weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
@@ -457,7 +457,7 @@
   id: SolarFlare
   components:
   - type: StationEvent
-    weight: 10
+    weight: 8
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
@@ -697,7 +697,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 10
+    weight: 7
     duration: 150
     maxDuration: 300
   - type: PrecognitionResult # DeltaV - Precogniton

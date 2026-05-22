@@ -18,8 +18,8 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mindshield.Components; // DeltaV - Admin QOL
 using Content.Shared.Mobs; // DeltaV - Admin QOL
 using Content.Shared.Mobs.Components; // DeltaV - Admin QOL
-using Content.Shared.Popups;
 using Content.Shared.SSDIndicator; // DeltaV - Admin QOL
+using Content.Shared.Popups;
 using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;

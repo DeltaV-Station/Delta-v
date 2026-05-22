@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   id: BaseStationNanotrasen
   components:
@@ -33,6 +33,7 @@
     - BaseStationLavaland
     - BaseStationExfiltration
     # End DeltaV - Station additions
+    - BaseStationDeliveries
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

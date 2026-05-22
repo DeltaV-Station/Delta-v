@@ -24,7 +24,6 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
     {
         foreach (var (group, amount) in args.Effect.Damage)
         {
-            // Begin DeltaV Additions - Limb even healing
             _damageable.HealEvenly(entity.AsNullable(), amount * args.Scale, group);
         }
     }

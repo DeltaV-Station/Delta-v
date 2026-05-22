@@ -1613,6 +1613,10 @@
   id: FoodLily
   description: A beautiful orange flower.
   components:
+  - type: Clothing
+    slots:
+    - HEAD
+    quickEquip: false
   - type: FlavorProfile
     flavors:
       - medicine

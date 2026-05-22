@@ -455,15 +455,21 @@ namespace Content.Server.Construction
 
             if (!PrototypeManager.TryIndex(constructionPrototype.Graph, out ConstructionGraphPrototype? constructionGraph))
             {
-                Log.Error($"Invalid construction graph '{constructionPrototype.Graph}' in recipe '{prototypeName}'!");
-                RaiseNetworkEvent(new AckStructureConstructionMessage(ack), user);
-                return false;
+                Log.Error($"Invalid construction graph '{constructionPrototype.Graph}' in recipe '{ev.PrototypeName}'!");
+                RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack));
+                return;
+            }
+
+            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
+            {
+                Log.Error($"Client sent {nameof(TryStartStructureConstructionMessage)} with no attached entity!");
+                return;
             }
 
             if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
             {
                 _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);
-                return false;
+                return;
             }
 
             if (_container.IsEntityInContainer(user))
@@ -493,9 +499,11 @@ namespace Content.Server.Construction
                 }
             }
 
+            var location = GetCoordinates(ev.Location);
+
             foreach (var condition in constructionPrototype.Conditions)
             {
-                if (!condition.Condition(user, location, angle.GetCardinalDir()))
+                if (!condition.Condition(user, location, ev.Angle.GetCardinalDir()))
                 {
                     Cleanup();
                     return false;
@@ -564,12 +572,12 @@ namespace Content.Server.Construction
             }
 
             if (await Construct(user,
-                    (ack + constructionPrototype.GetHashCode()).ToString(),
+                    (ev.Ack + constructionPrototype.GetHashCode()).ToString(),
                     constructionGraph,
                     edge,
                     targetNode,
-                    location,
-                    constructionPrototype.CanRotate ? angle : Angle.Zero) is not {Valid: true} structure)
+                    GetCoordinates(ev.Location),
+                    constructionPrototype.CanRotate ? ev.Angle : Angle.Zero) is not {Valid: true} structure)
             {
                 Cleanup();
                 return false;
@@ -580,8 +588,8 @@ namespace Content.Server.Construction
             RaiseLocalEvent(user, ref constructedEv);
             // </Goobstation>
 
-            RaiseNetworkEvent(new AckStructureConstructionMessage(ack, GetNetEntity(structure)), user);
-            _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {prototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
+            RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack, GetNetEntity(structure)));
+            _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {ev.PrototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
             Cleanup();
             return true;
         }

@@ -1,7 +1,11 @@
 # Non-fungible apes, anyone?
 - type: nameIdentifierGroup
   id: Monkey
-  prefix: MK
+  format: name-identifier-format-monkey
+
+- type: nameIdentifierGroup
+  id: Kobold
+  format: name-identifier-format-kobold
 
 - type: nameIdentifierGroup
   id: Kobold
@@ -13,19 +17,19 @@
 
 - type: nameIdentifierGroup
   id: MMI
-  prefix: MMI
+  format: name-identifier-format-mmi
   minValue: 100
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: PositronicBrain
-  prefix: PB
+  format: name-identifier-format-positronic-brain
   minValue: 10
   maxValue: 99
 
 - type: nameIdentifierGroup
   id: Silicon
-  prefix: Si
+  format: name-identifier-format-silicon
   minValue: 1000
   maxValue: 9999
 

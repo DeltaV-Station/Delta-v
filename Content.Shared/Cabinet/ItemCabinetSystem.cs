@@ -48,7 +48,7 @@ public sealed class ItemCabinetSystem : EntitySystem
 
     private void UpdateAppearance(Entity<ItemCabinetComponent> ent)
     {
-        _appearance.SetData(ent, ItemCabinetVisuals.ContainsItem, HasItem((ent, ent.Comp)));
+        _appearance.SetData(ent, ItemCabinetVisuals.ContainsItem, HasItem(ent));
     }
 
     private void OnContainerModified(EntityUid uid, ItemCabinetComponent component, ContainerModifiedMessage args)

@@ -124,7 +124,7 @@ public sealed class StandingStateSystem : EntitySystem
 
         if (playSound)
         {
-            _audio.PlayPredicted(standingState.DownSound, uid, null);
+            _audio.PlayPredicted(standingState.DownSound, uid, uid);
         }
 
         return true;
@@ -230,7 +230,6 @@ public sealed class DownedEvent : EntityEventArgs, IInventoryRelayEvent
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
 }
-
 
 /// <summary>
 /// Raised on an inhand entity being held by an entity who is dropping items as part of an attempted state change to down.

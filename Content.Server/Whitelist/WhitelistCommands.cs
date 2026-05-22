@@ -27,11 +27,6 @@ public sealed class AddWhitelistCommand : LocalizedCommands
             return;
         }
 
-        var db = IoCManager.Resolve<IServerDbManager>();
-        var loc = IoCManager.Resolve<IPlayerLocator>();
-        var player = IoCManager.Resolve<IPlayerManager>();
-        var playtime = IoCManager.Resolve<PlayTimeTrackingManager>();
-
         var name = string.Join(' ', args).Trim();
         var data = await _locator.LookupIdByNameOrIdAsync(name);
 
@@ -89,11 +84,6 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
             shell.WriteLine(Help);
             return;
         }
-
-        var db = IoCManager.Resolve<IServerDbManager>();
-        var loc = IoCManager.Resolve<IPlayerLocator>();
-        var player = IoCManager.Resolve<IPlayerManager>();
-        var playtime = IoCManager.Resolve<PlayTimeTrackingManager>();
 
         var name = string.Join(' ', args).Trim();
         var data = await _locator.LookupIdByNameOrIdAsync(name);

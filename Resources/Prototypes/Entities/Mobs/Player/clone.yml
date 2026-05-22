@@ -12,6 +12,8 @@
   - DetailExaminable
   - Dna
   - Fingerprint
+  - Grammar # Pronouns
+  - HumanoidProfile # Age, Sex, Gender
   - NpcFactionMember
   # traits
   - BlackAndWhiteOverlay
@@ -80,6 +82,8 @@
     - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
+  eventComponents:
+  - Vocal # voice sounds
 
 # for job-specific traits etc.
 - type: cloningSettings
@@ -136,8 +140,10 @@
   # that means we only need to copy them over when switching between species.
   # So these don't need to be part of the Body settings, unless someone makes a trait that adjusts these components.
   - BodyEmotes
+  - MessyDrinker
   # - Fixtures TODO: A better way to clone fixtures or a fixture fix. Currently if you devour someone on the ground and transform, you lose collision with tables as they were knocked down when they were copied.
   - Speech
+  - TemperatureProtection
   - TypingIndicator
   - ScaleVisuals # for dwarf height
   eventComponents:

@@ -25,6 +25,7 @@ steal-target-groups-mail = mail
 steal-target-groups-id-cards = ID Card
 steal-target-groups-officer-handguns = security officer's handgun
 steal-target-groups-lamps = LAMP
+steal-target-groups-huds = HUD
 
 # Thief single item
 steal-target-groups-forensic-scanner = forensic scanner

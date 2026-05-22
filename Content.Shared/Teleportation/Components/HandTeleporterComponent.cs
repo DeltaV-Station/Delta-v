@@ -26,6 +26,12 @@ public sealed partial class HandTeleporterComponent : Component
     [DataField]
     public bool AllowPortalsOnDifferentGrids;
 
+    /// <summary>
+    ///     Should the portals work across maps?
+    /// </summary>
+    [DataField]
+    public bool AllowPortalsOnDifferentMaps;
+
     [DataField("firstPortalPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string FirstPortalPrototype = "PortalRed";
 
