@@ -48,13 +48,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<HealthAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer);
         SubscribeLocalEvent<HealthAnalyzerComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<HealthAnalyzerComponent, DroppedEvent>(OnDropped);
-        // Shitmed Change Start
+        // Begin DeltaV - Medical Records
         Subs.BuiEvents<HealthAnalyzerComponent>(HealthAnalyzerUiKey.Key, subs =>
         {
             subs.Event<HealthAnalyzerTriageStatusMessage>(OnHealthAnalyzerTriageStatusSelected);
             subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
         });
-        // Shitmed Change End
+        // End DeltaV - Medical Records
     }
 
     public override void Update(float frameTime)
@@ -169,7 +169,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that should receive the updates</param>
     /// <param name="target">The entity to start analyzing</param>
-    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
+    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target) // Mono - make public
     {
         //Link the health analyzer to the scanned entity
         healthAnalyzer.Comp.ScannedEntity = target;
@@ -252,7 +252,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// Creates a HealthAnalyzerState based on the current state of an entity.
     /// </summary>
     /// <param name="target">The entity being scanned</param>
-    /// <param name="part">Shitmed Change: The body part being scanned, if any</param>
     /// <returns></returns>
     public HealthAnalyzerUiState GetHealthAnalyzerUiState(EntityUid? target)
     {

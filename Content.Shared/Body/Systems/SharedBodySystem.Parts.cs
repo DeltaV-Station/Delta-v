@@ -17,7 +17,6 @@ namespace Content.Shared.Body.Systems;
 public partial class SharedBodySystem
 {
     private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
-
     private void InitializeParts()
     {
         // TODO: This doesn't handle comp removal on child ents.
@@ -124,7 +123,7 @@ public partial class SharedBodySystem
         AddLeg(partEnt, bodyEnt);
     }
 
-    public virtual void RemovePart( // DeltaV - Made public
+    protected virtual void RemovePart(
         Entity<BodyComponent?> bodyEnt,
         Entity<BodyPartComponent> partEnt,
         string slotId)
@@ -137,6 +136,7 @@ public partial class SharedBodySystem
         RaiseLocalEvent(bodyEnt, ref ev);
 
         RemoveLeg(partEnt, bodyEnt);
+        PartRemoveDamage(bodyEnt, partEnt);
     }
 
     private void AddLeg(Entity<BodyPartComponent> legEnt, Entity<BodyComponent?> bodyEnt)
@@ -157,16 +157,38 @@ public partial class SharedBodySystem
         if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
             return;
 
-        if (legEnt.Comp.PartType == BodyPartType.Leg)
-        {
-            bodyEnt.Comp.LegEntities.Remove(legEnt);
-            UpdateMovementSpeed(bodyEnt);
-            Dirty(bodyEnt, bodyEnt.Comp);
+        if (legEnt.Comp.PartType != BodyPartType.Leg)
+            return;
 
-            if (!bodyEnt.Comp.LegEntities.Any())
-            {
-                Standing.Down(bodyEnt);
-            }
+        bodyEnt.Comp.LegEntities.Remove(legEnt);
+        UpdateMovementSpeed(bodyEnt);
+        Dirty(bodyEnt, bodyEnt.Comp);
+
+        if (bodyEnt.Comp.LegEntities.Count != 0)
+            return;
+
+        if (!TryComp<StandingStateComponent>(bodyEnt, out var standingState)
+            || !standingState.Standing
+            || !Standing.Down(bodyEnt, standingState: standingState))
+            return;
+
+        var ev = new DropHandItemsEvent();
+        RaiseLocalEvent(bodyEnt, ref ev);
+    }
+
+    private void PartRemoveDamage(Entity<BodyComponent?> bodyEnt, Entity<BodyPartComponent> partEnt)
+    {
+        if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
+            return;
+
+        if (!_timing.ApplyingState
+            && partEnt.Comp.IsVital
+            && !GetBodyChildrenOfType(bodyEnt, partEnt.Comp.PartType, bodyEnt.Comp).Any()
+        )
+        {
+            // TODO BODY SYSTEM KILL : remove this when wounding and required parts are implemented properly
+            var damage = new DamageSpecifier(Prototypes.Index(BloodlossDamageType), 300);
+            Damageable.ChangeDamage(bodyEnt.Owner, damage);
         }
     }
 
@@ -247,12 +269,15 @@ public partial class SharedBodySystem
             return null;
 
         Containers.EnsureContainer<ContainerSlot>(partUid, GetPartSlotContainerId(slotId));
-        // Shitmed Change: Don't throw if the slot already exists
-        if (part.Children.TryGetValue(slotId, out var existing))
-            return existing;
-
         var partSlot = new BodyPartSlot(slotId, partType);
-        part.Children.Add(slotId, partSlot);
+        try
+        {
+            part.Children.Add(slotId, partSlot);
+        }
+        catch (Exception e)
+        {
+            throw new Exception($"{ToPrettyString(partUid)}", e);
+        }
         Dirty(partUid, part);
         return partSlot;
     }

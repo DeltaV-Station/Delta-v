@@ -73,15 +73,9 @@ namespace Content.Shared.Humanoid
             }
         }
 
-        // Begin DeltaV - We want this data w/o needing a BodyPartComponnet
         public static HumanoidVisualLayers? ToHumanoidLayers(this BodyPartComponent part)
         {
-            return part.PartType.ToHumanoidLayers(part.Symmetry);
-        }
-
-        public static HumanoidVisualLayers? ToHumanoidLayers(this BodyPartType partType, BodyPartSymmetry partSymmetry)
-        {
-            switch (partType)
+            switch (part.PartType)
             {
                 case BodyPartType.Other:
                     break;
@@ -94,7 +88,7 @@ namespace Content.Shared.Humanoid
                     // if that's what you're looking for
                     return HumanoidVisualLayers.Head;
                 case BodyPartType.Arm:
-                    switch (partSymmetry)
+                    switch (part.Symmetry)
                     {
                         case BodyPartSymmetry.None:
                             break;
@@ -106,7 +100,7 @@ namespace Content.Shared.Humanoid
 
                     break;
                 case BodyPartType.Hand:
-                    switch (partSymmetry)
+                    switch (part.Symmetry)
                     {
                         case BodyPartSymmetry.None:
                             break;
@@ -118,7 +112,7 @@ namespace Content.Shared.Humanoid
 
                     break;
                 case BodyPartType.Leg:
-                    switch (partSymmetry)
+                    switch (part.Symmetry)
                     {
                         case BodyPartSymmetry.None:
                             break;
@@ -130,7 +124,7 @@ namespace Content.Shared.Humanoid
 
                     break;
                 case BodyPartType.Foot:
-                    switch (partSymmetry)
+                    switch (part.Symmetry)
                     {
                         case BodyPartSymmetry.None:
                             break;
@@ -145,6 +139,5 @@ namespace Content.Shared.Humanoid
 
             return null;
         }
-        // End DeltaV - We want this data w/o needing a BodyPartComponnet
     }
 }

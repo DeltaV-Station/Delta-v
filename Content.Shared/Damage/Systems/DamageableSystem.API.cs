@@ -122,14 +122,7 @@ public sealed partial class DamageableSystem
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreGlobalModifiers = false,
-        // Shitmed Changes
-        bool canSever = true,
-        bool canEvade = false,
-        float partMultiplier = 0.5f,
-        bool doPartDamage = true,
-        bool onlyDamageParts = false // DeltaV - Fix EvenHealing on Limbs && Standardize PartDamage.
-        // END Shitmed Changes
+        bool ignoreGlobalModifiers = false
     )
     {
         var damageDone = new DamageSpecifier();
@@ -139,8 +132,6 @@ public sealed partial class DamageableSystem
 
         if (damage.Empty)
             return damageDone;
-
-        damage = ApplyUniversalAllModifiers(damage); // DeltaV - Fix EvenHealing with Limbs
 
         var before = new BeforeDamageChangedEvent(damage, origin);
         RaiseLocalEvent(ent, ref before);
@@ -167,9 +158,6 @@ public sealed partial class DamageableSystem
                 return damageDone;
         }
 
-        if (onlyDamageParts) // DeltaV - Fix EvenHealing with Limbs.
-            return damageDone;
-
         if (!ignoreGlobalModifiers)
             damage = ApplyUniversalAllModifiers(damage);
 
@@ -192,7 +180,7 @@ public sealed partial class DamageableSystem
         }
 
         if (!damageDone.Empty)
-            OnEntityDamageChanged((ent, ent.Comp), damageDone, interruptsDoAfters, origin, canSever); // Shitmed
+            OnEntityDamageChanged((ent, ent.Comp), damageDone, interruptsDoAfters, origin);
 
         return damageDone;
     }
@@ -210,8 +198,7 @@ public sealed partial class DamageableSystem
         Entity<DamageableComponent?> ent,
         FixedPoint2 amount,
         ProtoId<DamageGroupPrototype>? group = null,
-        EntityUid? origin = null
-        )
+        EntityUid? origin = null)
     {
         var damageChange = new DamageSpecifier();
 
@@ -266,7 +253,7 @@ public sealed partial class DamageableSystem
             }
         }
 
-        return ChangeDamage(ent, damageChange, true, false, origin); // DeltaV - Adapt to shitmed
+        return ChangeDamage(ent, damageChange, true, false, origin);
     }
 
     /// <summary>
