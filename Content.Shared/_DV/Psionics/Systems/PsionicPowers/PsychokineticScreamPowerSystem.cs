@@ -75,16 +75,13 @@ public sealed class PsychokineticScreamPowerSystem : BasePsionicPowerSystem<Psyc
             _light.TryDestroyBulb(light, light.Comp, source);
         }
 
-        if (!_net.IsServer) // QueueDel explodes perediction on client.
-            return;
-
         // Gets all all flare gun pellets in a radius and deletes them.
         HashSet<Entity<FlareGunPelletComponent>> flaresInRange = [];
         _lookup.GetEntitiesInRange(Transform(source).Coordinates, range, flaresInRange);
 
         foreach (var flare in flaresInRange)
         {
-            QueueDel(flare);
+            PredictedQueueDel(flare);
         }
     }
 }
