@@ -1,13 +1,7 @@
+using Content.Server._DV.Objectives.Components; // DeltaV
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles; // DeltaV
-using Content.Shared.Roles.Jobs; // DeltaV
-using Content.Server.GameTicking.Rules;
-using Content.Server.Revolutionary.Components;
-using Robust.Shared.Prototypes; // DeltaV
-using Robust.Shared.Random;
-using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -19,10 +13,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 {
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!; // DeltaV
-    [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {
@@ -58,6 +48,14 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(targetComp.Target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
         _target.SetTarget(ent.Owner, targetComp.Target.Value);
     }
 
@@ -81,6 +79,17 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
+        // DeltaV - TargetObjectiveImmune
+        // Pretty much just a back-up check. Ideally, we should have filtered out all the minds
+        // with this comp with the mind filter TargetObjectiveMindFilter.
+        if (HasComp<TargetObjectiveImmuneComponent>(picked))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
         _target.SetTarget(ent, picked, target);
     }
 }
+

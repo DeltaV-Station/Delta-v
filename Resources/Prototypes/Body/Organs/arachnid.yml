@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -28,13 +28,15 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
+  name: arachnid stomach # DeltaV
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
     state: stomach
-  - type: Organ # Shitmed
-    slotId: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
   - type: Stomach
     digestionDelay: 30
   - type: SolutionContainerManager
@@ -48,22 +50,17 @@
           Quantity: 5
   - type: Metabolizer
     updateInterval: 1.5
-  - type: Item
-    size: Small
-    heldPrefix: stomach
 
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: lungs
+  name: arachnid lungs # DeltaV
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
   - type: Sprite
     layers:
       - state: lung-l
       - state: lung-r
-  - type: Organ # Shitmed
-    slotId: lungs
   - type: Lung
   - type: Metabolizer
     updateInterval: 1.5
@@ -92,7 +89,7 @@
 - type: entity
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
-  name: heart
+  name: arachnid heart # DeltaV
   description: "A disgustingly persistent little biological pump made for spiders."
   components:
   - type: Sprite
@@ -108,19 +105,11 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Organ # Shitmed
-    slotId: heart
-  - type: Heart # Shitmed: Lets you transplant spider hearts into other species
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Heart
 
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: liver
+  name: arachnid liver # DeltaV
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
@@ -136,24 +125,14 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Organ # Shitmed
-    slotId: liver
-  - type: Liver # Shitmed
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Liver
 
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: kidneys
+  name: arachnid kidneys # DeltaV
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
-  - type: Organ # Shitmed
-    slotId: kidneys
   - type: Sprite
     layers:
       - state: kidney-l
@@ -171,21 +150,13 @@
 - type: entity
   id: OrganArachnidEyes
   parent: BaseArachnidOrgan
-  name: eyes
+  name: arachnid eyes # DeltaV
   description: "Two was already too many."
   components:
   - type: Sprite
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Organ # Shitmed
-    slotId: eyes
-  - type: Eyes # Shitmed
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Eyes
   - type: Item
     size: Small
     heldPrefix: eyeballs
@@ -193,7 +164,7 @@
 - type: entity
   id: OrganArachnidTongue
   parent: BaseArachnidOrgan
-  name: tongue
+  name: arachnid tongue # DeltaV
   description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite

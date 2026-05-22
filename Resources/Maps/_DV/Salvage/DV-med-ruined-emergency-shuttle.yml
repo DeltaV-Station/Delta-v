@@ -800,15 +800,13 @@ entities:
     - type: Transform
       pos: 4.5,3.5
       parent: 130
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 127
     components:
     - type: Transform
       pos: 0.5,-0.5
       parent: 130
-    - type: WarpPoint
-      location: Space Debris
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 1

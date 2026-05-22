@@ -80,6 +80,7 @@
             True: {visible: false}
     - type: StaticPrice
       price: 120
+    - type: ProtectedFromStepTriggers # DeltaV - Make Rollerbeds immune to Mousetraps.
 
 - type: entity
   parent: RollerBed

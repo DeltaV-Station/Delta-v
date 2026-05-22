@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  parent: DrinkBottleGlassBaseFull
   id: DrinkJaegermisterBottleFull
   name: jaegermister bottle
   description: A bittersweet alcohol that hasn't changed its recipe in nearly a thousand years.
@@ -11,7 +11,7 @@
         - ReagentId: Jaegermister
           Quantity: 100
   - type: Label
-    currentLabel: jaegermister
+    currentLabel: reagent-name-jaegermister # DeltaV - Label localisation
   - type: Sprite
     sprite: _DEN/Objects/Consumable/Drinks/jaegermisterbottle.rsi
   - type: Sealable

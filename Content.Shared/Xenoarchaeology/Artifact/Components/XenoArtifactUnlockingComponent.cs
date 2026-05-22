@@ -16,6 +16,21 @@ public sealed partial class XenoArtifactUnlockingComponent : Component
     public HashSet<int> TriggeredNodeIndexes = new();
 
     /// <summary>
+    /// DeltaV - Ordered list of triggered nodes.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<int> TriggeredNodeIndexesOrdered = new();
+
+    /// <summary>
+    /// DeltaV - A subset of TriggeredNodeIndexes whose elements are "related" to eachother.
+    /// </summary>
+    /// <remarks>
+    /// See definition of relatedness in GetRelatedNodes() of SharedXenoArtifactSystem.DV.cs
+    /// </remarks
+    [DataField, AutoNetworkedField]
+    public HashSet<int> TriggeredNodeIndexesRelated = new();
+
+    /// <summary>
     /// The time at which the unlocking state ends.
     /// </summary>
     [DataField, AutoNetworkedField, AutoPausedField]

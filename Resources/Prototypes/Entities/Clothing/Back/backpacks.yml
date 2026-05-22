@@ -128,6 +128,9 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/mime.rsi
+  - type: Storage
+    storageOpenSound: null
+    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpack
@@ -206,14 +209,14 @@
   parent: [ ClothingBackpack, BaseCentcommContraband ]
   id: ClothingBackpackERTLeader
   name: ERT leader backpack
-  description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
+  description: A spacious backpack with lots of pockets, worn by the Leader of an Emergency Response Team.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertleader.rsi
   - type: Storage
     grid:
-    - 0,0,10,3
-  - type: ExplosionResistance # DeltaV
+    - 0,0,10,3 # DeltaV - Was 0,0,8,3
+  - type: ExplosionResistance
     damageCoefficient: 0.1
 
 - type: entity
@@ -279,6 +282,9 @@
     - type: Storage
       grid:
       - 0,0,7,6
+    - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+      tags:
+      - Backpack
 
 #Syndicate
 - type: entity
@@ -347,6 +353,13 @@
     stripDelay: 10
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
   - type: SelfUnremovableClothing
+  # Start DeltaV Additions
+  - type: ShockOnUnequip
+    damage: 5
+    duration: 3
+  - type: AccessReader
+    access: [["Security"]]
+  # End DeltaV Additions
   - type: ShockOnTrigger
     targetContainer: true
     damage: 5
@@ -362,7 +375,7 @@
   id: ClothingBackpackDebug
   name: wackpack
   description: What the fuck is this?
-  suffix: Debug
+  suffix: DEBUG
   components:
   - type: Storage
     grid:
@@ -378,7 +391,7 @@
   id: ClothingBackpackDebug2
   name: big wackpack
   description: What the fuck is this?
-  suffix: Debug
+  suffix: DEBUG
   components:
   - type: Storage
     grid:
@@ -389,7 +402,7 @@
   id: ClothingBackpackDebug3
   name: gay wackpack
   description: What the fuck is this?
-  suffix: Debug
+  suffix: DEBUG
   components:
   - type: Storage
     grid:
@@ -410,7 +423,7 @@
   id: ClothingBackpackDebug4
   name: offset wackpack
   description: What the fuck is this?
-  suffix: Debug
+  suffix: DEBUG
   components:
   - type: Storage
     grid:

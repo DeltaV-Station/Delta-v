@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Diona/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -19,7 +19,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: FlavorProfile
     flavors:
@@ -28,7 +28,7 @@
 - type: entity
   id: OrganDionaBrain
   parent: [BaseDionaOrgan, OrganHumanBrain]
-  name: brain
+  name: diona brain # DeltaV
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
   - type: Item
@@ -36,9 +36,6 @@
     heldPrefix: brain
   - type: Sprite
     state: brain
-  - type: Organ # Shitmed
-    slotId: brain
-  - type: Brain # Shitmed
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -54,29 +51,24 @@
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
+  - type: Edible # DeltaV - Prevent eating brains
+    requiresSpecialDigestion: true
 
 - type: entity
   id: OrganDionaEyes
   parent: BaseDionaOrgan
-  name: eyes
+  name: diona eyes # DeltaV
   description: "I see you!"
   components:
   - type: Sprite
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Organ # Shitmed
-    slotId: eyes
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Eyes
 
 - type: entity
   id: OrganDionaStomach
   parent: BaseDionaOrgan
-  name: stomach
+  name: diona stomach
   description: "The diona's equivalent of a stomach, it reeks of asparagus and vinegar."
   components:
   - type: Sprite
@@ -88,10 +80,8 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
-  - type: Organ # Shitmed
-    slotId: stomach
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6
@@ -104,7 +94,6 @@
       - id: Poison
       - id: Narcotic
       - id: Alcohol
-        rateModifier: 0.1
   - type: Item
     size: Small
     heldPrefix: stomach
@@ -112,14 +101,15 @@
 - type: entity
   id: OrganDionaLungs
   parent: BaseDionaOrgan
-  name: lungs
+  name: diona lungs # DeltaV
   description: "A spongy mess of slimy, leaf-like structures. Capable of breathing both carbon dioxide and oxygen."
   components:
   - type: Sprite
     state: lungs
-  - type: Organ # Shitmed
-    slotId: lungs
-  - type: Lung 
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
@@ -138,28 +128,32 @@
       Lung:
         maxVol: 100
         canReact: False
-  - type: Item
-    size: Small
-    heldPrefix: lungs
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
 
 # Organs that turn into nymphs on removal
 - type: entity
   id: OrganDionaBrainNymph
   parent: OrganDionaBrain
   categories: [ HideSpawnMenu ]
-  name: brain
+  name: diona brain # DeltaV
   description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: Brain
-  - type: Nymph # This will make the organs turn into a nymph when they're removed. 
+  - type: Nymph # This will make the organs turn into a nymph when they're removed.
     entityPrototype: OrganDionaNymphBrain
     transferMind: true
+  - type: Edible # DeltaV - Prevent eating brains
+    requiresSpecialDigestion: true
 
 - type: entity
   id: OrganDionaStomachNymph
   parent: OrganDionaStomach
   categories: [ HideSpawnMenu ]
-  name: stomach
+  name: diona stomach # DeltaV
   description: "Gross. This is hard to stomach."
   components:
   - type: Nymph
@@ -169,7 +163,7 @@
   id: OrganDionaLungsNymph
   parent: OrganDionaLungs
   categories: [ HideSpawnMenu ]
-  name: lungs
+  name: diona lungs # DeltaV
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Nymph
@@ -180,7 +174,7 @@
   id: OrganDionaNymphBrain
   parent: MobDionaNymph
   categories: [ HideSpawnMenu ]
-  name: diona nymph
+  name: diona nymph # DeltaV
   suffix: Brain
   description: Contains the brain of a formerly fully-formed Diona. Killing this would kill the Diona forever. You monster.
   components:
@@ -190,11 +184,11 @@
 
 - type: entity
   id: OrganDionaNymphStomach
-  parent: MobDionaNymphAccent 
+  parent: MobDionaNymphAccent
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Stomach
-  description: Contains the stomach of a formerly fully-formed Diona. It doesn't taste any better for it. 
+  description: Contains the stomach of a formerly fully-formed Diona. It doesn't taste any better for it.
   components:
   - type: IsDeadIC
   - type: Body
@@ -206,7 +200,7 @@
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Lungs
-  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking. 
+  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking.
   components:
   - type: IsDeadIC
   - type: Body

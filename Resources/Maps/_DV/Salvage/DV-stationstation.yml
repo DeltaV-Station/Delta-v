@@ -4352,15 +4352,13 @@ entities:
     - type: Transform
       pos: 13.5,21.5
       parent: 179
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 701
     components:
     - type: Transform
       pos: -2.5,5.5
       parent: 179
-    - type: WarpPoint
-      location: Space Debris
 - proto: WeaponLaserGun
   entities:
   - uid: 180

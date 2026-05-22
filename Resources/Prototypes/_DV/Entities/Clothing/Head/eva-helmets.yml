@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetEVAScience
+  name: Epistemics EVA Helmet
+  description: The helmet to an Epistemics EVA suit. The visor is made of highly durable glass. Hopefully you won't get glass shards in your eyes...
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/eva_epistemics.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Helmets/eva_epistemics.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon

@@ -13,7 +13,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 30
         damage:
           types:
@@ -22,7 +22,7 @@
             Cold: -0.2
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 30
         damage:
           types:
@@ -31,7 +31,8 @@
             Cold: -0.8
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Oxandrolone
           min: 15.5
         damage:
           types: # ODing should heal burn but cause other damage
@@ -42,7 +43,8 @@
             Piercing: 0.5
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Oxandrolone
           min: 15.5
 
 # brute
@@ -60,21 +62,22 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 30
         damage:
           groups:
             Brute: -0.6
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 30
         damage:
           groups:
             Brute: -2.4
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SalicylicAcid
           min: 15.5
         damage: # ODing causes damage but heals brute
           groups:
@@ -82,7 +85,8 @@
             Brute: -2.4
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SalicylicAcid
           min: 15.5
 
 # airloss
@@ -100,21 +104,22 @@
       effects:
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             min: 30
         damage:
           groups:
             Airloss: -6
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             max: 30
         damage:
            groups:
             Airloss: -1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Salbutamol
           min: 15.5
         damage:
           groups: # ODing heals airloss but causes damage
@@ -164,75 +169,6 @@
             Shock: -0.1
             Cold: -0.1
 
-# misc
-- type: reagent
-  id: Pielovene
-  name: reagent-name-pielovene
-  group: Exotic
-  desc: reagent-desc-pielovene
-  physicalDesc: reagent-physical-desc-creamy
-  flavor: banana
-  color: "#f5d069"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:JobCondition
-          job:
-          - Clown
-        damage:
-          groups:
-            Brute: -1
-            Burn: -1
-            Airloss: -1
-            Toxin: -1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-        damage:
-          groups:
-            Brute: 2
-            Airloss: 2
-            Toxin: 2
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-nauseous" ]
-        probability: 0.2
-      - !type:ChemVomit
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-        probability: 0.02
-      - !type:Drunk
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:JobCondition
-            job:
-            - Mime
-
 # pyro
 - type: reagent
   id: Pyroxadone
@@ -248,16 +184,16 @@
       # Begin DeltaV additions
       - !type:EvenHealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3 # completely arbitrary
-        damage: # Better than Trinox
+        damage: # Better than Trinox (RIP Trinox)
           Brute: -3 # Was -4 with HealthChange
           Burn: -3 # Was -6 with HealthChange
           Airloss: -3 # Was -6 with HealthChange
           Toxin: -3 # Was -4 with HealthChange
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3 # Parity with the other Pyrochems
         damage:
           types:
@@ -279,13 +215,13 @@
       # Begin DeltaV additions
       - !type:EvenHealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3
         damage:
           Burn: -7 # Delta-V - Same as Aloxadone.
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3
         damage:
           types:
@@ -307,7 +243,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3
         damage:
           types:

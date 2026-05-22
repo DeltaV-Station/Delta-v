@@ -204,6 +204,7 @@
     delay: 3
     transferAmount: 1
     solution: puddle
+    utensil: Spoon
   - type: ExaminableSolution
     solution: puddle
     locVolume: "examinable-solution-on-examine-volume-puddle"
@@ -249,7 +250,6 @@
   - type: SolutionContainerManager
     solutions:
       step: { maxVol: 2 }
-  - type: FootPrint
   - type: Puddle
     solution: step
   - type: Appearance
@@ -257,4 +257,7 @@
     prototype: PuddleSparkle
   - type: TimedDespawn
     lifetime: 60 # DeltaV End updates from EE Blood Puddle
-
+  - type: SpeedModifierContacts
+    ignoreWhitelist:
+      components:
+      - InputMover

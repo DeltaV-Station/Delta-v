@@ -50,7 +50,8 @@
     temperature: 1000
     ignited: true
   - type: RepeatingTrigger
-    delay: 0.5 # line of fire as well as if it hits something
+    # DeltaV - Reduced from 0.5 to 0.35
+    delay: 0.35 # line of fire as well as if it hits something
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: FireBomb
@@ -176,6 +177,9 @@
         Poison: 5
   - type: TriggerOnCollide
     fixtureID: projectile
+    # Projectile.DeleteOnCollide is true, but allow this to hit multiple entities if they're
+    # stacked up (they will all trigger a collide), so this isn't frustrating to use
+    maxTriggers: null
   - type: PolymorphOnTrigger
     targetUser: true
 

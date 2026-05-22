@@ -1770,15 +1770,13 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 273
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 277
     components:
     - type: Transform
       pos: 0.5,1.5
       parent: 273
-    - type: WarpPoint
-      location: Space Debris
 - proto: WeaponDisabler
   entities:
   - uid: 106

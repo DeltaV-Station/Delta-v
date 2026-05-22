@@ -1,12 +1,12 @@
 using Content.Server.Chat.Systems;
-using Content.Server.Nyanotrasen.StationEvents.Events;
-using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Server.StationEvents.Events;
-using Content.Shared._DV.Abilities.Psionics;
+using Content.Shared.Chat;
+using Content.Shared._DV.Psionics.Components.PsionicPowers;
+using Content.Shared._DV.StationEvents.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -65,7 +65,7 @@ public sealed partial class SophicScribeSystem : EntitySystem
         _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _glimmerSystem.Glimmer)), InGameICChatType.Speak, true);
     }
 
-    private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)
+    private void OnGlimmerEventEnded(ref GlimmerEventEndedEvent args)
     {
         var query = EntityQueryEnumerator<SophicScribeComponent>();
         while (query.MoveNext(out var scribe, out _))
@@ -74,7 +74,7 @@ public sealed partial class SophicScribeSystem : EntitySystem
 
             // mind entities when...
             var speaker = scribe;
-            if (TryComp<MindSwappedComponent>(scribe, out var swapped))
+            if (TryComp<MindSwappedReturnPowerComponent>(scribe, out var swapped))
             {
                 speaker = swapped.OriginalEntity;
             }

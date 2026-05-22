@@ -43,8 +43,10 @@
     - id: FoodMeatFish
       amount: 2
   - type: Bloodstream
-    bloodMaxVolume: 20
-    bloodReagent: Blood
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
+      reagents:
+      - ReagentId: Blood
+        Quantity: 20 # DeltaV - Upstream changes for blood solution
   - type: ZombieImmune
 
 - type: entity
@@ -167,8 +169,10 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
   - type: Bloodstream
-    bloodMaxVolume: 20
-    bloodReagent: Laughter
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
+      reagents:
+      - ReagentId: Laughter
+        Quantity: 20 # DeltaV - Upstream changes for blood solution
 
 - type: entity
   id: FishNukeDisk
@@ -278,8 +282,10 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
   - type: Bloodstream
-    bloodMaxVolume: 10
-    bloodReagent: Laughter
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
+      reagents:
+      - ReagentId: Laughter
+        Quantity: 10 # DeltaV - Upstream changes for blood solution
 
 - type: entity
   id: FishIan

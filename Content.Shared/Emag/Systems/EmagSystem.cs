@@ -64,7 +64,7 @@ public sealed class EmagSystem : EntitySystem
             return false;
 
         // Begin DeltaV Additions
-        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, target))
+        if (_whitelist.IsWhitelistPass(ent.Comp.Blacklist, target))
             return false;
         // End DeltaV Additions
 

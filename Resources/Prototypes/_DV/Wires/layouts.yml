@@ -29,3 +29,24 @@
     pulseTimeout: 30
   - !type:AiInteractWireAction
   - !type:AccessWireAction
+
+- type: wireLayout
+  id: SMES
+  dummyWires: 4
+  wires:
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: SubStation
+  dummyWires: 4
+  wires:
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: Fabicator
+  dummyWires: 3
+  wires:
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction

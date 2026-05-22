@@ -19,15 +19,21 @@
         availableJobs:
           #civilian
           Passenger: [ -1, -1 ]
-          Librarian: [ 1, 1 ]
           #command
           Captain: [ 1, 1 ]
-          StationAi: [ 1, 1 ]
           #engineering
           AtmosphericTechnician: [ 1, 2 ]
           ChiefEngineer: [ 1, 1 ]
           StationEngineer: [ 3, 4 ]
           TechnicalAssistant: [ 2, 3 ]
+          #epistemics
+          Chaplain: [ 1, 2 ]
+          ForensicMantis: [ 1, 1 ]
+          Librarian: [ 1, 1 ]
+          ResearchAssistant: [ 2, 3 ]
+          ResearchDirector: [ 1, 1 ]
+          Roboticist: [ 1, 2 ]
+          Scientist: [ 3, 5 ]
           #justice
           ChiefJustice: [ 1, 1 ]
           Clerk: [ 1, 1 ]
@@ -62,14 +68,9 @@
           Musician: [ 1, 3 ]
           Reporter: [ 1, 2 ]
           ServiceWorker: [ 1, 3 ]
-          #science
+          #silicon
           Borg: [ 2, 3 ]
-          Chaplain: [ 1, 2 ]
-          ForensicMantis: [ 1, 1 ]
-          ResearchAssistant: [ 2, 3 ]
-          ResearchDirector: [ 1, 1 ]
-          Scientist: [ 3, 5 ]
-          Roboticist: [ 1, 2 ]
+          StationAi: [ 1, 1 ]
           #supply
           CargoAssistant: [ 1, 2 ]
           CargoTechnician: [ 2, 3 ]

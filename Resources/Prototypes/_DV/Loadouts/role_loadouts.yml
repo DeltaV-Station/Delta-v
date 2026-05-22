@@ -10,6 +10,7 @@
   - CourierPDA
   - CourierBackpack
   - CourierShoes
+  - Glasses
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -39,6 +40,7 @@
   - SecurityShoes
   - BrigMedicOuterClothing
   - MedicalGloves
+  - CorpsmanEyewear
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolCorpsman
@@ -59,7 +61,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - SurgeonPDA
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -120,7 +122,33 @@
   - RoboticistGloves
   - RoboticistShoes
   - RoboticistPDA
+  - RoboticistGlasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Wildcards
+- type: roleLoadout
+  id: JobZookeeper
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
   - Glasses
   - Survival
   - Trinkets
+  - ZookeeperJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBoxer
+  groups:
+  - GroupTankHarness
+  - BoxerJumpsuit
+  - BoxerGloves
+  - BoxerMask
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - BoxerJobTrinkets
   - GroupSpeciesBreathTool

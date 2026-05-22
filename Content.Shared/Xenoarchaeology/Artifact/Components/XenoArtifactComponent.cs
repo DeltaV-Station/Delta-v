@@ -91,6 +91,31 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan NextUnlockTime;
+
+    /// <summary>
+    /// DeltaV - The end time of the last-completed XenoArtifactUnlockingComponent phase.
+    /// If null, no unlocking phase has occurred yet, and the other LastUnlocking... fields are also invalid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan? LastUnlockingEndTime = null;
+
+    /// <summary>
+    /// DeltaV - The set of related nodes that were triggered during the last completed XenoArtifactUnlockingComponent phase.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<int> LastUnlockingTriggeredNodeIndexesRelated = new();
+
+    /// <summary>
+    /// DeltaV - The list of nodes that were triggered during the last completed XenoArtifactUnlockingComponent phase.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<int> LastUnlockingTriggeredNodeIndexesOrdered = new();
+
+    /// <summary>
+    /// DeltaV - Whether the last completed unlocking phase resulted in a newly-unlocked node.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool LastUnlockingSuccessful = false;
     #endregion
 
     // NOTE: you should not be accessing any of these values directly. Use the methods in SharedXenoArtifactSystem.Graph

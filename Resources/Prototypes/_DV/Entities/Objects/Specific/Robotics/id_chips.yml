@@ -17,24 +17,12 @@
     fullName: cyborg
     nameLocId: borg-id-chip-owner-name-job-title-text
     fullNameLocId: borg-id-chip-owner-full-name-job-title-text
+  - type: PreventAgentId
   - type: Tag
     tags:
     - IdChip
 
 # Crew ID Chips
-
-- type: entity
-  parent: BaseIdChip
-  id: IdChipBasic
-  suffix: Basic
-  components:
-  - type: Access
-    tags:
-    - Maintenance
-    - Research # need it to get to robo usually
-    - Robotics # safe place to recharge + get upgrades
-    - Borg
-
 - type: entity
   parent: BaseIdChip
   id: IdChipAA

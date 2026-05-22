@@ -7,9 +7,9 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Epistemics
-    time: 14400 # 4 hours
+    time: 4h
   - !type:OverallPlaytimeRequirement
-    time: 43200 # 12 hours
+    time: 12h
   startingGear: RoboticistGear
   icon: JobIconRoboticist
   supervisors: job-supervisors-rd

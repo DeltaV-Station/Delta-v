@@ -183,3 +183,24 @@
         Shadow: 20
   - type: TimedDespawn
     lifetime: 0.4 # really short, shouldn't travel far at all
+
+- type: entity
+  id: BulletRadiation
+  name: radiation wave
+  parent: BulletEnergyGunLaser
+  categories: [ HideSpawnMenu ]
+  description: Sheer gamma radiation! Hopefully you are shielded.
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectLightGreenDisabler
+    damage:
+      types:
+        Radiation: 2
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: lightgreen
+  - type: TimedDespawn
+    lifetime: 0.08

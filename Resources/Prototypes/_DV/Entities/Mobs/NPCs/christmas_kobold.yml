@@ -1,0 +1,30 @@
+- type: entity
+  id: MobChristmasKobold
+  parent: MobBaseKobold
+  suffix: Christmas Kobold
+  components:
+  - type: CombatMode
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Eggnog
+        Quantity: 150
+  - type: Loadout
+    prototypes: [ ElfGearMonkey ]
+  - type: GhostRole
+    prob: 0.05
+    makeSentient: true
+    name: ghost-role-information-christmas-kobold-name
+    description: ghost-role-information-christmas-kobold-description
+    rules: ghost-role-information-christmas-kobold-rules

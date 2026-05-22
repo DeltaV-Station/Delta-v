@@ -222,3 +222,46 @@
     - id: RubberStampTrader
     - id: RubberStampWarden
     - id: RubberStampGreytide # a disturbance in the rising grey water.
+
+- type: entity
+  id: LockerWallChemicalFilled
+  parent: LockerWallChemical
+  suffix: Filled
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: LockerFillChemistry
+
+- type: entity
+  id: LockerWallSurgeonFilled
+  parent: LockerWallSurgeon
+  suffix: Filled
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: SurgeonLockerFill
+
+- type: entity
+  id: LockerWallParamedicFilled
+  parent: LockerWallParamedic
+  suffix: Filled
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: LockerFillParamedic
+
+- type: entity
+  id: LockerWallParamedicFilledHardsuit
+  parent: LockerWallParamedic
+  suffix: Filled, Hardsuit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillParamedic
+        - id: ClothingOuterHardsuitVoidParamed

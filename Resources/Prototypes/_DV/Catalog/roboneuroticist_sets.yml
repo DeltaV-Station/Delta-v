@@ -42,7 +42,6 @@
   - PlayerBorgSyndicateSaboteurGhostRole
   - BorgModuleEsword
   - BorgModuleRCD
-  - RCDRecharging
   - BorgModuleChameleonProjector
 
 - type: thiefBackpackSet
@@ -93,10 +92,8 @@
   sprite:
     entity: BorgHypo
   content:
-  - PlayerBorgSyndicateMedical
+  - PlayerBorgSyndicateMedicalGhostRole
   - PowerCellHyper
   - DefibrillatorSyndicate
-  - ClothingHandsGlovesMechanicalSurgical
-  - ClothingBackpackDuffelSyndicateFilledAutodoc
   - BorgModuleSleeper
   - SoapOmega # Scrubadubdub

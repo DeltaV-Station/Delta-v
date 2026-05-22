@@ -2,7 +2,7 @@
   parent: ClothingOuterHardsuitRd
   id: ClothingOuterHardsuitMystagogue
   name: mystagogue's hardsuit
-  description: A heavy-duty hardsuit specialized for research that includes a built-in psionic nullification and detection system in the helmet. Modified bluespace embedded into the plating allows it to be folded into a smaller space then one would expect.
+  description: A heavy-duty hardsuit specialized for research that includes a built-in psionic one-way nullification system in the helmet and a detection system in the core suit. Modified bluespace embedded into the plating allows it to be folded into a smaller space than one would expect.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rd.rsi
@@ -10,6 +10,7 @@
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rd.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMystagogue
+  - type: MetapsionicPulsePower # The suit gives the ability to pulse and seek psionic energies.
 
 - type: entity
   parent: [ClothingOuterHardsuitMystagogue, ClothingOuterStorageFoldableBaseOpened]
@@ -19,47 +20,11 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot
-        showEnts: false
-        occludes: true
-        ent: null
+      toggleable-under-clothing: !type:ContainerSlot {}
       storagebase: !type:Container
-        showEnts: false
-        occludes: true
-        ents: []
 
 - type: entity
-  parent: ClothingOuterHardsuitSyndie
-  id: ClothingOuterHardsuitSyndieReverseEngineered
-  suffix: reverse-engineered
-  name: SA-122 combat hardsuit
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitSyndieReverseEngineered
-  - type: ReverseEngineering
-    newItem: null
-
-- type: entity
-  parent: ClothingOuterHardsuitJuggernaut
-  id: ClothingOuterHardsuitJuggernautReverseEngineered
-  suffix: reverse-engineered
-  name: SA-126 assault hardsuit
-  description: A suit made by the special acquisitions department of Nanotrasen to be hyper resilient.
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
-  - type: ReverseEngineering
-    newItem: null
-
-- type: entity
-  parent: ClothingOuterHardsuitERTLeader
+  parent: ClothingOuterHardsuitERTBase
   id: ClothingOuterHardsuitERTCentcomm
   name: CentComm hardsuit
   components:
@@ -69,3 +34,6 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTCentcomm
+  - type: Tag
+    tags:
+    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites

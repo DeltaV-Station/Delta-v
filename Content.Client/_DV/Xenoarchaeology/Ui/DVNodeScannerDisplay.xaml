@@ -1,0 +1,39 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'node-scan-display-title'}"
+    MinSize="350 400"
+    SetSize="350 400"
+    Resizable="False"
+    >
+    <BoxContainer Orientation="Vertical" >
+        <controls:StripeBack>
+            <Label Name="NodeScannerState" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="4 0 0 4" />
+        </controls:StripeBack>
+        <BoxContainer Name="ProgressBarContainer" Orientation="Horizontal" Margin="0 5 0 0" HorizontalExpand="True" Visible="False" >
+            <Label Name="ProgressBarLabel" Text="{Loc 'node-scan-timer'}" Margin="20 0 0 0" />
+            <ProgressBar
+                Name="ProgressBar"
+                MinValue="0"
+                MaxValue="1"
+                SetHeight="20"
+                Margin="10 0 20 0"
+                HorizontalExpand="True" >
+            </ProgressBar>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" >
+            <Label Name="NoActiveNodeDataLabel" Text="{Loc 'node-scan-no-data'}" Margin="15 15 0 0" MinHeight="47" HorizontalExpand="True" HorizontalAlignment="Center" />
+            <BoxContainer Name="ActiveNodesList" Orientation="Vertical" HorizontalExpand="True" Visible="False" MinHeight="72" />
+        </BoxContainer>
+        <PanelContainer Name="SystemWarningPanel"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        HorizontalExpand="True"
+                        Margin="10 0 10 5"
+                        Visible="False" >
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
+                <RichTextLabel Name="SystemWarningLabel" Margin="5 8 5 0" HorizontalAlignment="Center" />
+                <RichTextLabel Name="SystemWarningSublabel" Margin="5 3 5 8" HorizontalAlignment="Center" />
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

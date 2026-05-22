@@ -30,9 +30,24 @@
   id: UplinkMobCat
   name: uplink-mobcat-microbomb-name
   description: uplink-mobcat-desc
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
-  productEntity: ReinforcementRadioSyndicateSyndiCatDV
+  icon: { sprite: _DV/Objects/Devices/communication.rsi, state: syndicat-yarn}
+  productEntity: ReinforcementRadioSyndicateYarn
   cost:
     Telecrystal: 2
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkBloodRedSuperSynth
+  name: uplink-blood-red-super-synth-name
+  description: uplink-blood-red-super-synth-desc
+  productEntity: BloodRedSuperSynth
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkPointless
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink

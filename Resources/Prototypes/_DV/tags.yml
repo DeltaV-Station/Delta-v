@@ -4,33 +4,6 @@
   id: Artifact
 
 - type: Tag
-  id: AugmentAPCBoard
-
-- type: Tag
-  id: AugmentBotanyToolBelt
-
-- type: Tag
-  id: AugmentCellCasing
-
-- type: Tag
-  id: AugmentChargerCasing
-
-- type: Tag
-  id: AugmentPaperworkToolBelt
-
-- type: Tag
-  id: AugmentStationBoard
-
-- type: Tag
-  id: AugmentSurgeryToolBelt
-
-- type: Tag
-  id: AugmentToolBelt
-
-- type: Tag
-  id: AugmentToolPanelCasing
-
-- type: Tag
   id: Bayonet #Craftable Musket
 
 - type: Tag
@@ -68,6 +41,9 @@
 
 - type: Tag
   id: CartridgeMusket #For the Craftable Musket
+
+- type: Tag
+  id: ChemicalMedipen # Storage blacklist: CigPackBase
 
 - type: Tag
   id: ChitinSharkminnow
@@ -109,13 +85,25 @@
   id: HidesHarpyWings
 
 - type: Tag
+  id: Honker # Creatures who can make a honk emote. IPCs, Borgs, and Motorkind.
+
+- type: Tag
+  id: HudDiagnostic
+
+- type: Tag
   id: HudMedicalSecurity #Craftable Corpsman Glasses
 
 - type: Tag # prevents ID chips being used for an id computer privileged id
   id: IdChip
 
 - type: Tag
+  id: JetInjector # Used to make the medical belt sprite show that a JetInjector is there.
+
+- type: Tag
   id: LightFixture
+
+- type: Tag
+  id: MagazineCaselessRifle
 
 - type: Tag
   id: MagazineLaser
@@ -125,6 +113,9 @@
 
 - type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
+
+- type: Tag
+  id: MagazineMagnumSubMachineGun
 
 - type: Tag
   id: MagazineUniversalMagnum
@@ -154,6 +145,9 @@
   id: PlutoniumCore
 
 - type: Tag
+  id: TaserImmune # BulletTaser has no effect on this entity
+
+- type: Tag
   id: PreventLabel
 
 - type: Tag
@@ -163,16 +157,19 @@
   id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
 
 - type: Tag
-  id: SiliconOrIPCEmotes # upstream's SiliconEmotes = only bots and borgs, this one includes IPCs
+  id: Skirt
 
 - type: Tag
-  id: Skirt
+  id: SpeedLoaderPistol
+
+- type: Tag
+  id: SpeedLoaderRifle
 
 - type: Tag
   id: SpeedLoaderSpecial
 
 - type: Tag
-  id: Vial
+  id: Vial # Storage Blacklist: CigPackBase
 
 - type: Tag
   id: Wakizashi
@@ -193,6 +190,9 @@
   id: AgentUplink # Used for allowing agent to buy their suit
 
 - type: Tag
+  id: LoneOpUplink # Used to allow loneop to buy jugsuit
+
+- type: Tag
   id: CleaningGrenade
 
 - type: Tag
@@ -203,6 +203,9 @@
 
 - type: Tag
   id: K9 # Lets K9 units wear specialized clothing
+
+- type: Tag
+  id: Katana # Used to denote special swords that can be put in the ceremonial sheathe
 
 - type: Tag
   id: AncientBookDamagedCommon
@@ -221,3 +224,47 @@
 
 - type: Tag # Ovinia, allows them to use specified emotes
   id: OviniaEmotes
+
+- type: Tag
+  id: ReinforcedCameraAI # Reinforced Cameras - AI
+
+- type: Tag
+  id: ReinforcedCameraCommand # Reinforced Cameras - Command
+
+- type: Tag
+  id: ReinforcedCameraConstructed # Reinforced Cameras - Constructed
+
+- type: Tag
+  id: ReinforcedCameraEngineering # Reinforced Cameras - Engineering
+
+- type: Tag
+  id: ReinforcedCameraGeneral # Reinforced Cameras - General
+
+- type: Tag
+  id: ReinforcedCameraMedical # Reinforced Cameras - Medical
+
+- type: Tag
+  id: ReinforcedCameraScience # Reinforced Cameras - Epistemics
+
+- type: Tag
+  id: ReinforcedCameraSecurity # Reinforced Cameras - Security
+
+- type: Tag
+  id: ReinforcedCameraService # Reinforced Cameras - Service
+
+- type: Tag
+  id: ReinforcedCameraSupply # Reinforced Cameras - Logistics
+- type: Tag
+  id: GenderScarf
+
+- type: Tag
+  id: GenderCloak
+
+- type: Tag # Service Chef Module
+  id: Dinnerware
+
+- type: Tag # Service Chef Module
+  id: Kitchenware
+
+- type: Tag # Service Chef Module
+  id: Ingredients

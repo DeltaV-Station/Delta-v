@@ -24,7 +24,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Stasicillin
           min: 11
         damage:
           groups:
@@ -34,7 +35,7 @@
             Burn: -6
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Stasicillin
           min: 11
         effectProto: StatusEffectForcedSleeping
@@ -55,7 +56,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 30
         damage:
           groups:
@@ -76,7 +77,7 @@
     Narcotic:
       metabolismRate: 0.2
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
@@ -89,7 +90,7 @@
         type: Remove
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         key: Drowsiness
@@ -110,7 +111,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 90 # Heals a bit above crit # DeltaV - this brings people to a bit more stable condition
         damage:
           groups: # 5 Damage every type except rad/pois
@@ -129,29 +130,10 @@
   metabolisms:
     Poison:
       effects:
-      - !type:CreateEntityReactionEffect # DeltaV - was polymorph, just have a chance to spawn a corgi instead
+      - !type:SpawnEntity # DeltaV - was polymorph, just have a chance to spawn a corgi instead
         entity: MobCorgiPuppy
         probability: 0.25
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Corgium
           min: 25 # DeltaV - need more corgium for that to happen, was 20
-
-- type: reagent
-  id: Muigroc
-  name: reagent-name-muigroc
-  group: Exotic
-  desc: reagent-desc-muigroc
-  physicalDesc: reagent-physical-desc-fluffy
-  flavor: medicine
-  color: "#ffaa00"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:Polymorph
-        prototype: CorgiMorphPerm
-        conditions:
-        - !type:ReagentThreshold
-          min: 25 # DeltaV - make it tighter if you can actually corgi someone

@@ -6,7 +6,7 @@
   description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
   components:
   - type: Anchorable
-    flags: 
+    flags:
     - Anchorable
   - type: Rotatable
   - type: Fixtures
@@ -77,7 +77,7 @@
   - type: NpcFactionMember
     factions:
     - AllHostile
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyTurretDisabler
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -158,6 +158,8 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAI
     transmitFrequencyId: TurretAI
+  - type: StationAiVision #DeltaV
+    range: 0
 
 - type: entity
   parent: WeaponEnergyTurretStationBase
@@ -195,3 +197,5 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControl
     transmitFrequencyId: Turret
+  - type: StationAiVision #DeltaV
+    range: 0

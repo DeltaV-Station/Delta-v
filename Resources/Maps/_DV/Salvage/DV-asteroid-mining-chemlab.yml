@@ -527,7 +527,7 @@ entities:
           maxVol: 50
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Lipozine
             Quantity: 30
   - uid: 104
@@ -543,7 +543,7 @@ entities:
           maxVol: 50
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: PulpedBananaPeel
             Quantity: 40
   - uid: 105
@@ -559,7 +559,7 @@ entities:
           maxVol: 50
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Nocturine
             Quantity: 10
     - type: CollisionWake
@@ -2200,7 +2200,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: SpaceCleaner
             Quantity: 100
   - uid: 223
@@ -2216,7 +2216,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Artifexium
             Quantity: 50
   - uid: 224
@@ -2232,7 +2232,7 @@ entities:
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Hotsauce
             Quantity: 150
   - uid: 225
@@ -2248,7 +2248,7 @@ entities:
           maxVol: 75
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: BuzzochloricBees
             Quantity: 75
 - proto: KitchenMicrowave
@@ -2286,7 +2286,7 @@ entities:
           maxVol: 100
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: LotophagoiOil
             Quantity: 20
   - uid: 106
@@ -2302,7 +2302,7 @@ entities:
           maxVol: 100
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Diphenhydramine
             Quantity: 45
 - proto: LockerFreezerBase
@@ -2984,7 +2984,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Cognizine
             Quantity: 20
     - type: StepTrigger
@@ -5372,7 +5372,7 @@ entities:
           maxVol: 15
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Oculine
             Quantity: 10
   - uid: 165
@@ -5393,7 +5393,7 @@ entities:
           maxVol: 15
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Radium
             Quantity: 15
 - proto: TableCounterMetal
@@ -6060,15 +6060,13 @@ entities:
     - type: Transform
       pos: 3.5,14.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 1003
     components:
     - type: Transform
       pos: 5.5,3.5
       parent: 1
-    - type: WarpPoint
-      location: Space Debris
 - proto: WatcherAISpawner
   entities:
   - uid: 336

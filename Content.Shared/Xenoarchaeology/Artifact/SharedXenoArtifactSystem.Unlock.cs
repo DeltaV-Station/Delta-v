@@ -45,7 +45,7 @@ public abstract partial class SharedXenoArtifactSystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        var artifact = GetEntity(ent.Comp.Attached);
+        var artifact = ent.Comp.Attached;
         if (!TryComp<XenoArtifactComponent>(artifact, out var artiComp))
             return false;
 
@@ -82,11 +82,13 @@ public abstract partial class SharedXenoArtifactSystem
             // var activated = ActivateNode((ent, artifactComponent), node.Value, null, null, Transform(ent).Coordinates, false);
             // if (activated)
             soundEffect = unlockingComponent.UnlockActivationSuccessfulSound;
+            artifactComponent.LastUnlockingSuccessful = true; // DeltaV - node scanner overhaul
         }
         else
         {
             unlockAttemptResultMsg = "artifact-unlock-state-end-failure";
             soundEffect = unlockingComponent.UnlockActivationFailedSound;
+            artifactComponent.LastUnlockingSuccessful = false; // DeltaV - node scanner overhaul
         }
 
         if (_net.IsServer)
@@ -94,6 +96,21 @@ public abstract partial class SharedXenoArtifactSystem
             _popup.PopupEntity(Loc.GetString(unlockAttemptResultMsg), ent);
             _audio.PlayPvs(soundEffect, ent.Owner);
         }
+
+        // DeltaV - start of node scanner overhaul
+        artifactComponent.LastUnlockingTriggeredNodeIndexesOrdered.Clear();
+        artifactComponent.LastUnlockingTriggeredNodeIndexesRelated.Clear();
+
+        artifactComponent.LastUnlockingTriggeredNodeIndexesOrdered
+            .AddRange(unlockingComponent.TriggeredNodeIndexesOrdered);
+        // one day we'll get a HashSet.AddRange
+        foreach (var i in unlockingComponent.TriggeredNodeIndexesRelated)
+            artifactComponent.LastUnlockingTriggeredNodeIndexesRelated.Add(i);
+        
+        artifactComponent.LastUnlockingEndTime = unlockingComponent.EndTime;
+
+        Dirty(ent, artifactComponent);
+        // DeltaV - end of node scanner overhaul
 
         RemComp(ent, unlockingComponent);
         RaiseUnlockingFinished(ent, node);

@@ -38,6 +38,7 @@
     title: objective-skeleton-haunt-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:

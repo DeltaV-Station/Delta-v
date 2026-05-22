@@ -1,11 +1,6 @@
 ## Static
 
 - type: latheRecipePack
-  id: RoboticsStaticDeltaV
-  recipes:
-  - IdChipBasic
-
-- type: latheRecipePack
   id: RoboticsEmagStatic
   recipes:
   - IdChipSyndie
@@ -35,14 +30,38 @@
   - BorgModuleFauna
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedTopical
   - BorgModuleAdvancedMining
-  - BorgModuleAdvancedSurgery
+
+- type: latheRecipePack
+  id: BorgModulesSecurityDeltaVStatic
+  recipes:
+  - BorgModuleSecurityDetective
 
 - type: latheRecipePack
   id: BorgDVModulesStatic
   recipes:
   - BorgModuleDecoration
+  - BorgModuleFishing
+
+# Service Modules
+
+- type: latheRecipePack
+  id: BorgModulesServiceStaticDV
+  recipes:
+  - BorgModuleBureaucracy
+  - BorgModuleBoxing
+  - BorgModuleReporter
+  - BorgModuleMusique
+  - BorgModuleClowning
+
+# If you add anything to this, know that the SyndicateExosuitFabricator does not
+# get this pack due to IdChipBorgAA not being available to SRNs. Probably should
+# seperate the chip out if we ever add anything to this static pack.
+- type: latheRecipePack
+  id: BorgIdentificationStaticDeltaV
+  recipes:
+  - IdChipBorgAA
 
 ## Dynamic
 
@@ -50,9 +69,6 @@
   id: RoboticsDeltaV
   recipes:
   - ClothingEyesHudDiagnostic
-
-#- type: latheRecipePack
-#  id: BorgModulesDeltaV
 
 - type: latheRecipePack
   id: BorgModulesSecurityDeltaV
@@ -63,23 +79,9 @@
   - BorgModuleFauna
 
 - type: latheRecipePack
-  id: PowerAugments
+  id: BorgModulesServiceDynamicDV
   recipes:
-  - AugmentPowerCellSlotCasing
-  - AugmentRechargerCasing
-
-- type: latheRecipePack
-  id: ToolAugments
-  recipes:
-  - AugmentToolPanelCasing
-  - AugmentUtilityPanelElectronics
-  - AugmentBotanyPanelElectronics
-  - AugmentSurgeryPanelElectronics
-  - AugmentPaperworkPanelElectronics
-
-- type: latheRecipePack
-  id: PsionicProsthetics
-  recipes:
-  - DispelLeftArm
-  - RecallLeftArm
-  - ForcewallLeftArm
+  - BorgModuleAdvancedBotany
+  - BorgModuleAdvancedChef
+  - BorgModuleAdvancedBartender
+  - BorgModuleDJ

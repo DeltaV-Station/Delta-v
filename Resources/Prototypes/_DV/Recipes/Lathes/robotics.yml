@@ -19,9 +19,19 @@
   result: BorgModuleSecurityBastion
 
 - type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityDetective
+  result: BorgModuleSecurityDetective
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+
+- type: latheRecipe
   parent: BaseRoboticsRecipe
-  id: IdChipBasic
-  result: IdChipBasic
+  id: IdChipBorgAA
+  result: IdChipBorgAA
   materials:
     Steel: 300
     Glass: 600
@@ -40,6 +50,58 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleDecoration
   result: BorgModuleDecoration
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleFishing
+  result: BorgModuleFishing
+
+# Service Modules
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleBureaucracy
+  result: BorgModuleBureaucracy
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleBoxing
+  result: BorgModuleBoxing
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleAdvancedBotany
+  result: BorgModuleAdvancedBotany
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedChef
+  result: BorgModuleAdvancedChef
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedBartender
+  result: BorgModuleAdvancedBartender
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleReporter
+  result: BorgModuleReporter
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleDJ
+  result: BorgModuleDJ
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleClowning
+  result: BorgModuleClowning
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleMusique
+  result: BorgModuleMusique
 
 # Robo Neuroling recipes
 
@@ -190,91 +252,10 @@
     Steel: 300
     Glass: 600
     Silver: 200
-    Gold: 200
-    Plasma: 100
+    Gold: 50
+    Plasma: 50
 
 - type: latheRecipe
   parent: IdChipSyndie
   id: IdChipRoboNeuroticist
   result: IdChipRoboNeuroticist
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentPowerCellSlotCasing
-  result: AugmentPowerCellSlotCasing
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentRechargerCasing
-  result: AugmentRechargerCasing
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentToolPanelCasing
-  result: AugmentToolPanelCasing
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentUtilityPanelElectronics
-  result: AugmentUtilityPanelElectronics
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentBotanyPanelElectronics
-  result: AugmentBotanyPanelElectronics
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentSurgeryPanelElectronics
-  result: AugmentSurgeryPanelElectronics
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: AugmentPaperworkPanelElectronics
-  result: AugmentPaperworkPanelElectronics
-
-- type: latheRecipe
-  parent: BaseIPCOrganRecipe
-  id: OrganIPCSpacePump
-  result: OrganIPCSpacePump
-  materials:
-    Steel: 2000
-    Plasma: 1000
-    Plastic: 1000
-    Gold: 500
-
-- type: latheRecipe
-  id: ForcewallLeftArm
-  result: ForcewallLeftArm
-  categories:
-  - Robotics
-  completetime: 5
-  materials:
-    Steel: 1500
-    Silver: 100
-    Plasma: 500
-    Bluespace: 300
-
-- type: latheRecipe
-  id: DispelLeftArm
-  result: DispelLeftArm
-  categories:
-  - Robotics
-  completetime: 5
-  materials:
-    Steel: 1500
-    Silver: 100
-    Plasma: 500
-    Bluespace: 300
-
-- type: latheRecipe
-  id: RecallLeftArm
-  result: RecallLeftArm
-  categories:
-  - Robotics
-  completetime: 5
-  materials:
-    Steel: 1500
-    Silver: 100
-    Plasma: 500
-    Bluespace: 300

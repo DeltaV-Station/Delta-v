@@ -35,7 +35,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry(":D", "chatsan-smiles-widely"),
         Entry("D:", "chatsan-frowns-deeply"),
         Entry(":O", "chatsan-surprised"),
-        Entry(":3", "chatsan-smiles"),
+        Entry(":3", "chatsan-smiles-mischievously"), //DeltaV
         Entry(":S", "chatsan-uncertain"),
         Entry(":>", "chatsan-grins"),
         Entry(":<", "chatsan-pouts"),
@@ -66,6 +66,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry(".-.", "chatsan-confused"),
         Entry("-_-", "chatsan-unimpressed"),
         Entry("smh", "chatsan-unimpressed"),
+        Entry(":?", "chatsan-shrugs"),
         Entry("o/", "chatsan-waves"),
         Entry("^^/", "chatsan-waves"),
         Entry(":/", "chatsan-uncertain"),
@@ -78,7 +79,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("rofl", "chatsan-laughs"),
         Entry("o7", "chatsan-salutes"),
         Entry(";_;7", "chatsan-tearfully-salutes"),
-        Entry("idk", "chatsan-shrugs"),
+        Entry("idk", "chatsan-shrugs"), //Delta V
         Entry(";)", "chatsan-winks"),
         Entry(";]", "chatsan-winks"),
         Entry("(;", "chatsan-winks"),
@@ -91,6 +92,9 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("[':", "chatsan-tearfully-smiles"),
         Entry("('=", "chatsan-tearfully-smiles"),
         Entry("['=", "chatsan-tearfully-smiles"),
+        Entry("?", "chatsan-confused"), //DeltaV
+        Entry("!", "chatsan-surprised"), //DeltaV
+        Entry("…", "chatsan-sighs"), //DeltaV (note that ... doesn't work as that turns into a radio message)
     ];
 
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;

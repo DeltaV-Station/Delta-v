@@ -35,6 +35,7 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:

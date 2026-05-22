@@ -14,6 +14,8 @@
     baseDecayRate: 0.0467 #needs to eat more to survive
   - type: Thirst
 
+  - type: Inventory
+    speciesId: moth #same eyes
 
   - type: Icon
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
@@ -50,7 +52,10 @@
       amount: 5
 
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 300
 
   - type: DamageVisuals
     damageOverlayGroups:
@@ -79,11 +84,12 @@
         layer:
         - MobLayer
 
-  - type: Temperature # Ants hate the cold
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
+  - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage # Ants hate the cold
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 1.25 #per second, scales with temperature & other constants
@@ -148,8 +154,6 @@
     coughPopup: chitzite-cough
   - type: Chitinid
   - type: BlockInjection
-  - type: Puller # Put those extra hands to work!
-    needsHands: false
   - type: CosmicMarkVisuals
     subtleState: moth
 
@@ -160,3 +164,5 @@
   components:
   - type: HumanoidAppearance
     species: Chitinid
+  - type: Inventory
+    speciesId: moth

@@ -687,12 +687,10 @@
         Cable: 5
     - type: PhysicalComposition
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
-    - type: Tag # DeltaV - augment construction
-      tags: [ AugmentAPCBoard ]
 
 - type: entity
   id: PowerCageRechargerCircuitboard
@@ -732,12 +730,10 @@
         Cable: 5
     - type: PhysicalComposition
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
-    - type: Tag # DeltaV - augment construction
-      tags: [ AugmentStationBoard ]
 
 - type: entity
   id: WeaponCapacitorRechargerCircuitboard
@@ -755,8 +751,8 @@
         CableMV: 5
     - type: PhysicalComposition
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
 
@@ -1090,7 +1086,7 @@
 
 - type: entity
   id: SyndicateMicrowaveMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseSyndicateContraband ]
   name: donk co. microwave machine board
   components:
     - type: Sprite
@@ -1420,17 +1416,20 @@
       Manipulator: 2
       Cable: 1
 
-# Shitmed Change Start
 - type: entity
-  id: MedicalBiofabMachineBoard
   parent: BaseMachineCircuitboard
-  name: medical biofab machine board
-  description: A machine printed circuit board for a medical biofab.
+  id: SmartFridgeCircuitboard
+  name: SmartFridge machine board
+  description: A machine printed circuit board for a SmartFridge.
   components:
-    - type: Sprite
-      state: medical
-    - type: MachineBoard
-      prototype: MedicalBiofabricator
-      stackRequirements:
-        Manipulator: 4
-# Shitmed Change End
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: DVSmartFridge # DeltaV - Changed to our Smartfridge proto
+    stackRequirements:
+      Glass: 5
+      Manipulator: 2
+    tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker

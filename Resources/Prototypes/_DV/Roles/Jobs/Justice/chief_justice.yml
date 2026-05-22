@@ -6,15 +6,15 @@
   requirements:
 #    - !type:RoleTimeRequirement # DeltaV - Comment out clerk time till more people have clerk time. Maybe a week or so.
 #      role: JobClerk
-#      time: 36000 # DeltaV - 10 hours
+#      time: 10h
     - !type:RoleTimeRequirement
       role: JobLawyer
-      time: 36000 # 10 hours
+      time: 10h
     - !type:RoleTimeRequirement
       role: JobProsecutor
-      time: 36000 # 10 hours
+      time: 10h
     - !type:OverallPlaytimeRequirement
-      time: 90000 # 25 hours
+      time: 25h
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
@@ -38,10 +38,8 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
-      flatBonus: 0.025
+  - !type:ModifyPsionicChanceSpecial # Command Roles are more likely to be psionic.
+    jobBonusChance: 0.05 # Additional 5% chance.
 
 - type: startingGear
   id: CJGear

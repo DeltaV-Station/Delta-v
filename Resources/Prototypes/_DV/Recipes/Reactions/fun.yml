@@ -7,7 +7,7 @@
     Quartzite:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: SheetGlass1
 
 - type: reaction
@@ -25,5 +25,5 @@
     Slime:
       amount: 20
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: MobSlimesPet

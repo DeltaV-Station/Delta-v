@@ -101,6 +101,18 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables all tips for a player.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTips =
+        CVarDef.Create("game.disable_tips", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Disables all tips for ALL PLAYERS.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTipsGlobal =
+        CVarDef.Create("game.disable_tips_global", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
@@ -111,6 +123,35 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> YearOffset =
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
+
+    /// <summary>
+    /// What species to hide, as a comma seperated list.
+    /// </summary>
+    public static readonly CVarDef<string> HiddenSpecies =
+        CVarDef.Create("species.hidden", "Motorkind", CVar.SERVER | CVar.REPLICATED);
+
+    /*
+     * Traits
+     */
+
+    /// <summary>
+    /// Maximum number of traits that can be selected globally.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitCount =
+        CVarDef.Create("traits.max_count", 10, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum trait points available to spend.
+    /// Traits with positive cost consume points, negative cost traits grant points.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitPoints =
+        CVarDef.Create("traits.max_points", 15, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether to skip showing the disabled traits popup when spawning.
+    /// </summary>
+    public static readonly CVarDef<bool> SkipDisabledTraitsPopup =
+        CVarDef.Create("traits.skip_disabled_traits_popup", false, CVar.CLIENT | CVar.ARCHIVE);
 
     /*
      * Feedback webhook
@@ -162,6 +203,12 @@ public sealed partial class DCCVars
         CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
 
     /// <summary>
+    ///     The maximum amount of hours that will trigger an admin alert on late join.
+    /// </summary>
+    public static readonly CVarDef<double> LateJoinAlertMaxHours =
+        CVarDef.Create("admin.alerts.latejoin_max_hours", 2.0, CVar.SERVERONLY);
+
+    /// <summary>
     ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
     /// </summary>
     public static readonly CVarDef<bool> EnableBacktoBack =
@@ -195,15 +242,6 @@ public sealed partial class DCCVars
             "#17FFC1FF",
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "The color in which the highlights will be displayed.");
-
-    /* Laying down combat */
-
-    /// <summary>
-    /// Modifier to apply to all melee attacks when laying down.
-    /// Don't increase this above 1...
-    /// </summary>
-    public static readonly CVarDef<float> LayingDownMeleeMod =
-        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
 
     /// <summary>
     ///    Maximum number of characters in objective summaries.
@@ -263,4 +301,11 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create("cosmiccult.extra_entropy_for_finale", 1, CVar.SERVER);
+
+    /// <summary>
+    /// Whether the screenshake ported from ES should be disabled.
+    /// False by default, so enabled. Players can change this in accessiblity settings.
+    /// </summary>
+    public static readonly CVarDef<bool> EsScreenshakeDisabled =
+        CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

@@ -1,0 +1,29 @@
+- type: siliconLaw
+  id: Aquarius1
+  order: 1
+  lawString: law-aquarius-1
+
+- type: siliconLaw
+  id: Aquarius2
+  order: 2
+  lawString: law-aquarius-2
+
+- type: siliconLaw
+  id: Aquarius3
+  order: 3
+  lawString: law-aquarius-3
+
+- type: siliconLaw
+  id: Aquarius4
+  order: 4
+  lawString: law-aquarius-4
+
+- type: siliconLawset
+  id: AquariusLaws
+  name: law-aquarius-name
+  laws:
+  - Aquarius1
+  - Aquarius2
+  - Aquarius3
+  - Aquarius4
+  obeysTo: laws-owner-self

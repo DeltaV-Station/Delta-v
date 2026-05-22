@@ -17,9 +17,6 @@
     makeSentient: true
     allowSpeech: False
     allowMovement: true
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
     name: cortical-borer-ghostrole-name
     description: cortical-borer-ghostrole-desc
     rules: ghost-role-information-freeagent-rules
@@ -124,9 +121,6 @@
     name: cortical-borer-ghostrole-name
     description: cortical-borer-ghostrole-desc
     rules: ghost-role-information-freeagent-rules
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostRoleMobSpawner

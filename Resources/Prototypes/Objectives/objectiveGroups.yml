@@ -19,10 +19,12 @@
     MagbootsStealObjective: 1
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     ClipboardStealObjective: 1
+    # KnuckleDustersStealObjective: 1 # DeltaV - RIP Knuckledusters. We hardly knew thee.
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
+    #EnergyMagnumStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     # Begin DeltaV Additions
     ClerkNotaryStealObjective: 0.5
     HoPBookIanDossierStealObjective: 1
@@ -32,6 +34,7 @@
     PlutoniumCoreStealObjective: 0.5
     MantisKnifeStealObjective: 1
     RdClipboardStealObjective: 1
+    CeClipboardStealObjective: 1
     # End DeltaV Additions
 
 - type: weightedRandom
@@ -81,6 +84,7 @@
     MailStealCollectionObjective: 1                     #cargo
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2                     #only for moth
+    ReactorFuelRodStealCollectionObjective: 1 #Far Horizons/Nuclear Reactor Port
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem

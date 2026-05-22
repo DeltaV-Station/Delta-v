@@ -6,6 +6,9 @@
     - !type:GroupSelector
       weight: 75
       children:
+      - !type:NestedSelector
+        weight: 5 # Roughly 7% chance
+        tableId: AllToysTable
       # Smoker's specialty
       - !type:AllSelector
         children:
@@ -112,13 +115,8 @@
         - id: ClothingNeckCloakGay
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
-      - id: ToySkeleton
-      - id: Basketball
-      - id: Football
-      - id: BalloonNT
-      - id: BalloonCorgi
+      - id: ToyFigurineSkeleton
       - id: MysteryFigureBox
-      - id: RubberChicken
       # Cult
       - !type:AllSelector
         children:
@@ -164,19 +162,14 @@
     - !type:GroupSelector
       weight: 2
       children:
-      - id: Skub
-      - id: PonderingOrb
-      - id: CluwneHorn
-      - id: ClothingShoesSkates
       - id: DrinkMugDog
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: ClothingBeltFoamSheathFilled # DeltaV - Add small chance of it spawning in maints locker.
       - id: WeaponLaserTagGun # DeltaV - Add small chance of it spawning in maints locker.
-      #- id: RubberStampGreytide # Delta-V: prevent greytide stamp from spawning
+      - id: RubberStampGreytide
       - id: MysteryLighterBox
-      - id: GoldenPersonalAI
 
 - type: entity
   name: Maint Loot Spawner
@@ -234,7 +227,8 @@
       - id: Plunger
       - id: PowerCellMedium
       - id: PowerCellSmall
-      - id: Soap
+      - !type:NestedSelector
+        tableId: AllSoapsTable
       - id: Wirecutter
       - id: Screwdriver
       - id: Wrench
@@ -280,7 +274,7 @@
       - id: trayScanner
       - id: HandheldGPSBasic
       - id: HandLabeler
-      - id: GlowstickBase
+      - id: GlowstickGreen
       - id: Bucket
       - id: RadioHandheld
       - id: AppraisalTool
@@ -307,7 +301,8 @@
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
       #- id: SpectralLocator # DeltaV: no ghost locator
-      - id: LidSalami
+      - id: ClothingShoesRealJordans # DeltaV
+      #- id: LidSalami # Delta V - bloat
         weight: 0.05
 
 - type: entity
@@ -335,6 +330,7 @@
       weight: 95
       children:
       - id: Machete
+      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear
@@ -367,6 +363,8 @@
       - id: SawImprov
       - id: HydroponicsToolMiniHoe
       - id: ClothingHandsKnuckleDusters
+      - !type:NestedSelector
+        tableId: AllToyWeaponsTable
 
 - type: entity
   name: Maint Loot Spawner

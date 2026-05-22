@@ -6,18 +6,26 @@
   components:
   - type: Item
     storedRotation: -90
-  - type: HolosignProjector
+  #- type: HolosignProjector # DeltaV - Holoprojectors don't need batteries
+  # Begin DeltaV - Holoprojectors don't need batteries
+  - type: ChargeHolosignProjector
+    signComponentName: Holosign
+  - type: LimitedCharges
+    maxCharges: 6 # same as it was on a medium cell
+  - type: AutoRecharge
+    rechargeDuration: 90 # Same as holosign lifetime
+  # END DeltaV
   - type: UseDelay
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot {}
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
+  #- type: ContainerContainer # DeltaV - Holoprojectors dont need batteries
+  #  containers:
+  #    cell_slot: !type:ContainerSlot {}
+  #- type: PowerCellSlot # DeltaV - Holoprojectors dont need batteries
+  #  cellSlotId: cell_slot
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
+  #      startingItem: PowerCellMedium
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/custodial.rsi
     state: icon
@@ -25,32 +33,35 @@
     tags:
       - HolosignProjector
 
+
 - type: entity
   parent: Holoprojector
   id: HoloprojectorEmpty
+  categories: [ HideSpawnMenu ] # DeltaV - This is identical to the normal one
   suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+  #components: # DeltaV - Holoprojectors don't need batteries
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
   id: HoloprojectorBorg
+  categories: [ HideSpawnMenu ] # DeltaV - This is identical to the normal one
   suffix: borg
   name: holosign projector
   description: A modified holographic sign projector for use in custodial cyborgs. Automatically self-charges.
-  components:
-  - type: HolosignProjector
-    chargeUse: 240
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor
-        disableEject: true
-        swap: false
+  #components: # DeltaV - Holoprojectors don't need batteries
+  #- type: HolosignProjector
+  #  chargeUse: 240
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
+  #      startingItem: PowerCellMicroreactor
+  #      disableEject: true
+  #      swap: false
 
 - type: entity
   parent: Holoprojector
@@ -59,42 +70,41 @@
   description: A holopeel projector that creates a slippery, hard light banana peel. It recharges, so that the fun never ends!
   suffix: borg
   components:
-  - type: HolosignProjector
-    signProto: HoloPeel
-    chargeUse: 240
+  #- type: HolosignProjector # DeltaV - Holoprojectors dont need batteries
+  #  signProto: HoloPeel
+  #  chargeUse: 240
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/peel.rsi
     state: icon
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor
-        disableEject: true
-        swap: false
+  #- type: ItemSlots # DeltaV - Holoprojectors dont need batteries
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
+  #      startingItem: PowerCellMicroreactor
+  #      disableEject: true
+  #      swap: false
+  # Begin DeltaV Additions
+  - type: ChargeHolosignProjector
+    signProto: HoloPeel
+    signComponentName: Holopeel
+  - type: LimitedCharges
+    maxCharges: 3 # same as it was on a medium cell
+  - type: AutoRecharge
+    rechargeDuration: 30 # Same as the holopeel lifetime
+  # End DeltaV Additions
 
 - type: entity
-  parent: BaseItem # DeltaV - remove powercell requirement
+  parent: Holoprojector
   id: HolofanProjector
   name: holofan projector
   description: Stop suicidal passengers from killing everyone during atmos emergencies.
   components:
-  - type: ChargeHolosignProjector # DeltaV - different implementation using charges
-    signProto: HoloFan
-    signComponentName: Holofan # DeltaV
-    #chargeUse: 120 # DeltaV
+  #- type: HolosignProjector # DeltaV - Holoprojectors dont need batteries
+  #  signProto: HoloFan
+  #  chargeUse: 120
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/atmos.rsi
     state: icon
-  # Begin DeltaV Additions
-  - type: Item
-    storedRotation: -90
-  - type: LimitedCharges
-    maxCharges: 6 # same as it was on a medium cell
-  - type: ContainerContainer
-    containers:
-      signs: !type:Container
-  # End DeltaV Additions
   - type: Tag
     tags:
       - HolofanProjector
@@ -105,13 +115,21 @@
     - AtmosTools
     - Fires
     - Spacing
+  # Begin DeltaV Additions
+  - type: ChargeHolosignProjector
+    signProto: HoloFan
+    signComponentName: Holofan
+  - type: AutoRecharge
+    rechargeDuration: 300 # Same as the HoloFan lifetime
+  # End DeltaV Additions
+
 
 - type: entity
   parent: HolofanProjector
   id: HolofanProjectorEmpty
   categories: [ HideSpawnMenu ] # DeltaV - this is identical to the normal one
   suffix: Empty
-  #components: # DeltaV - no cell slot for empty one
+  #components: # DeltaV - Holoprojectors dont need batteries
   #- type: ItemSlots
   #  slots:
   #    cell_slot:
@@ -120,9 +138,10 @@
 - type: entity
   parent: HolofanProjector
   id: HolofanProjectorBorg
+  categories: [ HideSpawnMenu ] # DeltaV - This is identical to the normal one
   name: integrated holofan
   description: Stops idiots from causing more crew harm during atmospheric emergencies. Installed directly into an engineering cyborg, it recharges over time.
-  #components:
+  #components: # DeltaV - Holoprojectors dont need batteries
   #- type: ItemSlots
   #  slots:
   #    cell_slot:
@@ -137,9 +156,9 @@
   name: force field projector
   description: Creates an impassable forcefield that won't let anything through. Close proximity may or may not cause cancer.
   components:
-    - type: HolosignProjector
-      signProto: HolosignForcefield
-      chargeUse: 120
+  #  - type: HolosignProjector # DeltaV - Holoprojectors dont need batteries
+  #    signProto: HolosignForcefield
+  #    chargeUse: 120
     - type: Sprite
       sprite: Objects/Devices/Holoprojectors/field.rsi
       state: icon
@@ -148,16 +167,24 @@
         - HolofanProjector
     - type: StaticPrice
       price: 130
+    # Begin DeltaV Additions
+    - type: ChargeHolosignProjector
+      signProto: HolosignForcefield
+      signComponentName: HoloForcefield
+    - type: AutoRecharge
+      rechargeDuration: 180 # Same as the HolosignForcefield lifetime
+    # End DeltaV Additions
 
 - type: entity
   parent: HoloprojectorField
   id: HoloprojectorFieldEmpty
+  categories: [ HideSpawnMenu ] # DeltaV - This is identical to the normal one
   suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+  #components: # DeltaV - Holoprojectors dont need batteries
+  #- type: ItemSlots
+  # slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
@@ -165,9 +192,9 @@
   name: holobarrier projector
   description: Creates a solid but fragile holographic barrier.
   components:
-    - type: HolosignProjector
-      signProto: HolosignSecurity
-      chargeUse: 90
+  #  - type: HolosignProjector # DeltaV - Holoprojectors dont need batteries
+  #    signProto: HolosignSecurity
+  #    chargeUse: 90
     - type: Sprite
       sprite: _DV/Objects/Devices/Holoprojectors/security.rsi # DeltaV - resprite holobarrier projector
       state: icon
@@ -177,13 +204,21 @@
         - SecBeltEquip
     - type: StaticPrice
       price: 50
+    # Begin DeltaV Additions
+    - type: ChargeHolosignProjector
+      signProto: HolosignSecurity
+      signComponentName: Holobarrier
+    - type: AutoRecharge
+      rechargeDuration: 180 # Same as HolosignSecurity lifetime
+    # End DeltaV Additions
 
 - type: entity
   parent: HoloprojectorSecurity
   id: HoloprojectorSecurityEmpty
+  categories: [ HideSpawnMenu ] # DeltaV - This is identical to the normal one
   suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+  # components: # DeltaV - Holoprojectors dont need batteries
+  # - type: ItemSlots
+  #   slots:
+  #     cell_slot:
+  #       name: power-cell-slot-component-slot-name-default

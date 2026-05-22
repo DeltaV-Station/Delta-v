@@ -1,5 +1,5 @@
 using Content.Server._DV.Mail.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands;
 using Robust.Shared.Containers;
 

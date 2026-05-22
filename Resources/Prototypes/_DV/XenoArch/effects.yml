@@ -15,11 +15,12 @@
 - type: entity
   parent: BaseXenoArtifactEffect
   id: XenoArtifactRaiseGlimmer
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails
     specificTip: xenoarch-effect-tip-specific-glimmer
     vagueTip: xenoarch-effect-tip-vague-energy-manipulation
-  - type: GlimmerArtifact
+  - type: XAEModifyGlimmer
     range:
       min: 0
       max: 450 # cant instantly get ended by a looping artifact
@@ -28,8 +29,9 @@
 - type: entity
   parent: XenoArtifactRaiseGlimmer
   id: XenoArtifactRaiseGlimmerLarge
+  categories: [ HideSpawnMenu ]
   components:
-  - type: GlimmerArtifact
+  - type: XAEModifyGlimmer
     range:
       min: 0
       max: 700 # cant get to 1000 from a looping artifact
@@ -38,8 +40,9 @@
 - type: entity
   parent: XenoArtifactRaiseGlimmer
   id: XenoArtifactLowerGlimmer
+  categories: [ HideSpawnMenu ]
   components:
-  - type: GlimmerArtifact
+  - type: XAEModifyGlimmer
     range:
       min: 400 # for recovering from serious glimmer emergencies, not a full drain replacement
       max: 1000
@@ -48,9 +51,10 @@
 - type: entity
   parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactMakePsionic
+  categories: [ HideSpawnMenu ]
   components:
   - type: XAEDetails
     specificTip: xenoarch-effect-tip-specific-psionic
     vagueTip: xenoarch-effect-tip-vague-energy-manipulation
-  - type: PsionicProducingArtifact
+  - type: XAEPsionicInducer
     range: 5

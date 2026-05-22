@@ -1,5 +1,5 @@
 - type: entity
-  save: false 
+  save: false
   name: Urist McRaptor # DeltaV - we ain't marines here
   parent: BaseMobSpeciesOrganic # DeltaV - set proper parent
   id: BaseMobAvali # DeltaV - rename base entity
@@ -20,7 +20,7 @@
       Female: RMCFemaleAvali
   - type: Speech
     speechVerb: Parrot # Didn't come with one
-    speechSounds: MaleAvali    
+    speechSounds: MaleAvali
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -31,7 +31,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg
-    damage: # DeltaV - evens out to about 5 after damage modifier    
+    damage: # DeltaV - evens out to about 5 after damage modifier
       types:
         Slash: 6
     animation: WeaponArcClaw
@@ -76,7 +76,10 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodReagent: AmmoniaBlood
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 300
   - type: BonusStaminaDamage
     multiplier: 0.85 # less melee stamina damage
   - type: BonusMeleeDamage # significantly weaker with melee
@@ -87,10 +90,11 @@
   - type: Damageable
     damageModifierSet: Avali
   - type: Temperature # thrives in the cold, similar to moths
-    heatDamageThreshold: 310
-    coldDamageThreshold: 223
     currentTemperature: 296.15 # lower natural body temp
     specificHeat: 25 # makes temp more lethal
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
+    heatDamageThreshold: 310
+    coldDamageThreshold: 223
     coldDamage:
       types:
         Cold : 0.05
@@ -111,9 +115,16 @@
       279: 0.95
       265: 0.9
       240: 0.85
+  - type: Preenable
+    featherPrototype: AvaliFeather
   # End DeltaV additions
 
 - type: entity
   parent: BaseSpeciesDummy
   id: MobAvaliDummy
   categories: [ HideSpawnMenu ]
+  # Begin DeltaV additions - Gives them moth eye sprites in the character menu
+  components:
+  - type: Inventory
+    speciesId: moth
+  # End DeltaV additions

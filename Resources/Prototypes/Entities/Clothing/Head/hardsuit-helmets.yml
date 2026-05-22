@@ -122,7 +122,7 @@
         shader: unshaded
       # Begin DeltaV species helmets
       head-vulpkanin:
-      - state: equipped-head-light-vulpkanin
+      - state: equipped-head-light-reptilian
         shader: unshaded
       head-feroxi:
       - state: equipped-head-light-feroxi
@@ -287,7 +287,7 @@
       - state: equipped-head-light-vox
         shader: unshaded
       head-reptilian:
-      - state: equipped-head-reptilian
+      - state: equipped-head-light-reptilian
         shader: unshaded
       head-dog:
       - state: equipped-head-light-dog
@@ -305,6 +305,11 @@
       head-reptilian:
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
+        shader: unshaded
+      head-feroxi: # DeltaV - Feroxi
+      - sprite: _DV/Clothing/Head/Hardsuits/goliathhelm.rsi
+        state: equipped-head-feroxi
+      - state: equipped-head-unshaded
         shader: unshaded
       head-dog:
       - state: equipped-head-dog
@@ -473,7 +478,7 @@
         shader: unshaded
       # Begin DeltaV species helmets
       head-vulpkanin:
-      - state: equipped-head-light-vulpkanin
+      - state: equipped-head-light-reptilian
         shader: unshaded
       head-harpy:
       - state: equipped-head-light-harpy
@@ -903,11 +908,9 @@
     color: "#ffffff"
   # Begin DeltaV Additions
   - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
-  - type: ClothingGrantPsionicPower
-    power: DispelPower
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
+  - type: DispelPower
   - type: GuideHelp
     guides:
     - Psionics
@@ -1060,6 +1063,8 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 #MISC. HARDSUITS
 #Clown Hardsuit

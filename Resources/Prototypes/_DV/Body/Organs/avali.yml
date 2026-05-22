@@ -9,11 +9,11 @@
   id: OrganAvaliEyes
   name: avali eyes
   description: They seem as if they're looking at something far away...
-  components:
-  - type: Organ
-    onAdd:
-    - type: EyeCursorOffset
-      maxOffset: 5
-      pvsIncrease: 0.5
-      enabled: false
-    - type: CursorOffsetAction
+  # components: # Delta V - Shit Med Removal
+  # - type: Organ
+  #   onAdd:
+  #   - type: EyeCursorOffset
+  #     maxOffset: 5
+  #     pvsIncrease: 0.5
+  #     enabled: false
+  #   - type: CursorOffsetAction

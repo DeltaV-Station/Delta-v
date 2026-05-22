@@ -16,7 +16,7 @@ using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Devil.Condemned;
 using Content.Shared._Goobstation.Exorcism;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
@@ -32,10 +32,10 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Shared.Zombies;
 using Content.Shared._Lavaland.Chasm;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
@@ -53,7 +53,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Body.Part;
 using Content.Server.Bible.Components;
-using Content.Shared._EE.Silicon.Components;
 
 namespace Content.Server._Goobstation.Devil;
 
@@ -112,7 +111,6 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
-        EnsureComp<BreathingImmunityComponent>(devil);
         EnsureComp<PressureImmunityComponent>(devil);
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
@@ -127,8 +125,7 @@ public sealed partial class DevilSystem : EntitySystem
         revival.CanCheatStanding = true;
 
         // Change damage modifier
-        if (TryComp<DamageableComponent>(devil, out var damageableComp))
-           _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
+        _damageable.SetDamageModifierSetId(devil.Owner, devil.Comp.DevilDamageModifierSet);
 
         // No decapitating the devil
         foreach (var part in _body.GetBodyChildren(devil))
@@ -136,7 +133,6 @@ public sealed partial class DevilSystem : EntitySystem
             if (!TryComp(part.Id, out BodyPartComponent? woundable)) // DeltaV - Use Bodypart instead of woundable.
                 continue;
 
-            woundable.CanSever = false; // DeltaV - Use bodypart instead of Woundable
             Dirty(part.Id, woundable);
         }
 
@@ -215,7 +211,6 @@ public sealed partial class DevilSystem : EntitySystem
         // Other Devils and entities without souls have no authority over you.
         if (HasComp<DevilComponent>(args.Source)
         || HasComp<CondemnedComponent>(args.Source)
-        || HasComp<SiliconComponent>(args.Source)
         || args.Source == devil.Owner)
             return;
 
@@ -235,7 +230,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (HasComp<BibleUserComponent>(args.Source))
         {
-            _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true);
+            _damageable.TryChangeDamage(devil.Owner, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true);
             _stun.TryAddParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier);
 
             var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", devil));
@@ -244,7 +239,7 @@ public sealed partial class DevilSystem : EntitySystem
         else
         {
             _stun.TryAddParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName);
-            _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName, true);
+            _damageable.TryChangeDamage(devil.Owner, devil.Comp.DamageOnTrueName, true);
 
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", devil));
             _popup.PopupEntity(popup, devil, PopupType.LargeCaution);

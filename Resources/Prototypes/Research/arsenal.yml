@@ -104,6 +104,8 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - CableDetStack1
+  - EmptyDetonator
   - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology
@@ -159,7 +161,7 @@
   recipeUnlocks:
   - PKAUpgradeDamage
   - PKAUpgradeRange
-  - PKAUpgradeFireRate
+  #- PKAUpgradeFireRate # DeltaV - removal of fire rate upgrade for better feel
 
 - type: technology
   id: BasicShuttleArmament
@@ -210,7 +212,6 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
-  - GamblagatorCapacitor # DeltaV - added for superweapon
   - WeaponEnergyGunAdvanced # DeltaV - Advanced Energy Gun
 
 - type: technology

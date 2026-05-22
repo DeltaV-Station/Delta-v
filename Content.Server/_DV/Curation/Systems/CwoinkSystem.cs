@@ -54,7 +54,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
     private static partial Regex DiscordRegex();
 
     private string _webhookUrl = string.Empty;
-    private WebhookData? _webhookData;
+    private WebhookData? _webhookData = null;
 
     private readonly HttpClient _httpClient = new();
 
@@ -523,8 +523,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
                 GameRunLevel.PreRoundLobby => "\n\n:arrow_forward: _**Pre-round lobby started**_\n",
                 GameRunLevel.InRound => "\n\n:arrow_forward: _**Round started**_\n",
                 GameRunLevel.PostRound => "\n\n:stop_button: _**Post-round started**_\n",
-                _ => throw new ArgumentOutOfRangeException(nameof(_gameTicker.RunLevel),
-                    $"{_gameTicker.RunLevel} was not matched."),
+                _ => throw new InvalidOperationException( $"{_gameTicker.RunLevel} was not matched."),
             };
 
             existingEmbed.LastRunLevel = _gameTicker.RunLevel;
@@ -615,8 +614,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
                 : $"pre-round lobby for round {_gameTicker.RoundId + 1}",
             GameRunLevel.InRound => $"round {_gameTicker.RoundId}",
             GameRunLevel.PostRound => $"post-round {_gameTicker.RoundId}",
-            _ => throw new ArgumentOutOfRangeException(nameof(_gameTicker.RunLevel),
-                $"{_gameTicker.RunLevel} was not matched."),
+            _ => throw new InvalidOperationException( $"{_gameTicker.RunLevel} was not matched."),
         };
 
         return new WebhookPayload
@@ -875,7 +873,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
         if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
             stringbuilder.Append($" **{parameters.RoundTime}**");
         if (!parameters.PlayedSound)
-            stringbuilder.Append($" **{(parameters.CuratorOnly ? Loc.GetString("cwoink-message-admin-only") : Loc.GetString("cwoink-message-silent"))}**");
+            stringbuilder.Append($" **{(parameters.CuratorOnly ? Loc.GetString("cwoink-message-curator-only") : Loc.GetString("cwoink-message-silent"))}**");
 
         if (parameters.IsDiscord) // Frontier - Discord Indicator
             stringbuilder.Append($" **{discordReplyPrefix}**");

@@ -9,6 +9,7 @@
   # QM
   - ClothingHeadHatBeretLogi
   - ClothingUniformJumpskirtQMFormal
+  - ClothingLongcoatQM
   # Salvage
   - ClothingUniformJumpskirtSalvageSpecialist
 
@@ -20,6 +21,7 @@
   # HoP
   - ClothingUniformJumpsuitHoPFormal
   - ClothingUniformJumpskirtHoPFormal
+  - ClothingLongcoatHoP
 
 - type: latheRecipePack
   id: ClothingEpistemics
@@ -27,6 +29,7 @@
   # Mystagogue
   - ClothingHeadHatBeretMysta
   - ClothingHeadHoodMysta
+  - ClothingLongcoatRD
   # Psionic Mantis
   - ClothingUniformJumpsuitMantis
   - ClothingUniformSkirtMantis
@@ -37,9 +40,30 @@
 - type: latheRecipePack
   id: ClothingMedicalDeltaV
   recipes:
+  # CMO
+  - ClothingLongcoatCMO
+  - ClothingUniformCMOFormal
+  - ClothingUniformJumpskirtCMOFormal
+  - ClothingUniformCMOVest
+  - ClothingUniformJumpskirtCMOVest
+  - ClothingUniformCMOSummer
   # Chemist
   - ClothingUniformJumpsuitChemShirt
   - ClothingUniformJumpskirtChemShirt
+  # Paramed
+  - ClothingUniformParamedicJumper
+  - ClothingUniformJumpskirtParamedicJumper
+  # General
+  - ClothingUniformMedicalApron
+  - ClothingUniformJumpskirtMedicalApron
+  - ClothingUniformMedicalOffset
+  - ClothingUniformJumpskirtMedicalOffset
+  - ClothingUniformMedicalVest
+  - ClothingUniformJumpskirtMedicalVest
+  # Hats
+  - ClothingHeadHatBeretMedical
+  - ClothingHeadHatBeretSeniorChemistry
+  - ClothingHeadHatBeretParamedic
 
 - type: latheRecipePack
   id: ClothingJustice
@@ -87,11 +111,14 @@
 - type: latheRecipePack
   id: ClothingEngineeringDeltaV
   recipes:
+  # CE
+  - ClothingLongcoatCE
   # Atmos
   - ClothingUniformJumpsuitAtmos
   - ClothingUniformJumpskirtAtmos
   - ClothingUniformJumpsuitAtmosCasual
   - ClothingUniformJumpskirtAtmosCasual
+  - ClothingHeadHatBeretAtmospherics
 
 - type: latheRecipePack
   id: ClothingServiceDeltaV
@@ -143,4 +170,5 @@
   - ClothingUniformCybersunCasual
   - ClothingUniformCybersunRND
   - ClothingOuterCybersunOvercoat
+  - ClothingOuterCoatLabCybersun
   - ClothingBeltSyndicateUtility

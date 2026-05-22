@@ -16,14 +16,6 @@
 
 - type: entity
   parent: BaseImplantOnlyImplanter
-  id: GenericRadioImplanter
-  name: generic radio implanter
-  components:
-  - type: Implanter
-    implant: RadioImplant
-
-- type: entity
-  parent: BaseImplantOnlyImplanter
   id: WatchdogImplanter
   name: watchdog implanter
   components:
@@ -31,9 +23,17 @@
     implant: WatchdogImplant
 
 - type: entity
+  parent: BaseImplantOnlyImplanter
+  id: MedicalTrackingImplanter
+  name: medical tracking implanter
+  components:
+  - type: Implanter
+    implant: MedicalTrackingImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanterCentcomm
   id: CentCommImplanter
-  name: centcomm implanter
+  name: centcomm mindshield implanter
   suffix: mindshield
   components:
   - type: Implanter
@@ -58,3 +58,23 @@
   components:
   - type: Implanter
     implant: NukeopsUplinkImplant
+
+# NTAgent
+
+- type: entity
+  parent: BaseImplantOnlyImplanterCentcomm
+  id: NanolinkImplant
+  name: nanolink implant
+  suffix: NanolinkImplant
+  components:
+  - type: Implanter
+    implant: NanolinkSubImplant
+
+- type: entity
+  parent: [BaseImplantOnlyImplanterCentcomm, ChameleonControllerImplanter]
+  id: ChameleonControllerImplanterNT
+
+- type: entity
+  parent: [BaseImplantOnlyImplanterCentcomm, FakeMindShieldImplanter]
+  id: FakeMindShieldImplantNT
+  name: fake mindshield implanter

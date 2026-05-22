@@ -38,6 +38,8 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.ZoomIn);
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
+            common.AddFunction(ContentKeyFunctions.InspectServerComponent);
+            common.AddFunction(ContentKeyFunctions.InspectClientComponent);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
             // Begin DeltaV Additions
             common.AddFunction(ContentKeyFunctions.OpenCHelp);
@@ -80,6 +82,9 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.OpenInventoryMenu);
             human.AddFunction(ContentKeyFunctions.SmartEquipBackpack);
             human.AddFunction(ContentKeyFunctions.SmartEquipBelt);
+            human.AddFunction(ContentKeyFunctions.SmartEquipPocket1);
+            human.AddFunction(ContentKeyFunctions.SmartEquipPocket2);
+            human.AddFunction(ContentKeyFunctions.SmartEquipSuitStorage);
             human.AddFunction(ContentKeyFunctions.OpenBackpack);
             human.AddFunction(ContentKeyFunctions.OpenBelt);
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
@@ -93,18 +98,6 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade1);
             human.AddFunction(ContentKeyFunctions.Arcade2);
             human.AddFunction(ContentKeyFunctions.Arcade3);
-            // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
-            human.AddFunction(ContentKeyFunctions.TargetHead);
-            human.AddFunction(ContentKeyFunctions.TargetTorso);
-            human.AddFunction(ContentKeyFunctions.TargetLeftArm);
-            human.AddFunction(ContentKeyFunctions.TargetLeftHand);
-            human.AddFunction(ContentKeyFunctions.TargetRightArm);
-            human.AddFunction(ContentKeyFunctions.TargetRightHand);
-            human.AddFunction(ContentKeyFunctions.TargetLeftLeg);
-            human.AddFunction(ContentKeyFunctions.TargetLeftFoot);
-            human.AddFunction(ContentKeyFunctions.TargetRightLeg);
-            human.AddFunction(ContentKeyFunctions.TargetRightFoot);
-            // Shitmed Change End
 
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);

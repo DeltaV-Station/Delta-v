@@ -270,7 +270,6 @@
         component: KnockedDown
         time: 0.5
         type: Add
-        refresh: false
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -280,7 +279,6 @@
         component: StutteringAccent
         time: 1
         type: Add
-        refresh: false
   fizziness: 0.25
 
 - type: reagent

@@ -2,7 +2,7 @@ name: YAML Linter
 
 on:
   push:
-    branches: [ master, staging, trying ]
+    branches: [ master ]
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
@@ -26,7 +26,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4.1.0
         with:
-          dotnet-version: 9.0.x
+          dotnet-version: 10.0.x
       - name: Install dependencies
         run: dotnet restore
       - name: Build

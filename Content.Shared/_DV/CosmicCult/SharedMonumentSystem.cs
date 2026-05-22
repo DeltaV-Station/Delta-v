@@ -49,13 +49,13 @@ public abstract class SharedMonumentSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<MonumentTransformingComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<MonumentTransformingComponent, AppearanceComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var appearance))
         {
             if (_timing.CurTime < comp.EndTime)
                 continue;
-            _appearance.SetData(uid, MonumentVisuals.Transforming, false);
-            RemComp<MonumentTransformingComponent>(uid);
+            _appearance.SetData(uid, MonumentVisuals.Transforming, false, appearance);
+            RemCompDeferred<MonumentTransformingComponent>(uid);
         }
     }
 

@@ -1,12 +1,22 @@
+# For mantles
+#- type: loadoutEffectGroup # DeltaV - No time requirement
+#  id: MasterHoP
+#  effects: 
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobHeadOfPersonnel
+#      time: 20h
+
 # Professional HoP Time
-- type: loadoutEffectGroup
-  id: ProfessionalHoP
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel
-      time: 54000 #15 hrs, special reward for HoP mains
+#- type: loadoutEffectGroup # DeltaV - No time requirement
+#  id: ProfessionalHoP
+#  effects:
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobHeadOfPersonnel
+#      time: 15h # special reward for HoP mains
 
 # Jumpsuit
 - type: loadout
@@ -44,9 +54,9 @@
 # Back
 - type: loadout
   id: HoPBackpackIan
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ProfessionalHoP
+  #effects:
+  #- !type:GroupLoadoutEffect # # DeltaV - No time requirement
+  #  proto: ProfessionalHoP
   equipment:
     back: ClothingBackpackIan
 

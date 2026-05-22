@@ -47,13 +47,6 @@
     unlitIcon: match_unlit
     litIcon: match_lit
     burntIcon: match_burnt
-  - type: Cautery # Shitmed
-    speed: 0.2
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-    endSound:
-      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
 
 - type: entity
   parent: Matchstick
@@ -98,9 +91,10 @@
   - type: Storage
     grid:
     - 0,0,2,1
-  - type: StorageFill
-    contents:
-      - id: Matchstick
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Matchstick
         amount: 6
   - type: ItemCounter
     count:
@@ -129,9 +123,10 @@
   - type: Storage
     grid:
     - 0,0,11,1
-  - type: StorageFill
-    contents:
-      - id: GorlexMatchstick
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: GorlexMatchstick
         amount: 24
   - type: Matchbox
 

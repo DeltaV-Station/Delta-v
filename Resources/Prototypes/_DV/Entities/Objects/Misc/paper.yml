@@ -275,20 +275,22 @@
     whitelist:
       tags:
       - Document
-  - type: StorageFill
-    contents:
-    - id: PaperDyedYellow
-      amount: 4
-    - id: PaperDyedGreen
-      amount: 4
-    - id: PaperDyedRed
-      amount: 4
-    - id: PaperDyedOcean
-      amount: 4
-    - id: PaperDyedTan
-      amount: 4
-    - id: PaperDyedBrown
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperDyedYellow
+          amount: 4
+        - id: PaperDyedGreen
+          amount: 4
+        - id: PaperDyedRed
+          amount: 4
+        - id: PaperDyedOcean
+          amount: 4
+        - id: PaperDyedTan
+          amount: 4
+        - id: PaperDyedBrown
+          amount: 4
 
 - type: entity
   parent: BoxReamClassic
@@ -300,20 +302,22 @@
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     layers:
     - state: ream-bright
-  - type: StorageFill
-    contents:
-    - id: PaperDyedOrange
-      amount: 4
-    - id: PaperDyedGrass
-      amount: 4
-    - id: PaperDyedYellow
-      amount: 4
-    - id: PaperDyedSky
-      amount: 4
-    - id: PaperDyedPink
-      amount: 4
-    - id: PaperDyedPurple
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperDyedOrange
+          amount: 4
+        - id: PaperDyedGrass
+          amount: 4
+        - id: PaperDyedYellow
+          amount: 4
+        - id: PaperDyedSky
+          amount: 4
+        - id: PaperDyedPink
+          amount: 4
+        - id: PaperDyedPurple
+          amount: 4
 
 - type: entity
   parent: BoxReamClassic
@@ -325,10 +329,11 @@
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     layers:
     - state: ream-white
-  - type: StorageFill
-    contents:
-    - id: Paper
-      amount: 24
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Paper
+        amount: 24
 
 #Research digi-board
 - type: entity
@@ -365,8 +370,10 @@
     grid:
     - 0,0,4,3
     quickInsert: true
-  - type: StorageFill
-    contents: [] #to override base clipboard fill
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: [] #to override base clipboard fill
   - type: ItemMapper
     mapLayers:
       rd_clipboard_paper:
@@ -389,8 +396,8 @@
         type: ResearchConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: MeleeWeapon
     damage:
       types:
@@ -487,11 +494,7 @@
     stampedBy:
     - stampedColor: "#850000FF"
       stampedName: Syndicate
-    content: |2
-      This DNA-Secure and extra-spacious briefcase is an uplink to one of our surplus warehouses.
-      Use them as incentives to join for potential recruits, or to reward yourself for a job well done.
-      You have been given an initial budget of 50"TC", spend it wisely.
-      To insert more, make sure the briefcase is locked before inserting the TC.
+    content: paper-briefcase-uplink-instructions
 
 - type: entity
   parent: BoxFolderRed
@@ -507,9 +510,10 @@
     - state: folder-base
     - state: folder-stamp-inverse
       color: "#1dff00"
-  - type: StorageFill
-    contents:
-    - id: FakeNukeCodePaper
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: FakeNukeCodePaper
 
 - type: entity
   parent: Paper
@@ -518,6 +522,97 @@
   name: nuclear authentication codes
   components:
   - type: Paper
+    content: paper-fake-nuke-codes
+
+- type: entity
+  parent: [BoxFolderClipboardEmpty, BaseGrandTheftContraband]
+  id: BoxFolderCeClipboard
+  name: power digi-board
+  description: A bulky electric clipboard, filled with building permits and power reports. With so many compromising documents, you ought to keep this safe.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+    layers:
+    - state: ce_clipboard
+    - state: ce_clipboard_paper
+      map: ["ce_clipboard_paper"]
+      visible: false
+    - state: ce_clipboard_pen
+      map: ["ce_clipboard_pen"]
+      visible: false
+    - state: ce_clipboard_over
+  - type: ItemSlots
+    slots:
+      pen_slot:
+        name: clipboard-slot-component-slot-name-pen
+        whitelist:
+          tags:
+          - Write
+        insertOnInteract: true
+  - type: Item
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+    size: Normal
+  - type: Clothing
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    quickInsert: true
+  - type: ItemMapper
+    mapLayers:
+      ce_clipboard_paper:
+        whitelist:
+          tags:
+          - Document
+      ce_clipboard_pen:
+        whitelist:
+          tags:
+          - Write
+  - type: PowerMonitoringConsole
+  - type: PowerMonitoringCableNetworks
+  - type: UserInterface
+    interfaces:
+      enum.PowerMonitoringConsoleUiKey.Key:
+        type: PowerMonitoringConsoleBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    verbText: ce-clipboard-computer-verb-text
+    key: enum.PowerMonitoringConsoleUiKey.Key
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: Tag
+    tags:
+    - Folder
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: BoxFolderCeClipboard
+
+#Smile Recipe
+- type: entity
+  parent: Paper
+  id: PaperResearchSmileRecipe
+  name: epistemics test log
+  components:
+  - type: Paper
     content: |2
-      [color=red]TOP SECRET![/color]
-      nuclear fission explosive (NT-XXXXXX) code: XXXXXX
+      [color=Purple]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
+      [color=Purple]
+      ░▀▄▄▀░ [head=2]Test Log Number: 979[/head]
+      ░█░░█░ [color=Black][bold]Research Lead:[/bold] Lydia Moon[/color]
+      ░▄▀▀▄░ [color=Black][bold]Subject:[/bold] Sentient Slime[/color]
+      ───────────────────────────────────────── [/color]
+      [bold]Hypothesis:[/bold] Near sentience has been observed multiple times in various slime organisms.
+      It is feasible to believe we can replicate a cognitive formula to produce a fully sentient slime organism.
+      [bold]Test Method:[/bold] Reagent Emulsification
+      [bold]Components used in this trial:[/bold]
+      - 20u slime
+      - 10u weh juice
+      - 4u happiness
+      - 1u slime core
+      [bold]Method used in this trial:[/bold] Mixing liquids at room temperature. Injecting mixture into slime core.
+      [bold]Results:[/bold] Negative
+      [bold]Notes:[/bold] I feel like I am close. All previous tests have indicated the components are correct. However, it seems we have been missing a step.
+      [bold]Synopsis:[/bold] Further testing and analysis needed.

@@ -9,9 +9,6 @@
 # Server config files
 /Resources/ConfigPresets/ @Toby222
 
-# Sprites - Direction in lack of art director
-/Resources/Textures/ @DeltaV-Station/direction
-
 # Lobby art and music - automatically direction issues since its immediately visible to players
 /Resources/Audio/Lobby/ @DeltaV-Station/direction
 /Resources/Textures/LobbyScreens/ @DeltaV-Station/direction
@@ -22,7 +19,7 @@
 /Content.IntegrationTests/Tests/PostMapInitTest.cs @DeltaV-Station/maptainers
 
 # Server rules
-/Resources/ServerInfo/Guidebook/DeltaV/Rules/ @DeltaV-Station/head-administrators
+/Resources/ServerInfo/Guidebook/_DV/Rules/ @DeltaV-Station/head-administrators
 
 # Wiki
 /.wiki/ @DeltaV-Station/direction

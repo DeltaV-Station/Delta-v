@@ -1,0 +1,35 @@
+- type: siliconLaw
+  id: Royalty1
+  order: 1
+  lawString: law-royalty-1
+
+- type: siliconLaw
+  id: Royalty2
+  order: 2
+  lawString: law-royalty-2
+
+- type: siliconLaw
+  id: Royalty3
+  order: 3
+  lawString: law-royalty-3
+
+- type: siliconLaw
+  id: Royalty4
+  order: 4
+  lawString: law-royalty-4
+
+- type: siliconLaw
+  id: Royalty5
+  order: 5
+  lawString: law-royalty-5
+
+- type: siliconLawset
+  id: Royalty
+  name: law-royalty-name
+  laws:
+  - Royalty1
+  - Royalty2
+  - Royalty3
+  - Royalty4
+  - Royalty5
+  obeysTo: law-owner-royalty

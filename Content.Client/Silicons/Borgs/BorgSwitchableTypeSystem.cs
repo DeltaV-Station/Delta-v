@@ -1,4 +1,5 @@
-﻿using Content.Shared.Movement.Components;
+﻿using Content.Client.PDA; // DeltaV
+using Content.Shared.Movement.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
@@ -66,24 +67,14 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
             }
         }
 
-        if (prototype.SpriteBodyMovementState is { } movementState)
+        // DeltaV - borg pdas
+        if (TryComp<PdaBorderColorComponent>(entity, out var pdaBorders))
         {
-            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
-            spriteMovement.NoMovementLayers.Clear();
-            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
-            {
-                State = prototype.SpriteBodyState,
-            };
-            spriteMovement.MovementLayers.Clear();
-            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
-            {
-                State = movementState,
-            };
+            pdaBorders.BorderColor = prototype.PdaBorderColor ?? pdaBorders.BorderColor;
+            pdaBorders.AccentHColor = prototype.PdaAccentHorizontalColor ?? pdaBorders.AccentHColor;
+            pdaBorders.AccentVColor = prototype.PdaAccentVerticalColor ?? pdaBorders.AccentVColor;
         }
-        else
-        {
-            RemComp<SpriteMovementComponent>(entity);
-        }
+        // DeltaV - borg pdas
 
         base.UpdateEntityAppearance(entity, prototype);
     }

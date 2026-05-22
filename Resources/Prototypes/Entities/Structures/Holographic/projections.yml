@@ -1,38 +1,40 @@
 - type: entity
+  parent: BaseHolosign # DeltaV
   id: HolosignWetFloor
   name: wet floor sign
   description: The words flicker as if they mean nothing.
   placement:
     mode: SnapgridCenter
   components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-    canCollide: false
+  #- type: Transform # DeltaV - Moved all these commented out attributes to BaseHolosign
+  #  anchored: true
+  #- type: Physics
+  #  bodyType: Static
+  #  canCollide: false
   - type: Sprite
     sprite: Structures/Holo/wetfloor.rsi
     state: icon
-  - type: TimedDespawn
-    lifetime: 90
-  - type: PointLight # DeltaV - lit holograms
-    enabled: true
-    radius: 3
-    color: yellow
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 30
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+  #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+  #  lifetime: 90
+  # DeltaV Additions
+  - type: TimedDespawnDetailed # DeltaV - Replaced by TimedDespawnDetailed
+    lifetime: 300
+  - type: Holosign # DeltaV - Whitelist for holoprojector pickup
+  # END DeltaV
+  #- type: Damageable # DeltaV - Moved all these commented out attributes to BaseHolosign
+  # damageContainer: Inorganic
+  #- type: Destructible
+  #  thresholds:
+  #    - trigger:
+  #        !type:DamageTrigger
+  #        damage: 30
+  #      behaviors:
+  #        - !type:DoActsBehavior
+  #          acts: [ "Destruction" ]
 
 - type: entity
   id: HoloFan
-  parent: BaseHolosign # DeltaV - don't include TimedDespawn
+  parent: BaseHolosign # DeltaV
   name: holofan
   description: A barrier of hard light that blocks air, but nothing else.
   components:
@@ -45,21 +47,20 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-  #- type: TimedDespawn # DeltaV - no despawning for holofans
+  #- type: TimedDespawn # DeltaV
   #  lifetime: 180
-  - type: Transform # DeltaV
-    noRot: true
+  # DeltaV Additions
+  - type: TimedDespawnDetailed # DeltaV - Replaced by TimedDespawnDetailed
+    lifetime: 300
+  - type: Holofan # DeltaV - Whitelist for holoprojector pickup
+  # END DeltaV
   - type: Airtight
     noAirWhenFullyAirBlocked: false
-  - type: Holofan # DeltaV - for whitelisting
-  - type: PointLight # DeltaV - lit holograms
-    enabled: true
-    radius: 3
-    color: yellow
+
 
 - type: entity
   id: HoloPeel
-  parent: HolosignWetFloor
+  parent: BaseHolosign # DeltaV
   name: holopeel
   description: A banana peel made of slippery hard light, watch your step!
   components:
@@ -83,8 +84,13 @@
         hard: false
         layer:
         - SlipLayer
-  - type: TimedDespawn
+  #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+  #  lifetime: 30
+  # DeltaV Additions
+  - type: TimedDespawnDetailed # DeltaV
     lifetime: 30
+  - type: Holopeel # DeltaV - Whitelist for holoprojector pickup
+  # END DeltaV
   - type: Clickable
   - type: Destructible
     thresholds:
@@ -97,7 +103,7 @@
 
 - type: entity
   id: HolosignSecurity
-  parent: HolosignWetFloor
+  parent: BaseHolosign # DeltaV
   name: holographic barrier
   description: A barrier of hard light that blocks movement, but pretty weak.
   components:
@@ -117,18 +123,23 @@
             - TableMask
           layer:
             - TableLayer
-    - type: TimedDespawn
+    #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+    #  lifetime: 180
+    # DeltaV Additions
+    - type: TimedDespawnDetailed # DeltaV
       lifetime: 180
+    - type: Holobarrier # DeltaV - Whitelist for holoprojector pickup
     - type: PointLight
       enabled: true
       radius: 3
       color: red
+    # END DeltaV
     - type: Climbable
     - type: Clickable
 
 - type: entity
   id: HolosignForcefield
-  parent: HolosignWetFloor
+  parent: BaseHolosign # DeltaV
   name: holographic force field
   description: A powerful temporal containment field that doesn't let anything through, not even a tesla or singularity.
   components:
@@ -148,12 +159,17 @@
         - FullTileMask
         layer:
         - GlassLayer
-  - type: TimedDespawn
+  #- type: TimedDespawn # DeltaV - Replaced by TimedDespawnDetailed
+  #  lifetime: 180
+  # DeltaV Additions
+  - type: TimedDespawnDetailed # DeltaV
     lifetime: 180
+  - type: HoloForcefield # DeltaV - Whitelist for holoprojector pickup
   - type: PointLight
     enabled: true
     radius: 3
     color: blue
+  # END DeltaV
   - type: Clickable
   - type: ContainmentField
     throwForce: 0

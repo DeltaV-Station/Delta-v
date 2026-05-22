@@ -1,5 +1,6 @@
 using Content.Shared.Popups;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Server.Revenant.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Revenant.Components;

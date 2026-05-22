@@ -73,6 +73,10 @@
         type: StoreBoundUserInterface
   - type: Visibility
     layer: 2 #ghost vis layer
+  - type: ActionGrant
+    actions:
+    - ActionRevenantShop
+    - ActionRevenantHaunt # Imp - Haunt ability
   - type: Store
     categories:
     - RevenantAbilities
@@ -89,6 +93,7 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
+  - type: Psionic # DeltaV - Revenant is of Noospheric Origin
   - type: Tag
     tags:
     - SlowImmune

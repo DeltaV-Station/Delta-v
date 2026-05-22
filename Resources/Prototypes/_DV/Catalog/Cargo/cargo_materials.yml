@@ -1,0 +1,11 @@
+- type: cargoProduct
+  id: MaterialAmmoniaTank
+  name: ammonia tank
+  description: A high capacity liquid storage tank. It is filled with ammonia.
+  icon:
+    sprite: _DV/Structures/Storage/tanks.rsi
+    state: highcapacityammoniatank
+  product: TankHighCapacityAmmonia
+  cost: 3000
+  category: cargoproduct-category-name-materials
+  group: market

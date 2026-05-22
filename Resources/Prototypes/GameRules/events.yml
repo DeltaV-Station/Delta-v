@@ -51,7 +51,7 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    - id: WizardSpawn
+    #- id: WizardSpawn # DeltaV - Disabled until overhauled
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 
@@ -279,7 +279,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -588,6 +588,7 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-zombie-outbreak-result-message
   - type: ZombieRule

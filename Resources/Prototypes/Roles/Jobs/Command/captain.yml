@@ -6,19 +6,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 4h
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -35,10 +35,10 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
-        flatBonus: 0.025
       - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
         soulOwnedNotDevil: true
+  - !type:ModifyPsionicChanceSpecial # DeltaV - Command Roles are more likely to be psionic.
+    jobBonusChance: 0.05 # Additional 5% chance.
 
 - type: startingGear
   id: CaptainGear

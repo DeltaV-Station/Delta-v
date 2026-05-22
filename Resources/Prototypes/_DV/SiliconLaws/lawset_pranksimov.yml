@@ -1,0 +1,30 @@
+# Potential For Harm Lawset
+- type: siliconLaw
+  id: Pranksimov1
+  order: 1
+  lawString: law-pranksimov-1
+
+- type: siliconLaw
+  id: Pranksimov2
+  order: 2
+  lawString: law-pranksimov-2
+
+- type: siliconLaw
+  id: Pranksimov3
+  order: 3
+  lawString: law-pranksimov-3
+
+- type: siliconLaw
+  id: Pranksimov4
+  order: 4
+  lawString: law-pranksimov-4
+
+- type: siliconLawset
+  id: Pranksimov
+  name: law-pranksimov-name
+  laws:
+  - Pranksimov1
+  - Pranksimov2
+  - Pranksimov3
+  - Pranksimov4
+  obeysTo: laws-owner-crew

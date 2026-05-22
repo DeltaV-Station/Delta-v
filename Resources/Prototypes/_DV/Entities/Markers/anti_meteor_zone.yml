@@ -1,0 +1,40 @@
+- type: entity
+  id: AntiMeteorZoneBase
+  abstract: true
+  parent: MarkerBase
+  name: anti meteor zone
+  description: Some proportion of meteors will attempt to avoid impacting within a radius of this point.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/meteor.rsi
+    layers:
+    - state: large
+      shader: unshaded
+    - sprite: Markers/cross.rsi
+      state: pink
+
+- type: entity
+  id: AntiMeteorZone
+  parent: AntiMeteorZoneBase
+  description: Some proportion of meteors will attempt to avoid impacting within a radius of this point. Customize the proportion and range in the component.
+  suffix: customize strength / customize range
+  components:
+  - type: AntiMeteorZone
+
+- type: entity
+  id: AntiMeteorZoneArrivals
+  parent: AntiMeteorZoneBase
+  description: Some meteors will attempt to avoid impacting within a radius of this point. Standardized rate of avoidance for the Arrivals areas across all stations. Customize the range in the component.
+  suffix: arrivals strength / customize range
+  components:
+  - type: AntiMeteorZoneStandardRate  # prohibits changing avoidanceRate in-game; mappers should use AntiMeteorZone for custom rates
+    avoidanceRate: 0.67
+
+- type: entity
+  id: AntiMeteorZoneEvac
+  parent: AntiMeteorZoneBase
+  description: Some meteors will attempt to avoid impacting within a radius of this point. Standardized rate of avoidance for the Evac areas across all stations. Customize the range in the component.
+  suffix: evac strength / customize range
+  components:
+  - type: AntiMeteorZoneStandardRate  # prohibits changing avoidanceRate in-game; mappers should use AntiMeteorZone for custom rates
+    avoidanceRate: 0.25

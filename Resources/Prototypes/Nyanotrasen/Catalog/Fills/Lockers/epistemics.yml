@@ -3,29 +3,31 @@
   suffix: Filled
   parent: LockerForensicMantis
   components:
-  - type: StorageFill
-    contents:
-      # Tools
-      # - id: FlashlightSeclite # Deltav - Detective is in charge of investigating crimes.
-      # - id: ForensicScanner
-      # - id: BoxForensicPad
-      - id: AntiPsychicKnife
-      - id: FlashlightLantern # DeltaV - To replace their lost flashlight
-      - id: BoxZiptie # DeltaV - Give the mantis some zipties
-      - id: WeaponPistolPsiBreaker # DeltaV - Mantis mindbreaker pistol, see Resources/Prototypes/_DV/Entities?Objects/Weapons/Guns/Pistols/pistols.yml
-      # Spare change of clothes
-      # - id: ClothingUniformJumpsuitMantis
-      # - id: ClothingUniformSkirtMantis
-      # - id: ClothingBeltMantis
-      # - id: ClothingShoesBootsMantis
-      # - id: ClothingHandsGlovesForensic # Deltav - Detective is in charge of investigating crimes.
-      - id: ClothingHeadHatFezMantis
-      # - id: ClothingOuterCoatMantis
-      - id: ClothingOuterWinterCoatMantis
-      # - id: ClothingEyesGlassesSunglasses
-      - id: PillMindbreakerToxin # DeltaV - non-loadout mindbreaker available
-        amount: 2
-      # Insulative headgear
-      - id: ClothingHeadTinfoil
-      - id: ClothingHeadCage
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        # Tools
+        # - id: FlashlightSeclite # Deltav - Detective is in charge of investigating crimes.
+        # - id: ForensicScanner
+        # - id: BoxForensicPad
+        - id: AntiPsychicKnife
+        - id: FlashlightLantern # DeltaV - To replace their lost flashlight
+        - id: BoxZiptie # DeltaV - Give the mantis some zipties
+        - id: WeaponPistolPsiBreaker # DeltaV - Mantis mindbreaker pistol, see Resources/Prototypes/_DV/Entities?Objects/Weapons/Guns/Pistols/pistols.yml
+        # Spare change of clothes
+        # - id: ClothingUniformJumpsuitMantis
+        # - id: ClothingUniformSkirtMantis
+        # - id: ClothingBeltMantis
+        # - id: ClothingShoesBootsMantis
+        # - id: ClothingHandsGlovesForensic # Deltav - Detective is in charge of investigating crimes.
+        - id: ClothingHeadHatFezMantis
+        # - id: ClothingOuterCoatMantis
+        - id: ClothingOuterWinterCoatMantis
+        # - id: ClothingEyesGlassesSunglasses
+        - id: PillMindbreakerToxin # DeltaV - non-loadout mindbreaker available
+          amount: 2
+        # Insulative headgear
+        - id: ClothingHeadTinfoil
+        - id: ClothingHeadCage
+          amount: 2

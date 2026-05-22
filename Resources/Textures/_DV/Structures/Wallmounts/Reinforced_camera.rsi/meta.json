@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from /tg/station at https://github.com/tgstation/tgstation/commit/6bfe3b2e4fcbcdac9159dc4f0327a82ddf05ba7bi | Reinforced camera from snowy_winter",
+    "states": [
+        {
+            "name": "reinforced_camera",
+            "directions": 1,
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "reinforced_camera_assembly",
+            "directions": 1
+        },
+        {
+            "name": "reinforced_camera_emp",
+            "directions": 1,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reinforced_camera_in_use",
+            "directions": 1,
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "reinforced_camera_off",
+            "directions": 1
+        }
+    ]
+}

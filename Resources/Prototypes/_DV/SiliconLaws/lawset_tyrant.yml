@@ -1,0 +1,30 @@
+# Potential For Harm Lawset
+- type: siliconLaw
+  id: Tyrant1
+  order: 1
+  lawString: law-tyrant-1
+
+- type: siliconLaw
+  id: Tyrant2
+  order: 2
+  lawString: law-tyrant-2
+
+- type: siliconLaw
+  id: Tyrant3
+  order: 3
+  lawString: law-tyrant-3
+
+- type: siliconLaw
+  id: Tyrant4
+  order: 4
+  lawString: law-tyrant-4
+
+- type: siliconLawset
+  id: Tyrant
+  name: law-tyrant-name
+  laws:
+  - Tyrant1
+  - Tyrant2
+  - Tyrant3
+  - Tyrant4
+  obeysTo: laws-owner-tyrant

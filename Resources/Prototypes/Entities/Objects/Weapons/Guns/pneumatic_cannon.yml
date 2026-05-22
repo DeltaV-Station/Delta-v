@@ -65,9 +65,10 @@
       gas_tank: !type:ContainerSlot
 
 - type: entity
-  name: pie cannon
   parent: BaseStorageItem
   id: LauncherCreamPie
+  name: pie cannon
+  suffix: Empty
   description: Load cream pie for optimal results.
   components:
   - type: Sprite
@@ -123,19 +124,19 @@
     availableModes:
     - SemiAuto
     - FullAuto
+    cameraRecoilScalar: 1.0 # DeltaV
     soundGunshot:
       path: /Audio/Effects/thunk.ogg
     soundEmpty:
       path: /Audio/Items/hiss.ogg
     clumsyProof: true
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: FoodPieBananaCream
     fireCost: 30
   - type: Battery
     maxCharge: 90
     startingCharge: 90
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 1
   - type: AmmoCounter
   - type: Item

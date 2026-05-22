@@ -15,7 +15,7 @@
         damage:
           types:
              Bloodloss: 4
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: 6
 
 - type: reagent
@@ -47,7 +47,7 @@
   metabolisms:
     Poison:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.5
 
 - type: reagent
