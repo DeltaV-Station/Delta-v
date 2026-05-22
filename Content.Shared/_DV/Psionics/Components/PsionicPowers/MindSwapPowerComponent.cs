@@ -12,5 +12,5 @@ public sealed partial class MindSwapPowerComponent : BasePsionicPowerComponent
 
     public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged { get; set; } = 30;
+    public override int MaxGlimmerChanged { get; set; } = 15;
 }

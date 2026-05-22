@@ -7,12 +7,9 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Shadow: 5
-  - type: StaminaDamageOnHit
-    damage: 1
+        Slash: 8
+        Shadow: 8
   - type: AntiPsionicWeapon
-    staminaDamageMultiplier: 20
     modifiers:
       coefficients:
         Slash: 1.5
