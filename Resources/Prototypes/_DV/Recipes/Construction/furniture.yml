@@ -744,18 +744,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  id: ComfyChairYellow
-  graph: Seat
-  startNode: start
-  targetNode: chairComfyYellow
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   id: ComfyChairRed
   graph: Seat
   startNode: start

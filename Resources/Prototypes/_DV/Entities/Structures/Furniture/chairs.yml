@@ -12,20 +12,6 @@
     graph: Seat
     node: chairComfyGreen
 
-#Yellow
-- type: entity
-  parent: ComfyChair
-  id: ComfyChairYellow
-  name: comfy chair
-  description: It looks comfy.
-  components:
-  - type: Sprite
-    state: comfy
-    color: "#CCCC00"
-  - type: Construction
-    graph: Seat
-    node: chairComfyYellow
-
 #Red
 - type: entity
   parent: ComfyChair
