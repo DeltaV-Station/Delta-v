@@ -40,6 +40,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ComponentInit>(OnBodyInit);
         SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnBodyCanDrag);
+        SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBeingGibbed);
     }
 
     private void OnBodyInserted(Entity<BodyComponent> ent, ref EntInsertedIntoContainerMessage args)

@@ -34,14 +34,6 @@ public sealed class GibbingSystem : EntitySystem
         if (!_net.IsServer)
             return new();
 
-        // Shitmed Start
-        var beforeGibbed = new BeforeGibbedEvent();
-        RaiseLocalEvent(ent, ref beforeGibbed);
-
-        if (beforeGibbed.Cancelled)
-            return new();
-        // Shitmed End
-
         if (!_destructible.DestroyEntity(ent))
             return new();
 
