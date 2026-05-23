@@ -17,7 +17,6 @@ using Content.Shared.Kitchen.Components;
 using Content.Shared.Mind.Components; // DeltaV - Admin QOL
 using Content.Shared.SSDIndicator; // DeltaV - Admin QOL
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;

@@ -69,8 +69,15 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
-        id: BoxVial
+      entity_storage: !type:AllSelector
+        children:
+        - id: Scalpel
+        - id: Retractor
+        - id: Cautery
+        - id: Drill
+        - id: Saw
+        - id: Hemostat
+        - id: ClothingMaskSterile
 
 - type: entity
   parent: CrateMedical

@@ -127,8 +127,6 @@ public sealed partial class DamageableSystem
         if (damage.Empty)
             return damageDone;
 
-        damage = ApplyUniversalAllModifiers(damage); // DeltaV - Fix EvenHealing with Limbs
-
         var before = new BeforeDamageChangedEvent(damage, origin);
         RaiseLocalEvent(ent, ref before);
 
@@ -153,9 +151,6 @@ public sealed partial class DamageableSystem
             if (damage.Empty)
                 return damageDone;
         }
-
-        if (onlyDamageParts) // DeltaV - Fix EvenHealing with Limbs.
-            return damageDone;
 
         if (!ignoreGlobalModifiers)
             damage = ApplyUniversalAllModifiers(damage);

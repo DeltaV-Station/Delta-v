@@ -79,8 +79,6 @@ public sealed class DamageOnInteractSystem : EntitySystem
 
         if (totalDamage.AnyPositive())
         {
-            // Record this interaction and determine when a user is allowed to interact with this entity again
-            entity.Comp.LastInteraction = _gameTiming.CurTime;
             entity.Comp.NextInteraction = _gameTiming.CurTime + TimeSpan.FromSeconds(entity.Comp.InteractTimer);
 
             args.Handled = true;
@@ -93,13 +91,14 @@ public sealed class DamageOnInteractSystem : EntitySystem
             // Attempt to paralyze the user after they have taken damage
             if (_random.Prob(entity.Comp.StunChance))
                 _stun.TryUpdateParalyzeDuration(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds));
-        }
-        // Check if the entity's Throw bool is false, or if the entity has the PullableComponent, then if the entity is currently being pulled.
-        // BeingPulled must be checked because the entity will be spastically thrown around without this.
-        if (!entity.Comp.Throw || !TryComp<PullableComponent>(entity, out var pullComp) || pullComp.BeingPulled)
-            return;
 
-        _throwingSystem.TryThrow(entity, _random.NextVector2(), entity.Comp.ThrowSpeed, doSpin: true);
+            // Check if the entity's Throw bool is false, or if the entity has the PullableComponent, then if the entity is currently being pulled.
+            // BeingPulled must be checked because the entity will be spastically thrown around without this.
+            if (!entity.Comp.Throw || !TryComp<PullableComponent>(entity, out var pullComp) || pullComp.BeingPulled)
+                return;
+
+            _throwingSystem.TryThrow(entity, _random.NextVector2(), entity.Comp.ThrowSpeed, doSpin: true);
+        }
     }
 
     public void SetIsDamageActiveTo(Entity<DamageOnInteractComponent> entity, bool mode)
