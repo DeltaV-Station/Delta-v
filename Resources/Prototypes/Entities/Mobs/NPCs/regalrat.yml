@@ -59,12 +59,7 @@
         Piercing: 8
   - type: Body
     prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
+    requiredLegs: 0 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -109,9 +104,11 @@
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: MobsterAccent
+  - type: ReplacementAccent # DeltaV - replace mobster accent with mouse speech replacement
+    accent: mouse
   - type: Speech
     speechVerb: SmallMob
+    speechSounds: Squeak # DeltaV addition
   - type: Butcherable
     spawned:
     - id: ClothingHeadHatFancyCrown #how did that get there?
@@ -130,7 +127,6 @@
     attributes:
       gender: male
   - type: Sharp
-  - type: PotentialPsionic # Nyano
   - type: NightVision #Delta-v - Added nightvision
     color: "#808080"
 
@@ -248,7 +244,7 @@
       - !type:GibBehavior
         recursive: false
   - type: Stamina
-    critThreshold: 60
+    baseCritThreshold: 60
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
@@ -260,12 +256,7 @@
         Piercing: 2 #Delta-V was 3
   - type: Body
     prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
+    requiredLegs: 0 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -367,7 +358,7 @@
   parent: BaseAction
   id: ActionRatKingDomain
   name: Rat King's Domain
-  description: Spend some hunger to release a cloud of ammonia into the air.
+  description: Spend some hunger to release a cloud of miasma into the air. # DeltaV
   components:
   - type: Action
     useDelay: 6

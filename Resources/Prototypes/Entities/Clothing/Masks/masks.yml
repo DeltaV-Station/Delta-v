@@ -206,15 +206,29 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
 
 - type: entity
-  parent: ClothingMaskClownBase
+  parent: [ClothingMaskClownBase, BaseFoldable]
   id: ClothingMaskClown
+  description: A clown mask featuring a foldable wig; a true prankster's attire.
   components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: opened
+    foldedHeldPrefix: opened
+  - type: Sprite
+    sprite: Clothing/Mask/clown.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-opened
+      map: [ "foldedLayer" ]
+      visible: false
   - type: Tag
     tags:
     - ClownMask
@@ -225,7 +239,7 @@
     - Snout
 
 - type: entity
-  parent: ClothingMaskClown
+  parent: ClothingMaskClownBase
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
   components:
@@ -236,9 +250,17 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
-  parent: [ClothingMaskClown, BaseSecurityContraband]
+  parent: [ClothingMaskClownBase, BaseSecurityContraband]
   id: ClothingMaskClownSecurity
   name: security clown wig and mask
   description: A debatably oxymoronic but protective mask and wig.
@@ -254,6 +276,14 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -270,9 +300,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -290,7 +317,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -467,6 +493,8 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 - type: entity
   parent: ClothingMaskBase
@@ -483,7 +511,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -504,9 +531,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -523,9 +547,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -542,9 +563,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -561,9 +579,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -580,9 +595,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -599,9 +611,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -618,7 +627,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -723,9 +731,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskGas
@@ -749,4 +754,3 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs

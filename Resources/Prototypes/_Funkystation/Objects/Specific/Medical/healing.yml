@@ -4,7 +4,7 @@
   id: SyringeConvermol
   components:
   - type: Label
-    currentLabel: convermol
+    currentLabel: syringe-convermol # DeltaV - Label localisation
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -19,7 +19,7 @@
   id: SyringeRevivopine
   components:
   - type: Label
-    currentLabel: revivopine
+    currentLabel: syringe-revivopine # DeltaV - Label localisation
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -39,7 +39,7 @@
   - type: Sprite
     state: pill3
   - type: Label
-    currentLabel: granibitulari 20u
+    currentLabel: pill-granibitulari-20u # DeltaV - Label localisation
   - type: SolutionContainerManager
     solutions:
       food:
@@ -55,7 +55,7 @@
   suffix: Granibitulari 15u
   components:
   - type: Label
-    currentLabel: granibitulari 15u
+    currentLabel: pill-granibitulari-15u  # DeltaV - Label localisation
   - type: EntityTableContainerFill
     containers:
       storagebase:

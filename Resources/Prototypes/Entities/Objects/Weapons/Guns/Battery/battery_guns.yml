@@ -15,6 +15,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
+    cameraRecoilScalar: 0.5 # DeltaV - most laser guns have lower screenshake
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -25,11 +26,6 @@
     startingCharge: 1000
   - type: StaticPrice
     price: 500
-  - type: Cautery # Shitmed
-    speed: 0.9
-  - type: SurgeryTool # Shitmed
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   parent: [BaseWeaponBattery, BaseGunWieldable]
@@ -58,8 +54,8 @@
     availableModes:
     - SemiAuto
   - type: BatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedMediumLaser # Delta V - was RedLaser
+    fireCost: 33.3 # Delta V - was 62.5
   - type: StaticPrice
     price: 420
   - type: Tag
@@ -104,11 +100,6 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
-  - type: Cautery # Shitmed
-    speed: 0.9
-  - type: SurgeryTool # Shitmed
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -260,6 +251,7 @@
         shader: unshaded
   - type: Gun
     projectileSpeed: 10
+    cameraRecoilScalar: 1.0 # DeltaV
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
@@ -301,8 +293,8 @@
     availableModes:
     - SemiAuto
   - type: BatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 50 #Delta-V was 62.5
+    proto: RedMediumLaser # Delta-V was RedLaser
+    fireCost: 33.3 # Delta-V was 62.5
   - type: StaticPrice
     price: 420
 
@@ -470,12 +462,20 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: .7 # Delta V - was 1.5
+    cameraRecoilScalar: 1.0 # DeltaV
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
-    proto: RedHeavyLaser
-    fireCost: 100
+    proto: RedSniperLaser # Delta V was - RedHeavyLaser
+    fireCost: 40 # Delta V - was 100
+  # Begin DeltaV additions
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+  # End DeltaV additions
   - type: Tag
     tags:
     - TurretCompatibleWeapon
@@ -500,6 +500,7 @@
           map: ["enum.GunVisualLayers.Base"]
     - type: Gun
       fireRate: 0.5
+      cameraRecoilScalar: 1.0 # DeltaV
       soundGunshot:
         path: /Audio/Weapons/emitter.ogg
         params:
@@ -532,6 +533,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
   - type: Gun
+    cameraRecoilScalar: 1.0 # DeltaV
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
@@ -572,6 +574,7 @@
   - type: StaticPrice
     price: 100
   - type: Gun
+    cameraRecoilScalar: 0.25 # DeltaV
     fireRate: 2
     projectileSpeed: 35 # any higher and this causes issues in lag
     soundGunshot:
@@ -684,6 +687,7 @@
   - type: Gun
     fireRate: 0.2 # DeltaV - No taser spam, was 0.5
     resetOnHandSelected: false # DeltaV - Makes it so you dont have to wait 10 seconds to shoot a taser after pulling it out
+    cameraRecoilScalar: 0.25 # DeltaV
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
@@ -920,6 +924,7 @@
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
   - type: Gun
     fireRate: 2
+    cameraRecoilScalar: 1.0 # DeltaV
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
@@ -943,6 +948,8 @@
   - type: BatterySelfRecharger #Delta V - Self recharging not removed
     autoRechargeRate: 72 # Delta V - Was 10
     autoRechargePauseTime: 30
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun # DeltaV- traitor steal target added
 
 - type: entity
   name: energy magnum
@@ -974,6 +981,7 @@
   - type: StealTarget
     stealGroup: HoSSidearm # Delta V - to work along side the X-01
   - type: Gun
+    cameraRecoilScalar: 1.0 # DeltaV
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
@@ -1048,11 +1056,11 @@
   components:
   - type: BatterySelfRecharger
     autoRechargeRate: 30
-  # "remove" wield bonus and penalty so borgs can use it 
+  # "remove" wield bonus and penalty so borgs can use it
   - type: GunWieldBonus
     minAngle: 0
     maxAngle: 0
   - type: Gun
-    fireRate: 2
+    fireRate: 1 # Delta V was 2
     minAngle: 1
     maxAngle: 2

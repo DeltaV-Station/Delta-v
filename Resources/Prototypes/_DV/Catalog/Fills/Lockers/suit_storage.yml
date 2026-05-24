@@ -117,14 +117,14 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTLeaderHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTLeaderHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitERTLeader
-    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsERTMagboots
     - id: ClothingMaskGasERT
     - id: HandheldGPSBasic
     - id: OxygenTankERTFilled
@@ -141,14 +141,14 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTSecurityHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTSecurityHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitERTSecurity
-    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsERTMagboots
     - id: ClothingMaskGasERT
     - id: HandheldGPSBasic
     - id: OxygenTankERTFilled
@@ -165,14 +165,14 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTMedicalHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTMedicalHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitERTMedical
-    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsERTMagboots
     - id: ClothingMaskGasERT
     - id: HandheldGPSBasic
     - id: OxygenTankERTFilled
@@ -189,14 +189,14 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTJanitorHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTJanitorHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitERTJanitor
-    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsERTMagboots
     - id: ClothingMaskGasERT
     - id: HandheldGPSBasic
     - id: OxygenTankERTFilled
@@ -213,14 +213,14 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTEngineerHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTEngineerHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitERTEngineer
-    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsERTMagboots
     - id: ClothingMaskGasERT
     - id: HandheldGPSBasic
     - id: OxygenTankERTFilled
@@ -237,14 +237,14 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTChaplainHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTChaplainHardsuit
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitERTChaplain
-    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsERTMagboots
     - id: ClothingMaskGasERT
     - id: HandheldGPSBasic
     - id: OxygenTankERTFilled

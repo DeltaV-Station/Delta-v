@@ -10,6 +10,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -26,6 +27,7 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private int _maxTraitCount;
     private int _maxTraitPoints;
@@ -107,6 +109,7 @@ public sealed class TraitSystem : EntitySystem
             JobId = jobId,
             SpeciesId = speciesId,
             Profile = profile,
+            StatusEffects = _statusEffects
         };
 
         foreach (var traitId in selectedTraits)
@@ -275,6 +278,7 @@ public sealed class TraitSystem : EntitySystem
             CompFactory = _factory,
             LogMan = _log,
             Transform = transform,
+            StatusEffects = _statusEffects,
         };
 
         foreach (var effect in trait.Effects)

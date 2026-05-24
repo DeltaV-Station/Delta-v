@@ -27,3 +27,6 @@ reagent-desc-double-ice-cream = Ice cream, but now with even more ice cream on t
 
 reagent-name-lemon-lime-bitters = lemon lime bitters
 reagent-desc-lemon-lime-bitters = Western Australians love this shit.
+
+reagent-name-coffee-nocaf = nocaf coffee
+reagent-desc-coffee-nocaf = A drink made from brewed chicory and figs. Contains no caffeine.

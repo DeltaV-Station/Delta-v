@@ -1,0 +1,12 @@
+- type: construction
+  id: PagerButtonRecipe
+  graph: PagerButtonGraph
+  startNode: start
+  targetNode: PagerButtonNode
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition

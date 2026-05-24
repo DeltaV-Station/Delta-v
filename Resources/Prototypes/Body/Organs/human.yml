@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseHumanOrganUnGibbable
+  id: BaseHumanOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -28,22 +28,14 @@
       - Meat
 
 - type: entity
-  id: BaseHumanOrgan
-  parent: BaseHumanOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
-
-- type: entity
   id: OrganHumanBrain
-  parent: BaseHumanOrganUnGibbable
+  parent: BaseHumanOrgan
   name: brain
   description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: Sprite
     state: brain
   - type: Organ
-    slotId: brain # Shitmed Change
   - type: Input
     context: "ghost"
   - type: Brain
@@ -84,9 +76,6 @@
   name: eyes
   description: "I see you!"
   components:
-  - type: Organ # Shitmed Change
-    slotId: eyes # Shitmed Change
-  - type: Eyes # Shitmed Change
   - type: Sprite
     layers:
       - state: eyeball-l
@@ -123,7 +112,6 @@
   components:
   - type: Sprite
     state: ears
-  - type: Ears # Shitmed Change
 
 - type: entity
   id: OrganHumanLungs
@@ -131,8 +119,6 @@
   name: lungs
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
-  - type: Organ # Shitmed Change
-    slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
       - state: lung-l
@@ -170,9 +156,6 @@
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
-  - type: Heart # Shitmed Change
-  - type: Organ # Shitmed Change
-    slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
   # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
@@ -195,8 +178,6 @@
   name: stomach
   description: "Gross. This is hard to stomach."
   components:
-  - type: Organ # Shitmed Change
-    slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
   - type: Item
@@ -229,9 +210,6 @@
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
   components:
-  - type: Liver # Shitmed Change
-  - type: Organ # Shitmed Change
-    slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
   - type: Item
@@ -249,8 +227,6 @@
   name: kidneys
   description: "Filters toxins from the bloodstream."
   components:
-  - type: Organ # Shitmed
-    slotId: kidneys
   - type: Sprite
     layers:
       - state: kidney-l

@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseDispenser
+  id: WaterDispenser
+  name: water dispenser
+  description: Wallmount water dispenser.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/walldispenser.rsi
+    layers:
+    - state: waterdispenser
+    - state: fill-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 5000
+        reagents:
+        - ReagentId: Water
+          Quantity: 5000

@@ -54,10 +54,10 @@
     damageContainer: Biological
     damageModifierSet: Slime
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Slime
-        Quantity: 1
+        Quantity: 150
     bloodlossDamage:
       types:
         Bloodloss:
@@ -93,11 +93,6 @@
   - type: Body
     prototype: Slimes
     requiredLegs: 1
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

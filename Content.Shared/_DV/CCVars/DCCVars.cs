@@ -203,6 +203,12 @@ public sealed partial class DCCVars
         CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
 
     /// <summary>
+    ///     The maximum amount of hours that will trigger an admin alert on late join.
+    /// </summary>
+    public static readonly CVarDef<double> LateJoinAlertMaxHours =
+        CVarDef.Create("admin.alerts.latejoin_max_hours", 2.0, CVar.SERVERONLY);
+
+    /// <summary>
     ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
     /// </summary>
     public static readonly CVarDef<bool> EnableBacktoBack =
@@ -295,4 +301,11 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create("cosmiccult.extra_entropy_for_finale", 1, CVar.SERVER);
+
+    /// <summary>
+    /// Whether the screenshake ported from ES should be disabled.
+    /// False by default, so enabled. Players can change this in accessiblity settings.
+    /// </summary>
+    public static readonly CVarDef<bool> EsScreenshakeDisabled =
+        CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

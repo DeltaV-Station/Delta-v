@@ -68,3 +68,22 @@
     enabled: true
     radius: 2
     color: orange
+
+- type: entity
+  parent: BaseHolosign
+  id: HolosignAnomaly
+  name: anomaly holosign
+  description: The bubble flickers anomalously, as if predicting something.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Holo/epistemics.rsi
+    state: icon
+  - type: TimedDespawnDetailed
+    lifetime: 300
+  - type: HoloAnomaly
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: purple

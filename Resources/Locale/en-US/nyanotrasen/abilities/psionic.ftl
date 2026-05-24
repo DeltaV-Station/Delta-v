@@ -3,10 +3,6 @@ cage-resist-third-person = {CAPITALIZE(THE($user))} starts removing {POSS-ADJ($u
 
 cage-uncage-verb = Uncage
 
-metapsionic-pulse-success = You detect psychic presence nearby.
-metapsionic-pulse-failure = You don't detect any psychic presence nearby.
-metapsionic-pulse-power = You detect that {$power} was used nearby.
-
 accept-psionics-window-title = Psionic!
 accept-psionics-window-prompt-text-part = You rolled a psionic power!
                                          It's possible that certain anti-psychic forces may hunt you,
@@ -17,9 +13,6 @@ glimmer-report = Current Glimmer Level: {$level}Ψ.
 glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}Ψ.
 glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}Ψ.
 glimmer-event-awakened-prefix = awakened {$entity}
-
-noospheric-zap-seize = You seize up!
-noospheric-zap-seize-potential-regained = You seize up! Some mental block seems to have cleared, too.
 
 mindswap-trapped = Seems you're trapped in this vessel.
 

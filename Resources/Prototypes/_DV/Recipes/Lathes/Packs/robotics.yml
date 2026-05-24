@@ -1,11 +1,6 @@
 ## Static
 
 - type: latheRecipePack
-  parent:
-  - IPCPartsStatic # Shitmed
-  id: RoboticsStaticDeltaV
-
-- type: latheRecipePack
   id: RoboticsEmagStatic
   recipes:
   - IdChipSyndie
@@ -35,9 +30,8 @@
   - BorgModuleFauna
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedTopical
   - BorgModuleAdvancedMining
-  - BorgModuleAdvancedSurgery
 
 - type: latheRecipePack
   id: BorgModulesSecurityDeltaVStatic
@@ -48,7 +42,18 @@
   id: BorgDVModulesStatic
   recipes:
   - BorgModuleDecoration
+  - BorgModuleFishing
 
+# Service Modules
+
+- type: latheRecipePack
+  id: BorgModulesServiceStaticDV
+  recipes:
+  - BorgModuleBureaucracy
+  - BorgModuleBoxing
+  - BorgModuleReporter
+  - BorgModuleMusique
+  - BorgModuleClowning
 
 # If you add anything to this, know that the SyndicateExosuitFabricator does not
 # get this pack due to IdChipBorgAA not being available to SRNs. Probably should
@@ -66,11 +71,6 @@
   - ClothingEyesHudDiagnostic
 
 - type: latheRecipePack
-  parent:
-  - BorgModulesShitmed # Shitmed
-  id: BorgModulesDeltaV
-
-- type: latheRecipePack
   id: BorgModulesSecurityDeltaV
   recipes:
   - BorgModuleSecurityChase
@@ -79,23 +79,9 @@
   - BorgModuleFauna
 
 - type: latheRecipePack
-  id: PowerAugments
+  id: BorgModulesServiceDynamicDV
   recipes:
-  - AugmentPowerCellSlotCasing
-  - AugmentRechargerCasing
-
-- type: latheRecipePack
-  id: ToolAugments
-  recipes:
-  - AugmentToolPanelCasing
-  - AugmentUtilityPanelElectronics
-  - AugmentBotanyPanelElectronics
-  - AugmentSurgeryPanelElectronics
-  - AugmentPaperworkPanelElectronics
-
-- type: latheRecipePack
-  id: PsionicProsthetics
-  recipes:
-  - DispelLeftArm
-  - RecallLeftArm
-  - ForcewallLeftArm
+  - BorgModuleAdvancedBotany
+  - BorgModuleAdvancedChef
+  - BorgModuleAdvancedBartender
+  - BorgModuleDJ

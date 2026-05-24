@@ -28,7 +28,7 @@
 - type: entity
   id: OrganDionaBrain
   parent: [BaseDionaOrgan, OrganHumanBrain]
-  name: diona brain
+  name: diona brain # DeltaV
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
   - type: Item
@@ -36,9 +36,6 @@
     heldPrefix: brain
   - type: Sprite
     state: brain
-  - type: Organ # Shitmed
-    slotId: brain
-  - type: Brain # Shitmed
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -60,20 +57,13 @@
 - type: entity
   id: OrganDionaEyes
   parent: BaseDionaOrgan
-  name: diona eyes
+  name: diona eyes # DeltaV
   description: "I see you!"
   components:
   - type: Sprite
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Organ # Shitmed
-    slotId: eyes
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Eyes
 
 - type: entity
   id: OrganDionaStomach
@@ -92,8 +82,6 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 5
-  - type: Organ # Shitmed
-    slotId: stomach
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6
@@ -113,13 +101,11 @@
 - type: entity
   id: OrganDionaLungs
   parent: BaseDionaOrgan
-  name: diona lungs
+  name: diona lungs # DeltaV
   description: "A spongy mess of slimy, leaf-like structures. Capable of breathing both carbon dioxide and oxygen."
   components:
   - type: Sprite
     state: lungs
-  - type: Organ # Shitmed
-    slotId: lungs
   - type: Item
     size: Small
     heldPrefix: lungs
@@ -153,7 +139,7 @@
   id: OrganDionaBrainNymph
   parent: OrganDionaBrain
   categories: [ HideSpawnMenu ]
-  name: diona brain
+  name: diona brain # DeltaV
   description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: Brain
@@ -167,7 +153,7 @@
   id: OrganDionaStomachNymph
   parent: OrganDionaStomach
   categories: [ HideSpawnMenu ]
-  name: diona stomach
+  name: diona stomach # DeltaV
   description: "Gross. This is hard to stomach."
   components:
   - type: Nymph
@@ -177,7 +163,7 @@
   id: OrganDionaLungsNymph
   parent: OrganDionaLungs
   categories: [ HideSpawnMenu ]
-  name: diona lungs
+  name: diona lungs # DeltaV
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Nymph
@@ -188,7 +174,7 @@
   id: OrganDionaNymphBrain
   parent: MobDionaNymph
   categories: [ HideSpawnMenu ]
-  name: diona nymph
+  name: diona nymph # DeltaV
   suffix: Brain
   description: Contains the brain of a formerly fully-formed Diona. Killing this would kill the Diona forever. You monster.
   components:

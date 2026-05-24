@@ -6,7 +6,7 @@
   description: This implant lets its user adjust their voice to whoever they can think of.
   components:
   - type: SubdermalImplant
-    implantAction: ActionChangeVoiceMask
+    implantAction: ActionChangeVoiceMaskImplant
   - type: VoiceMask
   - type: UserInterface
     interfaces:

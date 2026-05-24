@@ -1,7 +1,6 @@
 using Content.Server.Interaction;
 using Content.Server.Kitchen.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clumsy;
 using Content.Shared.Damage;
@@ -264,7 +263,7 @@ public sealed class ExecutionSystem : EntitySystem
                 throw new InvalidOperationException($"Unknown shootable type [{ev.Ammo[0].Shootable}]");
         }
 
-        // Clumsy people have a chance to shoot themselves (not in the head)
+        // Clumsy people have a chance to shoot themselves
         if (!component.ClumsyProof &&
             TryComp<ClumsyComponent>(attacker, out var clumsy) && _random.Prob(1f / 3f))
         {
@@ -278,7 +277,7 @@ public sealed class ExecutionSystem : EntitySystem
         }
 
         // Gun successfully fired, deal damage
-        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true, targetPart: TargetBodyPart.Head);
+        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true);
         _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
 
         // Popups

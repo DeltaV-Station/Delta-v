@@ -26,13 +26,6 @@
         maxDistance: 2
   - type: UseDelay
     delay: 1.5
-  - type: Tending # Shitmed
-    speed: 0.55
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
   - type: Fixtures
     fixtures:
       fix1:
@@ -134,10 +127,10 @@
     state: pen_cap
 
 - type: entity
-  name: hop's fountain pen
+  name: HoP's fountain pen
   parent: PenEmbeddable
   id: PenHop
-  description: A luxurious fountain pen for the hop of the station.
+  description: A luxurious fountain pen for the HoP of the station.
   components:
   - type: Sprite
     state: pen_hop

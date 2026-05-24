@@ -16,7 +16,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Shared.Clumsy;
 
@@ -124,7 +123,7 @@ public sealed class ClumsySystem : EntitySystem
         // TODO: Replace with RandomPredicted once the engine PR is merged
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(args.Gun).Id);
         var rand = new System.Random(seed);
-        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        if (!rand.Prob(ent.Comp.ClumsyGunShootCheck)) // DeltaV change from default to gun check
             return;
 
         if (ent.Comp.GunShootFailDamage != null)
@@ -200,7 +199,7 @@ public sealed class ClumsySystem : EntitySystem
         {
             stunTime = bonkComp.BonkTime;
             if (bonkComp.BonkDamage != null)
-                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true, targetPart: TargetBodyPart.Head); // Shitmed Change
+                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true);
         }
 
         _stun.TryUpdateParalyzeDuration(target, stunTime);

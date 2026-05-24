@@ -13,8 +13,6 @@ using Content.Shared.Roles;
 using Content.Shared.Station;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared._DV.Silicon.IPC; // DeltaV
-using Content.Shared.Radio.Components; // Goobstation
 
 namespace Content.Server.Clothing.Systems;
 
@@ -108,14 +106,6 @@ public sealed class OutfitSystem : EntitySystem
             // Equip the target with the job loadout
             _spawningSystem.EquipRoleLoadout(target, roleLoadout, jobProto);
         }
-
-        // Begin DeltaV/Goob Additions
-        if (EntityManager.HasComponent<EncryptionKeyHolderComponent>(target))
-        {
-            var encryption = EntityManager.System<InternalEncryptionKeySpawner>();
-            encryption.TryInsertEncryptionKey(target, startingGear);
-        }
-        // End DeltaV/Goob Additions
 
         return true;
     }
