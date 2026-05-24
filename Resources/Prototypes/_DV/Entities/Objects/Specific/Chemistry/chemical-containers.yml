@@ -1,0 +1,14 @@
+- type: entity
+  parent: Jug
+  id: JugSalbutamol
+  categories: [ HideSpawnMenu ]
+  suffix: salbutamol
+  components:
+  - type: Label
+    currentLabel: reagent-name-salbutamol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Salbutamol
+          Quantity: 200

@@ -82,6 +82,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: VisionCorrection
+    correctionPower: 8 # Delta-V (was default value, 2)
   - type: Tag
     tags:
     - HamsterWearable
@@ -112,6 +113,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/jamjar.rsi
   - type: VisionCorrection
+    correctionPower: 8 # Delta-V (was default value, 2)
   - type: Tag
     tags:
     - HamsterWearable
@@ -128,6 +130,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
   - type: VisionCorrection
+    correctionPower: 8 # Delta-V (was default value, 2)
   - type: IdentityBlocker
   - type: StaticPrice
     price: 500

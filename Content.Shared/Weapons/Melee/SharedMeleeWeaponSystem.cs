@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
@@ -67,6 +68,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private   readonly DamageExamineSystem _damageExamine = default!;
+    // ES START
+    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
+    // ES END
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -223,8 +227,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon) ||
-            !weapon.CanWideSwing) // Goobstation Change
+            weaponUid != GetEntity(msg.Weapon))
         {
             return;
         }
@@ -560,7 +563,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass, partMultiplier: component.ClickPartDamageMultiplier)) // Shitmed Change
+        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
@@ -594,6 +597,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, targetXform);
+
+            // ES START
+            // dog shit copy plaste but thats melee for you
+            var userShakeRotation = new ESScreenshakeParameters()
+                { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+            _shake.Screenshake(user, null, userShakeRotation);
+            foreach (var shakeTarget in targets)
+            {
+                _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
+            }
+            // ES END
         }
     }
 
@@ -720,7 +735,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
+            var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
 
             if (damageResult.GetTotal() > FixedPoint2.Zero)
             {
@@ -758,6 +773,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var target = entities.First();
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
+
+        // ES START
+        // dog shit copy plaste but thats melee for you
+        var userShakeRotation = new ESScreenshakeParameters()
+            { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+        var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+        _shake.Screenshake(user, null, userShakeRotation);
+        foreach (var shakeTarget in targets)
+        {
+            _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
+        }
+        // ES END
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {

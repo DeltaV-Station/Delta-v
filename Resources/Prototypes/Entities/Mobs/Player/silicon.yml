@@ -1,6 +1,7 @@
 ﻿# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
+  save: false # DeltaV - AI PDAs
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
@@ -46,6 +47,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionOpenCartridges # DeltaV - AI PDA
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -60,6 +62,12 @@
         type: CommunicationsConsoleBoundUserInterface
       enum.StoreUiKey.Key: # DeltaV - AI shop system
         type: StoreBoundUserInterface
+      # Begin DeltaV - AI PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End DeltaV - AI PDAs
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -418,6 +426,7 @@
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
+  save: false # DeltaV - AI PDAs
   parent: PositronicBrain
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
@@ -486,7 +495,6 @@
     damageContainers:
     - Inorganic
     - Silicon
-    - HumanoidSilicon
   # End DeltaV additions
   - type: ToggleableGhostRole
     roleName: station-ai-ghost-role-name
@@ -495,6 +503,42 @@
     mindRoles:
     - MindRoleGhostRoleSilicon
     job: StationAi
+  # Begin DeltaV - AI PDAs
+  - type: Pda
+    idSlot:
+      locked: true
+    penSlot:
+      locked: true
+    paiSlot:
+      locked: true
+  - type: Ringer
+  - type: NanoChatCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    cartridgeSlot:
+      locked: true
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: ContainerContainer
+    containers:
+      program-container: !type:Container
+      Cartridge-Slot: !type:ContainerSlot
+  - type: ItemSlots
+  - type: PdaBorderColor
+    borderColor: "#45453f"
+    accentVColor: "#447987"
+  # End DeltaV - AI PDAs
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

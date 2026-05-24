@@ -851,12 +851,14 @@
           amount: *Range1to6
         - id: PillCharcoal
           amount: *Range1to6
-        - id: PillAmbuzol
-          weight: 0.75
-          amount: *Range1to6
-        - id: PillAmbuzolPlus
-          weight: 0.75
-          amount: *Range1to6
+        # Begin DeltaV removal - Remove random ambuzol
+        #- id: PillAmbuzol
+        #  weight: 0.75
+        #  amount: *Range1to6
+        #- id: PillAmbuzolPlus
+        #  weight: 0.75
+        #  amount: *Range1to6
+        # End DeltaV removal
         - id: PillSpaceDrugs
           weight: 0.75
           amount: *Range1to6

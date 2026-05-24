@@ -42,9 +42,28 @@
   recipes:
   # CMO
   - ClothingLongcoatCMO
+  - ClothingUniformCMOFormal
+  - ClothingUniformJumpskirtCMOFormal
+  - ClothingUniformCMOVest
+  - ClothingUniformJumpskirtCMOVest
+  - ClothingUniformCMOSummer
   # Chemist
   - ClothingUniformJumpsuitChemShirt
   - ClothingUniformJumpskirtChemShirt
+  # Paramed
+  - ClothingUniformParamedicJumper
+  - ClothingUniformJumpskirtParamedicJumper
+  # General
+  - ClothingUniformMedicalApron
+  - ClothingUniformJumpskirtMedicalApron
+  - ClothingUniformMedicalOffset
+  - ClothingUniformJumpskirtMedicalOffset
+  - ClothingUniformMedicalVest
+  - ClothingUniformJumpskirtMedicalVest
+  # Hats
+  - ClothingHeadHatBeretMedical
+  - ClothingHeadHatBeretSeniorChemistry
+  - ClothingHeadHatBeretParamedic
 
 - type: latheRecipePack
   id: ClothingJustice
@@ -99,6 +118,7 @@
   - ClothingUniformJumpskirtAtmos
   - ClothingUniformJumpsuitAtmosCasual
   - ClothingUniformJumpskirtAtmosCasual
+  - ClothingHeadHatBeretAtmospherics
 
 - type: latheRecipePack
   id: ClothingServiceDeltaV
@@ -150,4 +170,5 @@
   - ClothingUniformCybersunCasual
   - ClothingUniformCybersunRND
   - ClothingOuterCybersunOvercoat
+  - ClothingOuterCoatLabCybersun
   - ClothingBeltSyndicateUtility
