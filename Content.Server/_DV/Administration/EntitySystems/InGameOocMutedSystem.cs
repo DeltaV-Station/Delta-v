@@ -16,7 +16,7 @@ public sealed class InGameOocMutedSystem : EntitySystem
 
     private void OnIngameOoc(ref InGameOocMessageAttemptEvent args)
     {
-        if (args.Session.GetMind() is not {} mind)
+        if (args.Session.GetMind() is not { } mind)
             return;
 
         if (!TryComp<InGameOocMutedComponent>(mind, out var oocMuted))
