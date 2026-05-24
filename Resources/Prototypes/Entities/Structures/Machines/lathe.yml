@@ -238,7 +238,6 @@
     - Instruments
     - Equipment
     - Botany # DeltaV
-    - Surgery # Shitmed change
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -341,41 +340,26 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    # Begin DeltaV Additions
-    - RoboticsStaticDeltaV
-    - PowerAugments
-    - ToolAugments
-    - BorgDVModulesStatic
-    - BorgModulesStaticShitmed # Shitmed
-    - BorgIdentificationStaticDeltaV # Borg IDs
-    - BorgModulesServiceStaticDV # Service Borg Rework
-    # End DeltaV Additions
+    - BorgDVModulesStatic # DeltaV - modules
+    - BorgIdentificationStaticDeltaV # DeltaV - Borg IDs
     dynamicPacks:
     - Robotics
     - BorgModules
     - MechParts
     - MechEquipment
-    # Begin DeltaV Additions
-    - RoboticsDeltaV
-    - BorgModulesDeltaV
-    - Surgery # Share Surgery Parts between Epi and Med.
-    - CyberneticsRobotics # Share Surgery Parts between Epi and Med.
-    - PsionicProsthetics
-    - BorgModulesServiceDynamicDV # Service Borg Rework
-    # End DeltaV Additions
+    - RoboticsDeltaV # DeltaV
+    - BorgModulesServiceDynamicDV # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
     # Being DeltaV Additions
     - EVASuit
     emagDynamicPacks:
-    - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
     - BorgModulesSecurityDeltaV
     - SalvageHardsuits
     - ParamedicHardsuit
     - EngineeringHardsuits
-    - AdvancedPsionicProsthetics
     # End DeltaV Additions
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
@@ -474,7 +458,6 @@
     - SecurityWeapons
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
-    - AdvancedPsionicProsthetics # DeltaV
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -584,19 +567,13 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
-    - IPCLimbsStatic
-    - PowerAugments
-    - ToolAugments
     - SimpleToolsStaticDeltaV
     # End DeltaV Additions
     dynamicPacks:
     - Chemistry
-    - CyberneticsMedical # Shitmed change
-    - Surgery # Shitmed change
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
-    - Cybernetics
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard
