@@ -134,3 +134,19 @@
     icon:
       sprite: Objects/Devices/communication.rsi
       state: old-radio
+
+#hitman
+
+- type: entity
+  parent: [ BaseSubdermalImplant ]
+  id: HitmanCardImplant
+  name: hitman card implant
+  description: This implant lets the user make a calling card at will
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionCreateHitmanCard
+  - type: TriggerOnActivateImplant
+  - type: CreateHitmanCardOnTrigger
+    targetUser: true
+
