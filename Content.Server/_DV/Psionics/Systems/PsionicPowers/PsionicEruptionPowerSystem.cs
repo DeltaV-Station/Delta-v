@@ -185,7 +185,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
             GlimmerTier.Low => 3,
             GlimmerTier.Moderate => 4,
             GlimmerTier.High => 8,
-            GlimmerTier.Dangerous => 16,
+            GlimmerTier.Dangerous => 12,
             GlimmerTier.Critical => 32,
             _ => 0
         };
