@@ -1,0 +1,29 @@
+- type: species
+  id: Decapoid
+  name: species-name-decapoid
+  roundStart: false
+  prototype: MobDecapoid
+  defaultSkinTone: "#385878"
+  dollPrototype: AppearanceDecapoid
+  skinColoration: Hues
+  maleFirstNames: NamesDecapoidFirst
+  femaleFirstNames: NamesDecapoidFirst
+  lastNames: NamesDecapoidLast
+  sexes:
+  - Unsexed
+  youngAge: 40
+  oldAge: 80
+
+# Developer Notes
+#
+# Decapoids are fairly a complicated species
+# They first of all, can survive in space without any worries whatsoever, as they take no barotrauma or cold damage from space
+# However, they do take twice as much heat damage (Steam the crab. Do it)
+# In order to speak, decapoids need to wear a vaporizer, which acts as a gas mask as..
+# Decapoids breathe exclusively water vapor, nothing else, however they don't get poisoned by anything.
+# They also cannot be injected into, their shell too thick to pierce. this means they have to sip medicine or be placed into cryopods.
+# And their final limiting factor is the fact they only have one usable hand, as the other is a large claw that makes them clumsy.
+#
+# You might choose to enable them if you want a relatively complex species in your server that takes some getting used to.
+# They're fairly difficult to play in medical and security positions (as they cant use defibs OR guns).
+# You might want them disabled if you're worried about the balance of a spacewalking species, or find them too limiting.

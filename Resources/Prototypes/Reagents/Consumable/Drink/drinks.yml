@@ -499,6 +499,18 @@
           type: [ Harpy ]
         factor: -1
       # DeltaV - End changes
+      #MACROCOSM START
+      - !type:Oxygenate # for decapoids.
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Decapoid ]
+      - !type:ModifyLungGas
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Decapoid ]
+        ratios:
+          Ammonia: 1.0
+          WaterVapor: -1.0
 
 - type: reagent
   id: Ice

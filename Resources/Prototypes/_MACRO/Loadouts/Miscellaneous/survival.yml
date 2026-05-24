@@ -1,0 +1,123 @@
+# Species
+- type: loadoutEffectGroup
+  id: Aquatic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Decapoid
+# Pre-equipped species gear
+# Full tank for aquatics as part of any Survival loadout
+- type: loadout
+  id: LoadoutSpeciesAquaticFullTank
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  equipment:
+    suitstorage: DecapoidVaporTankFilled
+
+# Breath Tool On Face
+- type: loadout
+  id: LoadoutDecapoidBreathTool
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  equipment:
+    mask: DecapoidBreathingApparatus
+
+# Breath tool in inventory
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventory
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatus
+
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventoryClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatusClown
+
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventoryMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatusMime
+
+# Basic
+- type: loadout
+  id: EmergencyAquatic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalAquatic
+
+# Clown
+- type: loadout
+  id: EmergencyAquaticClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxHugAquatic
+
+# Mime
+- type: loadout
+  id: EmergencyAquaticMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxMimeAquatic
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyAquaticExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalEngineeringAquatic
+
+# Medical
+- type: loadout
+  id: EmergencyAquaticMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalMedicalAquatic
+
+# Security
+- type: loadout
+  id: EmergencyAquaticSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalSecurityAquatic
+
+# Syndicate
+- type: loadout
+  id: EmergencyAquaticSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalSyndicateAquatic

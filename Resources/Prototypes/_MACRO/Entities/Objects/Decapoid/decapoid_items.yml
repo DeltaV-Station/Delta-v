@@ -1,0 +1,208 @@
+- type: entity
+  name: decapoid claw
+  suffix: Unremoveable
+  parent: BaseItem
+  id: DecapoidClawItem
+  description: 'A large claw. Not very good for fine manipulation, but very strong and very sharp.'
+  components:
+  - type: Sprite
+    sprite: &ClawRSI _MACRO/Objects/Decapoid/claw.rsi # todo: custom. obviously
+    state: icon
+  - type: Item
+    sprite: *ClawRSI
+  - type: MeleeWeapon
+    range: 1
+    angle: 20
+    resetOnHandSelected: true
+    wideAnimationRotation: 135
+    attackRate: 1.5
+    damage:
+      types:
+        Piercing: 10
+        Structural: 10
+    soundHit:
+      collection: AlienClaw
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 1 #these numbers don't matter since the shield isn't destructable, but the default values in the component are set up wrong so Some Number is required here
+    activeBlockModifier:
+      coefficients:
+        Blunt: 1 #see above
+    passiveBlockFraction: 0.0 #does not give damage reduction passively
+    activeBlockFraction: 0.5 #gives 50% damage reduction against brute damage to the decapoid while the claw is raised
+  - type: Damageable
+    damageContainer: DecapoidShield #determines what types of damage are reduced by the Blocking component, DecapoidShield damage container is brute damage only
+  - type: ToolTileCompatible
+    delay: 0.5
+  - type: Tool
+    qualities:
+      - Prying
+    useSound: /Audio/_MACRO/Items/Decapoid/claw_prying.ogg
+  - type: Prying
+    speedModifier: 1.5
+    pryPowered: false # god damn it
+    useSound: /Audio/_MACRO/Items/Decapoid/claw_prying.ogg
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: *ClawRSI
+          state: icon-closed
+        useSound: /Audio/_MACRO/Items/Decapoid/claw_prying.ogg
+        changeSound: /Audio/_MACRO/Items/Decapoid/switch.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: *ClawRSI
+          state: icon
+        useSound: /Audio/_MACRO/Items/Decapoid/claw_cutting.ogg
+        changeSound: /Audio/_MACRO/Items/Decapoid/switch.ogg
+  - type: OrganAttached
+    slot: left
+    handEquipment: true
+
+
+- type: entity
+  name: vaporizer
+  parent: ClothingMaskPullableBase
+  id: DecapoidBreathingApparatus
+  description: 'A neck-mounted breathing apparatus for Decapoids. Moistens your gills, if you have them. Also functions as a brain-to-voice translator.'
+  components:
+  - type: Sprite
+    sprite: _MACRO/Objects/Decapoid/vaporizer.rsi # todo: custom. obviously. also todo: make it able to take in water, convert it to vapor, and internals that steam into the lungs.
+    state: icon
+  - type: Tag
+    tags:
+      - Vaporizer
+      - WhitelistChameleon
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - mask
+    sprite: _MACRO/Objects/Decapoid/vaporizer.rsi
+    clothingVisuals:
+      mask:
+      - state: EQUIPPED-neck
+      - state: EQUIPPED-neckUnshaded
+        shader: unshaded
+  - type: BreathMask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
+  - type: SpeechSound
+    speechSounds: Decapoid
+    speechVerb: Robotic
+
+- type: entity
+  name: clown vaporizer
+  parent: DecapoidBreathingApparatus
+  id: DecapoidBreathingApparatusClown
+  description: 'A neck-mounted breathing apparatus for Decapoids. Moistens your gills, if you have them. Also functions as a brain-to-voice translator. This one has been modified by a clown to complement their outfit...'
+  components:
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    hideOnToggle: true
+  - type: Sprite
+    sprite: _MACRO/Objects/Decapoid/vaporizerclown.rsi
+  - type: Clothing
+    sprite: _MACRO/Objects/Decapoid/vaporizerclown.rsi
+
+- type: entity
+  name: mime vaporizer
+  parent: DecapoidBreathingApparatus
+  id: DecapoidBreathingApparatusMime
+  description: 'A neck-mounted breathing apparatus for Decapoids. Moistens your gills, if you have them. Also functions as a brain-to-voice translator. This one has been modified by a mime to complement their outfit...'
+  components:
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: Sprite
+    sprite: _MACRO/Objects/Decapoid/vaporizermime.rsi
+  - type: Clothing
+    sprite: _MACRO/Objects/Decapoid/vaporizermime.rsi
+
+- type: entity
+  name: vapor tank
+  parent: GasTankRoundBase
+  id: DecapoidVaporTank
+  description: 'An alien contraption consisting of two tanks. The smaller tank takes in water and converts it into vapor, which is stored in the larger tank. It can hold 5 L of gas, and 30u of fluid.'
+  components:
+  - type: Sprite
+    sprite: _MACRO/Objects/Tanks/vapor.rsi
+    layers:
+    - state: icon
+    - state: fill-1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: normal
+      map: [ "indicator" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.VaporizerVisuals.Indicator:
+        indicator:
+          Normal:      { state: "normal" }
+          BadSolution: { state: "bad" }
+          LowSolution: { state: "low" }
+          Empty:       { state: "empty" }
+  - type: Appearance
+  - type: Item
+    size: Normal
+    sprite: _MACRO/Objects/Tanks/vapor.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _MACRO/Objects/Tanks/vapor.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Edible
+    edible: Drink
+    solution: waterTank
+    destroyOnEmpty: false
+  - type: SolutionContainerManager
+    solutions:
+      waterTank:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: waterTank
+  - type: ExaminableSolution
+    solution: waterTank
+  - type: Spillable
+    solution: waterTank
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: waterTank
+  - type: MixableSolution
+    solution: waterTank
+  - type: DrainableSolution
+    solution: waterTank
+  - type: DrawableSolution
+    solution: waterTank
+  - type: Vaporizer
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+    solutionName: waterTank
+
+- type: entity
+  name: vapor tank
+  parent: DecapoidVaporTank
+  id: DecapoidVaporTankFilled
+  suffix: Filled
+  components:
+  - type: GasTank
+    releasePressure: 21.3
+    air:
+      volume: 5
+      moles:
+        WaterVapor: 2.051379050
+      temperature: 293.15

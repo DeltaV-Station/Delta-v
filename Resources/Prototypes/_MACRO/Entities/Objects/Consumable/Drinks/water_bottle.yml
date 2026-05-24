@@ -1,0 +1,67 @@
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  id: DrinkWaterBottleLargeFull
+  suffix: Decapoid
+  name: water bottle
+  description: A bottle of clean water designed with claw-based ergonomics in mind. Fresh from the mineral-aquifers of Nest Krr'kik.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Water
+          Quantity: 50
+        maxVol: 50
+  - type: Sprite
+    sprite: _MACRO/Objects/Consumable/Drinks/Plastic/bigwaterbottle.rsi
+  - type: FitsInDispenser
+    solution: drink
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  id: DrinkWaterBottleTallFull
+  suffix: Decapoid, Extended
+  name: extended-capacity water bottle
+  description: A tall bottle of clean water designed with claw-based ergonomics in mind. Fresh from the mineral-aquifers of Nest Krr'kik.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Water
+          Quantity: 80
+        maxVol: 80
+  - type: Sprite
+    sprite: _MACRO/Objects/Consumable/Drinks/Plastic/tallwaterbottle.rsi
+  - type: FitsInDispenser
+    solution: drink
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: DrinkWaterBottleLargeFull
+  id: DrinkWaterBottleLargeFunnyFull
+  suffix: Decapoid, funny
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Water
+          Quantity: 35
+        - ReagentId: Laughter
+          Quantity: 15
+  - type: FitsInDispenser
+    solution: drink
+  - type: Label
+    currentLabel: funny water

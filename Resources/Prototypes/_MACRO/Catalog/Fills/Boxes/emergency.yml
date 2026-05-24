@@ -1,0 +1,130 @@
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalAquatic
+  suffix: Standard H2O
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleLargeFull
+  - type: Sprite
+    sprite: _MACRO/Objects/Storage/boxes.rsi
+    layers:
+    - state: internals
+    - state: vaportank
+  - type: Label
+    currentLabel: H2O
+
+- type: entity
+  parent: BoxSurvivalAquatic
+  id: BoxSurvivalEngineeringAquatic
+  suffix: Extended, H2O
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity water bottle.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkWaterBottleTallFull
+        - id: ClothingMaskBreath
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodSnackNutribrick
+  - type: Sprite
+    sprite: _MACRO/Objects/Storage/boxes.rsi
+    layers:
+    - state: internals
+    - state: extendedtankvapor
+
+- type: entity
+  parent: BoxSurvivalAquatic
+  id: BoxHugAquatic
+  name: box of hugs
+  suffix: Emergency H2O
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleLargeFunnyFull
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxSurvivalAquatic
+  id: BoxMimeAquatic
+  suffix: Mime, Emergency H2O
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodBreadNutriBatard
+        - id: DrinkWaterBottleLargeFull
+
+- type: entity
+  parent: BoxSurvivalAquatic
+  id: BoxSurvivalMedicalAquatic
+  suffix: Medical, H2O
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleLargeFull
+
+
+- type: entity
+  parent: BoxSurvivalAquatic
+  id: BoxSurvivalSecurityAquatic
+  suffix: Security, H2O
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSecurity
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleLargeFull
+
+- type: entity
+  parent: BoxSurvivalEngineeringAquatic
+  id: BoxSurvivalSyndicateAquatic
+  suffix: Syndicate, H2O
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkWaterBottleTallFull
+        - id: ClothingMaskGasSyndicate
+        - id: PillEmergency
+        - id: Flare
+        - id: FoodSnackNutribrick

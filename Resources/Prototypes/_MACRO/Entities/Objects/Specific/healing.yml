@@ -1,0 +1,21 @@
+- type: entity
+  name: pill
+  suffix: Emergency
+  parent: Pill
+  id: PillEmergency
+  components:
+  - type: Pill
+    pillType: 18
+  - type: Sprite
+    state: pill19
+  - type: Label
+    currentLabel: emergency
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 12
+        - ReagentId: TranexamicAcid
+          Quantity: 3

@@ -96,6 +96,10 @@ public sealed partial class InjectorSystem : EntitySystem
     {
         if (args.Cancelled || args.Handled || args.Args.Target == null)
             return;
+        // MACRO Start: Block Injection
+        if (TryBlockInjection(args.User, args.Args.Target.Value))
+            return;
+        // MACRO End: Block Injection
 
         args.Handled |= TryUseInjector(injector, args.Args.User, args.Args.Target.Value);
     }

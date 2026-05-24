@@ -1,0 +1,630 @@
+﻿# Chest
+
+- type: marking
+  id: CrabChestBiopulse
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: biopulse1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: biopulse2
+  shaders:
+    biopulse1: unshaded
+    biopulse2: unshaded
+
+- type: marking
+  id: CrabChestMasked
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: masked
+
+- type: marking
+  id: CrabCorset
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: corset
+
+- type: marking
+  id: CrabCrackedChest
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: crackedchest
+
+- type: marking
+  id: CrabSpine
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: spine
+
+- type: marking
+  id: DecapoidAbPlate
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: abdominalplate
+
+- type: marking
+  id: DecapoidLowerPlate
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: lowerplate
+
+- type: marking
+  id: DecapoidPecPlate
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: pectoralplate
+
+- type: marking
+  id: FlowerMoonPlate
+  bodyPart: Chest
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: flowermoonupper1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: flowermoonupper2
+  - sprite: _MACRO/Mobs/Customization/Decapoid/chest.rsi
+    state: flowermoonupper3
+
+# Head
+
+- type: marking
+  id: CrabCrackedHead
+  bodyPart: Head
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/head.rsi
+    state: crackedhead
+
+- type: marking
+  id: CrabHeadHighlight
+  bodyPart: Head
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/head.rsi
+    state: highlight
+
+- type: marking
+  id: GaudyClownHead
+  bodyPart: Head
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/head.rsi
+    state: gaudyclownhead1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/head.rsi
+    state: gaudyclownhead2
+
+# Snout
+
+- type: marking
+  id: DecapoidGillsDefault
+  bodyPart: Snout
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/snout.rsi
+    state: gills-default
+
+- type: marking
+  id: GillStripes
+  bodyPart: Snout
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/snout.rsi
+    state: gills-stripes1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/snout.rsi
+    state: gills-stripes2
+
+# Eyes
+
+- type: marking
+  id: CrabTallEyes
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-tall1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-tall2
+
+- type: marking
+  id: DecapoidEyesDefault
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-default
+
+- type: marking
+  id: DecapoidEyesSpider
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-spider
+
+- type: marking
+  id: DecapoidEyesStalks
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-stalks
+
+- type: marking
+  id: DecapoidEyesThree
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-three
+
+- type: marking
+  id: DecapoidEyesWideClose
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-wide-close
+
+- type: marking
+  id: DecapoidEyesWideFar
+  bodyPart: Eyes
+  groupWhitelist: [ Decapoid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/eyes.rsi
+    state: eyes-wide-far
+
+# RArm
+
+- type: marking
+  id: CrabRArmStripes
+  bodyPart: RArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rarm.rsi
+    state: stripes
+
+- type: marking
+  id: DecapoidPauldronRight
+  bodyPart: RArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldron
+
+- type: marking
+  id: RightEncrustedPauldron
+  bodyPart: RArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronencrusted1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronencrusted2
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronencrusted3
+
+- type: marking
+  id: RPauldronArmored
+  bodyPart: RArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rarm.rsi
+    state: pauldronarmored
+
+# LArm
+
+- type: marking
+  id: DecapoidPauldronLeft
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldron
+
+- type: marking
+  id: DecapoidPauldronSpike
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronspike
+
+- type: marking
+  id: FlowerMoonPauldron
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: flowermoonpauldron1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: flowermoonpauldron2
+
+- type: marking
+  id: LeftEncrustedPauldron
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronencrusted1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronencrusted2
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronencrusted3
+
+- type: marking
+  id: LPauldronArmored
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronarmored
+
+- type: marking
+  id: PauldronCracked
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldroncracked
+
+- type: marking
+  id: PauldronSheerspine
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: sheerspine
+
+- type: marking
+  id: PauldronWarlord
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: warlord
+
+- type: marking
+  id: PauldronCrystal
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldroncrystal
+
+- type: marking
+  id: PauldronSkull
+  bodyPart: LArm
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/larm.rsi
+    state: pauldronskull
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+- type: marking
+  id: CrabSplitClaw
+  bodyPart: LHand
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/lhand.rsi
+    state: splitclaw1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/lhand.rsi
+    state: splitclaw2
+
+- type: marking
+  id: DecapoidClawGradient
+  bodyPart: LHand
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/lhand.rsi
+    state: gradient
+
+- type: marking
+  id: DecapoidClawPlate
+  bodyPart: LHand
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/lhand.rsi
+    state: plate
+
+# RHand
+
+- type: marking
+  id: DecapoidRHandGradient
+  bodyPart: RHand
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rhand.rsi
+    state: gradient
+
+- type: marking
+  id: DecapoidRHandPlate
+  bodyPart: RHand
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/rhand.rsi
+    state: plate
+
+# FacialHair
+
+# Hair
+
+- type: marking
+  id: DecapoidFlatHead
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: flathead
+
+- type: marking
+  id: DecapoidCrestFledgeling
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: crestfledgeling
+
+- type: marking
+  id: DecapoidCrestJester
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: crestjester
+
+- type: marking
+  id: DecapoidCrestHerald
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: crestherald
+
+- type: marking
+  id: DecapoidCrestMalign
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: crestmalign
+
+- type: marking
+  id: DecapoidCrestReclaimer
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: crestreclaimer
+
+- type: marking
+  id: DecapoidCrestWise
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/hair.rsi
+    state: crestwise
+
+# HeadSide
+
+- type: marking
+  id: DecapoidWhiskerMid
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-mid
+
+- type: marking
+  id: DecapoidWhiskerMidR
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-midr
+
+- type: marking
+  id: DecapoidWhiskerMidL
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-midl
+
+- type: marking
+  id: DecapoidWhiskerShort
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-short
+
+- type: marking
+  id: DecapoidWhiskerLong
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-long
+
+- type: marking
+  id: DecapoidWhiskerLongR
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-longr
+
+- type: marking
+  id: DecapoidWhiskerLongL
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-longl
+
+- type: marking
+  id: DecapoidWhiskerSimple
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-simple
+
+- type: marking
+  id: DecapoidWhiskerStraight
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-straight
+
+- type: marking
+  id: DecapoidWhiskerHanging
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-hanging
+
+- type: marking
+  id: DecapoidWhiskerCurled
+  bodyPart: HeadSide
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/headside.rsi
+    state: whisker-curled
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: GrasperCurly
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-curly
+
+- type: marking
+  id: GrasperFreaky
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-freaky
+
+- type: marking
+  id: GrasperHigh
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-highup
+
+- type: marking
+  id: GrasperLong
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-long
+
+- type: marking
+  id: GrasperMoon
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-moon1
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-moon2
+
+- type: marking
+  id: GrasperShort
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-short
+
+- type: marking
+  id: GrasperUneven
+  bodyPart: Tail
+  groupWhitelist: [ Decapoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Decapoid/tail.rsi
+    state: grasper-uneven
+
+# RArmExtension

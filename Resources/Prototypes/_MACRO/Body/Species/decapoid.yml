@@ -1,0 +1,431 @@
+- type: markingsGroup
+  id: Decapoid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ DecapoidEyesDefault ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: true
+      default: [ DecapoidGillsDefault ]
+    enum.HumanoidVisualLayers.Head:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: true
+      default: [ DecapoidPauldronLeft ]
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
+      required: false
+
+- type: entity
+  abstract: true
+  id: DecapoidSpeciesLayers
+  components:
+  - type: Sprite
+    layers: # Need to redefine the whole order to draw the legs and claw correctly
+    # Back Legs
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ] # this is the back feet
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ] # this is the back legs
+
+    # Chest
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+
+    # Head
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+
+    # Arms
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+
+    # Other stuff haha organizing this is hell
+    - map: [ "jumpsuit" ] # not default
+    - map: [ "enum.HumanoidVisualLayers.RHand" ] # not default
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ] # not default - gills use this slot
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "back" ]
+
+    # Front Legs
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ] # this is the front legs
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ] # this is the front feet
+
+    # Claw
+    - map: [ "enum.HumanoidVisualLayers.LHand" ] # this is the crab claw. has to render in front of the whole body
+
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "suitstorage" ] # This is not in the default order. - inherited from vox
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "head" ]
+    - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ] # not default
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+
+    # Extra Stuff
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human" # default
+      visible: false
+
+- type: entity
+  parent: [DecapoidSpeciesLayers, BaseSpeciesAppearance]
+  id: AppearanceDecapoid
+  name: decapoid appearance
+  components:
+  - type: Inventory
+    templateId: decapoid
+    speciesId: decapoid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Decapoid/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Decapoid/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Decapoid/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Decapoid/displacement.rsi
+            state: gloves
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Decapoid/displacement.rsi
+            state: neck
+  - type: InitialBody
+    organs:
+      Torso: OrganDecapoidTorso
+      Head: OrganDecapoidHead
+      ArmLeft: OrganDecapoidArmLeft
+      ArmRight: OrganDecapoidArmRight
+      HandRight: OrganDecapoidHandRight
+      HandLeft: OrganDecapoidHandLeft # This one is the claw!
+      LegLeft: OrganDecapoidLegFront
+      LegRight: OrganDecapoidLegBack
+      FootLeft: OrganDecapoidFootFront
+      FootRight: OrganDecapoidFootBack
+      Brain: OrganDecapoidBrain
+      Eyes: OrganDecapoidEyes
+      Tongue: OrganDecapoidTongue
+      Appendix: OrganDecapoidAppendix
+      Ears: OrganDecapoidEars
+      Lungs: OrganDecapoidLungs
+      Heart: OrganDecapoidHeart
+      Stomach: OrganDecapoidStomach
+      Liver: OrganDecapoidLiver
+      Kidneys: OrganDecapoidKidneys
+  - type: HumanoidProfile
+    species: Decapoid
+
+- type: entity
+  parent:
+  - AppearanceDecapoid
+  - BaseSpeciesMobOrganic
+  id: MobDecapoid
+  name: Urist McCrab
+  components:
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0 # immune to space
+  - type: Hunger
+  - type: Thirst
+    baseDecayRate: -1 # Make it so they never get thirsty. We can't just remove the component
+  - type: TemperatureDamage
+    heatDamageThreshold: 380 # slightly more vulnerable to heat
+    coldDamageThreshold: 0 # immune to space
+    coldDamage:
+      types:
+        Cold : 0 # immune to space
+    heatDamage:
+      types:
+        Heat : 1.5
+  - type: Temperature
+    currentTemperature: 310
+    specificHeat: 42
+  - type: TemperatureSpeed
+    thresholds:
+      293: 1.0
+      280: 1.0
+      260: 1.0
+  - type: Clumsy
+    clumsyVaulting: false
+    clumsyHypo: false
+    clumsyDefib: false
+    clumsyCatching: false
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+    clumsySound:
+      path: /Audio/_MACRO/Effects/Clumsy/crab_snap.ogg # the game gets really touchy about having that initial forward slash.
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood # real life crustaceans are in the same clade as spiders and share a blood type
+        Quantity: 300
+  - type: Puller #TODO: port pull speed modifier
+    needsHands: false # they drag with the claw, or their back legs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 325 # youre the heaviest. dont let anyone else trick you.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepDecapoid
+  - type: Vocal
+    sounds:
+      Male: UnisexDecapoid
+      Female: UnisexDecapoid
+      Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
+  - type: SpeechRequiresEquipment
+    whitelist:
+      tags:
+      - Vaporizer
+      - SGD
+    failMessage: decapoid-cant-speak
+  - type: Speech
+    speechSounds: Decapoid
+    allowedEmotes: [ 'Click', 'Chitter' ]
+  - type: MovementSpeedModifier
+    baseWeightlessAcceleration: 1.5 # move more easily in space
+    baseWeightlessFriction: 2 # more control over movement in space
+    baseWeightlessModifier: 1
+  - type: TypingIndicator
+    proto: robot
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Decapoid
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _MACRO/Mobs/Effects/decapoid_brute_damage.rsi
+        color: "#162581"
+  - type: BlockInjection
+    failurePopup: block-injection-decapoid
+  - type: CanWieldOneHanded
+
+- type: entity # For testing purposes.
+  save: false
+  id: BaseMobDecapoidInternals
+  parent: MobDecapoid
+  suffix: SpawnsWithInternals
+  components:
+  - type: Loadout
+    prototypes:
+    - StartingGearDecapoidVaporizer
+
+- type: entity
+  parent: OrganBase
+  id: OrganDecapoid
+  abstract: true
+  suffix: decapoid
+
+- type: entity
+  id: OrganDecapoidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Decapoid ]
+
+- type: entity
+  id: OrganDecapoidVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Decapoid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Decapoid
+
+- type: entity
+  parent: OrganDecapoid
+  id: OrganDecapoidExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Decapoid/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Decapoid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Decapoid
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganDecapoidExternal ]
+  id: OrganDecapoidTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganDecapoidExternal ]
+  id: OrganDecapoidHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganDecapoidExternal ]
+  id: OrganDecapoidArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganDecapoidExternal ]
+  id: OrganDecapoidArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganDecapoidExternal ]
+  id: OrganDecapoidHandLeft # This one is the claw.
+  components:
+  - type: EquipmentOrgan
+    equipment:
+    - DecapoidClawItem
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganDecapoidExternal ]
+  id: OrganDecapoidHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganDecapoidExternal ]
+  id: OrganDecapoidLegFront
+  components:
+  - type: Sprite
+    state: front_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      state: front_leg
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganDecapoidExternal ]
+  id: OrganDecapoidLegBack
+  components:
+  - type: Sprite
+    state: back_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      state: back_leg
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganDecapoidExternal ]
+  id: OrganDecapoidFootFront
+  components:
+  - type: Sprite
+    state: front_feet
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      state: front_feet
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganDecapoidExternal ]
+  id: OrganDecapoidFootBack
+  components:
+  - type: Sprite
+    state: back_feet
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      state: back_feet
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganHumanInternal ]
+  id: OrganDecapoidBrain
+
+- type: entity
+  parent: [ OrganDecapoidVisual, OrganBaseEyes, OrganHumanInternal ]
+  id: OrganDecapoidEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganHumanInternal ]
+  id: OrganDecapoidTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganHumanInternal ]
+  id: OrganDecapoidAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganHumanInternal ]
+  id: OrganDecapoidEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganHumanInternal, OrganDecapoidMetabolizer ]
+  id: OrganDecapoidLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganHumanInternal, OrganHumanMetabolizer ]
+  id: OrganDecapoidHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganHumanInternal, OrganHumanMetabolizer ]
+  id: OrganDecapoidStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganHumanInternal, OrganHumanMetabolizer ]
+  id: OrganDecapoidLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganHumanInternal, OrganHumanMetabolizer ]
+  id: OrganDecapoidKidneys

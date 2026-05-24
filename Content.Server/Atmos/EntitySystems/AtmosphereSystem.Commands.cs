@@ -68,7 +68,7 @@ public sealed partial class AtmosphereSystem
     /// <remarks>Please be responsible with this method. Used only by tests and fixgridatmos.</remarks>
     public void RebuildGridAtmosphere(Entity<GridAtmosphereComponent, MapGridComponent> ent)
     {
-        var mixtures = new GasMixture[9];
+        var mixtures = new GasMixture[11]; // MACRO, from 9 to 11
         for (var i = 0; i < mixtures.Length; i++)
         {
             mixtures[i] = new GasMixture(Atmospherics.CellVolume) { Temperature = Atmospherics.T20C };
@@ -106,7 +106,13 @@ public sealed partial class AtmosphereSystem
         mixtures[8].AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesGasMiner);
         mixtures[8].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesGasMiner);
 
+        // MACRO Start: Add water vapor for decapoids.
+        // 9: Water Vapor (GM)
+        mixtures[8].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellGasMiner);
 
+        // 10: Water Vapor (101kpa) for decapoid rooms
+        mixtures[9].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellStandard);
+        // Macro End
         // Force Invalidate & update air on all tiles
         Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> grid =
             new(ent.Owner, ent.Comp1, Comp<GasTileOverlayComponent>(ent), ent.Comp2, Transform(ent));

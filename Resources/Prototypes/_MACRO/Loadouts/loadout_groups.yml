@@ -1,0 +1,49 @@
+# species specific
+
+- type: loadoutGroup
+  id: GroupFullTankAquatic
+  name: loadout-group-full-tank-aquatic
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesAquaticFullTank
+
+# the full internals setups for StartingGear
+- type: startingGear
+  id: StartingGearDecapoidVaporizer
+  equipment:
+    mask: DecapoidBreathingApparatus
+    suitstorage: DecapoidVaporTankFilled
+
+# vaporizer
+- type: loadoutGroup
+  id: GroupBreathToolDecapoid
+  name: loadout-group-breath-tool-decapoid
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathTool
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventory
+  name: loadout-group-breath-tool-inventory-decapoid
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventory
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryClown
+  name: loadout-group-breath-tool-inventory-decapoid-clown
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryClown
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventoryMime
+  name: loadout-group-breath-tool-inventory-decapoid-mime
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventoryMime

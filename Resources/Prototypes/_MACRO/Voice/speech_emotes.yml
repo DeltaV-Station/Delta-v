@@ -1,0 +1,11 @@
+- type: emote
+  id: Hiss
+  name: chat-emote-name-hiss
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-hiss"]
+  chatTriggers:
+  - hiss
+  - hisses
+  - hissed
