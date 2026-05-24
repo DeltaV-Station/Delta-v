@@ -15,13 +15,14 @@ public sealed class HeavyClothingSystem : EntitySystem
 
     public override void Initialize()
     {
+    	base.Initialize();
+
         SubscribeLocalEvent<HeavyClothingComponent, ClothingGotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<HeavyClothingComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<HeavyClothingComponent, WeightlessnessChangedEvent>(OnIsWeightless);
         SubscribeLocalEvent<HeavyClothingComponent, InventoryRelayedEvent<WeightlessnessChangedEvent>>(OnIsWeightless);
         SubscribeLocalEvent<HeavyClothingComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<HeavyClothingComponent, InventoryRelayedEvent<SlipAttemptEvent>>(OnSlipAttempt);
-
     }
 
     private void OnGotUnequipped(Entity<HeavyClothingComponent> clothing, ref ClothingGotUnequippedEvent args)
