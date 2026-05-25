@@ -5,7 +5,7 @@
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw.xml
   children:
     - SpaceLawCrimesReferences
-    - GeneralRegulations
+    - SLawDefinitions
     - ControlledISA
     - SecurityandJusticeRegulations
     - Hearings
@@ -16,17 +16,11 @@
   name: Crimes Quick Code References
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CrimeReferences.xml
 
-# General Regulations Main Directory
-
+# Definitions
 - type: guideEntry
-  id: GeneralRegulations
-  name: General Regulations
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations.xml
-  priority: 1
-  children:
-  - Definitions
-  - HiringProcedure
-  - RightsToRefuseService
+  id: SLawDefinitions
+  name: Definitions
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Definitions.xml
 
 # Controlled ISA Main Directory and Subdirectories
 
@@ -80,25 +74,6 @@
   priority: 1
   children:
   - HearingProcedure
-
-## General Regulations Entries
-- type: guideEntry
-  id: Definitions
-  name: Definitions
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/Definitions.xml
-
-
-- type: guideEntry
-  id: HiringProcedure
-  name: Hiring Procedure
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/HiringProcedure.xml
-
-
-- type: guideEntry
-  id: RightsToRefuseService
-  name: Rights To Refuse Service
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/RightsToRefuseService.xml
-
 
   ## Controlled ISA Entries
 

@@ -58,10 +58,10 @@
 - type: guideEntry
   id: EpistemicsRegulations
   name: Epistemics Regulations
-  test: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/EpistemicsRegulations.xml
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/EpistemicsRegulations.xml
   priority: 1
   children:
-  - Xenoarchaeology
+  - Artifacts
   - Anomalies
   - Glimmer
 
@@ -89,6 +89,25 @@
   - Citations
   - CriminalViolations
   - Enforcement
+
+## General Regulations Entries
+- type: guideEntry
+  id: SOPDefinitions
+  name: Definitions
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/Definitions.xml
+
+
+- type: guideEntry
+  id: HiringProcedure
+  name: Hiring Procedure
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/HiringProcedure.xml
+
+
+- type: guideEntry
+  id: RightsToRefuseService
+  name: Rights To Refuse Service
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/RightsToRefuseService.xml
+
 
 ## Commanding Officer Entries
 - type: guideEntry
@@ -160,19 +179,14 @@
 
   ## Epistemics Regulations Entries
 - type: guideEntry
-  id: Xenoarchaeology
-  name: Xenoarchaeology
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Xenoarchaeology.xml
+  id: Artifacts
+  name: Artifacts
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Artifacts.xml
 
 - type: guideEntry
   id: Anomalies
   name: Anomalies
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Anomalies.xml
-
-- type: guideEntry
-  id: Xenoarchaeology
-  name: Xenoarchaeology
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Xenoarchaeology.xml
 
 - type: guideEntry
   id: Glimmer
