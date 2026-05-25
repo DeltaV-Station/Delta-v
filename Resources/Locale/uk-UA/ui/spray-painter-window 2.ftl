@@ -1,1 +1,0 @@
-pipe-painter-no-color-selected = (Колір не вибрано)

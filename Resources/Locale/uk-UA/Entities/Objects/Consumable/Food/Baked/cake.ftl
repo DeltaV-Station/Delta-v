@@ -1,1 +1,1 @@
-ghost-role-information-Cak-name = Кірт
+﻿# DUPLICATE REMOVED: ghost-role-information-Cak-name = Кірт

@@ -1,1 +1,1 @@
-anomaly-gorilla-core-slot-name = Ядро аномалії
+﻿# DUPLICATE REMOVED: anomaly-gorilla-core-slot-name = Ядро аномалії

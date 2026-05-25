@@ -1,1 +1,1 @@
-ghost-role-information-tomatokiller-name = Томат-вбивця
+﻿# DUPLICATE REMOVED: ghost-role-information-tomatokiller-name = Томат-вбивця

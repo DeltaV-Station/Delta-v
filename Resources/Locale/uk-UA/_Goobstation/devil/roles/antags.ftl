@@ -1,3 +1,3 @@
-roles-antag-devil-name = Диявол
+﻿# DUPLICATE REMOVED: roles-antag-devil-name = Диявол
 
 roles-antag-devil-description = Використовуйте свою кмітливість та підвішений язик, щоб обманом укладати з членами екіпажу диявольські угоди.

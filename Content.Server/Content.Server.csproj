@@ -8,6 +8,16 @@
     <WarningsAsErrors>RA0032;nullable</WarningsAsErrors>
     <ServerGarbageCollection>true</ServerGarbageCollection>
   </PropertyGroup>
+
+  <Target Name="CleanNumberedAssemblyArtifacts" BeforeTargets="Build" Condition="Exists('$(OutputPath)')">
+    <ItemGroup>
+      <AllAssemblyArtifacts Include="$(OutputPath)*.dll;$(OutputPath)*.pdb" />
+      <NumberedAssemblyArtifacts Include="@(AllAssemblyArtifacts)" Condition="$([System.String]::Copy('%(Filename)').Contains(' '))" />
+    </ItemGroup>
+
+    <Delete Files="@(NumberedAssemblyArtifacts)" />
+  </Target>
+
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />

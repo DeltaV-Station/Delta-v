@@ -16,7 +16,7 @@ namespace Content.Shared.Localizations
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
         /// </summary>
-        public static readonly string[] TimeSpanMinutesFormats = new[]
+        public static readonly string[] TimeSpanMinutesFormats = new string[]
         {
             @"m\:ss",
             @"mm\:ss",
@@ -45,7 +45,6 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "ENERGYWATTHOURS", FormatEnergyWattHours);
             _loc.AddFunction(culture, "UNITS", FormatUnits);
             _loc.AddFunction(culture, "TOSTRING", args => FormatToString(culture, args));
-            _loc.AddFunction(culture, "LOC", FormatLoc);
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
@@ -71,14 +70,13 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(culture, "MANY", FormatMany);
 
-            // Add functions for English fallback culture
+            // Add basic functions to fallback culture
             _loc.AddFunction(fallbackCulture, "PRESSURE", FormatPressure);
             _loc.AddFunction(fallbackCulture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(fallbackCulture, "POWERJOULES", FormatPowerJoules);
             _loc.AddFunction(fallbackCulture, "ENERGYWATTHOURS", FormatEnergyWattHours);
             _loc.AddFunction(fallbackCulture, "UNITS", FormatUnits);
             _loc.AddFunction(fallbackCulture, "TOSTRING", args => FormatToString(fallbackCulture, args));
-            _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
             _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytime);
@@ -90,7 +88,7 @@ namespace Content.Shared.Localizations
         {
             var count = ((LocValueNumber) args.Args[1]).Value;
 
-            if (Math.Abs(count - 1) < 0.0001f)
+            if (System.Math.Abs(count - 1) < 0.0001f)
             {
                 return (LocValueString) args.Args[0];
             }
@@ -103,19 +101,24 @@ namespace Content.Shared.Localizations
         private ILocValue FormatNaturalPercent(LocArgs args)
         {
             var number = ((LocValueNumber) args.Args[0]).Value * 100;
-            var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
+            var maxDecimals = (int)System.Math.Floor(((LocValueNumber) args.Args[1]).Value);
             var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
-            return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)) + "%");
+            string formatted = string.Format(formatter, "{0:N}", number);
+            string separator = formatter.NumberDecimalSeparator;
+            string trimmed = formatted.TrimEnd('0').TrimEnd(separator[0]);
+            return new LocValueString(trimmed + "%");
         }
 
         private ILocValue FormatNaturalFixed(LocArgs args)
         {
             var number = ((LocValueNumber) args.Args[0]).Value;
-            var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
+            var maxDecimals = (int)System.Math.Floor(((LocValueNumber) args.Args[1]).Value);
             var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
-            return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)));
+            string formatted = string.Format(formatter, "{0:N}", number);
+            string separator = formatter.NumberDecimalSeparator;
+            return new LocValueString(formatted.TrimEnd('0').TrimEnd(separator[0]));
         }
 
         private static readonly Regex PluralEsRule = new("^.*(s|sh|ch|x|z)$");
@@ -128,72 +131,52 @@ namespace Content.Shared.Localizations
             if (PluralEsRule.IsMatch(firstWord))
             {
                 if (split.Length == 1)
-                    return new LocValueString($"{firstWord}es");
+                    return new LocValueString(firstWord + "es");
                 else
-                    return new LocValueString($"{firstWord}es {split[1]}");
+                    return new LocValueString(firstWord + "es " + split[1]);
             }
             else
             {
                 if (split.Length == 1)
-                    return new LocValueString($"{firstWord}s");
+                    return new LocValueString(firstWord + "s");
                 else
-                    return new LocValueString($"{firstWord}s {split[1]}");
+                    return new LocValueString(firstWord + "s " + split[1]);
             }
         }
 
-        // TODO: allow fluent to take in lists of strings so this can be a format function like it should be.
-        /// <summary>
-        /// Formats a list as per english grammar rules.
-        /// </summary>
-        public static string FormatList(List<string> list)
+        public static string FormatList(System.Collections.Generic.List<string> list)
         {
-            return list.Count switch
-            {
-                <= 0 => string.Empty,
-                1 => list[0],
-                2 => $"{list[0]} and {list[1]}",
-                _ => $"{string.Join(", ", list.GetRange(0, list.Count - 1))}, and {list[^1]}"
-            };
+            if (list.Count <= 0) return string.Empty;
+            if (list.Count == 1) return list[0];
+            if (list.Count == 2) return list[0] + " and " + list[1];
+            
+            string combined = string.Join(", ", list.GetRange(0, list.Count - 1));
+            return combined + ", and " + list[list.Count - 1];
         }
 
-        /// <summary>
-        /// Formats a list as per english grammar rules, but uses or instead of and.
-        /// </summary>
-        public static string FormatListToOr(List<string> list)
+        public static string FormatListToOr(System.Collections.Generic.List<string> list)
         {
-            return list.Count switch
-            {
-                <= 0 => string.Empty,
-                1 => list[0],
-                2 => $"{list[0]} or {list[1]}",
-                _ => $"{string.Join(", ", list.GetRange(0, list.Count - 1))}, or {list[^1]}"
-            };
+            if (list.Count <= 0) return string.Empty;
+            if (list.Count == 1) return list[0];
+            if (list.Count == 2) return list[0] + " or " + list[1];
+            
+            string combined = string.Join(", ", list.GetRange(0, list.Count - 1));
+            return combined + ", or " + list[list.Count - 1];
         }
 
-        /// <summary>
-        /// Formats a direction struct as a human-readable string.
-        /// </summary>
         public static string FormatDirection(Direction dir)
         {
-            return Loc.GetString($"zzzz-fmt-direction-{dir.ToString()}");
+            return Loc.GetString("zzzz-fmt-direction-" + dir.ToString());
         }
 
-        /// <summary>
-        /// Formats playtime as hours and minutes.
-        /// </summary>
         public static string FormatPlaytime(TimeSpan time)
         {
-            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
+            time = TimeSpan.FromMinutes(System.Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
             var minutes = time.Minutes;
-            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
-        }
-
-        private static ILocValue FormatLoc(LocArgs args)
-        {
-            var id = ((LocValueString) args.Args[0]).Value;
-
-            return new LocValueString(Loc.GetString(id, args.Options.Select(x => (x.Key, x.Value.Value!)).ToArray()));
+            
+            var locArgs = new (string, object)[] { ("hours", hours), ("minutes", minutes) };
+            return Loc.GetString("zzzz-fmt-playtime", locArgs);
         }
 
         private static ILocValue FormatToString(CultureInfo culture, LocArgs args)
@@ -211,7 +194,7 @@ namespace Content.Shared.Localizations
         private static ILocValue FormatUnitsGeneric(
             LocArgs args,
             string mode,
-            Func<double, double>? transformValue = null)
+            System.Func<double, double>? transformValue = null)
         {
             const int maxPlaces = 5; // Matches amount in _lib.ftl
             var pressure = ((LocValueNumber) args.Args[0]).Value;
@@ -226,7 +209,8 @@ namespace Content.Shared.Localizations
                 places += 1;
             }
 
-            return new LocValueString(Loc.GetString(mode, ("divided", pressure), ("places", places)));
+            var locArgs = new (string, object)[] { ("divided", pressure), ("places", places) };
+            return new LocValueString(Loc.GetString(mode, locArgs));
         }
 
         private static ILocValue FormatPressure(LocArgs args)
@@ -253,12 +237,13 @@ namespace Content.Shared.Localizations
 
         private static ILocValue FormatUnits(LocArgs args)
         {
-            if (!Units.Types.TryGetValue(((LocValueString) args.Args[0]).Value, out var ut))
-                throw new ArgumentException($"Unknown unit type {((LocValueString) args.Args[0]).Value}");
+            string unitType = ((LocValueString) args.Args[0]).Value;
+            if (!Units.Types.TryGetValue(unitType, out var ut))
+                throw new System.ArgumentException("Unknown unit type " + unitType);
 
             var fmtstr = ((LocValueString) args.Args[1]).Value;
 
-            double max = Double.NegativeInfinity;
+            double max = System.Double.NegativeInfinity;
             var iargs = new double[args.Args.Count - 1];
             for (var i = 2; i < args.Args.Count; i++)
             {
@@ -270,21 +255,17 @@ namespace Content.Shared.Localizations
             }
 
             if (!ut.TryGetUnit(max, out var mu))
-                throw new ArgumentException("Unit out of range for type");
+                throw new System.ArgumentException("Unit out of range for type");
 
             var fargs = new object[iargs.Length];
 
             for (var i = 0; i < iargs.Length; i++)
                 fargs[i] = iargs[i] * mu.Factor;
 
-            fargs[^1] = Loc.GetString($"units-{mu.Unit.ToLower()}");
+            fargs[fargs.Length - 1] = Loc.GetString("units-" + mu.Unit.ToLower());
 
-            // Before anyone complains about "{"+"${...}", at least it's better than MS's approach...
-            // https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting#escaping-braces
-            //
-            // Note that the closing brace isn't replaced so that format specifiers can be applied.
-            var res = String.Format(
-                fmtstr.Replace("{UNIT", "{" + $"{fargs.Length - 1}"),
+            var res = System.String.Format(
+                fmtstr.Replace("{UNIT", "{" + (fargs.Length - 1).ToString()),
                 fargs
             );
 
@@ -294,43 +275,31 @@ namespace Content.Shared.Localizations
         private static ILocValue FormatPlaytime(LocArgs args)
         {
             var time = TimeSpan.Zero;
-            if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
+            if (args.Args.Count > 0 && args.Args[0].Value is TimeSpan timeArg)
             {
                 time = timeArg;
             }
             return new LocValueString(FormatPlaytime(time));
         }
 
-        /// <summary>
-        /// Форматує множину за українськими правилами
-        /// Використання: UKPLURAL($count, "предмет", "предмети", "предметів")
-        /// </summary>
         private ILocValue FormatUkrainianPlural(LocArgs args)
         {
-            var count = (int)Math.Abs(((LocValueNumber)args.Args[0]).Value);
-            var form1 = ((LocValueString)args.Args[1]).Value; // 1 предмет
-            var form2 = ((LocValueString)args.Args[2]).Value; // 2-4 предмети
-            var form5 = ((LocValueString)args.Args[3]).Value; // 5+ предметів
+            var count = (int)System.Math.Abs(((LocValueNumber)args.Args[0]).Value);
+            var form1 = ((LocValueString)args.Args[1]).Value;
+            var form2 = ((LocValueString)args.Args[2]).Value;
+            var form5 = ((LocValueString)args.Args[3]).Value;
 
             var lastDigit = count % 10;
             var lastTwoDigits = count % 100;
-
-            // Правила української множини:
-            // 1, 21, 31, 41... - форма 1 (предмет)
-            // 2-4, 22-24, 32-34... - форма 2-4 (предмети)
-            // 5-20, 25-30, 35-40... - форма 5+ (предметів)
-            // 11-14 - виняток, завжди форма 5+ (предметів)
 
             if (lastTwoDigits >= 11 && lastTwoDigits <= 14)
             {
                 return new LocValueString(form5);
             }
-
             if (lastDigit == 1)
             {
                 return new LocValueString(form1);
             }
-
             if (lastDigit >= 2 && lastDigit <= 4)
             {
                 return new LocValueString(form2);
@@ -339,10 +308,6 @@ namespace Content.Shared.Localizations
             return new LocValueString(form5);
         }
 
-        /// <summary>
-        /// Форматує слово за родом
-        /// Використання: UKGENDER($gender, "він", "вона", "воно")
-        /// </summary>
         private ILocValue FormatUkrainianGender(LocArgs args)
         {
             var gender = ((LocValueString)args.Args[0]).Value.ToLower();
@@ -350,57 +315,50 @@ namespace Content.Shared.Localizations
             var feminine = ((LocValueString)args.Args[2]).Value;
             var neuter = ((LocValueString)args.Args[3]).Value;
 
-            return gender switch
-            {
-                "male" or "masculine" or "m" => new LocValueString(masculine),
-                "female" or "feminine" or "f" => new LocValueString(feminine),
-                "neuter" or "n" => new LocValueString(neuter),
-                _ => new LocValueString(masculine)
-            };
+            if (gender == "male" || gender == "masculine" || gender == "m")
+                return new LocValueString(masculine);
+            if (gender == "female" || gender == "feminine" || gender == "f")
+                return new LocValueString(feminine);
+            if (gender == "neuter" || gender == "n")
+                return new LocValueString(neuter);
+            
+            return new LocValueString(masculine);
         }
 
-        /// <summary>
-        /// Форматує слово за відмінком (спрощена версія)
-        /// Використання: UKCASE($case, "називний", "родовий", "давальний", "знахідний", "орудний", "місцевий")
-        /// </summary>
         private ILocValue FormatUkrainianCase(LocArgs args)
         {
             var caseType = ((LocValueString)args.Args[0]).Value.ToLower();
 
-            // Відмінки: nominative, genitive, dative, accusative, instrumental, locative
-            var nominative = ((LocValueString)args.Args[1]).Value;   // називний (хто? що?)
-            var genitive = args.Args.Count > 2 ? ((LocValueString)args.Args[2]).Value : nominative;     // родовий (кого? чого?)
-            var dative = args.Args.Count > 3 ? ((LocValueString)args.Args[3]).Value : nominative;       // давальний (кому? чому?)
-            var accusative = args.Args.Count > 4 ? ((LocValueString)args.Args[4]).Value : nominative;   // знахідний (кого? що?)
-            var instrumental = args.Args.Count > 5 ? ((LocValueString)args.Args[5]).Value : nominative; // орудний (ким? чим?)
-            var locative = args.Args.Count > 6 ? ((LocValueString)args.Args[6]).Value : nominative;     // місцевий (на кому? на чому?)
+            var nominative = ((LocValueString)args.Args[1]).Value;
+            var genitive = args.Args.Count > 2 ? ((LocValueString)args.Args[2]).Value : nominative;
+            var dative = args.Args.Count > 3 ? ((LocValueString)args.Args[3]).Value : nominative;
+            var accusative = args.Args.Count > 4 ? ((LocValueString)args.Args[4]).Value : nominative;
+            var instrumental = args.Args.Count > 5 ? ((LocValueString)args.Args[5]).Value : nominative;
+            var locative = args.Args.Count > 6 ? ((LocValueString)args.Args[6]).Value : nominative;
 
-            return caseType switch
-            {
-                "nominative" or "nom" or "називний" => new LocValueString(nominative),
-                "genitive" or "gen" or "родовий" => new LocValueString(genitive),
-                "dative" or "dat" or "давальний" => new LocValueString(dative),
-                "accusative" or "acc" or "знахідний" => new LocValueString(accusative),
-                "instrumental" or "ins" or "орудний" => new LocValueString(instrumental),
-                "locative" or "loc" or "місцевий" => new LocValueString(locative),
-                _ => new LocValueString(nominative)
-            };
+            if (caseType == "nominative" || caseType == "nom" || caseType == "називний")
+                return new LocValueString(nominative);
+            if (caseType == "genitive" || caseType == "gen" || caseType == "родовий")
+                return new LocValueString(genitive);
+            if (caseType == "dative" || caseType == "dat" || caseType == "давальний")
+                return new LocValueString(dative);
+            if (caseType == "accusative" || caseType == "acc" || caseType == "знахідний")
+                return new LocValueString(accusative);
+            if (caseType == "instrumental" || caseType == "ins" || caseType == "орудний")
+                return new LocValueString(instrumental);
+            if (caseType == "locative" || caseType == "loc" || caseType == "місцевий")
+                return new LocValueString(locative);
+            
+            return new LocValueString(nominative);
         }
 
-        /// <summary>
-        /// Комбінована функція: множина + рід
-        /// Використання: UKPLURALGEN($count, $gender, "взяв/взяла/взяло", "взяли/взяли/взяли", "взяли/взяли/взяли")
-        /// </summary>
         private ILocValue FormatUkrainianPluralWithGender(LocArgs args)
         {
-            var count = (int)Math.Abs(((LocValueNumber)args.Args[0]).Value);
+            var count = (int)System.Math.Abs(((LocValueNumber)args.Args[0]).Value);
             var gender = ((LocValueString)args.Args[1]).Value.ToLower();
 
-            // Форми для однини (розділені слешем: чоловічий/жіночий/середній)
             var singular = ((LocValueString)args.Args[2]).Value;
-            // Форми для 2-4
             var plural24 = ((LocValueString)args.Args[3]).Value;
-            // Форми для 5+
             var plural5 = ((LocValueString)args.Args[4]).Value;
 
             var lastDigit = count % 10;
@@ -408,80 +366,65 @@ namespace Content.Shared.Localizations
 
             string selectedForm;
             if (lastTwoDigits >= 11 && lastTwoDigits <= 14)
-            {
                 selectedForm = plural5;
-            }
             else if (lastDigit == 1)
-            {
                 selectedForm = singular;
-            }
             else if (lastDigit >= 2 && lastDigit <= 4)
-            {
                 selectedForm = plural24;
-            }
             else
-            {
                 selectedForm = plural5;
-            }
 
-            // Розбираємо форму за родом (якщо є слеші)
             var parts = selectedForm.Split('/');
             if (parts.Length == 3)
             {
-                return gender switch
-                {
-                    "male" or "masculine" or "m" => new LocValueString(parts[0]),
-                    "female" or "feminine" or "f" => new LocValueString(parts[1]),
-                    "neuter" or "n" => new LocValueString(parts[2]),
-                    _ => new LocValueString(parts[0])
-                };
+                if (gender == "male" || gender == "masculine" || gender == "m")
+                    return new LocValueString(parts[0]);
+                if (gender == "female" || gender == "feminine" || gender == "f")
+                    return new LocValueString(parts[1]);
+                if (gender == "neuter" || gender == "n")
+                    return new LocValueString(parts[2]);
             }
 
             return new LocValueString(selectedForm);
         }
 
-        /// <summary>
-        /// Форматує час у годинах та хвилинах з правильними закінченнями
-        /// Використання: UKTIME($hours, $minutes)
-        /// </summary>
         private ILocValue FormatUkrainianTime(LocArgs args)
         {
-            var hours = (int)Math.Abs(((LocValueNumber)args.Args[0]).Value);
-            var minutes = (int)Math.Abs(((LocValueNumber)args.Args[1]).Value);
+            var hours = (int)System.Math.Abs(((LocValueNumber)args.Args[0]).Value);
+            var minutes = (int)System.Math.Abs(((LocValueNumber)args.Args[1]).Value);
 
             var hoursWord = GetUkrainianPluralForm(hours, "година", "години", "годин");
             var minutesWord = GetUkrainianPluralForm(minutes, "хвилина", "хвилини", "хвилин");
 
             if (hours > 0 && minutes > 0)
-                return new LocValueString($"{hours} {hoursWord} {minutes} {minutesWord}");
-            else if (hours > 0)
-                return new LocValueString($"{hours} {hoursWord}");
-            else if (minutes > 0)
-                return new LocValueString($"{minutes} {minutesWord}");
-            else
-                return new LocValueString("0 хвилин");
+                return new LocValueString(hours.ToString() + " " + hoursWord + " " + minutes.ToString() + " " + minutesWord);
+            if (hours > 0)
+                return new LocValueString(hours.ToString() + " " + hoursWord);
+            if (minutes > 0)
+                return new LocValueString(minutes.ToString() + " " + minutesWord);
+            
+            return new LocValueString("0 хвилин");
         }
 
-        /// <summary>
-        /// Форматує список українською мовою
-        /// Використання: UKLIST("item1", "item2", "item3", ...)
-        /// </summary>
         private ILocValue FormatUkrainianList(LocArgs args)
         {
-            var items = args.Args.Select(arg => ((LocValueString)arg).Value).ToList();
-
-            return items.Count switch
+            var items = new System.Collections.Generic.List<string>();
+            foreach (var arg in args.Args)
             {
-                <= 0 => new LocValueString(string.Empty),
-                1 => new LocValueString(items[0]),
-                2 => new LocValueString($"{items[0]} та {items[1]}"),
-                _ => new LocValueString($"{string.Join(", ", items.GetRange(0, items.Count - 1))} та {items[^1]}")
-            };
+                items.Add(((LocValueString)arg).Value);
+            }
+
+            if (items.Count <= 0)
+                return new LocValueString(string.Empty);
+            if (items.Count == 1)
+                return new LocValueString(items[0]);
+            if (items.Count == 2)
+                return new LocValueString(items[0] + " та " + items[1]);
+            
+            string combined = string.Join(", ", items.GetRange(0, items.Count - 1));
+            return new LocValueString(combined + " та " + items[items.Count - 1]);
         }
 
-        /// <summary>
-        /// Допоміжна функція для отримання правильної форми множини
-        /// </summary>
         private string GetUkrainianPluralForm(int count, string form1, string form2, string form5)
         {
             var lastDigit = count % 10;
@@ -496,22 +439,16 @@ namespace Content.Shared.Localizations
             return form5;
         }
 
-        /// <summary>
-        /// Автоматично відмінює українські імена
-        /// Використання: UKNAME($case, $name)
-        /// </summary>
         private ILocValue FormatUkrainianName(LocArgs args)
         {
             var caseType = ((LocValueString)args.Args[0]).Value.ToLower();
             var name = ((LocValueString)args.Args[1]).Value;
 
-            // Якщо ім'я порожнє або дуже коротке
             if (string.IsNullOrWhiteSpace(name) || name.Length < 2)
                 return new LocValueString(name);
 
-            // Розбиваємо на слова (ім'я та прізвище)
-            var parts = name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            var declinedParts = new List<string>();
+            var parts = name.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
+            var declinedParts = new System.Collections.Generic.List<string>();
 
             foreach (var part in parts)
             {
@@ -521,224 +458,140 @@ namespace Content.Shared.Localizations
             return new LocValueString(string.Join(" ", declinedParts));
         }
 
-        /// <summary>
-        /// Відмінює одне українське слово (ім'я або прізвище)
-        /// Підтримує імена з дефісом (наприклад, унаті: "Ssi-Ka" -> "Ssi-Ку")
-        /// </summary>
         private string DeclineUkrainianWord(string word, string caseType)
         {
             if (string.IsNullOrWhiteSpace(word) || word.Length < 2)
                 return word;
 
-            // Якщо ім'я містить дефіс (наприклад, унаті), відмінюємо тільки останню частину
-            if (word.Contains('-'))
+            if (word.Contains("-"))
             {
                 var parts = word.Split('-');
-                var lastPart = parts[^1];
+                var lastPart = parts[parts.Length - 1];
                 var declinedLastPart = DeclineUkrainianWord(lastPart, caseType);
-                parts[^1] = declinedLastPart;
+                parts[parts.Length - 1] = declinedLastPart;
                 return string.Join("-", parts);
             }
 
             var lower = word.ToLower();
-            var lastChar = lower[^1];
-            var lastTwoChars = lower.Length >= 2 ? lower[^2..] : "";
+            char lastChar = lower[lower.Length - 1];
 
-            // Називний відмінок - без змін
             if (caseType == "nominative" || caseType == "nom" || caseType == "називний")
                 return word;
 
-            // Родовий відмінок (кого? чого?)
             if (caseType == "genitive" || caseType == "gen" || caseType == "родовий")
             {
-                // Чоловічі імена на приголосний: Іван -> Івана
-                if (IsConsonant(lastChar))
-                    return word + "а";
-                // Імена на -о: Петро -> Петра
-                if (lastChar == 'о')
-                    return word[..^1] + "а";
-                // Імена на -а: Марія -> Марії
-                if (lastChar == 'а')
-                    return word[..^1] + "і";
-                // Імена на -я: Софія -> Софії
-                if (lastChar == 'я')
-                    return word[..^1] + "ї";
+                if (IsConsonant(lastChar)) return word + "а";
+                if (lastChar == 'о') return word.Substring(0, word.Length - 1) + "а";
+                if (lastChar == 'а') return word.Substring(0, word.Length - 1) + "і";
+                if (lastChar == 'я') return word.Substring(0, word.Length - 1) + "ї";
                 return word;
             }
 
-            // Давальний відмінок (кому? чому?)
             if (caseType == "dative" || caseType == "dat" || caseType == "давальний")
             {
-                // Чоловічі імена на приголосний: Іван -> Івану
-                if (IsConsonant(lastChar))
-                    return word + "у";
-                // Імена на -о: Петро -> Петру
-                if (lastChar == 'о')
-                    return word[..^1] + "у";
-                // Імена на -а: Марія -> Марії
-                if (lastChar == 'а')
-                    return word[..^1] + "і";
-                // Імена на -я: Софія -> Софії
-                if (lastChar == 'я')
-                    return word[..^1] + "ї";
+                if (IsConsonant(lastChar)) return word + "у";
+                if (lastChar == 'о') return word.Substring(0, word.Length - 1) + "у";
+                if (lastChar == 'а') return word.Substring(0, word.Length - 1) + "і";
+                if (lastChar == 'я') return word.Substring(0, word.Length - 1) + "ї";
                 return word;
             }
 
-            // Знахідний відмінок (кого? що?)
             if (caseType == "accusative" || caseType == "acc" || caseType == "знахідний")
             {
-                // Чоловічі імена на приголосний: Іван -> Івана
-                if (IsConsonant(lastChar))
-                    return word + "а";
-                // Імена на -о: Петро -> Петра
-                if (lastChar == 'о')
-                    return word[..^1] + "а";
-                // Імена на -а: Марія -> Марію
-                if (lastChar == 'а')
-                    return word[..^1] + "ю";
-                // Імена на -я: Софія -> Софію
-                if (lastChar == 'я')
-                    return word[..^1] + "ю";
+                if (IsConsonant(lastChar)) return word + "а";
+                if (lastChar == 'о') return word.Substring(0, word.Length - 1) + "а";
+                if (lastChar == 'а') return word.Substring(0, word.Length - 1) + "ю";
+                if (lastChar == 'я') return word.Substring(0, word.Length - 1) + "ю";
                 return word;
             }
 
-            // Орудний відмінок (ким? чим?)
             if (caseType == "instrumental" || caseType == "ins" || caseType == "орудний")
             {
-                // Чоловічі імена на приголосний: Іван -> Іваном
-                if (IsConsonant(lastChar))
-                    return word + "ом";
-                // Імена на -о: Петро -> Петром
-                if (lastChar == 'о')
-                    return word[..^1] + "ом";
-                // Імена на -а: Марія -> Марією
-                if (lastChar == 'а')
-                    return word[..^1] + "єю";
-                // Імена на -я: Софія -> Софією
-                if (lastChar == 'я')
-                    return word[..^1] + "єю";
+                if (IsConsonant(lastChar)) return word + "ом";
+                if (lastChar == 'о') return word.Substring(0, word.Length - 1) + "ом";
+                if (lastChar == 'а') return word.Substring(0, word.Length - 1) + "єю";
+                if (lastChar == 'я') return word.Substring(0, word.Length - 1) + "єю";
                 return word;
             }
 
-            // Місцевий відмінок (на кому? на чому?)
             if (caseType == "locative" || caseType == "loc" || caseType == "місцевий")
             {
-                // Чоловічі імена на приголосний: Іван -> Іванові
-                if (IsConsonant(lastChar))
-                    return word + "ові";
-                // Імена на -о: Петро -> Петрові
-                if (lastChar == 'о')
-                    return word[..^1] + "ові";
-                // Імена на -а: Марія -> Марії
-                if (lastChar == 'а')
-                    return word[..^1] + "і";
-                // Імена на -я: Софія -> Софії
-                if (lastChar == 'я')
-                    return word[..^1] + "ї";
+                if (IsConsonant(lastChar)) return word + "ові";
+                if (lastChar == 'о') return word.Substring(0, word.Length - 1) + "ові";
+                if (lastChar == 'а') return word.Substring(0, word.Length - 1) + "і";
+                if (lastChar == 'я') return word.Substring(0, word.Length - 1) + "ї";
                 return word;
             }
 
             return word;
         }
 
-        /// <summary>
-        /// Перевіряє чи є символ приголосним
-        /// </summary>
         private bool IsConsonant(char c)
         {
-            var vowels = new[] { 'а', 'е', 'є', 'и', 'і', 'ї', 'о', 'у', 'ю', 'я' };
-            return !vowels.Contains(char.ToLower(c));
+            char lc = char.ToLower(c);
+            if (lc == 'а') return false;
+            if (lc == 'е') return false;
+            if (lc == 'є') return false;
+            if (lc == 'и') return false;
+            if (lc == 'і') return false;
+            if (lc == 'ї') return false;
+            if (lc == 'о') return false;
+            if (lc == 'у') return false;
+            if (lc == 'ю') return false;
+            if (lc == 'я') return false;
+            return true;
         }
 
-        /// <summary>
-        /// SUBJECT - повертає ім'я у називному відмінку (хто?)
-        /// Використання: SUBJECT($entity)
-        /// </summary>
         private ILocValue FormatUkrainianSubject(LocArgs args)
         {
             var name = ((LocValueString)args.Args[0]).Value;
-            return new LocValueString(name); // Називний відмінок - без змін
+            return new LocValueString(name);
         }
 
-        /// <summary>
-        /// OBJECT - повертає ім'я у знахідному відмінку (кого? що?)
-        /// Використання: OBJECT($entity)
-        /// </summary>
         private ILocValue FormatUkrainianObject(LocArgs args)
         {
             var name = ((LocValueString)args.Args[0]).Value;
             return new LocValueString(DeclineUkrainianWord(name, "accusative"));
         }
 
-        /// <summary>
-        /// POSS-ADJ - присвійний прикметник (чий? чия? чиє?)
-        /// Використання: POSS-ADJ($entity)
-        /// Повертає: його/її/їхній
-        /// </summary>
         private ILocValue FormatUkrainianPossessiveAdjective(LocArgs args)
         {
-            var name = ((LocValueString)args.Args[0]).Value;
-            // Для української мови використовуємо "його/її/їхній" залежно від роду
-            // За замовчуванням повертаємо "його" (можна розширити з визначенням роду)
             return new LocValueString("його");
         }
 
-        /// <summary>
-        /// POSS-PRONOUN - присвійний займенник
-        /// Використання: POSS-PRONOUN($entity)
-        /// </summary>
         private ILocValue FormatUkrainianPossessivePronoun(LocArgs args)
         {
-            var name = ((LocValueString)args.Args[0]).Value;
             return new LocValueString("його");
         }
 
-        /// <summary>
-        /// REFLEXIVE - зворотний займенник (себе, собі, собою)
-        /// Використання: REFLEXIVE($entity)
-        /// </summary>
         private ILocValue FormatUkrainianReflexive(LocArgs args)
         {
-            var name = ((LocValueString)args.Args[0]).Value;
             return new LocValueString("себе");
         }
 
-        /// <summary>
-        /// CONJUGATE-BE - дієслово "бути" у правильній формі
-        /// Використання: CONJUGATE-BE($entity)
-        /// </summary>
         private ILocValue FormatUkrainianConjugateBe(LocArgs args)
         {
-            var name = ((LocValueString)args.Args[0]).Value;
-            // Для української мови повертаємо відповідну форму
             return new LocValueString("є");
         }
 
-        /// <summary>
-        /// CONJUGATE-BASIC - базове дієвідмінювання
-        /// Використання: CONJUGATE-BASIC($entity, "singular", "plural")
-        /// </summary>
         private ILocValue FormatUkrainianConjugateBasic(LocArgs args)
         {
-            var name = ((LocValueString)args.Args[0]).Value;
             var singular = ((LocValueString)args.Args[1]).Value;
-            var plural = args.Args.Length > 2 ? ((LocValueString)args.Args[2]).Value : singular;
-
-            // За замовчуванням використовуємо форму однини
             return new LocValueString(singular);
         }
 
-        /// <summary>
-        /// PROPER - форматує ім'я як власне (з великої літери)
-        /// Використання: PROPER($entity)
-        /// </summary>
         private ILocValue FormatUkrainianProper(LocArgs args)
         {
             var name = ((LocValueString)args.Args[0]).Value;
             if (string.IsNullOrEmpty(name))
-                return new LocValueString(name);
+                return new LocValueString("");
 
-            return new LocValueString(char.ToUpper(name[0]) + name[1..]);
+            string first = name.Substring(0, 1).ToUpper();
+            if (name.Length == 1)
+                return new LocValueString(first);
+
+            string rest = name.Substring(1);
+            return new LocValueString(first + rest);
         }
     }
 }

@@ -1,1 +1,0 @@
-diona-hurt-by-herbicide-popup = Хімічна речовина в’яне частину вашої зелені!

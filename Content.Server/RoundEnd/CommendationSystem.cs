@@ -20,6 +20,7 @@ public sealed class CommendationSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly Robust.Shared.Timing.IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
@@ -32,10 +33,30 @@ public sealed class CommendationSystem : EntitySystem
         var senderSession = args.SenderSession;
         var senderUserId = senderSession.UserId;
 
+        // 1. Anti-farm: Round duration check (15 mins minimum)
+        var minRoundDurationLimit = TimeSpan.FromMinutes(0);
+        var currentRoundDuration = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+        if (currentRoundDuration < minRoundDurationLimit)
+        {
+            RaiseNetworkEvent(new CommendationSentMessage(false, 
+                Loc.GetString("commendation-server-insufficient-round-time", ("min", 15))), senderSession);
+            return;
+        }
+
+        // 2. Anti-farm: Player playtime in round check (10 mins minimum)
+        var minPlayerTime = TimeSpan.FromMinutes(0);
+        if (DateTime.UtcNow - senderSession.ConnectedTime < minPlayerTime)
+        {
+            RaiseNetworkEvent(new CommendationSentMessage(false, 
+                Loc.GetString("commendation-server-insufficient-player-time", ("min", 10))), senderSession);
+            return;
+        }
+        
         // Resolve receiver by OOC name
         if (!_playerManager.TryGetSessionByUsername(message.ReceiverOOCName, out var receiverSession))
         {
-            RaiseNetworkEvent(new CommendationSentMessage(false, "Player not found."), senderSession);
+            RaiseNetworkEvent(new CommendationSentMessage(false, 
+                Loc.GetString("commendation-server-player-not-found")), senderSession);
             return;
         }
 
@@ -44,7 +65,8 @@ public sealed class CommendationSystem : EntitySystem
         // Anti-abuse: cannot commend yourself
         if (senderUserId == receiverUserId)
         {
-            RaiseNetworkEvent(new CommendationSentMessage(false, "You cannot commend yourself."), senderSession);
+            RaiseNetworkEvent(new CommendationSentMessage(false, 
+                Loc.GetString("commendation-server-self-commend")), senderSession);
             return;
         }
 
@@ -55,7 +77,8 @@ public sealed class CommendationSystem : EntitySystem
 
         if (!success)
         {
-            RaiseNetworkEvent(new CommendationSentMessage(false, "You have already commended someone this round."), senderSession);
+            RaiseNetworkEvent(new CommendationSentMessage(false, 
+                Loc.GetString("commendation-server-already-commended")), senderSession);
             return;
         }
 
@@ -64,7 +87,8 @@ public sealed class CommendationSystem : EntitySystem
             $"RP Commendation: {senderSession.Name} ({senderUserId}) commended {receiverSession.Name} ({receiverUserId}) in round {roundId}");
 
         // Notify the receiver
-        _chatManager.DispatchServerMessage(receiverSession, $"Вас щойно похвалили за гарний відіграш у раунді #{roundId}! Дякуємо за вашу гру!");
+        _chatManager.DispatchServerMessage(receiverSession, 
+            Loc.GetString("commendation-server-receiver-notification", ("roundId", roundId)));
 
         RaiseNetworkEvent(new CommendationSentMessage(true), senderSession);
     }

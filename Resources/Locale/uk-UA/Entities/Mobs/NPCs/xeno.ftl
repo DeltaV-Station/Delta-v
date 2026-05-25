@@ -1,1 +1,1 @@
-ghost-role-information-xeno-name = Ксенос
+﻿# DUPLICATE REMOVED: ghost-role-information-xeno-name = Ксенос

@@ -23,4 +23,13 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+
+  <Target Name="CleanNumberedDllArtifacts" BeforeTargets="Build">
+    <ItemGroup>
+      <NumberedDllArtifacts Include="$(OutputPath)**/* *.dll" />
+      <NumberedDllArtifacts Include="$(OutputPath)**/* *.pdb" />
+    </ItemGroup>
+
+    <Delete Files="@(NumberedDllArtifacts)" />
+  </Target>
 </Project>

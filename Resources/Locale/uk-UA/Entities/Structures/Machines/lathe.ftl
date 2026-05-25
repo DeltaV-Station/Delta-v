@@ -1,1 +1,1 @@
-lathe-component-output-slot-beaker-name = Слот для мензурки
+﻿# DUPLICATE REMOVED: lathe-component-output-slot-beaker-name = Слот для мензурки
