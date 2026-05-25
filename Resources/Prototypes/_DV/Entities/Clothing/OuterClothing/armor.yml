@@ -42,14 +42,16 @@
   - type: Armor # Good against stabs and knocks, offers minimal protection from gunshots and lasfire.
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.90
-        Heat: 0.90
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.8
+        Heat: 0.8
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
     damageCoefficient: 0.90
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.90
   - type: AllowSuitStorage
   - type: Tag
     tags:
