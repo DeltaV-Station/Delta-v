@@ -206,7 +206,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
         else
         {
             if (_mobState.IsDead(target, targetMobState))
-                _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user, canSever: false); // DeltaV - Stop Defibs from Nuggetizing people.
+                _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
 
             if (TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
                 TryComp<DamageableComponent>(target, out var targetDamageable) &&

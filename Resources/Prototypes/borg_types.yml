@@ -148,6 +148,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -196,6 +197,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -226,8 +228,6 @@
     fiberColor: fibers-white
   - type: AccessReader # DeltaV - departmental access
     access: [["Command"], ["Robotics"], ["Medical"]]
-  - type: SurgeryTarget # Shitmed
-  - type: Sanitized # Shitmed
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -271,6 +271,7 @@
 #  - BorgModuleService
 #  - BorgModuleClowning
 #  - BorgModuleHarvesting
+  - BorgModuleTool # Readd Tool Module
   - BorgModuleGardeningDV
   - BorgModuleChef
   - BorgModuleBartender

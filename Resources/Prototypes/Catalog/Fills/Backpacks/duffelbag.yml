@@ -4,22 +4,14 @@
   name: surgical duffel bag
   description: "A large duffel bag for holding extra medical supplies - this one seems to be designed for holding surgical tools."
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: Hemostat
-        - id: SawElectric # Shitmed Change
-        - id: Drill
-        - id: Cautery
-        - id: Retractor
-        - id: Scalpel
-        - id: BoneGel # Shitmed Change
-        - id: NitrousOxideTankFilled # DeltaV - add anesthesia
-        - id: SoapNT # DeltaV - add soap
-        - id: ClothingMaskSterile # DeltaV
-        - id: ClothingMaskBreathMedical # DeltaV
-        - id: ClothingHandsGlovesNitrile # DeltaV
+  - type: StorageFill
+    contents:
+      - id: Hemostat
+      - id: Saw
+      - id: Drill
+      - id: Cautery
+      - id: Retractor
+      - id: Scalpel
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -39,10 +31,6 @@
         - id: ScalpelAdvanced
         - id: ClothingHandsGlovesNitrile
         - id: EmergencyRollerBedSpawnFolded
-        - id: BoneGel # Shitmed Change
-        - id: NitrousOxideTankFilled # DeltaV - add anesthesia
-        - id: SoapSyndie # DeltaV - add soap
-        - id: ClothingMaskSterile # DeltaV
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -60,7 +48,8 @@
         - id: JugDylovene
         - id: JugHyronalin
         - id: JugSaline
-        - id: JugDexalinPlus
+        #- id: JugDexalinPlus # DeltaV - removed Dex+ Jug (it didn't spawn anyways)
+        - id: JugSalbutamol # DeltaV - Add salbu jug
         - id: JugTranexamicAcid
 
 - type: entity
