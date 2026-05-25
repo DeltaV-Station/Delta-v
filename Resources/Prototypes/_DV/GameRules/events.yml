@@ -25,7 +25,7 @@
   components:
   - type: StationEvent
     earliestStart: 15 #DeltaV was 30
-    weight: 6 #DeltaV was 7.5
+    weight: 7.5
     minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
