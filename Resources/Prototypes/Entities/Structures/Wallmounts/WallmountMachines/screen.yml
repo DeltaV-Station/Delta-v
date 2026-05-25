@@ -88,27 +88,41 @@
           green: { state: alert_border_green }
           blue: { state: alert_border_blue }
           red: { state: alert_border_red }
+          white: { state: alert_border_white }
+          yellow: { state: alert_border_yellow }
+          violet: { state: alert_border_violet }
           delta: { state: alert_border_delta }
+          epsilon: { state: alert_border_epsilon }
+          gamma: { state: alert_border_gamma }
+          octarine: { state: alert_border_octarine }
+          sigma: { state: alert_border_sigma }
         alert_status:
           green: { state: status_display_green }
           blue: { state: status_display_blue }
           red: { state: status_display_red }
+          white: { state: status_display_white }
+          yellow: { state: status_display_yellow }
+          violet: { state: status_display_violet }
           delta: { state: status_display_delta }
+          epsilon: { state: status_display_epsilon }
+          gamma: { state: status_display_gamma }
+          octarine: { state: status_display_octarine }
+          sigma: { state: status_display_sigma }
       enum.DVScreenVisuals.Content:
         enum.DVTextScreenVisualLayers.Line1:
           Text: { visible: true }
           CurrentTime: { visible: true }
-          EstimatedTImeOfArrival: { visible: true }
+          EstimatedTimeOfArrival: { visible: true }
           AlertLevel: { visible: false }
         enum.DVTextScreenVisualLayers.Line2:
           Text: { visible: true }
           CurrentTime: { visible: true }
-          EstimatedTImeOfArrival: { visible: true }
+          EstimatedTimeOfArrival: { visible: true }
           AlertLevel: { visible: false }
         alert_status:
           Text: { visible: false }
           CurrentTime: { visible: false }
-          EstimatedTImeOfArrival: { visible: false }
+          EstimatedTimeOfArrival: { visible: false }
           AlertLevel: { visible: true }
   - type: DeviceNetwork
     deviceNetId: Wireless
