@@ -1,0 +1,101 @@
+- type: entity
+  parent: BaseWallmountMetallic
+  id: PagerButton
+  name: departmental pager button
+  description: A button used to request the presence of anyone in the department.
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Construction
+    graph: PagerButtonGraph
+    node: PagerButtonNode
+  - type: StationAiWhitelist
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _DV/Structures/Wallmounts/pager.rsi
+    layers:
+    - state: "doorbell"
+      map: ["enum.PagerButtonVisualLayers.Base"]
+  - type: UseDelay
+    delay: 5 # do NOT the button
+  - type: Rotatable
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: NTNet
+    transmitFrequencyId: NTNet
+  - type: Transform
+    anchored: false
+  - type: PageSender
+  - type: PagerButton
+    pressState: doorbellpressed
+    unpressedState: doorbell
+    pressSound:
+      path: /Audio/Effects/Cargo/ping.ogg
+    pageMessage: pager-message-button
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonMedical
+  suffix: Medical
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Medical]
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonEngineering
+  suffix: Engineering
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Engineering]
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonSecurity
+  suffix: Security
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Security]
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonLogistics
+  suffix: Logistics
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Logistics]
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonEpistemics
+  suffix: Epistemics
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Epistemics]
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonCommand
+  suffix: Command
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Command]

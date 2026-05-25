@@ -1,0 +1,57 @@
+- type: entity
+  parent: [BaseItem, BaseWeaponBatterySmall, BaseGunWieldable]
+  id: GravGauntlet
+  name: Grav Gauntlet MK-00c
+  description: A developmental prototype of Nanotrasen's Melee Arms Department. When striking an enemy, a gravitational wave pulses and sweeps them in for a follow-up.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/grav_gauntlet.rsi
+    state: icon
+  - type: MeleeWeapon
+    range: 1.2 # so you can actually use the pull
+    attackRate: 0.70 # heavy friggin fists bro
+    angle: 0
+    animation: WeaponArcFist
+    wideAnimationRotation: 145
+    damage:
+      types:
+        Blunt: 18
+        Heat: 5
+        Structural: 20
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Heat: 7
+        Structural: 5
+  - type: Gun #apersos was here
+    resetOnHandSelected: false
+    projectileSpeed: 25
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: BatteryAmmoProvider
+    proto: BulletTaser # most balanced kinda, better than a stun shotgun
+    fireCost: 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1000
+    autoRechargePauseTime: 55
+  - type: GunRequiresWield #gotta steady your arm to aim duhhh
+  - type: AmmoCounter
+  - type: MeleeThrowOnHit
+    speed: 5.75
+    distance: -.75
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 2
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/grav_gauntlet.rsi
+    quickEquip: false
+    slots:
+    - belt
+    - suitStorage
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StealTarget
+    stealGroup: HoSSidearm
