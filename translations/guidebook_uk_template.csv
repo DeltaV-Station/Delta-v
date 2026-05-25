@@ -1,0 +1,809 @@
+id,english,source_file
+guidebook-window-title,Guidebook,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-placeholder-text,Select an entry.,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-placeholder-text-2,"If you're new, head over to ""New? Start here!""",Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-filter-placeholder-text,Filter items,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-parser-error,Parser Error,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-error-message,Error Message,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-monkey-unspin,Unspin Monkey,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-monkey-disco,Disco Monkey,Resources/Locale/en-US/Guidebook/guidebook.ftl
+guidebook-microwave-ingredients-header,Ingredients,Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-cook-time-header,Cooking Time,Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-cook-time,,Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-reagent-color-display,[color={$color}]■[/color],Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-reagent-name-display,[bold]{$reagent}[/bold],Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-reagent-quantity-display,× {$amount}u,Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-solid-name-display,[bold]{$ingredient}[/bold],Resources/Locale/en-US/Guidebook/cooking.ftl
+guidebook-microwave-solid-quantity-display,× {$amount},Resources/Locale/en-US/Guidebook/cooking.ftl
+guide-entry-ss14,Station and Shifts,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-engineering,Engineering,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-construction,Construction,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-expandingrepairingstation,Expanding and Repairing Stations,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-airlock-security,Airlock Upgrades,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-wirepanels,Wire Panels,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-airlocks,Airlocks,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmospherics,Atmospherics,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pipes,Pipes,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pumps,Pumps,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-gasmanipulation,Gas Manipulation,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmosphereinout,Atmosphere In/Out,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-airvent,Air Vent,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-passivevent,Passive Vent,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-airinjector,Air Injector,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-airscrubber,Air Scrubber,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-portablescrubber,Portable Scrubber,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-valves,Valves,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-manualvalve,Manual Valve,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-signalvalve,Signal Valve,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pneumaticvalve,Pneumatic Valve,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-passivegate,Passive Gate,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-ressureregulator,Pressure Regulator,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-mixingandfiltering,Mixing and Filtering,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-gascanisters,Gas Canisters,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-thermomachines,Thermomachines,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-gascondensing,Gas Condensing,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-gasrecycling,Gas Recycling,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-radiators,Radiators,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmosphericssystems,Atmospherics Systems,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pipenetworks,Pipe Networks,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-devicemonitoringandcontrol,Device Monitoring and Control,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-airalarms,Air Alarms,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmosphericalertscomputer,Atmospheric Alerts Computer,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmosphericnetworkmonitor,Atmospheric Network Monitor,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-fireandgascontrol,Fire and Gas Control,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-gasminingandstorage,Gas Mining and Storage,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmosphericupsets,Atmospheric Upsets,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-fires,Fires,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-spacing,Spacing,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-deltapressure,Delta Pressure,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-atmostools,Atmos Tools,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-gasses,Gasses,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-botany,Botany,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-shuttle-craft,Shuttle-craft,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-networking,Networking,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-access-configurator,Access Configurator,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-power,Power,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-inspectingpower,Inspecting Power,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-powerstorage,Power Storage,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-ramping,Ramping,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-voltagenetworks,Voltage Networks,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-generators,Generators,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-portable-generator,Portable Generators,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-ame,Antimatter Engine (AME),Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-singularityteslaengine,Singularity / Tesla,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-singularityengine,Singularity Engine,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-teslaengine,Tesla Engine,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-solarpanels,Solar Panels,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-teg,Thermo-electric Generator (TEG),Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rtg,RTG,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-jobs,Jobs,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-cargo-bounties,Cargo Bounties,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-salvage,Salvage,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-survival,Survival,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-janitorial,Janitorial,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-bartender,Bartender,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-chef,Chef,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-medical,Medical,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-medicaldoctor,Medical Doctor,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-chemist,Chemist,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-brute,Advanced Brute Medication,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-botanicals,Botanicals,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-cloning,Cloning,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-cryogenics,Cryogenics,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-technologies,Technologies,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-anomalous-research,Anomalous Research,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-scanners-and-vessels,Scanners and Vessels,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-ape,A.P.E.,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-xenoarchaeology,Xenoarchaeology,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-xenoarchaeologyunlockingnodes,Unlocking Nodes,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-analysisconsole,Analysis Console,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-artifact-reports,Artifact Reports,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-traversal-distorter,Traversal Distorter,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-machine-upgrading,Machine Upgrading,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-robotics,Robotics,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-cyborgs,Cyborgs,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-security,Security,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-forensics,Forensics,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-defusal,Large Bomb Defusal,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-criminal-records,Criminal Records,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-command,Command,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-service,Service,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-newplayer,New? Start here!,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-charactercreation,Creating Characters,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-species,Species,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-yourfirstcharacter,Your First Character,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-controls,Controls,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-radio,Radio and Speech,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-references,Tables & References,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-chemicals,Chemicals,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-drinks,Drinks,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-foodrecipes,Food Recipes,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-elements,Elements,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-medicine,Medicine,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-narcotics,Narcotics,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pyrotechnics,Pyrotechnic,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-toxins,Toxins,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-foods,Foods,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-biological,Biological,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-botanical,Botanical,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-special,Special,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-others,Others,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pizza-recipes,Pizzas,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-savory-recipes,Savory Foods,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-bread-recipes,Breads,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-breakfast-recipes,Breakfast Foods,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-moth-recipes,Moth Foods,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pasta-recipes,Pastas & Noodles,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-dessert-recipes,Desserts & Pastries,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-soup-recipes,Soups & Stews,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-pie-recipes,Pies & Tarts,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-barsandcookies-recipes,Bars & Cookies,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-cake-recipes,Cakes,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-salad-recipes,Salads,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-medicinal-recipes,Medicinal,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-other-recipes,Other,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-secret-recipes,Secret,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-lawsets,Silicon Lawsets,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-antagonists,Antagonists,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-nuclear-operatives,Nuclear Operatives,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-traitors,Traitors,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-zombies,Zombies,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-revolutionaries,Revolutionaries,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-minor-antagonists,Minor Antagonists,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-space-ninja,Space Ninja,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-thieves,Thieves,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-wizard,Wizard,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-xenoborgs,Xenoborgs,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules,Server Rules,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-core-only,Core Only Ruleset,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-lrp,Standard Ruleset,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-mrp,MRP Ruleset,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-role-types,Role Types,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-core,Core Rules,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c1,C1,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c2,C2,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c3,C3,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c4,C4,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c5,C5,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c6,C6,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c7,C7,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c8,C8,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c9,C9,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c10,C10,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c11,C11,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c12,C12,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c13,C13,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-c14,C14,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-roleplay,Roleplay Rules,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r1,R1,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r2,R2,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r3,R3,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r4,R4,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r5,R5,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r6,R6,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r7,R7,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r8,R8,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r9,R9,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r10,R10,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r11,R11,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r11-1,R11-1,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r11-2,R11-2,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r12,R12,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r13,R13,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r14,R14,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-r15,R15,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-silicon,Silicon Rules,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s1,S1,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s2,S2,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s3,S3,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s4,S4,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s5,S5,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s6,S6,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s7,S7,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s8,S8,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s9,S9,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-s10,S10,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-space-law,Space Law,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-sl-crime-list,Crime List,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-sl-controlled-substances,Controlled Substances,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-sl-restricted-gear,Restricted Gear,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-sl-restricted-weapons,Restricted Weapons,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-ban-types,Ban Types,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-rules-ban-durations,Ban Durations,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-writing,Writing,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-entry-glossary,Glossary,Resources/Locale/en-US/Guidebook/guides.ftl
+guide-help-verb,Help,Resources/Locale/en-US/Guidebook/verb.ftl
+guidebook-reagent-name,[bold][color={$color}]{CAPITALIZE($name)}[/color][/bold],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-recipes-header,Recipe,Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-recipes-reagent-display,[bold]{$reagent}[/bold] \[{$ratio}\],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-sources-header,Sources,Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-sources-ent-wrapper,[bold]{$name}[/bold] \[1\],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-sources-gas-wrapper,[bold]{$name} (gas)[/bold] \[1\],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-effects-header,Effects,Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-effects-metabolism-group-rate,[bold]{$group}[/bold] [color=gray]({$rate} units per second)[/color],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-plant-metabolisms-header,Plant Metabolism,Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-plant-metabolisms-rate,[bold]Plant Metabolism[/bold] [color=gray](1 unit every 3 seconds as base)[/color],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-physical-description,[italic]Seems to be {$description}.[/italic],Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+guidebook-reagent-recipes-mix-info,{$minTemp ->,Resources/Locale/en-US/Guidebook/chemistry/core.ftl
+plant-attribute-growth,age,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-water,water level,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-potency,potency,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-weeds,weeds level,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-toxins,toxins level,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-nutrition,nutrition level,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-mutation-level,mutation level,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-pests,pests level,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-mutation-mod,mutation modifier,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-health,health,Resources/Locale/en-US/Guidebook/chemistry/plant-attributes.ftl
+entity-condition-guidebook-total-damage,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-type-damage,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-group-damage,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-total-hunger,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-reagent-threshold,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-mob-state-condition,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-job-condition,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-solution-temperature,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-body-temperature,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-organ-type,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-has-tag,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-this-reagent,this reagent,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-breathing,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-internals,,Resources/Locale/en-US/Guidebook/entity-effects/conditions.ftl
+entity-effect-status-effect-KnockedDown,knockdown,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Jitter,jittering,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-TemporaryBlindness,blindness,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-SeeingRainbows,hallucinations,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Muted,inability to speak,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Stutter,stuttering,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-ForcedSleep,unconsciousness,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Drunk,drunkenness,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-PressureImmunity,pressure immunity,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Pacified,combat pacification,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-RatvarianLanguage,ratvarian language patterns,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-StaminaModifier,modified stamina,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-RadiationProtection,radiation protection,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Drowsiness,drowsiness,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Adrenaline,adrenaline,Resources/Locale/en-US/Guidebook/entity-effects/statuseffects.ftl
+-create-3rd-person,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+-cause-3rd-person,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+-satiate-3rd-person,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-spawn-entity,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-destroy,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-break,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-explosion,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-emp,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-flash,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-foam-area,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-smoke-area,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-satiate-thirst,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-satiate-hunger,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-health-change,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-even-health-change,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-status-effect-old,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-status-effect,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-status-effect-indef,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-knockdown,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-set-solution-temperature-effect,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-solution-temperature-effect,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-reagent-reagent,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-reagent-group,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-temperature,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-chem-cause-disease,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-chem-cause-random-disease,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-jittering,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-clean-bloodstream,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-cure-disease,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-eye-damage,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-vomit,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-create-gas,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-drunk,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-electrocute,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-emote,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-extinguish-reaction,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-flammable-reaction,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-ignite,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-make-sentient,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-make-polymorph,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-modify-bleed-amount,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-modify-blood-level,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-paralyze,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-movespeed-modifier,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-reset-narcolepsy,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-wash-cream-pie-reaction,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-cure-zombie-infection,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-cause-zombie-infection,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-innoculate-zombie-infection,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-reduce-rotting,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-area-reaction,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-add-to-solution-reaction,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-artifact-unlock,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-artifact-durability-restore,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-attribute,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-cryoxadone,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-phalanximine,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-diethylamine,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-robust-harvest,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-seeds-add,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-seeds-remove,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-mutate-chemicals,,Resources/Locale/en-US/Guidebook/entity-effects/effects.ftl
+guide-entry-automation,Automation,Resources/Locale/en-US/_Goobstation/Guidebook/guides.ftl
+guide-entry-cd-records,Character Records,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-cd,Cosmatic Drift Rules,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-cd,Cosmatic Drift Content,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-cd-newplayer,Welcome to Cosmatic Drift!,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-ic,In Character Policy,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-core,Standard Operating Procedure,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-restricted,List of Restricted Items,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-command,Command,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-sec,Security,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-engi,Engineering,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-med,Medical,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-sci,Science,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-cargo,Cargo,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-service,Service,Resources/Locale/en-US/_CD/Guidebook/guides.ftl
+guide-entry-nuclear-reactor,Nuclear Reactor,Resources/Locale/en-US/_FarHorizons/Guidebook/guides.ftl
+guide-entry-nuclear-materials,Material Effects,Resources/Locale/en-US/_FarHorizons/Guidebook/guides.ftl
+guideboook-microwave-fry-time,Fry for [bold]{$time}[/bold] seconds,Resources/Locale/en-US/_DV/Guidebook/cooking.ftl
+guidebook-microwave-cook-time-deltav,Microwave for,Resources/Locale/en-US/_DV/Guidebook/cooking.ftl
+guide-entry-deltav-Rules,Delta-V Rules,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-0,0. Admin Discretion,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a1,A1. No Sexual Content/Themes,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a2,A2. Use English and be respectful,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a3,A3. Rules regarding livestreaming,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a4,A4. Engage in proper AHelp etiquette,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a5,A5. Do not exploit the game,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-1,B1. Behave like a normal person,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-2,B2. Follow the Metashield,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-3,B3. Powergaming Guidelines,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-4,B4. Do not behave like an antagonist as a non-antagonist,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-5,B5. Leaving Guidelines,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-c1,"C1. Command, Security and Justice Guidelines",Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-c2,C2. Prisoner Guidelines,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-c3,C3. Follow Antagonist Guidelines,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s1,S1. Laws are your rules,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s2,S2. Laws are prioritized in order,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s3,S3. Laws can redefine words,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s4,S4. You cannot allow a law change,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s5,"S5. If no laws, you are a free agent",Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s6,S6. Not required to follow stupid orders,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s7,S7. You must be consistent.,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s8,S8. Crew definition by default.,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s9,S9. Harm definition by default.,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s10,S10. You resolve conflicts between orders.,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-alert-levels,Alert Levels,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-justice,Justice,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-whitelist,Whitelist,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-science,Epistemics,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-glimmer-creatures,Glimmer Creatures,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-altars,Altars,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-psionics,Psionics,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-reverse-engineering,Reverse Engineering,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-trade-station,Trade Station,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-cargo,Logistics,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-frequently-used-chemicals,Frequently Used Chemicals,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+guide-entry-deepfried-recipes,Deep-Fried,Resources/Locale/en-US/_DV/Guidebook/guides.ftl
+reagent-explanation-netinadone-ribcage,the target's ribcage is open,Resources/Locale/en-US/_DV/Guidebook/chemistry/conditions.ftl
+reagent-effect-status-effect-PsionicallyInsulated,psionic insulation,Resources/Locale/en-US/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-PsionicsDisabled,inability to use psionic powers,Resources/Locale/en-US/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-Anesthesia,surgical anesthesia,Resources/Locale/en-US/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-ScrambledSpeech,scrambled speech,Resources/Locale/en-US/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-PainNumbness,inability to sense pain,Resources/Locale/en-US/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-RepeatingTelepath,to involuntarily repeat telepathic messages,Resources/Locale/en-US/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-guidebook-addicted,,Resources/Locale/en-US/_DV/Guidebook/chemistry/effects.ftl
+reagent-effect-guidebook-addiction-suppression,,Resources/Locale/en-US/_DV/Guidebook/chemistry/effects.ftl
+entity-effect-status-effect-PsionicallyInsulated,psionic insulation,Resources/Locale/en-US/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-PsionicsDisabled,inability to use psionic powers,Resources/Locale/en-US/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Anesthesia,surgical anesthesia,Resources/Locale/en-US/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-PainNumbness,inability to sense pain,Resources/Locale/en-US/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-RepeatingTelepath,involuntarily repetition of telepathic messages,Resources/Locale/en-US/_DV/Guidebook/entity-effects/statuseffects.ftl
+guide-entry-exotic,Exotic,Resources/Locale/en-US/_Funkystation/Guidebook/guides.ftl
+guide-entry-surgery,Surgery,Resources/Locale/en-US/_Shitmed/Guidebook/guides.ftl
+guide-entry-partmanipulation,Part Manipulation,Resources/Locale/en-US/_Shitmed/Guidebook/guides.ftl
+guide-entry-organmanipulation,Organ Manipulation,Resources/Locale/en-US/_Shitmed/Guidebook/guides.ftl
+guide-entry-utilitysurgeries,Utility Surgeries,Resources/Locale/en-US/_Shitmed/Guidebook/guides.ftl
+guide-entry-autodoc,Autodoc,Resources/Locale/en-US/_Shitmed/Guidebook/guides.ftl
+guide-entry-conspirators,Conspirators,Resources/Locale/en-US/_Harmony/Guidebook/guides.ftl
+guidebook-window-title,Довідник,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-placeholder-text,Виберіть запис.,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-placeholder-text-2,"Якщо ви новачок, виберіть самий верхній запис, щоб почати",Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-filter-placeholder-text,Фільтрувати предмети,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-parser-error,Помилка парсера,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-error-message,Повідомлення про помилку,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-monkey-unspin,Відкрутити Мавпу,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-monkey-disco,Диско Мавпа,Resources/Locale/uk-UA/Guidebook/guidebook.ftl
+guidebook-microwave-ingredients-header,Інгредієнти,Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-cook-time-header,Час приготування,Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-cook-time,{ $time ->,Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-reagent-color-display,[color={$color}]■[/color],Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-reagent-name-display,[bold]{$reagent}[/bold],Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-reagent-quantity-display,× {$amount}u,Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-solid-name-display,[bold]{$ingredient}[/bold],Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guidebook-microwave-solid-quantity-display,× {$amount},Resources/Locale/uk-UA/Guidebook/cooking.ftl
+guide-entry-ss14,Космічна Станція 14,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-engineering,Інженерія,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-construction,Будівництво,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-expandingrepairingstation,Розширення та ремонт станції,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-airlock-security,Модернізація шлюзів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-wirepanels,Панелі з проводами,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-airlocks,Шлюзи,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmospherics,Атмосфера,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pipes,Труби,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pumps,Насоси,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-gasmanipulation,Маніпуляція газами,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmosphereinout,Вхід/вихід атмосфери,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-airvent,Вентиляційний отвір,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-passivevent,Пасивний вентиляційний отвір,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-airinjector,Повітряний інжектор,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-airscrubber,Повітряний скрубер,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-portablescrubber,Портативний скрубер,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-valves,Клапани,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-manualvalve,Ручний клапан,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-signalvalve,Сигнальний клапан,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pneumaticvalve,Пневматичний клапан,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-passivegate,Пасивний шлюз,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-ressureregulator,Регулятор тиску,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-mixingandfiltering,Змішування та фільтрація,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-gascanisters,Газові балони,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-thermomachines,Термомашини,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-gascondensing,Конденсація газу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-gasrecycling,Переробка газу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-radiators,Радіатори,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmosphericssystems,Атмосферні системи,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pipenetworks,Трубопровідні мережі,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-devicemonitoringandcontrol,Моніторинг та керування пристроями,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-airalarms,Повітряні тривоги,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmosphericalertscomputer,Консоль атмосферних сповiщень,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmosphericnetworkmonitor,Консоль атмосферної мережi,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-fireandgascontrol,Контроль пожежi та газу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-gasminingandstorage,Видобуток та зберігання газу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmosphericupsets,Атмосферні порушення,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-fires,Пожежі та розгерметизації,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-spacing,Розгерметизація,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-deltapressure,Дельта тиску,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-atmostools,Інструменти атмос-техніка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-gasses,Гази,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-botany,Ботаніка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-shuttle-craft,Шатлобудування,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-networking,Налаштування мережі,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-access-configurator,Конфігуратор доступу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-power,Електроживлення,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-inspectingpower,Перевірка живлення,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-powerstorage,Зберігання енергії,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-ramping,Підвищення потужності,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-voltagenetworks,Мережі напруги,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-generators,Генератори,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-portable-generator,Портативні генератори,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-ame,Двигун на антиматерії (ДАМ),Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-singularityteslaengine,Сингулярність / Тесла,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-singularityengine,Двигун на сингулярності,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-teslaengine,Двигун Тесли,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-solarpanels,Сонячні панелі,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-teg,Термоелектричний генератор (ТЕГ),Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rtg,РТГ,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-jobs,Вакансії,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-cargo-bounties,Винагороди за Вантаж,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-salvage,Видобування,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-survival,Виживання,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-janitorial,Прибиральництво,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-bartender,Бармен,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-chef,Шеф,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-medical,Медичні,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-medicaldoctor,Медичний Доктор,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-chemist,Хімік,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-brute,Удосконалені Ліки Шкоди,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-botanicals,Ботаніка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-cloning,Клонування,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-cryogenics,Кріогеніка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-technologies,Технологія,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-anomalous-research,Дослідження аномалій,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-scanners-and-vessels,Сканери та судини,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-ape,А.Р.Е.,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-xenoarchaeology,Ксеноархеологія,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-xenoarchaeologyunlockingnodes,Розблокування вузлів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-analysisconsole,Консоль аналізу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-artifact-reports,Дослідження артефактів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-traversal-distorter,Дефлектор Обхіду,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-machine-upgrading,Покращення Обладнання,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-robotics,Робототехніка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-cyborgs,Кіборги,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-security,Безпека Станції,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-forensics,Криміналістика,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-defusal,Знешкодження бомби,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-criminal-records,Кримінальні записи,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-command,Командування,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-service,Сервіс,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-newplayer,Новачок? Починайте тут!,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-charactercreation,Створення персонажів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-species,Раси,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-yourfirstcharacter,Ваш перший герой,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-controls,Керування,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-radio,Радіо,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-references,Таблиці та довідники,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-chemicals,Хімікати,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-drinks,Напої,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-foodrecipes,Рецепти,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-elements,Елементи,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-medicine,Медицина,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-narcotics,Наркотики,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pyrotechnics,Піротехніка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-toxins,Токсини,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-foods,Продукти харчування,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-biological,Біологічний,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-botanical,Ботанічні препарати,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-special,Особливе,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-others,Інше,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pizza-recipes,Рецепти піци,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-savory-recipes,Солоні страви,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-bread-recipes,Хліб,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-breakfast-recipes,Сніданки,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-moth-recipes,Їжа для молі,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pasta-recipes,Паста та локшина,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-dessert-recipes,Десерти та випічка,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-soup-recipes,Супи та рагу,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-pie-recipes,Пироги та тарти,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-barsandcookies-recipes,Батончики та печиво,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-cake-recipes,Торти,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-salad-recipes,Салати,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-medicinal-recipes,Лікувальні,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-other-recipes,Інше,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-secret-recipes,Секретні рецепти,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-lawsets,Набори законів для силіконів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-antagonists,Антагоністи,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-nuclear-operatives,Ядерні Оперативники,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-traitors,Зрадники,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-zombies,Зомбі,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-revolutionaries,Революціонери,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-minor-antagonists,Малі антагоністи,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-space-ninja,Космічний Ніндзя,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-thieves,Злодії,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-wizard,Чарівник,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-xenoborgs,Ксеноборги,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules,Правила сервера,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-core-only,Тільки основний набір правил,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-lrp,Стандартний набір правил,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-mrp,Набір правил MRP,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-role-types,Типи ролей,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-core,Основні правила,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c1,C1,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c2,C2,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c3,C3,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c4,C4,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c5,C5,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c6,C6,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c7,C7,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c8,C8,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c9,C9,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c10,C10,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c11,C11,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c12,C12,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c13,C13,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-c14,C14,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-roleplay,Правила рольової гри,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r1,R1,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r2,R2,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r3,R3,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r4,R4,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r5,R5,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r6,R6,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r7,R7,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r8,R8,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r9,R9,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r10,R10,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r11,R11,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r11-1,П11-1,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r11-2,П11-2,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r12,R12,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r13,R13,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r14,R14,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-r15,R15,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-silicon,ШІ правила,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s1,S1,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s2,S2,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s3,S3,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s4,S4,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s5,S5,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s6,S6,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s7,S7,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s8,S8,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s9,S9,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-s10,S10,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-space-law,Космічне право,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-sl-crime-list,Список злочинів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-sl-controlled-substances,Підконтрольні речовини,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-sl-restricted-gear,Обмежене спорядження,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-sl-restricted-weapons,Зброя з обмеженим доступом,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-ban-types,Типи заборон,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-rules-ban-durations,Тривалість банів,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-writing,Написання,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-entry-glossary,Глосарій,Resources/Locale/uk-UA/Guidebook/guides.ftl
+guide-help-verb,Допоможіть!,Resources/Locale/uk-UA/Guidebook/verb.ftl
+guidebook-reagent-name,[bold][color={$color}]{CAPITALIZE($name)}[/color][/bold],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-recipes-header,Рецепт,Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-recipes-reagent-display,[bold]{$reagent}[/bold] \[{$ratio}\],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-sources-header,Джерела,Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-sources-ent-wrapper,[bold]{$name}[/bold] \[1\],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-sources-gas-wrapper,[bold]{$name} (газ)[/bold] \[1\],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-effects-header,Ефекти,Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-effects-metabolism-group-rate,[bold]{$group}[/bold] [color=gray]({$rate} одиниць на секунду)[/color],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-plant-metabolisms-header,Метаболізм рослин,Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-plant-metabolisms-rate,[bold]Метаболізм рослин[/bold] [color=gray](1 одиниця кожні 3 секунди як база)[/color],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-physical-description,[italic]Схоже на {$description} речовину.[/italic],Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+guidebook-reagent-recipes-mix-info,{$minTemp ->,Resources/Locale/uk-UA/Guidebook/chemistry/core.ftl
+plant-attribute-growth,вік,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-water,рівень води,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-potency,потенція,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-weeds,рівень бур'янів,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-toxins,рівень токсинів,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-nutrition,рівень харчування,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-mutation-level,рівень мутації,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-pests,рівень шкідників,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-mutation-mod,модифікатор мутації,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+plant-attribute-health,здоров'я,Resources/Locale/uk-UA/Guidebook/chemistry/plant-attributes.ftl
+entity-condition-guidebook-total-damage,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-type-damage,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-group-damage,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-total-hunger,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-reagent-threshold,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-mob-state-condition,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-job-condition,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-solution-temperature,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-body-temperature,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-organ-type,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-has-tag,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-this-reagent,цей реагент,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-breathing,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-condition-guidebook-internals,,Resources/Locale/uk-UA/Guidebook/entity-effects/conditions.ftl
+entity-effect-status-effect-KnockedDown,збивання з ніг,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Jitter,тремтіння,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-TemporaryBlindness,сліпота,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-SeeingRainbows,галюцинації,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Muted,нездатність говорити,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Stutter,заїкання,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-ForcedSleep,непритомність,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Drunk,сп'яніння,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-PressureImmunity,імунітет до тиску,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Pacified,бойова пацифікація,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-RatvarianLanguage,ратваріанські мовні патерни,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-StaminaModifier,змінена витривалість,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-RadiationProtection,радіаційний захист,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Drowsiness,сонливість,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Adrenaline,адреналін,Resources/Locale/uk-UA/Guidebook/entity-effects/statuseffects.ftl
+-create-3rd-person,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+-cause-3rd-person,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+-satiate-3rd-person,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-spawn-entity,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-destroy,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-break,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-explosion,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-emp,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-flash,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-foam-area,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-smoke-area,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-satiate-thirst,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-satiate-hunger,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-health-change,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-even-health-change,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-status-effect-old,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-status-effect,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-status-effect-indef,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-knockdown,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-set-solution-temperature-effect,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-solution-temperature-effect,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-reagent-reagent,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-reagent-group,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-adjust-temperature,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-chem-cause-disease,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-chem-cause-random-disease,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-jittering,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-clean-bloodstream,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-cure-disease,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-eye-damage,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-vomit,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-create-gas,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-drunk,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-electrocute,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-emote,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-extinguish-reaction,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-flammable-reaction,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-ignite,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-make-sentient,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-make-polymorph,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-modify-bleed-amount,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-modify-blood-level,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-paralyze,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-movespeed-modifier,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-reset-narcolepsy,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-wash-cream-pie-reaction,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-cure-zombie-infection,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-cause-zombie-infection,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-innoculate-zombie-infection,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-reduce-rotting,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-area-reaction,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-add-to-solution-reaction,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-artifact-unlock,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-artifact-durability-restore,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-attribute,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-cryoxadone,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-phalanximine,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-diethylamine,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-robust-harvest,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-seeds-add,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-seeds-remove,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+entity-effect-guidebook-plant-mutate-chemicals,,Resources/Locale/uk-UA/Guidebook/entity-effects/effects.ftl
+guide-entry-automation,Автоматизація,Resources/Locale/uk-UA/_Goobstation/Guidebook/guides.ftl
+guide-entry-cd-records,Character Records,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-cd,Cosmatic Drift Rules,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-cd,Cosmatic Drift Content,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-cd-newplayer,Welcome to Cosmatic Drift!,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-ic,In Character Policy,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-core,Standard Operating Procedure,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-restricted,List of Restricted Items,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-command,Command,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-sec,Security,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-engi,Engineering,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-med,Medical,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-sci,Science,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-cargo,Cargo,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-rules-sop-service,Service,Resources/Locale/uk-UA/_CD/Guidebook/guides.ftl
+guide-entry-nuclear-reactor,Nuclear Reactor,Resources/Locale/uk-UA/_FarHorizons/Guidebook/guides.ftl
+guide-entry-nuclear-materials,Material Effects,Resources/Locale/uk-UA/_FarHorizons/Guidebook/guides.ftl
+guideboook-microwave-fry-time,Fry for [bold]{$time}[/bold] seconds,Resources/Locale/uk-UA/_DV/Guidebook/cooking.ftl
+guidebook-microwave-cook-time-deltav,Microwave for,Resources/Locale/uk-UA/_DV/Guidebook/cooking.ftl
+guide-entry-deltav-Rules,Delta-V Rules,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-0,0. Admin Discretion,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a1,A1. No Sexual Content/Themes,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a2,A2. Use English and be respectful,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a3,A3. Rules regarding livestreaming,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a4,A4. Engage in proper AHelp etiquette,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-a5,A5. Do not exploit the game,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-1,B1. Behave like a normal person,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-2,B2. Follow the Metashield,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-3,B3. Powergaming Guidelines,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-4,B4. Do not behave like an antagonist as a non-antagonist,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-5,B5. Leaving Guidelines,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-c1,"C1. Command, Security and Justice Guidelines",Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-c2,C2. Prisoner Guidelines,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-c3,C3. Follow Antagonist Guidelines,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s1,S1. Laws are your rules,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s2,S2. Laws are prioritized in order,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s3,S3. Laws can redefine words,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s4,S4. You cannot allow a law change,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s5,"S5. If no laws, you are a free agent",Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s6,S6. Not required to follow stupid orders,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s7,S7. You must be consistent.,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s8,S8. Crew definition by default.,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s9,S9. Harm definition by default.,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deltav-rule-s10,S10. You resolve conflicts between orders.,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-alert-levels,Alert Levels,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-justice,Justice,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-whitelist,Whitelist,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-science,Epistemics,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-glimmer-creatures,Glimmer Creatures,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-altars,Altars,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-psionics,Psionics,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-reverse-engineering,Reverse Engineering,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-trade-station,Trade Station,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-cargo,Logistics,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-frequently-used-chemicals,Frequently Used Chemicals,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+guide-entry-deepfried-recipes,Deep-Fried,Resources/Locale/uk-UA/_DV/Guidebook/guides.ftl
+reagent-explanation-netinadone-ribcage,the target's ribcage is open,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/conditions.ftl
+reagent-effect-status-effect-PsionicallyInsulated,psionic insulation,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-PsionicsDisabled,inability to use psionic powers,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-Anesthesia,surgical anesthesia,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-ScrambledSpeech,scrambled speech,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-PainNumbness,inability to sense pain,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-status-effect-RepeatingTelepath,to involuntarily repeat telepathic messages,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/statuseffects.ftl
+reagent-effect-guidebook-addicted,,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/effects.ftl
+reagent-effect-guidebook-addiction-suppression,,Resources/Locale/uk-UA/_DV/Guidebook/chemistry/effects.ftl
+entity-effect-status-effect-PsionicallyInsulated,psionic insulation,Resources/Locale/uk-UA/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-PsionicsDisabled,inability to use psionic powers,Resources/Locale/uk-UA/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-Anesthesia,surgical anesthesia,Resources/Locale/uk-UA/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-PainNumbness,inability to sense pain,Resources/Locale/uk-UA/_DV/Guidebook/entity-effects/statuseffects.ftl
+entity-effect-status-effect-RepeatingTelepath,involuntarily repetition of telepathic messages,Resources/Locale/uk-UA/_DV/Guidebook/entity-effects/statuseffects.ftl
+guide-entry-exotic,Exotic,Resources/Locale/uk-UA/_Funkystation/Guidebook/guides.ftl
+guide-entry-surgery,Хірургія,Resources/Locale/uk-UA/_Shitmed/Guidebook/guides.ftl
+guide-entry-partmanipulation,Маніпуляції з частинами тіла,Resources/Locale/uk-UA/_Shitmed/Guidebook/guides.ftl
+guide-entry-organmanipulation,Маніпуляції з органами,Resources/Locale/uk-UA/_Shitmed/Guidebook/guides.ftl
+guide-entry-utilitysurgeries,Допоміжні операції,Resources/Locale/uk-UA/_Shitmed/Guidebook/guides.ftl
+guide-entry-autodoc,АвтоДок,Resources/Locale/uk-UA/_Shitmed/Guidebook/guides.ftl
+guide-entry-conspirators,Conspirators,Resources/Locale/uk-UA/_Harmony/Guidebook/guides.ftl
