@@ -212,7 +212,10 @@ public static class ServerPackaging
         var depsContentExclusive = depsContent.Except(depsRobust).ToHashSet();
 
         // Remove .dll suffix and apply filtering.
-        var names = depsContentExclusive.Select(p => p[..^4]).Where(p => !ServerNotExtraAssemblies.Any(p.StartsWith));
+        var names = depsContentExclusive
+            .Select(p => p[..^4])
+            .Where(p => !ServerNotExtraAssemblies.Any(p.StartsWith))
+            .Where(p => p != "Content.Packaging");
 
         return names;
 

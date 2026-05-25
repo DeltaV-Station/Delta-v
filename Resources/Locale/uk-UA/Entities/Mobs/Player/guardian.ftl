@@ -1,4 +1,4 @@
-ghost-role-information-guardian-name = Охоронець
-ghost-role-information-holoclown-name = Голоклоун
-ghost-role-information-holoparasite-name = Голопаразит
-ghost-role-information-ifrit-name = Іфріт
+﻿# DUPLICATE REMOVED: ghost-role-information-guardian-name = Охоронець
+# DUPLICATE REMOVED: ghost-role-information-holoclown-name = Голоклоун
+# DUPLICATE REMOVED: ghost-role-information-holoparasite-name = Голопаразит
+# DUPLICATE REMOVED: ghost-role-information-ifrit-name = Іфріт

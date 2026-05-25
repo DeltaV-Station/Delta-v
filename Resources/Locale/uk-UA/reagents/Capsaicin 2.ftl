@@ -1,3 +1,0 @@
-capsaicin-effect-light-burn = Ви відчуваєте легке поколювання в горлі...
-
-capsaicin-effect-heavy-burn = Ви відчуваєте, ніби пекло вирвало вам у рот!

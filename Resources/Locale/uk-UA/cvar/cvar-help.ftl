@@ -1,3 +1,4 @@
+changecvar-simple-debug_test_cvar = Нічого не робить.
 changecvar-full-debug_test_cvar = Проста тестова змінна. Нічого не робить.
 
 changecvar-simple-events_enabled = Контролює, чи повинні в грі відбуватися події на станції.

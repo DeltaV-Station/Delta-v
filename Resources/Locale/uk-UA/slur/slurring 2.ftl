@@ -1,1 +1,0 @@
-slur-accent-burp = *ГИКАЄ*

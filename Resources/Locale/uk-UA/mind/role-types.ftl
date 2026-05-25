@@ -1,16 +1,16 @@
-role-type-crew-aligned-name = Союзник Екіпажу
+﻿# DUPLICATE REMOVED: role-type-crew-aligned-name = Союзник Екіпажу
 
-role-type-solo-antagonist-name = Антагоніст-одинак
+# DUPLICATE REMOVED: role-type-solo-antagonist-name = Антагоніст-одинак
 
-role-type-team-antagonist-name = Командний Антагоніст
+# DUPLICATE REMOVED: role-type-team-antagonist-name = Командний Антагоніст
 
-role-type-free-agent-name = Вільний Агент
+# DUPLICATE REMOVED: role-type-free-agent-name = Вільний Агент
 
-role-type-familiar-name = Фамільяр
+# DUPLICATE REMOVED: role-type-familiar-name = Фамільяр
 
-role-type-silicon-name = Силікон
+# DUPLICATE REMOVED: role-type-silicon-name = Силікон
 
-role-type-silicon-antagonist-name = Змінений Силікон
+# DUPLICATE REMOVED: role-type-silicon-antagonist-name = Змінений Силікон
 
 role-type-update-message = Ваша роль [color = {$color}]{$role}[/color]
 

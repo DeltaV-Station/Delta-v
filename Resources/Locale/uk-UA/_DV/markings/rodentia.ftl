@@ -40,7 +40,7 @@ marking-RodentiaHeadTopEarMouse-mouse_overlay = Внутрішнє вухо
 
 marking-RodentiaHeadTopEarMouseLarge = Вуха - Миша (Великі)
 
-marking-RodentiaHeadTopEarMouseLarge-mouse_large = Зовнішні 
+marking-RodentiaHeadTopEarMouseLarge-mouse_large = Зовнішні
 
 marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Внутрішнє вухо
 

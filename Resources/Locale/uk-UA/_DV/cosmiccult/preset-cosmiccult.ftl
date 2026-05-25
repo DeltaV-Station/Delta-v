@@ -4,7 +4,7 @@ cosmiccult-title = Космічний Культ
 
 cosmiccult-description = Серед екіпажу ховаються культисти.
 
-roles-antag-cosmiccult-name = Космічний Культист
+# DUPLICATE REMOVED: roles-antag-cosmiccult-name = Космічний Культист
 
 roles-antag-cosmiccult-description = Приведіть до кінця всього сущого за допомогою хитрощів, саботажу та промивання мізків тим, хто наважиться вам протистояти.
 
@@ -178,7 +178,7 @@ objective-cosmiccult-steward-charactermenu = Ви повинні керуват�
 
 objective-condition-entropy-title = ВИКАЧУВАТИ ЕНТРОПІЮ
 
-objective-condition-entropy-desc = Колективно викачайте щонайменше {$count} ентропії з екіпажу.
+# DUPLICATE REMOVED: objective-condition-entropy-desc = Колективно викачайте щонайменше {$count} ентропії з екіпажу.
 
 objective-condition-conversion-title = КОНВЕРТУВАТИ ЕКІПАЖ
 
@@ -186,23 +186,23 @@ objective-condition-conversion-desc = Колективно приведіть щ
 
 objective-condition-culttier-title = ПОСИЛИТИ МОНУМЕНТ
 
-objective-condition-culttier-desc = Переконайтеся, що Монумент досяг повної сили.
+# DUPLICATE REMOVED: objective-condition-culttier-desc = Переконайтеся, що Монумент досяг повної сили.
 
 objective-condition-victory-title = ПРИВЕСТИ КІНЕЦЬ
 
-objective-condition-victory-desc = Закликайте Невідоме і проголосіть фінальний завіс.
+# DUPLICATE REMOVED: objective-condition-victory-desc = Закликайте Невідоме і проголосіть фінальний завіс.
 
 cosmiccult-radio-tier1-progress = Монумент викликаний на станцію...
 
 cosmiccult-announce-tier3-progress = Неприємне заціпеніння колює ваші почуття.
 
-cosmiccult-announce-tier3-warning = Сканери виявили аномальне збільшення Λ-CDM! Повідомляйте про будь-які неприродні явища службі безпеки або епістеміці.
+# DUPLICATE REMOVED: cosmiccult-announce-tier3-warning = Сканери виявили аномальне збільшення Λ-CDM! Повідомляйте про будь-які неприродні явища службі безпеки або епістеміці.
 
 cosmiccult-announce-pre-finale-progress = Дуги ноосферної енергії тріщать по стогнучій конструкції станції. Кінець близько.
 
 cosmiccult-announce-pre-finale-warning = Виявлено критичне збільшення Λ-CDM! Ми стежимо за ситуацією. Очікуйте подальших інструкцій.
 
-cosmiccult-announce-tier3-warning = Виявлено критичне збільшення Λ-CDM. Інфікований персонал має бути знешкоджений або нейтралізований на місці.
+# DUPLICATE REMOVED: cosmiccult-announce-tier3-warning = Виявлено критичне збільшення Λ-CDM. Інфікований персонал має бути знешкоджений або нейтралізований на місці.
 
 cosmiccult-announce-finale-warning = Усьому екіпажу станції. Аномалія Λ-CDM стає надкритичною, прилади виходять з ладу; ноосферно-реальний перехідний горизонт подій НЕВІДВОРОТНИЙ. Якщо ви ще не на контр-протоколі, негайно вирушайте і втручайтеся. Повторюю: Втручайтеся негайно або помрете.
 
@@ -230,4 +230,3 @@ cosmiccult-silicon-chantry-briefing = Вас ув'язнено у Порожні
 
 cosmiccult-silicon-colossus-briefing = Вас перетворено на Ентропійного Колоса!
     Як височенний оплот злої сили, знищуйте тих, хто протистоїть вам.
-

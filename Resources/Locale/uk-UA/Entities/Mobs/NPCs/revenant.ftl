@@ -1,1 +1,1 @@
-ghost-role-information-revenant-name = Ревенант
+﻿# DUPLICATE REMOVED: ghost-role-information-revenant-name = Ревенант

@@ -1,1 +1,1 @@
-flatpacker-item-slot-name = Слот для машинної плати
+﻿# DUPLICATE REMOVED: flatpacker-item-slot-name = Слот для машинної плати

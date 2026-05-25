@@ -1,1 +1,0 @@
-skeleton-suffix = КОСТ КОСТ!

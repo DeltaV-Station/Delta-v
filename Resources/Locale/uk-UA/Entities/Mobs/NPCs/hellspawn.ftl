@@ -1,1 +1,1 @@
-ghost-role-information-hellspawn-name = Пекельний Відродок
+﻿# DUPLICATE REMOVED: ghost-role-information-hellspawn-name = Пекельний Відродок

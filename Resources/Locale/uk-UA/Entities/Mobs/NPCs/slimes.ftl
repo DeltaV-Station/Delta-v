@@ -1,1 +1,1 @@
-ghost-role-information-slimes-name = Слайм
+﻿# DUPLICATE REMOVED: ghost-role-information-slimes-name = Слайм

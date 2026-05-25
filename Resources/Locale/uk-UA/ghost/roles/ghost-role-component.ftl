@@ -1,4 +1,4 @@
-ghost-role-component-default-rules = Ви не пам'ятаєте [color=red]нічого[/color] зі свого попереднього життя, виключення обговорюються з адміністрацією.
+﻿ghost-role-component-default-rules = Ви не пам'ятаєте [color=red]нічого[/color] зі свого попереднього життя, виключення обговорюються з адміністрацією.
                                      Ви можете мати загальні знання про гру (як готувати, як користуватися предметами тощо).
                                      Вам абсолютно [color=red]заборонено[/color] пам'ятати, говорити, згадувати тощо, про вашого минулого персонажа.
 
@@ -91,7 +91,7 @@ ghost-role-information-punpun-name = Пун Пун
 
 ghost-role-information-punpun-description = Почесний член мавпячого товариства, який відповідає за бар і допомагає барменам усіма можливими способами.
 
-ghost-role-information-xeno-name = Ксенос
+# DUPLICATE REMOVED: ghost-role-information-xeno-name = Ксенос
 
 ghost-role-information-xeno-description = Ви - ксенос, співпрацюйте зі своїм роєм, щоб вбити всіх членів екіпажу!
 
@@ -207,27 +207,27 @@ ghost-role-information-cerberus-name = Цербер, злий фамільяр
 
 ghost-role-information-cerberus-description = Слухайся свого господаря. Сій хаос.
 
-ghost-role-information-ert-leader-name = ГШР Лідер
+# DUPLICATE REMOVED: ghost-role-information-ert-leader-name = ГШР Лідер
 
 ghost-role-information-ert-leader-description = Керуйте командою спеціалістів для вирішення проблем, створених на станції.
 
-ghost-role-information-ert-chaplain-name = Капелан екстреної медичної допомоги
+# DUPLICATE REMOVED: ghost-role-information-ert-chaplain-name = Капелан екстреної медичної допомоги
 
 ghost-role-information-ert-chaplain-description = Допомагати в жалобі, щоб вирішити моральні проблеми екіпажу станції.
 
-ghost-role-information-ert-janitor-name = ГШР Прибиральник
+# DUPLICATE REMOVED: ghost-role-information-ert-janitor-name = ГШР Прибиральник
 
 ghost-role-information-ert-janitor-description = Допомагати у вирішенні питань, пов'язаних зі збереженням станцій.
 
-ghost-role-information-ert-engineer-name = ГШР Інженер
+# DUPLICATE REMOVED: ghost-role-information-ert-engineer-name = ГШР Інженер
 
 ghost-role-information-ert-engineer-description = Допомагайте інженерними зусиллями для вирішення проблем зі станцією.
 
-ghost-role-information-ert-security-name = ГШР Охоронець
+# DUPLICATE REMOVED: ghost-role-information-ert-security-name = ГШР Охоронець
 
 ghost-role-information-ert-security-description = Допомагайте у вирішенні питань безпеки на станції.
 
-ghost-role-information-ert-medical-name = ГШР Медик
+# DUPLICATE REMOVED: ghost-role-information-ert-medical-name = ГШР Медик
 
 ghost-role-information-ert-medical-description = Допомагайте у лікування екіпажу для вирішення проблем станції.
 
@@ -289,15 +289,15 @@ ghost-role-information-syndicate-reinforcement-description = Комусь пот
 
 ghost-role-information-syndicate-reinforcement-rules = Ви — [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] разом з агентом, який вас викликав.
 
-ghost-role-information-syndicate-reinforcement-medic-name = Медик Синдикату
+# DUPLICATE REMOVED: ghost-role-information-syndicate-reinforcement-medic-name = Медик Синдикату
 
 ghost-role-information-syndicate-reinforcement-medic-description = Комусь потрібне підкріплення. Ваше завдання — зберегти життя агенту, який вас викликав.
 
-ghost-role-information-syndicate-reinforcement-spy-name = Шпигун Синдикату
+# DUPLICATE REMOVED: ghost-role-information-syndicate-reinforcement-spy-name = Шпигун Синдикату
 
 ghost-role-information-syndicate-reinforcement-spy-description = Комусь потрібне підкріплення. Ваша спеціалізація — шпигунство, не будьте викритим.
 
-ghost-role-information-syndicate-reinforcement-thief-name = Злодій Синдикату
+# DUPLICATE REMOVED: ghost-role-information-syndicate-reinforcement-thief-name = Злодій Синдикату
 
 ghost-role-information-syndicate-reinforcement-thief-description = Комусь потрібне підкріплення. Ваша робота — проникнути та забрати щось цінне для вашого агента.
 
@@ -307,17 +307,17 @@ ghost-role-information-nukeop-reinforcement-description = Ядерним опе�
 
 ghost-role-information-nukeop-reinforcement-rules = Ви [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] з ядерними оперативниками, які вас викликали.
 
-ghost-role-information-syndicate-monkey-reinforcement-name = Агент Мавпа Синдикату
+# DUPLICATE REMOVED: ghost-role-information-syndicate-monkey-reinforcement-name = Агент Мавпа Синдикату
 
 ghost-role-information-syndicate-monkey-reinforcement-description = Комусь потрібне підкріплення. Ви, дресирована мавпочка, будете їм допомагати.
 
-ghost-role-information-syndicate-kobold-reinforcement-name = Агент Синдикату кобольдів
+# DUPLICATE REMOVED: ghost-role-information-syndicate-kobold-reinforcement-name = Агент Синдикату кобольдів
 
 ghost-role-information-syndicate-kobold-reinforcement-description = Декому потрібне підкріплення. Ти, тренований кобольд, допоможеш їм.
 
 ghost-role-information-syndicate-cyborg-assault-name = Штурмовий кіборг Синдикату
 
-ghost-role-information-syndicate-cyborg-saboteur-name = Кіборг-диверсант Синдикату
+# DUPLICATE REMOVED: ghost-role-information-syndicate-cyborg-saboteur-name = Кіборг-диверсант Синдикату
 
 ghost-role-information-syndicate-cyborg-description = Синдикату потрібне підкріплення. Ви, холодна кремнієва машина для вбивств, допоможете їм.
 
@@ -413,7 +413,7 @@ ghost-role-information-pirate-captain-name = Space Pirate Captain
 
 ghost-role-information-pirate-captain-description = Argh matey! You are in charge here and need to devise a plan to get that juicy loot by hook or by crook. Just make sure to avoid security and salvage!
 
-ghost-role-information-artifact-name = Чуттєвий артефакт
+# DUPLICATE REMOVED: ghost-role-information-artifact-name = Чуттєвий артефакт
 
 ghost-role-information-artifact-description = Втілюйте свої елдричні забаганки.
       Примусово активуйте свої вузли на добро чи на зло.

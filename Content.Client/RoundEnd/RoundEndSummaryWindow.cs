@@ -4,6 +4,7 @@ using Content.Client.Message;
 using Content.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
 using Content.Shared.GameTicking;
 using Content.Shared.RoundEnd;
+using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
@@ -193,20 +194,24 @@ namespace Content.Client.RoundEnd
             var commendTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
-                Name = "Оцінка екіпажу" // Tab title
+                Name = Loc.GetString("round-end-summary-window-commendations-tab-title")
             };
 
             // Header
             var headerLabel = new RichTextLabel();
-            headerLabel.SetMarkup("[bold]Оцінка екіпажу[/bold]\nОберіть гравця, який найкраще відіграв цей раунд.");
+            headerLabel.SetMarkup(Loc.GetString("round-end-summary-window-commendations-header"));
             commendTab.AddChild(headerLabel);
+
+            var subheaderLabel = new RichTextLabel();
+            subheaderLabel.SetMarkup(Loc.GetString("round-end-summary-window-commendations-subheader"));
+            commendTab.AddChild(subheaderLabel);
 
             commendTab.AddChild(new Control { MinSize = new Vector2(0, 8) }); // spacer
 
             // Search / filter
             var searchBox = new LineEdit
             {
-                PlaceHolder = "Пошук за ім'ям...",
+                PlaceHolder = Loc.GetString("round-end-summary-window-commendations-search-placeholder"),
                 HorizontalExpand = true,
             };
             commendTab.AddChild(searchBox);
@@ -239,7 +244,7 @@ namespace Content.Client.RoundEnd
                 .ToArray();
 
             // Build player buttons
-            var playerButtons = new List<(BoxContainer Container, string ICName, string OOCName)>();
+            var playerButtons = new List<(BoxContainer Container, Button CommendButton, string ICName, string OOCName)>();
 
             foreach (var playerInfo in eligiblePlayers)
             {
@@ -273,52 +278,53 @@ namespace Content.Client.RoundEnd
                     HorizontalExpand = true,
                 };
                 var roleText = Loc.GetString(playerInfo.Role);
-                var commendationsText = $" [color=gold]\\[+{playerInfo.TotalCommendations} ({playerInfo.RoundCommendations} за раунд)\\][/color]";
-                nameLabel.SetMarkup($"[bold]{playerInfo.PlayerICName}[/bold] ({playerInfo.PlayerOOCName}) — {roleText}{commendationsText}");
+                nameLabel.SetMarkup(Loc.GetString("round-end-summary-window-commendations-player-display",
+                    ("icName", FormattedMessage.EscapeText(playerInfo.PlayerICName ?? "???")),
+                    ("oocName", FormattedMessage.EscapeText(playerInfo.PlayerOOCName)),
+                    ("role", FormattedMessage.EscapeText(roleText)),
+                    ("total", playerInfo.TotalCommendations),
+                    ("round", playerInfo.RoundCommendations)));
                 row.AddChild(nameLabel);
 
                 // Commend button
                 var oocName = playerInfo.PlayerOOCName;
-                var commendButton = new Button
+                var icName = playerInfo.PlayerICName ?? "???";
+                var commendButton = new ConfirmButton
                 {
                     Text = "👍",
-                    ToolTip = $"Похвалити {playerInfo.PlayerICName}",
-                    MinSize = new Vector2(40, 30),
+                    ConfirmationText = "OK?",
+                    ToolTip = Loc.GetString("round-end-summary-window-player-info-if-not-observer-text", ("playerOOCName", icName)),
+                    MinSize = new Vector2(50, 30),
                     VerticalAlignment = VAlignment.Center,
                     Visible = oocName != localPlayerOOCName // Cannot commend yourself
                 };
 
                 commendButton.OnPressed += _ =>
                 {
-                    if (_hasCommended)
-                    {
-                        statusLabel.SetMarkup("[color=yellow]Ви вже проголосували цього раунду![/color]");
-                        return;
-                    }
-
+                    if (_hasCommended) return;
                     _hasCommended = true;
 
-                    // Disable all buttons
-                    foreach (var (_, _, _) in playerButtons)
+                    // Disable all buttons in the list
+                    foreach (var btn in playerButtons)
                     {
-                        // We'll disable via a flag check in the handler
+                        btn.CommendButton.Disabled = true;
                     }
 
                     // Send network message
                     _entityManager.EntityNetManager?.SendSystemNetworkMessage(new CommendPlayerMessage(oocName));
-                    statusLabel.SetMarkup($"[color=green]Ви похвалили цього гравця! Дякуємо за голос![/color]");
+                    statusLabel.SetMarkup(Loc.GetString("round-end-summary-window-commendations-thanks"));
                 };
 
                 row.AddChild(commendButton);
                 playerListContainer.AddChild(row);
-                playerButtons.Add((row, playerInfo.PlayerICName ?? "", playerInfo.PlayerOOCName));
+                playerButtons.Add((row, commendButton, icName, oocName));
             }
 
             // Search filter logic
             searchBox.OnTextChanged += args =>
             {
                 var filter = args.Text.Trim().ToLowerInvariant();
-                foreach (var (container, icName, oocName) in playerButtons)
+                foreach (var (container, _, icName, oocName) in playerButtons)
                 {
                     container.Visible = string.IsNullOrEmpty(filter) ||
                                         icName.ToLowerInvariant().Contains(filter) ||

@@ -1,3 +1,3 @@
-ghost-role-information-snail-name = Равлик
-ghost-role-information-snailspeed-name = Равлик
-ghost-role-information-snoth-name = Слимак
+﻿# DUPLICATE REMOVED: ghost-role-information-snail-name = Равлик
+# DUPLICATE REMOVED: ghost-role-information-snailspeed-name = Равлик
+# DUPLICATE REMOVED: ghost-role-information-snoth-name = Слимак
