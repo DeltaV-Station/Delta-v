@@ -1,0 +1,10 @@
+- type: entity
+  parent: BasicHitscan
+  id: SVLaserRed
+  name: svalinn security laser ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 12
