@@ -1,4 +1,4 @@
-﻿mining-voucher-select-first = Спочатку оберіть набір для отримання!
+mining-voucher-select-first = Спочатку оберіть набір для отримання!
 
 mining-voucher-unpowered = {CAPITALIZE(THE($vendor))} знеструмлений!
 

@@ -1,4 +1,4 @@
-﻿cosmiccult-announcement-sender = ???
+cosmiccult-announcement-sender = ???
 
 cosmiccult-title = Космічний Культ
 
@@ -230,4 +230,3 @@ cosmiccult-silicon-chantry-briefing = Вас ув'язнено у Порожні
 
 cosmiccult-silicon-colossus-briefing = Вас перетворено на Ентропійного Колоса!
     Як височенний оплот злої сили, знищуйте тих, хто протистоїть вам.
-

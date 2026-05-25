@@ -1,4 +1,4 @@
-﻿# DUPLICATE REMOVED: trait-blindness-desc = Ви юридично сліпі й не можете чітко бачити далі, ніж на кілька метрів перед собою.
+# DUPLICATE REMOVED: trait-blindness-desc = Ви юридично сліпі й не можете чітко бачити далі, ніж на кілька метрів перед собою.
 # DUPLICATE REMOVED: trait-blindness-name = Сліпота
 # DUPLICATE REMOVED: trait-deuteranopia-desc = Чи то завдяки особливим біонічним очам, випадковій мутації,
 # DUPLICATE REMOVED:                           чи то бувши Вульпканіном, ви страждаєте на червоно-зелену сліпоту.

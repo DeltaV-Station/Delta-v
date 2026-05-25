@@ -1,4 +1,4 @@
-﻿# DUPLICATE REMOVED: trait-lightweight-desc = Алкоголь діє на вас сильніше.
+# DUPLICATE REMOVED: trait-lightweight-desc = Алкоголь діє на вас сильніше.
 # DUPLICATE REMOVED: trait-lightweight-name = Слабкий до алкоголю
 # DUPLICATE REMOVED: trait-narcolepsy-desc = Ви засинаєте випадковим чином.
 # DUPLICATE REMOVED: trait-narcolepsy-name = Нарколепсія

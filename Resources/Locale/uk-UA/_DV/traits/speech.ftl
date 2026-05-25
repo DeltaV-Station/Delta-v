@@ -1,4 +1,4 @@
-﻿# DUPLICATE REMOVED: trait-accentless-desc = У вас немає акценту, який зазвичай притаманний вашому виду
+# DUPLICATE REMOVED: trait-accentless-desc = У вас немає акценту, який зазвичай притаманний вашому виду
 # DUPLICATE REMOVED: trait-accentless-name = Без акценту
 # DUPLICATE REMOVED: trait-cowboy-desc = Ви розмовляєте з виразним ковбойським акцентом!
 # DUPLICATE REMOVED: trait-cowboy-name = Ковбойський акцент
