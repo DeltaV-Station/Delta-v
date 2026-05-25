@@ -351,7 +351,7 @@ public sealed class ArrivalsSystem : EntitySystem
             return;
 
         // Prisoners may not use arrivals
-        if (ev.Job.LocalizedName == "Prisoner")
+        if (ev.Job is { } jobId && _protoManager.Index(ev.Job).AlwaysUseSpawner)
             return;
 
         TryGetArrivals(out var arrivals);
