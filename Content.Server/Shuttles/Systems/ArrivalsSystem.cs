@@ -23,6 +23,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared.Roles;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Tiles;
@@ -347,6 +348,10 @@ public sealed class ArrivalsSystem : EntitySystem
             return;
 
         if (!HasComp<StationArrivalsComponent>(ev.Station))
+            return;
+
+        // Prisoners may not use arrivals
+        if (ev.Job.LocalizedName == "Prisoner")
             return;
 
         TryGetArrivals(out var arrivals);
