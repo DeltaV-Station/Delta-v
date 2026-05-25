@@ -662,9 +662,9 @@
   - type: Appearance
 
 - type: entity
-  name: SV-213 Laser Pistol
-  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
+  parent: WeaponLaserSvalinn
   id: WeaponLaserSvalinnSecurity
+  name: SV-213 Laser Pistol
   description: A slightly stronger variation of the Svalinn Laser Pistol made for security and military operations.
   components:
   - type: Sprite
@@ -684,11 +684,3 @@
   - type: BatteryAmmoProvider
     proto: SVLaserRed
     fireCost: 50
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
