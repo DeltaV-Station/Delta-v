@@ -58,7 +58,6 @@
     sprite: _DV/Objects/Tools/chemical_mixer.rsi # DeltaV - New Sprite
     layers:
       - state: mixer
-      - state: mixer1
         map: [ "enum.SolutionContainerLayers.Fill" ]
       - state: mixer_on
   - type: Item
@@ -119,10 +118,6 @@
       buffer:
         maxVol: 400
         canReact: false     # added becuse there where instances that the chemicals can mix on transfer
-  - type: SolutionContainerVisuals
-    maxFillLevels: 3
-    fillBaseName: mixer
-    solutionName: buffer
   - type: DumpableSolution
     solution: buffer
   - type: GuideHelp
