@@ -1,5 +1,6 @@
 using Content.Server.AlertLevel;
 using Content.Server.Screens.Components;
+using Content.Shared._DV.Communications;
 using Content.Shared._DV.Screens;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Station;
@@ -24,8 +25,12 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
     {
         if (args.Data.TryGetValue(ShuttleTimerMasks.ShuttleMap, out _))
             OnShuttlePacket(ent, ref args);
-        else if (args.Data.TryGetValue(ScreenMasks.Text, out string? text))
-            OnTextPacket(ent, text, ref args);
+        if (args.Data.TryGetValue(DVScreenPackets.Text, out (string, string)? text))
+            OnTextPacket(ent, text.Value, ref args);
+        if (args.Data.TryGetValue(DVScreenPackets.ShowBorders, out bool? showBorders))
+            OnBordersPacket(ent, showBorders.Value, ref args);
+        if (args.Data.TryGetValue(DVScreenPackets.Content, out DVScreenContent? content))
+            OnContentPacket(ent, content.Value, ref args);
     }
 
     private void OnShuttlePacket(Entity<DVScreenComponent> ent, ref DeviceNetworkPacketEvent args)
@@ -65,19 +70,27 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
         UpdateVisuals(ent);
     }
 
-    private void OnTextPacket(Entity<DVScreenComponent> ent, string text, ref DeviceNetworkPacketEvent args)
+    private void OnTextPacket(Entity<DVScreenComponent> ent, (string, string) text, ref DeviceNetworkPacketEvent args)
     {
-        var lines = text.Split('\n');
-        if (lines.Length >= 2)
-        {
-            ent.Comp.Line1 = lines[0];
-            ent.Comp.Line2 = lines[1];
-        }
-        else
-        {
-            ent.Comp.Line1 = text;
-            ent.Comp.Line2 = string.Empty;
-        }
+        ent.Comp.Line1 = text.Item1;
+        ent.Comp.Line2 = text.Item2;
+
+        Dirty(ent);
+        UpdateVisuals(ent);
+    }
+
+    private void OnBordersPacket(Entity<DVScreenComponent> ent, bool showBorders, ref DeviceNetworkPacketEvent args)
+    {
+        ent.Comp.ShowAlertBorder = showBorders;
+
+        Dirty(ent);
+        UpdateVisuals(ent);
+    }
+
+    private void OnContentPacket(Entity<DVScreenComponent> ent, DVScreenContent content, ref DeviceNetworkPacketEvent args)
+    {
+        ent.Comp.Content = content;
+
         Dirty(ent);
         UpdateVisuals(ent);
     }

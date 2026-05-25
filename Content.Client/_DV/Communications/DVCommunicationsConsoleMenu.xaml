@@ -1,0 +1,117 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'comms-console-menu-title'}"
+    MinSize="400 300">
+
+    <BoxContainer Name="HomeScreen" Orientation="Vertical" Margin="8">
+        <Label Text="{Loc 'comms-console-menu-station-title'}" StyleClasses="LabelKeyText" />
+        <Button Name="AnnouncementTab" Text="{Loc 'comms-console-menu-tab.Announcement'}" />
+        <Button Name="ScreenTab" Text="{Loc 'comms-console-menu-tab.Screen'}" />
+        <Button Name="AlertLevelTab" Text="{Loc 'comms-console-menu-tab.AlertLevel'}" />
+
+        <Label Text="{Loc 'comms-console-menu-transit-title'}" StyleClasses="LabelKeyText" Margin="0 8 0 0" />
+        <Button Name="ShuttlesTab" Text="{Loc 'comms-console-menu-tab.Shuttles'}" />
+
+        <Label Text="{Loc 'comms-console-menu-emergency-title'}" StyleClasses="LabelKeyText" Margin="0 8 0 0" />
+        <Button Name="KeycardAuthenticationDeviceTab" Text="{Loc 'comms-console-menu-tab.KeycardAuthenticationDevice'}" />
+    </BoxContainer>
+
+    <BoxContainer Orientation="Vertical">
+        <Button Name="HomeButton" Text="{Loc 'comms-console-menu-home'}" Visible="False" />
+
+        <BoxContainer Name="AnnouncementScreen" Visible="False" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="8" Margin="8">
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True" VerticalExpand="True">
+                <BoxContainer SeparationOverride="8" Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-announcement-text'}" StyleClasses="LabelKeyText" />
+                    <TextEdit Name="AnnounceInput"
+                              VerticalExpand="True"
+                              HorizontalExpand="True"
+                              VerticalAlignment="Stretch"
+                              HorizontalAlignment="Stretch"
+                              MinHeight="100" />
+                </BoxContainer>
+            </PanelContainer>
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                <Button Name="AnnounceButton" Margin="8" Text="{Loc 'comms-console-menu-send-announcement'}" />
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="ScreenScreen" Visible="False" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="8" Margin="8">
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                <BoxContainer SeparationOverride="8" Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-screen-configuration'}" StyleClasses="LabelKeyText" />
+
+                    <BoxContainer>
+                        <Label Text="{Loc 'comms-console-menu-screen-contents'}" HorizontalExpand="True" />
+                        <OptionButton Name="ScreenContentsButton" />
+                    </BoxContainer>
+                    <BoxContainer>
+                        <Label Text="{Loc 'comms-console-menu-alert-level-border'}" HorizontalExpand="True" />
+                        <Button Name="ScreenAlertBorder" Text="{Loc 'comms-console-menu-enable-border'}" ToggleMode="True" />
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
+
+            <PanelContainer StyleClasses="PanelDark">
+                <BoxContainer Margin="8" Orientation="Vertical" SeparationOverride="4">
+                    <Label Text="{Loc 'comms-console-menu-screen-text'}" StyleClasses="LabelKeyText" />
+
+                    <GridContainer Columns="2" HorizontalExpand="True">
+                        <Label Text="{Loc 'comms-console-menu-line-1'}" />
+                        <LineEdit Name="ScreenLine1" HorizontalExpand="True" StyleClasses="comms-console-display" />
+                        <Label Text="{Loc 'comms-console-menu-line-2'}" />
+                        <LineEdit Name="ScreenLine2" HorizontalExpand="True" StyleClasses="comms-console-display" />
+                    </GridContainer>
+
+                    <Button Name="ScreenUpdateTextButton" Text="{Loc 'comms-console-menu-update-screen-text'}" HorizontalAlignment="Right" />
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="ShuttlesScreen" Visible="False" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="8" Margin="8">
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-emergency-shuttle'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Name="EmergencyStatus" Text="{Loc 'comms-console-menu-shuttle-not-coming'}" />
+                    <Button Name="ShuttleEmergencyButton" Text="{Loc 'comms-console-menu-call-emergency.True'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True">
+                <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-exfiltration-shuttle'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Name="ExfiltrationStatus" Text="{Loc 'comms-console-menu-shuttle-not-coming'}" />
+                    <Button Name="ShuttleExfiltrationButton" Text="{Loc 'comms-console-menu-call-exfiltration.True'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="AlertLevelScreen" Visible="False" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="8" Margin="8">
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True" MaxWidth="400">
+                <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-alert-level'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Name="AlertLevel" HorizontalExpand="True" />
+                    <Button Name="AlertLevelsDropdown" Text="{Loc 'comms-console-menu-change-alert-level'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="KeycardAuthenticationDeviceScreen" Visible="False" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="8" Margin="8">
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True" MaxWidth="400">
+                <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-declare-mayday.title'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Text="{Loc 'comms-console-menu-declare-mayday.desc'}" />
+                    <controls:ConfirmButton Name="CallSigma" Text="{Loc 'comms-console-menu-declare-mayday.button'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True" MaxWidth="400">
+                <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="{Loc 'comms-console-menu-request-codes.title'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Text="{Loc 'comms-console-menu-request-codes.desc'}" />
+                    <controls:ConfirmButton Name="RequestCodes" Text="{Loc 'comms-console-menu-request-codes.button'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

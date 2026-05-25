@@ -28,6 +28,8 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
             case DVScreenContent.EstimatedTimeOfArrival:
                 EstimatedTimeOfArrival(ent);
                 break;
+            case DVScreenContent.AlertLevel:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
