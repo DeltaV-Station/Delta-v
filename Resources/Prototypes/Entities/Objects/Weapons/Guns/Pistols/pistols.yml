@@ -80,8 +80,9 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
   - type: Gun
-    availableModes: # DeltaV - force semi for balance
+    availableModes:
     - SemiAuto
+    - FullAuto
   - type: ItemSlots
     slots:
       gun_magazine:

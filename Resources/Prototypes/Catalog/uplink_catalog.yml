@@ -17,8 +17,8 @@
 - type: listing
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
-  description: deltav-uplink-revolver-python-desc # DeltaV - Description changed to indicate it isn't loaded with AP by default
-  productEntity: WeaponRevolverPython # DeltaV - No longer loaded with AP by default
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPythonAP
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 2
@@ -154,9 +154,9 @@
   productEntity: ClothingHandsKnuckleDustersSyndicate
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 1 # DeltaV - was 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # DeltaV - was 6
   categories:
   - UplinkWeaponry
 
