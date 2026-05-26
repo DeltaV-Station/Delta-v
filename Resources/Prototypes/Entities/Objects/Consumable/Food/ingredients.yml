@@ -64,6 +64,9 @@
     damage:
       types:
         Blunt: 0
+  - type: Tag # DeltaV - Service Borg Module
+    tags:
+    - Ingredients
 
 - type: entity
   abstract: true
@@ -328,6 +331,9 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 15
+  - type: Tag # DeltaV - Service Borg Module
+    tags:
+    - Ingredients
 
 - type: entity
   parent: FoodBakingBase

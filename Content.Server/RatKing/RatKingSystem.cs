@@ -86,7 +86,7 @@ namespace Content.Server.RatKing
             args.Handled = true;
             _hunger.ModifyHunger(uid, -component.HungerPerDomainUse, hunger);
 
-            _popup.PopupEntity(Loc.GetString("rat-king-domain-popup"), uid);
+            _popup.PopupEntity(Loc.GetString("deltav-rat-king-domain-popup"), uid); // DeltaV - Changed the loc string.
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
             tileMix?.AdjustMoles(Gas.Ammonia, component.MolesAmmoniaPerDomain);
         }

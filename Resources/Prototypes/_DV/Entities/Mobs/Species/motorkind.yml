@@ -4,7 +4,7 @@
 - type: entity
   save: false
   name: Urist McQueen
-  parent: PlayerSiliconHumanoidBase
+  parent: BaseMobSpeciesOrganic
   id: BaseMobMotorkind
   abstract: true
   components:
@@ -20,7 +20,7 @@
     prototype: Motorkind
     requiredLegs: 2
   - type: Damageable
-    damageContainer: HumanoidSilicon
+    damageContainer: Silicon
     damageModifierSet: Motorkind
   - type: DamageVisuals
     thresholds: [25, 50, 75, 100]
@@ -30,9 +30,10 @@
       Brute:
         sprite: _DV/Mobs/Species/Motorkind/brute_damage.rsi
         color: "#444444"
-      Burn:
-        sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
-        color: "#888888"
+      # DV - Commented out until we get a damage ModifierSet for this (or at least seems bugged)
+      # Burn:
+      #   sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
+      #   color: "#888888"
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -169,10 +170,8 @@
       Unsexed: MaleMotorkind
   - type: Speech
     speechSounds: Alto
-  - type: EncryptionHolderRequiresLock
   - type: EncryptionKeyHolder
     keySlots: 4
-    examineWhileLocked: false
     keysExtractionMethod: Cutting
     keysUnlocked: false
   - type: Lock

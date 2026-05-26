@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/09/2026 13:48:03
+  time: 05/01/2026 11:28:11
   entityCount: 477
 maps: []
 grids:
@@ -318,6 +318,9 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 391
@@ -383,7 +386,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,-0.5
       parent: 1
-- proto: AirlockHatchSyndicate
+- proto: AirlockHatchSyndicateLocked
   entities:
   - uid: 123
     components:

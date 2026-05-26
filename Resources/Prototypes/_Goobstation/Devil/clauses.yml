@@ -224,11 +224,12 @@
   - type: CheatDeath
     infiniteRevives: true
 
-- type: clause
-  id: time
-  clauseWeight: 150
-  addedComponents:
-  - type: DelayedDeath
-    preventAllRevives: true # :trol:
-    deathTime: 300
-    deathMessageId: devil-deal-time-ran-out
+# Delta V - ShitMed Removal, needs rewrite
+# - type: clause
+#   id: time
+#   clauseWeight: 150
+#   addedComponents:
+#   - type: DelayedDeath
+#     preventAllRevives: true # :trol:
+#     deathTime: 300
+#     deathMessageId: devil-deal-time-ran-out

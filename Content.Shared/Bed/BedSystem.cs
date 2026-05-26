@@ -1,4 +1,3 @@
-using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Actions;
 using Content.Shared.Bed.Components;
 using Content.Shared.Bed.Sleep;
@@ -151,8 +150,7 @@ public sealed class BedSystem : EntitySystem
 
             foreach (var healedEntity in strapComponent.BuckledEntities)
             {
-                if (_mobStateSystem.IsDead(healedEntity)
-                    || HasComp<SiliconComponent>(healedEntity)) // Goobstation)
+                if (_mobStateSystem.IsDead(healedEntity))
                     continue;
 
                 var damage = bedComponent.Damage;

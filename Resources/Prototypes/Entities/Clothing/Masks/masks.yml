@@ -206,7 +206,6 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -301,9 +300,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -321,7 +317,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -498,6 +493,8 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 - type: entity
   parent: ClothingMaskBase
@@ -514,7 +511,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -535,9 +531,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -554,9 +547,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -573,9 +563,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -592,9 +579,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -611,9 +595,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -630,9 +611,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -649,7 +627,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -754,9 +731,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskGas
@@ -780,4 +754,3 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable # EE - IPCs
