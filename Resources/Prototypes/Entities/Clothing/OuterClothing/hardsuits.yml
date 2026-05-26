@@ -960,7 +960,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: StaminaResistance # DeltaV
-    damageCoefficient: 0.5
+    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -971,6 +971,7 @@
         Radiation: 0.2
         Caustic: 0.2
         Cold: 0.6 # DeltaV - Cold res
+    staminaMeleeDamageCoefficient: 0.8 # DeltaV - Reduced Melee Stamina Resistance
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
