@@ -112,3 +112,35 @@
   id: DeepFryerRecipeFriedChicken
   baseRecipe: RecipeFriedChicken
   burnTime: 45
+
+- type: microwaveMealRecipe
+  id: RecipeOnionRings
+  name: onion rings recipe
+  result: FoodOnionRings
+  secretRecipe: true
+  time: 5
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodOnionSlice: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeOnionRings
+  baseRecipe: RecipeOnionRings
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeTacoShell
+  name: taco shell recipe
+  result: FoodTacoShell
+  secretRecipe: true
+  time: 5
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodDoughTortillaFlat: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeTacoShell
+  baseRecipe: RecipeTacoShell
+  burnTime: 10

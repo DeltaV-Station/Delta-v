@@ -1,5 +1,4 @@
-﻿# DIE SNAKE CASE
-- type: body
+﻿- type: body
   id: Human
   name: "human"
   root: torso
@@ -14,38 +13,37 @@
     torso:
       part: TorsoHuman
       connections:
-      - right arm
-      - left arm
-      - right leg
-      - left leg
-      - head # Shitmed
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
         stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right arm:
+    right_arm:
       part: RightArmHuman
       connections:
-      - right hand
-    left arm:
+      - right_hand
+    left_arm:
       part: LeftArmHuman
       connections:
-      - left hand
-    right hand:
+      - left_hand
+    right_hand:
       part: RightHandHuman
-    left hand:
+    left_hand:
       part: LeftHandHuman
-    right leg:
+    right_leg:
       part: RightLegHuman
       connections:
-      - right foot
-    left leg:
+      - right_foot
+    left_leg:
       part: LeftLegHuman
       connections:
-      - left foot
-    right foot:
+      - left_foot
+    right_foot:
       part: RightFootHuman
-    left foot:
+    left_foot:
       part: LeftFootHuman

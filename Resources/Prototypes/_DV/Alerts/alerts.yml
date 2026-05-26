@@ -4,3 +4,11 @@
   icons: [ /Textures/_DV/Interface/Alerts/Grappled/grappled.png ]
   name: alerts-grappled-name
   description: alerts-grappled-desc
+
+- type: alert
+  id: HeavyClothing
+  icons:
+  - sprite: /Textures/_DV/Interface/Alerts/heavy_clothing.rsi
+    state: enabled
+  name: alert-heavy-clothing-name
+  description: alert-heavy-clothing-desc
