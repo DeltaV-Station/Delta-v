@@ -1,12 +1,12 @@
 - type: entity
-  parent: BaseCyberneticEyes
+  parent: OrganHumanEyes
   id: OrganAsakimEyes
   name: asakim eyes
-  components:
-  - type: Organ
-    onAdd:
-    - type: NightVision
-      isEquipment: false
-      color: "#ae65bf"
-      activateSound: null
-      deactivateSound: null
+  # components: # Delta V - Shit Med Removal - Nubody Prep
+  # - type: Organ
+  #   onAdd:
+  #   - type: NightVision
+  #     isEquipment: false
+  #     color: "#ae65bf"
+  #     activateSound: null
+  #     deactivateSound: null

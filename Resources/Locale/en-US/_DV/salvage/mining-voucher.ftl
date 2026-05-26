@@ -24,7 +24,7 @@ mining-voucher-resonator-description =
 mining-voucher-survival-name = Survival Capsule, Explorer's Webbing, and Medical Tracking Implanter
 mining-voucher-survival-description =
     Contains an explorer's webbing, which allows you to carry even more mining equipment,
-    a spare shelter capsule, and a medical tracking implanter to go with it.
+    a spare shelter capsule, a holoflare gun, and a medical tracking implanter to go with it.
 
 mining-voucher-minebot-name = Minebot Kit
 mining-voucher-minebot-description =

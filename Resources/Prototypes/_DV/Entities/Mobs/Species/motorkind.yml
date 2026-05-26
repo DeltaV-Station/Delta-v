@@ -4,7 +4,7 @@
 - type: entity
   save: false
   name: Urist McQueen
-  parent: BaseSpeciesDummy
+  parent: BaseMobSpeciesOrganic
   id: BaseMobMotorkind
   abstract: true
   components:
@@ -30,9 +30,10 @@
       Brute:
         sprite: _DV/Mobs/Species/Motorkind/brute_damage.rsi
         color: "#444444"
-      Burn:
-        sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
-        color: "#888888"
+      # DV - Commented out until we get a damage ModifierSet for this (or at least seems bugged)
+      # Burn:
+      #   sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
+      #   color: "#888888"
   - type: Butcherable
     butcheringType: Spike
     spawned:

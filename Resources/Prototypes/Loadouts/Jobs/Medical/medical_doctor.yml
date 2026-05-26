@@ -56,16 +56,19 @@
   id: BlueSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapBlue
+  groupBy: "surgicalcaps" # DeltaV
 
 - type: loadout
   id: GreenSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapGreen
+  groupBy: "surgicalcaps" # DeltaV
 
 - type: loadout
   id: PurpleSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapPurple
+  groupBy: "surgicalcaps" # DeltaV
 
 - type: loadout
   id: NurseHat
@@ -103,16 +106,19 @@
   id: MedicalBlueScrubs
   equipment:
     jumpsuit: UniformScrubsColorBlue
+  groupBy: "surgicalscrubs" # DeltaV
 
 - type: loadout
   id: MedicalGreenScrubs
   equipment:
     jumpsuit: UniformScrubsColorGreen
+  groupBy: "surgicalscrubs" # DeltaV
 
 - type: loadout
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
+  groupBy: "surgicalscrubs" # DeltaV
 
 # Back
 - type: loadout

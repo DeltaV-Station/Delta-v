@@ -3,6 +3,7 @@
   name: department-Logistics # DeltaV
   description: department-Logistics-description # DeltaV
   color: "#A46106"
+  radioChannel: Supply # DeltaV
   roles:
   - CargoTechnician
   - Quartermaster
@@ -15,6 +16,7 @@
   name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
+  radioChannel: Service # DeltaV
   weight: -10
   roles:
   - Bartender
@@ -43,6 +45,7 @@
   name: department-CentralCommand
   description: department-CentralCommand-description
   color: "#0c344d"
+  radioChannel: CentCom # DeltaV
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -61,6 +64,7 @@
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
+  radioChannel: Command # DeltaV
   roles:
   - Captain
   - ChiefEngineer
@@ -88,6 +92,7 @@
   name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
+  radioChannel: Engineering # DeltaV
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
@@ -99,6 +104,7 @@
   name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
+  radioChannel: Medical # DeltaV
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -114,6 +120,7 @@
   name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
+  radioChannel: Security # DeltaV
   weight: 20
   roles:
   - HeadOfSecurity
@@ -130,6 +137,7 @@
   name: department-Epistemics # DeltaV
   description: department-Epistemics-description # DeltaV
   color: "#D381C9"
+  radioChannel: Science # DeltaV
   roles:
   - ResearchDirector
   - Scientist

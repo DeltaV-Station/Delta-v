@@ -729,3 +729,112 @@
   conditions:
     - !type:TileNotBlocked
   hide: false
+
+#Colored Comfy Chairs
+- type: construction
+  id: ComfyChairGreen
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyGreen
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairRed
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyRed
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairBlue
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyBlue
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairBlack
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyBlack
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairPink
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyPink
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairOrange
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyOrange
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairSkyBlue
+  graph: Seat
+  startNode: start
+  targetNode: chairComfySkyBlue
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairCyan
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyCyan
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: ComfyChairPurple
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyPurple
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

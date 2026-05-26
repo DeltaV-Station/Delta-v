@@ -2026,9 +2026,15 @@
     Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
+# Begin DeltaV Changes
   conditions: # DeltaV - free so limited stock
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV Changes
 
 - type: listing
   id: UplinkOperativeSkirt
@@ -2039,9 +2045,15 @@
     Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
+# Begin DeltaV Changes
   conditions: # DeltaV - free so limited stock
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV Changes
 
 - type: listing
   id: UplinkBalloon
@@ -2083,6 +2095,12 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+# Begin DeltaV Changes
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV Changes
 
 # Job Specific
 
