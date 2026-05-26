@@ -123,10 +123,11 @@
 # Doorbell frame
 
 - type: entity
+  parent: ButtonFrame
   id: PagerButtonFrameGreen
   name: pager button frame
-  parent: ButtonFrame
   suffix: Doorbell Frame
+  description: It's a frame to help bring attention to the doorbell.
   components:
   - type: Sprite
     drawdepth: SmallObjects
