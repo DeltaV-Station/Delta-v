@@ -408,6 +408,10 @@
         sound: /Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg
       mindRoles:
       - MindRoleHitman
+      components:
+      - type: AutoImplant
+        implants:
+        - HitmanCardImplant
 
 
 # nt agent sleeper event

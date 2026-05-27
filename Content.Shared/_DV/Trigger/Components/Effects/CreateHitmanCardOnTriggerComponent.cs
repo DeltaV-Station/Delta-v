@@ -5,8 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DV.Trigger.Components.Effects;
 
 /// <summary>
-/// Shows a tip to the triggering player when triggered.
-/// Note: this requires the trigger to be on the user to actually show the tip.
+/// is used for implants and such so the right paramters can be passed
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CreateHitmanCardOnTriggerComponent : BaseXOnTriggerComponent;

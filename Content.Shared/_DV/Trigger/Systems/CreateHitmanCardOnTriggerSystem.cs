@@ -1,14 +1,18 @@
 using System.Reflection.Metadata;
 using Content.Shared._DV.Trigger.Components.Effects;
 using Content.Shared.Trigger;
+using Content.Shared.GameTicking;
+using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Player;
-using Content.Server._DV.Abilities;
+using Robust.Shared.Network;
 
 namespace Content.Shared._DV.Trigger.Systems;
 
 public sealed class CreateHitmanCardOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SpawnHitmanCardSystem _SpawnHitmanCardSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -16,17 +20,16 @@ public sealed class CreateHitmanCardOnTriggerSystem : EntitySystem
 
         SubscribeLocalEvent<CreateHitmanCardOnTriggerComponent, TriggerEvent>(OnTrigger);
     }
-    //just spawns a card
-    private void OnTrigger(Entity<CreateHitmanCardOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
-    {
-        if (target == null)
-        {
-            return;
-        }
 
-        var owner = (EntityUid)target;
-        var coords = (Coordinates)Transform(owner).Coordinates;
-        _SpawnHitmanCardSystem.CreateHitmanCard(owner,coords);
+    //just spawns a card on the given target. uses predicated or spawn next to based on if. as trigger effect doesnt seem to have predicted on it ill just check if this is sever first and if not assume its predicted.
+    private void OnTrigger(Entity<CreateHitmanCardOnTriggerComponent> ent, ref TriggerEvent args)
+    {
+        if (args.Handled || args.User is not { } user)
+            return;
+
+        var mapCoords = _transform.GetMapCoordinates(ent);
+        var card = EntityManager.PredictedSpawn("HitmanBusinessCard", mapCoords);
+        _hands.TryPickupAnyHand(user, card);
         args.Handled = true;
     }
 }
