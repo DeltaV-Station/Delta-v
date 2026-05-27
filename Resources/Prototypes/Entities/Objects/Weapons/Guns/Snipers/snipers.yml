@@ -114,6 +114,10 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: GunRequiresWield
   - type: Gun
+    minAngle: 20 # DeltaV - add needing bipod
+    maxAngle: 32 # DeltaV - add needing bipod
+    projectileSpeed: 30 # DeltaV - 25% slower
+    angleIncrease: 10
     fireRate: 0.4
     selectedMode: SemiAuto
     availableModes:
@@ -135,6 +139,18 @@
     pvsIncrease: 0.3
   - type: StaticPrice
     price: 3500
+  # DeltaV changes - bipod
+  - type: GunWieldBonus # Can't be shot without wielding anyways
+    minAngle: 0
+    maxAngle: 0
+  - type: GunBipod
+    minAngle: -20
+    maxAngle: -30
+    angleDecay: 0
+    fireRateIncrease: .2
+  - type: ClothingSpeedModifier # Big sniper makes you move slower
+    sprintModifier: 0.9
+  # DeltaV changes end
 
 # Start DeltaV removals
 #- type: entity
