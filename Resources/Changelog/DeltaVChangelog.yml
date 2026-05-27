@@ -1,199 +1,4 @@
 ﻿Entries:
-- author: pootslap
-  changes:
-  - message: Walking through puddles no longer makes the puddle smaller. Call your
-      local janitor!
-    type: Tweak
-  id: 1817
-  time: '2025-11-18T18:57:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4674
-- author: EmberAstra
-  changes:
-  - message: Added vox and harpy sprites for Rhino hardsuits
-    type: Add
-  - message: Added harpy sprites for Goliath hardsuits
-    type: Add
-  id: 1818
-  time: '2025-11-18T19:00:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4609
-- author: AeraAuling
-  changes:
-  - message: Psionic mantis time requirement has been changed. It now requires 5 hours
-      of scientist and 5 hours of chaplain.
-    type: Fix
-  id: 1819
-  time: '2025-11-18T19:14:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4579
-- author: SirWarock
-  changes:
-  - message: Rollerbeds are now much more easier to drag around!
-    type: Tweak
-  - message: Bodybags however are now harder to drag around by the same amount.
-    type: Tweak
-  id: 1820
-  time: '2025-11-18T21:02:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4678
-- author: ShepardToTheStars
-  changes:
-  - message: Colossi no longer take stamina damage from melee weapons.
-    type: Fix
-  id: 1821
-  time: '2025-11-19T10:07:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4688
-- author: Apachit0
-  changes:
-  - message: Ported fishing from Goob
-    type: Add
-  id: 1822
-  time: '2025-11-18T21:06:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4615
-- author: Niomi0
-  changes:
-  - message: Some anomalites are no longer immune to physical damage. Gravity anomalites
-      are no longer more robust than nuclear operatives. Anomalites have less hp.
-    type: Tweak
-  - message: Anomalites can only spawn once per anomaly core.
-    type: Tweak
-  id: 1823
-  time: '2025-11-19T11:05:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4595
-- author: SlamBamActionman, Averi
-  changes:
-  - message: Station animals no longer attack wizards and initial infected
-    type: Fix
-  id: 1824
-  time: '2025-11-19T20:04:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4673
-- author: SirWarock
-  changes:
-  - message: Made the Holographic Hoverbed researchable and craftable in the Medical
-      Techfab!
-    type: Add
-  - message: Animated the Holographic Hoverbed, made it a lot easier to drag around
-      and gave it a small light when unfolded!
-    type: Tweak
-  id: 1825
-  time: '2025-11-19T20:27:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4683
-- author: Solaris7518
-  changes:
-  - message: Lava is finally able to be fished in, now get fishing!
-    type: Fix
-  id: 1826
-  time: '2025-11-19T23:10:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4695
-- author: kotobdev
-  changes:
-  - message: Portable rechargers can now be worn in your suit storage and belt slots.
-    type: Tweak
-  id: 1827
-  time: '2025-11-20T01:24:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4681
-- author: AeraAulin, ShepardToTheStars
-  changes:
-  - message: With new breakthroughs in psionics research, NT scientists have discovered
-      a way to implement powers into specially made bluespace prosthetics.
-    type: Add
-  id: 1828
-  time: '2025-11-20T01:58:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4689
-- author: Coryler
-  changes:
-  - message: Fixed Autodoc Menu
-    type: Fix
-  id: 1829
-  time: '2025-11-20T04:07:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4698
-- author: TehFlaminTaco, SolsticeOfTheWinter, Rosef
-  changes:
-  - message: Added the Devil. Make deals at your own risk
-    type: Add
-  id: 1830
-  time: '2025-11-20T10:11:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4639
-- author: Biddy Gelson
-  changes:
-  - message: sec and court doors are law+sec access. armory wall reinforced. more
-      station maps, med recep has door button.
-    type: Tweak
-  - message: added LO locker with hardsuit.
-    type: Add
-  - message: fixed directional signs
-    type: Fix
-  id: 1831
-  time: '2025-11-21T01:49:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4665
-- author: Cepelinas1
-  changes:
-  - message: Sophont and Synthetic definitions were removed in the SOP and other documents,
-      in exchange for the newer one.
-    type: Remove
-  - message: 'Added a new entry to SOP: Entity Definitions. They define what are entities,
-      synthetics, pets and Employees. Go give ''em a read!'
-    type: Add
-  - message: Changed sophont definitions in Space Law with the newer entity definitions.
-    type: Add
-  id: 1832
-  time: '2025-11-21T13:42:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4661
-- author: Coryler
-  changes:
-  - message: Nav/Radar Console Distance calculation more correct
-    type: Tweak
-  id: 1833
-  time: '2025-11-22T02:17:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4709
-- author: Coryler
-  changes:
-  - message: Cyborgs can now laugh silently again
-    type: Tweak
-  id: 1834
-  time: '2025-11-22T03:18:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4703
-- author: MolpeTheSeiren
-  changes:
-  - message: Gave Ifrit more of epistemics department access
-    type: Tweak
-  id: 1835
-  time: '2025-11-22T03:47:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4677
-- author: Toby222
-  changes:
-  - message: Rat servants are now edible. Yum...
-    type: Fix
-  id: 1836
-  time: '2025-11-22T03:50:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4687
-- author: MantasDab360
-  changes:
-  - message: MMI finally works in IPC chassis! Gibbed players rejoice!
-    type: Fix
-  id: 1837
-  time: '2025-11-22T03:59:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4699
-- author: kotobdev
-  changes:
-  - message: The Super Synthesizer now only requires 50 musician hours to unlock as
-      a trinket.
-    type: Tweak
-  id: 1838
-  time: '2025-11-22T05:35:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4710
-- author: Coryler
-  changes:
-  - message: Fixed Ratking Double Spawn
-    type: Fix
-  id: 1839
-  time: '2025-11-22T18:14:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4702
-- author: cmorley191
-  changes:
-  - message: Oracle can now accept holofan projector and other tools through right-click
-      menu action
-    type: Fix
-  id: 1840
-  time: '2025-11-22T18:32:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4704
 - author: MantasDab360
   changes:
   - message: No more MMInception. The Positronic Brain and MMI can no longer be inserted
@@ -4368,4 +4173,195 @@
   id: 2317
   time: '2026-05-20T01:04:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5827
+- author: kotobdev
+  changes:
+  - message: Avali now have feather mechanics! Read more about it in the guidebook.
+    type: Add
+  id: 2318
+  time: '2026-05-20T21:07:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5609
+- author: Eternally-Confused
+  changes:
+  - message: Code Orange now has an entry in Alert Procedure.
+    type: Add
+  id: 2319
+  time: '2026-05-21T03:44:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5832
+- author: Stop-Signs
+  changes:
+  - message: Raised the cooldown between self-uncuff attempts to 15 seconds
+    type: Tweak
+  id: 2320
+  time: '2026-05-22T01:26:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5854
+- author: Coryler
+  changes:
+  - message: Removed ShitMed
+    type: Remove
+  id: 2321
+  time: '2026-05-22T00:27:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5844
+- author: Proxysseia
+  changes:
+  - message: no more vestigial IPC mentions in SoP
+    type: Remove
+  id: 2322
+  time: '2026-05-22T01:30:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5860
+- author: Stxcking
+  changes:
+  - message: Advanced Botany Module and DJ Module now cost as much as any other Advanced
+      Modules.
+    type: Fix
+  id: 2323
+  time: '2026-05-22T15:59:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5855
+- author: Frontier, Stxcking
+  changes:
+  - message: 'Coming from Frontier: Added the Holoflare Gun! Locked behind T1 research
+      and can be made in the Logistic or Engineering Techfab or brought salvage vendor
+      for 450 points.'
+    type: Add
+  - message: Salvage cyborg will come with a holoflare gun in their traversal module
+      and it's available in the advanced tools module.
+    type: Tweak
+  - message: Skias are able to delete flare pellets with their scream!
+    type: Tweak
+  id: 2324
+  time: '2026-05-22T16:18:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5837
+- author: rebe83
+  changes:
+  - message: Ambuzol can no longer be gambled for. Wait for zombies to exist and then
+      make the cure like everyone else.
+    type: Remove
+  id: 2325
+  time: '2026-05-23T01:33:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5822
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed brain and other organs not being dropped when player is gibbed.
+    type: Fix
+  id: 2326
+  time: '2026-05-23T20:40:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5874
+- author: Eternally-Confused
+  changes:
+  - message: The nukie medicine bundle now contains a jug of salbutamol, instead of
+      dexalin plus.
+    type: Fix
+  id: 2327
+  time: '2026-05-24T04:55:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5877
+- author: Stxcking
+  changes:
+  - message: Remove 0 TC cost items from Super Surplus and Surplus Crates.
+    type: Tweak
+  id: 2328
+  time: '2026-05-24T15:48:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5853
+- author: Velcroboy
+  changes:
+  - message: Players can now find and construct colorful comfy chairs!
+    type: Add
+  id: 2329
+  time: '2026-05-24T15:58:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5864
+- author: Eternally-Confused
+  changes:
+  - message: The traitor guidebook has been updated to include Delta-V specific objectives.
+    type: Tweak
+  id: 2330
+  time: '2026-05-24T16:02:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5800
+- author: Stxcking
+  changes:
+  - message: Moved Onion Rings and Taco Shells Recipes to the Deep Fryer!
+    type: Tweak
+  id: 2331
+  time: '2026-05-24T16:06:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5623
+- author: AeraAuling
+  changes:
+  - message: Better materials have been acquired for the production of the syndicate
+      dual swords, allowing their cuts to bite a bit deeper and even for bullets to
+      be reflected. Try them out if you get the chance.
+    type: Tweak
+  id: 2332
+  time: '2026-05-24T16:14:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5859
+- author: Cepelinas1
+  changes:
+  - message: You can now purchase revolvers from Logistics. Gamble for your favorite
+      revolver if you feel lucky!
+    type: Add
+  id: 2333
+  time: '2026-05-24T16:18:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5849
+- author: SirWarock
+  changes:
+  - message: The Warden's Hardsuit is so heavy that it doesn't get affected by Space
+      Wind or Slippery Surfaces!
+    type: Tweak
+  id: 2334
+  time: '2026-05-24T16:31:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5700
+- author: SirRequiem
+  changes:
+  - message: 'Terra: Replaced superweapon spawner for the advanced laser safe'
+    type: Tweak
+  - message: 'Terra: Revamped Atmos room. Now regular Engi have access to the TEG!'
+    type: Tweak
+  id: 2335
+  time: '2026-05-25T09:13:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5772
+- author: kotobdev
+  changes:
+  - message: Psionic Eruption has had its destructive potential substantially reduced.
+    type: Tweak
+  id: 2336
+  time: '2026-05-25T13:43:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5878
+- author: kotobdev
+  changes:
+  - message: You can now equip up to 25 traits at once!
+    type: Tweak
+  - message: Traits now cost 0 points by default.
+    type: Tweak
+  id: 2337
+  time: '2026-05-25T14:57:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5598
+- author: rebe83
+  changes:
+  - message: Prisoners now spawn inside permanent brig again, instead of arrivals.
+    type: Fix
+  id: 2338
+  time: '2026-05-25T14:59:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5885
+- author: Khaomi
+  changes:
+  - message: Lone Digger by Caravan Palace from Jukebox for copyright reason
+    type: Remove
+  id: 2339
+  time: '2026-05-25T19:44:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5887
+- author: crocodilecarousel, hivehum, Stxcking
+  changes:
+  - message: 'Ported from ImpStation: 8 Wallpapers +5 Banners + 3 Glow in the Dark
+      Stars!'
+    type: Add
+  id: 2340
+  time: '2026-05-25T23:02:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5722
+- author: AeraAuling
+  changes:
+  - message: Added the SV-213, an officer-grade variant of the Svalinn Laser Pistol,
+      now available in secoff and detective loadouts.
+    type: Add
+  - message: Adds the regular Svalinn Laser Pistol to the pilot's locker. We couldn't
+      afford actual windshield wipers so this will have to do.
+    type: Add
+  id: 2341
+  time: '2026-05-26T23:30:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5889
 Order: 1

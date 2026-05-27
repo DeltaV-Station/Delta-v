@@ -81,15 +81,17 @@
         Slash: 2
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .25
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 3
+        Slash: 4.5
   - type: Item
     sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
   - type: JumpAbility
-    jumpDistance: 2
+    jumpDistance: 2.5
     jumpSound: /Audio/Effects/stealthoff.ogg
   - type: ActionGrant
     actions:

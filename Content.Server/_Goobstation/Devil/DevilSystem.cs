@@ -32,7 +32,6 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Shared.Zombies;
 using Content.Shared._Lavaland.Chasm;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
@@ -112,7 +111,6 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
-        EnsureComp<BreathingImmunityComponent>(devil);
         EnsureComp<PressureImmunityComponent>(devil);
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
@@ -135,7 +133,6 @@ public sealed partial class DevilSystem : EntitySystem
             if (!TryComp(part.Id, out BodyPartComponent? woundable)) // DeltaV - Use Bodypart instead of woundable.
                 continue;
 
-            woundable.CanSever = false; // DeltaV - Use bodypart instead of Woundable
             Dirty(part.Id, woundable);
         }
 

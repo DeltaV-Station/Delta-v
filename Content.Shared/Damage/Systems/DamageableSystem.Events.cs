@@ -7,10 +7,6 @@ using Content.Shared.Radiation.Events;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.GameStates;
 
-using Content.Shared.Body.Systems; // Shitmed Change
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Robust.Shared.Random; // Shitmed Change
-
 namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
@@ -211,24 +207,7 @@ public sealed partial class DamageableSystem
 ///     Raised before damage is done, so stuff can cancel it if necessary.
 /// </summary>
 [ByRefEvent]
-public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid? Origin = null, TargetBodyPart? TargetPart = null, bool Cancelled = false); // Shitmed - Added TargetPart
-
-
-
-/// <summary>
-///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.
-/// </summary>
-[ByRefEvent]
-public record struct BeforePartDamageChangedEvent(
-    DamageSpecifier Damage,
-    EntityUid? Origin = null,
-    TargetBodyPart? TargetPart = null,
-    bool IgnoreResistances = false,
-    bool CanSever = true,
-    bool CanEvade = false,
-    float PartMultiplier = 1.00f,
-    bool Evaded = false,
-    bool Cancelled = false);
+public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid? Origin = null, bool Cancelled = false);
 
 /// <summary>
 ///     Raised on an entity when damage is about to be dealt,
@@ -237,7 +216,7 @@ public record struct BeforePartDamageChangedEvent(
 ///
 ///     For example, armor.
 /// </summary>
-public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed
+public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null)
     : EntityEventArgs, IInventoryRelayEvent
 {
     /// <inheritdoc/>
@@ -256,7 +235,6 @@ public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin 
     ///     This is the damage that will be inflicted.
     /// </summary>
     public DamageSpecifier Damage = damage;
-    public readonly TargetBodyPart? TargetPart = targetPart; // Shitmed Change
 
     /// <summary>
     ///     Contains the entity which caused the damage, if any was responsible.
@@ -299,23 +277,16 @@ public sealed class DamageChangedEvent : EntityEventArgs
     /// </summary>
     public readonly EntityUid? Origin;
 
-    /// <summary>
-    ///     Shitmed Change: Can this damage event sever parts?
-    /// </summary>
-    public readonly bool CanSever;
-
     public DamageChangedEvent(
         DamageableComponent damageable,
         DamageSpecifier? damageDelta,
         bool interruptsDoAfters,
-        EntityUid? origin,
-        bool canSever = true // Shitmed
+        EntityUid? origin
     )
     {
         Damageable = damageable;
         DamageDelta = damageDelta;
         Origin = origin;
-        CanSever = canSever;
 
         if (DamageDelta is null)
             return;
