@@ -1,73 +1,69 @@
 - type: thiefBackpackSet
-  id: HitmanSharpshooterKit
-  name: hitman-sharpshooter-kit-name
-  description: hitman-sharpshooter-kit-description
+  id: SharpshooterKit
+  name: Sharpshooter-kit-name
+  description: Sharpshooter-kit-description
   sprite:
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
     state: base
   content:
-  - BriefcaseSyndieSniperBundleFilled
-  - ClothingEyesThermalVisionGogglesSyndie
+  - WeaponSniperHristov
+  - Binoculars
+  - BriefcaseBase
 
 - type: thiefBackpackSet
-  id: HitmanLoudKit
-  name: hitman-loud-kit-name
-  description: hitman-loud-kit-description
+  id: LoudKit
+  name: Loud-kit-name
+  description: Loud-kit-description 
   sprite:
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     state: icon
   content:
-  - WeaponRevolverPythonAP
-  - SpeedLoaderMagnumAP
-  - SpeedLoaderMagnumAP
+  - WeaponRevolverPython
+  - SpeedLoaderMagnum
+  - SpeedLoaderMagnum
   - ClothingOuterArmorBasic
-  - ClothingShoesChameleonNoSlips
-
+  
 - type: thiefBackpackSet
-  id: HitmanAssassinKit
-  name: hitman-assassin-kit-name
-  description: hitman-assassin-kit-description
+  id: AssassinKit
+  name: Assassin-kit-name
+  description: Assassin-kit-description
   sprite:
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
     state: icon
   content:
   - WeaponPistolCobra
   - MagazinePistolCaselessRifle
-  - ThrowingKnivesKit
-  - ClothingEyesNightVisionGoggles
-  - RadioJammer
-
+  - CombatKnife
+  - RechargingRadioJammer
+  
 - type: thiefBackpackSet
-  id: HitmanPoisonerKit
-  name: hitman-poisoner-kit-name
-  description: hitman-poisoner-kit-description
+  id: PoisonerKit
+  name: Poisoner-kit-name
+  description: Poisoner-kit-description
   sprite:
     sprite: Objects/Specific/Chemistry/bottle.rsi
-    state: bottle
+    state: bottle-1
   content:
-  - Syringe
-  - ChemistryBottlePax
-  - ChemistryBottleToxin
-  - ChemistryBottleMuteToxin
+  - HypopenBox
   - ChemistryBottleNocturine
-  - ChemicalSynthesisKit
-
+  - ChemistryBottleToxin
+  
 - type: thiefBackpackSet
-  id: HitmanInfiltrationKit
-  name: hitman-infiltration-kit-name
-  description: hitman-infiltration-kit-description
+  id: InfiltrationKit
+  name: Infiltration-kit-name
+  description: Infiltration-kit-description
   sprite:
     sprite: _DV/Objects/Tools/doorjack.rsi
     state: icon
   content:
-  - Emag
-  - SyndicateJawsOfLife
+  - Doorjack
+  - JawsOfLife
   - StealthBox
-
+  
 - type: thiefBackpackSet
-  id: HitmanDisguiseKit
-  name: hitman-disguise-kit-name
-  description: hitman-disguise-kit-description
+  id: DisguiseKit
+  name: Disguise-kit-name
+  description: Disguise-kit-description
   sprite:
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
     state: icon
@@ -76,30 +72,29 @@
   - ClothingUniformJumpsuitChameleon
   - ClothingOuterChameleon
   - ClothingHandsChameleon
-  - ClothingShoesChameleon
-  - BionicVoiceMaskImplanter
-  - FakeMindShieldImplanter
+  - ClothingShoesChameleonNoSlips
+  - ClothingMaskGasVoiceChameleon
 
 - type: thiefBackpackSet
-  id: HitmanEscapistKit
-  name: hitman-escapist-kit-name
-  description: hitman-escapist-kit-description
+  id: EscapistKit 
+  name: Escapist-kit-name
+  description: Escapist-kit-description
   sprite:
     sprite: Actions/Implants/implants.rsi
     state: freedom
   content:
-  - DnaScramblerImplanter
-  - FreedomImplanter
-  - ScramImplanter
+  - DnaScramblerImplant
+  - FreedomImplant
+  - ScramImplant
 
 - type: thiefBackpackSet
-  id: HitmanTrackerKit
-  name: hitman-tracker-kit-name
-  description: hitman-tracker-kit-description
+  id: TrackerKit 
+  name: Tracker-kit-name
+  description: Tracker-kit-description
   sprite:
     sprite: Objects/Tools/spy_device.rsi
     state: icon
   content:
-  - PinpointerUniversal #todo: make this a version to find the hitmans target later
+  - PinpointerUniversal #todo: make a version which will track their target
   - EncryptionKeyStationMaster
   - SpyCrewMonitor
