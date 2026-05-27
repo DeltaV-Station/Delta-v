@@ -1,0 +1,24 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'content-warning-title'}"
+                      MinSize="520 750"
+                      MaxSize="520 750">
+    <BoxContainer Orientation="Vertical" Margin="20">
+        <Label Name="TitleLabel"
+               StyleClasses="LabelBig"
+               HorizontalAlignment="Center"
+               Margin="0 0 0 5"
+               Text="{Loc 'content-warning-label'}"/>
+        <PanelContainer Margin="0 0 0 10">
+            <RichTextLabel Name="ContentWarningBody" HorizontalAlignment="Center"/>
+        </PanelContainer>
+        <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom" Margin="0 10 0 0">
+            <Button Name="ContentWarningAccept"
+                    MinWidth="75"
+                    Text="{ Loc 'content-warning-accept' }"/>
+            <Button Name="ContentWarningReject"
+                    MinWidth="75"
+                    Text="{ Loc 'content-warning-reject' }"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
