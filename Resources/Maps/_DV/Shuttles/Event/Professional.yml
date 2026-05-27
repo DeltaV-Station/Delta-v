@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/25/2026 19:34:26
+  time: 05/27/2026 03:34:07
   entityCount: 357
 maps: []
 grids:
@@ -103,6 +103,11 @@ entities:
           decals:
             86: -2,-3
         - node:
+            color: '#FFFFFFFF'
+            id: DirtHeavyMonotile
+          decals:
+            90: 0,-1
+        - node:
             cleanable: True
             color: '#FFFFFFFF'
             id: DirtHeavyMonotile
@@ -163,6 +168,11 @@ entities:
             id: WoodTrimThinLineE
           decals:
             49: 3,-4
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineN
+          decals:
+            91: 2,-3
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineS
