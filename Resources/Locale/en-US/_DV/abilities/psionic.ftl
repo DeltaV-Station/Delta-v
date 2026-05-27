@@ -115,9 +115,8 @@ eruption-warning-window-title = Your Brain isn't Ready!
 eruption-warning-window-prompt-text-part = You feel a strong pressure building up in your mind
                                             and you need to release it before it overwhelms you.
                                             When you are ready, you can unleash a psionic eruption.
-                                            Doing so will cause a massive psionic discharge,
-                                            which will destroy yourself and the station around you.
-                                            THIS ALONE DOES NOT MAKE YOU AN ANTAGONIST.
+                                            Doing so will cause a massive psionic discharge, obliterating you entirely.
+                                            You should probably try to find a fix to that...
                                             Do not detonately randomly, ensure proper buildup.
                                             Do you understand?
 eruption-warning-window-acknowledge-button = I Understand

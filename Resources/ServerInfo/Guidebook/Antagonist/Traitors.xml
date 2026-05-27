@@ -86,12 +86,14 @@
     <GuideEntityEmbed Entity="Hypospray" Caption=""/>
     <GuideEntityEmbed Entity="HandheldCrewMonitorEmpty" Caption=""/>
   </Box>
-  - Stealing the [color=#c96dbf]Research Director[/color]'s [bold]experimental hardsuit[/bold] or [bold]hand teleporter[/bold].
+  <!-- DeltaV - Add the research digiboards, replace MG's hardsuit sprite -->
+  - Stealing the [color=#c96dbf]Research Director[/color]'s [bold]experimental hardsuit[/bold], [bold]hand teleporter[/bold], or [bold]research digiboard[/bold].
   <Box>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitMystagogueLabcoat" Caption=""/>
     <GuideEntityEmbed Entity="HandTeleporter" Caption=""/>
+    <GuideEntityEmbed Entity="BoxFolderRdClipboard" Caption=""/>
   </Box>
-  <!-- DeltaV energy magnum changed to energy sidearm and HosBreifcase. -->
+  <!-- DeltaV - energy magnum changed to energy sidearm and HosBreifcase. -->
   - Stealing the [color=#cb0000]Head of Security[/color]'s [bold]energy sidearm[/bold] or [bold]secret documents[/bold].
   <Box>
     <GuideEntityEmbed Entity="HoSBriefcase" Caption=""/>
@@ -99,18 +101,41 @@
     <GuideEntityEmbed Entity="WeaponEnergyMagnum" Caption=""/>
     <GuideEntityEmbed Entity="BookSecretDocuments" Caption=""/>
   </Box>
-  - Stealing the [color=#f39f27]Chief Engineer[/color]'s [bold]advanced magboots[/bold].
+  <!-- DeltaV - Add the hardsuit and power digiboard -->
+  - Stealing the [color=#f39f27]Chief Engineer[/color]'s [bold]advanced magboots[/bold], [bold]advanced hardsuit[/bold], or [bold]power monitoring digiboard[/bold].
   <Box>
     <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitEngineeringWhite" Caption=""/>
+    <GuideEntityEmbed Entity="BoxFolderCeClipboard" Caption=""/>
   </Box>
-  - Stealing the [color=#b18644]Logistics Officer[/color]'s [bold]requisition digi-board[/bold] or [bold]lucky bill[/bold].
+  <!-- DeltaV - Add the "Rhino" Hardsuit -->
+  - Stealing the [color=#b18644]Logistics Officer[/color]'s [bold]requisition digi-board[/bold] or [bold]industrial hardsuit[/bold].
   <Box>
     <GuideEntityEmbed Entity="BoxFolderQmClipboard" Caption=""/>
-    <GuideEntityEmbed Entity="SpaceCashLuckyBill" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitRhino" Caption=""/>
   </Box>
+  <!-- Begin DeltaV Additions-->
   - Steal the [color=#9fed58]Head of Personnel[/color]'s [bold]Ian Photobook[/bold].
   <Box>
     <GuideEntityEmbed Entity="BookIanDossier" Caption=""/>
   </Box>
+  - Steal the [color=#cb0000]Warden's energy shotgun.
+  <Box>
+    <GuideEntityEmbed Entity="WeaponEnergyShotgun" Caption=""/>
+  </Box>
+  - Steal the [color=#c96dbf]Psionc Mantis[/color]' [bold]anti-psionic knife[/bold].
+  <Box>
+    <GuideEntityEmbed Entity="AntiPsychicKnife" Caption=""/>
+  </Box>
+  - Steal the [color=#6b2833]Clerk[/color]'s [bold]stamp[/bold].
+  <Box>
+    <GuideEntityEmbed Entity="RubberStampNotary" Caption=""/>
+  </Box>
+  - Steal the station nuke's [bold]plutonium core[/bold], using the tools availible for free in your uplink.
+  <Box>
+    <GuideEntityEmbed Entity="PlutoniumCore" Caption=""/>
+    <GuideEntityEmbed Entity="NukeCoreContainer" Caption=""/>
+  </Box>
+  <!-- End DeltaV Additions-->
 
 </Document>
