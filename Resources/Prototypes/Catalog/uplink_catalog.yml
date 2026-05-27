@@ -66,7 +66,7 @@
   categories:
   - UplinkWeaponry
 
-# Deltav changes begin  
+# Deltav changes begin
 - type: listing
   id: UplinkHypereutacticBlade
   name: uplink-hypereutactic-blade-name
@@ -545,8 +545,8 @@
 
 - type: listing
   id: UplinkPistol9mmMagazine
-  name: uplink-pistol-magazine-name
-  description: uplink-pistol-magazine-desc
+  name: uplink-pistol-magazine-delta-name # DeltaV - to make it clear that these arent the same as normal pistol mags
+  description: uplink-pistol-magazine-delta-desc # DeltaV - 20 round capacity
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base-icon }
   productEntity: MagazinePistolHighCapacity
   cost:
@@ -1646,15 +1646,20 @@
   description: uplink-voice-mask-implanter-desc
   icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
   productEntity: VoiceMaskImplanter
-  # Begin DeltaV Removals
-  # discountCategory: usualDiscounts
-  # discountDownTo:
-  #   Telecrystal: 1
-  # End DeltaV Removals
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 1 # DeltaV - was 2
+    Telecrystal: 2
   categories:
   - UplinkImplants
+# Begin DeltaV additions
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV additions
 
 # Wearables
 
@@ -1871,8 +1876,8 @@
       tags:
       # - NukeOpsUplink # DeltaV - Commented out as of #5462 (only commander and loneop can get suit)
   # Begin DeltaV additions - Jugsuit buy limit #5462
-      - CommanderUplink 
-      - LoneOpUplink 
+      - CommanderUplink
+      - LoneOpUplink
   - !type:ListingLimitedStockCondition
     stock: 1
   # End DeltaV additions
@@ -2021,9 +2026,15 @@
     Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
+# Begin DeltaV Changes
   conditions: # DeltaV - free so limited stock
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV Changes
 
 - type: listing
   id: UplinkOperativeSkirt
@@ -2034,9 +2045,15 @@
     Telecrystal: 0 # DeltaV - was 1
   categories:
   - UplinkPointless
+# Begin DeltaV Changes
   conditions: # DeltaV - free so limited stock
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV Changes
 
 - type: listing
   id: UplinkBalloon
@@ -2078,6 +2095,12 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+# Begin DeltaV Changes
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+# End DeltaV Changes
 
 # Job Specific
 

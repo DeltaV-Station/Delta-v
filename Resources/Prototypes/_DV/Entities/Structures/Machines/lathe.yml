@@ -9,7 +9,6 @@
   - type: Lathe
     staticPacks:
     - BorgModulesSyndicateStatic
-    - RoboticsStaticDeltaV
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
@@ -24,6 +23,7 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
+    snapCardinals: true
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -92,6 +92,7 @@
     - UpgradeKits
     - UpgradeKits_Goob
     - EngineeringHardsuits
+    - LightingEquipment # DeltaV
   - type: Machine
     board: EngineeringTechFabCircuitboard
   - type: StealTarget
@@ -132,6 +133,7 @@
     - Mining
     - SalvageWeapons
     - SalvageHardsuits
+    - LightingEquipment # DeltaV
   - type: Machine
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
@@ -210,6 +212,7 @@
     - ReportingStatic
     - SimpleElectronicsStatic
     - EVASuit
+    - EpistemicsStaticDeltaV
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing

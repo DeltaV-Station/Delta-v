@@ -196,9 +196,6 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Shitmed
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -224,9 +221,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: PotentialPsionic # DeltaV - organic species can all be psionic
-  - type: Targeting # Shitmed Change
-  - type: SurgeryTarget # Shitmed Change
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
   - type: GrappleTarget # DeltaV - Allow targets to be grappled
@@ -302,6 +296,7 @@
     alternateState: Standing
   #- type: StunVisuals # DeltaV - No stars
   - type: CanDoCPR # DeltaV - Addition of CPR
+  - type: PotentialPsionic # DeltaV - organic species can all be psionic
 
 - type: entity
   save: false

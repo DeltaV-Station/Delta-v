@@ -507,6 +507,8 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitEngineeringWhite #DeltaV - added traitor steal objective
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -1072,6 +1074,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLing
+  - type: Tag # DeltaV - Removed from Chameleon Whitelist
+    tags: []
   - type: MappingCategories # DeltaV
     categories:
     - Changeling
@@ -1304,6 +1308,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 #CBURN Hardsuit
 - type: entity

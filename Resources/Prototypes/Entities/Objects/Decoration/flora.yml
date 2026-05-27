@@ -231,6 +231,15 @@
         tree04: ""
         tree05: ""
         tree06: ""
+  # DeltaV add Rootsong
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
+  # DeltaV end
 
 - type: entity
   parent: BaseTreeSnow

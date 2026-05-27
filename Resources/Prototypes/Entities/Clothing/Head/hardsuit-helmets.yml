@@ -908,11 +908,9 @@
     color: "#ffffff"
   # Begin DeltaV Additions
   - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
-  - type: ClothingGrantPsionicPower
-    power: DispelPower
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
+  - type: DispelPower
   - type: GuideHelp
     guides:
     - Psionics
@@ -1065,6 +1063,8 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 #MISC. HARDSUITS
 #Clown Hardsuit

@@ -1,0 +1,22 @@
+- type: entity
+  id: DVArrivalsAnnouncer
+  categories: [ HideSpawnMenu ]
+  name: Arrivals Announcement System
+  components:
+  - type: Speech
+    speechVerb: Robotic
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - CentCom
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Justice
+    - Prison

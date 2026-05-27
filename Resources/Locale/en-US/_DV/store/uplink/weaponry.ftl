@@ -14,3 +14,6 @@ uplink-desword-desc = Now with twice as much energy per sword! Not the most prac
 
 uplink-harbinger-name = Harbinger Bundle
 uplink-harbinger-desc = A bundle with a full set of Harbinger armor and an Accursed scythe. Strike fear into the hearts of your enemies with this ancient design.
+
+uplink-dualswords-name = Dual Swords
+uplink-dualswords-desc = A set of dual swords made for those who prefer something a bit faster. Where they suffer in individual power, they excel in speed and mobility.
