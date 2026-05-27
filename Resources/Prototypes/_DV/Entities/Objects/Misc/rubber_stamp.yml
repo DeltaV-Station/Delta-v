@@ -79,3 +79,17 @@
     stampState: "paper_stamp-cap"
   - type: Sprite
     state: stamp-cap
+
+- type: entity
+  name: GALPOL rubber stamp
+  parent: RubberStampBase
+  id: RubberStampGalpol
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. For intergalactic security affairs.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-GALPOL
+    stampedColor: "#3db010"
+    stampState: "paper_stamp-centcom"
+  - type: Sprite
+    state: stamp-centcom
