@@ -74,74 +74,89 @@
       - ReagentId: WeldingFuel
         Quantity: 0.1
 
+
 # Loadout nerfed lighters for loadouts
 
 - type: entity
-  parent: [BaseBrandedLighter, FlippoLighter]
+  abstract: true
+  parent: BaseBrandedLighter
+  id: BaseBrandedLighterNerfed
+  suffix: Nerfed
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 12
+        maxVol: 12 # uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Heat: 1
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    netsync: false # Needed to avoid an exception.
+    radius: 1.2
+
+- type: entity
+  parent: BaseBrandedLighterNerfed
   id: WaffleCoFlippoNerfed
   name: Waffle Co. flippo
   description: "A mass produced lighter. The Waffle Co. logo turns the spark wheel when pushed up, minimising risk of lighter burns for even the most inept user."
-  suffix: Nerfed
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/waffleco.rsi
   - type: Item
     sprite: Objects/Tools/Lighters/waffleco.rsi
   - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.2
     color: brown
 
 - type: entity
-  parent: [BaseBrandedLighter, FlippoLighter]
+  parent: BaseBrandedLighterNerfed
   id: HonkCoFlippoNerfed
   name: Honk Co. flippo
-  description: "A rubbery gag lighter produced by Honk Co. hidden inside of a fake banana peel."
-  suffix: Nerfed
+  description: "A rubbery gag lighter produced by Honk Co. hidden inside of a plastic banana peel."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/honkco.rsi
   - type: Item
     sprite: Objects/Tools/Lighters/honkco.rsi
   - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.2
     color: yellow
 
 - type: entity
-  parent: [BaseBrandedLighter, FlippoLighter]
+  parent: BaseBrandedLighterNerfed
   id: DonkcoLighterNerfed
   name: Donk Co. flippo
   description: "A Breaded novelty lighter made by Donk Co."
-  suffix: Nerfed
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/donkco.rsi
   - type: Item
     sprite: Objects/Tools/Lighters/donkco.rsi
   - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.2
     color: orange
 
 - type: entity
-  parent: [BaseBrandedLighter, FlippoLighter]
+  parent: BaseBrandedLighterNerfed
   id: InterdyneFlippoNerfed
-  name: Interdyne Flippo
+  name: Interdyne flippo
   description: "A deep blue, off-brand flippo lighter, decorated with the logo of Interdyne Pharmaceuticals' 'Gene Clean' clinics. Become the master of your own cigarette."
-  suffix: Nerfed
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/interdyne.rsi
   - type: Item
     sprite: Objects/Tools/Lighters/interdyne.rsi
   - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.2
     color: cyan
 
 - type: entity
@@ -155,9 +170,6 @@
     sprite: Objects/Tools/Lighters/gorlex.rsi
   - type: Item
     sprite: Objects/Tools/Lighters/gorlex.rsi
-  - type: Storage
-    grid:
-    - 0,0,2,1
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -166,11 +178,10 @@
   - type: Matchbox
 
 - type: entity
-  parent: [BaseBrandedLighter, FlippoLighter]
+  parent: BaseBrandedLighterNerfed
   id: CentCommFlippoNerfed
-  name: CentComm Flippo
+  name: CentComm flippo
   description: "A gaudy jade-colored flippo frame with worn gilding, containing a colored flame. The latch is secured by a miniature access reader that only responds to CentComm officials. So much for loyalty."
-  suffix: Nerfed
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/centcomm.rsi
@@ -179,9 +190,6 @@
   - type: ItemToggleRequiresLock
     requireLocked: false
   - type: PointLight
-    enabled: false
-    netsync: false
-    radius: 1.2
     color: Gold
   - type: Lock
   - type: AccessReader
