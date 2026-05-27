@@ -649,6 +649,11 @@
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
     rules: ghost-role-information-nonantagonist-rules
+    mindRoles:
+    - MindRoleHamlet
+  - type: AntagObjectives
+    objectives:
+    - HamletObjective
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -919,7 +924,7 @@
       proper: true
       gender: male
   #DeltaV Changes - he can shoot his gun 80% of the time
-  - type: Clumsy 
+  - type: Clumsy
     clumsyGunShootCheck: 0.2
     #DeltaV Changes end
 

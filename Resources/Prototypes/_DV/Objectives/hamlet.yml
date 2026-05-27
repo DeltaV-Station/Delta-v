@@ -1,0 +1,41 @@
+#- type: entity
+#  parent: BaseObjective
+#  id: HamletObjective
+#  name: Achieve your destiny
+#  description: Die in the most absurd, hilarious way.
+#  components:
+#  - type: Objective
+#    difficulty: 1.5
+#    issuer: objective-issuer-Hamlet # probably delete this
+#    unique: false
+#    icon:
+#      sprite: Mobs/Ghosts/ghost_human.rsi
+#      state: icon
+#  - type: RoleRequirement
+#    roles:
+#    - HamletRole
+#  - type: DieCondition
+
+
+- type: entity
+  parent: BaseSurviveObjective # remember to change to die objective later
+  abstract: true
+  id: BaseHamletObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-Hamlet
+    difficulty: 1
+  - type: RoleRequirement
+    roles:
+    - HamletRole
+
+- type: entity
+  parent: BaseHamletObjective
+  id: HamletObjective
+  name: Achieve your destiny
+  description: Die in the most absurd, hilarious way.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon

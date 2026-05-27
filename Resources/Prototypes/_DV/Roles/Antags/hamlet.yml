@@ -1,0 +1,9 @@
+- type: antag
+  id: Hamlet
+  name: role-subtype-hamlet
+  antagonist: true
+  setPreference: true
+  objective: Hamlet-round-end-name
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 24h

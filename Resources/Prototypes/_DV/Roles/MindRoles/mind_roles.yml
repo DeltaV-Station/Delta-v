@@ -141,3 +141,17 @@
   - type: HitmanRole
   - type: RoleBriefing
     briefing: hitman-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleHamlet
+  name: Hamlet
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    subtype: role-subtype-hamlet
+    antagPrototype: Hamlet
+    exclusiveAntag: true
+  - type: HamletRole
+  - type: RoleBriefing
+    briefing: Hamlet-briefing
