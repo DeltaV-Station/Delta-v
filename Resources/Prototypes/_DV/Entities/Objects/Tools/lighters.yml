@@ -74,7 +74,6 @@
       - ReagentId: WeldingFuel
         Quantity: 0.1
 
-
 # Loadout nerfed lighters for loadouts
 
 - type: entity
@@ -83,28 +82,18 @@
   id: BaseBrandedLighterNerfed
   suffix: Nerfed
   components:
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 12
-        maxVol: 12 # uses less fuel than a welder, so this isnt as bad as it looks
   - type: Welder
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ItemToggleMeleeWeapon
-    activatedDamage:
-      types:
-        Heat: 1
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
       types:
         Blunt: 1 # does a little bit of damage on hit when off
   - type: PointLight
-    netsync: false # Needed to avoid an exception.
+    enabled: false
+    netsync: false
     radius: 1.2
 
 - type: entity
