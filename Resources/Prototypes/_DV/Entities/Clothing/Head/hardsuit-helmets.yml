@@ -29,6 +29,24 @@
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+      head-vox:
+      - state: on-equipped-HELMET-vox
+        shader: unshaded
+      head-vulpkanin:
+      - state: on-equipped-HELMET-vulpkanin
+        shader: unshaded
+      head-harpy:
+      - state: on-equipped-HELMET-harpy
+        shader: unshaded
+      head-feroxi:
+      - state: on-equipped-HELMET-feroxi
+        shader: unshaded
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
     clothingVisuals:
