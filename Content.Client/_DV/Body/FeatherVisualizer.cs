@@ -27,7 +27,7 @@ public sealed class FeatherVisualizer : VisualizerSystem<FeatherComponent>
             }
         }
 
-        if(!AppearanceSystem.TryGetData<Color>(uid, FeatherVisuals.BloodColor, out var bloodColor, args.Component))
+        if (!AppearanceSystem.TryGetData<Color>(uid, FeatherVisuals.BloodColor, out var bloodColor, args.Component))
             return;
 
         SpriteSystem.LayerSetColor(uid, FeatherVisualLayers.Blood, bloodColor);
