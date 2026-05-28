@@ -15,3 +15,6 @@
     - Structural
   - type: StaminaDamageOnCollide
     damage: 60
+  - type: PiercingProjectile # DeltaV - pierces up to 3 walls/windows
+    maxPierceNumberThreshold: 3
+    healthThreshold: 200 # Normal walls have a threshold of 200.

@@ -116,7 +116,6 @@
   - type: Gun
     minAngle: 20 # DeltaV - add needing bipod
     maxAngle: 32 # DeltaV - add needing bipod
-    projectileSpeed: 30 # DeltaV - 25% slower
     angleIncrease: 10
     fireRate: 0.4
     selectedMode: SemiAuto
@@ -135,7 +134,7 @@
     sprintModifier: 0.25
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 3
+    maxOffset: 4 # DeltaV - was 3
     pvsIncrease: 0.3
   - type: StaticPrice
     price: 3500
