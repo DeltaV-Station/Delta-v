@@ -133,7 +133,7 @@
         Toxin: -0.1
         Airloss: -0.1
     darkMovementSpeedMultiplier: 0.7
-  # DeltaV add Rootsong
+  # DeltaV additions - add rootsong
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -141,7 +141,7 @@
   - type: ActiveRadio
     channels:
     - Rootsong
-  # DeltaV end
+  # DeltaV changes end
 
 - type: entity
   parent: BaseSpeciesDummy
