@@ -6,3 +6,12 @@
     containers:
       entity_storage:
         id: MobSecDog
+
+- type: entity
+  id: CratePitbull
+  parent: CrateLivestock
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: MobPibble

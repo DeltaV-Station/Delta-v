@@ -28,3 +28,13 @@
   cost: 6000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: LivestockPitbull
+  icon:
+    sprite: _DV/Mobs/Animals/pitbull.rsi
+    state: Pibble
+  product: CratePitbull
+  cost: 3000 # Costs slightly less than the trained security dog.
+  category: Livestock
+  group: market
