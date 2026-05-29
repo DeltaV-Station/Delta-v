@@ -24,7 +24,7 @@
     tags:
     - DoorBumpOpener
     - SiliconEmotes
-    - SiliconOrIPCEmotes # DeltaV
+    - Honker # DeltaV - Can honk
     - Unimplantable
   - type: MobState
     allowedStates:
@@ -83,7 +83,7 @@
     baseWalkSpeed : 3
     baseSprintSpeed : 4
   - type: Stamina
-    critThreshold: 120
+    baseCritThreshold: 120
   - type: Destructible
     thresholds:
     - trigger:
@@ -104,7 +104,7 @@
     tags:
     - DoorBumpOpener
     - SiliconEmotes
-    - SiliconOrIPCEmotes # DeltaV
+    - Honker # DeltaV - Can honk
     - Bot
     - Unimplantable
   - type: Body
@@ -476,7 +476,7 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
-    - SiliconOrIPCEmotes # DeltaV
+    - Honker # DeltaV - Can honk
     - Bot
     - Unimplantable
   - type: ActiveRadio

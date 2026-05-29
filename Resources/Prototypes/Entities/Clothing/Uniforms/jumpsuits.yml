@@ -8,6 +8,8 @@
     sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
+  - type: Tag # DeltaV - Deathsquad isn't real, it can't hurt you.
+    tags: []
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBaseImpstation] # imp - Add foldable uniform jumpsuits
@@ -34,7 +36,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJacketMonkey
-  name: bartender's jacket monkey
+  name: bartender's monkey jacket
   description: A decent jacket, for a decent monkey.
   components:
   - type: Sprite

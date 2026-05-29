@@ -202,6 +202,20 @@
   - type: PresetIdCard
     job: Prosecutor
 
+# Service
+
+- type: entity
+  parent: BartenderIDCard
+  id: BabaIDCard
+  name: Baba ID card
+  components:
+  - type: PresetIdCard
+    job: Bartender
+    name: BaBa
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
 # Other
 
 - type: entity
@@ -287,3 +301,25 @@
   - type: MappingCategories
     categories:
     - Debug
+
+# CentComm
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomInternIDCard
+  name: CentComm Intern ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: stripe_top
+      color: &color-centcomm-top "#134975"
+    - state: stripe_bottom
+      color: &color-centcomm-bottom "#0d304d"
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: CentcommIntern
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: CentralCommandIntern

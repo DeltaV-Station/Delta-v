@@ -1,3 +1,4 @@
+using Content.Shared._DV.Species; // DeltaV - Hidden species
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -41,7 +42,32 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public ICharacterProfile SelectedCharacter
+        { // Start DeltaV - Prevent spawning as hidden speceis (At all costs)
+            get
+            {
+                // Firstly, check if we CAN use the selected character.
+                if (Characters.ContainsKey(SelectedCharacterIndex)) // If we've selected a character
+                {
+                    // Throughout this, we use this If(Valid)return pattern rather than the inverse if(Invalid)continue
+                    // Because the conditions in which it's valid are more seperate. This makes it slightly more readable.
+                    if (Characters[SelectedCharacterIndex] is not HumanoidCharacterProfile humanoidProfile)
+                        return Characters[SelectedCharacterIndex]; // If it's a non-humanoid, return it.
+                    if (!SpeciesHiderSystem.IsHidden(humanoidProfile.Species))
+                        return humanoidProfile; // Otherwise, return it if it's not hidden
+                }
+                // Otherwise, return the first valid character we can find.
+                foreach (var (_index, profile) in Characters)
+                {
+                    if (profile is not HumanoidCharacterProfile nextHumanoidProfile)
+                        return profile; // If it's a non-humanoid, return it.
+                    if (!SpeciesHiderSystem.IsHidden(nextHumanoidProfile.Species))
+                        return profile; // If it's not a hidden species, return it.
+                }
+                // If we can't find ANY valid character, make a new one.
+                return HumanoidCharacterProfile.Random();
+            }
+        } // End DeltaV
 
         public Color AdminOOCColor { get; set; }
 

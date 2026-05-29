@@ -13,7 +13,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
-using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -54,6 +54,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ArrivalsSystem _arrivals = default!;
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -168,6 +169,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (!args.LateJoin)
             return;
 
+        TryMakeLateJoinAntag(args.Player);
+    }
+
+    /// <summary>
+    /// Attempt to make this player be a late-join antag.
+    /// </summary>
+    /// <param name="session">The session to attempt to make antag.</param>
+    public void TryMakeLateJoinAntag(ICommonSession session)
+    {
         // TODO: this really doesn't handle multiple latejoin definitions well
         // eventually this should probably store the players per definition with some kind of unique identifier.
         // something to figure out later.
@@ -197,7 +207,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
                 continue;
 
-            if (TryMakeAntag((uid, antag), args.Player, def.Value))
+            if (TryMakeAntag((uid, antag), session, def.Value))
                 break;
         }
     }
@@ -286,12 +296,28 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             picking = false;
         }
 
+        ProtoId<DepartmentPrototype>? lastDepartment = null; // DeltaV
         for (var i = 0; i < count; i++)
         {
             var session = (ICommonSession?)null;
             if (picking)
             {
-                if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
+                // DeltaV - Added DepartmentDistribution BEGIN
+                if (def.DepartmentDistribution)
+                {
+                    if (playerPool.TryPickAndTakeConditional(RobustRandom,
+                            out session,
+                            sess => lastDepartment == null || GetDepartment(sess) != lastDepartment))
+                    {
+                        lastDepartment = GetDepartment(session);
+                    }
+                    else
+                    {
+                        Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule} using department distribution, falling back to regular behavior.");
+                    }
+                }
+                // DeltaV - Added Department Distribution END
+                if (session == null && !playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner) // DeltaV - Added session null-check for fallback to regular behavior.
                 {
                     Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule}, no longer choosing antags for this definition");
                     break;
@@ -316,6 +342,22 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
     }
+
+    // DeltaV - Add method BEGIN
+    private ProtoId<DepartmentPrototype>? GetDepartment(ICommonSession session)
+    {
+        if (!_mind.TryGetMind(session, out var mindId, out _))
+            return null;
+
+        if (!_jobs.MindTryGetJob(mindId, out var job))
+            return null;
+
+        if (!_jobs.TryGetPrimaryDepartment(job.ID, out var department))
+            return null;
+
+        return department;
+    }
+    // DeltaV - Add method END
 
     /// <summary>
     /// Assigns antag roles to sessions selected for it.
@@ -572,7 +614,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (entity == null)
             return true;
 
-        if (HasComp<PendingClockInComponent>(entity))
+        if (_arrivals.IsOnArrivals((entity.Value, null)))
             return false;
 
         if (!def.AllowNonHumans && !HasComp<HumanoidAppearanceComponent>(entity))

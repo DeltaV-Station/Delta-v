@@ -213,3 +213,161 @@
     modifiers:
       coefficients:
         Heat: 0.9
+
+# Medical
+## Lab coats
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabMedical
+  name: medical lab coat
+  description: A light blue accented lab coat for protecting against minor chemical spills.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/medical_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/medical_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabSeniorChemist
+  name: senior chemistry lab coat
+  description: A lab coat that protects against minor chemical spills. Has orange sleeves and an light blue waist trim.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/chemistry_senior_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/chemistry_senior_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabCybersun
+  name: cybersun lab coat
+  description: A lab coat that you probably should not rep but the black with orange accent looks too tempting.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/cybersun_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/cybersun_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCybersun]
+  id: ClothingOuterCoatLabCybersunOpened
+  name: cybersun lab coat
+
+## long lab coats (inspired by OmuStation)
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabLong
+  name: long lab coat
+  description: A lab coat for protecting against minor chemical spills. This one is long.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/long_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/long_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLong]
+  id: ClothingOuterCoatLabLongOpened
+  name: long lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabLongMedical
+  name: medical long lab coat
+  description: A lab coat for medical personnel with light blue accents. This one is long.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/medical_long_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/medical_long_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLongMedical]
+  id: ClothingOuterCoatLabLongMedicalOpened
+  name: medical long lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabLongChemist
+  name: chemistry long lab coat
+  description: A lab coat for medical personnel with bright orange accents. This one is long.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/chemistry_long_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/chemistry_long_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLongChemist]
+  id: ClothingOuterCoatLabLongChemistOpened
+  name: chemistry long lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabLongCMO
+  name: chief medical officer's long lab coat
+  description: A Nanotrasen blue long lab coat with green accents, designed for chief medical officers.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/cmo_long_lab.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/cmo_long_lab.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.95
+        Caustic: 0.65
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabLongCMO]
+  id: ClothingOuterCoatLabLongCMOOpened
+  name: chief medical officer's long lab coat
+
+## Paramedic
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatParamedicJacket
+  name: paramedics jacket
+  description: A stylish dark blue jacket decorated with white stripes and cross. Nine out of ten paramedic recommend "Do Not Revive."
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/paramedic.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/paramedic.rsi
+  - type: TemperatureProtection
+    coolingCoefficient: 0.1
+    heatingCoefficient: 1.1
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatParamedicJacket]
+  id: ClothingOuterCoatParamedicJacketOpened
+  name: paramedic jacket

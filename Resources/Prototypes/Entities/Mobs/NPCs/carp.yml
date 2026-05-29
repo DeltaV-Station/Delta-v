@@ -26,6 +26,8 @@
     - type: Carriable # DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
+    - type: MovedByPressure # DeltaV - Spacewind Immune
+      enabled: false
     - type: Fixtures
       fixtures:
         fix1:
@@ -46,7 +48,7 @@
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
     - type: Stamina
-      critThreshold: 100
+      baseCritThreshold: 100
     - type: DamageStateVisuals
       states:
         Alive:
@@ -88,13 +90,6 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-    - type: Body # Shitmed: Special carp organs
-      prototype: Carp
-    - type: SurgeryTarget # Shitmed
-    - type: UserInterface # Shitmed
-      interfaces:
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
 
 - type: entity
   parent: BaseMobCarp
@@ -204,6 +199,7 @@
       damage:
        types: {}
     - type: Temperature
+    - type: TemperatureDamage
       heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
@@ -252,7 +248,7 @@
         0: Alive
         150: Dead
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:
@@ -264,11 +260,6 @@
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1
-    - type: SurgeryTarget # Shitmed
-    - type: UserInterface # Shitmed
-      interfaces:
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
     - type: Butcherable
       spawned:
         - id: FoodMeatFish

@@ -108,7 +108,7 @@ public sealed partial class CCVars
     ///     Minimum explosion intensity to create an admin alert message. -1 to disable the alert.
     /// </summary>
     public static readonly CVarDef<int> AdminAlertExplosionMinIntensity =
-        CVarDef.Create("admin.alert.explosion_min_intensity", 60, CVar.SERVERONLY);
+        CVarDef.Create("admin.alert.explosion_min_intensity", -1, CVar.SERVERONLY); // DeltaV - disable, previously set to 60
 
     /// <summary>
     ///     Minimum particle accelerator strength to create an admin alert message.
@@ -195,4 +195,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminAllowMultiServerPlay =
         CVarDef.Create("admin.allow_multi_server_play", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Whether admins should gain role playtime even when playing while not de-adminned.
+    /// </summary>
+    public static readonly CVarDef<bool> GameAdminJobTracking =
+        CVarDef.Create("game.admin_job_tracking", false, CVar.SERVERONLY);
 }

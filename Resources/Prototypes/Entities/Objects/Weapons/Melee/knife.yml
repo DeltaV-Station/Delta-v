@@ -27,8 +27,6 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
-  - type: Scalpel # Shitmed
-    speed: 0.65
   - type: CosmicTransmutable # DeltaV
     transmutesTo: SwordCosmicCult
     requiredGlyphType: CosmicGlyphBlades
@@ -95,10 +93,6 @@
     guides:
     - Chef
     - FoodRecipes
-  - type: Scalpel # Shitmed
-    speed: 0.3
-  - type: BoneSaw # Shitmed: Better than tg 25% because its a cleaver its meant to hack off limbs
-    speed: 0.5
   - type: Fixtures
     fixtures:
       fix1:
@@ -358,6 +352,7 @@
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
     offset: -0.15,0.0
+    removalTime: 1.5
   - type: LandAtCursor
   - type: DamageOtherOnHit
     ignoreResistances: true
@@ -370,7 +365,7 @@
   - type: ThrowingAngle
     angle: 225
   - type: StaticPrice
-    price: 500 # 2000 for a set of 4
+    price: 500 # 4000 for a set of 8
   - type: Fixtures
     fixtures:
       fix1:
@@ -386,6 +381,23 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  # DeltaV additions begin - add dipping chemicals
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  # DeltaV additions end
 
 - type: entity
   name: utility knife

@@ -64,3 +64,13 @@
     sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
   - type: Clothing
     sprite: _DV/Clothing/Ears/Headsets/syndicate_listening.rsi
+
+- type: entity
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateCommon
+  suffix: Common only
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon

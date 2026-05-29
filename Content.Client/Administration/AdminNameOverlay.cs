@@ -134,7 +134,7 @@ internal sealed class AdminNameOverlay : Overlay
                 ? null
                 : _prototypeManager.Index(playerInfo.RoleProto.Value);
 
-            var roleName = Loc.GetString(rolePrototype?.Name ?? RoleTypePrototype.FallbackName);
+            var roleName = rolePrototype?.Name ?? RoleTypePrototype.FallbackName;
             var roleColor = rolePrototype?.Color ?? RoleTypePrototype.FallbackColor;
             var roleSymbol = rolePrototype?.Symbol ?? RoleTypePrototype.FallbackSymbol;
 
@@ -196,8 +196,22 @@ internal sealed class AdminNameOverlay : Overlay
             // Username
             color = Color.Yellow;
             color.A = alpha;
-            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected);
-            currentOffset += lineoffset;
+            var usernameSpace = args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected); // DeltaV - store return value
+
+            // DeltaV - add watchlist suffix START
+            if (playerInfo.Watchlisted)
+            {
+                color = Color.Red;
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_fontBold,
+                    screenCoordinates + currentOffset + usernameSpace with { Y = 0 },
+                    " " + Loc.GetString("admin-overlay-watchlisted-username-suffix"),
+                    uiScale,
+                    color);
+            }
+            // DeltaV - add watchlist suffix END
+
+            currentOffset += lineoffset; // DeltaV - moved down from username block
 
             // Playtime
             if (!string.IsNullOrEmpty(playerInfo.PlaytimeString) && _overlayPlaytime)
@@ -213,7 +227,7 @@ internal sealed class AdminNameOverlay : Overlay
             {
                 color = Color.GreenYellow;
                 color.A = alpha;
-                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, Loc.GetString(playerInfo.StartingJob), uiScale, playerInfo.Connected ? color : colorDisconnected);
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.StartingJob, uiScale, playerInfo.Connected ? color : colorDisconnected);
                 currentOffset += lineoffset;
             }
 
@@ -241,7 +255,7 @@ internal sealed class AdminNameOverlay : Overlay
                     color = roleColor;
                     symbol = IsFiltered(playerInfo.RoleProto) ? symbol : string.Empty;
                     text = IsFiltered(playerInfo.RoleProto)
-                        ? roleName.ToUpper()
+                        ? Loc.GetString(roleName).ToUpper()
                         : string.Empty;
                     break;
                 case AdminOverlayAntagFormat.Subtype:

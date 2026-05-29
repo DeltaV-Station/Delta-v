@@ -129,18 +129,28 @@
   equipment:
     mask: ClothingMaskBreathMedicalSecurity
 
-- type: loadoutEffectGroup
-  id: HumanoidSilicon
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - IPC
+# ERT
 
 - type: loadout
-  id: EmergencyIPCBox
+  id: LoadoutEmergencyOxygenExtendedERT
   effects:
   - !type:GroupLoadoutEffect
-    proto: HumanoidSilicon
-  storage:
-    back:
-    - BoxSurvivalHumanoidSilicon
+    proto: OxygenBreather
+  equipment:
+    suitstorage: OxygenTankERTFilled
+
+- type: loadout
+  id: LoadoutEmergencyNitrogenExtendedERT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  equipment:
+    suitstorage: NitrogenTankERTFilled
+
+- type: loadout
+  id: LoadoutEmergencyWaterVaporExtendedERT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    suitstorage: WaterVaporTankERTFilled

@@ -10,3 +10,48 @@
         children:
         - id: ClothingOuterVoidsuitEngineering
         - id: OxygenTankFilled
+        - id: ClothingShoesBootsMag
+        - id: ClothingMaskBreath
+        - !type:NestedSelector
+          tableId: FillLockerEngineer
+
+- type: entity
+  id: LockerEngineerFilledOnlyHardsuit # Probably need a better ID than the existing LockerEngineerFilledHardsuit. Leaving up to mappers.
+  suffix: Filled, Hardsuit
+  parent: LockerEngineerFilled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitEngineering
+        - id: OxygenTankFilled
+        - id: ClothingShoesBootsMag
+        - id: ClothingMaskBreath
+        - !type:NestedSelector
+          tableId: FillLockerEngineer
+
+# Escape Pod Locker
+- type: entity
+  parent: LockerEvacPodLocker
+  id: LockerEvacPodLockerFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillEvacPodLocker
+
+- type: entityTable
+  id: FillEvacPodLocker
+  table: !type:AllSelector
+    children:
+    - id: MedkitOxygenFilled
+      prob: 0.3
+    - id: ClothingOuterSuitEmergency
+      amount: 4
+    - id: OxygenTankFilled
+      amount: 2
+    - id: NitrogenTankFilled
+      amount: 2
+    - id: WaterVaporTankFilled

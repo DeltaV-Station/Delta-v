@@ -70,7 +70,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ResistanceBypass = false;
-
+    
     /// <summary>
     /// Base damage for this weapon. Can be modified via heavy damage or other means.
     /// </summary>
@@ -100,7 +100,7 @@ public sealed partial class MeleeWeaponComponent : Component
     public Angle Angle = Angle.FromDegrees(60);
 
     [DataField, AutoNetworkedField]
-    public EntProtoId Animation = "WeaponArcPunch";
+    public EntProtoId Animation = "WeaponArcThrust";
 
     [DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
@@ -112,15 +112,26 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public Angle WideAnimationRotation = Angle.Zero;
 
+    /// <summary>
+    /// Attack animation direction.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool SwingLeft;
 
     /// <summary>
-    /// DeltaV: if true, weapon will swing in different direction each strike. Purely cosmetic.
+    /// Change <see cref="SwingLeft"/> after every attack. Allows each attack to take turns being either left or right.
+    /// Thats looks cool visually
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool SwingBeverage = true;
+
+    /// <summary>
+    /// How far away from the player the animation should be played.
+    /// We don't connect it with attack range, because different weapons have different sprites,
+    /// and this value should be adjusted manually for every weapon ideally
     /// </summary>
     [DataField]
-    public bool ChangeSwingDirection;
-
+    public float AnimationOffset = 1f;
 
     // Sounds
 
@@ -156,26 +167,6 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
-
-    // Shitmed Change Start
-
-    /// <summary>
-    ///     Shitmed Change: Part damage is multiplied by this amount for single-target attacks
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float ClickPartDamageMultiplier = 1.00f;
-
-    /// <summary>
-    ///     Shitmed Change: Part damage is multiplied by this amount for heavy swings
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float HeavyPartDamageMultiplier = 0.5f;
-
-    // Shitmed Change End
-
-    // Goobstation
-    [DataField, AutoNetworkedField]
-    public bool CanWideSwing = true;
 }
 
 /// <summary>

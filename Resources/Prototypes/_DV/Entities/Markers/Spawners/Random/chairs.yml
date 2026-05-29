@@ -1,0 +1,25 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomComfyChairSpawner
+  name: random comfy chair spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Furniture/chairs.rsi
+        state: comfy
+        color: "#82C36E"
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: ComfyChair
+      - id: ComfyChairGreen
+      - id: ComfyChairRed
+      - id: ComfyChairBlue
+      - id: ComfyChairBlack
+      - id: ComfyChairPink
+      - id: ComfyChairOrange
+      - id: ComfyChairSkyBlue
+      - id: ComfyChairCyan
+      - id: ComfyChairPurple

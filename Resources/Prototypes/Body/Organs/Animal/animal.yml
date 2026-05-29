@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseAnimalOrganUnGibbable
+  id: BaseAnimalOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -24,13 +24,6 @@
       - Meat
 
 - type: entity
-  id: BaseAnimalOrgan
-  parent: BaseAnimalOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
-
-- type: entity
   id: OrganAnimalLungs
   parent: BaseAnimalOrgan
   name: animal lungs
@@ -41,7 +34,6 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
-    slotId: lungs # Shitmed
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -74,7 +66,6 @@
   - type: Sprite
     state: stomach
   - type: Organ
-    slotId: stomach # Shitmed
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -123,18 +114,12 @@
   - type: Sprite
     state: liver
   - type: Organ
-    slotId: liver # Shitmed
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
-  - type: Liver # Shitmed
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Liver
+      rateModifier: 0.1
   - type: Item
     size: Small
     heldPrefix: liver
@@ -148,7 +133,6 @@
   - type: Sprite
     state: heart-on
   - type: Organ
-    slotId: heart # Shitmed
   - type: Metabolizer
     maxReagents: 3 # Funkychem - species metabolise 3 chems as a baseline
     metabolizerTypes: [ Animal ]
@@ -156,12 +140,6 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Heart # Shitmed
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Heart
   - type: Item
     size: Small
     heldPrefix: heart
@@ -177,7 +155,6 @@
     - state: kidney-l
     - state: kidney-r
   - type: Organ
-    slotId: kidneys # Shitmed
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [ Animal ]

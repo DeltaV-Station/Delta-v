@@ -68,5 +68,8 @@ trait-anglish-desc = Your tung is of the Saxons, and say unlike others aboard th
 trait-protected-name = Marked as Protected
 trait-protected-desc = Due to your position, value, or circumstances, your survival is considered preferable. You won't be targeted by kill objectives.
 
+trait-slavic-name = Slavic accent
+trait-slavic-desc = You kome from ze East, and speak vith strong Slavic accent!
+
 trait-badcough-name = Persistent cough
 trait-badcough-desc = Because of allergies, smoking, or just general poor health, you can't stop coughing.

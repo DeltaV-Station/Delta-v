@@ -51,7 +51,10 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: ReplacementAccent
     accent: mouse
   - type: MeleeWeapon
@@ -113,7 +116,7 @@
       0: Alive
       10: Dead
   - type: Stamina
-    critThreshold: 10
+    baseCritThreshold: 10
     animationThreshold: 1
   - type: DamageStateVisuals
     states:
@@ -141,11 +144,10 @@
     - Bee
     - Trash
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
-    bloodMaxVolume: 0.1
+        Quantity: 0.1
   - type: MobPrice
     price: 50
   - type: NPCRetaliation
@@ -191,7 +193,10 @@
     factions:
     - SimpleHostile
   - type: Bloodstream
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 0.1
   - type: ZombieImmune
 
 
@@ -267,7 +272,10 @@
     interactSuccessSound:
       path: /Audio/Animals/chicken_cluck_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -394,11 +402,10 @@
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
-    bloodMaxVolume: 20
+        Quantity: 20
   - type: Edible
   - type: FlavorProfile
     flavors:
@@ -433,7 +440,6 @@
         damage: 10
       behaviors:
       - !type:GibBehavior
-        gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
   - type: StepTrigger
@@ -519,7 +525,7 @@
     insertingState: inserting_mothroach
   - type: MothAccent
   - type: Sprite
-    sprite: Mobs/Animals/mothroach/mothroach.rsi
+    sprite: Mobs/Animals/mothroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mothroach
@@ -534,7 +540,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mothroach/mothroach.rsi
+    sprite: Mobs/Animals/mothroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD
@@ -562,10 +568,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
+        Quantity: 20
   - type: Respirator
     damage:
       types:
@@ -606,7 +612,6 @@
     - Mouse
   - type: Body
     prototype: Mothroach
-  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -621,43 +626,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
-  - type: InventorySlots
-  - type: Inventory
-    speciesId: hamster
-    templateId: hamster
-    displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: mask
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: suitstorage
-      eyes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: eyes
-      neck:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: neck
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -725,7 +693,10 @@
     interactSuccessSound:
       path: /Audio/Animals/duck_quack_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -853,11 +824,10 @@
     tags:
     - Trash
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
-    bloodMaxVolume: 0.1
+        Quantity: 0.1
   - type: MobPrice
     price: 50
   - type: Destructible
@@ -948,11 +918,6 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -1020,11 +985,10 @@
   - type: ReplacementAccent
     accent: crab
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: CopperBlood
-        Quantity: 1
+        Quantity: 50
   - type: Tag
     tags:
     - VimPilot
@@ -1033,11 +997,6 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -1136,11 +1095,6 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1193,7 +1147,10 @@
     interactSuccessSound:
       path: /Audio/Animals/goose_honk.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: NpcFactionMember
     factions:
     - Passive
@@ -1235,7 +1192,10 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
     # if you fuck with the gorilla he will harambe you
   - type: MeleeWeapon
     soundHit:
@@ -1379,12 +1339,6 @@
   components:
   - type: CombatMode
     canDisarm: true
-  # Shitmed Change Start
-  - type: SurgeryTarget
-  - type: Targeting
-  - type: HumanoidAppearance
-    species: Monkey
-  # Shitmed Change End
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Inventory
     templateId: monkey
@@ -1410,27 +1364,15 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-  # Shitmed Change Start
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
@@ -1445,13 +1387,10 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
     - map: [ "clownedon" ]
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  # Shitmed Change End
   - type: Carriable # DeltaV
   - type: Hands
   - type: ComplexInteraction
@@ -1461,15 +1400,9 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body # Shitmed Change
-    prototype: Monkey
-    requiredLegs: 2
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1 # TODO: More than 1 leg
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1743,13 +1676,6 @@
   - type: LizardAccent
   - type: ReplacementAccent
     accent: kobold
-  # Shitmed Change Start
-  - type: HumanoidAppearance
-    species: Kobold
-  - type: Body
-    prototype: Kobold
-    requiredLegs: 2
-  # Shitmed Change End
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
@@ -1790,10 +1716,11 @@
         Slash: 5
         Piercing: 4
   - type: Temperature
-    heatDamageThreshold: 360
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 285
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -1877,11 +1804,6 @@
   components:
   - type: Body
     prototype: Mouse
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -2033,7 +1955,10 @@
       types:
         Piercing: 0
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -2168,12 +2093,13 @@
     energy: 5
     netsync: false
   - type: RadiationSource
-    intensity: 0.3
+    intensity: 0.5
+    slope: 0.3
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: UnstableMutagen
-        Quantity: 1
+        Quantity: 50
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2251,7 +2177,10 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -2307,7 +2236,10 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
 
 - type: entity
   name: frog
@@ -2364,7 +2296,10 @@
     interactSuccessSound:
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Tag
     tags:
     - VimPilot
@@ -2456,7 +2391,10 @@
     interactSuccessSound:
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
 
 - type: entity
   name: parrot
@@ -2516,10 +2454,11 @@
     factions:
     - Passive
   - type: Temperature
-    heatDamageThreshold: 335
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 335
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -2647,7 +2586,10 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -2679,11 +2621,6 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -2716,11 +2653,10 @@
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    bloodMaxVolume: 150
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: CopperBlood
-        Quantity: 1
+        Quantity: 150
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -2865,11 +2801,10 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodMaxVolume: 150
-      bloodReagents:
+      bloodReferenceSolution:
         reagents:
         - ReagentId: Laughter
-          Quantity: 1
+          Quantity: 150
 - type: entity
   name: wizard spider
   parent: MobGiantSpider
@@ -3068,7 +3003,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -3203,21 +3141,22 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: DemonsBlood
-        Quantity: 1
+        Quantity: 150
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -3427,6 +3366,7 @@
       Dead:
         Base: spacecat_dead
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Tag
@@ -3747,7 +3687,10 @@
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice
@@ -3850,7 +3793,26 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
-  - type: Carriable # DeltaV
+  # DeltaV changes begin
+  - type: Carriable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-nymph-name
+    description: ghost-role-information-nymph-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
+  - type: TypingIndicator
+    proto: diona
+  # DeltaV changes end
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3867,11 +3829,10 @@
     speciesId: cat
     templateId: pet
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: Sap
-        Quantity: 1
-    bloodMaxVolume: 60
+        Quantity: 60
   - type: DamageStateVisuals
     states:
       Alive:
@@ -3945,6 +3906,103 @@
   components:
   - type: ReplacementAccent
     accent: nymph
+
+- type: entity
+  name: reindeer buck
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobReindeerBuck
+  description: You think it can pull a sleigh?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: reindeer_buck
+      sprite: Mobs/Animals/reindeer_buck.rsi
+#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
+#    movementLayers:
+#      movement:
+#        state: reindeer_buck
+#    noMovementLayers:
+#      movement:
+#        state: reindeer_buck_still
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: reindeer_buck
+      Critical:
+        Base: reindeer_buck_dead
+      Dead:
+        Base: reindeer_buck_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+    # Horns though
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 22
+    animation: WeaponArcFist
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  name: reindeer doe
+  parent: MobReindeerBuck
+  id: MobReindeerDoe
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+    animation: WeaponArcFist
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: reindeer_doe
+      sprite: Mobs/Animals/reindeer_doe.rsi
+#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
+#    movementLayers:
+#      movement:
+#        state: reindeer_doe
+#    noMovementLayers:
+#      movement:
+#        state: reindeer_doe_still
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: reindeer_doe
+      Critical:
+        Base: reindeer_doe_dead
+      Dead:
+        Base: reindeer_doe_dead
 
 - type: entity
   parent: MobCorgiBase

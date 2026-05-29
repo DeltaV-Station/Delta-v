@@ -102,7 +102,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
-  - type: Tag # Delta V 
+  - type: Tag # Delta V
     tags:
       - HidesHarpyWings
 
@@ -249,6 +249,8 @@
     noPowerPopup: ninja-no-power
   # core ninja suit stuff
   - type: NinjaSuit
+  - type: EmpResistance
+    strengthMultiplier: 0
   - type: UseDelay
     delay: 5 # disable time
   - type: PowerCellSlot
@@ -350,8 +352,9 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
-  - type: AddAccentClothing
-    accent: BarkAccent
+  # DeltaV - remove forced accents
+  #- type: AddAccentClothing
+  #  accent: BarkAccent
 
 - type: entity
   parent: ClothingOuterBase

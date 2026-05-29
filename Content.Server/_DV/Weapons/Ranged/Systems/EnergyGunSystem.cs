@@ -127,7 +127,7 @@ public sealed class EnergyGunSystem : EntitySystem
 
             if (user != null)
             {
-                _popupSystem.PopupEntity(Loc.GetString("gun-set-fire-mode", ("mode", component.CurrentFireMode.Name != string.Empty ? component.CurrentFireMode.Name : prototype.Name)), uid, user.Value);
+                _popupSystem.PopupEntity(Loc.GetString("energygun-set-fire-mode", ("mode", component.CurrentFireMode.Name != string.Empty ? component.CurrentFireMode.Name : prototype.Name)), uid, user.Value);
             }
 
             if (component.CurrentFireMode.State == string.Empty)
@@ -146,6 +146,15 @@ public sealed class EnergyGunSystem : EntitySystem
                         break;
                     case "special":
                         UpdateAppearance(uid, EnergyGunFireModeState.Special);
+                        break;
+                    case "cyan":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Cyan);
+                        break;
+                    case "red":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Red);
+                        break;
+                    case "yellow":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Yellow);
                         break;
                 }
             }

@@ -23,16 +23,20 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
-        _window?.Close();
+
+        if (_window is { Disposed: false })
+            _window.Close();
+
         _window = this.CreateWindow<AACWindow>();
+        _window.OnClose += Close;
         _window.PhraseButtonPressed += OnPhraseButtonPressed;
         _window.Typing += OnTyping;
         _window.SubmitPressed += OnSubmit;
     }
 
-    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId)
+    private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId, string prefix)
     {
-        SendMessage(new AACTabletSendPhraseMessage(phraseId));
+        SendMessage(new AACTabletSendPhraseMessage(phraseId, prefix));
     }
 
     private void OnTyping()
@@ -45,5 +49,15 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     {
         _typing ??= EntMan.System<TypingIndicatorSystem>();
         _typing?.ClientSubmittedChatText();
+    }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (state is not AACTabletBuiState msg)
+            return;
+
+        _window?.Update(msg);
     }
 }

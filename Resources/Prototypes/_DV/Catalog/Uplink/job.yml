@@ -16,22 +16,18 @@
     - Logistics
 
 - type: listing
-  id: UplinkModkitIndoors
-  description: uplink-modkit-indoors-desc
-  productEntity: PKAUpgradeIndoors
-  icon:
-    sprite: _DV/Objects/Tools/upgrade.rsi
-    state: evil
-  discountCategory: rareDiscounts
+  id: uplinkRiggedBoxingGlovesBoxer
+  name: uplink-rigged-boxing-gloves-name
+  description: uplink-rigged-boxing-gloves-desc
+  productEntity: ClothingHandsGlovesBoxingRigged
+  discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 2
-  # costs 5 TC in TG but that's quite expensive compared to spacing everything,
-  # being fairly cheap makes wanton spacing less attractive
   cost:
-    Telecrystal: 3
+    Telecrystal: 4
   categories:
-  - UplinkJob
+    - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - SalvageSpecialist
+    - !type:BuyerJobCondition
+      whitelist:
+        - Boxer

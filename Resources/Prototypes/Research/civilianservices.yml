@@ -14,6 +14,7 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  - BorgModuleAdvancedBotany # DeltaV
 
 - type: technology
   id: CritterMechs
@@ -80,6 +81,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - BorgModuleDJ # DeltaV
 
 - type: technology
   id: MeatManipulation
@@ -95,6 +97,8 @@
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   - AdvancedMicrowaveMachineCircuitBoard # DeltaV
+  - BorgModuleAdvancedChef # DeltaV
+  - BorgModuleAdvancedBartender # DeltaV
 
 # Tier 2
 
@@ -118,6 +122,8 @@
   - FauxTileMowedAstroSnow # DeltaV
   - FauxTileAstroAsteroidSand
   - FauxTileDesertAstroSand
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
 
 - type: technology
   id: BiochemicalStasis
@@ -144,7 +150,7 @@
   tier: 1 # DeltaV - was 2
   cost: 5000
   recipeUnlocks:
-  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedTopical
   - AdvancedJetInjector
 
 - type: technology

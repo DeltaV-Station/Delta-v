@@ -37,7 +37,7 @@
   - type: GunUpgradeDamage
     damage:
       types:
-        Blunt: 10
+        Blunt: 5 # DeltaV - modkits can still exist but greatly lowering how much it does so we don't have 70 damage monster gun anymore
         #Structural: 15 # DeltaV - SS13 parity, 10 blunt per shot only
 
 - type: entity
@@ -58,7 +58,7 @@
     #tags: [ GunUpgradeRange ] # DeltaV - allow multiple
     examineText: gun-upgrade-examine-text-range
   - type: GunUpgradeRange # DeltaV - actually change range not speed
-    coefficient: 1.25 # DeltaV - was 1.5, more in line with ss13
+    coefficient: 1.15 # DeltaV - lowered further to account for increased base range
   - type: GunUpgradeCost # DeltaV
     cost: 25
 

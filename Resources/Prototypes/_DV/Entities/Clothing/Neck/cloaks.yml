@@ -76,3 +76,70 @@
     - ClothMade # for whatever reason, these tags aren't being inhereted from the parent
     - WhitelistChameleon
     - GenderCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckHosRobe
+  name: head of security's decadent robe
+  description: a comfy formal robe given to veteran head's of security
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/hosrobe.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/hosrobe.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCMOOverShoulder
+  name: chief medical officer's over the shoulder coat
+  description: A coat for chief medical officers who know how to wear a coat but choose to otherwise as a power move.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/cmo_over_shoulder.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/cmo_over_shoulder.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCMOShawl
+  name: chief medical officer's shawl
+  description: A shawl with a shoulder epaulette fitting of a chief medical officer who wants to stay warm yet professional.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/cmo_shawl.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/cmo_shawl.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCentcommCloakBoat
+  name: central command boat cloak
+  description: A emerald greeen durathread boat cloak with a red felt lining and gold trim. Somehow, it's even more expensive than it looks.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/boatcloakcc.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/boatcloakcc.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckHeadOfSecurityCloakBoat
+  name: head of security boat cloak
+  description: A rish gray durathread boat cloak with a red felt lining and gold trim. Somehow, it's even more expensive than it looks.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/boatcloakhos.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/boatcloakhos.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

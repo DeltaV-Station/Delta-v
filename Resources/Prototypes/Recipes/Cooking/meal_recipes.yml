@@ -614,14 +614,14 @@
   solids:
     FoodBreadPlainSlice: 2
 
-- type: microwaveMealRecipe
-  id: RecipeOnionRings
-  name: onion rings recipe
-  result: FoodOnionRings
-  time: 15
-  group: Savory
-  solids:
-    FoodOnionSlice: 1
+#- type: microwaveMealRecipe # DeltaV - Moved to Deep Fryer
+#  id: RecipeOnionRings
+#  name: onion rings recipe
+#  result: FoodOnionRings
+#  time: 15
+#  group: Savory
+#  solids:
+#    FoodOnionSlice: 1
 
 #Pizzas TODO: contruction graph based pizza
 - type: microwaveMealRecipe
@@ -653,7 +653,7 @@
   group: Pizza
   solids:
     FoodDoughFlat: 1
-    FoodMeat: 3
+    FoodMeatCutlet: 3 # DeltaV - change from meat to meat cutlets. Was FoodMeat
     FoodCheeseSlice: 1
     FoodTomato: 1
 
@@ -2237,14 +2237,14 @@
   reagents:
     Water: 10
 
-- type: microwaveMealRecipe
-  id: RecipeTacoShell
-  name: taco shell recipe
-  result: FoodTacoShell
-  time: 5
-  group: Breads
-  solids:
-    FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
+#- type: microwaveMealRecipe # DeltaV - Moved to Deep Fryer
+#  id: RecipeTacoShell
+#  name: taco shell recipe
+#  result: FoodTacoShell
+#  time: 5
+#  group: Breads
+#  solids:
+#    FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
 
 - type: microwaveMealRecipe
   id: RecipeTacoBeef

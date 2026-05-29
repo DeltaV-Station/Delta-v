@@ -30,6 +30,10 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -45,6 +49,10 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -56,6 +64,10 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -65,6 +77,10 @@
     rules:
     - id: Thief
       prob: 0.5
+    #begin DeltaV additions - add hitman
+    - id: Hitman
+      prob: 0.2 #as requested
+    # end deltaV additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -366,7 +382,7 @@
       maxPicks: 2
     maxDifficulty: 5 # DeltaV - end changes
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/wizard.yml # DV - was /Maps/Nonstations/wizardsden.yml but switched it back for now
+    mapPath: /Maps/_DV/Nonstations/wizardsden.yml # DV - moved with edits
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule

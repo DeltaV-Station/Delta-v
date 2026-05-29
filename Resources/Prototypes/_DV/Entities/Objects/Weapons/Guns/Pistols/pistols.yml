@@ -20,7 +20,6 @@
         whitelist:
           tags:
             - MagazinePistol
-            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -59,7 +58,6 @@
         whitelist:
           tags:
             - MagazinePistol
-            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -284,7 +282,7 @@
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/universal.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2
     availableModes:
     - SemiAuto
     soundGunshot:

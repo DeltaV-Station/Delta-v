@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
@@ -9,6 +10,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -25,6 +27,7 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private int _maxTraitCount;
     private int _maxTraitPoints;
@@ -59,13 +62,15 @@ public sealed class TraitSystem : EntitySystem
         var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.JobId, speciesId, args.Profile, disabledTraits);
 
         // Apply valid traits
+        var validPrototypes = new List<TraitPrototype>();
         foreach (var traitId in validTraits)
         {
             if (!_prototype.TryIndex(traitId, out var trait))
                 continue;
-
-            ApplyTrait(args.Mob, trait);
+            validPrototypes.Add(trait);
         }
+        foreach (var trait in validPrototypes.OrderByDescending(a => a.Priority).ThenBy(a => a.Cost))
+            ApplyTrait(args.Mob, trait);
 
         // Send disabled traits notification to client if any were rejected
         if (disabledTraits.Count > 0)
@@ -104,6 +109,7 @@ public sealed class TraitSystem : EntitySystem
             JobId = jobId,
             SpeciesId = speciesId,
             Profile = profile,
+            StatusEffects = _statusEffects
         };
 
         foreach (var traitId in selectedTraits)
@@ -272,6 +278,7 @@ public sealed class TraitSystem : EntitySystem
             CompFactory = _factory,
             LogMan = _log,
             Transform = transform,
+            StatusEffects = _statusEffects,
         };
 
         foreach (var effect in trait.Effects)

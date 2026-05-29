@@ -12,6 +12,8 @@
   - RadioHandheldSecurity
   - WeaponSwordSilver
   - ClothingBeltBandolier
+  - ClothingMaskGasSecurityDV #Sec Gas Mask
+  - ClothingMaskGasSecurity #Sec Breath Mask
 
 - type: latheRecipePack
   id: SecurityPracticeStaticDeltaV
@@ -30,7 +32,6 @@
   - BoxBeanbag
   - BoxShellTranquilizer
   - MagazineShotgunBeanbag
-  - MagazineLaser
   - MagazinePistolHighCapacity
 
 - type: latheRecipePack
@@ -73,9 +74,9 @@
   - MagazineBoxSpecialUranium
   - MagazineBoxSpecialHoly
   - MagazineBoxSpecialMindbreaker
-  - GamblagatorCapacitor
   - MagazinePistolHighCapacityUranium
   - MagazinePistolHighCapacityIncendiary
+  - MagazineLaser
 
 - type: latheRecipePack
   parent: SecurityHardsuits
@@ -114,9 +115,3 @@
   recipes:
   - ClothingOuterHardsuitEVAPrisoner
   - ClothingHeadHelmetEVALarge
-
-- type: latheRecipePack
-  id: AdvancedPsionicProsthetics
-  recipes:
-  - PyroLeftArm
-  - ZapLeftArm

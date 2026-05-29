@@ -69,9 +69,11 @@
     factions:
     - SimpleHostile
   - type: Tag
-    tags: [ ]
+    tags:
+      - TaserImmune
   - type: Speech
     speechVerb: Ghost
+  - type: Emoting
   - type: Insulated
   - type: LightReactive
     manual: true
@@ -100,10 +102,11 @@
     resurrectDesc: skia-resurrecting-desc
   - type: Bloodstream
     maxBleedAmount: 0
-  - type: ShatterLightsAbility
-    lineOfSight: true
+  - type: PsychokineticScreamPower
     radius: 7.0
     penetratingRadius: 2.0
+    actionProtoId: ActionPsychokineticScreamSkia
+    canBeRemoved: false
   - type: TechnokineticPulseAbility
     range: 5.0
     energyConsumption: 20000
@@ -120,7 +123,6 @@
       path: /Audio/Items/crowbar.ogg
   - type: NightVision
     drawOverlay: false
-  - type: Targeting
   - type: EmbedImmune
     immuneTo:
       components:

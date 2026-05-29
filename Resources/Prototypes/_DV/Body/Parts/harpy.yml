@@ -1,48 +1,125 @@
 - type: entity
   abstract: true
   parent: BasePart
-  id: PartHarpyBase
+  id: PartHarpy
   components:
-  - type: Sprite
-    sprite: _DV/Mobs/Species/Harpy/parts.rsi
-  - type: Icon
-    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+  - type: Damageable
+    damageContainer: Biological
   - type: BodyPart
-    species: Harpy
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+  - type: StaticPrice #DynamicPrice
+    price: 100
+  - type: Tag
+    tags:
+      - Trash
 
 - type: entity
-  parent: [ PartHarpyBase, BaseTorso ]
   id: TorsoHarpy
   name: "harpy torso"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "torso_m"
+  - type: BodyPart
+    partType: Torso
 
 - type: entity
-  parent: [ PartHarpyBase, BaseHead ]
   id: HeadHarpy
   name: "harpy head"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "head_m"
+  - type: BodyPart
+    partType: Head
+    vital: true
+  - type: Input
+    context: "ghost"
+  - type: GhostOnMove
+  - type: Tag
+    tags:
+      - Head
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftArm ]
   id: LeftArmHarpy
   name: "left harpy arm"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightArm ]
   id: RightArmHarpy
   name: "right harpy arm"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftHand ]
   id: LeftHandHarpy
   name: "left harpy hand"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightHand ]
   id: RightHandHarpy
   name: "right harpy hand"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
 
 - type: entity
   abstract: true
-  parent: PartHarpyBase
+  parent: PartHarpy
   id: BaseHarpyLeg
   components:
   - type: MovementBodyPart
@@ -50,21 +127,67 @@
     sprintSpeed: 5
 
 - type: entity
-  parent: [ BaseHarpyLeg, BaseLeftLeg ]
   id: LeftLegHarpy
   name: "left harpy leg"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart
 
 - type: entity
-  parent: [ BaseHarpyLeg, BaseRightLeg ]
   id: RightLegHarpy
   name: "right harpy leg"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartHarpyBase, BaseLeftFoot ]
   id: LeftFootHarpy
   name: "left harpy foot"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "l_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
 
 - type: entity
-  parent: [ PartHarpyBase, BaseRightFoot ]
   id: RightFootHarpy
   name: "right harpy foot"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "r_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right
