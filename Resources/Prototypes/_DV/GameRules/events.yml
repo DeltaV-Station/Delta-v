@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: VentbullMigration
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -453,3 +454,30 @@
         implants:
         - RadioImplantCentcomm
         - NanolinkSubImplant
+
+# NT Pest control/Ventbull Jumpscare
+- type: entity
+  id: VentbullMigration
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ventbull-start-announcement # Delta-V - NT pest control announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
+    earliestStart: 1 # Delta-V - Vent pest control can occur at any time.
+    minimumPlayers: 10
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-ventbull-spawn-result-message
+  - type: VentCrittersRule
+    min: 5 # Delta-V Should be a range between 5 and 15 assorted mobs.
+    max: 15
+    playerRatio: 55 # DeltaV: Higher base values, less player scaling.
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries.
+      children:
+      - id: MobMouse # Delta-V - Keeping some mouse spawns so that it looks like the ventbull/ventbulls chased them out of the vents.
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobPibbleVent # Delta-V - Hopefully this causes a combination of ventbulls and mice to spawn.
+        weight: 0.015
