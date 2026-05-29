@@ -2,8 +2,6 @@ using Content.Shared.Dataset;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Audio;
-using Content.Shared.Chat.Prototypes;
 
 namespace Content.Shared._DV.CoughingFit.Components;
 
@@ -44,11 +42,4 @@ public sealed partial class CoughingFitComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextFitTime = TimeSpan.Zero;
-
-    /// <summary>
-    /// Emote to use for the coughing fits
-    /// </summary>
-    [DataField]
-    public ProtoId<AutoEmotePrototype>? AutoEmoteId = "BadCough";
-
 }

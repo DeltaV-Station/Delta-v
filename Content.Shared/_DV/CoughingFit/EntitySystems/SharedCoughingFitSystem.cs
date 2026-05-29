@@ -8,7 +8,6 @@ using Robust.Shared.Timing;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio.Systems;
-using Content.Server.Emoting.Systems;
 
 namespace Content.Shared._DV.CoughingFit.EntitySystems;
 
@@ -41,11 +40,14 @@ public sealed class SharedCoughingFitSystem
             if (args.Handled)
                 return;
 
-            if (ent.Comp.RandomEmote && ent.Comp.AutoEmoteId != null)
+            if (!ent.Comp.RandomEmote)
+                return;
+
+            args.Handled = _chat.TryPlayEmoteSound(ent.Owner, EmoteSounds, args.Emote);
+
+            if (_robustRandom.Prob(ent.Comp.GiggleRandomChance))
             {
-                EnsureComp<AutoEmoteComponent>(ent.Owner);
-                _autoEmote.AddEmote(ent.Owner, ent.Comp.AutoEmoteId);
-            }
+                _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner);
 
     }
 }

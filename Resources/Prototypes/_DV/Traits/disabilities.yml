@@ -139,4 +139,6 @@
   effects:
   - !type:AddCompsEffect
     components:
-    - type: CoughingFit
+    - type: AutoEmote
+      emotes:
+      - BadCough

@@ -6,10 +6,3 @@
   name: chronic pain suppression
   components:
   - type: ChronicPainSuppressedStatusEffect
-
-- type: entity
-  parent: MobStatusEffectDebuff
-  id: StatusEffectCoughingFit
-  name: persistent cough
-  components:
-  - type: CoughingFitStatusEffect
