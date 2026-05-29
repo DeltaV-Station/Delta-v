@@ -239,12 +239,13 @@
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 30
     maxAngle: 43
-    shotsPerBurst: 3
+    shotsPerBurst: 2 # DeltaV - add two-tap
     selectedMode: Burst
     availableModes:
     - Burst
     - SemiAuto
-    burstFireRate: 14
+    burstFireRate: 30 # DeltaV - add two-tap
+    burstCooldown: .5 # DeltaV - add two-tap
   - type: GunWieldBonus
     minAngle: -28
     maxAngle: -25

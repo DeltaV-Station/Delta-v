@@ -30,6 +30,7 @@
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: RevealRevenantOnCollide # Imp
+    revealTime: 20 # DeltaV - from 5 to 20 seconds reveal
   - type: ReactionMixer
     mixMessage: "bible-mixing-success"
     reactionTypes:

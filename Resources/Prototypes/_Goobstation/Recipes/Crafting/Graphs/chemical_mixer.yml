@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: portableChemicalMixerGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - tag: Jug #DeltaV change it from bucket
+        icon:
+          sprite: _DV/Objects/Specific/Chemistry/jug.rsi
+          state: jug
+        name: construction-graph-tag-jug
+      - tag: Jug #DeltaV change it from bucket
+        icon:
+          sprite: _DV/Objects/Specific/Chemistry/jug.rsi
+          state: jug
+        name: construction-graph-tag-jug
+      - tag: Multitool  # for the screen
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        name: construction-graph-tag-multitool
+      - tag: GlassBeaker
+        icon:
+          sprite: Objects/Specific/Chemistry/beaker.rsi
+          state: beaker
+        name: construction-graph-tag-beaker
+      - material: Cable
+        amount: 15
+      - material: Steel
+        amount: 10
+      - anyTags:        # Powers the contraption
+        - PowerCell
+        - PowerCellSmall
+        name: construction-graph-tag-power-cell
+        icon:
+          sprite: "Objects/Power/power_cells.rsi"
+          state: "medium"
+        doAfter: 5
+
+  - node: end
+    entity: portableChemicalMixer
