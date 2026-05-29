@@ -111,10 +111,9 @@
   - ClothingUniformJumpsuitHoSTurtle
   - ClothingUniformJumpskirtHoSTurtle
   #- ClothingUniformJumpsuitHoSBlue # Replaced with ClothingUniformJumpsuitHoSWhite
-  - ClothingUniformJumpsuitHoSWhite
   - ClothingUniformJumpsuitHoSGrey
-  - ClothingUniformJumpsuitHoSParadeMale
-  - ClothingUniformJumpskirtHoSParadeMale
+  #- ClothingUniformJumpsuitHoSParadeMale #DeltaV - Disabled for bluesec
+  #- ClothingUniformJumpskirtHoSParadeMale #DeltaV - Disabled for bluesec
   - ClothingUniformJumpsuitSeniorOfficer
   - ClothingUniformJumpskirtSeniorOfficer
   - ClothingUniformJumpsuitPrisoner
@@ -129,9 +128,6 @@
   - ClothingHeadHatWarden
   - ClothingUniformJumpsuitWarden
   - ClothingUniformJumpskirtWarden
-  - ClothingUniformJumpsuitSecCadet
-  - ClothingUniformJumpskirtSecCadet
-  - ClothingHeadHatBeretCadet
 
 - type: latheRecipePack
   parent:
@@ -167,8 +163,8 @@
   - ClothingOuterWinterCE
   - ClothingOuterWinterCMO
   - ClothingOuterWinterHoP
-  - ClothingOuterWinterHoSUnarmored
-  - ClothingOuterWinterWardenUnarmored
+  #- ClothingOuterWinterHoSUnarmored #DeltaV - Disabled for bluesec
+  #- ClothingOuterWinterWardenUnarmored #DeltaV - Disabled for bluesec
   - ClothingOuterWinterQM
   - ClothingOuterWinterRD
   - ClothingOuterWinterMusician
