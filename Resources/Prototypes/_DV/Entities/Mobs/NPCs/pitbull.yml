@@ -12,13 +12,13 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 5 # Delta-V - Dont piss them off, or else...
+        Slash: 5 # Delta-V - Don't piss them off, or else...
         Piercing: 10
         Structural: 5
   - type: MobState
   - type: Sprite
     drawdepth: Mobs
-    sprite: _DV/Mobs/Pets/pitbull.rsi
+    sprite: _DV/Mobs/Animals/pitbull.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pibble
@@ -59,7 +59,7 @@
   - type: ReplacementAccent
     accent: dog
   - type: InteractionPopup
-    successChance: 0.995 # Delta-V - Makes it so theyll maul you only if you spam pet them or get stupidly unlucky.
+    successChance: 0.995 # Delta-V - Makes it so they'll maul you only if you spam pet them or get stupid unlucky. This is a 0.5% chance of becoming hostile upon being pet.
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-pibble
     interactSuccessSound:
@@ -110,9 +110,16 @@
         layer:
         - SmallMobLayer
   - type: Sprite
-    scale: 0.8, 0.6
     drawdepth: Mobs
-    sprite: _DV/Mobs/Pets/ventbull.rsi
+    sprite: _DV/Mobs/Animals/ventbull.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: pibble
+      state: vibble
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: vibble
+      Critical:
+        Base: vibble_dead
+      Dead:
+        Base: vibble_dead
