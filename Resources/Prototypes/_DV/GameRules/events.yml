@@ -471,9 +471,9 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ventbull-spawn-result-message
   - type: VentCrittersRule
-    min: 5 # Delta-V Should be a range between 5 and 15 assorted mobs.
-    max: 15
-    playerRatio: 55 # DeltaV: Higher base values, less player scaling.
+    min: 5 # Delta-V Should be a range between 5 and 20 assorted mobs.
+    max: 20
+    playerRatio: 55 # DeltaV: Hopefully lets a decent amount spawn.
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries.
       children:
       - id: MobMouse # Delta-V - Keeping some mouse spawns so that it looks like the ventbull/ventbulls chased them out of the vents.
