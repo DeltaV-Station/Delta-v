@@ -84,13 +84,6 @@
   - type: PhysicalComposition
     materialComposition:
       Plasma: 100
-  - type: Healing # DeltaV - Plasma heals IPC radiation
-    delay: 2.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      types:
-        Radiation: -5.0
   - type: Stack
     stackType: Plasma
     baseLayer: base
@@ -152,14 +145,6 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
-  - type: Healing # DeltaV - plastic repairs stop bleeding
-    delay: 3.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      groups:
-        Brute: 0 # funny
-    bloodlossModifier: -20
   - type: Stack
     stackType: Plastic
     baseLayer: base

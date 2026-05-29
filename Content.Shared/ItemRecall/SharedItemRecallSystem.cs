@@ -5,7 +5,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Whitelist; //DeltaV
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 
@@ -23,7 +22,6 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedProjectileSystem _proj = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -62,11 +60,9 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
                 return;
             }
 
-            // DeltaV
-            if (TryMarkItem(ent, markItem.Value))
-                _popups.PopupClient(Loc.GetString("item-recall-item-marked", ("item", markItem.Value)), args.Performer, args.Performer);
+            _popups.PopupClient(Loc.GetString("item-recall-item-marked", ("item", markItem.Value)), args.Performer, args.Performer);
+            TryMarkItem(ent, markItem.Value);
             return;
-            // DeltaV
         }
 
         RecallItem(ent.Comp.MarkedEntity.Value);
@@ -100,20 +96,13 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
         TryUnmarkItem(ent);
     }
 
-    // DeltaV - Change to return bool and add blacklist check
-    private bool TryMarkItem(Entity<ItemRecallComponent> ent, EntityUid item)
+    private void TryMarkItem(Entity<ItemRecallComponent> ent, EntityUid item)
     {
         if (_actions.GetAction(ent.Owner) is not {} action)
-            return false;
+            return;
 
         if (action.Comp.AttachedEntity is not {} user)
-            return false;
-
-        if (_whitelistSystem.IsWhitelistPass(ent.Comp.MarkedEntityBlacklist, item))
-        {
-            _popups.PopupClient(Loc.GetString("item-recall-item-steal-target", ("item", item)), user, user);
-            return false;
-        }
+            return;
 
         AddToPvsOverride(item, user);
 
@@ -125,9 +114,7 @@ public abstract partial class SharedItemRecallSystem : EntitySystem
         Dirty(item, marker);
 
         UpdateActionAppearance((action, action, ent));
-        return true;
     }
-    // END DeltaV
 
     private void TryUnmarkItem(EntityUid item)
     {

@@ -225,12 +225,6 @@
     hands:
     - item: WeaponProtoKineticAcceleratorOneHanded
     - item: WeaponCrusherDagger
-    - hand:
-        emptyRepresentative: PKAUpgradeRange
-        emptyLabel: borg-slot-pka-upgrade-empty
-        whitelist:
-          tags:
-          - PKAUpgrade
   - type: BorgModuleIcon
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: fauna-module }
 
