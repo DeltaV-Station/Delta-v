@@ -1532,6 +1532,17 @@
     Telecrystal: 2
   categories:
   - UplinkImplants
+  # Begin DeltaV additions - Syndies get a free one, they don't need this
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  # End DeltaV additions
 
 - type: listing
   id: UplinkMicroBombImplanter

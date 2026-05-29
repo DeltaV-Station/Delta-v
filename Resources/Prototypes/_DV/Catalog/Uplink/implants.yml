@@ -11,6 +11,15 @@
     Telecrystal: 3
   categories:
   - UplinkImplants
+  conditions: # Syndies get a free one, they don't need this
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkHostageImplanter
@@ -54,3 +63,22 @@
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkRadioImplanterFree
+  name: uplink-syndicate-radio-implanter-name
+  description: uplink-syndicate-radio-implanter-free-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanterSyndicate
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+      - NukeOpsUplink # Nukies have to actually pay for one

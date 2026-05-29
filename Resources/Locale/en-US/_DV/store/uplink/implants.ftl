@@ -3,6 +3,7 @@ uplink-bionic-syrinx-implanter-desc = A laryngeal implant that lets you adjust y
 
 uplink-syndicate-radio-implanter-name = Syndicate Radio Implanter
 uplink-syndicate-radio-implanter-desc = A cranial implant that lets you talk on the Syndicate radio channel (use :t).
+uplink-syndicate-radio-implanter-free-desc = A cranial implant that lets you talk on the Syndicate radio channel (use :t). Limit of 1.
 
 uplink-syndicate-radio-implanter-bundle-name = Syndicate Radio Implanter Bundle
 uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of one and a half! Share one with your Syndicate friend.
