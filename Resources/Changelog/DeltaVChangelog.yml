@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: SirWarock
-  changes:
-  - message: Shooting the NT-3 does not disable the bipod anymore via recoil!
-    type: Fix
-  id: 1852
-  time: '2025-11-26T13:29:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4764
-- author: Dorragon
-  changes:
-  - message: Security now has gloves in loadouts
-    type: Add
-  id: 1853
-  time: '2025-11-26T13:53:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4760
-- author: Cepelinas1
-  changes:
-  - message: Periapsis now pings a specific discord role whenever a new round is starting.
-    type: Add
-  id: 1854
-  time: '2025-11-26T14:01:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4755
-- author: kotobdev
-  changes:
-  - message: Slipping is now scary again, and will stun you for a while. Beware of
-      the clown.
-    type: Tweak
-  id: 1855
-  time: '2025-11-26T15:31:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4747
-- author: Exile152
-  changes:
-  - message: Added a new cargo mascot fit! Check it out in the LogiDrobe!
-    type: Add
-  id: 1856
-  time: '2025-11-26T16:23:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4708
-- author: pootslap
-  changes:
-  - message: Fixed certain species not starting with a survival box when joining as
-      a mime.
-    type: Fix
-  id: 1857
-  time: '2025-11-26T16:45:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4768
-- author: ShepardToTheStars
-  changes:
-  - message: The chaplain and command can no longer become a deal-making devil.
-    type: Tweak
-  id: 1858
-  time: '2025-11-26T21:36:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4776
 - author: cmorley191
   changes:
   - message: Meteors will *actually* be on collision course with the station now!
@@ -4340,4 +4289,91 @@
   id: 2352
   time: '2026-05-28T17:37:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5805
+- author: SirWarock
+  changes:
+  - message: MassSleep now heals people that have been forced to sleep in exchange
+      for a higher glimmer generation!
+    type: Tweak
+  id: 2353
+  time: '2026-05-28T18:06:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5692
+- author: SirWarock
+  changes:
+  - message: "The No\xF6spheric Zap can now recharge batteries! Be it your flashlight,\
+      \ a laser rifle or your fellow robotic worker!"
+    type: Tweak
+  id: 2354
+  time: '2026-05-28T18:56:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5694
+- author: kotobdev
+  changes:
+  - message: Avali feathers will now be properly colored when *not* beating said avali's
+      skull in with a baseball bat.
+    type: Fix
+  - message: Avali can now see further again.
+    type: Fix
+  - message: Avali no longer have their preening verb show up at all ranges.
+    type: Fix
+  id: 2355
+  time: '2026-05-28T19:56:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5881
+- author: Apachito, Stxcking
+  changes:
+  - message: Ported Portable Chem Mixer from Goob
+    type: Add
+  id: 2356
+  time: '2026-05-29T11:08:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5532
+- author: Velcroboy
+  changes:
+  - message: 'Asterisk: Removed superweapon'
+    type: Remove
+  - message: 'Byoin: Removed superweapon'
+    type: Remove
+  - message: 'Chibi: Removed superweapon'
+    type: Remove
+  - message: 'Edge: Removed superweapon'
+    type: Remove
+  - message: 'Glacier: Removed superweapon'
+    type: Remove
+  - message: 'Tortuga: Removed superweapon'
+    type: Remove
+  id: 2357
+  time: '2026-05-29T15:55:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5912
+- author: rebe83
+  changes:
+  - message: Glimmer wisps are now immune to physical and shadow damage.
+    type: Tweak
+  - message: Skias and revenants are now highly resistant to brute damages. Try using
+      holy or heat damage instead!
+    type: Tweak
+  - message: Silver swords, radiant swords, and bibles are all more effective at revealing
+      revenants! Salt works in a pinch, or... your own soul passing through them.
+    type: Tweak
+  - message: Skia may now jaunt. The shadows are its domain!
+    type: Tweak
+  - message: Revenants are unable to emag borgs or lockers.
+    type: Tweak
+  - message: The veil thins, and revenants are now able to claw their targets. Call
+      the priest!
+    type: Tweak
+  - message: Other small changes.
+    type: Tweak
+  id: 2358
+  time: '2026-05-29T20:26:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5814
+- author: BarryNorfolk
+  changes:
+  - message: Laika now has tracking built in!
+    type: Add
+  - message: Security dogs purchased outside of Laika will now have names generated
+      from the list of fellow Space dogs.
+    type: Add
+  - message: Laika now has access to general security areas, this is limited to entities
+      with minds (i.e. Players).
+    type: Add
+  id: 2359
+  time: '2026-05-29T20:33:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5001
 Order: 1
