@@ -1,0 +1,49 @@
+- type: entity
+  parent: MarkerBase
+  id: BookRewardSpawner
+  name: Book reward spawner
+  suffix: 50
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Consumable/Food/snacks.rsi
+          state: pistachio-trash
+    - type: EntityTableSpawner
+      offset: 0.2
+      table: !type:NestedSelector
+        tableId: BookRewardItems
+        prob: 0.5
+  placement:
+    mode: AlignTileAny
+
+- type: entityTable
+  id: BookRewardItems
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 80
+      children:
+      - id: MaterialBluespace1
+      - id: CrystalNormality
+    - !type:GroupSelector
+      weight: 15
+      children:
+      - id: MaterialBluespace
+      - id: CrystalNormality5
+    - !type:GroupSelector
+      weight: 4
+      children:
+      - id: ClothingHandsGlovesColorYellowUnsulated
+      - id: ClothingHandsDispelGloves
+      - id: ClothingEyesTelegnosisSpectacles
+    - !type:GroupSelector
+      weight: .7
+      children:
+      - id: BlinkBook
+      - id: ForceWallSpellbook
+    - !type:GroupSelector
+      weight: .3
+      children:
+      - id: KnockSpellbook
+      - id: SpawnSpellbook

@@ -18,9 +18,9 @@
 - type: loadout
   id: ScientificBeret
   startingGear: ScientificBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+#  effects: # DeltaV - Remove Specific Role Timers
+#  - !type:GroupLoadoutEffect
+#    proto: SeniorResearcher
 
 - type: loadout
   id: RoboticistCap

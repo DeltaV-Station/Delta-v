@@ -298,5 +298,14 @@ Entries:
   id: 32
   time: '2026-05-19T10:00:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5618
+- author: DisposableCrewmember42
+  changes:
+  - message: /mute command - Mute an individual player in a specific OOC channel.
+      OOC mutes persist until server restart. LOOC/Deadchat mutes persist until the
+      round ends.
+    type: Add
+  id: 33
+  time: '2026-05-28T16:56:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5858
 Name: DeltaVAdmin
 Order: 5
