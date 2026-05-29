@@ -10,9 +10,9 @@ public sealed partial class MassSleepPowerComponent : BasePsionicPowerComponent
 
     public override string PowerName { get; set; } = "psionic-power-name-mass-sleep";
 
-    public override int MinGlimmerChanged { get; set; } = 30;
+    public override int MinGlimmerChanged { get; set; } = 15;
 
-    public override int MaxGlimmerChanged { get; set; } = 60;
+    public override int MaxGlimmerChanged { get; set; } = 30;
 
     /// <summary>
     /// The radius to where people will fall asleep.
