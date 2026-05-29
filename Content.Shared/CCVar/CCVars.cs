@@ -37,11 +37,4 @@ public sealed partial class CCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> DebugPow3rDisableParallel =
         CVarDef.Create("debug.pow3r_disable_parallel", false, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     Goobstation: The amount of time between NPC Silicons draining their battery in seconds.
-    ///     TODO: Move this to the proper file. I dunno which, just not the main one.
-    /// </summary>
-    public static readonly CVarDef<float> SiliconNpcUpdateTime =
-        CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVER | CVar.REPLICATED); // DeltaV - Move IPC charge to shared
 }

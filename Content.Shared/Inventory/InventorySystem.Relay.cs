@@ -86,6 +86,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, PsionicPowerUseAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TargetedByPsionicPowerEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, NoosphericFryEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, WeightlessnessChangedEvent>(RefRelayInventoryEvent); // Heavy Clothing
         // DeltaV End - Psionic Events
 
         // Eye/vision events

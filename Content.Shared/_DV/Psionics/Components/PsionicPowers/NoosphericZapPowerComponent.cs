@@ -27,6 +27,13 @@ public sealed partial class NoosphericZapPowerComponent : BasePsionicPowerCompon
     public int ShockDamage = 15;
 
     /// <summary>
+    /// How much battery charge it'll refill if used on a battery.
+    /// </summary>
+    /// <example>1000 will recharge a laser carbine.</example>
+    [DataField]
+    public float AddedBatteryCharge = 1000;
+
+    /// <summary>
     /// How long the target will be stunned.
     /// </summary>
     [DataField]

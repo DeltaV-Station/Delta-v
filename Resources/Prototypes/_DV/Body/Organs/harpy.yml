@@ -9,8 +9,6 @@
       - state: lung-l
       - state: lung-r
   - type: Lung
-  - type: Organ
-    slotId: lungs
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
