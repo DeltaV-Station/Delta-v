@@ -12,14 +12,13 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 4
-        Piercing: 8
-        Blunt: 1
-        Structural: 4
+        Slash: 5 # Delta-V - Dont piss them off, or else...
+        Piercing: 10
+        Structural: 5
   - type: MobState
   - type: Sprite
     drawdepth: Mobs
-    sprite: Nyanotrasen/Mobs/Pets/pitbull.rsi
+    sprite: _DV/Mobs/Pets/pitbull.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pibble
@@ -60,7 +59,7 @@
   - type: ReplacementAccent
     accent: dog
   - type: InteractionPopup
-    successChance: 0.7
+    successChance: 0.995 # Delta-V - Makes it so theyll maul you only if you spam pet them or get stupidly unlucky.
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-pibble
     interactSuccessSound:
@@ -70,7 +69,6 @@
   - type: NpcFactionMember
     factions:
     - Pet
-    - Pibble
   - type: HTN
     rootTask: SimpleHostileCompound
     blackboard:
@@ -96,10 +94,9 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 2
+        Slash: 2.5 # Delta-V - Im not going to elaborate further on this.
         Piercing: 5
-        Blunt: 0.5
-        Structural: 2
+        Structural: 5
   - type: Fixtures
     fixtures:
       fix1:
@@ -114,7 +111,7 @@
   - type: Sprite
     scale: 0.8, 0.6
     drawdepth: Mobs
-    sprite: Nyanotrasen/Mobs/Pets/ventbull.rsi
+    sprite: _DV/Mobs/Pets/ventbull.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pibble
