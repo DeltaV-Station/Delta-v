@@ -61,4 +61,3 @@ names-pitbull-dataset-57 = Galactic Destroyer
 names-pitbull-dataset-58 = Galaxy Destroyer
 names-pitbull-dataset-59 = Meatball
 names-pitbull-dataset-60 = Menace
-
