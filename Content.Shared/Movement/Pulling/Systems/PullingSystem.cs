@@ -545,7 +545,7 @@ public sealed class PullingSystem : EntitySystem
 
         // Pulling confirmed
 
-        _interaction.DoContactInteraction(pullableUid, pullerUid, null, true); // Stellar - Interaction particles
+        _interaction.DoContactInteraction(pullableUid, pullerUid);
 
         // Use net entity so it's consistent across client and server.
         pullableComp.PullJointId = $"pull-joint-{GetNetEntity(pullableUid)}";

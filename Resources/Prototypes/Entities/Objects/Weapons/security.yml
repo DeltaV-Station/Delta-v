@@ -13,12 +13,10 @@
     energyPerUse: 50
   - type: ItemToggle
     predictable: false
-# ES START
-#    soundActivate:
-#      collection: sparks
-#      params:
-#        variation: 0.250
-# ES END
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
     soundDeactivate:
       collection: sparks
       params:
@@ -41,11 +39,7 @@
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
     angle: 60
-    wideAnimation: WeaponArcThrust
-# ES START
-  - type: ESSparkOnItemToggle
-    count: 1
-# ES END
+    animation: WeaponArcThrust
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
