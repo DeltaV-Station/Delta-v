@@ -723,7 +723,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
 
         var ev = new EntityAudiblyEmotedEvent(source, action, channel, type);
-        RaiseLocalEvent(source, ev, true);
+        RaiseLocalEvent(source, ref ev, true);
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source} as {name}: {action}");
