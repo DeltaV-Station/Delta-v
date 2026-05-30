@@ -464,15 +464,15 @@
     startAnnouncement: station-event-ventbull-start-announcement # NT pest control announcement
     startAudio:
       path: /Audio/_DV/Announcements/attention.ogg
-    earliestStart: 1 # Vent pest control can occur at any time.
+    earliestStart: 1 # Pest control can occur at any time.
     minimumPlayers: 10
     weight: 5
     duration: 15 # 15 seconds until the mice slaughter begins
   - type: PrecognitionResult # Precogniton
     message: psionic-power-precognition-ventbull-spawn-result-message
   - type: VentCrittersRule
-    min: 5 # Should be a range between 5 and 20 assorted mobs.
-    max: 20
+    min: 5 # Should be a range between 5 and 25 assorted mobs.
+    max: 25
     playerRatio: 55 # Hopefully lets a decent amount spawn.
     table: !type:GroupSelector # EntityTable instead of spawn entries.
       children:
