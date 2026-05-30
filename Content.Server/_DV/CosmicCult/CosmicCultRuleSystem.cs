@@ -521,7 +521,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             finComp.CurrentState = FinaleState.Unavailable;
             _popup.PopupCoordinates(Loc.GetString("cosmiccult-monument-powerdown"), Transform(gameruleMonument).Coordinates, PopupType.Large);
-            _sound.StopStationEventMusic(gameruleMonument, StationEventMusicType.CosmicCult);
+            _sound.StopGlobalEventMusic(StationEventMusicType.CosmicCult);
             _monument.UpdateMonumentAppearance(gameruleMonument, false);
         }
 
