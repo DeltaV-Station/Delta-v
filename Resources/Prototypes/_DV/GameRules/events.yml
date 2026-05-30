@@ -463,7 +463,7 @@
   - type: StationEvent
     startAnnouncement: station-event-ventbull-start-announcement # NT pest control announcement
     startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg 
+      path: /Audio/_DV/Announcements/attention.ogg
     earliestStart: 1 # Vent pest control can occur at any time.
     minimumPlayers: 10
     weight: 5
