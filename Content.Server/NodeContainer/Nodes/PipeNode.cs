@@ -14,7 +14,7 @@ namespace Content.Server.NodeContainer.Nodes
     /// </summary>
     [DataDefinition]
     [Virtual]
-    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode
+    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode, IPipeNode //DeltaV - RPD
     {
         /// <summary>
         ///     The directions in which this pipe can connect to other pipes around it.
@@ -236,5 +236,8 @@ namespace Content.Server.NodeContainer.Nodes
                 }
             }
         }
+
+        PipeDirection IPipeNode.Direction => OriginalPipeDirection; //DeltaV - RPD
+        AtmosPipeLayer IPipeNode.Layer => CurrentPipeLayer; //DeltaV - RPD
     }
 }

@@ -69,6 +69,11 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+  - type: RCDDeconstructable #DeltaV - RPD
+    cost: 10 #DeltaV - RPD
+    delay: 2 #DeltaV - RPD
+    fx: EffectRCDDeconstruct2 #DeltaV - RPD
+    rpd: true #DeltaV - RPD
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite

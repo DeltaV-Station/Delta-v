@@ -2,6 +2,7 @@ using Content.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.FixedPoint; //DeltaV - RPD
 
 namespace Content.Shared.RCD;
 
@@ -49,6 +50,14 @@ public sealed partial class RCDPrototype : IPrototype
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public bool AllowMultiDirection { get; private set; }
+
+    // DeltaV - RPD
+    /// <summary>
+    /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string? MirrorPrototype { get; private set; } = string.Empty;
+    // End DeltaV - RPD
 
     /// <summary>
     /// Number of charges consumed when the operation is completed
@@ -119,6 +128,14 @@ public sealed partial class RCDPrototype : IPrototype
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public RcdRotation Rotation { get; private set; } = RcdRotation.User;
+
+    //DeltaV - RPD Begin
+    /// <summary>
+    /// Determines whether this prototype uses layered placement (true for traditional placement, false for layered). Only applies to RPD.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool HasLayers { get; private set; } = false;
+    //DeltaV - RPD End
 }
 
 public enum RcdMode : byte
