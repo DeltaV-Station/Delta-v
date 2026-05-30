@@ -7,7 +7,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Audio;
 
-public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
+public sealed partial class ServerGlobalSoundSystem : SharedGlobalSoundSystem // DeltaV - Made Partial
 {
     [Dependency] private readonly IConsoleHost _conHost = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
