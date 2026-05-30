@@ -61,3 +61,6 @@ names-pitbull-dataset-57 = Galactic Destroyer
 names-pitbull-dataset-58 = Galaxy Destroyer
 names-pitbull-dataset-59 = Meatball
 names-pitbull-dataset-60 = Menace
+names-pitbull-dataset-61 = Buddy
+names-pitbull-dataset-62 = Rocky
+names-pitbull-dataset-63 = Boulder
