@@ -78,7 +78,8 @@
     factions:
     - Pitbull
   - type: HTN
-    rootTask: SimpleHostileCompound
+    rootTask:
+      task: SimpleHostileCompound
     blackboard:
       NavSmash: !type:Bool
         true
@@ -86,7 +87,7 @@
     attributes:
       proper: true
   - type: RandomMetadata
-    nameSegments: [names_pitbull]
+    nameSegments: [NamesPitbulls]
   - type: Puller
     needsHands: false
 
