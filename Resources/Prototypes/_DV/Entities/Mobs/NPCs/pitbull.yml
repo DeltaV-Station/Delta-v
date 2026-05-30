@@ -66,12 +66,12 @@
   - type: ReplacementAccent
     accent: dog
   - type: InteractionPopup
-    successChance: 0.995 # Delta-V - Makes it so they'll maul you only if you spam pet them or get stupid unlucky. This is a 0.5% chance of becoming hostile upon being pet.
+    successChance: 0.85 # Delta-V - They no longer maul you.
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-pibble
     interactSuccessSound:
       path: /Audio/Animals/small_dog_bark_happy.ogg
-    hostileOnFail: true
+#    hostileOnFail: true # Delta-V - They no longer maul you.
   - type: DogVision
   - type: NPCRetaliation
   - type: NpcFactionMember

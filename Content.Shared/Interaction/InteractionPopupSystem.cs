@@ -118,12 +118,6 @@ public sealed class InteractionPopupSystem : EntitySystem
 
             var ev = new InteractionFailureEvent(user);
             RaiseLocalEvent(target, ref ev);
-/*Delta-V - Enables mobs turning hostile if pet.*/
-            if (component.HostileOnFail && HasComp<NPCComponent>(uid))
-            {
-                var targeted = EnsureComp<NPCCombatTargetComponent>(uid);
-                targeted.EngagingEnemies.Add(user);
-            }
         }
 
         if (!string.IsNullOrEmpty(component.MessagePerceivedByOthers))
