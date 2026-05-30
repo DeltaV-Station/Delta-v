@@ -127,7 +127,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _alert.SetLevel(stationUid.Value, "green", true, true, true);
 
         _sound.PlayGlobal(_audio.ResolveSound(comp.CancelEventSound));
-        _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
+        _sound.StopGlobalEventMusic(StationEventMusicType.CosmicCult);
         uid.Comp.CurrentState = FinaleState.ReadyFinale;
 
         if (TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
