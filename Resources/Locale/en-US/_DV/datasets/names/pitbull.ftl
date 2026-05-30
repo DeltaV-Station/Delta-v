@@ -36,30 +36,30 @@ names-pitbull-dataset-32 = Sparkles
 names-pitbull-dataset-33 = Cupcake
 names-pitbull-dataset-34 = Baphomet
 names-pitbull-dataset-35 = Abaddon
-names-pitbull-dataset-39 = Annihilator
-names-pitbull-dataset-40 = Buttercup
-names-pitbull-dataset-41 = Harmonia
-names-pitbull-dataset-42 = Freyr
-names-pitbull-dataset-43 = Princess
-names-pitbull-dataset-44 = Devourer
-names-pitbull-dataset-45 = Bubba
-names-pitbull-dataset-46 = Dog
-names-pitbull-dataset-47 = Hydrogen Bomb
-names-pitbull-dataset-48 = Jeff
-names-pitbull-dataset-52 = Taco
-names-pitbull-dataset-53 = Burger
-names-pitbull-dataset-54 = Destroyer
+names-pitbull-dataset-36 = Annihilator
+names-pitbull-dataset-37 = Buttercup
+names-pitbull-dataset-38 = Harmonia
+names-pitbull-dataset-39 = Freyr
+names-pitbull-dataset-40 = Princess
+names-pitbull-dataset-41 = Devourer
+names-pitbull-dataset-42 = Bubba
+names-pitbull-dataset-43 = Dog
+names-pitbull-dataset-44 = Hydrogen Bomb
+names-pitbull-dataset-45 = Jeff
+names-pitbull-dataset-46 = Taco
+names-pitbull-dataset-47 = Burger
+names-pitbull-dataset-48 = Destroyer
 
 # Delta-V - Warhammer 40K references
-names-pitbull-dataset-36 = Horus
-names-pitbull-dataset-37 = Angron
-names-pitbull-dataset-38 = Khorne
+names-pitbull-dataset-49 = Horus
+names-pitbull-dataset-50 = Angron
+names-pitbull-dataset-51 = Khorne
 
 # Delta-V - Helldivers 2 references
-names-pitbull-dataset-55 = Hellbomb
-names-pitbull-dataset-56 = Malevelon
+names-pitbull-dataset-52 = Hellbomb
+names-pitbull-dataset-53 = Malevelon
 
 # Delta-V - Antag References
-names-pitbull-dataset-49 = Nukie
-names-pitbull-dataset-50 = Zed
-names-pitbull-dataset-51 = Zombie
+names-pitbull-dataset-54 = Nukie
+names-pitbull-dataset-55 = Zed
+names-pitbull-dataset-56 = Zombie
