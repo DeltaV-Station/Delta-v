@@ -167,7 +167,7 @@ public sealed class RootableSystem : EntitySystem
             return false;
 
         ent.Comp.Rooted = !ent.Comp.Rooted;
-        if (TryComp<MovedByPressureComponent>(ent, out var moved)) // Delta-V - Prevent spacewind
+        if (TryComp<MovedByPressureComponent>(ent, out var moved)) // DeltaV - Prevent spacewind
             moved.Enabled = !ent.Comp.Rooted;
         _movementSpeedModifier.RefreshMovementSpeedModifiers(ent);
         _gravity.RefreshWeightless(ent.Owner);

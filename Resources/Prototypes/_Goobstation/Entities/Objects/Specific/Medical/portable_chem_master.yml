@@ -62,7 +62,7 @@
       - state: mixer_on
   - type: Item
     sprite: _DV/Objects/Tools/chemical_mixer.rsi
-    size: Ginormous #Delta-V Made it Ginormous from huge
+    size: Ginormous #DeltaV -  Changes huge to ginormous
   - type: ItemMapper
     containerWhitelist: [beakerSlot]
     mapLayers:
@@ -73,7 +73,7 @@
   - type: Appearance
   - type: ChemMaster
     pillDosageLimit: 20
-  - type: Damageable #Delta-V Made it damageble
+  - type: Damageable #DeltaV- Made it damageble
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -117,7 +117,7 @@
     solutions:
       buffer:
         maxVol: 400
-        canReact: false     # added becuse there where instances that the chemicals can mix on transfer
+        canReact: false # added becuse there where instances that the chemicals can mix on transfer
   - type: DumpableSolution
     solution: buffer
   - type: GuideHelp
@@ -126,11 +126,11 @@
     - Chemist
   - type: StaticPrice
     price: 20
-  - type: SolutionItemStatus  # lets you see how full it is when holding it
+  - type: SolutionItemStatus # lets you see how full it is when holding it
     solution: buffer
   - type: Clothing
     sprite: _DV/Objects/Tools/chemical_mixer.rsi
-    slots: [suitStorage] #Delta-V Change it to suit strorage slot from belt
+    slots: [suitStorage] #DeltaV - Change it to suit storage slot
   - type: Construction
     graph: portableChemicalMixerGraph
     node: end
@@ -147,4 +147,4 @@
 #    layers:
 #      - state: incomplete
 #  - type: Item
-#    size: Ginormous #Delta-V Made it Ginormous from huge
+#    size: Ginormous #DeltaV - Changes huge to ginormous

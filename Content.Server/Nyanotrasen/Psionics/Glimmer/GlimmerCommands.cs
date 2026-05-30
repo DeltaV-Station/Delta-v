@@ -5,12 +5,12 @@ using Robust.Shared.Console;
 
 namespace Content.Server.Psionics.Glimmer;
 
-[AdminCommand(AdminFlags.Admin)] // Delta-V - Set to Admin flag
-public sealed class ShowGlimmerCommand : IConsoleCommand // Delta-V - Change to ShowGlimmer 
+[AdminCommand(AdminFlags.Admin)] // DeltaV - Set to Admin flag
+public sealed class ShowGlimmerCommand : IConsoleCommand // DeltaV - Change to ShowGlimmer
 {
-    public string Command => "showglimmer"; // Delta-V - Change to ShowGlimmer 
-    public string Description => Loc.GetString("command-showglimmer-description"); // Delta-V - Change to ShowGlimmer 
-    public string Help => Loc.GetString("command-showglimmer-help"); // Delta-V - Change to ShowGlimmer 
+    public string Command => "showglimmer"; // DeltaV - Change to ShowGlimmer
+    public string Description => Loc.GetString("command-showglimmer-description"); // DeltaV - Change to ShowGlimmer
+    public string Help => Loc.GetString("command-showglimmer-help"); // DeltaV - Change to ShowGlimmer
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var entMan = IoCManager.Resolve<IEntityManager>();

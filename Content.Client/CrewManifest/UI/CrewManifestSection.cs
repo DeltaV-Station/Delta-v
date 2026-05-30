@@ -25,14 +25,14 @@ public sealed class CrewManifestSection : BoxContainer
             Text = Loc.GetString(section.Name)
         });
 
-        // Delta-V - changed type from GridContainer to BoxContainer to better handle long names and titles.
+        // DeltaV - changed type from GridContainer to BoxContainer to better handle long names and titles.
         var gridContainer = new BoxContainer()
         {
             Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
         };
 
-        // Delta-V - Start of column BoxContainers.
+        // DeltaV - Begin Changes - BoxContainers
         var namesContainer = new BoxContainer()
         {
             Orientation = LayoutOrientation.Vertical,
@@ -49,13 +49,13 @@ public sealed class CrewManifestSection : BoxContainer
 
         gridContainer.AddChild(namesContainer);
         gridContainer.AddChild(titlesContainer);
-        // Delta-V - end of column BoxContainers.
+        // DeltaV - End Changes - BoxContainers
 
         AddChild(gridContainer);
 
         foreach (var entry in entries)
         {
-            // Delta-V - start of name and pronoun container
+            // DeltaV - Begin Changes - name and pronoun container
             var nameContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
@@ -74,13 +74,13 @@ public sealed class CrewManifestSection : BoxContainer
 
             nameContainer.AddChild(name);
             nameContainer.AddChild(gender);
-            // Delta-V - end of name and pronoun container
+            // DeltaV - End Changes - name and pronoun container
 
             var titleContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
-                SizeFlagsStretchRatio = 1, // Delta-V
+                SizeFlagsStretchRatio = 1, // DeltaV
             };
 
             var title = new RichTextLabel();
@@ -105,10 +105,10 @@ public sealed class CrewManifestSection : BoxContainer
                 titleContainer.AddChild(title);
             }
 
-            // Delta-V - grid was replaced with two BoxContainer columns
+            // DeltaV - Begin Changes - grid was replaced with two BoxContainer columns
             namesContainer.AddChild(nameContainer);
             titlesContainer.AddChild(titleContainer);
-            // Delta-V - end of grid container change
+            // DeltaV - End Changes - grid container change
         }
     }
 }

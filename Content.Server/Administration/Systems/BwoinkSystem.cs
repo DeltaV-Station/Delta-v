@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Content.Server._NF.Administration; // Frontier
+using Content.Server._NF.Administration; // DeltaV - from Frontier
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Database;
@@ -13,12 +13,12 @@ using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
-using Content.Shared._DV.CCVars; // Frontier
+using Content.Shared._DV.CCVars; // DeltaV - from Frontier
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
-using Content.Shared.Database; // Starlight
+using Content.Shared.Database; // DeltaV - from Starlight
 using Content.Shared.Players.RateLimiting;
 using JetBrains.Annotations;
 using Robust.Server.Player;
@@ -39,7 +39,7 @@ namespace Content.Server.Administration.Systems
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IBanManager _banManager = default!; // Starlight
+        [Dependency] private readonly IBanManager _banManager = default!; // DeltaV - From Starlight
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IPlayerLocator _playerLocator = default!;
@@ -48,9 +48,9 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IAfkManager _afkManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!; // Frontier
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!; // DeltaV - from Frontier
 
-        [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")] // Frontier: support alt discords
+        [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")] // DeltaV - from Frontier, support alt discords
         private static partial Regex DiscordRegex();
 
         private string _webhookUrl = string.Empty;
@@ -82,13 +82,13 @@ namespace Content.Server.Administration.Systems
         // Should be shorter than DescriptionMax
         private const ushort MessageLengthCap = 3000;
 
-        // Begin Starlight additions
+        // DeltaV - Begin Starlight additions
         private readonly TimeSpan _messageCooldown = TimeSpan.FromSeconds(2);
 
         private readonly Queue<(NetUserId Channel, string Text, TimeSpan Timestamp)> _recentMessages = new();
         private const int MaxRecentMessages = 10;
         private const int SpamCheckMessageCount = 3;
-        // End Starlight additions
+        // DeltaV - End Starlight additions
 
         // Text to be used to cut off messages that are too long. Should be shorter than MessageLengthCap
         private const string TooLongText = "... **(too long)**";
@@ -97,12 +97,14 @@ namespace Content.Server.Administration.Systems
         private readonly Dictionary<NetUserId, DateTime> _activeConversations = new();
 
         // AHelp config settings
-        private bool _useAdminOOCColorInBwoinks = false; // Delta-v
-        private bool _useDiscordRoleColor = false; // Delta-v
-        private bool _useDiscordRoleName = false; // Delta-v
-        private string _discordReplyPrefix = "(DISCORD) "; // Delta-v
-        private string _adminBwoinkColor = "red"; // Delta-v
-        private string _discordReplyColor = string.Empty; // Delta-v
+        // DeltaV - Begin Changes
+        private bool _useAdminOOCColorInBwoinks = false;
+        private bool _useDiscordRoleColor = false;
+        private bool _useDiscordRoleName = false;
+        private string _discordReplyPrefix = "(DISCORD) ";
+        private string _adminBwoinkColor = "red";
+        private string _discordReplyColor = string.Empty;
+        // DeltaV - End Changes
 
         public override void Initialize()
         {

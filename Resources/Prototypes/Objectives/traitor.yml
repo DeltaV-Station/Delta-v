@@ -66,8 +66,8 @@
   - type: DieCondition
   # The game turns into a massive suicide pact if enough of the traitors have it. Not fun for traitors or security!
   # Giving it a limit keeps the objective unique and interesting without being overdone.
-  - type: ObjectiveLimit # Delta-V
-    limit: 1 # Delta-V
+  - type: ObjectiveLimit # DeltaV
+    limit: 1 # DeltaV
 
 #- type: entity
 #  parent: [BaseTraitorObjective, BaseLivingObjective]

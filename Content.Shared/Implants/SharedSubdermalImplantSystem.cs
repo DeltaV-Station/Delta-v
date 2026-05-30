@@ -1,5 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.Chat; // Delta-v
+using Content.Shared.Chat; // DeltaV
 using Content.Shared.Implants.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;

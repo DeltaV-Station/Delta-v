@@ -35,7 +35,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
         if (TryComp(entity, out GhostRoleComponent? ghostRole))
             return;
 
-        // Delta-V: Do not allow humanoids to become sentient. Intended to stop people from
+        // DeltaV - Do not allow humanoids to become sentient. Intended to stop people from
         // repeatedly cloning themselves and using cognizine on their bodies.
         // HumanoidAppearanceComponent is common to all player species, and is also used for the
         // Ripley pilot whitelist, so there's a precedent for using it for this kind of check.
@@ -46,7 +46,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
 
         ghostRole = AddComp<GhostRoleComponent>(entity);
         EnsureComp<GhostTakeoverAvailableComponent>(entity);
-        EnsureComp<PotentialPsionicComponent>(entity); // Deltav - Psionics
+        EnsureComp<PotentialPsionicComponent>(entity); // DeltaV - Psionics
 
         ghostRole.RoleName = entity.Comp.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");

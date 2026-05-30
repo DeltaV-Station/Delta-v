@@ -229,7 +229,7 @@ public sealed class CrewManifestSystem : EntitySystem
         foreach (var recordObject in iter)
         {
             var record = recordObject.Item2;
-            // Delta-V: Added gender to crew manifest
+            // DeltaV - Added gender to crew manifest
             var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype);
 
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);

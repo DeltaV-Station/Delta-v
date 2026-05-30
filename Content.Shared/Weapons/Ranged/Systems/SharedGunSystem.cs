@@ -12,7 +12,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Item; // Delta-V: Felinids in duffelbags can't shoot.
+using Content.Shared.Item; // DeltaV - Felinids in duffelbags can't shoot.
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -156,7 +156,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (user == null ||
             !_combatMode.IsInCombatMode(user) ||
             !TryGetGun(user.Value, out var gun) ||
-            HasComp<ItemComponent>(user)) // Delta-V: Felinids in duffelbags can't shoot.
+            HasComp<ItemComponent>(user)) // DeltaV - Felinids in duffelbags can't shoot.
         {
             return;
         }

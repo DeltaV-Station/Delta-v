@@ -47,7 +47,7 @@ public sealed class CrewManifestEntry
 {
     public string Name { get; }
 
-    public string Gender { get; } // Delta-V: Added gender to crew manifest
+    public string Gender { get; } // DeltaV - Added gender to crew manifest
 
     public string JobTitle { get; }
 
@@ -58,7 +58,7 @@ public sealed class CrewManifestEntry
     public CrewManifestEntry(string name, string gender, string jobTitle, string jobIcon, string jobPrototype)
     {
         Name = name;
-        Gender = gender; // Delta-V: Added gender to crew manifest
+        Gender = gender; // DeltaV - Added gender to crew manifest
         JobTitle = jobTitle;
         JobIcon = jobIcon;
         JobPrototype = jobPrototype;

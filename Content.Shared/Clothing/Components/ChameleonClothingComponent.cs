@@ -67,13 +67,13 @@ public sealed partial class ChameleonClothingComponent : Component
     public TimeSpan NextEmpChange = TimeSpan.Zero;
 
     /// <summary>
-    ///     Delta-V: Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
+    ///     DeltaV - Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
     /// </summary>
     [DataField]
     public LocId? WindowTitleOverride;
 
     /// <summary>
-    ///     Delta-V: Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
+    ///     DeltaV - Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
     /// </summary>
     [DataField]
     public LocId? VerbNameOverride;
