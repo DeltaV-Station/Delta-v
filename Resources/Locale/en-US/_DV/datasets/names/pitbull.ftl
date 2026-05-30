@@ -49,17 +49,16 @@ names-pitbull-dataset-45 = Jeff
 names-pitbull-dataset-46 = Taco
 names-pitbull-dataset-47 = Burger
 names-pitbull-dataset-48 = Destroyer
-
-# Warhammer 40K references
 names-pitbull-dataset-49 = Horus
 names-pitbull-dataset-50 = Angron
 names-pitbull-dataset-51 = Khorne
-
-# Helldivers 2 references
 names-pitbull-dataset-52 = Hellbomb
 names-pitbull-dataset-53 = Malevelon
-
-# Antag References
 names-pitbull-dataset-54 = Nukie
 names-pitbull-dataset-55 = Zed
 names-pitbull-dataset-56 = Zombie
+names-pitbull-dataset-57 = Galactic Destroyer
+names-pitbull-dataset-58 = Galaxy Destroyer
+names-pitbull-dataset-59 = Meatball
+names-pitbull-dataset-60 = Menace
+
