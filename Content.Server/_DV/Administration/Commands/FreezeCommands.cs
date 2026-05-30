@@ -30,7 +30,7 @@ public sealed class FreezeCommand : LocalizedEntityCommands
             {
                 continue;
             }
-            
+
             if (!_entity.HasComponent<AdminFrozenComponent>(uid))
             {
                 _frozen.FreezeAndMute(uid);
@@ -71,7 +71,7 @@ public sealed class UnfreezeCommand : LocalizedEntityCommands
             {
                 continue;
             }
-            
+
             if (_entity.RemoveComponent<AdminFrozenComponent>(uid))
             {
                 shell.WriteLine(Loc.GetString("cmd-unfreeze-success", ("username", username)));
