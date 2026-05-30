@@ -108,11 +108,12 @@
   coefficients:
     Cold: 0.0
     Shock: 0.5
-    Blunt: 0.5
-    Slash: 0.5
-    Piercing: 0.5
+    Blunt: 0.0
+    Slash: 0.0
+    Piercing: 0.0
     Heat: 1.5
     Holy: 3.0
+    Shadow: 0.0
 
 - type: damageModifierSet
   id: ShockAbsorber
@@ -130,7 +131,10 @@
   coefficients:
     Cold: 0.0
     Shock: 0.2
-    Heat: 3.0
+    Blunt: 0.4
+    Slash: 0.4
+    Piercing: 0.4
+    Heat: 2.0
     Holy: 5.0
     Shadow: 0.0
 

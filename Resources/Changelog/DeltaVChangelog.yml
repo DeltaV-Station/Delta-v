@@ -1,34 +1,4 @@
 ﻿Entries:
-- author: Exile152
-  changes:
-  - message: Added a new cargo mascot fit! Check it out in the LogiDrobe!
-    type: Add
-  id: 1856
-  time: '2025-11-26T16:23:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4708
-- author: pootslap
-  changes:
-  - message: Fixed certain species not starting with a survival box when joining as
-      a mime.
-    type: Fix
-  id: 1857
-  time: '2025-11-26T16:45:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4768
-- author: ShepardToTheStars
-  changes:
-  - message: The chaplain and command can no longer become a deal-making devil.
-    type: Tweak
-  id: 1858
-  time: '2025-11-26T21:36:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4776
-- author: cmorley191
-  changes:
-  - message: Meteors will *actually* be on collision course with the station now!
-      Brace for impact.
-    type: Fix
-  id: 1859
-  time: '2025-11-26T22:01:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4379
 - author: cmorley191
   changes:
   - message: Mindbreaker Toxin now resets your psionic reroll, so you can use the
@@ -4298,9 +4268,11 @@
   url: https://github.com/DeltaV-Station/Delta-v/pull/5908
 - author: Radezolid
   changes:
-  - message: The PKA's firerate has been lowered to 0.5 shots per second along with
-      a inventory size increase to 3x2.
+  - message: The PKA's inventory size has been increased to 3x2 and damage increased
+      to 20 blunt from 15 blunt.
     type: Tweak
+  - message: PKA's modkits have been removed from the Salvage Vendor and research.
+    type: Remove
   id: 2351
   time: '2026-05-28T17:07:11.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5811
@@ -4346,4 +4318,63 @@
   id: 2356
   time: '2026-05-29T11:08:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5532
+- author: Velcroboy
+  changes:
+  - message: 'Asterisk: Removed superweapon'
+    type: Remove
+  - message: 'Byoin: Removed superweapon'
+    type: Remove
+  - message: 'Chibi: Removed superweapon'
+    type: Remove
+  - message: 'Edge: Removed superweapon'
+    type: Remove
+  - message: 'Glacier: Removed superweapon'
+    type: Remove
+  - message: 'Tortuga: Removed superweapon'
+    type: Remove
+  id: 2357
+  time: '2026-05-29T15:55:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5912
+- author: rebe83
+  changes:
+  - message: Glimmer wisps are now immune to physical and shadow damage.
+    type: Tweak
+  - message: Skias and revenants are now highly resistant to brute damages. Try using
+      holy or heat damage instead!
+    type: Tweak
+  - message: Silver swords, radiant swords, and bibles are all more effective at revealing
+      revenants! Salt works in a pinch, or... your own soul passing through them.
+    type: Tweak
+  - message: Skia may now jaunt. The shadows are its domain!
+    type: Tweak
+  - message: Revenants are unable to emag borgs or lockers.
+    type: Tweak
+  - message: The veil thins, and revenants are now able to claw their targets. Call
+      the priest!
+    type: Tweak
+  - message: Other small changes.
+    type: Tweak
+  id: 2358
+  time: '2026-05-29T20:26:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5814
+- author: BarryNorfolk
+  changes:
+  - message: Laika now has tracking built in!
+    type: Add
+  - message: Security dogs purchased outside of Laika will now have names generated
+      from the list of fellow Space dogs.
+    type: Add
+  - message: Laika now has access to general security areas, this is limited to entities
+      with minds (i.e. Players).
+    type: Add
+  id: 2359
+  time: '2026-05-29T20:33:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5001
+- author: Stxcking
+  changes:
+  - message: Ninjas can now call in the Colossus as a threat!
+    type: Add
+  id: 2360
+  time: '2026-05-30T02:20:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5909
 Order: 1
