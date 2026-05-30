@@ -36,14 +36,14 @@
         - MobLayer
   - type: Appearance
   - type: Inventory
-    speciesId: dog
-    templateId: pet
+    speciesId: secdog
+    templateId: secdog
   - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -56,6 +56,13 @@
     spawned:
     - id: FoodMeat
       amount: 3
+  - type: Speech
+    allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo']
+    speechVerb: Canine
+    speechSounds: Vulpkanin
+  - type: Vocal
+    sounds:
+      Unsexed: MobDog
   - type: ReplacementAccent
     accent: dog
   - type: InteractionPopup
@@ -80,6 +87,8 @@
       proper: true
   - type: RandomMetadata
     nameSegments: [names_pitbull]
+  - type: Puller
+    needsHands: false
 
 - type: entity
   parent: MobPibble
