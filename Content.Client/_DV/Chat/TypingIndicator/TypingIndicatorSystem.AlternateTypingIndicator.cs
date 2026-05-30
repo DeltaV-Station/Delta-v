@@ -19,7 +19,7 @@ public sealed partial class TypingIndicatorSystem
     }
 
     /// <summary>
-    /// DeltaV: Client can type with alternate indicators
+    /// DeltaV - Client can type with alternate indicators
     /// </summary>
     /// <param name="protoId">The TypingIndicator to show in place of the normal TypingIndicator</param>
     public void ClientAlternateTyping(ProtoId<TypingIndicatorPrototype> protoId)

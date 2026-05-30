@@ -73,26 +73,26 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>(); // DeltaV: Need BodyComponent for additions
-        while (query.MoveNext(out var uid, out var respirator, out var body)) // DeltaV: Need BodyComponent for additions
+        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>(); // DeltaV - Need BodyComponent for additions
+        while (query.MoveNext(out var uid, out var respirator, out var body)) // DeltaV - Need BodyComponent for additions
         {
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
 
             respirator.NextUpdate += respirator.AdjustedUpdateInterval;
 
-            if (_mobState.IsDead(uid) || HasComp<SpecialBreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity Goob immunity too
+            if (_mobState.IsDead(uid) || HasComp<SpecialBreathingImmunityComponent>(uid)) // DeltaV - Shitmed - BreathingImmunity
                 continue;
 
-            // Begin DeltaV Additions
+            // DeltaV - Begin Additions
             var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
             var multiplier = -1f;
             foreach (var (_, lung, _) in organs)
             {
                 multiplier *= lung.SaturationLoss;
             }
-            // End DeltaV Additions
-            UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
+            // DeltaV - End Additions
+            UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV - use multiplier instead of negating
 
             if ((!_mobState.IsIncapacitated(uid)
                 || TryComp<AffectedByCPRComponent>(uid, out var cprComp) && cprComp.IsActive)) // DeltaV - Addition of CPR.
@@ -112,7 +112,8 @@ public sealed class RespiratorSystem : EntitySystem
 
             if (respirator.Saturation < respirator.SuffocationThreshold)
             {
-                // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe. Makes cultists gasp and respirate but not asphyxiate in space.
+                // TODO: One line change but a refactor would be better.
+                // DeltaV - Cosmic Cult - Makes cultists gasp and respirate but not asphyxiate in space.
                 if (TryComp<CosmicCultComponent>(uid, out var cultComponent) && !cultComponent.Respiration && !_mobState.IsIncapacitated(uid)) return;
 
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)

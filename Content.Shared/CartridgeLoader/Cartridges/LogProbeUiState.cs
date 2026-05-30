@@ -17,7 +17,7 @@ public sealed class LogProbeUiState : BoundUserInterfaceState
     public List<PulledAccessLog> PulledLogs;
 
     /// <summary>
-    /// DeltaV: The NanoChat data if a card was scanned, null otherwise
+    /// DeltaV - The NanoChat data if a card was scanned, null otherwise
     /// </summary>
     public NanoChatData? NanoChatData { get; }
 

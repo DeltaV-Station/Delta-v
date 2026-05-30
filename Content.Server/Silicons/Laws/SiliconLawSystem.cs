@@ -158,18 +158,18 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         component.Subverted = true;
 
         // Add the first emag law before the others
-        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV: Reuse emagger name if possible
+        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV - Reuse emagger name if possible
         component.Lawset?.Laws.Insert(0, new SiliconLaw
         {
-            LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV: pass name from variable
-            Order = -2 // Goobstation - AI/borg law changes - borgs obeying AI. DeltaV - Changed from Order = -1  to Order = -2, should be above secrecy emag law
+            LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV - pass name from variable
+            Order = -2 // DeltaV - Changed from Order = -1  to Order = -2, should be above secrecy emag law
         });
 
         //Add the secrecy law after the others
-        component.Lawset?.Laws.Insert(1, new SiliconLaw //DeltaV: Changed from Add to Insert
+        component.Lawset?.Laws.Insert(1, new SiliconLaw //DeltaV - Changed from Add to Insert
         {
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
-            Order = -1 //DeltaV: Changed from being after every other law to being after emag obey law
+            Order = -1 //DeltaV - Changed from being after every other law to being after emag obey law
         });
     }
 

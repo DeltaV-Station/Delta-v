@@ -20,13 +20,13 @@ public sealed partial class RummageableComponent : Component
     public bool Looted;
 
     /// <summary>
-    /// DeltaV: Last time the object was looted, used to check if cooldown has expired
+    /// DeltaV - Last time the object was looted, used to check if cooldown has expired
     /// </summary>
     [ViewVariables]
     public TimeSpan? LastLooted;
 
     /// <summary>
-    /// DeltaV: Minimum time between rummage attempts
+    /// DeltaV - Minimum time between rummage attempts
     /// </summary>
     [DataField("rummageCooldown"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]

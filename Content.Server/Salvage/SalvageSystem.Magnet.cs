@@ -53,7 +53,7 @@ public sealed partial class SalvageSystem
         {
             try
             {
-                await TakeMagnetOffer((station.Value, dataComp), index, (uid, component), user); // DeltaV: pass the user
+                await TakeMagnetOffer((station.Value, dataComp), index, (uid, component), user); // DeltaV - pass the user
             }
             catch (Exception e)
             {
@@ -107,7 +107,7 @@ public sealed partial class SalvageSystem
                 {
                     EndMagnet((uid, magnetData));
                 }
-                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 59) //DeltaV: was 31 seconds. Increased to give time to actually fulton a crate out.
+                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 59) //DeltaV - was 31 seconds. Increased to give time to actually fulton a crate out.
                 {
                     var magnet = GetMagnet((uid, magnetData));
 
@@ -279,15 +279,15 @@ public sealed partial class SalvageSystem
         }
     }
 
-    private async Task TakeMagnetOffer(Entity<SalvageMagnetDataComponent> data, int index, Entity<SalvageMagnetComponent> magnet, EntityUid user) // DeltaV: add user param
+    private async Task TakeMagnetOffer(Entity<SalvageMagnetDataComponent> data, int index, Entity<SalvageMagnetComponent> magnet, EntityUid user) // DeltaV - add user param
     {
         var seed = data.Comp.Offered[index];
 
         var offering = GetSalvageOffering(seed);
-        // Begin DeltaV Addition: make wrecks cost mining points to pull
+        // DeltaV - Begin Addition - make wrecks cost mining points to pull
         if (offering.Cost > 0 && !(_points.TryFindIdCard(user) is {} idCard && _points.RemovePoints(idCard, offering.Cost)))
             return;
-        // End DeltaV Addition
+        // DeltaV - End Addition
         var salvMap = _mapSystem.CreateMap();
         var salvMapXform = Transform(salvMap);
 

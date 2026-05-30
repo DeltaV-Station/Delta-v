@@ -74,7 +74,7 @@ public sealed class JobWhitelistManager : IPostInjectInit
             return true;
         }
 
-        // DeltaV: Blanket player whitelist allows all roles
+        // DeltaV - Blanket player whitelist allows all roles
         if (session.ContentData()?.Whitelisted ?? false)
             return true;
 

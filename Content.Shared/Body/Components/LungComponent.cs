@@ -37,7 +37,7 @@ public sealed partial class LungComponent : Component
     public ProtoId<AlertPrototype> Alert = "LowOxygen";
 
     /// <summary>
-    /// DeltaV: Multiplier on saturation passively lost.
+    /// DeltaV - Multiplier on saturation passively lost.
     /// Higher values require more air, lower require less.
     /// </summary>
     [DataField]

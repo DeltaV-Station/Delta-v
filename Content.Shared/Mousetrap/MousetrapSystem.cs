@@ -21,7 +21,7 @@ public sealed class MousetrapSystem : EntitySystem
     // they should just use the new trigger conditions
     private void OnStepTriggerAttempt(Entity<MousetrapComponent> ent, ref StepTriggerAttemptEvent args)
     {
-        // DeltaV: Entities with this component always trigger mouse traps, even if wearing shoes
+        // DeltaV - Entities with this component always trigger mouse traps, even if wearing shoes
         if (HasComp<AlwaysTriggerMousetrapComponent>(args.Tripper))
             args.Cancelled = false;
 

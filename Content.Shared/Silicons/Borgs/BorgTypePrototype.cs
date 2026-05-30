@@ -85,14 +85,14 @@ public sealed partial class BorgTypePrototype : IPrototype
     public EntProtoId[] DefaultModules = [];
 
     /// <summary>
-    /// DeltaV: Lawset to use instead of crewsimov.
+    /// DeltaV - Lawset to use instead of crewsimov.
     /// If the chassis is emagged or ion stormed this is ignored.
     /// </summary>
     [DataField]
     public ProtoId<SiliconLawsetPrototype>? Lawset;
 
     /// <summary>
-    /// DeltaV: Optional job prototype to tie to this borg type.
+    /// DeltaV - Optional job prototype to tie to this borg type.
     /// It will have the requirements applied and rolebans will extend to this bogr type.
     /// </summary>
     [DataField]
@@ -109,7 +109,7 @@ public sealed partial class BorgTypePrototype : IPrototype
     //
 
     /// <summary>
-    /// DeltaV: Components only added on the client.
+    /// DeltaV - Components only added on the client.
     /// </summary>
     [DataField]
     public ComponentRegistry? ClientComponents;

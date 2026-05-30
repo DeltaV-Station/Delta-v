@@ -13,7 +13,7 @@ using Robust.Shared.Random;
 namespace Content.Server.StationEvents.Events;
 
 /// <summary>
-/// DeltaV: Reworked vent critters to spawn a number of mobs at a single telegraphed location.
+/// DeltaV - Reworked vent critters to spawn a number of mobs at a single telegraphed location.
 /// This gives players time to run away and let sec do their job.
 /// </summary>
 /// <remarks>

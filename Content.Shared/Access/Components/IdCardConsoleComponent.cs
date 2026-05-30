@@ -49,7 +49,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Armory",
         "Atmospherics",
         "Bar",
-        //"Brig", DeltaV: Removed Brig Access
+        //"Brig", DeltaV - Removed Brig Access
         "Boxer",  // DeltaV - Add Boxer access
         "Detective",
         "Captain",

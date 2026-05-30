@@ -53,7 +53,7 @@ public sealed partial class VocalComponent : Component
 }
 
 /// <summary>
-///     DeltaV: raised when the component's Sounds field changes.
+///     DeltaV - raised when the component's Sounds field changes.
 /// </summary>
 [ByRefEvent]
 public record struct SoundsChangedEvent();

@@ -55,7 +55,7 @@ public sealed partial class BorgMenu : FancyWindow
 
         EjectBatteryButton.OnPressed += _ => EjectBatteryButtonPressed?.Invoke();
         BrainButton.OnPressed += _ => BrainButtonPressed?.Invoke();
-        // Begin DeltaV Additions - borg id chips
+        // DeltaV - Begin Additions - borg id chips
         IdChipButton.OnPressed += _ => IdChipButtonPressed?.Invoke();
         // predict the ejection
         IdChipButtonPressed += () =>
@@ -63,7 +63,7 @@ public sealed partial class BorgMenu : FancyWindow
             IdChipButton.Text = Loc.GetString("borg-id-chip-missing");
             IdChipButton.Disabled = true;
         };
-        // End DeltaV Additions
+        // DeltaV - End Additions
 
         NameLineEdit.OnTextChanged += OnNameChanged;
         NameLineEdit.OnTextEntered += OnNameEntered;
@@ -136,7 +136,7 @@ public sealed partial class BorgMenu : FancyWindow
     }
 
     /// <summary>
-    /// DeltaV: Updates the Eject ID Chip button text and enabled status.
+    /// DeltaV - Updates the Eject ID Chip button text and enabled status.
     /// </summary>
     public void UpdateIdChipButton()
     {

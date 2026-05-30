@@ -24,14 +24,14 @@ public sealed partial class WeatherPrototype : IPrototype
     public SoundSpecifier? Sound;
 
     /// <summary>
-    /// DeltaV: Damage you can take from being in this weather.
+    /// DeltaV - Damage you can take from being in this weather.
     /// Only applies when weather has fully set in.
     /// </summary>
     [DataField]
     public DamageSpecifier? Damage;
 
     /// <summary>
-    /// DeltaV: Don't damage entities that match this blacklist.
+    /// DeltaV - Don't damage entities that match this blacklist.
     /// </summary>
     [DataField]
     public EntityWhitelist? DamageBlacklist;

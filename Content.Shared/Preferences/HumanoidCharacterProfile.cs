@@ -28,7 +28,7 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        /* DeltaV: Completely redid the regex:
+        /* DeltaV - Completely redid the regex:
          * 0030-0039  Basic Latin: ASCII Digits
          * 0041-005A  Basic Latin: Uppercase Latin Alphabet
          * 0061-007A  Basic Latin: Lowercase Latin Alphabet

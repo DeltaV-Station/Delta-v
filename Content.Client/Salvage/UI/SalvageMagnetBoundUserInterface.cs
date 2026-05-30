@@ -66,7 +66,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                 });
             };
 
-            // Begin DeltaV Additions: Mining points cost for wrecks
+            // DeltaV - Begin Additions - Mining points cost for wrecks
             if (offer.Cost > 0)
             {
                 if (_player.LocalSession?.AttachedEntity is not {} user || !_points.UserHasPoints(user, offer.Cost))
@@ -79,13 +79,13 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                 };
                 option.AddContent(label);
             }
-            // End DeltaV Additions
+            // DeltaV - End Additions
 
             switch (offer)
             {
                 case AsteroidOffering asteroid:
                     option.Title = Loc.GetString($"dungeon-config-proto-{asteroid.Id}");
-                    break; // DeltaV: Skip ores since they aren't used with custom generation
+                    break; // DeltaV - Skip ores since they aren't used with custom generation
                     var layerKeys = asteroid.MarkerLayers.Keys.ToList();
                     layerKeys.Sort();
 
