@@ -5,7 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
-    - id: VentbullMigration
+    - id: VentbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -464,19 +464,19 @@
     startAnnouncement: station-event-ventbull-start-announcement # Delta-V - NT pest control announcement
     startAudio:
       path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
-    earliestStart: 1 # Delta-V - Vent pest control can occur at any time.
+    earliestStart: 1 # Vent pest control can occur at any time.
     minimumPlayers: 10
     weight: 5
-    duration: 15 # DeltaV - 15 seconds until the mice slaughter begins
-  - type: PrecognitionResult # DeltaV - Precogniton
+    duration: 15 # 15 seconds until the mice slaughter begins
+  - type: PrecognitionResult # Precogniton
     message: psionic-power-precognition-ventbull-spawn-result-message
   - type: VentCrittersRule
-    min: 5 # Delta-V Should be a range between 5 and 20 assorted mobs.
+    min: 5 # Should be a range between 5 and 20 assorted mobs.
     max: 20
-    playerRatio: 55 # DeltaV: Hopefully lets a decent amount spawn.
-    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries.
+    playerRatio: 55 # Hopefully lets a decent amount spawn.
+    table: !type:GroupSelector # EntityTable instead of spawn entries.
       children:
-      - id: MobMouse # Delta-V - Keeping some mouse spawns so that it looks like the ventbull/ventbulls chased them out of the vents.
+      - id: MobMouse # Keeping some mouse spawns so that it looks like the ventbull/ventbulls chased them out of the vents.
       - id: MobMouse1
       - id: MobMouse2
-      - id: MobPibbleVent # Delta-V - Hopefully this causes a combination of ventbulls and mice to spawn.
+      - id: MobPibbleVent # Hopefully this causes a combination of ventbulls and mice to spawn.
