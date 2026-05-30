@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Collections.Immutable;
+using Content.Shared._DV.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -98,7 +99,7 @@ public abstract partial class SharedChatSystem
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
-            SendEntityEmote(source, action, range, nameOverride, null, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
+            SendEntityEmote(source, action, range, nameOverride, null, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker); // DeltaV
         }
 
         return didEmote;
@@ -322,18 +323,4 @@ public abstract partial class SharedChatSystem
 
         return textInput[trimStart..trimEnd];
     }
-}
-
-// DeltaV
-// Note for future: If you want to make this more robust to handle more types of emotes while still being able to check off audible as an option for it then it would
-// probably be better to make it a struct and have audible be a flag for it and then the type of emote. This would avoid having to make two different types for audible and visual.
-/// <summary>
-/// Different ways of emoting. For that little extra in RP!
-/// </summary>
-public enum EmoteType : byte
-{
-    Normal, // Character emotes
-    Audible, // Character screams
-    Possessive, // Character's emote
-    AudiblePossessive // Character's scream
 }

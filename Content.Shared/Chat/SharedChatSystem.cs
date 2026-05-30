@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
+using Content.Shared._DV.Chat;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
@@ -330,7 +331,8 @@ public abstract partial class SharedChatSystem : EntitySystem
     bool ignoreActionBlocker = false,
     NetUserId? author = null
     )
-    { }
+    {
+    }
     // DeltaV - End
 
     protected virtual void SendEntityEmote(

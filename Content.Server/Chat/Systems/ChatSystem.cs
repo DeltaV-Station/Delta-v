@@ -35,6 +35,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared._DV.Chat;
 
 namespace Content.Server.Chat.Systems;
 
