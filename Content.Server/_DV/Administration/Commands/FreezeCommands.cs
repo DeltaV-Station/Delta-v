@@ -28,15 +28,17 @@ public sealed class FreezeCommand : LocalizedEntityCommands
 
             if (session.AttachedEntity is { } uid)
             {
-                if (!_entity.HasComponent<AdminFrozenComponent>(uid))
-                {
-                    _frozen.FreezeAndMute(uid);
-                    shell.WriteLine(Loc.GetString("cmd-freeze-success", ("username", username)));
-                }
-                else
-                {
-                    shell.WriteError(Loc.GetString("cmd-freeze-err-already-frozen", ("username", username)));
-                }
+                continue;
+            }
+            
+            if (!_entity.HasComponent<AdminFrozenComponent>(uid))
+            {
+                _frozen.FreezeAndMute(uid);
+                shell.WriteLine(Loc.GetString("cmd-freeze-success", ("username", username)));
+            }
+            else
+            {
+                shell.WriteError(Loc.GetString("cmd-freeze-err-already-frozen", ("username", username)));
             }
         }
     }
@@ -67,15 +69,16 @@ public sealed class UnfreezeCommand : LocalizedEntityCommands
 
             if (session.AttachedEntity is { } uid)
             {
-                if (_entity.RemoveComponent<AdminFrozenComponent>(uid))
-                {
-
-                    shell.WriteLine(Loc.GetString("cmd-unfreeze-success", ("username", username)));
-                }
-                else
-                {
-                    shell.WriteError(Loc.GetString("cmd-unfreeze-err-not-frozen", ("username", username)));
-                }
+                continue;
+            }
+            
+            if (_entity.RemoveComponent<AdminFrozenComponent>(uid))
+            {
+                shell.WriteLine(Loc.GetString("cmd-unfreeze-success", ("username", username)));
+            }
+            else
+            {
+                shell.WriteError(Loc.GetString("cmd-unfreeze-err-not-frozen", ("username", username)));
             }
         }
     }
