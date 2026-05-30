@@ -46,14 +46,15 @@
   - type: Clickable
 
 - type: entity
-  parent: N14FreeTableBase # Begin DeltaV Additions
+  # DeltaV - Begin Changes
+  parent: N14FreeTableBase
   id: N14FreeMetalTableBase # Base off THIS for metal tables
   description: A cold piece of metal standing on four metal legs.
   components:
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-  - type: Destructible 
+  - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -70,19 +71,21 @@
             min: 1
             max: 1
       - !type:DoActsBehavior
-        acts: ["Destruction"] # End DeltaV Additions
+        acts: ["Destruction"]
+  # DeltaV - End Changes
 
 # 32x32 tables
 - type: entity
-  parent: N14FreeMetalTableBase # Begin DeltaV Additions
+  # DeltaV - Begin Changes
+  parent: N14FreeMetalTableBase
   id: N14TableMetalRound
   name: circular metal table
-  description: A cold handmade circular metal table. # End DeltaV Additions
+  description: A cold handmade circular metal table.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi # Begin DeltaV Additions
+    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi
     state: table_metal_round
-    snapCardinals: true 
+    snapCardinals: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -94,9 +97,10 @@
         - TableMask
         layer:
         - TableLayer
-  - type: Construction 
+  - type: Construction
     graph: N14TableRecipes
-    node: N14MetalRound # End DeltaV Additions
+    node: N14MetalRound
+    # DeltaV - End Changes
 
 - type: entity
   id: N14TableMetalRoundDirty
@@ -106,7 +110,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
-    state: table_metal_round # N14TODO: There's a second sprite of this, need it to spawn a random one.
+    state: table_metal_round # TODO: There's a second sprite of this, need it to spawn a random one.
     snapCardinals: true # DeltaV
 
 - type: entity
@@ -130,7 +134,8 @@
         - TableMask
         layer:
         - TableLayer
-  - type: Construction # Begin DeltaV Additions
+  - type: Construction
+  # DeltaV - Begin Changes
     graph: N14TableRecipes
     node: N14WoodSquare
 
@@ -143,7 +148,7 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/N14Tables/tables.rsi
     state: table_wood_round
-    snapCardinals: true # DeltaV
+    snapCardinals: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -157,7 +162,8 @@
         - TableLayer
   - type: Construction
     graph: N14TableRecipes
-    node: N14WoodRound # End DeltaV Additions
+    node: N14WoodRound
+    # DeltaV - End Changes
 
 - type: entity
   parent: N14TableWoodSquare
@@ -166,9 +172,10 @@
   description: A low wooden square table.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi # Begin DeltaV Changes
+    # DeltaV - Begin Changes
+    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi
     state: table_wood_low
-    snapCardinals: true # DeltaV
+    snapCardinals: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -180,9 +187,10 @@
         - TableMask
         layer:
         - TableLayer
-  - type: Construction 
+  - type: Construction
     graph: N14TableRecipes
-    node: N14WoodLow # End Delta V Changes
+    node: N14WoodLow
+    # DeltaV - End Changes
 
 - type: entity
   parent: N14TableWoodSquare
@@ -191,7 +199,8 @@
   description: A small wooden table for holding smaller things. # DeltaV - added description
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi # Begin DeltaV Changes
+    # DeltaV - Begin Changes
+    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi
     state: table_wood_stand
     snapCardinals: true # DeltaV
   - type: Fixtures
@@ -207,8 +216,9 @@
         - TableLayer
   - type: Construction
     graph: N14TableRecipes
-    node: N14WoodStand # End DeltaV Changes
-  
+    node: N14WoodStand
+  # DeltaV - End Changes
+
 - type: entity
   parent: BaseStructure
   id: N14WoodTableFrame
@@ -246,13 +256,15 @@
         layer:
         - TableLayer
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi # Begin DeltaV Additions
+    # DeltaV - Begin Changes
+    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi
     state: tableframe_wood
-    snapCardinals: true # DeltaV
+    snapCardinals: true
   - type: Construction
     graph: N14TableRecipes
-    node: N14WoodFrame 
-  - type: Clickable # End DeltaV Additions
+    node: N14WoodFrame
+  - type: Clickable
+    # DeltaV - End Changes
 
 #64x64 tables
 - type: entity
@@ -280,14 +292,15 @@
     node: N14DeskMetal # DeltaV
 
 - type: entity
-  parent: BaseStructure # Begin DeltaV Additions
+  # DeltaV - Begin Changes
+  parent: BaseStructure
   id: N14MetalTableFrame
   name: metal frame
   description: Pieces of metal that make up the frame of an unfinished object.
   components:
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic 
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -299,7 +312,7 @@
           collection: WoodDestroy
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialWoodPlank1: 
+          MaterialWoodPlank1:
             min: 1
             max: 2
       - !type:DoActsBehavior
@@ -316,16 +329,17 @@
         layer:
         - TableLayer
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi # DeltaV - Resprite
+    sprite: _DV/Structures/Furniture/N14Tables/tables.rsi
     state: tableframe_metal
-    snapCardinals: true # DeltaV
+    snapCardinals: true
   - type: Construction
     graph: N14TableRecipes
     node: N14MetalFrame
   - type: Clickable
+    # DeltaV - End Changes
 
 - type: entity
-  parent: N14FreeMetalTableBase # End DeltaV Additions
+  parent: N14FreeMetalTableBase # DeltaV
   id: N14TableDeskMetalDirty
   suffix: dirty
   components:
@@ -333,14 +347,16 @@
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: desk_metal_dirty # DeltaV - added clean version, renamed and added old texture to dirty
 
-- type: entity # Begin DeltaV additions
+- type: entity
+  # DeltaV - Begin Changes
   parent: N14FreeMetalTableBase
   id: N14TableDeskMetalAlt
   suffix: alt
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/desks.rsi 
-    state: desk_metal_alt # End DeltaV Additions
+    sprite: _DV/Structures/Furniture/N14Tables/desks.rsi
+    state: desk_metal_alt
+  # DeltaV - End Changes
 
 - type: entity
   parent: N14FreeMetalTableBase # DeltaV
@@ -352,7 +368,7 @@
 
 - type: entity
   parent: N14FreeTableBase
-  id: N14TableDeskWood2 
+  id: N14TableDeskWood2
   suffix: alt # DeltaV
   description: A desk for working at. # DeltaV
   components:
@@ -372,14 +388,15 @@
         - TableLayer
 
 - type: entity
-  parent: N14TableDeskWood2 
+  parent: N14TableDeskWood2
   id: N14TableDeskWood # DeltaV
   name: office desk
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/N14Tables/desks.rsi # DeltaV - Resprite
     state: desk_wood
-  - type: Fixtures # Begin DeltaV Additions
+  - type: Fixtures
+    # DeltaV - Begin Changes
     fixtures:
       fix1:
         shape:
@@ -392,7 +409,8 @@
         - TableLayer
   - type: Construction
     graph: N14TableRecipes
-    node: N14DeskWood # End DeltaV Additions
+    node: N14DeskWood
+    # DeltaV - End Changes
 
 - type: entity
   parent: N14FreeTableBase
@@ -402,7 +420,8 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/N14Tables/desks.rsi # DeltaV - Resprite
     state: desk_wood_small
-  - type: Fixtures # Begin DeltaV Additions
+  - type: Fixtures
+    # DeltaV - Begin Changes
     fixtures:
       fix1:
         shape:
@@ -412,7 +431,8 @@
         mask: # tables should collide with other tables
         - TableMask
         layer:
-        - TableLayer # End DeltaV Additions
+        - TableLayer
+    # DeltaV - End Changes
 
 - type: entity
   parent: N14TableDeskWood
@@ -441,7 +461,8 @@
   description: An oval table made from wood.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tablesx64.rsi # Begin DeltaV Additions
+    # DeltaV - Begin Changes
+    sprite: _DV/Structures/Furniture/N14Tables/tablesx64.rsi
     state: table_wood_wide_oval
   - type: Construction
     graph: N14TableRecipes
@@ -456,7 +477,8 @@
         mask: # tables should collide with other tables
         - TableMask
         layer:
-        - TableLayer # End DeltaV Additions
+        - TableLayer
+    # DeltaV - End Changes
 
 - type: entity
   parent: N14TableCasinoCards
@@ -465,7 +487,8 @@
   description: A wide square table made from wood.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/tablesx64.rsi # Begin DeltaV Additions
+    # DeltaV - Begin Changes
+    sprite: _DV/Structures/Furniture/N14Tables/tablesx64.rsi
     state: table_wood_wide_square
   - type: Fixtures
     fixtures:
@@ -480,7 +503,8 @@
         - TableLayer
   - type: Construction
     graph: N14TableRecipes
-    node: N14WoodSquareWide # End DeltaV Additions
+    node: N14WoodSquareWide
+    # DeltaV - End Changes
 
 - type: entity
   parent: N14TableCasinoCards
@@ -589,7 +613,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_cross
-    snapCardinals: true # DeltaV 
+    snapCardinals: true # DeltaV
   - type: Construction # DeltaV
     graph: N14TableRecipes # DeltaV
     node: N14WoodCraftCounterCross # DeltaV

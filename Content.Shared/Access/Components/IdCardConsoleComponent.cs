@@ -49,7 +49,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Armory",
         "Atmospherics",
         "Bar",
-        //"Brig", Delta V: Removed Brig Access
+        //"Brig", DeltaV: Removed Brig Access
         "Boxer",  // DeltaV - Add Boxer access
         "Detective",
         "Captain",
@@ -94,10 +94,10 @@ public sealed partial class IdCardConsoleComponent : Component
         "Zookeeper",  // DeltaV - Add Zookeeper access
         "ChiefJustice",  // DeltaV - Add Chief Justice access
         "Justice",  // DeltaV - Add Justice access
-        "Prosecutor", // Delta V - Add Prosecutor access
+        "Prosecutor", // DeltaV - Add Prosecutor access
         "Robotics", // DeltaV
-        "Clerk", // Delta V - Add Clerk access
-        "Surgery", // Delta V - Add Surgery access
+        "Clerk", // DeltaV - Add Clerk access
+        "Surgery", // DeltaV - Add Surgery access
         "Funding", // DeltaV - Add Funding access
     };
 

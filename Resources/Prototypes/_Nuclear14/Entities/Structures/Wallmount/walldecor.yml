@@ -87,8 +87,8 @@
     sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
     snapCardinals: false
     state: clock
-  - type: Clock # Delta V - Make clocks work
-  - type: WallMount # Delta V - Clocks go on walls
+  - type: Clock # DeltaV - Make clocks work
+  - type: WallMount # DeltaV - Clocks go on walls
 
 - type: entity
   parent: N14WallDecorClock

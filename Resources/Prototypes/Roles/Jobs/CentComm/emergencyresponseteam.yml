@@ -20,10 +20,10 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -127,13 +127,13 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   parent: ERTChaplainGearEVA
@@ -212,10 +212,10 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   parent: ERTEngineerGearEVA
@@ -311,10 +311,10 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -506,10 +506,10 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   parent: ERTMedicalGearEVA
@@ -614,10 +614,10 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   parent: ERTJanitorGearEVA

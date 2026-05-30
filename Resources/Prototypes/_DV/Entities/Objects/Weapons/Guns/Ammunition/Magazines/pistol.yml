@@ -2,7 +2,7 @@
 - type: entity
   id: MagazinePistolHighCapacityRubber
   name: machine pistol magazine (.35 auto rubber)
-  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold less-lethal rubber ammunition. #Delta V
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold less-lethal rubber ammunition.
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -26,10 +26,11 @@
       - state: inhand-right-stripe
         color: "#dbdbdb"
 
+# .35 auto incen
 - type: entity
   id: MagazinePistolHighCapacityIncendiary
   name: machine pistol magazine (.35 auto incendiary)
-  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold self-igniting incendiary ammunition. #Delta V
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold self-igniting incendiary ammunition.
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -53,10 +54,11 @@
       - state: inhand-right-stripe
         color: "#ff6e52"
 
+# .35 auto uranium
 - type: entity
   id: MagazinePistolHighCapacityUranium
   name: machine pistol magazine (.35 auto uranium)
-  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold exotic uranium-core ammunition. #Delta V
+  description: 20-round double-stack single feed magazine for machine pistols. Intended to hold exotic uranium-core ammunition.
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
@@ -80,6 +82,7 @@
       - state: inhand-right-stripe
         color: "#00cd42"
 
+# .35 auto rubber
 - type: entity
   parent: BaseMagazinePistol
   id: MagazinePistolRubber
@@ -102,6 +105,7 @@
       right:
       - state: inhand-right-mag
 
+# SMG .35 auto rubber
 - type: entity
   parent: BaseMagazinePistolSubMachineGun
   id: MagazinePistolSubMachineGunRubber
@@ -125,7 +129,6 @@
       - state: inhand-right-mag
 
 # .38 special
-
 - type: entity
   abstract: true
   parent: BaseItem
@@ -159,6 +162,7 @@
     zeroVisible: false
   - type: Appearance
 
+# psi-breaker magazine
 - type: entity
   parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecial
@@ -173,6 +177,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
+# .38 special practice
 - type: entity
   parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecialPractice
@@ -188,6 +193,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
+# .38 special rubber
 - type: entity
   parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecialRubber
@@ -203,6 +209,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
+# .38 special mindbreaker
 - type: entity
   parent: BaseMagazinePistolSpecial
   id: MagazinePistolSpecialMindbreaker

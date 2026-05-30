@@ -27,7 +27,7 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 30h # DeltaV - was 5h
-  - !type:RoleTimeRequirement # Delta V - they should be able to make basic chems
+  - !type:RoleTimeRequirement # DeltaV - they should be able to make basic chems
     role: JobChemist
     time: 4h # DeltaV
   guides: [ NuclearOperatives ]

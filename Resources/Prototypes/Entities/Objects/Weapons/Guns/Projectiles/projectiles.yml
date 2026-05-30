@@ -1331,7 +1331,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10 # Delta V was 13
+        Heat: 10 # DeltaV - was 13
 
 - type: entity
   name: wide laser barrage
@@ -1367,7 +1367,7 @@
     spread: 9
 
 - type: entity
-  name: magnum bolt #Delta V - does not fuction like a laser bolt
+  name: magnum bolt #DeltaV - does not function like a laser bolt
   id: BulletLaserMagnum
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1382,11 +1382,11 @@
     color: "#ff4300"
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
-    damage: #Delta V - was 30 heat
+    damage: #DeltaV - was 30 heat
       types:
         Heat: 24
         Piercing: 11
-  - type: Fixtures # Delta V - ensures that it doesnt pierce windows
+  - type: Fixtures # DeltaV - dont pierce windows
     fixtures:
       projectile:
         shape:

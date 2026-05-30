@@ -81,9 +81,9 @@
     containers:
       board: [ DoorElectronicsChapel ]
   # DeltaV - Add epistemics wires
-  - type: Wires 
+  - type: Wires
     layoutId: AirlockScience
-  # Delta V - End
+  # DeltaV - End
 
 - type: entity
   parent: WindoorServiceLocked
@@ -203,7 +203,7 @@
     containers:
       board: [ DoorElectronicsBar ]
 
-#Delta V: Removed Brig Access
+#DeltaV - Removed Brig Access
 #- type: entity
 #  parent: WindoorSecureSecurityLocked
 #  id: WindoorSecureBrigLocked

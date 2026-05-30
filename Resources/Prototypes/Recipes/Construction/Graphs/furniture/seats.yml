@@ -172,7 +172,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
-# Delta V - Begin additions
+        # DeltaV - Begin additions
         - to: chairComfyBlack
           steps:
           - material: FloorCarpetBlack
@@ -325,7 +325,7 @@
         steps:
         - tool: Slicing
           doAfter: 1
-# Delta V - End additions
+        # DeltaV - End additions
 
     - node: chairPilotSeat
       entity: ChairPilotSeat

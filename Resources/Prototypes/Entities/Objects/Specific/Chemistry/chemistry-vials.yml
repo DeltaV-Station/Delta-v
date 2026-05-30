@@ -19,7 +19,7 @@
     tags:
     - Trash
     - CentrifugeCompatible # unique feature of vials
-    - Vial # Delta V - vial gaming in belts
+    - Vial # DeltaV - vial gaming in belts
 
 ## Entities
 
@@ -125,7 +125,7 @@
   - type: Tag
     tags: &TagVial # Remove trash tag when we have a filled solution
     - CentrifugeCompatible
-    - Vial # Delta V - vial gaming in belts
+    - Vial # DeltaV - vial gaming in belts
 
 - type: entity
   parent: ChemistryEmptyVialSmall

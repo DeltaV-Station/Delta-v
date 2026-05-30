@@ -488,7 +488,7 @@ public enum LogType
     Connection = 104,
 
     /// <summary>
-    /// Delta V - RMC Pose port
+    /// Delta  - RMC Pose port
     /// </summary>
     RMCSetPose= 10000,
 }

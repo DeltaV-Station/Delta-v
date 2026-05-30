@@ -78,7 +78,7 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
-# Begin Delta V Changes
+# Begin DeltaV Changes
       types:
         Slash: 12
         Structural: 35
@@ -97,7 +97,9 @@
     spawned:
     - id: FoodMeatXeno
       amount: 5
-#  - type: GhostRole # Delta V - Moves ghost role from parent to child
+
+# DeltaV - Begin Changes - Moves ghost role from parent to child
+#  - type: GhostRole
 #    allowMovement: true
 #    allowSpeech: true
 #    makeSentient: true
@@ -107,6 +109,7 @@
 #    raffle:
 #      settings: default
 #  - type: GhostTakeoverAvailable
+# DeltaV - End Changes
   - type: TypingIndicator
     proto: alien
   - type: Temperature
@@ -124,15 +127,17 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
-    speechSounds: Xenonid # DeltaV: Use RMC's speech sounds for sentient xenos
-  - type: Psionic #Nyano - Summary: makes psionic by default.
-  - type: NightVision #Delta-v - Added nightvision
+    # DeltaV - Begin Changes
+    speechSounds: Xenonid
+  - type: Psionic
+  - type: NightVision
     color: "#808080"
+    # DeltaV - End Changes
 
 - type: entity
   name: praetorian
   parent: MobXeno
-  id: MobXenoPraetorianNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoPraetorianNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -169,7 +174,7 @@
 - type: entity
   name: drone
   parent: MobXeno
-  id: MobXenoDroneNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoDroneNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -208,7 +213,7 @@
 - type: entity
   name: queen
   parent: MobXeno
-  id: MobXenoQueenNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoQueenNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -250,7 +255,7 @@
 - type: entity
   name: ravager
   parent: MobXeno
-  id: MobXenoRavagerNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoRavagerNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -291,7 +296,7 @@
 - type: entity
   name: runner
   parent: MobXeno
-  id: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoRunnerNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -327,8 +332,8 @@
 
 - type: entity
   name: rouny
-  parent: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
-  id: MobXenoRounyNPC # Delta V - These no longer inherit the ghost takeover comp
+  parent: MobXenoRunnerNPC # DeltaV - These no longer inherit the ghost takeover comp
+  id: MobXenoRounyNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -343,7 +348,7 @@
 - type: entity
   name: spitter
   parent: MobXeno
-  id: MobXenoSpitterNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoSpitterNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs

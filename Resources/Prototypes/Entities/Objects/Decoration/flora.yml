@@ -340,13 +340,13 @@
       - id: PresentRandomCoal # naughty
         prob: 0.05
         orGroup: present
-      - id: PresentInfinitePresent # Delta V - silly
+      - id: PresentInfinitePresent # DeltaV - silly
         prob: 0.0025
         orGroup: present
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason
-    # Start Delta V - Add Christmas kobold mob spawn. Plan to remove when we have our own tree variant
+    # DeltaV - Begin changes - Add Christmas kobold mob spawn.
   - type: Destructible
     thresholds:
     - trigger:
@@ -377,7 +377,7 @@
           MobChristmasKobold:
             min: 4
             max: 8
-      # End Delta V - Spawn Christmas kobold.
+      # DeltaV - End Changes
 
 - type: entity
   parent: FloraTreeChristmas02
