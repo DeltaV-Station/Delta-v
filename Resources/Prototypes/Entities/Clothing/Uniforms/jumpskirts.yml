@@ -285,7 +285,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformSkirtBase # Delta-V - Make this parent to ClothingUniformSkirtBase from ClothingUniformBase
+  parent: ClothingUniformSkirtBase # DeltaV - Changes parent from ClothingUniformBase
   id: ClothingUniformJumpskirtPrisoner
   name: prisoner jumpskirt
   description: A jumpskirt used for prisoners. It has suit sensors automatically enabled at all times.
@@ -323,8 +323,8 @@
     - Recyclable
     - PrisonUniform
     - WhitelistChameleon
-    - Skirt # Delta-V - Skirt Tag so Harpies can wear it.
-            # Delta-V : This needs to be updated with every new tag given to ClothingUniformSkirtBase as tags aren't inherited.
+    - Skirt # DeltaV - Skirt Tag so Harpies can wear it
+            #todo needs to be updated with every new tag given to ClothingUniformSkirtBase, as tags aren't inherited.
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]

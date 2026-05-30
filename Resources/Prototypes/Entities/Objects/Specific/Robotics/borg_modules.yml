@@ -253,10 +253,10 @@
     tags:
     - BorgModuleSyndicate
     - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module if found
-  - type: Sprite # Delta-V: Updated parent
+  - type: Sprite # DeltaV - Updated parent
     sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
-    inhandVisuals: # Delta-V: Fixed inhands
+    inhandVisuals: # DeltaV - Fixed inhands
       left:
       - sprite: Objects/Specific/Robotics/borgmodule.rsi
         state: base-icon-inhand-left
@@ -295,10 +295,10 @@
     tags:
     - BorgModuleSyndicateAssault
     - BorgModuleGeneric # DeltaV - Allows any borg to have an evil module
-  - type: Sprite # Delta-V: Updated parent
+  - type: Sprite # DeltaV - Updated parent
     sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
-    inhandVisuals: # Delta-V: Fixed inhands
+    inhandVisuals: # DeltaV - Fixed inhands
       left:
       - sprite: Objects/Specific/Robotics/borgmodule.rsi
         state: base-icon-inhand-left
@@ -990,7 +990,7 @@
         whitelist:
           components:
           - FitsInDispenser
-    # DeltaV - Add Borg Pill Administering
+    # DeltaV - Begin Additions - Add Borg Pill Administering
     - hand:
         emptyLabel: borg-slot-pill-empty
         emptyRepresentative: PillTricordrazine
@@ -1015,7 +1015,7 @@
           - Pill
           tags:
           - PillCanister
-    # END DeltaV
+    # DeltaV - End Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
@@ -1250,7 +1250,7 @@
     - item: BikeHorn
     - item: ClownRecorder
     - item: BikeHornInstrument
-# Beginning of DeltaV Additions
+# DeltaV - Begin Additions
     - item: Soap
       hand:
         emptyLabel: borg-slot-slip-empty
@@ -1267,7 +1267,7 @@
           tags:
           - Pie
           - Trash
-# End of DeltaV Additions
+# DeltaV - End Additions
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 
@@ -1293,21 +1293,21 @@
 
 #syndicate modules
 - type: entity
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ] # Delta-V: Updated parent to Syndicate
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ] # DeltaV - Updated parent to Syndicate
   id: BorgModuleSyndicateWeapon
   name: weapon cyborg module
   components:
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-weapon # Delta-V
+    - state: icon-weapon # DeltaV
   - type: ItemBorgModule
     hands:
     - item: WeaponPistolEchis
     - item: EnergyDaggerLoud
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
-#   Delta-V: Removed due to new parent
+#   DeltaV - Removed due to new parent
 #  - type: Item
 #    inhandVisuals:
 #      left:
@@ -1338,7 +1338,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-operative # Delta-V
+    - state: icon-operative # DeltaV
   - type: ItemBorgModule
     hands:
     - item: Crowbar
@@ -1358,7 +1358,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-esword # Delta-V
+    - state: icon-esword # DeltaV
   - type: ItemBorgModule
     hands:
     - item: CyborgEnergySword
@@ -1375,7 +1375,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-desword # Delta-V
+    - state: icon-desword # DeltaV
   - type: ItemBorgModule
     hands:
     - item: CyborgEnergySwordDouble
@@ -1392,7 +1392,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-l6c # Delta-V
+    - state: icon-l6c # DeltaV
   - type: ItemBorgModule
     hands:
     - item: WeaponLightMachineGunL6C
@@ -1409,7 +1409,7 @@
   - type: Sprite
     layers:
     - state: syndicate
-    - state: icon-c20r # Delta-V
+    - state: icon-c20r # DeltaV
   - type: ItemBorgModule
     hands:
     - item: WeaponSubMachineGunC20rROW
@@ -1432,7 +1432,7 @@
       - item: SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
-    - type: Construction # DeltaV: construction for adding explosive payload to the dud version
+    - type: Construction # DeltaV - construction for adding explosive payload to the dud version
       graph: BorgModuleMartyr
       node: live
     - type: Item

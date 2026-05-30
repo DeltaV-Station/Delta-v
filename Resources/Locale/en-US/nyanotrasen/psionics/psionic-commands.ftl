@@ -1,4 +1,4 @@
-# Delta-V - Change glimmershow to showglimmer
+# DeltaV - Change glimmershow to showglimmer
 command-showglimmer-description = Show the current glimmer level.
 command-showglimmer-help = No arguments.
 

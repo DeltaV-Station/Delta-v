@@ -1,4 +1,4 @@
-﻿# DELTA-V
+﻿# DeltaV
 # Due to the custom trait system, all traits have been moved under \Resources\Prototypes\_DV\Traits
 # If you want to add a new one, do it there
 
@@ -7,13 +7,13 @@
 #  id: Synthetic
 #  name: trait-synth-name
 #  description: trait-synth-desc
-#  # Begin DeltaV Additions - blacklist IPCs
+#  # DeltaV - Begin Additions - blacklist IPCs
 #  blacklist:
 #    components:
 #      - Silicon
 #      - BorgChassis
 #  excludedSpecies:
 #    - IPC
-#  # End DeltaV Additions - blacklist IPCs
+#  # DeltaV - End Additions - blacklist IPCs
 #  components:
 #    - type: Synth

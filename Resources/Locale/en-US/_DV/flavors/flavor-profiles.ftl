@@ -17,7 +17,7 @@ flavor-complex-graveyard = like a strong cold brew
 flavor-complex-bubbletea = like creamy sweetness
 flavor-complex-corncob = like a sick joke
 
-## Delta
+## DeltaV
 flavor-complex-gunmetal = bittersweet and creamy
 flavor-complex-lemondrop = refreshingly tart
 flavor-complex-greengrass = like a holiday in the sun
@@ -32,7 +32,7 @@ flavor-complex-drgibbbloodred = like severe malpractice
 flavor-complex-lemon-lime-bitters = like an Aussie dessert
 flavor-complex-spicy-pickle = like spicy pickle crackers
 
-## Delta-V additional drink flavors
+## DeltaV additional drink flavors
 flavor-complex-absinthe-deltav = like green death
 flavor-complex-blue-curacao-deltav = like fermented oranges
 flavor-complex-deadrum-deltav = like a botched murder

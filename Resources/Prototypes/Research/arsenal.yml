@@ -34,7 +34,7 @@
   recipeUnlocks:
   - WeaponLaserCarbine
 
-# DeltaV: made nonlethals roundstart, see #2758
+# DeltaV - made nonlethals roundstart, see #2758
 #- type: technology
 #  id: NonlethalAmmunition
 #  name: research-technology-nonlethal-ammunition
@@ -50,7 +50,8 @@
 #  - BoxBeanbag
 #  - WeaponDisabler
 
-#- type: technology # DeltaV merged draconic and uranium munitions and moved to our namespace
+# DeltaV - merged draconic and uranium munitions and moved to our namespace
+#- type: technology
 #  id: UraniumMunitions
 #  name: research-technology-uranium-munitions
 #  icon:
@@ -71,7 +72,8 @@
 #  - MagazineBoxRifleUranium
 #  - BoxShotgunUranium
 
-#- type: technology # DeltaV - Moved to our own namespace, see _DV/Research/Arsenal.yml
+# DeltaV - Moved to our own namespace, see _DV/Research/Arsenal.yml
+#- type: technology
 #  id: AdvancedRiotControl
 #  name: research-technology-advanced-riot-control
 #  icon:
@@ -85,7 +87,7 @@
 #  - TelescopicShield
 #  - HoloprojectorSecurity
 #  - WeaponDisablerSMG
-#  - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
+#  - BorgModuleSecurityEscalate # DeltaV - SecBorg Research
 
 - type: technology
   id: ExplosiveTechnology

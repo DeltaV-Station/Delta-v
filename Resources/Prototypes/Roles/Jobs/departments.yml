@@ -128,26 +128,30 @@
   - SecurityOfficer
   - Detective
   - Warden
-  - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
-  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
-  - SecurityBorg # Delta-V : Security Borg
-  - RoleLaika # Delta-V : Secdogs, see Resources/Prototypes/_DV/Roles/Jobs/Pets/pets.yml
-  - RoleK9Officer # Delta-V : Secdogs, see Resources/Prototypes/_DV/Roles/Jobs/Security/k9.yml
+  # DeltaV - Begin Changes
+  - PrisonGuard # see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
+  - Brigmedic # see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
+  - SecurityBorg
+  - RoleLaika # see Resources/Prototypes/_DV/Roles/Jobs/Pets/pets.yml
+  - RoleK9Officer # see Resources/Prototypes/_DV/Roles/Jobs/Security/k9.yml
+  # DeltaV - End Changes
 
 - type: department
-  id: Epistemics # DeltaV - Epistemics Department replacing Science
-  name: department-Epistemics # DeltaV
-  description: department-Epistemics-description # DeltaV
+  # DeltaV - Begin Changes
+  id: Epistemics # Epistemics Department replacing Science
+  name: department-Epistemics
+  description: department-Epistemics-description
   color: "#D381C9"
-  radioChannel: Science # DeltaV
+  radioChannel: Science
   roles:
   - ResearchDirector
   - Scientist
   - ResearchAssistant
-  - Chaplain # DeltaV - Move Chaplain into Epistemics
-  - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
-  - Roboticist # DeltaV: Roboticist job
-  - Librarian # DeltaV - Move Librarian into epistemics as curator
+  - Chaplain # Move Chaplain into Epistemics
+  - ForensicMantis #  ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+  - Roboticist
+  - Librarian # Move Librarian into epistemics as curator
+  # DeltaV - End Changes
 
 - type: department
   id: Silicon
@@ -157,7 +161,7 @@
   roles:
   - Borg
   - MedicalBorg # DeltaV - roundstart mediborg job
-  - SecurityBorg # Delta-V : Security Borg
+  - SecurityBorg # DeltaV - Security Borg
   - StationAi
   primary: false # DeltaV - removed from primary dept
 
@@ -168,12 +172,14 @@
   color: "#9FED58"
   weight: 10
   roles:
-  - Boxer # DeltaV - Keep Zookeeper/Boxer
+  # DeltaV - Begin Changes
+  - Boxer
   - Reporter
-  - Zookeeper # DeltaV - Keep Zookeeper/Boxer
+  - Zookeeper
   - Psychologist
-  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
-  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
-  - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
+  - MartialArtist # see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
+  - Gladiator # see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
+  - Prisoner # see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
+  - Brigmedic # Corpsman, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
   primary: false
+  # DeltaV - End Changes
