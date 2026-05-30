@@ -180,6 +180,8 @@
       components:
       - type: NukeOperative
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
+      - type: RandomHumanoidAppearance # DeltaV - make nukies have random appearance
+        randomizeName: false
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicateElite
@@ -198,6 +200,8 @@
       components:
       - type: NukeOperative
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
+      - type: RandomHumanoidAppearance # DeltaV - make nukies have random appearance
+        randomizeName: false
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicateNormal
@@ -218,6 +222,8 @@
       components:
       - type: NukeOperative
       - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
+      - type: RandomHumanoidAppearance # DeltaV - make nukies have random appearance
+        randomizeName: false
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicateNormal
