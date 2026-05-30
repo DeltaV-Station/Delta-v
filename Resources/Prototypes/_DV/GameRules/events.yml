@@ -467,7 +467,7 @@
     earliestStart: 1 # Delta-V - Vent pest control can occur at any time.
     minimumPlayers: 10
     weight: 5
-    duration: 30 # DeltaV: was 60, used as a delay now
+    duration: 15 # DeltaV - 15 seconds until the mice slaughter begins
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ventbull-spawn-result-message
   - type: VentCrittersRule
