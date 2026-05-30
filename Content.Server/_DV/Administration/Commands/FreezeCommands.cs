@@ -26,7 +26,7 @@ public sealed class FreezeCommand : LocalizedEntityCommands
                 continue;
             }
 
-            if (session.AttachedEntity is { } uid)
+            if (session.AttachedEntity is not { } uid)
             {
                 continue;
             }
@@ -67,7 +67,7 @@ public sealed class UnfreezeCommand : LocalizedEntityCommands
                 continue;
             }
 
-            if (session.AttachedEntity is { } uid)
+            if (session.AttachedEntity is not { } uid)
             {
                 continue;
             }
