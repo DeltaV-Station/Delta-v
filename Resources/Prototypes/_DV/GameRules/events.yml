@@ -461,9 +461,9 @@
   parent: BaseStationEvent
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ventbull-start-announcement # Delta-V - NT pest control announcement
+    startAnnouncement: station-event-ventbull-start-announcement # NT pest control announcement
     startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - custom announcer
+      path: /Audio/_DV/Announcements/attention.ogg 
     earliestStart: 1 # Vent pest control can occur at any time.
     minimumPlayers: 10
     weight: 5
