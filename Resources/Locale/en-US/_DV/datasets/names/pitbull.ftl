@@ -30,7 +30,7 @@ names-pitbull-dataset-28 = Baby
 names-pitbull-dataset-29 = Demon
 names-pitbull-dataset-30 = Trixie
 
-# Delta-V additions
+# Additional Pitbull names
 names-pitbull-dataset-31 = Sprinkles
 names-pitbull-dataset-32 = Sparkles
 names-pitbull-dataset-33 = Cupcake
@@ -50,16 +50,16 @@ names-pitbull-dataset-46 = Taco
 names-pitbull-dataset-47 = Burger
 names-pitbull-dataset-48 = Destroyer
 
-# Delta-V - Warhammer 40K references
+# Warhammer 40K references
 names-pitbull-dataset-49 = Horus
 names-pitbull-dataset-50 = Angron
 names-pitbull-dataset-51 = Khorne
 
-# Delta-V - Helldivers 2 references
+# Helldivers 2 references
 names-pitbull-dataset-52 = Hellbomb
 names-pitbull-dataset-53 = Malevelon
 
-# Delta-V - Antag References
+# Antag References
 names-pitbull-dataset-54 = Nukie
 names-pitbull-dataset-55 = Zed
 names-pitbull-dataset-56 = Zombie
