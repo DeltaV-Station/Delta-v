@@ -74,8 +74,10 @@
   - type: DogVision
   - type: NPCRetaliation
   - type: NpcFactionMember
+  - type: NpcFactionMember
     factions:
-    - Pitbull
+      - PetsNT
+      - Cat # Not a cat but we want them to attack mice
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
