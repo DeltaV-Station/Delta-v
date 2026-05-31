@@ -17,7 +17,7 @@
     #startAnnouncement: station-event-asakim-shuttle-detected # DeltaV - no
     #  startAudio:
     #    path: /Audio/Misc/notice1.ogg
-    weight: 1.5 # DeltaV -  was 2, now less common then Arms Dealer. rare role
+    weight: 1.5 # DeltaV -  was 2
     minimumPlayers: 25 # DeltaV
     maxOccurrences: 1 # DeltaV - was 4
     duration: null # DeltaV
@@ -56,7 +56,7 @@
         factions:
         - Syndicate
       #- type: PsionicBonusChance # uncomment when psionics are cool
-      #  multiplier: 999 # no way to guarentee random psionics so. next best thing
+      #  multiplier: 999 # no way to guarantee random psionics so. next best thing
       mindRoles:
       - MindRoleAsakim
   # End DeltaV Additions
