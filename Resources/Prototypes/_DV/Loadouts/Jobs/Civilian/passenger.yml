@@ -327,6 +327,17 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPink
 
+## Red Jumpsuit
+- type: loadout
+  id: RedJumpsuitPassenger # Alternate name to avoid conflict with security_cadet loadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+
+- type: loadout
+  id: RedJumpskirtPassenger # Alternate name to avoid conflict with security_cadet loadout
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorRed
+
 ## Purple Jumpsuit
 - type: loadout
   id: PurpleJumpsuit

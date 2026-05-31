@@ -336,6 +336,7 @@
 
 - type: entity
   id: ChemistryBottleDexalinPlus
+  categories: [ HideSpawnMenu ] # DeltaV - Killed DexalinPlus
   suffix: dex+
   parent: BaseChemistryBottleFilled
   components:
@@ -1393,7 +1394,7 @@
     - id: ChemistryBottleDylovene
     - id: ChemistryBottleInaprovaline
     - id: ChemistryBottleDexalin
-    - id: ChemistryBottleDexalinPlus
+    #- id: ChemistryBottleDexalinPlus # DeltaV - Killed DexalinPlus
     - id: ChemistryBottleSaline
     - id: ChemistryBottleTricordrazine
 
@@ -1426,7 +1427,7 @@
     - id: ChemistryBottleCryptobiolin
     - id: ChemistryBottleDermaline
     - id: ChemistryBottleDexalin
-    - id: ChemistryBottleDexalinPlus
+    #- id: ChemistryBottleDexalinPlus # DeltaV - Killed DexalinPlus
     - id: ChemistryBottleDiphenhydramine
     - id: ChemistryBottleDiphenylmethylamine
     - id: ChemistryBottleDoxarubixadone
