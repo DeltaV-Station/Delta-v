@@ -56,10 +56,10 @@
     Insuzine:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalZap
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalZap
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreateTelegCrystal
@@ -72,10 +72,10 @@
     Oculine:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalTeleg
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalTeleg
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreatePrecogCrystal
@@ -88,10 +88,10 @@
     Agonolexyne:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalPrecog
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalPrecog
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreateScreamCrystal
@@ -104,10 +104,10 @@
     Blissifylovene:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalScream
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalScream
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreateDispelCrystal
@@ -120,10 +120,10 @@
     Charcoal:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalDispel
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalDispel
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreatePulseCrystal
@@ -136,10 +136,10 @@
     Mercury:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalPulse
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalPulse
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreateRegenCrystal
@@ -152,10 +152,10 @@
     Arcryox:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalRegen
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalRegen
+  - !type:AffectsGlimmer
+    amount: -3
 
 - type: reaction
   id: CreatePyroCrystal
@@ -168,7 +168,7 @@
     Phlogiston:
       amount: 25
   effects:
-    - !type:SpawnEntity
-      entity: PsionCrystalPyro
-    - !type:AffectsGlimmer
-      amount: -3
+  - !type:SpawnEntity
+    entity: PsionCrystalPyro
+  - !type:AffectsGlimmer
+    amount: -3
