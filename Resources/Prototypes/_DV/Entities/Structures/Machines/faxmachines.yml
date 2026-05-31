@@ -458,7 +458,7 @@
     autoLinkJobs: [Zookeeper]
   - type: FaxMachine
     name: "Zoo"
-   
+
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineMantis
@@ -477,4 +477,3 @@
   - type: FaxMachine
     name: "Unknown?"
     responsePings: false
-
