@@ -33,8 +33,6 @@
     proto: EnergyCrossbowBolt
     capacity: 1
     count: 1
-  - type: TimedDespawn # DeltaV changes - limit range to match taser
-  lifetime: 0.170 # Very short range
   
 - type: entity
   parent: [WeaponEnergyCrossbowBase, BaseSyndicateContraband]
