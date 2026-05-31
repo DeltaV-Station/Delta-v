@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/27/2026 03:34:07
+  time: 05/31/2026 19:31:35
   entityCount: 357
 maps: []
 grids:
@@ -225,29 +225,36 @@ entities:
       data:
         tiles:
           0,0:
-            0: 4983
-            1: 32768
+            0: 6975
+            1: 16384
           0,-1:
-            0: 29798
+            0: 62702
           -1,0:
-            0: 2252
-            1: 8192
-          -1,-1:
-            2: 4
-            0: 50248
-            3: 128
-          0,-3:
-            0: 30514
-            1: 8
-          -1,-3:
-            0: 52360
+            0: 2702
+            1: 16400
+          0,1:
             1: 2
+          -1,1:
+            1: 8
+          1,0:
+            1: 16
+          -1,-1:
+            0: 58622
+          0,-4:
+            1: 4096
+            0: 24576
+          -1,-4:
+            0: 49152
+          0,-3:
+            0: 63288
+          -1,-3:
+            0: 60562
           0,-2:
-            0: 26229
-            4: 2
+            0: 57599
           -1,-2:
-            0: 16588
-            4: 32768
+            0: 62702
+          1,-3:
+            0: 16
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -257,21 +264,6 @@ entities:
         - volume: 2500
           immutable: True
           moles: {}
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-            Oxygen: 21.824879
-            Nitrogen: 82.10312
-        - volume: 2500
-          temperature: 293.14917
-          moles:
-            Oxygen: 16.99477
-            Nitrogen: 63.932716
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-            Oxygen: 20.078888
-            Nitrogen: 75.53487
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -318,7 +310,6 @@ entities:
     - type: MetaData
       name: engine room door
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -1.5,-5.5
       parent: 1
   - uid: 262
@@ -326,7 +317,6 @@ entities:
     - type: MetaData
       name: bedroom door
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 2.5,-1.5
       parent: 1
   - uid: 263
@@ -334,7 +324,6 @@ entities:
     - type: MetaData
       name: docking room door
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -1.5,-1.5
       parent: 1
 - proto: AirlockShuttleSyndicate
@@ -1093,7 +1082,7 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: ComputerIFF
+- proto: ComputerIFFSyndicate
   entities:
   - uid: 42
     components:
@@ -1738,7 +1727,6 @@ entities:
   - uid: 93
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 0.5,4.5
       parent: 1
   - uid: 102
@@ -1749,67 +1737,56 @@ entities:
   - uid: 107
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,2.5
       parent: 1
   - uid: 114
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -1.5,2.5
       parent: 1
   - uid: 163
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-2.5
       parent: 1
   - uid: 173
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-3.5
       parent: 1
   - uid: 272
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -3.5,-6.5
       parent: 1
   - uid: 273
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -3.5,-7.5
       parent: 1
   - uid: 274
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -3.5,-8.5
       parent: 1
   - uid: 275
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-6.5
       parent: 1
   - uid: 277
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-7.5
       parent: 1
   - uid: 278
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-8.5
       parent: 1
   - uid: 356
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-4.5
       parent: 1
 - proto: GrilleDiagonal
@@ -1938,37 +1915,31 @@ entities:
   - uid: 19
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-2.5
       parent: 1
   - uid: 69
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -3.5,-7.5
       parent: 1
   - uid: 85
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -0.5,3.5
       parent: 1
   - uid: 90
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -3.5,-8.5
       parent: 1
   - uid: 106
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -3.5,-6.5
       parent: 1
   - uid: 124
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 4.5,-6.5
       parent: 1
   - uid: 153
@@ -1989,31 +1960,26 @@ entities:
   - uid: 238
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 4.5,-8.5
       parent: 1
   - uid: 239
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 1.5,3.5
       parent: 1
   - uid: 243
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 4.5,-7.5
       parent: 1
   - uid: 369
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-4.5
       parent: 1
   - uid: 380
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,-3.5
       parent: 1
 - proto: PlastitaniumWindowDiagonal
@@ -2209,19 +2175,16 @@ entities:
   - uid: 233
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,-6.5
       parent: 1
   - uid: 234
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,-7.5
       parent: 1
   - uid: 235
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,-8.5
       parent: 1
 - proto: TableFancyBlack

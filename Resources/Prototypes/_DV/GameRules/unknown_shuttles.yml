@@ -6,7 +6,7 @@
     - id: SynthesisSpecialist
     - id: SyndicateArmsdealer
     - id: AsakimShuttle
-    - id: hitmanShuttle
+    - id: HitmanShuttle
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -144,7 +144,7 @@
 # Hitman (for the admeme spawn)
 - type: entity
   parent: BaseUnknownShuttleRule
-  id: hitmanShuttle
+  id: HitmanShuttle
   components:
   - type: StationEvent
     weight: 2
