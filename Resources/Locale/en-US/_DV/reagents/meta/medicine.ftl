@@ -25,6 +25,8 @@ reagent-desc-stabilizine = A potent chemical used to stabliize and regulate body
 
 reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam. A regenerative, miraculous chemical able to purge the body of most impurity. Overdose causes cancerous growth.
 
+reagent-name-salbutamol-saline = Salbutamol & Saline
+
 reagent-name-pure-oil = pure oil
 reagent-desc-pure-oil = A form of lotophagoi oil purified with claridisol. while even this form can grant someone powers, it can be refined further.
 

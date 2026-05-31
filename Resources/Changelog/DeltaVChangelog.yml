@@ -1,36 +1,4 @@
 ﻿Entries:
-- author: cmorley191
-  changes:
-  - message: Mindbreaker Toxin now resets your psionic reroll, so you can use the
-      Oracle to roll for a power again. (helps make Code White mindbreaking for instant
-      glimmer reductions less painful for the victims)
-    type: Tweak
-  id: 1860
-  time: '2025-11-26T22:04:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4429
-- author: cmorley191
-  changes:
-  - message: Artifacts now activate much faster after you successfully perform their
-      triggers. More danger = more fun
-    type: Tweak
-  id: 1861
-  time: '2025-11-27T03:48:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4743
-- author: cmorley191
-  changes:
-  - message: The more difficult atmos triggers on artifacts (low O2, heat, cold, low
-      pressure, high pressure) will show up less frequently.
-    type: Tweak
-  id: 1862
-  time: '2025-11-27T03:49:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4744
-- author: cmorley191
-  changes:
-  - message: Artifact "psionic disturbances" trigger fixed
-    type: Fix
-  id: 1863
-  time: '2025-11-27T03:50:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4705
 - author: Woljif
   changes:
   - message: Re-balanced the Vulcan, giving it a slower fire rate but high accuracy
@@ -4377,4 +4345,42 @@
   id: 2360
   time: '2026-05-30T02:20:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5909
+- author: DisposableCrewmember42
+  changes:
+  - message: Gamemodes now have cooldowns. They shouldn't be chosen twice back-to-back
+      anymore. Nukeops and Zeds are on cooldown for two shifts after rolling.
+    type: Tweak
+  id: 2361
+  time: '2026-05-30T12:25:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5489
+- author: mirrorcult, Nemanja, Flareguy, sowelipililimute
+  changes:
+  - message: Door animations now properly play out instead of getting cancelled part-way
+      through.
+    type: Fix
+  - message: There are now interaction particles to make some of the invisible things
+      people do more visible.
+    type: Add
+  - message: Audio attenuation is now more noticeable
+    type: Tweak
+  - message: Many electrical things now produce sparks when damaged or activated
+    type: Add
+  id: 2362
+  time: '2026-05-30T13:34:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5798
+- author: rebe83
+  changes:
+  - message: Psionic Eruption can no longer be rolled.
+    type: Remove
+  id: 2363
+  time: '2026-05-30T14:44:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5821
+- author: SirWarock
+  changes:
+  - message: Added a client option to enable stunvisuals (Seeing Stars effect on stunnied
+      entities)!
+    type: Add
+  id: 2364
+  time: '2026-05-30T15:10:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5831
 Order: 1
