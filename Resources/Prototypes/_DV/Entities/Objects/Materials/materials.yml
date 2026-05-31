@@ -136,99 +136,111 @@
   - type: Sprite
     sprite: _DV/Objects/Materials/psicrystal.rsi
     state: psicrystal
+  - type: SubdermalImplant
+  - type: DVInsertableImplant
+    implanterName: psion-crystal-implanter-name
+    implanterDescription: psion-crystal-implanter-description
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalZap
   name: zap crystal
-  description: a small psionic crystal humming with electricity
+  description: A small psionic crystal humming with electricity.
   components:
   - type: Sprite
     color: "#ebd039"
-  - type: Tag
-    tags:
-    - ZapCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: NoosphericZapPower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalTeleg
   name: telegnosis crystal
-  description: a small psionic crystal. everything reflected in it can be seen almost too clearly.
+  description: A small psionic crystal. Everything reflected in it can be seen almost too clearly.
   components:
   - type: Sprite
     color: "#9947b3"
-  - type: Tag
-    tags:
-    - TelegCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: TelegnosisPower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalPrecog
   name: precognition crystal
-  description: a small psionic crystal. it makes you feel as if your foresight is clearer.
+  description: A small psionic crystal. It makes you feel as if your foresight is clearer.
   components:
   - type: Sprite
     color: "#3e81a0"
-  - type: Tag
-    tags:
-    - PrecogCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: PrecognitionPower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalScream
   name: scream crystal
-  description: a small psionic crystal. holding it makes you feel like screaming out all your emotion.
+  description: A small psionic crystal. Holding it makes you feel like screaming out all your emotion.
   components:
   - type: Sprite
     color: "#f12121"
-  - type: Tag
-    tags:
-    - ScreamCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: PsychokineticScreamPower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalDispel
   name: dispel crystal
-  description: a small psionic crystal. holding it makes the world feel more real around you.
+  description: A small psionic crystal. Holding it makes the world feel more real around you.
   components:
   - type: Sprite
     color: "#e1f8f7"
-  - type: Tag
-    tags:
-    - DispelCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: DispelPower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalPulse
   name: pulse crystal
-  description: a small psionic crystal. holding it makes you feel as though your senses have been sharpened.
+  description: A small psionic crystal. Holding it makes you feel as though your senses have been sharpened.
   components:
   - type: Sprite
     color: "#49b852"
-  - type: Tag
-    tags:
-    - PulseCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: MetapsionicPulsePower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalRegen
   name: regen crystal
-  description: a small psionic crystal. holding it makes you feel healthier, but hungrier.
+  description: A small psionic crystal. Holding it makes you feel healthier, but hungrier.
   components:
   - type: Sprite
     color: "#e0305c"
-  - type: Tag
-    tags:
-    - RegenCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: PsionicRegenerationPower
+    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
   id: PsionCrystalPyro
   name: pyro crystal
-  description: a small psionic crystal. holding it makes your rage flare up.
+  description: A small psionic crystal. Holding it makes your rage flare up.
   components:
   - type: Sprite
     color: "#e93313"
-  - type: Tag
-    tags:
-    - PyroCrystal
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: PyrokinesisPower
+    - type: Psionic

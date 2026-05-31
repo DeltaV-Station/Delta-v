@@ -96,12 +96,6 @@
 - type: Tag # prevents ID chips being used for an id computer privileged id
   id: IdChip
 
-- type: Tag # For use in the crafting system
-  id: Implanter
-
-- type: Tag # Needed to stop filled implanters from being used to craft more implanters
-  id: FilledImplanter
-
 - type: Tag
   id: JetInjector # Used to make the medical belt sprite show that a JetInjector is there.
 
@@ -277,29 +271,3 @@
 
 - type: Tag # Service Chef Module
   id: Ingredients
-
-# Psionic Crystals - crafting system runs on tags and not prototypes, so all of these need their own tag
-
-- type: Tag
-  id: ZapCrystal
-
-- type: Tag
-  id: TelegCrystal
-
-- type: Tag
-  id: PrecogCrystal
-
-- type: Tag
-  id: ScreamCrystal
-
-- type: Tag
-  id: DispelCrystal
-
-- type: Tag
-  id: PulseCrystal
-
-- type: Tag
-  id: RegenCrystal
-
-- type: Tag
-  id: PyroCrystal
