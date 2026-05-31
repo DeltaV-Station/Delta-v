@@ -70,6 +70,8 @@
       - state: off-equipped-HELMET-vox
       - state: strip-vox
         map: ["officerhelm1"]
+  - type: PointLight
+    color: "#edecf7"
   - type: JobColor
     manualChange: false
     jobMap:
@@ -78,9 +80,9 @@
       JobIconSecurityCadet:
         officerhelm1: "#aaaaaa"
       JobIconSecurityOfficer:
-        officerhelm1: "#860000"
+        officerhelm1: "#3049d5"
       JobIconSeniorOfficer:
-        officerhelm1: "#4c0000"
+        officerhelm1: "#1a273b"
       JobIconPrisonGuard:
         officerhelm1: "#ff6b35"
       JobIconUnknown:
