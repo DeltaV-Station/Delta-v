@@ -377,6 +377,16 @@
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSecurityGrey
+  name: grey security beret
+  description: A light grey beret worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
 
 - type: entity
   parent: ClothingHeadBase
