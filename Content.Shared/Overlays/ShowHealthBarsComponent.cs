@@ -15,7 +15,8 @@ public sealed partial class ShowHealthBarsComponent : Component
     /// <summary>
     /// Displays health bars of the damage containers.
     /// </summary>
-    [DataField, AutoNetworkedField] // Shitmed Change
+    [DataField]
+    [AutoNetworkedField]
     public List<ProtoId<DamageContainerPrototype>> DamageContainers = new()
     {
         "Biological"

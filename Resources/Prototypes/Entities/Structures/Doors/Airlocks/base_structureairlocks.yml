@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -77,7 +77,7 @@
     openSound:
       path: /Audio/Machines/airlock_open.ogg
     closeSound:
-      path: /Audio/Machines/airlock_close.ogg
+      path: /Audio/_ES/Machines/airlock_close.ogg # Ephemeral Space - better door timings
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: ContainerContainer
@@ -183,6 +183,11 @@
     - Airlocks
     - WirePanels
     - Networking
+# ES START
+  - type: ESSparkOnHit
+    prob: 0.25
+    count: 2
+# ES END
   placement:
     mode: SnapgridCenter
 
