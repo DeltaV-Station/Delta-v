@@ -28,6 +28,22 @@
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Spirit # DeltaV: Keep revenant extreme weakness to heat and bible
+  - type: MeleeWeapon # Begin DeltaV additions
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 90
+    animation: WeaponArcClaw
+    wideAnimation: WeaponArcClaw
+    wideAnimationRotation: -90
+    swingLeft: true
+    attackRate: 0.3
+    range: 1.0
+    altDisarm: false
+    damage:
+      types:
+        Slash: 2
+        Shadow: 2
+  - type: CombatMode # end DeltaV additions 
   - type: NoSlip
   - type: Eye
     drawFov: false
@@ -55,14 +71,14 @@
     malfunctionWhitelist:
       components:
       # emag lockers open
-      - EntityStorage
+      # - EntityStorage # Trolling armory is very stale
       # emag doors open
       - Airlock
       # troll medical to help get kills
       - StasisBed
       - EmaggableMedibot
       # borg become killer
-      - EmagSiliconLaw
+      # - EmagSiliconLaw # DeltaV - emag borg doesn't make sense
   - type: PointLight
     color: MediumPurple
     radius: 2

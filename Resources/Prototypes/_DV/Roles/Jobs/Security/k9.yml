@@ -1,0 +1,17 @@
+# Generic K9 role for secdogs
+- type: job
+  id: RoleK9Officer
+  playTimeTracker: RoleK9Officer
+  name: role-name-k9-officer
+  setPreference: false
+  description: role-description-k9-officer
+  icon: JobIconSecurityK9Officer
+  supervisors: job-supervisors-hos
+  access:
+  - Security
+  - Maintenance
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 4h

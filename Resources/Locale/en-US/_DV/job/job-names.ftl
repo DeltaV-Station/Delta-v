@@ -102,3 +102,6 @@ role-name-baba = Baba
 # Station specific
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
+
+# Generic secdog
+role-name-k9-officer = K9 Officer

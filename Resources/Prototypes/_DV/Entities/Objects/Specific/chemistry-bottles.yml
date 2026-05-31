@@ -44,3 +44,18 @@
           Quantity: 28
         - ReagentId: Phlogiston
           Quantity: 2
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleRevivopine
+  suffix: revivopine
+  components:
+  - type: Label
+    currentLabel: chemistry-bottle-revivopine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Revivopine
+          Quantity: 30

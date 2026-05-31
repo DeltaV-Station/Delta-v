@@ -115,6 +115,13 @@
       279: 0.95
       265: 0.9
       240: 0.85
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.5
+    enabled: false
+  - type: CursorOffsetAction
+  - type: Preenable
+    featherPrototype: AvaliFeather
   # End DeltaV additions
 
 - type: entity
