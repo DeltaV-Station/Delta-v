@@ -9,6 +9,7 @@
                    StyleClasses="LabelKeyText"/>
             <CheckBox Name="DisableFiltersCheckBox" Text="{Loc 'ui-options-no-filters'}" />
             <CheckBox Name="DisableGlimmerEffectCheckBox" Text="{Loc 'ui-options-disable-glimmer-effect'}" />
+            <CheckBox Name="EnableStunVisualsCheckBox" Text="{Loc 'ui-options-enable-stun-visuals'}" />
             <Label Text="{Loc 'ui-options-delta-tips'}"
                    StyleClasses="LabelKeyText"/>
             <CheckBox Name="DisableTipsCheckBox" Text="{Loc 'ui-options-delta-disable-tips'}" />

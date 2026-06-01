@@ -11,8 +11,13 @@
   # yes these sprites dont make sense i dont care its better than them being invisible
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi
-  - type: Icon
-    sprite: Mobs/Species/Reptilian/parts.rsi
+  - type: Damageable
+    damageContainer: Biological
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
   - type: StaticPrice
     price: 50
 
@@ -29,8 +34,7 @@
     state: l_hand # cba to make a state for it
   - type: BodyPart
     partType: Hand
-    #symmetry: Left
-    slotId: hands # Shitmed
+    symmetry: Left
 
 - type: entity
   parent: PartAnimalBase
@@ -45,7 +49,6 @@
     state: l_leg # cba to make a state for it
   - type: BodyPart
     partType: Leg
-    slotId: legs # Shitmed
   - type: MovementBodyPart
 
 - type: entity
@@ -61,7 +64,6 @@
     state: l_foot # cba to make a state for it
   - type: BodyPart
     partType: Foot
-    slotId: feet # Shitmed
 
 - type: entity
   parent: [ PartAnimalBase, BaseTorso ]
@@ -69,10 +71,6 @@
   name: animal torso
   components:
   - type: BodyPart
-    children: # Shitmed Change - most animals have no hands (primate is unused) so just legs by default
-      legs:
-        id: legs
-        type: Leg
     partType: Torso
   - type: Damageable
     damageContainer: Biological

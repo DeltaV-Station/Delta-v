@@ -21,6 +21,27 @@
 
 - type: entity
   parent: ReinforcementRadio
+  id: ReinforcementRadioSyndicateNukieSpider
+  name: inexplicably menacing egg
+  description: You're not sure if that's a radio transciever or an eye blinking at you. Might attract an odd spider.
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Animals/nukiespider.rsi
+    layers:
+    - state: syndicate-spider-egg
+  - type: GhostRole
+    name: ghost-role-information-nukie-spider-name
+    description: ghost-role-information-nukie-spider-description
+    rules: ghost-role-information-nukie-spider-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobNukieSpider
+  - type: EmitSoundOnUse
+    sound: /Audio/Animals/snake_hiss.ogg
+  - type: UseDelay
+    delay: 300
+
+- type: entity
+  parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateHostageWarden
   name: hostage warden radio
   description: Call in a guard to keep those pesky prisoners at bay.

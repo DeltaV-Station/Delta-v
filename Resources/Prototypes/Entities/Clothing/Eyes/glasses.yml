@@ -177,9 +177,9 @@
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    sprite: _DV/Clothing/Eyes/Glasses/secglasses.rsi # DeltaV - Security glasses are blue.
   - type: Clothing
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    sprite: _DV/Clothing/Eyes/Glasses/secglasses.rsi # DeltaV - Security glasses are blue.
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
