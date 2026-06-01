@@ -238,6 +238,7 @@
         - id: ClothingMaskItalianMoustache
         - id: ClothingMaskWeldingGas
         - id: ClothingEyesWrestlerMaskDomino
+        - id: ClothingMaskPilot
         - id: ClothingMaskCluwne
           weight: 0.1
       #Bandanas
@@ -279,6 +280,13 @@
       - id: ClothingEyesBlindfold
       - id: ClothingEyesGlassesChemist
       - id: ClothingEyesGlassesGarMeson
+      - id: ClothingEyesGlassesPilot
+      #Cool Googles
+      - !type:GroupSelector
+        weight: 0.001
+        children:
+        - id: ClothingEyesNightVisionGoggles
+        - id: ClothingEyesGlassesThermal
 
 - type: entityTable
   id: RandomGlovesTable
@@ -294,6 +302,7 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingHandsGlovesLeather
       - id: ClothingHandsGlovesFingerlessInsulated
+      - id: ClothingClothWrap
     #Colored
     - !type:GroupSelector
       children:
@@ -322,6 +331,7 @@
         - id: ClothingHandsGlovesNitrile
         - id: ClothingHandsGlovesColorYellowBudget
         - id: ClothingHandsGlovesJanitor
+        - id: ClothingHandsGlovesPilot
         - id: ClothingHandsTacticalMaidGloves
           weight: 0.1
         - id: ClothingHandsGlovesHop
@@ -534,6 +544,14 @@
       children:
       - id: ClothingOuterWinterCentcom
       - id: ClothingOuterWinterWeb
+      #Improvised Armor
+      - !type:GroupSelector
+        weight: 0.5
+        children:
+        - id: ClothingOuterArmorMakeshift
+        - id: ClothingOuterArmorImprovised
+        - id: ClothingOuterArmorForged
+        - id: ClothingOuterArmorPaladin
 
 - type: entityTable
   id: RandomShoeTable
@@ -595,6 +613,8 @@
         children:
         - id: ClothingShoesGaloshes
         - id: ClothingShoesSharkminnow
+        - id: ClothingShoesRealJordans
+          weight: 0.0001
       #Winter Boots
       - !type:GroupSelector
         children:
@@ -610,6 +630,7 @@
       - id: ClothingBeltFoamSheath
       - id: ClothingBeltPaperwork
       - id: ClothingBeltStorageWaistbag
+      - id: ClothingBeltPilot
     #Rare
     - !type:GroupSelector
       weight: 0.05
@@ -673,6 +694,19 @@
         - id: ClothingUniformJumpskirtCasualGreen
         - id: ClothingUniformJumpskirtOldDress
         - id: ClothingUniformJumpskirtMusician
+      #Stylish Skirts
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformHitmanSuitSkirt
+        - id: ClothingUniformFuneralSuitSkirt
+        - id: ClothingUniformNightclubSuitSkirt
+        - id: ClothingUniformMrSpaceWideSkirt
+        - id: ClothingUniformBrownSuitSkirt
+        - id: ClothingUniformCreamSuitSkirt
+        - id: ClothingUniformDetectiveSuitSkirt
+        - id: ClothingUniformMiamiViceSkirt
+        - id: ClothingUniformSeniorBartenderSkirt
+        - id: ClothingUniformBrosBlazerSkirt
       #Suits
       - !type:GroupSelector
         children:
@@ -697,6 +731,19 @@
         - id: ClothingUniformJumpsuitCasualPurple
         - id: ClothingUniformJumpsuitCasualRed
         - id: ClothingUniformJumpsuitCasualGreen
+      #Stylish Suits
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformHitmanSuit
+        - id: ClothingUniformFuneralSuit
+        - id: ClothingUniformNightclubSuit
+        - id: ClothingUniformMrSpaceWide
+        - id: ClothingUniformBrownSuit
+        - id: ClothingUniformCreamSuit
+        - id: ClothingUniformDetectiveSuit
+        - id: ClothingUniformMiamiVice
+        - id: ClothingUniformSeniorBartender
+        - id: ClothingUniformBrosBlazer
       #Misc
       - !type:GroupSelector
         children:
@@ -787,6 +834,8 @@
       - id: ClothingHeadHelmetThunderdome
       - id: ClothingHeadHelmetFire
       - id: ClothingHeadHelmetKendoMen
+      - id: ClothingHeadHelmetPaladin
+      - id: ClothingHeadHelmetForged
     #Headbands
     - !type:GroupSelector
       children:
@@ -926,3 +975,9 @@
        children:
        - id: ClothingHeadHatWrestlingMaskLuchaRed
        - id: ClothingHeadHatWrestlingMaskLuchaBlue
+     #Helmet
+     - !type:GroupSelector
+       weight: 0.5
+       children:
+       - id: ClothingHeadHelmetImprovised
+       - id: ClothingHeadHelmetMakeshift
