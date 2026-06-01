@@ -70,8 +70,8 @@
         Piercing: 25
 
 - type: entity
-  id: BulletSpecialMindbreaker
-  name: bullet (.38 special mindbreaker)
+  id: BulletSpecialLernaea
+  name: bullet (.38 special lernaea)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
@@ -82,13 +82,13 @@
   - type: SolutionContainerManager
     solutions:
       ammo:
-        maxVol: 9
+        maxVol: 5
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution
     solution: ammo
   - type: SolutionInjectOnProjectileHit
-    transferAmount: 9
+    transferAmount: 5
     blockSlots: NONE #shouldn't be blocked by a mask
     solution: ammo
   - type: InjectableSolution

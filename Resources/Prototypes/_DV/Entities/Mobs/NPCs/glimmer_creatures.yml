@@ -62,9 +62,9 @@
           radius: 0.35
         density: 13
         mask:
-        - Opaque
+        - SmallMobMask
         layer:
-        - MobLayer
+        - Opaque
   - type: MovementSpeedModifier
     baseSprintSpeed: 8
     baseWalkSpeed: 5
