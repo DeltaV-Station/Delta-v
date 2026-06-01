@@ -67,6 +67,7 @@
       - id: BarSpoon
       - id: DrinkShaker
       - id: Envelope
+      - id: PaperSlip
       #Smokes
       - !type:GroupSelector
         children:
@@ -74,8 +75,8 @@
         - id: CigPackRed
         - id: CigPackBlue
         - id: CigPackBlack
-        - id: CigPackPurple #Delta V
-        - id: CigPackCandy #Delta V
+        - id: CigPackPurple
+        - id: CigPackCandy
         - id: PackPaperRolling
         - id: Cigar
         - id: SmokingPipe
@@ -191,7 +192,7 @@
           - id: ChemistryEmptyBottle04
         - id: Beaker
         - id: LargeBeaker
-        - id: ChemistryEmptyVial
+        - id: BaseChemistryEmptyVial
         - id: Syringe
         - id: Dropper
         - id: Jug
@@ -204,7 +205,7 @@
       #Glowsticks
       - !type:GroupSelector
         children:
-        - id: GlowstickGreen
+        - id: GlowstickBase
           amount: !type:RangeNumberSelector
             range: 1, 4
         - id: GlowstickRed
@@ -262,53 +263,6 @@
         - id: Fork
         - id: KnifePlastic
         - id: PairedChopsticks
-      #Clothing
-      - !type:GroupSelector
-        children:
-        #Mask
-        - !type:GroupSelector
-          children:
-          - id: ClothingMaskGas
-          - id: ClothingMaskBreathMedical
-        #Eyes
-        - !type:GroupSelector
-          children:
-          - id: ClothingEyesHudBeer
-          - id: ClothingEyesGlassesMeson
-          - id: ClothingEyesGlasses
-          - id: ClothingEyesGlassesSunglasses
-          - id: ClothingEyesGlassesThermal
-          - id: ClothingEyesEyepatch
-          - id: ClothingEyesBlindfold
-        #Gloves
-        - !type:GroupSelector
-          children:
-          - id: ClothingHandsGlovesPowerglove
-          - id: ClothingHandsGlovesRobohands
-          - id: ClothingHandsGlovesFingerless
-        #Neck
-        - !type:GroupSelector
-          children:
-          - id: ClothingMultipleHeadphones
-          - id: ClothingNeckStethoscope
-        #Outer
-        - !type:GroupSelector
-          children:
-          - id: ClothingOuterHoodieGrey
-          - id: ClothingOuterCardborg
-          - id: ClothingOuterPonchoClassic
-          - id: ClothingOuterPoncho
-          - id: ClothingOuterVest
-          - id: ClothingOuterCoatGentle
-          - id: ClothingOuterCoatJensen
-          - id: ClothingOuterCoatLab
-        #Feet
-        - !type:GroupSelector
-          children:
-          - id: ClothingShoesFlippers
-          - id: ClothingShoesTourist
-          - id: ClothingUnderSocksBee
-          - id: ClothingUnderSocksCoder
     #Rare
     - !type:GroupSelector
       children:
@@ -340,6 +294,8 @@
       - id: PresentRandom
       - id: ArabianLamp
         weight: 0.01
+      - id: FoamSabre
+      - id: RubberStampHatePaperwork
       #Smokes
       - !type:GroupSelector
         children:
@@ -347,8 +303,8 @@
         - id: CigCartonRed
         - id: CigCartonBlue
         - id: CigCartonBlack
-        - id: CigCartonPurple # DeltaV
-        - id: CigCartonCandy # DeltaV
+        - id: CigCartonPurple
+        - id: CigCartonCandy
         - id: Joint
         - id: Blunt
         - id: SmokingPipeFilledTobacco
@@ -414,6 +370,9 @@
           amount: !type:RangeNumberSelector
             range: 1, 5
         - id: MaterialGunpowder
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialChitinSharkminnow
           amount: !type:RangeNumberSelector
             range: 1, 5
       #Cubes
@@ -502,27 +461,3 @@
           weight: 0.20
         - id: TreasureCoinDiamond
           weight: 0.20
-      #Clothing
-      - !type:GroupSelector
-        children:
-        #Masks
-        - !type:GroupSelector
-          children:
-          - id: ClothingMaskPlague
-          - id: ClothingMaskGasExplorer
-        #Gloves
-        - !type:GroupSelector
-          children:
-          - id: ClothingHandsGlovesBoxingRed
-          - id: ClothingHandsGlovesBoxingBlue
-          - id: ClothingHandsGlovesBoxingGreen
-          - id: ClothingHandsGlovesBoxingYellow
-          - id: ClothingHandsGlovesNitrile
-        #Outer
-        - !type:GroupSelector
-          children:
-          - id: ClothingOuterStraightjacket
-        #Feet
-        - !type:GroupSelector
-          children:
-          - id: ClothingShoesGaloshes
