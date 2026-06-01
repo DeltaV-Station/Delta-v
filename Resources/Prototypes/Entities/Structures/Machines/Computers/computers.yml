@@ -1054,6 +1054,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
+      sprite: _DV/Structures/Machines/computers.rsi # DeltaV - Blue Security Resprit
       state: request-sec
     - map: ["computerLayerKeys"]
       state: generic_keys
@@ -1070,7 +1071,7 @@
   - type: Computer
     board: CargoRequestSecurityComputerCircuitboard
   - type: PointLight
-    color: "#d11d00"
+    color: "#014fe0" # DeltaV - Blue Security Resprite, was "#d11d00"
   - type: AccessReader
     access: [["Security"]]
 

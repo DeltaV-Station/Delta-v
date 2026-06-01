@@ -28,7 +28,6 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: AutodocSyndieFlatpack
         - id: OperatingTableFlatpack
         - id: Multitool
         - id: ChemistryBottleChloralHydrate # stronger than n2o as you can be awake during safe operation

@@ -61,6 +61,14 @@
     sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
     state: Surgeon
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityK9Officer
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    state: SecurityK9Officer
+  jobName: role-name-k9-officer
+
 # CentComm
 
 - type: jobIcon

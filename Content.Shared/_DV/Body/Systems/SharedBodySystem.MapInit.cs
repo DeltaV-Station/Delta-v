@@ -25,33 +25,33 @@ public partial class SharedBodySystem
 
     // [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!; // Shitmed Change - Declared in SharedBodySystem.cs
 
-    private void MapInitAppearance(Entity<BodyComponent> ent)
-    {
-        var symmetries = Enum.GetValues<BodyPartSymmetry>();
+    // private void MapInitAppearance(Entity<BodyComponent> ent)
+    // {
+    //     var symmetries = Enum.GetValues<BodyPartSymmetry>();
 
-        foreach (var part in _asymmetric)
-        {
-            if (part.ToHumanoidLayers(BodyPartSymmetry.None) is not {} layer)
-                continue;
+    //     foreach (var part in _asymmetric)
+    //     {
+    //         if (part.ToHumanoidLayers(BodyPartSymmetry.None) is not {} layer)
+    //             continue;
 
-            var layers = HumanoidVisualLayersExtension.Sublayers(layer);
-            var visible = GetBodyChildrenOfType(ent, part).Any();
+    //         var layers = HumanoidVisualLayersExtension.Sublayers(layer);
+    //         var visible = GetBodyChildrenOfType(ent, part).Any();
 
-            _humanoidAppearance.SetLayersVisibility(ent.Owner, layers, visible: visible);
-        }
+    //         _humanoidAppearance.SetLayersVisibility(ent.Owner, layers, visible: visible);
+    //     }
 
-        foreach (var part in _symmetric)
-        {
-            foreach (var side in symmetries)
-            {
-                if (part.ToHumanoidLayers(side) is not {} layer)
-                    continue;
+    //     foreach (var part in _symmetric)
+    //     {
+    //         foreach (var side in symmetries)
+    //         {
+    //             if (part.ToHumanoidLayers(side) is not {} layer)
+    //                 continue;
 
-                var layers = HumanoidVisualLayersExtension.Sublayers(layer);
-                var visible = GetBodyChildrenOfType(ent, part, symmetry: side).Any();
+    //             var layers = HumanoidVisualLayersExtension.Sublayers(layer);
+    //             var visible = GetBodyChildrenOfType(ent, part).Any();
 
-                _humanoidAppearance.SetLayersVisibility(ent.Owner, layers, visible: visible);
-            }
-        }
-    }
+    //             _humanoidAppearance.SetLayersVisibility(ent.Owner, layers, visible: visible);
+    //         }
+    //     }
+    // }
 }

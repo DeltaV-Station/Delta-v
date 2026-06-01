@@ -24,7 +24,7 @@ tip-security-description = As a Security Officer, your job is to [color=yellow]p
 tip-cadet-title = Security Cadet
 tip-cadet-description = As a new Security Cadet, stick close to your fellow officers and learn the ropes. Don't be afraid to ask questions! Make sure to read up on the [color=yellow]SOP[/color] and [color=yellow]Space Law[/color].
 
-tip-medical-title = Medical Inter
+tip-medical-title = Medical Intern
 # TODO: If/when we get ProtoData tag that's generic to all prototypes rather than just EntityPrototype, this should be using that for RadioChannelPrototype
 tip-medical-description = As a Medical Doctor, check the [color=cyan]health analyzer[/color] for patient status. Your radio prefix is [color=lightblue]:m[/color] for the medical channel.
 

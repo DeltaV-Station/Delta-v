@@ -35,7 +35,7 @@
   - type: PageSender
     autoLinkDepartments: [Engineering]
   - type: FaxMachine
-    name: "Command"
+    name: "Engineering"
 
 - type: entity
   parent: FaxMachineBase
@@ -45,7 +45,7 @@
   - type: PageSender
     autoLinkDepartments: [Epistemics]
   - type: FaxMachine
-    name: "Engineering"
+    name: "Epistemics"
 
 - type: entity
   parent: FaxMachineBase
@@ -458,3 +458,13 @@
     autoLinkJobs: [Zookeeper]
   - type: FaxMachine
     name: "Zoo"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMantis
+  suffix: Psionic Mantis
+  components:
+  - type: PageSender
+    autoLinkJobs: [ForensicMantis]
+  - type: FaxMachine
+    name: "Psionic Mantis"

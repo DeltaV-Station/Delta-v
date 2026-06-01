@@ -1,0 +1,37 @@
+- type: reagent
+  id: PureOil
+  name: reagent-name-pure-oil
+  group: Narcotics
+  desc: reagent-desc-pure-oil
+  flavor: Pure
+  color: "#fffefb"
+  physicalDesc: reagent-physical-desc-pure
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:RollPsionicAbility
+        bonusMultiplier: 2.5
+        conditions:
+        - !type:ReagentCondition
+          reagent: PureOil
+          min: 20
+
+- type: reagent
+  id: Claridisol
+  name: reagent-name-claridisol
+  group: Exotic
+  desc: reagent-desc-claridisol
+  flavor: Clarifying
+  color: "#ae7ccf"
+  physicalDesc: reagent-physical-desc-clarifying
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.5
+      effects:
+      - !type:RollPsionicAbility
+        bonusMultiplier: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: Claridisol
+          min: 40
