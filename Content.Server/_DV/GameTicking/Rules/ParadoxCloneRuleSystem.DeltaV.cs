@@ -20,9 +20,9 @@ public sealed partial class ParadoxCloneRuleSystem
         // TODO: use generic IMindFilter
         // no picking other antags or non-crew and entities with no paradox clone trait
         minds.RemoveWhere(mind => _role.MindIsAntagonist(mind) ||
-        !_role.MindHasRole<JobRoleComponent>((mind, mind), out var role) ||
-        role?.Comp1.JobPrototype == null ||
-        (mind.Comp.OwnedEntity is { } entity && HasComp<NoParadoxCloneComponent>(entity))
+            !_role.MindHasRole<JobRoleComponent>((mind, mind), out var role) ||
+            role?.Comp1.JobPrototype == null ||
+            (mind.Comp.OwnedEntity is { } entity && HasComp<NoParadoxCloneComponent>(entity))
         );
     }
 
