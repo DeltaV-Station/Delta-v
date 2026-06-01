@@ -111,7 +111,7 @@
       bodyType: Static
       canCollide: true
     - type: Sprite
-      sprite: _DV/Structures/Holo/security.rsi #DeltaV - Blue Security Resprite
+      sprite: Structures/Holo/security.rsi
       state: icon
     - type: Fixtures
       fixtures:
@@ -132,7 +132,7 @@
     - type: PointLight
       enabled: true
       radius: 3
-      color: blue #DeltaV - Blue security resprite, was red
+      color: red
     # END DeltaV
     - type: Climbable
     - type: Clickable
