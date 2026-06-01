@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/01/2026 20:28:37
-  entityCount: 27977
+  time: 06/01/2026 23:37:51
+  entityCount: 27978
 maps:
 - 1
 grids:
@@ -83120,6 +83120,11 @@ entities:
     components:
     - type: Transform
       pos: 26.82164,26.162016
+      parent: 2
+  - uid: 27978
+    components:
+    - type: Transform
+      pos: -20.771929,33.32847
       parent: 2
 - proto: FloraTreeLarge
   entities:
