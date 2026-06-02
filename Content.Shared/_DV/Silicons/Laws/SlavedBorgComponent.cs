@@ -23,4 +23,10 @@ public sealed partial class SlavedBorgComponent : Component
     /// </summary>
     [DataField]
     public bool Added;
+
+    /// <summary>
+    /// Whether the law is active.
+    /// </summary>
+    [DataField]
+    public bool Active = true;
 }

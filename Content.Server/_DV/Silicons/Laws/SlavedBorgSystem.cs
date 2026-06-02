@@ -13,6 +13,7 @@ namespace Content.Server._DV.Silicons.Laws;
 public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedSiliconLawSystem _siliconLaws = default!;
 
     public override void Initialize()
     {
@@ -27,7 +28,7 @@ public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
         if (ent.Comp.Added || !TryComp<SiliconLawProviderComponent>(ent, out var provider))
             return;
 
-        if (provider.Lawset is {} lawset)
+        if (provider.Lawset is {} lawset && ent.Comp.Active)
             AddLaw(lawset, ent.Comp.Law);
         ent.Comp.Added = true; // prevent opening the ui adding more law 0's
     }
@@ -38,5 +39,31 @@ public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
     public void AddLaw(SiliconLawset lawset, ProtoId<SiliconLawPrototype> law)
     {
         lawset.Laws.Insert(0, _proto.Index(law).ShallowClone());
+    }
+
+    /// <summary>
+    /// Sets whether the slaving is active.
+    /// </summary>
+    public void SetActive(Entity<SlavedBorgComponent?> ent, bool active)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        if (!TryComp<SiliconLawProviderComponent>(ent, out var provider) || provider.Lawset is not { } lawset)
+            return;
+
+        if (!ent.Comp.Active && active)
+        {
+            AddLaw(lawset, ent.Comp.Law);
+            ent.Comp.Added = true;
+            _siliconLaws.NotifyLawsChanged(ent);
+        }
+        else if (ent.Comp.Active && !active)
+        {
+            lawset.Laws.Remove(_proto.Index(ent.Comp.Law));
+            ent.Comp.Added = false;
+            _siliconLaws.NotifyLawsChanged(ent);
+        }
+        ent.Comp.Active = active;
     }
 }

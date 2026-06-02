@@ -50,3 +50,11 @@
   wires:
   - !type:PowerWireAction
   - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: Cyborg
+  dummyWires: 3
+  wires:
+  - !type:BorgTransponderWireAction
+  - !type:SlavedBorgWireAction
+  - !type:AiInteractWireAction
