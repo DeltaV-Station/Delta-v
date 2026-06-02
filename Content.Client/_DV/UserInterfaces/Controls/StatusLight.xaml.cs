@@ -5,90 +5,67 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Animations;
 
 namespace Content.Client._DV.UserInterfaces.Controls;
 
 [GenerateTypedNameReferences]
 public sealed partial class StatusLight : Control
 {
-    private const string BlinkingAnimationKey = "blink";
+    private const string BlinkingAnimationKey = "Blinking";
     
-    private static readonly Color DefaultDimColor = Color.FromHex("#202020");
-    
-    private static readonly Animation BlinkingFastAnimation = new()
-    {
-        Length = TimeSpan.FromSeconds(0.2),
-        AnimationTracks =
-        {
-            new AnimationTrackControlProperty
-            {
-                Property = nameof(Modulate),
-                InterpolationMode = AnimationInterpolationMode.Linear,
-                KeyFrames =
-                {
-                    new AnimationTrackProperty.KeyFrame(Color.White, 0f),
-                    new AnimationTrackProperty.KeyFrame(Color.Transparent, 0.1f),
-                    new AnimationTrackProperty.KeyFrame(Color.White, 0.1f)
-                }
-            }
-        }
-    };
-
-    private static readonly Animation BlinkingSlowAnimation = new()
-    {
-        Length = TimeSpan.FromSeconds(0.8),
-        AnimationTracks =
-        {
-            new AnimationTrackControlProperty
-            {
-                Property = nameof(Modulate),
-                InterpolationMode = AnimationInterpolationMode.Linear,
-                KeyFrames =
-                {
-                    new AnimationTrackProperty.KeyFrame(Color.White, 0f),
-                    new AnimationTrackProperty.KeyFrame(Color.White, 0.3f),
-                    new AnimationTrackProperty.KeyFrame(Color.Transparent, 0.1f),
-                    new AnimationTrackProperty.KeyFrame(Color.Transparent, 0.3f),
-                    new AnimationTrackProperty.KeyFrame(Color.White, 0.1f),
-                }
-            }
-        }
-    };
-    
-    public enum BlinkMode : byte
-    {
-        /// <summary>
-        ///     Blinking disabled. 
-        /// </summary>
-        None,
-        
-        /// <summary>
-        ///     Blink once per 200ms.
-        /// </summary>
-        Fast,
-        
-        /// <summary>
-        ///     Blink once per 800ms.
-        /// </summary>
-        Slow
-    }
-
     /// <summary>
-    ///     The blinking mode of the indicator, if any. Defaults to <see cref="BlinkMode.None"/>.
+    ///     Style Class for the Status Light which sets the blinking animation to On 100ms, Off 100ms
     /// </summary>
     [PublicAPI]
-    public BlinkMode Blinking
-    {
-        get;
-        set
-        {
-            if (field == value) return;
-            
-            field = value;
-            BindValues();
-        }
-    } = BlinkMode.None;
+    public const string StyleClassFastBlinking = "BlinkingAnimation:Fast";
+    
+    /// <summary>
+    ///     Style Class for the Status Light which sets the blinking animation to On 400ms, Off 400ms
+    /// </summary>
+    [PublicAPI]
+    public const string StyleClassSlowBlinking = "BlinkingAnimation:Slow";
+    
+    /// <summary>
+    ///     Style Class for targeting this control's Active Light <see cref="TextureRect"/>.
+    /// </summary>
+    [PublicAPI]
+    public const string StyleClassActiveLight = "StatusLight.ActiveLight";
+    
+    /// <summary>
+    ///     Style Class for targeting this control's Base Light <see cref="TextureRect"/>.
+    /// </summary>
+    [PublicAPI]
+    public const string StyleClassBaseLight = "StatusLight.BaseLight";
+    
+    /// <summary>
+    ///     Style Pseudo Class for when the light is on. This is mutually exclusive with <see cref="StylePseudoClassIsOff"/>.
+    /// </summary>
+    [PublicAPI]
+    public const string StylePseudoClassIsOn = ":IsOn";
+    
+    /// <summary>
+    ///     Style Pseudo Class for when the light is off. This is mutually exclusive with <see cref="StylePseudoClassIsOn"/>.
+    /// </summary>
+    [PublicAPI]
+    public const string StylePseudoClassIsOff = ":IsOff";
+    
+    /// <summary>
+    ///     Style Property for setting the blinking animation.
+    /// </summary>
+    [PublicAPI]
+    public const string StylePropertyBlinkingAnimation = "Animation:Blinking";
+    
+    /// <summary>
+    ///     Style Property for setting the active color of the light. This is the color shown when the light is on.
+    /// </summary>
+    [PublicAPI]
+    public const string StylePropertyActiveColor = "Modulate:Light";
+    
+    /// <summary>
+    ///     Style Property for setting the base color of the light. This is the color shown when the light is off.
+    /// </summary>
+    [PublicAPI]
+    public const string StylePropertyBaseColor = "Modulate:Base";
     
     /// <summary>
     ///     Whether the indicator should be lit.
@@ -100,9 +77,9 @@ public sealed partial class StatusLight : Control
         set
         {
             if (field == value) return;
-
+            
             field = value;
-            BindValues();
+            UpdateStylePseudoClasses();
         }
     }
 
@@ -110,7 +87,7 @@ public sealed partial class StatusLight : Control
     ///     The color of the indicator when it is on.
     /// </summary>
     [PublicAPI]
-    public Color Color
+    public Color? ActiveColorOverride
     {
         get;
         set
@@ -118,15 +95,15 @@ public sealed partial class StatusLight : Control
             if (field == value) return;
 
             field = value;
-            BindValues();
+            InvalidateStyleSheet();
         }
-    } = Color.Green.WithAlpha(0.33f);
+    }
 
     /// <summary>
     ///     The base color of the indicator, also shown when it is off.
     /// </summary>
     [PublicAPI]
-    public Color? DimColor
+    public Color? BaseColorOverride
     {
         get;
         set
@@ -134,7 +111,7 @@ public sealed partial class StatusLight : Control
             if (field == value) return;
 
             field = value;
-            BindValues();
+            InvalidateStyleSheet();
         }
     }
 
@@ -142,92 +119,76 @@ public sealed partial class StatusLight : Control
     ///     The <see cref="Texture"/> used by the Active Light.
     /// </summary>
     [PublicAPI]
-    public Texture? ActiveLightTexture
+    public Texture? ActiveLightTextureOverride
     {
         get => ActiveLight.Texture;
         set => ActiveLight.Texture = value;
     }
     
     /// <summary>
-    ///     Setter to load a <see cref="Texture"/> into <see cref="ActiveLightTexture"/>.
-    /// </summary>
-    /// <remarks>
-    ///     Shortcut for the <see cref="TextureRect.TexturePath"/> property.
-    /// </remarks>
-    [PublicAPI]
-    public string ActiveLightTexturePath
-    {
-        set => ActiveLight.TexturePath = value;
-    }
-    
-    /// <summary>
     ///     The <see cref="Texture"/> used by the Base Light.
     /// </summary>
     [PublicAPI]
-    public Texture? BaseLightTexture
+    public Texture? BaseLightTextureOverride
     {
         get => BaseLight.Texture;
         set => BaseLight.Texture = value;
     }
-
+    
     /// <summary>
-    ///     Setter to load a <see cref="Texture"/> into <see cref="BaseLightTexture"/>.
+    ///     The blinking animation to use for the Active Light.
     /// </summary>
-    /// <remarks>
-    ///     Shortcut for the <see cref="TextureRect.TexturePath"/> property.
-    /// </remarks>
     [PublicAPI]
-    public string BaseLightTexturePath
+    public Animation? BlinkingAnimationOverride
     {
-        set => BaseLight.TexturePath = value;
+        get;
+        set
+        {
+            if (field == value) return;
+            
+            field = value;
+            InvalidateStyleSheet();
+        }
     }
 
     public StatusLight()
     {
         RobustXamlLoader.Load(this);
-        
-        ActiveLight.AnimationCompleted += OnAnimationCompleted;
-        
-        BindValues();
+        UpdateStylePseudoClasses();
+        ActiveLight.AnimationCompleted += ActiveLightOnAnimationCompleted;
     }
 
-    /// <summary>
-    ///     Update the control's visuals based on the current property values.
-    /// </summary>
-    private void BindValues()
+    protected override void StylePropertiesChanged()
     {
-        BaseLight.ModulateSelfOverride = DimColor ?? DefaultDimColor;
-        ActiveLight.ModulateSelfOverride = Color;
+        if (GetActualBaseColor() is var baseColor) BaseLight.ModulateSelfOverride = baseColor;
+        
+        if (GetActualActiveColor() is var activeColor) ActiveLight.ModulateSelfOverride = activeColor;
+        
+        SetActiveLightAnimation();
+        
+        base.StylePropertiesChanged();
+    }
+    
+    private void UpdateStylePseudoClasses()
+    {
+        SetOnlyStylePseudoClass(IsOn ? StylePseudoClassIsOn : StylePseudoClassIsOff);
         ActiveLight.Visible = IsOn;
         
-        ResetAnimation();
+        InvalidateStyleSheet();
     }
 
     /// <summary>
-    ///     Reset the blinking animation based on the current <see cref="Blinking"/> mode.
+    ///     Reset the blinking animation based on the current style and overrides. If there is no blinking animation, stop any currently playing animation.
     /// </summary>
-    private void ResetAnimation()
+    private void SetActiveLightAnimation()
     {
-        if (!IsOn)
+        if (GetActualBlinkingAnimation() is not { } blinkingAnimation)
         {
             ActiveLight.StopAnimation(BlinkingAnimationKey);
         }
-        else
+        else if (!ActiveLight.HasRunningAnimation(BlinkingAnimationKey))
         {
-            switch (Blinking)
-            {
-                case BlinkMode.Fast:
-                    ActiveLight.PlayAnimation(BlinkingFastAnimation, BlinkingAnimationKey);
-                    break;
-                case BlinkMode.Slow:
-                    ActiveLight.PlayAnimation(BlinkingSlowAnimation, BlinkingAnimationKey);
-                    break;
-                case BlinkMode.None:
-                    ActiveLight.StopAnimation(BlinkingAnimationKey);
-                    break;
-                default:
-                    throw new InvalidOperationException($"Unhandled {nameof(BlinkMode)}: {Blinking}");
-            }
+            ActiveLight.PlayAnimation(blinkingAnimation, BlinkingAnimationKey);
         }
     }
 
@@ -235,10 +196,35 @@ public sealed partial class StatusLight : Control
     ///     Handler for the AnimationCompleted delegate.
     /// </summary>
     /// <param name="animationId"></param>
-    private void OnAnimationCompleted(string animationId)
+    private void ActiveLightOnAnimationCompleted(string animationId)
     {
-        if(animationId != BlinkingAnimationKey) return;
+        SetActiveLightAnimation();
+    }
+
+    private Animation? GetActualBlinkingAnimation()
+    {
+        if (BlinkingAnimationOverride is not null) return BlinkingAnimationOverride;
         
-        ResetAnimation();
+        if (TryGetStyleProperty<Animation>(StylePropertyBlinkingAnimation, out var blinkingAnimation)) return blinkingAnimation;
+        
+        return null;
+    }
+    
+    private Color GetActualActiveColor()
+    {
+        if (ActiveColorOverride is not null) return ActiveColorOverride.Value;
+        
+        if (TryGetStyleProperty<Color>(StylePropertyActiveColor, out var activeColor)) return activeColor;
+        
+        return Color.White;
+    }
+    
+    private Color GetActualBaseColor()
+    {
+        if (BaseColorOverride is not null) return BaseColorOverride.Value;
+        
+        if (TryGetStyleProperty<Color>(StylePropertyBaseColor, out var baseColor)) return baseColor;
+        
+        return Color.White;
     }
 }

@@ -24,7 +24,9 @@
                     Name="PowerIndicator"
                     SetSize="24 24"
                     Margin="10"
-                    Color="#FF000066"
+                    
+                    ActiveColorOverride="#FF000066"
+                    
                     VerticalAlignment="Center"
                     IsOn="True" />
             </BoxContainer>
@@ -38,11 +40,13 @@
             <BoxContainer Orientation="Horizontal" VerticalAlignment="Center" Margin="0 0 10 0">
                 <dv:StatusLight
                     Name="OilIndicator"
+                    StyleClasses="BlinkingAnimation:Slow"
                     SetSize="24 24"
                     Margin="10"
-                    Color="#FFFF0066"
+                    
+                    ActiveColorOverride="#FFFF0066"
+                    
                     VerticalAlignment="Center"
-                    Blinking="Slow"
                     IsOn="True" />
                 <Label Text="{Loc deep-fryer-ui-oil-text}" VerticalAlignment="Center" />
             </BoxContainer>
