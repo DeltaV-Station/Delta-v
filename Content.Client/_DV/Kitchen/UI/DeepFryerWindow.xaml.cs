@@ -230,7 +230,7 @@ public sealed partial class DeepFryerWindow : BaseWindow
         
         OilMeter.MaximumValue = SolutionMaxVolume.Value;
         OilMeter.Value = SolutionVolume.Value;
-        OilMeter.ForegroundColor = SolutionColor.WithAlpha(0.8f);
+        OilMeter.ForegroundColorOverride = SolutionColor.WithAlpha(0.8f);
 
         OilIndicator.IsOn = IsPowered && SolutionVolume < MinimumVolume;
         OilIndicator.ToolTip = OilIndicator.IsOn ? Loc.GetString("deep-fryer-ui-oil-tooltip", ("units", MinimumVolume)) : null;
