@@ -1,0 +1,10 @@
+- type: entity
+  parent: WeaponEnergyTurretStationMachineCircuitboardBase
+  id: WeaponEnergyTurretXenoborgMachineCircuitboard
+  suffix: Mothership
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/module.rsi
+    state: xenoborg
+  - type: MachineBoard
+    prototype: WeaponEnergyTurretXenoborg
