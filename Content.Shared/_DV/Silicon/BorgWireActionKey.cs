@@ -7,4 +7,6 @@ public enum BorgWireActionKey : byte
 {
     SlavedKey,
     TransponderKey,
+    ChipKey,
+    CellKey,
 }

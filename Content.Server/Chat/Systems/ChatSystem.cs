@@ -8,6 +8,7 @@ using Content.Server.GameTicking;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech.Hushing; // DeltaV
 using Content.Server.Nyanotrasen.Chat;
+using Content.Server.Speech.Components; // DeltaV
 using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -889,6 +890,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var recipients = new Dictionary<ICommonSession, ICChatRecipientData>();
         var ghostHearing = GetEntityQuery<GhostHearingComponent>();
         var xforms = GetEntityQuery<TransformComponent>();
+        var blockListening = GetEntityQuery<BlockListeningComponent>(); // DeltaV - block listening
 
         var transformSource = xforms.GetComponent(source);
         var sourceMapId = transformSource.MapID;
@@ -903,6 +905,11 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             if (transformEntity.MapID != sourceMapId)
                 continue;
+
+            // Begin DeltaV - block listening
+            if (blockListening.HasComponent(playerEntity))
+                continue;
+            // End DeltaV - block listening
 
             var observer = ghostHearing.HasComponent(playerEntity);
 

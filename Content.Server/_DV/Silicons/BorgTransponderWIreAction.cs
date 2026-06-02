@@ -1,7 +1,6 @@
 using Content.Server.Silicons.Borgs;
 using Content.Server.Wires;
 using Content.Shared._DV.Silicons;
-using Content.Shared.Doors;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Wires;
 
