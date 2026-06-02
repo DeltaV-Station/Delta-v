@@ -171,7 +171,7 @@ public sealed partial class DeepFryerWindow : BaseWindow
 
         _deepFryer = _entityManager.System<SharedDeepFryerSystem>();
         
-        BasketControl.TooltipSupplier = BuildOilMeterTooltip;
+        BasketControl.TooltipSupplier = BuildOilQualityTooltip;
         
         CloseButton.OnPressed += _ => Close();
         FryerBaskets.OnEmptyItemPressed += () => OnEmptyItemPressed?.Invoke();
@@ -210,7 +210,7 @@ public sealed partial class DeepFryerWindow : BaseWindow
     
     private (Color color, string labelName) GetOilQualityInfo() => _deepFryer.GetOilQualityInfo(OilQualityCategory);
     
-    private Tooltip? BuildOilMeterTooltip(Control control)
+    private Tooltip? BuildOilQualityTooltip(Control control)
     {
         if (SolutionVolume.Value == 0 || _oilQualityTooltip is null) return null;
         
@@ -239,6 +239,8 @@ public sealed partial class DeepFryerWindow : BaseWindow
         _oilQualityTooltip = FormattedMessage.FromMarkupPermissive(Loc.GetString("deep-fryer-oil-quality-examine",
             ("color", color.ToHex()),
             ("state", labelName)));
+        
+        BasketControl.HideTooltip();
         
         FryerBaskets.Contents = CookingItems;
         FryerBaskets.Capacity = Capacity;

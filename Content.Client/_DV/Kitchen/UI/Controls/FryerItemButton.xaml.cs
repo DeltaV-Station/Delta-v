@@ -69,6 +69,7 @@ public sealed partial class FryerItemButton : ContainerButton
     private void BindValues()
     {
         ToolTip = ItemEntity.HasValue ? Loc.GetString("deep-fryer-eject-item", ("item", ItemEntity)) : null;
+        HideTooltip();
     }
 
     /// <summary>
