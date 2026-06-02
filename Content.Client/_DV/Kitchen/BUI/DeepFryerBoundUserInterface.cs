@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client._DV.Kitchen.UI;
 using Content.Shared._DV.Kitchen.BUI;
 using Content.Shared._DV.Kitchen.Systems;
@@ -9,7 +9,7 @@ namespace Content.Client._DV.Kitchen.BUI;
 public sealed class DeepFryerBoundUserInterface : BoundUserInterface
 {
     private DeepFryerWindow? _window;
-    
+
     [Dependency]
     private IPlayerManager _player = default!;
 
@@ -33,10 +33,10 @@ public sealed class DeepFryerBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-        
+
         if (_window is null || state is not DeepFryerBoundUserInterfaceState deepFryerState)
             return;
-        
+
         _window.OilQuality = deepFryerState.OilQuality;
         _window.SolutionColor = deepFryerState.SolutionColor;
         _window.MinimumVolume = deepFryerState.MinimumVolume;

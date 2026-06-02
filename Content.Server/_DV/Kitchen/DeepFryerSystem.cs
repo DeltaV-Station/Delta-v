@@ -56,7 +56,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         SubscribeLocalEvent<DeepFryerComponent, SolutionTransferredEvent>(OnSolutionTransferred);
         SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
     }
-    
+
     private void OnSolutionChanged(Entity<DeepFryerComponent> ent, ref SolutionContainerChangedEvent args)
     {
         // This event also fires for drinking the oil (which does not count as transferring from the solution)
@@ -190,18 +190,18 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     {
         if (!Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
             return;
-        
+
         if (_uiSystem.HasUi(ent, DeepFryerUiKey.DeepFryer))
         {
             _uiSystem.SetUiState(ent.Owner, DeepFryerUiKey.DeepFryer, new DeepFryerBoundUserInterfaceState
             {
                 IsPowered = _power.IsPowered(ent.Owner),
-                
+
                 OilQuality = ent.Comp.OilQuality,
-                
+
                 CookingItems = [..ent.Comp.CookingItems.Keys.Select(item => EntityManager.GetNetEntity(item))],
                 Capacity = ent.Comp.MaxItems,
-                
+
                 MinimumVolume = ent.Comp.MinimumOilVolume,
                 SolutionMaxVolume = solution.MaxVolume,
                 SolutionVolume = solution.Volume,

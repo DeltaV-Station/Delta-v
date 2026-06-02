@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client._DV.Kitchen.UI.Controls;
 using Content.Shared._DV.Kitchen.Components;
 using Content.Shared._DV.Kitchen.Systems;
@@ -16,20 +16,20 @@ namespace Content.Client._DV.Kitchen.UI;
 public sealed partial class DeepFryerWindow : BaseWindow
 {
     private const int DragMarginSize = 7;
-    
+
     [Dependency]
     private readonly IEntityManager _entityManager = default!;
 
     private readonly SharedDeepFryerSystem _deepFryer;
-    
+
     private FormattedMessage? _oilQualityTooltip;
-    
+
     /// <summary>
     ///     Event raised when pressing a <see cref="FryerItemButton"/> with an assigned <see cref="FryerItemButton.ItemEntity"/>.
     /// </summary>
     [PublicAPI]
     public event Action<EntityUid>? OnFoodItemPressed;
-    
+
     /// <summary>
     ///     Event raised when pressing a <see cref="FryerItemButton"/> without an assigned <see cref="FryerItemButton.ItemEntity"/>.
     /// </summary>
@@ -47,7 +47,7 @@ public sealed partial class DeepFryerWindow : BaseWindow
         {
             if (MathHelper.CloseTo(field, value))
                 return;
-            
+
             field = value;
             BindValues();
         }
@@ -64,7 +64,7 @@ public sealed partial class DeepFryerWindow : BaseWindow
         {
             if (field == value)
                 return;
-            
+
             field = value;
             BindValues();
         }
@@ -81,7 +81,7 @@ public sealed partial class DeepFryerWindow : BaseWindow
         {
             if (field == value)
                 return;
-            
+
             field = value;
             BindValues();
         }
@@ -91,14 +91,14 @@ public sealed partial class DeepFryerWindow : BaseWindow
     ///     The current volume of the deep fryer's oil solution.
     /// </summary>
     [PublicAPI]
-    public FixedPoint2 SolutionVolume 
-    { 
+    public FixedPoint2 SolutionVolume
+    {
         get;
         set
         {
             if (field == value)
                 return;
-            
+
             field = value;
             BindValues();
         }
@@ -108,18 +108,18 @@ public sealed partial class DeepFryerWindow : BaseWindow
     ///     The maximum volume of the deep fryer's oil solution.
     /// </summary>
     [PublicAPI]
-    public FixedPoint2 SolutionMaxVolume 
+    public FixedPoint2 SolutionMaxVolume
     {
         get;
         set
         {
             if (field == value)
                 return;
-            
+
             field = value;
             BindValues();
         }
-        
+
     }
 
     /// <summary>
@@ -152,31 +152,31 @@ public sealed partial class DeepFryerWindow : BaseWindow
             BindValues();
         }
     }
-    
+
     /// <summary>
     ///     The entities contained in the deep fryer.
     /// </summary>
     [PublicAPI]
-    public IReadOnlyList<EntityUid> CookingItems { get; set; } = []; 
+    public IReadOnlyList<EntityUid> CookingItems { get; set; } = [];
 
     /// <summary>
     ///     The <see cref="OilQuality"/> level of the oil, as determined by <see cref="SharedDeepFryerSystem"/>.
     /// </summary>
     private OilQuality OilQualityCategory => SharedDeepFryerSystem.GetOilQualityLevel(OilQuality);
-    
+
     public DeepFryerWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
         _deepFryer = _entityManager.System<SharedDeepFryerSystem>();
-        
+
         BasketControl.TooltipSupplier = BuildOilQualityTooltip;
-        
+
         CloseButton.OnPressed += _ => Close();
         FryerBaskets.OnEmptyItemPressed += () => OnEmptyItemPressed?.Invoke();
         FryerBaskets.OnFoodItemPressed += entity => OnFoodItemPressed?.Invoke(entity);
-        
+
         BindValues();
     }
 
@@ -207,27 +207,27 @@ public sealed partial class DeepFryerWindow : BaseWindow
 
         return mode;
     }
-    
+
     private (Color color, string labelName) GetOilQualityInfo() => _deepFryer.GetOilQualityInfo(OilQualityCategory);
-    
+
     private Tooltip? BuildOilQualityTooltip(Control control)
     {
         if (SolutionVolume.Value == 0 || _oilQualityTooltip is null) return null;
-        
+
         var tooltip = new Tooltip
         {
             Tracking = true
         };
-        
+
         tooltip.SetMessage(_oilQualityTooltip);
 
         return tooltip;
     }
-    
+
     private void BindValues()
     {
         PowerIndicator.IsOn = IsPowered;
-        
+
         OilMeter.MaximumValue = SolutionMaxVolume.Value;
         OilMeter.Value = SolutionVolume.Value;
         OilMeter.ForegroundColorOverride = SolutionColor.WithAlpha(0.8f);
@@ -239,9 +239,9 @@ public sealed partial class DeepFryerWindow : BaseWindow
         _oilQualityTooltip = FormattedMessage.FromMarkupPermissive(Loc.GetString("deep-fryer-oil-quality-examine",
             ("color", color.ToHex()),
             ("state", labelName)));
-        
+
         BasketControl.HideTooltip();
-        
+
         FryerBaskets.Contents = CookingItems;
         FryerBaskets.Capacity = Capacity;
     }

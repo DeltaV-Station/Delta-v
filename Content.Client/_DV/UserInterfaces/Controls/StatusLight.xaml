@@ -1,24 +1,24 @@
-﻿<controls:StatusLight
+<controls:StatusLight
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client._DV.UserInterfaces.Controls"
     MouseFilter="Pass">
     <TextureRect Name="BaseLight"
                  StyleClasses="StatusLight.BaseLight"
-                 
+
                  TextureScale="2 2"
 
                  Stretch="KeepAspectCentered"
-                 
+
                  VerticalAlignment="Stretch"
                  HorizontalAlignment="Stretch" />
-    
+
     <TextureRect Name="ActiveLight"
                  StyleClasses="StatusLight.ActiveLight"
-                 
+
                  TextureScale="2 2"
-                 
+
                  Stretch="KeepAspectCentered"
-                 
+
                  VerticalAlignment="Stretch"
                  HorizontalAlignment="Stretch"  />
 </controls:StatusLight>

@@ -27,7 +27,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<DeepFryerComponent, DeepFryerTryEjectItemMessage>(OnUiItemEjected);
 
         SubscribeLocalEvent<DeepFryerComponent, ComponentInit>(OnComponentInit);
@@ -36,7 +36,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
         SubscribeLocalEvent<DeepFryerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerbs);
         SubscribeLocalEvent<DeepFryerComponent, ExaminedEvent>(OnExamined);
     }
-    
+
     private void OnComponentInit(Entity<DeepFryerComponent> ent, ref ComponentInit args)
     {
         _container.EnsureContainer<Container>(ent, ent.Comp.ContainerName);
@@ -135,13 +135,13 @@ public abstract class SharedDeepFryerSystem : EntitySystem
     {
         if (!TryGetEntity(args.Item, out var itemEnt))
             return;
-        
+
         if (!TryGetEntity(args.User, out var userEnt))
             return;
 
         TryEjectItem(ent, itemEnt.Value, userEnt.Value);
     }
-    
+
     /// <summary>
     /// Attempts to eject an item from the deep fryer
     /// </summary>

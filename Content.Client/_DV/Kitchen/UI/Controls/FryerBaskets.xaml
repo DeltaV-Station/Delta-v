@@ -1,11 +1,11 @@
-﻿<controls:FryerBaskets
+<controls:FryerBaskets
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client._DV.Kitchen.UI.Controls">
 
     <ScrollContainer VerticalAlignment="Stretch"
                      HorizontalAlignment="Stretch"
                      ReserveScrollbarSpace="True">
-        
+
         <BoxContainer Name="ContentsContainer"
                       StyleClasses="FryerBasketsContainer"
                       Orientation="Horizontal"
