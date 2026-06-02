@@ -1,0 +1,18 @@
+﻿<ContainerButton
+    xmlns="https://spacestation14.io"
+    
+    SetSize="150 200"
+    TrackingTooltip="True">
+    
+    <BoxContainer Orientation="Vertical" 
+                  Margin="5" 
+                  Align="Begin">
+        <TextureRect Name="ItemIcon" 
+                     HorizontalAlignment="Center" 
+                     TextureScale="2 2" 
+                     Stretch="KeepAspectCentered" />
+        
+        <Label Name="TextLabel"
+               HorizontalAlignment="Center" />
+    </BoxContainer>
+</ContainerButton>

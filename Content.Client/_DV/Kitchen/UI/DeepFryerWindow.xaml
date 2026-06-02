@@ -1,0 +1,76 @@
+﻿<kitchenUi:DeepFryerWindow
+    xmlns="https://spacestation14.io"
+    xmlns:kitchenUi="clr-namespace:Content.Client._DV.Kitchen.UI"
+    xmlns:dv="clr-namespace:Content.Client._DV.UserInterfaces.Controls"
+    xmlns:kitchenControls="clr-namespace:Content.Client._DV.Kitchen.UI.Controls"
+    
+    Resizable="True"
+    MouseFilter="Pass"
+    MinSize="385 360"
+    SetSize="550 360">
+    <PanelContainer StyleClasses="BackgroundPanelOpenLeft" />
+
+    <BoxContainer Name="WindowPadding" 
+                  Orientation="Vertical"
+                  VerticalExpand="True"
+                  HorizontalExpand="True"
+                  Margin="10">
+        
+        <BoxContainer Orientation="Horizontal" SeparationOverride="5" SetHeight="60" Margin="0 0 0 10">
+            <!-- Header Area -->
+            <BoxContainer Orientation="Horizontal" VerticalAlignment="Center" Margin="32 0 0 0">
+                <Label Text="{Loc deep-fryer-ui-power-text}" VerticalAlignment="Center" />
+                <dv:StatusLight
+                    Name="PowerIndicator"
+                    SetSize="24 24"
+                    Margin="10"
+                    Color="#FF000066"
+                    VerticalAlignment="Center"
+                    IsOn="True" />
+            </BoxContainer>
+
+            <Label StyleClasses="LabelHeading"
+                   HorizontalExpand="True"
+                   Align="Center"
+                   VerticalAlignment="Center"
+                   Text="{Loc deep-fryer-ui-title}" />
+
+            <BoxContainer Orientation="Horizontal" VerticalAlignment="Center" Margin="0 0 10 0">
+                <dv:StatusLight
+                    Name="OilIndicator"
+                    SetSize="24 24"
+                    Margin="10"
+                    Color="#FFFF0066"
+                    VerticalAlignment="Center"
+                    Blinking="Slow"
+                    IsOn="True" />
+                <Label Text="{Loc deep-fryer-ui-oil-text}" VerticalAlignment="Center" />
+            </BoxContainer>
+            
+            <TextureButton Name="CloseButton" 
+                           SetSize="22 22" 
+                           StyleClasses="windowCloseButton" 
+                           VerticalAlignment="Center" />
+        </BoxContainer>
+
+        <Control Name="BasketControl"
+                 VerticalExpand="True"
+                 HorizontalExpand="True"
+                 TrackingTooltip="True"
+                 MouseFilter="Stop">
+            <dv:AdvancedProgressBar Name="OilMeter"
+                                    VerticalExpand="True"
+                                    HorizontalExpand="True"
+                                    Orientation="BottomToTop"
+                                    InsideMargin="5" />
+
+            <kitchenControls:FryerBaskets Name="FryerBaskets"
+                                          VerticalAlignment="Top"
+                                          HorizontalExpand="True"
+                                          ShowEmptyBaskets="True"
+                                          SetHeight="230"
+                                          InnerMargin="15 15 15 5"
+                                          Margin="20"/>
+        </Control>
+    </BoxContainer>
+</kitchenUi:DeepFryerWindow>

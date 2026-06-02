@@ -1,0 +1,20 @@
+﻿<controls:StatusLight
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._DV.UserInterfaces.Controls"
+    MouseFilter="Pass">
+    <TextureRect Name="BaseLight"
+                 TexturePath="/Textures/Interface/WireHacking/light_off_base.svg.96dpi.png"
+                 
+                 Stretch="KeepAspectCentered"
+                 
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch" />
+    
+    <TextureRect Name="ActiveLight"
+                 TexturePath="/Textures/Interface/WireHacking/light_on_base.svg.96dpi.png"
+                 
+                 Stretch="KeepAspectCentered"
+                 
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"  />
+</controls:StatusLight>

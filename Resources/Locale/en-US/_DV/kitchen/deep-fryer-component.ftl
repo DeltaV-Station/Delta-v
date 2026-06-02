@@ -4,7 +4,8 @@ deep-fryer-not-food = That's not something you can fry!
 deep-fryer-no-container = The fryer basket is missing!
 deep-fryer-full = The fryer is full!
 deep-fryer-insufficient-oil = There's not enough oil in the fryer!
-deep-fryer-insert-item = You insert {THE($item)} into the deep fryer.
+deep-fryer-insert-item = Insert {THE($item)}
+deep-fryer-insert-item-success = You insert {THE($item)} into the deep fryer.
 deep-fryer-eject-item = Eject {THE($item)}
 deep-fryer-eject-item-success = You eject {THE($item)} from the fryer.
 deep-fryer-item-finished = {CAPITALIZE(THE($item))} has finished cooking!
@@ -20,3 +21,10 @@ deep-fryer-oil-quality-used = used
 deep-fryer-oil-quality-dirty = dirty
 deep-fryer-oil-quality-foul = foul
 deep-fryer-oil-quality-unknown = unknown
+
+## UI Text
+deep-fryer-ui-title = Mr. Fry
+deep-fryer-ui-power-text = Power
+deep-fryer-ui-oil-text = Add Oil
+deep-fryer-ui-oil-tooltip = At least {$units}u of oil must be in the fryer.
+deep-fryer-ui-empty = Empty Basket

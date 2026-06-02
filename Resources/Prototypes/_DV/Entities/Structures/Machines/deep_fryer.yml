@@ -124,7 +124,13 @@
       - !type:ChangeConstructionNodeBehavior
         node: machineFrame
   - type: ApcPowerReceiver
-    powerLoad: 2000
+    powerLoad: 2000  
+  - type: ActivatableUI
+    key: enum.DeepFryerUiKey.DeepFryer
+  - type: UserInterface
+    interfaces:
+      enum.DeepFryerUiKey.DeepFryer:
+        type: DeepFryerBoundUserInterface
   - type: Machine
     board: DeepFryerMachineCircuitboard
   - type: EmptyOnMachineDeconstruct
