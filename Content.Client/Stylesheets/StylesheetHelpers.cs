@@ -80,12 +80,14 @@ public static class StylesheetHelpers
 
     public static MutableSelector HorizontalAlignment(this MutableSelector selector, Control.HAlignment val)
     {
-        return selector.Prop(nameof(Control.HorizontalExpand), val);
+        // DeltaV - Fix HorizontalAlignment being misapplied to HorizontalExpand
+        return selector.Prop(nameof(Control.HorizontalAlignment), val); 
     }
 
     public static MutableSelector VerticalAlignment(this MutableSelector selector, Control.VAlignment val)
     {
-        return selector.Prop(nameof(Control.VerticalExpand), val);
+        // DeltaV - Fix VerticalAlignment being misapplied to VerticalExpand
+        return selector.Prop(nameof(Control.VerticalAlignment), val);
     }
 
     public static MutableSelector AlignMode(this MutableSelector selector, Label.AlignMode mode)
