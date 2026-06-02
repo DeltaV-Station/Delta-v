@@ -53,6 +53,16 @@ public sealed partial class FryerItemButton : ContainerButton
         get => TextLabel.Text;
         set => TextLabel.Text = value;
     }
+
+    /// <summary>
+    ///     The alignment of the button's contents along it's orientation axis.
+    /// </summary>
+    [PublicAPI]
+    public BoxContainer.AlignMode Align
+    {
+        get => Container.Align;
+        set => Container.Align = value;
+    }
     
     public FryerItemButton()
     {

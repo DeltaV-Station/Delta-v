@@ -6,8 +6,8 @@
     
     Resizable="True"
     MouseFilter="Pass"
-    MinSize="385 360"
-    SetSize="550 360">
+    MinSize="385 310"
+    SetSize="550 310">
     <PanelContainer StyleClasses="BackgroundPanelOpenLeft" />
 
     <BoxContainer Name="WindowPadding" 
@@ -63,12 +63,11 @@
                                     HorizontalExpand="True"
                                     Orientation="BottomToTop"
                                     InsideMargin="5" />
-
+            
             <kitchenControls:FryerBaskets Name="FryerBaskets"
                                           VerticalAlignment="Top"
-                                          HorizontalExpand="True"
                                           ShowEmptyBaskets="True"
-                                          SetHeight="230"
+                                          MinHeight="180"
                                           InnerMargin="15 15 15 5"
                                           Margin="20"/>
         </Control>

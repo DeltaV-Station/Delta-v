@@ -27,4 +27,4 @@ deep-fryer-ui-title = Mr. Fry
 deep-fryer-ui-power-text = Power
 deep-fryer-ui-oil-text = Add Oil
 deep-fryer-ui-oil-tooltip = At least {$units}u of oil must be in the fryer.
-deep-fryer-ui-empty = Empty Basket
+deep-fryer-ui-empty = [bold]Empty Basket[/bold]

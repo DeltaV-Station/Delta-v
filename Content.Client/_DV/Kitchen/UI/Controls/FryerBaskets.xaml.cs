@@ -142,7 +142,7 @@ public sealed partial class FryerBaskets : PanelContainer
             {
                 fryerItemButton.ItemEntity = Contents[i];
                 fryerItemButton.ItemTexture = TryGetTextureForEntity(Contents[i], out var texture) ? texture : null;
-                
+                fryerItemButton.Align = BoxContainer.AlignMode.Begin;
                 fryerItemButton.Text = _metadataQuery.TryGetComponent(Contents[i], out var metadata) ? metadata.EntityName : null;
                 fryerItemButton.Visible = true;
             }
@@ -150,7 +150,7 @@ public sealed partial class FryerBaskets : PanelContainer
             {
                 fryerItemButton.ItemEntity = null;
                 fryerItemButton.ItemTexture = null;
-                
+                fryerItemButton.Align = BoxContainer.AlignMode.Center;
                 fryerItemButton.Text = Loc.GetString(EmptyBasketText ?? "deep-fryer-ui-empty");
                 fryerItemButton.Visible = ShowEmptyBaskets;
             }
