@@ -31,5 +31,8 @@
   - type: Machine
     board: WeaponEnergyTurretXenoborgMachineCircuitboard
   - type: DeviceNetwork
+    deviceNetId: Wireless
     receiveFrequencyId: Mothership
     transmitFrequencyId: Mothership
+  - type: WirelessNetworkConnection
+    range: 10000

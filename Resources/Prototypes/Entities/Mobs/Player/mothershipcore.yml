@@ -120,6 +120,8 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.DeployableTurretControllerUiKey.Key: # DeltaV - Turret Control
+        type: TurretControllerWindowBoundUserInterface
   - type: Pullable
   - type: StaticPrice
     price: 800
@@ -233,9 +235,16 @@
         toggleAction: ActionXenoborgControlMonitor
       enum.SurveillanceCameraMonitorUiKey.Key:
         toggleAction: ActionXenoborgCameraMonitor
+      enum.DeployableTurretControllerUiKey.Key: # DeltaV - Turret Control
+        toggleAction: ActionXenoborgTurretControl
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
+# Begin DeltaV Additions
+  - type: DeployableTurretController
+  - type: DeviceList
+    isAllowList: true
+# End DeltaV Additions
 
 - type: entity
   parent: BaseAGhostAction
