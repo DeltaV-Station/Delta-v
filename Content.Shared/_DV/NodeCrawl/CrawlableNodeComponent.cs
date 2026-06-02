@@ -12,13 +12,13 @@ public sealed partial class CrawlableNodeComponent : Component
     /// <summary>
     /// Other entities with <see cref="CrawlableNodeComponent" /> that can be reached from this one
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public HashSet<EntityUid> ReachableNodes = new();
 
     /// <summary>
     /// Whether this node has an unconnected node and should be exited from on movement
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool DeadEnd;
 
     /// <summary>
