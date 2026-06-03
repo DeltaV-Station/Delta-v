@@ -1,3 +1,4 @@
+using Content.Shared._DV.KeycardAuthenticationDevice;
 using Content.Shared._DV.Screens;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -92,6 +93,12 @@ public sealed class DVCommunicationsConsoleEvacuationShuttleMessage(bool call) :
 public sealed class DVCommunicationsConsoleExfiltrationShuttleMessage(bool call) : BoundUserInterfaceMessage
 {
     public readonly bool Call = call;
+}
+
+[Serializable, NetSerializable]
+public sealed class DVCommunicationsConsoleKeycardAuthenticationDeviceMessage(DVStationKeycardAction action) : BoundUserInterfaceMessage
+{
+    public readonly DVStationKeycardAction Action = action;
 }
 
 [Serializable, NetSerializable]

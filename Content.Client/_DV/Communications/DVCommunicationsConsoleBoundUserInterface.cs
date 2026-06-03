@@ -25,6 +25,6 @@ public sealed class DVCommunicationsConsoleBoundUserInterface : BoundUserInterfa
 
     public void Update(Entity<DVCommunicationsConsoleComponent> ent)
     {
-        _menu?.Update(ent);
+        _menu?.Update(ent, PlayerManager.LocalEntity!.Value);
     }
 }
