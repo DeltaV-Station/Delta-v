@@ -134,5 +134,3 @@ public static class DVScreenPackets
     public const string ShowBorders = "dv-screen-borders";
     public const string Text = "dv-screen-text";
 }
-
-
