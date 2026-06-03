@@ -210,3 +210,58 @@
           amount: 2
         - id: MagazinePistolHighCapacity
           amount: 4
+
+# Armorer Lockers
+- type: entity
+  id: LockerArmorerFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerArmorer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerArmorer
+        - !type:NestedSelector
+          tableId: FillLockerArmorerHardsuit
+
+- type: entity
+  id: LockerArmorerFilled
+  suffix: Filled
+  parent: LockerArmorer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerArmorer
+
+- type: entityTable
+  id: FillLockerArmorer
+  table: !type:AllSelector
+    children:
+    - id: FlashlightSeclite
+    - id: WeaponDisabler
+    - id: WeaponTaser
+    - id: ClothingBeltSecurityFilled
+    - id: Flash
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingHandsGlovesCombat
+    - id: RubberStampArmorer
+    - id: DoorRemoteArmory
+    - id: HoloprojectorSecurity
+    - id: WeaponEnergyShotgun
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+    - id: ClothingOuterVestPlateCarrierAdv
+    - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
+
+- type: entityTable
+  id: FillLockerArmorerHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitCombatWarden
+    - id: ClothingShoesBootsSecurityMagboots
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingMaskGasSwat
