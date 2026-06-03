@@ -86,7 +86,62 @@ public sealed partial class SignalTimerWindow : DefaultWindow
     // Begin Monolith
     // public void OnCurrentDelayMinutesChange(string text)
     // {
-    //     OnCurrentDelayChanged?.Invoke(newValue);
+    //     List<char> toRemove = new();
+
+    //     foreach (var a in text)
+    //     {
+    //         if (!char.IsDigit(a))
+    //             toRemove.Add(a);
+    //     }
+
+    //     foreach (var a in toRemove)
+    //     {
+    //         CurrentDelayEditMinutes.Text = text.Replace(a.ToString(),"");
+    //     }
+
+    //     if (CurrentDelayEditMinutes.Text == "")
+    //         return;
+
+    //     while (CurrentDelayEditMinutes.Text[0] == '0' && CurrentDelayEditMinutes.Text.Length > 2)
+    //     {
+    //         CurrentDelayEditMinutes.Text = CurrentDelayEditMinutes.Text.Remove(0, 1);
+    //     }
+
+    //     if (CurrentDelayEditMinutes.Text.Length > 2)
+    //     {
+    //         CurrentDelayEditMinutes.Text = CurrentDelayEditMinutes.Text.Remove(2);
+    //     }
+    //     OnCurrentDelayMinutesChanged?.Invoke(CurrentDelayEditMinutes.Text);
+    // }
+
+    // public void OnCurrentDelaySecondsChange(string text)
+    // {
+    //     List<char> toRemove = new();
+
+    //     foreach (var a in text)
+    //     {
+    //         if (!char.IsDigit(a))
+    //             toRemove.Add(a);
+    //     }
+
+    //     foreach (var a in toRemove)
+    //     {
+    //         CurrentDelayEditSeconds.Text = text.Replace(a.ToString(), "");
+    //     }
+
+    //     if (CurrentDelayEditSeconds.Text == "")
+    //         return;
+
+    //     while (CurrentDelayEditSeconds.Text[0] == '0' && CurrentDelayEditSeconds.Text.Length > 2)
+    //     {
+    //         CurrentDelayEditSeconds.Text = CurrentDelayEditSeconds.Text.Remove(0, 1);
+    //     }
+
+    //     if (CurrentDelayEditSeconds.Text.Length > 2)
+    //     {
+    //         CurrentDelayEditSeconds.Text = CurrentDelayEditSeconds.Text.Remove(2);
+    //     }
+    //     OnCurrentDelaySecondsChanged?.Invoke(CurrentDelayEditSeconds.Text);
     // }
 
     public void CurrentDelayChange(TimeSpan newValue)
@@ -142,7 +197,6 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         // Begin Monolith
         // CurrentDelayEditMinutes.Editable = hasAccess;
         // CurrentDelayEditSeconds.Editable = hasAccess;
-        CurrentDelayEdit.Editable = hasAccess;
         // End Monolith
         StartTimer.Disabled = !hasAccess;
     }

@@ -2,7 +2,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Lathe;
+namespace Content.Server._Goobstation.Lathe;
 
 /// <summary>
 /// Lets a lathe produce the last made recipe, controlled by signal port.
