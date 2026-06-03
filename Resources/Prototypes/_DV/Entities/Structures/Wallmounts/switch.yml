@@ -28,7 +28,7 @@
   suffix: Clerk
   components:
   - type: AccessReader
-    access: [["Clerk"]]
+    access: [["Warden"]] # Clerk access replaced with warden
 
 - type: entity
   parent: LockableButton
