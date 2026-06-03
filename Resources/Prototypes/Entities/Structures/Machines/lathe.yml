@@ -67,7 +67,7 @@
     boardName: wires-board-name-autolathe
     layoutId: Fabicator
     alwaysRandomize: true
-  - type: StationAiWhitelist 
+  - type: StationAiWhitelist
   - type: MaterialStorageMagnetPickup
     magnetEnabled: True
     range: 0.30
@@ -238,7 +238,6 @@
     - Instruments
     - Equipment
     - Botany # DeltaV
-    - Surgery # Shitmed change
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -297,6 +296,7 @@
     - MechBoards
     - ShuttleBoards
     - EngineeringBoardsGoob #Goob Factorio port
+    - ReactorCircuitboards # FH edit
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -340,11 +340,7 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    - RoboticsStaticDeltaV # DeltaV
-    - PowerAugments # DeltaV - augments
-    - ToolAugments # DeltaV - augments
     - BorgDVModulesStatic # DeltaV - modules
-    - BorgModulesStaticShitmed # Shitmed
     - BorgIdentificationStaticDeltaV # DeltaV - Borg IDs
     dynamicPacks:
     - Robotics
@@ -352,23 +348,18 @@
     - MechParts
     - MechEquipment
     - RoboticsDeltaV # DeltaV
-    - BorgModulesDeltaV # DeltaV
-    - Surgery # DeltaV - Share Surgery Parts between Epi and Med.
-    - CyberneticsRobotics # DeltaV - Share Surgery Parts between Epi and Med.
-    - PsionicProsthetics # DeltaV
+    - BorgModulesServiceDynamicDV # DeltaV
   - type: EmagLatheRecipes # DeltaV
     emagStaticPacks:
     - RoboticsEmagStatic
     # Being DeltaV Additions
     - EVASuit
     emagDynamicPacks:
-    - SecurityCybernetics # having sechud eyes is good for evil people
     - SecurityHardsuits
     - BorgModulesSecurityDeltaV
     - SalvageHardsuits
     - ParamedicHardsuit
     - EngineeringHardsuits
-    - AdvancedPsionicProsthetics
     # End DeltaV Additions
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
@@ -424,6 +415,7 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
+    snapCardinals: true #DeltaV - Follow Camera Rotation
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -466,7 +458,6 @@
     - SecurityWeapons
     - SpecOpsGoogles # DeltaV
     #- SecurityDisablers # DeltaV - made roundstart
-    - AdvancedPsionicProsthetics # DeltaV
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -496,6 +487,7 @@
   components:
     - type: Sprite
       sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
+      snapCardinals: true #DeltaV - Follow Camera Rotation
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]
@@ -516,7 +508,7 @@
       unlitRunningState: unlit-building # DeltaV - added animation sprite layers
       staticPacks:
       - SecurityAmmoStatic
-    # Start DeltaV Additions 
+    # Start DeltaV Additions
       - SecurityShotgunDrumsStatic
       - AmmoFabPracticeStatic # Removes practice guns
       - SecurityRubberAmmoStatic
@@ -575,19 +567,13 @@
     - ReportingStatic
     - EVASuit
     - PowerCellsStatic
-    - IPCLimbsStatic
-    - PowerAugments
-    - ToolAugments
     - SimpleToolsStaticDeltaV
     # End DeltaV Additions
     dynamicPacks:
     - Chemistry
-    - CyberneticsMedical # Shitmed change
-    - Surgery # Shitmed change
     # Being DeltaV Additions
     - MedicalDeltaV
     - ParamedicHardsuit
-    - Cybernetics
     # End DeltaV Additions
   - type: Machine
     board: MedicalTechFabCircuitboard

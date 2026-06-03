@@ -357,6 +357,39 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatCapSec
+  name: security cap
+  description: A cap worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCadet
+  name: security cadet beret
+  description: A beret worn by security cadets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSecurityGrey
+  name: grey security beret
+  description: A light grey beret worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretMedical
   name: medical beret
   description: A light blue beret with a white cross.
@@ -432,3 +465,48 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.12"
+
+
+# Wrestling masks
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaRed
+  name: Red Lucha Libre Mask
+  description: The luchador never removes his mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaBlue
+  name: Blue Lucha Libre Mask
+  description: Don't touch the mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretViro
+  name: virology beret
+  description: A white beret with a green stripe that reminds you to wash your hands.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_viro.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_viro.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable

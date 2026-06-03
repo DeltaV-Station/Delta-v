@@ -233,9 +233,9 @@
     price: 750
 
 - type: entity
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponGunLaserCarbineAutomatic
-  name: IK-60 energy carbine
+  name: IK-60
   description: "A 30 round hybrid-fire energy carbine."
   components:
   - type: Sprite
@@ -258,6 +258,13 @@
     availableModes:
       - SemiAuto
       - FullAuto
+    minAngle: 21
+    maxAngle: 32
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -20
+    angleIncrease: 3
+    angleDecay: 12
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
@@ -468,6 +475,7 @@
   parent: WeaponDisabler
   id: WeaponDisablerSelfCharge
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
+  suffix: AutoRecharge
   components:
   - type: BatterySelfRecharger
     autoRechargeRate: 50
@@ -652,3 +660,27 @@
     proto: BulletRadiation
     fireCost: 100
   - type: Appearance
+
+- type: entity
+  parent: WeaponLaserSvalinn
+  id: WeaponLaserSvalinnSecurity
+  name: SV-213 Laser Pistol
+  description: A slightly stronger variation of the Svalinn Laser Pistol made for security and military operations.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/SV213.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-7
+    sprite: _DV/Objects/Weapons/Guns/Battery/SV213.rsi
+  - type: BatteryAmmoProvider
+    proto: SVLaserRed
+    fireCost: 50

@@ -14,7 +14,7 @@
     sprite: Nyanotrasen/Objects/Weapons/Guns/Pistols/universal.rsi
     state: icon
   product: CrateArmoryUniversal
-  cost: 10500
+  cost: 12500
   category: Armory
   group: market
 
@@ -77,5 +77,15 @@
     state: icon
   product: CrateNT3
   cost: 13000
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryRevolver
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    state: icon
+  product: CrateRevolver
+  cost: 5200
   category: Armory
   group: market

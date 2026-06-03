@@ -75,7 +75,12 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
-  - type: Targeting # Shitmed Change
+      # Begin DeltaV - borg PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End DeltaV - borg PDAs
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -111,9 +116,6 @@
     fuelCost: 0.5
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
-  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
-  - type: Fiber # DeltaV - borgs leave metal fibers
-    fiberMaterial: fibers-plasteel
   - type: LockingWhitelist
     blacklist:
       components:
@@ -130,6 +132,8 @@
       borg_id_chip: !type:ContainerSlot # DeltaV - borg id chips
       borg_module: !type:Container { }
       part-container: !type:Container
+      program-container: !type:Container # DeltaV - Borg PDAs
+      Cartridge-Slot: !type:ContainerSlot # DeltaV - Borg PDAs
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -156,7 +160,6 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
-    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSilicon
     wilhelmProbability: 0.001 # DeltaV
@@ -249,7 +252,6 @@
     - FootstepSound
     - CanPilot
     - SiliconEmotes
-    - SiliconOrIPCEmotes # DeltaV
     - Honker # DeltaV - Can honk
     - Unimplantable
   - type: Emoting
@@ -520,7 +522,6 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
-    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSiliconXenoborg
     wilhelmProbability: 0.001 # DeltaV

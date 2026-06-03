@@ -8,27 +8,31 @@
     - DirtLight
     - DirtMedium
     - DirtHeavy
-    maxDecalsPerTile: 1
+    maxDecalsPerTile: 4 # Delta V - Was 1
     snapPosition: true
     zIndex: 5
     prob: 0.8
     color: '#FFFFFF7F'
     cleanable: true
     tileBlacklist: # Everything here just looks bad if it gets regular dirt on it
-    - FloorSteelMono
-    - FloorSteelDiagonal
-    - FloorSteelOffset
-    - FloorSteelDiagonalMini
+    # Delta V - Begin edits
+    #- FloorSteelMono
+    #- FloorSteelDiagonal
+    #- FloorSteelOffset
+    #- FloorSteelDiagonalMini
+    # Delta V - End edits
     - FloorWood
     - FloorWoodLarge
-    - FloorWhiteMono
-    - FloorWhiteDiagonal
-    - FloorWhiteOffset
-    - FloorWhiteDiagonalMini
-    - FloorDarkMono
-    - FloorDarkDiagonal
-    - FloorDarkOffset
-    - FloorDarkDiagonalMini
+    # Delta V - Begin edits
+    #- FloorWhiteMono
+    #- FloorWhiteDiagonal
+    #- FloorWhiteOffset
+    #- FloorWhiteDiagonalMini
+    #- FloorDarkMono
+    #- FloorDarkDiagonal
+    #- FloorDarkOffset
+    #- FloorDarkDiagonalMini
+    # Delta V - End edits
     - FloorArcadeBlue
     - FloorArcadeBlue2
     - FloorArcadeRed
@@ -37,14 +41,15 @@
     - FloorCarpetOffice
     - FloorBoxing
     - FloorGym
-    - FloorGlass
-    - FloorRGlass
+    # Delta V - Begin edits
+    #- FloorGlass
+    #- FloorRGlass
+    # Delta V - End edits
     - FloorAstroGrass
     - FloorMowedAstroGrass
     - FloorJungleAstroGrass
     - FloorAstroIce
     - FloorAstroSnow
-    - FloorMowedAstroSnow # DeltaV
     - FloorAstroAsteroidSand
     - FloorFlesh
     - FloorAsteroidSandUnvariantized
@@ -62,6 +67,17 @@
     - FloorAsphalt
     - FloorReinforced
     - FloorLino
+    # Delta V - Begin Additions
+    - FloorMowedAstroSnow
+    - FloorAstroSnowDug
+    - FloorGrassDarkIndoors
+    - FloorGrassLightIndoors
+    - FloorMowedAstroSnowDug
+    - FloorSteelBurnt
+    # Delta V - End Additions
+    # N14 - Begin Additions
+    # Add N14 tiles after they are resprited.
+    # N14 - End Additions
     deleteSpawnerAfterSpawn: true
 
 - type: entity
@@ -105,15 +121,17 @@
     - Dirt
     - DirtHeavyMonotile
     tileBlacklist:
-    - FloorSteelDiagonal
-    - FloorSteelOffset
-    - FloorSteelDiagonalMini
-    - FloorWhiteDiagonal
-    - FloorWhiteOffset
-    - FloorWhiteDiagonalMini
-    - FloorDarkDiagonal
-    - FloorDarkOffset
-    - FloorDarkDiagonalMini
+    # Delta V - Begin edits
+    #- FloorSteelDiagonal
+    #- FloorSteelOffset
+    #- FloorSteelDiagonalMini
+    #- FloorWhiteDiagonal
+    #- FloorWhiteOffset
+    #- FloorWhiteDiagonalMini
+    #- FloorDarkDiagonal
+    #- FloorDarkOffset
+    #- FloorDarkDiagonalMini
+    # Delta V - End edits
     - FloorArcadeBlue
     - FloorArcadeBlue2
     - FloorArcadeRed
@@ -143,6 +161,17 @@
     - FloorGrass
     - FloorAsphalt
     - FloorReinforced
+    # Delta V - Begin Additions
+    - FloorMowedAstroSnow
+    - FloorAstroSnowDug
+    - FloorGrassDarkIndoors
+    - FloorGrassLightIndoors
+    - FloorMowedAstroSnowDug
+    - FloorSteelBurnt
+    # Delta V - End Additions
+    # N14 - Begin Additions
+    # Add N14 tiles after they are resprited.
+    # N14 - End Additions
 
 - type: entity
   parent: DecalSpawnerDirtMonospace

@@ -9,16 +9,9 @@
     sprite: Mobs/Species/Skeleton/parts.rsi
   - type: Icon
     sprite: Mobs/Species/Skeleton/parts.rsi
-  - type: Destructible # Shitmed Change: Let blunt weapons break bones
-    thresholds:
-    - trigger: !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:DoActsBehavior # For some reason, if this is GibPartBehavior and spawned skeleton part gets gibbed (by like the nuke), the server crashes.
-        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Biological
   - type: BodyPart
-    species: Skeleton # Shitmed Change
   - type: StaticPrice
     price: 20
   - type: Tag
@@ -39,8 +32,6 @@
   - type: Sprite
     state: "skull_icon"
     scale: 0.5, 0.5 # DeltaV - Scale down sprite because it looks too big
-  - type: Icon
-    state: "skull_icon"
   - type: BlockMovement
   - type: Input
     context: "human"
