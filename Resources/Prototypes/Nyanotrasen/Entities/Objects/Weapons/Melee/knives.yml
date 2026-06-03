@@ -7,13 +7,13 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Holy: 5
+        Slash: 8
+        Shadow: 8
   - type: AntiPsionicWeapon
     modifiers:
       coefficients:
-        Slash: 2
-        Holy: 2
+        Slash: 1.5
+        Shadow: 1.5
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/anti_psychic_knife.rsi
     state: icon

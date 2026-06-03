@@ -61,3 +61,328 @@
   components:
   - type: AccessReader
     access: [["ERT"]]
+
+# Switches
+
+- type: entity
+  parent: SignalSwitchDirectional
+  id: LockableSwitch
+  name: lockable switch
+  suffix: Unassigned
+  components:
+  - type: Appearance
+  - type: Lock
+  - type: LockVisuals
+  - type: AccessReader
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/locked_switch.rsi
+    layers:
+    - state: base
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchCaptain
+  suffix: Captain
+  components:
+  - type: AccessReader
+    access: [["Captain"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchHeadOfPersonnel
+  suffix: HeadOfPersonnel
+  components:
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchChiefEngineer
+  suffix: ChiefEngineer
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchChiefMedicalOfficer
+  suffix: ChiefMedicalOfficer
+  components:
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchHeadOfSecurity
+  suffix: HeadOfSecurity
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchResearchDirector
+  suffix: Mystagogue
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchCommand
+  suffix: Command
+  components:
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchCryogenics
+  suffix: Cryogenics
+  components:
+  - type: AccessReader
+    access: [["Cryogenics"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchSecurity
+  suffix: Security
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchDetective
+  suffix: Detective
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchArmory
+  suffix: Armory
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchLawyer
+  suffix: Lawyer
+  components:
+  - type: AccessReader
+    access: [["Lawyer"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchEngineering
+  suffix: Engineering
+  components:
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchMedical
+  suffix: Medical
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchQuartermaster
+  suffix: Logistics Officer
+  components:
+  - type: AccessReader
+    access: [["Quartermaster"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchSalvage
+  suffix: Salvage
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchCargo
+  suffix: Logistics
+  components:
+  - type: AccessReader
+    access: [["Cargo"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchResearch
+  suffix: Epistemics
+  components:
+  - type: AccessReader
+    access: [["Research"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchService
+  suffix: Service
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchMaintenance
+  suffix: Maintenance
+  components:
+  - type: AccessReader
+    access: [["Maintenance"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchExternal
+  suffix: External
+  components:
+  - type: AccessReader
+    access: [["External"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchJanitor
+  suffix: Janitor
+  components:
+  - type: AccessReader
+    access: [["Janitor"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchTheatre
+  suffix: Theatre
+  components:
+  - type: AccessReader
+    access: [["Theatre"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchBar
+  suffix: Bar
+  components:
+  - type: AccessReader
+    access: [["Bar"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchChemistry
+  suffix: Chemistry
+  components:
+  - type: AccessReader
+    access: [["Chemistry"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchKitchen
+  suffix: Kitchen
+  components:
+  - type: AccessReader
+    access: [["Kitchen"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchChapel
+  suffix: Chapel
+  components:
+  - type: AccessReader
+    access: [["Chapel"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchHydroponics
+  suffix: Hydroponics
+  components:
+  - type: AccessReader
+    access: [["Hydroponics"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchAtmospherics
+  suffix: Atmospherics
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchCentcomm
+  suffix: CentComm
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchRobotics
+  suffix: Robotics
+  components:
+  - type: AccessReader
+    access: [["Robotics"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchJustice
+  suffix: Justice
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchProsecutor
+  suffix: Prosecutor
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchClerk
+  suffix: Clerk
+  components:
+  - type: AccessReader
+    access: [["Clerk"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchCJ
+  suffix: Chief Justice
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchSyndicate
+  suffix: Syndicate
+  components:
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchNukeop
+  suffix: Nukeop
+  components:
+  - type: AccessReader
+    access: [["NuclearOperative"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchERT
+  suffix: ERT
+  components:
+  - type: AccessReader
+    access: [["ERT"]]

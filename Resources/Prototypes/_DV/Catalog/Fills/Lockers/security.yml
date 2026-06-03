@@ -163,16 +163,7 @@
         - !type:NestedSelector
           tableId: FillLockerBrigmedic
         - !type:NestedSelector
-          tableId: LockerFillBrigmedicHardsuit
-
-- type: entityTable
-  id: LockerFillBrigmedicHardsuit
-  table: !type:AllSelector
-    children:
-    - id: ClothingOuterHardsuitCombatCorpsman
-    - id: ClothingShoesBootsSecurityMagboots
-    - id: OxygenTankFilled
-    - id: ClothingMaskBreath
+          tableId: FillSuitStorageCorpsman
 
 - type: entity
   parent: SecurityGunSafeNonlethalDV

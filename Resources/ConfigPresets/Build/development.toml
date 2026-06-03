@@ -56,3 +56,7 @@ rules_file = "DeltaVRuleset"
 
 [control] # DeltaV
 storage_limit = 3
+
+[audio] # DeltaV
+attenuation = 4 # inversedistanceclamped 1 << 2, see audioparams.cs
+z_offset = -2

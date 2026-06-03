@@ -72,3 +72,13 @@
     pocket1: AgentIDCard
     pocket2: HandheldStationMapRecordsTablet
 #  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink # I don't think loadouts work for ghost roles anyways
+
+# Station pets
+
+- type: startingGear
+  id: MobScurretBaba
+  equipment:
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformSeniorBartender
+    id: BabaIDCard
+    back: ClothingBagPet

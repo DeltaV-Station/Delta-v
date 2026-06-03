@@ -181,12 +181,12 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
 
         int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
         {
-            GlimmerTier.Minimal => 4,
-            GlimmerTier.Low => 8,
-            GlimmerTier.Moderate => 12,
-            GlimmerTier.High => 16,
-            GlimmerTier.Dangerous => 32,
-            GlimmerTier.Critical => 64,
+            GlimmerTier.Minimal => 2,
+            GlimmerTier.Low => 3,
+            GlimmerTier.Moderate => 4,
+            GlimmerTier.High => 8,
+            GlimmerTier.Dangerous => 12,
+            GlimmerTier.Critical => 32,
             _ => 0
         };
         _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 1, 5, psionic, maxTileBreak: 0);

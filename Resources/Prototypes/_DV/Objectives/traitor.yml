@@ -40,6 +40,33 @@
     stealGroup: HoSSidearm
     owner: job-name-hos
 
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: SecretFolderStealObjective
+  components:
+  - type: Objective
+    # HoS will never have this on them
+    difficulty: 2
+  - type: NotJobRequirement
+    jobs: [ HeadOfSecurity ]
+  - type: StealCondition
+    stealGroup: BookSecretDocuments
+    owner: job-name-hos
+
+## warden steal objective
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: EnergyShotgunStealObjective
+  components:
+  - type: Objective
+    # Steal from the warden? This will go peacefully
+    difficulty: 3
+  - type: NotJobRequirement
+    jobs: [ Warden ]
+  - type: StealCondition
+    stealGroup: WeaponEnergyShotgun
+    owner: job-name-warden
+
 - type: entity # Clerk steal objective.
   parent: BaseTraitorStealObjective
   id: ClerkNotaryStealObjective
@@ -80,6 +107,19 @@
     jobs: [ ChiefEngineer ]
   - type: StealCondition
     stealGroup: BoxFolderCeClipboard
+    owner: job-name-ce
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CeHardsuitStealObjective
+  components:
+  - type: Objective
+    # You can't hide it, and will probably have to kill CE for it
+    difficulty: 3
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: StealCondition
+    stealGroup: ClothingOuterHardsuitEngineeringWhite
     owner: job-name-ce
 
 # teach lesson
