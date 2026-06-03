@@ -1,3 +1,4 @@
+using Content.Shared._DV.KeycardAuthenticationDevice;
 using Content.Shared._DV.Screens;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
@@ -18,6 +19,7 @@ public abstract class SharedDVCommunicationsConsoleSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] protected readonly AccessReaderSystem AccessReader = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
+    [Dependency] private readonly SharedDVStationKeycardAuthenticationDeviceSystem _stationKeycardAuthenticationDevice = default!;
 
     public override void Initialize()
     {
@@ -33,6 +35,7 @@ public abstract class SharedDVCommunicationsConsoleSystem : EntitySystem
                 subs.Event<DVCommunicationsConsoleScreenConfigurationMessage>(OnConfiguration);
                 subs.Event<DVCommunicationsConsoleAnnouncementMessage>(OnAnnouncement);
                 subs.Event<DVCommunicationsConsoleAlertLevelMessage>(OnAlertLevel);
+                subs.Event<DVCommunicationsConsoleKeycardAuthenticationDeviceMessage>(OnKeycardAuthenticationDevice);
             });
     }
 
@@ -134,5 +137,11 @@ public abstract class SharedDVCommunicationsConsoleSystem : EntitySystem
     protected virtual void OnAlertLevel(Entity<DVCommunicationsConsoleComponent> ent,
         ref DVCommunicationsConsoleAlertLevelMessage args)
     {
+    }
+
+    private void OnKeycardAuthenticationDevice(Entity<DVCommunicationsConsoleComponent> ent,
+        ref DVCommunicationsConsoleKeycardAuthenticationDeviceMessage args)
+    {
+        _stationKeycardAuthenticationDevice.TrySwipe(args.Actor, ent, args.Action);
     }
 }
