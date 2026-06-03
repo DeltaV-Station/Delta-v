@@ -51,7 +51,7 @@ namespace Content.Shared.Lathe
         public int DefaultProductionAmount = 1;
 
         /// <summary>
-        /// DeltaV: The price modifier applied to all items printed by this lathe.
+        /// DeltaV - The price modifier applied to all items printed by this lathe.
         /// </summary>
         [DataField]
         public float PriceModifier = 0.4f;

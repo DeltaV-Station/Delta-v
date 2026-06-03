@@ -95,7 +95,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     }
 
     /// <summary>
-    /// DeltaV: Adds an override to the TypingIndicator visuals
+    /// DeltaV - Adds an override to the TypingIndicator visuals
     /// </summary>
     /// <param name="protoId">The TypingIndicator to use in place of default or clothing indicators. Clears overrides when null.</param>
     private void SetTypingOverride(EntityUid uid, ProtoId<TypingIndicatorPrototype>? protoId)

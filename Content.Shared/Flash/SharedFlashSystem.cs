@@ -158,22 +158,22 @@ public abstract class SharedFlashSystem : EntitySystem
         bool displayPopup = true,
         bool melee = false,
         TimeSpan? stunDuration = null,
-        bool ignoreProtection = false) //DeltaV: allow flashing to ignore flash protection
+        bool ignoreProtection = false) //DeltaV - allow flashing to ignore flash protection
     {
-        var attempt = new FlashAttemptEvent(target, user, used, ignoreProtection); //DeltaV: allow flashing to ignore flash protection
+        var attempt = new FlashAttemptEvent(target, user, used, ignoreProtection); //DeltaV - allow flashing to ignore flash protection
         RaiseLocalEvent(target, ref attempt, true);
 
         if (attempt.Cancelled)
             return;
 
-        // Goobstation start
+        // DeltaV - Begin Changes - From Goobstation
         var multiplierEv = new FlashDurationMultiplierEvent();
         RaiseLocalEvent(target, multiplierEv);
         var multiplier = multiplierEv.Multiplier;
-        // Goobstation end
+        // DeltaV - End Changes - From Goobstation
 
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-        if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection
+        if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true) && !ignoreProtection) //DeltaV - allow flashing to ignore flash protection
             return;
 
         if (stunDuration != null)
@@ -272,7 +272,7 @@ public abstract class SharedFlashSystem : EntitySystem
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
             return;
 
-        if (ent.Comp.Enabled && !args.IgnoreProtection) //DeltaV: allow flashing to ignore flash protection
+        if (ent.Comp.Enabled && !args.IgnoreProtection) //DeltaV - allow flashing to ignore flash protection
             args.Cancelled = true;
     }
 

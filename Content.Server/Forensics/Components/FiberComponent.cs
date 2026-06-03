@@ -14,6 +14,6 @@ namespace Content.Server.Forensics
         public string? FiberColor;
 
         [DataField]
-        public string? Fiberprint; // DeltaV, unique glove fibers
+        public string? Fiberprint; // DeltaV - unique glove fibers
     }
 }

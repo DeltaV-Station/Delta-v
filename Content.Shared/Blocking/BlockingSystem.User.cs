@@ -53,10 +53,10 @@ public sealed partial class BlockingSystem
         if (!TryComp<DamageableComponent>(item, out var dmgComp))
             return;
 
-        // Delta V - Begin Fix Toggleable Shields always blocking
+        // DeltaV - Begin Fix Toggleable Shields always blocking
         if (TryComp<ItemToggleComponent>(item, out var toggleComp) && !toggleComp.Activated)
             return;
-        // Delta V - End
+        // DeltaV - End
 
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
         blockFraction = Math.Clamp(blockFraction, 0, 1);

@@ -7,7 +7,7 @@ namespace Content.Shared.Flash;
 /// Raised on the target hit by the flash and their inventory items.
 /// </summary>
 [ByRefEvent]
-public record struct FlashAttemptEvent(EntityUid Target, EntityUid? User, EntityUid? Used, bool IgnoreProtection = false, bool Cancelled = false) : IInventoryRelayEvent // DeltaV: allow flashing to ignore flash protection
+public record struct FlashAttemptEvent(EntityUid Target, EntityUid? User, EntityUid? Used, bool IgnoreProtection = false, bool Cancelled = false) : IInventoryRelayEvent // DeltaV - allow flashing to ignore flash protection
 {
     SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.HEAD | SlotFlags.EYES | SlotFlags.MASK;
 

@@ -59,12 +59,12 @@
         layer:
         - WallLayer
         density: 2000
-  # Delta V - add Tag
+  # DeltaV - add Tag
   - type: Tag
     tags:
     - Wall
     - Natural
-  # Delta V - end tags
+  # DeltaV - end tags
 
 - type: entity
   abstract: true
@@ -849,12 +849,12 @@
       state: rock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
-  # Delta V - add Tag
+  # DeltaV - add Tag
   - type: Tag
     tags:
     - Wall
     - Natural
-  # Delta V - end tags
+  # DeltaV - end tags
 
 # Ore veins
 - type: entity

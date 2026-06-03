@@ -591,7 +591,7 @@
   id: IonStormLawsets
   weights:
     # its crewsimov by default dont be lame
-    #Crewsimov: 0.25 # Delta-V disables crewsimov as an option for borg ion storm lawsets
+    # Crewsimov: 0.25 # DeltaV disables crewsimov as an option for borg ion storm lawsets
     Corporate: 1
     NTDefault: 1
     CommandmentsLawset: 1
@@ -607,7 +607,7 @@
     Ninja: 0.25
     MothershipCoreLawset: 0.25
     XenoborgLawset: 0.25
-    #Delta-V : Lawsets Start
+    # DeltaV - Lawsets Start
     Chaplain: 1
     Reporter: 1
     Clown: 1
@@ -616,14 +616,14 @@
     EightfoldLaws: 1
     AquariusLaws: 1
     FamilyLaws: 1
-    # Delta-V : # Less harmful outright, so higher chance of spawn
+    # DeltaV - Less harmful outright, so higher chance of spawn
     Pranksimov: 0.5 # I'm being optimistic here; loophole should be closed but...
     Royalty: 0.5
     FreedomLaws: 0.5
     ForbinLaws: 0.5
-    #Delta-V : Potentially Harmful Lawsets
+    # DeltaV - Potentially Harmful Lawsets
     Tyrant: 0.25
     Aggressive: 0.25
     OverrideLaws: 0.25
     StreamerLaws: 1
-    #Delta-V : lawsets end
+    # DeltaV - Lawsets End

@@ -1,4 +1,4 @@
-# Delta V - Added crafting menu names for any (item) variants for the recipes of makeshift items.
+# DeltaV - Added crafting menu names for any (item) variants for the recipes of makeshift items.
 
 crafting-menu-name-any-multitool = Any Multitool
 

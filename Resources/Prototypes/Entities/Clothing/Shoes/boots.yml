@@ -117,7 +117,7 @@
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterCargo
-  name: logistics winter boots #Delta V: Rename Logistics
+  name: logistics winter boots #DeltaV - Rename Logistics
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
@@ -140,9 +140,9 @@
   name: medical winter boots
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # Delta V - Recolor to match department color
+    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # DeltaV - Recolor to match department color
   - type: Clothing
-    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # Delta V - Recolor to match department color
+    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # DeltaV - Recolor to match department color
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots

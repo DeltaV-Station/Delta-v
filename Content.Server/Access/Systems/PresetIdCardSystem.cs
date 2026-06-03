@@ -82,12 +82,12 @@ public sealed class PresetIdCardSystem : EntitySystem
         var card = Comp<IdCardComponent>(uid); // DeltaV
 
         //flag
-        if (card.JobTitle == null) // DeltaV: only set job title if id card doesnt have one already
+        if (card.JobTitle == null) // DeltaV - only set job title if id card doesnt have one already
             _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 
 
-        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.Resolve(job.Icon, out var jobIcon)) // DeltaV: only set to the job's icon if the id doesn't specify one
+        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.Resolve(job.Icon, out var jobIcon)) // DeltaV - only set to the job's icon if the id doesn't specify one
             _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }

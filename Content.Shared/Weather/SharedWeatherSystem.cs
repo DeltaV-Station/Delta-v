@@ -142,7 +142,7 @@ public abstract class SharedWeatherSystem : EntitySystem
                     {
                         SetState(uid, WeatherState.Starting, comp, weather, weatherProto);
                     }
-                    else // DeltaV: Set state to Running when it finishes the starting time
+                    else // DeltaV - Set state to Running when it finishes the starting time
                     {
                         SetState(uid, WeatherState.Running, comp, weather, weatherProto);
                     }

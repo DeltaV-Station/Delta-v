@@ -12,20 +12,20 @@
   - AllAccess
   access:
   - CentralCommand
-  - ERT # Delta V - Add ERT Access
+  - ERT # DeltaV - Add ERT Access
   special:
   - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # Delta-V - Changed Mindshield implant to Centcomm implant
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm ] # DeltaV - Changed Mindshield implant to Centcomm implant
 
 - type: startingGear
   id: CentcommGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    back: ClothingBackpackSatchelCentcom # Delta-V - Added CC satchel
+    back: ClothingBackpackSatchelCentcom # DeltaV - Added CC satchel
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCentcom
     eyes: ClothingEyesGlassesCommand
-    gloves: ClothingHandsGlovesCentComm # Delta-V - Was ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesCentComm # DeltaV - Was ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterArmorCentcommCarapace
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom

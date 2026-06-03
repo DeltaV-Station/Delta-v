@@ -51,7 +51,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="job">The job to assign, if any.</param>
     /// <param name="profile">The character profile to use, if any.</param>
     /// <param name="stationSpawning">Resolve pattern, the station spawning component for the station.</param>
-    /// <param name="spawnPointType">Delta-V: Set desired spawn point type.</param>
+    /// <param name="spawnPointType">DeltaV - Set desired spawn point type.</param>
     /// <returns>The resulting player character, if any.</returns>
     /// <exception cref="ArgumentException">Thrown when the given station is not a station.</exception>
     /// <remarks>
@@ -62,7 +62,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (station != null && !Resolve(station.Value, ref stationSpawning))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
-        // Delta-V: Set desired spawn point type.
+        // DeltaV - Set desired spawn point type.
         var ev = new PlayerSpawningEvent(job, profile, station, spawnPointType);
 
         RaiseLocalEvent(ev);
@@ -164,7 +164,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station);
         }
 
-        if (!string.IsNullOrWhiteSpace(job)) // Delta-V, empty job is okay, actually
+        if (!string.IsNullOrWhiteSpace(job)) // DeltaV - empty job is okay, actually
             DoJobSpecials(job, entity.Value);
         _identity.QueueIdentityUpdate(entity.Value);
         return entity.Value;
@@ -251,7 +251,7 @@ public sealed class PlayerSpawningEvent : EntityEventArgs
     /// </summary>
     public readonly EntityUid? Station;
     /// <summary>
-    /// Delta-V: Desired SpawnPointType, if any.
+    /// DeltaV - Desired SpawnPointType, if any.
     /// </summary>
     public readonly SpawnPointType DesiredSpawnPointType;
 

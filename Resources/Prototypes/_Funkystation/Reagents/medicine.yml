@@ -181,7 +181,7 @@
   metabolisms:
     Medicine:
       effects:
-      # Begin DeltaV additions
+      # DeltaV - Begin Additions
       - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
@@ -198,7 +198,7 @@
         damage:
           types:
             Heat: -3 # offsets heat damage from the pod
-      # End DeltaV additions
+      # DeltaV - End Additions
 
 - type: reagent
   id: Ardthyrnkole
@@ -212,13 +212,13 @@
   metabolisms:
     Medicine:
       effects:
-      # Begin DeltaV additions
+      # DeltaV - Begin Additions
       - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
           min: 343.3
         damage:
-          Burn: -7 # Delta-V - Same as Aloxadone.
+          Burn: -7 # Same as Aloxadone
       - !type:HealthChange
         conditions:
         - !type:TemperatureCondition
@@ -227,7 +227,7 @@
           types:
             Heat: -3 # offsets heat damage from the pod
       # Previous values with HealthChange were: -3 Heat/Shock, -5 Cold.
-      # End DeltaV additions
+      # DeltaV - End Additions
 
 - type: reagent
   id: Natusixadone

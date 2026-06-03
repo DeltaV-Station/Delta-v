@@ -47,7 +47,7 @@ namespace Content.Shared.Kitchen
         public bool SecretRecipe = false;
 
         /// <summary>
-        /// DeltaV: Changes the guidebook formatting to "Fry for"
+        /// DeltaV - Changes the guidebook formatting to "Fry for"
         /// </summary>
         [DataField]
         public bool DeepFried;

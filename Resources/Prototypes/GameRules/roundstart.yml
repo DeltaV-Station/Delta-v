@@ -22,18 +22,21 @@
     rules:
     - id: Thief
       prob: 0.5
-    #- id: SubWizard # Delta V - Removed until overhauled
+    # DeltaV - Removed until overhauled
+    #- id: SubWizard
     #  prob: 0.05
-    - id: Devil # Goob
-      prob: 0.05 # DeltaV - Was 0.02
-    # Begin DeltaV additions - Disable Xenoborgs
+    - id: Devil # DeltaV - Adds Devil - Port from goob
+      prob: 0.05
+
+    # DeltaV - Begin Changes - Disable Xenoborgs
     #- id: Xenoborgs
     #  prob: 0.05
-    # End DeltaV additions - Disable Xenoborgs
-    #begin DeltaV additions - add hitman
+    # DeltaV - End Changes - Disable Xenoborgs
+
+    # DeltaV - Begin Addition - add hitman
     - id: Hitman
-      prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+      prob: 0.2
+    # DeltaV - End Addition - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -43,16 +46,16 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: Devil # Goob
-      prob: 0.05 # DeltaV - Was 0.02
-    # Begin DeltaV additions - Disable Xenoborgs
+    - id: Devil # DeltaV - Adds Devil - Port from goob
+      prob: 0.05
+    # DeltaV - Begin changes - Disable Xenoborgs
     #- id: Xenoborgs
     #  prob: 0.05
-    # End DeltaV additions - Disable Xenoborgs
-    #begin DeltaV additions - add hitman
+    # DeltaV - End changes - Disable Xenoborgs
+    # DeltaV - Begin Additions - add hitman
     - id: Hitman
-      prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+      prob: 0.2
+    # DeltaV - End Additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -64,10 +67,10 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
-    #begin DeltaV additions - add hitman
+    # DeltaV - Begin Additions - add hitman
     - id: Hitman
-      prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+      prob: 0.2
+    # DeltaV - End Additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -77,10 +80,10 @@
     rules:
     - id: Thief
       prob: 0.5
-    #begin DeltaV additions - add hitman
+    # DeltaV - Begin Additions - add hitman
     - id: Hitman
-      prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+      prob: 0.2
+    # DeltaV - End Additions - add hitman
 
 - type: entity
   parent: BaseGameRule
@@ -370,7 +373,8 @@
   parent: BaseGameRule
   id: BaseWizardRule
   components:
-  #- type: AntagObjectives # DeltaV - begin changes
+  # DeltaV - begin changes
+  #- type: AntagObjectives
     #objectives:
     #- WizardSurviveObjective
     #- WizardDemonstrateObjective
@@ -380,9 +384,10 @@
       maxPicks: 1
     - groups: WizardObjectiveGroupSecondaryDelta
       maxPicks: 2
-    maxDifficulty: 5 # DeltaV - end changes
+    maxDifficulty: 5
+  # DeltaV - end changes
   - type: LoadMapRule
-    mapPath: /Maps/_DV/Nonstations/wizardsden.yml # DV - moved with edits
+    mapPath: /Maps/_DV/Nonstations/wizardsden.yml # DeltaV - moved with edits
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
@@ -436,7 +441,7 @@
       min: 600
       max: 900
   - type: ZombieRule
-  - type: DelayedRule # DeltaV: Grace period of 5 minutes before you can turn, to avoid a random passenger ruining your plan
+  - type: DelayedRule # DeltaV - Grace period of 5 minutes before you can turn
     delay: 300
     delayedComponents:
     - type: PendingZombie
@@ -454,17 +459,17 @@
         - ZombieImmune
         - AntagImmune
       briefing:
-        text: zombie-bioterrorist-role-greeting # DeltaV: Different greeting
+        text: zombie-bioterrorist-role-greeting # DeltaV - Different greeting
         color: Plum
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       components:
-      # Begin DeltaV Removals: Moved to DelayedRule above
+      # Begin DeltaV Removals - Moved to DelayedRule above
       #- type: PendingZombie
       #- type: ZombifyOnDeath
       #- type: IncurableZombie
       # End DeltaV Removals
       - type: InitialInfected
-      - type: AutoImplant # DeltaV: Let them communicate to come up with a plan of action
+      - type: AutoImplant # DeltaV - Let them communicate to come up with a plan of action
         implants:
         - RadioSyndicateImplant
       mindRoles:
@@ -484,7 +489,7 @@
     selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
     removeUponFailedSpawn: false
     definitions:
-    - prefRoles: [ InitialInfected, Traitor, Thief, Devil, HeadRev ] # Goob - Inc devil
+    - prefRoles: [ InitialInfected, Traitor, Thief, Devil, HeadRev ] # DeltaV - include Devil (Goob port)
       max: 2
       playerRatio: 30
 
@@ -537,7 +542,7 @@
   id: BasicStationEventScheduler
   parent: BaseGameRule
   components:
-  - type: NextEvent # DeltaV: Queue Event for precognition
+  - type: NextEvent # DeltaV - Queue Event for precognition
   - type: BasicStationEventScheduler
     minMaxEventTiming: # DeltaV
       min: 300 # DeltaV - 5 mins, was 3
@@ -557,7 +562,7 @@
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
-  - type: NextEvent # DeltaV: Queue Event for precognition
+  - type: NextEvent # DeltaV - Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
     - 10, 10
@@ -578,7 +583,7 @@
   id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,
   parent: BaseGameRule                  # we can remerge this with the other schedulers, but it will silently fail due to that limitation without a separate scheduler to balance atm.
   components:
-  - type: NextEvent # DeltaV: Queue Event for precognition
+  - type: NextEvent # DeltaV - Queue Event for precognition
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 2700 # 45 mins #shows up like half way through shift.
     minMaxEventTiming:
@@ -591,7 +596,7 @@
   id: SpaceTrafficControlFriendlyEventScheduler
   parent: BaseGameRule
   components:
-  - type: NextEvent # DeltaV: Queue Event for precognition
+  - type: NextEvent # DeltaV - Queue Event for precognition
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 1200 # 20 mins
     minMaxEventTiming:

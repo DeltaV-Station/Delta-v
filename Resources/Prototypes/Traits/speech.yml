@@ -1,4 +1,4 @@
-# DELTA-V
+# DeltaV
 # Due to the custom trait system, all traits have been moved under \Resources\Prototypes\_DV\Traits
 # If you want to add a new one, do it there
 
@@ -11,7 +11,7 @@
 #  name: trait-accentless-name
 #  description: trait-accentless-desc
 #  category: SpeechTraits
-#  cost: 0 # Delta-V change- removed cost for accentless to 0, as it said it was supposed to be free
+#  cost: 0 # DeltaV - removed cost for accentless to 0, as it said it was supposed to be free
 #  components:
 #  - type: Accentless
 #    removes:
@@ -25,7 +25,7 @@
 #  name: trait-liar-name
 #  description: trait-liar-desc
 #  category: SpeechTraits
-#  cost: 0 # Delta-V change- removed cost for liar to 0, as was discussed
+#  cost: 0 # DeltaV - removed cost for liar to 0, as was discussed
 #  components:
 #    - type: ReplacementAccent
 #      accent: liar
@@ -35,7 +35,7 @@
 #  name: trait-socialanxiety-name
 #  description: trait-socialanxiety-desc
 #  category: SpeechTraits
-#  cost: 0 # Delta-V change- lowered cost to 0 to allow for more versatility with accents
+#  cost: 0 # DeltaV - lowered cost to 0 to allow for more versatility with accents
 #  components:
 #    - type: StutteringAccent
 #      matchRandomProb: 0.1
@@ -48,7 +48,7 @@
 #  name: trait-frontal-lisp-name
 #  description: trait-frontal-lisp-desc
 #  category: SpeechTraits
-#  cost: 0 # Delta-V change- lowered cost to 0 to allow for more versatility with accents
+#  cost: 0 # DeltaV - lowered cost to 0 to allow for more versatility with accents
 #  components:
 #    - type: FrontalLisp
 #
@@ -59,7 +59,7 @@
 #  name: trait-southern-name
 #  description: trait-southern-desc
 #  category: SpeechTraits
-#  cost: 2 # Delta-V change- weighted up accents to 2 as discussed for accent stacking being off
+#  cost: 2 # DeltaV - weighted up accents to 2 as discussed for accent stacking being off
 #  components:
 #    - type: SouthernAccent
 #
@@ -68,7 +68,7 @@
 #  name: trait-pirate-accent-name
 #  description: trait-pirate-accent-desc
 #  category: SpeechTraits
-#  cost: 2 # Delta-V change- weighted up accents to 2 as discussed for accent stacking being off
+#  cost: 2 # DeltaV - weighted up accents to 2 as discussed for accent stacking being off
 #  components:
 #    - type: PirateAccent
 #
@@ -77,7 +77,7 @@
 #  name: trait-cowboy-name
 #  description: trait-cowboy-desc
 #  category: SpeechTraits
-#  cost: 2 # Delta-V change- weighted up accents to 2 as discussed for accent stacking being off
+#  cost: 2 # DeltaV - weighted up accents to 2 as discussed for accent stacking being off
 #  components:
 #    - type: ReplacementAccent
 #      accent: cowboy
@@ -87,7 +87,7 @@
 #  name: trait-italian-name
 #  description: trait-italian-desc
 #  category: SpeechTraits
-#  cost: 2 # Delta-V change- weighted up accents to 2 as discussed for accent stacking being off
+#  cost: 2 # DeltaV - weighted up accents to 2 as discussed for accent stacking being off
 #  components:
 #    - type: ReplacementAccent
 #      accent: italian

@@ -232,7 +232,7 @@ public partial class SharedBodySystem
     {
         if (id is null
             || !Resolve(id.Value, ref body, logMissing: false)
-            || body.RootContainer is null // Delta-V - Fix this shitmed change
+            || body.RootContainer is null // DeltaV - Fix this shitmed change
             || body.RootContainer.ContainedEntity is null
             || !Resolve(body.RootContainer.ContainedEntity.Value, ref rootPart))
         {

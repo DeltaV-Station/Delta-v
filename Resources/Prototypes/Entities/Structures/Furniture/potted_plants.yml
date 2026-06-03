@@ -15,7 +15,7 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb # Delta V - Switch to square for more accuracy and enlarge for easier interactions
+          !type:PhysShapeAabb # DeltaV - Switch to square for more accuracy and enlarge for easier interactions
           bounds: "-0.20,-0.25,0.20,0.20"
         density: 190
         mask:

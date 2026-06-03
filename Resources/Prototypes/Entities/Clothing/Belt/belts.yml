@@ -64,7 +64,7 @@
 ## Belts without visualizers
 
 - type: entity
-  # Begin Delta V Changes
+  # DeltaV - Begin changes
   parent: [ClothingBeltStorageBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
   name: bandolier
@@ -82,7 +82,7 @@
     whitelist:
       tags:
         - ShellShotgun
-  # End Delta V Changes
+  # DeltaV - End changes
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]

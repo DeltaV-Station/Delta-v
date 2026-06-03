@@ -22,7 +22,7 @@ public sealed partial class EmagComponent : Component
     public ProtoId<TagPrototype> EmagImmuneTag = "EmagImmune";
 
     /// <summary>
-    /// DeltaV: Blacklist for entities that cannot be emagged with this.
+    /// DeltaV - Blacklist for entities that cannot be emagged with this.
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;

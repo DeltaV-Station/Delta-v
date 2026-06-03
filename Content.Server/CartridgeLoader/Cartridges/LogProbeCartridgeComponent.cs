@@ -30,7 +30,7 @@ public sealed partial class LogProbeCartridgeComponent : Component
     public SoundSpecifier SoundScan = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg", AudioParams.Default.WithVariation(0.25f));
 
     /// <summary>
-    /// DeltaV: The last scanned NanoChat data, if any
+    /// DeltaV - The last scanned NanoChat data, if any
     /// </summary>
     [DataField]
     public NanoChatData? ScannedNanoChatData;

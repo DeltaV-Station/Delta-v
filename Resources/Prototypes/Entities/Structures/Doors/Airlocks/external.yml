@@ -9,13 +9,13 @@
       types:
         Blunt: 15
     openSound:
-      path: /Audio/_DV/Machines/airlock_ext_open.ogg #Delta V - Change Sound, was /Audio/Machines/airlock_ext_open.ogg
+      path: /Audio/_DV/Machines/airlock_ext_open.ogg #DeltaV - Change Sound, was /Audio/Machines/airlock_ext_open.ogg
     closeSound:
-      path: /Audio/_DV/Machines/airlock_ext_close.ogg #Delta V - Change Sound, was /Audio/Machines/airlock_ext_close.ogg
+      path: /Audio/_DV/Machines/airlock_ext_close.ogg #DeltaV - Change Sound, was /Audio/Machines/airlock_ext_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: Sprite
-    sprite: _DV/Structures/Doors/Airlocks/Standard/external.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/Standard/external.rsi #DeltaV - Resprite Doors
   - type: Wires
     layoutId: AirlockExternal
   - type: Paintable
@@ -31,7 +31,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: _DV/Structures/Doors/Airlocks/Glass/external.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/Glass/external.rsi #DeltaV - Resprite Doors
   - type: Fixtures
     fixtures:
       fix1:

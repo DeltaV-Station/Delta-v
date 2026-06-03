@@ -188,7 +188,7 @@ namespace Content.Client.Stylesheets
         public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
         // End DeltaV
 
-        public const string StyleClassCrewManifestGender = "CrewManifestGender"; //Delta-V - Manifest pronouns
+        public const string StyleClassCrewManifestGender = "CrewManifestGender"; //DeltaV - Manifest pronouns
 
         // i'm not sure what the missing symbols were referencing, and this is getting obseleted anyway so:
         public const string ButtonOpenRight = "OpenRight";
@@ -1284,7 +1284,7 @@ namespace Content.Client.Stylesheets
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
 
-                // Delta-V add style for pronouns on the crew manifest
+                // DeltaV - add style for pronouns on the crew manifest
                 Element<RichTextLabel>()
                     .Class(StyleClassCrewManifestGender)
                     .Prop("font", notoSansItalic10)

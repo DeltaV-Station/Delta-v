@@ -209,16 +209,16 @@
           amount: 2 # DeltaV - more folders in the bureacracy crate
         - id: BoxFolderYellowEmpty
           amount: 2 # DeltaV - more folders in the bureacracy crate
-        # Begin DeltaV: sticky notes
+        # Begin DeltaV Additions - sticky notes
         - id: PaperStickyNoteStackFilled
         - id: PaperStickyNoteStackFilledPink
         - id: PaperStickyNoteStackFilledGreen
         - id: PaperStickyNoteStackFilledBlue
-        # End DeltaV: sticky notes
+        # End DeltaV Additions - sticky notes
         - id: NewtonCradle
         - id: BoxEnvelope
         - id: BrbSign
-        # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
+        # Begin DeltaV Additions - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
         - id: BoxFolderBlack
           amount: 2
         - id: BoxFolderGrey
@@ -231,7 +231,7 @@
           prob: 0.05
         - id: RubberStampApproved
         - id: RubberStampDenied
-        # End DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
+        # End DeltaV Additions - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
 
 - type: entity
   parent: CrateGenericSteel
@@ -347,7 +347,7 @@
         - id: DrinkVodkaBottleFull
         - id: DrinkWhiskeyBottleFull
         - id: DrinkWineBottleFull
-        - id: DrinkJaegermisterBottleFull # Den - Jaegerminster
+        - id: DrinkJaegermisterBottleFull # DeltaV - From Den
 
 - type: entity
   parent: CratePlastic
@@ -391,8 +391,8 @@
           prob: 0.05
         - id: MobMothroach
           prob: 0.03
-        - id: MobRosyMothroach # Frontier
-          prob: 0.005 # Frontier
+        - id: MobRosyMothroach # DeltaV - From Frontier
+          prob: 0.005 # DeltaV - From Frontier
         - id: MobMouse
           prob: 0.05
           # Food Packaging

@@ -13,7 +13,7 @@ names-regal-rat-kingdom-dataset-12 = Sewer
 names-regal-rat-kingdom-dataset-13 = Disposal
 names-regal-rat-kingdom-dataset-14 = Service
 names-regal-rat-kingdom-dataset-15 = The
-# Delta-V additions
+# DeltaV - Begin additions
 names-regal-rat-kingdom-dataset-16 = Odor
 names-regal-rat-kingdom-dataset-17 = Disease
 names-regal-rat-kingdom-dataset-18 = Rodent
@@ -26,4 +26,4 @@ names-regal-rat-kingdom-dataset-24 = Drain
 names-regal-rat-kingdom-dataset-25 = Pizza
 names-regal-rat-kingdom-dataset-26 = Waste
 names-regal-rat-kingdom-dataset-27 = Tunnel
-# End Delta-V additions
+# DeltaV - End additions

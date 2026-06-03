@@ -1345,11 +1345,13 @@
     - SyndicateAgent
     - Wizard
     - Xenoborg
-    - DV-SpareSafe # DeltaV
-    - Admeme1 # DeltaV
-    - Admeme2 # DeltaV
-    - Admeme3 # DeltaV
-    - ERT # Delta V
+    # DeltaV - Begin changes
+    - DV-SpareSafe
+    - Admeme1
+    - Admeme2
+    - Admeme3
+    - ERT
+    # DeltaV - End Changes
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
     listNumber: false

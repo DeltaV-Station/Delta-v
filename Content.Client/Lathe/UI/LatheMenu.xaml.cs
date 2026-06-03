@@ -47,7 +47,7 @@ public sealed partial class LatheMenu : DefaultWindow
 
     public EntityUid Entity;
 
-    private uint? _lastMiningPoints; // DeltaV: used to avoid Loc.GetString every frame
+    private uint? _lastMiningPoints; // DeltaV - used to avoid Loc.GetString every frame
 
     public LatheMenu()
     {
@@ -107,7 +107,7 @@ public sealed partial class LatheMenu : DefaultWindow
     }
 
     /// <summary>
-    /// DeltaV: Updates the UI elements for mining points.
+    /// DeltaV - Updates the UI elements for mining points.
     /// </summary>
     private void UpdateMiningPoints(uint points)
     {
@@ -122,7 +122,7 @@ public sealed partial class LatheMenu : DefaultWindow
     }
 
     /// <summary>
-    /// DeltaV: Update mining points UI whenever it changes.
+    /// DeltaV - Update mining points UI whenever it changes.
     /// </summary>
     protected override void FrameUpdate(FrameEventArgs args)
     {

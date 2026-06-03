@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _DV/Structures/Windows/reinforced_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_window.rsi #DeltaV - Resprite windows
   - type: Icon
-    sprite: _DV/Structures/Windows/reinforced_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_window.rsi #DeltaV - Resprite windows
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
@@ -69,10 +69,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #DeltaV - Resprite windows
     state: reinforced_window
   - type: Icon
-    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #DeltaV - Resprite windows
     state: reinforced_window
   - type: Construction
     graph: WindowDirectional
@@ -129,7 +129,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _DV/Structures/Windows/reinforced_window_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_window_diagonal.rsi #DeltaV - Resprite windows
     state: state0
   - type: Tag
     tags:
@@ -140,7 +140,7 @@
     key: windows
     base: state
   - type: Icon
-    sprite: _DV/Structures/Windows/reinforced_window_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_window_diagonal.rsi #DeltaV - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:

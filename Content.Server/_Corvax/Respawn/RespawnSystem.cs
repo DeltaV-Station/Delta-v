@@ -67,7 +67,7 @@ public sealed class RespawnSystem : EntitySystem
     }
 
     /// <summary>
-    /// DeltaV: Sets the respawn time for a player to the full death cooldown.
+    /// DeltaV - Sets the respawn time for a player to the full death cooldown.
     /// </summary>
     public void SetDeathRespawnTime(NetUserId player)
     {

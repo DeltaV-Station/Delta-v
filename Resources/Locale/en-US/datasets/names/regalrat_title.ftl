@@ -15,7 +15,7 @@ names-regal-rat-title-dataset-14 = Mayor
 names-regal-rat-title-dataset-15 = Boss
 names-regal-rat-title-dataset-16 = Prophet
 names-regal-rat-title-dataset-17 = Cheese
-# Delta-V additions
+# DeltaV - Begin Additions
 names-regal-rat-title-dataset-18 = Queen
 names-regal-rat-title-dataset-19 = Princess
 names-regal-rat-title-dataset-20 = Empress
@@ -33,4 +33,4 @@ names-regal-rat-title-dataset-31 = General
 names-regal-rat-title-dataset-32 = Commander
 names-regal-rat-title-dataset-33 = Colonel
 names-regal-rat-title-dataset-34 = Nibbler
-# End Delta-V additions
+#  DeltaV - End Additions

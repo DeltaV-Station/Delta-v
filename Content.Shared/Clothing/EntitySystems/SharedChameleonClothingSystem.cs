@@ -139,7 +139,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
 
         args.Verbs.Add(new InteractionVerb()
         {
-            Text = Loc.GetString(ent.Comp.VerbNameOverride ?? "chameleon-component-verb-text"), // Delta-V: Override for the name of the Chameleon Verb
+            Text = Loc.GetString(ent.Comp.VerbNameOverride ?? "chameleon-component-verb-text"), // DeltaV - Override for the name of the Chameleon Verb
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
             Act = () => UI.TryToggleUi(ent.Owner, ChameleonUiKey.Key, user)
         });

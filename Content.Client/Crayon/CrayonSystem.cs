@@ -42,7 +42,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         {
             base.FrameUpdate(args);
 
-            // Frontier: unlimited crayon, Delta V Port
+            // DeltaV - Begin changes - Port Frontier unlimited Crayon
             if (_charges.GetCurrentCharges(_crayon.Owner) == int.MaxValue)
             {
                 _label.SetMarkup(Robust.Shared.Localization.Loc.GetString("crayon-drawing-label-unlimited",
@@ -50,7 +50,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
                     ("state", _crayon.Comp.SelectedState)));
                 return;
             }
-            // End Frontier, Delta V Port
+            // DeltaV - End changes - Port Frontier unlimited Crayon
 
             _label.SetMarkup(Robust.Shared.Localization.Loc.GetString("crayon-drawing-label",
                 ("color",_crayon.Comp.Color),

@@ -97,7 +97,7 @@ public sealed class DragonRiftSystem : EntitySystem
                     entSpawnPrototype = comp.SpawnElitePrototype;
                 }
                 //End DeltaV - Elite spawns on dragon rifts
-                var ent = Spawn(entSpawnPrototype, xform.Coordinates); //Delta-v change: comp.SpawnPrototype -> entSpawnPrototype
+                var ent = Spawn(entSpawnPrototype, xform.Coordinates); //Deltav - comp.SpawnPrototype -> entSpawnPrototype
 
                 // Update their look to match the leader.
                 if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))

@@ -24,7 +24,7 @@
   - type: NavMapBeacon
     defaultText: station-beacon-general
     color: "#D4D4D496"
-  #- type: WarpPoint # Delta V - Removes in favor of Warp Point Markers
+  #- type: WarpPoint # DeltaV - Removes in favor of Warp Point Markers
   - type: ActivatableUI
     key: enum.NavMapBeaconUiKey.Key
     singleUser: true
@@ -221,7 +221,7 @@
     defaultText: station-beacon-detective
 
 - type: entity
-  parent: DefaultStationBeaconJustice # Delta V - Courtroom uses justice colors
+  parent: DefaultStationBeaconJustice # DeltaV - Courtroom uses justice colors
   id: DefaultStationBeaconCourtroom
   suffix: Courtroom
   components:
@@ -229,7 +229,7 @@
     defaultText: station-beacon-courtroom
 
 - type: entity
-  parent: DefaultStationBeaconJustice # Delta V - Law office uses justice colors
+  parent: DefaultStationBeaconJustice # DeltaV - Law office uses justice colors
   id: DefaultStationBeaconLawOffice
   suffix: Law Office
   components:
@@ -304,10 +304,10 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconScience
-  suffix: Epistemics #Delta V - Renamed
+  suffix: Epistemics #DeltaV - Renamed
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-epistemics #Delta V - Renamed
+    defaultText: station-beacon-epistemics #DeltaV - Renamed
     color: "#D381C9"
 
 - type: entity
@@ -332,7 +332,7 @@
   suffix: MG's Room
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-mystagogue  #Delta V - Renamed
+    defaultText: station-beacon-mystagogue  #DeltaV - Renamed
 
 - type: entity
   parent: DefaultStationBeaconScience
@@ -361,19 +361,19 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconSupply
-  suffix: Logistics #Delta V - Renamed
+  suffix: Logistics #DeltaV - Renamed
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-logistics #Delta V - Renamed
+    defaultText: station-beacon-logistics #DeltaV - Renamed
     color: "#A46106"
 
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconCargoReception
-  suffix: Logistics Reception #Delta V - Renamed
+  suffix: Logistics Reception #DeltaV - Renamed
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-logistics-reception #Delta V - Renamed
+    defaultText: station-beacon-logistics-reception #DeltaV - Renamed
 
 - type: entity
   parent: DefaultStationBeaconSupply
@@ -386,10 +386,10 @@
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconQMRoom
-  suffix: LO #Delta V - Renamed
+  suffix: LO #DeltaV - Renamed
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-lo #Delta V - Renamed
+    defaultText: station-beacon-lo #DeltaV - Renamed
 
 - type: entity
   parent: DefaultStationBeaconSupply
@@ -602,7 +602,7 @@
   suffix: Janitor's Closet
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-janitor-closet #Delta V - Add for closet/outpost
+    defaultText: station-beacon-janitor-closet #DeltaV - Add for closet/outpost
 
 - type: entity
   parent: DefaultStationBeacon
@@ -657,7 +657,7 @@
     defaultText: station-beacon-eva-storage
 
 - type: entity
-  parent: DefaultStationBeaconScience #Delta V - Chapel in Epi
+  parent: DefaultStationBeaconScience #DeltaV - Chapel in Epi
   id: DefaultStationBeaconChapel
   suffix: Chapel
   components:
@@ -665,7 +665,7 @@
     defaultText: station-beacon-chapel
 
 - type: entity
-  parent: DefaultStationBeaconScience #Delta V - Library is in Epi
+  parent: DefaultStationBeaconScience #DeltaV - Library is in Epi
   id: DefaultStationBeaconLibrary
   suffix: Library
   components:
@@ -673,7 +673,7 @@
     defaultText: station-beacon-library
 
 - type: entity
-  parent: DefaultStationBeaconService # Delta V - Use Service colors
+  parent: DefaultStationBeaconService # DeltaV - Use Service colors
   id: DefaultStationBeaconTheater
   suffix: Theater
   components:

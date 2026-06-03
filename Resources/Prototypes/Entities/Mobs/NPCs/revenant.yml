@@ -21,14 +21,15 @@
   - type: StatusEffects
     allowed:
     - Corporeal
-    - EssenceRegen # Imp
-  - type: Hands # Imp
+    - EssenceRegen # DeltaV - From Imp
+  - type: Hands # DeltaV - From Imp
     showInHands: false
     disableExplosionRecursion: true
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Spirit # DeltaV: Keep revenant extreme weakness to heat and bible
-  - type: MeleeWeapon # Begin DeltaV additions
+  - type: MeleeWeapon
+    # DeltaV - Begin Additions
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 90
@@ -43,7 +44,8 @@
       types:
         Slash: 2
         Shadow: 2
-  - type: CombatMode # end DeltaV additions 
+  - type: CombatMode
+    # DeltaV - End Additions
   - type: NoSlip
   - type: Eye
     drawFov: false
@@ -65,8 +67,8 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: Revenant
-    exorcismRequiresBibleUser: true # Imp - Escape hatch, change to false if revenant becomes too OP
-    grindingRequiresSalt: true # Imp - Escape hatch, change to false if revenant becomes too OP
+    exorcismRequiresBibleUser: true # DeltaV - From Imp - change to false if revenant becomes too OP
+    grindingRequiresSalt: true # DeltaV - From Imp - change to false if revenant becomes too OP
     # spawnOnDeathPrototype: EctoplasmRevenant # DeltaV - different prototype that contains more ectoplasm reagent for normality crystals, commented out
     malfunctionWhitelist:
       components:
@@ -92,7 +94,7 @@
   - type: ActionGrant
     actions:
     - ActionRevenantShop
-    - ActionRevenantHaunt # Imp - Haunt ability
+    - ActionRevenantHaunt # DeltaV - From Imp - Haunt ability
   - type: Store
     categories:
     - RevenantAbilities

@@ -341,7 +341,7 @@ public sealed class AdminSystem : EntitySystem
         var hasAdmins = false;
         foreach (var admin in _adminManager.AllAdmins)
         {
-            if (_adminManager.HasAdminFlag(admin, AdminFlags.Ban, includeDeAdmin: PanicBunker.CountDeadminnedAdmins)) // DeltaV: Check Ban instead of Admin
+            if (_adminManager.HasAdminFlag(admin, AdminFlags.Ban, includeDeAdmin: PanicBunker.CountDeadminnedAdmins)) // DeltaV - Check Ban instead of Admin
             {
                 hasAdmins = true;
                 break;

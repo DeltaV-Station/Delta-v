@@ -214,7 +214,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV: 
+                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });

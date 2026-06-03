@@ -116,7 +116,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         if (victim != attacker && _actionBlocker.CanInteract(victim, null))
             return false;
 
-        // DeltaV: no suicide
+        // DeltaV - no suicide
         if (victim == attacker)
             return false;
 

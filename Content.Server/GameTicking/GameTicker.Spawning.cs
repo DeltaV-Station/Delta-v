@@ -371,7 +371,7 @@ namespace Content.Server.GameTicking
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
-            // Delta-V: Add AlwaysUseSpawner.
+            // DeltaV - Add AlwaysUseSpawner.
             var spawnPointType = SpawnPointType.Unset;
             if (jobPrototype.AlwaysUseSpawner)
             {
@@ -381,7 +381,7 @@ namespace Content.Server.GameTicking
             else
                 clearLatejoin = false;
 
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character, spawnPointType: spawnPointType); // DeltaV: pass in spawn point type
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character, spawnPointType: spawnPointType); // DeltaV - pass in spawn point type
             DebugTools.AssertNotNull(mobMaybe);
             mob = mobMaybe!.Value;
 

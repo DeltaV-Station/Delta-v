@@ -24,7 +24,7 @@ public sealed partial class GameRuleComponent : Component
     public int MinPlayers;
 
     /// <summary>
-    /// DeltaV: the total amount of players on the server needed for this rule.
+    /// DeltaV - the total amount of players on the server needed for this rule.
     /// </summary>
     [DataField]
     public int MinTotalPlayers;

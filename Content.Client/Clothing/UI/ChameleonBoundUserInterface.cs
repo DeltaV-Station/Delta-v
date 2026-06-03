@@ -59,12 +59,12 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
             _menu?.UpdateState(targets, st.SelectedId);
         }
 
-    // Begin Delta-V: Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
+    // DeltaV - Begin Changes = Override for the name of the chameleon stuff, so you can have items use the chameleon system without being illegal.
     if (_menu is { } menu && EntMan.TryGetComponent<ChameleonClothingComponent>(Owner, out var chameleon) && chameleon.WindowTitleOverride is { } titleOverride)
         {
             _menu.Title = Loc.GetString(titleOverride);
         }
-    // End Delta-V
+    // DeltaV - End Changes
     }
 
     private void OnIdSelected(string selectedId)

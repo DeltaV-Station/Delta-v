@@ -127,7 +127,7 @@
     attributes:
       gender: male
   - type: Sharp
-  - type: NightVision #Delta-v - Added nightvision
+  - type: NightVision #DeltaV - Added nightvision
     color: "#808080"
 
 - type: entity
@@ -179,7 +179,7 @@
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
-    baseSprintSpeed : 4.5 #Delta-V was 3.5
+    baseSprintSpeed : 4.5 #DeltaV was 3.5
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -232,8 +232,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Dead # Delta-V nobody is reviving rats
-      #30: Dead
+      15: Dead # DeltaV nobody is reviving rats
+     #30: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -252,8 +252,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 4 #Delta-V was 5
-        Piercing: 2 #Delta-V was 3
+        Slash: 4 # DeltaV was 5
+        Piercing: 2 # DeltaV was 3
   - type: Body
     prototype: Rat
     requiredLegs: 0 # TODO: More than 1 leg
@@ -306,9 +306,9 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
-  - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
+  - type: FelinidFood # DeltaV - From Nyano - Felinid ability to eat rat
   - type: Edible
-  # Begin DeltaV - Make them edible and grabbable
+  # Begin DeltaV Changes - Make them edible and grabbable
   - type: SolutionContainerManager
     solutions:
       food:
@@ -320,7 +320,7 @@
     - meaty
   - type: Item
     size: Tiny
-  # End DeltaV - Make them edible and grabbable
+  # End DeltaV Changes- Make them edible and grabbable
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning

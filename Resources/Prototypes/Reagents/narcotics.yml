@@ -59,7 +59,7 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-      - !type:Addicting # Delta-V - Addictive
+      - !type:Addicting # DeltaV - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -244,7 +244,7 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-      # Delta-V - Addictive
+      # DeltaV - Begin Changes - Addictive
       - !type:Addicting
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
@@ -256,7 +256,7 @@
         effectProto: StatusEffectChronicPainSuppressed
         time: 25 # 4.16 minutes of pain suppression per 5u (5u / 0.5 * 25 / 60)
         type: Add
-      # END DeltaV
+      # DeltaV - End Changes - Addictive
 
 - type: reagent
   id: Nicotine
@@ -308,7 +308,7 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
-      - !type:Addicting # Delta-V - Addictive
+      - !type:Addicting # DeltaV - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
@@ -331,20 +331,20 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-      # DeltaV Additions
-      - !type:RollPsionicAbility # DeltaV - Roll for psionics
+      # DeltaV - Begin Changes
+      - !type:RollPsionicAbility # Roll for psionics
         conditions:
         - !type:ReagentCondition
           reagent: SpaceDrugs
           min: 15
-      - !type:Addicting # Delta-V - Addictive
+      - !type:Addicting # Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentCondition
           reagent: SpaceDrugs
           min: 0.25
       - !type:SuppressAddiction
-      # END DeltaV
+      # DeltaV - End Changes
 
 - type: reagent
   id: Bananadine

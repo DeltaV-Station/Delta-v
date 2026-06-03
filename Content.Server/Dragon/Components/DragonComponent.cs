@@ -68,7 +68,7 @@ namespace Content.Server.Dragon
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
         /// <summary>
-        /// DeltaV: Damage dealt to dragon on death
+        /// DeltaV - Damage dealt to dragon on death
         /// So we dont just delete it
         /// </summary>
         [DataField]
@@ -81,7 +81,7 @@ namespace Content.Server.Dragon
         };
 
         /// <summary>
-        /// DeltaV: Stops the halftime popup from displaying 1000 times
+        /// DeltaV - Stops the halftime popup from displaying 1000 times
         /// </summary>
         [DataField]
         public bool HalftimePopupShown;

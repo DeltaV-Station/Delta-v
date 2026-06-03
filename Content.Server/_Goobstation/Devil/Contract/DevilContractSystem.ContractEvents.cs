@@ -20,8 +20,8 @@ public sealed partial class DevilContractSystem
     private void InitializeSpecialActions()
     {
         SubscribeLocalEvent<DevilContractSoulOwnershipEvent>(OnSoulOwnership);
-        // SubscribeLocalEvent<DevilContractLoseHandEvent>(OnLoseHand); // Delta V - Comment out for ShitMed Removal
-        // SubscribeLocalEvent<DevilContractLoseLegEvent>(OnLoseLeg); // Delta V - Comment out for ShitMed Removal
+        // SubscribeLocalEvent<DevilContractLoseHandEvent>(OnLoseHand); // DeltaV - Comment out for ShitMed Removal
+        // SubscribeLocalEvent<DevilContractLoseLegEvent>(OnLoseLeg); // DeltaV - Comment out for ShitMed Removal
         SubscribeLocalEvent<DevilContractLoseOrganEvent>(OnLoseOrgan);
         SubscribeLocalEvent<DevilContractChanceEvent>(OnChance);
     }
@@ -33,7 +33,7 @@ public sealed partial class DevilContractSystem
         TryTransferSouls(contractOwner, args.Target, 1);
     }
 
-    // Delta V - ShitMed Removal, Prep for Nubody
+    // DeltaV - ShitMed Removal, Prep for Nubody
     // private void OnLoseHand(DevilContractLoseHandEvent args)
     // {
     //     if (!TryComp<BodyComponent>(args.Target, out var body))

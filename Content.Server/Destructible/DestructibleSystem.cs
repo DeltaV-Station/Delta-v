@@ -37,7 +37,7 @@ namespace Content.Server.Destructible
         [Dependency] public readonly AtmosphereSystem AtmosphereSystem = default!;
         [Dependency] public readonly AudioSystem AudioSystem = default!;
         [Dependency] public readonly GibbingSystem Gibbing = default!;
-        [Dependency] public readonly BodySystem BodySystem = default!; // Delta-V - Keep body here for shitmed
+        [Dependency] public readonly BodySystem BodySystem = default!; // DeltaV - Keep body here for shitmed
         [Dependency] public readonly ConstructionSystem ConstructionSystem = default!;
         [Dependency] public readonly ExplosionSystem ExplosionSystem = default!;
         [Dependency] public readonly StackSystem StackSystem = default!;

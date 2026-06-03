@@ -12,7 +12,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -66,7 +66,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -116,7 +116,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -164,7 +164,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -214,7 +214,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -410,7 +410,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -467,7 +467,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
-    clothingVisuals: # Delta V - Need this for Harpies
+    clothingVisuals: # DeltaV - Need this for Harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -521,7 +521,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -660,7 +660,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -712,7 +712,7 @@
     size: Huge
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -784,7 +784,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -815,7 +815,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -880,7 +880,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -942,7 +942,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -1161,7 +1161,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieCommander ]
   id: ClothingOuterHardsuitERTLeader
-  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own we use for ERT
   name: ERT leader's hardsuit
   description: A protective hardsuit worn by the leader of an emergency response team.
   components:
@@ -1174,9 +1174,9 @@
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ] # Delta V - Changed parent (ClothingOuterHardsuitJuggernaut) that was causing issues in debug
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ] # DeltaV - Changed parent (ClothingOuterHardsuitJuggernaut) that was causing issues in debug
   id: ClothingOuterHardsuitERTChaplain
-  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own we use for ERT
   name: ERT chaplain's hardsuit
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
   components:
@@ -1191,7 +1191,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTEngineer
-  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own we use for ERT
   name: ERT engineer's hardsuit
   description: A protective hardsuit worn by the engineers of an emergency response team.
   components:
@@ -1208,7 +1208,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic ]
   id: ClothingOuterHardsuitERTMedical
-  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own we use for ERT
   name: ERT medic's hardsuit
   description: A protective hardsuit worn by the medics of an emergency response team.
   components:
@@ -1223,7 +1223,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTSecurity
-  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own we use for ERT
   name: ERT security's hardsuit
   description: A protective hardsuit worn by the security officers of an emergency response team.
   components:
@@ -1243,7 +1243,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTJanitor
-  categories: [ HideSpawnMenu ] # Delta V - We have our own we use for ERT
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own we use for ERT
   name: ERT janitor's hardsuit
   description: A protective hardsuit worn by the janitors of an emergency response team.
   components:
@@ -1265,7 +1265,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -1323,7 +1323,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -1371,7 +1371,7 @@
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity
-  parent: ClothingOuterEVASuitBase # Delta V-Brings back clownsuit but make it make sense
+  parent: ClothingOuterEVASuitBase # DeltaV - Brings back clownsuit but make it make sense
   id: ClothingOuterHardsuitClown
   name: clown hardsuit
   description: A custom-made clown hardsuit.
@@ -1380,7 +1380,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
@@ -1395,7 +1395,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
-  #- type: ExplosionResistance # Delta V-Brings back clownsuit but make it make sense
+  #- type: ExplosionResistance # DeltaV - Brings back clownsuit but make it make sense
   #  damageCoefficient: 0.9
   #- type: Armor
   #  modifiers:
@@ -1413,7 +1413,7 @@
     node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
-  - type: ContainerContainer # Delta V-Brings back clownsuit but make it make sense
+  - type: ContainerContainer # DeltaV - Brings back clownsuit but make it make sense
     containers:
       toggleable-clothing: !type:ContainerSlot {}
       toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Allow hats under toggleable clothing
@@ -1429,7 +1429,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-    clothingVisuals: # Delta V - Need this for harpies
+    clothingVisuals: # DeltaV - Need this for harpies
       outerClothing:
       - state: equipped-OUTERCLOTHING
       outerClothing-harpy:
