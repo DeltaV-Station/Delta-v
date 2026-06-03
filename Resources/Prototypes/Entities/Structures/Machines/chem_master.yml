@@ -1,6 +1,6 @@
 - type: entity
   id: ChemMaster
-  parent: [ BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: ChemMaster 4000
   description: An industrial grade chemical manipulator with pill and bottle production included.
   placement:
