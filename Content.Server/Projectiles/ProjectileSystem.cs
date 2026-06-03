@@ -3,7 +3,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -18,9 +17,6 @@ namespace Content.Server.Projectiles;
 
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
-    // ES START
-    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
-    // ES END
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ColorFlashEffectSystem _color = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -85,13 +81,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         {
             _guns.PlayImpactSound(target, damage, component.SoundHit, component.ForceSound);
 
-            // ES START
-            // shake + lower recoil
-            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
             if (!args.OurBody.LinearVelocity.IsLengthZero())
-                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized() * 0.08f);
-            _shake.Screenshake(target, otherShakeTranslation, null);
-            // ES END
+                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
 
         if (component.DeleteOnCollide && component.ProjectileSpent)

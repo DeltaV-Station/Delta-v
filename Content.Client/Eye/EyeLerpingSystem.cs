@@ -36,9 +36,6 @@ public sealed class EyeLerpingSystem : EntitySystem
         UpdatesAfter.Add(typeof(TransformSystem));
         UpdatesAfter.Add(typeof(Robust.Client.Physics.PhysicsSystem));
         UpdatesBefore.Add(typeof(SharedEyeSystem));
-        // ES START
-        UpdatesBefore.Add(typeof(EyeSystem));
-        // ES END
         UpdatesOutsidePrediction = true;
     }
 
@@ -71,11 +68,6 @@ public sealed class EyeLerpingSystem : EntitySystem
         {
             _eye.SetRotation(uid, lerpInfo.TargetRotation, component);
             _eye.SetZoom(uid, lerpInfo.TargetZoom, component);
-
-            // Starlight begin - fix ES Screenshake triggering on spawn
-            if (TryComp<ContentEyeComponent>(uid, out var contentEye))
-                contentEye.BaseRotation = lerpInfo.TargetRotation;
-            // Starlight end
         }
     }
 
@@ -183,15 +175,9 @@ public sealed class EyeLerpingSystem : EntitySystem
     {
         var tickFraction = (float) _gameTiming.TickFraction / ushort.MaxValue;
         const double lerpMinimum = 0.00001;
-        // ES START
-        // add contenteye bc we only want to modify the fuckin base rotation
-        var query = AllEntityQuery<LerpingEyeComponent, EyeComponent, ContentEyeComponent, TransformComponent>();
-        // ES END
+        var query = AllEntityQuery<LerpingEyeComponent, EyeComponent, TransformComponent>();
 
-        // ES START
-        // contenteye
-        while (query.MoveNext(out var entity, out var lerpInfo, out var eye, out var contentEye, out var xform))
-        // ES END
+        while (query.MoveNext(out var entity, out var lerpInfo, out var eye, out var xform))
         {
             // Handle zoom
             var zoomDiff = Vector2.Lerp(lerpInfo.LastZoom, lerpInfo.TargetZoom, tickFraction);
@@ -205,14 +191,6 @@ public sealed class EyeLerpingSystem : EntitySystem
                 _eye.SetZoom(entity, zoomDiff, eye);
             }
 
-            // ES START
-            // UHHHHHHHHHHHh
-            // shit is fucked idk
-            // we need to alter baserotation not regular eye rotation and also i added baserotation because uhh
-            // there was no good way to separate 'how the eye should be oriented because of the grid/turning/etc' and 'the eye rotating on top of that'
-            // had to add it
-            // ES END
-
             // Handle Rotation
             TryComp<InputMoverComponent>(entity, out var mover);
 
@@ -221,10 +199,7 @@ public sealed class EyeLerpingSystem : EntitySystem
 
             if (!NeedsLerp(mover))
             {
-                // ES START
-                // contenteye
-                contentEye.BaseRotation = lerpInfo.TargetRotation;
-                // ES END
+                _eye.SetRotation(entity, lerpInfo.TargetRotation, eye);
                 continue;
             }
 
@@ -232,17 +207,11 @@ public sealed class EyeLerpingSystem : EntitySystem
 
             if (Math.Abs(shortest.Theta) < lerpMinimum)
             {
-                // ES START
-                // contenteye
-                contentEye.BaseRotation = lerpInfo.TargetRotation;
-                // ES END
+                _eye.SetRotation(entity, lerpInfo.TargetRotation, eye);
                 continue;
             }
 
-            // ES START
-            // contenteye
-            contentEye.BaseRotation = shortest * tickFraction + lerpInfo.LastRotation;
-            // ES END
+            _eye.SetRotation(entity, shortest * tickFraction + lerpInfo.LastRotation, eye);
         }
     }
 }
