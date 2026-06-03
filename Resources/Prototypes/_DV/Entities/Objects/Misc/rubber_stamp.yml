@@ -45,6 +45,21 @@
     state: stamp-prosec
 
 - type: entity
+  name: armorer's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampProsec
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. Or weapons licenses for passengers.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-armorer
+    stampedColor: "#5b0000"
+    stampState: "paper_stamp-warden"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-warden
+
+- type: entity
   parent: RubberStampBase
   id: RubberStampHatePaperwork
   name: paperwork hater rubber stamp

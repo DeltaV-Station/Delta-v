@@ -49,7 +49,33 @@
     stateDoorOpen: clerk_open
     stateDoorClosed: clerk_door
   - type: AccessReader
-    access: [["Clerk"]]
+    access: [["Warden"]] # Clerk access changed to warden
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerMarshal
+  name: marshal's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Marshal"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJusticeWarden
+  name: warden's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Warden"]]
 
 - type: entity
   parent: LockerBaseSecureDeltaV

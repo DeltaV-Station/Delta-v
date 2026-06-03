@@ -53,6 +53,19 @@
       state: prosecutor
 
 - type: entity
+  id: SpawnPointMarshal
+  parent: SpawnPointJobBase
+  name: Marshal
+  components:
+  - type: SpawnPoint
+    job_id: Marshal
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: prosecutor
+
+- type: entity
   id: SpawnPointCourier
   parent: SpawnPointJobBase
   name: courier
