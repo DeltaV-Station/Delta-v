@@ -62,6 +62,14 @@
   - type: AccessReader
     access: [["ERT"]]
 
+- type: entity
+  parent: LockableButton
+  id: LockableButtonXenoborg
+  suffix: Xenoborg
+  components:
+  - type: AccessReader
+    access: [["Xenoborg"]]
+
 # Switches
 
 - type: entity
@@ -386,3 +394,11 @@
   components:
   - type: AccessReader
     access: [["ERT"]]
+
+- type: entity
+  parent: LockableSwitch
+  id: LockableSwitchXenoborg
+  suffix: Xenoborg
+  components:
+  - type: AccessReader
+    access: [["Xenoborg"]]

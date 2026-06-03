@@ -15,19 +15,18 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
-      cell_slot: !type:ContainerSlot
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500 # Not impossible, just need explosives.
+        damage: 1000 # Not impossible, just need explosives.
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Gun
-    fireRate: 5
+    fireRate: 1
     useKey: false
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/gamblagatorshot.ogg
@@ -43,8 +42,10 @@
   - type: Machine
     board: ShuttleGunXenoborgCircuitboard
   - type: BatterySelfRecharger
-    autoRechargeRate: 5
+    autoRechargeRate: 10
   - type: BatteryAmmoProvider
     proto: XRayLaser
     fireCost: 50
-  - type: StationAiWhitelist
+  - type: Lock
+  - type: AccessReader
+    access: [["Xenoborg"]]
