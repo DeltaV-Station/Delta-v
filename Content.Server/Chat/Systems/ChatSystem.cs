@@ -653,6 +653,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var ent = Identity.Entity(source, EntityManager);
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
 
+        // Begin DeltaV
         string wrappedMessage;
 
         // Emotes use Identity.Name, since it doesn't actually involve your voice at all.
@@ -666,6 +667,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 ("entityName", name),
                 ("entity", ent),
                 ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+        // End DeltaV
 
         if (checkEmote &&
             !TryEmoteChatInput(source, action))
