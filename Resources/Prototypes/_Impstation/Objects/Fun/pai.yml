@@ -19,8 +19,8 @@
     #  department: Science
     #  time: 54000 #15 hrs
     #  inverted: true
-    roleName: pai-system-role-name-learner-science
-    roleDescription: pai-system-role-description-learner-science
+    roleName: pai-system-role-name-learner-MG # DeltaV - change to MG
+    roleDescription: pai-system-role-description-learner-MG # DeltaV - change to epistemics
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
@@ -163,8 +163,8 @@
     #  department: Cargo
     #  time: 18000 #5 hrs
     #  inverted: true
-    roleName: pai-system-role-name-learner-cargo
-    roleDescription: pai-system-role-description-learner-cargo
+    roleName: pai-system-role-name-learner-LO
+    roleDescription: pai-system-role-description-learner-LO
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
@@ -183,7 +183,7 @@
 - type: entity
   parent: PersonalAI
   id: PersonalAILearnerService
-  name: head of personel's personal learner device # DeltaV- change to HOP
+  name: head of personel's personal learner device # DeltaV - change to HOP
   description: Your electronic pal, who is itching to learn!
   components:
   - type: Sprite
@@ -199,7 +199,7 @@
     #  department: Service
     #  time: 54000 #15 hrs
     #  inverted: true
-    roleName: pai-system-role-name-learner-service
+    roleName: pai-system-role-name-learner-HOP # DeltaV - change to HOP
     roleDescription: pai-system-role-description-learner-service
     roleRules: ghost-role-information-familiar-rules
     mindRoles:
