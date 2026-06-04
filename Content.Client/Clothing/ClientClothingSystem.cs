@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
-using Content.Shared._DV.Silicon.IPC; // DeltaV - IPC Snouts
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -103,11 +102,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
-        // Begin DeltaV Additions - IPC snouts
         var speciesId = inventory.SpeciesId;
-
-        if (TryComp(args.Equipee, out SnoutHelmetComponent? helmetComponent) && helmetComponent.EnableAlternateHelmet)
-            speciesId = helmetComponent.ReplacementRace;
 
         // first attempt to get species specific data.
         if (speciesId != null)
@@ -120,7 +115,6 @@ public sealed class ClientClothingSystem : ClothingSystem
             if (!TryGetDefaultVisuals(uid, item, args.Slot, speciesId, out layers))
                 return;
         }
-        // End DeltaV Additions
 
         // add each layer to the visuals
         var i = 0;

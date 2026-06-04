@@ -82,9 +82,8 @@
   components:
   - type: NukeOperative
   - type: RandomHumanoidAppearance
-  - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
-    multiplier: 7
-    warn: false
+  - type: PotentialPsionic # DeltaV - Psionic Refactor
+    jobBonusChance: 0.05 # Additional 5% chance to roll a psionic power.
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -106,9 +105,8 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-  - type: PsionicBonusChance # DeltaV
-    multiplier: 7
-    warn: false
+  - type: PotentialPsionic # DeltaV - Psionic Refactor
+    jobBonusChance: 0.05 # Additional 5% chance to roll a psionic power.
 
 # Wizard
 - type: entity

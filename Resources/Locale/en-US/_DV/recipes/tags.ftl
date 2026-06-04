@@ -30,7 +30,6 @@ construction-graph-tag-modular-breech = modular breech
 construction-graph-tag-modular-trigger = modular trigger
 construction-graph-tag-bayonet = Bayonet
 construction-graph-tag-half-pipe = half pipe
-construction-graph-tag-paper = Paper
 
 # Fish labeler
 construction-graph-tag-hand-labeler = hand labeler
@@ -47,3 +46,7 @@ construction-graph-tag-ancientbook = Damaged Ancient Book
 
 # Weapons
 construction-graph-tag-silversword = silver sword
+
+# Other
+construction-graph-tag-jug = jug
+construction-graph-tag-beaker = beaker

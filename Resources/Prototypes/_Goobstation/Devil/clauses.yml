@@ -117,11 +117,14 @@
   id: pain
   clauseWeight: -5
   addedComponents:
-  - type: PainNumbness
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 1
       80: 1
+  # Begin DeltaV Additions - Clause status effects
+  statusEffects:
+    - PainNumbnessTraitStatusEffect
+  # End DeltaV Additions - Clause status effects
 
 - type: clause
   id: chance
@@ -221,11 +224,12 @@
   - type: CheatDeath
     infiniteRevives: true
 
-- type: clause
-  id: time
-  clauseWeight: 150
-  addedComponents:
-  - type: DelayedDeath
-    preventAllRevives: true # :trol:
-    deathTime: 300
-    deathMessageId: devil-deal-time-ran-out
+# Delta V - ShitMed Removal, needs rewrite
+# - type: clause
+#   id: time
+#   clauseWeight: 150
+#   addedComponents:
+#   - type: DelayedDeath
+#     preventAllRevives: true # :trol:
+#     deathTime: 300
+#     deathMessageId: devil-deal-time-ran-out

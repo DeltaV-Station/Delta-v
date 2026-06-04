@@ -69,6 +69,7 @@
     - id: ClothingOuterHardsuitCombatCorpsman
     - id: ClothingMaskBreath
     - id: ClothingShoesBootsSecurityMagboots #Added security magboots.
+    - id: JetpackSecurityFilled #Sec hardsuits get jetpacks
 
 - type: entity
   parent: SuitStorageBase
@@ -117,7 +118,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTLeaderHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTLeaderHardsuit
@@ -141,7 +142,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTSecurityHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTSecurityHardsuit
@@ -165,7 +166,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTMedicalHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTMedicalHardsuit
@@ -189,7 +190,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTJanitorHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTJanitorHardsuit
@@ -213,7 +214,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTEngineerHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTEngineerHardsuit
@@ -237,7 +238,7 @@
       entity_storage: !type:NestedSelector
         tableId: LockerFillERTChaplainHardsuit
   - type: AccessReader
-    access: [["CentralCommand"]]
+    access: [["ERT"]]
 
 - type: entityTable
   id: LockerFillERTChaplainHardsuit

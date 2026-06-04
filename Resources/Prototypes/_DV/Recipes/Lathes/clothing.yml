@@ -2,8 +2,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitSecBlue
-  result: ClothingUniformJumpsuitSecBlue
+  id: ClothingUniformJumpsuitSecWhite
+  result: ClothingUniformJumpsuitSecWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -11,9 +11,19 @@
   result: ClothingUniformJumpsuitSecGrey
 
 - type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoSWhite
+  result: ClothingUniformJumpsuitHoSWhite
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoSTurtle
+  result: ClothingUniformJumpsuitHoSTurtle
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitWardenBlue
-  result: ClothingUniformJumpsuitWardenBlue
+  id: ClothingUniformJumpsuitWardenWhite
+  result: ClothingUniformJumpsuitWardenWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -25,12 +35,17 @@
   id: ClothingUniformJumpsuitSecSenior
   result: ClothingUniformJumpsuitSecSenior
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecCadet
+  result: ClothingUniformJumpsuitSecCadet
+
 # Jumpskirts - Security
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtSecBlue
-  result: ClothingUniformJumpskirtSecBlue
+  id: ClothingUniformJumpskirtSecWhite
+  result: ClothingUniformJumpskirtSecWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -38,19 +53,24 @@
   result: ClothingUniformJumpskirtSecGrey
 
 - type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtHoSBlue
-  result: ClothingUniformJumpskirtHoSBlue
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSWhite
+  result: ClothingUniformJumpskirtHoSWhite
 
 - type: latheRecipe
-  parent: BaseJumpsuitRecipe
+  parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpskirtHoSGrey
   result: ClothingUniformJumpskirtHoSGrey
 
 - type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSTurtle
+  result: ClothingUniformJumpskirtHoSTurtle
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtWardenBlue
-  result: ClothingUniformJumpskirtWardenBlue
+  id: ClothingUniformJumpskirtWardenWhite
+  result: ClothingUniformJumpskirtWardenWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -71,6 +91,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtSecSenior
   result: ClothingUniformJumpskirtSecSenior
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSecCadet
+  result: ClothingUniformJumpskirtSecCadet
 
 # Security Sweater
 
@@ -197,12 +222,12 @@
 # Secretary
 
 - type: latheRecipe
-  parent: BaseCommandJumpsuitRecipe
+  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitSecretary
   result: ClothingUniformJumpsuitSecretary
 
 - type: latheRecipe
-  parent: BaseCommandJumpsuitRecipe
+  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtSecretary
   result: ClothingUniformJumpskirtSecretary
 
@@ -235,10 +260,27 @@
   id: ClothingHeadPrisonGuard
   result: ClothingHeadPrisonGuard
 
-#Centcomm Clothing
+# Security Hats
 
 - type: latheRecipe
   parent: BaseHatRecipe
+  id: ClothingHeadHatBeretCadet
+  result: ClothingHeadHatBeretCadet
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretSecurityGrey
+  result: ClothingHeadHatBeretSecurityGrey
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatCapSec
+  result: ClothingHeadHatCapSec
+
+#Centcomm Clothing
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
   id: ClothingHeadHatBeretCentcomm
   result: ClothingHeadHatBeretCentcomm
 
@@ -311,6 +353,11 @@
   result: ClothingOuterCybersunOvercoat
 
 - type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatLabCybersun
+  result: ClothingOuterCoatLabCybersun
+
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatSurgcapCybersun
   result: ClothingHeadHatSurgcapCybersun
@@ -336,6 +383,16 @@
   parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpskirtHoPFormal
   result: ClothingUniformJumpskirtHoPFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformCMOFormal
+  result: ClothingUniformCMOFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCMOFormal
+  result: ClothingUniformJumpskirtCMOFormal
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -398,6 +455,11 @@
   id: ClothingUniformJumpskirtAtmosCasual
   result: ClothingUniformJumpskirtAtmosCasual
 
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretAtmospherics
+  result: ClothingHeadHatBeretAtmospherics
+
 # Botanist
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -419,6 +481,79 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformSeniorBartenderSkirt
   result: ClothingUniformSeniorBartenderSkirt
+
+# CMO
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformCMOVest
+  result: ClothingUniformCMOVest
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCMOVest
+  result: ClothingUniformJumpskirtCMOVest
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformCMOSummer
+  result: ClothingUniformCMOSummer
+
+# Paramedic
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformParamedicJumper
+  result: ClothingUniformParamedicJumper
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtParamedicJumper
+  result: ClothingUniformJumpskirtParamedicJumper
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretParamedic
+  result: ClothingHeadHatBeretParamedic
+
+# Medical
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformMedicalApron
+  result: ClothingUniformMedicalApron
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMedicalApron
+  result: ClothingUniformJumpskirtMedicalApron
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformMedicalOffset
+  result: ClothingUniformMedicalOffset
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMedicalOffset
+  result: ClothingUniformJumpskirtMedicalOffset
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformMedicalVest
+  result: ClothingUniformMedicalVest
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMedicalVest
+  result: ClothingUniformJumpskirtMedicalVest
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretMedical
+  result: ClothingHeadHatBeretMedical
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretSeniorChemistry
+  result: ClothingHeadHatBeretSeniorChemistry
 
 # General
 

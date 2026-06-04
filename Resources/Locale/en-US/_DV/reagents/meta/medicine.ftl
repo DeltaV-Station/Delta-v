@@ -14,6 +14,9 @@ reagent-desc-anodynafil = An effective short-lasting anesthetic that doesn't int
 
 reagent-desc-dexalin-deltav = Used for treating minor oxygen deprivation and bloodloss. A required reagent for salbutamol and convermol.
 
+reagent-name-sanctussal = sanctus sal
+reagent-desc-sanctussal = A primitive mixture that wards off noöspheric influences. Historically a scam, but sourcing the holy water from a divine source yields factual results.
+
 reagent-name-photoxadone = photoxadone
 reagent-desc-photoxadone = a strange, faintly glowing cryogenics chemical. Seems to have some effect on damages deeper than physical, even affecting the dead.
 
@@ -21,3 +24,11 @@ reagent-name-stabilizine = stabilizine
 reagent-desc-stabilizine = A potent chemical used to stabliize and regulate body temperature.
 
 reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam. A regenerative, miraculous chemical able to purge the body of most impurity. Overdose causes cancerous growth.
+
+reagent-name-salbutamol-saline = Salbutamol & Saline
+
+reagent-name-pure-oil = pure oil
+reagent-desc-pure-oil = A form of lotophagoi oil purified with claridisol. while even this form can grant someone powers, it can be refined further.
+
+reagent-name-claridisol =  claridisol
+reagent-desc-claridisol = A psionically charged chemical that is almost useless on its own, but can be used for purifying Lotophagoi Oil

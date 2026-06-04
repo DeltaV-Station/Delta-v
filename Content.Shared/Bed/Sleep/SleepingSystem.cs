@@ -250,14 +250,8 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
 
-        /* Shitmed Change Start - Surgery needs this, sorry! If the nocturine gamers get too feisty
-        I'll probably just increase the threshold */
-
-        if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold
-            && !HasComp<ForcedSleepingStatusEffectComponent>(ent))
+        if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold)
             TryWaking((ent, ent.Comp));
-
-        // Shitmed Change End
     }
 
     /// <summary>

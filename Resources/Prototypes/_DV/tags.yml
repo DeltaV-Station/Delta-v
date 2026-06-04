@@ -4,33 +4,6 @@
   id: Artifact
 
 - type: Tag
-  id: AugmentAPCBoard
-
-- type: Tag
-  id: AugmentBotanyToolBelt
-
-- type: Tag
-  id: AugmentCellCasing
-
-- type: Tag
-  id: AugmentChargerCasing
-
-- type: Tag
-  id: AugmentPaperworkToolBelt
-
-- type: Tag
-  id: AugmentStationBoard
-
-- type: Tag
-  id: AugmentSurgeryToolBelt
-
-- type: Tag
-  id: AugmentToolBelt
-
-- type: Tag
-  id: AugmentToolPanelCasing
-
-- type: Tag
   id: Bayonet #Craftable Musket
 
 - type: Tag
@@ -130,6 +103,9 @@
   id: LightFixture
 
 - type: Tag
+  id: MagazineCaselessRifle
+
+- type: Tag
   id: MagazineLaser
 
 - type: Tag
@@ -169,6 +145,9 @@
   id: PlutoniumCore
 
 - type: Tag
+  id: TaserImmune # BulletTaser has no effect on this entity
+
+- type: Tag
   id: PreventLabel
 
 - type: Tag
@@ -178,10 +157,13 @@
   id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
 
 - type: Tag
-  id: SiliconOrIPCEmotes # upstream's SiliconEmotes = only bots and borgs, this one includes IPCs
+  id: Skirt
 
 - type: Tag
-  id: Skirt
+  id: SpeedLoaderPistol
+
+- type: Tag
+  id: SpeedLoaderRifle
 
 - type: Tag
   id: SpeedLoaderSpecial
@@ -277,3 +259,15 @@
 
 - type: Tag
   id: GenderCloak
+
+- type: Tag
+  id: Jug
+
+- type: Tag # Service Chef Module
+  id: Dinnerware
+
+- type: Tag # Service Chef Module
+  id: Kitchenware
+
+- type: Tag # Service Chef Module
+  id: Ingredients

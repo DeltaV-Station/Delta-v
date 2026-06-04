@@ -1,5 +1,5 @@
 - type: entity
-  name: fish Basket
+  name: fish basket
   id: FishBasket
   parent: BaseStorageItem
   description: A basket for storing fish.
@@ -17,10 +17,11 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,5,5
+    - 0,0,7,5
     quickInsert: true
     areaInsert: true
     whitelist:
       components:
         - Fish
   - type: Dumpable
+  - type: AntiRottingContainer

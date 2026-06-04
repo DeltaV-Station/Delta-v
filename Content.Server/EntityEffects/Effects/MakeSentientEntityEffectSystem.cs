@@ -1,6 +1,6 @@
 ﻿using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
-using Content.Server.Psionics; // DeltaV
+using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Mind.Components;

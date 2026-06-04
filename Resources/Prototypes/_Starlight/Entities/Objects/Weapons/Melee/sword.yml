@@ -76,7 +76,7 @@
   name: dawnbreaker
   parent: [ BaseSword,Welder ]
   id: SwordFlaming
-  description: How do you perfect upon perfection? Why, use fire of course! Be the shining light through maints and fight valiantly! 
+  description: How do you perfect upon perfection? Why, use fire of course! Be the shining light through maints and fight valiantly!
   components:
   - type: Sprite
     sprite: _Starlight/Objects/Weapons/Melee/dawnbreaker.rsi
@@ -163,9 +163,3 @@
     slots:
     - suitStorage
   - type: DisarmMalus
-  - type: Scalpel
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg

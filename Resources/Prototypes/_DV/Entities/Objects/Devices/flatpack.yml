@@ -9,24 +9,6 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: MedBioFabricatorFlatpack
-  name: medical biofabricator flatpack
-  description: A flatpack used for constructing a medical biofabricator.
-  components:
-  - type: Flatpack
-    entity: MedicalBiofabricator
-
-- type: entity
-  parent: BaseFlatpack
-  id: AutoclaveFlatpack
-  name: autoclave flatpack
-  description: A flatpack used for constructing an Autoclave.
-  components:
-  - type: Flatpack
-    entity: Autoclave
-
-- type: entity
-  parent: BaseFlatpack
   id: CirculatorFlatpack
   name: Circulator flatpack
   description: A flatpack used for constructing a circulator of the thermoelectric generator.
@@ -57,18 +39,47 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: AutodocSyndieFlatpack
-  name: syndie autodoc flatpack
-  description: A flatpack used for constructing a syndicate Autodoc.
-  components:
-  - type: Flatpack
-    entity: AutodocSyndie
-
-- type: entity
-  parent: BaseFlatpack
   id: OperatingTableFlatpack
   name: operating table flatpack
   description: A flatpack used for constructing an operating table.
   components:
   - type: Flatpack
     entity: OperatingTable
+
+- type: entity
+  abstract: true
+  parent: BaseStructureDynamic
+  id: HeavyFlatpackBase
+  name: heavy flatpack
+  description: A large flatpack used to store a worryingly large machine.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/flatpack.rsi
+    layers:
+    - state: large
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 100
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: InteractionOutline

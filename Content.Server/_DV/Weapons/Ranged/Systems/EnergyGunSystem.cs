@@ -147,6 +147,15 @@ public sealed class EnergyGunSystem : EntitySystem
                     case "special":
                         UpdateAppearance(uid, EnergyGunFireModeState.Special);
                         break;
+                    case "cyan":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Cyan);
+                        break;
+                    case "red":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Red);
+                        break;
+                    case "yellow":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Yellow);
+                        break;
                 }
             }
         }

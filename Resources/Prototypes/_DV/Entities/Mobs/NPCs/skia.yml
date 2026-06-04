@@ -10,6 +10,8 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: skia
+  - type: Stealth
+    lastVisibility: 0.8
   - type: DamageStateVisuals
     states:
       Alive:
@@ -28,8 +30,8 @@
       0: Alive
       120: Dead
   - type: Damageable
-    damageModifierSet: ManifestedSpirit
     damageContainer: BiologicalMetaphysical
+    damageModifierSet: Spirit
   - type: Fixtures
     fixtures:
       fix1:
@@ -69,7 +71,8 @@
     factions:
     - SimpleHostile
   - type: Tag
-    tags: [ ]
+    tags:
+      - TaserImmune
   - type: Speech
     speechVerb: Ghost
   - type: Emoting
@@ -101,14 +104,16 @@
     resurrectDesc: skia-resurrecting-desc
   - type: Bloodstream
     maxBleedAmount: 0
-  - type: ShatterLightsAbility
-    lineOfSight: true
+  - type: PsychokineticScreamPower
     radius: 7.0
     penetratingRadius: 2.0
+    actionProtoId: ActionPsychokineticScreamSkia
+    canBeRemoved: false
   - type: TechnokineticPulseAbility
     range: 5.0
     energyConsumption: 20000
     disableDuration: 20.0
+  - type: Jaunt
   - type: Butcherable
     spawned:
     - id: Ectoplasm
@@ -121,7 +126,6 @@
       path: /Audio/Items/crowbar.ogg
   - type: NightVision
     drawOverlay: false
-  - type: Targeting
   - type: EmbedImmune
     immuneTo:
       components:

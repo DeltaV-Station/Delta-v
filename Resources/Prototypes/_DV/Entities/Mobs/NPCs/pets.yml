@@ -21,7 +21,7 @@
 
 - type: entity
   name: Laika
-  parent: MobSecDog
+  parent: MobSecDogBase
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
@@ -53,15 +53,9 @@
     - K9
   - type: StealTarget
     stealGroup: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 315 # 10 lower than base
     coldDamageThreshold: 240 # 20 lower than base
-  - type: Grappler
-    handDisabling: SingleActive
-    grapplingPart: grapple-part-jaws
-    proneOnGrapple: true # Make sure Laika isn't shot by sprays
-    grappleSound:
-      collection: VulpkaninGrowls
 
 - type: entity
   parent: MobCarp
@@ -111,8 +105,6 @@
       - id: RubberStampCarpy
   - type: UserInterface
     interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
 
@@ -199,11 +191,10 @@
           amount: 1
           prob: 0.2
     - type: Bloodstream
-      bloodMaxVolume: 200
-      bloodReagents:
+      bloodReferenceSolution:
         reagents:
         - ReagentId: Cryoxadone
-          Quantity: 1
+          Quantity: 200
     - type: Fixtures
       fixtures:
         fix1:
@@ -285,3 +276,38 @@
       - FootstepSound
     - type: StealTarget
       stealGroup: AnimalSilvia
+
+- type: entity
+  parent: MobBaseScurret
+  id: MobScurretBaba
+  name: Baba
+  description: Wawa?
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Mobs/Animals/scurret/scurret.rsi
+      state: scurret
+      color: "#e69d00"
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-baba-name
+    description: ghost-role-information-baba-description
+    rules: ghost-role-information-nonantagonist-rules
+    job: RoleBaba
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [MobScurretBaba]
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost

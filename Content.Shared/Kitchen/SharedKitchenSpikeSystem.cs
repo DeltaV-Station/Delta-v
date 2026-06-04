@@ -1,12 +1,11 @@
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Part; // DeltaV
-using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
+using Content.Shared.Gibbing;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -17,7 +16,6 @@ using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Mind.Components; // DeltaV - Admin QOL
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
@@ -44,7 +42,7 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -73,7 +71,6 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
 
         // Prevent the victim from doing anything while on the spike.
         SubscribeLocalEvent<KitchenSpikeHookedComponent, ChangeDirectionAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<KitchenSpikeHookedComponent, UpdateCanMoveEvent>(OnAttempt);
         SubscribeLocalEvent<KitchenSpikeHookedComponent, UseAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<KitchenSpikeHookedComponent, ThrowAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<KitchenSpikeHookedComponent, DropAttemptEvent>(OnAttempt);
@@ -242,26 +239,8 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
                 args.Target.Value,
                 ent);
 
-            // DeltaV - Replace logSeverity START
-            var logSeverity = LogImpact.Medium;
-
-            // Extreme impact if SSD indicator comp is present on target (as of writing only regular player characters have it), always alerting
-            if (HasComp<SSDIndicatorComponent>(args.Target.Value))
-            {
-                logSeverity = LogImpact.Extreme;
-            }
-
-            var hasMind = false;
-            // Extreme impact if a mind is attached to the target, always alerting
-            if (TryComp<MindContainerComponent>(args.Target.Value, out var mindContainer))
-            {
-                if (mindContainer.HasMind)
-                {
-                    hasMind = true;
-                    logSeverity = LogImpact.Extreme;
-                }
-            }
-            // DeltaV - Replace logSeverity END
+            // var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High; // DeltaV - replaced below
+            var (logSeverity, hasMind) = LogValuesForTarget(args.Target.Value); // DeltaV
 
             _logger.Add(LogType.Action,
                 logSeverity,
@@ -339,21 +318,14 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
         // Gib the victim if there is nothing else to butcher.
         if (butcherable.SpawnedEntities.Count == 0)
         {
-            // DeltaV - Gib the body, then body parts, but leave the organs
-            var gibs = _bodySystem.GibBody(args.Target.Value, true);
+            _gibbing.Gib(args.Target.Value);
 
-            foreach (var gib in gibs)
-            {
-                if (HasComp<BodyPartComponent>(gib))
-                    PredictedQueueDel(gib);
-            }
-            // END DeltaV
-
-            var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High;
+            // var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High; // DeltaV - replaced below
+            var (logSeverity, hasMind) = LogValuesForTarget(args.Target.Value); // DeltaV
 
             _logger.Add(LogType.Gib,
                 logSeverity,
-                $"{ToPrettyString(args.User):user} finished butchering {ToPrettyString(args.Target):target} on the {ToPrettyString(ent):spike}");
+                $"{ToPrettyString(args.User):user} finished butchering {ToPrettyString(args.Target):target}{(hasMind ? " (MIND ATTACHED)" : "")} on the {ToPrettyString(ent):spike}"); // DeltaV - Add hasMind indicator
         }
         else
         {
@@ -378,6 +350,28 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
 
         args.Handled = true;
     }
+
+    // DeltaV - Added method START
+    private (LogImpact, bool) LogValuesForTarget(EntityUid? butcherTarget)
+    {
+        var logSeverity = LogImpact.Medium; // Never alert by default
+
+        // Extreme impact if SSD indicator comp is present on target (as of writing only regular player characters have it), always alerting
+        if (HasComp<SSDIndicatorComponent>(butcherTarget))
+        {
+            logSeverity = LogImpact.Extreme;
+        }
+
+        var hasMind = TryComp<MindContainerComponent>(butcherTarget, out var mindContainer) && mindContainer.HasMind;
+        // Extreme impact if a mind is attached to the target, always alerting
+        if (hasMind)
+        {
+            logSeverity = LogImpact.Extreme;
+        }
+
+        return (logSeverity, hasMind);
+    }
+    // DeltaV - Added method END
 
     private void OnSpikeExamined(Entity<KitchenSpikeComponent> ent, ref ExaminedEvent args)
     {

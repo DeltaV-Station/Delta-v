@@ -51,6 +51,7 @@ flavor-complex-devils-kiss-deltav = like temptation
 flavor-complex-doctors-delight-deltav = like a medical miracle
 flavor-complex-driest-martini-deltav = like a dry sense of humor
 flavor-complex-erika-surprise-deltav = like a green dream, perfect for a warm day
+flavor-complex-firebolt-deltav = like above while burning like below
 flavor-complex-gin-fizz-deltav = like a fizzy lemon
 flavor-complex-gildlager-deltav = like a spicy secret told over spring break
 flavor-complex-grog-deltav = like a day on the high seas
@@ -83,6 +84,8 @@ flavor-complex-mnatsa-collins = like sweet and sour brandy
 flavor-complex-affogato = like boozy ice cream
 flavor-complex-five-oclock = like hard tea
 flavor-complex-mliko = like a prank
+flavor-complex-pure = like the purest water
+flavor-complex-clarifying = like an old memory you remember clearly
 
 ## DeltaV deep fryer
 flavor-base-crispy = crispy
