@@ -98,8 +98,9 @@
     neck: SyndicateWhistle
     pocket2: CommanderUplinkRadio45TC # DeltaV - allows them to buy commander armor
     outerClothing: ClothingOuterCoatSyndieCapArmored # DeltaV - removal of armor
-  inhand:
-  - NukeOpsDeclarationOfWar
+    back: ClothingBackpackDuffelSyndicateFilledCommander # DeltaV - add war declarator to bag
+  #inhand:
+  #- NukeOpsDeclarationOfWar # DeltaV - put war declarator in bag
 
 - type: chameleonOutfit
   id: NukeopsCommanderOutfit

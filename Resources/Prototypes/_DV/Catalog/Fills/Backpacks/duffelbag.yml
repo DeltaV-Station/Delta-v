@@ -57,3 +57,16 @@
         - id: ClothingEyesGlassesSunglasses
         - id: ClothingHeadHatCommandSoft
         - id: ClothingHeadHatBeretCommand
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledCommander
+  name: syndicate duffel bag
+  description:  A large duffel bag for holding various traitor goods.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: NukeOpsDeclarationOfWar
+          prob: 0.5
