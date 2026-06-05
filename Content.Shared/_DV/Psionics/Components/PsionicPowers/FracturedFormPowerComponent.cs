@@ -15,7 +15,7 @@ public sealed partial class FracturedFormPowerComponent : BasePsionicPowerCompon
 
     public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged { get; set; } = 30;
+    public override int MaxGlimmerChanged { get; set; } = 15;
 
     /// <summary>
     /// The chance for the clone to have the starting gear of the psionic.

@@ -46,3 +46,7 @@ construction-graph-tag-ancientbook = Damaged Ancient Book
 
 # Weapons
 construction-graph-tag-silversword = silver sword
+
+# Other
+construction-graph-tag-jug = jug
+construction-graph-tag-beaker = beaker

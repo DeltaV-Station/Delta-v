@@ -87,26 +87,33 @@
   id: ClothingSecurityDeltaV
   recipes:
   # HoS
-  - ClothingUniformJumpsuitHoSBlue
-  - ClothingUniformJumpskirtHoSBlue
+  - ClothingUniformJumpsuitHoSWhite
+  - ClothingUniformJumpskirtHoSWhite
   - ClothingUniformJumpsuitHoSGrey
   - ClothingUniformJumpskirtHoSGrey
+  - ClothingUniformJumpsuitHoSTurtle
+  - ClothingUniformJumpskirtHoSTurtle
   # Security Officer
-  - ClothingUniformJumpsuitSecBlue
-  - ClothingUniformJumpskirtSecBlue
+  - ClothingUniformJumpsuitSecWhite
+  - ClothingUniformJumpskirtSecWhite
   - ClothingUniformJumpsuitSecGrey
   - ClothingUniformJumpskirtSecGrey
   - ClothingUniformJumpsuitSecSenior
   - ClothingUniformJumpskirtSecSenior
   # Warden
-  - ClothingUniformJumpsuitWardenBlue
-  - ClothingUniformJumpskirtWardenBlue
+  - ClothingUniformJumpsuitWardenWhite
+  - ClothingUniformJumpskirtWardenWhite
   - ClothingUniformJumpsuitWardenGrey
   - ClothingUniformJumpskirtWardenGrey
   # Prison Guard
   - ClothingUniformJumpsuitPrisonGuard
   - ClothingUniformJumpskirtPrisonGuard
   - ClothingHeadPrisonGuard
+  # Cadet
+  - ClothingUniformJumpsuitSecCadet
+  - ClothingUniformJumpskirtSecCadet
+  - ClothingHeadHatBeretCadet
+  - ClothingHeadHatBeretSecurityGrey
 
 - type: latheRecipePack
   id: ClothingEngineeringDeltaV
