@@ -38,7 +38,7 @@
   - type: ComplexInteraction
   - type: Sprite
     drawdepth: Mobs
-    sprite: _RMC14/Mobs/Xenos/burrower.rsi
+    sprite: _RMC14/Mobs/Xenos/burrower.rsi  # DeltaV - Port RMC Sprites
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
@@ -69,7 +69,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Ammonia #DeltaV - was FluorosulfuricAcid
+      - ReagentId: Ammonia # DeltaV - was FluorosulfuricAcid
         Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
@@ -165,8 +165,8 @@
       types:
         Slash: 15
   - type: FootstepModifier #DeltaV - Make xenos walk loud
-    footstepSoundCollection: #DeltaV - Make xenos walk loud
-      collection: FootstepQueenXeno #DeltaV - Make xenos walk loud
+    footstepSoundCollection:
+      collection: FootstepQueenXeno
 
 - type: entity
   name: drone
@@ -245,14 +245,16 @@
         - MobMask
         layer:
         - MobLayer
-  - type: FootstepModifier
+  - type: FootstepModifier # DeltaV - Make xenos walk loud
     footstepSoundCollection:
       collection: FootstepQueenXeno
+  # Begin DeltaV additions
   - type: Tag
     tags:
     - CannotSuicide
     - DoorBumpOpener
     - FootstepSound
+  # End DeltaV additions
 
 - type: entity
   name: ravager
@@ -271,7 +273,7 @@
       0: Alive
       300: Dead # DeltaV - Was 100
   - type: MovementSpeedModifier
-    baseSprintSpeed: 5
+    baseSprintSpeed: 5 # DeltaV - Was 4
   - type: MeleeWeapon
     attackRate: 1.75 # DeltaV - One of the deadliest if you get too close
     damage:
@@ -376,7 +378,7 @@
     capacity: 1
     count: 1
   - type: Gun
-    fireRate: 1
+    fireRate: 1 # DeltaV - was 0.75
     useKey: false
     selectedMode: FullAuto
     availableModes:
@@ -387,7 +389,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.65
+          radius: 0.65 # DeltaV - was 0.45
         density: 235
         mask:
         - MobMask
@@ -531,7 +533,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Ammonia
+      - ReagentId: Ammonia # DeltaV - Was FluorosulfuricAcid
         Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
