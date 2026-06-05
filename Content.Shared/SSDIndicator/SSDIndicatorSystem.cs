@@ -1,6 +1,6 @@
 using Content.Shared._DV.CCVars; // DeltaV - SSD Recency
 using Content.Shared.CCVar;
-using Content.Shared.Examine;
+using Content.Shared.Examine; // DeltaV - SSD Recency
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
