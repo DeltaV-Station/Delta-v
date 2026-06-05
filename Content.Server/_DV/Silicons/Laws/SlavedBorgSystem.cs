@@ -25,12 +25,12 @@ public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
 
     private void OnGetSiliconLaws(Entity<SlavedBorgComponent> ent, ref GetSiliconLawsEvent args)
     {
-        if (ent.Comp.Added || !TryComp<SiliconLawProviderComponent>(ent, out var provider))
+        if (ent.Comp.HasBeenAdded || !TryComp<SiliconLawProviderComponent>(ent, out var provider))
             return;
 
-        if (provider.Lawset is {} lawset && ent.Comp.Active)
+        if (provider.Lawset is {} lawset && ent.Comp.ShouldBeAdded)
             AddLaw(lawset, ent.Comp.Law);
-        ent.Comp.Added = true; // prevent opening the ui adding more law 0's
+        ent.Comp.HasBeenAdded = true; // prevent opening the ui adding more law 0's
     }
 
     /// <summary>
@@ -44,7 +44,7 @@ public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
     /// <summary>
     /// Sets whether the slaving is active.
     /// </summary>
-    public void SetActive(Entity<SlavedBorgComponent?> ent, bool active)
+    public void SetShouldBeAdded(Entity<SlavedBorgComponent?> ent, bool active)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -52,18 +52,18 @@ public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
         if (!TryComp<SiliconLawProviderComponent>(ent, out var provider) || provider.Lawset is not { } lawset)
             return;
 
-        if (!ent.Comp.Active && active)
+        if (!ent.Comp.ShouldBeAdded && active)
         {
             AddLaw(lawset, ent.Comp.Law);
-            ent.Comp.Added = true;
+            ent.Comp.HasBeenAdded = true;
             _siliconLaws.NotifyLawsChanged(ent);
         }
-        else if (ent.Comp.Active && !active)
+        else if (ent.Comp.ShouldBeAdded && !active)
         {
             lawset.Laws.Remove(_proto.Index(ent.Comp.Law));
-            ent.Comp.Added = false;
+            ent.Comp.HasBeenAdded = false;
             _siliconLaws.NotifyLawsChanged(ent);
         }
-        ent.Comp.Active = active;
+        ent.Comp.ShouldBeAdded = active;
     }
 }

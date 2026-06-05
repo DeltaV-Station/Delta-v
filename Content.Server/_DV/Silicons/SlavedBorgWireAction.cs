@@ -18,20 +18,20 @@ public sealed partial class SlavedBorgWireAction : ComponentWireAction<SlavedBor
 
     public override StatusLightState? GetLightState(Wire wire, SlavedBorgComponent component)
     {
-        return component.Active ? StatusLightState.On : StatusLightState.Off;
+        return component.ShouldBeAdded ? StatusLightState.On : StatusLightState.Off;
     }
 
     public override bool Cut(EntityUid user, Wire wire, SlavedBorgComponent component)
     {
         EntityManager.System<SlavedBorgSystem>()
-            .SetActive((wire.Owner, component), false);
+            .SetShouldBeAdded((wire.Owner, component), false);
         return true;
     }
 
     public override bool Mend(EntityUid user, Wire wire, SlavedBorgComponent component)
     {
         EntityManager.System<SlavedBorgSystem>()
-            .SetActive((wire.Owner, component), true);
+            .SetShouldBeAdded((wire.Owner, component), true);
         return true;
     }
 
