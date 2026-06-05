@@ -360,9 +360,9 @@
   description: A blue Station Security shirt with charcoal trousers. Features gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
+    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
+    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
 
 - type: entity
   parent: [ClothingUniformRollableBase, BaseCommandContraband] # DeltaV - add rollable jumpsuits
@@ -611,9 +611,9 @@
   description: A cool blue shirt over charcoal trousers, for the calm and collected security officer. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
+    sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
+    sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
 
 - type: entity
   parent: [ClothingUniformRollableBase, BaseSecurityContraband] # DeltaV - add rollable jumpsuits
@@ -798,9 +798,9 @@
   description: A suit for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hosformal.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hosformal.rsi # DeltaV - resprite
 
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]

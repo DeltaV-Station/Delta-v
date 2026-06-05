@@ -15,12 +15,20 @@ namespace Content.Shared.Random.Helpers
         }
 
         /// <summary>
+        /// DeltaV - Randomly selects an entry from <paramref name="prototype"/> and returns the result.
+        /// </summary>
+        public static string PickId(this IRobustRandom random, LocalizedDatasetPrototype prototype)
+        {
+            var index = random.Next(prototype.Values.Count);
+            return prototype.Values[index];
+        }
+
+        /// <summary>
         /// Randomly selects an entry from <paramref name="prototype"/>, attempts to localize it, and returns the result.
         /// </summary>
         public static string Pick(this IRobustRandom random, LocalizedDatasetPrototype prototype)
         {
-            var index = random.Next(prototype.Values.Count);
-            return Loc.GetString(prototype.Values[index]);
+            return Loc.GetString(random.PickId(prototype)); // DeltaV - we need LocIds too
         }
 
         public static string Pick(this IWeightedRandomPrototype prototype, System.Random random)
