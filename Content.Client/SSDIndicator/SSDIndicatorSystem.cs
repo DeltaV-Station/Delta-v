@@ -42,23 +42,13 @@ public sealed class SSDIndicatorSystem : EntitySystem
                 return;
 
             // SSD Recency Indicator
-            ProtoId<SsdIconPrototype> icon;
-            switch (component.Stage)
+            var icon = component.Stage switch
             {
-                case SsdStage.VeryRecent:
-                    icon = component.VeryRecentIcon;
-                    break;
-                case SsdStage.Recent:
-                    icon = component.RecentIcon;
-                    break;
-                case SsdStage.Cryoable:
-                    icon = component.Icon;
-                    break;
-                default:
-                    Log.Error("Client SSDIndicatorSystem needs to be updated for new SsdStage. Falling back to default icon.");
-                    icon = component.Icon;
-                    break;
-            }
+                SsdStage.VeryRecent => component.VeryRecentIcon,
+                SsdStage.Recent => component.RecentIcon,
+                SsdStage.Cryoable => component.Icon,
+                _ => throw new InvalidOperationException($"{ToPrettyString(uid)} has an invalid SSD stage {component.Stage}"),
+            };
 
             args.StatusIcons.Add(_prototype.Index(icon));
             // End DeltaV Additions
