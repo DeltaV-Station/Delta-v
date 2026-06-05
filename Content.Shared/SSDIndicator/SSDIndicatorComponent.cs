@@ -58,30 +58,6 @@ public sealed partial class SSDIndicatorComponent : Component
     public TimeSpan SsdSince = TimeSpan.Zero;
 
     /// <summary>
-    /// Enum value indicating how long someone has bene gone and what icon should be displayed.
-    /// </summary>
-    [AutoNetworkedField]
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public SsdStage Stage = SsdStage.VeryRecent;
-
-    /// <summary>
-    /// The time after which the Entity will be considered "second-stage" SSD (yellow).
-    /// They are unlikely to just be recovering from a crash, but haven't been away for that long.
-    /// If the time is less than this, they are considered "first-stage" SSD (red),
-    /// indicating that they probably crashed very recently.
-    /// </summary>
-    [AutoNetworkedField, AutoPausedField]
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan RecentSsdTime = TimeSpan.Zero;
-
-    /// <summary>
-    /// The time after which the Entity will no longer be considered recently SSD and players may cryo them.
-    /// </summary>
-    [AutoNetworkedField, AutoPausedField]
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan CryoableSsdTime = TimeSpan.Zero;
-
-    /// <summary>
     /// The icon displayed next to the associated entity when it is recently SSD (stage 2).
     /// </summary>
     [DataField]
@@ -98,7 +74,6 @@ public sealed partial class SSDIndicatorComponent : Component
 
 // DeltaV - SSD Recency START
 // If you change this enum, remember to update `Resources/Locale/en-US/_DV/ssdIndicator/examine.ftl`
-[Serializable, NetSerializable]
 public enum SsdStage : byte
 {
     /// <summary>

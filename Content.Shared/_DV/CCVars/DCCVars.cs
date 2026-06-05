@@ -314,7 +314,7 @@ public sealed partial class DCCVars
     /// Default is 20 minutes. Value should be bigger than <see cref="SsdIndicatorRecentAfterSeconds"/>.
     /// </summary>
     public static readonly CVarDef<float> SsdIndicatorCryoableAfterSeconds =
-        CVarDef.Create("deltav.ssd.cryoable_after_seconds", 1200f, CVar.SERVER);
+        CVarDef.Create("deltav.ssd.cryoable_after_seconds", 1200f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// The total time a player has to be SSD to be considered recently SSD (stage 2).
@@ -322,5 +322,5 @@ public sealed partial class DCCVars
     /// Default is 5 minutes. Value should be smaller than <see cref="SsdIndicatorCryoableAfterSeconds"/>.
     /// </summary>
     public static readonly CVarDef<float> SsdIndicatorRecentAfterSeconds =
-        CVarDef.Create("deltav.ssd.recent_after_seconds", 300f, CVar.SERVER);
+        CVarDef.Create("deltav.ssd.recent_after_seconds", 300f, CVar.SERVER | CVar.REPLICATED);
 }
