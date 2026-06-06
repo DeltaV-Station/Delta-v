@@ -1,0 +1,62 @@
+- type: entity
+  parent: BaseItem
+  id: BaseGunAttachmentGrip
+  name: grip
+  description: Helps a bit with recoil control.
+  suffix: Grip Attachment
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: ESGunAttachment
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.0
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 1.0
+    maxSpreadModifier: 1.0
+  - type: Tag
+    tags:
+    - AttachmentGrip # DeltaV - was MonoGrip
+
+- type: entity
+  parent: BaseItem
+  id: BaseGunAttachmentSuppressor
+  name: suppressor
+  description: Makes a gunshot a bit more quiet.
+  suffix: Barrel Attachment
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunAttachment
+  #- type: ESGunSoundAttachment # DeltaV - just have this on the actual entity
+  #  sound:
+  #    path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/suppressed.ogg
+  #    params:
+  #      maxDistance: 8
+  - type: Tag
+    tags:
+    - AttachmentSuppressor # DeltaV - was MonoSuppressor
+
+- type: entity
+  parent: BaseItem
+  id: BaseGunAttachmentOptic
+  name: optic
+  description: Wow, I can see farther!
+  suffix: Optic Attachment
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunAttachment
+  - type: ESGunComponentAttachment
+    component:
+      - type: CursorOffsetRequiresWield
+      - type: EyeCursorOffset
+        maxOffset: 3
+        pvsIncrease: 0.3
+  - type: Tag
+    tags:
+    - AttachmentOptic # DeltaV - was MonoOptic

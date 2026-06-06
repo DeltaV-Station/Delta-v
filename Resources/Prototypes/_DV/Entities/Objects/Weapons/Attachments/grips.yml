@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripBipod
+  name: bipod
+  description: Allows for deploying your weapon, increasing fire rate and accuracy at the cost of mobility.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: technicalassistant
+  - type: ESGunComponentAttachment
+    component:
+    - type: GunBipod
+      minAngle: -4
+      maxAngle: -15
+      angleDecay: 4
+      fireRateIncrease: 2
+  - type: Tag
+    tags:
+    - AttachmentGrip
+    - AttachmentBipod

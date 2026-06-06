@@ -41,6 +41,14 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - map: ["gripAttachment"]
+      - map: ["opticAttachment"]
+      - map: ["stockAttachment"]
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
   - type: Gun
@@ -65,10 +73,94 @@
         whitelist:
           tags:
             - CartridgePistol
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - AttachmentGrip
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentOptic
+      attachment_stock:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentStock
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+      attachment_stock: !type:ContainerSlot
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - AttachmentGrip
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - AttachmentOptic
+    - name: gun-attachments-slot-name-stock
+      containerId: attachment_stock
+      whitelist:
+        tags:
+        - AttachmentStock
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      #- containerId: attachment_grip
+      #  state: grip
+      #  whitelist:
+      #    tags:
+      #    - MonoGripVFG
+      - containerId: attachment_grip
+        state: bipod
+        whitelist:
+          tags:
+          - AttachmentBipod
+      opticAttachment:
+      - containerId: attachment_optic
+        state: opticholo
+        whitelist:
+          tags:
+          - AttachmentOpticHolo
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - AttachmentOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - AttachmentOptic8x
+      stockAttachment:
+      - containerId: attachment_stock
+        state: stock
+        whitelist:
+          tags:
+          - AttachmentBasicStock
 
 - type: entity
   name: psi-breaker

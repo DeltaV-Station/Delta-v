@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseGunAttachmentStock
+  id: GunAttachmentStock
+  name: stock
+  description: Allows you to wield your weapon, if you couldn't before.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: cargotechnician
+  - type: ESGunComponentAttachment
+    component:
+    - type: Wieldable
+      unwieldOnUse: false
+  - type: Tag
+    tags:
+    - AttachmentStock
+    - AttachmentBasicStock

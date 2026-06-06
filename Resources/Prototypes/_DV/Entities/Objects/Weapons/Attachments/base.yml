@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseItem
+  id: BaseGunAttachmentStock
+  name: stock
+  description: Helps a bit with recoil control.
+  suffix: Stock Attachment
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: ESGunAttachment
+  - type: Tag
+    tags:
+    - AttachmentStock
