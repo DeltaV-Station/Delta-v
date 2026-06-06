@@ -1,8 +1,8 @@
 # Bases
 - type: entity
-  id: WoodStandingShelfBase
-  parent: BaseStructure
   abstract: true
+  parent: BaseStructure
+  id: WoodStandingShelfBase
   name: wooden standing shelf
   description: A piece of furniture to store or display things.
   components:
@@ -45,9 +45,9 @@
   - type: Rotatable
 
 - type: entity
-  id: MetalStandingShelfBase
-  parent: WoodStandingShelfBase
   abstract: true
+  parent: WoodStandingShelfBase
+  id: MetalStandingShelfBase
   name: metal standing shelf
   components:
   - type: Damageable
@@ -73,9 +73,10 @@
         acts: ["Destruction"]
 
 #region Shelves
+
 - type: entity
-  id: SmallWoodStandingShelf
   parent: WoodStandingShelfBase
+  id: SmallWoodStandingShelf
   name: small wooden standing shelf
   components:
   - type: Sprite
@@ -97,8 +98,8 @@
     node: SmallWoodStandingShelf
 
 - type: entity
-  id: SmallMetalStandingShelf
   parent: MetalStandingShelfBase
+  id: SmallMetalStandingShelf
   name: small metal standing shelf
   components:
   - type: Sprite
@@ -120,8 +121,8 @@
     node: SmallMetalStandingShelf
 
 - type: entity
-  id: LargeWoodStandingShelf
   parent: WoodStandingShelfBase
+  id: LargeWoodStandingShelf
   name: large wooden standing shelf
   components:
   - type: Sprite
@@ -148,8 +149,8 @@
     node: LargeWoodStandingShelf
 
 - type: entity
-  id: LargeMetalStandingShelf
   parent: MetalStandingShelfBase
+  id: LargeMetalStandingShelf
   name: large metal standing shelf
   components:
   - type: Sprite
@@ -176,8 +177,8 @@
     node: LargeMetalStandingShelf
 
 - type: entity
-  id: LargeWoodDrawerStandingShelf
   parent: WoodStandingShelfBase
+  id: LargeWoodDrawerStandingShelf
   name: large wooden standing shelf with drawers
   components:
   - type: Sprite
@@ -218,8 +219,8 @@
     node: LargeWoodDrawerStandingShelf
 
 - type: entity
-  id: MetalStandingShelfMedical
   parent: MetalStandingShelfBase
+  id: MetalStandingShelfMedical
   name: medical standing shelf cabinet
   description: A white medical cabinet with a blue cross on the door.
   components:
@@ -319,8 +320,8 @@
         - id: MedicatedSuture
 
 - type: entity
-  id: MetalStandingShelf
   parent: MetalStandingShelfBase
+  id: MetalStandingShelf
   name: metal standing shelf
   components:
   - type: Sprite
@@ -403,8 +404,8 @@
 #region Stands
 
 - type: entity
-  id: FruitStand
   parent: WoodStandingShelfBase
+  id: FruitStand
   name: wooden fruit stand
   description: A wooden stand, perfect for storing fruit.
   components:
@@ -442,8 +443,8 @@
     node: FruitStand
 
 - type: entity
-  id: FoodStand
   parent: MetalStandingShelfBase
+  id: FoodStand
   name: metal food stand
   description: A metal display, perfect for storing food.
   components:
@@ -464,10 +465,10 @@
         - TableMask
         layer:
         - MidImpassable
+  - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 5
     fillBaseName: food
-  - type: Appearance
   - type: Storage
     grid:
     - 0,0,5,4

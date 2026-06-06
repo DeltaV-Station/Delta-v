@@ -1,8 +1,8 @@
 - type: entity
-  id: N14CarpetSingleBase
-  parent: BaseStructure
-  description: Better than the floor.
   abstract: true
+  parent: BaseStructure
+  id: N14CarpetSingleBase
+  description: Better than the floor.
   placement:
     mode: PlaceFree
   components:
@@ -29,10 +29,11 @@
                 min: 3
                 max: 3
 
-# Rugs
+#region Rugs
+
 - type: entity
-  id: N14RugBlue
   parent: N14CarpetSingleBase
+  id: N14RugBlue
   name: blue rug
   description: A modern looking blue rug.
   components:
@@ -56,8 +57,8 @@
             max: 4
 
 - type: entity
-  id: N14RugPurple
   parent: N14CarpetSingleBase
+  id: N14RugPurple
   name: purple rug
   description: A fancy looking purple rug.
   components:
@@ -81,8 +82,8 @@
             max: 4
 
 - type: entity
-  id: N14RugRed
   parent: N14CarpetSingleBase
+  id: N14RugRed
   name: red rug
   description: A fancily patterned red rug. Looks expensive.
   components:
@@ -106,8 +107,8 @@
             max: 4
 
 - type: entity
-  id: N14RugYellow
   parent: N14CarpetSingleBase
+  id: N14RugYellow
   name: yellow rug
   description: A patterned yellow rug.
   components:
@@ -127,11 +128,14 @@
           CarpetOrange:
             min: 2
             max: 4
+            
+#endregion
 
-# Mats
+#region Mats
+
 - type: entity
-  id: MatFancyBlue
   parent: N14CarpetSingleBase
+  id: MatFancyBlue
   name: fancy blue mat
   description: A modern looking blue mat.
   components:
@@ -155,8 +159,8 @@
             max: 2
 
 - type: entity
-  id: MatFancyPurple
   parent: N14CarpetSingleBase
+  id: MatFancyPurple
   name: fancy purple mat
   description: A fancy looking purple mat.
   components:
@@ -180,8 +184,8 @@
             max: 2
 
 - type: entity
-  id: MatFancyRed
   parent: N14CarpetSingleBase
+  id: MatFancyRed
   name: fancy red mat
   description: A fancily patterned red mat. Looks expensive.
   components:
@@ -205,8 +209,8 @@
             max: 2
 
 - type: entity
-  id: MatFancyYellow
   parent: N14CarpetSingleBase
+  id: MatFancyYellow
   name: fancy yellow mat
   description: A patterned yellow mat.
   components:
@@ -230,8 +234,8 @@
             max: 2
 
 - type: entity
-  id: MatBlack
   parent: N14CarpetSingleBase
+  id: MatBlack
   name: black mat
   description: A plain black mat.
   components:
@@ -245,8 +249,8 @@
     node: blackMat
 
 - type: entity
-  id: MatPurple
   parent: N14CarpetSingleBase
+  id: MatPurple
   name: purple mat
   description: A plain purple mat.
   components:
@@ -260,8 +264,8 @@
     node: purpleMat
 
 - type: entity
-  id: MatRed
   parent: N14CarpetSingleBase
+  id: MatRed
   name: red mat
   description: A plain red mat.
   components:
@@ -275,8 +279,8 @@
     node: redMat
 
 - type: entity
-  id: MatBlue
   parent: N14CarpetSingleBase
+  id: MatBlue
   name: blue mat
   description: A plain blue mat.
   components:
@@ -290,8 +294,8 @@
     node: blueMat
 
 - type: entity
-  id: MatLightBlue
   parent: N14CarpetSingleBase
+  id: MatLightBlue
   name: light blue mat
   description: A plain light blue mat.
   components:
@@ -305,8 +309,8 @@
     node: lightBlueMat
 
 - type: entity
-  id: MatBrown
   parent: N14CarpetSingleBase
+  id: MatBrown
   name: brown mat
   description: A plain brown mat.
   components:
@@ -320,8 +324,8 @@
     node: brownMat
 
 - type: entity
-  id: MatGray
   parent: N14CarpetSingleBase
+  id: MatGray
   name: gray mat
   description: A plain gray mat.
   components:
@@ -335,8 +339,8 @@
     node: grayMat
 
 - type: entity
-  id: MatGreen
   parent: N14CarpetSingleBase
+  id: MatGreen
   name: green mat
   description: A plain green mat.
   components:
@@ -350,8 +354,8 @@
     node: greenMat
 
 - type: entity
-  id: MatLightBrown
   parent: N14CarpetSingleBase
+  id: MatLightBrown
   name: light brown mat
   description: A plain light brown mat.
   components:
@@ -365,8 +369,8 @@
     node: lightBrownMat
 
 - type: entity
-  id: MatOrange
   parent: N14CarpetSingleBase
+  id: MatOrange
   name: orange mat
   description: A plain orange mat.
   components:
@@ -380,8 +384,8 @@
     node: orangeMat
 
 - type: entity
-  id: MatWhite
   parent: N14CarpetSingleBase
+  id: MatWhite
   name: white mat
   description: A plain white mat.
   components:
@@ -395,8 +399,8 @@
     node: whiteMat
 
 - type: entity
-  id: MatYellow
   parent: N14CarpetSingleBase
+  id: MatYellow
   name: yellow mat
   description: A plain yellow mat.
   components:
@@ -410,8 +414,8 @@
     node: yellowMat
 
 - type: entity
-  id: MatPink
   parent: N14CarpetSingleBase
+  id: MatPink
   name: pink mat
   description: A plain pink mat.
   components:

@@ -1,7 +1,7 @@
 - type: entity
-  id: N14FreeTableBase # Base off this for wood tables
-  parent: BaseStructure
   abstract: true
+  parent: BaseStructure
+  id: BaseFurnitureTable # Base Wood Table
   name: table
   description: A square piece of wood standing on four wood legs.
   components:
@@ -49,8 +49,8 @@
   - type: Anchorable
 
 - type: entity
-  parent: N14FreeTableBase
-  id: N14FreeMetalTableBase # Base off THIS for metal tables
+  parent: BaseFurnitureTable
+  id: BaseFurnitureMetal # Base Metal Table
   description: A cold piece of metal standing on four metal legs.
   components:
   - type: Damageable
@@ -137,7 +137,6 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/Counters/metal_frame.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -165,7 +164,7 @@
   parent: BaseStructure
   id: N14WoodCounterFrame
   name: wooden counter frame
-  description: Pieces of wood that make up the frame of an unfinished object.
+  description: Pieces of wood that make up the frame of an unfinished counter.
   components:
   - type: SpriteFade
   - type: Sprite
@@ -217,15 +216,13 @@
   parent: N14WoodCounterFrame
   id: N14MetalCounterFrame
   name: metal counter frame
-  description: Pieces of metal that make up the frame of an unfinished object.
+  description: Pieces of metal that make up the frame of an unfinished counter.
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/Counters/metal_frame.rsi
   - type: Icon
     sprite: _DV/Structures/Furniture/Tables/Counters/metal_frame.rsi
-    state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -252,8 +249,9 @@
 #endregion
 
 #region Small Tables
+
 - type: entity
-  parent: N14FreeMetalTableBase
+  parent: BaseFurnitureMetal
   id: N14TableMetalRound
   name: circular metal table
   description: A cold circular metal table.
@@ -274,13 +272,12 @@
         layer:
         - TableLayer
   - type: Rotatable
-
   - type: Construction
     graph: N14TableRecipes
     node: N14MetalRound
 
 - type: entity
-  parent: N14FreeMetalTableBase
+  parent: BaseFurnitureMetal
   id: N14TableMetalRolling
   name: rolling metal table
   description: A metal table with wheels for easy mobility.
@@ -305,7 +302,7 @@
     node: N14MetalRolling
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableWoodSquare
   name: wooden table
   description: A simple wooden table.
@@ -331,7 +328,7 @@
     node: N14WoodSquare
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableWoodRound
   name: circular wooden table
   description: A circular wooden table.
@@ -356,7 +353,7 @@
     node: N14WoodRound
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableWoodLow
   name: wooden coffee table
   description: A low wooden square table.
@@ -381,7 +378,7 @@
     node: N14WoodLow
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableWoodStand
   name: wooden end table
   description: A small wooden table for holding smaller things.
@@ -408,8 +405,9 @@
 #endregion
 
 #region Wood Tables
+
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableDeskWood
   name: wooden office desk
   description: A wooden office desk with drawers to store your paperwork.
@@ -459,11 +457,6 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/Desks/wood_metal.rsi
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: opened
-      map: ["enum.StorageVisualLayers.Door"]
   - type: Construction
     graph: N14TableRecipes
     node: N14DeskWoodMetal
@@ -476,11 +469,6 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/Desks/wood_small.rsi
     offset: "0.3,0.0"
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: opened
-      map: ["enum.StorageVisualLayers.Door"]
   - type: Fixtures
     fixtures:
       fix1:
@@ -501,7 +489,7 @@
     node: N14DeskWoodSmall
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableWoodenOvalWide
   name: oval wooden table
   description: An oval table made of wood.
@@ -526,7 +514,7 @@
     node: N14WoodWideOval
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableWoodenSquareWide
   name: wide wooden table
   description: A wide square table made from wood.
@@ -552,7 +540,7 @@
   - type: Rotatable
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableCasinoPool
   name: pool table
   description: A fancy table for playing pool at.
@@ -578,7 +566,7 @@
   - type: Rotatable
 
 - type: entity
-  parent: N14FreeTableBase
+  parent: BaseFurnitureTable
   id: N14TableCasinoCards
   name: cards table
   description: A fancy table for playing cards at.
@@ -606,8 +594,9 @@
 #endregion
 
 #region Metal Tables
+
 - type: entity
-  parent: N14FreeMetalTableBase
+  parent: BaseFurnitureMetal
   id: N14TableDeskMetal
   name: metal desk
   description: A sturdy metal desk for working at.
@@ -660,11 +649,6 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/Desks/metal_legs.rsi
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: opened
-      map: ["enum.StorageVisualLayers.Door"]
   - type: Fixtures
     fixtures:
       fix1:
@@ -688,11 +672,6 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/Desks/metal_small.rsi
     offset: "0.3,0.0"
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: opened
-      map: ["enum.StorageVisualLayers.Door"]
   - type: Fixtures
     fixtures:
       fix1:
@@ -740,7 +719,6 @@
     sprite: _DV/Structures/Furniture/Tables/Counters/craft.rsi
   - type: Icon
     sprite: _DV/Structures/Furniture/Tables/Counters/craft.rsi
-    state: full
   - type: Construction
     graph: N14TableRecipes
     node: N14WoodCraftCounter
@@ -755,14 +733,13 @@
     sprite: _DV/Structures/Furniture/Tables/Counters/metal.rsi
   - type: Icon
     sprite: _DV/Structures/Furniture/Tables/Counters/metal.rsi
-    state: full
   - type: Construction
     graph: N14TableRecipes
     node: N14MetalCounter
 
 - type: entity
-  id: N14TableMetalGrate
   parent: Table
+  id: N14TableMetalGrate
   name: metal grate table
   description: A cold handmade metal table made from grating.
   components:
