@@ -198,7 +198,7 @@
 
   defaultModules:
   - BorgModuleTool # DeltaV - Readd Tool Module
-  - BorgModuleChemical
+  - BorgModuleChemicalDV # DeltaV - Was BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
 
@@ -219,6 +219,7 @@
     damageContainers:
     - Biological
     - BiologicalMetaphysical # DeltaV - Kitsune
+  - type: ShowTriageIcons # DeltaV - Display Triage Icons
   - type: FabricateCandy # DeltaV - The medical cyborg can generate candies filled with medicine.
     actions:
     - ActionFabricateLollipop

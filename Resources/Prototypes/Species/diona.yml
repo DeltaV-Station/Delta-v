@@ -8,10 +8,12 @@
   markingLimits: MobDionaMarkingLimits
   dollPrototype: MobDionaDummy
   skinColoration: Hues
-  maleFirstNames: NamesDionaFirst
-  femaleFirstNames: NamesDionaFirst
-  lastNames: NamesDionaLast
-  naming: TheFirstofLast
+  # Begin DeltaV - Better Diona Name Generation
+  maleFirstNames: DVNamesDionaFirst
+  femaleFirstNames: DVNamesDionaFirst
+  lastNames: DVNamesDionaLast
+  naming: FirstLast
+  # End DeltaV
 
 - type: speciesBaseSprites
   id: MobDionaSprites

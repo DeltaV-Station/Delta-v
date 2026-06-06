@@ -82,6 +82,7 @@
   components:
   - type: NukeOperative
   - type: RandomHumanoidAppearance
+    randomizeName: false
   - type: PotentialPsionic # DeltaV - Psionic Refactor
     jobBonusChance: 0.05 # Additional 5% chance to roll a psionic power.
 
@@ -91,8 +92,9 @@
   id: MobHumanLoneNuclearOperative
   name: Lone Operative
   components:
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidAppearance # DeltaV - randomize antag appearance
     randomizeName: false
+    keepGender: true
   - type: NukeOperative
   - type: Loadout
     prototypes: [SyndicateLoneOperativeGearFull]

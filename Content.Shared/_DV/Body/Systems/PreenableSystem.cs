@@ -54,7 +54,7 @@ public sealed class PreenableSystem : EntitySystem
 
     private void AddVerb(Entity<PreenableComponent> ent, ref GetVerbsEvent<Verb> args)
     {
-        if (!args.CanInteract)
+        if (!args.CanInteract || !args.CanAccess)
             return;
 
         // can't preen with no feathers

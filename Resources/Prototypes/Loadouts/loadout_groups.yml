@@ -1419,13 +1419,13 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
-  - HeadofSecurityParadeSuit
-  - HeadofSecurityParadeSkirt
+  # - HeadofSecurityParadeSuit # DeltaV - disabled for bluesec
+  # - HeadofSecurityParadeSkirt # DeltaV - disabled for bluesec
   # Begin DeltaV changes
   - HeadofSecurityJumpsuitGrey
   - HeadofSecurityJumpskirtGrey
-  - HeadofSecurityJumpsuitBlue
-  - HeadofSecurityJumpskirtBlue
+  - HeadofSecurityJumpsuitWhite
+  - HeadofSecurityJumpskirtWhite
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1436,7 +1436,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   # Begin DeltaV changes
-  - ScarfRed
+  - ScarfBlue
   - ScarfBlack
   - SecurityPoncho
   - HeadOfSecurityRobe
@@ -1486,8 +1486,8 @@
   # Begin DeltaV additions
   - WardenJumpsuitGrey
   - WardenJumpskirtGrey
-  - WardenJumpsuitBlue
-  - WardenJumpskirtBlue
+  - WardenJumpsuitWhite
+  - WardenJumpskirtWhite
   - WardenTurtlesuit
   - WardenTurtleskirt
   # End DeltaV additions
@@ -1514,7 +1514,9 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
+  - SecurityCap # DeltaV
   - SecurityBeret
+  - SecurityBeretGrey #DeltaV
 #  - SecurityHat # DeltaV - removed for incongruence
 #  - MimeHead # DeltaV - Red Beret | removed for incongruence
 
@@ -1527,8 +1529,8 @@
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
   # Begin DeltaV changes
-  - SecurityJumpsuitBlue
-  - SecurityJumpskirtBlue
+  - SecurityJumpsuitWhite
+  - SecurityJumpskirtWhite
 #  - SeniorOfficerJumpsuit # Removed for incongruence
 #  - SeniorOfficerJumpskirt # Removed for incongruence
   - SeniorSecOfficerTurtlesuit
@@ -1600,7 +1602,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - ScarfRed # DeltaV
+  - ScarfBlue # DeltaV - Was ScarfRed
   - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
@@ -1631,8 +1633,8 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - SecurityCadetJumpsuit # DeltaV - was RedJumpsuit
+  - SecurityCadetJumpskirt # DeltaV - was RedJumpskirt
 
 - type: loadoutGroup
   id: SecurityCadetJobTrinkets
