@@ -20,7 +20,7 @@
             - material: FloorCarpetRed
               amount: 4
               doAfter: 2
-        - to: orangeRug
+        - to: yellowRug
           steps:
             - material: FloorCarpetOrange
               amount: 4
@@ -62,14 +62,143 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: orangeRug
+    - node: yellowRug
       entity: N14RugYellow
       edges:
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: CarpetOrange
+              prototype: CarpetOrange # When we get yellow carpet !
               amount: 4
           steps:
             - tool: Screwing
               doAfter: 1
+
+- type: constructionGraph
+  id: MatRecipes
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity
+      edges:
+        - to: blueFancyMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: purpleFancyMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: redFancyMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: yellowFancyMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: blackMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: purpleMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: redMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: blueMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: lightBlueMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: grayMat
+        - to: brownMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: grayMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: greenMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: lightBrownMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: orangeMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: whiteMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: yellowMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+        - to: pinkMat
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+    - node: blueFancyMat
+      entity: MatFancyBlue
+    - node: purpleFancyMat
+      entity: MatFancyPurple
+    - node: redFancyMat
+      entity: MatFancyRed
+    - node: yellowFancyMat
+      entity: MatFancyYellow
+    - node: blackMat
+      entity: MatBlack
+    - node: purpleMat
+      entity: MatPurple
+    - node: redMat
+      entity: MatRed
+    - node: blueMat
+      entity: MatBlue
+    - node: lightBlueMat
+      entity: MatLightBlue
+    - node: brownMat
+      entity: MatBrown
+    - node: grayMat
+      entity: MatGray
+    - node: greenMat
+      entity: MatGreen
+    - node: lightBrownMat
+      entity: MatLightBrown
+    - node: orangeMat
+      entity: MatOrange
+    - node: whiteMat
+      entity: MatWhite
+    - node: yellowMat
+      entity: MatYellow
+    - node: pinkMat
+      entity: MatPink

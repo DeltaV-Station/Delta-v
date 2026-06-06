@@ -3,9 +3,13 @@
   parent: BaseStructure
   description: Better than the floor.
   abstract: true
+  placement:
+    mode: PlaceFree
   components:
   - type: Sprite
     drawdepth: FloorTiles
+  - type: Transform
+    anchored: false
   - type: Physics
     canCollide: false
   - type: Fixtures
@@ -25,14 +29,12 @@
                 min: 3
                 max: 3
 
-# 64x64 rugs
+# Rugs
 - type: entity
   id: N14RugBlue
   parent: N14CarpetSingleBase
   name: blue rug
   description: A modern looking blue rug.
-  placement:
-    mode: PlaceFree
   components:
   - type: Sprite
     sprite: _DV/Structures/Decoration/rugs.rsi
@@ -50,16 +52,14 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           CarpetBlue:
-            min: 4
+            min: 2
             max: 4
 
 - type: entity
   id: N14RugPurple
-  parent: N14RugBlue
+  parent: N14CarpetSingleBase
   name: purple rug
   description: A fancy looking purple rug.
-  placement:
-    mode: PlaceFree
   components:
   - type: Sprite
     sprite: _DV/Structures/Decoration/rugs.rsi
@@ -72,19 +72,19 @@
     - trigger: !type:DamageTrigger
         damage: 10
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
           CarpetPurple:
-            min: 4
+            min: 2
             max: 4
 
 - type: entity
   id: N14RugRed
-  parent: N14RugBlue
+  parent: N14CarpetSingleBase
   name: red rug
   description: A fancily patterned red rug. Looks expensive.
-  placement:
-    mode: PlaceFree
   components:
   - type: Sprite
     sprite: _DV/Structures/Decoration/rugs.rsi
@@ -102,23 +102,21 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           Carpet:
-            min: 4
+            min: 2
             max: 4
 
 - type: entity
   id: N14RugYellow
-  parent: N14RugBlue
-  name: orange rug
-  description: A patterned orange rug.
-  placement:
-    mode: PlaceFree
+  parent: N14CarpetSingleBase
+  name: yellow rug
+  description: A patterned yellow rug.
   components:
   - type: Sprite
     sprite: _DV/Structures/Decoration/rugs.rsi
     state: yellow
   - type: Construction
     graph: N14RugRecipes
-    node: orangeRug
+    node: yellowRug
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -127,5 +125,301 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           CarpetOrange:
-            min: 4
+            min: 2
             max: 4
+
+# Mats
+- type: entity
+  id: MatFancyBlue
+  parent: N14CarpetSingleBase
+  name: fancy blue mat
+  description: A modern looking blue mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    state: blue
+  - type: Construction
+    graph: MatRecipes
+    node: blueFancyMat
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetBlue:
+            min: 2
+            max: 2
+
+- type: entity
+  id: MatFancyPurple
+  parent: N14CarpetSingleBase
+  name: fancy purple mat
+  description: A fancy looking purple mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    state: purple
+  - type: Construction
+    graph: MatRecipes
+    node: purpleFancyMat
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetPurple:
+            min: 2
+            max: 2
+
+- type: entity
+  id: MatFancyRed
+  parent: N14CarpetSingleBase
+  name: fancy red mat
+  description: A fancily patterned red mat. Looks expensive.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    state: red
+  - type: Construction
+    graph: MatRecipes
+    node: redFancyMat
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Carpet:
+            min: 2
+            max: 2
+
+- type: entity
+  id: MatFancyYellow
+  parent: N14CarpetSingleBase
+  name: fancy yellow mat
+  description: A patterned yellow mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    state: yellow
+  - type: Construction
+    graph: MatRecipes
+    node: yellowFancyMat
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CarpetOrange: # Until we get yellow carpet.
+            min: 2
+            max: 2
+
+- type: entity
+  id: MatBlack
+  parent: N14CarpetSingleBase
+  name: black mat
+  description: A plain black mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#23242c"
+  - type: Construction
+    graph: MatRecipes
+    node: blackMat
+
+- type: entity
+  id: MatPurple
+  parent: N14CarpetSingleBase
+  name: purple mat
+  description: A plain purple mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#5f406e"
+  - type: Construction
+    graph: MatRecipes
+    node: purpleMat
+
+- type: entity
+  id: MatRed
+  parent: N14CarpetSingleBase
+  name: red mat
+  description: A plain red mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#873221"
+  - type: Construction
+    graph: MatRecipes
+    node: redMat
+
+- type: entity
+  id: MatBlue
+  parent: N14CarpetSingleBase
+  name: blue mat
+  description: A plain blue mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#356287"
+  - type: Construction
+    graph: MatRecipes
+    node: blueMat
+
+- type: entity
+  id: MatLightBlue
+  parent: N14CarpetSingleBase
+  name: light blue mat
+  description: A plain light blue mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#557e9f"
+  - type: Construction
+    graph: MatRecipes
+    node: lightBlueMat
+
+- type: entity
+  id: MatBrown
+  parent: N14CarpetSingleBase
+  name: brown mat
+  description: A plain brown mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#723A02"
+  - type: Construction
+    graph: MatRecipes
+    node: brownMat
+
+- type: entity
+  id: MatGray
+  parent: N14CarpetSingleBase
+  name: gray mat
+  description: A plain gray mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#999999"
+  - type: Construction
+    graph: MatRecipes
+    node: grayMat
+
+- type: entity
+  id: MatGreen
+  parent: N14CarpetSingleBase
+  name: green mat
+  description: A plain green mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#2a6e47"
+  - type: Construction
+    graph: MatRecipes
+    node: greenMat
+
+- type: entity
+  id: MatLightBrown
+  parent: N14CarpetSingleBase
+  name: light brown mat
+  description: A plain light brown mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color: "#a58250"
+  - type: Construction
+    graph: MatRecipes
+    node: lightBrownMat
+
+- type: entity
+  id: MatOrange
+  parent: N14CarpetSingleBase
+  name: orange mat
+  description: A plain orange mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color:  "#9d480c"
+  - type: Construction
+    graph: MatRecipes
+    node: orangeMat
+
+- type: entity
+  id: MatWhite
+  parent: N14CarpetSingleBase
+  name: white mat
+  description: A plain white mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color:  "#EAE8E8"
+  - type: Construction
+    graph: MatRecipes
+    node: whiteMat
+
+- type: entity
+  id: MatYellow
+  parent: N14CarpetSingleBase
+  name: yellow mat
+  description: A plain yellow mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color:  "#d8d03c"
+  - type: Construction
+    graph: MatRecipes
+    node: yellowMat
+
+- type: entity
+  id: MatPink
+  parent: N14CarpetSingleBase
+  name: pink mat
+  description: A plain pink mat.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Decoration/mats.rsi
+    layers:
+    - state: base
+      color:  "#9b3170"
+  - type: Construction
+    graph: MatRecipes
+    node: pinkMat

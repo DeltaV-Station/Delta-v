@@ -5,6 +5,7 @@
   targetNode: blueRug
   category: construction-category-furniture
   objectType: Structure
+  placementMode: PlaceFree
 
 - type: construction
   id: N14RugPurple
@@ -13,6 +14,7 @@
   targetNode: purpleRug
   category: construction-category-furniture
   objectType: Structure
+  placementMode: PlaceFree
 
 - type: construction
   id: N14RugRed
@@ -21,11 +23,157 @@
   targetNode: redRug
   category: construction-category-furniture
   objectType: Structure
+  placementMode: PlaceFree
 
 - type: construction
   id: N14RugYellow
   graph: N14RugRecipes
   startNode: start
-  targetNode: orangeRug
+  targetNode: yellowRug
   category: construction-category-furniture
   objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatFancyBlue
+  graph: MatRecipes
+  startNode: start
+  targetNode: blueFancyMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatFancyPurple
+  graph: MatRecipes
+  startNode: start
+  targetNode: purpleFancyMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatFancyRed
+  graph: MatRecipes
+  startNode: start
+  targetNode: redFancyMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatFancyYellow
+  graph: MatRecipes
+  startNode: start
+  targetNode: yellowFancyMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatBlack
+  graph: MatRecipes
+  startNode: start
+  targetNode: blackMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatPurple
+  graph: MatRecipes
+  startNode: start
+  targetNode: purpleMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatRed
+  graph: MatRecipes
+  startNode: start
+  targetNode: redMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatBlue
+  graph: MatRecipes
+  startNode: start
+  targetNode: blueMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatLightBlue
+  graph: MatRecipes
+  startNode: start
+  targetNode: lightBlueMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatBrown
+  graph: MatRecipes
+  startNode: start
+  targetNode: brownMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatGray
+  graph: MatRecipes
+  startNode: start
+  targetNode: grayMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatGreen
+  graph: MatRecipes
+  startNode: start
+  targetNode: greenMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatLightBrown
+  graph: MatRecipes
+  startNode: start
+  targetNode: lightBrownMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatOrange
+  graph: MatRecipes
+  startNode: start
+  targetNode: orangeMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatWhite
+  graph: MatRecipes
+  startNode: start
+  targetNode: whiteMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  id: MatYellow
+  graph: MatRecipes
+  startNode: start
+  targetNode: yellowMat
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: PlaceFree
