@@ -50,20 +50,20 @@ public sealed class SSDIndicatorSystem : EntitySystem
         {
             var timestamp = (_timing.CurTime - ent.Comp.SsdSince).ToString("%hh':'mm':'ss");
             args.PushMarkup(Loc.GetString("ssd-examine-duration", ("time", timestamp)));
-            args.PushMarkup(Loc.GetString($"ssd-examine-{GetStage(ent.Comp).ToString().ToLower()}"));
+            args.PushMarkup(Loc.GetString($"ssd-examine-{GetStage(ent).ToString().ToLower()}"));
         }
     }
 
-    public SsdStage GetStage(SSDIndicatorComponent ssdComp)
+    public SsdStage GetStage(Entity<SSDIndicatorComponent> ent)
     {
         var curTime = _timing.CurTime;
 
-        if (ssdComp.SsdSince + _cryoableSsdSeconds < curTime)
+        if (ent.Comp.SsdSince + _cryoableSsdSeconds < curTime)
         {
             return SsdStage.Cryoable;
         }
 
-        if (ssdComp.SsdSince + _recentSsdSeconds < curTime)
+        if (ent.Comp.SsdSince + _recentSsdSeconds < curTime)
         {
             return SsdStage.Recent;
         }

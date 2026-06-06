@@ -43,7 +43,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
                 return;
 
             // SSD Recency Indicator
-            var stage = _shared.GetStage(component);
+            var stage = _shared.GetStage(new Entity<SSDIndicatorComponent>(uid, component));
             var icon = stage switch
             {
                 SsdStage.VeryRecent => component.VeryRecentIcon,
