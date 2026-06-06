@@ -285,7 +285,7 @@ namespace Content.Shared.Containers.ItemSlots
         /// </summary>
         /// <param name="excludeUserAudio">If true, will exclude the user when playing sound. Does nothing client-side.
         /// Useful for predicted interactions</param>
-        private void Insert(EntityUid uid,
+        public void Insert(EntityUid uid, // DeltaV - we need to bypass that
             ItemSlot slot,
             EntityUid item,
             EntityUid? user,
@@ -824,7 +824,7 @@ namespace Content.Shared.Containers.ItemSlots
             if (!component.Slots.TryGetValue(args.SlotId, out var slot))
                 return;
 
-            if (args.TryEject && slot.HasItem)
+            if (args.TryEject && slot.HasItem && !slot.DisableEject)
                 TryEjectToHands(uid, slot, args.Actor, true);
             else if (args.TryInsert && !slot.HasItem)
                 TryInsertFromHand(uid, slot, args.Actor);

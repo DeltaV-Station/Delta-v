@@ -6,27 +6,27 @@ public sealed partial class GlimmerEventComponent : Component
     /// <summary>
     ///     Minimum glimmer value for event to be eligible. (Should be 100 at lowest.)
     /// </summary>
-    [DataField("minimumGlimmer")]
+    [DataField]
     public int MinimumGlimmer = 100;
 
     /// <summary>
     ///     Maximum glimmer value for event to be eligible. (Remember 1000 is max glimmer period.)
     /// </summary>
-    [DataField("maximumGlimmer")]
+    [DataField]
     public int MaximumGlimmer = 1000;
 
     /// <summary>
     ///     Will be used for _random.Next and subtracted from glimmer.
     ///     Lower bound.
     /// </summary>
-    [DataField("glimmerBurnLower")]
+    [DataField]
     public int GlimmerBurnLower = 25;
 
     /// <summary>
     ///     Will be used for _random.Next and subtracted from glimmer.
     ///     Upper bound.
     /// </summary>
-    [DataField("glimmerBurnUpper")]
+    [DataField]
     public int GlimmerBurnUpper = 70;
 
     [DataField("report")]

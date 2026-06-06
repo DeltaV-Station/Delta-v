@@ -50,7 +50,7 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
-  - type: Temperature
+  - type: TemperatureDamage
     coldDamageThreshold: 210
     coldDamage:
       types:
@@ -59,7 +59,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: MobPrice
     price: 400
   - type: Tag
@@ -68,7 +71,8 @@
 
 - type: entity
   parent: SimpleMobBase
-  id: MobSecDog
+  abstract: true
+  id: MobSecDogBase
   name: security dog
   description: Funnily enough, this pig is actually a dog.
   components:
@@ -172,7 +176,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 300 # BIG DOG. MUCH BLOOD :3
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300 # BIG DOG. MUCH BLOOD :3
   - type: Puller
     needsHands: false
   - type: MobPrice
@@ -182,12 +189,40 @@
     - DoorBumpOpener
     - VimPilot
     - K9
+  - type: MindOnlyAccess
+  - type: AutoImplant
+    implants:
+    - TrackingImplant
+    - K9IDCardImplant
   - type: Vocal
     sounds:
       Unsexed: MobDog
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
+  - type: Grappler
+    handDisabling: None
+    cooldown: 15
+    grapplingPart: grapple-part-jaws
+    proneOnGrapple: true # Make sure Secdogs aren't shot by sprays
+    grappleSound:
+      collection: VulpkaninGrowls
+    activationMode:
+      !type:GrapplerActivationStaminaDrain
+        staminaDrainRate: 5
+        movementSpeedModifier: 0.2
+        initialDamage:
+          types:
+            Slash: 5
+            Piercing: 10
+
+# Split from MobSecDog for random names, allows Laika to be Laika
+- type: entity
+  parent: MobSecDogBase
+  id: MobSecDog
+  components:
+  - type: RandomMetadata
+    nameSegments: [NamesSecDogs]
 
 - type: entity
   parent: MobMouse
@@ -377,10 +412,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
+        Quantity: 100
   - type: Respirator
     damage:
       types:
@@ -418,7 +453,6 @@
   - type: CanEscapeInventory
   - type: Body
     prototype: Mothroach
-  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -438,8 +472,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster

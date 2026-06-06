@@ -27,6 +27,11 @@ public sealed partial class BorgSystem
         var query = EntityQueryEnumerator<BorgTransponderComponent, BorgChassisComponent, DeviceNetworkComponent, MetaDataComponent>();
         while (query.MoveNext(out var uid, out var comp, out var chassis, out var device, out var meta))
         {
+            // DeltaV Begin
+            if (!comp.Active)
+                return;
+            // DeltaV End
+
             if (comp.NextDisable is { } nextDisable && now >= nextDisable)
                 DoDisable((uid, comp, chassis, meta));
 
@@ -83,6 +88,11 @@ public sealed partial class BorgSystem
 
     private void OnPacketReceived(Entity<BorgTransponderComponent> ent, ref DeviceNetworkPacketEvent args)
     {
+        // DeltaV Begin
+        if (!ent.Comp.Active)
+            return;
+        // DeltaV End
+
         var payload = args.Data;
         if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
             return;
@@ -197,4 +207,17 @@ public sealed partial class BorgSystem
 
         return true;
     }
+
+    // DeltaV Begin
+    /// <summary>
+    /// DeltaV - sets if the borg transponder is active
+    /// </summary>
+    public void SetTransponderActive(Entity<BorgTransponderComponent?> ent, bool active)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.Active = active;
+    }
+    // DeltaV End
 }

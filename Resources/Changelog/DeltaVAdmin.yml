@@ -245,5 +245,67 @@ Entries:
   id: 27
   time: '2026-04-04T14:38:32.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5436
+- author: BarryNorfolk
+  changes:
+  - message: 'The December, and half of January, is now here! Check the Upstream changelog
+      for more information. Some highlights:'
+    type: Add
+  - message: Admins can export logs in the UI now (38206)
+    type: Add
+  - message: statuseffect toolshed command (41670)
+    type: Add
+  - message: msg toolshet command (41936)
+    type: Add
+  - message: Admin anomaly scanner (42443)
+    type: Add
+  - message: And more!
+    type: Add
+  id: 28
+  time: '2026-04-11T18:27:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5316
+- author: FieldCommand
+  changes:
+  - message: 'CC ships: The long awaited CC Shuttles have been added to the CC shipyard'
+    type: Add
+  id: 29
+  time: '2026-04-16T01:11:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5346
+- author: FieldCommand
+  changes:
+  - message: 'CC ships: Some CC Shuttles can now travel to ATS.'
+    type: Tweak
+  id: 30
+  time: '2026-04-19T17:29:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5676
+- author: FieldCommand
+  changes:
+  - message: CBURN now have updated gear and ERT access.
+    type: Tweak
+  id: 31
+  time: '2026-04-22T21:30:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5682
+- author: DisposableCrewmember42
+  changes:
+  - message: SSD Stripping alerts are now less spammy
+    type: Fix
+  - message: /lslaws no longer lists law board entities
+    type: Fix
+  - message: finishing to butcher monkeys/kobolds no longer alerts either
+    type: Tweak
+  - message: /lslwatchlisted now works properly. It will no longer display a partial/empty
+      list.
+    type: Fix
+  id: 32
+  time: '2026-05-19T10:00:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5618
+- author: DisposableCrewmember42
+  changes:
+  - message: /mute command - Mute an individual player in a specific OOC channel.
+      OOC mutes persist until server restart. LOOC/Deadchat mutes persist until the
+      round ends.
+    type: Add
+  id: 33
+  time: '2026-05-28T16:56:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5858
 Name: DeltaVAdmin
 Order: 5

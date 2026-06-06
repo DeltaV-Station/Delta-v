@@ -279,7 +279,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -292,6 +292,9 @@
       - type: AutoImplant
         implants:
         - DeathAcidifierImplant
+      - type: RandomHumanoidAppearance # DeltaV - make ninja have random appearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesNinjaTitle
@@ -588,6 +591,7 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-zombie-outbreak-result-message
   - type: ZombieRule
@@ -646,6 +650,9 @@
       components:
       - type: NukeOperative
       - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
+      - type: RandomHumanoidAppearance # DeltaV - add nukies random appearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix

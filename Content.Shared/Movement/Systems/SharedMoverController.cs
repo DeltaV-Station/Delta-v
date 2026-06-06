@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Components; // DeltaV - NoShoesSilentFootstepsComponent
+using Content.Shared.Shuttles.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -21,6 +22,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -51,6 +53,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
+    protected EntityQuery<FTLComponent> FTLQuery;
     protected EntityQuery<InputMoverComponent> MoverQuery;
     protected EntityQuery<MapComponent> MapQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
@@ -59,6 +62,8 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<MovementSpeedModifierComponent> ModifierQuery;
     protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
     protected EntityQuery<PhysicsComponent> PhysicsQuery;
+    protected EntityQuery<PilotComponent> PilotQuery;
+    protected EntityQuery<PreventPilotComponent> PreventPilotQuery;
     protected EntityQuery<RelayInputMoverComponent> RelayQuery;
     protected EntityQuery<PullableComponent> PullableQuery;
     protected EntityQuery<TransformComponent> XformQuery;
@@ -97,8 +102,14 @@ public abstract partial class SharedMoverController : VirtualController
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         NoShoesSilentQuery = GetEntityQuery<NoShoesSilentFootstepsComponent>(); // DeltaV - NoShoesSilentFootstepsComponent
         MapQuery = GetEntityQuery<MapComponent>();
+        FTLQuery = GetEntityQuery<FTLComponent>();
+        PilotQuery = GetEntityQuery<PilotComponent>();
+        PreventPilotQuery = GetEntityQuery<PreventPilotComponent>();
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, TileFrictionEvent>(OnTileFriction);
+        SubscribeLocalEvent<InputMoverComponent, ComponentStartup>(OnMoverStartup);
+        SubscribeLocalEvent<InputMoverComponent, PhysicsBodyTypeChangedEvent>(OnPhysicsBodyChanged);
+        SubscribeLocalEvent<InputMoverComponent, UpdateCanMoveEvent>(OnCanMove);
 
         InitializeInput();
         InitializeRelay();
@@ -106,6 +117,11 @@ public abstract partial class SharedMoverController : VirtualController
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
         Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
+    }
+
+    protected virtual void OnMoverStartup(Entity<InputMoverComponent> ent, ref ComponentStartup args)
+    {
+       _blocker.UpdateCanMove(ent, ent.Comp);
     }
 
     public override void Shutdown()
@@ -199,6 +215,23 @@ public abstract partial class SharedMoverController : VirtualController
             UsedMobMovement[uid] = false;
             return;
         }
+
+        /*
+         * This assert is here because any entity using inputs to move should be a Kinematic Controller.
+         * Kinematic Controllers are not built to use the entirety of the Physics engine by intention and
+         * setting an input mover to Dynamic will cause the Physics engine to occasionally throw asserts.
+         * In addition, SharedMoverController applies its own forms of fake impulses and friction outside
+         * Physics simulation, which will cause issues for Dynamic bodies (Such as Friction being applied twice).
+         * Kinematic bodies have even less Physics options and as such aren't suitable for a player, especially
+         * when we move to Box2D v3 where there will be more support for players updating outside of simulation.
+         * However, Kinematic bodies are useful currently for mobs which explicitly ignore physics, you should use
+         * this type extremely sparingly and only for mobs which *explicitly* disobey the laws of physics (A-Ghosts).
+         * Lastly, static bodies can't move so they shouldn't be updated. If a static body makes it here we're
+         * doing unnecessary calculations.
+         * Only a Kinematic Controller should be making it to this point.
+         */
+        DebugTools.Assert(physicsComponent.BodyType == BodyType.KinematicController || physicsComponent.BodyType == BodyType.Kinematic,
+            $"Input mover: {ToPrettyString(uid)} in HandleMobMovement is not the correct BodyType, BodyType found: {physicsComponent.BodyType}, expected: KinematicController.");
 
         // If the body is in air but isn't weightless then it can't move
         var weightless = _gravity.IsWeightless(uid);
@@ -342,8 +375,7 @@ public abstract partial class SharedMoverController : VirtualController
             if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
                 TryGetSound(weightless, uid, mover, mobMover, xform, out var sound, tileDef: tileDef))
             {
-                var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier
-                    : InputMoverComponent.WalkingSoundModifier;
+                var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier : InputMoverComponent.WalkingSoundModifier;
 
                 var audioParams = sound.Params
                     .WithVolume(sound.Params.Volume + soundModifier)
@@ -480,9 +512,9 @@ public abstract partial class SharedMoverController : VirtualController
             // Only allow pushing off of anchored things that have collision.
             if (otherCollider.BodyType != BodyType.Static ||
                 !otherCollider.CanCollide ||
-                ((collider.CollisionMask & otherCollider.CollisionLayer) == 0 &&
-                (otherCollider.CollisionMask & collider.CollisionLayer) == 0) ||
-                (TryComp(otherEntity, out PullableComponent? pullable) && pullable.BeingPulled))
+                (collider.CollisionMask & otherCollider.CollisionLayer) == 0 &&
+                (otherCollider.CollisionMask & collider.CollisionLayer) == 0 ||
+                PullableQuery.TryComp(otherEntity, out var pullable) && pullable.BeingPulled)
             {
                 continue;
             }
@@ -640,12 +672,24 @@ public abstract partial class SharedMoverController : VirtualController
 
     private void OnTileFriction(Entity<MovementSpeedModifierComponent> ent, ref TileFrictionEvent args)
     {
-        if (!TryComp<PhysicsComponent>(ent, out var physicsComponent) || !XformQuery.TryComp(ent, out var xform))
+        if (!PhysicsQuery.TryComp(ent, out var physicsComponent))
             return;
 
         if (physicsComponent.BodyStatus != BodyStatus.OnGround || _gravity.IsWeightless(ent.Owner))
             args.Modifier *= ent.Comp.BaseWeightlessFriction;
         else
             args.Modifier *= ent.Comp.BaseFriction;
+    }
+
+    private void OnPhysicsBodyChanged(Entity<InputMoverComponent> entity, ref PhysicsBodyTypeChangedEvent args)
+    {
+        _blocker.UpdateCanMove(entity);
+    }
+
+    private void OnCanMove(Entity<InputMoverComponent> entity, ref UpdateCanMoveEvent args)
+    {
+        // If we don't have a physics component, or have a static body type then we can't move.
+        if (!PhysicsQuery.TryComp(entity, out var body) || body.BodyType == BodyType.Static)
+            args.Cancel();
     }
 }

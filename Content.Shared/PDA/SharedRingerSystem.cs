@@ -55,6 +55,22 @@ public abstract class SharedRingerSystem : EntitySystem
             if (curTime < ringer.NextNoteTime.Value)
                 continue;
 
+            // DeltaV Start - Silicons: Send PDA ringer sound to the player directly
+            // Check if this ringer is also a player. If so, the sound needs to play to the player itself.
+            if (HasComp<ActorComponent>(uid))
+            {
+                if (_net.IsServer)
+                {
+                    _audio.PlayGlobal(
+                        GetSound(ringer.Ringtone[ringer.NoteCount]),
+                        Filter.Entities(uid),
+                        true,
+                        AudioParams.Default.WithVolume(ringer.Volume)
+                    );
+                }
+            }
+            else
+            // DeltaV End - Silicons: Send PDA ringer sound to the player directly
             // Play the note
             // We only do this on the server because otherwise the sound either dupes or blends into a mess
             // There's no easy way to figure out which player started it, so that we can exclude them from the list

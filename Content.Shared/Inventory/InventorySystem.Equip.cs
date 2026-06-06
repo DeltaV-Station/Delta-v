@@ -41,6 +41,7 @@ public abstract partial class InventorySystem
         //these events ensure that the client also gets its proper events raised when getting its containerstate updated
         SubscribeLocalEvent<InventoryComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<InventoryComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+
         SubscribeAllEvent<UseSlotNetworkMessage>(OnUseSlot);
     }
 
@@ -167,7 +168,7 @@ public abstract partial class InventorySystem
                 target,
                 itemUid)
             {
-                BreakOnMove = true,
+                BreakOnMove = !clothing.EquipWhileMoving,
                 NeedHand = true,
             };
 
@@ -439,7 +440,7 @@ public abstract partial class InventorySystem
                 target,
                 removedItem.Value)
             {
-                BreakOnMove = true,
+                BreakOnMove = !clothing.EquipWhileMoving,
                 NeedHand = true,
             };
 
@@ -559,7 +560,7 @@ public abstract partial class InventorySystem
     {
         foreach (var item in _handsSystem.EnumerateHeld(uid))
         {
-            _interactionSystem.DoContactInteraction(uid, item);
+            _interactionSystem.DoContactInteraction(uid, item, null, true); // Stellar - Interaction particles
         }
     }
 }
