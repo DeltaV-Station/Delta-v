@@ -88,7 +88,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolSpecialMindbreaker
+        startingItem: MagazinePistolSpecialLernaea
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
@@ -97,7 +97,7 @@
             - MagazinePistolSpecial
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeSpecialMindbreaker
+        startingItem: CartridgeSpecialLernaea
         priority: 1
         whitelist:
           tags:

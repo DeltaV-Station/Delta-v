@@ -81,6 +81,10 @@
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       # End DeltaV - borg PDAs
+      # Begin DeltaV - borg wires
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+      # End DeltaV
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -364,6 +368,8 @@
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
+  - type: Wires # DeltaV: NT borgs have a circuit panel
+    layoutId: Cyborg
   - type: ShowJobIcons
   - type: InteractionPopup
     interactSuccessSound:

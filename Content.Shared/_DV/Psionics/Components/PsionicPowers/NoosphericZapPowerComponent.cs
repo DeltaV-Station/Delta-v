@@ -10,9 +10,9 @@ public sealed partial class NoosphericZapPowerComponent : BasePsionicPowerCompon
 
     public override string PowerName { get; set; } = "psionic-power-name-noospheric-zap";
 
-    public override int MinGlimmerChanged { get; set; } = 10;
+    public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged { get; set; } = 30;
+    public override int MaxGlimmerChanged { get; set; } = 15;
 
     /// <summary>
     /// The prototype for the lightning.

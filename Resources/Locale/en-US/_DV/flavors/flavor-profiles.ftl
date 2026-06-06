@@ -84,6 +84,8 @@ flavor-complex-mnatsa-collins = like sweet and sour brandy
 flavor-complex-affogato = like boozy ice cream
 flavor-complex-five-oclock = like hard tea
 flavor-complex-mliko = like a prank
+flavor-complex-pure = like the purest water
+flavor-complex-clarifying = like an old memory you remember clearly
 
 ## DeltaV deep fryer
 flavor-base-crispy = crispy
