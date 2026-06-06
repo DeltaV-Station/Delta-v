@@ -4,11 +4,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.Replicator;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ReplicatorNestFallingComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public Entity<ReplicatorNestComponent> FallingTarget;
+    public EntityUid FallingTarget;
 
     [DataField]
     public TimeSpan AnimationTime = TimeSpan.FromSeconds(1.5f);

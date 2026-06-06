@@ -190,7 +190,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         pointsStorageComponent.Level = ent.Comp.CurrentLevel;
         pointsStorageComponent.TotalPoints = ent.Comp.TotalPoints;
         pointsStorageComponent.TotalReplicators = ent.Comp.SpawnedMinions.Count;
-        Dirty(ent.Comp.PointsStorage, pointsStorage);
+        Dirty(ent.Comp.PointsStorage, pointsStorageComponent);
     }
 
     private void SpawnNew(Entity<ReplicatorNestComponent> ent)
@@ -199,8 +199,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             return;
 
         var spawner = Spawn(ent.Comp.ToSpawn, Transform(ent).Coordinates);
-        var tracker = EnsureComp<SpawnedFromTrackerComponent>(spawner);
-        tracker.SpawnedFrom = ent;
         var tracker = EnsureComp<SpawnedFromTrackerComponent>(spawner);
         tracker.SpawnedFrom = ent;
         Dirty(spawner, tracker);

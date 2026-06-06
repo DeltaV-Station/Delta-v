@@ -73,7 +73,6 @@
     - CanPilot
     - VimPilot
     - SiliconEmotes
-    - SiliconOrIPCEmotes
     - Honker
   - type: MobState
     allowedStates:
@@ -87,8 +86,6 @@
     guides:
     - Cyborgs
     - Robotics
-  - type: EmitBuzzWhileDamaged
-    singleBuzzUntilRecovered: true
   - type: Repairable
     damage:
       types:

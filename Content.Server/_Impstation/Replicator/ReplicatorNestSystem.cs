@@ -89,7 +89,8 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (_timing.CurTime < falling.NextDeletionTime)
                 continue;
 
-            var nestComp = falling.FallingTarget.Comp;
+            if (!TryComp<ReplicatorNestComponent>(falling.FallingTarget, out var nestComp))
+                continue;
 
             if (_whitelist.IsWhitelistPass(nestComp.PreservationBlacklist, uid))
             {
@@ -101,7 +102,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
                     toDel.Add(uid);
             }
 
-            _containerSystem.Insert(uid, falling.FallingTarget.Comp.Hole);
+            _containerSystem.Insert(uid, nestComp.Hole);
             EnsureComp<StunnedComponent>(uid);
             RemCompDeferred(uid, falling);
         }
@@ -237,7 +238,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         var fallingQuery = EntityQueryEnumerator<ReplicatorNestFallingComponent>();
         while (fallingQuery.MoveNext(out var uid, out var comp))
         {
-            if (comp.FallingTarget == ent)
+            if (ent.Owner == comp.FallingTarget)
                 RemCompDeferred<ReplicatorNestFallingComponent>(uid);
         }
 
