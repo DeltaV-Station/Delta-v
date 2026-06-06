@@ -151125,14 +151125,12 @@ entities:
   entities:
   - uid: 30685
     components:
-    - type: MetaData
-      name: jug (Ammonia)
     - type: Transform
       pos: 7.3784237,58.221817
       parent: 33
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200
@@ -195381,7 +195379,7 @@ entities:
     - type: Transform
       pos: -3.5,72.5
       parent: 33
-- proto: SuperweaponSafeSpawner
+- proto: GunSafeAdvancedLaser
   entities:
   - uid: 26015
     components:

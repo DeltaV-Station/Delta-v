@@ -227,8 +227,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon) ||
-            !weapon.CanWideSwing) // Goobstation Change
+            weaponUid != GetEntity(msg.Weapon))
         {
             return;
         }
@@ -552,11 +551,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var weapon = GetEntity(ev.Weapon);
 
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
         // somewhat messy scuffle. See also, heavy attacks.
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
 
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
@@ -564,7 +563,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass, partMultiplier: component.ClickPartDamageMultiplier)) // Shitmed Change
+        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
@@ -705,7 +704,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var weapon = GetEntity(ev.Weapon);
 
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // For stuff that cares about it being attacked.
         foreach (var target in targets)
@@ -714,7 +713,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
             // somewhat messy scuffle. See also, light attacks.
-            Interaction.DoContactInteraction(user, target);
+            Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
         }
 
         var appliedDamage = new DamageSpecifier();
@@ -736,7 +735,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
+            var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
 
             if (damageResult.GetTotal() > FixedPoint2.Zero)
             {
@@ -972,7 +971,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, null, true); // Stellar - Interaction particles
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");

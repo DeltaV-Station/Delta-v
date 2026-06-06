@@ -122,6 +122,9 @@
       roleLoadout:
       - RoleSurvivalStandard
       components:
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
@@ -222,6 +225,7 @@
         nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
@@ -269,6 +273,7 @@
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: NpcFactionMember
         factions:
         - Syndicate

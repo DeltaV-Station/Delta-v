@@ -8,7 +8,7 @@
     anchored: false
     noRot: true
   - type: Sprite
-    sprite: Objects/Specific/Security/barrier.rsi
+    sprite: _DV/Objects/Specific/Security/barrier.rsi #DeltaV - Blue security resprite
     layers:
     - state: idle
     - state: locked
@@ -71,6 +71,6 @@
   - type: PointLight
     enabled: false
     radius: 3
-    color: red
+    color: blue #DeltaV - Blue security resprite, was red
   - type: StaticPrice
     price: 200

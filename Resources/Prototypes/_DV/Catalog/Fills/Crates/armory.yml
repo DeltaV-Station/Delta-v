@@ -88,3 +88,14 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: NT3Table
+
+- type: entity
+  id: CrateRevolver
+  parent: CrateWeaponSecure
+  name: revolver crate
+  description: Contains a .45 caliber revolver and a .38 caliber revolver, with 2 respective speed loaders for each ammo type. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RevolverCrateTable

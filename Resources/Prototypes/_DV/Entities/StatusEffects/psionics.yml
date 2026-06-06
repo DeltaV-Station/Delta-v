@@ -33,3 +33,12 @@
   parent: [ StatusEffectSlowdown, MobStatusEffectDebuff ]
   id: MassSleepSlowdownStatusEffect
   name: slowed by mass sleep power
+
+# Heals the victims while sleeping.
+- type: entity
+  parent: StatusEffectForcedSleeping
+  id: MassSleepForcedSleepStatusEffect
+  name: forced to sleep by mass sleep power
+  components:
+  - type: RegenerativeSleepingStatusEffect
+    quantity: 0.5

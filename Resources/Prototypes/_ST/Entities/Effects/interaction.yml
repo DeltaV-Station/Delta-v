@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 Janet Blackquill <uhhadd@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: StellarInteractionParticle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: Sprite
+    sprite: _ST/Effects/interaction.rsi
+    state: hand
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu

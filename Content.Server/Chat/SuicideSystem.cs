@@ -1,5 +1,4 @@
 using Content.Server.Ghost;
-using Content.Shared._EE.Silicon.Components; // EE
 using Content.Server.Hands.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
@@ -31,7 +30,7 @@ public sealed class SuicideSystem : EntitySystem
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
-    private static readonly ProtoId<TagPrototype> CannotSuicideAny = "CannotSuicideAny"; // DeltaV / Goob, ProtoID Tag
+    // private static readonly ProtoId<TagPrototype> CannotSuicideAny = "CannotSuicideAny"; // DeltaV / Goob, ProtoID Tag
 
     public override void Initialize()
     {
@@ -50,7 +49,7 @@ public sealed class SuicideSystem : EntitySystem
     public bool Suicide(EntityUid victim)
     {
         // Can't suicide if we're already dead
-        if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState) || _tagSystem.HasTag(victim, CannotSuicideAny)) // Goobstation - DeltaV Use ProtoId
+        if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState) /*|| _tagSystem.HasTag(victim, CannotSuicideAny*/) // Goobstation - DeltaV Use ProtoId
             return false;
 
         _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} is attempting to suicide");
@@ -173,10 +172,7 @@ public sealed class SuicideSystem : EntitySystem
             return;
         }
 
-        if (HasComp<SiliconComponent>(victim)) // Goobstation
-            args.DamageType ??= "Shock";
-        else
-            args.DamageType ??= "Bloodloss";
+        args.DamageType ??= "Bloodloss";
         _suicide.ApplyLethalDamage(victim, args.DamageType);
         args.Handled = true;
     }
