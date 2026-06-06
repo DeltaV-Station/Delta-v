@@ -90,6 +90,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         var fall = EnsureComp<ReplicatorNestFallingComponent>(tripper);
         fall.FallingTarget = ent;
         fall.NextDeletionTime = _timing.CurTime + fall.DeletionTime;
+        Dirty(tripper, fall);
         _stun.TryKnockdown(tripper, fall.DeletionTime, false);
 
         if (playSound)
@@ -189,6 +190,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         pointsStorageComponent.Level = ent.Comp.CurrentLevel;
         pointsStorageComponent.TotalPoints = ent.Comp.TotalPoints;
         pointsStorageComponent.TotalReplicators = ent.Comp.SpawnedMinions.Count;
+        Dirty(ent.Comp.PointsStorage, pointsStorage);
     }
 
     private void SpawnNew(Entity<ReplicatorNestComponent> ent)
@@ -199,7 +201,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         var spawner = Spawn(ent.Comp.ToSpawn, Transform(ent).Coordinates);
         var tracker = EnsureComp<SpawnedFromTrackerComponent>(spawner);
         tracker.SpawnedFrom = ent;
-        ent.Comp.UnclaimedSpawners.Add(spawner);
+        var tracker = EnsureComp<SpawnedFromTrackerComponent>(spawner);
+        tracker.SpawnedFrom = ent;
+        Dirty(spawner, tracker);
     }
 
     public void UpgradeAll(Entity<ReplicatorNestComponent> ent)
