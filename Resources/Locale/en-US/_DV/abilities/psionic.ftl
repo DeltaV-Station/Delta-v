@@ -100,6 +100,7 @@ psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = Yo
 psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
 psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 psionic-power-precognition-asakim-spawn-result-message = You smell stale air from a cryopod opening, and the faint echo of an intelligence far away but very near.
+psionic-power-precognition-crownedspirit-result-message = You see a blinding light and a figure standing in front of you, their features obscured by their own shadow.
 
 # Psionic Eruption
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
