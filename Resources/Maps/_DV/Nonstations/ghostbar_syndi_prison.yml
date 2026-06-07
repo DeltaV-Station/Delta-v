@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/27/2026 22:44:25
-  entityCount: 5362
+  time: 06/07/2026 19:22:20
+  entityCount: 5363
 maps: []
 grids:
 - 1
@@ -1424,6 +1424,9 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AACTablet
   entities:
   - uid: 5031
@@ -1808,6 +1811,8 @@ entities:
       - 4651
       - 3807
       - 3806
+      - 4647
+      - 4648
     - type: Fixtures
       fixtures: {}
   - uid: 3816
@@ -1821,9 +1826,6 @@ entities:
     - type: DeviceList
       devices:
       - 3619
-      - 3602
-      - 3603
-      - 3604
       - 4351
       - 4352
       - 4357
@@ -2360,7 +2362,7 @@ entities:
   - uid: 3268
     components:
     - type: MetaData
-      name: 'APC: IPC Cell 3'
+      name: 'APC: Cell 3'
     - type: Transform
       pos: 14.5,-0.5
       parent: 1
@@ -2398,7 +2400,7 @@ entities:
   - uid: 3699
     components:
     - type: MetaData
-      name: 'APC: IPC Cell 2'
+      name: 'APC: Cell 2'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,-11.5
@@ -2408,7 +2410,7 @@ entities:
   - uid: 3700
     components:
     - type: MetaData
-      name: 'APC: IPC Cell 4'
+      name: 'APC: Cell 4'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 12.5,-11.5
@@ -2418,7 +2420,7 @@ entities:
   - uid: 3701
     components:
     - type: MetaData
-      name: 'APC: IPC Cell 6'
+      name: 'APC: Cell 6'
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 18.5,-11.5
@@ -2428,7 +2430,7 @@ entities:
   - uid: 3702
     components:
     - type: MetaData
-      name: 'APC: IPC Cell 5'
+      name: 'APC: Cell 5'
     - type: Transform
       pos: 16.5,-0.5
       parent: 1
@@ -2437,7 +2439,7 @@ entities:
   - uid: 3703
     components:
     - type: MetaData
-      name: 'APC: IPC Cell 1'
+      name: 'APC: Cell 1'
     - type: Transform
       pos: 10.5,-0.5
       parent: 1
@@ -5211,6 +5213,31 @@ entities:
     components:
     - type: Transform
       pos: 27.5,3.5
+      parent: 1
+  - uid: 3603
+    components:
+    - type: Transform
+      pos: 10.5,-13.5
+      parent: 1
+  - uid: 3604
+    components:
+    - type: Transform
+      pos: 11.5,-13.5
+      parent: 1
+  - uid: 3678
+    components:
+    - type: Transform
+      pos: 12.5,-13.5
+      parent: 1
+  - uid: 3679
+    components:
+    - type: Transform
+      pos: 13.5,-13.5
+      parent: 1
+  - uid: 3680
+    components:
+    - type: Transform
+      pos: 14.5,-13.5
       parent: 1
 - proto: CableApcStack
   entities:
@@ -8383,8 +8410,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: CrateSyndicate
@@ -10564,33 +10591,6 @@ entities:
       deviceLists:
       - 965
       - 947
-  - uid: 3602
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 15.5,5.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 3816
-  - uid: 3603
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 15.5,4.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 3816
-  - uid: 3604
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 15.5,3.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 3816
 - proto: FirelockGlass
   entities:
   - uid: 3605
@@ -16679,6 +16679,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.5,-5.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 3805
     - type: AtmosPipeColor
       color: '#0337FCFF'
   - uid: 4649
@@ -17235,6 +17238,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.5,-6.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 3805
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 4650
@@ -24705,6 +24711,11 @@ entities:
     - type: Transform
       pos: 32.5,-11.5
       parent: 1
+  - uid: 3602
+    components:
+    - type: Transform
+      pos: 21.5,15.5
+      parent: 1
   - uid: 4078
     components:
     - type: Transform
@@ -25327,13 +25338,6 @@ entities:
     components:
     - type: Transform
       pos: 14.386612,-8.3064375
-      parent: 1
-- proto: PlushieIPC
-  entities:
-  - uid: 4110
-    components:
-    - type: Transform
-      pos: 14.592102,-2.5310535
       parent: 1
 - proto: PlushieKitsune
   entities:
@@ -28120,12 +28124,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 28.5,2.5
-      parent: 1
-  - uid: 4227
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 21.5,15.5
       parent: 1
   - uid: 4228
     components:
