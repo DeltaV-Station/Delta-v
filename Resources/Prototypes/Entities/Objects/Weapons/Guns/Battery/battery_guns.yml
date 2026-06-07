@@ -433,10 +433,12 @@
     proto: Pulse
     fireCost: 100
   - type: Battery
-    maxCharge: 4000 #DV, was 40000
-    startingCharge: 4000 
-  - type: BatterySelfRecharger #DV, didnt exist
+  # Begin DeltaV modifications - smaller battery and self recharge 
+    maxCharge: 4000 # DeltaV -  was 40000
+    startingCharge: 4000 # DeltaV -  was 40000
+  - type: BatterySelfRecharger
     autoRechargeRate: 10
+  # End DeltaV modifications
 
 - type: entity
   name: laser cannon
