@@ -458,3 +458,30 @@
         implants:
         - RadioImplantCentcomm
         - NanolinkSubImplant
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: CrownedSpiritSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    minimumPlayers: 30
+  - type: PrecognitionResult
+    message: psionic-power-precognition-crownedspirit-result-message
+  - type: AntagSpawner
+    prototype: MobCrownedSpirit
+  - type: AntagObjectives
+    objectives:
+    - CrownedSpiritServeObjective
+    - CrownedSpiritKillObjective
+    - CrownedSpiritPunishObjective
+  - type: AntagSelection
+    agentName: crownedspirit-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointCrownedSpirit
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleCrownedSpirit

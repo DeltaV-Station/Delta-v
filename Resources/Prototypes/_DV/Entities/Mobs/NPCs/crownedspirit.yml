@@ -1,0 +1,93 @@
+- type: entity
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  id: MobCrownedSpirit
+  name: Crowned Spirit
+  description: A creature of radiance. So beautiful are they, with their crown of light.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Ghosts/radiantspirit.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: radiantspirit
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: 0.9
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      210: Dead
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: RadiantSpirit
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.5
+  - type: NoSlip
+  - type: MovedByPressure
+    enabled: false
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 90
+    animation: WeaponArcSkiaLunge
+    wideAnimation: WeaponArcSkiaSwipe
+    wideAnimationRotation: -90
+    swingLeft: true
+    attackRate: 1.5
+    range: 2.0
+    altDisarm: false
+    damage:
+      types:
+        Slash: 20
+        Holy: 15
+  - type: Tag
+    tags:
+      - TaserImmune
+  - type: Speech
+    speechVerb: Ghost
+  - type: Psionic
+  - type: NoosphericZapPower
+  - type: PsionicInvisibilityPower
+  - type: Emoting
+  - type: Insulated
+  - type: FlashImmunity
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Ambrosia
+        Quantity: 200
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#f5d750"
+    castShadows: false
+  - type: GhostRole
+    name: ghost-role-information-crownedspirit-name
+    description: ghost-role-information-crownedspirit-description
+    rules: ghost-role-information-crownedspirit-rules
+    mindRoles:
+    - MindRoleCrownedSpirit
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

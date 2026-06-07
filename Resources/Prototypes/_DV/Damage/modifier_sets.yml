@@ -139,6 +139,18 @@
     Soul: 0.0
 
 - type: damageModifierSet
+  id: RadiantSpirit
+  coefficients:
+    Cold: 2.0
+    Shock: 0.2
+    Blunt: 0.4
+    Slash: 0.0
+    Piercing: 0.4
+    Heat: 0.4
+    Holy: 0.0
+    Soul: 3.0
+
+- type: damageModifierSet
   id: Ifrit
   coefficients:
     Cold: 0.0

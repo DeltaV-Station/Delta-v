@@ -1,0 +1,9 @@
+- type: antag
+  id: CrownedSpirit
+  name: roles-antag-crownedspirit-name
+  objective: roles-antag-crownedspirit-objective
+  antagonist: true
+  setPreference: true
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 24h

@@ -33,3 +33,6 @@ roles-antag-asakim-objective = Serve the ancient directives of your ship's AI.
 
 roles-antag-hitman-name = Hitman
 roles-antag-hitman-objective = Kill your target in the way your client wishes.
+
+roles-antag-crownedspirit-name = Crowned Spirit
+roles-antag-crownedspirit-objective = Provide aid to the wicked, and then punish them for it.

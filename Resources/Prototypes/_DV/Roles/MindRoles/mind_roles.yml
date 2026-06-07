@@ -141,3 +141,16 @@
   - type: HitmanRole
   - type: RoleBriefing
     briefing: hitman-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleCrownedSpirit
+  name: Crowned Spirit Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: CrownedSpirit
+    exclusiveAntag: true
+  - type: CrownedSpiritRole
+  - type: RoleBriefing
+    briefing: crownedspirit-role-briefing
