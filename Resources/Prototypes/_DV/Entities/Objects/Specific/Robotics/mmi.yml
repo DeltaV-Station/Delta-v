@@ -15,3 +15,56 @@
     channels:
     - Binary
     - Syndicate
+
+- type: entity
+  parent: MMI
+  id: XenoborgMMIChamber
+  name: restricted neural upload chamber
+  description: A specialized chamber that is designed to transfer compatible biological consciousness, regardless of neural activity.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/xenoborg_mmi_chamber.rsi
+  - type: ContainerContainer
+    containers:
+      brainslot: !type:ContainerSlot
+  - type: MMI
+    brainSlot:
+      name: positronic-brain-slot-component-slot-name-brain
+      whitelist:
+        components:
+        - Unborgable
+      blacklist:
+        components:
+        - BorgBrain
+        - MMI
+  - type: UnborgableMMI
+  - type: ToggleableGhostRole
+    examineTextMindPresent: positronic-brain-installed
+    examineTextMindSearching: positronic-brain-still-searching
+    examineTextNoMind: positronic-brain-off
+    beginSearchingText: positronic-brain-searching
+    roleName: xenoborg-brain-role-name
+    roleDescription: xenoborg-brain-role-description
+    roleRules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleXenoborg
+    wipeVerbText: positronic-brain-wipe-device-verb-text
+    wipeVerbPopup: positronic-brain-wiped-device
+    stopSearchVerbText: positronic-brain-stop-searching-verb-text
+    stopSearchVerbPopup: positronic-brain-stopped-searching
+    job: Borg
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Xenoborg
+  - type: ActiveRadio
+    channels:
+    - Xenoborg
+  - type: NameIdentifier
+    group: Xenoborg
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        base:
+          Off: { state: mmi_off }
+          Searching: { state: chamber-searching }
+          On: { state: mmi_alive }
