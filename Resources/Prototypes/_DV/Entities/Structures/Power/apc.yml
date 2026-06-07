@@ -8,7 +8,5 @@
   - type: Battery
     maxCharge: 50000
     startingCharge: 50000
-  - type: BatteryDrinkerSource # EE IPCs
-    maxAmount: 5000
   - type: AccessReader
     access: [["SyndicateAgent"]]
