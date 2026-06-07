@@ -626,6 +626,8 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -1982,6 +1984,8 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   parent: MobMouse
@@ -2688,6 +2692,8 @@
       groups:
         Brute: -0.07
         Burn: -0.07
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   parent: MobSpiderBase
@@ -3270,6 +3276,8 @@
   - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   name: calico cat
