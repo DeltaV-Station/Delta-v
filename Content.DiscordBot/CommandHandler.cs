@@ -99,7 +99,7 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
                 if (discord?.LinkedAccount is { } linked)
                 {
                     if (linked.Player.Patron is { } patron)
-                        db.DeltaVPatrons.Remove(patron);
+                        db.Patrons.Remove(patron);
 
                     linked.Player.Patron = null;
                     db.DiscordLinkedAccounts.Remove(linked);
@@ -110,7 +110,7 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
                 discord.LinkedAccount.Player = codes.Player;
 
                 var roles = client.GetGuild(guildId).GetUser(authorId).Roles.Select(r => r.Id).ToArray();
-                var tiers = await db.DeltaVPatronTiers
+                var tiers = await db.PatronTiers
                     .Where(t => roles.Contains(t.DiscordRole))
                     .ToListAsync();
                 if (tiers.Count == 0)
@@ -121,7 +121,7 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
                 {
                     tiers.Sort((a, b) => a.Priority.CompareTo(b.Priority));
                     var tier = tiers[0];
-                    discord.LinkedAccount.Player.Patron = db.DeltaVPatrons.Add(new DeltaVPatron { Tier = tier }).Entity;
+                    discord.LinkedAccount.Player.Patron = db.Patrons.Add(new DeltaVPatron { Tier = tier }).Entity;
                     discord.LinkedAccount.Player.Patron.Tier = tier;
                 }
 

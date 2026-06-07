@@ -1147,12 +1147,12 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("tier_id");
 
                     b.HasKey("PlayerId")
-                        .HasName("PK_discord_patrons");
+                        .HasName("PK_patreon_patrons");
 
                     b.HasIndex("TierId")
-                        .HasDatabaseName("IX_discord_patrons_tier_id");
+                        .HasDatabaseName("IX_patreon_patrons_tier_id");
 
-                    b.ToTable("discord_patrons", (string)null);
+                    b.ToTable("patreon_patrons", (string)null);
                 });
 
 
@@ -1162,15 +1162,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
-                        .HasColumnName("discord_patron_tiers_id");
+                        .HasColumnName("patreon_tiers_id");
 
                     b.Property<ulong>("DiscordRole")
                         .HasColumnType("INTEGER")
                         .HasColumnName("discord_role");
-
-                    b.Property<bool>("Figurines")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("figurines");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -1186,12 +1182,12 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("show_on_credits");
 
                     b.HasKey("Id")
-                        .HasName("PK_discord_patron_tiers");
+                        .HasName("PK_patreon_tiers");
 
                     b.HasIndex("DiscordRole")
                         .IsUnique();
 
-                    b.ToTable("discord_patron_tiers", (string)null);
+                    b.ToTable("patreon_tiers", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
@@ -2062,14 +2058,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasPrincipalKey("Content.Server.Database.Player", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_discord_patrons_player_player_id");
+                        .HasConstraintName("FK_patreon_patrons_player_player_id");
 
                     b.HasOne("Content.Server.Database.DeltaVPatronTier", "Tier")
                         .WithMany("Patrons")
                         .HasForeignKey("TierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_discord_patrons_discord_patron_tiers_tier_id");
+                        .HasConstraintName("FK_patreon_patrons_patreon_tiers_tier_id");
 
                     b.Navigation("Player");
 

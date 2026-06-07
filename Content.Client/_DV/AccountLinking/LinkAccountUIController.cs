@@ -7,13 +7,10 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
-using static Robust.Client.UserInterface.Controls.LineEdit;
-using static Robust.Client.UserInterface.Controls.TabContainer;
 
 namespace Content.Client._DV.AccountLinking;
 
-public sealed class LinkAccountUIController : UIController, IOnSystemChanged<LinkAccountSystem>
+public sealed class LinkAccountUIController : UIController //, IOnSystemChanged<LinkAccountSystem>
 {
     [Dependency] private readonly IClipboardManager _clipboard = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;

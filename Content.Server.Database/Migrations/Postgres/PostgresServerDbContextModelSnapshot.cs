@@ -1208,12 +1208,12 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("tier_id");
 
                     b.HasKey("PlayerId")
-                        .HasName("PK_discord_patrons");
+                        .HasName("PK_patreon_patrons");
 
                     b.HasIndex("TierId")
-                        .HasDatabaseName("IX_discord_patrons_tier_id");
+                        .HasDatabaseName("IX_patreon_patrons_tier_id");
 
-                    b.ToTable("discord_patrons", (string)null);
+                    b.ToTable("patreon_patrons", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
@@ -1221,7 +1221,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("discord_patron_tiers_id");
+                        .HasColumnName("patreon_tiers_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
@@ -1243,12 +1243,12 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("show_on_credits");
 
                     b.HasKey("Id")
-                        .HasName("PK_discord_patron_tiers");
+                        .HasName("PK_patreon_tiers");
 
                     b.HasIndex("DiscordRole")
                         .IsUnique();
 
-                    b.ToTable("discord_patron_tiers", (string)null);
+                    b.ToTable("patreon_tiers", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
@@ -2141,14 +2141,14 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasPrincipalKey("Content.Server.Database.Player", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_discord_patrons_player_player_id");
+                        .HasConstraintName("FK_patreon_patrons_player_player_id");
 
                     b.HasOne("Content.Server.Database.DeltaVPatronTier", "Tier")
                         .WithMany("Patrons")
                         .HasForeignKey("TierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_discord_patrons_discord_patron_tiers_tier_id");
+                        .HasConstraintName("FK_patreon_patrons_patreon_tiers_tier_id");
 
                     b.Navigation("Player");
 
@@ -2474,15 +2474,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired();
 
                     b.Navigation("LinkedAccountLogs");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
-                {
-                    b.Navigation("LobbyMessage");
-
-                    b.Navigation("RoundEndMarineShoutout");
-
-                    b.Navigation("RoundEndXenoShoutout");
                 });
 
             modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>

@@ -1962,11 +1962,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         public async Task<DeltaVPatron?> GetPatron(Guid player, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
-            var patron = await db.DbContext.DeltaVPatrons
+            var patron = await db.DbContext.Patrons
                 .Include(p => p.Tier)
-                .Include(p => p.LobbyMessage)
-                .Include(p => p.RoundEndMarineShoutout)
-                .Include(p => p.RoundEndXenoShoutout)
                 .FirstOrDefaultAsync(p => p.PlayerId == player, cancellationToken: cancel);
             return patron;
         }
@@ -1974,7 +1971,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         public async Task<List<DeltaVPatron>> GetAllPatrons()
         {
             await using var db = await GetDb();
-            return await db.DbContext.DeltaVPatrons
+            return await db.DbContext.Patrons
                 .Include(p => p.Player)
                 .Include(p => p.Tier)
                 .ToListAsync();

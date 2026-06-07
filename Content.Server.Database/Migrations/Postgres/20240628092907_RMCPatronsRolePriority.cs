@@ -12,28 +12,28 @@ namespace Content.Server.Database.Migrations.Postgres
         {
             migrationBuilder.AddColumn<decimal>(
                 name: "discord_role",
-                table: "discord_patron_tiers",
+                table: "patreon_tiers",
                 type: "numeric(20,0)",
                 nullable: false,
                 defaultValue: 0m);
 
             migrationBuilder.AddColumn<string>(
                 name: "name",
-                table: "discord_patron_tiers",
+                table: "patreon_tiers",
                 type: "text",
                 nullable: false,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<int>(
                 name: "priority",
-                table: "discord_patron_tiers",
+                table: "patreon_tiers",
                 type: "integer",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.CreateIndex(
-                name: "IX_discord_patron_tiers_discord_role",
-                table: "discord_patron_tiers",
+                name: "IX_patreon_tiers_discord_role",
+                table: "patreon_tiers",
                 column: "discord_role",
                 unique: true);
         }
@@ -42,20 +42,20 @@ namespace Content.Server.Database.Migrations.Postgres
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropIndex(
-                name: "IX_discord_patron_tiers_discord_role",
-                table: "discord_patron_tiers");
+                name: "IX_patreon_tiers_discord_role",
+                table: "patreon_tiers");
 
             migrationBuilder.DropColumn(
                 name: "discord_role",
-                table: "discord_patron_tiers");
+                table: "patreon_tiers");
 
             migrationBuilder.DropColumn(
                 name: "name",
-                table: "discord_patron_tiers");
+                table: "patreon_tiers");
 
             migrationBuilder.DropColumn(
                 name: "priority",
-                table: "discord_patron_tiers");
+                table: "patreon_tiers");
         }
     }
 }

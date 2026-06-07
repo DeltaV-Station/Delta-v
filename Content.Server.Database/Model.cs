@@ -53,7 +53,7 @@ namespace Content.Server.Database
         public DbSet<DiscordLinkedAccount> DiscordLinkedAccounts { get; set; } = default!;
         public DbSet<DeltaVPatronTier> PatronTiers { get; set; } = default!;
         public DbSet<DeltaVPatron> Patrons { get; set; } = default!;
-        public DbSet<LinkingCodes> DiscordLinkingCodes { get; set; } = default!;
+        public DbSet<DiscordLinkingCodes> DiscordLinkingCodes { get; set; } = default!;
         public DbSet<DiscordLinkedAccountLogs> DiscordLinkedAccountLogs { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

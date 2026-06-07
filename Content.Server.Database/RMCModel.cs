@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Content.Server.Database;
 
 //TODO
-[Table("rmc_discord_accounts")]
+[Table("discord_accounts")]
 public sealed class DiscordAccount
 {
     [Key]
@@ -30,7 +30,7 @@ public sealed class DiscordLinkedAccount
     public DiscordAccount Discord { get; set; } = default!;
 }
 
-[Table("discord_patron_tiers")]
+[Table("patreon_tiers")]
 public sealed class DeltaVPatronTier
 {
     [Key]
@@ -47,8 +47,8 @@ public sealed class DeltaVPatronTier
     public List<DeltaVPatron> Patrons { get; set; } = default!;
 }
 
-// TODO: Discord Linking - Do we name this discord_patrons? I dont think its referencing the discord ID at all
-[Table("discord_patrons")]
+// TODO: Discord Linking - Do we name this patreon_patrons? I dont think its referencing the discord ID at all
+[Table("patreon_patrons")]
 [Index(nameof(TierId))]
 public sealed class DeltaVPatron
 {

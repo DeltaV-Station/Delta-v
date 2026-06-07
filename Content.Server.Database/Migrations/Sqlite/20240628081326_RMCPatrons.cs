@@ -24,20 +24,16 @@ namespace Content.Server.Database.Migrations.Sqlite
                 });
 
             migrationBuilder.CreateTable(
-                name: "discord_patron_tiers",
+                name: "patreon_tiers",
                 columns: table => new
                 {
-                    discord_patron_tiers_id = table.Column<int>(type: "INTEGER", nullable: false)
+                    patreon_tiers_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    show_on_credits = table.Column<bool>(type: "INTEGER", nullable: false),
-                    named_items = table.Column<bool>(type: "INTEGER", nullable: false),
-                    figurines = table.Column<bool>(type: "INTEGER", nullable: false),
-                    lobby_message = table.Column<bool>(type: "INTEGER", nullable: false),
-                    round_end_shoutout = table.Column<bool>(type: "INTEGER", nullable: false)
+                    show_on_credits = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_discord_patron_tiers", x => x.discord_patron_tiers_id);
+                    table.PrimaryKey("PK_patreon_tiers", x => x.patreon_tiers_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,7 +61,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 });
 
             migrationBuilder.CreateTable(
-                name: "discord_patrons",
+                name: "patreon_patrons",
                 columns: table => new
                 {
                     player_id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -73,18 +69,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_discord_patrons", x => x.player_id);
+                    table.PrimaryKey("PK_patreon_patrons", x => x.player_id);
                     table.ForeignKey(
-                        name: "FK_discord_patrons_player_player_id",
+                        name: "FK_patreon_patrons_player_player_id",
                         column: x => x.player_id,
                         principalTable: "player",
                         principalColumn: "user_id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_discord_patrons_discord_patron_tiers_tier_id",
+                        name: "FK_patreon_patrons_patreon_tiers_tier_id",
                         column: x => x.tier_id,
-                        principalTable: "discord_patron_tiers",
-                        principalColumn: "discord_patron_tiers_id",
+                        principalTable: "patreon_tiers",
+                        principalColumn: "patreon_tiers_id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -95,8 +91,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_discord_patrons_tier_id",
-                table: "discord_patrons",
+                name: "IX_patreon_patrons_tier_id",
+                table: "patreon_patrons",
                 column: "tier_id");
         }
 
@@ -107,13 +103,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                 name: "discord_linked_accounts");
 
             migrationBuilder.DropTable(
-                name: "discord_patrons");
+                name: "patreon_patrons");
 
             migrationBuilder.DropTable(
                 name: "discord_accounts");
 
             migrationBuilder.DropTable(
-                name: "discord_patron_tiers");
+                name: "patreon_tiers");
         }
     }
 }

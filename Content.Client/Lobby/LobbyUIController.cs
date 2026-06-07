@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Client._RMC14.LinkAccount;
+using Content.Client._DV.AccountLinking;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
@@ -201,7 +201,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _profileEditor?.RefreshAntags();
         _profileEditor?.RefreshJobs();
         _profileEditor?.RefreshLoadouts();
-        _profileEditor?.RefreshRMC(_linkAccount.Tier);
     }
 
     private void SaveProfile()
