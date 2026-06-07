@@ -421,6 +421,9 @@
           Quantity: 5
   - type: Item
     heldPrefix: salt
+  - type: RevealRevenantOnCollide # DeltaV - salt reveals revenants
+    popupText: revenant-revealed-salt
+    revealTime: 1 # small reveal time, salt is unrefined
 
 - type: entity
   parent: SaltOre
