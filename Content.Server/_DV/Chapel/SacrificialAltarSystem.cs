@@ -1,11 +1,11 @@
 using Content.Server.Bible.Components;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Database;
 using Content.Shared.Gibbing;
 using Content.Shared._DV.Chapel;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.EntityTable;
 using Content.Shared.Humanoid;

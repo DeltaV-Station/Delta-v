@@ -4,7 +4,7 @@
   - name: mask
     slotTexture: mask
     slotFlags: MASK
-    uiWindowPos: 0,2
+    uiWindowPos: 1,0
     strippingWindowPos: 1,1
     displayName: Mask
     whitelist:
@@ -13,8 +13,9 @@
   - name: suitstorage
     slotTexture: suit_storage
     slotFlags: SUITSTORAGE
+    slotGroup: SecondHotbar
     stripTime: 3
-    uiWindowPos: 0,1
+    uiWindowPos: 2,0
     strippingWindowPos: 2,5
     displayName: Suit Storage
     whitelist:

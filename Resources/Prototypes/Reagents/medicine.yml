@@ -10,7 +10,6 @@
   color: "#081a80"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectScrambled
@@ -18,14 +17,6 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoozy
         time: 10.0 # DeltaV - 20 is ridiculous
-      - !type:GenericStatusEffect # DeltaV
-        key: PsionicsDisabled
-        component: PsionicsDisabled
-        type: Add
-      - !type:GenericStatusEffect # DeltaV
-        key: PsionicallyInsulated
-        component: PsionicInsulation
-        type: Add
 
 - type: reagent
   id: Dylovene
@@ -268,7 +259,7 @@
   id: Dexalin
   name: reagent-name-dexalin
   group: Medicine
-  desc: reagent-desc-dexalin-deltav # Deltav - Remove mention of dex+
+  desc: reagent-desc-dexalin-deltav # DeltaV - Remove mention of dex+
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
   color: "#0041a8"
@@ -1205,7 +1196,7 @@
       - !type:HealthChange # Delta-V
         damage:
           types:
-            Shadow: -2
+            Soul: -2
             Holy: 2
 
 

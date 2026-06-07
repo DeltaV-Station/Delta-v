@@ -1,3 +1,4 @@
+using Content.Server._DV.Psionics.Systems;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -13,7 +14,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
-using Content.Shared.Abilities.Psionics; // DeltaV
+using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -71,6 +72,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly PsionicSystem _psionic = default!; // DeltaV
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -144,18 +146,11 @@ public sealed partial class ZombieSystem
         RemComp<ComplexInteractionComponent>(target);
         RemComp<SentienceTargetComponent>(target);
 
-        if (TryComp<PsionicComponent>(target, out var psionic)) // DeltaV - Prevent psionic zombies
-        {
-            if (psionic.ActivePowers.Count > 0)
-            {
-                foreach (var power in psionic.ActivePowers)
-                {
-                    RemComp(target, power);
-                }
-                psionic.ActivePowers.Clear();
-            }
-            RemComp<PsionicComponent>(target);
-        }
+        // DeltaV Start - Prevent Psionic Zombies
+        RemComp<PotentialPsionicComponent>(target);
+        if (HasComp<PsionicComponent>(target))
+            _psionic.MindBreakEntity(target, false, true);
+        // DeltaV End - Prevent Psionic Zombies
 
         //funny voice
         var accentType = "zombie";
