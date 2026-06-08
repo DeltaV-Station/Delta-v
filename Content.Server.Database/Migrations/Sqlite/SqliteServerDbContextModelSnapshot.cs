@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.6");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -698,6 +698,147 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("dv_seen_tips", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<int>("TierId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tier_id");
+
+                    b.HasKey("PlayerId")
+                        .HasName("PK_patreon_patrons");
+
+                    b.HasIndex("TierId")
+                        .HasDatabaseName("IX_patreon_patrons_tier_id");
+
+                    b.ToTable("patreon_patrons", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("patreon_tiers_id");
+
+                    b.Property<ulong>("DiscordRole")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_role");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("name");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("priority");
+
+                    b.Property<bool>("ShowOnCredits")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("show_on_credits");
+
+                    b.HasKey("Id")
+                        .HasName("PK_patreon_tiers");
+
+                    b.HasIndex("DiscordRole")
+                        .IsUnique();
+
+                    b.ToTable("patreon_tiers", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordAccount", b =>
+                {
+                    b.Property<ulong>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_accounts_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_discord_accounts");
+
+                    b.ToTable("discord_accounts", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccount", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<ulong>("DiscordId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_id");
+
+                    b.HasKey("PlayerId")
+                        .HasName("PK_discord_linked_accounts");
+
+                    b.HasIndex("DiscordId")
+                        .IsUnique();
+
+                    b.ToTable("discord_linked_accounts", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccountLogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_linked_accounts_logs_id");
+
+                    b.Property<DateTime>("At")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("at");
+
+                    b.Property<ulong>("DiscordId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_id");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_discord_linked_accounts_logs");
+
+                    b.HasIndex("At")
+                        .HasDatabaseName("IX_discord_linked_accounts_logs_at");
+
+                    b.HasIndex("DiscordId")
+                        .HasDatabaseName("IX_discord_linked_accounts_logs_discord_id");
+
+                    b.HasIndex("PlayerId")
+                        .HasDatabaseName("IX_discord_linked_accounts_logs_player_id");
+
+                    b.ToTable("discord_linked_accounts_logs", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordLinkingCodes", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<Guid>("Code")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("code");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("creation_time");
+
+                    b.HasKey("PlayerId")
+                        .HasName("PK_discord_linking_codes");
+
+                    b.HasIndex("Code")
+                        .HasDatabaseName("IX_discord_linking_codes_code");
+
+                    b.ToTable("discord_linking_codes", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1045,149 +1186,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("ProfileId");
 
                     b.ToTable("profile_role_loadout", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordAccount", b =>
-                {
-                    b.Property<ulong>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_accounts_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_discord_accounts");
-
-                    b.ToTable("discord_accounts", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccount", b =>
-                {
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<ulong>("DiscordId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_id");
-
-                    b.HasKey("PlayerId")
-                        .HasName("PK_discord_linked_accounts");
-
-                    b.HasIndex("DiscordId")
-                        .IsUnique();
-
-                    b.ToTable("discord_linked_accounts", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccountLogs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_linked_accounts_logs_id");
-
-                    b.Property<DateTime>("At")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("at");
-
-                    b.Property<ulong>("DiscordId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_id");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_discord_linked_accounts_logs");
-
-                    b.HasIndex("At")
-                        .HasDatabaseName("IX_discord_linked_accounts_logs_at");
-
-                    b.HasIndex("DiscordId")
-                        .HasDatabaseName("IX_discord_linked_accounts_logs_discord_id");
-
-                    b.HasIndex("PlayerId")
-                        .HasDatabaseName("IX_discord_linked_accounts_logs_player_id");
-
-                    b.ToTable("discord_linked_accounts_logs", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordLinkingCodes", b =>
-                {
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<Guid>("Code")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("code");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("creation_time");
-
-                    b.HasKey("PlayerId")
-                        .HasName("PK_discord_linking_codes");
-
-                    b.HasIndex("Code")
-                        .HasDatabaseName("IX_discord_linking_codes_code");
-
-                    b.ToTable("discord_linking_codes", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
-                {
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<int>("TierId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("tier_id");
-
-                    b.HasKey("PlayerId")
-                        .HasName("PK_patreon_patrons");
-
-                    b.HasIndex("TierId")
-                        .HasDatabaseName("IX_patreon_patrons_tier_id");
-
-                    b.ToTable("patreon_patrons", (string)null);
-                });
-
-
-            // TODO: Discord Linking - Fix for DeltaV
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("patreon_tiers_id");
-
-                    b.Property<ulong>("DiscordRole")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_role");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("priority");
-
-                    b.Property<bool>("ShowOnCredits")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("show_on_credits");
-
-                    b.HasKey("Id")
-                        .HasName("PK_patreon_tiers");
-
-                    b.HasIndex("DiscordRole")
-                        .IsUnique();
-
-                    b.ToTable("patreon_tiers", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
@@ -1902,6 +1900,85 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_dv_seen_tips_player_player_id");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne("Patron")
+                        .HasForeignKey("Content.Server.Database.DeltaVPatron", "PlayerId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_patreon_patrons_player_player_id1");
+
+                    b.HasOne("Content.Server.Database.DeltaVPatronTier", "Tier")
+                        .WithMany("Patrons")
+                        .HasForeignKey("TierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_patreon_patrons_patreon_tiers_tier_id");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Tier");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccount", b =>
+                {
+                    b.HasOne("Content.Server.Database.DiscordAccount", "Discord")
+                        .WithOne("LinkedAccount")
+                        .HasForeignKey("Content.Server.Database.DiscordLinkedAccount", "DiscordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_discord_linked_accounts_discord_accounts_discord_id");
+
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne("LinkedAccount")
+                        .HasForeignKey("Content.Server.Database.DiscordLinkedAccount", "PlayerId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_discord_linked_accounts_player_player_id1");
+
+                    b.Navigation("Discord");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccountLogs", b =>
+                {
+                    b.HasOne("Content.Server.Database.DiscordAccount", "Discord")
+                        .WithMany("LinkedAccountLogs")
+                        .HasForeignKey("DiscordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_discord_linked_accounts_logs_discord_accounts_discord_id");
+
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany("LinkedAccountLogs")
+                        .HasForeignKey("PlayerId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_discord_linked_accounts_logs_player_player_id1");
+
+                    b.Navigation("Discord");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordLinkingCodes", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne("LinkingCodes")
+                        .HasForeignKey("Content.Server.Database.DiscordLinkingCodes", "PlayerId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_discord_linking_codes_player_player_id1");
+
+                    b.Navigation("Player");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -1991,85 +2068,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_profile_role_loadout_profile_profile_id");
 
                     b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccount", b =>
-                {
-                    b.HasOne("Content.Server.Database.DiscordAccount", "Discord")
-                        .WithOne("LinkedAccount")
-                        .HasForeignKey("Content.Server.Database.DiscordLinkedAccount", "DiscordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_discord_linked_accounts_discord_accounts_discord_id");
-
-                    b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithOne("LinkedAccount")
-                        .HasForeignKey("Content.Server.Database.DiscordLinkedAccount", "PlayerId")
-                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_discord_linked_accounts_player_player_id");
-
-                    b.Navigation("Discord");
-
-                    b.Navigation("Player");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordLinkedAccountLogs", b =>
-                {
-                    b.HasOne("Content.Server.Database.DiscordAccount", "Discord")
-                        .WithMany("LinkedAccountLogs")
-                        .HasForeignKey("DiscordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_discord_linked_accounts_logs_discord_accounts_discord_id");
-
-                    b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithMany("LinkedAccountLogs")
-                        .HasForeignKey("PlayerId")
-                        .HasPrincipalKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_discord_linked_accounts_logs_player__player_id1");
-
-                    b.Navigation("Discord");
-
-                    b.Navigation("Player");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordLinkingCodes", b =>
-                {
-                    b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithOne("LinkingCodes")
-                        .HasForeignKey("Content.Server.Database.DiscordLinkingCodes", "PlayerId")
-                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_discord_linking_codes_player_player_id");
-
-                    b.Navigation("Player");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
-                {
-                    b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithOne("Patron")
-                        .HasForeignKey("Content.Server.Database.DeltaVPatron", "PlayerId")
-                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_patreon_patrons_player_player_id");
-
-                    b.HasOne("Content.Server.Database.DeltaVPatronTier", "Tier")
-                        .WithMany("Patrons")
-                        .HasForeignKey("TierId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_patreon_patrons_patreon_tiers_tier_id");
-
-                    b.Navigation("Player");
-
-                    b.Navigation("Tier");
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
@@ -2310,6 +2308,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("BanHits");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
+                {
+                    b.Navigation("Patrons");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DiscordAccount", b =>
+                {
+                    b.Navigation("LinkedAccount")
+                        .IsRequired();
+
+                    b.Navigation("LinkedAccountLogs");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
                     b.Navigation("AdminLogs");
@@ -2383,19 +2394,6 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.ProfileRoleLoadout", b =>
                 {
                     b.Navigation("Groups");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DiscordAccount", b =>
-                {
-                    b.Navigation("LinkedAccount")
-                        .IsRequired();
-
-                    b.Navigation("LinkedAccountLogs");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
-                {
-                    b.Navigation("Patrons");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Round", b =>

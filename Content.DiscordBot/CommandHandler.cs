@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.DiscordBot;
 
-public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, PostgresServerDbContext db)
+public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, ServerDbContext db)
 {
     private const ulong Guild = 1168210010233376858UL;
 
