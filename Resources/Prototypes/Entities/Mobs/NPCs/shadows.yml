@@ -74,7 +74,7 @@
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
-  - type: JumpAbility # DeltaV - Give cats a pounce :3
+  - type: JumpAbility # Give cats a pounce :3
     jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
     jumpDistance: 3
     action: ActionCatJump
