@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._DV.AccountLinking;

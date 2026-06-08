@@ -1,4 +1,4 @@
-﻿using Content.Client.Lobby.UI;
+using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.AccountLinking;

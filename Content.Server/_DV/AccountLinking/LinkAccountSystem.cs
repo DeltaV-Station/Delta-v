@@ -1,4 +1,4 @@
-﻿using Content.Server.GameTicking;
+using Content.Server.GameTicking;
 
 namespace Content.Server._DV.AccountLinking;
 

@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.AccountLinking;
+using Content.Shared._DV.AccountLinking;
 using Robust.Shared.Network;
 
 namespace Content.Client._DV.AccountLinking;
