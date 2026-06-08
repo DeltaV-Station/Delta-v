@@ -17,8 +17,8 @@ public sealed class LinkAccountManager : IPostInjectInit
 
     private readonly Dictionary<NetUserId, TimeSpan> _lastRequest = new();
     private readonly TimeSpan _minimumWait = TimeSpan.FromSeconds(0.5);
-    private readonly Dictionary<NetUserId, SharedDeltaVPatronFull> _connected = new();
-    private readonly List<SharedDeltaVPatron> _allPatrons = [];
+    private readonly Dictionary<NetUserId, SharedPatronFull> _connected = new();
+    private readonly List<SharedPatron> _allPatrons = [];
 
     private async Task LoadData(ICommonSession player, CancellationToken cancel)
     {
@@ -29,12 +29,12 @@ public sealed class LinkAccountManager : IPostInjectInit
         var tier = patron?.Tier;
         var sharedTier = tier == null
             ? null
-            : new SharedDeltaVPatronTier(
+            : new SharedPatronTier(
                 tier.ShowOnCredits,
                 tier.Name
             );
 
-        _connected[player.UserId] = new SharedDeltaVPatronFull(sharedTier, linked);
+        _connected[player.UserId] = new SharedPatronFull(sharedTier, linked);
     }
 
     private void FinishLoad(ICommonSession player)
@@ -81,28 +81,28 @@ public sealed class LinkAccountManager : IPostInjectInit
         _allPatrons.Clear();
         foreach (var patron in patrons)
         {
-            _allPatrons.Add(new SharedDeltaVPatron(patron.Player.LastSeenUserName, patron.Tier.Name));
+            _allPatrons.Add(new SharedPatron(patron.Player.LastSeenUserName, patron.Tier.Name));
         }
     }
 
     public void SendPatronsToAll()
     {
-        var msg = new DeltaVPatronListMsg { Patrons = _allPatrons };
+        var msg = new PatronListMsg { Patrons = _allPatrons };
         _net.ServerSendToAll(msg);
     }
 
     public void SendPatrons(ICommonSession player)
     {
-        var msg = new DeltaVPatronListMsg { Patrons = _allPatrons };
+        var msg = new PatronListMsg { Patrons = _allPatrons };
         _net.ServerSendMessage(msg, player.Channel);
     }
 
-    public SharedDeltaVPatronFull? GetPatron(ICommonSession player)
+    public SharedPatronFull? GetPatron(ICommonSession player)
     {
         return GetPatron(player.UserId);
     }
 
-    public SharedDeltaVPatronFull? GetPatron(NetUserId userId)
+    public SharedPatronFull? GetPatron(NetUserId userId)
     {
         return _connected.GetValueOrDefault(userId);
     }
@@ -112,7 +112,7 @@ public sealed class LinkAccountManager : IPostInjectInit
         _net.RegisterNetMessage<LinkAccountRequestMsg>(OnRequest);
         _net.RegisterNetMessage<LinkAccountCodeMsg>();
         _net.RegisterNetMessage<LinkAccountStatusMsg>();
-        _net.RegisterNetMessage<DeltaVPatronListMsg>();
+        _net.RegisterNetMessage<PatronListMsg>();
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);

@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.Server.Database;
 
-//TODO
 [Table("discord_accounts")]
 public sealed class DiscordAccount
 {
@@ -31,7 +30,7 @@ public sealed class DiscordLinkedAccount
 }
 
 [Table("patreon_tiers")]
-public sealed class DeltaVPatronTier
+public sealed class PatronTier
 {
     [Key]
     public int Id { get; set; }
@@ -44,12 +43,12 @@ public sealed class DeltaVPatronTier
 
     public int Priority { get; set; }
 
-    public List<DeltaVPatron> Patrons { get; set; } = default!;
+    public List<Patron> Patrons { get; set; } = default!;
 }
 
 [Table("patreon_patrons")]
 [Index(nameof(TierId))]
-public sealed class DeltaVPatron
+public sealed class Patron
 {
     [Key]
     public Guid PlayerId { get; set; }
@@ -58,7 +57,7 @@ public sealed class DeltaVPatron
 
     public int TierId { get; set; }
 
-    public DeltaVPatronTier Tier { get; set; } = default!;
+    public PatronTier Tier { get; set; } = default!;
 }
 
 [Table("discord_linking_codes")]

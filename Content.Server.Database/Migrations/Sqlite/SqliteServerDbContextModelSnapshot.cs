@@ -698,7 +698,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("dv_seen_tips", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
+            modelBuilder.Entity("Content.Server.Database.Patron", b =>
                 {
                     b.Property<Guid>("PlayerId")
                         .HasColumnType("TEXT")
@@ -717,7 +717,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("patreon_patrons", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
+            modelBuilder.Entity("Content.Server.Database.PatronTier", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1900,17 +1900,17 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_dv_seen_tips_player_player_id");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatron", b =>
+            modelBuilder.Entity("Content.Server.Database.Patron", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "Player")
                         .WithOne("Patron")
-                        .HasForeignKey("Content.Server.Database.DeltaVPatron", "PlayerId")
+                        .HasForeignKey("Content.Server.Database.Patron", "PlayerId")
                         .HasPrincipalKey("Content.Server.Database.Player", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_patreon_patrons_player_player_id1");
 
-                    b.HasOne("Content.Server.Database.DeltaVPatronTier", "Tier")
+                    b.HasOne("Content.Server.Database.PatronTier", "Tier")
                         .WithMany("Patrons")
                         .HasForeignKey("TierId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -2308,7 +2308,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("BanHits");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DeltaVPatronTier", b =>
+            modelBuilder.Entity("Content.Server.Database.PatronTier", b =>
                 {
                     b.Navigation("Patrons");
                 });

@@ -51,8 +51,8 @@ namespace Content.Server.Database
         // RMC14
         public DbSet<DiscordAccount> DiscordAccounts { get; set; } = default!;
         public DbSet<DiscordLinkedAccount> DiscordLinkedAccounts { get; set; } = default!;
-        public DbSet<DeltaVPatronTier> PatronTiers { get; set; } = default!;
-        public DbSet<DeltaVPatron> Patrons { get; set; } = default!;
+        public DbSet<PatronTier> PatronTiers { get; set; } = default!;
+        public DbSet<Patron> Patrons { get; set; } = default!;
         public DbSet<DiscordLinkingCodes> DiscordLinkingCodes { get; set; } = default!;
         public DbSet<DiscordLinkedAccountLogs> DiscordLinkedAccountLogs { get; set; } = default!;
 
@@ -418,21 +418,21 @@ namespace Content.Server.Database
                 .HasPrincipalKey<DiscordAccount>(d => d.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<DeltaVPatron>()
+            modelBuilder.Entity<Patron>()
                 .HasOne(p => p.Player)
                 .WithOne(p => p.Patron)
-                .HasForeignKey<DeltaVPatron>(p => p.PlayerId)
+                .HasForeignKey<Patron>(p => p.PlayerId)
                 .HasPrincipalKey<Player>(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<DeltaVPatron>()
+            modelBuilder.Entity<Patron>()
                 .HasOne(p => p.Tier)
                 .WithMany(t => t.Patrons)
                 .HasForeignKey(p => p.TierId)
                 .HasPrincipalKey(p => p.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<DeltaVPatronTier>()
+            modelBuilder.Entity<PatronTier>()
                 .HasIndex(t => t.DiscordRole)
                 .IsUnique();
 
@@ -686,7 +686,7 @@ namespace Content.Server.Database
 
         // RMC14
         public DiscordLinkedAccount? LinkedAccount { get; set; }
-        public DeltaVPatron? Patron { get; set; }
+        public Patron? Patron { get; set; }
         public DiscordLinkingCodes? LinkingCodes { get; set; }
         public List<DiscordLinkedAccountLogs> LinkedAccountLogs { get; set; } = default!;
     }

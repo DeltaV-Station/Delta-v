@@ -3,7 +3,7 @@
 namespace Content.Shared._DV.AccountLinking;
 
 [Serializable, NetSerializable]
-public sealed record SharedDeltaVPatronTier(
+public sealed record SharedPatronTier(
     bool ShowOnCredits,
     string Tier
 );

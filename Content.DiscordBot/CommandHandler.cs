@@ -12,8 +12,8 @@ namespace Content.DiscordBot;
 
 public sealed class CommandHandler(DiscordSocketClient client, InteractionService interaction, ServerDbContext db, Config config)
 {
-    private ImmutableDictionary<ulong, DeltaVPatronTier>? _patronTiers;
-    private ImmutableArray<DeltaVPatronTier> _tierPriority;
+    private ImmutableDictionary<ulong, PatronTier>? _patronTiers;
+    private ImmutableArray<PatronTier> _tierPriority;
     private Task? _refreshPatronsTask;
 
     public int Running = 1;
@@ -89,7 +89,7 @@ public sealed class CommandHandler(DiscordSocketClient client, InteractionServic
                     if (linked?.Player is not { } player)
                         return;
 
-                    player.Patron ??= db.Patrons.Add(new DeltaVPatron { PlayerId = player.UserId }).Entity;
+                    player.Patron ??= db.Patrons.Add(new Patron { PlayerId = player.UserId }).Entity;
                     player.Patron.TierId = tier.Id;
                     await db.SaveChangesAsync();
                     await Logger.Info($"Updated patron {user.Username}:{linked.DiscordId}:{linked.Player.LastSeenUserName} with tier {tier.Name}");
@@ -188,7 +188,7 @@ public sealed class CommandHandler(DiscordSocketClient client, InteractionServic
                 {
                     tiers.Sort((a, b) => a.Priority.CompareTo(b.Priority));
                     var tier = tiers[0];
-                    discord.LinkedAccount.Player.Patron = db.Patrons.Add(new DeltaVPatron { Tier = tier }).Entity;
+                    discord.LinkedAccount.Player.Patron = db.Patrons.Add(new Patron { Tier = tier }).Entity;
                     discord.LinkedAccount.Player.Patron.Tier = tier;
                 }
 
@@ -247,7 +247,7 @@ public sealed class CommandHandler(DiscordSocketClient client, InteractionServic
                                 if (linked.Player.Patron?.Tier.DiscordRole == tier.DiscordRole)
                                     break;
 
-                                linked.Player.Patron ??= db.Patrons.Add(new DeltaVPatron { PlayerId = linked.PlayerId })
+                                linked.Player.Patron ??= db.Patrons.Add(new Patron { PlayerId = linked.PlayerId })
                                     .Entity;
                                 linked.Player.Patron.TierId = tier.Id;
                                 await Logger.Info($"Updated patron {user.Username}:{linked.DiscordId}:{linked.Player.LastSeenUserName} with tier {tier.Name}");

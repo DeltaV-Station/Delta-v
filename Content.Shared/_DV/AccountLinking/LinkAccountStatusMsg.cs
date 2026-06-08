@@ -9,7 +9,7 @@ public sealed class LinkAccountStatusMsg : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.Core;
 
-    public SharedDeltaVPatronFull? Patron;
+    public SharedPatronFull? Patron;
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
@@ -21,7 +21,7 @@ public sealed class LinkAccountStatusMsg : NetMessage
         var length = buffer.ReadVariableInt32();
         using var stream = new MemoryStream(length);
         buffer.ReadAlignedMemory(stream, length);
-        Patron = serializer.Deserialize<SharedDeltaVPatronFull>(stream);
+        Patron = serializer.Deserialize<SharedPatronFull>(stream);
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)

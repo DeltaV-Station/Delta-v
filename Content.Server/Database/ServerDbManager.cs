@@ -362,9 +362,9 @@ namespace Content.Server.Database
 
         Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel);
 
-        Task<DeltaVPatron?> GetPatron(Guid player, CancellationToken cancel);
+        Task<Patron?> GetPatron(Guid player, CancellationToken cancel);
 
-        Task<List<DeltaVPatron>> GetAllPatrons();
+        Task<List<Patron>> GetAllPatrons();
         #endregion
 
         #region DB Notifications
@@ -1160,13 +1160,13 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.HasLinkedAccount(player, cancel));
         }
 
-        public Task<DeltaVPatron?> GetPatron(Guid player, CancellationToken cancel)
+        public Task<Patron?> GetPatron(Guid player, CancellationToken cancel)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPatron(player, cancel));
         }
 
-        public Task<List<DeltaVPatron>> GetAllPatrons()
+        public Task<List<Patron>> GetAllPatrons()
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetAllPatrons());

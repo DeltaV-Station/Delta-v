@@ -7,9 +7,9 @@ public sealed class LinkAccountManager : IPostInjectInit
 {
     [Dependency] private readonly INetManager _net = default!;
 
-    private readonly List<SharedDeltaVPatron> _allPatrons = [];
+    private readonly List<SharedPatron> _allPatrons = [];
 
-    public SharedDeltaVPatronTier? Tier { get; private set; }
+    public SharedPatronTier? Tier { get; private set; }
     public bool Linked { get; private set; }
 
     public event Action<Guid>? CodeReceived;
@@ -27,13 +27,13 @@ public sealed class LinkAccountManager : IPostInjectInit
         Updated?.Invoke();
     }
 
-    private void OnPatronList(DeltaVPatronListMsg ev)
+    private void OnPatronList(PatronListMsg ev)
     {
         _allPatrons.Clear();
         _allPatrons.AddRange(ev.Patrons);
     }
 
-    public IReadOnlyList<SharedDeltaVPatron> GetPatrons()
+    public IReadOnlyList<SharedPatron> GetPatrons()
     {
         return _allPatrons;
     }
@@ -43,6 +43,6 @@ public sealed class LinkAccountManager : IPostInjectInit
         _net.RegisterNetMessage<LinkAccountCodeMsg>(OnCode);
         _net.RegisterNetMessage<LinkAccountRequestMsg>();
         _net.RegisterNetMessage<LinkAccountStatusMsg>(OnStatus);
-        _net.RegisterNetMessage<DeltaVPatronListMsg>(OnPatronList);
+        _net.RegisterNetMessage<PatronListMsg>(OnPatronList);
     }
 }
