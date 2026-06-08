@@ -10,13 +10,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.DiscordBot;
 
-public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, ServerDbContext db, Config config)
+public sealed class CommandHandler(DiscordSocketClient client, InteractionService interaction, ServerDbContext db, Config config)
 {
     private ImmutableDictionary<ulong, DeltaVPatronTier>? _patronTiers;
     private ImmutableArray<DeltaVPatronTier> _tierPriority;
     private Task? _refreshPatronsTask;
-
-    private readonly Config _config = config;
 
     public int Running = 1;
 
@@ -26,16 +24,25 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
         _tierPriority = [..patronTiers.OrderBy(t => t.Priority)];
         _patronTiers = patronTiers.ToImmutableDictionary(t => t.DiscordRole, t => t);
 
-        client.MessageReceived += HandleCommandAsync;
+        client.Ready += ReadyAsync;
+        client.SlashCommandExecuted += HandleCommandAsync;
         client.ButtonExecuted += HandleButtonAsync;
         client.ModalSubmitted += HandleModalAsync;
         client.GuildMemberUpdated += HandleGuildMemberUpdated;
 
-        await commands.AddModulesAsync(Assembly.GetEntryAssembly(), null);
+        // If you get a log that says '[ERROR]' here, you probably don't have the corrent intents 
+        await client.LoginAsync(TokenType.Bot, config.Token);
+        await client.StartAsync();
 
         interaction.AddModalInfo<LinkAccountModal>();
 
         _refreshPatronsTask = Task.Run(async () => await RefreshPatrons());
+    }
+
+    private async Task ReadyAsync()
+    {
+        await interaction.AddModulesAsync(Assembly.GetEntryAssembly(), null);
+        await interaction.RegisterCommandsToGuildAsync(config.Guild);
     }
 
     private async Task HandleGuildMemberUpdated(Cacheable<SocketGuildUser, ulong> old, SocketGuildUser user)
@@ -91,28 +98,18 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
         }
     }
 
-    private async Task HandleCommandAsync(SocketMessage messageParam)
+    private async Task HandleCommandAsync(SocketSlashCommand message)
     {
-        // Don't process the command if it was a system message
-        var message = messageParam as SocketUserMessage;
-        if (message == null)
-            return;
 
-        // Create a number to track where the prefix ends and the command begins
-        var argPos = 0;
-
-        // Determine if the message is a command based on the prefix and make sure no bots trigger commands
-        if (!(message.HasCharPrefix('!', ref argPos) ||
-            message.HasMentionPrefix(client.CurrentUser, ref argPos)) ||
-            message.Author.IsBot)
+        if (message.GuildId != config.Guild)
             return;
 
         // Create a WebSocket-based command context based on the message
-        var context = new SocketCommandContext(client, message);
+        var context = new SocketInteractionContext(client, message);
 
         // Execute the command with the command context we just
         // created, along with the service provider for precondition checks.
-        await commands.ExecuteAsync(context, argPos, null);
+        await interaction.ExecuteCommandAsync(context, null);
     }
 
     private async Task HandleButtonAsync(SocketMessageComponent component)
@@ -229,7 +226,7 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
                 {
                     try
                     {
-                        var user = await client.Rest.GetGuildUserAsync(_config.Guild, linked.DiscordId);
+                        var user = await client.Rest.GetGuildUserAsync(config.Guild, linked.DiscordId);
                         if (user == null)
                         {
                             if (linked.Player.Patron != null)

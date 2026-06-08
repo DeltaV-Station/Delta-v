@@ -11,5 +11,5 @@ public sealed class Config
     /// <summary>
     /// Discord "guild" ID (which is just the server ID). Default is DeltaV's server ID.
     /// </summary>
-    public ulong Guild { get; set; } = 1513310351490289834UL;
+    public ulong Guild { get; set; } = 968983104247185448UL;
 }

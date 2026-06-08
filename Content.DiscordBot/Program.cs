@@ -2,13 +2,12 @@
 using Content.DiscordBot;
 using Content.Server.Database;
 using Discord;
-using Discord.Commands;
 using Discord.Interactions;
 using Discord.WebSocket;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
-var client = new DiscordSocketClient(new DiscordSocketConfig { GatewayIntents = GatewayIntents.All });
+var client = new DiscordSocketClient(new DiscordSocketConfig { GatewayIntents = GatewayIntents.GuildMembers });
 client.Log += Logger.Log;
 
 Console.Out.WriteLine($"[INIT] Working Directory: {Directory.GetCurrentDirectory()}");
@@ -57,9 +56,6 @@ if (!string.IsNullOrWhiteSpace(config.DatabaseContext) && config.DatabaseContext
 
 Console.Out.WriteLine($"[INIT] Guild ID: {config.Guild}");
 
-await client.LoginAsync(TokenType.Bot, config.Token);
-await client.StartAsync();
-
 ServerDbContext db;
 if (usePostgres)
 {
@@ -76,13 +72,15 @@ else
     builder.UseSqlite(new SqliteConnection(config.DatabaseString));
     db = new SqliteServerDbContext(builder.Options);
 }
+
 Console.Out.WriteLine("[INIT] Database connection successful.");
 
 var interaction = new InteractionService(client);
-var handler = new CommandHandler(client, new CommandService(), interaction, db, config);
+var handler = new CommandHandler(client, interaction, db, config);
 
 AppDomain.CurrentDomain.ProcessExit += (_, _) => Interlocked.Decrement(ref handler.Running);
 
+Console.Out.WriteLine("[INIT] Starting Discord Bot.");
 await handler.InstallCommandsAsync();
 
 // Block this task until the program is closed.

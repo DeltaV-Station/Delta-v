@@ -6,7 +6,7 @@
 * `DATABASE_STRING`: Connection string to the database
   * For local development, you'll want it to be `Data Source=./bin/Content.Server/data/preferences.db` if you're using sqlite.
 * `DATABASE_CONTEXT`: Default is `postgres`. If testing locally with sqlite, use `sqlite`.
-* `GUILD`: The Discord Server ID. DeltaV's discord is `1513310351490289834`.
+* `GUILD`: The Discord Server ID. DeltaV's discord is `968983104247185448`.
     * You can find this by turning Developer mode on in Discord, right-clicking on a server, and copying the server ID.
 
 ### Configuration (Production)
