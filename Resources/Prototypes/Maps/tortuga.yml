@@ -41,7 +41,7 @@
             MedicalIntern: [ 2, 4 ]
             Paramedic: [ 1, 2 ]
             Psychologist: [ 1, 1 ]
-            Surgeon: [ 1, 2 ]
+            #Surgeon: [ 1, 2 ] Disabled until role returns
           #security
             Brigmedic: [ 1, 1 ]
             Detective: [ 2, 2 ]
@@ -69,7 +69,7 @@
             ForensicMantis: [ 1, 1 ]
             ResearchAssistant: [ 2, 4 ]
             ResearchDirector: [ 1, 1 ]
-            #Roboticist: [ 1, 2 ] Disabled until role returns
+            Roboticist: [ 1, 2 ]
             Scientist: [ 4, 5 ]
           #supply
             CargoAssistant: [ 1, 2 ]
