@@ -276,8 +276,8 @@
 - type: entity
   parent: ClothingBackpackERTSecurity
   id: ClothingBackpackDeathSquad
-  name: death squad backpack
-  description: Holds the kit of CentComm's most feared agents.
+  name: SRT backpack # DeltaV - was "death squad backpack"
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team # DeltaV - was "Holds the kit of CentComm's most feared agents."
   components:
     - type: Storage
       grid:
