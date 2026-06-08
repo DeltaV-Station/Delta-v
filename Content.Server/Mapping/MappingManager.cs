@@ -24,6 +24,18 @@ public sealed class MappingManager : IPostInjectInit
     private ISawmill _sawmill = default!;
     private ZStdCompressionContext _zstd = default!;
 
+    public void PostInject()
+    {
+#if !FULL_RELEASE
+        _net.RegisterNetMessage<MappingSaveMapMessage>(OnMappingSaveMap);
+        _net.RegisterNetMessage<MappingSaveMapErrorMessage>();
+        _net.RegisterNetMessage<MappingMapDataMessage>();
+
+        _sawmill = _log.GetSawmill("mapping");
+        _zstd = new ZStdCompressionContext();
+#endif
+    }
+
     private void OnMappingSaveMap(MappingSaveMapMessage message)
     {
 #if !FULL_RELEASE
@@ -58,18 +70,6 @@ public sealed class MappingManager : IPostInjectInit
             var msg = new MappingSaveMapErrorMessage();
             _net.ServerSendMessage(msg, message.MsgChannel);
         }
-#endif
-    }
-
-    void IPostInjectInit.PostInject()
-    {
-#if !FULL_RELEASE
-        _net.RegisterNetMessage<MappingSaveMapMessage>(OnMappingSaveMap);
-        _net.RegisterNetMessage<MappingSaveMapErrorMessage>();
-        _net.RegisterNetMessage<MappingMapDataMessage>();
-
-        _sawmill = _log.GetSawmill("mapping");
-        _zstd = new ZStdCompressionContext();
 #endif
     }
 }

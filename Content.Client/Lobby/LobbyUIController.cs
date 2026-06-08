@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Client._DV.AccountLinking;
+using Content.Client._DV.AccountLinking; // DeltaV
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
@@ -39,7 +39,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+    [Dependency] private readonly LinkAccountManager _linkAccount = default!; // DeltaV - Discord Account Linking
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
@@ -78,7 +78,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         _configurationManager.OnValueChanged(CCVars.GameRoleWhitelist, _ => RefreshProfileEditor());
 
-        _linkAccount.Updated += RefreshProfileEditor;
+        _linkAccount.Updated += RefreshProfileEditor; // DeltaV - Discord Account Linking
     }
 
     private LobbyCharacterPreviewPanel? GetLobbyPreview()
