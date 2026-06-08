@@ -8,7 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Shared._DV.AccountLinking;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
@@ -17,7 +16,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
-using Content.Shared.Traits;
+//using Content.Shared.Traits; // DV - Traits
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
@@ -1927,7 +1926,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
         #endregion
 
-        // BEGIN - DeltaV - Discord/Patreon Linking
+        // BEGIN DeltaV - Discord/Patreon Linking
         #region DeltaV - Account Linking
 
         public async Task<Guid?> GetLinkingCode(Guid player)
