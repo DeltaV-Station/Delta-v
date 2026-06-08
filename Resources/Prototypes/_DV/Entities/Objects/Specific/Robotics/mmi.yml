@@ -37,7 +37,7 @@
         components:
         - BorgBrain
         - MMI
-  - type: UnborgableMMI
+  - type: ToggleableMMI
   - type: ToggleableGhostRole
     examineTextMindPresent: positronic-brain-installed
     examineTextMindSearching: positronic-brain-still-searching

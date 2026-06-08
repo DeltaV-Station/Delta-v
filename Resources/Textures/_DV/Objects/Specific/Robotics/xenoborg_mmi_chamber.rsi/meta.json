@@ -11,7 +11,13 @@
             "name": "mmi_brain"
         },
         {
-            "name": "mmi_dead"
+            "name": "mmi_dead",
+            "delays": [
+                [
+                    0.2,
+                    0.3
+                ]
+            ]
         },
         {
             "name": "mmi_off",
