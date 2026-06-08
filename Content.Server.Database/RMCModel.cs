@@ -47,7 +47,6 @@ public sealed class DeltaVPatronTier
     public List<DeltaVPatron> Patrons { get; set; } = default!;
 }
 
-// TODO: Discord Linking - Do we name this patreon_patrons? I dont think its referencing the discord ID at all
 [Table("patreon_patrons")]
 [Index(nameof(TierId))]
 public sealed class DeltaVPatron
@@ -59,7 +58,6 @@ public sealed class DeltaVPatron
 
     public int TierId { get; set; }
 
-    // TODO: Discord Linking
     public DeltaVPatronTier Tier { get; set; } = default!;
 }
 
