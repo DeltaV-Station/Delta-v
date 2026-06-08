@@ -237,11 +237,12 @@ internal sealed class AdminNameOverlay : Overlay
             }
 
             // DeltaV - SSD Time START
-            if (_entityManager.TryGetComponent<SSDIndicatorComponent>(entity, out var ssdIndicator) && ssdIndicator.IsSSD)
+            if (_entityManager.TryGetComponent<SSDIndicatorComponent>(entity, out var ssdIndicator)
+                && ssdIndicator.SsdSince is {} ssdSince)
             {
                 color = Color.MediumPurple;
                 color.A = alpha;
-                var ssdText = Loc.GetString("admin-overlay-ssd-time", ("time", (_timing.CurTime - ssdIndicator.SsdSince).ToString("%hh':'mm':'ss")));
+                var ssdText = Loc.GetString("admin-overlay-ssd-time", ("time", (_timing.CurTime - ssdSince).ToString("%hh':'mm':'ss")));
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, ssdText, uiScale, color);
                 currentOffset += lineoffset;
             }

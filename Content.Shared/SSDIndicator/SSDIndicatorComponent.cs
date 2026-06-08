@@ -50,11 +50,12 @@ public sealed partial class SSDIndicatorComponent : Component
     // DeltaV - SSD Recency Additions START
 
     /// <summary>
-    /// The time at which the Entity became SSD.
+    /// The time at which the player became SSD.
+    /// This will remain unset on SSD entities that never had minds attached, such as newly spawn ghost roles.
     /// </summary>
     [AutoNetworkedField, AutoPausedField]
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan SsdSince = TimeSpan.Zero;
+    public TimeSpan? SsdSince;
 
     /// <summary>
     /// The icon displayed next to the associated entity when it is recently SSD (stage 2).
