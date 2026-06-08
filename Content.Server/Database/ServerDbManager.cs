@@ -354,6 +354,7 @@ namespace Content.Server.Database
 
         #endregion
 
+        // BEGIN DeltaV - Discord / Patreon Account Linking
         #region DeltaV - Discord Linking
 
         Task<Guid?> GetLinkingCode(Guid player);
@@ -366,6 +367,7 @@ namespace Content.Server.Database
 
         Task<List<Patron>> GetAllPatrons();
         #endregion
+        // END DeltaV
 
         #region DB Notifications
 
@@ -1172,6 +1174,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetAllPatrons());
         }
         #endregion
+        // END DeltaV
 
 
         // Wrapper functions to run DB commands from the thread pool.

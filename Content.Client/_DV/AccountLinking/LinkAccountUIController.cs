@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._DV.AccountLinking;
 
-public sealed class LinkAccountUIController : UIController //, IOnSystemChanged<LinkAccountSystem>
+public sealed class LinkAccountUIController : UIController
 {
     [Dependency] private readonly IClipboardManager _clipboard = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;

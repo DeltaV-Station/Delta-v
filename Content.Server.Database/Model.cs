@@ -48,13 +48,14 @@ namespace Content.Server.Database
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<DVModel.SeenTip> DVSeenTips { get; set; } = null!; // DeltaV - Tips
 
-        // RMC14
+        // BEGIN DeltaV - Discord / Patreon Account Linking
         public DbSet<DiscordAccount> DiscordAccounts { get; set; } = default!;
         public DbSet<DiscordLinkedAccount> DiscordLinkedAccounts { get; set; } = default!;
         public DbSet<PatronTier> PatronTiers { get; set; } = default!;
         public DbSet<Patron> Patrons { get; set; } = default!;
         public DbSet<DiscordLinkingCodes> DiscordLinkingCodes { get; set; } = default!;
         public DbSet<DiscordLinkedAccountLogs> DiscordLinkedAccountLogs { get; set; } = default!;
+        // END DeltaV
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -403,7 +404,8 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
-            // BEGIN DeltaV - Discord Account Linking 
+
+            // BEGIN DeltaV - Discord / Patreon Account Linking
             modelBuilder.Entity<DiscordLinkedAccount>()
                 .HasOne(l => l.Player)
                 .WithOne(p => p.LinkedAccount)
@@ -684,11 +686,12 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
 
-        // RMC14
+        // BEGIN DeltaV - Discord / Patreon Account Linking
         public DiscordLinkedAccount? LinkedAccount { get; set; }
         public Patron? Patron { get; set; }
         public DiscordLinkingCodes? LinkingCodes { get; set; }
         public List<DiscordLinkedAccountLogs> LinkedAccountLogs { get; set; } = default!;
+        // END DeltaV
     }
 
     [Table("whitelist")]

@@ -1926,7 +1926,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
         #endregion
 
-        // BEGIN DeltaV - Discord/Patreon Linking
+        // BEGIN DeltaV - Discord / Patreon Account Linking
         #region DeltaV - Account Linking
 
         public async Task<Guid?> GetLinkingCode(Guid player)

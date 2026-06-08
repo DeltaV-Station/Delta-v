@@ -51,7 +51,7 @@ namespace Content.Client.Info
             changelogButton.OnPressed += args => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
             buttons.AddChild(changelogButton);
 
-            // Start DeltaV - Discord Linking / Patreon
+            // BEGIN DeltaV - Discord / Patreon Account Linking
             var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
             var linkAccountButton = new Button
             {
