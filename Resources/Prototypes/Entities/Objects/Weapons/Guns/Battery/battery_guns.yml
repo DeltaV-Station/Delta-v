@@ -426,17 +426,15 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
-    fireRate: 2 #DV, was 1.5
+    fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 100
   - type: Battery
-    maxCharge: 4000 #DV, was 40000
-    startingCharge: 4000 
-  - type: BatterySelfRecharger #DV, didnt exist
-    autoRechargeRate: 10
+    maxCharge: 40000
+    startingCharge: 40000
 
 - type: entity
   name: laser cannon
