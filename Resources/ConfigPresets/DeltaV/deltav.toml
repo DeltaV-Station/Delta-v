@@ -81,7 +81,9 @@ initiator_ghost_requirement = false
 voter_ghost_requirement = false
 
 [atmos]
-space_wind = true
+monstermos_depressurization = false
+monstermos_equalization = false
+excited_groups = true
 
 [shuttle]
 arrivals = true
