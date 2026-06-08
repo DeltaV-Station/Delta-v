@@ -2,6 +2,7 @@ using Content.Server.GameTicking;
 using Content.Shared._Goobstation.StationReport;
 using Content.Shared.Paper;
 using Robust.Shared.GameObjects;
+using System.Text;
 
 namespace Content.Server._Goobstation.StationReportSystem;
 
@@ -18,17 +19,28 @@ public sealed class StationReportSystem : EntitySystem
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent args)
     {
-        //locates the first entity with StationReportComponent then stops
-        string? stationReportText = null;
+        //locates the first entity with StationReportComponent and combines them
+        var stationReports = new StringBuilder();
+        var reportNumber = 1;
+
         var query = EntityQueryEnumerator<StationReportComponent>();
-        while (query.MoveNext(out var uid, out var tablet))//finds the first entity with stationreport
+        while (query.MoveNext(out var uid, out _)) // finds every entity with StationReportComponent
         {
             if (!TryComp<PaperComponent>(uid, out var paper))
-               return;
+                continue;
 
-            stationReportText = paper.Content;
-            break;
+            if (string.IsNullOrWhiteSpace(paper.Content))
+                continue;
+
+            stationReports.AppendLine($"[bold]Station Report #{reportNumber}[/bold]");
+            stationReports.AppendLine(paper.Content);
+            stationReports.AppendLine();
+
+            reportNumber++;
         }
+        var stationReportText = stationReports.Length > 0
+            ? stationReports.ToString()
+            : null;
         BroadcastStationReport(stationReportText);
     }
 
