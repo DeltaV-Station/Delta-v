@@ -20,13 +20,10 @@
   parent: MMI
   id: XenoborgMMIChamber
   name: restricted neural upload chamber
-  description: A specialized chamber that is designed to transfer compatible biological consciousness, regardless of neural activity.
+  description: A specialized chamber that is designed to transfer incompatible biological consciousness, regardless of neural activity.
   components:
   - type: Sprite
     sprite: _DV/Objects/Specific/Robotics/xenoborg_mmi_chamber.rsi
-  - type: ContainerContainer
-    containers:
-      brainslot: !type:ContainerSlot
   - type: MMI
     brainSlot:
       name: positronic-brain-slot-component-slot-name-brain
