@@ -1,12 +1,13 @@
 ﻿using Discord;
 using Discord.Commands;
+using Discord.Interactions;
 
 namespace Content.DiscordBot.Modules;
 
 public sealed class AccountLinkingModule : ModuleBase<SocketCommandContext>
 {
-    [Command("create")]
-    [RequireOwner]
+    [SlashCommand("create", "Creates the message with the linking popup. Only has to be run once.")]
+    [Discord.Interactions.RequireOwner]
     public Task CreateAsync()
     {
         var component = new ComponentBuilder()

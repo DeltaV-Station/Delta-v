@@ -10,13 +10,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.DiscordBot;
 
-public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, ServerDbContext db)
+public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, ServerDbContext db, Config config)
 {
-    private const ulong Guild = 1168210010233376858UL;
-
     private ImmutableDictionary<ulong, DeltaVPatronTier>? _patronTiers;
     private ImmutableArray<DeltaVPatronTier> _tierPriority;
     private Task? _refreshPatronsTask;
+
+    private readonly Config _config = config;
 
     public int Running = 1;
 
@@ -229,7 +229,7 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
                 {
                     try
                     {
-                        var user = await client.Rest.GetGuildUserAsync(Guild, linked.DiscordId);
+                        var user = await client.Rest.GetGuildUserAsync(_config.Guild, linked.DiscordId);
                         if (user == null)
                         {
                             if (linked.Player.Patron != null)
@@ -271,7 +271,7 @@ public sealed class CommandHandler(DiscordSocketClient client, CommandService co
                 }
 
                 await db.SaveChangesAsync();
-                await Task.Delay(60000);
+                await Task.Delay(60000); // 60 seconds
             }
             catch (Exception e)
             {
