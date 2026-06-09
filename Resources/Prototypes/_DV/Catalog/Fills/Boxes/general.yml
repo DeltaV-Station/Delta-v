@@ -220,17 +220,9 @@
         - id: ReinforcementRadioSyndicateYarn
 
 - type: entity
-  parent: ClothingBackpackDuffel
+  parent: BoxPerformer
   id: BoxPerformerDV
   name: virtual performer costume bag
   description: A bundle that contains everything you need to embrace your inner performer.
   components:
   - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingShoesBootsPerformer
-        - id: ClothingUniformJumpskirtPerformer
-        - id: ClothingHeadPerformerWig
-        - id: FoodMealMemoryleek
-          amount: 2
