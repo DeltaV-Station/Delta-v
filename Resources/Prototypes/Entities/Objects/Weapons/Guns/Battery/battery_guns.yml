@@ -433,7 +433,7 @@
     proto: Pulse
     fireCost: 100
   - type: Battery
-  # Begin DeltaV modifications - smaller battery and self recharge 
+  # Begin DeltaV modifications - smaller battery and self recharge
     maxCharge: 4000 # DeltaV -  was 40000
     startingCharge: 4000 # DeltaV -  was 40000
   - type: BatterySelfRecharger
@@ -444,7 +444,7 @@
   name: laser cannon
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCannon
-  description: A heavy duty, high powered laser weapon.
+  description: A heavy duty, high powered laser weapon. Comes with a scope. # DeltaV - "Comes with a scope" description addition.
   components:
   - type: Item
     size: Huge
