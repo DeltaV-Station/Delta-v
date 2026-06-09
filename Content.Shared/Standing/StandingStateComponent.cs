@@ -4,11 +4,12 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Standing;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(StandingStateSystem))]
 public sealed partial class StandingStateComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public SoundSpecifier DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
+    public SoundSpecifier? DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
 
     [DataField, AutoNetworkedField]
     public bool Standing { get; set; } = true;

@@ -1,14 +1,14 @@
 # This file will contain strings for both DeltaV and Nyanotrasen loadouts, because I'm lazy
 
 # Miscellaneous
-loadout-group-survival-corpsman = Corpsman Survival Box
+loadout-group-survival-corpsman = Corpsman survival box
 
 # Command
 loadout-group-captain-gloves = Captain gloves
 loadout-group-captain-shoes = Captain shoes
 loadout-group-hop-gloves = Head of Personnel gloves
 loadout-group-hop-shoes = Head of Personnel shoes
-loadout-group-chief-engineer-gloves = Chief Engineer Gloves
+loadout-group-chief-engineer-gloves = Chief Engineer gloves
 
 # Civilian
 loadout-group-librarian-neck = Librarian neck
@@ -18,7 +18,7 @@ loadout-group-bartender-neck = Bartender neck
 
 loadout-group-janitor-neck = Janitor neck
 
-loadout-group-botanist-neck = Botanist Neck
+loadout-group-botanist-neck = Botanist neck
 
 loadout-group-mime-neck = Mime neck
 
@@ -81,7 +81,7 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
-loadout-group-psychologist-belt = Psychologist Belt
+loadout-group-psychologist-belt = Psychologist belt
 
 loadout-group-surgeon-head = Surgeon head
 loadout-group-surgeon-mask = Surgeon mask
@@ -114,7 +114,7 @@ loadout-group-atmospheric-technician-neck = Atmospheric Technician neck
 
 loadout-group-atmos-id-delta = Atmospheric Technician PDA
 
-loadout-group-atmospheric-technician-head = Atmospheric Technician Head
+loadout-group-atmospheric-technician-head = Atmospheric Technician head
 
 # Security
 loadout-group-head-of-security-shoes = Head of Security shoes
@@ -134,12 +134,13 @@ loadout-group-corpsman-eyewear = Corpsman eyewear
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
 
-loadout-group-security-gun = Security Sidearm
-loadout-group-revolver-gun = Security Revolver
-loadout-group-all-gun = Security Sidearm
+loadout-group-security-gun = Security sidearm
+loadout-group-revolver-gun = Security revolver
+loadout-group-all-gun = Security sidearm
 loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
 loadout-group-all-ammo = Ammunition
+security-utility = Utility
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
@@ -170,6 +171,3 @@ loadout-group-gladiator-outerclothing = Gladiator outer clothing
 loadout-group-boxer-jumpsuit = Boxer jumpsuit
 loadout-group-boxer-gloves = Boxer gloves
 loadout-group-boxer-mask = Wrestling mask
-
-# Species
-loadout-group-humanoid-silicon = Silicon-friendly survival box
