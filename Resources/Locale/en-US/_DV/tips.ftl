@@ -32,4 +32,4 @@ tips-dataset-170 = As CBURN, use flashbangs to slow down the approaching horde o
 tips-dataset-171 = As a Corpsman, don't frontline in battle if you got a team! Provide quick medical attention to the retreating wounded officers, so you can keep the battle going.
 tips-dataset-172 = As a Security Officer, know when to retreat. If you're running low on health or ammo, it's wiser to fallback to rearm, than to go out guns blazing.
 tips-dataset-173 = Departmental radio communication is important! Not everyone knows what you see or what you are doing, and no one knows whether you heard them. Respond to messages, even small ones.
-tips-dataset-174 = You can receive notifications from holopads or fax machines if you link them with your PDA. To link it: just touch the machines with your PDA.
+tips-dataset-174 = You can receive notifications from holopads or fax machines if you link them with your PDA. To link it: just touch the machine with your PDA.
