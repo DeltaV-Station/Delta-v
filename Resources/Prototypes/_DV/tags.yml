@@ -4,33 +4,6 @@
   id: Artifact
 
 - type: Tag
-  id: AugmentAPCBoard
-
-- type: Tag
-  id: AugmentBotanyToolBelt
-
-- type: Tag
-  id: AugmentCellCasing
-
-- type: Tag
-  id: AugmentChargerCasing
-
-- type: Tag
-  id: AugmentPaperworkToolBelt
-
-- type: Tag
-  id: AugmentStationBoard
-
-- type: Tag
-  id: AugmentSurgeryToolBelt
-
-- type: Tag
-  id: AugmentToolBelt
-
-- type: Tag
-  id: AugmentToolPanelCasing
-
-- type: Tag
   id: Bayonet #Craftable Musket
 
 - type: Tag
@@ -184,9 +157,6 @@
   id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
 
 - type: Tag
-  id: SiliconOrIPCEmotes # upstream's SiliconEmotes = only bots and borgs, this one includes IPCs
-
-- type: Tag
   id: Skirt
 
 - type: Tag
@@ -284,8 +254,27 @@
 
 - type: Tag
   id: ReinforcedCameraSupply # Reinforced Cameras - Logistics
+
 - type: Tag
   id: GenderScarf
 
 - type: Tag
   id: GenderCloak
+
+- type: Tag
+  id: Jug
+
+- type: Tag # Service Chef Module
+  id: Dinnerware
+
+- type: Tag # Service Chef Module
+  id: Kitchenware
+
+- type: Tag # Service Chef Module
+  id: Ingredients
+
+- type: Tag
+  id: PatientTransportation # Rollerbed/Hoverbed/Bodybags Whitelist for Medical Borg
+
+- type: Tag
+  id: Glowstick

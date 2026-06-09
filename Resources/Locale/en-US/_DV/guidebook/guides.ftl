@@ -32,6 +32,7 @@ guide-entry-science = Epistemics
 guide-entry-glimmer-creatures = Glimmer Creatures
 guide-entry-altars = Altars
 guide-entry-psionics = Psionics
+guide-entry-mantis = Psionic Mantis
 guide-entry-reverse-engineering = Reverse Engineering
 
 guide-entry-trade-station = Trade Station

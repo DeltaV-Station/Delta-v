@@ -122,6 +122,9 @@
       roleLoadout:
       - RoleSurvivalStandard
       components:
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
@@ -222,6 +225,7 @@
         nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
@@ -269,6 +273,7 @@
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -379,6 +384,36 @@
       - type: AutoImplant
         implants:
         - RadioImplantCentcomm
+
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: HitmanRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeShuttleObjectiveHitman
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
+  - type: AntagSelection
+    agentName: hitman-round-end-agent-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      startingGear: HitmanGear
+      briefing:
+        text: hitman-role-greeting-human
+        color: yellow
+        sound: /Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg
+      mindRoles:
+      - MindRoleHitman
+
 
 # nt agent sleeper event
 - type: entity

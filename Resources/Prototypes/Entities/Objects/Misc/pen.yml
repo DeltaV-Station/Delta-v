@@ -26,13 +26,6 @@
         maxDistance: 2
   - type: UseDelay
     delay: 1.5
-  - type: Tending # Shitmed
-    speed: 0.55
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
   - type: Fixtures
     fixtures:
       fix1:

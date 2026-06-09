@@ -25,6 +25,15 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         }
 
         var profile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
+
+        // DeltaV - begin keep gender
+        if (component.KeepGender)
+        {
+            profile = profile.WithSex(humanoid.Sex);
+            profile = profile.WithGender(humanoid.Gender);
+        }
+        // DeltaV - end keep gender
+
         //If we have a specified hair style, change it to this
         if(component.Hair != null)
             profile = profile.WithCharacterAppearance(profile.Appearance.WithHairStyleName(component.Hair));

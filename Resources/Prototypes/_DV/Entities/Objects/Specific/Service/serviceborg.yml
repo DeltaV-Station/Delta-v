@@ -1,0 +1,335 @@
+- type: entity
+  parent: BaseItem
+  id: ClothingHandsGlovesBoxingRedBorg
+  name: red boxing gloves
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: Red gloves for competitive boxing.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+    state: icon
+  - type: StaminaDamageOnHit
+    damage: 8
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 0.4
+    soundHit:
+      collection: BoxingHit
+    animation: WeaponArcFist
+
+- type: entity
+  parent: BaseItem
+  id: BoxingBellBorg
+  name: boxing bell
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: Ding ding!
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/bell.rsi
+    layers:
+    - state: bell
+  - type: EmitSoundOnUse
+    sound:
+      collection: BoxingBell
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/boxingbell.ogg"
+  - type: Appearance
+
+- type: entity
+  parent: BaseItem
+  id: PlantAnalyzerUnpowered
+  name: integrated plant analyzer
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: A handheld device that allows you to scan seeds and plants to get detailed information about their genes.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Devices/plant_analyzer.rsi
+    layers:
+    - state: plantanalyzer
+    - state: unlit
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: unshaded
+  - type: Item
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.PlantAnalyzerUiKey.Key
+    inHandsOnly: false
+  - type: UserInterface
+    interfaces:
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+  - type: ItemToggle
+    onUse: false
+  - type: PlantAnalyzer
+    settings:
+      scanDelay: 1
+      advScanDelay: 1.5
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: Appearance
+
+- type: entity
+  parent: BoxMouthSwab
+  id: BoxMouthSwabBorg
+  suffix: Borg
+  categories: [ DoNotMap ]
+  name: integrated sterile swab dispenser
+  description: Dispenses renewable sterile swabs, extremely useful for botany.
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 2
+
+- type: entity
+  parent: BaseItem
+  id: AdvancedMicrowaveBorg
+  name: integrated advanced microwave
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: Your very own built-in radiation generator.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/advanced_microwave.rsi
+    state: mw
+  - type: Microwave
+    cookTimeMultiplier: 0.5
+    capacity: 30
+    canMicrowaveIdsSafely: false
+  - type: FoodRecipeProvider
+    providedRecipes:
+    - RecipeBaguetteSword
+    - RecipeThrowingCroissant
+  - type: ContainerContainer
+    containers:
+      microwave_entity_container: !type:Container
+  - type: ApcPowerReceiver
+    powerLoad: 0
+    needsPower: false
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.Key
+    inHandsOnly: false
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.Key:
+        type: MicrowaveBoundUserInterface
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+
+- type: entity
+  parent: [ReagentPacketBase, ItemHeftyBase]
+  id: ReagentContainerFlourBorg
+  name: integrated flour bag
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: A renewing flour bag that regenerates its contents!
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/ingredients.rsi
+    state: flour-big
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Flour
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: food
+    duration: 20
+    generated:
+      reagents:
+      - ReagentId: Flour
+        Quantity: 5
+
+- type: entity
+  id: BoozeDispenserBorg
+  parent: BaseItem
+  name: integrated booze dispenser
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: An integrated booze dispenser! Make drinks on the go.
+  components:
+  - type: Sprite
+    sprite: Structures/smalldispensers.rsi
+    state: booze
+  - type: ActivatableUI
+    key: enum.ReagentDispenserUiKey.Key
+    inHandsOnly: false
+  - type: UserInterface
+    interfaces:
+      enum.ReagentDispenserUiKey.Key:
+        type: ReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      beakerSlot: !type:ContainerSlot
+  - type: SolutionContainerManager
+    solutions:
+      dispenser:
+        maxVol: 5000
+        canReact: true
+  - type: ReagentDispenser
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+  - type: Storage
+    openOnActivate: false
+    whitelist:
+      components:
+      - FitsInDispenser
+      tags:
+      - DrinkBottle
+    maxItemSize: Normal
+    grid:
+    - 0,0,19,5
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkAleBottleFullGrowler
+        - id: DrinkBeerGrowler
+        - id: DrinkCoffeeLiqueurBottleFull
+        - id: DrinkCognacBottleFull
+        - id: DrinkGinBottleFull
+        - id: DrinkMeadJug
+        - id: DrinkRumBottleFull
+        - id: DrinkTequilaBottleFull
+        - id: DrinkVermouthBottleFull
+        - id: DrinkVodkaBottleFull
+        - id: DrinkWhiskeyBottleFull
+        - id: DrinkWineBottleFull
+        - id: DrinkJaegermisterBottleFull
+
+- type: entity
+  parent: BaseItem
+  id: SodaDispenserBorg
+  name: integrated soda dispenser
+  suffix: Borg
+  categories: [ DoNotMap ]
+  description: An integrated soda dispenser! Make drinks on the go.
+  components:
+  - type: Sprite
+    sprite: Structures/smalldispensers.rsi
+    state: soda
+  - type: ActivatableUI
+    key: enum.ReagentDispenserUiKey.Key
+    inHandsOnly: false
+  - type: UserInterface
+    interfaces:
+      enum.ReagentDispenserUiKey.Key:
+        type: ReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      dispenser:
+        maxVol: 5000
+  - type: ReagentDispenser
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+  - type: Storage
+    openOnActivate: false
+    whitelist:
+      tags:
+      - DrinkBottle
+    maxItemSize: Normal
+    grid:
+    - 0,0,19,5
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkCoconutWaterJug
+        - id: DrinkCoffeeJug
+        - id: DrinkColaBottleFull
+        - id: DrinkCreamCartonXL
+        - id: DrinkDrGibbJug
+        - id: DrinkEnergyDrinkJug
+        - id: DrinkGreenTeaJug
+        - id: DrinkIceJug
+        - id: DrinkJuiceLimeCartonXL
+        - id: DrinkJuiceOrangeCartonXL
+        - id: DrinkLemonLimeJug
+        - id: DrinkRootBeerJug
+        - id: DrinkSodaWaterBottleFull
+        - id: DrinkSpaceMountainWindBottleFull
+        - id: DrinkSpaceUpBottleFull
+        - id: DrinkSugarJug
+        - id: DrinkTeaJug
+        - id: DrinkTonicWaterBottleFull
+        - id: DrinkWaterMelonJuiceJug
+
+- type: entity
+  id: CameraBugBorg
+  parent: CameraBug
+  suffix: Borg
+  categories: [ DoNotMap ]
+  name: integrated camera monitor
+  description: Allows you to view into the station's camera network.
+  components:
+  - type: ActivatableUI
+    requireActiveHand: false
+    inHandsOnly: false
+
+- type: entity
+  parent: BaseItem
+  id: SurveillanceWirelessCameraBorg
+  suffix: Borg
+  categories: [ DoNotMap ]
+  name: intergated wireless camera
+  description: A camera that projects from you.
+  components:
+    - type: InteractionOutline
+    - type: Eye
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: SurveillanceCameraMicrophone
+      blacklist:
+        components:
+          - SurveillanceCamera
+          - SurveillanceCameraMonitor
+          - RadioSpeaker
+    - type: ActiveListener
+      range: 10
+    - type: UserInterface
+      interfaces:
+        enum.SurveillanceCameraSetupUiKey.Camera:
+          type: SurveillanceCameraSetupBoundUi
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCameraEntertainment
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+    - type: Sprite
+      sprite: Structures/monitors.rsi
+      layers:
+        - map: [ "enum.SurveillanceCameraVisualsKey.Key" ]
+          state: television

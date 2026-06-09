@@ -8,6 +8,11 @@
   setPreference: false
   canBeAntag: false
   playTimeTracker: RoleLaika
+  icon: JobIconSecurityK9Officer
+  supervisors: job-supervisors-hos
+  access:
+  - Security
+  - Maintenance
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
@@ -69,6 +74,17 @@
   description: role-description-pun-pun
   setPreference: false
   playTimeTracker: RolePunPun
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobBartender
+    time: 1h
+
+- type: job
+  id: RoleBaba
+  name: role-name-baba
+  description: role-description-baba
+  setPreference: false
+  playTimeTracker: RoleBaba
   requirements:
   - !type:RoleTimeRequirement
     role: JobBartender

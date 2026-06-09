@@ -12,7 +12,7 @@ namespace Content.Server.Speech.EntitySystems
 
         private void OnCheck(EntityUid uid, UnblockableSpeechComponent component, CheckIgnoreSpeechBlockerEvent args)
         {
-            args.IgnoreBlocker = true;
+            args.IgnoreBlocker = component.Active; // DeltaV
         }
     }
 }

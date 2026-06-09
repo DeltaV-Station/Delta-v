@@ -54,7 +54,7 @@ public sealed partial class BlockingSystem
             return;
 
         // Delta V - Begin Fix Toggleable Shields always blocking
-        if (!TryComp<ItemToggleComponent>(item, out var toggleComp) || !toggleComp.Activated)
+        if (TryComp<ItemToggleComponent>(item, out var toggleComp) && !toggleComp.Activated)
             return;
         // Delta V - End
 

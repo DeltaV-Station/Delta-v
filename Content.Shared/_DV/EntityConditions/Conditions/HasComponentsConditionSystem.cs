@@ -24,7 +24,7 @@ public sealed partial class HasComponentsConditionSystem : EntityConditionSystem
     protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HasComponentCondition> args)
     {
         var targetEntity = args.Condition.BodyPart is { } bodyPart
-                ? _body.GetBodyChildrenOfType(entity.Owner, bodyPart, symmetry: args.Condition.BodyPartSymmetry).Select(it => it.Id).FirstOrDefault()
+                ? _body.GetBodyChildrenOfType(entity.Owner, bodyPart).Select(it => it.Id).FirstOrDefault()
                 : entity.Owner;
 
         if (!targetEntity.IsValid())

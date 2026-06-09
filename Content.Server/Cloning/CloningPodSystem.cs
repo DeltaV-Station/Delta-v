@@ -8,7 +8,6 @@ using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._DV.Psionics.Components; // DeltaV
-using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -162,9 +161,6 @@ public sealed class CloningPodSystem : EntitySystem
 
         if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
             return false;
-
-        if (HasComp<SiliconComponent>(bodyToClone))
-            return false; // Goobstation: Don't clone IPCs.
 
         var cloningCost = (int)Math.Round(physics.FixturesMass);
 
