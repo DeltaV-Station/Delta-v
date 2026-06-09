@@ -18,8 +18,8 @@
         Blunt: 20
         Heat: 3
         Structural: 20
-  - type: Reflect # ok so i know this sounds like it would be broken but it really doesnt proc enough for it to be a major problem with any NT standard armor
-    reflectProb: .30
+  - type: ClothingSlowResistance
+      modifier: 0.30
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -34,9 +34,14 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 2
-  - type: HeldSpeedModifier # no more tazer means you need to RUN to catch people so uh PICK UP YO PACE
-    walkModifier: 1.25
-    sprintModifier: 1.25
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.10
+          Heat: 0.10
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.10
+          Heat: 0.10
   - type: Clothing
     quickEquip: false
     slots:
