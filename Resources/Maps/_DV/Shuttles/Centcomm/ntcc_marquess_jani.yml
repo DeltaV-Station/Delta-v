@@ -2140,18 +2140,14 @@ entities:
   entities:
   - uid: 254
     components:
-    - type: MetaData
-      name: jug (bleach)
     - type: Transform
       pos: 3.7016594,3.828351
       parent: 1
     - type: Label
       currentLabel: bleach
-    - type: NameModifier
-      baseName: jug
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200
@@ -2162,18 +2158,14 @@ entities:
             Quantity: 200
   - uid: 384
     components:
-    - type: MetaData
-      name: jug (bleach)
     - type: Transform
       pos: 3.7016594,3.484601
       parent: 1
     - type: Label
       currentLabel: bleach
-    - type: NameModifier
-      baseName: jug
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200

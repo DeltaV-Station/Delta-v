@@ -81,7 +81,10 @@
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       # End DeltaV - borg PDAs
-  - type: Targeting # Shitmed Change
+      # Begin DeltaV - borg wires
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+      # End DeltaV
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -117,9 +120,6 @@
     fuelCost: 0.5
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
-  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
-  - type: Fiber # DeltaV - borgs leave metal fibers
-    fiberMaterial: fibers-plasteel
   - type: LockingWhitelist
     blacklist:
       components:
@@ -164,7 +164,6 @@
     speechVerb: Robotic
     speechSounds: Borg
   - type: Vocal
-    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSilicon
     wilhelmProbability: 0.001 # DeltaV
@@ -257,7 +256,6 @@
     - FootstepSound
     - CanPilot
     - SiliconEmotes
-    - SiliconOrIPCEmotes # DeltaV
     - Honker # DeltaV - Can honk
     - Unimplantable
   - type: Emoting
@@ -370,6 +368,8 @@
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
+  - type: Wires # DeltaV: NT borgs have a circuit panel
+    layoutId: Cyborg
   - type: ShowJobIcons
   - type: InteractionPopup
     interactSuccessSound:
@@ -528,7 +528,6 @@
     allowedEmotes:
     - Laugh
   - type: Vocal
-    wilhelm: "/Audio/_EE/Voice/IPC/wilhelm.ogg" # DeltaV
     sounds:
       Unsexed: UnisexSiliconXenoborg
     wilhelmProbability: 0.001 # DeltaV

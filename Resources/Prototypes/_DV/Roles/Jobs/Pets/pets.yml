@@ -8,6 +8,11 @@
   setPreference: false
   canBeAntag: false
   playTimeTracker: RoleLaika
+  icon: JobIconSecurityK9Officer
+  supervisors: job-supervisors-hos
+  access:
+  - Security
+  - Maintenance
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security

@@ -4,10 +4,6 @@
   name: "gingerbread body part"
   abstract: true
   components:
-  - type: Icon # Shitmed Change
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-  - type: BodyPart # Shitmed Change
-    species: Gingerbread
   - type: Extractable
     juiceSolution:
       reagents:

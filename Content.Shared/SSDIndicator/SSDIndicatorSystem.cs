@@ -1,4 +1,6 @@
+using Content.Shared._DV.CCVars; // DeltaV - SSD Recency
 using Content.Shared.CCVar;
+using Content.Shared.Examine; // DeltaV - SSD Recency
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -21,6 +23,9 @@ public sealed class SSDIndicatorSystem : EntitySystem
     private bool _icSsdSleep;
     private float _icSsdSleepTime;
 
+    private TimeSpan _cryoableSsdSeconds; // DeltaV
+    private TimeSpan _recentSsdSeconds; // DeltaV
+
     public override void Initialize()
     {
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerAttachedEvent>(OnPlayerAttached);
@@ -29,7 +34,43 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorCryoableAfterSeconds, obj => _cryoableSsdSeconds = TimeSpan.FromSeconds(obj), true); // DeltaV - SSD Recency
+        _cfg.OnValueChanged(DCCVars.SsdIndicatorRecentAfterSeconds, obj => _recentSsdSeconds = TimeSpan.FromSeconds(obj), true); // DeltaV - SSD Recency
+
+        SubscribeLocalEvent<SSDIndicatorComponent, ExaminedEvent>(OnExamine); // DeltaV - SSD Recency
     }
+
+    // DeltaV - SSD Recency START
+    private void OnExamine(Entity<SSDIndicatorComponent> ent, ref ExaminedEvent args)
+    {
+        if (!ent.Comp.IsSSD)
+            return;
+
+        using (args.PushGroup(nameof(SSDIndicatorComponent)))
+        {
+            var timestamp = (_timing.CurTime - ent.Comp.SsdSince).ToString("%hh':'mm':'ss");
+            args.PushMarkup(Loc.GetString("ssd-examine-duration", ("time", timestamp)));
+            args.PushMarkup(Loc.GetString($"ssd-examine-{GetStage(ent).ToString().ToLower()}"));
+        }
+    }
+
+    public SsdStage GetStage(Entity<SSDIndicatorComponent> ent)
+    {
+        var curTime = _timing.CurTime;
+
+        if (ent.Comp.SsdSince + _cryoableSsdSeconds < curTime)
+        {
+            return SsdStage.Cryoable;
+        }
+
+        if (ent.Comp.SsdSince + _recentSsdSeconds < curTime)
+        {
+            return SsdStage.Recent;
+        }
+
+        return SsdStage.VeryRecent;
+    }
+    // DeltaV END
 
     private void OnPlayerAttached(EntityUid uid, SSDIndicatorComponent component, PlayerAttachedEvent args)
     {
@@ -54,6 +95,8 @@ public sealed class SSDIndicatorSystem : EntitySystem
         {
             component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
         }
+
+        component.SsdSince = _timing.CurTime; // DeltaV - SSD Recency
 
         Dirty(uid, component);
     }

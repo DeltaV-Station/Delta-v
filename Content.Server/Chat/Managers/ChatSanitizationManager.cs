@@ -92,6 +92,8 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("[':", "chatsan-tearfully-smiles"),
         Entry("('=", "chatsan-tearfully-smiles"),
         Entry("['=", "chatsan-tearfully-smiles"),
+        Entry("?", "chatsan-confused"), //DeltaV
+        Entry("…", "chatsan-sighs"), //DeltaV (note that ... doesn't work as that turns into a radio message)
     ];
 
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;

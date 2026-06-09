@@ -70,3 +70,6 @@ trait-protected-desc = Due to your position, value, or circumstances, your survi
 
 trait-slavic-name = Slavic accent
 trait-slavic-desc = You kome from ze East, and speak vith strong Slavic accent!
+
+trait-no-paradox-clone-name = No Paradox Clone
+trait-no-paradox-clone-desc = For whatever reason, the universe will only ever have one of you. You won't be able to have a paradox clone.

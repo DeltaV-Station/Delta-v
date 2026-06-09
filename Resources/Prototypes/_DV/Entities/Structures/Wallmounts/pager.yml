@@ -52,6 +52,8 @@
           params:
             volume: -8
 
+# Departmentwide button pager
+
 - type: entity
   parent: PagerButton
   id: PagerButtonMedical
@@ -99,3 +101,35 @@
   components:
   - type: PageSender
     autoLinkDepartments: [Command]
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonJustice
+  suffix: Justice
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Justice]
+
+# Job-specific button pager
+
+- type: entity
+  parent: PagerButton
+  id: PagerButtonHeadOfPersonnel
+  suffix: Head Of Personnel
+  components:
+  - type: PageSender
+    autoLinkJobs: [HeadOfPersonnel]
+
+# Doorbell frame
+
+- type: entity
+  parent: ButtonFrame
+  id: PagerButtonFrameGreen
+  name: pager button frame
+  suffix: Doorbell Frame
+  description: It's a frame to help bring attention to the doorbell.
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _DV/Structures/Wallmounts/pager_frame.rsi
+    state: doorbell_frame

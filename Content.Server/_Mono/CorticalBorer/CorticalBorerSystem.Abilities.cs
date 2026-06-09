@@ -6,7 +6,6 @@
 
 using Content.Server.Body.Components;
 using Content.Shared._Mono.CorticalBorer;
-using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;

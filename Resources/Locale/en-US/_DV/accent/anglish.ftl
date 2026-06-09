@@ -3001,12 +3001,6 @@ accent-anglish-replacement-1002 = foxfolk
 accent-anglish-words-1003 = diona
 accent-anglish-replacement-1003 = woodwight
 
-accent-anglish-words-1004 = IPC
-accent-anglish-replacement-1004 = wileman
-
-accent-anglish-words-1005 = IPCs
-accent-anglish-replacement-1005 = wilemen
-
 accent-anglish-words-1006 = reptile
 accent-anglish-replacement-1006 = slinkend
 

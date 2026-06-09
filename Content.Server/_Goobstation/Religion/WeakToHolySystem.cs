@@ -17,13 +17,11 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Timing;
 using Content.Server.Bible.Components;
 using Content.Shared.Damage.Prototypes;
-using Robust.Shared.Prototypes; // Shitmed Change
 
 namespace Content.Server._Goobstation.Religion;
 
@@ -109,10 +107,10 @@ public sealed class WeakToHolySystem : EntitySystem
 
             // Rune healing.
             if (weakToHoly.IsColliding)
-                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreResistances: true, targetPart: TargetBodyPart.All);
+                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreResistances: true);
 
             // Passive healing.
-            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreResistances: true, targetPart: TargetBodyPart.All);
+            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreResistances: true);
         }
     }
 

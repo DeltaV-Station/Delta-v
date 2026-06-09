@@ -35,7 +35,7 @@
   - type: PageSender
     autoLinkDepartments: [Engineering]
   - type: FaxMachine
-    name: "Command"
+    name: "Engineering"
 
 - type: entity
   parent: FaxMachineBase
@@ -45,7 +45,7 @@
   - type: PageSender
     autoLinkDepartments: [Epistemics]
   - type: FaxMachine
-    name: "Engineering"
+    name: "Epistemics"
 
 - type: entity
   parent: FaxMachineBase
@@ -96,6 +96,16 @@
     autoLinkDepartments: [Civilian]
   - type: FaxMachine
     name: "Civilian"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineService
+  suffix: Service
+  components:
+  - type: PageSender
+    autoLinkJobs: [Bartender, Botanist, Botanist, Boxer, Chef, Clown, HeadOfPersonnel, Janitor, MartialArtist, Mime, Musician, Reporter, ServiceWorker, Zookeeper]
+  - type: FaxMachine
+    name: "Service"
 
 # Job-specific fax machines
 
@@ -458,3 +468,23 @@
     autoLinkJobs: [Zookeeper]
   - type: FaxMachine
     name: "Zoo"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMantis
+  suffix: Psionic Mantis
+  components:
+  - type: PageSender
+    autoLinkJobs: [ForensicMantis]
+  - type: FaxMachine
+    name: "Psionic Mantis"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachinePerma
+  suffix: Perma
+  components:
+  - type: PageSender
+    autoLinkJobs: [Prisoner]
+  - type: FaxMachine
+    name: "Permanent Brig"
