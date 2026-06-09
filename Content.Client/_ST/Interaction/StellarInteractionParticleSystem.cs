@@ -63,16 +63,16 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
 
     private Animation GetAnimation(Vector2 endOffset, Color color)
     {
-        var startRotation = _random.NextAngle(Angle.FromDegrees(-80), Angle.FromDegrees(80));
+        var startRotation = _random.NextAngle(Angle.FromDegrees(-40), Angle.FromDegrees(40));
         var endRotation = Angle.Zero;
         var startScale = new Vector2(0.3f, 0.3f);
         var endScale = new Vector2(1f, 1f);
         var rotationLength = TimeSpan.FromMilliseconds(600);
 
         var startOffset = new Vector2();
-        var offsetLength = TimeSpan.FromMilliseconds(200);
+        var offsetLength = TimeSpan.FromMilliseconds(250);
 
-        var startColor = color.WithAlpha(color.A * 0.9f);
+        var startColor = color.WithAlpha(color.A * 0.7f);
         var endColor = color.WithAlpha(0f);
         var colorLength = rotationLength + offsetLength;
 
@@ -89,7 +89,7 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(startRotation, 0f),
-                        new AnimationTrackProperty.KeyFrame(endRotation, (float)rotationLength.TotalSeconds, Easings.OutBounce),
+                        new AnimationTrackProperty.KeyFrame(endRotation, (float)rotationLength.TotalSeconds, Easings.OutBack),
                     },
                 },
                 new AnimationTrackComponentProperty()
@@ -99,7 +99,7 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(startScale, 0f),
-                        new AnimationTrackProperty.KeyFrame(endScale, (float)rotationLength.TotalSeconds, Easings.OutBounce),
+                        new AnimationTrackProperty.KeyFrame(endScale, (float)rotationLength.TotalSeconds, Easings.OutBack),
                     },
                 },
                 new AnimationTrackComponentProperty()
@@ -109,7 +109,7 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(startOffset, 0f),
-                        new AnimationTrackProperty.KeyFrame(endOffset, (float)offsetLength.TotalSeconds, Easings.OutBounce),
+                        new AnimationTrackProperty.KeyFrame(endOffset, (float)offsetLength.TotalSeconds, Easings.OutBack),
                     },
                 },
                 new AnimationTrackComponentProperty()

@@ -426,15 +426,19 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2 # Delta-V - was 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 100
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+  # Begin DeltaV modifications - smaller battery and self recharge 
+    maxCharge: 4000 # DeltaV -  was 40000
+    startingCharge: 4000 # DeltaV -  was 40000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 10
+  # End DeltaV modifications
 
 - type: entity
   name: laser cannon
