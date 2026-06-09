@@ -14,9 +14,9 @@
 # Shelves
 - type: construction
   id: LargeWoodStandingShelf
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: LargeWoodStandingShelf
+  targetNode: largeWoodStandingShelf
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -26,9 +26,9 @@
 
 - type: construction
   id: LargeMetalStandingShelf
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: LargeMetalStandingShelf
+  targetNode: largeMetalStandingShelf
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -38,9 +38,9 @@
 
 - type: construction
   id: WoodStandingDrawerShelf
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: LargeWoodDrawerStandingShelf
+  targetNode: largeWoodDrawerStandingShelf
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -50,9 +50,9 @@
 
 - type: construction
   id: MetalStandingShelfMedical
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: MetalStandingShelfMedical
+  targetNode: metalStandingShelfMedical
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -62,9 +62,9 @@
 
 - type: construction
   id: MetalStandingShelf
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: MetalStandingShelf
+  targetNode: metalStandingShelf
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -74,9 +74,9 @@
 
 - type: construction
   id: SmallWoodStandingShelf
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: SmallWoodStandingShelf
+  targetNode: smallWoodStandingShelf
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -86,9 +86,9 @@
 
 - type: construction
   id: SmallMetalStandingShelf
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: SmallMetalStandingShelf
+  targetNode: smallMetalStandingShelf
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -99,9 +99,9 @@
 #Stands
 - type: construction
   id: FruitStand
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: FruitStand
+  targetNode: fruitStand
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter
@@ -111,9 +111,9 @@
 
 - type: construction
   id: FoodStand
-  graph: StandingShelves
+  graph: StandingShelf
   startNode: start
-  targetNode: FoodStand
+  targetNode: foodStand
   category: construction-category-storage
   objectType: Structure
   placementMode: SnapgridCenter

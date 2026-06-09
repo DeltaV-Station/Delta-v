@@ -471,21 +471,21 @@
       actions:
         - !type:DestroyEntity
       edges:
-        - to: N14ChairArmchair
+        - to: n14ChairArmchair
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: N14ChairErgonomic
+        - to: n14ChairErgonomic
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
             - material: Cloth
               amount: 1
-        - to: N14ChairRetro
+        - to: n14ChairRetro
           steps:
             - material: Steel
               amount: 3
@@ -493,7 +493,7 @@
             - material: Cloth
               amount: 1
               doAfter: 1
-        - to: N14ChairCaptain
+        - to: n14ChairCaptain
           steps:
             - material: Steel
               amount: 3
@@ -501,7 +501,7 @@
             - material: Cloth
               amount: 1
               doAfter: 1
-        - to: N14ChairDiner
+        - to: n14ChairDiner
           steps:
             - material: Steel
               amount: 3
@@ -512,7 +512,7 @@
             - material: Cloth
               amount: 3
               doAfter: 2
-        - to: N14ChairDinerLeft
+        - to: n14ChairDinerLeft
           steps:
             - material: Steel
               amount: 3
@@ -523,7 +523,7 @@
             - material: Cloth
               amount: 3
               doAfter: 2
-        - to: N14ChairDinerRight
+        - to: n14ChairDinerRight
           steps:
             - material: Steel
               amount: 3
@@ -534,7 +534,7 @@
             - material: Cloth
               amount: 3
               doAfter: 2
-        - to: N14ChairDinerCornerLeft
+        - to: n14ChairDinerCornerLeft
           steps:
             - material: Steel
               amount: 4
@@ -545,7 +545,7 @@
             - material: Cloth
               amount: 3
               doAfter: 2
-        - to: N14ChairDinerCornerRight
+        - to: n14ChairDinerCornerRight
           steps:
             - material: Steel
               amount: 4
@@ -559,7 +559,7 @@
 
 # Deconstruction
 
-    - node: N14ChairArmchair
+    - node: n14ChairArmchair
       entity: N14ChairArmchair
       edges:
         - to: start
@@ -574,7 +574,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: N14ChairErgonomic
+    - node: n14ChairErgonomic
       entity: N14ChairOfficeErgonomic
       edges:
         - to: start
@@ -589,7 +589,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: N14ChairRetro
+    - node: n14ChairRetro
       entity: N14ChairBarRetro
       edges:
         - to: start
@@ -604,8 +604,7 @@
             - tool: Screwing
               doAfter: 1
 
-
-    - node: N14ChairCaptain
+    - node: n14ChairCaptain
       entity: N14ChairCaptain
       edges:
         - to: start
@@ -620,7 +619,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: N14ChairDiner
+    - node: n14ChairDiner
       entity: N14ChairDinerBench
       edges:
         - to: start
@@ -635,7 +634,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: N14ChairDinerLeft
+    - node: n14ChairDinerLeft
       entity: N14ChairDinerLeft
       edges:
         - to: start
@@ -650,7 +649,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: N14ChairDinerRight
+    - node: n14ChairDinerRight
       entity: N14ChairDinerRight
       edges:
         - to: start
@@ -665,7 +664,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: N14ChairDinerCornerLeft
+    - node: n14ChairDinerCornerLeft
       entity: N14ChairDinerCornerLeft
       edges:
         - to: start
@@ -680,7 +679,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: N14ChairDinerCornerRight
+    - node: n14ChairDinerCornerRight
       entity: N14ChairDinerCornerRight
       edges:
         - to: start

@@ -23,8 +23,8 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           MaterialWoodPlank1:
-            min: 3
-            max: 6
+            min: 1
+            max: 4
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Storage
@@ -68,7 +68,7 @@
         spawn:
           SheetSteel1:
             min: 1
-            max: 5
+            max: 3
       - !type:DoActsBehavior
         acts: ["Destruction"]
 
@@ -94,8 +94,8 @@
         layer:
         - MidImpassable
   - type: Construction
-    graph: StandingShelves
-    node: SmallWoodStandingShelf
+    graph: StandingShelf
+    node: smallWoodStandingShelf
 
 - type: entity
   parent: MetalStandingShelfBase
@@ -117,8 +117,8 @@
         layer:
         - MidImpassable
   - type: Construction
-    graph: StandingShelves
-    node: SmallMetalStandingShelf
+    graph: StandingShelf
+    node: smallMetalStandingShelf
 
 - type: entity
   parent: WoodStandingShelfBase
@@ -145,8 +145,8 @@
     - 0,0,4,5
     maxItemSize: Large
   - type: Construction
-    graph: StandingShelves
-    node: LargeWoodStandingShelf
+    graph: StandingShelf
+    node: largeWoodStandingShelf
 
 - type: entity
   parent: MetalStandingShelfBase
@@ -173,8 +173,8 @@
     - 0,0,4,5
     maxItemSize: Large
   - type: Construction
-    graph: StandingShelves
-    node: LargeMetalStandingShelf
+    graph: StandingShelf
+    node: largeMetalStandingShelf
 
 - type: entity
   parent: WoodStandingShelfBase
@@ -201,6 +201,10 @@
         layer:
         - MidImpassable
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      entity_storage: !type:Container
   - type: EntityStorageVisuals
     stateDoorClosed: wood_drawers
     stateDoorOpen: wood_drawers_open
@@ -215,8 +219,10 @@
     - 0,5,4,6
     maxItemSize: Large
   - type: Construction
-    graph: StandingShelves
-    node: LargeWoodDrawerStandingShelf
+    graph: StandingShelf
+    node: largeWoodDrawerStandingShelf
+    containers:
+    - entity_storage
 
 - type: entity
   parent: MetalStandingShelfBase
@@ -261,6 +267,10 @@
         layer:
         - MidImpassable
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      entity_storage: !type:Container
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -296,8 +306,10 @@
           tags:
             - MedicatedSuture
   - type: Construction
-    graph: StandingShelves
-    node: MetalStandingShelfMedical
+    graph: StandingShelf
+    node: metalStandingShelfMedical
+    containers:
+    - entity_storage
 
 - type: entity
   parent: MetalStandingShelfMedical
@@ -374,8 +386,8 @@
           tags:
             - Sugar
   - type: Construction
-    graph: StandingShelves
-    node: MetalStandingShelf
+    graph: StandingShelf
+    node: metalStandingShelf
 
 - type: entity
   parent: MetalStandingShelf
@@ -439,8 +451,8 @@
       - Fruit
       - Vegetable
   - type: Construction
-    graph: StandingShelves
-    node: FruitStand
+    graph: StandingShelf
+    node: fruitStand
 
 - type: entity
   parent: MetalStandingShelfBase
@@ -474,19 +486,10 @@
     - 0,0,5,4
     maxItemSize: Normal
     whitelist:
-      tags:
-      - Meat
-      - Fruit
-      - ClothMade
-      - Pizza
-      - ReptilianFood
-      - Slice
-      - Bread
-      - Pie
-      - Cake
-      - Soup
+      components:
+      - Edible
   - type: Construction
-    graph: StandingShelves
-    node: FoodStand
+    graph: StandingShelf
+    node: foodStand
 
 #endregion

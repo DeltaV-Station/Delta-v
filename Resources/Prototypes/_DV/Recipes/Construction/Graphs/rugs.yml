@@ -6,27 +6,27 @@
       actions:
         - !type:DestroyEntity
       edges:
-        - to: blueRug
+        - to: n14RugBlue
           steps:
             - material: FloorCarpetBlue
               amount: 4
               doAfter: 2
-        - to: purpleRug
+        - to: n14RugPurple
           steps:
             - material: FloorCarpetPurple
               amount: 4
-        - to: redRug
+        - to: n14RugRed
           steps:
             - material: FloorCarpetRed
               amount: 4
               doAfter: 2
-        - to: yellowRug
+        - to: n14RugYellow
           steps:
             - material: FloorCarpetOrange
               amount: 4
               doAfter: 2
 
-    - node: blueRug
+    - node: n14RugBlue
       entity: N14RugBlue
       edges:
         - to: start
@@ -38,7 +38,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: purpleRug
+    - node: n14RugPurple
       entity: N14RugPurple
       edges:
         - to: start
@@ -50,7 +50,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: redRug
+    - node: n14RugRed
       entity: N14RugRed
       edges:
         - to: start
@@ -62,7 +62,7 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: yellowRug
+    - node: n14RugYellow
       entity: N14RugYellow
       edges:
         - to: start
@@ -75,130 +75,134 @@
               doAfter: 1
 
 - type: constructionGraph
-  id: MatRecipes
+  id: Mat
   start: start
   graph:
     - node: start
       actions:
         - !type:DestroyEntity
       edges:
-        - to: blueFancyMat
+        - to: matFancyBlue
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: purpleFancyMat
+        - to: matFancyPurple
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: redFancyMat
+        - to: matFancyRed
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: yellowFancyMat
+        - to: matFancyYellow
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: blackMat
+        - to: matBlack
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: purpleMat
+        - to: matPurple
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: redMat
+        - to: matRed
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: blueMat
+        - to: matBlue
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: lightBlueMat
+        - to: matLightBlue
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: grayMat
-        - to: brownMat
+        - to: matGray
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: grayMat
+        - to: matBrown
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: greenMat
+        - to: matGray
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: lightBrownMat
+        - to: matGreen
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: orangeMat
+        - to: matLightBrown
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: whiteMat
+        - to: matOrange
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: yellowMat
+        - to: matWhite
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-        - to: pinkMat
+        - to: matYellow
           steps:
             - material: Cloth
               amount: 4
               doAfter: 2
-    - node: blueFancyMat
+        - to: matPink
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+    - node: matFancyBlue
       entity: MatFancyBlue
-    - node: purpleFancyMat
+    - node: matFancyPurple
       entity: MatFancyPurple
-    - node: redFancyMat
+    - node: matFancyRed
       entity: MatFancyRed
-    - node: yellowFancyMat
+    - node: matFancyYellow
       entity: MatFancyYellow
-    - node: blackMat
+    - node: matBlack
       entity: MatBlack
-    - node: purpleMat
+    - node: matPurple
       entity: MatPurple
-    - node: redMat
+    - node: matRed
       entity: MatRed
-    - node: blueMat
+    - node: matBlue
       entity: MatBlue
-    - node: lightBlueMat
+    - node: matLightBlue
       entity: MatLightBlue
-    - node: brownMat
+    - node: matBrown
       entity: MatBrown
-    - node: grayMat
+    - node: matGray
       entity: MatGray
-    - node: greenMat
+    - node: matGreen
       entity: MatGreen
-    - node: lightBrownMat
+    - node: matLightBrown
       entity: MatLightBrown
-    - node: orangeMat
+    - node: matOrange
       entity: MatOrange
-    - node: whiteMat
+    - node: matWhite
       entity: MatWhite
-    - node: yellowMat
+    - node: matYellow
       entity: MatYellow
-    - node: pinkMat
+    - node: matPink
       entity: MatPink

@@ -103,39 +103,36 @@
     state: comfy
     color: "#B266FF"
   - type: Construction
-
-#region N14
     graph: Seat
     node: chairComfyPurple
+
+#region N14
+
 - type: entity
   parent: ChairWood
   id: N14ChairArmchair
   name: armchair
   description: A padded armchair.
-  placement:
-    mode: PlaceFree
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/Chairs/n14.rsi
     state: armchair
   - type: Construction
     graph: N14Seat
-    node: N14ChairArmchair
+    node: n14ChairArmchair
 
 - type: entity
-  parent: StoolBase # so it can swivel
+  parent: OfficeChairBase
   id: N14ChairBarRetro
   name: retro chair
   description: You spin me right 'round, baby.
-  placement:
-    mode: PlaceFree
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/Chairs/n14.rsi
     state: retro_chair
   - type: Construction
     graph: N14Seat
-    node: N14ChairRetro
+    node: n14ChairRetro
 
 - type: entity
   parent: ChairBase
@@ -148,7 +145,7 @@
     state: diner_chair
   - type: Construction
     graph: N14Seat
-    node: N14ChairDiner
+    node: n14ChairDiner
 
 - type: entity
   parent: OfficeChairBase
@@ -163,22 +160,20 @@
     state: ergo_chair
   - type: Construction
     graph: N14Seat
-    node: N14ChairErgonomic
+    node: n14ChairErgonomic
 
 - type: entity
   parent: OfficeChairBase
   id: N14ChairCaptain
   name: captain chair
   description: A chair fit for a captain.
-  placement:
-    mode: PlaceFree
   components:
   - type: Sprite
     sprite: _DV/Structures/Furniture/Chairs/n14.rsi
     state: captain_chair
   - type: Construction
     graph: N14Seat
-    node: N14ChairCaptain
+    node: n14ChairCaptain
 
 - type: entity
   parent: N14ChairDinerBench
@@ -191,7 +186,7 @@
     state: diner_chair_left
   - type: Construction
     graph: N14Seat
-    node: N14ChairDinerLeft
+    node: n14ChairDinerLeft
 
 - type: entity
   parent: N14ChairDinerBench
@@ -204,7 +199,7 @@
     state: diner_chair_right
   - type: Construction
     graph: N14Seat
-    node: N14ChairDinerRight
+    node: n14ChairDinerRight
 
 - type: entity
   parent: N14ChairDinerBench
@@ -218,7 +213,7 @@
     - state: left
   - type: Construction
     graph: N14Seat
-    node: N14ChairDinerCornerLeft
+    node: n14ChairDinerCornerLeft
 
 - type: entity
   parent: N14ChairDinerBench
@@ -232,4 +227,4 @@
     - state: right
   - type: Construction
     graph: N14Seat
-    node: N14ChairDinerCornerRight
+    node: n14ChairDinerCornerRight

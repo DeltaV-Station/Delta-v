@@ -1,33 +1,33 @@
 - type: constructionGraph
-  id: StandingShelves
+  id: StandingShelf
   start: start
   graph:
     - node: start
       actions:
         - !type:DestroyEntity
       edges:
-        - to: SmallWoodStandingShelf
+        - to: smallWoodStandingShelf
           completed:
             - !type:SnapToGrid
           steps:
             - material: WoodPlank
               amount: 3
               doAfter: 2
-        - to: SmallMetalStandingShelf
+        - to: smallMetalStandingShelf
           completed:
             - !type:SnapToGrid
           steps:
             - material: Steel
               amount: 3
               doAfter: 2
-        - to: LargeWoodStandingShelf
+        - to: largeWoodStandingShelf
           completed:
             - !type:SnapToGrid
           steps:
             - material: WoodPlank
               amount: 4
               doAfter: 3
-        - to: LargeMetalStandingShelf
+        - to: largeMetalStandingShelf
           completed:
             - !type:SnapToGrid
           steps:
@@ -37,7 +37,7 @@
             - material: Steel
               amount: 4
               doAfter: 2
-        - to: LargeWoodDrawerStandingShelf
+        - to: largeWoodDrawerStandingShelf
           completed:
             - !type:SnapToGrid
           steps:
@@ -47,7 +47,7 @@
             - material: WoodPlank
               amount: 4
               doAfter: 3
-        - to: MetalStandingShelfMedical
+        - to: metalStandingShelfMedical
           completed:
             - !type:SnapToGrid
           steps:
@@ -60,14 +60,14 @@
             - material: Steel
               amount: 4
               doAfter: 3
-        - to: MetalStandingShelf
+        - to: metalStandingShelf
           completed:
             - !type:SnapToGrid
           steps:
             - material: Steel
               amount: 5
               doAfter: 2
-        - to: FruitStand
+        - to: fruitStand
           completed:
             - !type:SnapToGrid
           steps:
@@ -77,7 +77,7 @@
             - material: WoodPlank
               amount: 4
               doAfter: 2
-        - to: FoodStand
+        - to: foodStand
           completed:
             - !type:SnapToGrid
           steps:
@@ -90,7 +90,8 @@
 
 ## Deconstruction
 # Small Shelves
-    - node: SmallWoodStandingShelf
+
+    - node: smallWoodStandingShelf
       entity: SmallWoodStandingShelf
       edges:
         - to: start
@@ -104,7 +105,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: SmallMetalStandingShelf
+    - node: smallMetalStandingShelf
       entity: SmallMetalStandingShelf
       edges:
         - to: start
@@ -112,14 +113,14 @@
             - !type:EmptyAllContainers
             - !type:GivePrototype
               prototype: SheetSteel1
-              amount: 5
+              amount: 3
             - !type:DeleteEntity
           steps:
             - tool: Screwing
               doAfter: 2
 
   # Large Shelves
-    - node: LargeWoodStandingShelf
+    - node: largeWoodStandingShelf
       entity: LargeWoodStandingShelf
       edges:
         - to: start
@@ -133,7 +134,7 @@
             - tool: Prying
               doAfter: 2
 
-    - node: LargeMetalStandingShelf
+    - node: largeMetalStandingShelf
       entity: LargeMetalStandingShelf
       edges:
         - to: start
@@ -141,13 +142,13 @@
             - !type:EmptyAllContainers
             - !type:GivePrototype
               prototype: SheetSteel1
-              amount: 10
+              amount: 5
             - !type:DeleteEntity
           steps:
             - tool: Screwing
               doAfter: 2
 
-    - node: LargeWoodDrawerStandingShelf
+    - node: largeWoodDrawerStandingShelf
       entity: LargeWoodDrawerStandingShelf
       edges:
         - to: start
@@ -164,7 +165,7 @@
             - tool: Prying
               doAfter: 2
 
-    - node: MetalStandingShelfMedical
+    - node: metalStandingShelfMedical
       entity: MetalStandingShelfMedical
       edges:
         - to: start
@@ -181,7 +182,7 @@
             - tool: Screwing
               doAfter: 2
 
-    - node: MetalStandingShelf
+    - node: metalStandingShelf
       entity: MetalStandingShelf
       edges:
         - to: start
@@ -189,14 +190,18 @@
             - !type:EmptyAllContainers
             - !type:GivePrototype
               prototype: SheetSteel1
-              amount: 6
+              amount: 5
+            - !type:GivePrototype
+              prototype: SheetGlass1
+              amount: 2
             - !type:DeleteEntity
           steps:
             - tool: Screwing
               doAfter: 2
 
   # Stands
-    - node: FruitStand
+
+    - node: fruitStand
       entity: FruitStand
       edges:
         - to: start
@@ -213,7 +218,7 @@
             - tool: Prying
               doAfter: 2
 
-    - node: FoodStand
+    - node: foodStand
       entity: FoodStand
       edges:
         - to: start
