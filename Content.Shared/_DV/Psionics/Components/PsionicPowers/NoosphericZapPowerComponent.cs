@@ -12,7 +12,7 @@ public sealed partial class NoosphericZapPowerComponent : BasePsionicPowerCompon
 
     public override int MinGlimmerChanged { get; set; } = 10;
 
-    public override int MaxGlimmerChanged { get; set; } = 50;
+    public override int MaxGlimmerChanged { get; set; } = 30;
 
     /// <summary>
     /// The prototype for the lightning.
@@ -25,6 +25,13 @@ public sealed partial class NoosphericZapPowerComponent : BasePsionicPowerCompon
     /// </summary>
     [DataField]
     public int ShockDamage = 15;
+
+    /// <summary>
+    /// How much battery charge it'll refill if used on a battery.
+    /// </summary>
+    /// <example>1000 will recharge a laser carbine.</example>
+    [DataField]
+    public float AddedBatteryCharge = 1000;
 
     /// <summary>
     /// How long the target will be stunned.

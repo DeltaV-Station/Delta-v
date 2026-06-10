@@ -21,3 +21,15 @@
   storage:
     back:
     - PlushieLizardJobZookeeper
+
+- type: loadout
+  id: LighterCentComm
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 72000 # 20hr
+  storage:
+    back:
+    - CentCommFlippoNerfed

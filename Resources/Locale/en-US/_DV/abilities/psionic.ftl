@@ -44,6 +44,10 @@ psionic-power-mindswap-target-mindshielded = Your mindshield.. surprisingly shie
 psionic-power-mindswap-own-mindshield = Your mindshield.. stops your mind from leaving your body.
 psionic-power-mindswap-original-lost = The psionic tether to your original body was severed!
 
+# Noospheric Zap
+psionic-power-noospheric-zap-user = Lightning shoots out of {THE($user)}'s fingertips!
+psionic-power-noospheric-zap-battery = {CAPITALIZE(THE($battery))}'s charge ramps up!
+
 # Precognition
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
 psionic-power-precognition-no-event-result-message = You see a vision of an undisturbed lake.
