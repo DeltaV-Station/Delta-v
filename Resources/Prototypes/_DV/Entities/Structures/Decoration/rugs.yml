@@ -1,16 +1,14 @@
 - type: entity
   abstract: true
-  parent: BaseStructure
-  id: BaseFloorDecoration
+  parent: BaseStructureDynamic
+  id: BaseRug
   placement:
     mode: PlaceFree
   components:
   - type: Sprite
     drawdepth: FloorTiles
-  - type: Anchorable
   - type: Physics
     canCollide: false
-  - type: Fixtures
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -30,7 +28,7 @@
 #region Rugs
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: N14RugBlue
   name: blue rug
   description: A modern looking blue rug.
@@ -55,7 +53,7 @@
             max: 4
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: N14RugPurple
   name: purple rug
   description: A fancy looking purple rug.
@@ -80,7 +78,7 @@
             max: 4
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: N14RugRed
   name: red rug
   description: A fancily patterned red rug. Looks expensive.
@@ -105,7 +103,7 @@
             max: 4
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: N14RugYellow
   name: yellow rug
   description: A patterned yellow rug.
@@ -132,7 +130,7 @@
 #region Mats
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatFancyBlue
   name: fancy blue mat
   description: A modern looking blue mat.
@@ -157,7 +155,7 @@
             max: 2
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatFancyPurple
   name: fancy purple mat
   description: A fancy looking purple mat.
@@ -182,7 +180,7 @@
             max: 2
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatFancyRed
   name: fancy red mat
   description: A fancily patterned red mat. Looks expensive.
@@ -207,7 +205,7 @@
             max: 2
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatFancyYellow
   name: fancy yellow mat
   description: A patterned yellow mat.
@@ -232,7 +230,7 @@
             max: 2
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatBlack
   name: black mat
   description: A plain black mat.
@@ -247,7 +245,7 @@
     node: matBlack
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatPurple
   name: purple mat
   description: A plain purple mat.
@@ -262,7 +260,7 @@
     node: matPurple
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatRed
   name: red mat
   description: A plain red mat.
@@ -277,7 +275,7 @@
     node: matRed
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatBlue
   name: blue mat
   description: A plain blue mat.
@@ -292,7 +290,7 @@
     node: matBlue
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatLightBlue
   name: light blue mat
   description: A plain light blue mat.
@@ -307,7 +305,7 @@
     node: matLightBlue
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatBrown
   name: brown mat
   description: A plain brown mat.
@@ -322,7 +320,7 @@
     node: matBrown
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatGray
   name: gray mat
   description: A plain gray mat.
@@ -337,7 +335,7 @@
     node: matGray
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatGreen
   name: green mat
   description: A plain green mat.
@@ -352,7 +350,7 @@
     node: matGreen
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatLightBrown
   name: light brown mat
   description: A plain light brown mat.
@@ -367,7 +365,7 @@
     node: matLightBrown
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatOrange
   name: orange mat
   description: A plain orange mat.
@@ -382,7 +380,7 @@
     node: matOrange
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatWhite
   name: white mat
   description: A plain white mat.
@@ -397,7 +395,7 @@
     node: matWhite
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatYellow
   name: yellow mat
   description: A plain yellow mat.
@@ -412,7 +410,7 @@
     node: matYellow
 
 - type: entity
-  parent: BaseFloorDecoration
+  parent: BaseRug
   id: MatPink
   name: pink mat
   description: A plain pink mat.

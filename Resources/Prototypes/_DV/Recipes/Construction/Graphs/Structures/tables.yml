@@ -106,6 +106,11 @@
           - material: Steel
             amount: 2
             doAfter: 1
+        - to: tableMetalGrate
+          steps:
+          - material: MetalRod
+            amount: 4
+            doAfter: 1
 
 # Wooden Tables with Frame
 
@@ -163,7 +168,7 @@
           completed:
           - !type:SnapToGrid
           steps:
-          - tool: Anchoring
+          - tool: Screwing
             doAfter: 2
           - material: Cloth
             amount: 4
@@ -193,7 +198,7 @@
           - tool: Screwing
             doAfter: 2
 
-            # Metal Tables with Frame
+# Metal Tables with Frame
 
     - node: tableMetalFrameDV
       entity: TableMetalFrameDV
@@ -216,7 +221,7 @@
             - tool: Screwing
               doAfter: 2
             - material: Steel
-              amount: 6
+              amount: 4
               doAfter: 4
         - to: n14TableDeskMetalLegs
           completed:
@@ -262,8 +267,6 @@
             - material: WoodPlank
               amount: 1
               doAfter: 1
-            - tool: Screwing
-              doAfter: 1
         - to: tableCounterCraftDV
           steps:
             - material: FloorTileWoodLarge
@@ -287,13 +290,6 @@
           steps:
             - material: Steel
               amount: 1
-            - tool: Screwing
-              doAfter: 1
-        - to: tableMetalGrate
-          steps:
-            - material: MetalRod
-              amount: 4
-              doAfter: 1
 
 #region Deconstruction
 # Small Tables
@@ -379,7 +375,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 6
+              amount: 4
           steps:
             - tool: Prying
               doAfter: 3
@@ -391,7 +387,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
+              amount: 4
           steps:
             - tool: Prying
               doAfter: 3
@@ -437,7 +433,7 @@
             - !type:EmptyAllContainers
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 4
+              amount: 3
             - !type:SpawnPrototype
               prototype: SheetSteel1
               amount: 1
@@ -455,7 +451,7 @@
             - !type:EmptyAllContainers
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 6
+              amount: 4
           steps:
             - tool: Welding
               doAfter: 2
@@ -485,7 +481,7 @@
             - !type:EmptyAllContainers
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 6
+              amount: 4
           steps:
             - tool: Welding
               doAfter: 2
@@ -575,8 +571,8 @@
         - to: counterMetalFrameDV
           completed:
             - !type:SpawnPrototype
-              prototype: SheetSteel1
-              amount: 1
+              prototype: PartRodMetal1
+              amount: 4
           steps:
             - tool: Prying
               doAfter: 2

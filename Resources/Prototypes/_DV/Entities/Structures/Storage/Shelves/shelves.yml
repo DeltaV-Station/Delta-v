@@ -183,7 +183,7 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Storage/Shelves/big_shelves.rsi
-    offset: "0.35,0.3"
+    offset: "0.47,0.3"
     layers:
     - state: wood_drawers
       map: ["enum.StorageVisualLayers.Base"]
@@ -194,7 +194,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35,-0.2,1.1,0.5"
+          bounds: "-0.3,-0.2,1.2,0.6"
         density: 70
         mask:
         - TableMask
@@ -260,7 +260,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.3,0.4,0.3"
+          bounds: "-0.4,-0.2,0.4,0.4"
         density: 70
         mask:
         - TableMask

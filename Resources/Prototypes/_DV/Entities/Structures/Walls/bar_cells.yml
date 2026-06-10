@@ -1,0 +1,129 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: BaseTallStructure
+  components:
+  - type: SpriteFade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.1,0.5,0.0"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MetalBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MetalLaserImpact
+  - type: PlacementReplacement
+    key: walls
+
+- type: entity
+  parent: BaseTallStructure
+  id: WallCellBar
+  name: cell wall
+  description: A wall made of security bars.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Walls/Cells/bar.rsi
+    state: bar
+    drawdepth: Walls
+  - type: Icon
+    sprite: _DV/Structures/Walls/Cells/bar.rsi
+    state: bar
+
+- type: entity
+  parent: WallCellBar
+  id: WallCellBarWindow
+  name: cell slot
+  description: A bar wall with a reinforced window.
+  components:
+  - type: Sprite
+    state: bar_window
+  - type: Icon
+    state: bar_window
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.1,-0.15,0.0"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,-0.1,0.15,0.0"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+
+- type: entity
+  parent: WallCellBar
+  id: WallCellBarBend
+  name: cell bend
+  description: A curved corner section of bar wall.
+  components:
+  - type: Sprite
+    state: bar_bend
+  - type: Icon
+    state: bar_bend
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.1,0.5,0.0"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.0,0.6,1.0"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
