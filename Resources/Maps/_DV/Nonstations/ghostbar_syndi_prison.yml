@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/10/2026 03:21:12
-  entityCount: 5409
+  time: 06/10/2026 06:15:16
+  entityCount: 5456
 maps: []
 grids:
 - 1
@@ -630,6 +630,11 @@ entities:
             829: 31,-8
             836: 28,-6
         - node:
+            color: '#808080FF'
+            id: MiniTileSteelCornerNe
+          decals:
+            887: -14,-2
+        - node:
             color: '#951710FF'
             id: MiniTileSteelCornerNe
           decals:
@@ -656,6 +661,11 @@ entities:
             853: 23,18
             854: 24,17
         - node:
+            color: '#808080FF'
+            id: MiniTileSteelCornerNw
+          decals:
+            886: -15,-2
+        - node:
             color: '#951710FF'
             id: MiniTileSteelCornerNw
           decals:
@@ -678,6 +688,11 @@ entities:
             314: 24,5
             747: 25,14
             855: 21,18
+        - node:
+            color: '#808080FF'
+            id: MiniTileSteelCornerSe
+          decals:
+            888: -14,-4
         - node:
             color: '#951710FF'
             id: MiniTileSteelCornerSe
@@ -703,6 +718,11 @@ entities:
             842: 23,15
             849: 22,4
             857: 24,16
+        - node:
+            color: '#808080FF'
+            id: MiniTileSteelCornerSw
+          decals:
+            885: -15,-4
         - node:
             color: '#951710FF'
             id: MiniTileSteelCornerSw
@@ -771,6 +791,11 @@ entities:
             241: 8,-15
             284: 25,10
             313: 30,7
+        - node:
+            color: '#808080FF'
+            id: MiniTileSteelLineE
+          decals:
+            889: -14,-3
         - node:
             color: '#951710FF'
             id: MiniTileSteelLineE
@@ -940,6 +965,11 @@ entities:
             320: 26,1
             843: 22,15
             850: 21,4
+        - node:
+            color: '#808080FF'
+            id: MiniTileSteelLineW
+          decals:
+            890: -15,-3
         - node:
             color: '#951710FF'
             id: MiniTileSteelLineW
@@ -1214,7 +1244,8 @@ entities:
             1: 65280
           -1,3:
             0: 8
-            1: 34816
+            1: 2048
+            2: 32768
           0,4:
             1: 255
           1,0:
@@ -1348,8 +1379,8 @@ entities:
           6,-1:
             0: 47280
           7,-3:
-            2: 48
-            3: 12288
+            3: 48
+            4: 12288
             0: 34952
           7,-2:
             0: 65528
@@ -1420,7 +1451,7 @@ entities:
           11,-1:
             0: 13057
           9,-3:
-            4: 17
+            5: 17
             0: 56524
           9,-2:
             0: 61917
@@ -1441,6 +1472,11 @@ entities:
           moles:
             Oxygen: 27.225372
             Nitrogen: 102.419266
+        - volume: 2500
+          temperature: 234.99983
+          moles:
+            Oxygen: 25.047342
+            Nitrogen: 94.22572
         - volume: 2500
           temperature: 293.15
           moles:
@@ -3011,6 +3047,13 @@ entities:
     - type: Transform
       pos: 23.5,14.5
       parent: 1
+- proto: BlastDoorOpen
+  entities:
+  - uid: 5410
+    components:
+    - type: Transform
+      pos: 14.5,9.5
+      parent: 1
 - proto: BlockGameArcade
   entities:
   - uid: 566
@@ -3207,6 +3250,30 @@ entities:
     - type: Transform
       pos: -3.5708075,6.573783
       parent: 1
+  - uid: 5427
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5434
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5435
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: BoxMouthSwab
   entities:
   - uid: 4581
@@ -3401,6 +3468,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 24.5,12.5
+      parent: 1
+  - uid: 5413
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,9.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -7559,18 +7632,6 @@ entities:
     - type: Transform
       pos: 19.5,16.5
       parent: 1
-- proto: ChemicalMedipen
-  entities:
-  - uid: 727
-    components:
-    - type: Transform
-      pos: 13.451243,12.713193
-      parent: 1
-  - uid: 3350
-    components:
-    - type: Transform
-      pos: 13.591868,12.541318
-      parent: 1
 - proto: ChemistryBottleEZNutrient
   entities:
   - uid: 3198
@@ -7656,6 +7717,55 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: ClosetChef
+  entities:
+  - uid: 5417
+    components:
+    - type: Transform
+      pos: -0.5,15.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 234.99791
+        moles:
+          Oxygen: 2.1780298
+          Nitrogen: 8.193542
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 5441
+          - 5440
+          - 5439
+          - 5438
+          - 5437
+          - 5436
+          - 5435
+          - 5434
+          - 5433
+          - 5432
+          - 5431
+          - 5430
+          - 5429
+          - 5428
+          - 5427
+          - 5426
+          - 5425
+          - 5424
+          - 5423
+          - 5422
+          - 5421
+          - 5420
+          - 5419
+          - 5418
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: ClosetJanitor
   entities:
   - uid: 1283
@@ -10655,6 +10765,47 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 5424
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5430
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5431
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+- proto: DrinkMugMetal
+  entities:
+  - uid: 5442
+    components:
+    - type: Transform
+      pos: -0.61475575,11.798231
+      parent: 1
+  - uid: 5443
+    components:
+    - type: Transform
+      pos: -0.47413075,11.610731
+      parent: 1
+  - uid: 5453
+    components:
+    - type: Transform
+      pos: -0.30225575,11.751356
+      parent: 1
 - proto: DrinkMugOne
   entities:
   - uid: 4179
@@ -10662,6 +10813,16 @@ entities:
     - type: Transform
       pos: 28.826082,12.969853
       parent: 1
+- proto: DrinkOatMilkCarton
+  entities:
+  - uid: 5429
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: DrinkRootBeerCan
   entities:
   - uid: 4218
@@ -10705,6 +10866,32 @@ entities:
     - type: Transform
       pos: 18.935764,-8.973587
       parent: 1
+- proto: DrinkSoyMilkCarton
+  entities:
+  - uid: 5432
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5436
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5439
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: Dropper
   entities:
   - uid: 3183
@@ -10718,6 +10905,18 @@ entities:
     components:
     - type: Transform
       pos: 36.522633,-11.3413515
+      parent: 1
+- proto: EmergencyMedipen
+  entities:
+  - uid: 727
+    components:
+    - type: Transform
+      pos: 13.540696,12.803558
+      parent: 1
+  - uid: 3350
+    components:
+    - type: Transform
+      pos: 13.603196,12.584808
       parent: 1
 - proto: EnergyShield
   entities:
@@ -11359,6 +11558,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -7.6581326,14.36639
       parent: 1
+- proto: FoodBoxCloth
+  entities:
+  - uid: 5421
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: FoodBoxDonkpocket
   entities:
   - uid: 5040
@@ -11396,6 +11605,68 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: FoodCondimentBottleEnzyme
+  entities:
+  - uid: 5433
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+- proto: FoodCondimentPacketPepper
+  entities:
+  - uid: 5420
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5437
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5440
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+- proto: FoodCondimentPacketSalt
+  entities:
+  - uid: 5423
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5425
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5428
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: FoodContainerEgg
   entities:
   - uid: 1852
@@ -11753,6 +12024,30 @@ entities:
     components:
     - type: Transform
       pos: -7.4862576,14.71014
+      parent: 1
+- proto: FoodShakerPepper
+  entities:
+  - uid: 5415
+    components:
+    - type: Transform
+      pos: -0.54156566,10.072979
+      parent: 1
+  - uid: 5416
+    components:
+    - type: Transform
+      pos: 0.22405934,5.604969
+      parent: 1
+- proto: FoodShakerSalt
+  entities:
+  - uid: 5411
+    components:
+    - type: Transform
+      pos: -0.71344066,10.182354
+      parent: 1
+  - uid: 5412
+    components:
+    - type: Transform
+      pos: 0.3491968,5.738504
       parent: 1
 - proto: FoodSnackChocolate
   entities:
@@ -18217,6 +18512,60 @@ entities:
     - type: Transform
       pos: 6.5,11.5
       parent: 1
+- proto: IngotGold1
+  entities:
+  - uid: 5444
+    components:
+    - type: Transform
+      pos: 34.553196,-6.3987026
+      parent: 1
+  - uid: 5447
+    components:
+    - type: Transform
+      pos: 34.47507,-6.5549526
+      parent: 1
+  - uid: 5448
+    components:
+    - type: Transform
+      pos: 34.44382,-6.3987026
+      parent: 1
+  - uid: 5451
+    components:
+    - type: Transform
+      pos: 34.365696,-6.4612026
+      parent: 1
+  - uid: 5455
+    components:
+    - type: Transform
+      pos: 34.553196,-6.4455776
+      parent: 1
+- proto: IngotSilver1
+  entities:
+  - uid: 5445
+    components:
+    - type: Transform
+      pos: 34.459446,-6.3205776
+      parent: 1
+  - uid: 5446
+    components:
+    - type: Transform
+      pos: 34.50632,-6.2737026
+      parent: 1
+  - uid: 5450
+    components:
+    - type: Transform
+      pos: 34.615696,-6.4455776
+      parent: 1
+  - uid: 5454
+    components:
+    - type: Transform
+      pos: 34.521946,-6.4924526
+      parent: 1
+  - uid: 5456
+    components:
+    - type: Transform
+      pos: 34.334446,-6.5080776
+      parent: 1
 - proto: JanitorialTrolley
   entities:
   - uid: 3401
@@ -18608,6 +18957,21 @@ entities:
         - - Pressed
           - Toggle
         560:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 5414
+    components:
+    - type: MetaData
+      name: Toggle Blastdoors
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,9.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        5410:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -25356,6 +25720,13 @@ entities:
     - type: Transform
       pos: 18.084587,16.606766
       parent: 1
+- proto: Pitcher
+  entities:
+  - uid: 5452
+    components:
+    - type: Transform
+      pos: -0.72413075,11.532606
+      parent: 1
 - proto: PlasmaWindoorSecureSyndicateLocked
   entities:
   - uid: 1015
@@ -27482,6 +27853,30 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 5418
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5419
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
+  - uid: 5441
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: ReagentContainerSugar
   entities:
   - uid: 1841
@@ -27498,6 +27893,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 5426
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: Recycler
   entities:
   - uid: 4863
@@ -27630,6 +28033,13 @@ entities:
     components:
     - type: Transform
       pos: 33.467403,-6.56979
+      parent: 1
+- proto: SheetPlasteel
+  entities:
+  - uid: 5449
+    components:
+    - type: Transform
+      pos: 33.303196,-6.5549526
       parent: 1
 - proto: SheetPlastic
   entities:
@@ -28370,6 +28780,16 @@ entities:
     - type: Transform
       pos: 23.659504,-13.462432
       parent: 1
+- proto: SprayBottleWater
+  entities:
+  - uid: 5438
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: StasisBed
   entities:
   - uid: 3353
@@ -29874,6 +30294,16 @@ entities:
     - type: Transform
       pos: 30.64244,-6.367276
       parent: 1
+- proto: VariantCubeBox
+  entities:
+  - uid: 5422
+    components:
+    - type: Transform
+      parent: 5417
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 5417
 - proto: VendingMachineAmmo
   entities:
   - uid: 3176
