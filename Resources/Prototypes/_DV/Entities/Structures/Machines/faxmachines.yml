@@ -97,6 +97,16 @@
   - type: FaxMachine
     name: "Civilian"
 
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineService
+  suffix: Service
+  components:
+  - type: PageSender
+    autoLinkJobs: [Bartender, Botanist, Botanist, Boxer, Chef, Clown, HeadOfPersonnel, Janitor, MartialArtist, Mime, Musician, Reporter, ServiceWorker, Zookeeper]
+  - type: FaxMachine
+    name: "Service"
+
 # Job-specific fax machines
 
 - type: entity
@@ -468,3 +478,13 @@
     autoLinkJobs: [ForensicMantis]
   - type: FaxMachine
     name: "Psionic Mantis"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachinePerma
+  suffix: Perma
+  components:
+  - type: PageSender
+    autoLinkJobs: [Prisoner]
+  - type: FaxMachine
+    name: "Permanent Brig"
