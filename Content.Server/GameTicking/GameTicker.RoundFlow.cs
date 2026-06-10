@@ -25,7 +25,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 // Goob Station - End of Round Screen
-using Content.Goobstation.Server.LastWords;
+using Content.Server.Goobstation.LastWords;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

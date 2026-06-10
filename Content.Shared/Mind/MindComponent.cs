@@ -128,5 +128,5 @@ public sealed partial class MindComponent : Component
     ///     Can be null.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? LastMob { get; set; }
+    public EntityUid? LastMob;
 }

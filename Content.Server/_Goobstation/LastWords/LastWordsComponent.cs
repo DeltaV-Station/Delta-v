@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.LastWords;
+namespace Content.Server.Goobstation.LastWords;
 
 /// <summary>
 /// Tracks the last words a user has said.

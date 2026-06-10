@@ -1,10 +1,10 @@
 using Content.Shared.Chat;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
-using Content.Goobstation.Server.LastWords;
+using Content.Server.Goobstation.LastWords;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Goobstation.Server.LastWords;
+namespace Content.Server.Goobstation.LastWords;
 
 public sealed class LastWordsSystem : EntitySystem
 {
