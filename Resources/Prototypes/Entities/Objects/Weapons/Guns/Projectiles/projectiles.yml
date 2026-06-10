@@ -1466,3 +1466,5 @@
   - type: SolutionInjectOnProjectileHit
     transferAmount: 1.5
     solution: bolt
+  - type: TimedDespawn # DeltaV - limit range to match taser
+    lifetime: 0.170 

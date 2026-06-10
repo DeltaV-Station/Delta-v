@@ -67,6 +67,7 @@
 - type: entity
   parent: Jug
   id: JugDexPlusSaline
+  categories: [ HideSpawnMenu ] # DeltaV - Killed DexalinPlus
   suffix: dex+ & saline
   components:
   - type: Label

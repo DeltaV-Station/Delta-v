@@ -46,4 +46,48 @@ public sealed partial class SSDIndicatorComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
+    // DeltaV - SSD Recency Additions START
+
+    /// <summary>
+    /// The time at which the Entity became SSD.
+    /// </summary>
+    [AutoNetworkedField, AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan SsdSince = TimeSpan.Zero;
+
+    /// <summary>
+    /// The icon displayed next to the associated entity when it is recently SSD (stage 2).
+    /// </summary>
+    [DataField]
+    public ProtoId<SsdIconPrototype> RecentIcon = "RecentSSDIcon";
+
+    /// <summary>
+    /// The icon displayed next to the associated entity when it is very recently SSD (stage 1).
+    /// </summary>
+    [DataField]
+    public ProtoId<SsdIconPrototype> VeryRecentIcon = "VeryRecentSSDIcon";
+
+    // DeltaV END
 }
+
+// DeltaV - SSD Recency START
+// If you change this enum, remember to update `Resources/Locale/en-US/_DV/ssdIndicator/examine.ftl`
+public enum SsdStage : byte
+{
+    /// <summary>
+    /// Stage 1: SSD Indicator is red. They might just be recovering from a crash/timeout.
+    /// </summary>
+    VeryRecent,
+
+    /// <summary>
+    /// Stage 2: SSD Indicator is yellow. They've been gone for a bit, but they shouldn't be moved to cryo yet.
+    /// </summary>
+    Recent,
+
+    /// <summary>
+    /// Stage 3: SSD Indicator is green/default. They've been gone for a long time, they can be moved to cryo.
+    /// </summary>
+    Cryoable,
+}
+// DeltaV END

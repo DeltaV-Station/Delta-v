@@ -73,7 +73,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 10
+    fireRate: 6 # DeltaV - was 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - type: MagazineVisuals

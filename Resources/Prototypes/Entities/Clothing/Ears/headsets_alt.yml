@@ -102,9 +102,9 @@
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _DV/Clothing/Ears/Headsets/security.rsi  # DeltaV - Security uses  blue headsets
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _DV/Clothing/Ears/Headsets/security.rsi  # DeltaV - Security uses  blue headsets
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband]

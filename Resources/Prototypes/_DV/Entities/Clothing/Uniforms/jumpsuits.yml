@@ -266,6 +266,19 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/brigmedic_alt.rsi
 
+# Officer uniform
+
+- type: entity
+  parent: ClothingUniformRollableBase
+  id: ClothingUniformJumpsuitSecWhite
+  name: white security jumpsuit
+  description: A cool white shirt over charcoal trousers, for the calm and collected security officer.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
+
 # Detective uniform
 
 - type: entity
@@ -318,14 +331,14 @@
 
 - type: entity
   parent: ClothingUniformRollableBase
-  id: ClothingUniformJumpsuitWardenBlue
-  name: blue warden's jumpsuit
-  description: A cool blue shirt with ice-white markings and warden's epaulettes.
+  id: ClothingUniformJumpsuitWardenWhite
+  name: white warden's jumpsuit
+  description: A cool white shirt with blue markings and warden's markings and epaulettes.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_white.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_white.rsi
 
 - type: entity
   parent: ClothingUniformRollableBase
@@ -361,6 +374,17 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_alt.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_alt.rsi
+
+- type: entity
+  parent: ClothingUniformRollableBase
+  id: ClothingUniformJumpsuitHoSWhite
+  name: head of security's white uniform
+  description: A white station security shirt with blue trousers. Features dull gold emblems and commander's epaulettes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
 
 # Central Command Uniform - ported from Velta
 
@@ -598,6 +622,18 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecCadet
+  name: cadet jumpsuit
+  description: A simple uniform for security cadets. It's a bit small, but it should do for training purposes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/securitycadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/securitycadet.rsi
+
 
 # CMO
 
