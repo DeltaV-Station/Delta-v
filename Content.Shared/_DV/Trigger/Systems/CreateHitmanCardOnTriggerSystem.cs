@@ -1,7 +1,5 @@
-using System.Reflection.Metadata;
 using Content.Shared._DV.Trigger.Components.Effects;
 using Content.Shared.Trigger;
-using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Player;
 using Robust.Shared.Network;
@@ -12,7 +10,6 @@ public sealed class CreateHitmanCardOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {

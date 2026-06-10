@@ -1,6 +1,5 @@
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Trigger.Components.Effects;
 
