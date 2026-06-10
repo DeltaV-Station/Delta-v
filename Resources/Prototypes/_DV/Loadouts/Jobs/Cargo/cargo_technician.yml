@@ -14,6 +14,18 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargoTechRomper
 
+# Head
+- type: loadout
+  id: LogiBeret
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCargoTechnician
+      time: 36000 # 10hr
+  equipment:
+    head: ClothingHeadHatBeretLogi
+
 # PDA
 - type: loadout
   id: CargoPDA
