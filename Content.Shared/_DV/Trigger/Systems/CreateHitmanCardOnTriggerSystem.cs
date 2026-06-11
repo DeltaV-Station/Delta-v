@@ -1,8 +1,6 @@
 using Content.Shared._DV.Trigger.Components.Effects;
 using Content.Shared.Trigger;
 using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Player;
-using Robust.Shared.Network;
 
 namespace Content.Shared._DV.Trigger.Systems;
 
