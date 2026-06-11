@@ -8,6 +8,8 @@ using Content.Server.Popups;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
+using Content.Shared.Mobs; // DeltaV
+using Content.Shared.Mobs.Components; // DeltaV
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Pointing;
@@ -47,14 +49,42 @@ namespace Content.Server.RatKing
             if (!TryComp<HungerComponent>(uid, out var hunger))
                 return;
 
+            // DeltaV - modify cost of Raise Army based on the amount of alive servants
+            // Check on how many servants are alive to calculate the cost of a new servant
+            var aliveServants = 0;
+            foreach (var existingServant in component.Servants)
+            {
+                if (!TryComp<MobStateComponent>(existingServant, out var mobState))
+                    continue;
+
+                if (mobState.CurrentState == MobState.Alive)
+                {
+                    aliveServants++;
+                }
+            }
+
+            // calculate the cost multiplier
+            var multiplier = aliveServants switch
+            {
+                < 5  => 1.0f,   // 1-5 servants: 10 hunger
+                < 10 => 1.5f,   // 6-10 servants: 15 hunger
+                < 15 => 2.5f,   // 11-15 servants: 25 hunger
+                < 20 => 5.0f,   // 16-20 servants: 50 hunger
+                < 25 => 10.0f,  // 21-25 servants: 100 hunger
+                _    => 15.0f,   // Above 25 servants: 150 hunger
+            };
+            var hungerPerArmyUseAdjusted = component.HungerPerArmyUse * multiplier;
+
             //make sure the hunger doesn't go into the negatives
-            if (_hunger.GetHunger(hunger) < component.HungerPerArmyUse)
+            if (_hunger.GetHunger(hunger) < hungerPerArmyUseAdjusted)
             {
                 _popup.PopupEntity(Loc.GetString("rat-king-too-hungry"), uid, uid);
                 return;
             }
             args.Handled = true;
-            _hunger.ModifyHunger(uid, -component.HungerPerArmyUse, hunger);
+            _hunger.ModifyHunger(uid, - hungerPerArmyUseAdjusted, hunger);
+            // DeltaV - end to the modified cost of Raise Army
+
             var servant = Spawn(component.ArmyMobSpawnId, Transform(uid).Coordinates);
             var comp = EnsureComp<RatKingServantComponent>(servant);
             comp.King = uid;
