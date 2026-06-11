@@ -17,12 +17,6 @@
 # Head
 - type: loadout
   id: CargoTechnicianBeret
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobCargoTechnician
-      time: 36000 # 10hr
   equipment:
     head: ClothingHeadHatBeretLogi
 
