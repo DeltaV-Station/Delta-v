@@ -1,3 +1,5 @@
+# Maintenance Drones
+
 - type: entity
   name: drone
   id: Drone
@@ -20,7 +22,7 @@
       - Gun
       - EnergySword
   - type: Illiterate # imp special component. Disables reading and writing on paper.
-  - type: ContainerContainer 
+  - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
   - type: PowerCellSlot
@@ -35,6 +37,8 @@
         startingItem: PowerCellMedium
         disableEject: true
   - type: PAI # this is added specifically for the internal station map feature but the other aspects are not especially against the identity of drones. and i dont want to put the work into ECS-ifying PAIComponent
+    mapActionId: ActionDroneOpenMap # redefining these to reflavor their descriptions.
+    midiActionId: ActionDronePlayMidi
   - type: Instrument
     allowPercussion: false
     handheld: false
@@ -55,10 +59,10 @@
         type: StrippableBoundUserInterface
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
-      enum.InstrumentUiKey.Key: 
+      enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
-      enum.StationMapUiKey.Key: 
+      enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
         requireInputValidation: false
   - type: StationMap
@@ -71,13 +75,11 @@
       department: Silicon
       time: 18000 # five hours
     makeSentient: true
-    name: Maintenance Drone
-    description: Maintain the station. Ignore other beings except drones.
-    rules: |
-     You are bound by these laws both in-game and out-of-character:
-     1. You may not interfere with the affairs of any being except another drone, regardless of intent or circumstance.
-     2. Your goal is to maintain or improve the station to the best of your ability.
-     3. You may not take any action which causes damage or harm to the station or its inhabitants.
+    name: ghost-role-information-drone-name
+    description: ghost-role-information-drone-description
+    rules: ghost-role-information-drone-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider
@@ -166,3 +168,10 @@
   - type: Tag
     tags:
       - CannotSuicide
+      - EmagImmune
+      - CanPilot
+      - VimPilot
+  - type: Access
+    tags:
+    - Engineering
+    - Maintenance
