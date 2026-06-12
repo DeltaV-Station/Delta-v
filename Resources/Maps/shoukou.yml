@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/08/2026 23:00:58
-  entityCount: 17774
+  time: 06/12/2026 04:07:58
+  entityCount: 17783
 maps:
 - 1
 grids:
@@ -4799,13 +4799,13 @@ entities:
             2: 3
           -10,-10:
             0: 63232
-            4: 14
+            6: 14
           -10,-12:
             1: 14
             3: 3584
           -10,-11:
-            5: 14
-            6: 3584
+            4: 14
+            5: 3584
           -10,-13:
             1: 61166
           -9,-13:
@@ -5781,15 +5781,15 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-            Nitrogen: 6666.982
-        - volume: 2500
-          temperature: 293.15
-          moles:
             Plasma: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
             Oxygen: 6666.982
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Nitrogen: 6666.982
         chunkSize: 4
     - type: OccluderTree
     - type: Shuttle
@@ -9348,7 +9348,7 @@ entities:
       pos: 42.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40007.812
+      secondsUntilStateChange: -40308.965
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11809,12 +11809,6 @@ entities:
       parent: 2
 - proto: BedsheetBrown
   entities:
-  - uid: 713
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 34.5,5.5
-      parent: 2
   - uid: 714
     components:
     - type: Transform
@@ -11849,6 +11843,13 @@ entities:
     - type: Transform
       pos: 15.5,-34.5
       parent: 2
+- proto: BedsheetDetective
+  entities:
+  - uid: 713
+    components:
+    - type: Transform
+      pos: 34.5,5.5
+      parent: 2
 - proto: BedsheetHOP
   entities:
   - uid: 719
@@ -11858,11 +11859,6 @@ entities:
       parent: 2
 - proto: BedsheetHOS
   entities:
-  - uid: 720
-    components:
-    - type: Transform
-      pos: 39.5,-11.5
-      parent: 2
   - uid: 721
     components:
     - type: Transform
@@ -12009,6 +12005,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 18.5,19.5
+      parent: 2
+- proto: BedsheetWarden
+  entities:
+  - uid: 720
+    components:
+    - type: Transform
+      pos: 39.5,-11.5
       parent: 2
 - proto: BedsheetWiz
   entities:
@@ -12929,7 +12932,7 @@ entities:
   - uid: 880
     components:
     - type: Transform
-      pos: 35.703907,-0.5481334
+      pos: 34.72549,-0.29118025
       parent: 2
 - proto: BoxFolderWhite
   entities:
@@ -32791,6 +32794,11 @@ entities:
     - type: Transform
       pos: -35.5,-34.5
       parent: 2
+  - uid: 17775
+    components:
+    - type: Transform
+      pos: -43.5,-28.5
+      parent: 2
 - proto: CableMVStack1
   entities:
   - uid: 4746
@@ -42511,6 +42519,11 @@ entities:
     - type: Transform
       pos: 14.5,-25.5
       parent: 2
+  - uid: 6385
+    components:
+    - type: Transform
+      pos: 34.5,5.5
+      parent: 2
   - uid: 11542
     components:
     - type: Transform
@@ -42542,12 +42555,6 @@ entities:
       parent: 2
 - proto: CurtainsOrangeOpen
   entities:
-  - uid: 6385
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 34.5,5.5
-      parent: 2
   - uid: 6386
     components:
     - type: Transform
@@ -42658,6 +42665,13 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-37.5
+      parent: 2
+- proto: CurtainsSkyBlueOpen
+  entities:
+  - uid: 17783
+    components:
+    - type: Transform
+      pos: 39.5,-11.5
       parent: 2
 - proto: CurtainsWhiteOpen
   entities:
@@ -47766,7 +47780,7 @@ entities:
   - uid: 7265
     components:
     - type: Transform
-      pos: 35.813282,-0.14188337
+      pos: 35.726154,-0.26340294
       parent: 2
   - uid: 7266
     components:
@@ -48039,6 +48053,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 34.042267,4.824583
+      parent: 2
+  - uid: 17782
+    components:
+    - type: Transform
+      pos: 35.5819,-0.38445258
       parent: 2
 - proto: DrinkWineBottleFull
   entities:
@@ -81364,7 +81383,7 @@ entities:
   - uid: 11817
     components:
     - type: Transform
-      pos: 35.297657,-0.6887584
+      pos: 34.822777,-0.4717362
       parent: 2
   - uid: 11818
     components:
@@ -83096,6 +83115,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 17779
+    components:
+    - type: Transform
+      pos: 33.5,6.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: PaintingTheGreatWave
   entities:
   - uid: 12038
@@ -83119,6 +83145,15 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -36.5,-13.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: PaintingUnePipe
+  entities:
+  - uid: 17780
+    components:
+    - type: Transform
+      pos: 34.5,6.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -83636,7 +83671,7 @@ entities:
   - uid: 12123
     components:
     - type: Transform
-      pos: 35.547657,-0.6262584
+      pos: 34.36414,-0.43006957
       parent: 2
   - uid: 12124
     components:
@@ -96772,6 +96807,13 @@ entities:
     - type: Transform
       pos: 61.5,-22.5
       parent: 2
+- proto: SmokingPipe
+  entities:
+  - uid: 17781
+    components:
+    - type: Transform
+      pos: 35.317837,0.12943602
+      parent: 2
 - proto: SoapSyndie
   entities:
   - uid: 806
@@ -102570,6 +102612,21 @@ entities:
     components:
     - type: Transform
       pos: -17.5,-19.5
+      parent: 2
+  - uid: 17776
+    components:
+    - type: Transform
+      pos: 35.5,0.5
+      parent: 2
+  - uid: 17777
+    components:
+    - type: Transform
+      pos: 35.5,-0.5
+      parent: 2
+  - uid: 17778
+    components:
+    - type: Transform
+      pos: 34.5,-0.5
       parent: 2
 - proto: TableWoodReinforced
   entities:
