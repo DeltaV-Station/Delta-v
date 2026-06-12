@@ -122,12 +122,11 @@ For example, an attack upon an Employee which causes them to die of their injuri
 
   # 3XX - Grand Felonies
 
-  ## Manslaughter (Code : 301)
+  ## Murder (Code : 301)
 
-  [bold]Description[/bold]: To act without malice in a manner which, directly or indirectly, leads to the death of an Employee.
+  [bold]Description[/bold]: To maliciously commit an act resulting in the death of an Employee, with reckless indifference to their life.
 
-  [bold]Brig Time Issued:[/bold] 10:00
-
+  [bold]Brig Time Issued:[/bold] 15:00
 
   ## Kidnapping (Code : 302)
 
@@ -171,19 +170,25 @@ For example, an attack upon an Employee which causes them to die of their injuri
 
   [bold]Brig Time Issued:[/bold] 8:00
 
+  ## Manslaughter (Code : 309)
+
+  [bold]Description[/bold]: To act without malice in a manner which, directly or indirectly, leads to the death of an Employee.
+
+  [bold]Brig Time Issued:[/bold] 10:00
+
 
 
   # 4XX - Capital Crimes
 
-  ## Murder (Code : 401)
+## Prevention of Revival (Code : 401)
 
-  [bold]Description[/bold]: To maliciously commit an act resulting in the death of an Employee, with reckless indifference to their life.
+  [bold]Description[/bold]: To commit an act that prevents the revival of an Employee by standard medical care following their death.
 
   [bold]Brig Time Issued:[/bold] Capital Punishment
 
   ## Terrorism (Code : 402)
 
-  [bold]Description[/bold]: To maliciously commit an act or take hostages with reckless indifference to life in order to provoke a state of terror in, intimidate, or otherwise compel an Employee to act or abstain from acting.
+  [bold]Description[/bold]: To maliciously commit an act or take hostages with reckless indifference to life in order to provoke a state of terror in, intimidate, or otherwise compel an Employee to act or abstain from acting, to the benefit of, or while in service to a terrorist entity.
 
   [bold]Brig Time Issued:[/bold] Capital Punishment
 
@@ -193,20 +198,13 @@ For example, an attack upon an Employee which causes them to die of their injuri
 
   [bold]Brig Time Issued:[/bold] Capital Punishment
 
-
- ## Prevention of Revival (Code : 404)
-
-  [bold]Description[/bold]: To commit an act that prevents the revival of an Employee by standard medical care following their death.
-
-  [bold]Brig Time Issued:[/bold] Capital Punishment
-
- ## Sedition (Code : 405)
+ ## Sedition (Code : 404)
 
   [bold]Description[/bold]: To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
 
   [bold]Brig Time Issued:[/bold] Capital Punishment
 
-## Breach of Custody (Code : 406)
+## Breach of Custody (Code : 405)
 
   [bold]Description[/bold]: To escape the custody of law enforcement while serving a legal sentence, or awaiting trial for a capital offense.
 
