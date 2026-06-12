@@ -50,6 +50,7 @@
       - id: HandLabeler
       - id: Lantern
       - id: CheapLighter
+      - id: DiscountDanLighter
       - id: trayScanner
       - id: FishLabeler
       - id: SnapPop
@@ -58,8 +59,8 @@
       - id: BarberScissors
       - id: RagItem
       - id: Plunger
+      - id: WireBrush
       - id: LightReplacerEmpty
-      - id: FlippoLighter
       - id: RollingPin
       - id: CarvedPumpkinSmall
       - id: CarvedPumpkinLarge
@@ -68,6 +69,73 @@
       - id: DrinkShaker
       - id: Envelope
       - id: PaperSlip
+      - id: MailCapsulePrimed
+      - id: Ashtray
+      - id: Whistle
+      - id: WhoopieCushion
+      - id: WeaponStickyHand
+      - id: CardSword
+      - id: CandyBucket
+      - id: DeskBell
+      - id: FireExtinguisherMini
+      - id: ParcelWrap
+      - id: ParcelWrapTrash
+      - id: Binoculars
+      - id: MortarAndPestleMakeshift
+      - id: HandheldJuicerMakeshift
+      - id: DiseaseSwab
+      - id: InflatableWallStack1
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      - id: InflatableDoorStack1
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      #Balls
+      - !type:GroupSelector
+        children:
+        - id: Basketball
+        - id: Football
+        - id: TennisBall
+        - id: BeachBall
+      #Balloons
+      - !type:GroupSelector
+        children:
+        - id: BalloonSyn
+        - id: BalloonNT
+        - id: BalloonCorgi
+      #Flippos
+      - !type:GroupSelector
+        children:
+        - id: FlippoLighter
+        - id: WaffleCoFlippoNerfed
+        - id: HonkCoFlippoNerfed
+        - id: DonkcoLighterNerfed
+        - id: InterdyneFlippoNerfed
+        - id: GorlexMatchboxNerfed
+      #Sticky Notes
+      - !type:GroupSelector
+        children:
+        - id: PaperStickyNote
+        - id: PaperStickyNotePink
+        - id: PaperStickyNoteGreen
+        - id: PaperStickyNoteBlue
+        - id: PaperStickyNoteStackFilled
+        - id: PaperStickyNoteStackFilledPink
+        - id: PaperStickyNoteStackFilledGreen
+        - id: PaperStickyNoteStackFilledBlue
+      #Plant Pots
+      - !type:GroupSelector
+        children:
+        - id: PlantPotPreSeeded
+        - id: PlantPotPreSeededBioluminscent
+        - id: PlantPotPreSeededPlastic
+      #Fishing
+      - !type:GroupSelector
+        children:
+        - id: FishingRod
+        - id: FishingRodGoon
+        - id: FishingRodMakeshift
+        - id: FishBasket
       #Smokes
       - !type:GroupSelector
         children:
@@ -180,6 +248,17 @@
         - id: LightTubeCrystalOrange
         - id: LightTubeCrystalRed
         - id: LightTubeCrystalGreen
+        - id: LightTubeCrystalYellow
+        - id: LightTubeCrystalBlack
+        - id: WarmLightBulb
+        - id: LightBulbCrystalCyan
+        - id: LightBulbCrystalBlue
+        - id: LightBulbCrystalYellow
+        - id: LightBulbCrystalPink
+        - id: LightBulbCrystalOrange
+        - id: LightBulbCrystalBlack
+        - id: LightBulbCrystalRed
+        - id: LightBulbCrystalGreen
       #Chemistry
       - !type:GroupSelector
         children:
@@ -196,6 +275,8 @@
         - id: Syringe
         - id: Dropper
         - id: Jug
+        - id: Skimmer
+        - id: HandheldMixerPaperCentrifuge
       #Spray Bottles
       - !type:GroupSelector
         children:
@@ -263,6 +344,25 @@
         - id: Fork
         - id: KnifePlastic
         - id: PairedChopsticks
+      #Improvised Parts
+      - !type:GroupSelector
+        children:
+        - id: UnfinishedImprovisedCrowbar
+        - id: UnfinishedImprovisedScrewdriver
+        - id: UnfinishedImprovisedWirecutter
+        - id: UnfinishedImprovisedWrench
+        - id: UnfinishedImprovisedMultitool
+        - id: HiltWood
+      #Botany
+      - !type:GroupSelector
+        children:
+        - id: HydroponicsToolMiniHoe
+        - id: HydroponicsToolClippers
+        - id: HydroponicsToolHatchet
+        - id: HydroponicsToolSpade
+        - id: PlantBGoneSpray
+        - id: WeedSpray
+        - id: PestSpray
     #Rare
     - !type:GroupSelector
       children:
@@ -296,6 +396,21 @@
         weight: 0.01
       - id: FoamSabre
       - id: RubberStampHatePaperwork
+      - id: CrayonMagic
+      - id: FishingRodGolden
+      - id: PresentInfinitePresent
+      - id: AvaliFeather
+      - id: CDDogtags
+      - id: ToyRubberDuck
+      - id: RubberChicken
+      - id: BorgFireExtinguisher
+      - id: MoproachShoes
+      - id: PetCarrier
+      - id: WelderMini
+      - id: WireBrushElectrical
+      - id: MortarAndPestle
+      - id: HandheldJuicer
+      - id: ResearchDisk
       #Smokes
       - !type:GroupSelector
         children:
@@ -315,6 +430,7 @@
       - !type:GroupSelector
         children:
         - id: PartRodMetal
+        - id: BluespaceOre1
         - id: IngotSilver1
           amount: !type:RangeNumberSelector
             range: 1, 5
@@ -375,6 +491,9 @@
         - id: MaterialChitinSharkminnow
           amount: !type:RangeNumberSelector
             range: 1, 5
+        - id: IngotPlutonium
+          amount: !type:RangeNumberSelector
+            range: 1, 3
       #Cubes
       - !type:GroupSelector
         children:
@@ -408,9 +527,24 @@
         - id: MedkitAdvanced
         - id: MedkitRadiation
         - id: MedkitCombat
-      #Weapoms
+        - id: RegenerativeMesh
+        - id: MedicatedSuture
+        - id: Bloodpack
+        - id: Tourniquet
+      #Surgery
       - !type:GroupSelector
         children:
+        - id: Cautery
+        - id: Scalpel
+        - id: Drill
+        - id: ScalpelShiv
+        - id: Retractor
+        - id: Hemostat
+        - id: SawImprov
+      #Weapons
+      - !type:GroupSelector
+        children:
+        - id: WeaponRifleBB
         - id: WoodenBuckler
         - id: MakeshiftShield
         - id: WebShield
@@ -420,6 +554,48 @@
         - id: Gohei
         - id: HypoDart
         - id: WeaponMeleeNeedle
+        - id: SwordMakeshift
+        - !type:GroupSelector
+          children:
+          - id: ModularBreech
+          - id: ModularTrigger
+          - id: Bayonet
+          - id: SwordImprovised
+          - id: UnfinishedForgedShotgun
+          - id: UnfinishedPistolForged
+          - id: UnfinishedRevolverForged
+          - id: UnfinishedSubMachineGunForged
+          - id: UnfinishedSniperForged
+          - id: ModularBarrel
+          - id: HiltPlasteel
+          - id: BladeSteel
+          - id: BladePlasteel
+          - id: UnfinishedSwordForged
+          - id: UnfinishedClaymoreForged
+          - id: UnfinishedImprovisedShield
+          - id: UnfinishedForgedShieldBuckler
+          - id: UnfinishedForgedShieldTower
+          - id: UnfinishedPaladinShield
+          - id: UnfinishedPaladinShieldGreat
+          - id: UnfinishedClothingOuterArmorImprovised
+          - id: UnfinishedClothingOuterArmorForged
+          - id: UnfinishedClothingOuterArmorPaladin
+          - id: UnfinishedClothingHeadHelmetImprovised
+          - id: UnfinishedClothingHeadHelmetForged
+          - id: UnfinishedClothingHeadHelmetPaladin
+      #Improvised Tools
+      - !type:GroupSelector
+        children:
+        - id: UnfinishedImprovisedOmnitool
+        - id: UnfinishedForgedOmnitool
+        - id: MultitoolImprovised
+        - id: CrowbarImprovised
+        - id: CrowbarWrenchMakeshift
+        - id: CrowbarWrenchScrewdriverMakeshift
+        - id: OmnitoolMakeshift
+        - id: ScrewdriverImprovised
+        - id: WirecutterImprovised
+        - id: WrenchImprovised
       #Chems
       - !type:GroupSelector
         children:

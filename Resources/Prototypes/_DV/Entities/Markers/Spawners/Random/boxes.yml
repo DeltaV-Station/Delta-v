@@ -63,6 +63,8 @@
       - id: BoxMousetrap
       - id: BoxRandomDonk
       - id: BoxUtensil
+      - id: BoxMailCapsulePrimed
+      - id: WrappedParcel
       #Lights
       - !type:GroupSelector
         children:
@@ -112,6 +114,9 @@
       - id: BoxAgrichem
       - id: BoxTapeRecorder
       - id: BoxSyndicateFigurines
+      - id: CleanadeGrenadeBox
+      - id: FugitiveStash
+      - id: WrappedParcelHumanoid
       #Survival boxes
       - !type:GroupSelector
         children:

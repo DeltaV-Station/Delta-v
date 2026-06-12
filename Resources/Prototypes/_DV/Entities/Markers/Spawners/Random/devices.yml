@@ -117,6 +117,8 @@
         - id: TapeRecorder
         - id: CassetteTape
         - id: PlantAnalyzer
+        - id: MineralScanner
+        - id: GasAnalyzer
         #Flatpacks
         - !type:GroupSelector
           children:
@@ -145,6 +147,14 @@
           - id: ExplosivePayload
           - id: ChemicalPayload
           - id: FlashPayload
+        #Filters
+        - !type:GroupSelector
+          children:
+          - id: AutomationFilterLabel
+          - id: AutomationFilterName
+          - id: AutomationFilterStack
+          - id: AutomationFilterPressure
+          - id: AutomationFilterCombined
     #Rare
     - !type:GroupSelector
       children:
@@ -255,6 +265,8 @@
         - id: DeviceDesynchronizer
         - id: DoorRemoteFirefight
         - id: DeadMansSignaler
+        - id: portableChemicalMixer
+        - id: Defibrillator
         #Projectors
         - !type:GroupSelector
           children:

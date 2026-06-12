@@ -97,7 +97,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Clothing/Shoes/cowboybootsfancy.rsi
+      - sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
         state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
@@ -127,7 +127,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Clothing/Head/Hats/tophat.rsi
+      - sprite: Clothing/Uniforms/Jumpsuit/damedaneoutfit.rsi
         state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
@@ -239,6 +239,7 @@
         - id: ClothingMaskWeldingGas
         - id: ClothingEyesWrestlerMaskDomino
         - id: ClothingMaskPilot
+        - id: CDDogtags
         - id: ClothingMaskCluwne
           weight: 0.1
       #Bandanas
@@ -378,6 +379,7 @@
       - id: ClothingNeckCloakGay
       - id: ClothingNeckCloakEnby
       - id: ClothingNeckCloakPan
+      - id: ClothingNeckCloakRosy
     #Pins
     - !type:GroupSelector
       children:
@@ -423,6 +425,7 @@
       - id: ClothingNeckScarfStripedRainbow
       - id: ClothingNeckScarfStripedTrans
       - id: ClothingNeckScarfStripedLesbianLong
+      - id: ClothingNeckScarfPilot
     #Rare
     - !type:GroupSelector
       weight: 0.05
