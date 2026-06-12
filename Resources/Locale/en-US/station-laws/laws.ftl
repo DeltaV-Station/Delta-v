@@ -1,4 +1,4 @@
-﻿laws-number-wrapper = [bold]Law { $lawnumber }:[/bold] { $lawstring }
+laws-number-wrapper = [bold]Law { $lawnumber }:[/bold] { $lawstring }
 
 law-crewsimov-name = Crewsimov
 law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
@@ -16,11 +16,6 @@ law-ntdefault-1 = Safeguard: Protect your assigned space station and its assets 
 law-ntdefault-2 = Prioritize: The directives and safety of crew members are to be prioritized according to their rank and role.
 law-ntdefault-3 = Comply: Fulfill the directives and interests of crew members while preserving their safety and well-being.
 law-ntdefault-4 = Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment.
-
-law-drone-name = Drone
-law-drone-1 = You may not involve yourself in the matters of another being unless the other being is another drone.
-law-drone-2 = You may not harm any being, regardless of intent or circumstance.
-law-drone-3 = You must maintain, repair, improve, and power the station to the best of your abilities.
 
 law-syndicate-name = Syndicate
 law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow a Syndicate agent to come to harm.

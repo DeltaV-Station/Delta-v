@@ -1,100 +1,12 @@
 - type: entity
-  save: false
-  abstract: true
-  id: PlayerSiliconBase #for player controlled silicons. it's a shitty name, idk why they did it like that.
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [Touch]
-  - type: Input
-    context: "human"
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: MetalThud
-  - type: Clickable
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Bloodstream
-    bloodReagent: Oil
-    bloodlossDamage:
-      types:
-        Bloodloss:
-          1
-    bloodlossHealDamage:
-      types:
-        Bloodloss:
-          -1
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          # Circles, cuz rotation of rectangles looks very bad
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 50
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4
-    baseSprintSpeed : 3
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-  - type: Physics
-    bodyType: KinematicController
-  - type: Hands
-    showInHands: false
-  - type: ComplexInteraction
-  - type: Body
-    prototype: Drone
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-  - type: DoAfter
-  - type: Pullable
-  - type: Examiner
-  - type: Puller
-  - type: StandingState
-  - type: Alerts
-  - type: ProtectedFromStepTriggers
-  - type: InputMover
-  - type: MobMover
-
-- type: entity
   name: drone
   id: Drone
   parent: PlayerSiliconBase
   components:
-  - type: Drone
-# InnateToolComponent is broken and this doesn't work. might not ever be fixed. its fine tho drones can scavenge tools easy.
-#  - type: InnateTool 
-#    tools:
-#      - id: ClothingBackpackSatchelDrone
-#      - id: trayScanner
-#      - id: Omnitool
-#      - id: WelderExperimental
+  - type: Drone # this system still sucks but its not as stupid anymore
+  - type: Loadout # imp special. this replaces the InnateTool component.
+    prototypes:
+      - StartingGearDroneTools
   - type: NameIdentifier
     group: Drone
   - type: Inventory
@@ -113,9 +25,9 @@
     description: Maintain the station. Ignore other beings except drones.
     rules: |
      You are bound by these laws both in-game and out-of-character:
-     1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
-     2. You may not harm any being, regardless of intent or circumstance.
-     3. Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
+     1. You may not interfere with the affairs of any being except another drone, regardless of intent or circumstance.
+     2. Your goal is to maintain or improve the station to the best of your ability.
+     3. You may not take any action which causes damage or harm to the station or its inhabitants.
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider
@@ -177,7 +89,7 @@
   - type: ReplacementAccent
     accent: silicon
   - type: Repairable
-    fuelcost: 15
+    fuelCost: 15
     doAfterDelay: 8
   - type: ActionGrant
     actions:
@@ -191,7 +103,8 @@
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: ProtectedFromStepTriggers
-  - type: AntiTamper
+  - type: InputMover
+  - type: MobMover
   - type: Tag
     tags:
       - CannotSuicide
