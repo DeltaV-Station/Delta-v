@@ -56,7 +56,7 @@
           - id: HotplateMachineCircuitboard
           - id: FatExtractorMachineCircuitboard
           - id: SmartFridgeCircuitboard
-          - id: OperatingTableCircuitboard
+          #- id: OperatingTableCircuitboard removed surgery
         #Service
         - !type:GroupSelector
           children:
@@ -133,8 +133,8 @@
           - id: ChemMasterFlatpack
           - id: OperatingTableFlatpack
           - id: HydroponicsTrayFlatpack
-          - id: MedBioFabricatorFlatpack
-          - id: AutoclaveFlatpack
+          #- id: MedBioFabricatorFlatpack removed surgery
+          #- id: AutoclaveFlatpack removed surgery
         #Trigger
         - !type:GroupSelector
           children:
@@ -186,9 +186,9 @@
           - id: CloningConsoleComputerCircuitboard
           - id: BodyScannerComputerCircuitboard
           - id: BiomassReclaimerMachineCircuitboard
-          - id: MedicalBiofabMachineBoard
-          - id: AutoclaveMachineCircuitboard
-          - id: OperatingTableAdvancedCircuitboard
+          #- id: MedicalBiofabMachineBoard removed surgery
+          #- id: AutoclaveMachineCircuitboard removed surgery
+          #- id: OperatingTableAdvancedCircuitboard removed surgery
         #Chem/Science
         - !type:GroupSelector
           children:

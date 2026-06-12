@@ -49,8 +49,8 @@
       - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
         state: purple_snake
   - type: EntityTableSpawner
-    prob: 0.75
     table: !type:GroupSelector
+      prob: 0.75
       children:
       - id: MobPurpleSnakeGhost
       - id: MobCobraSpaceSalvage
@@ -69,8 +69,8 @@
       - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
         state: purple_snake
   - type: EntityTableSpawner
-    prob: 0.25
     table: !type:GroupSelector
+      prob: 0.25
       children:
       - id: MobPurpleSnakeGhost
       - id: MobCobraSpaceSalvage
