@@ -1,7 +1,6 @@
 ## Names of Psionic Powers
 psionic-power-name-dispel = Dispel
 psionic-power-name-eruption = Psionic Eruption
-psionic-power-name-fractured-form = Fractured Form
 psionic-power-name-mass-sleep = Mass Sleep
 psionic-power-name-mindswap = Mind Swap
 psionic-power-name-mindswap-return = Mind Swap Return
@@ -27,13 +26,6 @@ psionic-equipped-shielded-in-doafter = The insulative gear broke your concentrat
 psionic-dispelled = Someone dispelled your psionic concentration!
 
 ## Specific Psionic messages
-# Fractured Form
-psionic-power-fractured-form-nobodies = You have no alternate forms to switch to!
-psionic-power-fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
-psionic-power-fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
-psionic-power-fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
-psionic-power-fractured-form-dispelled = Someone dispelled your sleepiness..
-
 # Metapsionic Pulse
 psionic-power-metapsionic-success = You detect psychic presence there.
 psionic-power-metapsionic-failure = You don't detect any psychic presence there.
