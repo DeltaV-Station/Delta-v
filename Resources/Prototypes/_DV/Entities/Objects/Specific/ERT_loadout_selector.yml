@@ -1,0 +1,32 @@
+- type: entity
+  parent: ToolboxThief
+  id: ERTGearSelectorGunAmberSec
+  name: ERT Equipment Selector
+  suffix: Amber, Sec, Guns
+  description: "A small item teleporting a pre-determined set of equipment into the ERT members hands"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 1
+    possibleSets:
+    - ERTPatosBundle
+    - ERTaegunBundle
+    - ERTmixlaserBundle
+
+- type: entity
+  parent: ToolboxThief
+  id: ERTGearSelectorMedsAmber
+  name: ERT Equipment Selector
+  suffix: Amber, Sec, Meds
+  description: "A small item teleporting a pre-determined set of equipment into the ERT members hands"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 1
+    possibleSets:
+    - ERTMedkit
+    - ERTBrutekit

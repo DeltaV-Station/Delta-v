@@ -1,0 +1,56 @@
+- type: thiefBackpackSet
+  id: ERTPatosBundle
+  name: ert-amber-gun-name-patos
+  description: ert-amber-gun-desc-patos
+  sprite: 
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunPatos
+  - MagazinePistolHighCapacity
+  - MagazinePistolHighCapacity
+  - MagazinePistolHighCapacity
+  - MagazinePistolHighCapacity
+
+- type: thiefBackpackSet
+  id: ERTaegunBundle
+  name: ert-amber-gun-name-aegun
+  description: ert-amber-gun-desc-aegun
+  sprite: 
+    sprite: _DV/Objects/Weapons/Guns/Battery/energygunadvanced.rsi
+    state: icon
+  content:
+  - WeaponEnergyGunAdvanced
+
+- type: thiefBackpackSet
+  id: ERTmixlaserBundle
+  name: ert-amber-gun-name-mixlaser
+  description: ert-amber-gun-desc-mixlaser
+  sprite: 
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    state: icon
+  content:
+  - WeaponLaserCarbine
+  - WeaponDisablerSMG
+  - PortableRecharger
+
+- type: thiefBackpackSet
+  id: ERTMedkit
+  name: ert-medkit-name
+  description: ert-medkit-desc
+  sprite: 
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: firstaid
+  content:
+  - MedkitFilled
+
+- type: thiefBackpackSet
+  id: ERTBrutekit
+  name: ert-brutekit-name
+  description: ert-brutekit-desc
+  sprite: 
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: brutekit
+  content:
+  - MedkitBruteFilled
+
