@@ -5,7 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
-    - id: VentbullMigration # FETCH ME THEIR SOULS
+    - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -460,28 +460,31 @@
         - RadioImplantCentcomm
         - NanolinkSubImplant
 
-# NT Pest control/Ventbull Jumpscare
+# NT Pest Control via Pitbulls
 - type: entity
-  id: VentbullMigration
+  id: PitbullMigration
   parent: BaseStationEvent
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ventbull-start-announcement # NT pest control announcement
+    startAnnouncement: station-event-pitbull-start-announcement
     startAudio:
       path: /Audio/_DV/Announcements/attention.ogg
-    earliestStart: 1 # Pest control can occur at any time.
+    earliestStart: 1
     minimumPlayers: 10
     weight: 5
-    duration: 15 # 15 seconds until the mice slaughter begins
-  - type: PrecognitionResult # Precogniton
-    message: psionic-power-precognition-ventbull-spawn-result-message
+    duration: 15 
+  - type: PrecognitionResult
+    message: psionic-power-precognition-pitbull-spawn-result-message
   - type: VentCrittersRule
-    min: 5 # Should be a range between 5 and 25 assorted mobs.
-    max: 25
-    playerRatio: 55 # Hopefully lets a decent amount spawn.
-    table: !type:GroupSelector # EntityTable instead of spawn entries.
+    min: 1           # @  10 Pop -> Spawns  6 mice, 1 pitbull
+    max: 1           # @  50 Pop -> Spawns 12 mice, 2 pitbulls
+    playerRatio: 25  # @ 100 Pop -> Spawns 24 mice, 4 pitbulls
+    table: !type:AllSelector 
       children:
-      - id: MobMouse # Keeping some mouse spawns so that it looks like the ventbull/ventbulls chased them out of the vents.
+      - id: MobMouse # VentCrittersRule is coded in a way that it ignores ranges, so we duplicate entries to ensure more mice than dogs
+      - id: MobMouse
+      - id: MobMouse1
       - id: MobMouse1
       - id: MobMouse2
-      - id: MobPibbleVent # Hopefully this causes a combination of ventbulls and mice to spawn.
+      - id: MobMouse2
+      - id: MobPitbull

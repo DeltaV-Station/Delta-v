@@ -1,9 +1,10 @@
-- type: entity # Readds Pitbulls
+- type: entity
   parent: SimpleMobBase
-  id: MobPibble
-  name: pitbull
-  description: Nanny dog. Or a lab mix depending on who is asking.
+  id: MobBasePitbull
+  abstract: true
   components:
+  - type: Physics
+  - type: MobState
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -12,28 +13,20 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 5 # Don't piss them off, or else...
-        Piercing: 10
+        Slash: 2.5 # Im not going to elaborate further on this.
+        Piercing: 5
         Structural: 5
-  - type: MobState
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: _DV/Mobs/Animals/pitbull.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: pibble
-  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
-        density: 65
+          radius: 0.28
+        density: 35
         mask:
-        - MobMask
+        - SmallMobMask
         layer:
-        - MobLayer
+        - SmallMobLayer
   - type: Appearance
   - type: Inventory
     speciesId: secdog
@@ -44,14 +37,20 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/ventbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: vibble
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: pibble
+        Base: vibble
       Critical:
-        Base: pibble_dead
+        Base: vibble_dead
       Dead:
-        Base: pibble_dead
+        Base: vibble_dead
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -76,7 +75,6 @@
   - type: NpcFactionMember
     factions:
       - PetsNT
-      - Cat # Not a cat but we want them to attack mice
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -86,16 +84,27 @@
   - type: Grammar
     attributes:
       proper: true
-  - type: RandomMetadata
-    nameSegments: [NamesPitbulls]
   - type: Puller
     needsHands: false
 
 - type: entity
-  parent: MobPibble
-  id: MobPibbleVent
-  name: ventbull
+  parent: MobBasePitbull
+  id: MobPitbull
+  name: pitbull
   description: A subspecies of pitbull bred by NanoTrasen for quick and inexpensive pest control.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+      - Cat # Not a cat but we want them to attack mice
+  - type: RandomMetadata
+    nameSegments: [NamesPitbulls]
+
+- type: entity
+  parent: MobBasePitbull # Named version
+  id: MobPitbullPibble
+  name: Pibble
+  description: Nanny dog. Or a lab mix depending on who is asking.
   components:
   - type: MeleeWeapon
     hidden: true
@@ -105,31 +114,31 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 2.5 # Im not going to elaborate further on this.
-        Piercing: 5
+        Slash: 5 # Don't piss them off, or else...
+        Piercing: 10
         Structural: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pibble
+      Critical:
+        Base: pibble_dead
+      Dead:
+        Base: pibble_dead
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/pitbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pibble
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.28
-        density: 35
+          radius: 0.35
+        density: 65
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: _DV/Mobs/Animals/ventbull.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: vibble
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: vibble
-      Critical:
-        Base: vibble_dead
-      Dead:
-        Base: vibble_dead
+        - MobLayer
