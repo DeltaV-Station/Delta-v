@@ -361,6 +361,16 @@
 
 - type: entity
   parent: FaxMachineBase
+  id: FaxMachinePrisonGuard
+  suffix: Prison Guard
+  components:
+  - type: PageSender
+    autoLinkJobs: [PrisonGuard]
+  - type: FaxMachine
+    name: "Prison Guard"
+
+- type: entity
+  parent: FaxMachineBase
   id: FaxMachineProsecutor
   suffix: Prosecutor
   components:
@@ -488,3 +498,12 @@
     autoLinkJobs: [Prisoner]
   - type: FaxMachine
     name: "Permanent Brig"
+
+#hitman
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineHitman
+  components:
+  - type: FaxMachine
+    name: "Unknown?"
+    responsePings: false
