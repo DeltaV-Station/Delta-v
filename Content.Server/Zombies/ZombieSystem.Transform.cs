@@ -43,6 +43,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Radio.Components; // DeltaV
 using Content.Shared.Roles;
 using Content.Shared.Temperature.Components;
 
@@ -244,6 +245,18 @@ public sealed partial class ZombieSystem
         //_inventory.TryUnequip(target, "gloves", true, true); // DeltaV - Buff Zombies
         //Should prevent instances of zombies using comms for information they shouldnt be able to have.
         _inventory.TryUnequip(target, "ears", true, true);
+
+        //DeltaV - remove radio form pockets of Laika and normal security dogs
+        var prototype = MetaData(target).EntityPrototype?.ID;
+        if (prototype is "MobSecDogLaika" or "MobSecDog")
+        {
+            if (_inventory.TryGetSlotEntity(target, "pocket1", out var headset)
+                && HasComp<HeadsetComponent>(headset))
+            {
+                _inventory.TryUnequip(target, "pocket1", true, true);
+            }
+        }
+        //End DeltaV
 
         //popup
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);
