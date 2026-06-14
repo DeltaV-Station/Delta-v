@@ -86,6 +86,8 @@
       proper: true
   - type: Puller
     needsHands: false
+  - type: RandomMetadata
+    nameSegments: [NamesPitbulls]
 
 - type: entity
   parent: MobBasePitbull
@@ -97,8 +99,6 @@
     factions:
       - PetsNT
       - Cat # Not a cat but we want them to attack mice
-  - type: RandomMetadata
-    nameSegments: [NamesPitbulls]
 
 - type: entity
   parent: MobBasePitbull # Named version
