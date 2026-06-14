@@ -92,7 +92,7 @@
 - type: entity
   parent: MobBasePitbull
   id: MobPitbull
-  name: pitbull
+  name: Pibble
   description: A subspecies of pitbull bred by NanoTrasen for quick and inexpensive pest control.
   components:
   - type: NpcFactionMember
@@ -103,7 +103,7 @@
 - type: entity
   parent: MobBasePitbull # Named version
   id: MobPitbullPibble
-  name: Pibble
+  name: Pitbull
   description: Nanny dog. Or a lab mix depending on who is asking.
   components:
   - type: MeleeWeapon
