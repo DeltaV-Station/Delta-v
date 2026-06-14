@@ -3,6 +3,7 @@ using Content.Server.GameTicking;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.NewPlayer;
+using Content.Shared.GameTicking;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
@@ -25,20 +26,12 @@ public sealed class NewPlayerSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
         SubscribeLocalEvent<NewPlayerLabelComponent, PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
 
-        ReloadPrototypes();
 
         Subs.CVar(_config, RMCCVars.RMCNewPlayerTimeTotalHours, v => _newPlayerTimeTotal = TimeSpan.FromHours(v), true);
         Subs.CVar(_config, RMCCVars.RMCNewPlayerTimeJobHours, v => _newPlayerTimeJob = TimeSpan.FromHours(v), true);
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs ev)
-    {
-        if (ev.WasModified<PlayTimeTrackerPrototype>())
-            ReloadPrototypes();
     }
 
     private void OnPlayerSpawnComplete(Entity<NewPlayerLabelComponent> ent, ref PlayerSpawnCompleteEvent args)
@@ -76,17 +69,5 @@ public sealed class NewPlayerSystem : EntitySystem
         {
             Log.Error($"Error getting new player playtime:\n{e}");
         }
-    }
-
-    private void ReloadPrototypes()
-    {
-        var jobs = new HashSet<ProtoId<PlayTimeTrackerPrototype>>();
-        foreach (var job in _prototypes.EnumeratePrototypes<PlayTimeTrackerPrototype>())
-        {
-            if (job.IsHumanoid)
-                jobs.Add(job.ID);
-        }
-
-        _humanoidTrackers = jobs.ToImmutableHashSet();
     }
 }

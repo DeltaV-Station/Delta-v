@@ -117,12 +117,6 @@
       enum.RevivalContractUiKey.Key: # Goobstation - Devil
         type: RevivalContractBoundUserInterface
         requireInputValidation: false
-      enum.TacticalMapUserUi.Key:
-        type: TacticalMapUserBui
-  - type: TacticalMapUser
-    actionId: RMCActionOpenTacticalMapGhost
-    marines: true
-    xenos: true
 
 # proto for player ghosts specifically
 - type: entity
