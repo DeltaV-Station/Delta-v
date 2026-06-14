@@ -89,8 +89,8 @@
 
 - type: entity
   parent: MobBasePitbull
-  id: MobPitbull
-  name: Pibble
+  id: MobPitbullVent # ventbull
+  name: Ventbull
   description: A subspecies of pitbull bred by NanoTrasen for quick and inexpensive pest control.
   components:
   - type: NpcFactionMember
@@ -101,8 +101,8 @@
     nameSegments: [NamesPitbulls]
 
 - type: entity
-  parent: MobBasePitbull # Named version
-  id: MobPitbullPibble
+  parent: MobBasePitbull
+  id: MobPitbull
   name: Pitbull
   description: Nanny dog. Or a lab mix depending on who is asking.
   components:
@@ -144,3 +144,46 @@
         - MobLayer
   - type: RandomMetadata
     nameSegments: [NamesPitbulls]
+
+- type: entity
+  parent: MobBasePitbull
+  id: MobPitbullPibble
+  name: Pibble
+  description: Its Pibble! He's a great companion for any crewmate aboard the station! Just be sure to not make him the subject of any violence! #It means dont fucking punch him or he will kick your ass.
+  components:
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 10 # Consequences of punching Pibble the Pitbull
+        Piercing: 15
+        Structural: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pibble
+      Critical:
+        Base: pibble_dead
+      Dead:
+        Base: pibble_dead
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/pitbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pibble
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 65
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
