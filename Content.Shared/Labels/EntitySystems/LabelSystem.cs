@@ -10,6 +10,7 @@ using Content.Shared.Tag; // DeltaV
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Shared.Labels.EntitySystems;
 

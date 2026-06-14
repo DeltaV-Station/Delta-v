@@ -530,6 +530,7 @@ namespace Content.Shared.Examine
         }
 
         private record ExamineMessagePart(FormattedMessage Message, int Priority, bool DoNewLine, string? Group);
+        public SlotFlags TargetSlots { get; } = SlotFlags.NECK; // Harmony - For targeting lanyards.
     }
 
 
