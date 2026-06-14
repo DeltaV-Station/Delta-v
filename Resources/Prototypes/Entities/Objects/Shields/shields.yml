@@ -14,6 +14,7 @@
       size: Ginormous
       #heldPrefix: riot #Harmony Change: Removed due to being redundant
     - type: Blocking
+      passiveBlockFraction: 0.35 # DeltaV - Reduce default block coefficient from .5 to .35
       passiveBlockModifier:
         coefficients:
           Blunt: 0.9
