@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: GnomeSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -409,7 +410,6 @@
       mindRoles:
       - MindRoleHitman
 
-
 # nt agent sleeper event
 - type: entity
   id: NTAgentSleeper
@@ -453,3 +453,18 @@
         implants:
         - RadioImplantCentcomm
         - NanolinkSubImplant
+
+# Gnomes
+- type: entity
+  parent: BaseGameRule
+  id: GnomeSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 5
+    weight: 2
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-gnome-spawn-result-message
+  - type: AntagSpawner
+    prototype: MobGnome

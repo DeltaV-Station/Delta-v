@@ -1,0 +1,112 @@
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobGnome
+  name: gnome
+  description: A cheery fellow. Definitely not a goblin. Or an elf.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/gnome.rsi
+    state: gnome
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gnome
+      Dead:
+        Base: dead
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      25: 0.8
+      40: 0.6
+  - type: GhostRole
+    name: ghost-role-information-gnome-name
+    description: ghost-role-information-gnome-description
+    rules: ghost-role-information-freeagent-rules
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 160
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile # cats hate gnomes
+  - type: Speech
+    speechSounds: Gnome
+  - type: DamageForceSay
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Grammar
+    attributes:
+      proper: true
+  # abilities
+  - type: CombatMode
+    canDisarm: true
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Psionic
+  - type: Jaunt
+  - type: PsionicRegenerationPower
+  - type: PsionicInvisibilityPower
+  - type: NoSlip
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Effects/glass_knock.ogg # Fairy magic
+  - type: Carriable
+  - type: Hands
+    count: 2
+  - type: Puller
+  - type: ComplexInteraction
+  - type: AutoImplant
+    implants:
+    - StorageImplant # for trinkets
+  - type: Thieving # for stealing said trinkets
+    stealthy: false
+  - type: Butcherable
+    spawned:
+    - id: Ash
+    - id: ClothingHeadHatGnome
+  - type: Tag
+    tags:
+    - FootstepSound

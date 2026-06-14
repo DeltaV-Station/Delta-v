@@ -510,3 +510,22 @@
     tags:
     - PetWearable
     - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGnome
+  name: gnome hat
+  description: For those that honor the first gnome in space, Gnome Chompsky.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
+    clothingVisuals:
+      head:
+      - state: equipped
+        offset: "0, 0.35"
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
