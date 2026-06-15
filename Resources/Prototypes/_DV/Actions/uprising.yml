@@ -1,0 +1,78 @@
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ActionUprisingOfferConversion
+  name: Offer Conversion
+  description: Offer to let someone join your side.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/Misc/uprising.rsi
+      state: conversion
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+
+- type: entity
+  parent: ActionUprisingOfferConversion
+  id: ActionLoyalistOfferConversion
+  components:
+  - type: EntityTargetAction
+    event: !type:ConversionOfferActionEvent
+      incompatibleMindRoleTypes:
+      - Content.Shared._DV.Roles.LoyalistRoleComponent
+      - Content.Shared._DV.Roles.UprisingInconvertibleRoleComponent
+      acceptAction: ActionLoyalistAcceptConversion
+
+- type: entity
+  parent: ActionUprisingOfferConversion
+  id: ActionInsurgentOfferConversion
+  components:
+  - type: EntityTargetAction
+    event: !type:ConversionOfferActionEvent
+      incompatibleMindRoleTypes:
+      - Content.Shared._DV.Roles.InsurgentRoleComponent
+      - Content.Shared._DV.Roles.UprisingInconvertibleRoleComponent
+      acceptAction: ActionInsurgentAcceptConversion
+
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: ActionUprisingAcceptConversion
+  name: Join Side
+  description: Join the side of whoever's trying to recruit you. You can only do this for 30 seconds after being offered.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/Misc/uprising.rsi
+      state: conversion_question
+  - type: InstantAction
+  - type: ConfirmableAction
+    popup: uprising-conversion-join-side
+  - type: ESTimedDespawn
+    lifetime: 30
+  - type: LimitedCharges
+    maxCharges: 1
+
+- type: entity
+  parent: ActionUprisingAcceptConversion
+  id: ActionInsurgentAcceptConversion
+  components:
+  - type: InstantAction
+    event: !type:ConversionAcceptActionEvent
+      mindRole: MindRoleInsurgent
+      removeMindRole: MindRoleLoyalist
+
+- type: entity
+  parent: ActionUprisingAcceptConversion
+  id: ActionLoyalistAcceptConversion
+  components:
+  - type: InstantAction
+    event: !type:ConversionAcceptActionEvent
+      mindRole: MindRoleLoyalist
+      removeMindRole: MindRoleInsurgent

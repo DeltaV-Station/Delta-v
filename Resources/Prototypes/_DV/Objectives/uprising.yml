@@ -1,0 +1,101 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseLoyalistObjective
+  components:
+  - type: Objective
+    issuer: antag-Loyalist.issuer
+    difficulty: 0
+  - type: RoleRequirement
+    roles: [ LoyalistRole ]
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseInsurgentObjective
+  components:
+  - type: Objective
+    issuer: antag-Insurgent.issuer
+    difficulty: 0
+  - type: RoleRequirement
+    roles: [ InsurgentRole ]
+
+- type: entity
+  parent: BaseLoyalistObjective
+  id: LoyalistObjectiveCrewMajority
+  name: Rally Crew
+  description: Rally the crew to NanoTrasen's side.
+  components:
+  - type: CrewConversionObjective
+    convertedRoles: [ LoyalistRole ]
+    conversionSourceFactions: [ NanoTrasen ]
+    targetFraction: 0.5
+  - type: Objective
+    icon:
+      sprite: /Textures/_DV/Misc/uprising.rsi
+      state: loyalist_conversion
+
+- type: entity
+  parent: BaseLoyalistObjective
+  id: LoyalistObjectiveProtectCommand
+  name: Protect Command
+  description: Keep NanoTrasen's rightfully-appointed Command in their place, and get them on your side.
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/_DV/Misc/uprising.rsi
+      state: protect
+  - type: CommandStatusObjective
+    convertedRoles: [ LoyalistRole ]
+    shouldUnconvertedBeIncapacitated: false
+
+- type: entity
+  parent: BaseLoyalistObjective
+  id: LoyalistObjectiveDeclareLoyalty
+  name: Declare Loyalty
+  description: After rallying the majority of the crew, get to a communications computer and affirm the station's loyalty to NanoTrasen.
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/_DV/Misc/uprising.rsi
+      state: loyalty
+
+- type: entity
+  parent: BaseInsurgentObjective
+  id: InsurgentObjectiveCrewMajority
+  name: Rally Crew
+  description: Rally the crew to your side.
+  components:
+  - type: CrewConversionObjective
+    convertedRoles: [ InsurgentRole ]
+    conversionSourceFactions: [ NanoTrasen ]
+    targetFraction: 0.5
+  - type: Objective
+    icon:
+      sprite: /Textures/_DV/Misc/uprising.rsi
+      state: insurgent_conversion
+
+- type: entity
+  parent: BaseInsurgentObjective
+  id: InsurgentObjectiveIncapacitateCommand
+  name: Incapacitate Command
+  description: Assassinate, handcuff, or convert all of Command.
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/_DV/Misc/uprising.rsi
+      state: overthrow
+  - type: CommandStatusObjective
+    convertedRoles: [ InsurgentRole ]
+    shouldUnconvertedBeIncapacitated: true
+
+- type: entity
+  parent: BaseInsurgentObjective
+  id: InsurgentObjectiveTakeOver
+  name: Take Over
+  description: After getting all of Command out of the way, get to a communications computer and declare the station's liberation.
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/_DV/Misc/uprising.rsi
+      state: take_over
