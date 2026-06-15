@@ -1,0 +1,90 @@
+﻿- type: entity
+  id: WashingMachine
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: Nanotrasen Commercial Model-C washing machine
+  description: An industrial-grade washing machine designed to clean even the grimiest of uniforms. Keep hands, hard objects and small crewmembers away from drum during cycle.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/washing_machine.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: empty
+      map: [ "content" ]
+    - state: door-closed
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: running
+      map: [ "washing" ]
+      visible: false
+  - type: WashingMachine
+    washTime: 5
+    cooldown: 6
+    bluntDamagePerSecond: 6
+    selfDamagePerSecond: 6
+    waterSprayAmount: 150
+    washLoopSound:
+      path: /Audio/_Funkystation/Machines/washing_loop.ogg
+      params:
+        loop: true
+    washFinishedSound:
+      path: /Audio/_Funkystation/Machines/washing_open.ogg
+  - type: EntityStorage
+    isCollidableWhenOpen: false
+    open: false
+    capacity: 4
+  - type: Forensics
+    canDnaBeCleaned: false
+  - type: PlaceableSurface
+    isPlaceable: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        content:
+          True: { visible: false }
+          False: { visible: true }
+      enum.StorageVisuals.HasContents:
+        content:
+          True: { state: full }
+          False: { state: empty }
+      enum.WashingMachineVisuals.State:
+        washing:
+          Idle: { visible: false }
+          Washing: { visible: true }
+          Broken: { visible: false }
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateBaseOpen: base
+    stateDoorOpen: door-open
+    stateDoorClosed: door-closed
+  - type: Machine
+    board: WashingMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      entity_storage: !type:Container
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers: [machine_parts, machine_board, entity_storage]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

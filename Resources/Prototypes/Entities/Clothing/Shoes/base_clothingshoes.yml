@@ -19,12 +19,23 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain:
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
     - Recyclable
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      shoes:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: shoeblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: shoebloodicon
 
 - type: entity
   abstract: true
