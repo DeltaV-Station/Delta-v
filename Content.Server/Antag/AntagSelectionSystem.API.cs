@@ -23,7 +23,8 @@ public sealed partial class AntagSelectionSystem
     /// </summary>
     public bool TryGetNextAvailableDefinition(Entity<AntagSelectionComponent> ent,
         [NotNullWhen(true)] out AntagSelectionDefinition? definition,
-        int? players = null)
+        int? players = null,
+        string? preferredRole = null) // DeltaV - preferrec roles
     {
         definition = null;
 
@@ -39,6 +40,11 @@ public sealed partial class AntagSelectionSystem
         // It needs to track selected minds for each definition independently.
         foreach (var def in ent.Comp.Definitions)
         {
+            // Begin DeltaV - preferred roles
+            if (preferredRole is not null && !def.PrefRoles.Contains(preferredRole))
+                continue;
+            // End DeltaV - preferred roles
+
             var target = GetTargetAntagCount(ent, null, def);
 
             if (mindCount < target)
@@ -336,11 +342,11 @@ public sealed partial class AntagSelectionSystem
     /// This technically is a gamerule-ent-less way to make an entity an antag.
     /// You should almost never be using this.
     /// </summary>
-    public void ForceMakeAntag<T>(ICommonSession? player, string defaultRule) where T : Component
+    public void ForceMakeAntag<T>(ICommonSession? player, string defaultRule, string? preferredRole = null) where T : Component // DeltaV - preferred antag roles
     {
         var rule = ForceGetGameRuleEnt<T>(defaultRule);
 
-        if (!TryGetNextAvailableDefinition(rule, out var def))
+        if (!TryGetNextAvailableDefinition(rule, out var def, preferredRole: preferredRole)) // DeltaV - preferred antag roles
             def = rule.Comp.Definitions.Last();
         MakeAntag(rule, player, def.Value);
     }
