@@ -246,17 +246,15 @@ public sealed partial class ZombieSystem
         //Should prevent instances of zombies using comms for information they shouldnt be able to have.
         _inventory.TryUnequip(target, "ears", true, true);
 
-        //DeltaV - remove radio form pockets of Laika and normal security dogs
-        var prototype = MetaData(target).EntityPrototype?.ID;
-        if (prototype is "MobSecDogLaika" or "MobSecDog")
+        // BEGIN DeltaV - Remove innate radio and radios from pockets
+        for (var i = 1; i <= 4; i++) // Arachnids have 4 pockets
         {
-            if (_inventory.TryGetSlotEntity(target, "pocket1", out var headset)
-                && HasComp<HeadsetComponent>(headset))
-            {
-                _inventory.TryUnequip(target, "pocket1", true, true);
-            }
+            if (_inventory.TryGetSlotEntity(target, $"pocket{i}", out var headset) && HasComp<HeadsetComponent>(headset))
+                _inventory.TryUnequip(target, $"pocket{i}", true, true);
         }
-        //End DeltaV
+
+        RemComp<ActiveRadioComponent>(target); // If the zombie has an innate radio, get rid of it.
+        // END DeltaV
 
         //popup
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);
