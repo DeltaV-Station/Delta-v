@@ -141,3 +141,67 @@
   - type: HitmanRole
   - type: RoleBriefing
     briefing: hitman-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleLoyalist
+  name: Loyalist Role
+  components:
+  - type: MindRole
+    antagPrototype: HeadLoyalist
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: role-subtype-loyalist
+  - type: LoyalistRole
+  - type: RoleBriefing
+    briefing: antag-Loyalist.briefing
+  - type: ObjectiveRole
+    objectives:
+    - LoyalistObjectiveCrewMajority
+    - LoyalistObjectiveProtectCommand
+    - LoyalistObjectiveDeclareLoyalty
+  - type: ActionGrant
+    actions:
+    - ActionLoyalistOfferConversion
+  - type: ActionGrantRole
+
+- type: entity
+  parent: MindRoleLoyalist
+  id: MindRoleHeadLoyalist
+  name: Head Loyalist Role
+  components:
+  - type: MindRole
+    subtype: role-subtype-head-loyalist
+  - type: UprisingInconvertibleRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleInsurgent
+  name: Insurgent Role
+  components:
+  - type: MindRole
+    antagPrototype: HeadInsurgent
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: role-subtype-insurgent
+  - type: InsurgentRole
+  - type: RoleBriefing
+    briefing: antag-Insurgent.briefing
+  - type: ObjectiveRole
+    objectives:
+    - InsurgentObjectiveCrewMajority
+    - InsurgentObjectiveIncapacitateCommand
+    - InsurgentObjectiveTakeOver
+  - type: ActionGrant
+    actions:
+    - ActionInsurgentOfferConversion
+  - type: ActionGrantRole
+
+- type: entity
+  parent: MindRoleInsurgent
+  id: MindRoleHeadInsurgent
+  name: Head Insurgent Role
+  components:
+  - type: MindRole
+    subtype: role-subtype-head-insurgent
+  - type: UprisingInconvertibleRole
