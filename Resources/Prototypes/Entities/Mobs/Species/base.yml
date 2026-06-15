@@ -54,6 +54,8 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
+    - map: [ "enum.NewPlayerLayers.Layer" ]
+      visible: false
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
@@ -225,6 +227,10 @@
   - type: Carriable # DeltaV
   - type: GrappleTarget # DeltaV - Allow targets to be grappled
   - type: RMCSetPose # DeltaV - RMC pose port
+  # Begin DeltaV Additions - RMC "New Player UI"
+  - type: NewPlayerLabel
+  - type: Appearance
+  # End DeltaV Additions - RMC "New Player UI"
 
 - type: entity
   save: false

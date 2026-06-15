@@ -18,4 +18,5 @@ public sealed partial class RMCCVars : CVars
 
     public static readonly CVarDef<int> RMCBrandNewPlayerTimeJobHours =
         CVarDef.Create("rmc.brand_new_player_time_job_hours", 1, CVar.REPLICATED | CVar.SERVER);
+
 }

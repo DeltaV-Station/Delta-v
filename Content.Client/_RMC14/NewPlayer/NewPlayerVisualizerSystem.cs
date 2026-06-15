@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+﻿﻿using System.Numerics;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.NewPlayer;
 using Robust.Client.GameObjects;
@@ -76,6 +76,7 @@ public sealed class NewPlayerVisualizerSystem : VisualizerSystem<NewPlayerLabelC
             NewPlayerVisuals.One => see.OneLabel,
             NewPlayerVisuals.Two => see.TwoLabel,
             NewPlayerVisuals.Three => see.ThreeLabel,
+            NewPlayerVisuals.Four => see.FourLabel,
             _ => null,
         };
 
