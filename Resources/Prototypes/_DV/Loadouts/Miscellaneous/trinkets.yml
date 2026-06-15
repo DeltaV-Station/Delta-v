@@ -154,3 +154,15 @@
     back:
     - GorlexMatchboxNerfed
   groupBy: "smokeables"
+  
+- type: loadout
+  id: BananaPeel
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: Jobclown
+      time: 36000 # 10hr
+  storage:
+    back:
+    - BananaPeel
