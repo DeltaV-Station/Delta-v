@@ -371,7 +371,7 @@
     - node: n14TableWoodenOvalWide
       entity: N14TableWoodenOvalWide
       edges:
-        - to: tableWoodFrameDV
+        - to: start
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -383,7 +383,7 @@
     - node: n14TableWoodenSquareWide
       entity: N14TableWoodenSquareWide
       edges:
-        - to: tableWoodFrameDV
+        - to: start
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
