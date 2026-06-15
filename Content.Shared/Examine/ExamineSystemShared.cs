@@ -294,7 +294,7 @@ namespace Content.Shared.Examine
     ///     If you're pushing multiple messages that should be grouped together (or ordered in some way),
     ///     call <see cref="PushGroup"/> before pushing and <see cref="PopGroup"/> when finished.
     /// </summary>
-    public sealed class ExaminedEvent : EntityEventArgs, IInventoryRelayEvent
+    public sealed class ExaminedEvent : EntityEventArgs, IInventoryRelayEvent //Harmony InventoryRelayEvent for Lanyards
     {
         /// <summary>
         ///     The message that will be displayed as the examine text.

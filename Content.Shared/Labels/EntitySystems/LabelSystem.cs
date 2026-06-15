@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement; //Harmony
-using Content.Shared.Inventory; //Harmony
+using Content.Shared.IdentityManagement; //Harmony Lanyards
+using Content.Shared.Inventory; //Harmony Lanyards
 using Content.Shared.Labels.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Paper;
@@ -10,7 +10,7 @@ using Content.Shared.Tag; // DeltaV
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Utility;
-using System.Linq;
+using System.Linq; //Harmony Lanyards
 
 namespace Content.Shared.Labels.EntitySystems;
 
