@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Fun/Tabletop/chessboard.rsi
-        state: chessboard
+    - state: red
+    - sprite: Objects/Fun/Tabletop/chessboard.rsi
+      state: chessboard
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
