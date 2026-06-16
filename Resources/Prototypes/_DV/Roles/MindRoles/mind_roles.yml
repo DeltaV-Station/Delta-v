@@ -164,6 +164,8 @@
     actions:
     - ActionLoyalistOfferConversion
   - type: ActionGrantRole
+  - type: UprisingRole
+    side: Loyalist
 
 - type: entity
   parent: MindRoleLoyalist
@@ -196,6 +198,8 @@
     actions:
     - ActionInsurgentOfferConversion
   - type: ActionGrantRole
+  - type: UprisingRole
+    side: Insurgent
 
 - type: entity
   parent: MindRoleInsurgent

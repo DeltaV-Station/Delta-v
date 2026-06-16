@@ -56,8 +56,7 @@
     popup: uprising-conversion-join-side
   - type: ESTimedDespawn
     lifetime: 30
-  - type: LimitedCharges
-    maxCharges: 1
+  - type: DeleteOnPerformedAction
 
 - type: entity
   parent: ActionUprisingAcceptConversion

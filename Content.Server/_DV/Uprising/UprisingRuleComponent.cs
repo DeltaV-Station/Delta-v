@@ -1,3 +1,4 @@
+using Content.Shared._DV.Roles;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.Uprising;
@@ -37,4 +38,17 @@ public sealed partial class UprisingRuleComponent : Component
 
     [DataField]
     public float NukeDuration = 60f;
+
+    [DataField]
+    public (UprisingSide, TimeSpan)? SideWinsAt;
+
+    [DataField]
+    public UprisingSide? SideWon;
+
+    [DataField]
+    public Dictionary<UprisingSide, TimeSpan> SideTimes = new()
+    {
+        { UprisingSide.Insurgent , TimeSpan.FromMinutes(3) },
+        { UprisingSide.Loyalist , TimeSpan.FromMinutes(3) },
+    };
 }
