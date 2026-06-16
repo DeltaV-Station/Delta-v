@@ -14,4 +14,3 @@ public enum UprisingSide : byte
     Insurgent,
     Loyalist,
 }
-
