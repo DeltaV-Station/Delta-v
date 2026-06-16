@@ -100,7 +100,7 @@ public sealed class UprisingRuleSystem : GameRuleSystem<UprisingRuleComponent>
         if (component.FinalWarningAt is { } finalWarning && finalWarning <= Timing.CurTime)
         {
             var time = component.NukeTimeAt.HasValue ? component.NukeTimeAt.Value - Timing.CurTime : component.FinalWarning;
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("uprising-announcement-impending-warning", ("time", (int)Math.Round(time.TotalMinutes))), colorOverride: Color.Gold);
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("uprising-announcement-final-warning", ("time", (int)Math.Round(time.TotalMinutes))), colorOverride: Color.Gold);
             component.FinalWarningAt = null;
         }
 
