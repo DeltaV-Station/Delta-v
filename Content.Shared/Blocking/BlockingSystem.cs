@@ -9,6 +9,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems; // DeltaV - Raised Shields slow you down.
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
@@ -32,11 +33,13 @@ public sealed partial class BlockingSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // DeltaV - Raised Shields slow you down.
 
     public override void Initialize()
     {
         base.Initialize();
         InitializeUser();
+        InitializeDV(); // DeltaV - DeltaV Partial System.
 
         SubscribeLocalEvent<BlockingComponent, GotEquippedHandEvent>(OnEquip);
         SubscribeLocalEvent<BlockingComponent, GotUnequippedHandEvent>(OnUnequip);
@@ -143,7 +146,7 @@ public sealed partial class BlockingSystem : EntitySystem
         if (component.IsBlocking)
             return false;
 
-        var xform = Transform(user);
+        //var xform = Transform(user); // DeltaV - Blocking no longer blocks entities from moving through the blocking entity.
 
         var shieldName = Name(item);
 
@@ -151,59 +154,64 @@ public sealed partial class BlockingSystem : EntitySystem
         var msgUser = Loc.GetString("action-popup-blocking-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        //Don't allow someone to block if they're not parented to a grid
-        if (xform.GridUid != xform.ParentUid)
-        {
-            CantBlockError(user);
-            return false;
-        }
+        // DeltaV Start - Blocking no longer blocks entities from moving through the blocking entity.
+        // //Don't allow someone to block if they're not parented to a grid
+        // if (xform.GridUid != xform.ParentUid)
+        // {
+        //     CantBlockError(user);
+        //     return false;
+        // }
+        //
+        // // Don't allow someone to block if they're not holding the shield
+        // if (!_handsSystem.IsHolding(user, item, out _))
+        // {
+        //     CantBlockError(user);
+        //     return false;
+        // }
+        //
+        // //Don't allow someone to block if someone else is on the same tile
+        // var playerTileRef = _turf.GetTileRef(xform.Coordinates);
+        // if (playerTileRef != null)
+        // {
+        //     var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
+        //     var mobQuery = GetEntityQuery<MobStateComponent>();
+        //     foreach (var uid in intersecting)
+        //     {
+        //         if (uid != user && mobQuery.HasComponent(uid))
+        //         {
+        //             TooCloseError(user);
+        //             return false;
+        //         }
+        //     }
+        // }
+        //
+        // //Don't allow someone to block if they're somehow not anchored.
+        // _transformSystem.AnchorEntity(user, xform);
+        // if (!xform.Anchored)
+        // {
+        //     CantBlockError(user);
+        //     return false;
+        // }
+        // DeltaV End - Blocking no longer blocks entities from moving through the blocking entity.
 
-        // Don't allow someone to block if they're not holding the shield
-        if (!_handsSystem.IsHolding(user, item, out _))
-        {
-            CantBlockError(user);
-            return false;
-        }
-
-        //Don't allow someone to block if someone else is on the same tile
-        var playerTileRef = _turf.GetTileRef(xform.Coordinates);
-        if (playerTileRef != null)
-        {
-            var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
-            var mobQuery = GetEntityQuery<MobStateComponent>();
-            foreach (var uid in intersecting)
-            {
-                if (uid != user && mobQuery.HasComponent(uid))
-                {
-                    TooCloseError(user);
-                    return false;
-                }
-            }
-        }
-
-        //Don't allow someone to block if they're somehow not anchored.
-        _transformSystem.AnchorEntity(user, xform);
-        if (!xform.Anchored)
-        {
-            CantBlockError(user);
-            return false;
-        }
         _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
         _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
 
-        if (TryComp<PhysicsComponent>(user, out var physicsComponent))
-        {
-            _fixtureSystem.TryCreateFixture(user,
-                component.Shape,
-                BlockingComponent.BlockFixtureID,
-                hard: true,
-                collisionLayer: (int)CollisionGroup.WallLayer,
-                body: physicsComponent);
-        }
+        // DeltaV Start - Blocking no longer blocks entities from moving through the blocking entity.
+        // if (TryComp<PhysicsComponent>(user, out var physicsComponent))
+        // {
+        //     _fixtureSystem.TryCreateFixture(user,
+        //         component.Shape,
+        //         BlockingComponent.BlockFixtureID,
+        //         hard: true,
+        //         collisionLayer: (int)CollisionGroup.WallLayer,
+        //         body: physicsComponent);
+        // }
+        // DeltaV End - Blocking no longer blocks entities from moving through the blocking entity.
 
         component.IsBlocking = true;
         Dirty(item, component);
-
+        _movementSpeed.RefreshMovementSpeedModifiers(user); // DeltaV - Raising Shields slows you down.
         return true;
     }
 
@@ -231,7 +239,7 @@ public sealed partial class BlockingSystem : EntitySystem
         if (!component.IsBlocking)
             return false;
 
-        var xform = Transform(user);
+        //var xform = Transform(user); // DeltaV - Blocking no longer blocks entities from moving through the blocking entity.
 
         var shieldName = Name(item);
 
@@ -239,22 +247,26 @@ public sealed partial class BlockingSystem : EntitySystem
         var msgUser = Loc.GetString("action-popup-blocking-disabling-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-disabling-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
-        //then toggle the action to false, unanchor the user, remove the hard fixture
-        //and set the users bodytype back to their original type
-        if (TryComp<BlockingUserComponent>(user, out var blockingUserComponent) && TryComp<PhysicsComponent>(user, out var physicsComponent))
-        {
-            if (xform.Anchored)
-                _transformSystem.Unanchor(user, xform, false);
-
-            _actionsSystem.SetToggled(component.BlockingToggleActionEntity, false);
-            _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physicsComponent);
-            _physics.SetBodyType(user, blockingUserComponent.OriginalBodyType, body: physicsComponent);
-            _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
-        }
+        // DeltaV Start - Blocking no longer blocks entities from moving through the blocking entity.
+        // //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
+        // //then toggle the action to false, unanchor the user, remove the hard fixture
+        // //and set the users bodytype back to their original type
+        // if (TryComp<BlockingUserComponent>(user, out var blockingUserComponent) && TryComp<PhysicsComponent>(user, out var physicsComponent))
+        // {
+        //     if (xform.Anchored)
+        //         _transformSystem.Unanchor(user, xform, false);
+        //
+        //     _actionsSystem.SetToggled(component.BlockingToggleActionEntity, false);
+        //     _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physicsComponent);
+        //     _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
+        //     _physics.SetBodyType(user, blockingUserComponent.OriginalBodyType, body: physicsComponent);
+        // }
+        _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
+        // DeltaV End - Blocking no longer blocks entities from moving through the blocking entity.
 
         component.IsBlocking = false;
         Dirty(item, component);
+        _movementSpeed.RefreshMovementSpeedModifiers(user); // DeltaV - Raising shields slows you down.
 
         return true;
     }
