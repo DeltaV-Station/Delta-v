@@ -6,9 +6,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Aliens/Carps/space.rsi
-        state: icon
+    - state: red
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
