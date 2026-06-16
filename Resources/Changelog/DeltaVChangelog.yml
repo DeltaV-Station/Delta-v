@@ -1,130 +1,4 @@
 ﻿Entries:
-- author: Proxysseia
-  changes:
-  - message: Larynx Implants are now purchaseable in the uplink for all species
-    type: Tweak
-  - message: Kanabou are now purchaseable in the uplink for all species
-    type: Tweak
-  - message: Samurai armors are now purchaseable in the uplink for all species
-    type: Tweak
-  id: 1900
-  time: '2025-12-03T07:07:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4759
-- author: ShepardToTheStars
-  changes:
-  - message: Stasicillin should once again force the target to fall asleep if they
-      have over 11u.
-    type: Fix
-  id: 1901
-  time: '2025-12-03T16:08:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4823
-- author: Stxcking
-  changes:
-  - message: Syndicat description fixed
-    type: Fix
-  id: 1902
-  time: '2025-12-03T20:25:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4854
-- author: FieldCommand
-  changes:
-  - message: All ships from the shipyard cost 1000 more spesos due to inflation.
-    type: Tweak
-  id: 1903
-  time: '2025-12-03T22:34:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4858
-- author: verybigman311
-  changes:
-  - message: Christmas lamps now display the correct rotation
-    type: Fix
-  id: 1904
-  time: '2025-12-04T03:26:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4865
-- author: Woljif
-  changes:
-  - message: Gave the dragon a wide-sweep attack, more damage, and faster fireballs.
-    type: Tweak
-  id: 1905
-  time: '2025-12-04T08:27:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4781
-- author: ShepardToTheStars, Niomi
-  changes:
-  - message: Borg ID chips from the exofab now have the same access as round-start
-      borgs.
-    type: Tweak
-  - message: SRNs can no longer print normal borg ID chips.
-    type: Tweak
-  - message: Syndicate borg ID chips now cost a bit less to make.
-    type: Tweak
-  - message: Agent IDs can no longer copy access from borg ID chips.
-    type: Tweak
-  - message: The new derelict borgs now have the intended borg access to the station!
-    type: Fix
-  - message: Derelict syndicate borgs don't have usual borg access, but has enough
-      to get into the station.
-    type: Tweak
-  - message: Derelict syndicate borgs can be unlocked by people with Robotics access
-      (so they can get their access updated).
-    type: Tweak
-  id: 1906
-  time: '2025-12-04T11:18:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4821
-- author: Dorragon
-  changes:
-  - message: Space dragons welcome sharkminnows in their family
-    type: Add
-  id: 1907
-  time: '2025-12-04T13:27:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4826
-- author: Nesoryo, Nikovnik, kotobdev
-  changes:
-  - message: Added alternative typing indicators for whispering, emoting, using the
-      radio, and (L)OOC-ing!
-    type: Add
-  id: 1908
-  time: '2025-12-04T16:59:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4679
-- author: verybigman311
-  changes:
-  - message: Every single wieldable gun now has wielded sprites.
-    type: Add
-  - message: Wieldable guns that previously utilized upstream sprites, have been updated
-      with Delta-V sprites.
-    type: Add
-  - message: Mark-1 series rifles are now wieldable.
-    type: Tweak
-  - message: Touched up a few miscolored cocktail sprites.
-    type: Tweak
-  - message: Practice security weapons now have orange tips for safety purposes.
-    type: Tweak
-  - message: Practice laser carbines are now blue.
-    type: Tweak
-  - message: Practice disablers not having inhand sprites.
-    type: Fix
-  id: 1909
-  time: '2025-12-04T18:42:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4851
-- author: verybigman311
-  changes:
-  - message: Frag Grenades now have shrapnel!
-    type: Add
-  id: 1910
-  time: '2025-12-04T22:28:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4856
-- author: kontakt, ShepardToTheStars
-  changes:
-  - message: The ninja's spider clan charge can now be placed on walls and windows
-      again.
-    type: Fix
-  id: 1911
-  time: '2025-12-05T01:44:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4861
-- author: ShepardToTheStars
-  changes:
-  - message: The nukie agent's visor can finally see silicon health.
-    type: Fix
-  id: 1912
-  time: '2025-12-05T01:58:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4864
 - author: cmorley191
   changes:
   - message: Rock anom won't make unbreakable rocks anymore
@@ -4393,4 +4267,123 @@
   id: 2400
   time: '2026-06-11T01:28:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6009
+- author: einknusprigestoast
+  changes:
+  - message: Removed DeathSquad
+    type: Remove
+  id: 2401
+  time: '2026-06-13T02:29:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6003
+- author: rebe83
+  changes:
+  - message: The psionic power Fractured Form was removed.
+    type: Remove
+  id: 2402
+  time: '2026-06-13T19:29:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6011
+- author: stormyatt
+  changes:
+  - message: ghost role hitman variant
+    type: Add
+  id: 2403
+  time: '2026-06-13T20:03:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5848
+- author: CarolCuchara
+  changes:
+  - message: Secborgs now leave blue fibers behind. Red is no more!
+    type: Fix
+  id: 2404
+  time: '2026-06-14T04:12:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6025
+- author: Stop-Signs
+  changes:
+  - message: WT550 fire rate has been reduced by 0.5
+    type: Tweak
+  - message: WT550 Magazine size has been reduced 30->20
+    type: Tweak
+  - message: WT550 is slightly less accurate
+    type: Tweak
+  id: 2405
+  time: '2026-06-14T08:13:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5581
+- author: CarolCuchara
+  changes:
+  - message: Pager linking now only works when in range of the fax or holopad!
+    type: Fix
+  id: 2406
+  time: '2026-06-14T18:30:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6032
+- author: sowelipililimute
+  changes:
+  - message: Pulling now has a unique particle effect
+    type: Add
+  - message: Interaction particles now only spawn on UIs if the UIs have an associated
+      open sound
+    type: Tweak
+  - message: Interaction particles no longer spawn on closing a UI
+    type: Fix
+  id: 2407
+  time: '2026-06-15T15:05:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6033
+- author: CarolCuchara
+  changes:
+  - message: Throwing glasses while wearing beer googles no longer spills the contents!
+    type: Fix
+  id: 2408
+  time: '2026-06-15T15:10:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6031
+- author: StarboundSolaris
+  changes:
+  - message: Pitbulls and their genetically modified subspecies, Ventbulls, have been
+      re introduced to the Delta Sector!
+    type: Add
+  - message: NanoTrasen is now deploying Ventbulls into station ventilation systems
+      as a method of quick and inexpensive pest control! Don't be surprised if they
+      crawl out of a vent while chasing a horde of mice!
+    type: Add
+  - message: Departments may sometimes come equipped with a unique pitbull!
+    type: Add
+  - message: Pitbulls no longer maul couriers and felinids!
+    type: Tweak
+  - message: Pitbulls are now more tolerant to being pet!
+    type: Tweak
+  - message: Pitbulls now come with an even greater variety of ridiculous names!
+    type: Tweak
+  id: 2409
+  time: '2026-06-15T16:02:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5915
+- author: rebe83
+  changes:
+  - message: Security ponchos now only help with temperature. It's just plastic after
+      all.
+    type: Tweak
+  - message: Gorlex ponchos now only offer modest protection. They just don't make
+      them like they used to.
+    type: Tweak
+  id: 2410
+  time: '2026-06-15T15:51:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6001
+- author: keekee38
+  changes:
+  - message: NT no longer stores guns with loaded chambers
+    type: Tweak
+  id: 2411
+  time: '2026-06-15T16:46:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5819
+- author: CarolCuchara
+  changes:
+  - message: Zombified crew and other entities like Laika will drop headsets which
+      are in their pockets. No more listening to survivor comms!
+    type: Fix
+  id: 2412
+  time: '2026-06-15T17:27:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6030
+- author: JustTNE
+  changes:
+  - message: Don't display SSD duration when examining dead players or untaken ghost
+      roles
+    type: Fix
+  id: 2413
+  time: '2026-06-16T14:16:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6012
 Order: 1

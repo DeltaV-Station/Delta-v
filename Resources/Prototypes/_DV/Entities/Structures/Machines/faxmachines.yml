@@ -498,3 +498,12 @@
     autoLinkJobs: [Prisoner]
   - type: FaxMachine
     name: "Permanent Brig"
+
+#hitman
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineHitman
+  components:
+  - type: FaxMachine
+    name: "Unknown?"
+    responsePings: false
