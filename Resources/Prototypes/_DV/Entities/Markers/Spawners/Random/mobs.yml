@@ -45,9 +45,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
-        state: purple_snake
+    - state: red
+    - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
+      state: purple_snake
   - type: EntityTableSpawner
     table: !type:GroupSelector
       prob: 0.75
