@@ -236,10 +236,10 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Aliens/Carps/space.rsi
-        state: icon
-      - state: ai
+    - state: red
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
+    - state: ai
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: SmallArenaMobTable
