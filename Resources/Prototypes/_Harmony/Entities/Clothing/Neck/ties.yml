@@ -10,8 +10,8 @@
     sprite: _Harmony/Clothing/Neck/Misc/lanyard.rsi
   - type: PaperLabel
     labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
       whitelist:
         components:
         - Paper
