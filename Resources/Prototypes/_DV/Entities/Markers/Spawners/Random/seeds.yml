@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Hydroponics/banana.rsi
-        state: seed
+    - state: red
+    - sprite: Objects/Specific/Hydroponics/banana.rsi
+      state: seed
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
