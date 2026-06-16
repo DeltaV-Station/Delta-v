@@ -43,6 +43,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Radio.Components; // DeltaV
 using Content.Shared.Roles;
 using Content.Shared.Temperature.Components;
 
@@ -244,6 +245,16 @@ public sealed partial class ZombieSystem
         //_inventory.TryUnequip(target, "gloves", true, true); // DeltaV - Buff Zombies
         //Should prevent instances of zombies using comms for information they shouldnt be able to have.
         _inventory.TryUnequip(target, "ears", true, true);
+
+        // BEGIN DeltaV - Remove innate radio and radios from pockets
+        for (var i = 1; i <= 4; i++) // Arachnids have 4 pockets
+        {
+            if (_inventory.TryGetSlotEntity(target, $"pocket{i}", out var headset) && HasComp<HeadsetComponent>(headset))
+                _inventory.TryUnequip(target, $"pocket{i}", true, true);
+        }
+
+        RemComp<ActiveRadioComponent>(target); // If the zombie has an innate radio, get rid of it.
+        // END DeltaV
 
         //popup
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);

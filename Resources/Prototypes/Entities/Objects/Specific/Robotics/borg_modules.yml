@@ -922,6 +922,13 @@
         whitelist:
           components:
           - Healing
+    - item: Bloodpack # DeltaV - Readded Topical Slot
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Bloodpack
+        whitelist:
+          components:
+          - Healing
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -939,9 +946,16 @@
     - item: HandheldHealthAnalyzer
     - item: DefibrillatorOneHandedUnpowered
     - item: HandheldCrewMonitorUnpowered # DeltaV
-    - item: Crowbar
+#    - item: Crowbar # DeltaV - Readded Tools Module
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
+    - item: EmergencyRollerBedSpawnFolded # DeltaV
+      hand:
+        emptyLabel: borg-slot-medical-transport-empty
+        emptyRepresentative: EmergencyRollerBedSpawnFolded
+        whitelist:
+          tags:
+          - PatientTransportation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
@@ -1051,6 +1065,13 @@
       hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Ointment
+        whitelist:
+          components:
+          - Healing
+    - item: Bloodpack # DeltaV - Added Topical Slot
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Bloodpack
         whitelist:
           components:
           - Healing
