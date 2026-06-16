@@ -397,7 +397,7 @@
   objectType: Item
   description: crafting-menu-text-ISH
 
-# DeltaV made it uncraftable
+# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FSH
 #  id: ForgedShieldBuckler
@@ -408,7 +408,6 @@
 #  objectType: Item
 #  description: crafting-menu-text-FSH
 
-# DeltaV made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FSHT
 #  id: ForgedShieldTower
@@ -419,7 +418,6 @@
 #  objectType: Item
 #  description: crafting-menu-text-FSHT
 
-# DeltaV made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-PSH
 #  id: PaladinShield
@@ -430,7 +428,6 @@
 #  objectType: Item
 #  description: crafting-menu-text-PSH
   
-# DeltaV - Make unobtainable
 #- type: construction
 #  name: crafting-menu-name-PSHG
 #  id: PaladinShieldGreat
@@ -440,6 +437,7 @@
 #  category: construction-category-weapons
 #  objectType: Item
 #  description: crafting-menu-text-PSHG
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-MVT
