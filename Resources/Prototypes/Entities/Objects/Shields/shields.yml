@@ -45,7 +45,7 @@
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 100 #This is probably enough damage before it breaks
+            damage: 50 #This is probably enough damage before it breaks # DeltaV - Specialize Shields, was 100.
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -119,8 +119,8 @@
           Slash: 0.7
       activeBlockModifier:
         coefficients:
-          Blunt: 0.5
-          Slash: 0.5
+          Blunt: 0.25
+          Slash: 0.25
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -152,7 +152,7 @@
           Heat: 0.7
       activeBlockModifier:
         coefficients:
-          Heat: 0.5
+          Heat: 0.25
         flatReductions:
           Heat: 1
 
@@ -183,7 +183,7 @@
           Piercing: 0.7
       activeBlockModifier:
         coefficients:
-          Piercing: 0.5
+          Piercing: 0.25
         flatReductions:
           Piercing: 1
 
