@@ -215,10 +215,10 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Animals/kangaroo.rsi
-        state: kangaroo-space
-      - state: ai
+    - state: red
+    - sprite: Mobs/Animals/kangaroo.rsi
+      state: kangaroo-space
+    - state: ai
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
