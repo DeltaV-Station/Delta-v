@@ -1,4 +1,4 @@
-﻿using Content.Shared.Hands;
+using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
