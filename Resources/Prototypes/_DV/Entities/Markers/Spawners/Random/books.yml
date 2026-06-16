@@ -9,8 +9,8 @@
     anchored: false
   - type: Sprite
     layers:
-      - sprite: Objects/Misc/books.rsi
-        state: cover_base
+    - sprite: Objects/Misc/books.rsi
+      state: cover_base
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: RandomBookTable
