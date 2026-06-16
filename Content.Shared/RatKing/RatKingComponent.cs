@@ -20,7 +20,7 @@ public sealed partial class RatKingComponent : Component
 
     // Delta-V - switched to a base cost modified by the amount of living servants
     /// <summary>
-    ///     The base amount of hunger one use of Raise Army consumes, modified by the existing amount of servants
+    ///     The amount of hunger one use of Raise Army consumes
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("hungerPerArmyUse", required: true)]
     public float HungerPerArmyUse = 10f;
