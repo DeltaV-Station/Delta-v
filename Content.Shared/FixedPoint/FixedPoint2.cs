@@ -95,7 +95,7 @@ namespace Content.Shared.FixedPoint
 
         public static FixedPoint2 operator *(FixedPoint2 a, FixedPoint2 b)
         {
-            return new(b.Value * a.Value / ShiftConstant);
+            return new((int)((long)b.Value * a.Value / ShiftConstant)); // DeltaV - long for no overflow
         }
 
         public static FixedPoint2 operator *(FixedPoint2 a, float b)
