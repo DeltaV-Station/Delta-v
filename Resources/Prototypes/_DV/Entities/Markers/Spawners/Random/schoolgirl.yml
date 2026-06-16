@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
-        state: icon
+    - state: red
+    - sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+      state: icon
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
