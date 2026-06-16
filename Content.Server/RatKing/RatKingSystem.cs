@@ -51,17 +51,8 @@ namespace Content.Server.RatKing
 
             // DeltaV - modify cost of Raise Army based on the amount of alive servants
             // Check on how many servants are alive to calculate the cost of a new servant
-            var aliveServants = 0;
-            foreach (var existingServant in component.Servants)
-            {
-                if (!TryComp<MobStateComponent>(existingServant, out var mobState))
-                    continue;
-
-                if (mobState.CurrentState == MobState.Alive)
-                {
-                    aliveServants++;
-                }
-            }
+            var aliveServants = component.Servants.Count(servant
+                => TryComp<MobStateComponent>(servant, out var mobState) && mobState.CurrentState == MobState.Alive);
 
             // calculate the cost multiplier
             var multiplier = aliveServants switch
