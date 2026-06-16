@@ -59,6 +59,8 @@
     icon:
       sprite: /Textures/_DV/Misc/uprising.rsi
       state: loyalty
+  - type: UprisingVictoryObjective
+    side: Loyalist
 
 - type: entity
   parent: BaseInsurgentObjective
@@ -99,3 +101,5 @@
     icon:
       sprite: /Textures/_DV/Misc/uprising.rsi
       state: take_over
+  - type: UprisingVictoryObjective
+    side: Insurgent
