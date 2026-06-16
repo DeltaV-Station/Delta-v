@@ -26,9 +26,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Fun/Tabletop/Battlemaps/grassbm.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Fun/Tabletop/Battlemaps/grassbm.rsi
+      state: icon
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
