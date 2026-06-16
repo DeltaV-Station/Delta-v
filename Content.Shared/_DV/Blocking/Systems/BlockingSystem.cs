@@ -1,10 +1,12 @@
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Wieldable;
-using Content.Shared.Wieldable.Components;
 
 namespace Content.Shared.Blocking;
 
+/// <summary>
+/// Extends upstream's BlockingSystem.
+/// </summary>
 public sealed partial class BlockingSystem
 {
     [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
@@ -16,7 +18,9 @@ public sealed partial class BlockingSystem
 
     private void OnMovementRefresh(Entity<BlockingComponent> shield, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        if (!shield.Comp.OnlySlowWhenRaised || shield.Comp.IsBlocking) // If it isn't blocking, only apply slowdown if it is overridden.
+        if (shield.Comp.IsBlocking)
+            args.Args.ModifySpeed(shield.Comp.RaisedWalkModifier, shield.Comp.RaisedSprintModifier);
+        else
             args.Args.ModifySpeed(shield.Comp.WalkModifier, shield.Comp.SprintModifier);
     }
 }

@@ -119,8 +119,8 @@
           Slash: 0.7
       activeBlockModifier:
         coefficients:
-          Blunt: 0.25
-          Slash: 0.25
+          Blunt: 0.25 # DeltaV - Was 0.5
+          Slash: 0.25 # DeltaV - Was 0.5
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -152,7 +152,7 @@
           Heat: 0.7
       activeBlockModifier:
         coefficients:
-          Heat: 0.25
+          Heat: 0.25 # DeltaV - Was 0.5
         flatReductions:
           Heat: 1
 
@@ -183,7 +183,7 @@
           Piercing: 0.7
       activeBlockModifier:
         coefficients:
-          Piercing: 0.25
+          Piercing: 0.25 # DeltaV - Was 0.5
         flatReductions:
           Piercing: 1
 

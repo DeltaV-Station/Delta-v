@@ -88,12 +88,18 @@ public sealed partial class BlockingComponent : Component
     /// The slow applied to the entity's running speed when holding the shield.
     /// </summary>
     [DataField]
-    public float SprintModifier = 0.75f;
+    public float SprintModifier = 1.0f;
 
     /// <summary>
-    /// Whether it should only slow down entities when the shield is raised.
+    /// The slow applied to the entity's walking speed when raising the shield.
     /// </summary>
     [DataField]
-    public bool OnlySlowWhenRaised = true;
+    public float RaisedWalkModifier = 1.0f;
+
+    /// <summary>
+    /// The slow applied to the entity's running speed when raising the shield.
+    /// </summary>
+    [DataField]
+    public float RaisedSprintModifier = 0.75f;
     // DeltaV End - Blocking no longer blocks entities from moving through the blocking entity.
 }
