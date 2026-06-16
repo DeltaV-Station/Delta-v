@@ -637,3 +637,10 @@
           weight: 0.20
         - id: TreasureCoinDiamond
           weight: 0.20
+      #Smuggler Satchels
+      - !type:GroupSelector
+        children:
+        - id: ClothingBackpackSatchelSmuggler
+        - id: ClothingBackpackSatchelSmugglerUnanchored
+        - id: RandomSatchelSpawner
+          weight: 0.10
