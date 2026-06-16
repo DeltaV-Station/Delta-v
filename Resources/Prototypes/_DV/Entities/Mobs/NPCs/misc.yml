@@ -62,8 +62,8 @@
     sprite: Mobs/Demons/tomatokiller.rsi
     noRot: true
     layers:
-      - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: alive
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
