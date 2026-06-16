@@ -164,6 +164,21 @@
       tableId: RandomWinterCoatTable
       prob: 0.80
 
+- type: entity
+  parent: MarkerBase
+  id: SchoolgirlUniformSpawner
+  name: random schoolgirl uniform spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSchoolgirlTable
+      prob: 0.85
+
 #Tables
 - type: entityTable
   id: RandomClothingTable
@@ -554,7 +569,6 @@
         - id: ClothingOuterArmorMakeshift
         - id: ClothingOuterArmorImprovised
         - id: ClothingOuterArmorForged
-        - id: ClothingOuterArmorPaladin
 
 - type: entityTable
   id: RandomShoeTable
@@ -607,6 +621,7 @@
       children:
       - id: ClothingShoesBootsWinter
       - id: ClothingShoesBootsWinterWeb
+        weight: 0.2
     #Rare
     - !type:GroupSelector
       weight: 0.05
@@ -618,10 +633,6 @@
         - id: ClothingShoesSharkminnow
         - id: ClothingShoesRealJordans
           weight: 0.0001
-      #Winter Boots
-      - !type:GroupSelector
-        children:
-        - id: ClothingShoesBootsWinterWeb
 
 - type: entityTable
   id: RandomBeltTable
@@ -630,7 +641,7 @@
     #General
     - !type:GroupSelector
       children:
-      - id: ClothingBeltFoamSheath
+      - id: ClothingBeltFoamSheathFilled
       - id: ClothingBeltPaperwork
       - id: ClothingBeltStorageWaistbag
       - id: ClothingBeltPilot
@@ -768,6 +779,9 @@
           - id: UniformScrubsColorPurple
           - id: UniformScrubsColorGreen
           - id: UniformScrubsColorBlue
+        #Schoolgirl Outfits
+        - !type:NestedSelector
+          tableId: RandomSchoolgirlTable
     #Rare
     - !type:GroupSelector
       weight: 0.05
@@ -799,6 +813,21 @@
           - id: ClothingUniformJumpsuitPyjamaSyndicateBlack
           - id: ClothingUniformJumpsuitPyjamaSyndicatePink
           - id: ClothingUniformJumpsuitPyjamaSyndicateRed
+
+- type: entityTable
+  id: RandomSchoolgirlTable
+  table: !type:GroupSelector
+    children:
+    - id: UniformSchoolgirlRed
+    - id: UniformSchoolgirlBlack
+    - id: UniformSchoolgirlBlue
+    - id: UniformSchoolgirlCyan
+    - id: UniformSchoolgirlGreen
+    - id: UniformSchoolgirlOrange
+    - id: UniformSchoolgirlPink
+    - id: UniformSchoolgirlPurple
+    - id: ClothingOuterSuitShrineMaiden
+      weight: 0.05
 
 - type: entityTable
   id: RandomHatTable

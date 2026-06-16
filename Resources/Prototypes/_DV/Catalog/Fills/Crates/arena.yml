@@ -1,9 +1,9 @@
 - type: entity
+  abstract: true
   parent: CrateLivestockSecureReinforced
   id: CrateArenaMob
   name: arena dangerous creature crate
   description: A reinforced crate containing a dangerous creature for sanctioned gladiators to fight in the arena. Warning-Do not open without proper security protocols in place.
-  abstract: true
   components:
   - type: AccessReader
     access: [["Armory"]]
