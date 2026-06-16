@@ -82,7 +82,7 @@ public sealed partial class BlockingComponent : Component
     /// The slow applied to the entity's walking speed when holding the shield.
     /// </summary>
     [DataField]
-    public float WalkModifier = 0.75f;
+    public float WalkModifier = 1.0f;
 
     /// <summary>
     /// The slow applied to the entity's running speed when holding the shield.
