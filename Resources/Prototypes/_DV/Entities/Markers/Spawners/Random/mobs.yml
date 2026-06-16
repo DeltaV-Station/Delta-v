@@ -176,10 +176,10 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Animals/spacespider.rsi
-        state: spacespider
-      - state: ai
+    - state: red
+    - sprite: Mobs/Animals/spacespider.rsi
+      state: spacespider
+    - state: ai
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
