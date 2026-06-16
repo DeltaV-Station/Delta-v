@@ -137,10 +137,10 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Aliens/Lavaland/watcher.rsi
-        state: unshaded
-      - state: ai
+    - state: red
+    - sprite: Mobs/Aliens/Lavaland/watcher.rsi
+      state: unshaded
+    - state: ai
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
