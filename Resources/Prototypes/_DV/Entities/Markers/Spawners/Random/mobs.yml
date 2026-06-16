@@ -110,10 +110,10 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
-        state: crawler
-      - state: ai
+    - state: red
+    - sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+      state: crawler
+    - state: ai
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
