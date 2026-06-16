@@ -16,6 +16,10 @@
         components:
         - Paper
       blacklist:
+        components:
+          - DevilContract # Prevent Devils from hiding paperwork
+          - RevivalContract # Prevent Devils from hiding paperwork
+          - Access # Prevents PaperSlipSpareID (Emergency Access Biscuit)
         tags:
         - Book
   - type: ContainerContainer
