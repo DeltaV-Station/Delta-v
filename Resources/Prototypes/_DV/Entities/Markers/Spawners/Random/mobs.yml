@@ -85,10 +85,10 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Aliens/Xenos/burrower.rsi
-        state: walking
-      - state: ai
+    - state: red
+    - sprite: Mobs/Aliens/Xenos/burrower.rsi
+      state: walking
+    - state: ai
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
