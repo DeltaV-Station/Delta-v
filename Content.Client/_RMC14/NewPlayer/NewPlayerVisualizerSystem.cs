@@ -1,4 +1,4 @@
-﻿﻿using System.Numerics;
+﻿using System.Numerics;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.NewPlayer;
 using Robust.Client.GameObjects;

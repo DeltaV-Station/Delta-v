@@ -1,4 +1,4 @@
-﻿﻿using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.NewPlayer;
@@ -16,6 +16,9 @@ public sealed class NewPlayerSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playtimeManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+
+    private ImmutableHashSet<ProtoId<PlayTimeTrackerPrototype>> _humanoidTrackers =
+        ImmutableHashSet<ProtoId<PlayTimeTrackerPrototype>>.Empty;
 
     private TimeSpan _newPlayerTimeTotal;
     private TimeSpan _newPlayerTimeJob;
@@ -42,12 +45,20 @@ public sealed class NewPlayerSystem : EntitySystem
 
     private void OnPlayerSpawnComplete(Entity<NewPlayerLabelComponent> ent, ref PlayerSpawnCompleteEvent args)
     {
+        if (args.JobId is not { } jobId ||
+            !_prototypes.TryIndex(jobId, out JobPrototype? job) ||
+            !_humanoidTrackers.Contains(job.PlayTimeTracker))
+        {
+            return;
+        }
+
         try
         {
             var times = _playtimeManager.GetPlayTimes(args.Player);
             var totalTime = TimeSpan.Zero;
             foreach (var time in times)
             {
+                if (_humanoidTrackers.Contains(time.Key))
                     totalTime += time.Value;
             }
 
@@ -59,13 +70,7 @@ public sealed class NewPlayerSystem : EntitySystem
             {
                 _appearance.SetData(ent, NewPlayerLayers.Layer, NewPlayerVisuals.Four);
 
-                var jobInfo = job.NewToJobInfo;
                 var jobName = job.Name ?? string.Empty;
-                if (jobInfo != null)
-                {
-                    var newToJobEvent = new NewToJobEvent(GetNetEntity(args.Mob), jobInfo, jobName);
-                    RaiseNetworkEvent(newToJobEvent);
-                }
             }
             else if (newTotal && newJob) // red
                 _appearance.SetData(ent, NewPlayerLayers.Layer, NewPlayerVisuals.One);
@@ -87,9 +92,9 @@ public sealed class NewPlayerSystem : EntitySystem
         var jobs = new HashSet<ProtoId<PlayTimeTrackerPrototype>>();
         foreach (var job in _prototypes.EnumeratePrototypes<PlayTimeTrackerPrototype>())
         {
-            jobs.Add(job.ID);
+                jobs.Add(job.ID);
         }
 
-        jobs.ToImmutableHashSet();
+        _humanoidTrackers = jobs.ToImmutableHashSet();
     }
 }
