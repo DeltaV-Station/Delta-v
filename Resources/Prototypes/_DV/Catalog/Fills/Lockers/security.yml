@@ -203,7 +203,7 @@
           amount: 4
 
 - type: entityTable
-  id: FillLockerSecurityDV
+  id: FillLockerSecurityDeltaV
   table: !type:AllSelector
     children:
     - id: ClothingHeadHelmetInsulated
@@ -215,7 +215,7 @@
     - id: ClothingOuterArmorBasicSlim
 
 - type: entityTable
-  id: FillLockerBrigmedicDV
+  id: FillLockerBrigmedicDeltaV
   table: !type:AllSelector
     children:
     - id: ClothingHeadsetBrigmedic
@@ -230,7 +230,7 @@
       prob: 0.3
 
 - type: entityTable
-  id: FillLockerDetectiveDV
+  id: FillLockerDetectiveDeltaV
   table: !type:AllSelector
     children:
     - id: BoxTapeRecorder

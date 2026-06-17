@@ -32,7 +32,7 @@
           tableId: FillLockerEngineer
 
 - type: entityTable
-  id: FillLockerAtmosphericsDV
+  id: FillLockerAtmosphericsDeltaV
   table: !type:AllSelector
     children:
     - id: ClothingHandsGlovesColorYellow
@@ -42,7 +42,7 @@
     - id: PillCanisterPotassiumIodide # Far Horizons / Nuclear Reactor Port
 
 - type: entityTable
-  id: FillLockerEngineerDV
+  id: FillLockerEngineerDeltaV
   table: !type:AllSelector
     children:
     - id: LunchboxEngineeringFilledRandom

@@ -151,7 +151,7 @@
   table: !type:AllSelector
     children:
     - !type:NestedSelector # DeltaV
-      tableId: FillLockerAtmosphericsDV
+      tableId: FillLockerAtmosphericsDeltaV
     - id: ClothingMaskGasAtmos
     - id: ClothingOuterSuitAtmosFire
     - id: ClothingHeadHelmetAtmosFire
@@ -200,7 +200,7 @@
   table: !type:AllSelector
     children:
     - !type:NestedSelector # DeltaV
-      tableId: FillLockerEngineerDV
+      tableId: FillLockerEngineerDeltaV
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingMaskGas
     - id: trayScanner

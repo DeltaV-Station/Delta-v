@@ -83,7 +83,7 @@
   table: !type:AllSelector
     children:
     - !type:NestedSelector # DeltaV - Adds our modifications.
-      tableId: FillLockerSecurityDV
+      tableId: FillLockerSecurityDeltaV
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
@@ -120,19 +120,23 @@
   id: FillLockerBrigmedic
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Adds our modifications.
+      tableId: FillLockerBrigmedicDeltaV
     - id: WeaponTaser
     - id: ClothingEyesGlassesCorpsman
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
-    #- id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
-    #- id: BoxSterileMask # DeltaV - remove clutter
-    # - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret. # DeltaV - added corpsman uniform to secdrobe
-#   - id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
-    # - id: ClothingUniformJumpsuitBrigmedic # DeltaV - added corpsman uniform to secdrobe
-    # - id: ClothingUniformJumpskirtBrigmedic # DeltaV - added corpsman uniform to secdrobe
-    #- id: ClothingUniformJumpskirtOfLife # DeltaV - removed for incongruence
+    # Begin DeltaV removal
+    #- id: ClothingOuterHardsuitBrigmedic  # DeltaV - Moved to hardsuit entityTable under ClothingOuterHardsuitCombatCorpsman.
+    #- id: BoxSterileMask
+    #- id: ClothingHeadHatBeretCorpsman
+    #- id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
+    #- id: ClothingUniformJumpsuitBrigmedic
+    #- id: ClothingUniformJumpskirtBrigmedic
+    #- id: ClothingUniformJumpskirtOfLife
     #  prob: 0.1
+    # End DeltaV removal
     - id: MedkitFilled
     - !type:GroupSelector
       prob: 0.7
@@ -165,6 +169,8 @@
   id: FillLockerDetective
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Adds our modifications.
+      tableId: FillLockerDetectiveDeltaV
     - id: ClothingEyesGlassesNoir
     # Begin DeltaV Removals - removed for incongruence
     #- id: ClothingHeadHatDetGadget
