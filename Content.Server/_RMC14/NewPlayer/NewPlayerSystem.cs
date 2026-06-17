@@ -17,9 +17,6 @@ public sealed class NewPlayerSystem : EntitySystem
     [Dependency] private readonly PlayTimeTrackingManager _playtimeManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
-    private ImmutableHashSet<ProtoId<PlayTimeTrackerPrototype>> _humanoidTrackers =
-        ImmutableHashSet<ProtoId<PlayTimeTrackerPrototype>>.Empty;
-
     private TimeSpan _newPlayerTimeTotal;
     private TimeSpan _newPlayerTimeJob;
     private TimeSpan _brandNewPlayerTimeJob;
@@ -46,8 +43,7 @@ public sealed class NewPlayerSystem : EntitySystem
     private void OnPlayerSpawnComplete(Entity<NewPlayerLabelComponent> ent, ref PlayerSpawnCompleteEvent args)
     {
         if (args.JobId is not { } jobId ||
-            !_prototypes.TryIndex(jobId, out JobPrototype? job) ||
-            !_humanoidTrackers.Contains(job.PlayTimeTracker))
+            !_prototypes.TryIndex(jobId, out JobPrototype? job))
         {
             return;
         }
@@ -58,7 +54,6 @@ public sealed class NewPlayerSystem : EntitySystem
             var totalTime = TimeSpan.Zero;
             foreach (var time in times)
             {
-                if (_humanoidTrackers.Contains(time.Key))
                     totalTime += time.Value;
             }
 
@@ -94,7 +89,5 @@ public sealed class NewPlayerSystem : EntitySystem
         {
                 jobs.Add(job.ID);
         }
-
-        _humanoidTrackers = jobs.ToImmutableHashSet();
     }
 }
