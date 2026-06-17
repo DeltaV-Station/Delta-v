@@ -177,3 +177,16 @@
         map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         color: "#bb4b1e"
         shader: unshaded
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGnome
+  name: gnome spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-gnome-name
+    description: ghost-role-information-gnome-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent

@@ -1,19 +1,26 @@
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ MobBaseAncestorNoShitmed ]
   id: MobGnome
   name: gnome
   description: A cheery fellow. Definitely not a goblin. Or an elf.
   components:
   - type: Sprite
-    drawdepth: Mobs
-    sprite: _DV/Mobs/Animals/gnome.rsi
-    state: gnome
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: gnome
+      sprite: _DV/Mobs/Animals/gnome.rsi
   - type: DamageStateVisuals
     states:
       Alive:
         Base: gnome
       Dead:
         Base: dead
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 0 # so the dead gnome displays properly
+  - type: Unrevivable # it is extremely dead
+    analyzable: false
+    cloneable: false
   - type: MobState
     allowedStates:
       - Alive
@@ -26,6 +33,13 @@
     speedModifierThresholds:
       25: 0.8
       40: 0.6
+  - type: StatusEffects
+    allowed:
+    - Electrocution
+    - Stunned
+    - Flashed
+    - Pacified
+    - Addicted # Funny
   - type: GhostRole
     name: ghost-role-information-gnome-name
     description: ghost-role-information-gnome-description
@@ -38,7 +52,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-
   - type: Fixtures
     fixtures:
       fix1:
@@ -58,21 +71,12 @@
     - SimpleHostile # cats hate gnomes
   - type: Speech
     speechSounds: Gnome
-  - type: DamageForceSay
-  - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
-  - type: Emoting
-  - type: BodyEmotes
-    soundsId: GeneralBodyEmotes
-  - type: Grammar
-    attributes:
-      proper: true
   # abilities
-  - type: CombatMode
-    canDisarm: true
+  - type: Psionic
+  - type: Jaunt
+  - type: PsionicRegenerationPower
+  - type: PsionicInvisibilityPower
+  - type: NoSlip
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -82,11 +86,6 @@
     damage:
       types:
         Blunt: 5
-  - type: Psionic
-  - type: Jaunt
-  - type: PsionicRegenerationPower
-  - type: PsionicInvisibilityPower
-  - type: NoSlip
   - type: Prying
     pryPowered: true
     force: true
@@ -103,6 +102,9 @@
     - StorageImplant # for trinkets
   - type: Thieving # for stealing said trinkets
     stealthy: false
+  - type: Inventory
+    templateId: pet
+    speciesId: gnome
   - type: Butcherable
     spawned:
     - id: Ash
