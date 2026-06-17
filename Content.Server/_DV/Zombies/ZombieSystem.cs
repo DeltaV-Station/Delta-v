@@ -87,7 +87,7 @@ public sealed partial class ZombieSystem
 
 
     /// <summary>
-    /// DeltaV - Restores certain components to their previous state that the upstream unzombify doesn't handle. 
+    /// DeltaV - Restores certain components to their previous state that the upstream unzombify doesn't handle.
     /// We need to do this before CloningEvent so the cloned body will have the updated components BEFORE cloning happens.
     /// </summary>
     /// <param name="ent"></param>
@@ -104,7 +104,7 @@ public sealed partial class ZombieSystem
     }
 
     /// <summary>
-    /// DeltaV - Adds a survival objective to Initial Infected who are cloned. Chances are that the crew has recovered, so 
+    /// DeltaV - Adds a survival objective to Initial Infected who are cloned. Chances are that the crew has recovered, so
     /// bioterrorism time is probably over.
     /// </summary>
     /// <param name="ent"></param>
