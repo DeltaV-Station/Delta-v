@@ -61,17 +61,17 @@ public sealed class NewPlayerSystem : EntitySystem
             var newTotal = totalTime < _newPlayerTimeTotal;
             var newJob = jobTime <= _newPlayerTimeJob;
             var brandNewJob = jobTime <= _brandNewPlayerTimeJob;
-            if (brandNewJob) // purple
+            if (brandNewJob) // purple - Brand New player with 0 hours anywhere
             {
                 _appearance.SetData(ent, NewPlayerLayers.Layer, NewPlayerVisuals.Four);
 
                 var jobName = job.Name ?? string.Empty;
             }
-            else if (newTotal && newJob) // red
+            else if (newTotal && newJob) // red - New player to the role, less than 25 hours in server
                 _appearance.SetData(ent, NewPlayerLayers.Layer, NewPlayerVisuals.One);
-            else if (newTotal) // yellow
+            else if (newTotal) // yellow - New player NOT to the role, Less than 25 hours in server, more than 10 hours in job
                 _appearance.SetData(ent, NewPlayerLayers.Layer, NewPlayerVisuals.Two);
-            else if (newJob) // green
+            else if (newJob) // green - NOT New player, but new to the job/role, with less than 10 hours in the job
                 _appearance.SetData(ent, NewPlayerLayers.Layer, NewPlayerVisuals.Three);
             else
                 _appearance.RemoveData(ent, NewPlayerLayers.Layer);
