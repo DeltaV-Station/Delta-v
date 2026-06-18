@@ -12,6 +12,7 @@ using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
+using Content.Shared.DeviceNetwork.Systems; // DeltaV - map init ordering
 using Content.Shared.Emag.Systems;
 using Content.Shared.Fax;
 using Content.Shared.Fax.Components;
@@ -64,7 +65,7 @@ public sealed class FaxSystem : EntitySystem
 
         // Hooks
         SubscribeLocalEvent<FaxMachineComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<FaxMachineComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<FaxMachineComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedDeviceNetworkSystem)]); // DeltaV - map init order, we need address assigned first
         SubscribeLocalEvent<FaxMachineComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeLocalEvent<FaxMachineComponent, EntInsertedIntoContainerMessage>(OnItemSlotChanged);
@@ -301,6 +302,11 @@ public sealed class FaxSystem : EntitySystem
                     if (!args.Data.TryGetValue(FaxConstants.FaxPaperNameData, out string? name) ||
                         !args.Data.TryGetValue(FaxConstants.FaxPaperContentData, out string? content))
                         return;
+                    // Begin DeltaV - we removed the power requirement from device network but we still don't want
+                    // unpowered faxes to happen
+                    if (TryComp<ApcPowerReceiverComponent>(uid, out var receiver) && !receiver.Powered)
+                        return;
+                    // End DeltaV
 
                     args.Data.TryGetValue(FaxConstants.FaxPaperLabelData, out string? label);
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampStateData, out string? stampState);

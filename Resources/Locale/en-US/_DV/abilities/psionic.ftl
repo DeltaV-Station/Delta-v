@@ -92,6 +92,7 @@ psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = Yo
 psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
 psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 psionic-power-precognition-asakim-spawn-result-message = You smell stale air from a cryopod opening, and the faint echo of an intelligence far away but very near.
+psionic-power-precognition-pitbull-spawn-result-message = You see a vision of a hundred small creatures being torn apart by bloodthirsty beasts in a maze of steel.
 psionic-power-precognition-hitman-spawn-result-message = You see a man in a business suit, a corpse at their feet.
 
 # Psionic Eruption

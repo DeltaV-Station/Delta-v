@@ -61,6 +61,10 @@
       - id: BoxDarts
       - id: BoxCartridgeBB
       - id: BoxMousetrap
+      - id: BoxRandomDonk
+      - id: BoxUtensil
+      - id: BoxMailCapsulePrimed
+      - id: WrappedParcel
       #Lights
       - !type:GroupSelector
         children:
@@ -69,11 +73,16 @@
         - id: BoxLightMixed
         - id: BoxColoredLighttube
         - id: BoxMaintenanceLightbulb
+        - id: BoxWarmLightbulb
+        - id: BoxLightbulbColorfulMixed
+        - id: BoxLighttubeColorfulMixed
       #Survival boxes
       - !type:GroupSelector
         children:
         - id: BoxSurvival
         - id: BoxSurvivalNitrogen
+          weight: 0.25
+        - id: BoxSurvivalWaterVapor
           weight: 0.25
       #Medical
       - !type:GroupSelector
@@ -94,14 +103,31 @@
     #Rare
     - !type:GroupSelector
       children:
-      - id: BoxHugHealing
-      - id: BoxSurvivalMedical
       - id: BoxNitrileGloves
       - id: BoxHeadset
       - id: PresentRandom
       - id: BoxHolyWater
       - id: MysteryFigureBox
       - id: BoxCleanerGrenades
+      - id: BoxAgrichem
+      - id: BoxTapeRecorder
+      - id: BoxSyndicateFigurines
+      - id: CleanadeGrenadeBox
+      - id: RandomSatchelSpawner
+      - id: WrappedParcelHumanoid
+      #Survival boxes
+      - !type:GroupSelector
+        children:
+        - id: BoxHugHealing
+        - id: BoxSurvivalMedical
+        - id: BoxSurvivalMilitaryDouble
+        - id: BoxSurvivalMilitaryDoubleNitrogen
+      #Medical
+      - !type:GroupSelector
+        children:
+        - id: BoxBottleMedicineBasic
+        - id: BoxBottleMedicineAdvanced
+          weight: 0.25
       #Security
       - !type:GroupSelector
         children:
