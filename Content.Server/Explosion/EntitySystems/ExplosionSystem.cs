@@ -480,8 +480,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
                 shakeParams.Trauma *= Math.Max(1 - distance / range, 0.33f);
                 // DeltaV END
 
-                Log.Debug($"Decay rate was {shakeParams.DecayRate}");
-
                 _shake.Screenshake(players, shakeParams, null);
                 // Starlight END
             }
