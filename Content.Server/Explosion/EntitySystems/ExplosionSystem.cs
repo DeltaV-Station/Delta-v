@@ -475,9 +475,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
                     : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
 
                 // DeltaV - Distance falloff START
-                shakeParams.DecayRate *= Math.Min(1 + distance / range, 1.75f);
-                shakeParams.Frequency *= Math.Max(1 - distance / range, 0.33f);
-                shakeParams.Trauma *= Math.Max(1 - distance / range, 0.33f);
+                shakeParams.DecayRate *= MathF.Min(1 + distance / range, 1.75f);
+                shakeParams.Frequency *= MathF.Max(1 - distance / range, 0.33f);
+                shakeParams.Trauma *= MathF.Max(1 - distance / range, 0.33f);
                 // DeltaV END
 
                 _shake.Screenshake(players, shakeParams, null);
