@@ -49,10 +49,6 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
-      head-vulpkanin:
-      - state: equipped-head-vulpkanin
-      - state: equipped-head-unshaded-vulpkanin
-        shader: unshaded
       head-reptilian:
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
@@ -797,7 +793,7 @@
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
-  - type: ToggleableVisuals # WF - Looks way better with an overlaid light sprite
+  - type: ToggleableVisuals # DeltaV - Looks way better with an overlaid light sprite
     spriteLayer: light
     clothingVisuals:
       head:
