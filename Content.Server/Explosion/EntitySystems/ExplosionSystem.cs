@@ -383,9 +383,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         var visualEnt = CreateExplosionVisualEntity(pos, queued.Proto.ID, spaceMatrix, spaceData, gridData.Values, iterationIntensity);
 
         // camera shake
-        // ES START
+        // Starlight BEGIN - moved down
         // CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
-        // ES END
+        // Starlight END
 
         //For whatever bloody reason, sound system requires ENTITY coordinates.
         var mapEntityCoords = _transformSystem.ToCoordinates(_map.GetMap(pos.MapId), pos);
@@ -416,12 +416,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             ? queued.Proto.SmallSoundFar
             : queued.Proto.SoundFar;
 
-        // ES START
-        var farTranslationShake = iterationIntensity.Count < queued.Proto.SmallSoundIterationThreshold
-            ? new ESScreenshakeParameters() { Trauma = 0.4f, DecayRate = 0.2f, Frequency = 0.014f }
-            : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
-        _shake.Screenshake(filter, farTranslationShake, null);
-        // ES END
+        CameraShake(iterationIntensity, pos, queued); // Starlight
 
         _audio.PlayGlobal(farSound, farFilter, true, farSound.Params);
 
@@ -444,8 +439,13 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             _damageableSystem);
     }
 
-    private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
+    private void CameraShake(List<float> rangeList, MapCoordinates epicenter, QueuedExplosion queued) // Starlight - replace range with rangeList, totalIntensity with queued
     {
+        // Starlight BEGIN
+        var range = rangeList.Count * 4f;
+        var totalIntensity = queued.TotalIntensity * 10f;
+        // Starlight END
+
         var players = Filter.Empty();
         players.AddInRange(epicenter, range, _playerManager, EntityManager);
 
@@ -463,7 +463,25 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             var distance = delta.Length();
             var effect = 5 * MathF.Pow(totalIntensity, 0.5f) * (1 - distance / range);
             if (effect > 0.01f)
-                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+            {
+                // Starlight START
+                // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * 0.4f);
+                var shakeParams = rangeList.Count < queued.Proto.SmallSoundIterationThreshold
+                    ? new ESScreenshakeParameters() { Trauma = 0.4f, DecayRate = 0.2f, Frequency = 0.014f }
+                    : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
+
+                // DeltaV - Distance fall-of START
+                shakeParams.DecayRate *= Math.Min(1 + distance / range, 1.75f);
+                shakeParams.Frequency *= Math.Max(1 - distance / range, 0.33f);
+                shakeParams.Trauma *= Math.Max(1 - distance / range, 0.33f);
+                // DeltaV - Distance fall-of END
+
+                Log.Debug($"Decay rate was {shakeParams.DecayRate}");
+
+                _shake.Screenshake(players, shakeParams, null);
+                // Starlight END
+            }
         }
     }
 }
