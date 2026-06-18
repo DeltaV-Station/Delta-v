@@ -501,7 +501,7 @@
   objectType: Item
   description: crafting-menu-text-IVTH
 
-# DeltaV made it uncraftable
+# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FVTH
 #  id: ClothingHeadHelmetForged
@@ -512,7 +512,6 @@
 #  objectType: Item
 #  description: crafting-menu-text-FVTH
 
-# DeltaV made it uncraftable 
 #- type: construction
 #  name: crafting-menu-name-PVTH
 #  id: ClothingHeadHelmetPaladin
@@ -522,7 +521,7 @@
 #  category: construction-category-clothing
 #  objectType: Item
 #  description: crafting-menu-text-PVTH
-
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-IRS
