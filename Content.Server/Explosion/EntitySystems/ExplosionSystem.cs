@@ -466,7 +466,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             {
                 // DeltaV - Camera kick falloff START
                 // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
-                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * 0.1f * MathF.Exp(-5f * (distance / range)));
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * 0.033f * MathF.Exp(-4f * (distance / range)));
                 // DeltaV END
 
                 // Starlight START
