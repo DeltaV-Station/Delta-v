@@ -468,3 +468,17 @@
     message: psionic-power-precognition-gnome-spawn-result-message
   - type: AntagSpawner
     prototype: MobGnome
+  - type: AntagSelection
+    agentName: gnome-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGnome
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      components:
+        - type: EmitSoundOnSpawn
+          sound: /Audio/Effects/bodyfall3.ogg
+        - type: SpawnOnTrigger
+          proto: EffectFlashBluespace

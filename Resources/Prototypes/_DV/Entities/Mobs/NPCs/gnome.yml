@@ -9,6 +9,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: gnome
       sprite: _DV/Mobs/Animals/gnome.rsi
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: DamageStateVisuals
     states:
       Alive:
@@ -17,7 +22,7 @@
         Base: dead
   - type: RotationVisuals
     defaultRotation: 90
-    horizontalRotation: 0 # so the dead gnome displays properly
+    horizontalRotation: 90 # so the dead gnome displays properly
   - type: Unrevivable # it is extremely dead
     analyzable: false
     cloneable: false
@@ -106,6 +111,7 @@
     templateId: pet
     speciesId: gnome
   - type: Butcherable
+    butcheringType: knife
     spawned:
     - id: Ash
     - id: ClothingHeadHatGnome
