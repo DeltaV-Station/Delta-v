@@ -515,7 +515,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatGnome
   name: gnome hat
-  description: For those that honor the first gnome in space, Gnome Chompsky.
+  description: For those that honor the first gnome in space, Gnome Chompsky. Still has a bit of magic that sparkles in its velvet sheen.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
@@ -543,6 +543,16 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  - type: Storage
+    grid:
+    - 0,0,0,1
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
   - type: Tag
     tags:
     - PetWearable
