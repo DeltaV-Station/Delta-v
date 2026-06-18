@@ -28,12 +28,15 @@
         - id: CircuitImprinterMachineCircuitboard
         - id: ThermomachineFreezerMachineCircuitBoard
         - id: ThermomachineHeaterMachineCircuitBoard
+        - id: KitchenFreezerMachineCircuitBoard
         - id: PortableScrubberMachineCircuitBoard
         - id: OreProcessorMachineCircuitboard
         - id: CellRechargerCircuitboard
         - id: BorgChargerCircuitboard
         - id: SpaceHeaterMachineCircuitBoard
         - id: StationMapCircuitboard
+        - id: JukeboxCircuitBoard
+        - id: CutterMachineCircuitboard
         #Cameras
         - !type:GroupSelector
           children:
@@ -52,6 +55,8 @@
           - id: AnomalyVesselCircuitboard
           - id: HotplateMachineCircuitboard
           - id: FatExtractorMachineCircuitboard
+          - id: SmartFridgeCircuitboard
+          #- id: OperatingTableCircuitboard removed surgery
         #Service
         - !type:GroupSelector
           children:
@@ -62,6 +67,8 @@
           - id: BoozeDispenserMachineCircuitboard
           - id: SodaDispenserMachineCircuitboard
           - id: ElectricGrillMachineCircuitboard
+          - id: BiogeneratorMachineCircuitboard
+          - id: FreezerElectronics
         #Power
         - !type:GroupSelector
           children:
@@ -84,6 +91,7 @@
         - id: APCElectronics
         - id: SolarTrackerElectronics
         - id: IntercomElectronics
+        - id: voicesensor
         #Shuttle
         - !type:GroupSelector
           children:
@@ -104,12 +112,29 @@
         - id: Igniter
         - id: StationBeaconPart
         - id: HandheldStationMap
+        - id: Wristwatch
+        - id: AACTablet
+        - id: TapeRecorder
+        - id: CassetteTape
+        - id: PlantAnalyzer
+        - id: MineralScanner
+        - id: GasAnalyzer
         #Flatpacks
         - !type:GroupSelector
           children:
           - id: RadiationCollectorFlatpack
           - id: ContainmentFieldGeneratorFlatpack
           - id: SolarAssemblyFlatpack
+          - id: GyroscopeFlatpack
+          - id: ThrusterFlatpack
+          - id: SpaceHeaterFlatpack
+          - id: FaxMachineFlatpack
+          - id: StationBeaconPart
+          - id: ChemMasterFlatpack
+          - id: OperatingTableFlatpack
+          - id: HydroponicsTrayFlatpack
+          #- id: MedBioFabricatorFlatpack removed surgery
+          #- id: AutoclaveFlatpack removed surgery
         #Trigger
         - !type:GroupSelector
           children:
@@ -122,6 +147,14 @@
           - id: ExplosivePayload
           - id: ChemicalPayload
           - id: FlashPayload
+        #Filters
+        - !type:GroupSelector
+          children:
+          - id: AutomationFilterLabel
+          - id: AutomationFilterName
+          - id: AutomationFilterStack
+          - id: AutomationFilterPressure
+          - id: AutomationFilterCombined
     #Rare
     - !type:GroupSelector
       children:
@@ -135,6 +168,13 @@
         - id: TelecomServerCircuitboard
         - id: TurboItemRechargerCircuitboard
         - id: PowerCageRechargerCircuitboard
+        - id: HolopadMachineCircuitboard
+        - id: CircuitImprinterHyperConvectionMachineCircuitboard
+        - id: SMESAdvancedMachineCircuitboard
+        - id: ThrusterMachineCircuitboard
+        - id: GyroscopeMachineCircuitboard
+        - id: SyndicateMicrowaveMachineCircuitboard
+        - id: ReagentGrinderIndustrialMachineCircuitboard
         #Medical
         - !type:GroupSelector
           children:
@@ -145,6 +185,9 @@
           - id: CloningConsoleComputerCircuitboard
           - id: BodyScannerComputerCircuitboard
           - id: BiomassReclaimerMachineCircuitboard
+          #- id: MedicalBiofabMachineBoard removed surgery
+          #- id: AutoclaveMachineCircuitboard removed surgery
+          #- id: OperatingTableAdvancedCircuitboard removed surgery
         #Chem/Science
         - !type:GroupSelector
           children:
@@ -155,6 +198,16 @@
           - id: BiofabricatorMachineCircuitboard
           - id: AnomalyVesselExperimentalCircuitboard
           - id: ReverseEngineeringMachineCircuitboard
+          - id: AnomalySynchronizerCircuitboard
+          - id: APECircuitboard
+          - id: ArtifactDisplayCaseMachineCircuitBoard
+        #Robo
+        - !type:GroupSelector
+          children:
+          - id: RoboticArmCircuitboard
+          - id: ConstructorCircuitboard
+          - id: StorageBinCircuitboard
+          - id: InteractorCircuitboard
         #Logi
         - !type:GroupSelector
           children:
@@ -163,7 +216,6 @@
           - id: FlatpackerMachineCircuitboard
           - id: CargoTelepadMachineCircuitboard
           - id: MiniGravityGeneratorCircuitboard
-          - id: SalvageExpeditionsComputerCircuitboard
           - id: AmmoTechFabCircuitboard
           - id: RadarConsoleCircuitboard
           - id: ComputerShuttle
@@ -172,10 +224,15 @@
         - !type:GroupSelector
           children:
           - id: GasRecyclerMachineCircuitboard
-          #- id: SensorConsoleCircuitboard #not implemented yet
+          - id: SensorConsoleCircuitboard
           - id: SheetifierMachineCircuitboard
           - id: HellfireHeaterMachineCircuitBoard
           - id: HellfireFreezerMachineCircuitBoard
+        #Service
+        - !type:GroupSelector
+          children:
+          - id: AdvancedMicrowaveMachineCircuitBoard
+          - id: ServiceTechFabCircuitboard
       #Electronics
       - !type:GroupSelector
         children:
@@ -188,11 +245,12 @@
         - id: HonkerTargetingElectronics
         - id: SignalTimerElectronics
         - id: RipleyCentralElectronics
+        - id: ScreenTimerElectronics
       #Gadgets
       - !type:GroupSelector
         children:
         - id: HandTeleporter
-        - id: HandheldStationMap
+        - id: HandheldStationMapStatic
         - id: Portafib
         - id: ClothingNeckShockCollar
         - id: PotatoAIChip
@@ -201,12 +259,20 @@
         - id: DeviceQuantumSpinInverter
           amount: !type:RangeNumberSelector
             range: 1, 2
+        - id: TapeRecorderFilled
+        - id: CassetteTapeInterview
+        - id: DeviceDesynchronizer
+        - id: DoorRemoteFirefight
+        - id: DeadMansSignaler
+        - id: portableChemicalMixer
+        - id: Defibrillator
         #Projectors
         - !type:GroupSelector
           children:
           - id: HoloprojectorSecurity
           - id: HolotapeProjector
           - id: HoloprojectorField
+          - id: RadiationBlockingProjector
         #Cartridges
         - !type:GroupSelector
           children:
@@ -214,3 +280,9 @@
           - id: CrewManifestCartridge
           - id: GlimmerMonitorCartridge
           - id: LogProbeCartridge
+          - id: NotekeeperCartridge
+          - id: NanoTaskCartridge
+          - id: NewsReaderCartridge
+          - id: MedTekCartridge
+          - id: AstroNavCartridge
+          - id: NanoChatCartridge

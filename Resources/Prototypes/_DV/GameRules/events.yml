@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -458,3 +459,32 @@
         implants:
         - RadioImplantCentcomm
         - NanolinkSubImplant
+
+# NT Pest Control via Pitbulls
+- type: entity
+  id: PitbullMigration
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-pitbull-start-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg
+    earliestStart: 1
+    minimumPlayers: 10
+    weight: 5
+    duration: 15
+  - type: PrecognitionResult
+    message: psionic-power-precognition-pitbull-spawn-result-message
+  - type: VentCrittersRule
+    min: 1           # @  10 Pop -> Spawns  6 mice, 1 pitbull
+    max: 1           # @  50 Pop -> Spawns 12 mice, 2 pitbulls
+    playerRatio: 25  # @ 100 Pop -> Spawns 24 mice, 4 pitbulls
+    table: !type:AllSelector
+      children:
+      - id: MobMouse # VentCrittersRule is coded in a way that it ignores ranges, so we duplicate entries to ensure more mice than dogs
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouse2
+      - id: MobPitbullVent

@@ -1,0 +1,43 @@
+- type: entity
+  parent: MarkerBase
+  id: TowelSpawner
+  name: random towel spawner
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: Clothing/Multiple/towel.rsi
+    layers:
+    - state: icon
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.90
+      children:
+      - id: TowelColorWhite
+      - id: TowelColorPurple
+      - id: TowelColorRed
+      - id: TowelColorBlue
+      - id: TowelColorDarkBlue
+      - id: TowelColorLightBlue
+      - id: TowelColorTeal
+      - id: TowelColorBrown
+      - id: TowelColorLightBrown
+      - id: TowelColorGray
+      - id: TowelColorGreen
+      - id: TowelColorDarkGreen
+      - id: TowelColorGold
+      - id: TowelColorOrange
+      - id: TowelColorBlack
+      - id: TowelColorPink
+      - id: TowelColorYellow
+      - id: TowelColorMaroon
+      - id: TowelColorSilver
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: TowelColorNT
+        - id: TowelColorCentcom
+        - id: TowelColorSyndicate
+          weight: 0.33

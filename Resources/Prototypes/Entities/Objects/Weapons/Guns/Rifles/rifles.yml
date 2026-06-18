@@ -239,16 +239,16 @@
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 30
     maxAngle: 43
-    shotsPerBurst: 2 # DeltaV - add two-tap
+    shotsPerBurst: 3 
     selectedMode: Burst
     availableModes:
     - Burst
     - SemiAuto
-    burstFireRate: 30 # DeltaV - add two-tap
-    burstCooldown: .5 # DeltaV - add two-tap
+    burstFireRate: 30 # DeltaV - add fast burst
+    burstCooldown: .5 # DeltaV - add fast burst
   - type: GunWieldBonus
     minAngle: -28
-    maxAngle: -25
+    maxAngle: -30 # DeltaV - change from -25 to -30
   - type: ItemSlots
     slots:
       gun_magazine:
