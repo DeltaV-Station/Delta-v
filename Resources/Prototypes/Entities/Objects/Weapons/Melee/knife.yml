@@ -381,6 +381,23 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  # DeltaV additions begin - add dipping chemicals
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  # DeltaV additions end
 
 - type: entity
   name: utility knife

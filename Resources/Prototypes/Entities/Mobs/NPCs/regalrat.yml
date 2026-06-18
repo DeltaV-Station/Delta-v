@@ -102,7 +102,7 @@
   - type: NoSlip
   - type: Rummager
   - type: RatKing
-    hungerPerArmyUse: 25
+    hungerPerArmyUse: 10 # DeltaV changed from 25 to 10. Gets multiplied with a modifier to be dynamic
     hungerPerDomainUse: 50
   - type: ReplacementAccent # DeltaV - replace mobster accent with mouse speech replacement
     accent: mouse

@@ -12,3 +12,19 @@
         reagents:
         - ReagentId: Salbutamol
           Quantity: 200
+
+- type: entity
+  parent: Jug
+  id: JugSalbutamolSaline
+  suffix: salbutamol + saline
+  components:
+  - type: Label
+    currentLabel: reagent-name-salbutamol-saline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Salbutamol
+          Quantity: 100
+        - ReagentId: Saline
+          Quantity: 100

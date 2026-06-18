@@ -34,3 +34,141 @@
       entity: CrystalNormality
     - !type:AffectsGlimmer
       amount: -10
+
+- type: reaction
+  id: CreatePureOil
+  reactants:
+    LotophagoiOil:
+      amount: 5
+    Claridisol:
+      amount: 5
+  products:
+    PureOil: 10
+
+- type: reaction
+  id: CreateZapCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Insuzine:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalZap
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreateTelegCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Oculine:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalTeleg
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreatePrecogCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Agonolexyne:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalPrecog
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreateScreamCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Blissifylovene:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalScream
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreateDispelCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Charcoal:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalDispel
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreatePulseCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Mercury:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalPulse
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreateRegenCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Arcryox:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalRegen
+  - !type:AffectsGlimmer
+    amount: -3
+
+- type: reaction
+  id: CreatePyroCrystal
+  impact: Low
+  quantized: true
+  minTemp: 386
+  reactants:
+    PureOil:
+      amount: 25
+    Phlogiston:
+      amount: 25
+  effects:
+  - !type:SpawnEntity
+    entity: PsionCrystalPyro
+  - !type:AffectsGlimmer
+    amount: -3

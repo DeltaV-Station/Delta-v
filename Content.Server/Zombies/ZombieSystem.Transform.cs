@@ -26,6 +26,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Movement.Components; // DeltaV
+using Content.Shared._DV.Movement.Components; // DeltaV
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.NPC.Components; // DeltaV
 using Content.Shared.NPC.Systems;
@@ -43,6 +45,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Radio.Components; // DeltaV
 using Content.Shared.Roles;
 using Content.Shared.Temperature.Components;
 
@@ -73,6 +76,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly PsionicSystem _psionic = default!; // DeltaV
+    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // DeltaV - Prevent Jetpacks on Zombies
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -151,6 +155,14 @@ public sealed partial class ZombieSystem
         if (HasComp<PsionicComponent>(target))
             _psionic.MindBreakEntity(target, false, true);
         // DeltaV End - Prevent Psionic Zombies
+        // DeltaV Start - Prevent Jetpacks on Zombies
+        if (TryComp<JetpackUserComponent>(target, out var jetpackUser))
+        {
+            if(TryComp<JetpackComponent>(jetpackUser.Jetpack, out var jetpack))
+                _jetpack.SetEnabled(jetpackUser.Jetpack, jetpack, false, target);
+        }
+        RemComp<AutomaticJetpackUserComponent>(target);
+        // DeltaV End - Prevent Jetpacks on Zombies
 
         //funny voice
         var accentType = "zombie";
@@ -244,6 +256,16 @@ public sealed partial class ZombieSystem
         //_inventory.TryUnequip(target, "gloves", true, true); // DeltaV - Buff Zombies
         //Should prevent instances of zombies using comms for information they shouldnt be able to have.
         _inventory.TryUnequip(target, "ears", true, true);
+
+        // BEGIN DeltaV - Remove innate radio and radios from pockets
+        for (var i = 1; i <= 4; i++) // Arachnids have 4 pockets
+        {
+            if (_inventory.TryGetSlotEntity(target, $"pocket{i}", out var headset) && HasComp<HeadsetComponent>(headset))
+                _inventory.TryUnequip(target, $"pocket{i}", true, true);
+        }
+
+        RemComp<ActiveRadioComponent>(target); // If the zombie has an innate radio, get rid of it.
+        // END DeltaV
 
         //popup
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);

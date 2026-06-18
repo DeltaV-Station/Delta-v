@@ -1,0 +1,1015 @@
+#Spawner
+- type: entity
+  parent: MarkerBase
+  id: RandomClothing
+  name: random clothing spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _DV/Clothing/Uniforms/Jumpsuit/lost_tourist.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomClothingTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomMaskSpawner
+  name: random mask spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Mask/bear.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomMaskTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomEyeGlassesSpawner
+  name: random glasses spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomEyeGlassesTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomGlovesSpawner
+  name: random gloves spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Hands/Gloves/Color/black.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomGlovesTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomNeckClothingSpawner
+  name: random neck clothing spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Neck/Scarfs/green.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomNeckClothingTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomOuterClothingSpawner
+  name: random coat & jacket spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/OuterClothing/Coats/bomber.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomOuterClothingTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomShoeSpawner
+  name: random shoe spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomShoeTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomBeltSpawner
+  name: random belt spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Belt/waistbag.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomBeltTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomUniformSpawner
+  name: random suits, skirts, & dresses spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Uniforms/Jumpsuit/damedaneoutfit.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomUniformTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomHatSpawner
+  name: random hat spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Head/Hats/tophat.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomHatTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: RandomWinterCoatSpawner
+  name: random winter coat spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomWinterCoatTable
+      prob: 0.80
+
+- type: entity
+  parent: MarkerBase
+  id: SchoolgirlUniformSpawner
+  name: random schoolgirl uniform spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSchoolgirlTable
+      prob: 0.85
+
+#Tables
+- type: entityTable
+  id: RandomClothingTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: RandomMaskTable
+    - !type:NestedSelector
+      tableId: RandomEyeGlassesTable
+    - !type:NestedSelector
+      tableId: RandomGlovesTable
+    - !type:NestedSelector
+      tableId: RandomNeckClothingTable
+    - !type:NestedSelector
+      tableId: RandomOuterClothingTable
+    - !type:NestedSelector
+      tableId: RandomShoeTable
+    - !type:NestedSelector
+      tableId: RandomBeltTable
+    - !type:NestedSelector
+      tableId: RandomUniformTable
+    - !type:NestedSelector
+      tableId: RandomHatTable
+
+- type: entityTable
+  id: RandomMaskTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      children:
+      - id: ClothingMaskGas
+      - id: ClothingMaskBreathMedical
+      - id: ClothingMaskJoy
+      - id: ClothingMaskSterile
+      - id: ClothingMaskNeckGaiter
+      - id: ClothingMaskNeckGaiterRed
+    #Animals
+    - !type:GroupSelector
+      children:
+      - id: ClothingMaskRat
+      - id: ClothingMaskFox
+      - id: ClothingMaskBee
+      - id: ClothingMaskBear
+      - id: ClothingMaskRaven
+      - id: ClothingMaskJackal
+      - id: ClothingMaskBat
+      - id: ClothingMaskBandBrown
+      - id: ClothingMaskBandSkull
+    #Bandanas
+    - !type:GroupSelector
+      children:
+      - id: ClothingMaskBandBlack
+      - id: ClothingMaskBandBlue
+      - id: ClothingMaskBandBlue
+      - id: ClothingMaskBandGold
+      - id: ClothingMaskBandGreen
+      - id: ClothingMaskBandGrey
+      - id: ClothingMaskBandRed
+      - id: ClothingMaskBandBrown
+      - id: ClothingMaskBandSkull
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      #General
+      - !type:GroupSelector
+        children:
+        - id: ClothingMaskPlague
+        - id: ClothingMaskGasExplorer
+        - id: ClothingMaskMuzzle
+        - id: ClothingMaskItalianMoustache
+        - id: ClothingMaskWeldingGas
+        - id: ClothingEyesWrestlerMaskDomino
+        - id: ClothingMaskPilot
+        - id: CDDogtags
+        - id: ClothingMaskCluwne
+          weight: 0.1
+      #Bandanas
+      - !type:GroupSelector
+        children:
+        - id: ClothingMaskBandMerc
+
+- type: entityTable
+  id: RandomEyeGlassesTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+     children:
+      - id: ClothingEyesHudBeer
+      - id: ClothingEyesGlassesMeson
+      - id: ClothingEyesGlasses
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesThermal
+      - id: ClothingEyesEyepatch
+      - id: ClothingEyesBlindfold
+      - id: ClothingEyesGlassesChemist
+      - id: ClothingEyesGlassesJensen
+      - id: ClothingEyesGlassesJamjar
+      - id: ClothingEyesGlassesOutlawGlasses
+      - id: ClothingEyesGlassesCheapSunglasses
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesNoir
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      - id: ClothingEyesGlassesGarGiga
+      - id: ClothingEyesGlassesMeson
+      - id: ClothingEyesGlasses
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesThermal
+      - id: ClothingEyesEyepatch
+      - id: ClothingEyesBlindfold
+      - id: ClothingEyesGlassesChemist
+      - id: ClothingEyesGlassesGarMeson
+      - id: ClothingEyesGlassesPilot
+      #Cool Googles
+      - !type:GroupSelector
+        weight: 0.001
+        children:
+        - id: ClothingEyesNightVisionGoggles
+        - id: ClothingEyesGlassesThermal
+
+- type: entityTable
+  id: RandomGlovesTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      children:
+      - id: ClothingHandsGlovesPowerglove
+      - id: ClothingHandsGlovesRobohands
+      - id: ClothingHandsGlovesFingerless
+      - id: ClothingHandsGlovesConducting
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHandsGlovesLeather
+      - id: ClothingHandsGlovesFingerlessInsulated
+      - id: ClothingClothWrap
+    #Colored
+    - !type:GroupSelector
+      children:
+      - id: ClothingHandsGlovesColorPurple
+      - id: ClothingHandsGlovesColorRed
+      - id: ClothingHandsGlovesColorBlue
+      - id: ClothingHandsGlovesColorTeal
+      - id: ClothingHandsGlovesColorBrown
+      - id: ClothingHandsGlovesColorGray
+      - id: ClothingHandsGlovesColorGreen
+      - id: ClothingHandsGlovesColorLightBrown
+      - id: ClothingHandsGlovesColorOrange
+      - id: ClothingHandsGlovesColorWhite
+      - id: ClothingHandsGlovesColorBlack
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      #General
+      - !type:GroupSelector
+        children:
+        - id: ClothingHandsGlovesBoxingRed
+        - id: ClothingHandsGlovesBoxingBlue
+        - id: ClothingHandsGlovesBoxingGreen
+        - id: ClothingHandsGlovesBoxingYellow
+        - id: ClothingHandsGlovesNitrile
+        - id: ClothingHandsGlovesColorYellowBudget
+        - id: ClothingHandsGlovesJanitor
+        - id: ClothingHandsGlovesPilot
+        - id: ClothingHandsTacticalMaidGloves
+          weight: 0.1
+        - id: ClothingHandsGlovesHop
+          weight: 0.1
+        - id: ClothingHandsGlovesCombat
+          weight: 0.1
+        - id: ClothingHandsGlovesColorYellow
+          weight: 0.1
+      #Rings
+      - !type:GroupSelector
+        children:
+        - id: GoldRing
+        - id: SilverRing
+
+- type: entityTable
+  id: RandomNeckClothingTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      children:
+      - id: ClothingMultipleHeadphones
+      - id: ClothingNeckStethoscope
+      - id: CDDogtags
+    #Ties
+    - !type:GroupSelector
+      children:
+      - id: ClothingNeckTieWhite
+      - id: ClothingNeckTieBlack
+      - id: ClothingNeckTieBrown
+      - id: ClothingNeckTieBlue
+      - id: ClothingNeckTieGreen
+      - id: ClothingNeckTieChem
+    #Cloaks
+    - !type:GroupSelector
+      children:
+      - id: ClothingNeckCloakMoth
+      - id: ClothingNeckCloakAce
+      - id: ClothingNeckCloakAro
+      - id: ClothingNeckCloakAroace
+      - id: ClothingNeckCloakBi
+      - id: ClothingNeckCloakIntersex
+      - id: ClothingNeckCloakLesbian
+      - id: ClothingNeckCloakGay
+      - id: ClothingNeckCloakEnby
+      - id: ClothingNeckCloakPan
+      - id: ClothingNeckCloakRosy
+    #Pins
+    - !type:GroupSelector
+      children:
+      - id: ClothingNeckLGBTPin
+      - id: ClothingNeckAllyPin
+      - id: ClothingNeckAromanticPin
+      - id: ClothingNeckAroacePin
+      - id: ClothingNeckAsexualPin
+      - id: ClothingNeckBisexualPin
+      - id: ClothingNeckGayPin
+      - id: ClothingNeckIntersexPin
+      - id: ClothingNeckLesbianPin
+      - id: ClothingNeckNonBinaryPin
+      - id: ClothingNeckPansexualPin
+      - id: ClothingNeckPluralPin
+      - id: ClothingNeckOmnisexualPin
+      - id: ClothingNeckGenderqueerPin
+      - id: ClothingNeckGenderfluidPin
+      - id: ClothingNeckTransPin
+      - id: ClothingNeckAutismPin
+      - id: ClothingNeckGoldAutismPin
+    #Scarfs
+    - !type:GroupSelector
+      children:
+      - id: ClothingNeckScarfStripedRed
+      - id: ClothingNeckScarfStripedBlue
+      - id: ClothingNeckScarfStripedGreen
+      - id: ClothingNeckScarfStripedBlack
+      - id: ClothingNeckScarfStripedBrown
+      - id: ClothingNeckScarfStripedLightBlue
+      - id: ClothingNeckScarfStripedOrange
+      - id: ClothingNeckScarfStripedPurple
+      - id: ClothingNeckScarfStripedZebra
+      - id: ClothingNeckScarfStripedAce
+      - id: ClothingNeckScarfStripedAro
+      - id: ClothingNeckScarfStripedAroace
+      - id: ClothingNeckScarfStripedBiSexual
+      - id: ClothingNeckScarfStripedGay
+      - id: ClothingNeckScarfStripedInter
+      - id: ClothingNeckScarfStripedLesbian
+      - id: ClothingNeckScarfStripedPan
+      - id: ClothingNeckScarfStripedNonBinary
+      - id: ClothingNeckScarfStripedRainbow
+      - id: ClothingNeckScarfStripedTrans
+      - id: ClothingNeckScarfStripedLesbianLong
+      - id: ClothingNeckScarfPilot
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      #General
+      - !type:GroupSelector
+        children:
+        - id: ClothingNeckMantle
+        - id: ClothingNeckStethoscope
+        - id: ClothingNeckBling
+      #Pins
+      - !type:GroupSelector
+        children:
+        - id: SprayFlowerPin
+        - id: Dinkystar
+      #Scarfs
+      - !type:GroupSelector
+        children:
+        - id: ClothingNeckScarfStripedCentcom
+        - id: ClothingNeckScarfStripedSyndieRed
+        - id: ClothingNeckScarfStripedSyndieGreen
+
+- type: entityTable
+  id: RandomOuterClothingTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      children:
+      - id: ClothingOuterHoodieGrey
+      - id: ClothingOuterPonchoClassic
+      - id: ClothingOuterPoncho
+      - id: ClothingOuterVest
+      - id: ClothingOuterCoatGentle
+      - id: ClothingOuterCoatJensen
+      - id: ClothingOuterCoatLab
+      - id: ClothingOuterApronChemist
+      - id: ClothingOuterDenimJacket
+      - id: ClothingOuterCoatBomber
+      - id: ClothingOuterApron
+      - id: ClothingOuterApronBar
+      - id: ClothingOuterHospitalGown
+    #Cozy
+    - !type:GroupSelector
+      children:
+      - id: ClothingOuterFlannelRed
+      - id: ClothingOuterFlannelBlue
+      - id: ClothingOuterFlannelGreen
+      - id: ClothingOuterHoodieBlack
+      - id: ClothingOuterHoodieGrey
+    #Silly
+    - !type:GroupSelector
+      weight: 0.25
+      children:
+      - id: CardArmour
+      - id: ClothingOuterCardborg
+      - id: ClothingOuterSkub
+      - id: ClothingOuterGhostSheet
+      - id: ClothingOuterRedRacoon
+      - id: ClothingOuterSuitChicken
+      - id: ClothingOuterSuitShrineMaiden
+      - id: ClothingOuterSuitWitchRobes
+      - id: ClothingOuterSuitMonkey
+      - id: ClothingOuterSuitIan
+      - id: ClothingOuterSuitCarp
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      #General
+      - !type:GroupSelector
+        children:
+        - id: ClothingOuterStraightjacket
+        - id: ClothingOuterCoatOvercoat
+        - id: ClothingOuterCoatLeatherJacket
+        - id: ClothingOuterCoatTrench
+        - id: ClothingOuterDameDane
+        - id: ClothingOuterDogi
+        - id: ClothingOuterCoatExpensive
+        - id: ClothingOuterSanta
+        - id: ClothingOuterPlagueSuit
+        - id: ClothingOuterNunRobe
+        #Scrap
+        - !type:GroupSelector
+          children:
+          - id: WiredApronBase
+          - id: SteelApronBase
+          - id: WeldedSteelApronBase
+          - id: ClothingOuterArmorScrap
+            weight: 0.1
+    #Winter Coats
+    - !type:NestedSelector
+      tableId: RandomWinterCoatTable
+
+- type: entityTable
+  id: RandomWinterCoatTable
+  table: !type:GroupSelector
+    children:
+    #winter coats
+    - !type:GroupSelector
+      children:
+      - id: ClothingOuterWinterCoat
+      - id: ClothingOuterWinterCoatToggleable
+      - id: ClothingOuterWinterMusician
+      - id: ClothingOuterWinterColorBlack
+      - id: ClothingOuterWinterColorPurple
+      - id: ClothingOuterWinterColorRed
+      - id: ClothingOuterWinterColorBlue
+      - id: ClothingOuterWinterColorBrown
+      - id: ClothingOuterWinterColorGray
+      - id: ClothingOuterWinterColorGreen
+      - id: ClothingOuterWinterColorLightBrown
+      - id: ClothingOuterWinterColorOrange
+      - id: ClothingOuterWinterColorWhite
+      - id: ClothingOuterWinterColorYellow
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      - id: ClothingOuterWinterCentcom
+      - id: ClothingOuterWinterWeb
+      #Improvised Armor
+      - !type:GroupSelector
+        weight: 0.5
+        children:
+        - id: ClothingOuterArmorMakeshift
+        - id: ClothingOuterArmorImprovised
+        - id: ClothingOuterArmorForged
+
+- type: entityTable
+  id: RandomShoeTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      weight: 1.5
+      children:
+      - id: ClothingShoesFlippers
+      - id: ClothingShoesTourist
+      - id: ClothingShoesBootsWork
+      - id: ClothingShoesBootsPerformer
+      - id: ClothingShoesHighheelBoots
+      - id: ClothingShoesBootsLaceup
+      - id: ClothingShoesLeather
+      - id: ClothingShoesTourist
+      - id: ClothingShoesDameDane
+      - id: ClothingShoesSnakeskinBoots
+    #Socks/Slippers
+    - !type:GroupSelector
+      children:
+      - id: ClothingShoesSlippers
+      - id: ClothingShoeSlippersDuck
+      - id: ClothingShoeSlippersLizard
+      - id: ClothingUnderSocksBee
+      - id: ClothingUnderSocksCoder
+    #Colored Shoes
+    - !type:GroupSelector
+      weight: 1.5
+      children:
+      - id: ClothingShoesColorBlack
+      - id: ClothingShoesColorWhite
+      - id: ClothingShoesColorBlue
+      - id: ClothingShoesColorBrown
+      - id: ClothingShoesColorGreen
+      - id: ClothingShoesColorOrange
+      - id: ClothingShoesColorRed
+      - id: ClothingShoesColorYellow
+      - id: ClothingShoesColorPurple
+    #Cowboy
+    - !type:GroupSelector
+      children:
+      - id: ClothingShoesBootsCowboyBrown
+      - id: ClothingShoesBootsCowboyBlack
+      - id: ClothingShoesBootsCowboyWhite
+      - id: ClothingShoesBootsCowboyFancy
+    #Winter Boots
+    - !type:GroupSelector
+      children:
+      - id: ClothingShoesBootsWinter
+      - id: ClothingShoesBootsWinterWeb
+        weight: 0.2
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      #General
+      - !type:GroupSelector
+        children:
+        - id: ClothingShoesGaloshes
+        - id: ClothingShoesSharkminnow
+        - id: ClothingShoesRealJordans
+          weight: 0.0001
+
+- type: entityTable
+  id: RandomBeltTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      children:
+      - id: ClothingBeltFoamSheathFilled
+      - id: ClothingBeltPaperwork
+      - id: ClothingBeltStorageWaistbag
+      - id: ClothingBeltPilot
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      - id: ClothingBeltQuiver
+      - id: ClothingBeltHolster
+      - id: ClothingBeltSuspendersRed
+      - id: ClothingBeltSuspendersBlack
+
+- type: entityTable
+  id: RandomUniformTable
+  table: !type:GroupSelector
+    children:
+    #Random
+    - id: ClothingRandomSpawner
+    #General
+    - !type:GroupSelector
+      children:
+      #Dresses
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformJumpskirtBlackElegantDress
+        - id: ClothingUniformJumpskirtRedElegantDress
+        - id: ClothingUniformJumpskirtGreenElegantDress
+        - id: ClothingUniformJumpskirtBlueElegantDress
+        - id: ClothingUniformJumpskirtPurpleElegantDress
+        - id: ClothingUniformJumpskirtCyanStripedDress
+        - id: ClothingUniformJumpskirtRedStripedDress
+        - id: ClothingUniformJumpskirtGreenStripedDress
+        - id: ClothingUniformJumpskirtPinkStripedDress
+        - id: ClothingUniformJumpskirtOrangeStripedDress
+        - id: ClothingUniformJumpskirtPurpleTurtleneckDress
+        - id: ClothingUniformJumpskirtRedTurtleneckDress
+        - id: ClothingUniformJumpskirtGreenTurtleneckDress
+        - id: ClothingUniformJumpskirtBlueTurtleneckDress
+        - id: ClothingUniformJumpskirtYellowTurtleneckDress
+        - id: ClothingUniformJumpskirtYellowOldDress
+      #Skirts
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformJumpskirtColorWhite
+        - id: ClothingUniformJumpskirtColorGrey
+        - id: ClothingUniformJumpskirtColorBlack
+        - id: ClothingUniformJumpskirtColorBlue
+        - id: ClothingUniformJumpskirtColorDarkBlue
+        - id: ClothingUniformJumpskirtColorTeal
+        - id: ClothingUniformJumpskirtColorGreen
+        - id: ClothingUniformJumpskirtColorDarkGreen
+        - id: ClothingUniformJumpskirtColorOrange
+        - id: ClothingUniformJumpskirtColorPink
+        - id: ClothingUniformJumpskirtColorRed
+        - id: ClothingUniformJumpskirtColorYellow
+        - id: ClothingUniformJumpskirtColorPurple
+        - id: ClothingUniformJumpskirtColorLightBrown
+        - id: ClothingUniformJumpskirtColorBrown
+        - id: ClothingUniformJumpskirtColorMaroon
+        - id: ClothingUniformJumpskirtColorRainbow
+        - id: ClothingUniformJumpskirtCasualBlue
+        - id: ClothingUniformJumpskirtCasualPurple
+        - id: ClothingUniformJumpskirtCasualRed
+        - id: ClothingUniformJumpskirtCasualGreen
+        - id: ClothingUniformJumpskirtOldDress
+        - id: ClothingUniformJumpskirtMusician
+      #Stylish Skirts
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformHitmanSuitSkirt
+        - id: ClothingUniformFuneralSuitSkirt
+        - id: ClothingUniformNightclubSuitSkirt
+        - id: ClothingUniformMrSpaceWideSkirt
+        - id: ClothingUniformBrownSuitSkirt
+        - id: ClothingUniformCreamSuitSkirt
+        - id: ClothingUniformDetectiveSuitSkirt
+        - id: ClothingUniformMiamiViceSkirt
+        - id: ClothingUniformSeniorBartenderSkirt
+        - id: ClothingUniformBrosBlazerSkirt
+      #Suits
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformJumpsuitColorWhite
+        - id: ClothingUniformJumpsuitColorGrey
+        - id: ClothingUniformJumpsuitColorBlack
+        - id: ClothingUniformJumpsuitColorBlue
+        - id: ClothingUniformJumpsuitColorDarkBlue
+        - id: ClothingUniformJumpsuitColorTeal
+        - id: ClothingUniformJumpsuitColorGreen
+        - id: ClothingUniformJumpsuitColorDarkGreen
+        - id: ClothingUniformJumpsuitColorOrange
+        - id: ClothingUniformJumpsuitColorPink
+        - id: ClothingUniformJumpsuitColorRed
+        - id: ClothingUniformJumpsuitColorYellow
+        - id: ClothingUniformJumpsuitColorPurple
+        - id: ClothingUniformJumpsuitColorLightBrown
+        - id: ClothingUniformJumpsuitColorBrown
+        - id: ClothingUniformJumpsuitColorMaroon
+        - id: ClothingUniformColorRainbow
+        - id: ClothingUniformJumpsuitCasualBlue
+        - id: ClothingUniformJumpsuitCasualPurple
+        - id: ClothingUniformJumpsuitCasualRed
+        - id: ClothingUniformJumpsuitCasualGreen
+      #Stylish Suits
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformHitmanSuit
+        - id: ClothingUniformFuneralSuit
+        - id: ClothingUniformNightclubSuit
+        - id: ClothingUniformMrSpaceWide
+        - id: ClothingUniformBrownSuit
+        - id: ClothingUniformCreamSuit
+        - id: ClothingUniformDetectiveSuit
+        - id: ClothingUniformMiamiVice
+        - id: ClothingUniformSeniorBartender
+        - id: ClothingUniformBrosBlazer
+      #Misc
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformJumpsuitKimono
+        - id: ClothingUniformOveralls
+        - id: ClothingUniformJumpsuitSafari
+        - id: ClothingUniformJumpsuitFlannel
+        - id: ClothingUniformJumpsuitLoungewear
+        #Hawaiian
+        - !type:GroupSelector
+          children:
+          - id: ClothingUniformJumpsuitHawaiBlack
+          - id: ClothingUniformJumpsuitHawaiBlue
+          - id: ClothingUniformJumpsuitHawaiRed
+          - id: ClothingUniformJumpsuitHawaiYellow
+        #Scrubs
+        - !type:GroupSelector
+          children:
+          - id: UniformScrubsColorPurple
+          - id: UniformScrubsColorGreen
+          - id: UniformScrubsColorBlue
+        #Schoolgirl Outfits
+        - !type:NestedSelector
+          tableId: RandomSchoolgirlTable
+    #Rare
+    - !type:GroupSelector
+      weight: 0.05
+      children:
+      #General
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformJumpskirtPrisoner
+        - id: ClothingUniformJumpskirtPerformer
+        - id: ClothingUniformJumpskirtWeb
+        - id: ClothingUniformJumpsuitMusician
+        - id: ClothingUniformJumpsuitNanotrasen
+        - id: ClothingUniformJumpsuitClownBanana
+        - id: ClothingUniformJumpsuitPrisoner
+        - id: ClothingUniformJumpsuitWeb
+        - id: ClothingUniformJumpsuitJacketMonkey
+        - id: ClothingUniformJumpsuitAncient
+      #Misc
+      - !type:GroupSelector
+        children:
+        - id: ClothingUniformJumpsuitDameDane
+        - id: ClothingUniformJumpsuitPirate
+        - id: ClothingUniformJumpsuitCossack
+        - id: UniformShortsRed
+        - id: UniformShortsRedWithTop
+        #Pajamas
+        - !type:GroupSelector
+          children:
+          - id: ClothingUniformJumpsuitPyjamaSyndicateBlack
+          - id: ClothingUniformJumpsuitPyjamaSyndicatePink
+          - id: ClothingUniformJumpsuitPyjamaSyndicateRed
+
+- type: entityTable
+  id: RandomSchoolgirlTable
+  table: !type:GroupSelector
+    children:
+    - id: UniformSchoolgirlRed
+    - id: UniformSchoolgirlBlack
+    - id: UniformSchoolgirlBlue
+    - id: UniformSchoolgirlCyan
+    - id: UniformSchoolgirlGreen
+    - id: UniformSchoolgirlOrange
+    - id: UniformSchoolgirlPink
+    - id: UniformSchoolgirlPurple
+    - id: ClothingOuterSuitShrineMaiden
+      weight: 0.05
+
+- type: entityTable
+  id: RandomHatTable
+  table: !type:GroupSelector
+    children:
+    #General
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatOutlawHat
+      - id: ClothingHeadHatWizardFake
+      - id: ClothingHeadHatPirate
+      - id: ClothingHeadHatPlaguedoctor
+      - id: ClothingHeadHatChef
+      - id: ClothingHeadHatBunny
+      - id: ClothingHeadBandMerc
+      - id: ClothingHeadHatBrownFlatcap
+      - id: ClothingHeadHatGreyFlatcap
+      - id: ClothingHeadHatPaper
+      - id: ClothingHeadHatSombrero
+      - id: ClothingHeadHatTophat
+      - id: ClothingHeadHatUshanka
+      - id: ClothingHeadHatTrucker
+      - id: ClothingHeadHatStrawHat
+      #Cowboy
+      - !type:GroupSelector
+        children:
+        - id: ClothingHeadHatCowboyWhite
+        - id: ClothingHeadHatCowboyGrey
+        - id: ClothingHeadHatCowboyBrown
+    #Helmets
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHelmetCosmonaut
+      - id: ClothingHeadHelmetBasic
+      - id: ClothingHeadHelmetTemplar
+      - id: ClothingHeadHelmetThunderdome
+      - id: ClothingHeadHelmetFire
+      - id: ClothingHeadHelmetKendoMen
+      - id: ClothingHeadHelmetPaladin
+      - id: ClothingHeadHelmetForged
+    #Headbands
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadBandBlack
+      - id: ClothingHeadBandBlue
+      - id: ClothingHeadBandGold
+      - id: ClothingHeadBandGreen
+      - id: ClothingHeadBandGrey
+      - id: ClothingHeadBandRed
+      - id: ClothingHeadBandSkull
+      - id: ClothingHeadBandBrown
+    #Utility
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatHoodBioGeneral
+      - id: ClothingHeadHatHoodRad
+      - id: ClothingHeadHatWeldingMaskFlame
+      - id: ClothingHeadHatWeldingMaskFlameBlue
+      - id: ClothingHeadHatWeldingMaskPainted
+      - id: ClothingHeadCage
+    #Silly
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatCake
+      - id: ClothingHeadHatChickenhead
+      - id: FoodPoppy
+      - id: ClothingHeadHatPumpkin
+      - id: ClothingHeadHatRichard
+      - id: ClothingHeadHatSkub
+      - id: ClothingHeadHatShrineMaidenWig
+      - id: ClothingHeadHatSquid
+      - id: ClothingHeadHatBizarreSoft
+      - id: WaterDropletHat
+      - id: ClothingHeadHatWatermelon
+      - id: ClothingHeadHatRedRacoon
+      - id: ClothingHeadPropellerHat
+      - id: ClothingHeadHatCardborg
+    #Soft
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatBluesoft
+      - id: ClothingHeadHatCorpsoftFlipped
+      - id: ClothingHeadHatGreensoft
+      - id: ClothingHeadHatGreysoft
+      - id: ClothingHeadHatOrangesoft
+      - id: ClothingHeadHatPurplesoftFlipped
+      - id: ClothingHeadHatRedsoftFlipped
+      - id: ClothingHeadHatYellowsoft
+      - id: ClothingHeadHatFlatBlack
+      - id: ClothingHeadHatFlatBrown
+    #Festive
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatSantahat
+      - id: ClothingHeadHatXmasCrown
+      - id: ClothingHeadHatReindeer
+      - id: ClothingHeadHatRedRibbon
+      - id: ClothingHeadHatFestiveHatRed
+      - id: ClothingHeadHatFestiveHatGreen
+      - id: ClothingHeadHatCandyCane
+      - id: ClothingHeadHatStar
+      - id: ClothingHeadHatElf
+      #Party
+      - !type:GroupSelector
+        children:
+        - id: ClothingHeadHatPartyRed
+        - id: ClothingHeadHatPartyYellow
+        - id: ClothingHeadHatPartyGreen
+        - id: ClothingHeadHatPartyBlue
+    #Rare
+    - !type:GroupSelector
+     weight: 0.05
+     children:
+     #General
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatBeaverHat
+       - id: ClothingHeadHatBowlerHat
+       - id: ClothingHeadHatBeret
+       - id: ClothingHeadFishCap
+       - id: ClothingHeadRastaHat
+       - id: ClothingHeadSafari
+       - id: ClothingHeadHatFlowerWreath
+       - id: ClothingHeadHatCasa
+       - id: ClothingHeadHatGladiator
+       - id: ClothingHeadHatMagician
+       - id: ClothingHeadHatHetmanHat
+       - id: ClothingHeadHatTacticalMaidHeadband
+       - id: ClothingHeadHatPirateTricord
+       - id: ClothingHeadHatSecretary
+       - id: ClothingHeadHatCentcom
+         weight: 0.01
+     #Cowboy
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatCowboyBountyHunter
+       - id: ClothingHeadHatCowboyRed
+       - id: ClothingHeadHatCowboyBlack
+     #Animal
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatAnimalCat
+       - id: ClothingHeadHatAnimalCatBrown
+       - id: ClothingHeadHatAnimalCatBlack
+       - id: ClothingHeadHatAnimalHeadslime
+       - id: ClothingHeadHatAnimalMonkey
+     #Hardhat
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatHardhatBlue
+       - id: ClothingHeadHatHardhatOrange
+       - id: ClothingHeadHatHardhatRed
+       - id: ClothingHeadHatHardhatWhite
+       - id: ClothingHeadHatHardhatYellow
+       - id: ClothingHeadHatHardhatYellowDark
+     #Fedora
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatFedoraBrown
+       - id: ClothingHeadHatFedoraGrey
+       - id: ClothingHeadHatFedoraBlack
+       - id: ClothingHeadHatFedoraChoc
+       - id: ClothingHeadHatFedoraWhite
+     #Silly
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadPaperSack
+       - id: ClothingHeadPaperSackSmile
+       - id: ClothingHeadHatCone
+       - id: ClothingHeadTinfoil
+     #Utility
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatWelding
+     #Wrestling
+     - !type:GroupSelector
+       children:
+       - id: ClothingHeadHatWrestlingMaskLuchaRed
+       - id: ClothingHeadHatWrestlingMaskLuchaBlue
+     #Helmet
+     - !type:GroupSelector
+       weight: 0.5
+       children:
+       - id: ClothingHeadHelmetImprovised
+       - id: ClothingHeadHelmetMakeshift

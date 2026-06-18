@@ -417,6 +417,7 @@
 - type: entity
   id: GenpopBase
   abstract: true
+  parent: LockerBaseDeltaV # DeltaV - resprite security lockers
   components:
   - type: GenpopLocker
   - type: EntityStorageVisuals

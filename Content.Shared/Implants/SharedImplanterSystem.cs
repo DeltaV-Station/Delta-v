@@ -59,6 +59,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     {
         var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+        ImplantMode(uid, component); // DeltaV - Properly update implant mode
     }
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)
