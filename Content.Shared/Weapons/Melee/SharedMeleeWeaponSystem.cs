@@ -73,7 +73,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
     // ES END
 
-    private static readonly string BluntDamageName = "Blunt"; // Starlight | ES Screenshake
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
@@ -1088,7 +1087,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     //Starlight begin | ES Screenshake
     private void DoScreenshake(EntityUid weapon, DamageSpecifier damage, EntityUid attacker, List<EntityUid> targets)
     {
-        if(damage.GetTotal()>8) // only show to others if it hurts real bad
+        if(damage.GetTotal()>4) // only show to others if it hurts real bad // DeltaV - reduce from 8 to 4
         {
             var otherTranslation = new ESScreenshakeParameters
             {
@@ -1101,17 +1100,37 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // only show to attacker if they put real oompf into it, or the weapon is just THAT strong
-        var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20;
-        var wieldRequirement = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
+        // var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20; // DeltaV - unused
+        var isWielding = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
 
-        if (!bluntRequirement && !wieldRequirement)
-            return;
-        var userRotation = new ESScreenshakeParameters
+        // DeltaV - unused
+        // if (!bluntRequirement && !wieldRequirement)
+        //    return;
+
+        // DeltaV - heavy/light screenshake variants START
+        ESScreenshakeParameters userRotation;
+        if (damage.GetTotal() >= 15 || isWielding)
         {
-            Trauma = 0.08f,
-            DecayRate = 1,
-            Frequency = 0.009f,
-        };
+            // heavy damage or two-handed
+            userRotation = new ESScreenshakeParameters
+            {
+                Trauma = 0.08f,
+                DecayRate = 1,
+                Frequency = 0.009f,
+            };
+        }
+        else
+        {
+            // light damage
+            userRotation = new ESScreenshakeParameters
+            {
+                Trauma = 0.06f,
+                DecayRate = 1,
+                Frequency = 0.0045f,
+            };
+        }
+        // DeltaV END
+
         _shake.Screenshake(attacker, null, userRotation);
     }
     //Starlight end
