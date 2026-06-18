@@ -100,9 +100,8 @@
   id: ToiletFishingLootTable
   table: !type:GroupSelector
     children:
-      # like water but no rare fishes
       - !type:NestedSelector
-        tableId: BasicFishingLootTable
+        tableId: GenericTrashItems # DeltaV - changed BasicFishingLootTable to just trash to avoid salvage scrap and tools
         weight: 80
       - !type:NestedSelector
         tableId: WaterFishTable
