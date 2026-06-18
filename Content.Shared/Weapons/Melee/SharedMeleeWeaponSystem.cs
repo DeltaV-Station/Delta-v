@@ -31,6 +31,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Wieldable.Components; // Starlight | ES Screenshake
 using Content.Shared.Zombies; // DeltaV - Buff Zombies
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -72,6 +73,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
     // ES END
 
+    private static readonly string BluntDamageName = "Blunt"; // Starlight | ES Screenshake
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
@@ -597,18 +599,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, targetXform);
-
-            // ES START
-            // dog shit copy plaste but thats melee for you
-            var userShakeRotation = new ESScreenshakeParameters()
-                { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
-            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
-            _shake.Screenshake(user, null, userShakeRotation);
-            foreach (var shakeTarget in targets)
-            {
-                _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
-            }
-            // ES END
+            DoScreenshake(meleeUid, damageResult, user, targets); // Starlight | ES Screenshake
         }
     }
 
@@ -774,21 +765,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
-        // ES START
-        // dog shit copy plaste but thats melee for you
-        var userShakeRotation = new ESScreenshakeParameters()
-            { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
-        var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
-        _shake.Screenshake(user, null, userShakeRotation);
-        foreach (var shakeTarget in targets)
-        {
-            _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
-        }
-        // ES END
-
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, Transform(targets[0]));
+            DoScreenshake(meleeUid, damage, user, targets); // Starlight | ES Screenshake
         }
 
         return true;
@@ -1104,4 +1084,35 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
         }
     }
+
+    //Starlight begin | ES Screenshake
+    private void DoScreenshake(EntityUid weapon, DamageSpecifier damage, EntityUid attacker, List<EntityUid> targets)
+    {
+        if(damage.GetTotal()>8) // only show to others if it hurts real bad
+        {
+            var otherTranslation = new ESScreenshakeParameters
+            {
+                Trauma = 0.45f,
+                DecayRate = 1.1f,
+                Frequency = 0.04f,
+            };
+            foreach(var target in targets)
+                _shake.Screenshake(target, otherTranslation, null);
+        }
+
+        // only show to attacker if they put real oompf into it, or the weapon is just THAT strong
+        var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20;
+        var wieldRequirement = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
+
+        if (!bluntRequirement && !wieldRequirement)
+            return;
+        var userRotation = new ESScreenshakeParameters
+        {
+            Trauma = 0.08f,
+            DecayRate = 1,
+            Frequency = 0.009f,
+        };
+        _shake.Screenshake(attacker, null, userRotation);
+    }
+    //Starlight end
 }
