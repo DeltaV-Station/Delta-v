@@ -14,18 +14,16 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
   - type: DamageStateVisuals
     states:
       Alive:
         Base: gnome
       Dead:
         Base: dead
-  - type: RotationVisuals
-    defaultRotation: 90
-    horizontalRotation: 90 # so the dead gnome displays properly
-  - type: Unrevivable # it is extremely dead
-    analyzable: false
-    cloneable: false
   - type: MobState
     allowedStates:
       - Alive
@@ -38,6 +36,8 @@
     speedModifierThresholds:
       25: 0.8
       40: 0.6
+  - type: Deathgasp
+    needsCritical: false
   - type: StatusEffects
     allowed:
     - Electrocution
@@ -76,9 +76,15 @@
     - SimpleHostile # cats hate gnomes
   - type: Speech
     speechSounds: Gnome
+  - type: Vocal
+    sounds:
+      Male: GnomeSounds
+      Female: GnomeSounds
+      Unsexed: GnomeSounds
   # abilities
   - type: Psionic
   - type: Jaunt
+    jauntAction: ActionPolymorphJauntGnome # 3 second jaunt with 10 second cooldown
   - type: PsionicRegenerationPower
   - type: PsionicInvisibilityPower
   - type: NoSlip
@@ -97,6 +103,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Effects/glass_knock.ogg # Fairy magic
+  - type: Clumsy
   - type: Carriable
   - type: Hands
     count: 2

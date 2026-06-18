@@ -7,3 +7,13 @@
     transferDamage: true
     revertOnCrit: true
     revertOnDeath: true
+
+- type: polymorph
+  id: GnomeMorph
+  configuration:
+    entity: GnomeJaunt
+    cooldown: 10
+    forced: true
+    duration: 3
+    polymorphSound: /Audio/_DV/Voice/Gnome/gnomelaugh.ogg
+    polymorphInventoryChange: Drop
