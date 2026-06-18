@@ -464,18 +464,21 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             var effect = 5 * MathF.Pow(totalIntensity, 0.5f) * (1 - distance / range);
             if (effect > 0.01f)
             {
-                // Starlight START
+                // DeltaV - Distance falloff START
                 // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
-                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * 0.4f);
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * 0.4f * Math.Max(1 - distance/range, 0.1f));
+                // DeltaV END
+
+                // Starlight START
                 var shakeParams = rangeList.Count < queued.Proto.SmallSoundIterationThreshold
                     ? new ESScreenshakeParameters() { Trauma = 0.4f, DecayRate = 0.2f, Frequency = 0.014f }
                     : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
 
-                // DeltaV - Distance fall-of START
+                // DeltaV - Distance falloff START
                 shakeParams.DecayRate *= Math.Min(1 + distance / range, 1.75f);
                 shakeParams.Frequency *= Math.Max(1 - distance / range, 0.33f);
                 shakeParams.Trauma *= Math.Max(1 - distance / range, 0.33f);
-                // DeltaV - Distance fall-of END
+                // DeltaV END
 
                 Log.Debug($"Decay rate was {shakeParams.DecayRate}");
 
