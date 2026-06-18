@@ -459,7 +459,7 @@
   objectType: Item
   description: crafting-menu-text-IVT
 
-# DeltaV made it uncraftable
+# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FVT
 #  id: ClothingOuterArmorForged
@@ -470,7 +470,6 @@
 #  objectType: Item
 #  description: crafting-menu-text-FVT
 
-# DeltaV made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-PVT
 #  id: ClothingOuterArmorPaladin
@@ -480,6 +479,7 @@
 #  category: construction-category-clothing
 #  objectType: Item
 #  description: crafting-menu-text-PVT
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-MVTH
