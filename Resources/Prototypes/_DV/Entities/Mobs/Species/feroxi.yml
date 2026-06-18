@@ -77,6 +77,8 @@
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
+      - map: [ "enum.NewPlayerLayers.Layer" ] # Show New Players!!
+        visible: false
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "_DV/Effects/creampie.rsi"
         state: "creampie_feroxi"

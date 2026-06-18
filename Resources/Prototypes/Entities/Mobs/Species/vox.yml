@@ -144,6 +144,8 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "enum.NewPlayerLayers.Layer" ] # DeltaV - Show New Players!!
+      visible: false
     - map: [ "clownedon" ]
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default

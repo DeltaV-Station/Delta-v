@@ -118,6 +118,8 @@
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
+      - map: [ "enum.NewPlayerLayers.Layer" ] # DeltaV - Show New Players!!
+        visible: false
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
