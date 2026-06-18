@@ -49,6 +49,10 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
+      head-vulpkanin:
+      - state: equipped-head-vulpkanin
+      - state: equipped-head-unshaded-vulpkanin
+        shader: unshaded
       head-reptilian:
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
@@ -646,6 +650,14 @@
       - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
         state: on-equipped-HELMET-light-vulpkanin
         shader: unshaded
+      head-reptilian:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
+        state: on-equipped-HELMET-light-reptilian
+        shader: unshaded
+      head-feroxi:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
+        state: on-equipped-HELMET-light-feroxi
+        shader: unshaded
       head-dog:
       - sprite: _DV/Clothing/Head/Hardsuits/syndicate.rsi
         state: on-equipped-HELMET-light-dog
@@ -693,6 +705,14 @@
       - sprite: _DV/Clothing/Head/Hardsuits/syndiemedic.rsi
         state: on-equipped-HELMET-light-vulpkanin
         shader: unshaded
+      head-reptilian:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiemedic.rsi
+        state: on-equipped-HELMET-light-reptilian
+        shader: unshaded
+      head-feroxi:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiemedic.rsi
+        state: on-equipped-HELMET-light-feroxi
+        shader: unshaded
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -731,6 +751,14 @@
       head-vulpkanin:
       - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
         state: on-equipped-HELMET-light-vulpkanin
+        shader: unshaded
+      head-reptilian:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
+        state: on-equipped-HELMET-light-reptilian
+        shader: unshaded
+      head-feroxi:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
+        state: on-equipped-HELMET-light-feroxi
         shader: unshaded
       head-dog:
       - sprite: _DV/Clothing/Head/Hardsuits/syndieelite.rsi
@@ -783,6 +811,14 @@
       head-vulpkanin:
       - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
         state: on-equipped-HELMET-light-vulpkanin
+        shader: unshaded
+      head-reptilian:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
+        state: on-equipped-HELMET-light-reptilian
+        shader: unshaded
+      head-feroxi:
+      - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
+        state: on-equipped-HELMET-light-feroxi
         shader: unshaded
       head-dog:
       - sprite: _DV/Clothing/Head/Hardsuits/syndiecommander.rsi
