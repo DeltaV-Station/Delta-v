@@ -5,7 +5,7 @@ namespace Content.Shared.Uprising;
 
 public sealed partial class ConversionOfferActionEvent : EntityTargetActionEvent
 {
-    [DataField]
+    [DataField(readOnly: true)]
     public List<Type> IncompatibleMindRoleTypes;
 
     [DataField]
