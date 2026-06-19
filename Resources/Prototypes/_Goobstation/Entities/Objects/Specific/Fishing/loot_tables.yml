@@ -8,20 +8,20 @@
   id: BasicFishingLootTable
   table: !type:GroupSelector
     children:
-    # 75% chance of scrap of some kind
+    # 65% chance of scrap of some kind
     - !type:GroupSelector
-      weight: 75
+      weight: 65 # DeltaV - 75 to 65%
       children:
       - !type:NestedSelector
         tableId: SalvageScrapLowValue
-        weight: 65
+        weight: 90 # DeltaV - 65 to 90%
       - !type:NestedSelector
         tableId: SalvageScrapHighValue
-        weight: 35
-    # 15% chance of some trash
+        weight: 10 # DeltaV - 35 to 10%
+    # 25% chance of some trash
     - !type:NestedSelector
       tableId: GenericTrashItems
-      weight: 15
+      weight: 25 # DeltaV - 15 to 25%
     # 10% chance of low-value treasure or maintenance tools
     - !type:GroupSelector
       weight: 10
@@ -45,6 +45,7 @@
     - id: FishNuker
     - id: FishToxic
     - id: FishIan
+    - id: MobSpaceShrimp # DeltaV - shrimp attack!
 
 # Fish from water
 - type: entityTable
@@ -101,8 +102,11 @@
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-        tableId: GenericTrashItems # DeltaV - changed BasicFishingLootTable to just trash to avoid salvage scrap and tools
+        tableId: GenericTrashItems # DeltaV - changed BasicFishingLootTable to just trash to avoid salvage scrap and tools in perma
         weight: 80
       - !type:NestedSelector
         tableId: WaterFishTable
-        weight: 20
+        weight: 15 # DeltaV - changed from 20 to 15
+      - !type:NestedSelector
+        tableId: RareFishTable # DeltaV - add rare fish
+        weight: 5
