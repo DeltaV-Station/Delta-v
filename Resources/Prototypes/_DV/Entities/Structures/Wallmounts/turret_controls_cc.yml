@@ -1,0 +1,23 @@
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanelBase
+  id: WeaponEnergyTurretCentralCommandControlPanel
+  suffix: CentComm
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ContainerFill
+    containers:
+      board:
+      - WeaponEnergyTurretCentralCommandControlPanelElectronics
+  - type: StationAiVision #DeltaV
+    range: 0
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand
+    - ERT
+  - type: DeployableTurretController
+    accessGroups:
+    - General
+    accessLevels:
+    - CentralCommand
+    - ERT
