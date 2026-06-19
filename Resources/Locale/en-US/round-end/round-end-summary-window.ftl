@@ -7,4 +7,4 @@ round-end-summary-window-duration-label = It lasted for [color=yellow]{$hours} h
 round-end-summary-window-player-info-if-observer-text = [color=gray]{$playerOOCName}[/color] was [color=lightblue]{$playerICName}[/color], an observer.
 round-end-summary-window-player-info-if-not-observer-text = [color=gray]{$playerOOCName}[/color] was [color={$icNameColor}]{$playerICName}[/color] playing role of [color=orange]{$playerRole}[/color].
 round-end-summary-window-station-report-tab-title = Station Report
-no-station-report-summited = No station report submitted, the NTR assigned to your station has been fined 2000 spesos.
+no-station-report-summited = No station report submitted, either there were no Internal Affair Agents or none of them were bothered to write one. Probably for the best.
