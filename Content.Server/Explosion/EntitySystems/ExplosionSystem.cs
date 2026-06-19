@@ -466,7 +466,19 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             {
                 // DeltaV - Camera kick falloff START
                 // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
-                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * 0.033f * MathF.Exp(-4f * (distance / range)));
+
+                // Exponential decay: N(t) = N₀ ⋅ e^(-λ ⋅ t)
+                // In this case, N = effect and we aren't decaying over time but with increasing distance,
+                // so t = distance / range.  Higher values of λ lead to faster decay, lower values to slower decay.
+                //
+                // severity is a fixed factor used to decrease the overall severity of the camera kick,
+                // as the values were so high by default that decay was only becoming really noticeable near range.
+                //
+                // these changes are made here instead of directly assigning to the effect variable
+                // above to maintain the same overall effect range as before.
+                const float severity = 0.033f;
+                const float lambda = 4f;
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * severity * MathF.Exp(-lambda * (distance / range)));
                 // DeltaV END
 
                 // Starlight START
