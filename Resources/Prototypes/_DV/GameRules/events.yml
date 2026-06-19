@@ -426,12 +426,8 @@
     minimumPlayers: 25
     weight: 3
     maxOccurrences: 1
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg
     duration: null
     occursDuringRoundEnd: false
-  - type: AlertLevelInterceptionRule
   - type: AntagRandomObjectives
     sets:
     - groups: NTAgentObjectiveGroup
