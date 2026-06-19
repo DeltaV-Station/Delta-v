@@ -6,4 +6,4 @@ namespace Content.Shared._DV.NodeCrawl;
 /// Marker component to use on atmos-related devices that node crawlers can enter/exit out of.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class NodeCrawlVentEntryComponent : Component;
+public sealed partial class NodeCrawlVentAccessComponent : Component;

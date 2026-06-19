@@ -21,7 +21,7 @@ public sealed partial class NodeCrawlerComponent : Component
     /// <summary>
     /// Components of entities to reveal while inside a mover
     /// </summary>
-    [DataField]
+    [DataField(readOnly: true)]
     public Type[] RevealedComponents;
 
     /// <summary>
