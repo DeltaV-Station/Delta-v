@@ -463,7 +463,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
                 // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
 
                 // Exponential decay: N(t) = N₀ ⋅ e^(-λ ⋅ t)
-                // In this case, N = effect and we aren't decaying over time but with increasing distance,
+                // In this case, N = effect and we aren't decaying over time but with increasing distance from the epicenter,
                 // so t = distance / range.  Higher values of λ lead to faster decay, lower values to slower decay.
                 //
                 // severity is a fixed factor used to decrease the overall severity of the camera kick,
@@ -482,6 +482,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
                     : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
 
                 // DeltaV - Screenshake falloff START
+                // Linear falloff with increasing distance from epicenter,
+                // capped at certain values to avoid diminishing the effect completely near range.
                 shakeParams.DecayRate *= MathF.Min(1 + distance / range, 1.75f);
                 shakeParams.Frequency *= MathF.Max(1 - distance / range, 0.33f);
                 shakeParams.Trauma *= MathF.Max(1 - distance / range, 0.33f);
