@@ -23,7 +23,7 @@
   components:
   - type: AccessReader
     access: [["CentralCommand"]]
-  - type: StationAiTurret 
+  - type: StationAiTurret
   - type: TurretTargetSettings
     exemptAccessLevels:
     - CentralCommand
@@ -33,5 +33,5 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControl
     transmitFrequencyId: Turret
-  - type: StationAiVision 
+  - type: StationAiVision
     range: 0
