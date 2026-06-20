@@ -1,7 +1,5 @@
-using System.Linq;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye;
-using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.RatKing;
@@ -26,7 +24,6 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly NodeCrawlerMovementSystem _nodeCrawler = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
 
@@ -37,8 +34,8 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NodeCrawlerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
-        SubscribeLocalEvent<NodeCrawlerComponent, NodeCrawlEnterDoAfterEvent>(OnNodeCrawlEnterDoAfter);
+        SubscribeLocalEvent<CrawlableNodeComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<NodeCrawlerComponent, NodeCrawlEnterDoAfterEvent>(OnNodeCrawlEntryDoAfter);
         SubscribeLocalEvent<NodeCrawlerComponent, NodeCrawlerArrivedAtNodeEvent>(OnArrivedAtNode);
         SubscribeLocalEvent<NodeCrawlerComponent, GetVisMaskEvent>(OnGetVisMask);
 
@@ -51,26 +48,27 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
         SubscribeLocalEvent<RatKingComponent, NodeCrawlerStartedCrawlingEvent>(OnRatKingStartedCrawling);
     }
 
-    private void OnGetVerbs(Entity<NodeCrawlerComponent> ent, ref GetVerbsEvent<InnateVerb> args)
+    private void OnGetVerbs(Entity<CrawlableNodeComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
+        var user = args.User;
         var target = args.Target;
-        if (!HasComp<CrawlableNodeComponent>(target))
+        if (!TryComp<NodeCrawlerComponent>(user, out var nodeCrawler))
             return;
 
-        if (!_entityWhitelist.IsWhitelistPass(ent.Comp.ExitNodes, target))
+        if (!_entityWhitelist.IsWhitelistPass(nodeCrawler.ExitNodes, target))
             return;
 
-        if (!_interaction.InRangeAndAccessible(ent.Owner, target))
+        if (!args.CanAccess)
             return;
 
-        args.Verbs.Add(new InnateVerb
+        args.Verbs.Add(new AlternativeVerb
         {
-            Act = () => StartDoAfter(ent, target),
+            Act = () => StartEntryDoAfter((user, nodeCrawler), target),
             Text = Loc.GetString("node-crawl-enter", ("target", target)),
         });
     }
 
-    private void StartDoAfter(Entity<NodeCrawlerComponent> ent, EntityUid target)
+    private void StartEntryDoAfter(Entity<NodeCrawlerComponent> ent, EntityUid target)
     {
         var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.EnterDelay, new NodeCrawlEnterDoAfterEvent(), ent.Owner, target)
         {
@@ -81,7 +79,7 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnNodeCrawlEnterDoAfter(Entity<NodeCrawlerComponent> ent, ref NodeCrawlEnterDoAfterEvent args)
+    private void OnNodeCrawlEntryDoAfter(Entity<NodeCrawlerComponent> ent, ref NodeCrawlEnterDoAfterEvent args)
     {
         if (args.Cancelled || args.Target is not { } target)
             return;
@@ -141,7 +139,7 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
         RemComp<RelayInputMoverComponent>(ent);
         if (_net.IsServer && !TerminatingOrDeleted(mover))
-            QueueDel(mover);
+            QueueDel(mover); // deletion isn't predicted because client queued deletion doesn't interact well with container stuff
 
         _physics.SetCanCollide(ent.Owner, true);
         _eye.RefreshVisibilityMask(ent.Owner);
