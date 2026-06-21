@@ -49,7 +49,7 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly GunSystem _gunSystem = default!;
 
     private const float GunExecutionTime = 6.0f;
-    private const float DamageModifier = 9.0f;
+    private const float DamageModifier = 15.0f;
 
     /// <inheritdoc/>
     public override void Initialize()
