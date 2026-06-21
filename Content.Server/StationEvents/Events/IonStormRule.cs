@@ -6,9 +6,12 @@ using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Station.Components;
 // CD - start synth trait
 using Content.Server.Chat.Managers;
+using Content.Server.Electrocution; // DV - added for synth trait
 using Content.Shared.Chat;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Stunnable; // Delta-V change - added for synth trait (where they get affected by ion storms)
+using Content.Shared._ES.Sparks; // Delta-V change - added for synth trait (where they get affected by ion storms)
 // CD - end synth trait
 
 namespace Content.Server.StationEvents.Events;
@@ -17,6 +20,9 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 {
     [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly IChatManager _chatManager = default!; // CD - Used for synth trait
+    [Dependency] private readonly SharedStunSystem _stun = default!; // DV - used for synth trait
+    [Dependency] private readonly ElectrocutionSystem _electrocution = default!; // DV - used for synth trait
+    [Dependency] private readonly ESSparksSystem _esSparks = default!; // DV - used for synth trait
 
     protected override void Started(EntityUid uid, IonStormRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -38,6 +44,12 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             var msg = Loc.GetString("station-event-ion-storm-synth");
             var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
             _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Yellow);
+
+            // DV start - super duper fucked up thing for synths (deals damage)
+            _electrocution.TryDoElectrocution(ent, null, 25, TimeSpan.FromSeconds(15), true, ignoreInsulation: true);
+            _stun.TryKnockdown(ent, TimeSpan.FromSeconds(30), refresh: true);
+            _esSparks.DoSparks(ent);
+            // DV end 
         }
         // CD - End of synth trait
 

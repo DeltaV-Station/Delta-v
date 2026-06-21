@@ -18,8 +18,9 @@ trait-lightweight-desc = Alcohol has a stronger effect on you.
 trait-monochromacy-name = Monochromacy
 trait-monochromacy-desc = You are fully colorblind, everything you perceive ranges from blacks to whites.
 
-trait-muted-name = Muted
-trait-muted-desc = You can't speak.
+# Delta-V change - moved this into _DV folder, and renamed "Muted" into "Mute".
+#trait-muted-name = Muted
+#trait-muted-desc = You can't speak.
 
 trait-paracusia-name = Paracusia
 trait-paracusia-desc = You hear sounds that aren't really there.

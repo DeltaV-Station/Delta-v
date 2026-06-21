@@ -41,6 +41,7 @@ public sealed partial class TraitPrototype : IPrototype
     /// <summary>
     /// Conditions that must be met for this trait to be selectable and applied.
     /// All conditions must pass for the trait to be valid.
+    /// Use <see cref="TraitDependencyCondition"/> for conflicts and requirements.
     /// </summary>
     [DataField]
     public List<BaseTraitCondition> Conditions = new();
@@ -51,12 +52,6 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<BaseTraitEffect> Effects = new();
-
-    /// <summary>
-    /// Other traits that are mutually exclusive with this one.
-    /// </summary>
-    [DataField]
-    public List<ProtoId<TraitPrototype>> Conflicts = new();
 
     /// <summary>
     /// The priority of this trait. Higher priority traits are applied first.

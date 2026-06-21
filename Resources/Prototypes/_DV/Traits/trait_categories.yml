@@ -7,15 +7,20 @@
 - type: traitCategory
   id: Mental
   name: trait-category-mental
-  priority: 20
+  priority: 10
   accentColor: "#a855f7"  # Purple
 
 - type: traitCategory
-  id: Accents
-  name: trait-category-accents
+  id: Vocal
+  name: trait-category-vocal
+  priority: 20
+  accentColor: "#34eb37"  # Green
+
+- type: traitCategory
+  id: Accent
+  name: trait-category-accent
   priority: 30
-  maxTraits: 3
-  maxPoints: 2
+  maxTraits: 1
   accentColor: "#38bdf8"  # Light blue
 
 - type: traitCategory

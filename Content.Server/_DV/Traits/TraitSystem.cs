@@ -97,21 +97,6 @@ public sealed class TraitSystem : EntitySystem
         var categoryTraitCounts = new Dictionary<ProtoId<TraitCategoryPrototype>, int>();
         var categoryPointTotals = new Dictionary<ProtoId<TraitCategoryPrototype>, int>();
 
-        // Build condition context
-        var conditionCtx = new TraitConditionContext
-        {
-            Player = player,
-            Session = session,
-            EntMan = EntityManager,
-            Proto = _prototype,
-            CompFactory = _factory,
-            LogMan = _log,
-            JobId = jobId,
-            SpeciesId = speciesId,
-            Profile = profile,
-            StatusEffects = _statusEffects
-        };
-
         foreach (var traitId in selectedTraits)
         {
             if (!_prototype.TryIndex(traitId, out var trait))
@@ -148,42 +133,24 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
-            // Check conflicts with already selected traits
-            var hasConflict = false;
-            foreach (var validTraitId in validTraits)
+            // Build condition context with the currently-valid traits so TraitDependencyCondition
+            // can check conflicts and requirements against what has already been accepted.
+            var conditionCtx = new TraitConditionContext
             {
-                // Check if current trait conflicts with valid trait
-                if (trait.Conflicts.Contains(validTraitId))
-                {
-                    Log.Warning($"Trait {traitId} rejected: conflicts with {validTraitId}");
-                    if (_prototype.TryIndex(validTraitId, out var conflictTrait))
-                    {
-                        rejectionReasons.Add(Loc.GetString("disabled-traits-reason-conflict",
-                            ("trait", Loc.GetString(conflictTrait.Name))));
-                    }
-                    hasConflict = true;
-                    break;
-                }
+                Player = player,
+                Session = session,
+                EntMan = EntityManager,
+                Proto = _prototype,
+                CompFactory = _factory,
+                LogMan = _log,
+                JobId = jobId,
+                SpeciesId = speciesId,
+                Profile = profile,
+                StatusEffects = _statusEffects,
+                SelectedTraits = validTraits,
+            };
 
-                // Check if valid trait conflicts with current trait
-                if (_prototype.TryIndex(validTraitId, out var validTrait) &&
-                    validTrait.Conflicts.Contains(traitId))
-                {
-                    Log.Warning($"Trait {traitId} rejected: {validTraitId} conflicts with it");
-                    rejectionReasons.Add(Loc.GetString("disabled-traits-reason-conflict",
-                        ("trait", Loc.GetString(validTrait.Name))));
-                    hasConflict = true;
-                    break;
-                }
-            }
-
-            if (hasConflict)
-            {
-                disabledTraits[traitId] = rejectionReasons;
-                continue;
-            }
-
-            // Check all conditions
+            // Check all conditions (includes TraitDependencyCondition for conflicts/requires)
             if (!CheckConditions(trait, conditionCtx, rejectionReasons))
             {
                 Log.Warning($"Trait {traitId} rejected: conditions not met");

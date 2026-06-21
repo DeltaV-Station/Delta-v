@@ -73,3 +73,19 @@ trait-slavic-desc = You kome from ze East, and speak vith strong Slavic accent!
 
 trait-no-paradox-clone-name = No Paradox Clone
 trait-no-paradox-clone-desc = For whatever reason, the universe will only ever have one of you. You won't be able to have a paradox clone.
+
+trait-lateral-lisp-name = Lateral lisp
+trait-lateral-lisp-desc = You shlpeak with a lishlp
+
+trait-aussie-name = Australian accent
+trait-aussie-desc = You speak like someone from a moon down under.
+
+trait-sleepy-mumble-name = Sleepy mumbling
+trait-sleepy-mumble-desc = You sound perpetually drowsy, whether from lack of sleep or natural sleepiness.
+
+trait-muted-name = Mute
+trait-muted-desc = You can't speak.
+
+trait-slouchy-name = Slouchy
+trait-slouchy-desc = Your energy is constantly drained with things that requires effort, and that absolutely includes doing your job... 
+                     If you even have one to begin with.

@@ -3,6 +3,7 @@
   name: trait-protected-name
   description: trait-protected-desc
   category: Meta
+  cost: 5
   conditions:
   - !type:InDepartmentCondition
     department: Command
@@ -29,6 +30,7 @@
   name: trait-no-paradox-clone-name
   description: trait-no-paradox-clone-desc
   category: Meta
+  cost: 2
   conditions:
   - !type:InDepartmentCondition
     department: Command

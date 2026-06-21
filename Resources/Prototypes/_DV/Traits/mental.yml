@@ -5,6 +5,7 @@
   name: trait-paracusia-name
   description: trait-paracusia-desc
   category: Mental
+  cost: 1
   effects:
   - !type:AddCompsEffect
     components:
@@ -20,6 +21,7 @@
   name: trait-depression-name
   description: trait-depression-desc
   category: Mental
+  cost: 1
   effects:
   - !type:SpawnItemInHandEffect
     item: PillCanisterNeurozenium
@@ -29,6 +31,7 @@
   name: trait-addicted-name
   description: trait-addicted-desc
   category: Mental
+  cost: -3
   effects:
   - !type:AddCompsEffect
     components:
@@ -39,6 +42,11 @@
   name: trait-liar-name
   description: trait-liar-desc
   category: Mental
+  cost: 1
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
   effects:
   - !type:AddCompsEffect
     components:
@@ -50,7 +58,21 @@
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Mental
+  cost: -4
   effects:
   - !type:AddCompsEffect
     components:
     - type: Pacified
+
+# creator's barely disguised stamina system
+# this isn't a disability due to the fact that someone can just decide to be slouchy for once and not do their work.
+- type: trait
+  id: Slouchy
+  name: trait-slouchy-name
+  description: trait-slouchy-desc
+  category: Mental
+  cost: -3
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Slouchy

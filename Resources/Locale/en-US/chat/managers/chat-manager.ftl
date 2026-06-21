@@ -165,3 +165,7 @@ chat-speech-verb-wawa-1 = intones
 chat-speech-verb-wawa-2 = states
 chat-speech-verb-wawa-3 = declares
 chat-speech-verb-wawa-4 = ponders
+chat-speech-verb-name-echo = Echo
+chat-speech-verb-echo-1 = echoes
+chat-speech-verb-echo-2 = mimics
+chat-speech-verb-echo-3 = repeats

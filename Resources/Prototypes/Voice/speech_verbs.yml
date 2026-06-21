@@ -1,40 +1,41 @@
-﻿- type: speechVerb
-  id: Default
-  name: chat-speech-verb-name-default
-  speechVerbStrings:
-  - chat-speech-verb-default
-
-- type: speechVerb
-  id: DefaultQuestion
-  name: chat-speech-verb-name-question
-  speechVerbStrings:
-  - chat-speech-verb-question
-
-- type: speechVerb
-  id: DefaultStutter
-  name: chat-speech-verb-name-stutter
-  speechVerbStrings:
-  - chat-speech-verb-stutter
-
-- type: speechVerb
-  id: DefaultMumble
-  name: chat-speech-verb-name-mumble
-  speechVerbStrings:
-  - chat-speech-verb-mumble
-
-- type: speechVerb
-  id: DefaultExclamation
-  name: chat-speech-verb-name-exclamation
-  speechVerbStrings:
-  - chat-speech-verb-exclamation
-
-- type: speechVerb
-  id: DefaultExclamationStrong
-  name: chat-speech-verb-name-exclamation-strong
-  bold: true
-  speechVerbStrings:
-  - chat-speech-verb-exclamation-strong
-  priority: 10
+﻿# Delta-V change - commented out due to server log errors about duplicated speech verb IDs
+#- type: speechVerb
+#  id: Default
+#  name: chat-speech-verb-name-default
+#  speechVerbStrings:
+#  - chat-speech-verb-default
+#
+#- type: speechVerb
+#  id: DefaultQuestion
+#  name: chat-speech-verb-name-question
+#  speechVerbStrings:
+#  - chat-speech-verb-question
+#
+#- type: speechVerb
+#  id: DefaultStutter
+#  name: chat-speech-verb-name-stutter
+#  speechVerbStrings:
+#  - chat-speech-verb-stutter
+#
+#- type: speechVerb
+#  id: DefaultMumble
+#  name: chat-speech-verb-name-mumble
+#  speechVerbStrings:
+#  - chat-speech-verb-mumble
+#
+#- type: speechVerb
+#  id: DefaultExclamation
+#  name: chat-speech-verb-name-exclamation
+#  speechVerbStrings:
+#  - chat-speech-verb-exclamation
+#
+#- type: speechVerb
+#  id: DefaultExclamationStrong
+#  name: chat-speech-verb-name-exclamation-strong
+#  bold: true
+#  speechVerbStrings:
+#  - chat-speech-verb-exclamation-strong
+#  priority: 10
 
 - type: speechVerb
   id: Arachnid
@@ -138,14 +139,17 @@
   speechVerbStrings:
   - chat-speech-verb-monkey-1
   - chat-speech-verb-monkey-2
-
-- type: speechVerb
-  id: Parrot
-  name: chat-speech-verb-name-parrot
-  speechVerbStrings:
-  - chat-speech-verb-parrot-1
-  - chat-speech-verb-parrot-2
-  - chat-speech-verb-parrot-3
+  - 
+# Delta-V change - commented out due to server log errors about duplicated speech verb IDs
+#- type: speechVerb
+#  id: Parrot
+#  name: chat-speech-verb-name-parrot
+#  speechVerbStrings:
+#  - chat-speech-verb-parrot-1
+#  - chat-speech-verb-parrot-2
+#  - chat-speech-verb-parrot-3
+#  - chat-speech-verb-echo-2
+#  - chat-speech-verb-echo-3
 
 - type: speechVerb
   id: Cluwne
@@ -181,3 +185,11 @@
   - chat-speech-verb-wawa-2
   - chat-speech-verb-wawa-3
   - chat-speech-verb-wawa-4
+
+- type: speechVerb
+  id: Echo
+  name: chat-speech-verb-name-echo
+  speechVerbStrings:
+  - chat-speech-verb-echo-1
+  - chat-speech-verb-echo-2
+  - chat-speech-verb-echo-3

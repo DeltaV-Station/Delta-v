@@ -1,10 +1,12 @@
 ## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+## when adding a new trait that is incompatible with another trait, use the conflicts: thing. else, use requires:
 
 - type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
   category: Medical
+  cost: -3
   effects:
   - !type:AddCompsEffect
     components:
@@ -19,6 +21,7 @@
   name: trait-chronic-pain-name
   description: trait-chronic-pain-desc
   category: Medical
+  cost: -1
   effects:
   - !type:AddCompsEffect
     components:
@@ -31,6 +34,7 @@
   name: trait-lightweight-name
   description: trait-lightweight-desc
   category: Medical
+  cost: 1
   effects:
   - !type:AddCompsEffect
     components:
@@ -42,6 +46,7 @@
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
   category: Medical
+  cost: -3
   effects:
   - !type:AddCompsEffect
     components:
@@ -53,6 +58,7 @@
   name: trait-uncloneable-name
   description: trait-uncloneable-desc
   category: Medical
+  cost: -3
   effects:
   - !type:AddCompsEffect
     components:
@@ -63,6 +69,7 @@
   name: trait-unborgable-name
   description: trait-unborgable-desc
   category: Medical
+  cost: -1
   effects:
   - !type:AddCompsEffect
     components:
@@ -73,6 +80,7 @@
   name: trait-redshirt-name
   description: trait-redshirt-desc
   category: Medical
+  cost: -4
   effects:
   - !type:AddCompsEffect
     components:
@@ -90,6 +98,7 @@
   name: trait-synth-name
   description: trait-synth-desc
   category: Medical
+  cost: 1
   conditions:
   - !type:HasCompCondition
     component: BorgChassis
@@ -99,3 +108,8 @@
   - !type:AddCompsEffect
     components:
     - type: Synth
+  - !type:AddCompsEffect
+    components:
+    - type: ESSparkOnHit
+      count: 2
+      prob: .32
