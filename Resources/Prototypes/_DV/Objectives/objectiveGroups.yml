@@ -241,3 +241,19 @@
     TestEngineeringObjective: 1
     TestMedicalObjective: 1
     DefundDepartmentObjective: 1
+
+- type: weightedRandom
+  id: CrownedSpiritObjectiveGroup
+  weights:
+    CrownedSpiritObjectiveGroupPunish: 1
+    CrownedSpiritObjectiveGroupAid: 1
+
+- type: weightedRandom
+  id: CrownedSpiritObjectiveGroupPunish
+  weights:
+    CrownedSpiritPunishObjective
+
+- type: weightedRandom
+  id: CrownedSpiritObjectiveGroupAid
+  weights:
+    CrownedSpiritObjectiveGroupAid

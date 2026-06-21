@@ -510,7 +510,11 @@
     objectives:
     - CrownedSpiritServeObjective
     - CrownedSpiritKillObjective
-    - CrownedSpiritPunishObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: CrownedSpiritObjectiveGroup
+      maxPicks: 3
+    maxDifficulty: 300
   - type: AntagSelection
     agentName: crownedspirit-round-end-name
     definitions:

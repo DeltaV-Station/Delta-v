@@ -57,3 +57,13 @@
   description: Punish the one you have chosen to serve. Through their actions, a life you chose has been taken. Return the favor to them.
   components:
   - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: [BaseCrownedSpiritObjective, BaseSurviveObjective]
+  id: CrownedSpiritAidObjective
+  name: Provide support to those wronged.
+  description: Provide aid to those your charge has hurt, even if it comes at cost to your charge.
+  components:
+  - type: Objective
+    difficulty: 1
