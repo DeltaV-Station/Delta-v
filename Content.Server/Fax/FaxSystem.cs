@@ -595,8 +595,15 @@ public sealed class FaxSystem : EntitySystem
         _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
         _pageSender.Notify(uid, Loc.GetString("pager-message-fax", ("faxname", faxName))); // DeltaV - pagers
 
+        // Start DeltaV - Refresh Fax IDs before recieving
         if (component.NotifyAdmins)
+        {
+            // Ideally, we should have to refresh once, but in case
+            // of new fax machines, we should do it every time.
+            Refresh(uid, component);
             NotifyAdmins(faxName);
+        }
+        // END Delta
 
         component.PrintingQueue.Enqueue(printout);
     }
