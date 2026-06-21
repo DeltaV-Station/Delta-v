@@ -189,3 +189,20 @@
     rules: ghost-role-information-hitman-rules
     mindRoles:
     - MindRoleHitman
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  id: SpawnPointCrownedSpirit
+  name: crowned spirit role spawn point
+  suffix: Crowned Spirit
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-crownedspirit-name
+    description: ghost-role-information-crownedspirit-description
+    rules: ghost-role-information-crownedspirit-rules
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
