@@ -87,5 +87,5 @@ trait-muted-name = Mute
 trait-muted-desc = You can't speak.
 
 trait-slouchy-name = Slouchy
-trait-slouchy-desc = Your energy is constantly drained with things that requires effort, and that absolutely includes doing your job... 
+trait-slouchy-desc = Your energy is constantly drained with things that requires effort, and that absolutely includes doing your job...
                      If you even have one to begin with.
