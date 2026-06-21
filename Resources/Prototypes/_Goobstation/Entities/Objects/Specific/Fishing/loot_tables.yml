@@ -70,10 +70,10 @@
     children:
       - !type:NestedSelector
         tableId: BasicFishingLootTable
-        weight: 70
+        weight: 40 # DeltaV - 70 to 40
       - !type:NestedSelector
         tableId: WaterFishTable
-        weight: 20
+        weight: 50 # DeltaV - 20 to 50
       - !type:NestedSelector
         tableId: RareFishTable
         weight: 10
@@ -103,10 +103,10 @@
     children:
       - !type:NestedSelector
         tableId: GenericTrashItems # DeltaV - changed BasicFishingLootTable to just trash to avoid salvage scrap and tools in perma
-        weight: 80
+        weight: 60 # DeltaV - from 80 to 60
       - !type:NestedSelector
         tableId: WaterFishTable
-        weight: 15 # DeltaV - changed from 20 to 15
+        weight: 30 # DeltaV - changed from 20 to 30
       - !type:NestedSelector
         tableId: RareFishTable # DeltaV - add rare fish
-        weight: 5
+        weight: 10
