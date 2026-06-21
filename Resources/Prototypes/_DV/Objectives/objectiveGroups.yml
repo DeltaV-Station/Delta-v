@@ -251,9 +251,9 @@
 - type: weightedRandom
   id: CrownedSpiritObjectiveGroupPunish
   weights:
-    CrownedSpiritPunishObjective
+    CrownedSpiritPunishObjective: 1
 
 - type: weightedRandom
   id: CrownedSpiritObjectiveGroupAid
   weights:
-    CrownedSpiritAidObjective
+    CrownedSpiritAidObjective: 1
