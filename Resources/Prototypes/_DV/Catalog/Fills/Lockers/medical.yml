@@ -195,3 +195,31 @@
         - !type:NestedSelector
           tableId: LockerFillParamedic
         - id: ClothingOuterHardsuitVoidParamed
+
+- type: entity
+  parent: LockerChemistry
+  id: LockerInterdyneFilled # TODO: Sprite a empty version
+  suffix: Interdyne, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillInterdyne
+  - type: AccessReader
+    access: [["SyndicateAgent"]] # TODO: Interdyne access
+
+- type: entityTable
+  id: LockerFillInterdyne
+  table: !type:AllSelector
+    children:
+    - id: BoxSyringe
+    - id: BoxBeaker
+    - id: BoxPillCanister
+    - id: BoxBottle
+    - id: BoxVial
+    - id: PlasmaChemistryVial
+    - id: HandLabeler
+    - id: Skimmer
+    - id: ChemicalSynthesisKit
+    - id: ChemistryBottleEpinephrine # Helps them having the power to stabilize someone since spawn
+    - id: ChemistryBottleFirebugsFriend # Helps them having the power to destabilize someone since spawn
