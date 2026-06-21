@@ -1,0 +1,135 @@
+## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+
+- type: trait
+  id: PirateAccent
+  name: trait-pirate-accent-name
+  description: trait-pirate-accent-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: PirateAccent
+
+- type: trait
+  id: SouthernAccent
+  name: trait-southern-name
+  description: trait-southern-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SouthernAccent
+
+- type: trait
+  id: CowboyAccent
+  name: trait-cowboy-name
+  description: trait-cowboy-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ReplacementAccent
+      accent: cowboy
+
+- type: trait
+  id: ItalianAccent
+  name: trait-italian-name
+  description: trait-italian-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ReplacementAccent
+      accent: italian
+
+- type: trait
+  id: FrenchAccent
+  name: trait-french-accent-name
+  description: trait-french-accent-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: FrenchAccent
+
+- type: trait
+  id: SpanishAccent
+  name: trait-spanish-accent-name
+  description: trait-spanish-accent-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SpanishAccent
+
+- type: trait
+  id: IrishAccent
+  name: trait-irish-accent-name
+  description: trait-irish-accent-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: IrishAccent
+
+- type: trait
+  id: MobsterAccent
+  name: trait-mobster-accent-name
+  description: trait-mobster-accent-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: MobsterAccent
+
+- type: trait
+  id: ScottishAccent
+  name: trait-scottish-accent-name
+  description: trait-scottish-accent-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ScottishAccent
+
+- type: trait
+  id: AnglishTung
+  name: trait-anglish-name
+  description: trait-anglish-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: AnglishAccent
+
+- type: trait
+  id: SlavicAccent
+  name: trait-slavic-name
+  description: trait-slavic-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: NewSlavicAccent
+
+- type: trait
+  id: AustralianAccent
+  name: trait-aussie-name
+  description: trait-aussie-desc
+  category: Accent
+  cost: 2
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: AustralianAccent

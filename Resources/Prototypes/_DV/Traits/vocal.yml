@@ -1,0 +1,122 @@
+## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+
+- type: trait
+  id: SleepyMumble
+  name: trait-sleepy-mumble-name
+  description: trait-sleepy-mumble-desc
+  category: Vocal
+  cost: 2
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: SleepyMumble
+
+- type: trait
+  id: FrontalLisp
+  name: trait-frontal-lisp-name
+  description: trait-frontal-lisp-desc
+  category: Vocal
+  cost: 1
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
+      - LateralLisp
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: FrontalLisp
+
+- type: trait
+  id: LateralLisp
+  name: trait-lateral-lisp-name
+  description: trait-lateral-lisp-desc
+  category: Vocal
+  cost: 1
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
+      - FrontalLisp
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: LateralLisp
+
+- type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: Vocal
+  cost: -2
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Hushed
+
+- type: trait
+  id: SocialAnxiety
+  name: trait-socialanxiety-name
+  description: trait-socialanxiety-desc
+  category: Vocal
+  cost: 1
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: StutteringAccent
+      matchRandomProb: 0.1
+      fourRandomProb: 0
+      threeRandomProb: 0
+      cutRandomProb: 0
+
+- type: trait
+  id: Muted
+  name: trait-muted-name
+  description: trait-muted-desc
+  category: Vocal
+  cost: -4
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts: # if adding a new vocal trait, please add them over here!
+      - SocialAnxiety
+      - FrontalLisp
+      - LateralLisp
+      - SleepyMumble
+      - Hushed
+      - Echolalia
+      - Liar
+      - Accentless
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Muted
+
+- type: trait
+  id: Accentless
+  name: trait-accentless-name
+  description: trait-accentless-desc
+  category: Vocal
+  cost: 2
+  conditions:
+  - !type:TraitDependencyCondition
+    conflicts:
+      - Muted
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Accentless
+      removes: #i genuinely forgot what was in here before it was removed a few months ago...
+        - type: LizardAccent
+        - type: MothAccent
