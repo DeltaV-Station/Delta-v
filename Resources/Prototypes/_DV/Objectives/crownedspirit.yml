@@ -58,6 +58,7 @@
   components:
   - type: Objective
     difficulty: 1
+    unique: true
 
 - type: entity
   parent: [BaseCrownedSpiritObjective, BaseSurviveObjective]
@@ -67,3 +68,4 @@
   components:
   - type: Objective
     difficulty: 1
+    unique: true
