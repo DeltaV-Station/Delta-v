@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/11/2026 18:43:29
+  time: 06/21/2026 05:25:58
   entityCount: 32957
 maps:
 - 8
@@ -791,6 +791,11 @@ entities:
             6258: 151,6
             6259: 152,6
         - node:
+            color: '#386596CC'
+            id: BotGreyscale
+          decals:
+            7322: 83,11
+        - node:
             color: '#DE3A3ABF'
             id: Box
           decals:
@@ -852,30 +857,10 @@ entities:
             449: 8,-27
             466: 7,-28
         - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelEndE
-          decals:
-            6744: 79,11
-        - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelEndE
           decals:
             490: 14,-26
-        - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelEndN
-          decals:
-            6741: 77,17
-        - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelEndS
-          decals:
-            6740: 77,15
-        - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelEndW
-          decals:
-            6745: 77,11
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelEndW
@@ -887,11 +872,6 @@ entities:
           decals:
             6211: 39,12
         - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelLineE
-          decals:
-            6742: 77,16
-        - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineE
           decals:
@@ -899,11 +879,6 @@ entities:
             468: 16,-26
             469: 16,-27
             491: 15,-26
-        - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelLineN
-          decals:
-            6746: 78,11
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineN
@@ -927,11 +902,6 @@ entities:
             494: 12,-26
             495: 13,-26
         - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelLineS
-          decals:
-            6747: 78,11
-        - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineS
           decals:
@@ -953,11 +923,6 @@ entities:
             497: 11,-26
             498: 12,-26
             499: 13,-26
-        - node:
-            color: '#DE3A3A96'
-            id: BrickTileSteelLineW
-          decals:
-            6743: 77,16
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineW
@@ -1144,7 +1109,6 @@ entities:
             color: '#DE3A3A96'
             id: BrickTileWhiteCornerNe
           decals:
-            106: 82,16
             4435: 17,-36
         - node:
             color: '#EFB34196'
@@ -1288,7 +1252,6 @@ entities:
             color: '#DE3A3A96'
             id: BrickTileWhiteCornerNw
           decals:
-            104: 81,16
             4434: 6,-36
         - node:
             color: '#EFB34196'
@@ -1404,11 +1367,6 @@ entities:
           decals:
             1440: 67,24
             1441: 64,24
-        - node:
-            color: '#DE3A3A96'
-            id: BrickTileWhiteCornerSe
-          decals:
-            105: 82,15
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteCornerSe
@@ -1542,11 +1500,6 @@ entities:
             1442: 63,24
             1443: 66,24
         - node:
-            color: '#DE3A3A96'
-            id: BrickTileWhiteCornerSw
-          decals:
-            107: 81,15
-        - node:
             color: '#EFB34196'
             id: BrickTileWhiteCornerSw
           decals:
@@ -1574,6 +1527,12 @@ entities:
           decals:
             7070: 66,8
             7254: 98,-3
+            7312: 79,11
+        - node:
+            color: '#386596CC'
+            id: BrickTileWhiteEndN
+          decals:
+            7310: 77,17
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteEndN
@@ -1599,6 +1558,7 @@ entities:
             id: BrickTileWhiteEndS
           decals:
             7125: 73,6
+            7309: 77,15
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteEndS
@@ -1614,6 +1574,7 @@ entities:
             id: BrickTileWhiteEndW
           decals:
             7255: 96,-3
+            7311: 77,11
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteEndW
@@ -2439,6 +2400,7 @@ entities:
             7274: 95,1
             7275: 95,0
             7301: 67,12
+            7315: 77,16
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteLineE
@@ -2821,6 +2783,7 @@ entities:
             7269: 96,-1
             7302: 68,11
             7307: 62,13
+            7313: 78,11
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteLineN
@@ -3289,6 +3252,7 @@ entities:
             7294: 99,-1
             7300: 68,11
             7308: 62,13
+            7314: 78,11
         - node:
             color: '#3C44AAFF'
             id: BrickTileWhiteLineS
@@ -3736,6 +3700,7 @@ entities:
             7273: 95,1
             7295: 69,6
             7304: 67,12
+            7316: 77,16
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteLineW
@@ -8565,6 +8530,14 @@ entities:
             1638: -9,0
             1641: -9,-4
         - node:
+            color: '#386596CC'
+            id: MarkupSquareQuaterCenter
+          decals:
+            7328: 81,15
+            7329: 82,15
+            7330: 82,16
+            7331: 81,16
+        - node:
             color: '#A4610696'
             id: Max
           decals:
@@ -8629,10 +8602,34 @@ entities:
             5667: 42,15
             5668: 43,15
         - node:
-            color: '#DE3A3A96'
-            id: OffsetCheckerAOverlay
+            color: '#386596CC'
+            id: MiniTileInnerOverlayNE
           decals:
-            6749: 83,11
+            7332: 82,16
+            7338: 81,15
+        - node:
+            color: '#386596CC'
+            id: MiniTileInnerOverlayNW
+          decals:
+            7333: 81,16
+            7339: 82,15
+        - node:
+            color: '#386596CC'
+            id: MiniTileInnerOverlaySE
+          decals:
+            7334: 82,15
+            7337: 81,16
+        - node:
+            color: '#386596CC'
+            id: MiniTileInnerOverlaySW
+          decals:
+            7335: 81,15
+            7336: 82,16
+        - node:
+            color: '#386596CC'
+            id: OffsetCheckerBOverlay
+          decals:
+            7323: 83,11
         - node:
             color: '#9FED5896'
             id: Omni
@@ -30668,11 +30665,15 @@ entities:
     - type: Transform
       pos: 16.5,56.5
       parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 22711
     components:
     - type: Transform
       pos: 17.5,56.5
       parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: BlockGameArcade
   entities:
   - uid: 15993
@@ -151219,6 +151220,22 @@ entities:
     - type: Transform
       pos: 18.5,56.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        22711:
+        - - On
+          - Toggle
+        - - Off
+          - Toggle
+        - - Status
+          - Toggle
+        15944:
+        - - On
+          - Toggle
+        - - Off
+          - Toggle
+        - - Status
+          - Toggle
     - type: Fixtures
       fixtures: {}
 - proto: LockableSwitchSalvage
@@ -176435,6 +176452,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,56.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        15944:
+        - - On
+          - Toggle
+        - - Off
+          - Toggle
+        - - Status
+          - Toggle
+        22711:
+        - - On
+          - Toggle
+        - - Off
+          - Toggle
+        - - Status
+          - Toggle
     - type: Fixtures
       fixtures: {}
   - uid: 31966
@@ -210819,7 +210852,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -300055.25
+      secondsUntilStateChange: -302731.8
       state: Opening
   - uid: 5096
     components:
@@ -210836,7 +210869,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -300055.25
+      secondsUntilStateChange: -302731.8
       state: Opening
   - uid: 5498
     components:
@@ -210852,7 +210885,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -299778.88
+      secondsUntilStateChange: -302455.44
       state: Opening
   - uid: 8696
     components:
@@ -210885,7 +210918,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -299776.97
+      secondsUntilStateChange: -302453.53
       state: Opening
   - uid: 18835
     components:
@@ -210897,7 +210930,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -299773.97
+      secondsUntilStateChange: -302450.53
       state: Opening
   - uid: 23917
     components:
