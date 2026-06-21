@@ -13,18 +13,7 @@ namespace Content.Server._DV.Traits.Assorted;
 public sealed class SlouchySystem : EntitySystem
 {
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-
-    // All stamina drains are queued and applied on the next Update() tick rather than
-    // immediately. Some of the events below (e.g. DidEquipHandEvent) are raised from *inside*
-    // other systems' in-progress operations - DidEquipHandEvent specifically fires from inside
-    // SharedContainerSystem.Insert(), via EntInsertedIntoContainerMessage -> HandleEntityInserted.
-    // If a drain here pushes the mob into stam-crit, EnterStamCrit -> Knockdown raises
-    // DropHandItemsEvent, which force-drops every held item - including one a container Insert()
-    // call further up the stack is still mid-way through - corrupting its metadata flags and
-    // tripping the engine's "invalid metadata flags after events" assert. Deferring every drain
-    // here, not just the pickup one, means this class of reentrancy bug can't resurface if any
-    // of the other events ever end up firing from a similarly sensitive context.
-    private readonly List<(EntityUid Uid, float Amount)> _queuedDrains = new();
+    private readonly Dictionary<EntityUid, float> _queuedDrains = new();
 
     public override void Initialize()
     {
@@ -47,17 +36,18 @@ public sealed class SlouchySystem : EntitySystem
         if (_queuedDrains.Count == 0)
             return;
 
-        foreach (var (uid, amount) in _queuedDrains)
+        var drains = new Dictionary<EntityUid, float>(_queuedDrains);
+        _queuedDrains.Clear();
+
+        foreach (var (uid, amount) in drains)
         {
             ApplyDrain(uid, amount);
         }
-
-        _queuedDrains.Clear();
     }
 
     private void DrainSelf(EntityUid uid, float amount)
     {
-        _queuedDrains.Add((uid, amount));
+        _queuedDrains[uid] = _queuedDrains.GetValueOrDefault(uid) + amount;
     }
 
     private void ApplyDrain(EntityUid uid, float amount)
@@ -78,7 +68,7 @@ public sealed class SlouchySystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, SlouchyComponent component, DoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled)
+        if (args.Cancelled)
             return;
 
         DrainSelf(uid, component.DoAfterStaminaDrain);
