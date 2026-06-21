@@ -382,11 +382,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         var visualEnt = CreateExplosionVisualEntity(pos, queued.Proto.ID, spaceMatrix, spaceData, gridData.Values, iterationIntensity);
 
-        // camera shake
-        // ES START
-        // CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
-        // ES END
-
         //For whatever bloody reason, sound system requires ENTITY coordinates.
         var mapEntityCoords = _transformSystem.ToCoordinates(_map.GetMap(pos.MapId), pos);
 
@@ -416,12 +411,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             ? queued.Proto.SmallSoundFar
             : queued.Proto.SoundFar;
 
-        // ES START
-        var farTranslationShake = iterationIntensity.Count < queued.Proto.SmallSoundIterationThreshold
-            ? new ESScreenshakeParameters() { Trauma = 0.4f, DecayRate = 0.2f, Frequency = 0.014f }
-            : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
-        _shake.Screenshake(filter, farTranslationShake, null);
-        // ES END
+        CameraShake(iterationIntensity, pos, queued); // Starlight
 
         _audio.PlayGlobal(farSound, farFilter, true, farSound.Params);
 
@@ -444,8 +434,13 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             _damageableSystem);
     }
 
-    private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
+    private void CameraShake(List<float> rangeList, MapCoordinates epicenter, QueuedExplosion queued) // Starlight - replace range with rangeList, totalIntensity with queued
     {
+        // Starlight BEGIN
+        var range = rangeList.Count * 4f;
+        var totalIntensity = queued.TotalIntensity * 10f;
+        // Starlight END
+
         var players = Filter.Empty();
         players.AddInRange(epicenter, range, _playerManager, EntityManager);
 
@@ -463,7 +458,40 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             var distance = delta.Length();
             var effect = 5 * MathF.Pow(totalIntensity, 0.5f) * (1 - distance / range);
             if (effect > 0.01f)
-                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+            {
+                // DeltaV - Camera kick falloff START
+                // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+
+                // Exponential decay: N(t) = N₀ ⋅ e^(-λ ⋅ t)
+                // In this case, N = effect and we aren't decaying over time but with increasing distance from the epicenter,
+                // so t = distance / range.  Higher values of λ lead to faster decay, lower values to slower decay.
+                //
+                // severity is a fixed factor used to decrease the overall severity of the camera kick,
+                // as the values were so high by default that decay was only becoming really noticeable near range.
+                //
+                // these changes are made here instead of directly assigning to the effect variable
+                // above to maintain the same overall effect range as before.
+                const float severity = 0.033f;
+                const float lambda = 4f;
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * severity * MathF.Exp(-lambda * (distance / range)));
+                // DeltaV END
+
+                // Starlight START
+                var shakeParams = rangeList.Count < queued.Proto.SmallSoundIterationThreshold
+                    ? new ESScreenshakeParameters() { Trauma = 0.4f, DecayRate = 0.2f, Frequency = 0.014f }
+                    : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
+
+                // DeltaV - Screenshake falloff START
+                // Linear falloff with increasing distance from epicenter,
+                // capped at certain values to avoid diminishing the effect completely near range.
+                shakeParams.DecayRate *= MathF.Min(1 + distance / range, 1.75f);
+                shakeParams.Frequency *= MathF.Max(1 - distance / range, 0.33f);
+                shakeParams.Trauma *= MathF.Max(1 - distance / range, 0.33f);
+                // DeltaV END
+
+                _shake.Screenshake(players, shakeParams, null);
+                // Starlight END
+            }
         }
     }
 }

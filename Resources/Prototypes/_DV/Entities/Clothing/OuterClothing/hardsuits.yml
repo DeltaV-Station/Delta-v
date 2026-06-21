@@ -616,3 +616,34 @@
     tags:
     - Hardsuit
     - HidesHarpyWings
+
+#SRT Special Response Team hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTEliteBase
+  id: ClothingOuterHardsuitSRT
+  name: Special Response Team hardsuit
+  description: A uparmored version of the elite ERT hardsuit for boarding action. The serial numbers on this one have been removed.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSRT
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.2
+        Caustic: 0.2
+        Cold: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85

@@ -1,5 +1,7 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
 using Content.Server.Power.Components;
 using Content.Shared._DV.Chat;
 using Content.Shared.Chat;
@@ -28,6 +30,8 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -55,8 +59,25 @@ public sealed class RadioSystem : EntitySystem
 
     private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, ref RadioReceiveEvent args)
     {
-        if (TryComp(uid, out ActorComponent? actor))
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
+        if (!TryComp(uid, out ActorComponent? actor))
+            return;
+
+        var msg = args.ChatMsg;
+        if (_ghost.CanGhostWarp(actor.PlayerSession, out _))
+        {
+            msg = new MsgChatMessage
+            {
+                Message = new ChatMessage(args.ChatMsg.Message)
+                {
+                    WrappedMessage = _chatManager.PrependFollowButtonIfAppropriate(
+                        args.ChatMsg.Message.WrappedMessage,
+                        args.MessageSource,
+                        actor.PlayerSession.Channel),
+                },
+            };
+        }
+
+        _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
     }
 
     // DeltaV
@@ -188,7 +209,7 @@ public sealed class RadioSystem : EntitySystem
     }
 
     /// <inheritdoc cref="TelecomServerComponent"/>
-    private bool HasActiveServer(MapId mapId, string channelId)
+    public bool HasActiveServer(MapId mapId, string channelId) // DeltaV - we need this
     {
         var servers = EntityQuery<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
         foreach (var (_, keys, power, transform) in servers)

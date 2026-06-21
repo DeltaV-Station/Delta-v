@@ -78,3 +78,13 @@
   parent: [BaseImplantOnlyImplanterCentcomm, FakeMindShieldImplanter]
   id: FakeMindShieldImplantNT
   name: fake mindshield implanter
+
+# hitman
+
+- type: entity
+  id: HitmanCardImplanter
+  name: hitman card implanter.
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: HitmanCardImplant

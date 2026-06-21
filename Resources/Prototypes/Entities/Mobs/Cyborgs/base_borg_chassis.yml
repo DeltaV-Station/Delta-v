@@ -358,11 +358,11 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: Access
-    groups:
-    - AllAccessBorg # DeltaV
-    tags:
-    - Borg
+  #- type: Access # DeltaV - Borgs ID Chips
+  #  groups:
+  #  - AllAccessBorg
+  #  tags:
+  #  - Borg
   - type: AccessReader
     access: [["Command"], ["Research"], ["Robotics"]] # DeltaV - add Robotics
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id

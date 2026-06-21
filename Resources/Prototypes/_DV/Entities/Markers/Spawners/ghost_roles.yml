@@ -177,3 +177,15 @@
         map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         color: "#bb4b1e"
         shader: unshaded
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostHitman
+  components:
+  - type: GhostRole
+    name: ghost-role-information-hitman-name
+    description: ghost-role-information-hitman-description
+    rules: ghost-role-information-hitman-rules
+    mindRoles:
+    - MindRoleHitman
