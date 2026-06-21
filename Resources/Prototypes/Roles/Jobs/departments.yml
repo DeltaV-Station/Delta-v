@@ -168,12 +168,13 @@
   color: "#9FED58"
   weight: 10
   roles:
-  - Boxer # DeltaV - Keep Zookeeper/Boxer
-  - Reporter
-  - Zookeeper # DeltaV - Keep Zookeeper/Boxer
-  - Psychologist
-  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
-  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
-  - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
+  #- Reporter # DeltaV - Already under service, on all stations
+  #- Psychologist # DeltaV - Already under medical, on all stations
+  # BEGIN Delta Station Specific Jobs
+  - Boxer
+  - Zookeeper
+  - MartialArtist
+  - Gladiator
+  - Prisoner
+  # END DeltaV
   primary: false
