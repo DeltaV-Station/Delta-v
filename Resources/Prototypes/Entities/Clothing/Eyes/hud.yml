@@ -29,7 +29,7 @@
   parent: [ ClothingEyesBase, BaseToggleClothing ] # DeltaV - Added BaseToggleClothing
   id: ClothingEyesHudDiagnostic
   name: diagnostic hud
-  description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium. Has a camera mod to work with Station AI. # DeltaV - Add last se[...]
+  description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium. Has a camera mod to work with Station AI. # DeltaV - Add last sentence
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/diag.rsi
@@ -185,23 +185,6 @@
     sprite: Clothing/Eyes/Hud/medonionbeer.rsi
   - type: ShowHungerIcons
   - type: ShowThirstIcons
-
-- type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
-  id: ClothingEyesHudZookeeperAnimal
-  name: zookeeper animal hud
-  description: A specialized heads-up display designed for zookeepers to monitor the health, hunger, and thirst status of animals in their care. Shows vital signs specific to fauna.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Hud/medonionbeer.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Hud/medonionbeer.rsi
-  - type: ShowHungerIcons
-  - type: ShowThirstIcons
-  - type: Tag
-    tags:
-    - HudMedical
-    - PetWearable
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband]
