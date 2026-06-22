@@ -65,4 +65,10 @@ public sealed class TraitConditionContext
     /// The <see cref="HumanoidCharacterProfile"/> of the player, if available.
     /// </summary>
     public HumanoidCharacterProfile? Profile { get; init; }
+
+    /// <summary>
+    /// The set of trait IDs currently selected by the player, if available.
+    /// Used by <see cref="TraitDependencyCondition"/> to check conflicts and requirements.
+    /// </summary>
+    public IReadOnlySet<ProtoId<TraitPrototype>>? SelectedTraits { get; init; }
 }
