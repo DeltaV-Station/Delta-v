@@ -1,6 +1,6 @@
 - type: entity
   name: space shrimp
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat , BaseFishRare ] # DeltaV - add basefishrare so that it is fishable
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat , BaseFishRare ]
   id: MobSpaceShrimp
   description: Shrimply cursed...
   components:
@@ -61,7 +61,7 @@
     canBeRemoved: false
   - type: NpcFactionMember
     factions:
-    - Passive
+    - SimpleHostile
   - type: Body
     prototype: Animal
   - type: HTN
