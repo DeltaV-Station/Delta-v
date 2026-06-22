@@ -38,12 +38,12 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
                 continue;
 
             // DV start - super duper fucked up thing for synths (deals damage, 20% chance)
-            if (!RobustRandom.Prob(0.2f))
+            if (!RobustRandom.Prob(0.4f))
             {
                 var delay = RobustRandom.Next(TimeSpan.FromSeconds(3), TimeSpan.FromSeconds(10)); // they'll never know when it'll hit them
                 Timer.Spawn(delay, () =>
                 {
-                    _electrocution.TryDoElectrocution(ent, null, 20, TimeSpan.FromSeconds(10), true, ignoreInsulation: true);
+                    _electrocution.TryDoElectrocution(ent, null, RobustRandom.Next(5, 20), TimeSpan.FromSeconds(10), true, ignoreInsulation: true);
                     _esSparks.DoSparks(ent);
                 });
             }
