@@ -3,7 +3,6 @@
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat , BaseFishRare ] # DeltaV - add basefishrare so that it is fishable
   id: MobSpaceShrimp
   description: Shrimply cursed...
-  # suffix: METEM MACHINE ONLY #for now, only to be used as a very rare result for the metempsychosis machine. If fishing ever gets added, this suffix can be removed.
   components:
   - type: MeleeWeapon
     soundHit:
