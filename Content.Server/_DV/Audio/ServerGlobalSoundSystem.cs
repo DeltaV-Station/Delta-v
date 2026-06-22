@@ -18,7 +18,6 @@ public sealed partial class ServerGlobalSoundSystem
     public void PlayGlobal(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null)
     {
         var msg = new GameGlobalSoundEvent(specifier, audioParams);
-        var filter = Filter.Empty().AddAllPlayers;
         RaiseNetworkEvent(msg);
     }
 
