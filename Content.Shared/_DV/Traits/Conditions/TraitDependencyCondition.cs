@@ -27,13 +27,10 @@ public sealed partial class TraitDependencyCondition : BaseTraitCondition
 
     protected override bool EvaluateImplementation(TraitConditionContext ctx)
     {
-        if (ctx.SelectedTraits is not null)
+        foreach (var conflict in Conflicts)
         {
-            foreach (var conflict in Conflicts)
-            {
-                if (ctx.SelectedTraits?.Contains(conflict) == true)
-                    return false;
-            }
+            if (ctx.SelectedTraits?.Contains(conflict) is true)
+                return false;
         }
 
         if (Requires.Count > 0)
