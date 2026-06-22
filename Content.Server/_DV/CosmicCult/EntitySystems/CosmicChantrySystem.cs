@@ -81,14 +81,8 @@ public sealed class CosmicChantrySystem : EntitySystem
         comp.SpawnTimer = _timing.CurTime + comp.SpawningTime;
         comp.CountdownTimer = _timing.CurTime + comp.EventTime;
 
-        MapId? targetMap = null;
-        if (_transform.TryGetMapOrGridCoordinates(ent, out var coords))
-            targetMap = _transform.GetMapId(coords.Value);
-
-        if (targetMap is { } map)
-            _sound.PlayGlobalOnMap(map, _audio.ResolveSound(comp.ChantryAlarm));
-        else
-            _sound.PlayGlobal(_audio.ResolveSound(comp.ChantryAlarm)); // Fallback just in case
+        var targetMap = _transform.GetMapId(ent.Owner);
+        _sound.PlayGlobalOnMap(targetMap, _audio.ResolveSound(comp.ChantryAlarm));
 
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-chantry-location",
             ("location", indicatedLocation)), null, false, null, Color.FromHex("#cae8e8"));
