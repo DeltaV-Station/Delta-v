@@ -245,6 +245,7 @@ namespace Content.IntegrationTests.Tests
                 "TimedDespawnDetailed", // DeltaV
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
+                "ESTimedDespawn" // DeltaV
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);

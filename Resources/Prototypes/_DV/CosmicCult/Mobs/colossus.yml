@@ -275,6 +275,10 @@
       groups:
         Brute: -1
         Burn: -0.5
+  - type: MultiplyAttackRateOnSupercritical
+  - type: MultiplyCorruptingSpeedOnSupercritical
+  - type: FlatAttackBonusOnSupercritical
+  - type: HealOnSupercritical
 
 - type: entity
   parent: [ MobCosmicColossusBase ]

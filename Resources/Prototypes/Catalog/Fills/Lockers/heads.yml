@@ -38,7 +38,6 @@
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
-    - id: ClothingOuterWinterCapArmored #DeltaV
     - id: BoxCaptainCircuitboards
     - id: DoorRemoteCustom
     #- id: MedalCase # DeltaV - Moved to dresser
@@ -117,10 +116,12 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    #- id: AccessConfigurator # DeltaV - Moved to PTech
-    #- id: BoxEncryptionKeyPassenger # DeltaV - PTech
-    #- id: BoxEncryptionKeyService # DeltaV - PTech
-    #- id: BoxHeadset # DeltaV - PTech
+    # Begin DeltaV modifications - Moved to PTech
+    #- id: AccessConfigurator
+    #- id: BoxEncryptionKeyPassenger
+    #- id: BoxEncryptionKeyService
+    #- id: BoxHeadset
+    # End DeltaV modifications
     - id: BoxHoPCircuitboards
     - id: BoxHoPStamps
     #- id: BoxID # DeltaV - PTech
@@ -131,7 +132,7 @@
       # Yes they do fuck you.
     - id: ClothingBackpackIan
       prob: 0.5
-    - id: ClothingHeadsetAltService # DeltaV - HoP is now a service role, replaces their all channels headset.
+    #- id: ClothingHeadsetCommand # DeltaV - HOP is head of service.
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
@@ -160,18 +161,15 @@
     - id: CigarCase
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
-    - id: ClothingEyesGlassesMesonTray # DeltaV- replace normal meson goggles
+    #- id: ClothingEyesGlassesMeson # DeltaV- Replaced normal meson goggles
     #- id: ClothingHandsGlovesColorYellow # DeltaV - Moved to dresser
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards
-    - id: RCDRecharging # DeltaV - Replaces normal RCD
+    #- id: RCD # DeltaV - Replaced normal RCD
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
-    - id: AirGrenade # DeltaV
-    - id: HolotapeProjector # DeltaV - engineering tape
-    - id: BoxFolderCeClipboard # DeltaV - Power Digi-Board
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -281,7 +279,6 @@
     - id: DoorRemoteResearch
     - id: HandTeleporter
     - id: RubberStampRd
-    - id: BibleMystagogue  # DeltaV - steal objective and source of abilities
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

@@ -138,6 +138,7 @@
     quickEquip: false
     slots:
     - Belt
+    - suitStorage # Delta V - to let you put in suit storage like every other gun
 
 - type: entity
   name: svalinn laser pistol
@@ -167,6 +168,7 @@
     tags:
     - Sidearm
     - LaserWeapon
+    - ConcealCarry # Delta V - allow storin em in boots
 
 - type: entity
   name: retro laser blaster
@@ -361,6 +363,7 @@
     tags:
     - Sidearm
     - LaserWeapon
+    - ConcealCarry #Delta V - allow storin em in boots
 
 - type: entity
   name: pulse carbine

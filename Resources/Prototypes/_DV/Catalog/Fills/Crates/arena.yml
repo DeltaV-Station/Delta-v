@@ -1,7 +1,7 @@
 - type: entity
-  id: CrateArenaMob
-  parent: CrateLivestockSecureReinforced
   abstract: true
+  parent: CrateLivestockSecureReinforced
+  id: CrateArenaMob
   name: arena dangerous creature crate
   description: A reinforced crate containing a dangerous creature for sanctioned gladiators to fight in the arena. Warning-Do not open without proper security protocols in place.
   components:
@@ -9,8 +9,8 @@
     access: [["Armory"]]
 
 - type: entity
-  id: CrateArenaMobSmall
   parent: CrateArenaMob
+  id: CrateArenaMobSmall
   name: arena dangerous creature(small) crate
   components:
   - type: EntityTableContainerFill
@@ -19,8 +19,8 @@
         tableId: SmallArenaMobTable
 
 - type: entity
-  id: CrateArenaMobLarge
   parent: CrateArenaMob
+  id: CrateArenaMobLarge
   name: arena dangerous creature(large) crate
   components:
   - type: EntityTableContainerFill
@@ -87,10 +87,9 @@
         - id: MobArgocyteHarvester
           amount: !type:RangeNumberSelector
             range: 1, 2
-        #Nanotrasen has not yet developed the technology to hold these creatures
-        #- id: MobArgocyteCrawler
-        #  amount: !type:RangeNumberSelector
-        #    range: 1, 2
+        - id: MobArgocyteCrawler
+          amount: !type:RangeNumberSelector
+            range: 1, 2
       - !type:GroupSelector
         children:
         - id: MobWatcherLavaland
@@ -117,7 +116,7 @@
         - id: MobAdultSlimesYellowAngry
           amount: !type:RangeNumberSelector
             range: 1, 3
-      - id: MobTomatoKiller
+      - id: MobTomatoKillerAI
         amount: !type:RangeNumberSelector
           range: 4, 8
     #Uncommon
@@ -146,27 +145,31 @@
         - id: MobBearSpace
         - id: MobKangarooSpace
         - id: MobKangarooSpace
-      #Nanotrasen has not yet developed the technology to hold these creatures
-      #- !type:GroupSelector
-        #children:
-        #- id: MobArgocyteEnforcer
+        - id: MobBasilisk
+      - !type:GroupSelector
+        children:
+        - id: MobArgocyteEnforcer
+        #Nanotrasen has not yet developed the technology to hold these creatures
         #- id: MobArgocyteFounder
       - !type:GroupSelector
         children:
         - id: MobXeno
-        - id: MobXenoPraetorianNPC
         - id: MobXenoDroneNPC
         - id: MobXenoRavagerNPC
+        - id: MobXenoPraetorianNPC
         - id: MobXenoRunnerNPC
         - id: MobXenoRounyNPC
         - id: MobXenoSpitterNPC
-        - id: MobXenoQueenNPC
+        #Nanotrasen has not yet developed the technology to hold these creatures
+        #- id: MobXenoQueenNPC
       - !type:GroupSelector
         children:
         - id: MobQuartzCrab
         - id: MobIronCrab
         - id: MobUraniumCrab
         - id: MobSilverCrab
+        - id: MobCoalCrab
+        - id: MobGoldCrab
         - !type:GroupSelector
           weight: 0.5
           children:
@@ -182,6 +185,24 @@
           - id: MobSilverCrab
             amount: !type:ConstantNumberSelector
               value: 2
+          - id: MobCoalCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobGoldCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+      - !type:GroupSelector
+        weight: 0.5
+        children:
+        - id: MobHivebot
+          amount: !type:RangeNumberSelector
+            range: 2, 4
+        - id: MobHivebotRanged
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+        - id: MobHivebotStrong
+          amount: !type:RangeNumberSelector
+            range: 1, 2
       - !type:GroupSelector
         children:
         - id: ReagentSlimeBeer
@@ -233,3 +254,15 @@
     #  weight: 0.1
     #  children:
     #  - id: MobArgocyteLeviathing
+
+# These mobs either break out of the crates or can attack through it.
+- type: entityTable
+  id: StrongArenaMobTable
+  table: !type:GroupSelector
+    children:
+    - id: MobXenoQueenNPC
+    - id: MobGoliath
+    - id: MobHivelord
+    - id: MobArgocyteFounder
+    - id: MobArgocyteLeviathing
+      weight: 0.1
