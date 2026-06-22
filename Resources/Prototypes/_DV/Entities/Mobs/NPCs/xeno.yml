@@ -35,12 +35,12 @@
       - MindRoleGhostRoleSoloAntagonist
   - type: SalvageMobRestrictions
 
-# Xenonids
+# Xenonids base
 
 - type: entity
   abstract: true
   id: BaseMobXenonid
-  suffix: Player
+  suffix: AI
   components:
   - type: NoFriendlyFire
   - type: NpcFactionMember
@@ -49,7 +49,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: XenonidBlood # DeltaV - was FluorosulfuricAcid
+      - ReagentId: XenonidBlood
         Quantity: 650
   - type: Prying
     pryPowered: true
@@ -59,11 +59,48 @@
       path: /Audio/Items/crowbar.ogg
   - type: Puller
     needsHands: false
+  - type: Stamina
+    baseCritThreshold: 200
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      160: Critical
+      200: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      80: 0.7
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.15
+        Burn: -0.2
+        Toxin: -0.1
+        Metaphysical: -0.1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 235
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+# Xenonids tier 1
 
 - type: entity
   abstract: true
+  parent: BaseMobXenonid
   id: BaseMobXenonidTier1
-  suffix: Player
   components:
   - type: Prying
     pryPowered: true
@@ -72,10 +109,12 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
 
+# Xenonids tier 2
+
 - type: entity
   abstract: true
+  parent: BaseMobXenonid
   id: BaseMobXenonidTier2
-  suffix: Player
   components:
   - type: Prying
     pryPowered: true
@@ -83,11 +122,70 @@
     speedModifier: 3
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: Stamina
+    baseCritThreshold: 250
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.3
+        Burn: -0.4
+        Toxin: -0.2
+        Metaphysical: -0.2
+
+- type: entity
+  name: lurker
+  parent: [BaseMobXenonidTier2, MobXeno]
+  id: MobXenoLurkerNPC
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _RMC14/Mobs/Xenos/lurker.rsi
+    offset: 0,0.2
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: running
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      240: Critical
+      300: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      160: 0.7
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+     types:
+       Piercing: 15
+       Slash: 5
+       Structural: 10
+  - type: TrafficHazard
+    bonkMultiplier: 0.0
+    stunTime: 1
+    collisionDamage:
+      types:
+        Piercing: 15
+        Slash: 10
+  - type: JumpAbility
+    jumpDistance: 4
+    jumpThrowSpeed: 10
+  - type: Stealth
+    maxVisibility: 0.9
+    minVisibility: -1.5
+  - type: StealthOnMove
+    movementVisibilityRate: 1.5
+    passiveVisibilityRate: -0.7
+
+# Xenonids tier 3
 
 - type: entity
   abstract: true
+  parent: BaseMobXenonid
   id: BaseMobXenonidTier3
-  suffix: Player
   components:
   - type: Prying
     pryPowered: true
@@ -95,11 +193,104 @@
     speedModifier: 3.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: Stamina
+    baseCritThreshold: 300
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepQueenXeno
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.45
+        Burn: -0.6
+        Toxin: -0.3
+        Metaphysical: -0.3
+
+- type: entity
+  name: boiler
+  parent: [BaseMobXenonidTier3, MobXeno]
+  id: MobXenoBoilerNPC
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _RMC14/Mobs/Xenos/boiler.rsi
+    offset: 0,0.3
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: running
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Critical
+      400: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      200: 0.6
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.5
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 6
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcidBoiler
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.25
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+
+- type: entity
+  name: crusher
+  parent: [BaseMobXenonidTier3, MobXeno]
+  id: MobXenoCrusherNPC
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _RMC14/Mobs/Xenos/crusher.rsi
+    offset: 0,0.3
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: running
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Critical
+      700: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      450: 0.8
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.5
+  - type: MeleeWeapon
+    attackRate: 0.6
+    damage:
+     types:
+       Blunt: 25
+       Structural: 70
+  - type: TrafficHazard
+    minimumSpeed: 4
+    minimumSpeedDifference: 6
+    bonk: false
+    stunTime: 1
+    collisionDamage:
+      types:
+        Blunt: 20
+  - type: JumpAbility
+    jumpDistance: 8
+    jumpThrowSpeed: 8
+
 # Variants of Xenos to allow ghost takeover again
 
 - type: entity
   abstract: true
-  parent: BaseMobXenonid
   id: BaseMobXenoPlayer
   suffix: Player
   components:
@@ -155,3 +346,18 @@
   parent: [BaseMobXenoPlayer, MobXenoSpitterNPC]
   id: MobXenoSpitter
   name: Spitter
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoCrusherNPC]
+  id: MobXenoCrusher
+  name: Crusher
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoBoilerNPC]
+  id: MobXenoBoiler
+  name: Boiler
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoLurkerNPC]
+  id: MobXenoLurker
+  name: Lurker

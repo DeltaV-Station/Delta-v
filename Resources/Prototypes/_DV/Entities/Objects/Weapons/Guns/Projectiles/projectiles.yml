@@ -204,3 +204,27 @@
       color: lightgreen
   - type: TimedDespawn
     lifetime: 0.08
+
+- type: entity
+  id: BulletAcidBoiler
+  name: acid spit
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Projectile
+      damage:
+        types:
+          Caustic: 15
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      layers:
+        - state: xeno_toxic
+    - type: Ammo
+      muzzleFlash: null
+    - type: SmokeOnTrigger
+      duration: 6
+      spreadAmount: 30
+      solution:
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 30
