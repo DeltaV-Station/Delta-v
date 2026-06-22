@@ -94,7 +94,7 @@
 - type: entity
   id: BlastDoorScience
   parent: BlastDoor
-  suffix: Autolink, Science
+  suffix: Autolink, Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Command"], ["Research"]]
@@ -104,7 +104,7 @@
 - type: entity
   id: BlastDoorScienceOpen
   parent: BlastDoorOpen
-  suffix: Open, Autolink, Science
+  suffix: Open, Autolink, Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Command"], ["Research"]]
