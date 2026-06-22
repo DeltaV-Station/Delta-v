@@ -29,7 +29,7 @@ public sealed partial class TraitEntry : PanelContainer
 
     private bool _isLockedByCategory;
     private bool _isLockedByPoints;
-    
+
     public TraitEntry(TraitPrototype trait)
     {
         RobustXamlLoader.Load(this);
