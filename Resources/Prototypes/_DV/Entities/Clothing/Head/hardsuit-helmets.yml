@@ -31,7 +31,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
-
+  - type: PointLight
+    color: "#edecf7"
 # Medical Combat Hardsuits
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -99,6 +100,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
+  - type: PointLight
+    color: "#edecf7"
 
 # Advanced Combat Hardsuits
 - type: entity
@@ -135,6 +138,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
+  - type: PointLight
+    color: "#edecf7"
 
 #Roboneuroticist Helmet
 - type: entity
@@ -371,6 +376,13 @@
     sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
   - type: PointLight
     color: aquamarine
 
@@ -387,3 +399,31 @@
     sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
   - type: PointLight
     color: aquamarine
+
+# SRT Hardsuit
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, BaseCentcommContraband ]
+  id: ClothingHeadHelmetHardsuitSRT
+  name: Special Response Team hardsuit helmet
+  description: A special hardsuit helmet worn by members of a NanoTrasen task force.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/SRTHelmet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/SRTHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+  - type: PsionicallyInsulative

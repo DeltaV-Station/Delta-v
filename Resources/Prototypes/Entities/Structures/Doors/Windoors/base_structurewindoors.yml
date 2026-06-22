@@ -175,6 +175,11 @@
   - type: StaticPrice
     price: 150
   - type: PryUnpowered
+# ES Start
+  - type: ESSparkOnHit
+    prob: 0.25
+    count: 2
+# ES End
 
 - type: entity
   id: BaseSecureWindoor

@@ -1,0 +1,133 @@
+- type: entity
+  id: MobTomatoKillerAI
+  parent:
+  - BaseSimpleMob
+  - MobDamageable
+  - MobPolymorphable
+  - MobBloodstream
+  - MobFlammable
+  - MobCombat
+  name: tomato killer
+  description: Looks like it's not you eating tomatoes today, it's the tomatoes eating you.
+  components:
+  - type: CanEscapeInventory
+    baseResistTime: 3
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.15
+    - reagents: [ Blood ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.25
+            Burn: -0.25
+    - reagents: [ RobustHarvest ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1
+            Burn: -1
+    - reagents: [ WeedKiller, PlantBGone ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 1
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: MultiHandedItem
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: KillerTomatoCompound
+  - type: Sprite
+    sprite: Mobs/Demons/tomatokiller.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: JuiceTomato
+        Quantity: 50
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatTomato
+      amount: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 40
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeatTomato:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      35: Dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      groups:
+        Brute: 9
+    animation: WeaponArcBite
+  - type: Climbing
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSlime
+  - type: Tag
+    tags:
+      - FootstepSound
+      - Fruit
+  - type: Extractable
+    grindableSolutionName: bloodstream
+  - type: PotencyVisuals
+  - type: Appearance
+  - type: StaticPrice
+    price: 400

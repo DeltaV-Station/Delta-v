@@ -31,6 +31,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Wieldable.Components; // Starlight | ES Screenshake
 using Content.Shared.Zombies; // DeltaV - Buff Zombies
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -551,11 +552,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var weapon = GetEntity(ev.Weapon);
 
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
         // somewhat messy scuffle. See also, heavy attacks.
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
 
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
@@ -597,18 +598,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, targetXform);
-
-            // ES START
-            // dog shit copy plaste but thats melee for you
-            var userShakeRotation = new ESScreenshakeParameters()
-                { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
-            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
-            _shake.Screenshake(user, null, userShakeRotation);
-            foreach (var shakeTarget in targets)
-            {
-                _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
-            }
-            // ES END
+            DoScreenshake(meleeUid, damageResult, user, targets); // Starlight | ES Screenshake
         }
     }
 
@@ -704,7 +694,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var weapon = GetEntity(ev.Weapon);
 
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // For stuff that cares about it being attacked.
         foreach (var target in targets)
@@ -713,7 +703,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
             // somewhat messy scuffle. See also, light attacks.
-            Interaction.DoContactInteraction(user, target);
+            Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
         }
 
         var appliedDamage = new DamageSpecifier();
@@ -774,21 +764,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
-        // ES START
-        // dog shit copy plaste but thats melee for you
-        var userShakeRotation = new ESScreenshakeParameters()
-            { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
-        var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
-        _shake.Screenshake(user, null, userShakeRotation);
-        foreach (var shakeTarget in targets)
-        {
-            _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
-        }
-        // ES END
-
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, Transform(targets[0]));
+            DoScreenshake(meleeUid, damage, user, targets); // Starlight | ES Screenshake
         }
 
         return true;
@@ -971,7 +950,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, null, true); // Stellar - Interaction particles
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
@@ -1104,4 +1083,55 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
         }
     }
+
+    //Starlight begin | ES Screenshake
+    private void DoScreenshake(EntityUid weapon, DamageSpecifier damage, EntityUid attacker, List<EntityUid> targets)
+    {
+        if(damage.GetTotal()>4) // only show to others if it hurts real bad // DeltaV - reduce from 8 to 4
+        {
+            var otherTranslation = new ESScreenshakeParameters
+            {
+                Trauma = 0.45f,
+                DecayRate = 1.1f,
+                Frequency = 0.04f,
+            };
+            foreach(var target in targets)
+                _shake.Screenshake(target, otherTranslation, null);
+        }
+
+        // only show to attacker if they put real oompf into it, or the weapon is just THAT strong
+        // var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20; // DeltaV - unused
+        var isWielding = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
+
+        // DeltaV - unused
+        // if (!bluntRequirement && !wieldRequirement)
+        //    return;
+
+        // DeltaV - heavy/light screenshake variants START
+        ESScreenshakeParameters userRotation;
+        if (damage.GetTotal() >= 15 || isWielding)
+        {
+            // heavy damage or two-handed
+            userRotation = new ESScreenshakeParameters
+            {
+                Trauma = 0.08f,
+                DecayRate = 1,
+                Frequency = 0.009f,
+            };
+        }
+        else
+        {
+            // light damage
+            userRotation = new ESScreenshakeParameters
+            {
+                Trauma = 0.06f,
+                DecayRate = 1,
+                Frequency = 0.0045f,
+            };
+        }
+        // DeltaV END
+
+        _shake.Screenshake(attacker, null, userRotation);
+    }
+    //Starlight end
 }

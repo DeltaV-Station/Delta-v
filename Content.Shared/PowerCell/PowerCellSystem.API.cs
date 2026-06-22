@@ -39,6 +39,14 @@ public sealed partial class PowerCellSystem
             return false;
         }
 
+        // Begin DeltaV
+        if (!ent.Comp.Active)
+        {
+            battery = null;
+            return false;
+        }
+        // End DeltaV
+
         if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CellSlotId, out var slot))
         {
             battery = null;
@@ -153,6 +161,21 @@ public sealed partial class PowerCellSystem
     [PublicAPI]
     public bool HasCharge(Entity<PowerCellSlotComponent?> ent, float charge, EntityUid? user = null, bool predicted = false)
     {
+        // Begin DeltaV
+        if (Resolve(ent, ref ent.Comp, false) && !ent.Comp.Active)
+        {
+            if (user == null)
+                return false;
+
+            if (predicted)
+                _popup.PopupClient(Loc.GetString("power-cell-disabled"), ent.Owner, user.Value);
+            else
+                _popup.PopupEntity(Loc.GetString("power-cell-disabled"), ent.Owner, user.Value);
+
+            return false;
+        }
+        // End DeltaV
+
         if (!TryGetBatteryFromSlot(ent, out var battery))
         {
             if (user == null)
@@ -192,6 +215,21 @@ public sealed partial class PowerCellSystem
     [PublicAPI]
     public bool TryUseCharge(Entity<PowerCellSlotComponent?> ent, float charge, EntityUid? user = null, bool predicted = false)
     {
+        // Begin DeltaV
+        if (Resolve(ent, ref ent.Comp, false) && !ent.Comp.Active)
+        {
+            if (user == null)
+                return false;
+
+            if (predicted)
+                _popup.PopupClient(Loc.GetString("power-cell-disabled"), ent.Owner, user.Value);
+            else
+                _popup.PopupEntity(Loc.GetString("power-cell-disabled"), ent.Owner, user.Value);
+
+            return false;
+        }
+        // End DeltaV
+
         if (!TryGetBatteryFromSlot(ent, out var battery))
         {
             if (user == null)
@@ -247,6 +285,29 @@ public sealed partial class PowerCellSystem
 
         return _battery.GetMaxUses(battery.Value.AsNullable(), cost);
     }
+
+    // Begin DeltaV
+    /// <summary>
+    /// Sets whether a power cell slot is capable of drawing from a battery
+    /// </summary>
+    [PublicAPI]
+    public void SetSlotActive(Entity<PowerCellSlotComponent?> ent, bool active)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.Active = active;
+        Dirty(ent, ent.Comp);
+
+        if (!active)
+        {
+            var emptyEv = new PowerCellSlotEmptyEvent();
+            RaiseLocalEvent(ent, ref emptyEv);
+        }
+
+        _battery.RefreshChargeRate(ent.Owner);
+    }
+    // End DeltaV
 }
 
 // Begin DeltaV - event-based search for battery

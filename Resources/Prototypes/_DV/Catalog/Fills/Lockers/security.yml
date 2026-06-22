@@ -201,3 +201,39 @@
           amount: 2
         - id: MagazinePistolHighCapacity
           amount: 4
+
+- type: entityTable
+  id: FillLockerSecurityDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadHelmetInsulated
+      prob: 0.4
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+    - id: ClothingOuterArmorPlateCarrier
+    - id: ClothingOuterArmorDuraVest
+    - id: ClothingOuterArmorBasicSlim
+
+- type: entityTable
+  id: FillLockerBrigmedicDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadsetBrigmedic
+    - id: ClothingBeltCorpsmanWebbing
+    - id: HandheldGPSBasic
+    - id: BoxBodyBag
+    - id: EmergencyRollerBedSpawnFolded
+    - id: MedkitCombatFilled
+    - id: Portafib
+    - id: ChemistryBottleRevivopine
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: FillLockerDetectiveDeltaV
+  table: !type:AllSelector
+    children:
+    - id: BoxTapeRecorder
+    - id: ClothingHeadsetSecurity
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3

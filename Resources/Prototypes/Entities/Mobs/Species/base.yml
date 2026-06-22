@@ -294,9 +294,11 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  #- type: StunVisuals # DeltaV - No stars
+  - type: StunVisuals
   - type: CanDoCPR # DeltaV - Addition of CPR
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
+  - type: RevealRevenantOnCollide # DeltaV - passing through people reveal revenant
+    revealTime: 1
 
 - type: entity
   save: false

@@ -18,6 +18,7 @@
     children:
     - id: ClothingLongcoatCaptainArmored
     - id: PersonalAILearnerCommand # imp
+    - id: ClothingOuterWinterCapArmored
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -25,6 +26,7 @@
   id: LockerFillHeadOfPersonnelDeltaV
   table: !type:AllSelector
     children:
+    - id: ClothingHeadsetAltService
     - id: ClothingOuterCoatHoPArmored
     - id: BookIanDossier # HoP steal objective, see Resources/Prototypes/_DV/Entities/Objects/Misc/ian_dossier.yml
     - id: PersonalAILearnerService # imp
@@ -35,6 +37,11 @@
   id: LockerFillChiefEngineerDeltaV
   table: !type:AllSelector
     children:
+    - id: HolotapeProjector
+    - id: BoxFolderCeClipboard
+    - id: AirGrenade
+    - id: RCDRecharging
+    - id: ClothingEyesGlassesMesonTray
     - id: BoxPDAEngineering
     - id: CEIDCard
     - id: PersonalAILearnerEngineering # imp
@@ -63,6 +70,7 @@
     - id: LunchboxCommandFilledRandom
       prob: 0.3
     - id: CosmicCenser
+    - id: BibleMystagogue
 
 - type: entityTable
   id: LockerFillHeadOfSecurityDeltaV

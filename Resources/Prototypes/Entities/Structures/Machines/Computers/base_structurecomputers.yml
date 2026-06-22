@@ -81,6 +81,11 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+# ES Start
+  - type: ESSparkOnHit
+    prob: 0.25
+    count: 2
+# ES End
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

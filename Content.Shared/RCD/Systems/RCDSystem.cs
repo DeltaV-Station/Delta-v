@@ -22,6 +22,9 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Linq;
+// ES START
+using Content.Shared._ES.Sparks;
+// ES END
 
 namespace Content.Shared.RCD.Systems;
 
@@ -44,6 +47,9 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+// ES START
+    [Dependency] private readonly ESSparksSystem _esSparks = default!;
+// ES END
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -94,6 +100,9 @@ public sealed class RCDSystem : EntitySystem
 
         // Set the current RCD prototype to the one supplied
         component.ProtoId = args.ProtoId;
+// ES START
+        _esSparks.DoSparks(uid, 1, user: args.Actor);
+// ES END
 
         _adminLogger.Add(LogType.RCD, LogImpact.Low, $"{args.Actor} set RCD mode to: {prototype.Mode} : {prototype.Prototype}");
 

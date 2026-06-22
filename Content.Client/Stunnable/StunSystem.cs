@@ -1,10 +1,12 @@
 using System.Numerics;
+using Content.Shared._DV.CCVars; // DeltaV - Enable Stars via CVar.
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
 using Content.Shared.Stunnable;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
+using Robust.Shared.Configuration; // DeltaV - Enable Stars via CVar.
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Random;
@@ -13,6 +15,7 @@ namespace Content.Client.Stunnable;
 
 public sealed class StunSystem : SharedStunSystem
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // DeltaV - Enable Stars via CVar.
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
@@ -77,6 +80,9 @@ public sealed class StunSystem : SharedStunSystem
             return;
 
         var visible = Appearance.TryGetData<bool>(entity, StunVisuals.SeeingStars, out var stars) && stars;
+
+        if (visible && !_cfg.GetCVar(DCCVars.ShowStunVisuals)) // DeltaV - Enable Stars via CVar.
+            visible = false;
 
         _spriteSystem.LayerSetVisible((entity, entity.Comp), index, visible);
         _spriteSystem.LayerSetRsiState((entity, entity.Comp), index, state);

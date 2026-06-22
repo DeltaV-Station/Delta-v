@@ -123,14 +123,14 @@
 
 - type: entity
   parent: ClothingUniformSkirtRollableBase
-  id: ClothingUniformJumpskirtSecBlue
-  name: blue security jumpskirt
-  description: A cool blue shirt over charcoal skirt, for the calm and collected security officer.
+  id: ClothingUniformJumpskirtSecWhite
+  name: white security jumpskirt
+  description: A white shirt over blue skirt, for the calm and collected security officer.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_white.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_white.rsi
 
 # Corpsman alt uniforms
 
@@ -197,14 +197,14 @@
 
 - type: entity
   parent: ClothingUniformSkirtRollableBase
-  id: ClothingUniformJumpskirtWardenBlue
-  name: blue warden's jumpskirt
-  description: A cool blue shirt with ice-white markings and warden's epaulettes.
+  id: ClothingUniformJumpskirtWardenWhite
+  name: white warden's jumpskirt
+  description: A cool white shirt with blue markings and warden's epaulettes.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer_white.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer_white.rsi
 
 - type: entity
   parent: ClothingUniformSkirtRollableBase
@@ -232,14 +232,14 @@
 
 - type: entity
   parent: ClothingUniformSkirtRollableBase
-  id: ClothingUniformJumpskirtHoSBlue
-  name: head of security's blue jumpskirt
-  description: A blue Station Security shirt with charcoal skirt. Features gold emblems and commander's epaulettes.
+  id: ClothingUniformJumpskirtHoSWhite
+  name: head of security's white jumpskirt
+  description: A white Station Security shirt with charcoal skirt. Features gold emblems and commander's epaulettes.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_white.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hos_white.rsi
 
 # Prison Guard Jumpskirt
 
@@ -439,6 +439,17 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/elf.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/elf.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtRollableBase
+  id: ClothingUniformJumpskirtSecCadet
+  name: cadet jumpskirt
+  description: A simple uniform for security cadets. It's a bit small, but it should do for training purposes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/securitycadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/securitycadet.rsi
 
 # Medical
 
