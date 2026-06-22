@@ -37,17 +37,17 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             if (!TryComp<ActorComponent>(ent, out var actor))
                 continue;
 
-            // DV start - super duper fucked up thing for synths (deals damage)
-            if (RobustRandom.Prob(0.2f)) // 20% chance of the ion storn not affecting synthetics
-                continue;
-
-            var delay = RobustRandom.Next(TimeSpan.FromSeconds(3), TimeSpan.FromSeconds(10)); // they'll never know
-            Timer.Spawn(delay, () =>
+            // DV start - super duper fucked up thing for synths (deals damage, 20% chance)
+            if (!RobustRandom.Prob(0.2f))
             {
-                _electrocution.TryDoElectrocution(ent, null, 20, TimeSpan.FromSeconds(10), true, ignoreInsulation: true);
-                _esSparks.DoSparks(ent);
-            });
-            // DV end 
+                var delay = RobustRandom.Next(TimeSpan.FromSeconds(3), TimeSpan.FromSeconds(10)); // they'll never know when it'll hit them
+                Timer.Spawn(delay, () =>
+                {
+                    _electrocution.TryDoElectrocution(ent, null, 20, TimeSpan.FromSeconds(10), true, ignoreInsulation: true);
+                    _esSparks.DoSparks(ent);
+                });
+            }
+            // DV end
 
             if (RobustRandom.Prob(synthComp.AlertChance))
                 continue;
