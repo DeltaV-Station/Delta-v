@@ -268,8 +268,8 @@ public sealed partial class TraitEntry : PanelContainer
     }
 
     /// <summary>
-    /// Called by <see cref="TraitCategory"/> whenever the category's trait- or
-    /// points-cap state changes.  Locking only applies to <em>unselected</em>
+    /// Called by <see cref="TraitCategory"/> whenever the category's trait or
+    /// points-cap state changes. Locking only applies to <em>unselected</em>
     /// entries - the selected traits are the ones filling the cap and must
     /// remain interactive so the player can deselect them.
     /// </summary>
