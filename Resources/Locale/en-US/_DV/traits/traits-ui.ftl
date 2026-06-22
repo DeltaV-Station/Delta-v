@@ -32,7 +32,7 @@ trait-conditions-tooltip = [bold]Requirements:[/bold]
 trait-conditions-not-met-tooltip = Requirements not met:
     {$requirements}
 
-trait-category-full-tooltip = You have reached the max traits that you can have in this category.
+trait-category-full-tooltip = You have reached the maximum amount of  traits that you can have in this category.
 trait-insufficient-points-tooltip = You do not have enough points to equip this trait.
 trait-condition-trait-conflict = You must not have the [color=yellow]{ $trait }[/color] trait.
 trait-condition-trait-required = You must have the [color=yellow]{ $trait }[/color] trait.
