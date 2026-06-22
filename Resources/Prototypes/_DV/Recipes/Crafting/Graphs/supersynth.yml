@@ -1,0 +1,33 @@
+- type: constructionGraph
+  id: SuperSynthesizerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: supersynth
+          steps:
+            - tag: EletricGuitarInstrument
+              name: construction-graph-tag-eletricguitar
+              icon:
+                sprite: Objects/Fun/Instruments/eguitar.rsi
+                state: icon
+            - tag: HarmonicaInstrument
+              name: construction-graph-tag-harmonica
+              icon:
+                sprite: Objects/Fun/Instruments/harmonica.rsi
+                state: icon
+            - tag: DawInstrumentMachineCircuitboard
+              name: construction-graph-tag-daw
+              icon:
+                sprite: Objects/Misc/module.rsi
+                state: service
+            - tag: SynthesizerInstrument
+              name: construction-graph-tag-Synthesizer
+              icon:
+                sprite: Objects/Fun/Instruments/h_synthesizer.rsi
+                state: icon
+            - material: Bluespace
+              amount: 2
+              doAfter: 5
+    - node: supersynth
+      entity: SuperSynthesizerInstrument
