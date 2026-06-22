@@ -1,5 +1,22 @@
 - type: entity
   parent: WeaponEnergyTurretStationMachineCircuitboardBase
+  components:
+  - type: Sprite
+  - type: MachineBoard
+
+- type: entity
+  parent: WeaponEnergyTurretStationMachineCircuitboardBase
+  id: WeaponEnergyTurretCentralCommandTurretboard
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: command
+  - type: MachineBoard
+    prototype: WeaponEnergyTurretCentralCommand
+
+- type: entity
+  parent: WeaponEnergyTurretStationMachineCircuitboardBase
   id: WeaponEnergyTurretXenoborgMachineCircuitboard
   suffix: Mothership
   components:

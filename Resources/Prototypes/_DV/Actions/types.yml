@@ -81,3 +81,18 @@
   - type: Action
     icon: { sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi, state: bipod-off }
     iconOn: { sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi, state: bipod-on }
+
+- type: entity
+  parent: BaseImplantAction
+  id: ActionCreateHitmanCard
+  name: Create hitman card
+  description: creates a calling card you can write on
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 120
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: hitman_card
