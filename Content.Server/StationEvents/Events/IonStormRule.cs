@@ -37,7 +37,7 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             if (!TryComp<ActorComponent>(ent, out var actor))
                 continue;
 
-            // DV start - super duper fucked up thing for synths (deals damage, 20% chance)
+            // DV start - super duper fucked up thing for synths (deals damage, 40% chance)
             if (!RobustRandom.Prob(0.4f))
             {
                 var delay = RobustRandom.Next(TimeSpan.FromSeconds(3), TimeSpan.FromSeconds(10)); // they'll never know when it'll hit them
