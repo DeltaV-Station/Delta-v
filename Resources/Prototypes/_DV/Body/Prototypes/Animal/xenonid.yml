@@ -1,0 +1,21 @@
+﻿- type: body
+  id: Xenonid
+  name: "xenonid"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      connections:
+      - legs
+      organs:
+        lungs: OrganAnimalLungs
+        stomach: OrganBloodsuckerStomach
+        liver: OrganBloodsuckerLiver
+        heart: OrganXenonidHeart
+        kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal

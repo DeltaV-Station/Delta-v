@@ -94,6 +94,10 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Damageable
+    damageModifierSet: Xenonid
+  - type: Body
+    prototype: Xenonid
 
 # Xenonids tier 1
 

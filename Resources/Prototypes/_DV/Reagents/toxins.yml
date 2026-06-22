@@ -12,3 +12,45 @@
         effectProto: StatusEffectPsionicsDisabled
         type: Add
         time: 5
+
+- type: reagent
+  id: XenonidBoilerAcid
+  name: reagent-name-xenonid-boiler-acid
+  group: Toxins
+  desc: reagent-desc-xenonid-boiler-acid
+  physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Minor
+  flavor: acid
+  color: "#0f721c"
+  boilingPoint: 165
+  meltingPoint: -87
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.5
+            Heat: 0.6
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  metabolisms:
+    Poison:
+      metabolismRate: 3.00
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
+            Heat: 0.5
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.33
+      - !type:Emote
+        emote: Scream
+        probability: 0.25

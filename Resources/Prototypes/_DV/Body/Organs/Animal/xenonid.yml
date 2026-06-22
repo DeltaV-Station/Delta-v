@@ -1,0 +1,11 @@
+- type: entity
+  id: OrganXenonidHeart
+  parent: OrganAnimalHeart
+  name: xenonid heart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodsucker ]
+    groups:
+    - id: Medicine
+    - id: Narcotic
