@@ -31,19 +31,19 @@ public sealed partial class TraitDependencyCondition : BaseTraitCondition
         {
             foreach (var conflict in Conflicts)
             {
-                if (ctx.SelectedTraits?.Contains(conflict) is true)
+                if (selectedTraits.Contains(conflict))
                     return false;
             }
         }
 
         if (Requires.Count > 0)
         {
-            if (ctx.SelectedTraits is null)
+            if (ctx.SelectedTraits is not { } selected)
                 return false;
 
             foreach (var required in Requires)
             {
-                if (!ctx.SelectedTraits.Contains(required))
+                if (!selected.Contains(required))
                     return false;
             }
         }
