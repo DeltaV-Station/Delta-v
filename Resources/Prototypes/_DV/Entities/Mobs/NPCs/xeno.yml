@@ -35,10 +35,71 @@
       - MindRoleGhostRoleSoloAntagonist
   - type: SalvageMobRestrictions
 
+# Xenonids
+
+- type: entity
+  abstract: true
+  id: BaseMobXenonid
+  suffix: Player
+  components:
+  - type: NoFriendlyFire
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: XenonidBlood # DeltaV - was FluorosulfuricAcid
+        Quantity: 650
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  abstract: true
+  id: BaseMobXenonidTier1
+  suffix: Player
+  components:
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+
+- type: entity
+  abstract: true
+  id: BaseMobXenonidTier2
+  suffix: Player
+  components:
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+
+- type: entity
+  abstract: true
+  id: BaseMobXenonidTier3
+  suffix: Player
+  components:
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 # Variants of Xenos to allow ghost takeover again
 
 - type: entity
   abstract: true
+  parent: BaseMobXenonid
   id: BaseMobXenoPlayer
   suffix: Player
   components:
@@ -56,41 +117,41 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXeno] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXeno]
   id: MobXenoPlayer
   name: Burrower
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC]
   id: MobXenoPraetorian
   name: Praetorian
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoDroneNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoDroneNPC]
   id: MobXenoDrone
   name: Drone
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoQueenNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoQueenNPC]
   id: MobXenoQueen
   name: Queen
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC]
   id: MobXenoRavager
   name: Ravager
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC]
   id: MobXenoRunner
   name: Runner
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoRounyNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoRounyNPC]
   id: MobXenoRouny
   name: Rouny
 
 - type: entity
-  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] # Reverse order so suffix works
+  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC]
   id: MobXenoSpitter
   name: Spitter
