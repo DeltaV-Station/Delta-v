@@ -31,30 +31,32 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             return;
 
         // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
+        // DV - buuuuuut only if IonStormAffected is present (via the "Susceptible to Ion Storms" meta trait) so that not all synthetics are affected by this
+        //      but they are stikll notified about incoming ion storms regardless.
         var synthQuery = EntityQueryEnumerator<SynthComponent>();
         while (synthQuery.MoveNext(out var ent, out var synthComp))
         {
             if (!TryComp<ActorComponent>(ent, out var actor))
                 continue;
 
-            // DV start - super duper fucked up thing for synths (deals damage, 40% chance)
-            if (!RobustRandom.Prob(0.4f))
+            if (RobustRandom.Prob(synthComp.AlertChance))
             {
-                var delay = RobustRandom.Next(TimeSpan.FromSeconds(3), TimeSpan.FromSeconds(10)); // they'll never know when it'll hit them
+                var msg = Loc.GetString("station-event-ion-storm-synth");
+                var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
+                _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Yellow);
+            }
+
+            // DV start - super duper fucked up thing for synths
+            if (synthComp.IonStormAffected && RobustRandom.Prob(comp.SynthElectrocutionChance))
+            {
+                var delay = RobustRandom.Next(TimeSpan.FromSeconds(comp.SynthElectrocutionDelayMin), TimeSpan.FromSeconds(comp.SynthElectrocutionDelayMax)); // they'll never know when it'll hit them
                 Timer.Spawn(delay, () =>
                 {
-                    _electrocution.TryDoElectrocution(ent, null, RobustRandom.Next(5, 20), TimeSpan.FromSeconds(10), true, ignoreInsulation: true);
+                    _electrocution.TryDoElectrocution(ent, null, RobustRandom.Next(comp.SynthElectrocutionDamageMin, comp.SynthElectrocutionDamageMax), TimeSpan.FromSeconds(comp.SynthElectrocutionStunDuration), true, ignoreInsulation: true);
                     _esSparks.DoSparks(ent);
                 });
             }
             // DV end
-
-            if (RobustRandom.Prob(synthComp.AlertChance))
-                continue;
-
-            var msg = Loc.GetString("station-event-ion-storm-synth");
-            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-            _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Yellow);
         }
         // CD - End of synth trait
 
