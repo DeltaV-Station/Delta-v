@@ -93,8 +93,10 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
         ent.Comp.VisualState = state;
 
         // Toggle layer visibility
-        _sprite.LayerSetVisible((ent.Owner, sprite), DeployableTurretVisuals.Weapon, (targetState & DeployableTurretState.Deployed) > 0);
-        _sprite.LayerSetVisible((ent.Owner, sprite), PowerDeviceVisualLayers.Powered, HasAmmo(ent) && targetState == DeployableTurretState.Retracted);
+        var isFullyDeployed = targetState == DeployableTurretState.Deployed || targetState == DeployableTurretState.Firing;
+        _sprite.LayerSetVisible((ent.Owner, sprite), DeployableTurretVisuals.Weapon, isFullyDeployed);
+
+        _sprite.LayerSetVisible((ent.Owner, sprite), PowerDeviceVisualLayers.Powered, HasAmmo(ent));
 
         // Change the visual state
         switch (targetState)

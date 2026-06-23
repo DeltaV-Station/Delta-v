@@ -35,14 +35,8 @@
     layers:
     - state: support
       renderingStrategy: NoRotation
-    - state: base_shadow
-      map: [ "shadow" ]
     - state: base
       map: [ "base" ]
-    - state: stun
-      map: [ "enum.DeployableTurretVisuals.Weapon" ]
-      shader: "unshaded"
-      visible: false
     - state: cover_closed
       map: [ "enum.DeployableTurretVisuals.Turret" ]
       renderingStrategy: NoRotation
@@ -50,6 +44,10 @@
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
       shader: "unshaded"
       renderingStrategy: NoRotation
+      visible: false
+    - state: stun
+      map: [ "enum.DeployableTurretVisuals.Weapon" ]
+      shader: "unshaded"
       visible: false
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
