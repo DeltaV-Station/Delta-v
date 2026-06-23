@@ -59,20 +59,20 @@
   - type: Item
     sprite: _Impstation/Objects/Materials/materials.rsi #imp edit
     heldPrefix: cardboard
-  - type: UserInterface
-    interfaces:
-      enum.ShortConstructionUiKey.Key:
-        type: ShortConstructionMenuBUI
-  - type: ActivatableUI
-    key: enum.ShortConstructionUiKey.Key
-  - type: ShortConstruction
-    prototypes:
-    - Cardwall
-    - WindowCardboard
-    - WindowDirectionalCardboard
-    - ChairCardboard
-    - TileCardboard
-    - CardDoor
+  #- type: UserInterface # DeltaV comment - we don't have this UI!
+  #  interfaces:
+  #    enum.ShortConstructionUiKey.Key:
+  #      type: ShortConstructionMenuBUI
+  #- type: ActivatableUI
+  #  key: enum.ShortConstructionUiKey.Key
+  #- type: ShortConstruction
+  #  prototypes:
+  #  - Cardwall
+  #  - WindowCardboard
+  #  - WindowDirectionalCardboard
+  #  - ChairCardboard
+  #  - TileCardboard
+  #  - CardDoor
   - type: Tag
     tags:
       - ClothMade

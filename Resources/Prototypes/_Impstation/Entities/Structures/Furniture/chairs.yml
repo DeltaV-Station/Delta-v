@@ -1,15 +1,3 @@
-- type: entity
-  name: apid seat
-  id: ChairApid
-  parent: StoolBase
-  components:
-  - type: Sprite
-    sprite: _Impstation/Structures/Furniture/Chairs/chair_apid.rsi
-    state: apid
-  - type: Construction
-    graph: ImpSeat
-    node: chairapid
-
 # TODO: this needs to be able to crumple if you're too heavy when you buckle into it. there's already a sprite for it in the rsi.
 - type: entity
   name: cardboard chair

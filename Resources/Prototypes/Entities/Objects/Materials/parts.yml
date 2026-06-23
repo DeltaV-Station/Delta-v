@@ -8,9 +8,6 @@
     state: rods
   - type: Item
     sprite: Objects/Materials/parts.rsi
-  - type: Tag
-    tags:
-      - DroneUsable
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -25,6 +22,7 @@
   - type: Tag
     tags:
     - ConstructionMaterial
+    - DroneUsable #imp
 
 - type: entity
   parent: PartBase
@@ -84,9 +82,6 @@
   name: metal rod
   suffix: 10
   components:
-  - type: Tag # Imp - add drones
-    tags:
-    - DroneUsable
   - type: Sprite
     state: rods
   - type: Stack
@@ -98,9 +93,6 @@
   name: metal rod
   suffix: Single
   components:
-  - type: Tag # Imp - add drones
-    tags:
-    - DroneUsable
   - type: Sprite
     state: rods
   - type: Stack

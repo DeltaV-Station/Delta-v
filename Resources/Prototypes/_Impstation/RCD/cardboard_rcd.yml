@@ -117,3 +117,15 @@
   collisionMask: FullTileMask
   rotation: Camera
   fx: EffectRCDConstruct4
+
+# DeltaV - it's in regular RCD on imp, putting it here
+- type: rcd
+  id: ClothingHeadHatCone
+  category: Electrical
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/cone.png
+  mode: ConstructObject
+  prototype: ClothingHeadHatCone
+  cost: 2
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1

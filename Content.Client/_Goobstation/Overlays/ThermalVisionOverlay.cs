@@ -95,7 +95,7 @@ public sealed class ThermalVisionOverlay : Overlay
         var entities = _entity.EntityQueryEnumerator<BodyComponent, SpriteComponent, TransformComponent>();
         while (entities.MoveNext(out var uid, out var body, out var sprite, out var xform))
         {
-            if (!CanSee(uid, sprite))
+            if (!CanSee(uid, sprite) || !body.ThermalVisibility) // EE - thermalvisibility flag
                 continue;
 
             var entity = uid;
