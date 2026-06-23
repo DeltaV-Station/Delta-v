@@ -363,6 +363,13 @@
         - id: PlantBGoneSpray
         - id: WeedSpray
         - id: PestSpray
+      #Wallets
+      - !type:GroupSelector
+        children:
+        - id: ClothingWalletLeatherBrown
+        - id: ClothingWalletLeatherBlack
+        - id: ClothingWalletLeatherRed
+        - id: ClothingWalletLeatherBlue
     #Rare
     - !type:GroupSelector
       children:
@@ -644,3 +651,10 @@
         - id: ClothingBackpackSatchelSmugglerUnanchored
         - id: RandomSatchelSpawner
           weight: 0.10
+      #Wallets Come back and add filled
+      - !type:GroupSelector
+        children:
+        - id: ClothingWalletLeatherPirate
+        - id: ClothingWalletLeatherArcadia
+        - id: ClothingWalletLeatherPunk
+        - id: ClothingWalletLeatherLizard

@@ -98,6 +98,10 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade1);
             human.AddFunction(ContentKeyFunctions.Arcade2);
             human.AddFunction(ContentKeyFunctions.Arcade3);
+            // Begin DeltaV Additions - Ported from Frontier
+            human.AddFunction(ContentKeyFunctions.SmartEquipWallet);
+            human.AddFunction(ContentKeyFunctions.OpenWallet);
+            // End DeltaV Additions - Ported from Frontier
 
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);

@@ -1,0 +1,19 @@
+# Wallets
+- type: latheRecipe
+  abstract: true
+  id: NFWalletRecipe
+  parent: BaseJumpsuitRecipe
+  materials:
+    Cloth: 200
+    Durathread: 100
+  applyMaterialDiscount: false
+
+- type: latheRecipe
+  id: ClothingWalletLeatherBrown
+  parent: NFWalletRecipe
+  result: ClothingWalletLeatherBrown
+
+- type: latheRecipe
+  id: ClothingWalletLeatherBlack
+  parent: NFWalletRecipe
+  result: ClothingWalletLeatherBlack

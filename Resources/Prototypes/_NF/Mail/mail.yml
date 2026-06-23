@@ -1,0 +1,10 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailLizardWallet
+  suffix: lizard wallet
+  components:
+  - type: Mail
+    contents:
+      - id: ClothingWalletLeatherLizard
+        orGroup: Clothes

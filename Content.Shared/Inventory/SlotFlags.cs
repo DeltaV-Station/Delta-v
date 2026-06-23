@@ -23,9 +23,10 @@ public enum SlotFlags
     GLOVES = 1 << 10,
     IDCARD = 1 << 11,
     POCKET = 1 << 12,
-    LEGS = 1 << 13,
+    //LEGS = 1 << 13, // DeltaV - Ported from Frontier: unused slot
     FEET = 1 << 14,
     SUITSTORAGE = 1 << 15,
+    WALLET = 1 << 13, // DeltaV - Ported from Frontier: using an unused slot
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

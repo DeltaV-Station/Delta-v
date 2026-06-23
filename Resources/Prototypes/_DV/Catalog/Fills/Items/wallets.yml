@@ -1,0 +1,81 @@
+- type: entity
+  parent: NFBaseWallet
+  id: ClothingWalletFilled100
+  abstract: true
+  suffix: 100
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpaceCash100
+
+- type: entity
+  parent: NFBaseWallet
+  id: ClothingWalletFilled200
+  abstract: true
+  suffix: 200
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpaceCash100
+          rolls: !type:ConstantNumberSelector
+            value: 2
+
+- type: entity
+  parent: NFBaseWallet
+  id: ClothingWalletFilled300
+  abstract: true
+  suffix: 300
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpaceCash100
+          rolls: !type:ConstantNumberSelector
+            value: 3
+
+- type: entity
+  parent: NFBaseWallet
+  id: ClothingWalletFilledRandom
+  abstract: true
+  suffix: Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: SpaceCash10
+          prob: 0.3
+          rolls: !type:ConstantNumberSelector
+            value: 6
+        - id: SpaceCash100
+          weight: 0.75
+          prob: 0.3
+          rolls: !type:ConstantNumberSelector
+            value: 5
+        - id: SpaceCash1000
+          weight: 0.25
+        - id: SpaceCash10000
+          weight: 0.0001
+        - id: SpaceCash1000000
+          weight: 0.0000001
+
+- type: entity
+  parent: [ ClothingWalletLeatherBrown, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherBrownFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherBrown, ClothingWalletFilled200 ]
+  id: ClothingWalletLeatherBrownFilled200
+
+- type: entity
+  parent: [ ClothingWalletLeatherBrown, ClothingWalletFilled300 ]
+  id: ClothingWalletLeatherBrownFilled300
+
+- type: entity
+  parent: [ ClothingWalletLeatherBrown, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherBrownFilledRandom

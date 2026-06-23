@@ -202,6 +202,10 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.RotateObjectClockwise);
             AddButton(ContentKeyFunctions.RotateObjectCounterclockwise);
             AddButton(ContentKeyFunctions.FlipObject);
+            // DeltaV - Begin Frontier keybinds
+            AddButton(ContentKeyFunctions.SmartEquipWallet);
+            AddButton(ContentKeyFunctions.OpenWallet);
+            // DeltaV - End Frontier keybinds
 
             AddHeader("ui-options-header-ui");
             AddButton(ContentKeyFunctions.FocusChat);

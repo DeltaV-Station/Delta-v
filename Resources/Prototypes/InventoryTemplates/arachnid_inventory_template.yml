@@ -143,3 +143,13 @@
 #      dependsOnComponents:
 #      - type: AllowSuitStorage
       displayName: Suit Storage
+    # Begin Frontier Additions: wallet slot
+    - name: wallet
+      slotTexture: wallet
+      slotFlags: WALLET
+      stripTime: 6
+      uiWindowPos: 2,0
+      strippingWindowPos: 2,1
+      dependsOn: jumpsuit
+      displayName: Wallet
+    # End Frontier Additions: wallet slot
