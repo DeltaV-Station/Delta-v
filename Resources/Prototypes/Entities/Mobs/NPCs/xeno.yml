@@ -2,7 +2,7 @@
 - type: entity
   name: burrower
   id: MobXeno
-  parent: [BaseMobXenonid,SimpleSpaceMobBase] # DeltaV: Xenonid base parent
+  parent: [BaseMobXenonid, SimpleSpaceMobBase] # DeltaV: Xenonid base parent
   description: They mostly come at night. Mostly.
   components:
   - type: Insulated
