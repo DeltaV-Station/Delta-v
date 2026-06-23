@@ -31,7 +31,7 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             return;
 
         // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
-        // DV - buuuuuut only if IonStormAffected is present (via the "Susceptible to Ion Storms" meta trait) so that not all synthetics are affected by this
+        // DV - buuuuuut only if IonStormAffected is present so that not all synthetics are affected by this
         //      but they are stikll notified about incoming ion storms regardless.
         var synthQuery = EntityQueryEnumerator<SynthComponent>();
         while (synthQuery.MoveNext(out var ent, out var synthComp))
