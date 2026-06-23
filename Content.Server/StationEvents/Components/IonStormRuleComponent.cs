@@ -6,7 +6,7 @@ namespace Content.Server.StationEvents.Components;
 [RegisterComponent]
 public sealed partial class IonStormRuleComponent : Component
 {
-    // DV start - Synthetic rework
+    // DV start - Synthetic tweaks
     /// <summary>
     /// The chance that a synth gets electrocuted by the ion storm.
     /// </summary>
@@ -42,5 +42,5 @@ public sealed partial class IonStormRuleComponent : Component
     /// </summary>
     [DataField]
     public int SynthElectrocutionStunDuration = 3;
-    // DV end - synthetic rework
+    // DV end - synthetic tweaks
 }

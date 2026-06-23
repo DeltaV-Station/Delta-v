@@ -32,14 +32,14 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 
         // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
         // DV - buuuuuut only if IonStormAffected is present so that not all synthetics are affected by this
-        //      but they are stikll notified about incoming ion storms regardless.
+        //      but they are still notified about incoming ion storms regardless.
         var synthQuery = EntityQueryEnumerator<SynthComponent>();
         while (synthQuery.MoveNext(out var ent, out var synthComp))
         {
             if (!TryComp<ActorComponent>(ent, out var actor))
                 continue;
 
-            if (RobustRandom.Prob(synthComp.AlertChance))
+            if (!RobustRandom.Prob(synthComp.AlertChance))
             {
                 var msg = Loc.GetString("station-event-ion-storm-synth");
                 var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
@@ -47,7 +47,7 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             }
 
             // DV start - super duper fucked up thing for synths
-            if (synthComp.IonStormAffected && RobustRandom.Prob(comp.SynthElectrocutionChance))
+            if (synthComp.IonStormAffected && !RobustRandom.Prob(comp.SynthElectrocutionChance))
             {
                 var delay = RobustRandom.Next(TimeSpan.FromSeconds(comp.SynthElectrocutionDelayMin), TimeSpan.FromSeconds(comp.SynthElectrocutionDelayMax)); // they'll never know when it'll hit them
                 Timer.Spawn(delay, () =>
