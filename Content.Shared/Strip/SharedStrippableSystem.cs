@@ -718,8 +718,13 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (args.Handled || !args.Complex || args.Target == args.User)
             return;
 
+        // Begin Stellar Changes - don't play an interact particle for examining the strip UI
         if (TryOpenStrippingUi(args.User, (uid, component)))
+        {
             args.Handled = true;
+            args.InteractionParticle = false;
+        }
+        // End Stellar Changes - don't play an interact particle for examining the strip UI
     }
 
     /// <summary>

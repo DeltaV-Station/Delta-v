@@ -6,7 +6,6 @@ using Content.Shared._DV.Kitchen.Systems;
 using Content.Shared.Audio;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -107,6 +106,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     private void OnPowerChanged(Entity<DeepFryerComponent> ent, ref PowerChangedEvent args)
     {
         UpdateAppearance(ent);
+        ResetCookingItemsStartTime(ent);
         UpdateUserInterfaceState(ent);
     }
 
@@ -717,5 +717,27 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
 
         // Add the split solution to the food
         Solution.AddSolution(foodSolutionEnt.Value, transferredSolution);
+    }
+
+    /// <summary>
+    /// Resets the starttime for cooking items (on power change)
+    /// </summary>
+    private void ResetCookingItemsStartTime(Entity<DeepFryerComponent> ent)
+    {
+        if (_power.IsPowered(ent.Owner) && !ent.Comp.WasPreviouslyPowered)
+        {
+            // Power just came back on - reset all cooking timers
+            foreach (var itemUid in ent.Comp.CookingItems.Keys.ToList())
+            {
+                var cookingItem = ent.Comp.CookingItems[itemUid];
+                cookingItem.TimeStarted = _timing.CurTime;
+                ent.Comp.CookingItems[itemUid] = cookingItem;
+            }
+            ent.Comp.WasPreviouslyPowered = true;
+        }
+        else if (!_power.IsPowered(ent.Owner) && ent.Comp.WasPreviouslyPowered)
+        {
+            ent.Comp.WasPreviouslyPowered = false;
+        }
     }
 }
