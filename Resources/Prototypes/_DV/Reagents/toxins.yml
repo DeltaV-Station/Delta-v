@@ -42,11 +42,19 @@
       metabolismRate: 3.00
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
+          inverted: true
         damage:
           types:
             Caustic: 0.5
             Heat: 0.5
       - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
+          inverted: true
         type: Local
         visualType: Large
         messages: [ "generic-reagent-effect-burning-insides" ]

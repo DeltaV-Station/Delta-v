@@ -77,6 +77,7 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
+    - Critical
     damage:
       groups:
         Brute: -0.15
@@ -88,8 +89,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.45
-        density: 235
+          radius: 0.40
+        density: 450
         mask:
         - MobMask
         layer:
@@ -97,21 +98,9 @@
   - type: Damageable
     damageModifierSet: Xenonid
   - type: Body
-    prototype: Xenonid
+    prototype: Bloodsucker
 
 # Xenonids tier 1
-
-- type: entity
-  abstract: true
-  parent: BaseMobXenonid
-  id: BaseMobXenonidTier1
-  components:
-  - type: Prying
-    pryPowered: true
-    force: true
-    speedModifier: 2.5
-    useSound:
-      path: /Audio/Items/crowbar.ogg
 
 # Xenonids tier 2
 
@@ -129,14 +118,23 @@
   - type: Stamina
     baseCritThreshold: 250
   - type: PassiveDamage
-    allowedStates:
-    - Alive
     damage:
       groups:
         Brute: -0.3
         Burn: -0.4
         Toxin: -0.2
         Metaphysical: -0.2
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 950
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: lurker
@@ -157,7 +155,7 @@
       300: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      160: 0.7
+      120: 0.7
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: MeleeWeapon
@@ -201,16 +199,25 @@
     baseCritThreshold: 300
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepQueenXeno
+      collection: FootstepXenonidBig
   - type: PassiveDamage
-    allowedStates:
-    - Alive
     damage:
       groups:
         Brute: -0.45
         Burn: -0.6
         Toxin: -0.3
         Metaphysical: -0.3
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 1350
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: boiler
@@ -270,6 +277,7 @@
       700: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
+      300: 0.9
       450: 0.8
   - type: MovementSpeedModifier
     baseSprintSpeed: 3.5

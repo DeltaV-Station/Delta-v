@@ -49,3 +49,27 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   standsout: true
   color: "#9ca52c"
+  metabolisms:
+    Poison:
+      metabolismRate: 3.00
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
+          inverted: true
+        damage:
+          types:
+            Caustic: 8
+      - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
+          inverted: true
+        type: Local
+        visualType: Large
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.33
+      - !type:Emote
+        emote: Scream
+        probability: 0.25

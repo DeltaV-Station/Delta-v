@@ -2,7 +2,7 @@
 - type: entity
   name: burrower
   id: MobXeno
-  parent: SimpleSpaceMobBase
+  parent: [BaseMobXenonid,SimpleSpaceMobBase] # DeltaV: Xenonid base parent
   description: They mostly come at night. Mostly.
   components:
   - type: Insulated
@@ -91,7 +91,7 @@
         Base: crit
       Dead:
         Base: dead
-  - type: Puller
+  # - type: Puller # DeltaV: Already on Xenonid base with needshands: false
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -130,7 +130,7 @@
 
 - type: entity
   name: praetorian
-  parent: MobXeno
+  parent: [BaseMobXenonidTier3, MobXeno] # DeltaV: Xenonid base parent
   id: MobXenoPraetorianNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
@@ -148,7 +148,7 @@
     baseCritThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
-      50: 0.7
+      300: 0.7 # DeltaV: was 50
   - type: Fixtures
     fixtures:
       fix1:
@@ -164,13 +164,10 @@
     damage:
       types:
         Slash: 15
-  - type: FootstepModifier #DeltaV - Make xenos walk loud
-    footstepSoundCollection:
-      collection: FootstepQueenXeno
 
 - type: entity
   name: drone
-  parent: MobXeno
+  parent: [BaseMobXenonid, MobXeno] # DeltaV: Xenonid base parent
   id: MobXenoDroneNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
@@ -186,7 +183,7 @@
       160: Dead # DeltaV - Was 80
   - type: SlowOnDamage
     speedModifierThresholds:
-      40: 0.7
+      80: 0.7 # DeltaV - was 40
   - type: MeleeWeapon
     damage:
 # Begin DeltaV Changes
@@ -209,7 +206,7 @@
 
 - type: entity
   name: queen
-  parent: MobXeno
+  parent: [BaseMobXenonidTier3, MobXeno] # DeltaV: Xenonid base parent
   id: MobXenoQueenNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
@@ -225,7 +222,7 @@
       600: Dead # DeltaV - Was 300
   - type: SlowOnDamage
     speedModifierThresholds:
-      150: 0.7
+      400: 0.7 # DeltaV - was 150
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
@@ -258,7 +255,7 @@
 
 - type: entity
   name: ravager
-  parent: MobXeno
+  parent: [BaseMobXenonidTier3, MobXeno] # DeltaV: Xenonid base parent
   id: MobXenoRavagerNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
@@ -275,6 +272,7 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 5 # DeltaV - Was 4
   - type: MeleeWeapon
+    autoAttack: true # DeltaV
     attackRate: 1.75 # DeltaV - One of the deadliest if you get too close
     damage:
 # Begin DeltaV Changes
@@ -284,7 +282,7 @@
 # End DeltaV Changes
   - type: SlowOnDamage
     speedModifierThresholds:
-      50: 0.7
+      230: 0.8 # DeltaV - was 50 and 0.7
   - type: Fixtures
     fixtures:
       fix1:
@@ -299,7 +297,7 @@
 
 - type: entity
   name: runner
-  parent: MobXeno
+  parent: [BaseMobXenonid, MobXeno] # DeltaV: Xenonid base parent
   id: MobXenoRunnerNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
@@ -351,7 +349,7 @@
 
 - type: entity
   name: spitter
-  parent: MobXeno
+  parent: [BaseMobXenonidTier2, MobXeno] # DeltaV: Xenonid base parent
   id: MobXenoSpitterNPC # DeltaV - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
@@ -364,10 +362,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead # DeltaV - Was 50
+      250: Dead # DeltaV - Was 50
   - type: SlowOnDamage
     speedModifierThresholds:
-      25: 0.7
+      125: 0.7 # DetlaV - was 25
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
