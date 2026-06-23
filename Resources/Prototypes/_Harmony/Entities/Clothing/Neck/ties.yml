@@ -1,0 +1,29 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckLanyard
+  name: lanyard
+  description: Use this to display information about yourself to others, or brag about your captain-stamped paperwork!
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/Misc/lanyard.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/Misc/lanyard.rsi
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        components:
+          - DevilContract # Prevent Devils from hiding paperwork
+          - RevivalContract # Prevent Devils from hiding paperwork
+          - Access # Prevents PaperSlipSpareID (Emergency Access Biscuit)
+        tags:
+        - Book
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: ItemSlots

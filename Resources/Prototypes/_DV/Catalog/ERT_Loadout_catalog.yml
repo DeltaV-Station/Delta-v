@@ -1,0 +1,428 @@
+- type: thiefBackpackSet
+  id: ERTPatosBundle
+  name: ert-amber-gun-name-patos
+  description: ert-amber-gun-desc-patos
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunPatos
+  - MagazinePistolHighCapacity
+  - MagazinePistolHighCapacity
+  - MagazinePistolHighCapacity
+  - MagazinePistolHighCapacity
+
+- type: thiefBackpackSet
+  id: ERTaegunBundle
+  name: ert-amber-gun-name-aegun
+  description: ert-amber-gun-desc-aegun
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/energygunadvanced.rsi
+    state: icon
+  content:
+  - WeaponEnergyGunAdvanced
+
+- type: thiefBackpackSet
+  id: ERTmixlaserBundle
+  name: ert-amber-gun-name-mixlaser
+  description: ert-amber-gun-desc-mixlaser
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    state: icon
+  content:
+  - WeaponLaserCarbine
+  - WeaponDisablerSMG
+  - PortableRecharger
+
+- type: thiefBackpackSet
+  id: ERTMedkit
+  name: ert-medkit-name
+  description: ert-medkit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: firstaid
+  content:
+  - MedkitFilled
+
+- type: thiefBackpackSet
+  id: ERTBrutekit
+  name: ert-brutekit-name
+  description: ert-brutekit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: brutekit
+  content:
+  - MedkitBruteFilled
+
+- type: thiefBackpackSet
+  id: ERTLecterkit
+  name: ert-lecterkit-name
+  description: ert-lecterbundle-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lecter.rsi
+    state: icon
+  content:
+  - WeaponRifleLecter
+  - MagazineRifle
+  - MagazineRifle
+  - MagazineRifle
+  - MagazineRifle
+  - MagazineRifle
+
+- type: thiefBackpackSet
+  id: ERTDrozdkit
+  name: ert-drozdkit-name
+  description: ert-drozdkit-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/SMGs/drozd.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunDrozd
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGunRubber
+  - MagazinePistolSubMachineGunRubber
+  - MagazinePistolSubMachineGunUranium
+  - MagazinePistolSubMachineGunUranium
+  - MagazinePistolSubMachineGunUranium
+
+- type: thiefBackpackSet
+  id: ERTLaserIK30kit
+  name: ert-IK30kit-name
+  description: ert-IK30kit-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbine.rsi
+    state: icon
+  content:
+  - WeaponRifleLaser
+  - MagazineLaser
+  - MagazineLaser
+  - MagazineLaser
+  - MagazineLaser
+  - MagazineLaser
+
+- type: thiefBackpackSet
+  id: ERTEnforcerkit
+  name: ert-enforcerkit-name
+  description: ert-enforcerkit-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    state: icon
+  content:
+  - WeaponShotgunEnforcer
+  - BoxLethalshot
+  - BoxLethalshot
+  - BoxLethalshot
+
+- type: thiefBackpackSet
+  id: ERTCombatMedkit
+  name: ert-CombatMedkit-name
+  description: ert-CombatMedkit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  content:
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet
+  id: ERTAutoInjectorLight
+  name: ert-AutoInjectorLight-name
+  description: ert-AutoInjectorLight-desc
+  sprite:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: punctpen
+  content:
+  - BurnAutoInjector
+  - BurnAutoInjector
+  - PunctAutoInjector
+  - PunctAutoInjector
+  - Gauze
+
+- type: thiefBackpackSet
+  id: ERTAdvancedTopicals
+  name: ert-AdvancedTopicals-name
+  description: ert-AdvancedTopicals-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: advkit
+  content:
+  - MedicatedSuture
+  - RegenerativeMesh
+  - MedkitAdvancedFilled
+
+- type: thiefBackpackSet
+  id: ERTLeaderOfficerRed
+  name: ert-LeaderRedOfficer-name
+  description: ert-LeaderRedOfficer-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Pistols/universal.rsi
+    state: icon
+  content:
+  - WeaponPistolUniversal
+  - SyndicateWhistle
+  - MagazineUniversalMagnum
+  - MagazineUniversalMagnum
+  - MagazineUniversalMagnum
+  - WeaponAdvancedLaser
+  - Binoculars
+
+- type: thiefBackpackSet
+  id: ERTLeaderWTRed
+  name: ert-LeaderRedWT-name
+  description: ert-LeaderRedWT-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunWt550
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - TelescopicShield
+  - TelescopicShield
+
+- type: thiefBackpackSet
+  id: ERTLeaderColdCannonRed
+  name: ert-LeaderRedColdCannon-name
+  description: ert-LeaderRedColdCannon-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/cold_cannon.rsi
+    state: icon
+  content:
+  - WeaponColdCannon
+  - PortableRecharger
+
+- type: thiefBackpackSet
+  id: ERTLeaderGammaAtrides
+  name: ert-LeaderAtrides-name
+  description: ert-LeaderAtrides-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunAtreides
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - TelescopicShield
+  - TelescopicShield
+
+- type: thiefBackpackSet
+  id: ERTLeaderGammaPulseRifle
+  name: ert-GammaPulseRifle-name
+  description: ert-GammaPulseRifle-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    state: icon
+  content:
+  - WeaponPulseRifle
+
+- type: thiefBackpackSet
+  id: ERTLeaderGammaAntelope
+  name: ert-GammaLeaderAntelope-name
+  description: ert-GammaLeaderAntelope-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/Antelope.rsi
+    state: icon
+  content:
+  - WeaponShotgunAntelope
+  - MagazineShotgun
+  - MagazineShotgun
+  - MagazineShotgun
+  - MagazineShotgun
+  - MagazineShotgun
+
+- type: thiefBackpackSet
+  id: ERTLeaderOfficerGamma
+  name: ert-GammaOfficer-name
+  description: ert-GammaOfficer-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    state: icon
+  content:
+  - SyndicateWhistle
+  - WeaponPistolN1984
+  - MagazineMagnum
+  - MagazineMagnum
+  - MagazineMagnum
+  - MagazineBoxMagnum
+  - MagazineBoxMagnum
+  - Binoculars
+
+- type: thiefBackpackSet
+  id: ERTGammaSecCombatkit
+  name: ert-GammaSecCombatkit-name
+  description: ert-GammaSecCombatkit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  content:
+  - MedkitCombatFilled
+  - PunctAutoInjector
+  - PyraAutoInjector
+
+- type: thiefBackpackSet
+  id: ERTGammaSecStimkit
+  name: ert-GammaSecStimkit-name
+  description: ert-GammaSecStimkit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/advanced_jetinjector.rsi
+    state: jetinjector_base
+  content:
+  - AdvancedJetInjector
+  - ChemistryBottleEphedrine
+  - ChemistryBottleEphedrine
+  - ChemistryBottleOmnizine
+
+- type: thiefBackpackSet
+  id: ERTGammaSecChemkit
+  name: ert-GammaSecliquidkit-name
+  description: ert-GammaSecliquidkit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/jetinjector.rsi
+    state: jetinjector_base
+  content:
+  - AdvancedJetInjector
+  - BoxBottleMedicineBasic
+
+- type: thiefBackpackSet
+  id: ERTGammaSecWT
+  name: ert-GammaWTkit-name
+  description: ert-GammaWTkit-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunWt550
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMounted
+  - TelescopicShield
+  - TelescopicShield
+
+- type: thiefBackpackSet
+  id: ERTGammaSecEnforcer
+  name: ert-enforcerkitspecial-name
+  description: ert-enforcerkitspecial-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    state: icon
+  content:
+  - WeaponShotgunEnforcer
+  - BoxLethalshot
+  - BoxLethalshot
+  - BoxShotgunUranium
+  - BoxShotgunUranium
+  - BoxShotgunIncendiary
+  - BoxShotgunIncendiary
+
+- type: thiefBackpackSet
+  id: ERTGammaSecImmolator
+  name: ert-Immolatorkit-name
+  description: ert-Immolatorkit-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/multi_lens_immolator.rsi
+    state: icon
+  content:
+  - WeaponImmolatorMulti
+  - WeaponEnergyGun
+  - PortableRecharger
+
+- type: thiefBackpackSet
+  id: ERTGammaSecIK60
+  name: ert-IK60kit-name
+  description: ert-IK60kit-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbineert.rsi
+    state: icon
+  content:
+  - WeaponRifleLaserERT
+  - MagazineLaser
+  - MagazineLaser
+  - MagazineLaser
+  - MagazineLaser
+
+- type: thiefBackpackSet
+  id: ERTGammaC4
+  name: ert-GammaC4-name
+  description: ert-GammaC4-desc
+  sprite:
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
+  content:
+  - BoxC4
+
+- type: thiefBackpackSet
+  id: ERTGammaThermals
+  name: ert-GammaThermals-name
+  description: ert-GammaThermals-desc
+  sprite:
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+    state: icon
+  content:
+  - ClothingMaskGasDeathSquad
+
+- type: thiefBackpackSet
+  id: ERTGammaJets
+  name: ert-GammaJets-name
+  description: ert-GammaJets-desc
+  sprite:
+    sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi
+    state: icon
+  content:
+  - HandHeldMassScanner
+  - JetpackBlueFilled
+  - PowerCellMicroreactor
+  - DoubleEmergencyOxygenTankFilled
+  - DoubleEmergencyNitrogenTankFilled
+
+- type: thiefBackpackSet
+  id: ERTGammaHE
+  name: ert-GammaNadesHE-name
+  description: ert-GammaNadesHE-desc
+  sprite:
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  content:
+  - ExGrenade
+  - ExGrenade
+  - ExGrenade
+
+- type: thiefBackpackSet
+  id: ERTGammaSmoke
+  name: ert-GammaSmokes-name
+  description: ert-GammaSmokes-desc
+  sprite:
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    state: icon
+  content:
+  - SmokeGrenade
+  - SmokeGrenade
+  - SmokeGrenade
+
+- type: thiefBackpackSet
+  id: ERTGammaIncend
+  name: ert-GammaIncend-name
+  description: ert-GammaIncend-desc
+  sprite:
+    sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
+    state: icon
+  content:
+  - GrenadeIncendiary
+  - GrenadeIncendiary
+
+- type: thiefBackpackSet
+  id: ERTGammaEMP
+  name: ert-GammaEMP-name
+  description: ert-GammaEMP-desc
+  sprite:
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    state: icon
+  content:
+  - EmpGrenade
+  - EmpGrenade

@@ -66,3 +66,5 @@ paper-viral-care-package-manual = [color=#134975]░░██░░ [head=2]Vira
       ​[color=darkblue][bolditalic]Nanotrasen™[/bolditalic][/color] is unable to supply stations with [bolditalic][color=#86caf7]Ambuzol[/color][/bolditalic], as every viral infection requires the specific virus strain to synthesize the cure.
       ​[color=darkblue][bolditalic]Nanotrasen™[/bolditalic][/color] is not liable to any damages caused by improper usage or administration of chemicals.
       This instructions pamphlet will be used as "Exhibit A" if you sue [color=darkblue][bolditalic]Nanotrasen™[/bolditalic][/color].
+
+paper-hitman-business-card = [color=#FFFFFF]Its just business[/color]

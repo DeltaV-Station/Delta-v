@@ -123,3 +123,24 @@
         - id: SpeedLoaderMagnum
           amount: !type:RangeNumberSelector
             range: 0, 2
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingERTMedicine
+  parent: ClothingBeltMilitaryWebbingERT
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedkitCombatFilled
+        - id: AirlossAutoInjector
+        - id: BurnAutoInjector
+        - id: BruteAutoInjector
+        - id: PunctAutoInjector
+        - id: PyraAutoInjector
+        - id: AirlossAutoInjector
+        - id: BurnAutoInjector
+        - id: BruteAutoInjector
+        - id: PunctAutoInjector
+        - id: PyraAutoInjector

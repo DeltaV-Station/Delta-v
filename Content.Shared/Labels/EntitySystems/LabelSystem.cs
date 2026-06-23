@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
+using Content.Shared.IdentityManagement; //Harmony Lanyards
+using Content.Shared.Inventory; //Harmony Lanyards
 using Content.Shared.Labels.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Paper;
@@ -8,6 +10,7 @@ using Content.Shared.Tag; // DeltaV
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Utility;
+using System.Linq; //Harmony Lanyards
 
 namespace Content.Shared.Labels.EntitySystems;
 
@@ -34,6 +37,11 @@ public sealed partial class LabelSystem : EntitySystem
         SubscribeLocalEvent<PaperLabelComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<PaperLabelComponent, EntRemovedFromContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<PaperLabelComponent, ExaminedEvent>(OnExamined);
+        // Harmony - OnExamined can now be inventory relayed from the neck slot for lanyard implementation,
+        // getting the entity's pronouns and changing the label inspection text to reflect it being from a lanyard.
+        // This would cause any other neck slot item with the label component to be described as a lanyard on inspection,
+        // but currently no others exist.
+        SubscribeLocalEvent<PaperLabelComponent, InventoryRelayedEvent<ExaminedEvent>>((e, c, ev) => OnExaminedInInventory(e, c, ev.Args));
     }
 
     private void OnLabelCompMapInit(Entity<LabelComponent> ent, ref MapInitEvent args)
@@ -123,8 +131,64 @@ public sealed partial class LabelSystem : EntitySystem
             args.PushMarkup(Loc.GetString("comp-paper-label-has-label"));
             var text = paper.Content;
             args.PushMarkup(text.TrimEnd());
+            // Harmony addition begins - shows which stamps have been applied to a label when inspected. Copied from PaperSystem.
+            if (paper.StampedBy.Count > 0)
+            {
+                var commaSeparated =
+                    string.Join(", ", paper.StampedBy.Select(s => Loc.GetString(s.StampedName)));
+                args.PushMarkup(
+                    Loc.GetString(
+                        "comp-label-examine-detail-stamped-by",
+                        ("stamps", commaSeparated))
+                );
+            }
+            // Harmony addition ends
         }
     }
+
+    // Harmony addition begins - version of OnExamined for when the event is inventory relayed. Used when reading from a worn lanyard.
+    private void OnExaminedInInventory(EntityUid uid, PaperLabelComponent comp, ExaminedEvent args)
+    {
+        if (comp.LabelSlot.Item is not { Valid: true } item)
+            return;
+
+        using (args.PushGroup(nameof(PaperLabelComponent)))
+        {
+            // UID's parent is saved to be used for localisation grammar when the label is from a lanyard, since the text is changed.
+            var user = Comp<TransformComponent>(uid).ParentUid;
+            if (!args.IsInDetailsRange)
+            {
+                args.PushMarkup(Loc.GetString("comp-lanyard-has-lanyard-cant-read", ("user", Identity.Entity(user, EntityManager))));
+                return;
+            }
+
+            if (!TryComp(item, out PaperComponent? paper))
+                // Assuming yaml has the correct entity whitelist, this should not happen.
+                return;
+
+            if (string.IsNullOrWhiteSpace(paper.Content))
+            {
+                args.PushMarkup(Loc.GetString("comp-lanyard-has-lanyard-blank", ("user", Identity.Entity(user, EntityManager))));
+                return;
+            }
+
+            args.PushMarkup(Loc.GetString("comp-lanyard-has-lanyard", ("user", Identity.Entity(user, EntityManager))));
+            var text = paper.Content;
+            args.PushMarkup(text.TrimEnd());
+            // Harmony - shows which stamps have been applied to a lanyard's label when inspected. Copied from PaperSystem.
+            if (paper.StampedBy.Count > 0)
+            {
+                var commaSeparated =
+                    string.Join(", ", paper.StampedBy.Select(s => Loc.GetString(s.StampedName)));
+                args.PushMarkup(
+                    Loc.GetString(
+                        "comp-lanyard-examine-detail-stamped-by",
+                        ("stamps", commaSeparated))
+                );
+            }
+        }
+    }
+    // Harmony Addition Ends
 
     // Not ref-sub due to being used for multiple subscriptions.
     private void OnContainerModified(EntityUid uid, PaperLabelComponent label, ContainerModifiedMessage args)
