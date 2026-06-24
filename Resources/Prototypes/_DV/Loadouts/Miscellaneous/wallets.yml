@@ -135,31 +135,47 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:OverallPlaytimeRequirement
-      time: 1000h # don't forget to revert
+      time: 40h
   equipment:
     wallet: ClothingWalletLeatherArcadiaFilled40
 
 - type: loadout
-  parent: WalletArcadia40
   id: WalletArcadia100
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 40h
   equipment:
     wallet: ClothingWalletLeatherArcadiaFilled100
 
 - type: loadout
-  parent: WalletArcadia40
   id: WalletArcadia200
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 40h
   equipment:
     wallet: ClothingWalletLeatherArcadiaFilled200
 
 - type: loadout
-  parent: WalletArcadia40
   id: WalletArcadia300
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 40h
   equipment:
     wallet: ClothingWalletLeatherArcadiaFilled300
 
 - type: loadout
-  parent: WalletArcadia40
   id: WalletArcadiaRandom
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 40h
   equipment:
     wallet: ClothingWalletLeatherArcadiaFilledRandom
 
