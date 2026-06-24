@@ -36,13 +36,13 @@
         - id: TowelColorYellow
         - id: TowelColorMaroon
       - !type:GroupSelector
-        weight: 0.1
+        weight: 0.05
         children:
         - id: TowelColorGold
           weight: 0.5
         - id: TowelColorSilver
       - !type:GroupSelector
-        weight: 0.05
+        weight: 0.005
         children:
         - id: TowelColorNT
         - id: TowelColorCentcom
