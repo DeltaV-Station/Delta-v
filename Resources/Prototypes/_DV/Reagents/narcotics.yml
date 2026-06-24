@@ -45,7 +45,7 @@
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
-        messages: 
+        messages:
         - amenstizine-popup-1
         - amenstizine-popup-2
         - amenstizine-popup-3
@@ -55,7 +55,7 @@
         - amenstizine-popup-7
         conditions:
         probability: 0.10
-      - !type:GenericStatusEffect 
+      - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
         type: Add
