@@ -63,7 +63,7 @@
       150: Dead # DeltaV - Was 50
   - type: SlowOnDamage
     speedModifierThresholds:
-      25: 0.5
+      75: 0.5 # DeltaV - was 25
   - type: Stamina
     baseCritThreshold: 200
   - type: Bloodstream
@@ -282,7 +282,7 @@
 # End DeltaV Changes
   - type: SlowOnDamage
     speedModifierThresholds:
-      230: 0.8 # DeltaV - was 50 and 0.7
+      230: 0.7 # DeltaV - was 50
   - type: Fixtures
     fixtures:
       fix1:
