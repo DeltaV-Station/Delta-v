@@ -107,7 +107,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomBeltSpawner
-  name: random belt spawner
+  name: random belt & wallet spawner
   components:
   - type: Sprite
     layers:
@@ -645,6 +645,13 @@
       - id: ClothingBeltPaperwork
       - id: ClothingBeltStorageWaistbag
       - id: ClothingBeltPilot
+      - !type:GroupSelector
+        children:
+        - id: ClothingWalletLeatherBrown
+        - id: ClothingWalletLeatherBlack
+        - id: ClothingWalletLeatherRed
+        - id: ClothingWalletLeatherBlue
+        - id: ClothingWalletLeatherGreen
     #Rare
     - !type:GroupSelector
       weight: 0.05
@@ -653,6 +660,13 @@
       - id: ClothingBeltHolster
       - id: ClothingBeltSuspendersRed
       - id: ClothingBeltSuspendersBlack
+      - !type:GroupSelector
+        children:
+        - id: ClothingWalletLeatherPirate
+        - id: ClothingWalletLeatherArcadia
+        - id: ClothingWalletLeatherPunk
+        - id: ClothingWalletLeatherLizard
+          weight: 0.50
 
 - type: entityTable
   id: RandomUniformTable
