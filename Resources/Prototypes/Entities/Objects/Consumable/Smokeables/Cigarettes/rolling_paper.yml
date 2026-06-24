@@ -21,6 +21,9 @@
     state: cigpapers
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/paper.rsi
+  - type: Tag # DeltaV - Fits wallet
+    tags:
+    - FitsWallet
 
 - type: entity
   parent: PackPaperRolling
@@ -57,6 +60,7 @@
     tags:
     - RollingPaper
     - Trash
+    - FitsWallet # DeltaV - Fits wallet
   - type: SpaceGarbage
 
 - type: entity
