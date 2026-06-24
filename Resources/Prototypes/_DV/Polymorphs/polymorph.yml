@@ -14,6 +14,6 @@
     entity: GnomeJaunt
     cooldown: 10
     forced: true
-    duration: 3
+    duration: 2
     polymorphSound: /Audio/_DV/Voice/Gnome/gnomelaugh.ogg
-    polymorphInventoryChange: Drop
+    polymorphInventoryChange: Drop # Doesn't seem to drop items in hands, so pointless

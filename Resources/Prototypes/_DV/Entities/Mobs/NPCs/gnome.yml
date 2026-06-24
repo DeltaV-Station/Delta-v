@@ -84,7 +84,7 @@
   # abilities
   - type: Psionic
   - type: Jaunt
-    jauntAction: ActionPolymorphJauntGnome # 3 second jaunt with 10 second cooldown
+    jauntAction: ActionPolymorphJauntGnome # 2 second jaunt with 10 second cooldown
   - type: PsionicRegenerationPower
   - type: PsionicInvisibilityPower
   - type: NoSlip
@@ -109,7 +109,8 @@
     shape:
     - 0,0,0,2
   - type: Hands
-    count: 2
+    count: 1
+    showInHands: false # TODO: make displacement maps that just slide them down
   - type: Puller
   - type: ComplexInteraction
   - type: AutoImplant
