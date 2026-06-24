@@ -31,6 +31,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
+  categories: [ HideSpawnMenu ] # Delta V - Deathsquad is not real
   name: Death Squad Agent
   suffix: ERTRole, Death Squad
   components:
@@ -306,6 +307,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTEngineerEVA
   id: RandomHumanoidSpawnerERTEngineerArmed
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
@@ -313,6 +315,7 @@
 
 - type: randomHumanoidSettings
   id: ERTEngineerArmed
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: ERTEngineer
   components:
   - type: RandomMetadata
@@ -340,6 +343,7 @@
 
 - type: randomHumanoidSettings
   id: ERTSecurity
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -372,6 +376,7 @@
 
 - type: randomHumanoidSettings
   id: ERTSecurityEVA
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: ERTSecurity
   components:
     - type: GhostRole
@@ -410,6 +415,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedGrenade
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   name: ERT security grenadier
   suffix: ERTRole, Armed, EVA
   components:
@@ -431,6 +437,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedVanguard
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   name: ERT security vanguard
   suffix: ERTRole, Armed, EVA
   components:
@@ -452,6 +459,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedShotgun
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   name: ERT security breacher
   suffix: ERTRole, Armed, EVA
   components:
@@ -527,6 +535,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTMedicalEVA
   id: RandomHumanoidSpawnerERTMedicalArmed
+  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
