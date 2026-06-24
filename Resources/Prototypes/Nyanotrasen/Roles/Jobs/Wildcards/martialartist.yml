@@ -13,14 +13,15 @@
 #  whitelistRequired: true
   access:
   - Maintenance
-  - Theatre # DeltaV - Add Theatre access
-  - Boxer # DeltaV - Add Boxer access
+  - Theatre
+  - Boxer
 
 - type: startingGear
   id: MartialArtistGear
   equipment:
     id: MartialArtistPDA
     ears: ClothingHeadsetService
+    wallet: ClothingWalletLeatherPrisonerFilledRandom
 
 - type: chameleonOutfit
   id: MartialArtistChameleonOutfit

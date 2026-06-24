@@ -1,6 +1,11 @@
 # Jumpskirt
-
 - type: loadout
   id: PrisonGuardJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtPrisonGuard
+    jumpsuit: ClothingUniformJumpskirtPrisonGuard# Head
+
+# Head
+- type: loadout
+  id: PrisonGuardHead
+  equipment:
+    head: ClothingHeadPrisonGuard

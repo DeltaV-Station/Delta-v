@@ -2,6 +2,7 @@
 
 # Miscellaneous
 loadout-group-survival-corpsman = Corpsman survival box
+loadout-group-wallet = Wallet
 
 # Command
 loadout-group-captain-gloves = Captain gloves
@@ -17,6 +18,7 @@ loadout-group-bartender-glasses = Bartender glasses
 loadout-group-bartender-neck = Bartender neck
 
 loadout-group-janitor-neck = Janitor neck
+loadout-group-janitor-wallet = Janitor wallet
 
 loadout-group-botanist-neck = Botanist neck
 
@@ -50,6 +52,7 @@ loadout-group-courier-shoes = Courier shoes
 loadout-group-courier-outerclothing = Courier outer clothing
 loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-id = Courier ID
+loadout-group-courier-wallet = Courier wallet
 
 loadout-group-mail-carrier-head = Mail Carrier head
 loadout-group-mail-carrier-jumpsuit = Mail Carrier jumpsuit

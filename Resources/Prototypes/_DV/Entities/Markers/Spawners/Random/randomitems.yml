@@ -370,6 +370,7 @@
         - id: ClothingWalletLeatherBlack
         - id: ClothingWalletLeatherRed
         - id: ClothingWalletLeatherBlue
+        - id: ClothingWalletLeatherGreen
     #Rare
     - !type:GroupSelector
       children:
@@ -654,7 +655,26 @@
       #Wallets Come back and add filled
       - !type:GroupSelector
         children:
-        - id: ClothingWalletLeatherPirate
-        - id: ClothingWalletLeatherArcadia
-        - id: ClothingWalletLeatherPunk
-        - id: ClothingWalletLeatherLizard
+        - !type:GroupSelector
+          children:
+          - id: ClothingWalletLeatherPirate
+          - id: ClothingWalletLeatherArcadia
+          - id: ClothingWalletLeatherPunk
+          - id: ClothingWalletLeatherLizard
+            weight: 0.50
+        - !type:GroupSelector
+          weight: 1.5
+          children:
+          - id: ClothingWalletLeatherBrownFilledRandom
+          - id: ClothingWalletLeatherBlackFilledRandom
+          - id: ClothingWalletLeatherRedFilledRandom
+          - id: ClothingWalletLeatherBlueFilledRandom
+          - id: ClothingWalletLeatherGreenFilledRandom
+          - id: ClothingWalletLeatherPirateFilledRandom
+            weight: 0.75
+          - id: ClothingWalletLeatherArcadiaFilledRandom
+            weight: 0.75
+          - id: ClothingWalletLeatherPunkFilledRandom
+            weight: 0.75
+          - id: ClothingWalletLeatherLizardFilledRandom
+            weight: 0.50

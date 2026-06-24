@@ -4,6 +4,11 @@
   equipment:
       head: ClothingHeadCourier
 
+- type: loadout
+  id: MailCarrierHead
+  equipment:
+    head: ClothingHeadMailCarrier
+
 # Jumpsuit
 - type: loadout
   id: CourierJumpsuit
@@ -14,6 +19,22 @@
   id: CourierJumpskirt
   equipment:
       jumpsuit: ClothingUniformSkirtCourier
+
+- type: loadout
+  id: MailCarrierJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMailCarrier
+
+- type: loadout
+  id: MailCarrierJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformSkirtMailCarrier
+
+# OuterClothing
+- type: loadout
+  id: MailCarrierWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterCoatMail
 
 # Backpack
 - type: loadout
@@ -43,3 +64,15 @@
   id: MailCarrierPDA
   equipment:
       id: MailCarrierPDA
+
+# Wallet
+- type: loadout
+  id: CourierWallet
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCourier
+      time: 2h
+  equipment:
+      wallet: ClothingWalletLeatherMailFilled100

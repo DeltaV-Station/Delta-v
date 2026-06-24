@@ -1,8 +1,22 @@
 - type: entity
   parent: NFBaseWallet
+  id: ClothingWalletFilled40
+  abstract: true
+  suffix: Filled, 40
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpaceCash10
+          rolls: !type:ConstantNumberSelector
+            value: 4
+
+- type: entity
+  parent: NFBaseWallet
   id: ClothingWalletFilled100
   abstract: true
-  suffix: 100
+  suffix: Filled, 100
   components:
   - type: EntityTableContainerFill
     containers:
@@ -14,7 +28,7 @@
   parent: NFBaseWallet
   id: ClothingWalletFilled200
   abstract: true
-  suffix: 200
+  suffix: Filled, 200
   components:
   - type: EntityTableContainerFill
     containers:
@@ -28,7 +42,7 @@
   parent: NFBaseWallet
   id: ClothingWalletFilled300
   abstract: true
-  suffix: 300
+  suffix: Filled, 300
   components:
   - type: EntityTableContainerFill
     containers:
@@ -42,7 +56,7 @@
   parent: NFBaseWallet
   id: ClothingWalletFilledRandom
   abstract: true
-  suffix: Random
+  suffix: Filled, Random
   components:
   - type: EntityTableContainerFill
     containers:
@@ -51,18 +65,23 @@
         - id: SpaceCash10
           prob: 0.3
           rolls: !type:ConstantNumberSelector
-            value: 6
+            value: 4 # Cash doesn't stack when filling. 4 is max before it overflows.
         - id: SpaceCash100
           weight: 0.75
           prob: 0.3
           rolls: !type:ConstantNumberSelector
-            value: 5
+            value: 4
         - id: SpaceCash1000
           weight: 0.25
         - id: SpaceCash10000
           weight: 0.0001
         - id: SpaceCash1000000
           weight: 0.0000001
+
+#Brown
+- type: entity
+  parent: [ ClothingWalletLeatherBrown, ClothingWalletFilled40 ]
+  id: ClothingWalletLeatherBrownFilled40
 
 - type: entity
   parent: [ ClothingWalletLeatherBrown, ClothingWalletFilled100 ]
@@ -79,3 +98,170 @@
 - type: entity
   parent: [ ClothingWalletLeatherBrown, ClothingWalletFilledRandom ]
   id: ClothingWalletLeatherBrownFilledRandom
+
+#Black
+- type: entity
+  parent: [ ClothingWalletLeatherBlack, ClothingWalletFilled40 ]
+  id: ClothingWalletLeatherBlackFilled40
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlack, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherBlackFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlack, ClothingWalletFilled200 ]
+  id: ClothingWalletLeatherBlackFilled200
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlack, ClothingWalletFilled300 ]
+  id: ClothingWalletLeatherBlackFilled300
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlack, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherBlackFilledRandom
+
+#Red
+- type: entity
+  parent: [ ClothingWalletLeatherRed, ClothingWalletFilled40 ]
+  id: ClothingWalletLeatherRedFilled40
+
+- type: entity
+  parent: [ ClothingWalletLeatherRed, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherRedFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherRed, ClothingWalletFilled200 ]
+  id: ClothingWalletLeatherRedFilled200
+
+- type: entity
+  parent: [ ClothingWalletLeatherRed, ClothingWalletFilled300 ]
+  id: ClothingWalletLeatherRedFilled300
+
+- type: entity
+  parent: [ ClothingWalletLeatherRed, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherRedFilledRandom
+
+#Blue
+- type: entity
+  parent: [ ClothingWalletLeatherBlue, ClothingWalletFilled40 ]
+  id: ClothingWalletLeatherBlueFilled40
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlue, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherBlueFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlue, ClothingWalletFilled200 ]
+  id: ClothingWalletLeatherBlueFilled200
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlue, ClothingWalletFilled300 ]
+  id: ClothingWalletLeatherBlueFilled300
+
+- type: entity
+  parent: [ ClothingWalletLeatherBlue, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherBlueFilledRandom
+
+#Green
+- type: entity
+  parent: [ ClothingWalletLeatherGreen, ClothingWalletFilled40 ]
+  id: ClothingWalletLeatherGreenFilled40
+
+- type: entity
+  parent: [ ClothingWalletLeatherGreen, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherGreenFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherGreen, ClothingWalletFilled200 ]
+  id: ClothingWalletLeatherGreenFilled200
+
+- type: entity
+  parent: [ ClothingWalletLeatherGreen, ClothingWalletFilled300 ]
+  id: ClothingWalletLeatherGreenFilled300
+
+- type: entity
+  parent: [ ClothingWalletLeatherGreen, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherGreenFilledRandom
+
+#Mail
+- type: entity
+  parent: [ ClothingWalletLeatherMail, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherMailFilled100
+
+#Pirate
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherPirateFilledRandom
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: TreasureCoinGold
+        - id: TreasureCoinGold
+          weight: 0.3
+          rolls: !type:ConstantNumberSelector
+            value: 2
+        - id: TreasureCoinGold
+          weight: 0.15
+          rolls: !type:ConstantNumberSelector
+            value: 3
+        - id: TreasureCoinGold
+          weight: 0.01
+          rolls: !type:ConstantNumberSelector
+            value: 4
+
+#Prisoner
+- type: entity
+  parent: ClothingWalletLeatherPrisoner
+  id: ClothingWalletLeatherPrisonerFilledRandom
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: SpaceCash10
+          prob: 0.8
+          rolls: !type:ConstantNumberSelector
+            value: 2 # Cash doesn't stack when filling. 2 is max before it overflows.
+        - id: SpaceCash100
+          weight: 0.05
+
+#Arcadia
+- type: entity
+  parent: [ ClothingWalletLeatherArcadia, ClothingWalletFilled40 ]
+  id: ClothingWalletLeatherArcadiaFilled40
+
+- type: entity
+  parent: [ ClothingWalletLeatherArcadia, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherArcadiaFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherArcadia, ClothingWalletFilled200 ]
+  id: ClothingWalletLeatherArcadiaFilled200
+
+- type: entity
+  parent: [ ClothingWalletLeatherArcadia, ClothingWalletFilled300 ]
+  id: ClothingWalletLeatherArcadiaFilled300
+
+- type: entity
+  parent: [ ClothingWalletLeatherArcadia, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherArcadiaFilledRandom
+
+#Punk
+- type: entity
+  parent: [ ClothingWalletLeatherPunk, ClothingWalletFilled100 ]
+  id: ClothingWalletLeatherPunkFilled100
+
+- type: entity
+  parent: [ ClothingWalletLeatherPunk, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherPunkFilledRandom
+
+#Lizard
+- type: entity
+  parent: [ ClothingWalletLeatherLizard, ClothingWalletFilledRandom ]
+  id: ClothingWalletLeatherLizardFilledRandom
+
+#Todo: Add Pirate and Lizard to random spawns(Maint, salv, item) Add all to clothing spawner?

@@ -1,0 +1,187 @@
+#Brown
+- type: loadout
+  id: WalletBrown40
+  equipment:
+    wallet: ClothingWalletLeatherBrownFilled40
+
+- type: loadout
+  id: WalletBrown100
+  equipment:
+    wallet: ClothingWalletLeatherBrownFilled100
+
+- type: loadout
+  id: WalletBrown200
+  equipment:
+    wallet: ClothingWalletLeatherBrownFilled200
+
+- type: loadout
+  id: WalletBrown300
+  equipment:
+    wallet: ClothingWalletLeatherBrownFilled300
+
+- type: loadout
+  id: WalletBrownRandom
+  equipment:
+    wallet: ClothingWalletLeatherBrownFilledRandom
+
+#Black
+- type: loadout
+  id: WalletBlack40
+  equipment:
+    wallet: ClothingWalletLeatherBlackFilled40
+
+- type: loadout
+  id: WalletBlack100
+  equipment:
+    wallet: ClothingWalletLeatherBlackFilled100
+
+- type: loadout
+  id: WalletBlack200
+  equipment:
+    wallet: ClothingWalletLeatherBlackFilled200
+
+- type: loadout
+  id: WalletBlack300
+  equipment:
+    wallet: ClothingWalletLeatherBlackFilled300
+
+- type: loadout
+  id: WalletBlackRandom
+  equipment:
+    wallet: ClothingWalletLeatherBlackFilledRandom
+
+#Red
+- type: loadout
+  id: WalletRed40
+  equipment:
+    wallet: ClothingWalletLeatherRedFilled40
+
+- type: loadout
+  id: WalletRed100
+  equipment:
+    wallet: ClothingWalletLeatherRedFilled100
+
+- type: loadout
+  id: WalletRed200
+  equipment:
+    wallet: ClothingWalletLeatherRedFilled200
+
+- type: loadout
+  id: WalletRed300
+  equipment:
+    wallet: ClothingWalletLeatherRedFilled300
+
+- type: loadout
+  id: WalletRedRandom
+  equipment:
+    wallet: ClothingWalletLeatherRedFilledRandom
+
+#Blue
+- type: loadout
+  id: WalletBlue40
+  equipment:
+    wallet: ClothingWalletLeatherBlueFilled40
+
+- type: loadout
+  id: WalletBlue100
+  equipment:
+    wallet: ClothingWalletLeatherBlueFilled100
+
+- type: loadout
+  id: WalletBlue200
+  equipment:
+    wallet: ClothingWalletLeatherBlueFilled200
+
+- type: loadout
+  id: WalletBlue300
+  equipment:
+    wallet: ClothingWalletLeatherBlueFilled300
+
+- type: loadout
+  id: WalletBlueRandom
+  equipment:
+    wallet: ClothingWalletLeatherBlueFilledRandom
+
+#Green
+- type: loadout
+  id: WalletGreen40
+  equipment:
+    wallet: ClothingWalletLeatherGreenFilled40
+
+- type: loadout
+  id: WalletGreen100
+  equipment:
+    wallet: ClothingWalletLeatherGreenFilled100
+
+- type: loadout
+  id: WalletGreen200
+  equipment:
+    wallet: ClothingWalletLeatherGreenFilled200
+
+- type: loadout
+  id: WalletGreen300
+  equipment:
+    wallet: ClothingWalletLeatherGreenFilled300
+
+- type: loadout
+  id: WalletGreenRandom
+  equipment:
+    wallet: ClothingWalletLeatherGreenFilledRandom
+
+#Arcadia
+- type: loadout
+  id: WalletArcadia40
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 1000h # don't forget to revert
+  equipment:
+    wallet: ClothingWalletLeatherArcadiaFilled40
+
+- type: loadout
+  parent: WalletArcadia40
+  id: WalletArcadia100
+  equipment:
+    wallet: ClothingWalletLeatherArcadiaFilled100
+
+- type: loadout
+  parent: WalletArcadia40
+  id: WalletArcadia200
+  equipment:
+    wallet: ClothingWalletLeatherArcadiaFilled200
+
+- type: loadout
+  parent: WalletArcadia40
+  id: WalletArcadia300
+  equipment:
+    wallet: ClothingWalletLeatherArcadiaFilled300
+
+- type: loadout
+  parent: WalletArcadia40
+  id: WalletArcadiaRandom
+  equipment:
+    wallet: ClothingWalletLeatherArcadiaFilledRandom
+
+#Punk
+- type: loadout
+  id: WalletPunk100
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 20h
+  equipment:
+    wallet: ClothingWalletLeatherPunkFilled100
+
+- type: loadout
+  id: WalletPunkRandom
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPassenger
+      time: 20h
+  equipment:
+    wallet: ClothingWalletLeatherPunkFilledRandom

@@ -39,6 +39,13 @@
   - ScarfBlack
   - ScarfPurple
 
+- type: loadoutGroup
+  id: BartenderPDADelta
+  name: loadout-group-bartender-id-delta
+  loadouts:
+  - BartenderPDA
+  - MixologistPDA
+
 ## Librarian
 - type: loadoutGroup
   id: LibrarianNeck
@@ -56,6 +63,25 @@
   loadouts:
   - ScarfPurple
 
+- type: loadoutGroup
+  id: JanitorPDADelta
+  name: loadout-group-janitor-id-delta
+  loadouts:
+  - JanitorPDA
+  - HygieneTechnicianPDA
+
+- type: loadoutGroup
+  id: JanitorWallet
+  name: loadout-group-wallet
+  loadouts:
+  - WalletPunk100
+  - WalletArcadia100
+  - WalletBrown100
+  - WalletBlack100
+  - WalletRed100
+  - WalletBlue100
+  - WalletGreen100
+
 ## Botanist
 - type: loadoutGroup
   id: BotanistNeck
@@ -72,6 +98,14 @@
   loadouts:
   - ClownMask
   - BlushingClownMask
+
+- type: loadoutGroup
+  id: ClownPDADelta
+  name: loadout-group-clown-id-delta
+  loadouts:
+  - ClownPDA
+  - JesterPDA
+  - FoolPDA
 
 ## Mime
 - type: loadoutGroup
@@ -129,8 +163,40 @@
   - WitchHat
   - PirateHat
 
+- type: loadoutGroup
+  id: PassengerPDADelta
+  name: loadout-group-passenger-id-delta
+  loadouts:
+  - PassengerPDA
+  - VisitorPDA
+  # - TouristPDA
+  - OffDutyCrewPDA
+  # - StudentPDA
+
 # Logistics
 ## Courier
+# Remove mail carrier stuf from nyano?
+- type: loadoutGroup
+  id: MailCarrierHead
+  name: loadout-group-mail-carrier-head
+  minLimit: 0
+  loadouts:
+  - MailCarrierHead
+
+- type: loadoutGroup
+  id: MailCarrierJumpsuit
+  name: loadout-group-mail-carrier-jumpsuit
+  loadouts:
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: MailCarrierOuterClothing
+  name: loadout-group-mail-carrier-outerclothing
+  minLimit: 0
+  loadouts:
+  - MailCarrierWintercoat
+
 - type: loadoutGroup
   id: CourierHead
   name: loadout-group-courier-head
@@ -188,6 +254,18 @@
   - CourierPDA
   - MailCarrierPDA
 
+- type: loadoutGroup
+  id: CourierWallet
+  name: loadout-group-wallet
+  loadouts:
+  - CourierWallet
+  - WalletArcadia100
+  - WalletBrown100
+  - WalletBlack100
+  - WalletRed100
+  - WalletBlue100
+  - WalletGreen100
+
 ## Cargo Assistant
 - type: loadoutGroup
   id: CargoAssistantHead
@@ -233,6 +311,14 @@
   loadouts:
   - ScarfBrown
 
+- type: loadoutGroup
+  id: CargoPDADelta
+  name: loadout-group-cargo-id-delta
+  loadouts:
+  - CargoPDA
+  - DeckWorkerPDA
+  - InventoryAssociatePDA
+
 ## Salvage Specialist
 - type: loadoutGroup
   id: SalvageSpecialistNeck
@@ -251,7 +337,30 @@
   - SalvageJumpsuit
   - SalvageJumpskirt
 
+- type: loadoutGroup
+  id: SalvagePDADelta
+  name: loadout-group-salvage-id-delta
+  loadouts:
+  - SalvagePDA
+  - ProspectorPDA
+  - ExcavatorPDA
+
 # Security
+## Prison Guard
+- type: loadoutGroup
+  id: PrisonGuardHead
+  name: loadout-group-prison-guard-head
+  minLimit: 0
+  loadouts:
+  - PrisonGuardHead
+
+- type: loadoutGroup
+  id: PrisonGuardJumpsuit
+  name: loadout-group-prison-guard-jumpsuit
+  loadouts:
+  - PrisonGuardJumpsuit
+  - PrisonGuardJumpskirt
+
 ## Brig Medic
 - type: loadoutGroup
   id: BrigMedicHead
@@ -569,6 +678,15 @@
   - MedicalWinterBoots
   - WinterBoots
 
+- type: loadoutGroup
+  id: PsychologistPDADelta
+  name: loadout-group-psychologist-id-delta
+  loadouts:
+  - PsychologistPDA
+  - PsychiatristPDA
+  - TherapistPDA
+  - SocialWorkerPDA
+
 ## Medical Doctor
 - type: loadoutGroup
   id: MedicalDoctorNeck
@@ -580,7 +698,6 @@
   - ScarfLightBlue
 
 ## Chemist
-
 - type: loadoutGroup
   id: ChemistHead
   name: loadout-group-chemist-head
@@ -618,6 +735,13 @@
   - LaceupShoes
   - ChemistWinterBoots
   - ChemistShoes
+
+- type: loadoutGroup
+  id: ChemistryPDA
+  name: loadout-group-chemist-id
+  loadouts:
+  - ChemistryPDA
+  - PharmacistPDA
 
 ## Surgeon
 - type: loadoutGroup
@@ -666,6 +790,44 @@
   loadouts:
   - SurgeonPDA
 
+# Engineering
+## Station Engineer
+- type: loadoutGroup
+  id: StationEngineerNeck
+  name: loadout-group-station-engineer-neck
+  minLimit: 0
+  loadouts:
+  - ScarfOrange
+  - ScarfRed
+
+## Atmospheric Technician
+- type: loadoutGroup
+  id: AtmosphericTechnicianNeck
+  name: loadout-group-atmospheric-technician-neck
+  minLimit: 0
+  loadouts:
+  - ScarfLightBlue
+  - ScarfOrange
+
+- type: loadoutGroup
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - AtmosHardHatBlue
+  - AtmosBeret
+
+- type: loadoutGroup
+  id: AtmosPDADelta
+  name: loadout-group-atmos-id-delta
+  loadouts:
+  - AtmosPDA
+  - LifeSupportTechPDA
+  - PlasmaScientistPDA
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup
@@ -706,36 +868,6 @@
   loadouts:
   - LeatherShoes
   - LaceupShoes
-
-# Engineering
-## Station Engineer
-- type: loadoutGroup
-  id: StationEngineerNeck
-  name: loadout-group-station-engineer-neck
-  minLimit: 0
-  loadouts:
-  - ScarfOrange
-  - ScarfRed
-
-## Atmospheric Technician
-- type: loadoutGroup
-  id: AtmosphericTechnicianNeck
-  name: loadout-group-atmospheric-technician-neck
-  minLimit: 0
-  loadouts:
-  - ScarfLightBlue
-  - ScarfOrange
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianHead
-  name: loadout-group-atmospheric-technician-head
-  minLimit: 0
-  loadouts:
-  - StationEngineerHardhatYellow
-  - StationEngineerHardhatOrange
-  - StationEngineerHardhatRed
-  - AtmosHardHatBlue
-  - AtmosBeret
 
 ## Clerk
 - type: loadoutGroup
@@ -804,6 +936,42 @@
   - ProsecutorOvercoat
 
 # Epistemics
+## Forensic Mantis
+- type: loadoutGroup
+  id: MantisHead
+  name: loadout-group-mantis-head
+  minLimit: 0
+  loadouts:
+  - MantisFezHat
+
+- type: loadoutGroup
+  id: MantisJumpsuit
+  name: loadout-group-mantis-jumpsuit
+  loadouts:
+  - MantisJumpsuit
+  - MantisJumpskirt
+
+- type: loadoutGroup
+  id: MantisOuterClothing
+  name: loadout-group-mantis-outerclothing
+  minLimit: 0
+  loadouts:
+  - MantisCoat
+  - MantisWintercoat
+
+- type: loadoutGroup
+  id: MantisShoes
+  name: loadout-group-mantis-shoes
+  loadouts:
+  - MantisBoots
+
+- type: loadoutGroup
+  id: MantisGloves
+  name: loadout-group-mantis-gloves
+  minLimit: 0
+  loadouts:
+  - WhiteGloves
+
 ## Roboticist
 - type: loadoutGroup
   id: RoboticistHead
@@ -866,6 +1034,12 @@
   - GlassesJamjar
   - GlassesJensen
 
+- type: loadoutGroup
+  id: RoboticistPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - RoboticistPDA
+
 # Command
 ## Captain
 - type: loadoutGroup
@@ -903,7 +1077,7 @@
   - LaceupShoes
   - HoPWinterBoots
 
-## chift engenier
+## Chief Engineer
 - type: loadoutGroup
   id: ChiefEngineerGloves
   name: loadout-group-chief-engineer-gloves
@@ -911,24 +1085,8 @@
   loadouts:
   - insulatedgloves
 
-# PDAs
-- type: loadoutGroup
-  id: PassengerPDADelta
-  name: loadout-group-passenger-id-delta
-  loadouts:
-  - PassengerPDA
-  - VisitorPDA
-  # - TouristPDA
-  - OffDutyCrewPDA
-  # - StudentPDA
-
-- type: loadoutGroup
-  id: BartenderPDADelta
-  name: loadout-group-bartender-id-delta
-  loadouts:
-  - BartenderPDA
-  - MixologistPDA
-
+# Misc
+## PDAs
 - type: loadoutGroup
   id: ChefPDADelta
   name: loadout-group-chef-id-delta
@@ -946,68 +1104,7 @@
   - PracticalNursePDA
   - ResidentPDA
 
-- type: loadoutGroup
-  id: ChemistryPDA
-  name: loadout-group-chemist-id
-  loadouts:
-  - ChemistryPDA
-  - PharmacistPDA # DeltaV
-
-- type: loadoutGroup
-  id: AtmosPDADelta
-  name: loadout-group-atmos-id-delta
-  loadouts:
-  - AtmosPDA
-  - LifeSupportTechPDA
-  - PlasmaScientistPDA
-
-- type: loadoutGroup
-  id: CargoPDADelta
-  name: loadout-group-cargo-id-delta
-  loadouts:
-  - CargoPDA
-  - DeckWorkerPDA
-  - InventoryAssociatePDA
-
-- type: loadoutGroup
-  id: SalvagePDADelta
-  name: loadout-group-salvage-id-delta
-  loadouts:
-  - SalvagePDA
-  - ProspectorPDA
-  - ExcavatorPDA
-
-- type: loadoutGroup
-  id: ClownPDADelta
-  name: loadout-group-clown-id-delta
-  loadouts:
-  - ClownPDA
-  - JesterPDA
-  - FoolPDA
-
-- type: loadoutGroup
-  id: RoboticistPDA
-  name: loadout-group-roboticist-id
-  loadouts:
-  - RoboticistPDA
-
-- type: loadoutGroup
-  id: JanitorPDADelta
-  name: loadout-group-janitor-id-delta
-  loadouts:
-  - JanitorPDA
-  - HygieneTechnicianPDA
-
-- type: loadoutGroup
-  id: PsychologistPDADelta
-  name: loadout-group-psychologist-id-delta
-  loadouts:
-  - PsychologistPDA
-  - PsychiatristPDA
-  - TherapistPDA
-  - SocialWorkerPDA
-
-# Misc
+## Scarfs
 - type: loadoutGroup
   id: Scarfs
   name: loadout-group-scarfs
@@ -1022,6 +1119,63 @@
   - ScarfOrange
   - ScarfBlack
   - ScarfZebra
+
+## Wallets
+- type: loadoutGroup
+  id: Wallet40
+  name: loadout-group-wallet
+  loadouts:
+  - WalletBrown40
+  - WalletBlack40
+  - WalletRed40
+  - WalletBlue40
+  - WalletGreen40
+  - WalletArcadia40
+
+- type: loadoutGroup
+  id: Wallet100
+  name: loadout-group-wallet
+  loadouts:
+  - WalletBrown100
+  - WalletBlack100
+  - WalletRed100
+  - WalletBlue100
+  - WalletGreen100
+  - WalletArcadia100
+
+- type: loadoutGroup
+  id: Wallet200
+  name: loadout-group-wallet
+  loadouts:
+  - WalletBrown200
+  - WalletBlack200
+  - WalletRed200
+  - WalletBlue200
+  - WalletGreen200
+  - WalletArcadia200
+
+- type: loadoutGroup
+  id: Wallet300
+  name: loadout-group-wallet
+  loadouts:
+  - WalletBrown300
+  - WalletBlack300
+  - WalletRed300
+  - WalletBlue300
+  - WalletGreen300
+  - WalletArcadia300
+
+- type: loadoutGroup
+  id: WalletRandom
+  name: loadout-group-wallet
+  loadouts:
+  - WalletBrownRandom
+  - WalletBlackRandom
+  - WalletRedRandom
+  - WalletBlueRandom
+  - WalletGreenRandom
+  - WalletArcadiaRandom
+  - WalletPunkRandom
 
 # ERT
 - type: loadoutGroup
@@ -1040,6 +1194,15 @@
   - SurvivalExtended
 
 # Wildcards
+## Prisoner
+- type: loadoutGroup
+  id: PrisonerJumpsuit
+  name: loadout-group-prisoner-jumpsuit
+  loadouts:
+  - PrisonerJumpsuit
+  - PrisonerJumpskirt
+
+## Boxer
 - type: loadoutGroup
   id: BoxerJumpsuit
   name: loadout-group-boxer-jumpsuit
@@ -1076,9 +1239,44 @@
   loadouts:
   - LizardPlushieBoxer
 
+## Zookeeper
 - type: loadoutGroup
   id: ZookeeperJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
   - LizardPlushieZookeeper
+
+## Martial Artist
+- type: loadoutGroup
+  id: MartialArtistJumpsuit
+  name: loadout-group-martial-artist-jumpsuit
+  loadouts:
+  - MartialArtistJumpsuit
+
+- type: loadoutGroup
+  id: MartialArtistBelt
+  name: loadout-group-martial-belt
+  minLimit: 0
+  loadouts:
+  - MartialBlackBelt
+
+- type: loadoutGroup
+  id: MartialArtistShoes
+  name: loadout-group-martial-artist-shoes
+  loadouts:
+  - MartialArtistShoes
+
+## Gladiator
+- type: loadoutGroup
+  id: GladiatorJumpsuit
+  name: loadout-group-gladiator-jumpsuit
+  loadouts:
+  - GladiatorJumpsuit
+  - BoxerShortsWithTop
+
+- type: loadoutGroup
+  id: GladiatorOuterClothing
+  name: loadout-group-gladiator-outerclothing
+  loadouts:
+  - ClothingOuterArmorGladiator
