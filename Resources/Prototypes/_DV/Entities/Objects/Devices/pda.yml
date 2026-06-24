@@ -816,3 +816,17 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-interncentcomm
+
+# SRT
+
+- type: entity
+  parent: CentcomPDA
+  id: SRTPDA
+  name: Special Response Team PDA
+  suffix: SRT
+  components:
+  - type: Pda
+    id: CentcomIDCardSRT
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
