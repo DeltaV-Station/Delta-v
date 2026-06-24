@@ -7,17 +7,17 @@ phrase-location-shuttle = Shuttle
 phrase-location-maintenance = Maintenance
 
 # relative
-phrase-location-near = near
-phrase-location-far = far
-phrase-location-inside = inside
-phrase-location-outside = outside
+phrase-location-near = Near
+phrase-location-far = Far
+phrase-location-inside = Inside
+phrase-location-outside = Outside
 
 ## compass
-phrase-location-north = north
-phrase-location-east = east
-phrase-location-south = south
-phrase-location-west = west
-phrase-location-northeast = northeast
-phrase-location-southeast = southeast
-phrase-location-southwest = southwest
-phrase-location-northwest = northwest
+phrase-location-north = North
+phrase-location-east = East
+phrase-location-south = South
+phrase-location-west = West
+phrase-location-northeast = Northeast
+phrase-location-southeast = Southeast
+phrase-location-southwest = Southwest
+phrase-location-northwest = Northwest
