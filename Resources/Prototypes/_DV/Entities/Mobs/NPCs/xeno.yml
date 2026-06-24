@@ -273,12 +273,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      600: Critical
-      700: Dead
+      500: Critical
+      600: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       300: 0.9
-      450: 0.8
+      400: 0.8
   - type: MovementSpeedModifier
     baseSprintSpeed: 3.5
   - type: MeleeWeapon
