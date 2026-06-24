@@ -2,16 +2,15 @@
   parent: BaseHypospray
   id: SRTEpsiloninjector
   name: SRT Pacifing Agent Injector
-  suffix: [DO NOT MAP] #DO NOT GIVE THIS TO CREW OR MAP THIS I SWEAR TO GOD
   description: A self-refilling injector for rapid administration of riot control agents.
   components:
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: Amnestizine
-          Quantity: 15
+          Quantity: 10
   - type: SolutionRegeneration
     solution: hypospray
     generated:
@@ -36,24 +35,23 @@
 
 - type: entity
   parent: BaseHypospray
-  id: SRTBlackinjector 
-  name: SRT Medical Injector
-  suffix: [DO NOT MAP] #DO NOT GIVE THIS TO CREW OR MAP THIS I SWEAR TO GOD
+  id: SRTBlackinjector #if you give this to the crew i WILL find you
+  name: SRT Nanite Injector 
   description: A extremely expensive self-refilling injector for combat related trauma treatment.
   components:
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 20
         reagents:
-        - ReagentId: Ichor
-          Quantity: 10
+        - ReagentId: combatnanites
+          Quantity: 20
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-      - ReagentId: Ichor
-        Quantity: 0.2
+      - ReagentId: combatnanites
+        Quantity: 1
   - type: UseDelay
     delay: 1.5
   - type: Injector
