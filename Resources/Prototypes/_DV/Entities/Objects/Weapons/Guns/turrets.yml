@@ -21,6 +21,8 @@
   id: WeaponEnergyTurretCentralCommand
   suffix: CentComm
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/EnergySentry/centcom_sentry.rsi
   - type: AccessReader
     access: [["CentralCommand"]]
   - type: StationAiTurret
