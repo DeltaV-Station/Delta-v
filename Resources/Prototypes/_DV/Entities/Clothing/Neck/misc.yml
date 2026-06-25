@@ -26,10 +26,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.90
 
 - type: entity
   parent: ClothingNeckCWPSec
@@ -55,9 +51,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.90
-        Slash: 0.80
-        Cold: 0.40
+        Blunt: 0.95
+        Slash: 0.95
+        Cold: 0.80
         Heat: 0.90
   - type: ClothingSpeedModifier
     walkModifier: 1.0

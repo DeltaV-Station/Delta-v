@@ -294,6 +294,8 @@
   components:
   - type: Pda
     id: ForensicMantisIDCard
+  - type: Pager
+    autoLinkJobs: [ForensicMantis]
 
 # Service
 
@@ -764,6 +766,15 @@
   components:
   - type: Pda
     id: RecruiterIDCard
+
+#hitman
+
+- type: entity
+  parent: PassengerPDA
+  id: HitmanPDA
+  components:
+  - type: Pda
+    id: HitmanIDCard
 
 # Secborglogprobe
 

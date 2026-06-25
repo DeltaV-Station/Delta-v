@@ -21,6 +21,9 @@
                 collection: GlassBreak
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: Construction # DeltaV - Broken Map Deconstruction
+      graph: StationMap
+      node: brokenMap
 
 - type: entity
   parent: BaseWallmountMachine

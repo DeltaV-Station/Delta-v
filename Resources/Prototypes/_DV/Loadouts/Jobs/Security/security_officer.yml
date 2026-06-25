@@ -16,11 +16,6 @@
     pocket1: WeaponPistolMk58
 
 - type: loadout
-  id: SecurityFirearmWeaponPistolSV213
-  equipment:
-    pocket1: WeaponLaserSvalinnSecurity
-
-- type: loadout
   id: SecurityFirearmWeaponDisabler
   equipment:
     pocket1: WeaponDisabler
@@ -30,6 +25,11 @@
   storage:
     back:
     - Truncheon
+
+- type: loadout
+  id: SecurityFirearmWeaponPistolSV213
+  equipment:
+    pocket1: WeaponLaserSvalinnSecurity
 
 # Ammo
 
@@ -51,17 +51,29 @@
     back:
     - PowerCellMedium
 
+# Head
+
+- type: loadout
+  id: SecurityCap
+  equipment:
+    head: ClothingHeadHatCapSec
+
+- type: loadout
+  id: SecurityBeretGrey
+  equipment:
+    head: ClothingHeadHatBeretSecurityGrey
+
 # Jumpsuit
 
 - type: loadout
-  id: SecurityJumpsuitBlue
+  id: SecurityJumpsuitWhite
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecBlue
+    jumpsuit: ClothingUniformJumpsuitSecWhite
 
 - type: loadout
-  id: SecurityJumpskirtBlue
+  id: SecurityJumpskirtWhite
   equipment:
-    jumpsuit: ClothingUniformJumpskirtSecBlue
+    jumpsuit: ClothingUniformJumpskirtSecWhite
 
 - type: loadout
   id: SeniorSecOfficerJumpsuit
