@@ -68,6 +68,10 @@
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       # End DeltaV - AI PDAs
+      # Begin DeltaV - AI fax
+      enum.FaxUiKey.Key:
+        type: StationAiFaxBoundUserInterface
+      # End DeltaV - AI fax
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -78,12 +82,16 @@
         toggleAction: ActionAGhostShowStationRecords
       enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionAGhostShowCommunications
+      # Begin DeltaV - AI fax
+      enum.FaxUiKey.Key:
+        toggleAction: ActionStationAiOpenFax
+      # End DeltaV - AI fax
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: CrewMonitor
-    transmitFrequencyId: ShuttleTimer
+    receiveFrequencyId: NTNet # DeltaV
+    transmitFrequencyId: NTNet # DeltaV
   - type: RadarConsole
     followEntity: false
   - type: CommunicationsConsole
@@ -95,6 +103,27 @@
     startPowerCorruptionAtCharIdx: 4
     maxPowerCorruptionAtCharIdx: 20
   - type: StationAiShop # DeltaV - AI Shop System
+  # Begin DeltaV - AI faxes
+  - type: FaxMachine
+    name: Station AI
+    printSound: null
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+        - FaxableObject
+      blacklist:
+        components:
+        - CargoSlip
+        tags:
+        - PaperSlip
+  - type: StationAiFax
+  - type: Pager
+    autoLinkJobs: [ StationAi ]
+  - type: PageSender
+    autoLinkJobs: [ StationAi ]
+  # End DeltaV - AI faxes
 
 - type: entity
   id: AiHeldIntellicard
@@ -534,6 +563,10 @@
     containers:
       program-container: !type:Container
       Cartridge-Slot: !type:ContainerSlot
+      # Begin DeltaV - AI faxes
+      Paper: !type:ContainerSlot
+      PaperLibrary: !type:Container
+      # End DeltaV - AI faxes
   - type: ItemSlots
   - type: PdaBorderColor
     borderColor: "#45453f"

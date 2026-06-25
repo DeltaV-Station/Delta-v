@@ -19,6 +19,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly Shared.SSDIndicator.SSDIndicatorSystem _shared = default!; // DeltaV - SSD Recency, don't want to rename the upstream class
 
     public override void Initialize()
     {
@@ -35,13 +36,26 @@ public sealed class SSDIndicatorSystem : EntitySystem
             !HasComp<ActiveNPCComponent>(uid) &&
             HasComp<MindExaminableComponent>(uid))
         {
-            // Begin DeltaV Addition
+            // Begin DeltaV Additions
             var ev = new ShowSSDIndicatorEvent();
             RaiseLocalEvent(uid, ref ev);
             if (ev.Hidden)
                 return;
-            // End DeltaV Addition
-            args.StatusIcons.Add(_prototype.Index(component.Icon));
+
+            // SSD Recency Indicator
+            var stage = _shared.GetStage(new Entity<SSDIndicatorComponent>(uid, component));
+            var icon = stage switch
+            {
+                SsdStage.VeryRecent => component.VeryRecentIcon,
+                SsdStage.Recent => component.RecentIcon,
+                SsdStage.Cryoable => component.Icon,
+                _ => throw new InvalidOperationException($"{ToPrettyString(uid)} has an invalid SSD stage {stage}."),
+            };
+
+            args.StatusIcons.Add(_prototype.Index(icon));
+            // End DeltaV Additions
+
+            // args.StatusIcons.Add(_prototype.Index(component.Icon)); // DeltaV - commented out. status icon now added above
         }
     }
 }

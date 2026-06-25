@@ -54,7 +54,7 @@
 ## escape objective
 - type: entity
   parent: [BaseHitmanObjective, BaseLivingObjective]
-  id: EscapeShuttleObjectiveHitman
+  id: HitmanEscapeShuttleObjective
   name: Escape to centcomm alive and unrestrained.
   description: You prepared a escape route at CentComm. Avoid being arrested.
   components:
@@ -65,6 +65,21 @@
     difficulty: 1.25
     unique: true
   - type: EscapeShuttleCondition
+
+##live objective, for ghost variant
+## escape objective
+- type: entity
+  parent: [BaseHitmanObjective, BaseSurviveObjective]
+  id: HitmanSurviveObjective
+  name: Survive and prepare an exit.
+  description: Your client will give you full payment later, at a different location. Try not to be dead by then.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+    difficulty: 1.25
+    unique: true
 
 ## modifer objectives
 - type: entity

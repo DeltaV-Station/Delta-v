@@ -676,14 +676,14 @@
     weight: 5 # DeltaV - Was 8 now 5
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
+    #startAnnouncement: station-event-communication-interception # DeltaV - Silent Sleepers
+    #startAudio:
+    #  path: /Audio/_DV/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-sleeper-agents-result-message
-  - type: AlertLevelInterceptionRule
+  #- type: AlertLevelInterceptionRule # DeltaV - Silent Sleepers
   - type: AntagSelection
     definitions:
     - prefRoles: [ TraitorSleeper ]

@@ -76,3 +76,9 @@ trait-no-paradox-clone-desc = For whatever reason, the universe will only ever h
 
 trait-badcough-name = Persistent cough
 trait-badcough-desc = Because of allergies, smoking, or just general poor health, you can't stop coughing.
+
+trait-ion-storm-susceptible-name = Susceptible to Ion Storms
+trait-ion-storm-susceptible-desc = Your synthetic body lacks protection against ion storms. You have a high chance of being shocked in an event of an ion storm.
+
+trait-mechanical-synthetic-name = Mechanical Synthetic
+trait-mechanical-synthetic-desc = Your synthetic body is fully mechanical rather than biomechanical.
