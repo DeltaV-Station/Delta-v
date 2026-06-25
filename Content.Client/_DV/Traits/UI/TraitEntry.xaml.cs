@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
 using Content.Shared.Humanoid.Prototypes;
@@ -30,6 +31,9 @@ public sealed partial class TraitEntry : PanelContainer
     private bool _isLockedByCategory;
     private bool _isLockedByPoints;
 
+    private readonly Dictionary<ProtoId<TraitPrototype>, TraitEntry> _subTraitEntries = new();
+    private bool _subTraitsExpanded = false;
+
     public TraitEntry(TraitPrototype trait)
     {
         RobustXamlLoader.Load(this);
@@ -51,9 +55,70 @@ public sealed partial class TraitEntry : PanelContainer
         TraitCostLabel.ModulateSelfOverride = Color.FromHex(costColor);
 
         TraitCheckbox.OnToggled += OnCheckboxToggled;
+        SubTraitsHeaderButton.OnPressed += _ => ToggleSubTraitsExpanded();
 
         // Build condition tooltips
         UpdateConditionTooltips();
+    }
+
+    public TraitEntry AddSubTrait(TraitPrototype subTrait)
+    {
+        if (_subTraitEntries.Count == 0)
+        {
+            SubTraitsHeaderPanel.Visible = true;
+            SubTraitsTitleLabel.Text = Loc.GetString("sub-traits-label");
+        }
+
+        var subEntry = new TraitEntry(subTrait);
+        subEntry.OnToggled += _ => UpdateSubTraitsHeader();
+
+        _subTraitEntries[subTrait.ID] = subEntry;
+        SubTraitsContainer.AddChild(subEntry);
+
+        UpdateSubTraitsHeader();
+        UpdateSubSectionState();
+        return subEntry;
+    }
+
+    private void ToggleSubTraitsExpanded()
+    {
+        _subTraitsExpanded = !_subTraitsExpanded;
+        SubTraitsSection.Visible = _subTraitsExpanded;
+        SubTraitsExpandIcon.Text = _subTraitsExpanded ? "▼" : "▶";
+    }
+
+    private void UpdateSubTraitsHeader()
+    {
+        var selected = _subTraitEntries.Values.Count(e => e.IsSelected);
+        var total = _subTraitEntries.Count;
+        SubTraitsCountLabel.Text = Loc.GetString("sub-traits-header",
+            ("selected", selected),
+            ("total", total));
+    }
+
+    private void UpdateSubSectionState()
+    {
+        if (_subTraitEntries.Count == 0)
+            return;
+
+        var parentSelected = TraitCheckbox.Pressed;
+
+        var dimColor = parentSelected ? (Color?)null : new Color(1f, 1f, 1f, 0.45f);
+        SubTraitsHeaderPanel.ModulateSelfOverride = dimColor;
+        SubTraitsSection.ModulateSelfOverride = dimColor;
+
+        if (parentSelected && !_subTraitsExpanded)
+        {
+            _subTraitsExpanded = true;
+            SubTraitsSection.Visible = true;
+            SubTraitsExpandIcon.Text = "▼";
+        }
+        else if (!parentSelected && _subTraitsExpanded)
+        {
+            _subTraitsExpanded = false;
+            SubTraitsSection.Visible = false;
+            SubTraitsExpandIcon.Text = "▶";
+        }
     }
 
     private void UpdateConditionTooltips()
@@ -320,7 +385,7 @@ public sealed partial class TraitEntry : PanelContainer
             }
 
             // Add disabled styling
-            AddStyleClass("TraitsEntryDisabled");
+            EntryPanel.AddStyleClass("TraitsEntryDisabled");
 
             // Tooltip priority for conditions: condition failures > category full > insufficient points.
             if (conditionLocked && _failedConditionTooltips.Count > 0)
@@ -348,7 +413,7 @@ public sealed partial class TraitEntry : PanelContainer
             LockIcon.Visible = false;
 
             // Remove disabled styling - stylesheet restores normal colors
-            RemoveStyleClass("TraitsEntryDisabled");
+            EntryPanel.RemoveStyleClass("TraitsEntryDisabled");
 
             // Reset to normal tooltips
             UpdateConditionTooltips();
@@ -384,8 +449,10 @@ public sealed partial class TraitEntry : PanelContainer
     private void UpdateSelectedStyle()
     {
         if (TraitCheckbox.Pressed)
-            AddStyleClass("TraitsEntrySelected");
+            EntryPanel.AddStyleClass("TraitsEntrySelected");
         else
-            RemoveStyleClass("TraitsEntrySelected");
+            EntryPanel.RemoveStyleClass("TraitsEntrySelected");
+
+        UpdateSubSectionState();
     }
 }

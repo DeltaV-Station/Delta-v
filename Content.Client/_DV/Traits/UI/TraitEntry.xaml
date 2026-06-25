@@ -1,53 +1,104 @@
 <PanelContainer xmlns="https://spacestation14.io"
-                StyleClasses="TraitsEntryPanel"
                 HorizontalExpand="True"
                 Margin="0 0 0 4">
 
-    <BoxContainer Orientation="Horizontal"
-                  HorizontalExpand="True"
-                  Margin="10 8">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True">
 
-        <!-- Toggle Container -->
-        <BoxContainer Name="ToggleContainer"
-                      Orientation="Horizontal"
-                      VerticalAlignment="Top"
-                      Margin="0 2 10 0"
-                      SetWidth="24">
+        <PanelContainer Name="EntryPanel"
+                        StyleClasses="TraitsEntryPanel"
+                        HorizontalExpand="True">
 
-            <!-- Checkbox -->
-            <CheckBox Name="TraitCheckbox"
-                      StyleClasses="TraitsEntryCheckbox"
-                      VerticalAlignment="Center"/>
+            <BoxContainer Orientation="Vertical"
+                          HorizontalExpand="True">
 
-            <!-- Lock Icon -->
-            <TextureRect Name="LockIcon"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         SetSize="20 20"
-                         Stretch="KeepAspectCentered"
-                         TexturePath="/Textures/Interface/VerbIcons/lock.svg.192dpi.png"
-                         Visible="False"/>
-        </BoxContainer>
+                <BoxContainer Orientation="Horizontal"
+                              HorizontalExpand="True"
+                              Margin="10 8">
 
-        <!-- Trait Info -->
-        <BoxContainer Orientation="Vertical"
-                      HorizontalExpand="True"
-                      VerticalAlignment="Center"
-                      Name="TraitInfo">
+                    <!-- Toggle Container -->
+                    <BoxContainer Name="ToggleContainer"
+                                  Orientation="Horizontal"
+                                  VerticalAlignment="Top"
+                                  Margin="0 2 10 0"
+                                  SetWidth="24">
 
-            <!-- Name and Cost Row -->
-            <BoxContainer Orientation="Horizontal">
-                <Label Name="TraitNameLabel"
-                       StyleClasses="TraitsEntryNameLabel"/>
-                <Control HorizontalExpand="True"/>
-                <Label Name="TraitCostLabel"
-                       StyleClasses="TraitsEntryCostLabel"/>
+                        <!-- Checkbox -->
+                        <CheckBox Name="TraitCheckbox"
+                                  StyleClasses="TraitsEntryCheckbox"
+                                  VerticalAlignment="Center"/>
+
+                        <!-- Lock Icon -->
+                        <TextureRect Name="LockIcon"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     SetSize="20 20"
+                                     Stretch="KeepAspectCentered"
+                                     TexturePath="/Textures/Interface/VerbIcons/lock.svg.192dpi.png"
+                                     Visible="False"/>
+                    </BoxContainer>
+
+                    <!-- Trait Info -->
+                    <BoxContainer Orientation="Vertical"
+                                  HorizontalExpand="True"
+                                  VerticalAlignment="Center"
+                                  Name="TraitInfo">
+
+                        <!-- Name and Cost Row -->
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Name="TraitNameLabel"
+                                   StyleClasses="TraitsEntryNameLabel"/>
+                            <Control HorizontalExpand="True"/>
+                            <Label Name="TraitCostLabel"
+                                   StyleClasses="TraitsEntryCostLabel"/>
+                        </BoxContainer>
+
+                        <!-- Description -->
+                        <RichTextLabel Name="TraitDescriptionLabel"
+                                       StyleClasses="TraitsEntryDescriptionLabel"
+                                       Margin="0 4 0 0"/>
+                    </BoxContainer>
+                </BoxContainer>
+
             </BoxContainer>
 
-            <!-- Description -->
-            <RichTextLabel Name="TraitDescriptionLabel"
-                           StyleClasses="TraitsEntryDescriptionLabel"
-                           Margin="0 4 0 0"/>
-        </BoxContainer>
+        </PanelContainer>
+
+        <!-- Sub-traits -->
+        <PanelContainer Name="SubTraitsHeaderPanel"
+                        StyleClasses="TraitsSubCategoryHeader"
+                        HorizontalExpand="True"
+                        Visible="False">
+            <Button Name="SubTraitsHeaderButton"
+                    StyleClasses="TraitsSubCategoryHeaderButton"
+                    HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal" Margin="8 6">
+
+                    <Label Name="SubTraitsExpandIcon"
+                           Text="▼"
+                           StyleClasses="TraitsCategoryExpandIcon"
+                           Margin="0 0 8 0"/>
+
+                    <Label Name="SubTraitsTitleLabel"
+                           StyleClasses="TraitsCategoryNameLabel"/>
+                    <Control HorizontalExpand="True"/>
+
+                    <Label Name="SubTraitsCountLabel"
+                           StyleClasses="TraitsCategoryStatsLabel"
+                           Margin="0 0 4 0"/>
+                </BoxContainer>
+            </Button>
+        </PanelContainer>
+
+        <PanelContainer Name="SubTraitsSection"
+                        StyleClasses="TraitsSubCategoryContent"
+                        HorizontalExpand="True"
+                        Visible="False">
+            <BoxContainer Name="SubTraitsContainer"
+                          Orientation="Vertical"
+                          HorizontalExpand="True"
+                          Margin="8 8"/>
+        </PanelContainer>
+
     </BoxContainer>
 </PanelContainer>
