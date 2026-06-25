@@ -67,6 +67,11 @@
     coughPopup: hairball-cough
   - type: Felinid
   - type: NoShoesSilentFootsteps
+  - type: Rootable # DeltaV - add rooting claws
+    action: "ActionToggleRootableFelinid"
+    transferRate: 0
+    speedModifier: 0.1
+    rootSound: "/Audio/Nyanotrasen/Voice/Felinid/cat_growl1.ogg"
 
 - type: entity
   save: false

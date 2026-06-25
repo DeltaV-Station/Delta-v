@@ -17,8 +17,14 @@ public sealed partial class PowerCellSystem
         ent.Comp.Enabled = enabled;
         Dirty(ent, ent.Comp);
 
-        if (TryGetBatteryFromSlot(ent.Owner, out var battery))
-            _battery.RefreshChargeRate(battery.Value.AsNullable());
+        // BEGIN DeltaV - Allow PowerDraw to prevent recharge
+        if (TryGetBatteryFromSlot(ent.Owner, out var battery) && battery is { } existingBattery)
+        {
+            _battery.RefreshChargeRate(existingBattery.AsNullable());
+
+            if (ent.Comp.PauseRecharging) _battery.TrySetChargeCooldown(existingBattery.Owner);
+        }
+        // END DeltaV
     }
 
 

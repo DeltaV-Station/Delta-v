@@ -109,7 +109,8 @@ public sealed class TraitSystem : EntitySystem
             JobId = jobId,
             SpeciesId = speciesId,
             Profile = profile,
-            StatusEffects = _statusEffects
+            StatusEffects = _statusEffects,
+            SelectedTraits = selectedTraits
         };
 
         foreach (var traitId in selectedTraits)

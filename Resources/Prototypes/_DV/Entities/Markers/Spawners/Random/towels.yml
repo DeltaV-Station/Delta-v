@@ -16,26 +16,33 @@
       prob: 0.90
       children:
       - id: TowelColorWhite
-      - id: TowelColorPurple
-      - id: TowelColorRed
-      - id: TowelColorBlue
-      - id: TowelColorDarkBlue
-      - id: TowelColorLightBlue
       - id: TowelColorTeal
       - id: TowelColorBrown
-      - id: TowelColorLightBrown
-      - id: TowelColorGray
-      - id: TowelColorGreen
-      - id: TowelColorDarkGreen
-      - id: TowelColorGold
-      - id: TowelColorOrange
-      - id: TowelColorBlack
       - id: TowelColorPink
-      - id: TowelColorYellow
-      - id: TowelColorMaroon
-      - id: TowelColorSilver
+      - !type:GroupSelector
+        weight: 0.1
+        children:
+        - id: TowelColorPurple
+        - id: TowelColorRed
+        - id: TowelColorBlue
+        - id: TowelColorDarkBlue
+        - id: TowelColorLightBlue
+        - id: TowelColorLightBrown
+        - id: TowelColorGray
+        - id: TowelColorGreen
+        - id: TowelColorDarkGreen
+        - id: TowelColorOrange
+        - id: TowelColorBlack
+        - id: TowelColorYellow
+        - id: TowelColorMaroon
       - !type:GroupSelector
         weight: 0.05
+        children:
+        - id: TowelColorGold
+          weight: 0.5
+        - id: TowelColorSilver
+      - !type:GroupSelector
+        weight: 0.005
         children:
         - id: TowelColorNT
         - id: TowelColorCentcom
