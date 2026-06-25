@@ -8,18 +8,18 @@
     sprite: _DV/Objects/Weapons/Melee/grav_gauntlet.rsi
     state: icon
   - type: MeleeWeapon
-    range: 1.4 # so you can actually use the pull
-    attackRate: 0.85 # heavy friggin fists bro
+    range: 1.4
+    attackRate: 0.85
     angle: 0
     animation: WeaponArcFist
     wideAnimationRotation: 230
     damage:
       types:
-        Blunt: 20
+        Blunt: 25
         Heat: 3
         Structural: 20
   - type: ClothingSlowResistance
-      modifier: 0.30
+    modifier: 0.30
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -34,14 +34,9 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 2
-      passiveBlockModifier:
-        coefficients:
-          Blunt: 0.10
-          Heat: 0.10
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.10
-          Heat: 0.10
+  - type: Tool
+    qualities:
+    - Prying
   - type: Clothing
     quickEquip: false
     slots:
