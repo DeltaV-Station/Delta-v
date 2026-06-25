@@ -9,6 +9,9 @@
     sprite: _DEN/Structures/Furniture/pool_ring.rsi
   - type: Item
     size: Normal # should probably be "large" instead, but eh
+  - type: Clothing # DeltaV
+    slots:
+    - belt
   - type: Strap
     buckleOffset: "0,0.1"
 
@@ -19,6 +22,10 @@
   components:
   - type: Sprite
     state: black
+  - type: Item  # DeltaV
+    heldPrefix: black
+  - type: Clothing # DeltaV
+    equippedPrefix: black
 
 - type: entity
   parent: BaseSwimRing
@@ -27,6 +34,10 @@
   components:
   - type: Sprite
     state: blue
+  - type: Item  # DeltaV
+    heldPrefix: blue
+  - type: Clothing # DeltaV
+    equippedPrefix: blue
 
 - type: entity
   parent: BaseSwimRing
@@ -35,6 +46,10 @@
   components:
   - type: Sprite
     state: cyan
+  - type: Item  # DeltaV
+    heldPrefix: cyan
+  - type: Clothing # DeltaV
+    equippedPrefix: cyan
 
 - type: entity
   parent: BaseSwimRing
@@ -43,6 +58,10 @@
   components:
   - type: Sprite
     state: green
+  - type: Item  # DeltaV
+    heldPrefix: green
+  - type: Clothing # DeltaV
+    equippedPrefix: green
 
 - type: entity
   parent: BaseSwimRing
@@ -51,6 +70,10 @@
   components:
   - type: Sprite
     state: magenta
+  - type: Item  # DeltaV
+    heldPrefix: magenta
+  - type: Clothing # DeltaV
+    equippedPrefix: magenta
 
 - type: entity
   parent: BaseSwimRing
@@ -59,6 +82,10 @@
   components:
   - type: Sprite
     state: pink
+  - type: Item  # DeltaV
+    heldPrefix: pink
+  - type: Clothing # DeltaV
+    equippedPrefix: pink
 
 - type: entity
   parent: BaseSwimRing
@@ -67,6 +94,10 @@
   components:
   - type: Sprite
     state: purple
+  - type: Item  # DeltaV
+    heldPrefix: purple
+  - type: Clothing # DeltaV
+    equippedPrefix: purple
 
 - type: entity
   parent: BaseSwimRing
@@ -75,6 +106,10 @@
   components:
   - type: Sprite
     state: rainbow
+  - type: Item  # DeltaV
+    heldPrefix: rainbow
+  - type: Clothing # DeltaV
+    equippedPrefix: rainbow
 
 - type: entity
   parent: BaseSwimRing
@@ -83,6 +118,10 @@
   components:
   - type: Sprite
     state: red
+  - type: Item  # DeltaV
+    heldPrefix: red
+  - type: Clothing # DeltaV
+    equippedPrefix: red
 
 - type: entity
   parent: BaseSwimRing
@@ -91,6 +130,10 @@
   components:
   - type: Sprite
     state: trans
+  - type: Item  # DeltaV
+    heldPrefix: trans
+  - type: Clothing # DeltaV
+    equippedPrefix: trans
 
 - type: entity
   parent: BaseSwimRing
@@ -99,3 +142,7 @@
   components:
   - type: Sprite
     state: yellow
+  - type: Item  # DeltaV
+    heldPrefix: yellow
+  - type: Clothing # DeltaV
+    equippedPrefix: yellow
