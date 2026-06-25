@@ -72,10 +72,10 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
-  - type: Tag
+  - type: Tag # Funkystation - Crash Carts
     tags:
     - OxygenTank
-    - GasTank
+    - GasTank # DeltaV Added for the Anvil
 
 - type: entity
   parent: GasTankRoundBase
