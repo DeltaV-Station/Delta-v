@@ -53,6 +53,8 @@
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
+      - map: [ "enum.NewPlayerLayers.Layer" ] # DeltaV - Show New Players!!
+        visible: false
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

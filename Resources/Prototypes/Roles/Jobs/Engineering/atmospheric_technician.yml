@@ -20,6 +20,11 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
+  # Begin DeltaV Additions
+  - !type:AddComponentSpecial
+    components:
+      - type: SeeNewPlayers
+  # End DeltaV Additions
 
 - type: startingGear
   id: AtmosphericTechnicianGear

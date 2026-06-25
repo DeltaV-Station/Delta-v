@@ -18,6 +18,11 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: BoxCardboard
+  # Begin DeltaV Additions
+  - !type:AddComponentSpecial
+    components:
+      - type: SeeNewPlayers
+  # End DeltaV Additions
 
 - type: startingGear
   id: CargoTechGear

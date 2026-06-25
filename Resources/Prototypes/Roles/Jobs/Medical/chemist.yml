@@ -15,6 +15,12 @@
   - Medical
   - Chemistry
   - Maintenance
+  # Begin DeltaV Additions
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: SeeNewPlayers
+  # End DeltaV Additions
   # Shitmed Change, DeltaV - role modifiers bad
   # special:
   # - !type:AddComponentSpecial

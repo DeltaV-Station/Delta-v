@@ -39,6 +39,7 @@
     components:
       - type: CommandStaff
       # Begin DeltaV Additions
+      - type: SeeNewPlayers
       - type: BibleUser # Lets them heal with bibles
       - type: Psionic # They start with telepathic chat
       - type: DispelPower # They get the Dispel psionic power on spawn

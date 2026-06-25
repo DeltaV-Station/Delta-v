@@ -20,6 +20,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # Begin DeltaV Additions
+  - !type:AddComponentSpecial
+    components:
+      - type: SeeNewPlayers
+    # End DeltaV Additions
 
 - type: startingGear
   id: SecurityOfficerGear

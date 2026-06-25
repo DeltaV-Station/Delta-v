@@ -19,6 +19,9 @@
   special:
   - !type:ModifyPsionicChanceSpecial # Scientists are much more likely to be psionic.
     jobBonusChance: 0.10 # Additional 10% chance.
+  - !type:AddComponentSpecial
+    components:
+      - type: SeeNewPlayers
   # End DeltaV Additions
 
 - type: startingGear

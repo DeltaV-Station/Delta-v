@@ -35,6 +35,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: SeeNewPlayers # DeltaV - New Player UI
   - !type:ModifyPsionicChanceSpecial # DeltaV - Command Roles are more likely to be psionic.
     jobBonusChance: 0.05 # Additional 5% chance.
 
