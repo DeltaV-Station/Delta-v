@@ -79,12 +79,12 @@
       emergencyLightColor: CadetBlue
       forceEnableEmergencyLights: true
       shuttleTime: 600
-    sigma: # DeltaV - sigma
-      announcement: alert-level-sigma-announcement
+    zeta: # DeltaV - zeta
+      announcement: alert-level-zeta-announcement
       selectable: false
       disableSelection: true
       sound:
-        path: /Audio/_DV/Announcements/Alerts/code_sigma.ogg
+        path: /Audio/_DV/Announcements/Alerts/code_zeta.ogg
       color: "#fe8401"
       emergencyLightColor: "#fe8401"
       forceEnableEmergencyLights: true

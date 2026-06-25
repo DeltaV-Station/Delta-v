@@ -74,7 +74,7 @@ public sealed partial class DVCommunicationsConsoleMenu : FancyWindow
         ShuttleExfiltrationButton.OnPressed += OnExfiltrationPressed;
         AlertLevelsDropdown.OnPressed += OnAlertLevelsDropdownPressed;
 
-        CallSigma.OnPressed += OnCallSigmaPressed;
+        CallZeta.OnPressed += OnCallZetaPressed;
         RequestCodes.OnPressed += OnRequestCodesPressed;
 
         _alertLevelsPopup = new()
@@ -231,8 +231,8 @@ public sealed partial class DVCommunicationsConsoleMenu : FancyWindow
         var canCall = !_entity.HasComponent<DVStationKeycardAuthenticationDeviceAlreadySwipedComponent>(user)
                       && station.Comp.AccessibleAfter <= _timing.CurTime;
 
-        CallSigma.ForceDisabled = !(canCall && station.Comp.SwipingFor is null or DVStationKeycardAction.Mayday);
-        CallSigma.Disabled = CallSigma.ForceDisabled;
+        CallZeta.ForceDisabled = !(canCall && station.Comp.SwipingFor is null or DVStationKeycardAction.Mayday);
+        CallZeta.Disabled = CallZeta.ForceDisabled;
         RequestCodes.ForceDisabled = !(canCall && station.Comp.SwipingFor is null or DVStationKeycardAction.Scuttling);
         RequestCodes.Disabled = RequestCodes.ForceDisabled;
     }
@@ -277,7 +277,7 @@ public sealed partial class DVCommunicationsConsoleMenu : FancyWindow
         OnMessage?.Invoke(new DVCommunicationsConsoleEvacuationShuttleMessage(_console?.Comp.ExpectedEvacuationArrival is null));
     }
 
-    private void OnCallSigmaPressed(BaseButton.ButtonEventArgs obj)
+    private void OnCallZetaPressed(BaseButton.ButtonEventArgs obj)
     {
         OnMessage?.Invoke(new DVCommunicationsConsoleKeycardAuthenticationDeviceMessage(DVStationKeycardAction.Mayday));
     }
