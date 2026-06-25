@@ -101,7 +101,7 @@
                 <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
                     <Label Text="{Loc 'comms-console-menu-declare-mayday.title'}" StyleClasses="LabelKeyText" />
                     <RichTextLabel Text="{Loc 'comms-console-menu-declare-mayday.desc'}" />
-                    <controls:ConfirmButton Name="CallSigma" Text="{Loc 'comms-console-menu-declare-mayday.button'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                    <controls:ConfirmButton Name="CallZeta" Text="{Loc 'comms-console-menu-declare-mayday.button'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
                 </BoxContainer>
             </PanelContainer>
 

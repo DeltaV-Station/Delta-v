@@ -45,7 +45,7 @@ alert-level-octarine = Octarine
 alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
 alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
-## DeltaV - Sigma
-alert-level-sigma = Sigma
-alert-level-sigma-announcement = The station is unrecoverable, and all important assets and crewmembers are to be evacuated. A distress signal has been sent to all nearby vessels. Security and Engineering staff are advised to minimize hazards and secure the Evacuation Dock. Crewmembers are advised to disembark the station by any means necessary. Godspeed.
-alert-level-sigma-instructions = Avoid hazards and prepare for Evacuation.
+## DeltaV - Zeta
+alert-level-zeta = Zeta
+alert-level-zeta-announcement = The station is unrecoverable, and all important assets and crewmembers are to be evacuated. A distress signal has been sent to all nearby vessels. Security and Engineering staff are advised to minimize hazards and secure the Evacuation Dock. Crewmembers are advised to disembark the station by any means necessary. Godspeed.
+alert-level-zeta-instructions = Avoid hazards and prepare for Evacuation.

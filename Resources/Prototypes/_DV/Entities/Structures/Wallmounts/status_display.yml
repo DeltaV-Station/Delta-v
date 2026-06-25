@@ -59,7 +59,7 @@
           epsilon: { state: alert_border_epsilon }
           gamma: { state: alert_border_gamma }
           octarine: { state: alert_border_octarine }
-          sigma: { state: alert_border_sigma }
+          zeta: { state: alert_border_zeta }
         alert_status:
           green: { state: status_display_green }
           blue: { state: status_display_blue }
@@ -71,7 +71,7 @@
           epsilon: { state: status_display_epsilon }
           gamma: { state: status_display_gamma }
           octarine: { state: status_display_octarine }
-          sigma: { state: status_display_sigma }
+          zeta: { state: status_display_zeta }
       enum.DVScreenVisuals.Content:
         enum.DVTextScreenVisualLayers.Line1:
           Text: { visible: true }
