@@ -32,6 +32,8 @@
         Quantity: 99
       - ReagentId: Chlorine
         Quantity: 1
-#  - type: Drink # DeltaV - Does not exist.
-#    solution: pool
-#    transferAmount: 1
+  - type: Edible # DeltaV - Drink Refactor into Edible
+    edible: Drink
+    solution: pool
+    transferAmount: 1
+    destroyOnEmpty: false
