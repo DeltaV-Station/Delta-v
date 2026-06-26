@@ -344,12 +344,11 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
+    requireAll: true
     components:
     - Vocal
     tags:
     - SiliconEmotes
-    - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
     - buzzing
@@ -398,12 +397,11 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
+    requireAll: true
     components:
     - Vocal
     tags:
     - SiliconEmotes
-    - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
     - beep
@@ -417,12 +415,11 @@
   category: Vocal
   icon: Interface/Emotes/chime.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
+    requireAll: true
     components:
     - Vocal
     tags:
     - SiliconEmotes
-    - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
     - chime
@@ -436,12 +433,11 @@
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
+    requireAll: true
     components:
     - Vocal
     tags:
     - SiliconEmotes
-    - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
     - buzztwice
@@ -461,12 +457,11 @@
   category: Vocal
   icon: Interface/Emotes/ping.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
+    requireAll: true
     components:
     - Vocal
     tags:
     - SiliconEmotes
-    - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
     - ping
