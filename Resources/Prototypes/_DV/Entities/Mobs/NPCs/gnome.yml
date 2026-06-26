@@ -76,6 +76,7 @@
     - SimpleHostile # cats hate gnomes
   - type: Speech
     speechSounds: Gnome
+    allowedEmotes: [ "Gulp", "Blink", "Scream", "Laugh", "Snore", "Sneeze", "Cough", "Yawn", "Crying", "Whistle" ]
   - type: Vocal
     sounds:
       Male: GnomeSounds
@@ -84,7 +85,7 @@
   # abilities
   - type: Psionic
   - type: Jaunt
-    jauntAction: ActionPolymorphJauntGnome # 2 second jaunt with 10 second cooldown
+    jauntAction: ActionPolymorphJauntGnome # 2 second jaunt with 20 second cooldown
   - type: PsionicRegenerationPower
   - type: PsionicInvisibilityPower
   - type: NoSlip
