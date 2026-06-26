@@ -246,7 +246,6 @@
         maxVol: 5000
   - type: ReagentDispenser
     beakerSlot:
-      # whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message # removed so cartons fall through silently to storage
       whitelist:
         components:
         - FitsInDispenser
