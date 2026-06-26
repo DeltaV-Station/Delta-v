@@ -61,6 +61,39 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
 
+    #region Progress Checking
+    /// <summary>
+    /// The next time the monument should check the progress of the cult.
+    /// </summary>
+    public TimeSpan NextProgressCheck = TimeSpan.Zero;
+
+    /// <summary>
+    /// The amount of time between progress checks.
+    /// </summary>
+    public TimeSpan TimeBetweenProgressChecks = TimeSpan.FromMinutes(15);
+
+    /// <summary>
+    /// The progress value of the monument last time it was checked.
+    /// </summary>
+    [DataField]
+    public int LastProgress = 0;
+
+    /// <summary>
+    /// The number of times the the progress check as failed. Resets after some progress.
+    /// </summary>
+    public int ConsecutiveProgressFails = 0;
+
+    /// <summary>
+    /// The number of times the progress check has to fail for the round to start to end.
+    /// </summary>
+    public int ProgressFailureTolerance = 3;
+
+    public LocId ProgressFailTextShuttleCall = "cosmiccult-progress-fail-shuttle-call";
+
+    public LocId ProgressFailTextAnnouncement = "cosmiccult-progress-fail-announcement";
+
+    #endregion
+
     [DataField]
     public HashSet<EntityUid> Cultists = [];
 

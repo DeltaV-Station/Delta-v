@@ -70,7 +70,7 @@ namespace Content.Server._DV.CosmicCult;
 /// <summary>
 /// Where all the main stuff for Cosmic Cultists happens.
 /// </summary>
-public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
+public sealed partial class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -174,6 +174,28 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.StewardVoteTimer = null;
             StewardVote();
         }
+
+        // Progress check. Is the cult trying to progress at all?
+        if (component.MonumentPlaced && _timing.CurTime > component.NextProgressCheck)
+        {
+            // We're going to assume one monument.
+            var monument = EntityQuery<MonumentComponent>().First();
+            if (component.LastProgress == monument.CurrentProgress)
+                component.ConsecutiveProgressFails++;
+            else
+                component.ConsecutiveProgressFails = 0;
+
+            // They haven't progressed enough in X checks, end the round.
+            if (component.ConsecutiveProgressFails >= component.ProgressFailureTolerance) {
+                SetWinType((uid, component), WinType.CrewMinor);
+                _roundEnd.DoRoundEndBehavior(component.RoundEndBehavior, component.EvacShuttleTime, component.RoundEndTextSender, component.ProgressFailTextShuttleCall, component.ProgressFailTextAnnouncement);
+                component.RoundEndBehavior = RoundEndBehavior.Nothing;
+            }
+
+            component.LastProgress = monument.CurrentProgress;
+            component.NextProgressCheck = _timing.CurTime + component.TimeBetweenProgressChecks;
+        }
+
         if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer && !component.RiftStop)
         {
             component.ExtraRiftTimer = _timing.CurTime + _rand.Next(TimeSpan.FromSeconds(230), TimeSpan.FromSeconds(360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.

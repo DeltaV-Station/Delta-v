@@ -63,8 +63,10 @@ cosmiccult-summary-crewmajor = All cosmic cultists were eliminated.
 cosmiccult-summary-crewcomplete = All cosmic cultists were deconverted!
 
 cosmiccult-elimination-shuttle-call = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. We thank you for your prudence. An emergency shuttle has been automatically called to the station for decontamination and debriefing procedures. ETA: {$time} {$units}.
-cosmiccult-elimination-announcement = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. We thank you for your prudence. An emergency shuttle is already inbound. Return to CentComm safely for decontamination and debriefing procedures.
+cosmiccult-elimination-announcement = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. We thank you for your prudence. An emergency shuttle is already inbound. Return to Midpoint safely for decontamination and debriefing procedures.
 
+cosmiccult-progress-fail-shuttle-call = Due to sustained Λ-CDM activity on you station, an emergency shuttle has been automatically called so that the station may be decontaminated as soon as possible. We thank you for your cooperation.
+cosmiccult-progress-fail-announcement = Due to sustained Λ-CDM activity on you station, an emergency shuttle is already inbound. Please ensure as much of the station is ready and accessible for the decontamination team. We thank you for your cooperation.
 
 ## BRIEFINGS
 
