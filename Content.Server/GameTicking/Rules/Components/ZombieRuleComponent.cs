@@ -40,15 +40,15 @@ public sealed partial class ZombieRuleComponent : Component
     /// <summary>
     /// DeltaV - The announcement sender when calling the shuttle.
     /// </summary>
-    public string RoundEndTextSender = "comms-console-announcement-title-centcom";
+    public LocId RoundEndTextSender = "comms-console-announcement-title-centcom";
 
     /// <summary>
     /// DeltaV - The announcement text when calling a shuttle.
     /// </summary>
-    public string RoundEndTextShuttleCall = "zombie-no-more-threat-announcement-shuttle-call";
+    public LocId RoundEndTextShuttleCall = "zombie-no-more-threat-announcement-shuttle-call";
 
     /// <summary>
     /// DeltaV - The announcement text when a shuttle is already called.
     /// </summary>
-    public string RoundEndTextAnnouncement = "zombie-no-more-threat-announcement";
+    public LocId RoundEndTextAnnouncement = "zombie-no-more-threat-announcement";
 }
