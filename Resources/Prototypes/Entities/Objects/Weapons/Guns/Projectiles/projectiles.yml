@@ -1225,7 +1225,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectHeavyLaser
+    muzzleFlash: MuzzleFlashSentryLethal
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
@@ -1244,7 +1244,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser
+    muzzleFlash: MuzzleFlashSentryDisable
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
@@ -1468,3 +1468,23 @@
     solution: bolt
   - type: TimedDespawn # DeltaV - limit range to match taser
     lifetime: 0.170 
+
+- type: entity
+  parent: MuzzleFlashEffectHeavyLaser
+  id: MuzzleFlashSentryLethal
+  components:
+  - type: Sprite
+    layers:
+    - shader: unshaded
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/muzzleflash.rsi
+      state: turretlethal
+
+- type: entity
+  parent: MuzzleFlashEffectOmnilaser
+  id: MuzzleFlashSentryDisable
+  components:
+  - type: Sprite
+    layers:
+    - shader: unshaded
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/muzzleflash.rsi
+      state: turretdisable
