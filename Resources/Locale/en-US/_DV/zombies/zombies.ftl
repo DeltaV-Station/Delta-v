@@ -1,0 +1,2 @@
+zombie-no-more-threat-announcement-shuttle-call = Long-range sensors indicate that you station has dealt with a biohazardous threat involving Romerol. Station decontamination required. The emergency shuttle has been called. ETA: {$time} {$units}.
+zombie-no-more-threat-announcement = Long-range sensors indicate that you station has dealt with a biohazardous threat involving Romerol. Station decontamination required. The emergency shuttle is already en route.

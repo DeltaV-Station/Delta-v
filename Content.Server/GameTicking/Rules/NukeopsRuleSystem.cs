@@ -30,6 +30,7 @@ using System.Linq;
 using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Cuffs.Components; // DeltaV
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -500,12 +501,23 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         // Check if there are nuke operatives still alive on the same map as the shuttle,
         // or on the same map as the station.
         // If there are, the round can continue.
-        var operatives = EntityQuery<NukeOperativeComponent, MobStateComponent, TransformComponent>(true);
+
+        // BEGIN DeltaV - End Rounds Better
+        // We need to use a EntityQueryEnumerator instead of a EntityQuery, because we need the uid to check for cuffs
+        var operatives = new List<Entity<NukeOperativeComponent, MobStateComponent, TransformComponent>>();
+        var operativesEnumerator = EntityQueryEnumerator<NukeOperativeComponent, MobStateComponent, TransformComponent>();
+        while (operativesEnumerator.MoveNext(out var uid, out var nukeOp, out var mobState, out var transform))
+        {
+            operatives.Add((uid, nukeOp, mobState, transform));
+        }
+
         var operativesAlive = operatives
             .Where(op =>
-                op.Item3.MapID == shuttleMapId
-                || op.Item3.MapID == targetStationMap)
-            .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
+                op.Comp3.MapID == shuttleMapId
+                || op.Comp3.MapID == targetStationMap)
+            .Any(op => op.Comp2.CurrentState == MobState.Alive && op.Comp1.Running &&
+                !TryComp<CuffableComponent>(op, out _)); // in the case the crew keeps one alive
+        // END DeltaV
 
         if (operativesAlive)
             return; // There are living operatives than can access the shuttle, or are still on the station's map.

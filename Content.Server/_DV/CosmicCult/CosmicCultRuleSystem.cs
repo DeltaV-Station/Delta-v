@@ -62,6 +62,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Collections.Immutable;
 using System.Linq;
+using Content.Shared.StatusIcon;
+using Content.Shared.SSDIndicator;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -442,17 +444,19 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
     }
 
-    private bool CultistsAlive()
+    private int GetCultistsAlive()
     {
         var query = EntityQueryEnumerator<CosmicCultComponent, MobStateComponent>();
+        int cultistsAlive = 0;
         while (query.MoveNext(out var ent, out _, out var mobComp))
         {
             if (TryComp<CuffableComponent>(ent, out var cuffed) && cuffed.CuffedHandCount > 0) continue;
+            if (TryComp<SSDIndicatorComponent>(ent, out var ssd) && ssd.IsSSD) continue; // TODO: Maybe check how long.
             if (mobComp.Running && mobComp.CurrentState != MobState.Dead)
-                return true;
+                cultistsAlive++;
         }
 
-        return false;
+        return cultistsAlive;
     }
 
     private void OnMobStateChanged(Entity<CosmicCultComponent> ent, ref MobStateChangedEvent args)
@@ -467,14 +471,19 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void CheckForActiveCultists()
     {
-        if (CultistsAlive())
+        // A lone cultist can't do anything, so check for more than one.
+        if (GetCultistsAlive() > 1)
             return;
 
         var query = QueryActiveRules();
+        List<Entity<CosmicCultRuleComponent>> cosCultRules = new();
+
+        // ConfirmWinState needs to be outside the query, because it might add an active rule
         while (query.MoveNext(out var ruleUid, out _, out var ruleComp, out _))
         {
-            ConfirmWinState((ruleUid, ruleComp));
+            cosCultRules.Add((ruleUid, ruleComp));
         }
+        cosCultRules.ForEach(ConfirmWinState);
     }
 
     private void ConfirmWinState(Entity<CosmicCultRuleComponent> ent)
@@ -503,8 +512,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             SetWinType(ent, WinType.CultMinor); //The Monument wasn't completed, but at least two cultists are alive and at Midpoint.
         else
             SetWinType(ent, WinType.Neutral); //The monument wasn't completed, no cultists escaped to midpoint. Some cultists still remain on the station, though.
-
-        if (CultistsAlive()) return; //If there are no cultists alive, ignore all previous checks, crew alreay won.
 
         if (tier <= 1) //Prevent the cult getting cooked by accident before anyone even knows there's a cult.
         {

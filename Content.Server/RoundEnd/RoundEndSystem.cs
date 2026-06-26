@@ -351,7 +351,7 @@ namespace Content.Server.RoundEnd
                     else
                     {
                         RequestRoundEnd(time, null, false, textCall,
-                            Loc.GetString(sender));
+                            Loc.GetString(sender), cantRecall: true);
                     }
                     break;
             }
