@@ -56,6 +56,7 @@
         - id: FlashlightSeclite
         - id: WeaponDisabler
         - id: WeaponTaser
+        - id: ClothingBeltSecurityFilled
         - id: BookSpaceLaw
         - id: ClothingOuterArmorBasicSlim
         - id: LunchboxJusticeFilledRandom
@@ -69,22 +70,24 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: RubberStampWarden
-        - id: LunchboxJusticeFilledRandom
+        - id: ClothingHeadsetAltJustice
+        - id: RubberStampJusticeWarden
         - id: RubberStampApproved
         - id: RubberStampDenied
+        - id: DoorRemoteJustice
         - id: BookSpaceLaw
+        - id: ClothingBeltSecurityFilled
         - id: ClothingBackpackElectropack
           amount: 2
         - id: ClothingNeckShockCollar
           amount: 2
         - id: RemoteSignaller
           amount: 2
-        - id: straitjacket
+        - id: ClothingOuterStraightjacket
         - id: TearGasGrenade # No access to sectech to oppress prisoners with
           amount: 2
         - id: NetworkConfigurator
         - id: Binoculars
         - id: BoxPDAPrisoner
         - id: BoxEncryptionKeyPrisoner
-        - id: DoorRemoteJustice
+        - id: LunchboxJusticeFilledRandom

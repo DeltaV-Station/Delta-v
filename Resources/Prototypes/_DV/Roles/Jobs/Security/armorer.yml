@@ -2,7 +2,7 @@
   id: Armorer
   name: job-name-warden
   description: job-description-warden
-  playTimeTracker: JobWarden
+  playTimeTracker: JobArmorer
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
@@ -30,25 +30,25 @@
     implants: [ MindShieldImplant ]
 
 - type: startingGear
-  id: WardenGear
+  id: ArmorerGear
   equipment:
-    id: WardenPDA
+    id: ArmorerPDA
     ears: ClothingHeadsetSecurity
   storage:
     back:
     - Flash
 
-
-- type: chameleonOutfit
-  id: WardenChameleonOutfit
-  job: Warden
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHatWarden
-    mask: ClothingMaskGasSecurity
-    outerClothing: ClothingOuterCoatWarden
-    jumpsuit: ClothingUniformJumpsuitWarden
-    neck: Dinkystar
-    belt: ClothingBeltSecurity
-    gloves: ClothingHandsGlovesCombat
-    shoes: ClothingShoesBootsJack
+# TODO
+#- type: chameleonOutfit
+#  id: WardenChameleonOutfit
+#  job: Warden
+#  hasMindShield: true
+#  equipment:
+#    head: ClothingHeadHatWarden
+#    mask: ClothingMaskGasSecurity
+#    outerClothing: ClothingOuterCoatWarden
+#    jumpsuit: ClothingUniformJumpsuitWarden
+#    neck: Dinkystar
+#    belt: ClothingBeltSecurity
+#    gloves: ClothingHandsGlovesCombat
+#    shoes: ClothingShoesBootsJack

@@ -19,16 +19,18 @@
   weight: 5
   startingGear: JusticeWardenGear
   icon: "JobIconPrisonGuard"
-  requireAdminNotify: true # DeltaV
+  requireAdminNotify: true
   supervisors: job-supervisors-cj
   canBeAntag: false
-  whitelisted: true # DeltaV
+  whitelisted: true
   access:
   - Justice
   - Prosecutor
   - Detective
   - Cryogenics
-  - Corpsman # DeltaV - Warden requires access to the treatment of their prisoners.
+  - Corpsman # Warden requires access to the treatment of their prisoners.
+  - Marshal
+  - JusticeWarden
   - GenpopEnter
   - GenpopLeave
   - Maintenance
@@ -39,22 +41,23 @@
 - type: startingGear
   id: JusticeWardenGear
   equipment:
-    id: WardenPDA
+    id: JusticeWardenPDA
     ears: ClothingHeadsetJustice
   storage:
     back:
     - Flash
 
-- type: chameleonOutfit
-  id: WardenChameleonOutfit
-  job: Warden
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHatWarden
-    mask: ClothingMaskGasSecurity
-    outerClothing: ClothingOuterCoatWarden
-    jumpsuit: ClothingUniformJumpsuitWarden
-    neck: Dinkystar
-    belt: ClothingBeltSecurity
-    gloves: ClothingHandsGlovesCombat
-    shoes: ClothingShoesBootsJack
+# TODO
+#- type: chameleonOutfit
+#  id: WardenChameleonOutfit
+#  job: Warden
+#  hasMindShield: true
+#  equipment:
+#    head: ClothingHeadHatWarden
+#    mask: ClothingMaskGasSecurity
+#    outerClothing: ClothingOuterCoatWarden
+#    jumpsuit: ClothingUniformJumpsuitWarden
+#    neck: Dinkystar
+#    belt: ClothingBeltSecurity
+#    gloves: ClothingHandsGlovesCombat
+#    shoes: ClothingShoesBootsJack

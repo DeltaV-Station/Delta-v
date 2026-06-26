@@ -11,14 +11,19 @@
   name: id-card-access-level-prosecutor
 
 - type: accessLevel
-  id: Warden
-  name: id-card-access-level-warden
+  id: JusticeWarden
+  name: id-card-access-level-justice-warden
+
+- type: accessLevel
+  id: Marshal
+  name: id-card-access-level-marshal
 
 - type: accessGroup
   id: Justice
   tags:
   - Justice
   - Prosecutor
-  - Warden
+  - JusticeWarden
   - ChiefJustice
   - Lawyer
+  - Marshal

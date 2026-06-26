@@ -75,7 +75,20 @@
     stateDoorOpen: clerk_open
     stateDoorClosed: clerk_door
   - type: AccessReader
-    access: [["Warden"]]
+    access: [["JusticeWarden"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerArmorer
+  name: armorer's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: warden
+    stateDoorOpen: warden_open
+    stateDoorClosed: warden_door
+  - type: AccessReader
+    access: [["Armory"]]
 
 - type: entity
   parent: LockerBaseSecureDeltaV

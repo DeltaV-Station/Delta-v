@@ -148,7 +148,7 @@
   suffix: JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Warden"]]
+    access: [["JusticeWarden"]]
 
 - type: entity
   parent: DoorElectronics
@@ -164,7 +164,7 @@
   suffix: Clerk, Locked
   components:
   - type: AccessReader
-    access: [["Warden"]] # Clerk access replaced with warden
+    access: [["JusticeWarden"]] # Clerk access replaced with warden
 
 - type: entity
   parent: DoorElectronics

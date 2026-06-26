@@ -15,13 +15,13 @@
   startingGear: MarshalGear
   alwaysUseSpawner: true
   canBeAntag: false
-  icon: "JobIconMarshal"
+  icon: "JobIconClerk"
   supervisors: job-supervisors-warden
   setPreference: true
   whitelisted: true
   access:
   - Justice
-  - Prosecutor
+  - Marshal
   - Maintenance
 
   special:

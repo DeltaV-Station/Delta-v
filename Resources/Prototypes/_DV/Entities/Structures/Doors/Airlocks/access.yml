@@ -123,6 +123,42 @@
     containers:
       board: [ DoorElectronicsClerk ]
 
+- type: entity
+  parent: AirlockJustice
+  id: AirlockJusticeWardenLocked
+  suffix: JusticeWarden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockJusticeWardenGlassLocked
+  suffix: JusticeWarden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockMarshalGlassLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
 # Maintenance
 - type: entity
   parent: AirlockMaintCommandLocked
@@ -161,6 +197,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsClerk ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintJusticeWardenLocked
+  suffix: JusticeWarden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
 
 - type: entity
   parent: AirlockSecurity

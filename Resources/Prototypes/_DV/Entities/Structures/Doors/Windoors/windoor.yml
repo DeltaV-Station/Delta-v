@@ -82,6 +82,24 @@
       board: [ DoorElectronicsLawyer ]
 
 - type: entity
+  parent: [ WindoorSecure, WindoorJusticeLocked ]
+  id: WindoorSecureJusticeWardenLocked
+  suffix: JusticeWarden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: [ WindoorSecure, WindoorJusticeLocked ]
+  id: WindoorSecureMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
+- type: entity
   parent: WindoorSecureScienceLocked
   id: WindoorSecureMantisLocked
   suffix: Mantis, Locked
