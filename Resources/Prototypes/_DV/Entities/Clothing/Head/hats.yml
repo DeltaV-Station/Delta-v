@@ -513,6 +513,7 @@
 
 - type: entity
   parent: ClothingHeadBase
+<<<<<<< gnomes
   id: ClothingHeadHatGnome
   name: gnome hat
   description: For those that honor the first gnome in space, Gnome Chompsky. Still has a bit of magic that sparkles in its velvet sheen.
@@ -558,3 +559,13 @@
     tags:
     - PetWearable
     - CorgiWearable
+=======
+  id: ClothingHeadHatSodaJerkCap
+  name: soda jerk cap
+  description: I was a wimp before the soda jerk.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+>>>>>>> master

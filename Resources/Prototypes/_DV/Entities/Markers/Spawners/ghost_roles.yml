@@ -190,3 +190,15 @@
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostHitman
+  components:
+  - type: GhostRole
+    name: ghost-role-information-hitman-name
+    description: ghost-role-information-hitman-description
+    rules: ghost-role-information-hitman-rules
+    mindRoles:
+    - MindRoleHitman

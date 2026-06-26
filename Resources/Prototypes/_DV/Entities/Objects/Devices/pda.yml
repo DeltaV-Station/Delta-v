@@ -767,6 +767,15 @@
   - type: Pda
     id: RecruiterIDCard
 
+#hitman
+
+- type: entity
+  parent: PassengerPDA
+  id: HitmanPDA
+  components:
+  - type: Pda
+    id: HitmanIDCard
+
 # Secborglogprobe
 
 - type: entity
