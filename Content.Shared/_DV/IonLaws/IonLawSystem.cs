@@ -38,6 +38,10 @@ public sealed class IonLawSystem : EntitySystem
     {
         var rand = ((LocValueRandom)args.Args[0]).Value;
         var players = ((LocValueEntityList)args.Args[1]).Value;
+        if (players.Count == 0)
+        {
+            return new LocValueString(Loc.GetString("dv-ion-law-target-fallback", ("random", new LocValueRandom(rand))));
+        }
         return new LocValueEntity(rand.PickAndTake(players));
     }
 
