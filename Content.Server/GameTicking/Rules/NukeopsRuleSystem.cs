@@ -462,10 +462,16 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void CheckRoundShouldEnd()
     {
         var query = QueryActiveRules();
+
+        // BEGIN DeltaV - Allow round to become survival
+        // CheckRoundShouldEnd needs to be outside the query, because it might add an active rule
+        List<Entity<NukeopsRuleComponent>> nukeOpsRules = new();
         while (query.MoveNext(out var uid, out _, out var nukeops, out _))
         {
-            CheckRoundShouldEnd((uid, nukeops));
+            nukeOpsRules.Add((uid, nukeops));
         }
+        nukeOpsRules.ForEach(CheckRoundShouldEnd);
+        // END DeltaV
     }
 
     private void CheckRoundShouldEnd(Entity<NukeopsRuleComponent> ent)

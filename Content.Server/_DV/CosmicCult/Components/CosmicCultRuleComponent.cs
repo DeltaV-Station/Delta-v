@@ -18,7 +18,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// What happens if all of the cultists die.
     /// </summary>
     [DataField]
-    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
+    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.BecomeSurvival;
 
     /// <summary>
     /// Sender for shuttle call.
