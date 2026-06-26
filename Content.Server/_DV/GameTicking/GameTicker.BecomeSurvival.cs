@@ -22,6 +22,8 @@ public sealed partial class GameTicker
 {
     private static readonly EntProtoId RampingSchedulerProto = "RampingStationEventScheduler";
 
+    private static readonly TimeSpan GracePeriod = TimeSpan.FromMinutes(10);
+
     /// <summary>
     /// DeltaV - Removes the basic scheduler and adds a ramping scheduler to the round. Does nothing
     /// if there is already a ramping scheduler.
@@ -30,8 +32,6 @@ public sealed partial class GameTicker
     [PublicAPI]
     public bool ConvertRoundToSurvival()
     {
-        _chatManager.SendAdminAlert("Major antag defeated. Converting to survival.");
-
         // Ramping scheduler is already added. Do nothing.
         if (IsGameRuleActive(RampingSchedulerProto))
         {
@@ -39,12 +39,17 @@ public sealed partial class GameTicker
             return true;
         }
 
-        var basicRules = EntityQueryEnumerator<BasicStationEventSchedulerComponent>();
-        while (basicRules.MoveNext(out var uid, out var _))
-            EndGameRule(uid);
-
+        // Add a ramping scheduler with a delay.
         var rampingScheduler = AddGameRule(RampingSchedulerProto);
-        StartGameRule(rampingScheduler);
+        var rampingSchedulerStart = _gameTiming.CurTime.Add(GracePeriod);
+        EnsureComp<DelayedStartRuleComponent>(rampingScheduler).RuleStartTime = rampingSchedulerStart;
+
+        _chatManager.SendAdminAlert($"Major antag defeated. Converting to survival at {rampingSchedulerStart}.");
+
+        // End Basic Rules
+        var basicRules = EntityQueryEnumerator<BasicStationEventSchedulerComponent>();
+        while (basicRules.MoveNext(out var uid, out var rule))
+            EndGameRule(uid);
 
         return IsGameRuleActive(RampingSchedulerProto);
     }

@@ -70,6 +70,8 @@ namespace Content.Server._DV.CosmicCult;
 
 /// <summary>
 /// Where all the main stuff for Cosmic Cultists happens.
+/// 
+/// This should probably be broken up into a partial class.
 /// </summary>
 public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
 {
@@ -174,6 +176,31 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.StewardVoteTimer = null;
             StewardVote();
         }
+
+        // Progress check. Is the cult trying to progress at all? Have they gotten to T3?
+        if (component.MonumentPlaced && component.CurrentTier < 3 && _timing.CurTime > component.NextProgressCheck)
+        {
+            // We're going to assume one monument.
+            var monument = EntityQuery<MonumentComponent>().First();
+            if (component.LastProgress == monument.CurrentProgress)
+                component.ConsecutiveProgressFails++;
+            else
+                component.ConsecutiveProgressFails = 0;
+
+            // They haven't progressed enough in X checks, convert to survival. They can still progress BUT
+            // if they haven't done ANYTHING in a long time, I doubt they will be a thread suddenly.
+            if (component.ConsecutiveProgressFails >= component.ProgressFailureTolerance)
+            {
+                SetWinType((uid, component), WinType.CrewMinor);
+
+                _roundEnd.DoRoundEndBehavior(component.RoundEndBehavior, component.EvacShuttleTime, component.RoundEndTextSender, component.ProgressFailTextShuttleCall, component.ProgressFailTextAnnouncement);
+                component.RoundEndBehavior = RoundEndBehavior.Nothing;
+            }
+
+            component.LastProgress = monument.CurrentProgress;
+            component.NextProgressCheck = _timing.CurTime + component.TimeBetweenProgressChecks;
+        }
+
         if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer && !component.RiftStop)
         {
             component.ExtraRiftTimer = _timing.CurTime + _rand.Next(TimeSpan.FromSeconds(230), TimeSpan.FromSeconds(360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.
@@ -489,8 +516,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private void ConfirmWinState(Entity<CosmicCultRuleComponent> ent)
     {
         var tier = ent.Comp.CurrentTier;
-        var LeaderAtCentcom = false;
-        var CultistsAtCentcom = 0;
+        var leaderAtCentcom = false;
+        var cultistsAtCentcom = 0;
         var centcomm = _emergency.GetCentcommMaps();
         var wrapup = AllEntityQuery<CosmicCultComponent, TransformComponent>();
         while (wrapup.MoveNext(out var cultist, out _, out var cultistLocation))
@@ -498,17 +525,17 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             if (cultistLocation.MapUid != null && centcomm.Contains(cultistLocation.MapUid.Value))
             {
                 if (TryComp<CuffableComponent>(cultist, out var cuffed) && cuffed.CuffedHandCount > 0) continue; // If they are cuffed, they should be deconverted soon, so we don't count them.
-                CultistsAtCentcom++;
+                cultistsAtCentcom++;
                 if (HasComp<CosmicCultLeadComponent>(cultist))
-                    LeaderAtCentcom = true;
+                    leaderAtCentcom = true;
             }
         }
 
         if (tier < 3)
             SetWinType(ent, WinType.CrewMinor); //The monument didn't even reach tier 3, which means that either cult had a skill issue, or crew evacuated early. Minor win.
-        else if (LeaderAtCentcom) //If the monument reached tier 3, all cultists have glowing eyes now, so you shouldn't let them evacuate without cuffs on.
+        else if (leaderAtCentcom) //If the monument reached tier 3, all cultists have glowing eyes now, so you shouldn't let them evacuate without cuffs on.
             SetWinType(ent, WinType.CultMajor); //The Monument wasn't completed, but the cult leader's alive and at Midpoint.
-        else if (CultistsAtCentcom >= 2)
+        else if (cultistsAtCentcom >= 2)
             SetWinType(ent, WinType.CultMinor); //The Monument wasn't completed, but at least two cultists are alive and at Midpoint.
         else
             SetWinType(ent, WinType.Neutral); //The monument wasn't completed, no cultists escaped to midpoint. Some cultists still remain on the station, though.
