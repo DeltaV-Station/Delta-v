@@ -36,7 +36,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -84,7 +84,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -101,7 +101,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -118,7 +118,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -139,7 +139,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
     - squish
@@ -157,7 +157,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
    - chitter
@@ -175,7 +175,7 @@
       - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
    - squeak
@@ -193,7 +193,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
    - click
@@ -210,7 +210,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - claps
@@ -227,7 +227,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: [ "chat-emote-msg-clap-single" ]
   chatTriggers:
     - clap
@@ -246,7 +246,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-snap"]
   chatTriggers:
     - snap
@@ -273,7 +273,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
     - thump
@@ -297,7 +297,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - salute
@@ -344,9 +344,9 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    # components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
-    # - Vocal
+    requireAll: true
+    components:
+    - Vocal
     tags:
     - SiliconEmotes
     - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
@@ -383,7 +383,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
@@ -398,9 +398,9 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    #components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
-    #- Vocal
+    requireAll: true
+    components:
+    - Vocal
     tags:
     - SiliconEmotes
     - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
@@ -417,9 +417,9 @@
   category: Vocal
   icon: Interface/Emotes/chime.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    #components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
-    #- Vocal
+    requireAll: true
+    components:
+    - Vocal
     tags:
     - SiliconEmotes
     - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
@@ -436,9 +436,9 @@
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    # components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
-    # - Vocal
+    requireAll: true
+    components:
+    - Vocal
     tags:
     - SiliconEmotes
     - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.
@@ -461,9 +461,9 @@
   category: Vocal
   icon: Interface/Emotes/ping.png
   whitelist:
-    # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    # components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
-    # - Vocal
+    requireAll: true
+    components:
+    - Vocal
     tags:
     - SiliconEmotes
     - SyntheticEmotes # Delta-V change - added machine emotes for the synthetic trait.

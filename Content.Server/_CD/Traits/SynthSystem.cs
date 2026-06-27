@@ -17,6 +17,7 @@ public sealed class SynthSystem : EntitySystem
     private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
     private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
     private static readonly ProtoId<TagPrototype> SyntheticEmotesTag = "SyntheticEmotes";
+    private static readonly ProtoId<TagPrototype> SiliconEmotesTag = "SiliconEmotes"; // this is added so we can pass the requireAll for borg emotes...
     private static readonly ProtoId<EmoteSoundsPrototype> SyntheticEmoteSounds = "SyntheticEmoteSounds";
     // End DeltaV
 
@@ -51,6 +52,7 @@ public sealed class SynthSystem : EntitySystem
         // End DeltaV
 
         _tag.AddTag(uid, SyntheticEmotesTag); // delta-v - proper synthe emote implementation
+        _tag.AddTag(uid, SiliconEmotesTag); // Delta-V - lets Synthetics pass machine-emote whitelists that require SiliconEmotes; they are NOT tagged OrganicEmotesBlacklist, so they keep their human emotes
     }
 
     // Start DeltaV - proper synthe emote implementation

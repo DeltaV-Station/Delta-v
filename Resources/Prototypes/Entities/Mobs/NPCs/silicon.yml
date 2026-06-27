@@ -24,6 +24,8 @@
     tags:
     - DoorBumpOpener
     - SiliconEmotes
+    - SyntheticEmotes # Delta-V - lets borgs pass the Vocal+SyntheticEmotes machine-emote whitelist (1. pass emotes)
+    - OrganicEmotesBlacklist # Delta-V - blocks borgs from human/organic-only emotes (2. eradicate organic emotes, simple!)
     - Honker # DeltaV - Can honk
     - Unimplantable
   - type: MobState
@@ -104,6 +106,8 @@
     tags:
     - DoorBumpOpener
     - SiliconEmotes
+    - SyntheticEmotes # Delta-V - lets borgs pass the Vocal+SyntheticEmotes machine-emote whitelist (1. pass emotes)
+    - OrganicEmotesBlacklist # Delta-V - blocks borgs from human/organic-only emotes (2. eradicate organic emotes, simple!)
     - Honker # DeltaV - Can honk
     - Bot
     - Unimplantable
@@ -476,6 +480,8 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - SyntheticEmotes # Delta-V - lets borgs pass the Vocal+SyntheticEmotes machine-emote whitelist (1. pass emotes)
+    - OrganicEmotesBlacklist # Delta-V - blocks borgs from human/organic-only emotes (2. eradicate organic emotes, simple!)
     - Honker # DeltaV - Can honk
     - Bot
     - Unimplantable

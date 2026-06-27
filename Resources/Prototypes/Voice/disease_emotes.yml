@@ -14,7 +14,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -61,7 +61,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+    - OrganicEmotesBlacklist # Delta-V - blocks true silicons but not Synthetics, where they keep their organic emotes
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn
