@@ -345,7 +345,7 @@
   icon: Interface/Emotes/buzz.png
   whitelist:
     # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    # components:
+    # components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
     # - Vocal
     tags:
     - SiliconEmotes
@@ -399,7 +399,7 @@
   icon: Interface/Emotes/beep.png
   whitelist:
     # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    #components:
+    #components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
     #- Vocal
     tags:
     - SiliconEmotes
@@ -418,7 +418,7 @@
   icon: Interface/Emotes/chime.png
   whitelist:
     # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    #components:
+    #components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
     #- Vocal
     tags:
     - SiliconEmotes
@@ -437,7 +437,7 @@
   icon: Interface/Emotes/buzztwo.png
   whitelist:
     # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    # components:
+    # components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
     # - Vocal
     tags:
     - SiliconEmotes
@@ -462,7 +462,7 @@
   icon: Interface/Emotes/ping.png
   whitelist:
     # requireAll: true # Delta-V change - makes the whitelist become an any check instead of requiring everything.
-    # components:
+    # components: # Delta-v change - required commenting to fix emotes being available to everyone, so that only entities with the following tag only has them.
     # - Vocal
     tags:
     - SiliconEmotes
