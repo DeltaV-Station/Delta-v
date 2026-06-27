@@ -5,7 +5,6 @@ using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Speech.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
@@ -16,16 +15,15 @@ public sealed class SynthSystem : EntitySystem
     // Begin DeltaV - make strings static readonly
     private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
     private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
-    private static readonly ProtoId<TagPrototype> SyntheticEmotesTag = "SyntheticEmotes";
-    private static readonly ProtoId<TagPrototype> SiliconEmotesTag = "SiliconEmotes"; // this is added so we can pass the requireAll for borg emotes...
-    private static readonly ProtoId<EmoteSoundsPrototype> SyntheticEmoteSounds = "SyntheticEmoteSounds";
+    private static readonly ProtoId<TagPrototype> SiliconEmotesTag = "SiliconEmotes"; // delta-v - proper synthe emote implementation
+    private static readonly ProtoId<EmoteSoundsPrototype> SiliconEmoteSounds = "UnisexSilicon"; // delta-v - proper synthe emote implementation
     // End DeltaV
 
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    private EmoteSoundsPrototype? _syntheticEmoteSounds; // delta-v - proper synthe emote implementation
+    private EmoteSoundsPrototype? _siliconEmoteSounds; // delta-v - proper synthe emote implementation
 
     public override void Initialize()
     {
@@ -51,8 +49,7 @@ public sealed class SynthSystem : EntitySystem
         }
         // End DeltaV
 
-        _tag.AddTag(uid, SyntheticEmotesTag); // delta-v - proper synthe emote implementation
-        _tag.AddTag(uid, SiliconEmotesTag); // Delta-V - lets Synthetics pass machine-emote whitelists that require SiliconEmotes; they are NOT tagged OrganicEmotesBlacklist, so they keep their human emotes
+        _tag.AddTag(uid, SiliconEmotesTag); // Delta-V - let synthetics use borg emotes
     }
 
     // Start DeltaV - proper synthe emote implementation
@@ -61,9 +58,9 @@ public sealed class SynthSystem : EntitySystem
         if (args.Handled)
             return;
 
-        _syntheticEmoteSounds ??= _proto.Index(SyntheticEmoteSounds);
+        _siliconEmoteSounds ??= _proto.Index(SiliconEmoteSounds);
 
-        args.Handled = _chat.TryPlayEmoteSound(uid, _syntheticEmoteSounds, args.Emote);
+        args.Handled = _chat.TryPlayEmoteSound(uid, _siliconEmoteSounds, args.Emote);
     }
     // End DeltaV
 }
