@@ -79,13 +79,13 @@ public sealed class MonumentSystem : SharedMonumentSystem
             {
                 comp.SongTimer = null;
                 if (comp.SelectedSong is { } song)
-                    _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
+                    _sound.DispatchGlobalEventMusic(song, StationEventMusicType.CosmicCult);
             }
 
             if (comp.CurrentState == FinaleState.ActiveFinale && comp.FinaleAnnounceCheck && comp.FinaleTimer - _timing.CurTime < comp.VisualsThreshold)
             {
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
-                _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
+                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
                 comp.FinaleAnnounceCheck = false;
             }
 

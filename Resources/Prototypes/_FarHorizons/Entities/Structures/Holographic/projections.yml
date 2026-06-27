@@ -1,6 +1,6 @@
 - type: entity
   id: HolosignRadiationBlocking
-  parent: HolosignWetFloor
+  parent: BaseHolosign # DeltaV
   name: holographic radiation barrier
   description: A barrier of hard light that blocks light and radiation, but nothing else.
   components:
@@ -18,3 +18,9 @@
   - type: Occluder
   - type: RadiationBlocker
     resistance: 50
+# Start DeltaV Additions
+  - type: HoloRadiationblocker
+  - type: PointLight
+    energy: 5
+    color: Green
+# End DeltaV Additions

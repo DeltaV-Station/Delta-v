@@ -1,0 +1,193 @@
+- type: entity
+  parent: SimpleMobBase
+  id: MobBasePitbull
+  abstract: true
+  components:
+  - type: Physics
+  - type: MobState
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2.5 # Im not going to elaborate further on this.
+        Piercing: 5
+        Structural: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 65
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Appearance
+  - type: Inventory
+    speciesId: secdog
+    templateId: secdog
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/ventbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: vibble
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: vibble
+      Critical:
+        Base: vibble_dead
+      Dead:
+        Base: vibble_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Speech
+    allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo']
+    speechVerb: Canine
+    speechSounds: Vulpkanin
+  - type: Vocal
+    sounds:
+      Unsexed: MobDog
+  - type: ReplacementAccent
+    accent: dog
+  - type: InteractionPopup
+    successChance: 0.85 # They no longer maul you.
+    interactSuccessString: petting-success-pibble
+    interactFailureString: petting-failure-pibble
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: DogVision
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  parent: MobBasePitbull
+  id: MobPitbullVent # ventbull
+  name: Ventbull
+  description: A subspecies of pitbull bred by NanoTrasen for quick and inexpensive pest control.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Passive
+      - Cat # Not a cat but we want them to attack mice
+  - type: RandomMetadata
+    nameSegments: [NamesPitbulls]
+
+- type: entity
+  parent: MobBasePitbull
+  id: MobPitbull
+  name: Pitbull
+  description: Nanny dog. Or a lab mix depending on who is asking.
+  components:
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 5 # Don't piss them off, or else...
+        Piercing: 10
+        Structural: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pibble
+      Critical:
+        Base: pibble_dead
+      Dead:
+        Base: pibble_dead
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/pitbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pibble
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: RandomMetadata
+    nameSegments: [NamesPitbulls]
+
+- type: entity
+  parent: MobBasePitbull
+  id: MobPitbullPibble
+  name: Pibble
+  description: Its Pibble! He's a great companion for any crewmate aboard the station! Just be sure to not make him the subject of any violence! #It means dont fucking punch him or he will kick your ass.
+  components:
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 10 # Harsher consequences for hurting Pibble the Pitbull.
+        Piercing: 15
+        Structural: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pibble
+      Critical:
+        Base: pibble_dead
+      Dead:
+        Base: pibble_dead
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/pitbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pibble
+  - type: NpcFactionMember
+    factions:
+      - PetsNT # Pibble is a good boy and doesn't hurt crew.
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 65
+        mask:
+        - MobMask
+        layer:
+        - MobLayer

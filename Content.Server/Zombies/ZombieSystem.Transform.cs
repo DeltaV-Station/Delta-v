@@ -1,4 +1,3 @@
-using Content.Server._DV.Psionics.Systems;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -14,7 +13,6 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
-using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -27,7 +25,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
-using Content.Shared.NPC.Components; // DeltaV
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
@@ -72,7 +69,6 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly PsionicSystem _psionic = default!; // DeltaV
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -134,6 +130,9 @@ public sealed partial class ZombieSystem
         //you're a real zombie now, son.
         var zombiecomp = AddComp<ZombieComponent>(target);
 
+        // DeltaV - Save factions, psionics, etc. before modifications are made.
+        PreserveEntityComponentState((target, zombiecomp));
+
         //we need to basically remove all of these because zombies shouldn't
         //get diseases, breath, be thirst, be hungry, die in space, get double sentience, have offspring or be paraplegic.
         RemComp<RespiratorComponent>(target);
@@ -145,12 +144,6 @@ public sealed partial class ZombieSystem
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);
         RemComp<SentienceTargetComponent>(target);
-
-        // DeltaV Start - Prevent Psionic Zombies
-        RemComp<PotentialPsionicComponent>(target);
-        if (HasComp<PsionicComponent>(target))
-            _psionic.MindBreakEntity(target, false, true);
-        // DeltaV End - Prevent Psionic Zombies
 
         //funny voice
         var accentType = "zombie";
@@ -245,6 +238,9 @@ public sealed partial class ZombieSystem
         //Should prevent instances of zombies using comms for information they shouldnt be able to have.
         _inventory.TryUnequip(target, "ears", true, true);
 
+        // DeltaV - Extra zombification removals, etc.
+        ZombifyEntityDV((target, zombiecomp), mobState);
+
         //popup
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);
 
@@ -261,7 +257,6 @@ public sealed partial class ZombieSystem
 
         _faction.ClearFactions(target, dirty: false);
         _faction.AddFaction(target, ZombieFaction);
-        EnsureComp<NoFriendlyFireComponent>(target); // DeltaV - prevent shitters biting other zombies
 
         //gives it the funny "Zombie ___" name.
         _nameMod.RefreshNameModifiers(target);

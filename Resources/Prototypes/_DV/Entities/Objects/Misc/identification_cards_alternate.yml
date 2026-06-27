@@ -305,3 +305,14 @@
     - External
     - Robotics
     - Maintenance
+
+# Hitman
+
+- type: entity
+  parent: AgentIDCard
+  id: HitmanIDCard
+  components:
+  - type: Access
+    tags:
+    - External
+    - Maintenance

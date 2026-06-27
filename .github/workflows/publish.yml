@@ -20,6 +20,7 @@ jobs:
     - uses: actions/checkout@v4.2.2
       with:
         submodules: 'recursive'
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
@@ -29,6 +30,12 @@ jobs:
       run: |
         cd RobustToolbox
         git fetch --depth=1
+
+    - name: Get Engine Tag
+      run: |
+        cd RobustToolbox/Lidgren.Network/Lidgren.Network
+        git fetch
+        git checkout 726dd552a4b104fb2b701848705f1250a073f060
 
     - name: Install dependencies
       run: dotnet restore
