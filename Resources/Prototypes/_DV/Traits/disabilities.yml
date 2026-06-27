@@ -1,48 +1,6 @@
 ## If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
 
 - type: trait
-  id: asd
-  name: main trait
-  description: the main trait
-  category: Disabilities
-  cost: 0
-  subTraits:
-    - asd1
-    - asd2
-
-- type: trait
-  id: asd1
-  name: first sub trait
-  description: joe
-  category: Disabilities
-  cost: -1
-  conditions:
-    - !type:TraitDependencyCondition
-      requires:
-        - asd
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SomeComponent
-
-- type: trait
-  id: asd2
-  name: second sub trait
-  description: dirt dvd
-  category: Disabilities
-  cost: 2
-  conditions:
-    - !type:TraitDependencyCondition
-      requires:
-        - asd
-      conflicts:
-        - asd1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SomeOtherComponent
-
-- type: trait
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
