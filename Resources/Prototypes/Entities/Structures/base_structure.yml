@@ -26,6 +26,10 @@
   - type: Tag
     tags:
       - Structure
+  # BEGIN DeltaV
+  - type: ExaminableDamage
+    messages: BaseStructureMessages
+  # END DeltaV
 
 - type: entity
   # This means that it's not anchored on spawn.
