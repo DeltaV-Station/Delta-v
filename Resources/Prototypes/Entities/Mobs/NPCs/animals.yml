@@ -3795,9 +3795,9 @@
         Base: dead
   - type: Butcherable
     spawned:
-    # - id: FoodMeat # DeltaV - pigs drop bacon instead of generic meat
-    #   amount: 6
-    - id: FoodMeatBacon # DeltaV
+    - id: FoodMeat
+      amount: 6
+    - id: FoodMeatBacon # DeltaV #Make Pigs drop bacon as well as meat
       amount: 6
   - type: Grammar
     attributes:
