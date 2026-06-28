@@ -1090,3 +1090,124 @@
     - item: HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+
+# Door Remote Modules
+- type: entity
+  id: BorgModuleDoorRemoteEngineering
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: engineering door remote module
+  description: Allows the engineering cyborg to remotely access engineering department doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#ffa62b"
+    - state: door_remotescreencolour
+      color: "#bc5b00"
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteFirefight
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: door-remote-module }
+
+- type: entity
+  id: BorgModuleDoorRemoteSecurity
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: security door remote module
+  description: Allows the security cyborg to remotely access security department doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#5667c5"
+    - state: door_remotescreencolour
+      color: "#36367e"
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteSecurity
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: door-remote-module }
+
+- type: entity
+  id: BorgModuleDoorRemoteMedical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: medical door remote module
+  description: Allows the medical cyborg to remotely access medical department doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#68aed6"
+    - state: door_remotescreencolour
+      color: "#325f7a"
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteMedical
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: door-remote-module }
+
+- type: entity
+  id: BorgModuleDoorRemoteService
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: service door remote module
+  description: Allows the service cyborg to remotely access service department doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#58c800"
+    - state: door_remotescreencolour
+      color: "#3a7231"
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteService
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: door-remote-module }
+
+- type: entity
+  id: BorgModuleDoorRemoteJanitor
+  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
+  name: janitorial door remote module
+  description: Allows the janitor cyborg to remotely access service wing doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#58c800"
+    - state: door_remotescreencolour
+      color: "#3a7231"
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteService
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: door-remote-module }
+
+- type: entity
+  id: BorgModuleDoorRemoteSalvage
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: salvage door remote module
+  description: Allows the salvage cyborg to remotely access logistics wing doors.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#b18644"
+    - state: door_remotescreencolour
+      color: "#5b4523"
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteCargo
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: door-remote-module }

@@ -51,6 +51,7 @@
   - BorgModuleConstruction
   - BorgModuleRCD
   - BorgModuleCable
+  - BorgModuleDoorRemoteEngineering # DeltaV
 
   lawset: Engineer # DeltaV - Custom lawset
   job: StationEngineer # DeltaV - borg job requirements
@@ -101,6 +102,7 @@
   - BorgModuleMining
   - BorgModuleTraversal
   - BorgModuleAppraisal
+  - BorgModuleDoorRemoteSalvage # DeltaV
 
   lawset: Salvage #DeltaV - Custom Lawset
   job: SalvageSpecialist # DeltaV - borg job requirements
@@ -151,6 +153,7 @@
   - BorgModuleTool # DeltaV - Readd Tool Module
   - BorgModuleCleaning
   - BorgModuleCustodial
+  - BorgModuleDoorRemoteJanitor # DeltaV
 
   lawset: Janitor # DeltaV - Custom lawset
   job: Janitor # DeltaV - borg job requirements
@@ -201,6 +204,7 @@
   - BorgModuleChemicalDV # DeltaV - Was BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
+  - BorgModuleDoorRemoteMedical # DeltaV
 
   radioChannels:
   - Science
@@ -276,6 +280,7 @@
   - BorgModuleGardeningDV
   - BorgModuleChef
   - BorgModuleBartender
+  - BorgModuleDoorRemoteService
 # End of DeltaV Additions - Rework Service Borg
   radioChannels:
   - Science
