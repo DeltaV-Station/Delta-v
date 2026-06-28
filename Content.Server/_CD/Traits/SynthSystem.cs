@@ -68,6 +68,6 @@ public sealed class SynthSystem : EntitySystem
         // If we make it this far, its an allowed emote, so just resolve the sound from
         // the SyntheticEmoteSounds prototype and play it.
         if (_proto.Resolve(SyntheticEmoteSounds, out var emoteSound))
-            _chat.TryPlayEmoteSound(uid, emoteSound, args.Emote);
+            args.Handled = _chat.TryPlayEmoteSound(uid, emoteSound, args.Emote);
     }
 }
