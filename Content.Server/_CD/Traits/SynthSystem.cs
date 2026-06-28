@@ -5,7 +5,9 @@ using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
@@ -18,6 +20,7 @@ public sealed class SynthSystem : EntitySystem
     private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
     private static readonly ProtoId<TagPrototype> SyntheticEmotesTag = "SiliconEmotes";
     private static readonly ProtoId<EmoteSoundsPrototype> SyntheticEmoteSounds = "SyntheticEmoteSounds";
+    private static readonly ProtoId<EmotePrototype>[] SiliconEmotes = ["Beep", "Chime", "Buzz", "Buzz-Two", "Ping"];
     // End DeltaV
 
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
@@ -41,21 +44,30 @@ public sealed class SynthSystem : EntitySystem
             Dirty(uid, indicator);
         }
 
-        // Begin DeltaV - Change blood amount according to original BloodstreamCompoent.ReferenceSolution volume
         if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
         {
             // Give them synth blood. Ion storm notif is handled in that system
             _bloodstream.ChangeBloodReagents((uid, bloodstream), new([new(SynthBloodReagent, bloodstream.BloodReferenceSolution.Volume)]));
         }
-        // End DeltaV
+
+        // Add the silicon emotes to the allow list so we can ignore the emote whitelist/blacklist. This just allows the emote event to
+        // be sent but it does not associate a sound with the emote. We'll intercept that event in OnEmote and play the sound manually there
+        // since we cannot add just add sounds on the fly to the emote sounds of a species (everyone will have a different sound).
+        if (HasComp<VocalComponent>(uid) && TryComp<SpeechComponent>(uid, out var speech))
+        {
+            speech.AllowedEmotes.AddRange(SiliconEmotes);
+            Dirty(uid, speech);
+        }
     }
 
     private void OnEmote(EntityUid uid, SynthComponent component, ref EmoteEvent args)
     {
-        if (_proto.Resolve(SyntheticEmoteSounds, out var emoteSound) &&
-            args.Emote.Whitelist is { } whitelist &&
-            whitelist.Tags is { } tags &&
-            tags.Contains(SyntheticEmotesTag))
+        if (args.Handled)
+            return;
+
+        // If we make it this far, its an allowed emote, so just resolve the sound from
+        // the SyntheticEmoteSounds prototype and play it.
+        if (_proto.Resolve(SyntheticEmoteSounds, out var emoteSound))
             _chat.TryPlayEmoteSound(uid, emoteSound, args.Emote);
     }
 }
