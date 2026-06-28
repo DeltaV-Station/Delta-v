@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Globalization;
 using Content.Shared.Dataset;
-using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
@@ -15,7 +14,6 @@ public sealed class IonLawSystem : EntitySystem
     [Dependency] private readonly ILocalizationManager _localization = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
 
     private const string Culture = "en-US";
 
