@@ -1096,6 +1096,7 @@
   id: BorgModuleDoorRemoteEngineering
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
   name: engineering door remote module
+  noSpawn: true
   description: Allows the engineering cyborg to remotely access engineering department doors.
   components:
   - type: Sprite
@@ -1116,6 +1117,7 @@
   id: BorgModuleDoorRemoteSecurity
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: security door remote module
+  noSpawn: true
   description: Allows the security cyborg to remotely access security department doors.
   components:
   - type: Sprite
@@ -1136,6 +1138,7 @@
   id: BorgModuleDoorRemoteMedical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: medical door remote module
+  noSpawn: true
   description: Allows the medical cyborg to remotely access medical department doors.
   components:
   - type: Sprite
@@ -1156,6 +1159,7 @@
   id: BorgModuleDoorRemoteService
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
   name: service door remote module
+  noSpawn: true
   description: Allows the service cyborg to remotely access service department doors.
   components:
   - type: Sprite
@@ -1176,6 +1180,7 @@
   id: BorgModuleDoorRemoteJanitor
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
   name: janitorial door remote module
+  noSpawn: true
   description: Allows the janitor cyborg to remotely access service wing doors.
   components:
   - type: Sprite
@@ -1196,6 +1201,7 @@
   id: BorgModuleDoorRemoteSalvage
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
   name: salvage door remote module
+  noSpawn: true
   description: Allows the salvage cyborg to remotely access logistics wing doors.
   components:
   - type: Sprite
