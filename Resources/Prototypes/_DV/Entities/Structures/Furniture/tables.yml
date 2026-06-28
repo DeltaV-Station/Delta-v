@@ -478,13 +478,13 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/Tables/large_tables.rsi
     state: pool
-    offset: "0.3,0.0"
+    offset: "0.5,0.0"
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.3,1.0,0.45"
+          bounds: "-0.25,-0.3,1.2,0.45"
         density: 95
         mask:
         - TableMask
@@ -496,30 +496,16 @@
   - type: Rotatable
 
 - type: entity
-  parent: BaseTableWood
+  parent: N14TableCasinoPool
   id: N14TableCasinoCards
   name: cards table
   description: A fancy table for playing cards at.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/Tables/large_tables.rsi
     state: cards
-    offset: "0.5,0.0"
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.5,1.2,0.45"
-        density: 95
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Construction
     graph: N14TableRecipes
     node: n14TableCasinoCards
-  - type: Rotatable
 
 #endregion
 
@@ -584,7 +570,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.3,-0.4,1.45,0.45"
+          bounds: "-0.25,-0.4,1.45,0.45"
         density: 75
         mask:
         - TableMask

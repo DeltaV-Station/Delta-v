@@ -1,20 +1,28 @@
 - type: entity
-  abstract: true
   parent: BaseStructure
-  id: BaseTallStructure
+  id: WallCellBar
+  name: cell wall
+  description: A wall made of security bars.
   components:
-  - type: SpriteFade
+  - type: Sprite
+    sprite: _DV/Structures/Walls/Cells/bar.rsi
+    state: bar
+    drawdepth: Walls
+  - type: Icon
+    sprite: _DV/Structures/Walls/Cells/bar.rsi
+    state: bar
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.1,0.5,0.0"
+          bounds: "-0.5,0.55,0.5,0.35"
         mask:
         - FullTileMask
         layer:
         - WallLayer
         density: 1000
+  - type: SpriteFade
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StructuralMetallic
@@ -49,22 +57,6 @@
       Heat:
         collection:
           MetalLaserImpact
-  - type: PlacementReplacement
-    key: walls
-
-- type: entity
-  parent: BaseTallStructure
-  id: WallCellBar
-  name: cell wall
-  description: A wall made of security bars.
-  components:
-  - type: Sprite
-    sprite: _DV/Structures/Walls/Cells/bar.rsi
-    state: bar
-    drawdepth: Walls
-  - type: Icon
-    sprite: _DV/Structures/Walls/Cells/bar.rsi
-    state: bar
 
 - type: entity
   parent: WallCellBar
@@ -81,7 +73,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.1,-0.15,0.0"
+          bounds: "-0.5,0.55,-0.15,0.35"
         mask:
         - FullTileMask
         layer:
@@ -90,7 +82,7 @@
       fix2:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.5,-0.1,0.15,0.0"
+          bounds: "0.5,0.55,0.15,0.35"
         mask:
         - FullTileMask
         layer:
@@ -99,20 +91,21 @@
 
 - type: entity
   parent: WallCellBar
-  id: WallCellBarBend
+  id: WallCellBarBendRight
   name: cell bend
+  suffix: Right
   description: A curved corner section of bar wall.
   components:
   - type: Sprite
-    state: bar_bend
+    state: bar_bend_right
   - type: Icon
-    state: bar_bend
+    state: bar_bend_right
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.1,0.5,0.0"
+          bounds: "-0.5,-0.2,0.5,-0.1"
         mask:
         - FullTileMask
         layer:
@@ -121,7 +114,38 @@
       fix2:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.5,0.0,0.6,1.0"
+          bounds: "0.4,-0.1,0.5,0.8"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+
+- type: entity
+  parent: WallCellBar
+  id: WallCellBarBendRightLeft
+  name: cell bend
+  suffix: Left
+  components:
+  - type: Sprite
+    state: bar_bend_left
+  - type: Icon
+    state: bar_bend_left
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.2,0.5,0.1"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.4,-0.8,0.5,0.1"
         mask:
         - FullTileMask
         layer:
