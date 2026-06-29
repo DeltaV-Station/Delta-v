@@ -60,7 +60,7 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 1.5
+    fireRate: 3
   - type: GunSpreadModifier
     spread: 0.4
 - type: entity
@@ -79,7 +79,7 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/skl93.rsi
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 1
+    fireRate: 3
   - type: GunSpreadModifier
     spread: 0.1
   - type: BallisticAmmoProvider
@@ -88,20 +88,9 @@
       - CartridgeMagnum
     capacity: 10
     proto: CartridgeMagnum
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.80
-    sprintModifier: 0.80
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
     pvsIncrease: 0.3
   - type: StaticPrice
     price: 670
-
-- type: entity
-  parent: WeaponLeverActionSKL93
-  id: WeaponLeverActionSKL93AP # For the uplink.
-  suffix: armor-piercing
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeMagnumAP

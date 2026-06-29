@@ -61,10 +61,11 @@
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,5,1
+    - 0,0,6,1
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: WeaponLeverActionSKL93AP
+        - id: WeaponLeverActionSKL93
         - id: MagazineBoxMagnum
+        - id: ClothingHeadHatCowboyBlack
