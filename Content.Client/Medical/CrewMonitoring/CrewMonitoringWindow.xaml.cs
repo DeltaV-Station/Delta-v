@@ -353,6 +353,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     {
                         _trackedEntity = null;
                         // BEGIN DeltaV - center on crew monitor user if deselecting
+                        // This fixes some weird bug where if you deselect a tracked entity, it will
+                        // just not draw the map at all in some cases.
                         if (ShuttleMap.Owner is { } handheld &&
                             _transformSystem.TryGetMapOrGridCoordinates(handheld, out var userCoords) &&
                             userCoords is { } coords)
