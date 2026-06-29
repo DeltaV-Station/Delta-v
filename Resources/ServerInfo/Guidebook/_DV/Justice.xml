@@ -1,6 +1,6 @@
 <Document>
 # Justice
-The primary goal of the [color=#a4885c]Justice[/color] department is to uphold space law and process trials in a timely manner.
+The primary goal of the [color=#a4885c]Justice[/color] department is to uphold space law and process hearings in a timely manner, handle sentencing and processing of prisoners, as well as enforce SOP and perform inspections.
 <Box>
 <GuideEntityEmbed Entity="BoxFolderYellow"/>
 <GuideEntityEmbed Entity="BriefcaseBrown"/>
@@ -8,23 +8,24 @@ The primary goal of the [color=#a4885c]Justice[/color] department is to uphold s
 <GuideEntityEmbed Entity="ClothingHeadHatPwig"/>
 </Box>
 
-## Roles
-- The [color=#a4885c]Chief Justice[/color] should act as a judge during trials, and coordinating with Security to prepare upcoming trials or to review previous ones.
-- [color=#a4885c]Attorneys[/color] should represent the defense during trials, and should be contacting prisoners in need of defense or legal assistance. They also play a role as the public defender of the crew, also performing the function of [color=#a4885c]suing[/color] on behalf of the crew when needed.
-- [color=#a4885c]Prosecutors[/color] should represent (what else) the prosecution during trials, and should work with the Security department to prepare trials for court. In the case of an arrest, the Prosecutor should get a statement from the arresting officer about the matter, and is, in the case of felonies, [color=#a4885c]responsible for sentencing[/color]. If available, the prosecutor should work with [color=#a4885c]detectives[/color] to request evidence.
-- [color=#a4885c]Clerks[/color] should prepare witnesses and evidence to be presented and assist trial proceedings during an ongoing trial, and otherwise should assist all clerical facets of the Justice department and all crew. They are also the de facto manager of the [color=#a4885c]courtroom timer[/color], and should ensure pending cases be addressed in order of urgency.
-- Security roles, if present during a trial, should act as the bailiff and ensure the defendant is present. Security, while not required to be present during the entirety of the trial, should be present to enact the Judge's ruling once it is given. Outside of trials, the department of Security should communicate with the Justice Department to ensure current prisoners are handled as needed.
+  ## Roles
+  - The [color=#a4885c]Chief Justice[/color] should act as a judge during hearings, prepare the department for upcoming hearings, or review inspections.
+  - The [color=#a4885c]Warden[/color] is in charge of all prisoners and securing  all evidence. They should be aware of upcoming hearings and arrange prisoner transport.
+  - [color=#a4885c]Attorneys[/color] should represent the defense during hearings, and should be contacting prisoners in need of defense or legal assistance. They also play a role as the public defender of the crew, also performing the function of [color=#a4885c]suing[/color] on behalf of the crew when needed.
+  - [color=#a4885c]Prosecutors[/color] should represent (what else) the prosecution during hearings. In the case of an arrest, the Prosecutor should get a statement from the arresting officer about the matter, and is [color=#a4885c]responsible for sentencing[/color]. If available, the prosecutor should work with [color=#a4885c]detectives[/color] to request evidence.
+  - [color=#a4885c]Marshals[/color] are the "muscle" of justice, and may act as prison guards, baliffs, or assist in performing inspections.
 
-In the event of a trial being needed when [color=#a4885c]one of these roles is unavailable[/color]:
-- A substitute judge should be a member of the Justice department, or less preferably a member of Command or Security.
-- A substitute prosecutor should be either an attorney or clerk.
-- A substitute defense should be either a prosecutor or clerk, however the defendant has the right to represent themselves if they choose.
 
-## Hearing Procedure
-All hearings should follow the [textlink="Hearing Procedure" link="HearingProcedure"]. It states how long a trial should last, and lists the steps on how it should be carried out.
-<Box>
+  In the event of a hearing being needed when [color=#a4885c]one of these roles is unavailable[/color]:
+  - A substitute judge should be a member of the Justice department, or less preferably a member of Command or Security.
+  - A substitute prosecutor should be either an attorney or clerk.
+  - A substitute defense should be either a prosecutor or clerk, however the defendant has the right to represent themselves if they choose.
+
+  ## Hearing Procedure
+  All hearings should follow the [textlink="Hearing Procedure" link="HearingProcedure"]. It states how long a hearing should last, and lists the steps on how it should be carried out.
+  <Box>
 <GuideEntityEmbed Entity="Gavel"/>
 <GuideEntityEmbed Entity="TrialTimer"/>
 </Box>
-It is a recommendation to have Security Personnel within place during a court hearing, as you and the crew attending could be vulnerable.
+It is reccomended to have a baliff during a court hearing, in order to escort prisoners and enforce order.
 </Document>

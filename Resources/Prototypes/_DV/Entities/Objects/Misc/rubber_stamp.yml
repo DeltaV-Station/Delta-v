@@ -45,6 +45,36 @@
     state: stamp-prosec
 
 - type: entity
+  name: armorer's rubber stamp
+  parent: [RubberStampBase, BaseSecurityContraband]
+  id: RubberStampArmorer
+  categories: [ DoNotMap ]
+  description: A rubber stamp for stamping important documents. Or weapons licenses for passengers.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-armorer
+    stampedColor: "#5b0000"
+    stampState: "paper_stamp-armorer"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-armorer
+
+- type: entity
+  name: warden's rubber stamp
+  parent: [RubberStampBase, BaseSecurityContraband]
+  id: RubberStampJusticeWarden
+  categories: [ DoNotMap ]
+  description: With a simple press of ink to paper, a life is sealed behind bars. Maybe not forever
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-warden
+    stampedColor: "#0000af" # DeltaV - Security is blue. Was 5b0000
+    stampState: "paper_stamp-warden"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi # DeltaV - New sprite for blue warden stamp
+    state: stamp-warden
+
+- type: entity
   parent: RubberStampBase
   id: RubberStampHatePaperwork
   name: paperwork hater rubber stamp

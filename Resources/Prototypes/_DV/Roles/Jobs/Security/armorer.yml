@@ -1,0 +1,54 @@
+- type: job
+  id: Armorer
+  name: job-name-warden
+  description: job-description-warden
+  playTimeTracker: JobArmorer
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+  weight: 5
+  startingGear: WardenGear
+  icon: "JobIconWarden"
+  requireAdminNotify: true # DeltaV
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  whitelisted: false
+  access:
+  - Security
+  - Armory
+  - Maintenance
+  - External
+  - Detective
+  - Cryogenics
+
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ArmorerGear
+  equipment:
+    id: ArmorerPDA
+    ears: ClothingHeadsetSecurity
+  storage:
+    back:
+    - Flash
+
+# TODO
+#- type: chameleonOutfit
+#  id: WardenChameleonOutfit
+#  job: Warden
+#  hasMindShield: true
+#  equipment:
+#    head: ClothingHeadHatWarden
+#    mask: ClothingMaskGasSecurity
+#    outerClothing: ClothingOuterCoatWarden
+#    jumpsuit: ClothingUniformJumpsuitWarden
+#    neck: Dinkystar
+#    belt: ClothingBeltSecurity
+#    gloves: ClothingHandsGlovesCombat
+#    shoes: ClothingShoesBootsJack

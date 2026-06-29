@@ -95,6 +95,16 @@
   - type: Icon
     state: pda-prisonguard
 
+- type: entity
+  parent: WardenPDA
+  id: ArmorerPDA
+  name: armorer PDA
+  description: A top-of-the-line, brand-new PDA. Works exactly the same as all the others, just loads a little faster.
+  components:
+  - type: Pda
+    id: ArmorerIDCard
+
+
 # Justice
 
 - type: entity
@@ -178,6 +188,43 @@
     state: pda-prosecutor
   - type: Pager
     autoLinkJobs: [Prosecutor]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: MarshalPDA
+  name: marshal PDA
+  description: Comes with a copy of SOP pre-installed, but it's already out of date.
+  components:
+  - type: Pda
+    id: MarshalIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-clerk
+  - type: PdaBorderColor
+    borderColor: "#611528"
+  - type: Icon
+    state: pda-clerk
+  - type: Pager
+    autoLinkJobs: [Marshal]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: JusticeWardenPDA
+  name: warden PDA
+  description: Covered in cracks and dents. Has seen more than its fair share of abuse.
+  components:
+  - type: Pda
+    id: JusticeWardenIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prisonguard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-prisonguard
 
 # Misc
 

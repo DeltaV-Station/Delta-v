@@ -202,38 +202,57 @@
         - id: MagazinePistolHighCapacity
           amount: 4
 
-- type: entityTable
-  id: FillLockerSecurityDeltaV
-  table: !type:AllSelector
-    children:
-    - id: ClothingHeadHelmetInsulated
-      prob: 0.4
-    - id: LunchboxSecurityFilledRandom
-      prob: 0.3
-    - id: ClothingOuterArmorPlateCarrier
-    - id: ClothingOuterArmorDuraVest
-    - id: ClothingOuterArmorBasicSlim
+# Armorer Lockers - copy of old warden. New warden is in justice.yml
+- type: entity
+  id: LockerArmorerFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerArmorer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerArmorer
+        - !type:NestedSelector
+          tableId: FillLockerArmorerHardsuit
+
+- type: entity
+  id: LockerArmorerFilled
+  suffix: Filled
+  parent: LockerArmorer
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerArmorer
 
 - type: entityTable
-  id: FillLockerBrigmedicDeltaV
+  id: FillLockerArmorer
   table: !type:AllSelector
     children:
-    - id: ClothingHeadsetBrigmedic
-    - id: ClothingBeltCorpsmanWebbing
-    - id: HandheldGPSBasic
-    - id: BoxBodyBag
-    - id: EmergencyRollerBedSpawnFolded
-    - id: MedkitCombatFilled
-    - id: Portafib
-    - id: ChemistryBottleRevivopine
+    - id: FlashlightSeclite
+    - id: WeaponDisabler
+    - id: WeaponTaser
+    - id: ClothingBeltSecurityFilled
+    - id: Flash
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingHandsGlovesCombat
+    - id: RubberStampArmorer
+    - id: DoorRemoteArmory
+    - id: HoloprojectorSecurity
+    - id: WeaponEnergyShotgun
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
+    - id: ClothingOuterVestPlateCarrierAdv
+    - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
 
 - type: entityTable
-  id: FillLockerDetectiveDeltaV
+  id: FillLockerArmorerHardsuit
   table: !type:AllSelector
     children:
-    - id: BoxTapeRecorder
-    - id: ClothingHeadsetSecurity
-    - id: LunchboxSecurityFilledRandom
-      prob: 0.3
+    - id: ClothingOuterHardsuitCombatWarden
+    - id: ClothingShoesBootsSecurityMagboots
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingMaskGasSwat

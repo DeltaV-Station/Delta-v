@@ -53,6 +53,46 @@
       state: prosecutor
 
 - type: entity
+  id: SpawnPointMarshal
+  parent: SpawnPointJobBase
+  name: Marshal
+  components:
+  - type: SpawnPoint
+    job_id: Marshal
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: clerk
+
+- type: entity
+  id: SpawnPointJusticeWarden
+  parent: SpawnPointJobBase
+  name: JusticeWarden
+  components:
+  - type: SpawnPoint
+    job_id: JusticeWarden
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: nyanoprisonguard
+
+- type: entity
+  id: SpawnPointArmorer
+  parent: SpawnPointJobBase
+  name: Armorer
+  components:
+  - type: SpawnPoint
+    job_id: Armorer
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Markers/jobs.rsi
+      state: warden
+
+
+- type: entity
   id: SpawnPointCourier
   parent: SpawnPointJobBase
   name: courier

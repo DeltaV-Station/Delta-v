@@ -144,11 +144,27 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsJusticeWarden
+  suffix: JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["JusticeWarden"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMarshal
+  suffix: Marshal, Locked
+  components:
+  - type: AccessReader
+    access: [["Marshal"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsClerk
   suffix: Clerk, Locked
   components:
   - type: AccessReader
-    access: [["Clerk"]]
+    access: [["JusticeWarden"]] # Clerk access replaced with warden
 
 - type: entity
   parent: DoorElectronics

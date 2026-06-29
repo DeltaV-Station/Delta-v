@@ -7,12 +7,11 @@
   filterEnabled: true
   children:
   - GeneralRegulations
-  - ControlledISA
   - CommandingOfficer
-  - SecurityandJusticeRegulations
-  - Hearings
   - MedicalRegulations
+  - EpistemicsRegulations
   - EngineeringRegulations
+  - JusticeRegulations
 
 # General Regulations Main Directory
 
@@ -25,30 +24,6 @@
   - Definitions
   - HiringProcedure
   - RightsToRefuseService
-
-# Controlled ISA Main Directory and Subdirectories
-
-- type: guideEntry
-  id: ControlledISA
-  name: Controlled Items, Substances & Areas
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledISA.xml
-  priority: 1
-  children:
-  - ControlledItems
-  - ControlledSub
-  - ControlledArms
-  - DepartmentalDisp
-  - HSA
-
-
-- type: guideEntry
-  id: DepartmentalDisp
-  name: Departmental Dispensations
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/DepartmentalDisp.xml
-  children:
-  - LogisticsDisp
-  - ResearchDisp
-  - MedicalDisp
 
 # Commanding Officer Main Directory
 
@@ -64,35 +39,6 @@
   - Mutiny
   - ForeignVessels
 
-# Security And Justice Regulations Directories
-
-- type: guideEntry
-  id: SecurityandJusticeRegulations
-  name: Security And Justice Regulations
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/SecurityandJusticeRegulations.xml
-  priority: 1
-  children:
-  - SecurityJurisdiction
-  - ProbableCause
-  - RulesOfEngagement
-  - MartialLaw
-  - ArmoryProcedure
-  - TreatmentOfPrisoners
-  - ArrestandSentencing
-  - AppealsParolePardons
-  - PressingCriminalCharges
-  - Warrants
-  - Injunctions
-
-# Hearings Main Directory
-- type: guideEntry
-  id: Hearings
-  name: Hearings
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Hearings/Hearings.xml
-  priority: 1
-  children:
-  - HearingProcedure
-
 # Medical Regulations Main Directory
 - type: guideEntry
   id: MedicalRegulations
@@ -100,10 +46,24 @@
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalRegulations.xml
   priority: 1
   children:
+  - StandardOfCare
   - DNRs
   - MedicalEvaluation
   - Quarantine
-  - StandardOfCare
+  - ForeignBodies
+  - SurgicalRegulations
+  - HandlingOfEntityRemains
+
+# Epistemics Regulations Main Directory
+- type: guideEntry
+  id: EpistemicsRegulations
+  name: Epistemics Regulations
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/EpistemicsRegulations.xml
+  priority: 1
+  children:
+  - Artifacts
+  - Anomalies
+  - Glimmer
 
 # Engineering Regulations Main Directory
 - type: guideEntry
@@ -118,9 +78,21 @@
   - HazardZones
   - CondemnedAreas
 
+# Justice Regulations Main Directory
+- type: guideEntry
+  id: JusticeRegulations
+  name: Justice Regulations
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/JusticeRegulations.xml
+  priority: 1
+  children:
+  - Inspections
+  - Citations
+  - CriminalViolations
+  - Enforcement
+
 ## General Regulations Entries
 - type: guideEntry
-  id: Definitions
+  id: SOPDefinitions
   name: Definitions
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/Definitions.xml
 
@@ -135,53 +107,6 @@
   id: RightsToRefuseService
   name: Rights To Refuse Service
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/RightsToRefuseService.xml
-
-
-## Controlled ISA Entries
-
-- type: guideEntry
-  id: ControlledItems
-  name: Controlled Items
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledItems.xml
-
-
-- type: guideEntry
-  id: ControlledSub
-  name: Controlled Substances
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledSub.xml
-
-
-- type: guideEntry
-  id: ControlledArms
-  name: Controlled Armaments
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledArms.xml
-
-
-- type: guideEntry
-  id: HSA
-  name: High Security Areas
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/HighSecurity.xml
-
-
-
-### Departmental Dispensations Entries
-
-- type: guideEntry
-  id: LogisticsDisp
-  name: Logistics
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/LogisticsDisp.xml
-
-
-- type: guideEntry
-  id: ResearchDisp
-  name: Research
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/ResearchDisp.xml
-
-
-- type: guideEntry
-  id: MedicalDisp
-  name: Medical
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/MedicalDisp.xml
 
 
 ## Commanding Officer Entries
@@ -215,103 +140,59 @@
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/ForeignVessels.xml
 
 
-## Security And Justice Regulations entries
-- type: guideEntry
-  id: SecurityJurisdiction
-  name: Security Jurisdiction
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/SecurityJurisdiction.xml
-
-
-- type: guideEntry
-  id: ProbableCause
-  name: Probable Cause
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/ProbableCause.xml
-
-
-- type: guideEntry
-  id: RulesOfEngagement
-  name: Rules Of Engagement
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/RulesOfEngagement.xml
-
-
-- type: guideEntry
-  id: MartialLaw
-  name: Martial Law
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/MartialLaw.xml
-
-
-- type: guideEntry
-  id: ArmoryProcedure
-  name: Armory Procedure
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/ArmoryProcedure.xml
-
-
-- type: guideEntry
-  id: TreatmentOfPrisoners
-  name: Treatment Of Prisoners
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/TreatmentOfPrisoners.xml
-
-
-- type: guideEntry
-  id: ArrestandSentencing
-  name: Arrest & Sentencing
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/ArrestandSentencing.xml
-
-
-- type: guideEntry
-  id: AppealsParolePardons
-  name: Appeals Parole Pardons
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/AppealsParolePardons.xml
-
-
-- type: guideEntry
-  id: PressingCriminalCharges
-  name: Pressing Criminal Charges
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/PressingCriminalCharges.xml
-
-
-- type: guideEntry
-  id: Warrants
-  name: Warrants
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Warrants.xml
-
-
-- type: guideEntry
-  id: Injunctions
-  name: Injunctions
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Injunctions.xml
-
-
-## Hearings Entries
-- type: guideEntry
-  id: HearingProcedure
-  name: Hearing Procedure
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/Hearings/HearingProcedure.xml
-
-
 ## Medical Regulations Entries
+- type: guideEntry
+  id: StandardOfCare
+  name: Standard Of Care
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/StandardOfCare.xml
+
 - type: guideEntry
   id: DNRs
   name: DNRs
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/DNRs.xml
-
 
 - type: guideEntry
   id: MedicalEvaluation
   name: Medical Evaluation
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalEvaluation.xml
 
-
 - type: guideEntry
   id: Quarantine
   name: Quarantine
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/Quarantine.xml
 
+- type: guideEntry
+  id: ForeignBodies
+  name: Foreign Bodies
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/ForeignBodies.xml
 
 - type: guideEntry
-  id: StandardOfCare
-  name: Standard Of Care
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/StandardOfCare.xml
+  id: SurgicalRegulations
+  name: Surgical Regulations
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/SurgicalRegulations.xml
+
+- type: guideEntry
+  id: HandlingOfEntityRemains
+  name: Handling of Entity Remains
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/HandlingOfEntityRemains.xml
+
+
+  ## Epistemics Regulations Entries
+- type: guideEntry
+  id: Artifacts
+  name: Artifacts
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Artifacts.xml
+
+- type: guideEntry
+  id: Anomalies
+  name: Anomalies
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Anomalies.xml
+
+- type: guideEntry
+  id: Glimmer
+  name: Glimmer
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Glimmer.xml
+
 
   ## Engineering Regulations Entries
 - type: guideEntry
@@ -341,3 +222,25 @@
   id: CondemnedAreas
   name: Condemned Areas
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/CondemnedAreas.xml
+
+
+  ## Justice Regulations Entries
+- type: guideEntry
+  id: Inspections
+  name: Inspections
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Inspections.xml
+
+- type: guideEntry
+  id: Citations
+  name: Citations
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Citations.xml
+
+- type: guideEntry
+  id: CriminalViolations
+  name: Criminal Violations
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/CriminalViolations.xml
+
+- type: guideEntry
+  id: Enforcement
+  name: Enforcement
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Enforcement.xml

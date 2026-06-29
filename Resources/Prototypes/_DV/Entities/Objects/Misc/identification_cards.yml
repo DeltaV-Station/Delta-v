@@ -67,6 +67,24 @@
   - type: PresetIdCard
     job: Gladiator
 
+- type: entity
+  parent: IDCardStandard
+  id: ArmorerIDCard
+  name: armorer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-security-top
+    - state: stripe_bottom
+      color: *color-security-bottom
+    - sprite: *icon-rsi-dv # DeltaV - Sec Icon Resprite
+      offset: *icon-offset
+      state: Warden
+  - type: PresetIdCard
+    job: Armorer
+
 # Cargo / Logistics
 
 - type: entity
@@ -201,6 +219,42 @@
       state: Prosecutor
   - type: PresetIdCard
     job: Prosecutor
+
+- type: entity
+  parent: IDCardStandard
+  id: JusticeWardenIDCard
+  name: warden ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: nyanoPrisonGuard
+  - type: PresetIdCard
+    job: JusticeWarden
+
+- type: entity
+  parent: IDCardStandard
+  id: MarshalIDCard
+  name: marshal ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Clerk
+  - type: PresetIdCard
+    job: Marshal
 
 # Service
 
