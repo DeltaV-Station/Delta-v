@@ -10,6 +10,12 @@ namespace Content.Shared._DV.NodeCrawl;
 public sealed partial class CrawlableNodeComponent : Component
 {
     /// <summary>
+    /// Node types that can be connected to by this node
+    /// </summary>
+    [DataField(readOnly: true, serverOnly: true, required: true)]
+    public List<Type> ReachableNodeTypes = new();
+
+    /// <summary>
     /// Other entities with <see cref="CrawlableNodeComponent" /> that can be reached from this one
     /// </summary>
     [ViewVariables, AutoNetworkedField]

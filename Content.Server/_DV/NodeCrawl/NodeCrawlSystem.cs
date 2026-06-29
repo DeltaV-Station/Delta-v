@@ -6,6 +6,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared._DV.NodeCrawl;
 using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
+using Robust.Shared.Utility;
 
 namespace Content.Server._DV.NodeCrawl;
 
@@ -85,6 +86,13 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         {
             foreach (var reachable in node.ReachableNodes)
             {
+                if (ent.Comp.ReachableNodeTypes.Count != 0 &&
+                    !ent.Comp.ReachableNodeTypes.TrueForAll(type => reachable.GetType() == type))
+                {
+                    continue;
+                }
+
+                DebugTools.Assert(HasComp<CrawlableNodeComponent>(reachable.Owner), $"Node {ToPrettyString(reachable.Owner)} reachable from {ToPrettyString(ent)} should be a crawlable node, but wasn't");
                 set.Add(reachable.Owner);
             }
 

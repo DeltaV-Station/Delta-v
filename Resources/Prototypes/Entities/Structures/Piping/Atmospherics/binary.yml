@@ -440,6 +440,7 @@
       guides:
       - GasCanisters
     - type: CrawlableNode # DeltaV
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: GasVentPump
