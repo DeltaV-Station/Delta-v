@@ -31,6 +31,98 @@
       groups:
       - FireFight
 
+# Borg-specific door remotes — department contraband only, not command contraband, hidden from spawn menu.
+- type: entity
+  parent: [DoorRemoteDefault, BaseSecurityContraband]
+  id: DoorRemoteBorgSecurity
+  name: security borg door remote
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#5667c5"
+    - state: door_remotescreencolour
+      color: "#36367e"
+  - type: Access
+    tags:
+    - Security
+    - Detective
+    - Cryogenics
+    - Corpsman
+
+- type: entity
+  parent: [DoorRemoteDefault, BaseMedicalContraband]
+  id: DoorRemoteBorgMedical
+  name: medical borg door remote
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#68aed6"
+    - state: door_remotescreencolour
+      color: "#325f7a"
+  - type: Access
+    tags:
+    - Medical
+    - Chemistry
+    - Paramedic
+    - Psychologist
+    - Surgery
+
+- type: entity
+  parent: [DoorRemoteDefault, BaseCivilianContraband]
+  id: DoorRemoteBorgService
+  name: service borg door remote
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#58c800"
+    - state: door_remotescreencolour
+      color: "#3a7231"
+  - type: Access
+    tags:
+    - Bar
+    - Kitchen
+    - Hydroponics
+    - Service
+    - Janitor
+    - Theatre
+    - Lawyer
+    - Boxer
+    - Clown
+    - Mime
+    - Musician
+    - Reporter
+    - Zookeeper
+
+- type: entity
+  parent: [DoorRemoteDefault, BaseCargoContraband]
+  id: DoorRemoteBorgCargo
+  name: logistics borg door remote
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#b18644"
+    - state: door_remotescreencolour
+      color: "#5b4523"
+  - type: Access
+    tags:
+    - Salvage
+    - Cargo
+    - Mail
+    - Orders
+    - Funding
+
 - type: entity
   parent: [DoorRemoteDefault, BaseCentcommContraband]
   id: DoorRemoteOmni
