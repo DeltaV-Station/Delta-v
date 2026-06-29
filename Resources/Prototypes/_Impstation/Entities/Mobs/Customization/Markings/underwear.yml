@@ -1,8 +1,7 @@
 - type: marking
   id: UnderwearLowriders
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: null # DeltaV - removed restrictions
+  groupWhitelist: null # DeltaV - removed restrictions
   coloring:
     default:
       type:
@@ -15,8 +14,7 @@
 - type: marking
   id: UnderwearTanga
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: null # DeltaV - removed restrictions
+  groupWhitelist: null # DeltaV - removed restrictions
   coloring:
     default:
       type:

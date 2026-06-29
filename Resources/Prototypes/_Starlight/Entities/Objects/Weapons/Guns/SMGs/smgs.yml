@@ -14,7 +14,7 @@
   - type: Clothing
     sprite: _Starlight/Objects/Weapons/Guns/SMGs/makeshift_smg.rsi
   - type: Item
-    size: Normal  
+    size: Normal
   - type: Gun
     fireRate: 9
     minAngle: 32
@@ -83,7 +83,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Starlight/Objects/Weapons/Guns/SMGs/makeshift_smg.rsi  
+    sprite: _Starlight/Objects/Weapons/Guns/SMGs/makeshift_smg.rsi
   - type: Item
     size: Large
   - type: Wieldable
@@ -97,9 +97,9 @@
     angleIncrease: 3
     maxAngle: 32
   - type: Appearance
-  - type: Construction
-    graph: ImprovisedSMGGraph
-    node: shotgun
+  #- type: Construction # DeltaV - made it uncraftable
+  #  graph: ImprovisedSMGGraph
+  #  node: shotgun
   - type: WeaponDismantleOnShoot
     dismantleChance: 0.01
     items:
@@ -136,7 +136,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Starlight/Objects/Weapons/Guns/SMGs/forged_smg.rsi  
+    sprite: _Starlight/Objects/Weapons/Guns/SMGs/forged_smg.rsi
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus

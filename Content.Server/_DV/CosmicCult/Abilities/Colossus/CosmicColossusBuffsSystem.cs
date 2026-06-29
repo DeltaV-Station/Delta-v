@@ -55,8 +55,9 @@ public sealed class CosmicColossusBuffsSystem : EntitySystem
     {
         if (TryComp<DamageableComponent>(ent, out var damageable))
         {
+            var damage = _damage.GetPositiveDamage((ent, damageable));
             _damage.TryChangeDamage(ent.Owner,
-                -damageable.Damage * Math.Abs(ent.Comp.DamageFractionHealed), // just in case someone sets a negative value in YML
+                -damage * Math.Abs(ent.Comp.DamageFractionHealed), // just in case someone sets a negative value in YML
                 true);
         }
     }

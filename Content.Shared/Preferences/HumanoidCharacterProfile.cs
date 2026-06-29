@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared.CCVar;
@@ -13,8 +14,12 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Robust.Shared;
+using YamlDotNet.RepresentationModel;
 using Content.Shared._CD.Records; // CD - Character Records
 using Content.Shared._DV.Traits; // DeltaV - Traits rework
 using Content.Shared._DV.Species; // DeltaV - Species hiding
@@ -26,7 +31,7 @@ namespace Content.Shared.Preferences
     /// </summary>
     [DataDefinition]
     [Serializable, NetSerializable]
-    public sealed partial class HumanoidCharacterProfile : ICharacterProfile
+    public sealed partial class HumanoidCharacterProfile
     {
         /* DeltaV: Completely redid the regex:
          * 0030-0039  Basic Latin: ASCII Digits
@@ -38,6 +43,7 @@ namespace Content.Shared.Preferences
          * 0100-017F  Latin Extended A: European Latin
          */
         private static readonly Regex RestrictedNameRegex = new("[^\\u0030-\\u0039,\\u0041-\\u005A,\\u0061-\\u007A,\\u00C0-\\u00D6,\\u00D8-\\u00F6,\\u00F8-\\u00FF,\\u0100-\\u017F, '.,-]");
+        public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         /// <summary>
@@ -84,7 +90,7 @@ namespace Content.Shared.Preferences
         /// Associated <see cref="SpeciesPrototype"/> for this profile.
         /// </summary>
         [DataField]
-        public ProtoId<SpeciesPrototype> Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
+        public ProtoId<SpeciesPrototype> Species { get; set; } = DefaultSpecies;
 
         [DataField]
         public int Age { get; set; } = 18;
@@ -94,11 +100,6 @@ namespace Content.Shared.Preferences
 
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
-
-        /// <summary>
-        /// <see cref="Appearance"/>
-        /// </summary>
-        public ICharacterAppearance CharacterAppearance => Appearance;
 
         /// <summary>
         /// Stores markings, eye colors, etc for the profile.
@@ -217,7 +218,7 @@ namespace Content.Shared.Preferences
 
         /// <summary>
         ///     Get the default humanoid character profile, using internal constant values.
-        ///     Defaults to <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/> for the species.
+        ///     Defaults to <see cref="DefaultSpecies"/> for the species.
         /// </summary>
         /// <returns></returns>
         public HumanoidCharacterProfile()
@@ -227,16 +228,19 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     Return a default character profile, based on species.
         /// </summary>
-        /// <param name="species">The species to use in this default profile. The default species is <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/>.</param>
+        /// <param name="species">The species to use in this default profile. The default species is <see cref="DefaultSpecies"/>.</param>
+        /// <param name="sex">Self explanatory.</param>
         /// <returns>Humanoid character profile with default settings.</returns>
-        public static HumanoidCharacterProfile DefaultWithSpecies(string? species = null)
+        public static HumanoidCharacterProfile DefaultWithSpecies(ProtoId<SpeciesPrototype>? species = null, Sex? sex = null)
         {
-            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+            species ??= HumanoidCharacterProfile.DefaultSpecies;
+            sex ??= Sex.Male;
 
             return new()
             {
-                Species = species,
-                Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species),
+                Species = species.Value,
+                Sex = sex.Value,
+                Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species.Value, sex.Value),
             };
         }
 
@@ -257,7 +261,7 @@ namespace Content.Shared.Preferences
 
         public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
         {
-            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+            species ??= HumanoidCharacterProfile.DefaultSpecies;
 
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
@@ -502,9 +506,8 @@ namespace Content.Shared.Preferences
                 ("age", Age)
             );
 
-        public bool MemberwiseEquals(ICharacterProfile maybeOther)
+        public bool MemberwiseEquals(HumanoidCharacterProfile other)
         {
-            if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
@@ -520,7 +523,7 @@ namespace Content.Shared.Preferences
             if (Height != other.Height) return false; // CD
             if (CDCharacterRecords != null && other.CDCharacterRecords != null && // CD
                !CDCharacterRecords.MemberwiseEquals(other.CDCharacterRecords)) return false; // CD
-            return Appearance.MemberwiseEquals(other.Appearance);
+            return Appearance.Equals(other.Appearance);
         }
 
         public void EnsureValid(ICommonSession session, IDependencyCollection collection)
@@ -530,7 +533,7 @@ namespace Content.Shared.Preferences
 
             if (!prototypeManager.TryIndex(Species, out var speciesPrototype) || speciesPrototype.RoundStart == false)
             {
-                Species = SharedHumanoidAppearanceSystem.DefaultSpecies;
+                Species = HumanoidCharacterProfile.DefaultSpecies;
                 speciesPrototype = prototypeManager.Index(Species);
             }
 
@@ -750,7 +753,7 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-        public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
+        public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
         {
             var profile = new HumanoidCharacterProfile(this);
             profile.EnsureValid(session, collection);
@@ -836,6 +839,52 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile Clone()
         {
             return new HumanoidCharacterProfile(this);
+        }
+
+        public DataNode ToDataNode(ISerializationManager? serialization = null, IConfigurationManager? configuration = null)
+        {
+            IoCManager.Resolve(ref serialization);
+            IoCManager.Resolve(ref configuration);
+
+            var export = new HumanoidProfileExportV2()
+            {
+                ForkId = configuration.GetCVar(CVars.BuildForkId),
+                Profile = this,
+            };
+
+            var dataNode = serialization.WriteValue(export, alwaysWrite: true, notNullableOverride: true);
+            return dataNode;
+        }
+
+        public static HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session, ISerializationManager? serialization = null, IConfigurationManager? configuration = null)
+        {
+            IoCManager.Resolve(ref serialization);
+            IoCManager.Resolve(ref configuration);
+
+            using var reader = new StreamReader(stream, EncodingHelpers.UTF8);
+            var yamlStream = new YamlStream();
+            yamlStream.Load(reader);
+
+            var root = yamlStream.Documents[0].RootNode;
+            HumanoidCharacterProfile profile;
+            if (root["version"].Equals(new YamlScalarNode("1")))
+            {
+                var export = serialization.Read<HumanoidProfileExportV1>(root.ToDataNode(), notNullableOverride: true);
+                profile = export.ToV2().Profile;
+            }
+            else if (root["version"].Equals(new YamlScalarNode("2")))
+            {
+                var export = serialization.Read<HumanoidProfileExportV2>(root.ToDataNode(), notNullableOverride: true);
+                profile = export.Profile;
+            }
+            else
+            {
+                throw new InvalidOperationException($"Unknown version {root["version"]}");
+            }
+
+            var collection = IoCManager.Instance;
+            profile.EnsureValid(session, collection!);
+            return profile;
         }
     }
 }

@@ -415,7 +415,7 @@
 - type: entity
   parent: WindoorSecureCommandLocked
   id: WindoorSecureResearchDirectorLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -466,7 +466,7 @@
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureScienceLocked
-  suffix: Science, Locked, Plasma
+  suffix: Epistemics, Locked, Plasma # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
