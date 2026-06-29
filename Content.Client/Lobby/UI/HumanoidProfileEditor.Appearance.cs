@@ -160,7 +160,7 @@ public sealed partial class HumanoidProfileEditor
 
         for (var i = 0; i < _species.Count; i++)
         {
-            if (SpeciesHiderSystem.IsHidden(_species[i].ID))
+            if (SpeciesHiderSystem.IsHidden(_species[i].ID)) // Delta V - Don't add hiddedn species
                 continue;
             var name = Loc.GetString(_species[i].Name);
             SpeciesButton.AddItem(name, i);
