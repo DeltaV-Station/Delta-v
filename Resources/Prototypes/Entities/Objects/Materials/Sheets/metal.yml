@@ -207,11 +207,6 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
-  # DeltaV - made it uncraftable
-  #- type: Butcherable #SL start
-  #  butcheringType: Knife
-  #  spawned:
-  #    - id: PlasteelFilament #SL end
 
 - type: entity
   parent: SheetPlasteel

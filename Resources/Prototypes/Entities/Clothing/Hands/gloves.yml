@@ -357,13 +357,6 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
-  # DeltaV - made it uncraftable
-  #- type: Tag #SL start
-  #  tags:
-  #    - fingerlessinsuls
-  #- type: Construction
-  #  graph: FingerlessInsuls
-  #  node: fingerless #SL end
 
 - type: entity
   parent: ClothingHandsButcherable

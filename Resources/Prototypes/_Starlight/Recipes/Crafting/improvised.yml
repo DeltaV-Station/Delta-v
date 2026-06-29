@@ -1,5 +1,4 @@
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-FDB
 #  id: WeaponShotgunForged
 #  graph: ForgedShotgunGraph
@@ -19,8 +18,7 @@
   objectType: Item
   description: crafting-menu-text-IP
 
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-FP
 #  id: WeaponPistolForged
 #  graph: ForgedPistolGraph
@@ -60,8 +58,7 @@
   objectType: Item
   description: crafting-menu-text-IR
 
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-FR
 #  id: WeaponRevolverForged
 #  graph: ForgedRevolverGraph
@@ -101,7 +98,7 @@
   objectType: Item
   description: crafting-menu-text-MB
 
-# DeltaV - made it uncraftable
+# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-IS
 #  id: WeaponSubMachineGunImprovised
@@ -112,7 +109,6 @@
 #  objectType: Item
 #  description: crafting-menu-text-IS
 
-# DeltaV - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FS
 #  id: WeaponSubMachineGunForged
@@ -122,6 +118,7 @@
 #  category: construction-category-weapons
 #  objectType: Item
 #  description: crafting-menu-text-FS
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-ISM
@@ -143,8 +140,7 @@
   objectType: Item
   description: crafting-menu-text-IRR
 
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-FRR
 #  id: WeaponSniperForged
 #  graph: ForgedSniperGraph
@@ -284,8 +280,7 @@
   objectType: Item
   description: crafting-menu-text-IO
 
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-FO
 #  id: OmnitoolForged
 #  graph: ForgedOmnitoolGraph
@@ -355,8 +350,7 @@
   objectType: Item
   description: crafting-menu-text-ISW
 
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-FSW
 #  id: SwordForged
 #  graph: SwordForgedGraph
@@ -376,8 +370,7 @@
   objectType: Item
   description: crafting-menu-text-DSW
 
-# DeltaV - made it uncraftable
-#- type: construction
+#- type: construction # DeltaV - made it uncraftable
 #  name: crafting-menu-name-TSW
 #  id: ClaymoreForged
 #  graph: ClaymoreForgedGraph
@@ -427,7 +420,7 @@
 #  category: construction-category-weapons
 #  objectType: Item
 #  description: crafting-menu-text-PSH
-  
+
 #- type: construction
 #  name: crafting-menu-name-PSHG
 #  id: PaladinShieldGreat
