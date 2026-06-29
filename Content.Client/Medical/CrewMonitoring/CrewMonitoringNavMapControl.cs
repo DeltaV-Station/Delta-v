@@ -92,6 +92,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     /// <param name="handle"></param>
     protected override void Draw(DrawingHandleScreen handle)
     {
+        // MapUid will not have a value if the crew monitor UI was activated off-grid.
         var forceMapUpdate = false;
         if (!MapUid.HasValue && _playerManager.LocalEntity is { } player)
         {
