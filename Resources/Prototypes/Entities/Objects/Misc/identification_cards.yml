@@ -527,6 +527,11 @@
     - sprite: *icon-rsi-dv # DeltaV - Sec Icon Resprite
       offset: *icon-offset
       state: Brigmedic
+  - type: IdCard # DeltaV
+    jobTitle: job-name-brigmedic
+    jobIcon: JobIconBrigmedic
+  - type: PresetIdCard # DeltaV - Puts them in the security department
+    job: Brigmedic
 
 - type: entity
   parent: SecurityIDCard
@@ -896,6 +901,8 @@
     - Recyclable
   - type: StaticPrice # these are infinitely producible.
     price: 0
+  - type: PresetIdCard # DeltaV - Puts them in the correct department category
+    job: Prisoner
 
 - type: entity
   parent: IDCardStandard

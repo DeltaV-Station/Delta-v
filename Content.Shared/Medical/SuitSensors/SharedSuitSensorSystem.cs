@@ -68,6 +68,11 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     /// <returns>True if the sensor is assigned to a station or assigning it was successful. False otherwise.</returns>
     public bool CheckSensorAssignedStation(Entity<SuitSensorComponent> sensor)
     {
+        // Begin DeltaV - fallback
+        if (sensor.Comp.StationId.HasValue && _stationSystem.GetOwningStation(sensor.Owner) is null)
+            return true;
+        // End DeltaV - fallback
+
         if (!sensor.Comp.StationId.HasValue && Transform(sensor.Owner).GridUid == null)
             return false;
 
@@ -348,7 +353,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var transform = ent.Comp2;
 
         // check if sensor is enabled and worn by user
-        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
+        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User)) // DeltaV - don't block on grids here
             return null;
 
         // try to get mobs id from ID slot

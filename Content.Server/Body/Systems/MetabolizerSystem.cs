@@ -184,6 +184,11 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
 
                 var rate = entry.MetabolismRate * group.MetabolismRateModifier;
 
+                // BEGIN DeltaV - fix FixedPoint2 truncation flooring low rateModifiers to zero
+                if (rate == FixedPoint2.Zero && entry.MetabolismRate > FixedPoint2.Zero && group.MetabolismRateModifier > 0f)
+                    rate = FixedPoint2.Epsilon;
+                // END DeltaV
+
                 // Remove $rate, as long as there's enough reagent there to actually remove that much
                 mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
 

@@ -157,7 +157,8 @@ public sealed class RadioSystem : EntitySystem
             message,
             wrappedMessage,
             NetEntity.Invalid,
-            null);
+            null,
+            radioChannelProto: channel.ID); // DeltaV - Add RadioChannel for committing sins
         var chatMsg = new MsgChatMessage { Message = chat };
         var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
 
