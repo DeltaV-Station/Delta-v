@@ -69,7 +69,16 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         base.FrameUpdate(args);
 
         // Begin DeltaV - handle navmap visibility based on current position
-        if (_station.GetOwningStation(ShuttleMap.Owner) is not null)
+        var ent = ShuttleMap.Owner;
+
+        // If an entity is being tracked, use them as the focus, since they may be off-station
+        // and we want to use the nav map if they are.
+        if (_trackedEntity is { } trackedEntity)
+            ent = _entManager.GetEntity(trackedEntity);
+
+        // We need to make sure the entity is valid because for some reason, it *could* be an 
+        // invalid entity and GetOwningStation will throw an exception.
+        if (ent.HasValue && ent.Value.IsValid() && _station.GetOwningStation(ent) is not null)
         {
             NavMap.Visible = true;
             ShuttleMap.Visible = false;
@@ -343,6 +352,14 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     if (_trackedEntity == sensor.SuitSensorUid)
                     {
                         _trackedEntity = null;
+                        // BEGIN DeltaV - center on crew monitor user if deselecting
+                        // This fixes some weird bug where if you deselect a tracked entity, it will
+                        // just not draw the map at all in some cases.
+                        if (ShuttleMap.Owner is { } handheld &&
+                            _transformSystem.TryGetMapOrGridCoordinates(handheld, out var userCoords) &&
+                            userCoords is { } coords)
+                            NavMap.CenterToCoordinates(coords);
+                        // END DeltaV
                     }
 
                     else

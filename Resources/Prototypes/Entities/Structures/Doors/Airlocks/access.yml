@@ -360,7 +360,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockResearchDirectorLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -776,7 +776,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockResearchDirectorGlassLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:

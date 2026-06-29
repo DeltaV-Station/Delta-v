@@ -1,7 +1,7 @@
 - type: entity
   name: basic slime
   id: BaseMobAdultSlimes
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:

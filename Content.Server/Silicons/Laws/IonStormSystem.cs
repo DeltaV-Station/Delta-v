@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Components;
+using Content.Shared._DV.IonLaws; // DeltaV - ion laws
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
@@ -20,6 +21,7 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly IonLawSystem _ionLaw = default!; // DeltaV - ion laws
 
     // funny
     private static readonly ProtoId<DatasetPrototype> Threats = "IonStormThreats";
@@ -93,7 +95,7 @@ public sealed class IonStormSystem : EntitySystem
         }
 
         // generate a new law...
-        var newLaw = GenerateLaw();
+        var newLaw = _ionLaw.GenerateLaw(_robustRandom); // GenerateLaw(); DeltaV - inject our own
 
         // see if the law we add will replace a random existing law or be a new glitched order one
         if (laws.Laws.Count > 0 && _robustRandom.Prob(target.ReplaceChance))

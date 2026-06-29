@@ -1,115 +1,4 @@
 ﻿Entries:
-- author: marigauge
-  changes:
-  - message: Cybernetic eyes are no longer edible.
-    type: Fix
-  id: 1964
-  time: '2025-12-16T15:08:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4967
-- author: ShepardToTheStars
-  changes:
-  - message: Brains are no longer edible.
-    type: Fix
-  id: 1965
-  time: '2025-12-16T15:23:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4992
-- author: marigauge
-  changes:
-  - message: Ifrit requires 4 hours of Epistemics now.
-    type: Tweak
-  id: 1966
-  time: '2025-12-16T17:15:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4964
-- author: AveriV2
-  changes:
-  - message: Festive lights are now longer and thus fit on neck and outer clothing
-      slots!
-    type: Tweak
-  id: 1967
-  time: '2025-12-16T19:15:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4972
-- author: kotobdev
-  changes:
-  - message: Arm amputee traits have been added. They're not very *hand*y.
-    type: Add
-  id: 1968
-  time: '2025-12-17T12:46:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4988
-- author: verybigman311
-  changes:
-  - message: Musket bayonets can now be used for stabbing.
-    type: Add
-  - message: Pipes will now make a clang when thrown against the floor.
-    type: Add
-  id: 1969
-  time: '2025-12-17T13:51:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4852
-- author: ShepardToTheStars
-  changes:
-  - message: Fixed sharkminnows from taking poison damage when drinking blood.
-    type: Fix
-  id: 1970
-  time: '2025-12-17T20:57:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4963
-- author: Velcroboy
-  changes:
-  - message: Added Christmas Kobolds, Defenders of The Yule Tree, to combat any grinches
-      that decide to harm the trees.
-    type: Add
-  id: 1971
-  time: '2025-12-18T19:33:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4940
-- author: verybigman311
-  changes:
-  - message: All Syndieborg modules now have custom sprites and action icons.
-    type: Add
-  - message: All Secborg modules now have custom action icons.
-    type: Add
-  id: 1972
-  time: '2025-12-19T03:04:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4920
-- author: ShepardToTheStars
-  changes:
-  - message: The jukebox, ID card computer, and access config lists are now sorted.
-    type: Tweak
-  id: 1973
-  time: '2025-12-19T10:33:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4998
-- author: Halo3moth
-  changes:
-  - message: Cybersun factories are happy to announce the mass production of saboteur
-      cyborg units. Find them in your uplink!
-    type: Add
-  - message: Saboteur cyborg now actually comes with a cloaking module. Yes, you heard
-      that right.
-    type: Tweak
-  id: 1974
-  time: '2025-12-19T23:13:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4919
-- author: verybigman311
-  changes:
-  - message: Metal Pipes now make a cooler sound when you throw them at the floor.
-    type: Tweak
-  id: 1975
-  time: '2025-12-20T00:29:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5003
-- author: SirSmith148
-  changes:
-  - message: Nanotrasen has found scientists inflating their research evaluations.
-      These scientists have been reprimanded by the company and re-educated on the
-      proper way to fill out the research logs
-    type: Fix
-  id: 1976
-  time: '2025-12-20T05:13:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4995
-- author: IAmNotGray
-  changes:
-  - message: Epistemics now has their own EVA suit. Try not to loose your arms while
-      wearing it.
-    type: Add
-  id: 1977
-  time: '2025-12-21T00:35:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4908
 - author: Velcrobot
   changes:
   - message: 'Division/Chibi/Shoukou/Edge: Adds the Yule Tide'
@@ -4417,4 +4306,132 @@
   id: 2464
   time: '2026-06-25T17:59:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6054
+- author: wesk
+  changes:
+  - message: Fixed synthetics from giving everyone borg emotes on round-start.
+    type: Fix
+  id: 2465
+  time: '2026-06-26T17:23:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6125
+- author: Vapetastic-Gaming
+  changes:
+  - message: Harpy movement speed now has the 10% buff, as this was a bug and wasnt
+      present. Moths and Harpies now have equal Low-Gravity speed.
+    type: Tweak
+  id: 2466
+  time: '2026-06-27T20:18:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6131
+- author: Vapetastic-Gaming
+  changes:
+  - message: Removed morphotypes
+    type: Remove
+  id: 2467
+  time: '2026-06-28T00:38:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6134
+- author: Proxysseia
+  changes:
+  - message: Reduced Holoparasite price to 8 (from 14), and 4 on discount (was 8)
+    type: Tweak
+  id: 2468
+  time: '2026-06-28T12:18:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6115
+- author: Vapetastic-Gaming
+  changes:
+  - message: Minor Clerical Errors with Tips has been fixed ! The font is now 300%
+      larger !!
+    type: Fix
+  id: 2469
+  time: '2026-06-28T13:25:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6133
+- author: Stxcking
+  changes:
+  - message: Renamed the Hatsune Miku Day Bag to Virtual Performer Costume Bag
+    type: Tweak
+  id: 2470
+  time: '2026-06-28T16:42:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5790
+- author: Stxcking
+  changes:
+  - message: The fishing vendor got a bunch of new stock and price changes!
+    type: Tweak
+  id: 2471
+  time: '2026-06-28T16:42:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6114
+- author: sowelipililimute
+  changes:
+  - message: Ion law generation has been fully reworked.
+    type: Add
+  id: 2472
+  time: '2026-06-28T19:15:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6121
+- author: sowelipililimute
+  changes:
+  - message: Noclip crawling has been replaced with proper vent crawling, and is now
+      available to more critters!
+    type: Add
+  id: 2473
+  time: '2026-06-29T00:54:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5830
+- author: Apachito, Killer Tamashi, stickycheZ101
+  changes:
+  - message: The paladin armor now makes you move 30% slower and it's now ginormous.
+    type: Tweak
+  - message: The forged vest now makes you move 10% slower.
+    type: Tweak
+  - message: Fully removed the ability to make the plading tower shield since it was
+      too powerful.
+    type: Tweak
+  - message: added a new crafting station used for mass producing forged gear
+    type: Add
+  - message: Made it so the forged and paladin set can only be made in the anvil.
+    type: Tweak
+  - message: Added Repeater Speedloader.
+    type: Add
+  - message: Fixed incorrect contraband tags (certain items being labeled sec contra
+      when it should be minor contra)
+    type: Fix
+  id: 2474
+  time: '2026-06-29T06:05:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5818
+- author: ManuDemoen
+  changes:
+  - message: Pigs now give bacon when butchered!
+    type: Tweak
+  id: 2475
+  time: '2026-06-29T09:45:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6122
+- author: MantasDab360
+  changes:
+  - message: The borgs have a wilhelm scream. Again.
+    type: Add
+  id: 2476
+  time: '2026-06-29T13:27:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6126
+- author: portfiend, Stxcking
+  changes:
+  - message: Thirteen colors of lounge chairs can be constructed out of steel and
+      cloth.
+    type: Add
+  - message: Two new pool tiles can be produced at the cutter machine.
+    type: Add
+  - message: Logistics can now order a crate of bulk (6) swim rings, in 11 possible
+      colors!
+    type: Add
+  - message: New pool water tiles for mappers! Watch out, the pool does contain a
+      bit of chlorine!
+    type: Add
+  id: 2477
+  time: '2026-06-29T13:39:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6113
+- author: ShepardToTheStars
+  changes:
+  - message: The crew monitor's UI should properly draw the map when changing grids,
+      deselecting tracked people, and switch the long-range view when tracking someone
+      off station.
+    type: Fix
+  - message: Fixed the admin and borg crew monitors.
+    type: Fix
+  id: 2478
+  time: '2026-06-29T14:06:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6139
 Order: 1

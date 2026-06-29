@@ -404,7 +404,7 @@
 - type: entity
   parent: IDCardStandard
   id: ResearchIDCard
-  name: research ID card
+  name: epistemics ID card # DeltaV - Science > Epistemics
   components:
   - type: Sprite
     layers:
@@ -830,7 +830,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: cargo ID card
+  name: logistics ID card # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     layers:
