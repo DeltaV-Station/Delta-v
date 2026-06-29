@@ -114,7 +114,7 @@
     receiveFrequencyId: NTNet # DeltaV - NTNet
     transmitFrequencyId: ShuttleTimer
   - type: WirelessNetworkConnection
-    range: 500
+    range: 10000 # DeltaV
   #- type: StationLimitedNetwork # DeltaV - Off-station coordinates 
   - type: Thieving
     stripTimeReduction: 9999
