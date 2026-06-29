@@ -68,10 +68,10 @@ public sealed class ShadekinSystem : EntitySystem
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
 
-        humanoid.EyeColor = Color.Black;
+        // humanoid.EyeColor = Color.Black;
         Dirty(uid, humanoid);
     }
 
@@ -166,18 +166,18 @@ public sealed class ShadekinSystem : EntitySystem
 
         if (state == ShadekinState.Extreme || state == ShadekinState.Annoying || state == ShadekinState.High)
         {
-            passive.DamageCap = 1;
+            // passive.DamageCap = 1;
         }
         else if (state == ShadekinState.Low)
         {
-            passive.DamageCap = 20;
+            // passive.DamageCap = 20;
             passive.AllowedStates.Clear();
             passive.AllowedStates.Add(MobState.Alive);
             passive.Interval = 1f;
         }
         else if (state != ShadekinState.Dark)
         {
-            passive.DamageCap = 0;
+            // passive.DamageCap = 0;
             passive.AllowedStates.Clear();
             passive.AllowedStates.Add(MobState.Alive);
             passive.AllowedStates.Add(MobState.Critical);
