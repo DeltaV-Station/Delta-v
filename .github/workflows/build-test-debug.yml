@@ -24,10 +24,6 @@ jobs:
     - name: Setup Submodule
       run: |
         git submodule update --init --recursive
-        pushd RobustToolbox/Lidgren.Network/Lidgren.Network
-        git fetch
-        git checkout 726dd552a4b104fb2b701848705f1250a073f060
-        popd
 
     - name: Pull engine updates
       uses: space-wizards/submodule-dependency@v0.1.5
@@ -36,10 +32,6 @@ jobs:
       run: |
         cd RobustToolbox/
         git submodule update --init --recursive
-        pushd Lidgren.Network/Lidgren.Network
-        git fetch
-        git checkout 726dd552a4b104fb2b701848705f1250a073f060
-        popd
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
