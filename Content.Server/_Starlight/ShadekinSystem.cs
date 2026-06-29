@@ -30,7 +30,6 @@ public sealed class ShadekinSystem : EntitySystem
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedFlashSystem _flashSystem = default!;
 
     private sealed class LightCone
