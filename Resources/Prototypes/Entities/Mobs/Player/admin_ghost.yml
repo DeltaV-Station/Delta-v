@@ -115,7 +115,7 @@
     transmitFrequencyId: ShuttleTimer
   - type: WirelessNetworkConnection
     range: 500
-  - type: StationLimitedNetwork
+  #- type: StationLimitedNetwork # DeltaV - Off-station coordinates 
   - type: Thieving
     stripTimeReduction: 9999
     stealthy: true
