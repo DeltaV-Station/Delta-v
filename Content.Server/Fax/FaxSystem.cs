@@ -589,6 +589,15 @@ public sealed class FaxSystem : EntitySystem
             return;
 
         var faxName = Loc.GetString("fax-machine-popup-source-unknown");
+
+        // BEGIN DeltaV - Refresh Fax IDs before recieving
+        // This will seem odd that we're doing the same if statement twice BUT if its not in the known fax machine list, the
+        // sending fax might not have been online when the current fax machine was refreshed/init'd. So, if its already known,
+        // we don't need to refresh. But if its not known, let's attempt to refresh first, then check the fromAddress in the KnownFaxes.
+        if (fromAddress != null && !component.KnownFaxes.TryGetValue(fromAddress, out var _))
+            Refresh(uid, component);
+        // END DeltaV
+
         if (fromAddress != null && component.KnownFaxes.TryGetValue(fromAddress, out var fax)) // If message received from unknown fax address
             faxName = fax;
 
