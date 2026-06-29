@@ -1,4 +1,5 @@
 ﻿using Content.Client.Changelog;
+﻿using Content.Client._DV.AccountLinking; // DeltaV
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
@@ -47,6 +48,18 @@ namespace Content.Client.Info
             var changelogButton = new ChangelogButton();
             changelogButton.OnPressed += args => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
             buttons.AddChild(changelogButton);
+
+            // BEGIN DeltaV - Discord / Patreon Account Linking
+            var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
+            var linkAccountButton = new Button
+            {
+                Text = Loc.GetString("ui-link-discord-account"),
+            };
+            linkAccountButton.OnPressed += _ => linkAccount.ToggleWindow();
+            buttons.AddChild(linkAccountButton);
+
+            AddInfoButton("ui-patreon", CCVars.InfoLinksPatreon);
+            // END DeltaV
 
             void AddInfoButton(string loc, CVarDef<string> cVar)
             {

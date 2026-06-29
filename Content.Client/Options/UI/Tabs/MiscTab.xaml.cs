@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Client._DV.AccountLinking; // DeltaV
 using Content.Client.UserInterface.Screens;
 using Content.Shared.CCVar;
 using Content.Shared._EE.CCVars; // EE - chat stack
@@ -17,6 +18,7 @@ public sealed partial class MiscTab : Control
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly LinkAccountManager _linkAccount = default!; // DeltaV - Discord Account Linking
 
     public MiscTab()
     {
@@ -48,7 +50,7 @@ public sealed partial class MiscTab : Control
 
         // Channel can be null in replays so.
         // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-        ShowOocPatronColor.Visible = _playerManager.LocalSession?.Channel?.UserData.PatronTier is { };
+        ShowOocPatronColor.Visible = _linkAccount.Tier != null; // DeltaV - Discord Account Linking
 
         Control.AddOptionDropDown(CVars.InterfaceTheme, DropDownHudTheme, themeEntries);
         Control.AddOptionDropDown(CCVars.UILayout, DropDownHudLayout, layoutEntries);

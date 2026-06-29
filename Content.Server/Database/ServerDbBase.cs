@@ -16,7 +16,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
-using Content.Shared.Traits;
+//using Content.Shared.Traits; // DV - Traits
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
@@ -1924,8 +1924,60 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .Where(s => s.PlayerUserId == player)
                 .ExecuteDeleteAsync();
         }
+        #endregion
+
+        // BEGIN DeltaV - Discord / Patreon Account Linking
+        #region DeltaV - Account Linking
+
+        public async Task<Guid?> GetLinkingCode(Guid player)
+        {
+            await using var db = await GetDb();
+            var linking = await db.DbContext.DiscordLinkingCodes.FirstOrDefaultAsync(l => l.PlayerId == player);
+            return linking?.Code;
+        }
+
+        public async Task SetLinkingCode(Guid player, Guid code)
+        {
+            await using var db = await GetDb();
+            var linking = await db.DbContext.DiscordLinkingCodes.FirstOrDefaultAsync(l => l.PlayerId == player);
+            if (linking == null)
+            {
+                linking = new DiscordLinkingCodes { PlayerId = player };
+                db.DbContext.DiscordLinkingCodes.Add(linking);
+            }
+
+            linking.Code = code;
+            linking.CreationTime = DateTime.UtcNow;
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.DiscordLinkedAccounts.AnyAsync(l => l.PlayerId == player, cancel);
+
+        }
+
+        public async Task<Patron?> GetPatron(Guid player, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            var patron = await db.DbContext.Patrons
+                .Include(p => p.Tier)
+                .FirstOrDefaultAsync(p => p.PlayerId == player, cancellationToken: cancel);
+            return patron;
+        }
+
+        public async Task<List<Patron>> GetAllPatrons()
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.Patrons
+                .Include(p => p.Player)
+                .Include(p => p.Tier)
+                .ToListAsync();
+        }
 
         #endregion
+        // END DeltaV
 
         public abstract Task SendNotification(DatabaseNotification notification);
 

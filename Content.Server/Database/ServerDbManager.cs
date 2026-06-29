@@ -354,6 +354,21 @@ namespace Content.Server.Database
 
         #endregion
 
+        // BEGIN DeltaV - Discord / Patreon Account Linking
+        #region DeltaV - Discord Linking
+
+        Task<Guid?> GetLinkingCode(Guid player);
+
+        Task SetLinkingCode(Guid player, Guid code);
+
+        Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel);
+
+        Task<Patron?> GetPatron(Guid player, CancellationToken cancel);
+
+        Task<List<Patron>> GetAllPatrons();
+        #endregion
+        // END DeltaV
+
         #region DB Notifications
 
         void SubscribeToNotifications(Action<DatabaseNotification> handler);
@@ -1126,6 +1141,41 @@ namespace Content.Server.Database
                 }
             }
         }
+
+        // BEGIN DeltaV - Discord Linking
+        #region DeltaV - Discord Linking
+        public Task<Guid?> GetLinkingCode(Guid player)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetLinkingCode(player));
+        }
+
+        public Task SetLinkingCode(Guid player, Guid code)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetLinkingCode(player, code));
+        }
+
+        public Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.HasLinkedAccount(player, cancel));
+        }
+
+        public Task<Patron?> GetPatron(Guid player, CancellationToken cancel)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPatron(player, cancel));
+        }
+
+        public Task<List<Patron>> GetAllPatrons()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllPatrons());
+        }
+        #endregion
+        // END DeltaV
+
 
         // Wrapper functions to run DB commands from the thread pool.
         // This will avoid SynchronizationContext capturing and avoid running CPU work on the main thread.
