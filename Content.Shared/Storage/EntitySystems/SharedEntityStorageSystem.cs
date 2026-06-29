@@ -415,7 +415,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool CanOpen(EntityUid user, EntityUid target, bool silent = false, EntityStorageComponent? component = null)
     {
-        if (!Resolve(target, ref component))
+        if (!Resolve(target, ref component, false)) // DeltaV - Prevent HTNOperators from failing tests
             return false;
 
         if (!HasComp<HandsComponent>(user))
