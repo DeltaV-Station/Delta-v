@@ -205,6 +205,11 @@ public sealed partial class TraitCategory : BoxContainer
         }
     }
 
+    public bool ContainsTrait(ProtoId<TraitPrototype> traitId)
+    {
+        return _traitEntries.ContainsKey(traitId);
+    }
+
     public void ClearSelection()
     {
         foreach (var (_, entry) in _traitEntries)
