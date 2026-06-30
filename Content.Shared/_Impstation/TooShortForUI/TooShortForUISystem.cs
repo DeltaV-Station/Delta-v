@@ -48,7 +48,7 @@ public sealed class TooShortForUI : EntitySystem
             return;
 
         // if the target entity is on the blacklist or no blacklist is defined, cancel the event
-        if (_whitelist.IsWhitelistPassOrNull(ent.Comp.Blacklist, args.Target)) // Delta V - blacklist methods were removed upstream
+        if (_whitelist.IsBlacklistPassOrNull(ent.Comp.Blacklist, args.Target))
             args.Cancel();
 
         // if the event has been cancelled and there is popup text, popup
