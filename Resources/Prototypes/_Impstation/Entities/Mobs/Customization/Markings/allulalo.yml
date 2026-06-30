@@ -3,8 +3,8 @@
 - type: marking
   id: AllulaloUnderbelly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Allulalo ]
+  # # markingCategory: Chest # Delta V - no longer necessary with Nubody # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
     state: allulaloChestUnderbelly
@@ -12,8 +12,8 @@
 - type: marking
   id: AllulaloChestHeartMonitor
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Chest # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
     state: allulaloChestHeartMonitor
@@ -24,17 +24,17 @@
 - type: marking
   id: AllulaloHeadUnderbelly
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Head # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadUnderbelly
 
 - type: marking
   id: AllulaloHeadNeckFluff
-  bodyPart: Tail #layering sucks
-  markingCategory: Head
-  speciesRestriction: [ Allulalo ]
+  bodyPart: Head #Delta V - Was Tail due to layering, not an issue now
+  # markingCategory: Head # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadNeckFluff
@@ -42,8 +42,8 @@
 - type: marking
   id: AllulaloHeadSpikes
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Head # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadSpikes
@@ -64,8 +64,8 @@
 - type: marking
   id: AllulaloEyesDefault
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Eyes # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   coloring:
     default:
       type:
@@ -80,8 +80,8 @@
 - type: marking
   id: AllulaloEyesUnshaded
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Eyes # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   coloring:
     default:
       type:
@@ -99,8 +99,8 @@
 - type: marking
   id: AllulaloWingsDefault
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Arms # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
     state: allulaloArmDefaultRight
@@ -110,8 +110,8 @@
 - type: marking
   id: AllulaloWingsSplit
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Arms # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
     state: allulaloArmSplit1
@@ -121,8 +121,8 @@
 - type: marking
   id: AllulaloWingsOwl
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Arms # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
     state: allulaloArmOwl1
@@ -140,8 +140,8 @@
 - type: marking
   id: AllulaloLegUnderbellyDefault
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Legs # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
     state: allulaloLegUnderbellyDefaultRight
@@ -151,8 +151,8 @@
 - type: marking
   id: AllulaloLegPlumage
   bodyPart: LFoot #dont look at me
-  markingCategory: Legs
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Legs # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
     state: allulaloLegPlumage
@@ -180,8 +180,8 @@
 - type: marking
   id: AllulaloHeadTopHorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopHorn
@@ -189,8 +189,8 @@
 - type: marking
   id: AllulaloHeadTopFeathers
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopFeathers
@@ -198,8 +198,8 @@
 - type: marking
   id: AllulaloHeadTopCurvedHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopCurvedHorns
@@ -207,8 +207,8 @@
 - type: marking
   id: AllulaloHeadTopSweptHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopSweptHorns
@@ -216,8 +216,8 @@
 - type: marking
   id: AllulaloHeadTopStubHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopStubHorns
@@ -225,8 +225,8 @@
 - type: marking
   id: AllulaloHeadTopPlumage1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopPlumage1
@@ -234,8 +234,8 @@
 - type: marking
   id: AllulaloHeadTopPlumage2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: HeadTop # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopPlumage2
@@ -245,8 +245,8 @@
 - type: marking
   id: AllulaloTailDefault
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Tail # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailDefault
@@ -258,8 +258,8 @@
 - type: marking
   id: AllulaloTailThick
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Tail # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailLarge
@@ -269,8 +269,8 @@
 - type: marking
   id: AllulaloTailThickSpikes
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Tail # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailLarge
@@ -282,8 +282,8 @@
 - type: marking
   id: AllulaloTailTuft
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  # markingCategory: Tail # Delta V - no longer necessary with Nubody
+  groupWhitelist: [ Allulalo ] # Delta V - speciesRestriction to groupWhitelist due to Nubody
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailTuft

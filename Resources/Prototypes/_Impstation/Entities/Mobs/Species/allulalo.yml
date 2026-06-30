@@ -1,12 +1,14 @@
 - type: entity
   save: false
   name: Uristia Mc-Hands
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceAllulalo
+  - BaseSpeciesMobOrganic
   id: BaseMobAllulalo
   abstract: true
   components:
-  - type: GoobAbsorbable
-    biomassRestored: 1.0
+  # - type: GoobAbsorbable # Delta V - not a system we have
+  #  biomassRestored: 1.0
   - type: Hunger
     baseDecayRate: 0.02 # 30% ish more than default
   - type: Thirst
@@ -46,8 +48,10 @@
     damageContainer: Biological
     damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
-    bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
-    bloodReagent: BloodAllulalo
+    bloodReferenceSolution: # Delta V - updated to Nubody
+      reagents:
+      - ReagentId: BloodAllulalo
+        Quantity: 250
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -108,20 +112,115 @@
     speechSounds: Allulalo
     speechVerb: Allulalo
     allowedEmotes: ['Chitter', 'Hiss']
-  - type: HumanoidAppearance
-    species: Allulalo
-    hideLayersOnEquip:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
-    - LLeg
-    - RLeg
-    - LFoot
-    - RFoot
+  - type: MovementSpeedModifier # DeltaV - Moved here from legs body part due to Nubody.
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+
+# Begin Delta V Removals - Nubody
+#  - type: HumanoidAppearance
+#    species: Allulalo
+#    hideLayersOnEquip:
+#    - Hair
+#    - Snout
+#    - HeadTop
+#    - HeadSide
+#    - LLeg
+#    - RLeg
+#    - LFoot
+#    - RFoot
+
+#- type: entity
+#  parent: BaseSpeciesDummy
+#  id: MobAllulaloDummy
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Sprite
+#    scale: 1, 1
+#  - type: Inventory
+#    speciesId: allulalo
+#    templateId: allulalo
+#    displacements:
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: jumpsuit
+#      head:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: head
+#      eyes:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: glasses
+#      ears:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: ears
+#      mask:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: mask
+#      neck:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: neck
+#      outerClothing:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: outerClothing
+#      gloves:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: hands
+#      shoes:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: feet
+#      belt:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: belt
+#      back:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: back
+#      suitstorage:
+#        sizeMaps:
+#          32:
+#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
+#            state: suitstorage
+#  - type: Hands
+#    leftHandDisplacement:
+#      sizeMaps:
+#        32:
+#          sprite: Mobs/Species/Vox/displacement.rsi
+#          state: hand_l
+#    rightHandDisplacement:
+#      sizeMaps:
+#        32:
+#          sprite: Mobs/Species/Vox/displacement.rsi
+#          state: hand_r
+# End Delta V Removals
+
+# Begin Delta V addition - Nubody
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAllulalo
+  name: allulalo appearance
+  components:
   - type: Inventory
     speciesId: allulalo
-    templateId: allulalo
     displacements:
       jumpsuit:
         sizeMaps:
@@ -194,86 +293,178 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: InitialBody
+    organs:
+      Torso: OrganAllulaloTorso
+      Head: OrganAllulaloHead
+      ArmLeft: OrganAllulaloArmLeft
+      HandLeft: OrganAllulaloHandLeft
+      ArmRight: OrganAllulaloArmRight
+      LegLeft: OrganAllulaloLegLeft
+      LegRight: OrganAllulaloLegRight
+      FootLeft: OrganAllulaloFootLeft
+      FootRight: OrganAllulaloFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganAllulaloEyes
+      Tongue: OrganHumanTongue
+      Ears: OrganHumanEars
+      Appendix: OrganHumanAppendix
+      Lungs: OrganHumanLungs
+      Heart: OrganAllulaloHeart
+      Stomach: OrganAnimalStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Allulalo
 
 - type: entity
-  parent: BaseSpeciesDummy
-  id: MobAllulaloDummy
-  categories: [ HideSpawnMenu ]
+  parent: OrganBase
+  id: OrganAllulalo
+  abstract: true
+  suffix: Allulalo
+
+- type: entity
+  parent: OrganAllulalo
+  id: OrganAllulaloInternal
+  abstract: true
   components:
   - type: Sprite
-    scale: 1, 1
-  - type: Inventory
-    speciesId: allulalo
-    templateId: allulalo
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: glasses
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: ears
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: mask
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: neck
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: outerClothing
-      gloves:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: hands
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: feet
-      belt:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: belt
-      back:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: back
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-            state: suitstorage
-  - type: Hands
-    leftHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: Mobs/Species/Vox/displacement.rsi
-          state: hand_l
-    rightHandDisplacement:
-      sizeMaps:
-        32:
-          sprite: Mobs/Species/Vox/displacement.rsi
-          state: hand_r
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: OrganAllulalo
+  id: OrganAllulaloExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Allulalo
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganAllulaloExternal, OrganAllulaloInternal ]
+  id: OrganAllulaloEyes
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+      state: eyes
+
+- type: entity
+  parent: [ OrganBaseHead, OrganAllulaloExternal ]
+  id: OrganAllulaloHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganAllulaloExternal ]
+  id: OrganAllulaloTorso
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloLegLeft
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloArmLeft
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloHandLeft
+  components:
+  - type: Sprite
+    state: hands
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      state: hands
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloFootLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganAllulaloExternal ]
+  id: OrganAllulaloLegRight
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganAllulaloExternal ]
+  id: OrganAllulaloArmRight
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganAllulaloExternal ]
+  id: OrganAllulaloFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganAllulaloInternal ]
+  id: OrganAllulaloBrain
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganAllulaloInternal ]
+  id: OrganAllulaloHeart
+  components:
+  - type: Metabolizer
+    maxReagents: 2
+    stages: [ Bloodstream ]
+    metabolizerTypes: [ Allulalo ]
+    updateIntervalMultiplier: 0.66 # 50% faster means 66% time taken
+
+
+- type: markingsGroup
+  parent: Undergarments
+  id: Allulalo
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ AllulaloEyesDefault ]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AllulaloTailDefault ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: true
+      default: [ AllulaloWingsDefault ]
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+# End Delta V Additions

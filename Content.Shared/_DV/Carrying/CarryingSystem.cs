@@ -358,6 +358,10 @@ public sealed class CarryingSystem : EntitySystem
 
     public bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
+        var handsRequired = carried.Comp.FreeHandsRequired; // imp
+        if (TryComp<CarrierOneHandComponent>(carrier, out _))// && !carried.Comp.OneHandOverride)
+            handsRequired = 1;
+
         return
             carrier != carried.Owner &&
             // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
@@ -368,7 +372,7 @@ public sealed class CarryingSystem : EntitySystem
             !HasComp<BeingCarriedComponent>(carrier) &&
             !HasComp<BeingCarriedComponent>(carried) &&
             // finally check that there are enough free hands
-            TryComp<HandsComponent>(carrier, out var hands) && _hands.CountFreeHands((carrier, hands)) >= carried.Comp.FreeHandsRequired;
+            TryComp<HandsComponent>(carrier, out var hands) && _hands.CountFreeHands((carrier, hands)) >= handsRequired;
     }
 
     private float MassContest(EntityUid roller, EntityUid target)
