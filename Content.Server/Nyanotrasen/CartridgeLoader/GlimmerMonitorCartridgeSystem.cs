@@ -1,8 +1,10 @@
-﻿using Content.Shared.CartridgeLoader;
+﻿using Content.Server.CartridgeLoader;
+using Content.Server.CartridgeLoader.Cartridges;
+using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Server.Psionics.Glimmer;
+using Content.Server.Nyanotrasen.Psionics.Glimmer;
 
-namespace Content.Server.CartridgeLoader.Cartridges;
+namespace Content.Server.Nyanotrasen.CartridgeLoader;
 
 public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
 {
@@ -29,7 +31,7 @@ public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
         if (args is not GlimmerMonitorSyncMessageEvent)
             return;
         ;
-        UpdateUiState(uid, EntityManager.GetEntity( args.LoaderUid ), component);
+        UpdateUiState(uid, GetEntity( args.LoaderUid ), component);
     }
 
     public void UpdateUiState(EntityUid uid, EntityUid loaderUid, GlimmerMonitorCartridgeComponent? component)

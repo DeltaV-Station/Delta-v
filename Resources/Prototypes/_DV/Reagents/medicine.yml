@@ -8,7 +8,7 @@
   color: "#e3d56d"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ReduceRotting
         seconds: 10
@@ -33,7 +33,7 @@
   flavor: medicine
   color: "#211f3d"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -53,7 +53,7 @@
   flavor: UnholyWater
   color: "#c4c4c4"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -69,7 +69,7 @@
   physicalDesc: reagent-physical-desc-sticky
   group: Medicine
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Anesthesia
@@ -95,7 +95,7 @@
   group: Medicine
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EvenHealthChange
         conditions:
@@ -113,7 +113,7 @@
   flavor: medicine
   color: "#ff7db5"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:AdjustTemperature
         conditions:
@@ -140,7 +140,7 @@
   flavor: medicine
   color: "#91C3F7"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.5
       effects:
       - !type:ModifyStatusEffect

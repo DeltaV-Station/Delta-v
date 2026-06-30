@@ -23,6 +23,7 @@ jobs:
         run: |
           cd RobustToolbox/
           git submodule update --init --recursive
+          rm Robust.Shared.Tests/Networking/NetEncryptionDoSTest.cs # DeltaV - work around bug in the backport
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4.1.0
         with:

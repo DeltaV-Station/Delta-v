@@ -1,6 +1,5 @@
 using Content.Server.Antag;
 using Content.Server.Objectives;
-using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
@@ -14,7 +13,6 @@ public sealed class NukieOperationSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -49,10 +47,6 @@ public sealed class NukieOperationSystem : EntitySystem
             }
 
             _mind.AddObjective(mindId, mind, objective.Value);
-
-            // TODO: Remove once enough feedback has been received!
-            if (objectiveProto.Id == "KidnapHeadsObjective")
-                _feedback.SendPopupMind(mindId, "NukieHostageRoundStartPopup");
         }
     }
 

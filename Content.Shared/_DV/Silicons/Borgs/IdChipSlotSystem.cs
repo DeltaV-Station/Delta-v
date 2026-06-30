@@ -19,7 +19,6 @@ namespace Content.Shared._DV.Silicons.Borgs;
 public sealed class IdChipSlotSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly SharedAccessSystem _access = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;

@@ -49,7 +49,7 @@ public abstract partial class SharedPsionicSystem : EntitySystem
     [PublicAPI]
     public void MindBreakEntity(Entity<PsionicComponent?> psionic, bool stun = true, bool force = false)
     {
-        if (!Resolve(psionic, ref psionic.Comp))
+        if (!Resolve(psionic, ref psionic.Comp, logMissing: false))
             return;
 
         var ev = new PsionicMindBrokenEvent(force);

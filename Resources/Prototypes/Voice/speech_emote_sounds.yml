@@ -154,7 +154,7 @@
     Sigh:
       collection: FemaleSigh
     Yawn:
-      collection: FemaleYawn 
+      collection: FemaleYawn
     # End DeltaV Additions
     Gasp:
       collection: FemaleGasp
@@ -262,6 +262,8 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Sneeze:
+      path: /Audio/Voice/Vox/vox_sneeze.ogg
     Cough:
       path: /Audio/Voice/Vox/vox_cough.ogg
     Sigh:
@@ -280,7 +282,7 @@
       collection: Weh
     Hew:
       collection: Hew
-    Gasp: 
+    Gasp:
       collection: VoxGasp # DeltaV - Combined upstream and our sounds
     DefaultDeathgasp:
       collection: VoxDeathgasp # DeltaV - Combined upstream and our sounds
@@ -312,6 +314,8 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Sneeze:
+      collection: DionaSneeze
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
     Honk:
@@ -594,6 +598,22 @@
       collection: Salutes
     Blink: # Imp
       collection: Blinks # Imp
+
+- type: emoteSounds
+  id: MothBodyEmotes
+  sounds:
+    Flap:
+      path: /Audio/Voice/Moth/moth_flap.ogg
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
 
 # mobs
 - type: emoteSounds
