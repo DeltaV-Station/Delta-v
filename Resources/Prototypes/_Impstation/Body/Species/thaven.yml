@@ -1,4 +1,6 @@
-﻿- type: markingsGroup
+﻿# Begin DeltaV Changes - This entire file was restructured for Nubody
+- type: markingsGroup
+  parent: Undergarments
   id: Thaven
   onlyGroupWhitelisted: true
   limits:
@@ -15,6 +17,9 @@
     enum.HumanoidVisualLayers.Head:
       limit: 4
       required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 4
       required: false
@@ -24,55 +29,69 @@
     enum.HumanoidVisualLayers.RArm:
       limit: 4
       required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Overlay:
       limit: 6
       required: false
     enum.HumanoidVisualLayers.Snout:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Tail:
       limit: 1
+      required: false
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
       required: false
 
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceThaven
+  categories: [ HideSpawnMenu ]
   name: thaven appearance
   components:
   - type: Inventory
+    speciesId: thaven
     templateId: thaven
     displacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            sprite: _MACRO/Mobs/Species/Thaven/displacement.rsi
             state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: head
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: mask
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: neck
       outerClothing:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            sprite: _MACRO/Mobs/Species/Thaven/displacement.rsi
             state: outerclothing_hardsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Thaven/displacement.rsi
+            state: head
       gloves:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            sprite: _MACRO/Mobs/Species/Thaven/displacement.rsi
             state: hands
   - type: InitialBody
     organs:
@@ -80,25 +99,21 @@
       Head: OrganThavenHead
       ArmLeft: OrganThavenArmLeft
       ArmRight: OrganThavenArmRight
-      HandLeft: OrganThavenHandLeft
       HandRight: OrganThavenHandRight
+      HandLeft: OrganThavenHandLeft
       LegLeft: OrganThavenLegLeft
       LegRight: OrganThavenLegRight
       FootLeft: OrganThavenFootLeft
       FootRight: OrganThavenFootRight
       Brain: OrganThavenBrain
       Eyes: OrganThavenEyes
-      Ears: OrganHumanEars
-      Appendix: OrganHumanAppendix
-      Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Lungs: OrganThavenLungs
+      Heart: OrganThavenHeart
+      Stomach: OrganThavenStomach
+      Liver: OrganThavenLiver
+      Kidneys: OrganThavenKidneys
   - type: HumanoidProfile
     species: Thaven
-  - type: ScaleVisuals
-    speciesScale: 1.0, 1.05
 
 - type: entity
   parent:
@@ -150,7 +165,7 @@
         layer:
         - MobLayer
   - type: TypingIndicator
-    proto: Thaven # DeltaV unique typing indicator
+    proto: Thaven # DeltaV - unique typing indicator
   - type: Vocal
     sounds:
       Male: MaleThaven
@@ -170,21 +185,20 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: CosmicMarkVisuals # DeltaV - cosmic cult
-    offset: 0, 0.0625 #2 pixels up
+    offset: 0, 0.0625 # 2 pixels up
 
 - type: entity
+  abstract: true
   parent: OrganBase
   id: OrganThaven
-  abstract: true
   suffix: Thaven
 
 - type: entity
-  parent: OrganThaven
-  id: OrganThavenInternal
   abstract: true
+  parent: [ OrganThaven, OrganBaseOrganic ]
+  id: OrganThavenInternal
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
   parent: OrganThaven
@@ -192,69 +206,55 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
   - type: VisualOrgan
     data:
-      sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+      sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: Thaven
-
-- type: entity
-  parent: [ OrganBaseEyes, OrganThavenExternal, OrganThavenInternal ]
-  id: OrganThavenEyes
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-  - type: VisualOrgan
-    layer: enum.HumanoidVisualLayers.Eyes
-    data:
-      sprite: _Impstation/Mobs/Species/Thaven/parts.rsi # Delta V - Using DV Eyes
-      state: eyes
-#  DV - Marking Displacement requires additional pr from may.
-#  - type: VisualOrganMarkings
-#    markingsDisplacement:
-#      Eyes:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-#            state: eyes
-
-- type: entity
-  parent: [ OrganBaseHead, OrganThavenExternal ]
-  id: OrganThavenHead
 
 - type: entity
   parent: [ OrganBaseTorso, OrganThavenExternal ]
   id: OrganThavenTorso
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganThavenExternal ]
-  id: OrganThavenLegLeft
-
-- type: entity
-  parent: [ OrganBaseHandLeft, OrganThavenExternal ]
-  id: OrganThavenHandLeft
+  parent: [ OrganBaseHead, OrganThavenExternal ]
+  id: OrganThavenHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.HeadSide
+    - enum.HumanoidVisualLayers.Snout
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganThavenExternal ]
   id: OrganThavenArmLeft
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganThavenExternal ]
-  id: OrganThavenFootLeft
+  parent: [ OrganBaseArmRight, OrganThavenExternal ]
+  id: OrganThavenArmRight
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganThavenExternal ]
-  id: OrganThavenLegRight
+  parent: [ OrganBaseHandLeft, OrganThavenExternal ]
+  id: OrganThavenHandLeft
 
 - type: entity
   parent: [ OrganBaseHandRight, OrganThavenExternal ]
   id: OrganThavenHandRight
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganThavenExternal ]
-  id: OrganThavenArmRight
+  parent: [ OrganBaseLegLeft, OrganThavenExternal ]
+  id: OrganThavenLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganThavenExternal ]
+  id: OrganThavenLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganThavenExternal ]
+  id: OrganThavenFootLeft
 
 - type: entity
   parent: [ OrganBaseFootRight, OrganThavenExternal ]
@@ -263,5 +263,40 @@
 - type: entity
   parent: [ OrganBaseBrain, OrganThavenInternal ]
   id: OrganThavenBrain
-  name: thaven brain
   description: "An organic positronic brain. Quite remarkable, really."
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganThavenInternal, OrganThavenExternal ]
+  id: OrganThavenEyes
+  description: "The dark sclera have a faint, iridescent coating."
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+      state: eyes
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenLungs
+  description: "Technically not lungs since they don't draw chemicals from the air, these strange, durable organs use the motion of respiration to provide energy for cell maintenance."
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenHeart
+  description: "The toxic heart of a thaven. You're wearing gloves, right?"
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenStomach
+  description: "Surprisingly similar to the stomach of a sharkminnow."
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenLiver
+  description: "It loosely resembles a slab of dragon flesh."
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenKidneys
+  description: "Shiny, coppery veins make these the most ornate kidneys known to modern science."
+# End DeltaV Changes - This entire file was restructured for Nubody
