@@ -96,6 +96,7 @@
   metabolisms:
     Bloodstream:
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
         conditions: #imp
         - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
@@ -163,6 +164,7 @@
   metabolisms:
     Bloodstream:
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
         conditions: #imp
         - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
@@ -176,6 +178,9 @@
           type: [ Allulalo ]
         walkSpeedModifier: 1.12 # Delta V - Lowering these due to base modifier also being lower
         sprintSpeedModifier: 1.12 # Delta V
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
+        time: 3
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3.5
