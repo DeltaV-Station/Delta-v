@@ -8,7 +8,6 @@ namespace Content.Shared._DV.Chapel;
 
 public abstract class SharedSacrificialAltarSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
 
     public override void Initialize()

@@ -86,40 +86,40 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                 case AsteroidOffering asteroid:
                     option.Title = Loc.GetString($"dungeon-config-proto-{asteroid.Id}");
                     break; // DeltaV: Skip ores since they aren't used with custom generation
-                    var layerKeys = asteroid.MarkerLayers.Keys.ToList();
-                    layerKeys.Sort();
-
-                    foreach (var resource in layerKeys)
-                    {
-                        var count = asteroid.MarkerLayers[resource];
-
-                        var container = new BoxContainer
-                        {
-                            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                            HorizontalExpand = true,
-                        };
-
-                        var resourceLabel = new Label
-                        {
-                            Text = Loc.GetString("salvage-magnet-resources",
-                                ("resource", resource)),
-                            HorizontalAlignment = Control.HAlignment.Left,
-                        };
-
-                        var countLabel = new Label
-                        {
-                            Text = Loc.GetString("salvage-magnet-resources-count", ("count", count)),
-                            HorizontalAlignment = Control.HAlignment.Right,
-                            HorizontalExpand = true,
-                        };
-
-                        container.AddChild(resourceLabel);
-                        container.AddChild(countLabel);
-
-                        option.AddContent(container);
-                    }
-
-                    break;
+                    // var layerKeys = asteroid.MarkerLayers.Keys.ToList();
+                    // layerKeys.Sort();
+                    //
+                    // foreach (var resource in layerKeys)
+                    // {
+                    //     var count = asteroid.MarkerLayers[resource];
+                    //
+                    //     var container = new BoxContainer
+                    //     {
+                    //         Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                    //         HorizontalExpand = true,
+                    //     };
+                    //
+                    //     var resourceLabel = new Label
+                    //     {
+                    //         Text = Loc.GetString("salvage-magnet-resources",
+                    //             ("resource", resource)),
+                    //         HorizontalAlignment = Control.HAlignment.Left,
+                    //     };
+                    //
+                    //     var countLabel = new Label
+                    //     {
+                    //         Text = Loc.GetString("salvage-magnet-resources-count", ("count", count)),
+                    //         HorizontalAlignment = Control.HAlignment.Right,
+                    //         HorizontalExpand = true,
+                    //     };
+                    //
+                    //     container.AddChild(resourceLabel);
+                    //     container.AddChild(countLabel);
+                    //
+                    //     option.AddContent(container);
+                    // }
+                    //
+                    // break;
                 case DebrisOffering debris:
                     option.Title = Loc.GetString($"salvage-magnet-debris-{debris.Id}");
                     break;

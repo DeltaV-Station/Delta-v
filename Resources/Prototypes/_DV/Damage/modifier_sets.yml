@@ -164,6 +164,22 @@
     Heat: 10
 
 - type: damageModifierSet
+  id: ReinforcedCrate
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Shock: 1.5
+    Heat: 0.5
+    Structural: 0.5
+  flatReductions:
+    Blunt: 15
+    Slash: 20
+    Piercing: 20
+    Heat: 20
+    Structural: 40
+
+- type: damageModifierSet
   id: NukieSpider
   coefficients:
     # A stock bloodred hardsuit, but made for a giant spider.

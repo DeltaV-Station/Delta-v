@@ -166,6 +166,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    wilhelm: "/Audio/_DV/Machines/robotwilhelm.ogg" # DeltaV - "There seems to be someone among us".
     wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
@@ -280,10 +281,11 @@
     - Critical
     - Dead
     damage:
-      groups:
-        Electronic: -0.5
+      types:
+        Shock: -0.5
   - type: SiliconEmp # DeltaV - EMP damage
   - type: BypassLock
+    openWiresPanel: true
   - type: BypassLockRequiresMobState
     requiredMobState:
     - Critical
@@ -358,11 +360,11 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: Access
-    groups:
-    - AllAccessBorg # DeltaV
-    tags:
-    - Borg
+  #- type: Access # DeltaV - Borgs ID Chips
+  #  groups:
+  #  - AllAccessBorg
+  #  tags:
+  #  - Borg
   - type: AccessReader
     access: [["Command"], ["Research"], ["Robotics"]] # DeltaV - add Robotics
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
@@ -371,6 +373,7 @@
   - type: Wires # DeltaV: NT borgs have a circuit panel
     layoutId: Cyborg
   - type: ShowJobIcons
+  - type: ShowCrewIcons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
@@ -438,6 +441,7 @@
   - type: ShowJobIcons
   - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
     fiberMaterial: fibers-degraded-plasteel
+  - type: ShowCrewIcons
 
 - type: entity
   id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
@@ -451,6 +455,7 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  - type: ShowCrewIcons
   - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
     factions:
     - Syndicate
@@ -597,6 +602,7 @@
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
+  - type: ShowCrewIcons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg

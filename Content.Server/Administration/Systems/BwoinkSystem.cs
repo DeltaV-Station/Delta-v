@@ -241,7 +241,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Check if the user has been banned
-                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
+                var ban = await _dbManager.GetBanAsync(null, e.Session.UserId, null, null);
                 if (ban != null)
                 {
                     var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
@@ -483,6 +483,7 @@ namespace Content.Server.Administration.Systems
 
                 var linkToPrevious = string.Empty;
 
+                _webhookData = await GetWebhookData(_webhookUrl); // Delta V - added so webhook doesn't scream
                 // If we have all the data required, we can link to the embed of the previous round or embed that was too long
                 if (_webhookData is { GuildId: { } guildId, ChannelId: { } channelId })
                 {

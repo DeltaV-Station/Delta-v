@@ -439,6 +439,7 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: CrawlableNode # DeltaV
 
 - type: entity
   parent: GasVentPump
@@ -505,6 +506,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]

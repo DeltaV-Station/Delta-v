@@ -22,11 +22,11 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.28
-        density: 35
+        density: 65
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   - type: Appearance
   - type: Inventory
     speciesId: secdog
@@ -72,9 +72,10 @@
       path: /Audio/Animals/small_dog_bark_happy.ogg
   - type: DogVision
   - type: NPCRetaliation
+    attackMemoryLength: 10
   - type: NpcFactionMember
     factions:
-      - PetsNT
+      - Passive
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -95,7 +96,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - PetsNT
+      - Passive
       - Cat # Not a cat but we want them to attack mice
   - type: RandomMetadata
     nameSegments: [NamesPitbulls]
@@ -137,7 +138,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 65
+        density: 80
         mask:
         - MobMask
         layer:
@@ -176,6 +177,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pibble
+  - type: NpcFactionMember
+    factions:
+      - PetsNT # Pibble is a good boy and doesn't hurt crew.
   - type: Fixtures
     fixtures:
       fix1:

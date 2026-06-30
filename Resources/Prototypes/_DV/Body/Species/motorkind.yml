@@ -1,0 +1,389 @@
+- type: markingsGroup
+  id: Motorkind
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceMotorkind
+  name: motorkind appearance
+  components:
+  - type: Inventory
+    templateId: motorkind
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: eyes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: mask
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+      back:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+      ears:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+      id:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+            state: hide
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _DV/Mobs/Species/Motorkind/displacement.rsi
+          state: hand_r
+  - type: InitialBody
+    organs:
+      Torso: OrganMotorkindTorso
+      Head: OrganMotorkindHead
+      ArmLeft: OrganMotorkindFrontLeft
+      ArmRight: OrganMotorkindFrontRight
+#      HandRight: OrganHumanHandRight
+#      HandLeft: OrganHumanHandLeft
+      LegLeft: OrganMotorkindBackLeft
+      LegRight: OrganMotorkindBackRight
+#      FootLeft: OrganHumanFootLeft
+#      FootRight: OrganHumanFootRight
+      Brain: OrganMotorkindBrainEngine
+      Eyes: OrganMotorkindEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganMotorkindLungsCatalyticConverter
+      Heart: OrganHumanHeart
+      Stomach: OrganMotorkindStomachFuelTank
+      Liver: OrganMotorkindLiverOilFilter
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Motorkind
+  - type: ScaleVisuals
+    scale: 2, 2
+
+- type: entity
+  name: Urist McQueen
+  parent:
+  - AppearanceMotorkind
+  - BaseSpeciesMobOrganic
+  id: MobMotorkind
+  components:
+  - type: Barotrauma
+  - type: PressureImmunity
+  - type: Icon
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+    state: full
+  - type: Damageable
+    damageContainer: Silicon # Nubody - Deleted all HumanoidSilicon until we get a new IPC thing
+    damageModifierSet: Motorkind
+  - type: DamageVisuals
+    thresholds: [25, 50, 75, 100]
+    targetLayers:
+    - "enum.HumanoidVisualLayers.Chest"
+    damageOverlayGroups:
+      Brute:
+        sprite: _DV/Mobs/Species/Motorkind/brute_damage.rsi
+        color: "#444444"
+#   Delta V - Commented out until damageModifierSet with Burn is added
+#      Burn:
+#        sprite: _DV/Mobs/Species/Motorkind/burn_damage.rsi
+#        color: "#888888"
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: SheetSteel10
+      amount: 1
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 1000
+    bleedReductionAmount: 0.1
+    maxBleedAmount: 10.75
+    bloodlossDamage:
+      types:
+        Blunt: 0.05
+    bloodlossHealDamage:
+      types:
+        Blunt: -0.025
+  - type: Hunger
+    baseDecayRate: 0.005
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - Honker
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPie
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45 # Annoyingly large
+        density: 400 # It's a fucking Car
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 10
+    baseAcceleration: 2 # Slow to start and stop
+    acceleration: 2
+    baseFriction: 0.25
+    friction: 2
+    frictionNoInput: 2
+  - type: NoSlip
+  - type: Respirator
+    minSaturation: 1
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Vocal
+    sounds:
+      Male: MaleMotorkind
+      Female: FemaleMotorkind
+      Unsexed: MaleMotorkind
+  - type: Speech
+    speechSounds: Alto
+  - type: EncryptionKeyHolder
+    keySlots: 4
+    keysExtractionMethod: Cutting
+    keysUnlocked: false
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 5
+    unlockTime: 5
+    breakOnAccessBreaker: false
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: Strap
+    position: Down
+    rotation: -90
+  - type: Buckle
+    size: 120 # Slightly too large for other cars / seats.
+  - type: TrafficHazard
+    minimumSpeed: 5
+    minimumSpeedDifference: 7
+    stunTime: 0 # Don't stun, just collide.
+    collisionDamage:
+      types:
+        Blunt: 10
+
+- type: entity
+  parent: OrganBase
+  id: OrganMotorkind
+  abstract: true
+  suffix: motorkind
+
+- type: entity
+  parent: OrganMotorkind
+  id: OrganMotorkindInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/organs.rsi
+
+- type: entity
+  parent: OrganMotorkind
+  id: OrganMotorkindExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Motorkind
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganMotorkindExternal ]
+  id: OrganMotorkindTorso
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganMotorkindExternal ]
+  id: OrganMotorkindFrontLeft
+  name: "front-left wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganMotorkindExternal ]
+  id: OrganMotorkindFrontRight
+  name: "front-right wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+
+- type: entity
+  id: OrganMotorkindBackLeft
+  name: "back-left wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+  parent: [ OrganBaseLegLeft, OrganMotorkindExternal ]
+
+- type: entity
+  id: OrganMotorkindBackRight
+  name: "back-right wheel"
+  description: "Motorkind wheels are unfortunately not universal, this was done intentionally for capitalism reasons."
+  parent: [ OrganBaseLegRight, OrganMotorkindExternal ]
+
+- type: entity
+  id: OrganMotorkindHead
+  parent: [ OrganBaseHead, OrganMotorkindExternal ]
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganMotorkindInternal ]
+  id: OrganMotorkindBrainEngine
+  name: engine
+  description: "A compact internal combustion engine that has been modified to serve as the central processing unit for a motorkind."
+  components:
+  - type: Sprite
+    state: engine
+    layers:
+    - state: engine
+      map: ["base"]
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganMotorkindInternal, OrganMotorkindExternal ]
+  id: OrganMotorkindEyes
+  name: windshield
+  description: "A single windshield that serves to protect the cabin of the Motorkind, as well as provide vision, somehow."
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Motorkind/organs.rsi
+    state: windshield
+    layers:
+    - state: windshield
+  - type: VisualOrgan
+    data:
+      sprite: _DV/Mobs/Species/Motorkind/organs.rsi
+      state: windshield
+
+- type: entity
+  parent: [ OrganMotorkindInternal ]
+  id: OrganMotorkindStomachFuelTank
+  name: fuel tank
+  description: "A fuel tank that stores various fuels to power the motorkind's engine."
+  components:
+  - type: Sprite
+    layers:
+    - state: fuel_tank
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 5
+  - type: GibbableOrgan
+  - type: Organ
+    category: Stomach
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 6
+    metabolizerTypes: [ Fuel ]
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganMotorkindInternal ]
+  id: OrganMotorkindLiverOilFilter
+  name: oil filter
+  description: "An oil filter that cleans the motorkind's oil to ensure smooth operation of its engine."
+  components:
+  - type: Sprite
+    layers:
+    - state: oil_filter
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganMotorkindInternal ]
+  id: OrganMotorkindLungsCatalyticConverter
+  name: catalytic converter
+  description: "Helps purify the output of a Motorkind's engine into something less toxic. Motorkind are often hunted for these valuable trophies."
+  components:
+  - type: Sprite
+    layers:
+    - state: catalytic_converter
+  - type: GibbableOrgan
+  - type: Organ
+    category: Lungs
+  - type: Lung
+  - type: Item
+    heldPrefix: lungs
+  - type: Metabolizer
+    metabolizerTypes: [ Fuel ]
