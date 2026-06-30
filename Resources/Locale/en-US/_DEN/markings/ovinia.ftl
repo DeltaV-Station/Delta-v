@@ -66,4 +66,4 @@ marking-OviniaLeftArmValais-ovinia-arm-valais-left = Valais Left Arm
 marking-OviniaRightArmValais = Valais Right Arm
 marking-OviniaRightArmValais-ovinia-arm-valais-right = Valais Right Arm
 
-markings-category-NeckFluff = Neck Fluff
+markings-layer-NeckFluff = Neck Fluff
