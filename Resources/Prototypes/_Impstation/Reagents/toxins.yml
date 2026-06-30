@@ -8,7 +8,7 @@
   physicalDesc: reagent-physical-desc-acrid
   metabolisms:
     # Should you be injecting this in a friendly? maybe
-    Medicine:
+    Bloodstream: # Delta V - Was Medicine, update for Nubody
       effects:
       - !type:HealthChange
         damage:

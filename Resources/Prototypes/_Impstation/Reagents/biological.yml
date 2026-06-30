@@ -8,13 +8,12 @@
   color: "#c1c7d3"
   evaporationSpeed: 0.3 #same as water
   metabolisms: #have to redefine from basealcohol otherwise its slippery which is a hell of a can of worms for a species
-    Drink:
+    Digestion: # Delta V - Was Drink, update for Nubody
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.06
+      metabolites: # Delta V - update for Nubody
+        Ethanol: 0.6
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
