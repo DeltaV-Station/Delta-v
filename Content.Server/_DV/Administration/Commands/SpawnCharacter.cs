@@ -85,7 +85,7 @@ public sealed class SpawnCharacter : LocalizedEntityCommands
         }
 
         var gameTicker = _entitySys.GetEntitySystem<GameTicker>();
-        
+
         var coordinates = player.AttachedEntity != null
             ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
             : gameTicker.GetObserverSpawnPoint();
