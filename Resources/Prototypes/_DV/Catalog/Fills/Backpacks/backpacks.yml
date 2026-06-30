@@ -1,0 +1,81 @@
+- type: entity
+  id: ClothingBackpackDeathSquadFilledBase
+  parent: ClothingBackpackDeathSquad
+  suffix: Base
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WelderExperimental
+        - id: ToolDebug
+        - id: Multitool
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: HandHeldMassScanner
+        - id: PinpointerNuclear
+        - id: DoorRemoteCustom
+
+- type: entity
+  id: ClothingBackpackDeathSquadFilledBlack
+  parent: ClothingBackpackDeathSquad
+  suffix: Black
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WelderExperimental
+        - id: ToolDebug
+        - id: Multitool
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: HandHeldMassScanner
+        - id: PinpointerNuclear
+        - id: DoorRemoteCustom
+        - id: WeaponPulseRifle
+        - id: ExGrenade
+        - id: ExGrenade
+        - id: ExGrenade
+        - id: ExGrenade
+        - id: ExGrenade
+        - id: BoxC4
+        - id: SpeedLoaderMagnumUranium
+        - id: SpeedLoaderMagnumUranium
+
+- type: entity
+  id: ClothingBackpackDeathSquadFilledEpsilon
+  parent: ClothingBackpackDeathSquad
+  suffix: Epsilon
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WelderExperimental
+        - id: ToolDebug
+        - id: Multitool
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: SpeedLoaderMagnum
+        - id: HandHeldMassScanner
+        - id: PinpointerNuclear
+        - id: DoorRemoteCustom
+        - id: WeaponShotgunAntelope
+        - id: MagazineShotgunBeanbag
+        - id: MagazineShotgunBeanbag
+        - id: MagazineShotgunBeanbag
+        - id: MagazineShotgunBeanbag
+        - id: MagazineShotgunBeanbag
+        - id: MagazineShotgunBeanbag
+        - id: BoxHandcuff
+        - id: MagazineShotgun
+        - id: MagazineShotgun
+        - id: MagazineShotgun

@@ -12,3 +12,6 @@ ent-ArmoryEnergyGun = { ent-CrateArmoryEnergyGun }
 
 ent-ArmoryEnergyGunMini = { ent-CrateArmoryEnergyGunMini }
     .desc = { ent-CrateArmoryEnergyGunMini.desc }
+
+cargo-armory-arming-swords-name = Arming Sword Crate
+cargo-armory-arming-swords-desc = Contains two Plasteel Arming Swords. Requires Armory access to open.

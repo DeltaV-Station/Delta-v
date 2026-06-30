@@ -7,7 +7,7 @@
   flavor: medicine
   color: "#ebbce9"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.03
       effects:
       - !type:PopupMessage
@@ -53,7 +53,7 @@
   flavor: metallic
   color: "#382f6b"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.02
       effects:
       - !type:PopupMessage
@@ -93,7 +93,7 @@
         - !type:ReagentCondition
           reagent: Ethanol # Alcohol makes it really easy to overdose by increasing your body's absorption of the medicine.
           min: 1
-        reagent: Neurozenium 
+        reagent: Neurozenium
         amount: 0.15
       - !type:AdjustReagent
         reagent: Serenitol
@@ -122,7 +122,7 @@
   flavor: bitter
   color: "#f2ff00"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.01
       effects:
       - !type:SuppressAddiction
@@ -175,7 +175,7 @@
           min: 5.1
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentCondition 
+        - !type:ReagentCondition
           reagent: Blissifylovene
           min: 5.1
         effectProto: StatusEffectSeeingRainbow
@@ -186,7 +186,7 @@
         - !type:ReagentCondition
           reagent: Ethanol # Alcohol makes it really easy to overdose by increasing your body's absorption of the medicine.
           min: 1
-        reagent: Blissifylovene 
+        reagent: Blissifylovene
         amount: 0.15
       - !type:AdjustReagent
         conditions:
@@ -237,7 +237,7 @@
   flavor: bitter
   color: "#634e3a"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.03
       effects:
       - !type:PopupMessage
@@ -277,7 +277,7 @@
   flavor: sweet
   color: "#2e3b52"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.02
       effects:
       - !type:PopupMessage
@@ -359,7 +359,7 @@
   flavor: metallic
   color: "#291816"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.01
       effects:
       - !type:PopupMessage
@@ -443,7 +443,7 @@
   flavor: sour
   color: "#6bb3b5"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.02
       effects:
       - !type:ModifyStatusEffect
@@ -468,7 +468,7 @@
       - !type:SatiateHunger # causes digestion inefficiency during overdose
         factor: -1.2
         conditions:
-          - !type:ReagentCondition 
+          - !type:ReagentCondition
             reagent: Stubantazine
             min: 14
       - !type:Vomit
@@ -480,7 +480,7 @@
       - !type:SatiateHunger # causes digestion inefficiency if you drink alcohol
         factor: -2.0
         conditions:
-          - !type:ReagentCondition 
+          - !type:ReagentCondition
             reagent: Ethanol
             min: 2
       - !type:PopupMessage
@@ -503,7 +503,7 @@
   flavor: tingly
   color: "#2e2c2c"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.01
       effects:
       - !type:ModifyStatusEffect
@@ -553,14 +553,14 @@
   flavor: nothing
   color: "#ffc7c7"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate : 0.01
       effects:
       - !type:GenericStatusEffect
         key: PainNumbness
         component: PainNumbness
         time: 3.0
-        type: Add 
+        type: Add
       - !type:ModifyStatusEffect
         effectProto: StatusEffectChronicPainSuppressed
         time: 3 # More effective than soretizone - 25 minutes of pain suppression per 5u (5u / 0.01 * 3 / 60)
@@ -613,4 +613,3 @@
           - !type:ReagentCondition
             reagent: Agonolexyne
             max: 0.1
-          

@@ -343,7 +343,6 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -492,7 +491,7 @@
 
 - type: entity
   name: mothroach
-  parent: MobCockroach
+  parent: [ BaseMobMothroach, MobCockroach ]
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
@@ -520,7 +519,7 @@
   - type: Speech
     speechVerb: Moth
     speechSounds: Chitter # Delta-V - Eep!
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
@@ -599,6 +598,8 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
     wilhelmProbability: 0.001
+  - type: BodyEmotes
+    soundsId: MothBodyEmotes
   - type: MobPrice
     price: 150
   - type: Tag
@@ -610,8 +611,6 @@
   - type: NpcFactionMember
     factions:
     - Mouse
-  - type: Body
-    prototype: Mothroach
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -752,7 +751,6 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
-    - type: Timer
     - type: TimedSpawner
       prototypes:
       - MobDuckMallard
@@ -843,7 +841,7 @@
 
 - type: entity
   name: cow
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobRuminant ]
   id: MobCow
   description: Moo.
   components:
@@ -916,8 +914,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -928,7 +924,7 @@
 
 - type: entity
   name: crab
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobHemocyanin, DVNodeCrawler ]
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -995,12 +991,10 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: Body
-    prototype: AnimalHemocyanin
 
 - type: entity
   name: goat
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobRuminant ]
   id: MobGoat
   description: Her spine consists of long sharp segments, no wonder she is so grumpy.
   components:
@@ -1093,8 +1087,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1333,7 +1325,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -1400,9 +1392,6 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1513,6 +1502,10 @@
       visible: false
   - type: Carriable # DeltaV
   - type: Hands
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
   - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
@@ -1520,9 +1513,6 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1579,6 +1569,8 @@
       - !type:WashCreamPie
   - type: Crawler
   - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
 
 - type: entity
   name: monkey
@@ -1721,6 +1713,43 @@
   - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: 285
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Mobs/Animals/kobold.rsi
+      state: kobold
+    - map: [ "outline" ]
+      sprite: Mobs/Animals/kobold.rsi
+      state: outline
+    - map: [ "horns" ]
+      sprite: Mobs/Customization/reptilian_parts.rsi
+      state: horns_short
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "ears" ]
+    - map: [ "id" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+  - type: RandomSprite
+    getAllGroups: true
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          kobold: KoboldColors
+      - horns:
+          horns_curled: KoboldHornColors
+          horns_ram: KoboldHornColors
+          horns_short: KoboldHornColors
+          horns_myrsore: KoboldHornColors
+          horns_bighorn: KoboldHornColors
+          horns_argali: KoboldHornColors
+          horns_ayrshire: KoboldHornColors
+          horns_floppy_kobold_ears: Inherit
+          horns_double: Inherit
+          horns_kobold_ears: Inherit
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -1798,12 +1827,13 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - BaseMobAnimal
+  - DVNodeCrawler
   id: MobMouse
   description: Squeak!
   components:
-  - type: Body
-    prototype: Mouse
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -2191,7 +2221,9 @@
 
 - type: entity
   name: slug
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSlug
   description: And they called this a lizard?
   components:
@@ -2243,7 +2275,9 @@
 
 - type: entity
   name: frog
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
@@ -2513,8 +2547,8 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      groups:
-        Brute: 5
+      types:
+        Piercing: 5
   - type: Item
     size: Normal
     sprite: Mobs/Animals/grenadepenguin.rsi
@@ -2545,7 +2579,9 @@
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
   name: snake
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
@@ -2597,7 +2633,7 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat ]
   id: MobSpiderBase
   abstract: true
   components:
@@ -2619,8 +2655,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-  - type: Body
-    prototype: AnimalHemocyanin
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -2681,16 +2715,20 @@
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
-    damageCap: 89
     damage:
       types:
         Poison: -0.07
-      groups:
-        Brute: -0.07
-        Burn: -0.07
+        Blunt: -0.03
+        Slash: -0.03
+        Piercing: -0.03
+        Heat: -0.03
+        Cold: -0.03
+        Shock: -0.03
 
 - type: entity
-  parent: MobSpiderBase
+  parent:
+  - MobSpiderBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSpiderAngryBase
   abstract: true
   components:
@@ -3556,7 +3594,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, DVNodeCrawler ] # DeltaV - node crawling
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3760,6 +3798,8 @@
     spawned:
     - id: FoodMeat
       amount: 6
+    - id: FoodMeatBacon # DeltaV #Make Pigs drop bacon as well as meat
+      amount: 6
   - type: Grammar
     attributes:
       gender: epicene
@@ -3783,7 +3823,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase, DVNodeCrawler]
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
@@ -3889,14 +3929,16 @@
     darkThreshold: 0.4
     lightThreshold: 1.2
     darkDamage:
-      groups:
-        Burn: 1.0
+      types:
+        Heat: 1.0
     lightDamage:
-      groups:
-        Brute: -0.1
-        Burn: -0.1
-        Toxin: -0.1
-        Airloss: -0.1
+      types:
+        Blunt: -0.1
+        Piercing: -0.1
+        Slash: -0.1
+        Heat: -0.1
+        Poison: -0.1
+        Asphyxiation: -0.1
     darkMovementSpeedMultiplier: 0.7
 
 - type: entity
@@ -4047,14 +4089,18 @@
             sprite: Mobs/Pets/displacements.rsi
             state: corgi_head_displacement
   - type: Hands # HANDS!
+    activeHandId: Right
+    hands:
+      Right:
+        location: Right
+      Left:
+        location: Left
   - type: Puller
   - type: Cuffable # bad dog!
   - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
   - type: Stripping
   - type: ComplexInteraction
   # Implement custom borgi body type
-  - type: Body
-    prototype: SmartCorgi
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 180
@@ -4067,8 +4113,9 @@
     - VimPilot
     - CanPilot
     - DoorBumpOpener
-  - type: StatusIcon # marks them as crew
+  - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
   - type: NpcFactionMember
     factions:
     - NanoTrasen

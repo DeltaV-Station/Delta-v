@@ -117,7 +117,7 @@ public abstract class SharedMonumentSystem : EntitySystem
         if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(args.Actor, out var cultComp))
             return;
 
-        if (cultComp.EntropyBudget < proto.Cost || cultComp.OwnedInfluences.Contains(proto) || args.Actor == null)
+        if (cultComp.EntropyBudget < proto.Cost || cultComp.OwnedInfluences.Contains(proto))
             return;
 
         cultComp.OwnedInfluences.Add(proto);

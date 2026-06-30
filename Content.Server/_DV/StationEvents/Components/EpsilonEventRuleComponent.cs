@@ -1,9 +1,9 @@
 using Content.Server.Power.Components;
-using Content.Server.StationEvents.Events;
+using Content.Server._DV.StationEvents.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.StationEvents.Components;
+namespace Content.Server._DV.StationEvents.Components;
 
 /// <summary>
 ///     When fired, turns off power on the station for a few seconds, playing <see cref="EpsilonEventRuleComponent.PowerOffSound"/>

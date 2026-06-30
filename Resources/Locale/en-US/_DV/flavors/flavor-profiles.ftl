@@ -97,3 +97,13 @@ flavor-base-awful = awful
 candy-flavor-profile = This one is supposed to taste {$flavor}.
 candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.
 candy-flavor-profile-unknown = You have no idea what this one is supposed to taste like.
+
+flavor-complex-tart = tart
+flavor-complex-icecream-apple-caramel = like apple pie
+flavor-complex-icecream-caramel-fudge = like a liquid caramel brownie
+flavor-complex-icecream-cobbler = a dessert with a tasty idenity crisis
+flavor-complex-icecream-cookiedough = like a weekend at grandma's
+flavor-complex-icecream-neapolitan = like chocolate, vanillia, and cherry
+flavor-complex-icecream-rockyroad = like a bumpy highway
+flavor-complex-icecream-tower = like a tower of power
+flavor-complex-sherbert-rainbow = like a rainbow of flavors
