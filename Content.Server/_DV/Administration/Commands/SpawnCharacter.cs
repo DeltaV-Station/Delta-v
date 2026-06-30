@@ -84,10 +84,11 @@ public sealed class SpawnCharacter : LocalizedEntityCommands
             jobName = "Passenger"; // and if they fuck up, just default to passenger again
         }
 
-
+        var gameTicker = _entitySys.GetEntitySystem<GameTicker>();
+        
         var coordinates = player.AttachedEntity != null
             ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
-            : _entitySys.GetEntitySystem<GameTicker>().GetObserverSpawnPoint();
+            : gameTicker.GetObserverSpawnPoint();
 
         if (player.AttachedEntity == null ||
             !mindSystem.TryGetMind(player.AttachedEntity.Value, out var mindId, out var mind))
@@ -96,7 +97,6 @@ public sealed class SpawnCharacter : LocalizedEntityCommands
         var mobUid = _entityManager.System<StationSpawningSystem>().SpawnPlayerMob(coordinates, profile: character, entity: null, job: jobName, station: null);
         mindSystem.TransferTo(mindId, mobUid);
 
-        var gameTicker = _entitySys.GetEntitySystem<GameTicker>();
         var spawnCompleteEv = new PlayerSpawnCompleteEvent(mobUid,
             player,
             jobExists ? jobName : null,
