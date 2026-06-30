@@ -17,7 +17,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
     state: allulaloChestHeartMonitor
-  shader: unshaded
+  # shader: unshaded # Delta V - We don't have support for unshaded markings yet
 
 # Head
 
@@ -92,7 +92,7 @@
     state: allulaloEyesUnshadedLeft
   - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
     state: allulaloEyesUnshadedRight
-  shader: unshaded
+  #shader: unshaded # Delta V - We don't have support for unshaded markings yet
 
 # RArm
 
