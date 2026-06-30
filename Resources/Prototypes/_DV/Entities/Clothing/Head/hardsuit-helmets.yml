@@ -376,6 +376,13 @@
     sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
   - type: PointLight
     color: aquamarine
 
@@ -393,7 +400,7 @@
   - type: PointLight
     color: aquamarine
 
-#SRT Hardsuit
+# SRT Hardsuit
 - type: entity
   parent: [ ClothingHeadHardsuitBase, BaseCentcommContraband ]
   id: ClothingHeadHelmetHardsuitSRT

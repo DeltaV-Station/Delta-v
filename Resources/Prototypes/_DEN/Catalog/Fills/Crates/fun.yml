@@ -1,0 +1,33 @@
+
+- type: entity
+  parent: CratePlastic
+  id: CrateFunSwimRings
+  name: swim ring crate
+  description: A crate containing eight swim rings, for your beach party occasions!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SwimRingRainbow
+        - id: SwimRingTrans
+        - !type:NestedSelector
+          tableId: RandomSwimRingTable
+          rolls: !type:ConstantNumberSelector
+            value: 6
+
+- type: entityTable
+  id: RandomSwimRingTable
+  table: !type:GroupSelector
+    children:
+    - id: SwimRingBlack
+    - id: SwimRingBlue
+    - id: SwimRingCyan
+    - id: SwimRingGreen
+    - id: SwimRingMagenta
+    - id: SwimRingPink
+    - id: SwimRingPurple
+    - id: SwimRingRainbow
+    - id: SwimRingRed
+    - id: SwimRingTrans
+    - id: SwimRingYellow

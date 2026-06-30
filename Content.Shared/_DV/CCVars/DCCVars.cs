@@ -331,4 +331,10 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<float> SsdIndicatorRecentAfterSeconds =
         CVarDef.Create("deltav.ssd.recent_after_seconds", 300f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether the round end is an OOC vote.
+    /// </summary>
+    public static readonly CVarDef<bool> RoundEndIsOOCVote =
+        CVarDef.Create("deltav.round_end_is_ooc_vote", false, CVar.SERVER);
 }

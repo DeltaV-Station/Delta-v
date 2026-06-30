@@ -1,7 +1,7 @@
 # Main Directory
 - type: guideEntry
   id: SpaceLaw
-  name: Space Law
+  name: space-law-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw.xml
   children:
     - SpaceLawCrimesReferences
@@ -9,5 +9,5 @@
 # Child Entry
 - type: guideEntry
   id: SpaceLawCrimesReferences
-  name: Crimes Quick Code References
+  name: space-law-criminal-reference-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CrimeReferences.xml

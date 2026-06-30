@@ -157,6 +157,7 @@
   id: AirAlarmXeno
   parent: AirAlarm
   name: air alarm
+  suffix: Xeno # DeltaV - Add suffix for clarity
   description: An alien air alarm. Hopefully they didn't breathe poison.
   components:
   - type: Sprite
@@ -174,6 +175,7 @@
   id: AirAlarmAssemblyXeno
   parent: AirAlarmAssembly
   name: air alarm assembly
+  suffix: Xeno # DeltaV - Add suffix for clarity
   description: An alien air alarm. Why are the wires pulsating?...
   components:
   - type: Sprite

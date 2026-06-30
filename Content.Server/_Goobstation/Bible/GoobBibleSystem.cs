@@ -9,17 +9,14 @@ using Content.Shared._Goobstation.Religion;
 using Content.Server.Bible.Components;
 using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Exorcism;
-using Content.Shared._Goobstation.Religion;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.Bible;
 
@@ -32,7 +29,6 @@ public sealed partial class GoobBibleSystem : EntitySystem
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
 
     public override void Initialize()

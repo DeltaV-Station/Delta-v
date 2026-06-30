@@ -15,7 +15,10 @@
         mask:
         - Impassable
   - type: ApcPowerReceiver
-    powerLoad: 300
+    powerLoad: 5
+  - type: PowerState
+    idlePowerDraw: 5
+    workingPowerDraw: 300
   - type: StationAiVision
     range: 1
     needsAnchoring: true
@@ -126,7 +129,7 @@
     - Map
     - Unlimited
     ignoreTelephonesOnSameGrid: true
-    
+
 - type: entity
   name: quantum entangling holopad
   description: "An floor-mounted device for projecting holographic images to similar devices at extreme distances."
@@ -416,7 +419,7 @@
 - type: entity
   parent: HolopadEpistemics # DeltaV
   id: HolopadScienceRnd
-  suffix: R&D
+  suffix: Epistemics # DeltaV - Science > Epistemics
   components:
   - type: Label
     currentLabel: holopad-epistemics-rnd # DeltaV - Science > Epistemics

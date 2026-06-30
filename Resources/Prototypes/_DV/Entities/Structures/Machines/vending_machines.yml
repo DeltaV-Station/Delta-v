@@ -128,3 +128,30 @@
         type: WiresBoundUserInterface
   - type: Wires
     layoutId: ShopVendor
+
+- type: entity
+  parent: VendingMachineMedicalBase
+  id: VendingMachineMedicalSyndicate
+  name: Nanoblood
+  description: Made with all the tears of Nanotrasen. Backwards compatible with standard NanoMed restocks.
+  components:
+  - type: VendingMachine
+    pack: NanobloodInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    ejectDelay: 0.6
+  - type: Sprite
+    sprite: _DV/Structures/Machines/VendingMachines/nanoblood.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["SyndicateAgent"]]

@@ -510,3 +510,14 @@
     tags:
     - PetWearable
     - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSodaJerkCap
+  name: soda jerk cap
+  description: I was a wimp before the soda jerk.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi

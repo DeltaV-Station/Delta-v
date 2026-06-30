@@ -122,6 +122,11 @@ public sealed class MindExamineSystem : EntitySystem
         else
             ent.Comp.State = MindState.None;
 
+        // DeltaV - SSD Recency START
+        var ev = new MindStateUpdatedEvent(ent.Comp.State);
+        RaiseLocalEvent(ent, ref ev);
+        // DeltaV END
+
         Dirty(ent);
     }
 }

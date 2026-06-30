@@ -1,0 +1,14 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client._DV.UserInterfaces"
+                xmlns:xe="clr-namespace:Content.Client.UserInterface.XamlExtensions"
+                StyleClasses="PanelLight"
+                HorizontalExpand="True">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="8">
+        <Label Name="PaperName" HorizontalExpand="True" />
+
+        <ui:IconButton Name="Shred" StyleClasses="OpenRight" Icon="{xe:Tex '/Textures/Interface/shredder.svg.192dpi.png'}" />
+        <ui:IconButton Name="Duplicate" StyleClasses="OpenBoth" Icon="{xe:Tex '/Textures/Interface/files.svg.192dpi.png'}" />
+        <ui:IconButton Name="Examine" StyleClasses="OpenBoth" Icon="{xe:Tex '/Textures/Interface/eye.svg.192dpi.png'}" />
+        <ui:IconButton Name="Send" StyleClasses="OpenLeft" Icon="{xe:Tex '/Textures/Interface/send.svg.192dpi.png'}" />
+    </BoxContainer>
+</PanelContainer>

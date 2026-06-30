@@ -1,6 +1,3 @@
-using Content.Server.Research.TechnologyDisk.Components;
-using Content.Server.UserInterface;
-using Content.Server.Power.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Research.Prototypes;
@@ -9,7 +6,7 @@ using Content.Shared.ReverseEngineering;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server.ReverseEngineering;
+namespace Content.Server.Nyanotrasen.ReverseEngineering;
 
 public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
 {
@@ -112,7 +109,8 @@ public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
             ReverseEngineeringTickResult.SuccessMinor => 10,
             ReverseEngineeringTickResult.SuccessAverage => 25,
             ReverseEngineeringTickResult.SuccessMajor => 40,
-            ReverseEngineeringTickResult.InstantSuccess => 100
+            ReverseEngineeringTickResult.InstantSuccess => 100,
+            _ => 0,
         };
 
         rev.Progress = Math.Clamp(rev.Progress + bonus, 0, 100);
