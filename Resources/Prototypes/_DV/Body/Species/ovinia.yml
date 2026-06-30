@@ -192,6 +192,19 @@
         Quantity: 5
       - ReagentId: Blood
         Quantity: 10
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    markingData:
+      layers:
+      - Head
+      - Hair
+      - FacialHair
+      - Snout
+      - SnoutCover
+      - HeadSide
+      - HeadTop
+      - NeckFluff # Delta V - Adds NeckFluff to Ovinia
   categories: [ HideSpawnMenu ]
 
 - type: entity
