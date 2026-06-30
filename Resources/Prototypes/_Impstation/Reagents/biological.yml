@@ -13,7 +13,7 @@
       - !type:SatiateThirst
         factor: 2
       metabolites: # Delta V - update for Nubody
-        Ethanol: 0.6
+        Ethanol: 0.06
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
