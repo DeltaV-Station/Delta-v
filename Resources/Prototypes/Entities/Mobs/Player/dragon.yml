@@ -10,7 +10,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
-        Quantity: 650
+        Quantity: 400 # DeltaV - reduced from 650 to 400 to prevent overflow
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

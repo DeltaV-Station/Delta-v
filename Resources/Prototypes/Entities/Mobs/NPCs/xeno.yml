@@ -70,7 +70,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Ammonia # DeltaV - was FluorosulfuricAcid
-        Quantity: 650
+        Quantity: 400 # DeltaV - reduced from 650 to 400 to prevent overflow
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
