@@ -587,6 +587,8 @@
     guides:
     - GasRecycling
   - type: TegCirculator
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: GasBinaryBase
