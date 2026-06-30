@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Velcrobot
-  changes:
-  - message: 'Division/Chibi/Shoukou/Edge: Adds the Yule Tide'
-    type: Add
-  id: 1978
-  time: '2025-12-24T04:00:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5021
-- author: eoineoineoin
-  changes:
-  - message: Fix bug where scrollbars were missing from player list
-    type: Fix
-  id: 1979
-  time: '2025-12-24T11:16:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5028
 - author: Coryler
   changes:
   - message: Crew Monitor cell size is now Medium
@@ -4434,4 +4420,86 @@
   id: 2478
   time: '2026-06-29T14:06:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6139
+- author: Coryler
+  changes:
+  - message: Ban Changes
+    type: Add
+  - message: Borgs can pry unpowered doors without a crowbar
+    type: Add
+  - message: Chaplain can have Custom Names
+    type: Add
+  - message: Crew Indicator for Borgs
+    type: Add
+  - message: Defib Cabinet Contructable
+    type: Add
+  - message: Differing Powerdraw for Idle and Active state
+    type: Add
+  - message: Diona, Vox, Vulp unique Sneezes
+    type: Add
+  - message: Heat Distortion Shader
+    type: Add
+  - message: Inflatable Walls into Emergency Lockers
+    type: Add
+  - message: Logistic New Purchase Window
+    type: Add
+  - message: Magic 8 Ball
+    type: Add
+  - message: Moth emote, flapping wings
+    type: Add
+  - message: New Reporter Cosmetics
+    type: Add
+  - message: New Tiles (for Mappers really)
+    type: Add
+  - message: Nubody
+    type: Add
+  - message: Optical Thermal Glasses in your nearest EngiVend
+    type: Add
+  - message: Sneezes
+    type: Add
+  - message: Switch Buttons on some Electrical Devices
+    type: Add
+  - message: Vox animated Tails
+    type: Add
+  - message: Vulpkanin Yawn
+    type: Add
+  - message: new Lizard Laugh!
+    type: Add
+  - message: Make Holo unable to be stunned
+    type: Fix
+  - message: MovementBodyPartComponent, which might affect some.
+    type: Remove
+  - message: old Lizard Laugh
+    type: Remove
+  - message: Clown and Skates Bounty have been removed.
+    type: Tweak
+  - message: How Borg Ion Storm Law is created
+    type: Tweak
+  - message: How Weather functions
+    type: Tweak
+  - message: Pancake Bounty requires less Pancakes
+    type: Tweak
+  - message: Reagent Grinder is predicted
+    type: Tweak
+  - message: Singular Purchases come in Parcels instead of Crates
+    type: Tweak
+  - message: Some things were rewritten into EntitiesTables
+    type: Tweak
+  - message: Tech Disks Spesos Value
+    type: Tweak
+  - message: Trit Fire Heat
+    type: Tweak
+  - message: Updating Voice Mask, updates Agent Id
+    type: Tweak
+  - message: More which do not fit.
+    type: Add
+  id: 2479
+  time: '2026-06-29T19:40:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5894
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed the client crashing at startup. DeltaV beach episode is go~
+    type: Fix
+  id: 2480
+  time: '2026-06-29T19:59:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6147
 Order: 1

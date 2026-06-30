@@ -49,7 +49,7 @@ public sealed class IonLawSystem : EntitySystem
     {
         var template = random.PickId(_proto.Index(IonLawTemplates));
         var players = _player.Sessions
-            .Where(x => HasComp<HumanoidAppearanceComponent>(x.AttachedEntity))
+            .Where(x => HasComp<HumanoidProfileComponent>(x.AttachedEntity))
             .Select(x => x.AttachedEntity!.Value)
             .ToList();
 

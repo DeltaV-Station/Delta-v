@@ -372,12 +372,13 @@
           Log:
             min: 2
             max: 8
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MobChristmasKobold:
-            min: 4
-            max: 8
-      # End Delta V - Spawn Christmas kobold.
+      # Delta V - Begin Comment out => Causes test fails since they spawn with weapons which upon removal count against the asserts.
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          MobChristmasKobold:
+#            min: 4
+#            max: 8
+      # End Delta V - End Comment
 
 - type: entity
   parent: FloraTreeChristmas02

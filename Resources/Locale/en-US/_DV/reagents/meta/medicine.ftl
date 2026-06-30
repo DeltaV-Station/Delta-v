@@ -25,6 +25,9 @@ reagent-desc-stabilizine = A potent chemical used to stabliize and regulate body
 
 reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam. A regenerative, miraculous chemical able to purge the body of most impurity. Overdose causes cancerous growth.
 
+reagent-name-necrosol = necrosol
+reagent-desc-necrosol = A quite necrotic wonder medicine capable of healing in the cold
+
 reagent-name-salbutamol-saline = Salbutamol & Saline
 
 reagent-name-pure-oil = pure oil
