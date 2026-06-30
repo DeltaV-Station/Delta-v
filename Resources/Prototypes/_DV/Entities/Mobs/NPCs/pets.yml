@@ -97,8 +97,9 @@
     job: RoleCarpy
   - type: GhostTakeoverAvailable
   - type: Hands
-  - type: InnateTool
-    tools:
+  - type: DVInnateTools
+    tools: !type:AllSelector
+      children:
       - id: LuxuryPenCarpy
       - id: RubberStampCarpy
   - type: UserInterface

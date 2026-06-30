@@ -1,53 +1,66 @@
 - type: markingsGroup
   parent: Undergarments
   id: Reptilian
-  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 0
+      limit: 1 # Delta V - Reptilians got hair
       required: false
     enum.HumanoidVisualLayers.FacialHair:
+      onlyGroupWhitelisted: true
       limit: 0
       required: false
     enum.HumanoidVisualLayers.Tail:
+      onlyGroupWhitelisted: true
       limit: 1
       required: true
       default: [ LizardTailSmooth ]
     enum.HumanoidVisualLayers.Chest:
+      onlyGroupWhitelisted: true
       limit: 3
       required: false
     enum.HumanoidVisualLayers.Snout:
+      onlyGroupWhitelisted: true
       limit: 1
       required: true
       default: [ LizardSnoutRound ]
     enum.HumanoidVisualLayers.HeadTop:
+      onlyGroupWhitelisted: true
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.LArm:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.RArm:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.LHand:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.RHand:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.LLeg:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.RLeg:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.LFoot:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
     enum.HumanoidVisualLayers.RFoot:
+      onlyGroupWhitelisted: true
       limit: 1
       required: false
 
