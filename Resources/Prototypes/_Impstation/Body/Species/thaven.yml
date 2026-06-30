@@ -195,10 +195,11 @@
 
 - type: entity
   abstract: true
-  parent: [ OrganThaven, OrganBaseOrganic ]
+  parent: OrganThaven
   id: OrganThavenInternal
   components:
   - type: Sprite
+    sprite: _MACRO/Mobs/Species/Thaven/organs.rsi
 
 - type: entity
   parent: OrganThaven
@@ -276,27 +277,27 @@
       state: eyes
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseLungs, OrganThavenInternal ]
   id: OrganThavenLungs
   description: "Technically not lungs since they don't draw chemicals from the air, these strange, durable organs use the motion of respiration to provide energy for cell maintenance."
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseHeart, OrganThavenInternal ]
   id: OrganThavenHeart
   description: "The toxic heart of a thaven. You're wearing gloves, right?"
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseStomach, OrganThavenInternal ]
   id: OrganThavenStomach
   description: "Surprisingly similar to the stomach of a sharkminnow."
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseLiver, OrganThavenInternal ]
   id: OrganThavenLiver
   description: "It loosely resembles a slab of dragon flesh."
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganThavenInternal, ]
   id: OrganThavenKidneys
   description: "Shiny, coppery veins make these the most ornate kidneys known to modern science."
 # End DeltaV Changes - This entire file was restructured for Nubody
