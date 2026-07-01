@@ -2,6 +2,7 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
+  speciesBlacklist: [Allulalo] # Delta V - Allulalos are very limiting and it can suck to be randomized into one
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -620,6 +621,7 @@
 
 - type: randomHumanoidSettings
   id: SyndicateAgent
+  speciesBlacklist: [Allulalo] # Delta V - Allulalos are very limiting and it can suck to be randomized into one
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -639,6 +641,7 @@
 
 - type: randomHumanoidSettings
   id: NukeOp
+  speciesBlacklist: [Allulalo] # Delta V - Allulalos are very limiting and it can suck to be randomized into one
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
