@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._Funkystation.CCVars;

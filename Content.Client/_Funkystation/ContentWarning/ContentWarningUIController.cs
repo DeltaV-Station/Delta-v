@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
 using Content.Shared._Funkystation.CCVars;
