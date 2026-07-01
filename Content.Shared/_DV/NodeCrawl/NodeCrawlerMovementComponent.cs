@@ -35,7 +35,7 @@ public sealed partial class NodeCrawlerMovementComponent : Component
     public double RequiredAngle = Math.PI / 4f;
 
     /// <summary>
-    /// The contained gas mixture to breathe from, if any.
+    /// The contained gas mixture to expose the contained entities' atmos to, if any.
     /// </summary>
     [DataField]
     [Access(typeof(SharedNodeCrawlSystem))]

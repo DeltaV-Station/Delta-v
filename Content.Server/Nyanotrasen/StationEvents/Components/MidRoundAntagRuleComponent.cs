@@ -11,5 +11,5 @@ public sealed partial class MidRoundAntagRuleComponent : Component
     /// When set to true, this spawner will prefer vent spawns over midround spawnpoints.
     /// </summary>
     [DataField]
-    public bool PreferVentSpawns = false;
+    public bool PreferVentSpawns;
 }

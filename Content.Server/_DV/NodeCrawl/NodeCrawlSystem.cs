@@ -15,7 +15,10 @@ namespace Content.Server._DV.NodeCrawl;
 
 public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 {
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly BarotraumaSystem _barotrauma = default!;
     [Dependency] private readonly IReflectionManager _reflection = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -76,6 +79,12 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 
         if (_atmosphere.GetTileMixture(xform.GridUid, xform.MapUid, indices, true) is { Temperature: > 0f } environment)
         {
+            // we want to get one atmosphere's worth of pressure in the air volume of the component
+            // we need to take an amount of moles from the gas, so
+            // PV = nRT
+            // (Atmospherics.OneAtmosphere) * (movement.Comp.AirVolume) = (amount of mols) * R * (environment.Temperature)
+            // solve for amount of mols
+            // amount of mols = (Atmospherics.OneAtmosphere) * (movement.Comp.AirVolume) / R * (environment.Temperature)
             var transferMoles = Atmospherics.OneAtmosphere * movement.Comp.AirVolume / (environment.Temperature * Atmospherics.R);
 
             movement.Comp.Air = new(movement.Comp.AirVolume);
