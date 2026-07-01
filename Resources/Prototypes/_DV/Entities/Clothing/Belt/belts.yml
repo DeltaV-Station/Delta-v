@@ -129,3 +129,62 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: HostageWardenBelt
+
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase ]
+  id: ClothingBeltToolboxHarness
+  name: toolbox harness
+  description: A harness with metal straps to hook onto a toolbox.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/toolbox_harness.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/toolbox_harness.rsi
+    slots:
+    - belt
+    - suitStorage
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      toolbox:
+        name: clothing-belt-toolbox
+        whitelist:
+          tags:
+          - Toolbox
+  - type: ItemMapper
+    mapLayers:
+      art:
+        whitelist:
+          tags:
+          - ArtToolbox
+      electrical:
+        whitelist:
+          tags:
+          - ElectricalToolbox
+      emergency:
+        whitelist:
+          tags:
+          - EmergencyToolbox
+      foolbox:
+        whitelist:
+          tags:
+          - FoolToolbox
+      golden:
+        whitelist:
+          tags:
+          - GoldenToolbox
+      mechanical:
+        whitelist:
+          tags:
+          - MechanicalToolbox
+      susbox:
+        whitelist:
+          tags:
+          - SusToolbox
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+      toolbox: !type:ContainerSlot { }
+  - type: Appearance

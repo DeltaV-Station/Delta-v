@@ -48,6 +48,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - EmergencyToolbox
 
 - type: entity
   name: mechanical toolbox
@@ -60,6 +64,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - MechanicalToolbox
 
 - type: entity
   name: electrical toolbox
@@ -72,6 +80,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - ElectricalToolbox
 
 - type: entity
   name: electrical toolbox
@@ -118,6 +130,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - ArtToolbox
 
 - type: entity
   name: suspicious toolbox
@@ -138,6 +154,10 @@
     damage:
       types:
         Blunt: 20
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - SusToolbox
 
 - type: entity
   name: golden toolbox
@@ -150,6 +170,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - GoldenToolbox
 
 - type: entity
   name: foolbox
@@ -184,3 +208,7 @@
       params:
         variation: 0.125
     storageRemoveSound: *SoundSqueak
+  - type: Tag # DeltaV - Toolbox Harness
+    tags:
+    - Toolbox
+    - FoolToolbox

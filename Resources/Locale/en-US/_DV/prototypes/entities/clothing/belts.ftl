@@ -7,3 +7,6 @@ clothing-belt-radio = Radio
 # Add slots to the daishou
 clothing-belt-katana = Katana
 clothing-belt-wakizashi = Wakizashi
+
+# Add toolbox harness
+clothing-belt-toolbox = Toolbox
