@@ -607,3 +607,47 @@
     backgroundModulate: "#ead9cc"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 32.0, 16.0, 32.0, 0.0
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+
+- type: entity
+  name: prescription folder
+  parent: BoxBase
+  id: PrescriptionFolder
+  description: 'A folder to hold your prescriptions.'
+  components:
+  - type: Item
+    size: Small
+    shape: null
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-white
+    - state: folder-base
+  - type: ItemMapper
+    mapLayers:
+      folder-overlay-paper:
+        whitelist:
+          tags:
+          - Document
+  - type: Storage
+    maxItemSize: Small 
+    grid:
+    - 0,0,1,2
+    whitelist:
+      tags:
+      - Document
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Folder
+  - type: StorageFill
+    contents:
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
