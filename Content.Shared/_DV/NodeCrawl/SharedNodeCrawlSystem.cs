@@ -73,7 +73,6 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
         var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.EnterDelay, new NodeCrawlEnterDoAfterEvent(), ent.Owner, target)
         {
             BreakOnMove = true,
-            BreakOnDamage = true,
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
