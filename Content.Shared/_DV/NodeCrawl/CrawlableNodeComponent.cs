@@ -12,7 +12,7 @@ public sealed partial class CrawlableNodeComponent : Component
     /// <summary>
     /// Node types that can be connected to by this node
     /// </summary>
-    [DataField(readOnly: true, required: true)]
+    [DataField(required: true)]
     public List<string> ReachableNodeTypes = new();
 
     /// <summary>
