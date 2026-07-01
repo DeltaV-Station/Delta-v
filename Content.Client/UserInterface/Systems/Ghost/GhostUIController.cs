@@ -7,7 +7,6 @@ using Robust.Shared.Console; // Frontier
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Content.Shared._Corvax.Respawn; // Frontier
-using Robust.Shared.Configuration; // Frontier
 
 namespace Content.Client.UserInterface.Systems.Ghost;
 
@@ -16,7 +15,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 {
     [Dependency] private readonly IEntityNetworkManager _net = default!;
     [Dependency] private readonly IConsoleHost _consoleHost = default!; // Frontier
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier
 
     [UISystemDependency] private readonly GhostSystem? _system = default;
 

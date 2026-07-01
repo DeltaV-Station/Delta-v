@@ -46,6 +46,9 @@
       Steel: 185
   - type: StaticPrice
     price: 30
+  - type: Tag # DeltaV - Rebalance of tide crafting
+    tags:
+    - GasTank
 
 - type: entity
   abstract: true
@@ -72,6 +75,7 @@
   - type: Tag # Funkystation - Crash Carts
     tags:
     - OxygenTank
+    - GasTank # DeltaV - Added for the Anvil
 
 - type: entity
   parent: GasTankRoundBase
