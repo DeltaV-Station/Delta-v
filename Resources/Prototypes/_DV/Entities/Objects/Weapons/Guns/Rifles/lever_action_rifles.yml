@@ -60,7 +60,7 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 3
+    fireRate: 2.5
   - type: GunSpreadModifier
     spread: 0.4
 - type: entity
@@ -94,3 +94,10 @@
     pvsIncrease: 0.3
   - type: StaticPrice
     price: 670
+- type: entity
+  parent: WeaponLeverActionSKL93
+  id: WeaponLeverActionSKL93AP # For the uplink.
+  suffix: armor-piercing
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumAP
