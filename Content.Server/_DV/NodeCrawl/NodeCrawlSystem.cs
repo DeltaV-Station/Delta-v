@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
@@ -26,9 +28,89 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
     }
 
+    private GasMixture? GetExistingAir(Entity<NodeCrawlerMovementComponent> movement)
+    {
+        if (movement.Comp.Node is not { } node)
+            return null;
+
+        if (!TryComp<NodeContainerComponent>(node, out var nodeContainer))
+            return null;
+
+        foreach (var containedNode in nodeContainer.Nodes.Values)
+        {
+            if (containedNode is not PipeNode pipe)
+                continue;
+
+            return pipe.Air;
+        }
+
+        return null;
+    }
+
+    protected override void SetupAir(Entity<NodeCrawlerMovementComponent> movement)
+    {
+        base.SetupAir(movement);
+
+        if (movement.Comp.HeldCrawler is not { } heldCrawler ||
+            !TryComp<BarotraumaComponent>(heldCrawler, out var barotrauma))
+        {
+            return;
+        }
+
+        if (GetExistingAir(movement) is { } existingAir)
+        {
+            var pressure = existingAir.Pressure switch
+            {
+                // Adjust pressure based on equipment. Works differently depending on if it's "high" or "low".
+                <= Atmospherics.WarningLowPressure => _barotrauma.GetFeltLowPressure(heldCrawler, barotrauma, existingAir.Pressure),
+                >= Atmospherics.WarningHighPressure => _barotrauma.GetFeltHighPressure(heldCrawler, barotrauma, existingAir.Pressure),
+                _ => existingAir.Pressure,
+            };
+
+            if (pressure is >= Atmospherics.HazardLowPressure and <= Atmospherics.HazardHighPressure)
+                return;
+        }
+
+        var xform = Transform(movement);
+        var indices = _transform.GetGridTilePositionOrDefault((movement, xform));
+
+        if (_atmosphere.GetTileMixture(xform.GridUid, xform.MapUid, indices, true) is { Temperature: > 0f } environment)
+        {
+            var transferMoles = Atmospherics.OneAtmosphere * movement.Comp.AirVolume / (environment.Temperature * Atmospherics.R);
+
+            movement.Comp.Air = new(movement.Comp.AirVolume);
+            _atmosphere.Merge(movement.Comp.Air, environment.Remove(transferMoles));
+        }
+    }
+
+    protected override void EjectAir(Entity<NodeCrawlerMovementComponent> movement)
+    {
+        base.EjectAir(movement);
+
+        if (movement.Comp.Air is not { } air)
+            return;
+
+        var xform = Transform(movement);
+        var indices = _transform.GetGridTilePositionOrDefault((movement, xform));
+
+        if (_atmosphere.GetTileMixture(xform.GridUid, xform.MapUid, indices, true) is not { } environment)
+            return;
+
+        _atmosphere.Merge(environment, air);
+        air.Clear();
+    }
+
+    private Entity<NodeCrawlerMovementComponent>? GetMovement(Entity<NodeCrawlerComponent> crawler)
+    {
+        if (!TryComp<NodeCrawlerMovementComponent>(crawler.Comp.Mover, out var mover))
+            return null;
+
+        return new(crawler.Comp.Mover.Value, mover);
+    }
+
     private Entity<NodeContainerComponent>? GetNodeContainer(Entity<NodeCrawlerComponent> crawler)
     {
-        if (!TryComp<NodeCrawlerMovementComponent>(crawler.Comp.Mover, out var mover) || mover.Node is not { } node)
+        if (GetMovement(crawler) is not { } mover || mover.Comp.Node is not { } node)
             return null;
 
         if (!TryComp<NodeContainerComponent>(node, out var nodeContainer))
@@ -39,6 +121,9 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 
     private GasMixture? GetAir(Entity<NodeCrawlerComponent> crawler)
     {
+        if (GetMovement(crawler)?.Comp.Air is { } air)
+            return air;
+
         if (GetNodeContainer(crawler) is not { } nodeContainer)
             return null;
 
