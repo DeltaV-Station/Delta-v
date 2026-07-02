@@ -70,7 +70,7 @@ namespace Content.Server._DV.CosmicCult;
 
 /// <summary>
 /// Where all the main stuff for Cosmic Cultists happens.
-/// 
+///
 /// This should probably be broken up into a partial class.
 /// </summary>
 public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
