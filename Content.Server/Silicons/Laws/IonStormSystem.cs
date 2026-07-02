@@ -18,7 +18,7 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly IonLawSystem _ionLaw = default!;
+    // [Dependency] private readonly IonLawSystem _ionLaw = default!; // DeltaV - ion laws
     [Dependency] private readonly DVIonLawSystem _dvIonLaw = default!; // DeltaV - ion laws
 
     /// <summary>
