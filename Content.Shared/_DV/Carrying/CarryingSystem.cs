@@ -297,8 +297,12 @@ public sealed class CarryingSystem : EntitySystem
         if (_net.IsClient) // no spawning prediction
             return;
 
-        _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
-        _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
+        // Begin Delta V Change - Block hands equal to required hands instead of always 2
+        for (var x = 0; x < Comp<CarriableComponent>(carried).FreeHandsRequired; x++)
+        {
+            _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
+        }
+        // End Delta V Change
     }
 
     public bool TryCarry(EntityUid carrier, Entity<CarriableComponent?> toCarry)

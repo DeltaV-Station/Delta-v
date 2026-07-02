@@ -112,6 +112,8 @@
   - type: MovementSpeedModifier # DeltaV - Moved here from legs body part due to Nubody.
     baseWalkSpeed: 3
     baseSprintSpeed: 5
+  - type: Carriable # Delta V - grips the bird
+    freeHandsRequired: 1
 
 # Begin Delta V Removals - Nubody
 #  - type: HumanoidAppearance
