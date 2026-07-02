@@ -1,9 +1,8 @@
 - type: entity
-  name: BaseWeaponLeverAction
+  abstract: true
   parent: BaseItem
   id: BaseWeaponLeverAction
   description: A click clack shooty.
-  abstract: true
   components:
   - type: Sprite
     layers:
@@ -45,9 +44,9 @@
     price: 480
 
 - type: entity
-  name: L93
   parent: [BaseWeaponLeverAction, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLeverActionL93
+  name: L93
   description: An ancient and almost forgotten design, but a reliable, powerful and accurate design is not so easily lost to time, no matter how simple. Uses .45 Magnum rounds.
   components:
   - type: Item
@@ -63,10 +62,11 @@
     fireRate: 2.5
   - type: GunSpreadModifier
     spread: 0.4
+
 - type: entity
-  name: SKL93
   parent: [BaseWeaponLeverAction, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponLeverActionSKL93
+  name: SKL93
   description: A modernized variant of the L93, manufactured in limited amounts by Waffle Corp, lightweight materials are used for the furniture. It has an extended barrel and magazine, along side a WZR-4X Scope. Uses .45 Magnum rounds.
   components:
   - type: Item
@@ -94,6 +94,7 @@
     pvsIncrease: 0.3
   - type: StaticPrice
     price: 670
+
 - type: entity
   parent: WeaponLeverActionSKL93
   id: WeaponLeverActionSKL93AP # For the uplink.

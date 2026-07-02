@@ -51,9 +51,10 @@
         - id: Paper
           amount: !type:RangeNumberSelector
             range: 1, 3
+
 - type: entity
-  id: BriefcaseSyndieSKL93BundleFilled
   parent: BriefcaseSyndie
+  id: BriefcaseSyndieSKL93BundleFilled
   suffix: Syndicate, Lever Action Bundle
   components:
   - type: Item
