@@ -99,7 +99,7 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
-  - type: ShowCrewIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: DamagedSiliconAccent
     startPowerCorruptionAtCharIdx: 4
     maxPowerCorruptionAtCharIdx: 20
@@ -147,7 +147,7 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
   - type: ShowJobIcons
-  - type: ShowCrewIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
 
 # Ai
 - type: entity

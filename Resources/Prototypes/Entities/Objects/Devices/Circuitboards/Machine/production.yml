@@ -833,6 +833,11 @@
           amount: 1
           defaultPrototype: SaxophoneInstrument
           examineName: construction-insert-info-examine-name-instrument-woodwind
+  # Begin DeltaV additions
+  - type: Tag
+    tags:
+    - DawInstrumentMachineCircuitboard
+  # End DeltaV additions
 
 - type: entity
   id: PortableGeneratorPacmanMachineCircuitboard
