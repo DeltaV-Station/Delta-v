@@ -3802,11 +3802,13 @@
     spawned:
     - id: FoodMeat
       amount: 6
-    - id: FoodMeatBacon # DeltaV #Make Pigs drop bacon as well as meat
+      # Begin DeltaV Additions
+    - id: FoodMeatBacon
       amount: 6
     - id: TreasureCoinIron
       amount: !type:RangeNumberSelector
         range: 0, 3
+      # End DeltaV Additions
   - type: Grammar
     attributes:
       gender: epicene
