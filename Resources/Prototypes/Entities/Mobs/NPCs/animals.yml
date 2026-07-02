@@ -3804,8 +3804,9 @@
       amount: 6
     - id: FoodMeatBacon # DeltaV #Make Pigs drop bacon as well as meat
       amount: 6
-    - id: SpaceCash
-      amount: 50
+    - id: TreasureCoinIron
+      amount: !type:RangeNumberSelector
+        range: 0, 3
   - type: Grammar
     attributes:
       gender: epicene
