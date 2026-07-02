@@ -1,1 +1,1 @@
-stamp-component-stamped-name-doctor = Doctor
+stamp-component-stamped-name-doctor = Medical Doctor

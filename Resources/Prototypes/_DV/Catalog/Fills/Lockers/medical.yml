@@ -97,6 +97,7 @@
       tableId: SurgeonSanitzation
     - !type:NestedSelector
       tableId: SurgeonGloves
+    - id: RubberStampDoctor
     - id: ClothingHeadsetMedical
     - id: ClothingEyesHudMedical
     - id: ClothingBackpackDuffelSurgeryFilled
@@ -171,6 +172,7 @@
   id: LockerFillParamedicDeltaV
   table: !type:AllSelector
     children:
+    - id: RubberStampDoctor
     - id: ClothingShoesBootsWinterParamedic
     - id: BoxBodyBag
     - id: EmergencyRollerBedSpawnFolded
