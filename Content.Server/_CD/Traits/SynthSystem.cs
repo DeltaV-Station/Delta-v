@@ -18,13 +18,11 @@ public sealed class SynthSystem : EntitySystem
     // Begin DeltaV - make strings static readonly
     private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
     private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
-    private static readonly ProtoId<TagPrototype> SyntheticEmotesTag = "SiliconEmotes";
     private static readonly ProtoId<EmoteSoundsPrototype> SyntheticEmoteSounds = "SyntheticEmoteSounds";
     private static readonly ProtoId<EmotePrototype>[] SiliconEmotes = ["Beep", "Chime", "Buzz", "Buzz-Two", "Ping"];
     // End DeltaV
 
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
