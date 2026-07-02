@@ -15,7 +15,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Widgets;
 public sealed partial class GhostGui : UIWidget
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!; // Frontier
-    [Dependency] private readonly IPrototypeManager _prototype = default!; // DeltaV - freeform ghosties
 
     private TimeSpan? _respawnTime; // Frontier
 
@@ -26,6 +25,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
+    public event Action? VentCritterPressed; // DeltaV - freeform ghosties
     public event Action<ProtoId<DVSpawnableGhostRolePrototype>>? VentCritterSelected; // DeltaV - freeform ghosties
     public event Action? GhostRespawnPressed; // Frontier
     private int _prevNumberRoles;
@@ -37,7 +37,7 @@ public sealed partial class GhostGui : UIWidget
         TargetWindow = new GhostTargetWindow();
         RulesWindow = new GhostRespawnRulesWindow(); // Frontier
         RulesWindow.RespawnButton.OnPressed += _ => GhostRespawnPressed?.Invoke(); // Frontier
-        VentCritterWindow = new DVSpawnableGhostRoleWindow(_prototype); // DeltaV - freeform ghosties
+        VentCritterWindow = new DVSpawnableGhostRoleWindow(); // DeltaV - freeform ghosties
         VentCritterWindow.RoleSelected += role => VentCritterSelected?.Invoke(role); // DeltaV - freeform ghosties
 
         MouseFilter = MouseFilterMode.Ignore;
@@ -46,7 +46,11 @@ public sealed partial class GhostGui : UIWidget
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleClass.Negative);
-        VentCritterButton.OnPressed += _ => VentCritterWindow.OpenCentered(); // DeltaV - freeform ghosties
+        VentCritterButton.OnPressed += _ =>
+        {
+            VentCritterPressed?.Invoke();
+            VentCritterWindow.OpenCentered();
+        }; // DeltaV - freeform ghosties
         GhostRespawnButton.OnPressed += _ => RulesWindow.OpenCentered(); // Frontier
     }
 
@@ -107,6 +111,7 @@ public sealed partial class GhostGui : UIWidget
         if (disposing)
         {
             TargetWindow.Dispose();
+            VentCritterWindow.Dispose(); // DeltaV - freeform ghosties
         }
     }
 }

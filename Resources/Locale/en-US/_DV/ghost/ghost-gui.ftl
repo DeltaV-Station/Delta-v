@@ -1,7 +1,9 @@
 ghost-gui-spawn-vent-critter-window-title = Spawn as Vent Critter
 ghost-gui-spawn-vent-critter-spawn-button = Spawn
+ghost-gui-spawn-vent-critter-spawn-cooldown = Spawn ({$time}s)
 ghost-gui-spawn-vent-critter-none = There are no vent critters available.
 ghost-gui-spawn-vent-critter-no-vents = No suitable vents were found.
+ghost-gui-spawn-vent-critter-cooldown-popup = You can spawn as a vent critter again in {$time}s.
 
 ghost-gui-spawn-vent-critter-button = Vent Critter
 

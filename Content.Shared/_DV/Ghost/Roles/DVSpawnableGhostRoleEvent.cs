@@ -8,3 +8,12 @@ public sealed class DVSpawnableGhostRoleRequestEvent(ProtoId<DVSpawnableGhostRol
 {
     public ProtoId<DVSpawnableGhostRolePrototype> Prototype = prototype;
 }
+
+[Serializable, NetSerializable]
+public sealed class DVSpawnableGhostRoleCooldownRequestEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed class DVSpawnableGhostRoleCooldownUpdateEvent(TimeSpan? cooldownEnd) : EntityEventArgs
+{
+    public TimeSpan? CooldownEnd = cooldownEnd;
+}

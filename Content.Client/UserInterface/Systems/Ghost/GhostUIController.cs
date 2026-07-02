@@ -35,6 +35,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
         // DeltaV
         SubscribeNetworkEvent<RespawnResetEvent>(OnRespawnReseted);
+        SubscribeNetworkEvent<DVSpawnableGhostRoleCooldownUpdateEvent>(OnVentCritterCooldownUpdate); // DeltaV - freeform ghosties
     }
 
     private void OnScreenLoad()
@@ -153,6 +154,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
+        Gui.VentCritterPressed += OnVentCritterPressed; // DeltaV - freeform ghosties
         Gui.VentCritterSelected += OnVentCritterSelected; // DeltaV - freeform ghosties
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
@@ -176,6 +178,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
+        Gui.VentCritterPressed -= OnVentCritterPressed; // DeltaV - freeform ghosties
         Gui.VentCritterSelected -= OnVentCritterSelected; // DeltaV - freeform ghosties
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
         Gui.GhostRespawnPressed -= GuiOnGhostRespawnPressed; // Frontier
@@ -201,9 +204,19 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     }
 
     // Begin DeltaV - freeform ghosties
+    private void OnVentCritterPressed()
+    {
+        _net.SendSystemNetworkMessage(new DVSpawnableGhostRoleCooldownRequestEvent());
+    }
+
     private void OnVentCritterSelected(ProtoId<DVSpawnableGhostRolePrototype> role)
     {
         _net.SendSystemNetworkMessage(new DVSpawnableGhostRoleRequestEvent(role));
+    }
+
+    private void OnVentCritterCooldownUpdate(DVSpawnableGhostRoleCooldownUpdateEvent msg, EntitySessionEventArgs args)
+    {
+        Gui?.VentCritterWindow.SetCooldownEnd(msg.CooldownEnd);
     }
     // End DeltaV - freeform ghosties
 }
