@@ -81,6 +81,7 @@
         Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
         Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
   - type: CrawlableNode # DeltaV
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
@@ -415,3 +416,4 @@
     tags:
     - Unstackable
   - type: CrawlableNode # DeltaV
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]

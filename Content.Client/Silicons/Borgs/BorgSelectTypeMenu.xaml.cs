@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared._CD.Silicons; // CosmicDrift
 using Content.Shared.Guidebook;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
@@ -29,6 +30,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     private BorgTypePrototype? _selectedBorgType;
 
     public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
+    public event Action<EntityPrototype?>? ConfirmedBorgSubtype; // CosmicDrift event - borg subtypes
 
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
 
@@ -56,6 +58,13 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
         HelpGuidebookIds = GuidebookEntries;
+
+        // Start CosmicDrift Changes - borg subtypes
+        ChassisSpriteSelection.SubtypeSelected += () =>
+        {
+            ConfirmTypeButton.Disabled = false;
+        };
+        // End CosmicDrift Changes - borg subtypes
     }
 
     private void UpdateInformation(BorgTypePrototype prototype)
@@ -87,6 +96,14 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         NameLabel.Text = PrototypeName(prototype);
         DescriptionLabel.Text = Loc.GetString($"borg-type-{prototype.ID}-desc");
         ChassisView.SetPrototype(prototype.DummyPrototype);
+
+        // Start CosmicDrift Changes - borg subtypes
+        if (_selectedBorgType != null)
+        {
+            ConfirmTypeButton.Disabled = true;
+            ChassisSpriteSelection.Update(_selectedBorgType);
+        }
+        // End CosmicDrift Changes - borg subtypes
     }
 
     private void ConfirmButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -94,6 +111,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         if (_selectedBorgType == null)
             return;
 
+        ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SubtypePrototype); // CosmicDrift
         ConfirmedBorgType?.Invoke(_selectedBorgType);
     }
 

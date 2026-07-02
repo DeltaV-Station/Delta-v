@@ -1385,6 +1385,10 @@
       visible: false
   - type: Carriable # DeltaV
   - type: Hands
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
   - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
