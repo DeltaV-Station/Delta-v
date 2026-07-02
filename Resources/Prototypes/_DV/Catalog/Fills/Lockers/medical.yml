@@ -161,6 +161,7 @@
   id: LockerFillMedicalDoctorDeltaV
   table: !type:AllSelector
     children:
+    - id: RubberStampDoctor
     - id: NitrousOxideTankFilled
       prob: 0.3
     - id: LunchboxMedicalFilledRandom
