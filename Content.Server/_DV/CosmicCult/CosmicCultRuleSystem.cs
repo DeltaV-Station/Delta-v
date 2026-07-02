@@ -188,7 +188,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 component.ConsecutiveProgressFails = 0;
 
             // They haven't progressed enough in X checks, convert to survival. They can still progress BUT
-            // if they haven't done ANYTHING in a long time, I doubt they will be a thread suddenly.
+            // if they haven't done ANYTHING in a long time, I doubt they will be a threat all of a sudden.
             if (component.ConsecutiveProgressFails >= component.ProgressFailureTolerance)
             {
                 SetWinType((uid, component), WinType.CrewMinor);
