@@ -85,7 +85,7 @@ phrase-single = Single
 phrase-some = Some
 phrase-too-much = Too much
 
-#numbers and units
+# numbers and units
 phrase-number0 = 0
 phrase-number1 = 1
 phrase-number2 = 2
