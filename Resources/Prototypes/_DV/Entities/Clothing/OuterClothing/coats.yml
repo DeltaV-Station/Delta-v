@@ -375,7 +375,7 @@
 ## Chemist
 
 - type: entity
-  parent: ClothingOuterStorageFoldableBase
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterCoatLabMedical ]
   id: ClothingOuterCoatLabPharma
   name: pharmacist lab coat
   description: A suit that protects against minor chemical spills. Has an orange and blue stripe on the shoulder and arm.
