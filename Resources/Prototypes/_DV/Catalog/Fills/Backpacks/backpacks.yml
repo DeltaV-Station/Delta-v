@@ -1,6 +1,8 @@
 - type: entity
   id: ClothingBackpackDeathSquadFilledBase
   parent: ClothingBackpackDeathSquad
+  name: SRT backpack
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team.
   suffix: Base
   components:
   - type: EntityTableContainerFill
@@ -22,6 +24,8 @@
 - type: entity
   id: ClothingBackpackDeathSquadFilledBlack
   parent: ClothingBackpackDeathSquad
+  name: SRT backpack
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team.
   suffix: Black
   components:
   - type: EntityTableContainerFill
@@ -56,6 +60,8 @@
 - type: entity
   id: ClothingBackpackDeathSquadFilledEpsilon
   parent: ClothingBackpackDeathSquad
+  name: SRT backpack
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team.
   suffix: Epsilon
   components:
   - type: EntityTableContainerFill
@@ -65,7 +71,7 @@
         - id: WelderExperimental
         - id: ToolDebug
         - id: Multitool
-        - id: SRTEpsiloninjector
+        - id: SRTEpsilonInjector
         - id: BluespaceLifelineImplanter
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
