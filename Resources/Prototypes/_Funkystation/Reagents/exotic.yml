@@ -29,10 +29,17 @@
           min: 11
         damage:
           types:
-            Asphyxiation: -6
-            Poison: -4
-            Blunt: -4.5
-            Heat: -6
+            Asphyxiation: -3
+            Bloodloss: -3
+            Poison: -2
+            Radiation: -2
+            Blunt: -1.5
+            Slash: -1.5
+            Piercing: -1.5
+            Heat: -1.5
+            Shock: -1.5
+            Cold: -1.5
+            Caustic: -1.5
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -60,10 +67,17 @@
           min: 30
         damage:
           types:
-            Asphyxiation: -2
-            Blunt: -1.2
-            Heat: -1.6
-            Poison: -2
+            Asphyxiation: -1
+            Bloodloss: -1
+            Blunt: -0.4
+            Slash: -0.4
+            Piercing: -0.4
+            Heat: -0.4
+            Shock: -0.4
+            Cold: -0.4
+            Caustic: -0.4
+            Poison: -1
+            Radiation: -1
 
 - type: reagent
   id: StabilisedStimulants
@@ -115,9 +129,15 @@
           min: 90 # Heals a bit above crit # DeltaV - this brings people to a bit more stable condition
         damage:
           types: # 5 Damage every type except rad/pois
-            Asphyxiation: -10
-            Blunt: -15
-            Heat: -20
+            Asphyxiation: -5
+            Bloodloss: -5
+            Blunt: -5
+            Slash: -5
+            Piercing: -5
+            Heat: -5
+            Shock: -5
+            Cold: -5
+            Caustic: -5
 
 - type: reagent
   id: Corgium
