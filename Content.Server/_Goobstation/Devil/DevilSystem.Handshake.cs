@@ -8,9 +8,7 @@
 using Content.Shared._Goobstation.CheatDeath;
 using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Devil.Condemned;
-using Content.Shared.Body.Part;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -23,6 +21,7 @@ public sealed partial class DevilSystem
         SubscribeLocalEvent<DevilComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
         SubscribeLocalEvent<PendingHandshakeComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbsPending);
     }
+
     private void OnGetVerbs(EntityUid uid, DevilComponent comp, GetVerbsEvent<InnateVerb> args)
     {
         // Can't shake your own hand, and you can't shake from a distance
@@ -32,8 +31,8 @@ public sealed partial class DevilSystem
         || !HasComp<MobStateComponent>(args.Target)
         || HasComp<CondemnedComponent>(args.Target)
         || args.Target == args.User
-        || !_body.BodyHasPartType(uid, BodyPartType.Hand) // cant shake if you have no hands
-        || !_body.BodyHasPartType(args.Target, BodyPartType.Hand) // or if they have none
+        || _hands.GetHandCount(uid) == 0 // Delta V - Nubody Replacement, just count hands
+        || _hands.GetHandCount(args.Target) == 0 // Delta V - Nubody Replacement, just count hands
         || !_contract.IsUserValid(args.Target, out _))
             return;
 

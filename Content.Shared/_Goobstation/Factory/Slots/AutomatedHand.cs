@@ -21,7 +21,7 @@ public sealed partial class AutomatedHand : AutomationSlot
     [DataField(required: true)]
     public string HandName = string.Empty;
 
-    protected SharedHandsSystem _hands;
+    private SharedHandsSystem _hands;
 
     private Hand? _hand;
 

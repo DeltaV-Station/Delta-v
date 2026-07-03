@@ -7,7 +7,7 @@
   color: "#fffefb"
   physicalDesc: reagent-physical-desc-pure
   metabolisms:
-    Narcotic:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:RollPsionicAbility
@@ -26,7 +26,7 @@
   color: "#ae7ccf"
   physicalDesc: reagent-physical-desc-clarifying
   metabolisms:
-    Narcotic:
+    Bloodstream:
       metabolismRate: 0.5
       effects:
       - !type:RollPsionicAbility

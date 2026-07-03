@@ -83,6 +83,7 @@
         Primary: GasVentPump
         Secondary: GasVentPumpAlt1
         Tertiary: GasVentPumpAlt2
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: GasUnaryBase
@@ -120,6 +121,7 @@
         Primary: GasPassiveVent
         Secondary: GasPassiveVentAlt1
         Tertiary: GasPassiveVentAlt2
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -184,6 +186,7 @@
         Primary: GasVentScrubber
         Secondary: GasVentScrubberAlt1
         Tertiary: GasVentScrubberAlt2
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: GasUnaryBase
@@ -233,6 +236,7 @@
         Primary: GasOutletInjector
         Secondary: GasOutletInjectorAlt1
         Tertiary: GasOutletInjectorAlt2
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -288,6 +292,8 @@
     - type: GuideHelp
       guides:
       - Thermomachines
+    - type: CrawlableNode # DeltaV - node crawling
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: BaseGasThermoMachine
@@ -504,4 +510,6 @@
   - type: GuideHelp
     guides:
     - GasCondensing
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 

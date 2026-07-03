@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseHypospray
-  id: SRTEpsiloninjector
-  name: SRT pacifying agent Injector
+  id: SRTEpsilonInjector
+  name: SRT pacifying agent injector
   description: A self-refilling injector for rapid administration of riot control agents.
   components:
   - type: SolutionContainerManager
@@ -35,7 +35,7 @@
 
 - type: entity
   parent: BaseHypospray
-  id: SRTBlackinjector #if you give this to the crew i WILL find you
+  id: SRTBlackInjector #if you give this to the crew i WILL find you
   name: SRT Nanite Injector
   description: A extremely expensive self-refilling injector for combat related trauma treatment.
   components:

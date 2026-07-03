@@ -412,7 +412,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineResearchDirector
-  suffix: Research Director
+  suffix: Mystagogue
   components:
   - type: PageSender
     autoLinkJobs: [ResearchDirector]
@@ -503,6 +503,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineHitman
+  suffix: Hitman
   components:
   - type: FaxMachine
     name: "Unknown?"

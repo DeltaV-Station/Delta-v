@@ -837,7 +837,8 @@
   group: Savory
   solids:
     FoodRiceBoiled: 1
-    FoodMeatCutlet: 3
+    # FoodMeatCutlet: 3 # DeltaV - use bacon since it's the obtainable pork product
+    FoodMeatBacon: 1 # DeltaV
 
 - type: microwaveMealRecipe
   id: RecipeRiceGumbo
