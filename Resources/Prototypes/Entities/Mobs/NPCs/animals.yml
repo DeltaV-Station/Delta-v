@@ -3848,6 +3848,20 @@
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
+  # Begin DeltaV - expanded diona mechanics
+  - type: DVNymphLead
+  - type: DVNymphFollower
+  - type: HTN
+    rootTask:
+      task: DVNymphCompound
+    blackboard:
+      IdleRange: !type:Single
+        2.5
+      FollowCloseRange: !type:Single
+        1.0
+      FollowRange: !type:Single
+        2.0
+  # End DeltaV - expanded diona mechanics
   - type: Sprite
     drawdepth: Mobs
     layers:
