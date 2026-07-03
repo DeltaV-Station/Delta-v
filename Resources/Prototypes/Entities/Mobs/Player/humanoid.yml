@@ -24,14 +24,14 @@
   components:
   - type: AutoImplant
     implants:
-    - CentCommImplant # Delta-v - Change mindshield implant to centcomm implant
+    - CentCommImplant # DeltaV - Change mindshield implant to centcomm implant
     - DeathRattleImplantCentcomm
 
 ## Death Squad
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
-  categories: [ HideSpawnMenu ] # Delta V - Deathsquad is not real
+  categories: [ HideSpawnMenu ] # DeltaV - Deathsquad is not real
   name: Death Squad Agent
   suffix: ERTRole, Death Squad
   components:
@@ -73,7 +73,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeader
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   name: ERT leader
   suffix: ERTRole, Basic
   components:
@@ -104,7 +104,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT leader
   suffix: ERTRole, EVA
@@ -125,7 +125,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderArmed
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeaderEVA
   suffix: ERTRole, Armed, EVA
   components:
@@ -144,7 +144,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplain
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT chaplain
   suffix: ERTRole, Basic
@@ -177,7 +177,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTChaplain
   name: ERT chaplain
   suffix: ERTRole, EVA
@@ -200,7 +200,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitor
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT janitor
   suffix: ERTRole, Basic
@@ -232,7 +232,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTJanitor
   suffix: ERTRole, EVA
   components:
@@ -254,7 +254,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineer
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT engineer
   suffix: ERTRole, Basic
@@ -286,7 +286,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTEngineer
   suffix: ERTRole, EVA
   components:
@@ -307,7 +307,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTEngineerEVA
   id: RandomHumanoidSpawnerERTEngineerArmed
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
@@ -329,7 +329,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurity
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT security
   suffix: ERTRole, Basic
@@ -361,7 +361,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTSecurity
   name: ERT security
   suffix: ERTRole, EVA
@@ -390,7 +390,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityArmedRifle
   parent: RandomHumanoidSpawnerERTSecurityEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   name: ERT security rifleman
   suffix: ERTRole, Armed, EVA
   components:
@@ -412,7 +412,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedGrenade
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   name: ERT security grenadier
   suffix: ERTRole, Armed, EVA
   components:
@@ -434,7 +434,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedVanguard
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   name: ERT security vanguard
   suffix: ERTRole, Armed, EVA
   components:
@@ -456,7 +456,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedShotgun
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   name: ERT security breacher
   suffix: ERTRole, Armed, EVA
   components:
@@ -479,7 +479,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedical
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT medic
   suffix: ERTRole, Basic
@@ -511,7 +511,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   parent: RandomHumanoidSpawnerERTMedical
   suffix: ERTRole, EVA
   components:
@@ -532,7 +532,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTMedicalEVA
   id: RandomHumanoidSpawnerERTMedicalArmed
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
+  categories: [ HideSpawnMenu ] # DeltaV - We have our own spawners
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
