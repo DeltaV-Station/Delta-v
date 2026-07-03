@@ -38,6 +38,7 @@ public sealed class DVGestaltSystem : EntitySystem
 
         SubscribeLocalEvent<DVGestaltComponent, MapInitEvent>(OnGestaltInit);
         SubscribeLocalEvent<DVGestaltComponent, ComponentShutdown>(OnGestaltShutdown);
+        SubscribeLocalEvent<DVGestaltMemberComponent, ComponentShutdown>(OnGestaltMemberShutdown);
         SubscribeLocalEvent<DVGestaltComponent, DVAssimilateNymphActionEvent>(OnGestaltAssimilate);
         SubscribeLocalEvent<DVGestaltComponent, GibActionSystem.GibActionEvent>(OnGestaltGib);
         SubscribeLocalEvent<DVGestaltComponent, BeingGibbedEvent>(OnGestaltBeingGibbed);
@@ -51,6 +52,16 @@ public sealed class DVGestaltSystem : EntitySystem
         ent.Comp.NymphStorageMap = map;
         _metadata.SetEntityName(map, $"Diona Gestalt Storage {ToPrettyString(ent)}");
         Dirty(ent);
+    }
+
+    private void OnGestaltMemberShutdown(Entity<DVGestaltMemberComponent> ent, ref ComponentShutdown args)
+    {
+        if (!TryComp<DVGestaltComponent>(ent.Comp.StoredInGestalt, out var gestalt))
+            return;
+
+        gestalt.StoredNymphs.Remove(ent);
+        gestalt.NymphCount--;
+        Dirty(ent.Comp.StoredInGestalt.Value, gestalt);
     }
 
     private void OnGestaltShutdown(Entity<DVGestaltComponent> ent, ref ComponentShutdown args)
