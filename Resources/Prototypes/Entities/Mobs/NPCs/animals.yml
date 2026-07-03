@@ -3848,7 +3848,15 @@
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
-  # Begin DeltaV - expanded diona mechanics
+  # DeltaV changes begin
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: nymph
+    - state: eyes_nymph
+      shader: unshaded
   - type: DVNymphLead
   - type: DVNymphFollower
   - type: HTN
@@ -3861,15 +3869,20 @@
         1.0
       FollowRange: !type:Single
         2.0
-  # End DeltaV - expanded diona mechanics
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: nymph
-      sprite: Mobs/Animals/nymph.rsi
-  # DeltaV changes begin
-  - type: Carriable
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    slots:
+    - HEAD
+    - OUTERCLOTHING
+  - type: Item
+    size: Normal
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

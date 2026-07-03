@@ -1,0 +1,304 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/Baystation12/Baystation12/blob/2753dca5a7a85d18a8c51b176cd6fd61f0e64d70/icons/mob/gestalt.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "nymph",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "eyes_nymph",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "nymph_sleep",
+            "directions": 4
+        },
+        {
+            "name": "nymph_dead"
+        },
+        {
+            "name": "gestalt",
+            "directions": 4,
+            "delays": [
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "eyes_gestalt",
+            "directions": 4,
+            "delays": [
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "wall"
+        },
+        {
+            "name": "floor"
+        },
+        {
+            "name": "flower_back",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "flower_fore",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "intent_expel"
+        },
+        {
+            "name": "intent_devour"
+        },
+        {
+            "name": "health0"
+        },
+        {
+            "name": "health1"
+        },
+        {
+            "name": "health2"
+        },
+        {
+            "name": "health3"
+        },
+        {
+            "name": "health4"
+        },
+        {
+            "name": "health5"
+        },
+        {
+            "name": "health6"
+        },
+        {
+            "name": "health7"
+        },
+        {
+            "name": "held"
+        },
+        {
+            "name": "hat"
+        },
+        {
+          "name": "equipped-HELMET",
+          "directions": 4
+        },
+        {
+          "name": "equipped-OUTERCLOTHING",
+          "directions": 4
+        },
+        {
+          "name": "inhand-left",
+          "directions": 4
+        },
+        {
+          "name": "inhand-right",
+          "directions": 4
+        }
+    ]
+}
