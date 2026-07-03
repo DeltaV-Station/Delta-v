@@ -19,7 +19,7 @@ public sealed class BrainSystem : EntitySystem
         SubscribeLocalEvent<BrainComponent, OrganGotInsertedEvent>((uid, _, args) => HandleMind(args.Target, uid));
         SubscribeLocalEvent<BrainComponent, OrganGotRemovedEvent>((uid, _, args) => HandleMind(uid, args.Target));
         SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
-        SubscribeLocalEvent<BrainComponent, BodyRelayedEvent<MakeBrainUnborgableEvent>>(OnMakeUnborgable);
+        SubscribeLocalEvent<BrainComponent, BodyRelayedEvent<MakeBrainUnborgableEvent>>(OnMakeUnborgable); // Delta V - Expanded for Delta V MMI Trait
     }
 
     private void HandleMind(EntityUid newEntity, EntityUid oldEntity)
