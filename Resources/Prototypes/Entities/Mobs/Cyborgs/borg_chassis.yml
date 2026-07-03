@@ -398,6 +398,46 @@
       - BorgModuleCargo
     hasMindState: miner_e
     noMindState: miner_e_r
+  addComponents: # DeltaV - Derelict parenting new Salvborg
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4.0 # DeltaV - 0.5 slower to account for a sturdier chassis
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      165: Critical # Able to tank a basic landmine without going critical
+      265: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 145 # DeltaV
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 265
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+        - borg_id_chip # DeltaV
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: BaseBorgChassisSyndicateDerelict
