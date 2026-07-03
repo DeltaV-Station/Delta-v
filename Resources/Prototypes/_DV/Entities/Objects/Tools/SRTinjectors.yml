@@ -44,13 +44,13 @@
       hypospray:
         maxVol: 20
         reagents:
-        - ReagentId: combatnanites
+        - ReagentId: CombatNanites
           Quantity: 20
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-      - ReagentId: combatnanites
+      - ReagentId: CombatNanites
         Quantity: 0.5
   - type: UseDelay
     delay: 1.5
