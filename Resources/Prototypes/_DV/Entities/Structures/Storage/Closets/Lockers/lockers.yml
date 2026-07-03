@@ -351,3 +351,46 @@
     stateDoorClosed: eng_evac_door
   - type: AccessReader
     access: [ [ "Maintenance" ] ]
+
+# CC Safe
+- type: entity
+  id: SafeCentralCommandDV
+  parent: GunSafe
+  name: safe
+  description: The perfect place for all the secret documents.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/Closets/ccsgunsafe.rsi
+    noRot: true
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorOpen: open
+    stateDoorClosed: door
+
+- type: entity
+  id: SafeCentralCommandLockedDV
+  parent: SafeCentralCommandDV
+  suffix: CC, Locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  id: SafeERTLockedDV
+  parent: SafeCentralCommandDV
+  suffix: ERT, Locked
+  components:
+  - type: AccessReader
+    access: [["ERT"]]

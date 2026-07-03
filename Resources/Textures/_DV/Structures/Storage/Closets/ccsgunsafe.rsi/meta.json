@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by @Stxcking (github) for DeltaV, cc closets recolored by FieldCommand",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "open",
+            "directions": 1
+        },
+        {
+            "name": "door",
+            "directions": 1
+        },
+        {
+            "name": "unlocked",
+            "directions": 1
+        },
+        {
+            "name": "locked",
+            "directions": 1
+        },
+        {
+            "name": "welded",
+            "directions": 1
+        },
+        {
+            "name": "base",
+            "directions": 1
+        }
+    ]
+}
