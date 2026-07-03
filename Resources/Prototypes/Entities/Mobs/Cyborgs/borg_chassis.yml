@@ -398,7 +398,6 @@
       - BorgModuleCargo
     hasMindState: miner_e
     noMindState: miner_e_r
-  addComponents: # DeltaV - Derelict parenting new Salvborg
   - type: MovementSpeedModifier
     baseSprintSpeed: 4.0 # DeltaV - 0.5 slower to account for a sturdier chassis
   - type: MobThresholds
