@@ -1,0 +1,44 @@
+- type: entity
+  parent: WeaponProtoKineticAccelerator
+  id: WeaponProtoKineticAcceleratorOneHandedIntegrated
+  suffix: One-Handed, DO NOT MAP
+  description: Fires low-damage kinetic bolts at a short range. This kind has a gyroscope to keep a cyborg's aim steady.
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Objects/Weapons/Guns/Basic/kinetic_accelerator_integrated.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: _Moffstation/Objects/Weapons/Guns/Basic/kinetic_accelerator_integrated.rsi
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: GunWieldBonus
+    wieldBonusExamineMessage: null
+    minAngle: 0
+    maxAngle: 0
+  - type: Gun
+    fireRate: 0.5 # DeltaV - revert back to prebase feel
+    minAngle: 1
+    maxAngle: 2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+    projectileSpeed: 25
+  - type: UseDelay
+    delay: 0 # You can't dual wield this as a borg so no need for a delay
+  - type: MappingCategories
+    categories:
+    - Debug # no mistaking it for regular pka...
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.1 # DeltaV
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletKineticIntegrated
+    capacity: 1
+    count: 1
