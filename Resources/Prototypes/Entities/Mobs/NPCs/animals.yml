@@ -3843,6 +3843,7 @@
       task: RuminantCompound
 
 - type: entity
+  abstract: true # DeltaV - we don't use this prototype
   name: diona nymph
   parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
   id: MobDionaNymphUnused # DeltaV - we don't use this prototype
@@ -3926,7 +3927,8 @@
     reformPrototype: MobDionaReformed
 
 - type: entity
-  parent: MobDionaNymph
+  abstract: true # DeltaV - we don't use this prototype
+  parent: MobDionaNymphUnused # DeltaV - we don't use this prototype
   id: MobDionaNymphAccentUnused # No talky. For non-brain & wild nymphs # DeltaV - we don't use this prototype
   suffix: Accent
   components:
