@@ -315,7 +315,6 @@
 
 - type: randomHumanoidSettings
   id: ERTEngineerArmed
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: ERTEngineer
   components:
   - type: RandomMetadata
