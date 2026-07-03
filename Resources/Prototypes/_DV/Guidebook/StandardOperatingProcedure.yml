@@ -102,6 +102,7 @@
   children:
   - DNRs
   - MedicalEvaluation
+  - PrescribingMedicine
   - Quarantine
   - StandardOfCare
 
@@ -301,6 +302,11 @@
   name: sop-medical-eval-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalEvaluation.xml
 
+
+- type: guideEntry
+  id: PrescribingMedicine
+  name: sop-prescribing-medicine-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/PrescribingMedicine.xml
 
 - type: guideEntry
   id: Quarantine
