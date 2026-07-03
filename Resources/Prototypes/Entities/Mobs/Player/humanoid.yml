@@ -343,7 +343,6 @@
 
 - type: randomHumanoidSettings
   id: ERTSecurity
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -376,7 +375,6 @@
 
 - type: randomHumanoidSettings
   id: ERTSecurityEVA
-  categories: [ HideSpawnMenu ] # Delta V - We have our own spawners
   parent: ERTSecurity
   components:
     - type: GhostRole
