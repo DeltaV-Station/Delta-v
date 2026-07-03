@@ -40,6 +40,9 @@
     fiberColor: fibers-blue
   - type: AccessReader
     access: [["Command"], ["Robotics"], ["Security"]]
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: SecurityCyborg
 
   radioChannels:
   - Science
