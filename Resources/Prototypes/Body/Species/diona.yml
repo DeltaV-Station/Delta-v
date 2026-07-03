@@ -175,7 +175,7 @@
   - type: DVNymphingBody
   - type: ActionGrant
     actions:
-    - DionaGibAction
+    - DVDionaGibAction
   # End DeltaV Changes - gib at will
   - type: Rootable
   - type: MovementSpeedModifier # DeltaV
@@ -292,11 +292,20 @@
 - type: entity
   parent: [ OrganBaseBrain, OrganDionaInternal ]
   id: OrganDionaBrain
+  # Begin DeltaV - diona nymphing overhaul
+  components:
+  - type: GibbableOrgan
+    active: false
+  # End DeltaV - diona nymphing overhaul
 
 - type: entity
   parent: [ OrganDionaVisual, OrganBaseEyes, OrganDionaInternal ]
   id: OrganDionaEyes
   components:
+  # Begin DeltaV - diona nymphing overhaul
+  - type: GibbableOrgan
+    active: false
+  # End DeltaV - diona nymphing overhaul
   - type: VisualOrgan
     data:
       sprite: Mobs/Customization/eyes.rsi
@@ -306,6 +315,10 @@
   parent: [ OrganBaseLungs, OrganDionaInternal, OrganDionaMetabolizer ]
   id: OrganDionaLungs
   components:
+  # Begin DeltaV - diona nymphing overhaul
+  - type: GibbableOrgan
+    active: false
+  # End DeltaV - diona nymphing overhaul
   - type: Sprite
     layers:
     - state: lungs
@@ -314,6 +327,10 @@
   parent: [ OrganBaseStomach, OrganDionaInternal, OrganDionaMetabolizer ]
   id: OrganDionaStomach
   components:
+  # Begin DeltaV - diona nymphing overhaul
+  - type: GibbableOrgan
+    active: false
+  # End DeltaV - diona nymphing overhaul
   - type: Metabolizer
     maxReagents: 6
     stages: [ Digestion, Bloodstream, Metabolites ]
@@ -323,6 +340,10 @@
   suffix: "Diona, Nymphing"
   id: OrganDionaBrainNymphing
   components:
+  # Begin DeltaV - diona nymphing overhaul
+  - type: GibbableOrgan
+    active: true
+  # End DeltaV - diona nymphing overhaul
   - type: DVNymphingOrgan # DeltaV - new diona mechanics
     transferMind: true
     entityPrototype: OrganDionaNymphBrain
@@ -332,6 +353,10 @@
   suffix: "Diona, Nymphing"
   id: OrganDionaLungsNymphing
   components:
+  # Begin DeltaV - diona nymphing overhaul
+  - type: GibbableOrgan
+    active: true
+  # End DeltaV - diona nymphing overhaul
   - type: DVNymphingOrgan # DeltaV - new diona mechanics
     entityPrototype: OrganDionaNymphLungs
 
@@ -340,6 +365,10 @@
   suffix: "Diona, Nymphing"
   id: OrganDionaStomachNymphing
   components:
+  # Begin DeltaV - diona nymphing overhaul
+  - type: GibbableOrgan
+    active: true
+  # End DeltaV - diona nymphing overhaul
   - type: DVNymphingOrgan # DeltaV - new diona mechanics
     entityPrototype: OrganDionaNymphStomach
 
@@ -349,16 +378,17 @@
   suffix: brain
   components:
   - type: IsDeadIC
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganDionaBrain
-        - id: OrganAnimalLungs
-        - id: OrganAnimalStomach
-        - id: OrganAnimalLiver
-        - id: OrganAnimalHeart
-        - id: OrganAnimalKidneys
+  # - type: EntityTableContainerFill
+  #   containers:
+  #     body_organs: !type:AllSelector
+  #       children:
+  #       - id: OrganDionaBrain
+  #       - id: OrganAnimalLungs
+  #       - id: OrganAnimalStomach
+  #       - id: OrganAnimalLiver
+  #       - id: OrganAnimalHeart
+  #       - id: OrganAnimalKidneys
+  # End DeltaV - we have a uniform organ configuration
 
 - type: entity
   parent: DVMobDionaNymph # DeltaV - new diona mechanics
@@ -366,15 +396,16 @@
   suffix: stomach
   components:
   - type: IsDeadIC
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganDionaLungs
-        - id: OrganAnimalStomach
-        - id: OrganAnimalLiver
-        - id: OrganAnimalHeart
-        - id: OrganAnimalKidneys
+  # - type: EntityTableContainerFill
+  #   containers:
+  #     body_organs: !type:AllSelector
+  #       children:
+  #       - id: OrganDionaLungs
+  #       - id: OrganAnimalStomach
+  #       - id: OrganAnimalLiver
+  #       - id: OrganAnimalHeart
+  #       - id: OrganAnimalKidneys
+  # End DeltaV - we have a uniform organ configuration
 
 - type: entity
   parent: DVMobDionaNymph # DeltaV - new diona mechanics
@@ -382,15 +413,16 @@
   suffix: lungs
   components:
   - type: IsDeadIC
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganAnimalLungs
-        - id: OrganDionaStomach
-        - id: OrganAnimalLiver
-        - id: OrganAnimalHeart
-        - id: OrganAnimalKidneys
+  # - type: EntityTableContainerFill
+  #   containers:
+  #     body_organs: !type:AllSelector
+  #       children:
+  #       - id: OrganAnimalLungs
+  #       - id: OrganDionaStomach
+  #       - id: OrganAnimalLiver
+  #       - id: OrganAnimalHeart
+  #       - id: OrganAnimalKidneys
+  # End DeltaV - we have a uniform organ configuration
 
 - type: entity
   parent: MobDiona
@@ -399,3 +431,21 @@
   components:
   - type: IsDeadIC
   - type: RandomHumanoidAppearance
+  # Begin DeltaV - diona nymph overhaul
+  - type: InitialBody
+    organs:
+      Torso: OrganDionaTorso
+      Head: OrganDionaHead
+      ArmLeft: OrganDionaArmLeft
+      ArmRight: OrganDionaArmRight
+      HandRight: OrganDionaHandRight
+      HandLeft: OrganDionaHandLeft
+      LegLeft: OrganDionaLegLeft
+      LegRight: OrganDionaLegRight
+      FootLeft: OrganDionaFootLeft
+      FootRight: OrganDionaFootRight
+      Brain: OrganDionaBrain
+      Eyes: OrganDionaEyes
+      Lungs: OrganDionaLungs
+      Stomach: OrganDionaStomach
+  # End DeltaV - diona nymph overhaul

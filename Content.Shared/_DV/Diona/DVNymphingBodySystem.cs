@@ -17,17 +17,23 @@ public sealed class DVNymphingBodySystem : EntitySystem
 		base.Initialize();
 
 		SubscribeLocalEvent<DVNymphingBodyComponent, GibActionSystem.GibActionEvent>(OnNymphingBodyGib);
+        SubscribeLocalEvent<DVNymphingBodyComponent, GibbedBeforeDeletionEvent>(OnGibbedBeforeDeletion);
 	}
 
     private void OnNymphingBodyGib(Entity<DVNymphingBodyComponent> ent, ref GibActionSystem.GibActionEvent args)
     {
         _popup.PopupPredicted(Loc.GetString(ent.Comp.PopupText, ("name", ent)), ent, ent);
-        var giblets = _gibbing.Gib(ent, user: args.Performer);
-        EntityUid? leadGiblet = null;
+        _gibbing.Gib(ent, user: args.Performer);
+    }
 
-        foreach (var giblet in giblets)
+    private void OnGibbedBeforeDeletion(Entity<DVNymphingBodyComponent> ent, ref GibbedBeforeDeletionEvent args)
+    {
+        EntityUid? leadGiblet = null;
+        var leadMind = EntityUid.Invalid;
+
+        foreach (var giblet in args.Giblets)
         {
-            if (!_mind.TryGetMind(giblet, out var mindUid, out var mind))
+            if (!_mind.TryGetMind(giblet, out leadMind, out _))
                 continue;
 
             leadGiblet = giblet;
@@ -37,7 +43,12 @@ public sealed class DVNymphingBodySystem : EntitySystem
         if (leadGiblet is not { } leader || !TryComp<DVNymphLeadComponent>(leader, out var leaderComp))
             return;
 
-        foreach (var giblet in giblets)
+        if (TryComp<DVNymphMindMemoryComponent>(leader, out var memory) && Exists(leadMind))
+        {
+            memory.Mind = leadMind;
+        }
+
+        foreach (var giblet in args.Giblets)
         {
             if (!TryComp<DVNymphFollowerComponent>(giblet, out var follower))
                 continue;
@@ -45,4 +56,5 @@ public sealed class DVNymphingBodySystem : EntitySystem
             _nymph.Follow((leader, leaderComp), (giblet, follower));
         }
     }
+
 }

@@ -1,7 +1,65 @@
 - type: entity
-  name: diona nymph
-  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase, DVNodeCrawler]
+  abstract: true
+  id: DVDionaMixin
+  components:
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
+  - type: TypingIndicator
+    proto: diona
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Speech
+    speechVerb: Plant
+    speechSounds: Alto
+    allowedEmotes: ['Chirp']
+  - type: Vocal
+    sounds:
+      Male: UnisexDiona
+      Female: UnisexDiona
+      Unsexed: UnisexDiona
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: Nymph
+  - type: LightReactive # DeltaV
+    manual: true
+  - type: LightLevelHealth # DeltaV
+    darkThreshold: 0.4
+    lightThreshold: 1.2
+    darkDamage:
+      types:
+        Heat: 1.0
+    lightDamage:
+      types:
+        Blunt: -0.1
+        Piercing: -0.1
+        Slash: -0.1
+        Heat: -0.1
+        Poison: -0.1
+        Asphyxiation: -0.1
+    darkMovementSpeedMultiplier: 0.7
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganDionaBrain
+        - id: OrganDionaLungs
+        - id: OrganDionaStomach
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 60
+
+- type: entity
+  parent: [DVDionaMixin, BaseMobAnimal, SimpleMobBase, StripableInventoryBase, DVNodeCrawler]
   id: DVMobDionaNymph
+  name: diona nymph
   description: It's a little skittery critter. Chirp.
   components:
   - type: Sprite
@@ -14,6 +72,9 @@
       shader: unshaded
   - type: DVNymphLead
   - type: DVNymphFollower
+  - type: DVNymphProfile
+  - type: DVGestaltMember
+  - type: DVNymphMindMemory
   - type: HTN
     rootTask:
       task: DVNymphCompound
@@ -38,15 +99,6 @@
       - state: inhand-left
       right:
       - state: inhand-right
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Rootsong
-  - type: ActiveRadio
-    channels:
-    - Rootsong
-  - type: TypingIndicator
-    proto: diona
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -62,11 +114,6 @@
   - type: Inventory
     speciesId: cat
     templateId: pet
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Sap
-        Quantity: 60
   - type: DamageStateVisuals
     states:
       Alive:
@@ -93,39 +140,35 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
-  - type: Grammar
-    attributes:
-      gender: epicene
-  - type: Speech
-    speechVerb: Plant
-    speechSounds: Alto
-    allowedEmotes: ['Chirp']
-  - type: Vocal
-    sounds:
-      Male: UnisexDiona
-      Female: UnisexDiona
-      Unsexed: UnisexDiona
   - type: Tag
     tags:
     - DoorBumpOpener
     - VimPilot
-  - type: Emoting
-  - type: BodyEmotes
-    soundsId: Nymph
-  - type: LightReactive # DeltaV
-    manual: true
-  - type: LightLevelHealth # DeltaV
-    darkThreshold: 0.4
-    lightThreshold: 1.2
-    darkDamage:
-      types:
-        Heat: 1.0
-    lightDamage:
-      types:
-        Blunt: -0.1
-        Piercing: -0.1
-        Slash: -0.1
-        Heat: -0.1
-        Poison: -0.1
-        Asphyxiation: -0.1
-    darkMovementSpeedMultiplier: 0.7
+  - type: ActionGrant
+    actions:
+    - DVDionaAssimilateAction
+
+- type: entity
+  parent: [DVDionaMixin, BaseMobAnimal, SimpleMobBase]
+  id: DVMobDionaGestalt
+  name: nascent diona gestalt
+  description: A heaving mass of nymphs. Chirp?
+  components:
+  - type: DVGestalt
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.0
+    baseSprintSpeed : 1.0
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: gestalt
+    - state: eyes_gestalt
+      shader: unshaded
+  - type: ActionGrant
+    actions:
+    - DVDionaAssimilateAction
+    - DVDionaGibAction
+    - DVDionaReformAction

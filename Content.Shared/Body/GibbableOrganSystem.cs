@@ -13,6 +13,9 @@ public sealed class GibbableOrganSystem : EntitySystem
 
     private void OnBeingGibbed(Entity<GibbableOrganComponent> ent, ref BodyRelayedEvent<BeingGibbedEvent> args)
     {
-        args.Args.Giblets.Add(ent);
+        // Begin DeltaV - gibbable activation
+        if (ent.Comp.Active)
+            args.Args.Giblets.Add(ent);
+        // End DeltaV - gibbable activation
     }
 }
