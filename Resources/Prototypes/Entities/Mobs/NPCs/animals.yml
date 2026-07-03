@@ -3844,63 +3844,16 @@
 
 - type: entity
   name: diona nymph
-  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase, DVNodeCrawler]
-  id: MobDionaNymph
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
+  id: MobDionaNymphUnused # DeltaV - we don't use this prototype
   description: It's like a cat, only.... branch-ier.
   components:
-  # DeltaV changes begin
   - type: Sprite
     drawdepth: Mobs
-    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
-    - state: eyes_nymph
-      shader: unshaded
-  - type: DVNymphLead
-  - type: DVNymphFollower
-  - type: HTN
-    rootTask:
-      task: DVNymphCompound
-    blackboard:
-      IdleRange: !type:Single
-        2.5
-      FollowCloseRange: !type:Single
-        1.0
-      FollowRange: !type:Single
-        2.0
-  - type: Clothing
-    quickEquip: false
-    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
-    slots:
-    - HEAD
-    - OUTERCLOTHING
-  - type: Item
-    size: Normal
-    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-nymph-name
-    description: ghost-role-information-nymph-description
-    rules: ghost-role-information-nonantagonist-rules
-  - type: GhostTakeoverAvailable
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Rootsong
-  - type: ActiveRadio
-    channels:
-    - Rootsong
-  - type: TypingIndicator
-    proto: diona
-  # DeltaV changes end
+      sprite: Mobs/Animals/nymph.rsi
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3929,8 +3882,8 @@
         Base: nymph_sleep
       Dead:
         Base: nymph_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialWoodPlank1
       amount: 2
   - type: InteractionPopup
@@ -3971,27 +3924,10 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
-  - type: LightReactive # DeltaV
-    manual: true
-  - type: LightLevelHealth # DeltaV
-    darkThreshold: 0.4
-    lightThreshold: 1.2
-    darkDamage:
-      types:
-        Heat: 1.0
-    lightDamage:
-      types:
-        Blunt: -0.1
-        Piercing: -0.1
-        Slash: -0.1
-        Heat: -0.1
-        Poison: -0.1
-        Asphyxiation: -0.1
-    darkMovementSpeedMultiplier: 0.7
 
 - type: entity
   parent: MobDionaNymph
-  id: MobDionaNymphAccent # No talky. For non-brain & wild nymphs
+  id: MobDionaNymphAccentUnused # No talky. For non-brain & wild nymphs # DeltaV - we don't use this prototype
   suffix: Accent
   components:
   - type: ReplacementAccent
