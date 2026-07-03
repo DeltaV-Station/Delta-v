@@ -339,7 +339,7 @@ public sealed class CarryingSystem : EntitySystem
         RemComp<BeingCarriedComponent>(carried);
         RemComp<KnockedDownComponent>(carried); // TODO SHITMED: make sure this doesnt let you make someone with no legs walk
         _actionBlocker.UpdateCanMove(carried);
-        Transform(carried).AttachToGridOrMap();
+        _transform.AttachToGridOrMap(carried);
         _standingState.Stand(carried);
     }
 

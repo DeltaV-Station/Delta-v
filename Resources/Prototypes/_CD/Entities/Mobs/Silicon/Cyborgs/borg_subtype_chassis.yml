@@ -1,0 +1,10 @@
+ # Actual entity prototypes used for UI visuals and admin spawning
+- type: entity
+  id: BorgChassisQualifiedDoctor
+  parent: BorgChassisSelectable
+  name: qualified doctor cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: MedicalQualifiedDoctorSubtype

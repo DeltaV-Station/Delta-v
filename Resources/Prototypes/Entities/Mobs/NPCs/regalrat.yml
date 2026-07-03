@@ -1,7 +1,7 @@
 - type: entity
   name: rat king
   id: MobRatKing
-  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node Crawling
   description: He's da rat. He make da roolz.
   components:
   - type: CombatMode
@@ -57,9 +57,6 @@
       types:
         Slash: 12
         Piercing: 8
-  - type: Body
-    prototype: Rat
-    requiredLegs: 0 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -100,6 +97,8 @@
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
+  - type: Insulated
+    coefficient: 0.5 # rat king touches more wires, see?
   - type: Rummager
   - type: RatKing
     hungerPerArmyUse: 10 # DeltaV changed from 25 to 10. Gets multiplied with a modifier to be dynamic
@@ -170,7 +169,7 @@
 - type: entity
   name: rat servant
   id: MobRatServant
-  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
@@ -254,9 +253,6 @@
       types:
         Slash: 4 #Delta-V was 5
         Piercing: 2 #Delta-V was 3
-  - type: Body
-    prototype: Rat
-    requiredLegs: 0 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -297,6 +293,8 @@
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
+  - type: Insulated
+    coefficient: 0.2 # they don't make da roolz, but they sneaky
   - type: MobPrice
     price: 500 # rat wealth
   - type: MobsterAccent

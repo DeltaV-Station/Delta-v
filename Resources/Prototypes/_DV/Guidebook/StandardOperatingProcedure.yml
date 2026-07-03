@@ -2,7 +2,7 @@
 # Main Directory
 - type: guideEntry
   id: SOP
-  name: Standard Operating Procedure
+  name: sop-name
   text: "/ServerInfo/Guidebook/_DV/SpaceLaw/SOP.xml"
   filterEnabled: true
   children:
@@ -18,7 +18,7 @@
 
 - type: guideEntry
   id: GeneralRegulations
-  name: General Regulations
+  name: sop-gen-reg-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations.xml
   priority: 1
   children:
@@ -30,7 +30,7 @@
 
 - type: guideEntry
   id: ControlledISA
-  name: Controlled Items, Substances & Areas
+  name: sop-controlled-items-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledISA.xml
   priority: 1
   children:
@@ -43,7 +43,7 @@
 
 - type: guideEntry
   id: DepartmentalDisp
-  name: Departmental Dispensations
+  name: sop-departmental-disp-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/DepartmentalDisp.xml
   children:
   - LogisticsDisp
@@ -54,7 +54,7 @@
 
 - type: guideEntry
   id: CommandingOfficer
-  name: Commanding Officer
+  name: sop-commanding-officer-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/CommandingOfficer.xml
   priority: 1
   children:
@@ -68,7 +68,7 @@
 
 - type: guideEntry
   id: SecurityandJusticeRegulations
-  name: Security And Justice Regulations
+  name: sop-security-and-justice-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/SecurityandJusticeRegulations.xml
   priority: 1
   children:
@@ -87,7 +87,7 @@
 # Hearings Main Directory
 - type: guideEntry
   id: Hearings
-  name: Hearings
+  name: sop-hearings-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/Hearings/Hearings.xml
   priority: 1
   children:
@@ -96,7 +96,7 @@
 # Medical Regulations Main Directory
 - type: guideEntry
   id: MedicalRegulations
-  name: Medical Regulations
+  name: sop-medical-regulations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalRegulations.xml
   priority: 1
   children:
@@ -108,7 +108,7 @@
 # Engineering Regulations Main Directory
 - type: guideEntry
   id: EngineeringRegulations
-  name: Engineering Regulations
+  name: sop-engineering-regulations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/EngineeringRegulations.xml
   priority: 1
   children:
@@ -121,19 +121,19 @@
 ## General Regulations Entries
 - type: guideEntry
   id: Definitions
-  name: Definitions
+  name: sop-definitions-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/Definitions.xml
 
 
 - type: guideEntry
   id: HiringProcedure
-  name: Hiring Procedure
+  name: sop-hiring-procedure-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/HiringProcedure.xml
 
 
 - type: guideEntry
   id: RightsToRefuseService
-  name: Rights To Refuse Service
+  name: sop-rights-to-refuse-service-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/RightsToRefuseService.xml
 
 
@@ -141,25 +141,25 @@
 
 - type: guideEntry
   id: ControlledItems
-  name: Controlled Items
+  name: sop-ci-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledItems.xml
 
 
 - type: guideEntry
   id: ControlledSub
-  name: Controlled Substances
+  name: sop-cs-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledSub.xml
 
 
 - type: guideEntry
   id: ControlledArms
-  name: Controlled Armaments
+  name: sop-ca-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/ControlledArms.xml
 
 
 - type: guideEntry
   id: HSA
-  name: High Security Areas
+  name: sop-hsa-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/HighSecurity.xml
 
 
@@ -168,176 +168,176 @@
 
 - type: guideEntry
   id: LogisticsDisp
-  name: Logistics
+  name: sop-logi-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/LogisticsDisp.xml
 
 
 - type: guideEntry
   id: ResearchDisp
-  name: Epistemics
+  name: sop-research-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/ResearchDisp.xml
 
 
 - type: guideEntry
   id: MedicalDisp
-  name: Medical
+  name: sop-medical-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/ControlledISA/DepartmentalDisp/MedicalDisp.xml
 
 
 ## Commanding Officer Entries
 - type: guideEntry
   id: CapsAuthority
-  name: Captain's Authority
+  name: sop-cap-authority-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/CapsAuthority.xml
 
 
 - type: guideEntry
   id: LineOfSuccession
-  name: Line Of Succession
+  name: sop-succesion-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/LineOfSuccession.xml
 
 
 - type: guideEntry
   id: CommandPromotions
-  name: Command Promotions
+  name: sop-command-promotion-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/CommandPromotions.xml
 
 
 - type: guideEntry
   id: Mutiny
-  name: Mutiny
+  name: sop-mutiny-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/Mutiny.xml
 
 
 - type: guideEntry
   id: ForeignVessels
-  name: Foreign Vessels
+  name: sop-foreign-vessels-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/CommandingOfficer/ForeignVessels.xml
 
 
 ## Security And Justice Regulations entries
 - type: guideEntry
   id: SecurityJurisdiction
-  name: Security Jurisdiction
+  name: sop-sec-jurisdiction-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/SecurityJurisdiction.xml
 
 
 - type: guideEntry
   id: ProbableCause
-  name: Probable Cause
+  name: sop-probable-cause-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/ProbableCause.xml
 
 
 - type: guideEntry
   id: RulesOfEngagement
-  name: Rules Of Engagement
+  name: sop-roe-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/RulesOfEngagement.xml
 
 
 - type: guideEntry
   id: MartialLaw
-  name: Martial Law
+  name: sop-martial-law-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/MartialLaw.xml
 
 
 - type: guideEntry
   id: ArmoryProcedure
-  name: Armory Procedure
+  name: sop-armory-procedure-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/ArmoryProcedure.xml
 
 
 - type: guideEntry
   id: TreatmentOfPrisoners
-  name: Treatment Of Prisoners
+  name: sop-treatment-prisoners-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/TreatmentOfPrisoners.xml
 
 
 - type: guideEntry
   id: ArrestandSentencing
-  name: Arrest & Sentencing
+  name: sop-arrest-sentencing-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/ArrestandSentencing.xml
 
 
 - type: guideEntry
   id: AppealsParolePardons
-  name: Appeals Parole Pardons
+  name: sop-appeal-parole-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/AppealsParolePardons.xml
 
 
 - type: guideEntry
   id: PressingCriminalCharges
-  name: Pressing Criminal Charges
+  name: sop-press-charges-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/PressingCriminalCharges.xml
 
 
 - type: guideEntry
   id: Warrants
-  name: Warrants
+  name: sop-warrants-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Warrants.xml
 
 
 - type: guideEntry
   id: Injunctions
-  name: Injunctions
+  name: sop-injunctions-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Injunctions.xml
 
 
 ## Hearings Entries
 - type: guideEntry
   id: HearingProcedure
-  name: Hearing Procedure
+  name: sop-hearing-procedure-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/Hearings/HearingProcedure.xml
 
 
 ## Medical Regulations Entries
 - type: guideEntry
   id: DNRs
-  name: DNRs
+  name: sop-dnr-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/DNRs.xml
 
 
 - type: guideEntry
   id: MedicalEvaluation
-  name: Medical Evaluation
+  name: sop-medical-eval-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalEvaluation.xml
 
 
 - type: guideEntry
   id: Quarantine
-  name: Quarantine
+  name: sop-quarantine-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/Quarantine.xml
 
 
 - type: guideEntry
   id: StandardOfCare
-  name: Standard Of Care
+  name: sop-soc-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/StandardOfCare.xml
 
   ## Engineering Regulations Entries
 - type: guideEntry
   id: HealthAndSafety
-  name: Health and Safety
+  name: sop-health-safety-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/HealthAndSafety.xml
 
 
 - type: guideEntry
   id: BuildingPermits
-  name: Building Permits
+  name: sop-build-permits-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/BuildingPermits.xml
 
 
 - type: guideEntry
   id: EmergencyAccess
-  name: Emergency Access
+  name: sop-ea-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/EmergencyAccess.xml
 
 
 - type: guideEntry
   id: HazardZones
-  name: Hazard Zones
+  name: sop-hazard-zone-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/HazardZones.xml
 
 - type: guideEntry
   id: CondemnedAreas
-  name: Condemned Areas
+  name: sop-condemned-area-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/CondemnedAreas.xml
