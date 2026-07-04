@@ -92,7 +92,7 @@
   suffix: Surgery, Locked
   components:
   - type: AccessReader
-    access: [["Surgery"]]
+    access: [["Medical"],["Surgery"]] # Added medical until surgeon is re-added
 
 - type: entity
   parent: DoorElectronics
@@ -100,7 +100,7 @@
   suffix: Surgery/Epistemics, Locked
   components:
   - type: AccessReader
-    access: [["Research"], ["Surgery"]]
+    access: [["Research"], ["Medical"], ["Surgery"]] # Added medical until surgeon is re-added
 
 - type: entity
   parent: DoorElectronics
@@ -108,7 +108,7 @@
   suffix: Surgery/Robotics, Locked
   components:
   - type: AccessReader
-    access: [["Robotics"], ["Surgery"]]
+    access: [["Robotics"], ["Medical"], ["Surgery"]] # Added medical until surgeon is re-added
 
 - type: entity
   parent: DoorElectronics

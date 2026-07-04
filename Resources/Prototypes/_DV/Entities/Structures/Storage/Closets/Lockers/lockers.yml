@@ -73,7 +73,7 @@
     stateDoorOpen: surgeon_open
     stateDoorClosed: surgeon_door
   - type: AccessReader
-    access: [["Medical", "Surgery"]] # Added medical until surgeon returns
+    access: [["Medical"], ["Surgery"]] # Added medical until surgeon returns
 
 - type: entity
   parent: LockerBaseSecureDeltaV
