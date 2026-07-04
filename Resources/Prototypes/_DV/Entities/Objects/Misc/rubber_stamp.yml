@@ -79,3 +79,17 @@
     stampState: "paper_stamp-cap"
   - type: Sprite
     state: stamp-cap
+
+- type: entity
+  name: chemist's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampChemist
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-chemist
+    stampedColor: "#ff7900"
+    stampState: "paper_stamp-chemist"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-chemist

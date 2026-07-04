@@ -347,17 +347,19 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquadFilledBase
     shoes: ClothingShoesBootsERTMagboots
-    head: ClothingHeadHatBeretCommand
+    head: ClothingHeadHatBeretSRT
     eyes: ClothingEyesERTInformationHud
     gloves: ClothingHandsGlovesCombat
     mask: ClothingMaskGasDeathSquad
     outerClothing: ClothingOuterHardsuitSRT
     suitstorage: JetpackBlackFilled
-    id: DeathsquadPDA
+    id: SRTPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERTMedicine
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: WeaponRevolverMateba
+    pocket2: DoubleEmergencyNitrogenTankFilled
+  inhand:
+  - BoxMRE
 
 - type: startingGear
   id: SRTOfficerBlack
@@ -370,3 +372,22 @@
   parent: SRTOfficerBase
   equipment:
     back: ClothingBackpackDeathSquadFilledEpsilon
+
+- type: job
+  id: SRTAgent
+  name: job-name-srtagent
+  description: job-description-srtagent
+  playTimeTracker: JobSRTAgent
+  setPreference: false
+  startingGear: SRTOfficerBase
+  icon: "JobIconDeathSquad"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - ERT
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ CentCommImplant, DeathRattleImplantCentcomm, BluespaceLifelineImplant]

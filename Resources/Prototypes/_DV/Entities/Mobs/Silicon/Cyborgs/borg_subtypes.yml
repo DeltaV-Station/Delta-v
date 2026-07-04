@@ -1,0 +1,213 @@
+# region Engineering
+
+- type: entity
+  parent: BorgEngineerSubtypeBase
+  id: EngineerStandardSubtype
+  name: standard engineering cyborg
+  description: "A standard cyborg for all your engineering needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisEngineeringStandard
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Engineering/standard.rsi
+
+- type: entity
+  parent: BorgEngineerSubtypeBase
+  id: EngineerGenericSubtype
+  name: generic engineering cyborg
+  description: "A generic cyborg for all your engineering needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisEngineeringGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Engineering/generic.rsi
+
+- type: entity
+  parent: BorgEngineerSubtypeBase
+  id: EngineerAntiqueSubtype
+  name: antique engineering cyborg
+  description: "An antique engineering cyborg, looks like it has patched up hundreds of meteor holes."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisEngineeringAntique
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Engineering/antique.rsi
+
+# region Generic
+
+- type: entity
+  parent: BorgGenericSubtypeBase
+  id: GenericGenericSubtype
+  name: generic cyborg
+  description: "A generic cyborg, it's extra generic looking."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisGenericGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Generic/generic.rsi
+
+# region Janitor
+
+- type: entity
+  parent: BorgJanitorSubtypeBase
+  id: JanitorStandardSubtype
+  name: standard janitor cyborg
+  description: "A standard cyborg for all your janitorial needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisJanitorStandard
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Janitor/standard.rsi
+
+- type: entity
+  parent: BorgJanitorSubtypeBase
+  id: JanitorGenericSubtype
+  name: generic janitor cyborg
+  description: "A generic cyborg for all your janitorial needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisJanitorGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Janitor/generic.rsi
+
+- type: entity
+  parent: BorgJanitorSubtypeBase
+  id: JanitorMopbotSubtype
+  name: mopbot cyborg
+  description: "A bot with a mop, call it Mopbot."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisJanitorMopbot
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Janitor/mopbot.rsi
+
+- type: entity
+  parent: BorgJanitorSubtypeBase
+  id: JanitorVestSubtype
+  name: vest janitor cyborg
+  description: "A janitor cyborg with a high-visibility vest."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisJanitorVest
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Janitor/vest.rsi
+
+# region Medical
+
+- type: entity
+  parent: BorgMedicalSubtypeBase
+  id: MedicalStandardSubtype
+  name: standard medical cyborg
+  description: "A standard cyborg for all your medical needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisMedicalStandard
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Medical/standard.rsi
+
+- type: entity
+  parent: BorgMedicalSubtypeBase
+  id: MedicalGenericSubtype
+  name: generic medical cyborg
+  description: "A generic cyborg for all your medical needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisMedicalGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Medical/generic.rsi
+
+- type: entity
+  parent: BorgMedicalSubtypeBase
+  id: MedicalDoctorSubtype
+  name: doctor medical cyborg
+  description: "A cyborg in a white coat for all your medical needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisMedicalDoctor
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Medical/doctor.rsi
+
+# region Salvage
+
+- type: entity
+  parent: BorgSalvageSubtypeBase
+  id: SalvageStandardSubtype
+  name: standard salvage cyborg
+  description: "A standard cyborg for all your salvage needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisSalvageStandard
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Salvage/standard.rsi
+
+- type: entity
+  parent: BorgSalvageSubtypeBase
+  id: SalvageGenericSubtype
+  name: generic salvage cyborg
+  description: "A generic cyborg for all your salvage needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisSalvageGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Salvage/generic.rsi
+
+# region Security
+
+- type: entity
+  parent: BorgSecuritySubtypeBase
+  id: SecurityStandardSubtype
+  name: standard security cyborg
+  description: "A standard cyborg for all your security needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisSecurityStandard
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Security/standard.rsi
+
+- type: entity
+  parent: BorgSecuritySubtypeBase
+  id: SecurityGenericSubtype
+  name: generic security cyborg
+  description: "A generic cyborg for all your security needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisSecurityGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Security/generic.rsi
+
+# region Service
+
+- type: entity
+  parent: BorgServiceSubtypeBase
+  id: ServiceStandardSubtype
+  name: standard service cyborg
+  description: "A standard cyborg for all your service needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisServiceStandard
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Service/standard.rsi
+
+- type: entity
+  parent: BorgServiceSubtypeBase
+  id: ServiceGenericSubtype
+  name: generic service cyborg
+  description: "A generic cyborg for all your service needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisServiceGeneric
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Service/generic.rsi
+
+- type: entity
+  parent: BorgServiceSubtypeBase
+  id: ServiceWaitressSubtype
+  name: waitress service cyborg
+  description: "A service cyborg in a waitress uniform."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisServiceWaitress
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Service/waitress.rsi
+
+- type: entity
+  parent: BorgServiceSubtypeBase
+  id: ServiceBrobotSubtype
+  name: brobot service cyborg
+  description: "Suh dude!?"
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisServiceBrobot
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Service/brobot.rsi
+
+- type: entity
+  parent: BorgServiceSubtypeBase
+  id: ServiceMaximiliumSubtype
+  name: maximilium service cyborg
+  description: "A rather distinguished service cyborg."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisServiceMaximilium
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Service/maximilium.rsi

@@ -264,26 +264,26 @@
       orGroup: Horn
       prob: 0.05
 
-- type: entity
-  parent: BaseMailLarge
-  id: MailNFBuildABuddy
-  suffix: Build-a-Buddy
-  components:
-  - type: Mail
-    isFragile: true
-    contents:
+#- type: entity
+#  parent: BaseMailLarge
+#  id: MailNFBuildABuddy
+#  suffix: Build-a-Buddy
+#  components:
+#  - type: Mail
+#    isFragile: true
+#    contents:
 #      - id: BoxBuildABuddyGoblin # DeltaV - Goblins Aren't Real
 #        orGroup: Box
-      - id: BoxBuildABuddyHuman
-        orGroup: Box
-      - id: BoxBuildABuddyReptilian
-        orGroup: Box
-      - id: BoxBuildABuddySlime
-        orGroup: Box
-      - id: BoxBuildABuddyVulpkanin
-        orGroup: Box
-      - id: DrinkSpaceGlue
-      - id: PaperMailNFBuildABuddy
+#      - id: BoxBuildABuddyHuman
+#        orGroup: Box
+#      - id: BoxBuildABuddyReptilian
+#        orGroup: Box
+#      - id: BoxBuildABuddySlime
+#        orGroup: Box
+#      - id: BoxBuildABuddyVulpkanin
+#        orGroup: Box
+#      - id: DrinkSpaceGlue
+#      - id: PaperMailNFBuildABuddy
 
 - type: entity
   parent: BaseMailLarge

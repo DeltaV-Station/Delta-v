@@ -11,6 +11,7 @@
     - id: ClothingUniformJumpskirtPsychologist
     - id: DrinkWhiskeyBottleFull
     - id: ClothingHeadsetMedical
+    - id: PrescriptionFolder
 
 - type: entity
   parent: LockerPsychologist
@@ -182,6 +183,8 @@
   table: !type:AllSelector
     children:
     - id: Skimmer
+    - id: PrescriptionFolder
+    - id: RubberStampChemist
 
 - type: entity
   parent: LockerParamedic

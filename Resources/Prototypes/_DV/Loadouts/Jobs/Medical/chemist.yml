@@ -10,6 +10,21 @@
     jumpsuit: ClothingUniformJumpskirtChemShirt
 
 - type: loadout
+  id: PharmacistJumpsuit
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitPharmacist
+
+- type: loadout
+  id: PharmacistJumpskirt
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtPharmacist
+
+- type: loadout
+  id: PharmacistJumpsuitFormal
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitPharmacistShirt
+
+- type: loadout
   id: SeniorChemistJumpsuit
   effects:
    - !type:JobRequirementLoadoutEffect
@@ -52,6 +67,11 @@
   id: ChemistLongLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabLongChemist
+
+- type: loadout
+  id: PharmacistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabPharma
 
 # Gloves
 - type: loadout
