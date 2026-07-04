@@ -13,12 +13,6 @@
       - !type:ReduceRotting
         seconds: 10
         conditions:
-        # ShitMed Removal => No more Surgery Ribcages
-        # - !type:HasComponentCondition
-        #   bodyPart: Torso
-        #   explanation: reagent-explanation-netinadone-ribcage
-        #   components:
-        #   - type: RibcageOpen
         - !type:TemperatureCondition
           max: 150.0
         - !type:MobStateCondition
