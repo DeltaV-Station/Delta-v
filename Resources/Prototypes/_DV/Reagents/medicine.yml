@@ -151,3 +151,32 @@
         effectProto: StatusEffectPsionicsDisabled
         type: Add
         time: 60
+
+- type: reagent
+  id: CombatNanites
+  name: reagent-name-combat-nanites
+  group: Medicine
+  desc: reagent-desc-combat-nanites
+  physicalDesc: reagent-physical-desc-repairing
+  flavor: prickly
+  color: "#4da0bd"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.5
+      effects:
+      - !type:ModifyBleed
+        amount: -1.5
+      - !type:ModifyBloodLevel
+        amount: 2
+      - !type:EvenHealthChange
+        damage:
+          Burn: -1.5
+          Brute: -1.5
+      - !type:HealthChange
+        damage:
+          types:
+            Bloodloss: -2
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.12

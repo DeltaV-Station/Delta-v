@@ -7,6 +7,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Traits;
 using Content.Shared.Administration;
 using Content.Shared.Roles;
+using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
 using Robust.Server.Player;
@@ -58,9 +59,11 @@ public sealed class SpawnPlayer : LocalizedEntityCommands
             jobName = "Passenger"; // and if they fuck up, just default to passenger again
         }
 
+        var gameTicker = _entitySys.GetEntitySystem<GameTicker>();
+
         var coordinates = shell.Player != null && shell.Player.AttachedEntity != null
             ? _entityManager.GetComponent<TransformComponent>(shell.Player.AttachedEntity.Value).Coordinates
-            : _entitySys.GetEntitySystem<GameTicker>().GetObserverSpawnPoint();
+            : gameTicker.GetObserverSpawnPoint();
 
         if (player.AttachedEntity == null ||
             !mindSystem.TryGetMind(player.AttachedEntity.Value, out var mindId, out var mind))
@@ -75,6 +78,16 @@ public sealed class SpawnPlayer : LocalizedEntityCommands
         }
         else
             shell.WriteLine(Loc.GetString("cmd-spawnplayer-info-mind-not-transferred", ("entId", mobUid.ToString()), ("player", args[0])));
+
+        var spawnCompleteEv = new PlayerSpawnCompleteEvent(mobUid,
+            player,
+            jobExists ? jobName : null,
+            lateJoin: false,
+            silent: true,
+            gameTicker.PlayersJoinedRoundNormally,
+            station: EntityUid.Invalid,
+            character);
+        _entityManager.EventBus.RaiseLocalEvent(mobUid, spawnCompleteEv, true);
 
         shell.WriteLine(Loc.GetString("cmd-spawnplayer-complete"));
     }

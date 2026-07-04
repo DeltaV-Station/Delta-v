@@ -69,8 +69,8 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Ammonia # DeltaV - was FluorosulfuricAcid
-        Quantity: 650
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -533,7 +533,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Ammonia # DeltaV - Was FluorosulfuricAcid
+      - ReagentId: FluorosulfuricAcid
         Quantity: 300
   - type: MeleeWeapon
     altDisarm: false

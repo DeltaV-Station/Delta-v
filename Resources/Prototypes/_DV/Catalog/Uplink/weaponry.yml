@@ -89,3 +89,17 @@
     Telecrystal: 6
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkLeverAction
+  name: uplink-leveraction-name
+  description: uplink-leveraction-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Rifles/skl93.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  productEntity: BriefcaseSyndieSKL93BundleFilled
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry

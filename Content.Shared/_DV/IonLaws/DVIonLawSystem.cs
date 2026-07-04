@@ -9,7 +9,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared._DV.IonLaws;
 
-public sealed class IonLawSystem : EntitySystem
+public sealed class DVIonLawSystem : EntitySystem
 {
     [Dependency] private readonly ILocalizationManager _localization = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;

@@ -1,415 +1,4 @@
 ﻿Entries:
-- author: PureBreadBagel
-  changes:
-  - message: New players rejoice! The guidebooks got some love! Starting with 'Medical
-      Doctor', it has been completely rewritten!
-    type: Add
-  - message: Psionics entry now has extra information on how to track Glimmer!
-    type: Add
-  - message: Highlighted some important text in some entries.
-    type: Add
-  - message: Added some extra information regarding some traits in the "Creating Characters"
-      entry.
-    type: Tweak
-  - message: Cloning now states that those with the unrevivable trait are uncloneable,
-      along with some rewording.
-    type: Tweak
-  - message: The "Surgery" entry now contains information about cleaning surgical
-      tools.
-    type: Add
-  - message: Added Umbroxol and Holy water to the Specialty medications in the Medicine
-      entry.
-    type: Add
-  - message: Organ Manipulation now has better information about how to get limbs.
-    type: Tweak
-  - message: Removed mentions about golemancy in the guidebook.
-    type: Remove
-  - message: Part Manipulation now contains information regarding the exosuit fabricator
-      and IPC heads and torsos.
-    type: Tweak
-  - message: Fixed the Cultist Deconversion entry. The entry should no longer state
-      that the Ardent Censer uses Holy Water; instead, it should specify Mindbreaker
-      Toxin, along with a recipe.
-    type: Fix
-  - message: Anomalous Research mentions about anomalies that hijack hosts. (Anomalies
-      can move when its attached to someone!)
-    type: Tweak
-  - message: The Justice entry in Jobs now links to the Hearings section of the guidebook.
-      And removed the outdated trial procedure.
-    type: Fix
-  - message: Fixed the Command role names. Quarter Master and Research Director should
-      now be MystaGouge and Logistics Officer.
-    type: Fix
-  - message: And more!
-    type: Add
-  id: 1987
-  time: '2025-12-28T18:51:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5004
-- author: PureBreadBagel
-  changes:
-  - message: Removed mentions of taser ingame.
-    type: Remove
-  id: 1988
-  time: '2025-12-29T16:24:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5045
-- author: ShepardToTheStars
-  changes:
-  - message: September and October's upstream changes have been merged in!
-    type: Add
-  - message: The Station AI can now be destroyed, rebooted, and rebuilt.
-    type: Add
-  - message: Bullet speeds are roughly 50% faster.
-    type: Tweak
-  - message: The anomaly scanner has received an upgrade, showing some information
-      without opening the UI.
-    type: Add
-  - message: Added new reagent for artifact researching - artifact glue! Use it on
-      the artefact with active node for repair its durability.
-    type: Add
-  - message: Cryoxadone now once again heals brute, burns, toxins, and airloss, but
-      only on the living.
-    type: Tweak
-  - message: A new cryo chem, arcryox, has been added.
-    type: Add
-  - message: Added Jet Injectors, an hypodermic alternative to Syringes!
-    type: Add
-  - message: Trinoxadone has been removed with the addition of Arcryox.
-    type: Remove
-  - message: Moved desoxyephedrine from ambrosia plants to glasstle.
-    type: Tweak
-  - message: The hypopen now requires a short delay before being filled.
-    type: Tweak
-  - message: Nocturine now causes sleep after a 6 second delay.
-    type: Tweak
-  - message: Nocturine now slows the target down, with a longer duration and shorter
-      delay before activating.
-    type: Tweak
-  - message: Slimes can now metabolize their own slime to restore their blood level.
-    type: Add
-  - message: Changed the recipe for licoxide to require lithium instead of lead.
-    type: Tweak
-  - message: Slime is no longer effective at satiating hunger when metabolized by
-      a Slime.
-    type: Tweak
-  - message: Added a page in the guidebook listing AI and silicon lawsets.
-    type: Add
-  - message: The Paladin AI lawset has been rewritten.
-    type: Tweak
-  - message: Added a new generic Artistry borg module!
-    type: Add
-  - message: Explosive cord and detonators have been added for precise demolition!
-    type: Add
-  - message: Tasers, a short-ranged gun capable of causing targets to become prone,
-      are now added into Warden, HoS, and Security locker fills.
-    type: Add
-  - message: Heads' lockers have been cleaned out and organized better. Heads' clothes
-      have been moved to their dressers.
-    type: Tweak
-  - message: Basic tools and machine parts can be fabricated at any techfab now. No
-      more hunting for a wrench!
-    type: Tweak
-  - message: Devices with access restrictions now list those restrictions when examined.
-    type: Add
-  - message: Wearing a diagnostic HUD will reveal if a door's or device's access restrictions
-      have been modified and in what way
-    type: Add
-  - message: Now doors play an animation while being emagged.
-    type: Fix
-  - message: Grenade penguins have new AI. They won't bite your hand while holding
-      them, and hone in on a single target when released.
-    type: Tweak
-  - message: Masks with flash, eye, and damage protection will correctly no longer
-      provide that protection while they are pulled down.
-    type: Fix
-  - message: Syndicate IDs can be bought in the uplink for 1 TC,
-    type: Add
-  - message: Inflatable walls and airlocks now actually take Delta-Pressure damage.
-    type: Fix
-  - message: Added new Vox sounds. (Death gasp, Cough, Cry, Gasp, and Sigh)
-    type: Add
-  - message: Microwaves can now be picked up when unwrenched, and optionally, used
-      as a weapon.
-    type: Tweak
-  - message: Space Dragon and Carp are more heat resistant. Carp no longer take fire
-      damage.
-    type: Tweak
-  - message: You can now attach paper labels to wrapped parcels.
-    type: Add
-  - message: Cockroaches have a chance to gib when stepped on.
-    type: Add
-  - message: Tennis balls! Found in arcade machines, maintenance and the cargo toy
-      crate!
-    type: Add
-  - message: Explosions now scale properly with reagent quantity
-    type: Fix
-  - message: Wall fuel dispensers now explode when ignited with a welding tool, similar
-      to fuel tanks.
-    type: Tweak
-  - message: Chameleon clothing made of Cloth can now be eaten by Moths.
-    type: Tweak
-  - message: Gravity Generators can no longer be unanchored while they are active.
-    type: Fix
-  - message: And so much more! Check out the PR for details!
-    type: Add
-  id: 1989
-  time: '2025-12-29T21:03:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4962
-- author: ShepardToTheStars
-  changes:
-  - message: September and October's upstream changes have been merged in!
-    type: Add
-  - message: The Station AI can now be destroyed, rebooted, and rebuilt.
-    type: Add
-  - message: Bullet speeds are roughly 50% faster.
-    type: Tweak
-  - message: The anomaly scanner has received an upgrade, showing some information
-      without opening the UI.
-    type: Add
-  - message: Added new reagent for artifact researching - artifact glue! Use it on
-      the artefact with active node for repair its durability.
-    type: Add
-  - message: Cryoxadone now once again heals brute, burns, toxins, and airloss, but
-      only on the living.
-    type: Tweak
-  - message: A new cryo chem, arcryox, has been added.
-    type: Add
-  - message: Added Jet Injectors, an hypodermic alternative to Syringes!
-    type: Add
-  - message: Trinoxadone has been removed with the addition of Arcryox.
-    type: Remove
-  - message: Moved desoxyephedrine from ambrosia plants to glasstle.
-    type: Tweak
-  - message: The hypopen now requires a short delay before being filled.
-    type: Tweak
-  - message: Nocturine now causes sleep after a 6 second delay.
-    type: Tweak
-  - message: Nocturine now slows the target down, with a longer duration and shorter
-      delay before activating.
-    type: Tweak
-  - message: Slimes can now metabolize their own slime to restore their blood level.
-    type: Add
-  - message: Changed the recipe for licoxide to require lithium instead of lead.
-    type: Tweak
-  - message: Slime is no longer effective at satiating hunger when metabolized by
-      a Slime.
-    type: Tweak
-  - message: Added a page in the guidebook listing AI and silicon lawsets.
-    type: Add
-  - message: The Paladin AI lawset has been rewritten.
-    type: Tweak
-  - message: Added a new generic Artistry borg module!
-    type: Add
-  - message: Explosive cord and detonators have been added for precise demolition!
-    type: Add
-  - message: Tasers, a short-ranged gun capable of causing targets to become prone,
-      are now added into Warden, HoS, and Security locker fills.
-    type: Add
-  - message: Heads' lockers have been cleaned out and organized better. Heads' clothes
-      have been moved to their dressers.
-    type: Tweak
-  - message: Basic tools and machine parts can be fabricated at any techfab now. No
-      more hunting for a wrench!
-    type: Tweak
-  - message: Devices with access restrictions now list those restrictions when examined.
-    type: Add
-  - message: Wearing a diagnostic HUD will reveal if a door's or device's access restrictions
-      have been modified and in what way
-    type: Add
-  - message: Now doors play an animation while being emagged.
-    type: Fix
-  - message: Grenade penguins have new AI. They won't bite your hand while holding
-      them, and hone in on a single target when released.
-    type: Tweak
-  - message: Masks with flash, eye, and damage protection will correctly no longer
-      provide that protection while they are pulled down.
-    type: Fix
-  - message: Syndicate IDs can be bought in the uplink for 1 TC,
-    type: Add
-  - message: Inflatable walls and airlocks now actually take Delta-Pressure damage.
-    type: Fix
-  - message: Added new Vox sounds. (Death gasp, Cough, Cry, Gasp, and Sigh)
-    type: Add
-  - message: Microwaves can now be picked up when unwrenched, and optionally, used
-      as a weapon.
-    type: Tweak
-  - message: Space Dragon and Carp are more heat resistant. Carp no longer take fire
-      damage.
-    type: Tweak
-  - message: You can now attach paper labels to wrapped parcels.
-    type: Add
-  - message: Cockroaches have a chance to gib when stepped on.
-    type: Add
-  - message: Tennis balls! Found in arcade machines, maintenance and the cargo toy
-      crate!
-    type: Add
-  - message: Explosions now scale properly with reagent quantity
-    type: Fix
-  - message: Wall fuel dispensers now explode when ignited with a welding tool, similar
-      to fuel tanks.
-    type: Tweak
-  - message: Chameleon clothing made of Cloth can now be eaten by Moths.
-    type: Tweak
-  - message: Gravity Generators can no longer be unanchored while they are active.
-    type: Fix
-  - message: And so much more! Check out the PR for details!
-    type: Add
-  id: 1990
-  time: '2025-03-24T21:14:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4962
-- author: PureBreadBagel
-  changes:
-  - message: Fixed the bartender parser error for the guidebook!
-    type: Fix
-  id: 1991
-  time: '2025-12-30T02:01:47.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5058
-- author: Toby222
-  changes:
-  - message: Prescription huds work like their non-prescription counter-parts now
-    type: Fix
-  id: 1992
-  time: '2025-12-30T12:57:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5067
-- author: Velcroboy
-  changes:
-  - message: Fixed curtains colliding with lockers and other structures.
-    type: Fix
-  id: 1993
-  time: '2025-12-30T13:24:03.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5053
-- author: ShepardToTheStars
-  changes:
-  - message: Added missing tools to medical and security techfabs.
-    type: Fix
-  - message: Jugs are once again as big as a felinid.
-    type: Fix
-  - message: Mantles no longer have a time requirement to be chosen as part of your
-      loadout.
-    type: Fix
-  - message: The oracle can no longer be eaten.
-    type: Fix
-  - message: IPCs can be wrapped up in parcel paper now, just like everyone else.
-    type: Fix
-  - message: Batteries (hopefully) should not run into any more NaN% issues when the
-      battery gets fully drained.
-    type: Fix
-  - message: Netinadone once again works.
-    type: Fix
-  id: 1994
-  time: '2025-12-30T16:28:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5066
-- author: Toby222
-  changes:
-  - message: Fixed the NanoChat Number Lookup UI
-    type: Fix
-  id: 1995
-  time: '2025-12-30T16:31:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5065
-- author: Toby222
-  changes:
-  - message: The grinder no longer produces infinite resources
-    type: Fix
-  id: 1996
-  time: '2025-12-30T17:39:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5080
-- author: dge21
-  changes:
-  - message: TEST MERGE - locked weapon crates can be smashed open without it's contents
-      acidifying again
-    type: Tweak
-  id: 1997
-  time: '2025-12-31T18:22:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5050
-- author: MantasDab360
-  changes:
-  - message: The LO, MG, archivist and assistant plushies now have the correct DeltaV
-      job title
-    type: Tweak
-  id: 1998
-  time: '2025-12-31T18:27:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5088
-- author: Halo3moth
-  changes:
-  - message: The Warden's energy shotgun has regained its self-charging ability once
-      again.
-    type: Tweak
-  id: 1999
-  time: '2025-12-31T18:33:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5070
-- author: Dorragon
-  changes:
-  - message: Vent xenonids are now more likely to be of higher tiers
-    type: Tweak
-  id: 2000
-  time: '2025-12-31T18:36:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5008
-- author: EmberAstra
-  changes:
-  - message: Fixed the exposed harpy wings in salvage's hardsuits.
-    type: Fix
-  id: 2001
-  time: '2025-12-31T18:37:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5032
-- author: SubspaceEmber
-  changes:
-  - message: Added vox specific sprites for all security hardsuits, elite ERT hardsuits,
-      and the mystagouge hardsuit.
-    type: Add
-  id: 2002
-  time: '2025-12-31T18:37:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5086
-- author: MantasDab360
-  changes:
-  - message: Cyborgs and Xenoborgs can now do a rare scream.
-    type: Tweak
-  id: 2003
-  time: '2025-12-31T18:38:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5035
-- author: verybigman311
-  changes:
-  - message: Frag rounds for the China Lake are now kinder to explosion-resistant
-      hardsuits.
-    type: Tweak
-  id: 2004
-  time: '2025-12-31T19:03:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5002
-- author: Coryler
-  changes:
-  - message: Add Blood Red Super Synth for Juke Ops
-    type: Add
-  id: 2005
-  time: '2025-12-31T20:11:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5019
-- author: Apachit0
-  changes:
-  - message: Ported Starlight's Improvised Crafting of Various Things
-    type: Add
-  id: 2006
-  time: '2025-12-31T20:08:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4984
-- author: SirWarock
-  changes:
-  - message: Jetpacks now automatically turn on when leaving a grid, if you have toggled
-      them on!
-    type: Tweak
-  id: 2007
-  time: '2025-12-31T20:18:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4990
-- author: BunglesnortBoss
-  changes:
-  - message: GalPol has funded NT's R&D team to make a detective module for cyborgs!
-    type: Add
-  - message: Added Security Cyborg PDA. Available to Sec Borgs round start in their
-      mods.
-    type: Add
-  - message: New NT Security Cyborgs can take a bit more hits! Increased health from
-      80 to 100. Finally a good egg.
-    type: Tweak
-  - message: New NT Security Cyborgs can fit a extra module!
-    type: Tweak
-  id: 2008
-  time: '2025-12-31T21:53:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5005
 - author: ShepardToTheStars
   changes:
   - message: Cryox no longer works on the dead.
@@ -4518,4 +4107,208 @@
   id: 2487
   time: '2026-06-30T19:25:16.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6170
+- author: ManuDemoen
+  changes:
+  - message: Can now add smaller cartons to the booze and soda dispenser
+    type: Tweak
+  - message: Removed a double fail message when putting something that doesn't belong
+      in a dispenser
+    type: Fix
+  id: 2488
+  time: '2026-07-01T03:34:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6123
+- author: rebe83
+  changes:
+  - message: Syndicate uplinks briefly had briefcases which did not come with ammo.
+      Dufflebag bundles with ammo have been restored.
+    type: Fix
+  id: 2489
+  time: '2026-07-01T04:16:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6158
+- author: sowelipililimute
+  changes:
+  - message: Crawling into specific atmospheric devices no longer causes all players
+      to freeze.
+    type: Fix
+  id: 2490
+  time: '2026-07-01T17:41:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6149
+- author: Cepelinas1
+  changes:
+  - message: Removed Super Synthesizers from loadout trinkets. It's now a musician
+      only item, in instruments.
+    type: Remove
+  - message: Super Synthesizers are now craftable! Will require some makeshift instrument
+      tinkering and bluespace magic.
+    type: Add
+  id: 2491
+  time: '2026-07-01T20:10:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6087
+- author: EmberAstra
+  changes:
+  - message: Avali have blood again.
+    type: Fix
+  id: 2492
+  time: '2026-07-01T21:31:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6182
+- author: ArionGekkota
+  changes:
+  - message: Chitinid have blood again.
+    type: Fix
+  id: 2493
+  time: '2026-07-01T21:52:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6183
+- author: lunarcomets, Rinary1, Stxcking
+  changes:
+  - message: 'Port: Allow Cyborgs to Choose from a Selection of Chassis when Selecting
+      their Type!'
+    type: Add
+  id: 2494
+  time: '2026-07-01T22:49:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5712
+- author: ShepardToTheStars
+  changes:
+  - message: Xeno blood is once again Fluorosulfuric Acid. No more morgues filled
+      with uncleanable space cleaner.
+    type: Tweak
+  id: 2495
+  time: '2026-07-02T00:31:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6185
+- author: ArionGekkota
+  changes:
+  - message: Hitman's disguise kit now includes a full chameleon bag
+    type: Tweak
+  id: 2496
+  time: '2026-07-02T00:36:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6175
+- author: JohhnJJohn, Cepelinas1, DustScoundrel
+  changes:
+  - message: 'Goob port: Station Reports have been added to the round end summary!
+      Internal Affairs Agents can document their inspection results or other agent
+      activities on special papers for all crew to see post-shift.'
+    type: Add
+  id: 2497
+  time: '2026-07-02T10:28:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5997
+- author: sowelipililimute
+  changes:
+  - message: Ion laws now use the DeltaV format again.
+    type: Fix
+  id: 2498
+  time: '2026-07-02T12:34:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6188
+- author: Stxcking
+  changes:
+  - message: Syndicate implanters looks filled again!
+    type: Fix
+  id: 2499
+  time: '2026-07-02T12:38:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6191
+- author: CarolCuchara
+  changes:
+  - message: Rejuvenating a Colossus or Space Dragon will no longer crash the server!
+    type: Fix
+  - message: Reduced Colossus and Space Dragon blood amount to 400!
+    type: Tweak
+  id: 2500
+  time: '2026-07-02T16:32:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6047
+- author: weskified, ShepardToTheStars
+  changes:
+  - message: Fixed synthetic emotes for real this time.
+    type: Fix
+  - message: Non-synthetic characters can no longer make silicon noises.
+    type: Fix
+  id: 2501
+  time: '2026-07-02T17:10:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6136
+- author: sowelipililimute
+  changes:
+  - message: Skias can now ventcrawl.
+    type: Tweak
+  - message: Skias and Rat Kings prefer to spawn over vents.
+    type: Tweak
+  - message: Vent crawling now takes 0.5s and harder to interrupt.
+    type: Tweak
+  - message: Vent crawling now gives you a small pocket of air from the room you're
+      in if you enter unsafe pipes, such as scrubbers.
+    type: Tweak
+  id: 2502
+  time: '2026-07-02T23:59:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6179
+- author: pixelkingliam
+  changes:
+  - message: Two new lever actions rifles. The L93 and the SKL93
+    type: Add
+  - message: Cowboy crate. Costs 7600$ and contains 2 L93's, 2 Inspectors, 2 Cowbow
+      Hats, 4 boxes of ammo
+    type: Add
+  - message: The SKL93 can be purchased from the Syndicate Uplink, comes with a cowboy
+      hat and a spare box
+    type: Add
+  id: 2503
+  time: '2026-07-03T01:18:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6146
+- author: wesk
+  changes:
+  - message: Fixed spawncharacter command from not including character traits to the
+      spawned character.
+    type: Fix
+  id: 2504
+  time: '2026-07-03T01:33:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6124
+- author: BriBrooo
+  changes:
+  - message: Added the pharmacologist clothing
+    type: Add
+  - message: Added chemist's stamp (can be found in the chemical locker)
+    type: Add
+  - message: Added a prescription folder to the chemists' and psychologist's lockers
+    type: Add
+  - message: Modified the chemist's tie icon
+    type: Tweak
+  id: 2505
+  time: '2026-07-03T14:24:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6178
+- author: Stxcking
+  changes:
+  - message: FunkyChems now properly heal all brutes types if they should instead
+      of just healing blunt damage.
+    type: Fix
+  - message: FunkyChems now properly heal all air loss types if they should instead
+      of just healing asphyxiation damage.
+    type: Fix
+  - message: Skia now properly heals all brute types instead of only healing blunt
+      damage while in the dark.
+    type: Fix
+  id: 2506
+  time: '2026-07-03T14:42:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6196
+- author: Coryler
+  changes:
+  - message: RE Techdisk names
+    type: Fix
+  id: 2507
+  time: '2026-07-03T15:54:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6203
+- author: einknusprigestoast
+  changes:
+  - message: Added SRT Black and Epsilon spawners (Deathsquad replacement) and added
+      specialised equipment for them, including a new drug called Amnestizine (the
+      name says it all)
+    type: Add
+  - message: Removed DeathSquad
+    type: Remove
+  id: 2508
+  time: '2026-07-04T04:54:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6102
+- author: EmberAstra
+  changes:
+  - message: Tiny space raptors have infested the station! The Allulalo are here!
+    type: Add
+  - message: Small creatures can now be properly carried with just one hand.
+    type: Fix
+  id: 2509
+  time: '2026-07-04T07:28:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6172
 Order: 1
