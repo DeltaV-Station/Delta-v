@@ -1225,7 +1225,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
-    muzzleFlash: MuzzleFlashSentryLethal
+    muzzleFlash: MuzzleFlashSentryLethal # DeltaV - New Turret Sprites
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
@@ -1244,7 +1244,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
-    muzzleFlash: MuzzleFlashSentryDisable
+    muzzleFlash: MuzzleFlashSentryDisable # DeltaV - New Turret Sprites
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
