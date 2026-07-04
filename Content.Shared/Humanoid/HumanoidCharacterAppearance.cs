@@ -21,11 +21,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
     public Color SkinColor { get; set; } = Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
     [DataField]
-    public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings
-    {
-        get;
-        set;
-    } = new();
+    public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings { get; set; } = new();
 
     public HumanoidCharacterAppearance(
         Color eyeColor,
@@ -40,6 +36,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
     public HumanoidCharacterAppearance(HumanoidCharacterAppearance other) :
         this(other.EyeColor, other.SkinColor, new(other.Markings))
     {
+
     }
 
     public HumanoidCharacterAppearance WithEyeColor(Color newColor)
@@ -52,8 +49,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         return new(EyeColor, newColor, Markings);
     }
 
-    public HumanoidCharacterAppearance WithMarkings(
-        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> newMarkings)
+    public HumanoidCharacterAppearance WithMarkings(Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> newMarkings)
     {
         return new(EyeColor, SkinColor, newMarkings);
     }
@@ -91,6 +87,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
     {
         var random = IoCManager.Resolve<IRobustRandom>();
         var markingManager = IoCManager.Resolve<MarkingManager>();
+        // Delta V - Begin
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var speciesPrototype = protoMan.Index<SpeciesPrototype>(species);
 
@@ -164,22 +161,21 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                     .ToList();
             }
         }
+        // Delta V - End
 
         var newEyeColor = random.Pick(_realisticEyeColors);
 
-        var skinType = speciesPrototype.SkinColoration;
+        var skinType = speciesPrototype.SkinColoration; // Delta V
         var strategy = protoMan.Index(skinType).Strategy;
 
         var newSkinColor = strategy.InputType switch
         {
             SkinColorationStrategyInput.Unary => strategy.FromUnary(random.NextFloat(0f, 100f)),
-            SkinColorationStrategyInput.Color => strategy.ClosestSkinColor(new Color(random.NextFloat(1),
-                random.NextFloat(1),
-                random.NextFloat(1),
-                1)),
+            SkinColorationStrategyInput.Color => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
             _ => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
         };
 
+        // Delta V - Begin
         // Safety step. Most systems which called Random() also called this, and not doing so caused issues with markings.
         // In the future it could *maybe* be removed, but it's probably worth the extra CPU cycles to validate this info.
 
@@ -187,6 +183,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             new HumanoidCharacterAppearance(newEyeColor, newSkinColor, compiledMarkings),
             species,
             sex);
+        // Delta V - End
     }
 
     public static Color ClampColor(Color color)
@@ -194,9 +191,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         return new(color.RByte, color.GByte, color.BByte);
     }
 
-    public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance,
-        ProtoId<SpeciesPrototype> species,
-        Sex sex)
+    public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, ProtoId<SpeciesPrototype> species, Sex sex)
     {
         var eyeColor = ClampColor(appearance.EyeColor);
 
@@ -231,11 +226,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                 markingManager.EnsureValidColors(actualMarkings);
                 markingManager.EnsureValidGroupAndSex(actualMarkings, organData.Value.Group, sex);
                 markingManager.EnsureValidLayers(actualMarkings, organData.Value.Layers);
-                markingManager.EnsureValidLimits(actualMarkings,
-                    organData.Value.Group,
-                    organData.Value.Layers,
-                    skinColor,
-                    eyeColor);
+                markingManager.EnsureValidLimits(actualMarkings, organData.Value.Group, organData.Value.Layers, skinColor, eyeColor);
 
                 validatedMarkings[organ] = actualMarkings;
             }
@@ -249,10 +240,8 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
     public bool Equals(HumanoidCharacterAppearance? other)
     {
-        if (ReferenceEquals(null, other))
-            return false;
-        if (ReferenceEquals(this, other))
-            return true;
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
         return EyeColor.Equals(other.EyeColor) &&
                SkinColor.Equals(other.SkinColor) &&
                MarkingManager.MarkingsAreEqual(Markings, other.Markings);
