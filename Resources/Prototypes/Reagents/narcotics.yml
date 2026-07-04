@@ -32,8 +32,18 @@
 
       # Main effects
       - !type:MovementSpeedModifier
+        conditions: #imp
+        - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
+          type: [ Allulalo ]
+          inverted: true
         walkSpeedModifier: 1.20
         sprintSpeedModifier: 1.20
+      - !type:MovementSpeedModifier
+        conditions: #imp
+        - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
+          type: [ Allulalo ]
+        walkSpeedModifier: 1.10 # Delta V - Lowering these due to base modifier also being lower
+        sprintSpeedModifier: 1.10 # Delta V
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
         time: 3
@@ -88,8 +98,18 @@
       effects:
       # Main effects
       - !type:MovementSpeedModifier
+        conditions: #imp
+        - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
+          type: [Allulalo]
+          inverted: true
         walkSpeedModifier: 1.15
         sprintSpeedModifier: 1.15
+      - !type:MovementSpeedModifier #imp
+        conditions:
+        - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
+          type: [Allulalo]
+        walkSpeedModifier: 1.08 # Delta V - Lowering these due our base modifier also being lower
+        sprintSpeedModifier: 1.08 # Delta V
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 1
@@ -146,8 +166,18 @@
       effects:
       # Main effects
       - !type:MovementSpeedModifier
+        conditions: #imp
+        - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
+          type: [ Allulalo ]
+          inverted: true
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
+      - !type:MovementSpeedModifier #imp
+        conditions:
+        - !type:MetabolizerTypeCondition #imp # Delta V - changed to Nubody equivalent
+          type: [ Allulalo ]
+        walkSpeedModifier: 1.12 # Delta V - Lowering these due to base modifier also being lower
+        sprintSpeedModifier: 1.12 # Delta V
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
         time: 3
