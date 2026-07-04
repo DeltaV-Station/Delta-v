@@ -1,17 +1,67 @@
 - type: entity
-  id: SpawnPointMedicalBorg
+  id: SpawnPointGladiator
   parent: SpawnPointJobBase
-  name: medical cyborg
+  name: gladiator
   components:
   - type: SpawnPoint
-    job_id: MedicalBorg
+    job_id: Gladiator
   - type: Sprite
     layers:
-    - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: medical
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: medical_e
+      - state: green
+      - sprite: &job-rsi-dv _DV/Markers/jobs.rsi
+        state: gladiator
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+  - type: SpawnPoint
+    job_id: Prisoner
+  - type: Sprite
+    layers:
+      - state: green
+      - state: prisoner
+
+- type: entity
+  id: SpawnPointPrisonGuard
+  parent: SpawnPointJobBase
+  name: prison guard
+  components:
+  - type: SpawnPoint
+    job_id: PrisonGuard
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: *job-rsi-dv
+        state: prisonguard
+
+- type: entity
+  id: SpawnPointMartialArtist
+  parent: SpawnPointJobBase
+  name: martial artist
+  components:
+  - type: SpawnPoint
+    job_id: MartialArtist
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: *job-rsi-dv
+        state: martialartist
+
+- type: entity
+  id: SpawnPointForensicMantis
+  parent: SpawnPointJobBase
+  name: psionic mantis # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  components:
+  - type: SpawnPoint
+    job_id: ForensicMantis
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: *job-rsi-dv
+        state: psionicmantis
+
 
 - type: entity
   id: SpawnPointChiefJustice
@@ -23,7 +73,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: chiefjustice
 
 - type: entity
@@ -36,7 +86,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: clerk
 
 - type: entity
@@ -49,7 +99,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: prosecutor
 
 - type: entity
@@ -62,23 +112,8 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: courier
-
-- type: entity
-  id: SpawnPointSecurityBorg
-  parent: SpawnPointJobBase
-  name: security cyborg
-  components:
-  - type: SpawnPoint
-    job_id: SecurityBorg
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: _DV/Mobs/Silicon/chassis.rsi
-      state: security
-    - sprite: _DV/Mobs/Silicon/chassis.rsi
-      state: security_e
 
 - type: entity
   parent: SpawnPointJobBase
@@ -90,7 +125,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: roboticist
 
 - type: entity
@@ -103,7 +138,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: cargoassistant
 
 - type: entity
@@ -116,7 +151,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: surgeon
 
 - type: entity

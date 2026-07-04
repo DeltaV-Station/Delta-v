@@ -33,8 +33,8 @@
     - state: stripe_bottom
       color: &color-security-bottom "#262626"
     - sprite: *icon-rsi-dv
-      offset:
-      state: nyanoPrisonGuard
+      offset: *icon-offset
+      state: PrisonGuard
   - type: PresetIdCard
     job: PrisonGuard
 
@@ -42,7 +42,7 @@
   parent: IDCardStandard
   id: PrisonerJobIDCard # Not to be confused with genpop prisoner ids
   name: prisoner ID card
-  suffix: Job
+  suffix: DeltaV job
   components:
   - type: Sprite
     layers:
@@ -63,7 +63,7 @@
     - state: orange
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoGladiator
+      state: Gladiator
   - type: PresetIdCard
     job: Gladiator
 
@@ -83,7 +83,7 @@
       color: &color-supply-bottom "#5b4523"
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoMailCarrier
+      state: MailCarrier
   - type: PresetIdCard
     job: Courier
 
@@ -142,7 +142,7 @@
       color: &color-science-bottom "#652368"
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoMantis
+      state: PsionicMantis
   - type: PresetIdCard
     job: ForensicMantis
 
@@ -228,7 +228,7 @@
     - state: default
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoMartialArtist
+      state: MartialArtist
   - type: PresetIdCard
     job: MartialArtist
 
