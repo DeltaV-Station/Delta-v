@@ -11,10 +11,26 @@
       "name": "base"
     },
     {
-      "name": "stun"
+      "name": "stun",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
-      "name": "lethal"
+      "name": "lethal",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
       "name": "destroyed"
