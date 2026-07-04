@@ -1,6 +1,8 @@
 - type: entity
   id: ClothingBackpackDeathSquadFilledBase
   parent: ClothingBackpackDeathSquad
+  name: SRT backpack
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team.
   suffix: Base
   components:
   - type: EntityTableContainerFill
@@ -10,7 +12,7 @@
         - id: WelderExperimental
         - id: ToolDebug
         - id: Multitool
-        - id: SpeedLoaderMagnum
+        - id: BluespaceLifelineImplanter
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
@@ -22,6 +24,8 @@
 - type: entity
   id: ClothingBackpackDeathSquadFilledBlack
   parent: ClothingBackpackDeathSquad
+  name: SRT backpack
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team.
   suffix: Black
   components:
   - type: EntityTableContainerFill
@@ -31,7 +35,7 @@
         - id: WelderExperimental
         - id: ToolDebug
         - id: Multitool
-        - id: SpeedLoaderMagnum
+        - id: BluespaceLifelineImplanter
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
@@ -45,13 +49,19 @@
         - id: ExGrenade
         - id: ExGrenade
         - id: ExGrenade
-        - id: BoxC4
+        - id: SmokeGrenade
+        - id: SmokeGrenade
+        - id: SmokeGrenade
+        - id: SpeedLoaderMagnumUranium
+        - id: SpeedLoaderMagnumUranium
         - id: SpeedLoaderMagnumUranium
         - id: SpeedLoaderMagnumUranium
 
 - type: entity
   id: ClothingBackpackDeathSquadFilledEpsilon
   parent: ClothingBackpackDeathSquad
+  name: SRT backpack
+  description: A spacious backpack with lots of pockets, worn by members of the Special Response Team.
   suffix: Epsilon
   components:
   - type: EntityTableContainerFill
@@ -61,8 +71,8 @@
         - id: WelderExperimental
         - id: ToolDebug
         - id: Multitool
-        - id: SpeedLoaderMagnum
-        - id: SpeedLoaderMagnum
+        - id: SRTEpsilonInjector
+        - id: BluespaceLifelineImplanter
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
         - id: HandHeldMassScanner
