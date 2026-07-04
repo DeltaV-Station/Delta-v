@@ -34,7 +34,7 @@ public sealed partial class NodeCrawlerComponent : Component
     /// How long it takes to enter a node.
     /// </summary>
     [DataField]
-    public TimeSpan EnterDelay = TimeSpan.FromSeconds(1);
+    public TimeSpan EnterDelay = TimeSpan.FromSeconds(0.5f);
 }
 
 [Serializable, NetSerializable]

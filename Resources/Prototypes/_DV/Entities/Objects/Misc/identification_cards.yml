@@ -342,3 +342,23 @@
       state: SecurityK9Officer
   - type: PresetIdCard
     job: RoleK9Officer
+
+# SRT
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomIDCardSRT
+  name: SRT agent ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: stripe_top
+      color: *color-centcomm-top
+    - state: stripe_bottom
+      color: *color-centcomm-bottom
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: DeathSquad
+  - type: PresetIdCard
+    job: SRTAgent

@@ -518,3 +518,14 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/chemistry_senior.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/chemistry_senior.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtPharmacist
+  name: pharmacist jumpskirt
+  description: There's still some odd stains on this jumpskirt. Hm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/pharmacist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/pharmacist.rsi

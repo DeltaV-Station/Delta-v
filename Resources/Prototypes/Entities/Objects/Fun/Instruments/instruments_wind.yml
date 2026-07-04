@@ -49,7 +49,12 @@
     slots:
     - neck
   - type: ActivatableUI
-    inHandsOnly: false  
+    inHandsOnly: false
+  # Begin DeltaV additions
+  - type: Tag
+    tags:
+    - HarmonicaInstrument
+  # End DeltaV additions
 
 - type: entity
   parent: BaseWoodwindInstrument
