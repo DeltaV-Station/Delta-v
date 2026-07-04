@@ -93,10 +93,12 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
         ent.Comp.VisualState = state;
 
         // Toggle layer visibility
+        // BEGIN DeltaV - New Turret Sprites
         var isFullyDeployed = targetState == DeployableTurretState.Deployed || targetState == DeployableTurretState.Firing;
         _sprite.LayerSetVisible((ent.Owner, sprite), DeployableTurretVisuals.Weapon, isFullyDeployed);
 
         _sprite.LayerSetVisible((ent.Owner, sprite), PowerDeviceVisualLayers.Powered, HasAmmo(ent));
+        // END DeltaV
 
         // Change the visual state
         switch (targetState)
