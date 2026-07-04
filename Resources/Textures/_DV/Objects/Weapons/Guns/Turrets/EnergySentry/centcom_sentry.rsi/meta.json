@@ -1,92 +1,92 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Retextured by AppleSmithWorks (github) for Delta-V",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "base"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Retextured by AppleSmithWorks (github) for Delta-V",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "stun",
-      "delays": [
-        [
-          0.2,
-          0.2,
-          0.2,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "lethal",
-      "delays": [
-        [
-          0.2,
-          0.2,
-          0.2,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "destroyed"
-    },
-    {
-      "name": "support"
-    },
-    {
-      "name": "cover_closed"
-    },
-    {
-      "name": "cover_open"
-    },
-    {
-      "name": "cover_opening",
-      "delays": [
-        [
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07
-        ]
-      ]
-    },
-    {
-      "name": "cover_closing",
-      "delays": [
-        [
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07,
-          0.07
-        ]
-      ]
-    },
-    {
-      "name": "cover_light_on"
-    },
-    {
-      "name": "panel"
-    }
-  ]
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "stun",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "lethal",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "destroyed"
+        },
+        {
+            "name": "support"
+        },
+        {
+            "name": "cover_closed"
+        },
+        {
+            "name": "cover_open"
+        },
+        {
+            "name": "cover_opening",
+            "delays": [
+                [
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07
+                ]
+            ]
+        },
+        {
+            "name": "cover_closing",
+            "delays": [
+                [
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07
+                ]
+            ]
+        },
+        {
+            "name": "cover_light_on"
+        },
+        {
+            "name": "panel"
+        }
+    ]
 }
