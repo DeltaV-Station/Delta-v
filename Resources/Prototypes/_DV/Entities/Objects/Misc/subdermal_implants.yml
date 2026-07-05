@@ -152,3 +152,19 @@
       subdermalIdCard: !type:Container { }
   - type: SubdermalIdCard
     idCardProto: K9OfficerIDCard
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: UnrevivableImplantSyndicate
+  name: true death implant
+  description: There's no coming back from this once it's inside you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Unrevivable
+      cloneable: false
+      analyzable: false # We don't want to tip off that we're DAGD via health scans
+      reasonMessage: defibrillator-unrevivable-syndicate-implant

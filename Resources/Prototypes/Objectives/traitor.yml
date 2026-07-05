@@ -64,10 +64,15 @@
       - EscapeShuttleCondition
       - StealCondition
   - type: DieCondition
+  # BEGIN DelatV
   # The game turns into a massive suicide pact if enough of the traitors have it. Not fun for traitors or security!
   # Giving it a limit keeps the objective unique and interesting without being overdone.
-  - type: ObjectiveLimit # Delta-V
-    limit: 1 # Delta-V
+  - type: ObjectiveLimit
+    limit: 1
+  - type: StoreUnlocker 
+    listings: 
+    - UplinkUnrevivableImplanter # Allow DAGD to stay dead
+  # END DeltaV
 
 #- type: entity
 #  parent: [BaseTraitorObjective, BaseLivingObjective]

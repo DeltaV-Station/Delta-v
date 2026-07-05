@@ -54,3 +54,22 @@
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkUnrevivableImplanter
+  name: uplink-syndicate-unrevivable-implanter-name
+  description: uplink-syndicate-unrevivable-implanter-desc
+  icon: { sprite: /Textures/Effects/crayondecals.rsi, state: skull }
+  productEntity: UnrevivableImplanterSyndicate
+  cost:
+    Telecrystal: 0 # Free for DAGD players
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

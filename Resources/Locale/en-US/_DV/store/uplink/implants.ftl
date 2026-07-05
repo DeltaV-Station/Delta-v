@@ -9,5 +9,9 @@ uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of o
 
 uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Budget cuts have resulted in it NOT STORING High Value or storage items.
 
+uplink-syndicate-unrevivable-implanter-name = True Death Implanter
+uplink-syndicate-unrevivable-implanter-desc = An implanter containing syndicate nanites that are designed to rapidly decompose your organs and DNA post-mortem. Once you inject this, there will be absolutely no way to bring you back.
+
 nukeops-uplink-uplink-implanter-name = Nuclear Operative Uplink Implanter
 nukeops-uplink-uplink-implanter-desc = Stealthily order equipment without the need to carry an uplink. Swallow telecrystals to top up the uplink.
+
