@@ -20,14 +20,14 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
     {
     }
 
-    public void SetObjectives(Dictionary<string, List<ObjectiveData>> objectives)
+    public void SetObjectives(Dictionary<string, List<ObjectiveData>> data)
     {
-        _objectives = objectives;
+        _objectives = data;
         ObjectiveContainer.RemoveAllChildren();
         var index = 0;
-        foreach (var (issuer, objectives2) in objectives)
+        foreach (var (issuer, objectives) in data)
         {
-            foreach (var objective in objectives2)
+            foreach (var objective in objectives)
             {
                 var objectiveControl = new ObjectiveContainer(objective);
                 index++;
