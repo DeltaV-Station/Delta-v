@@ -14,4 +14,3 @@ uplink-syndicate-unrevivable-implanter-desc = An implanter containing syndicate 
 
 nukeops-uplink-uplink-implanter-name = Nuclear Operative Uplink Implanter
 nukeops-uplink-uplink-implanter-desc = Stealthily order equipment without the need to carry an uplink. Swallow telecrystals to top up the uplink.
-
