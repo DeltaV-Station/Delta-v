@@ -4,10 +4,15 @@
   name: space-law-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw.xml
   children:
+    - ProceduralDefense
     - SpaceLawCrimesReferences
 
 # Child Entry
 - type: guideEntry
+  id: ProceduralDefense
+  name: space-law-procedural-defense
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/ProceduralDefense.xml
+- type: guideEntry
   id: SpaceLawCrimesReferences
   name: space-law-criminal-reference-name
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CrimeReferences.xml
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/CrimeReferences.xml
