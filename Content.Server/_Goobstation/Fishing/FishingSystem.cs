@@ -78,7 +78,7 @@ public sealed class FishingSystem : SharedFishingSystem
         activeFishSpot.FishDifficulty = fishComp?.FishDifficulty ?? FishComponent.DefaultDifficulty;
 
         // Assign things that depend on the spot
-        var time = spotComp.FishDefaultTimer + _random.NextFloat(-spotComp.FishTimerVariety, spotComp.FishTimerVariety);
+        var time = spotComp.FishDefaultTimer + _random.NextFloat() * spotComp.FishTimerVariety - _random.NextFloat() * spotComp.FishTimerVariety;
         activeFishSpot.FishingStartTime = Timing.CurTime + TimeSpan.FromSeconds(time);
         activeFishSpot.AttachedFishingLure = ent;
 
@@ -161,7 +161,7 @@ public sealed class FishingSystem : SharedFishingSystem
         if (Timing.CurTime < fisher.Comp.NextStruggle)
             return;
 
-        fisher.Comp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(0.06f, 0.18f));
+        fisher.Comp.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(0.06f + _random.NextFloat() * 0.12f);
         fisher.Comp.TotalProgress -= activeSpotComp.FishDifficulty;
         Dirty(fisher);
     }

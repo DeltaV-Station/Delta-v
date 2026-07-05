@@ -74,6 +74,20 @@
   - NanolinkDeception
 
 #Surveillance
+
+- type: listing
+  id: NanolinkStationReportsPaper
+  name: nanolink-stationreportpaper-name
+  description: nanolink-stationreportpaper-desc
+  productEntity: NanoRepStationReport
+  icon:
+    entity: NanoRepStationReport
+  categories:
+  - NanolinkSurveillance
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpyCrewMonitor
   name: nanolink-spy-monitor-name

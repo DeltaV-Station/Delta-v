@@ -257,11 +257,11 @@
     Laugh:
       collection: MaleLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: VulpkaninSneeze
     Cough:
       collection: MaleCoughs
     Yawn:
-      collection: MaleYawn
+      collection: VulpkaninYawns
     Snore:
       collection: Snores
     Honk:
@@ -303,11 +303,11 @@
     Laugh:
       collection: FemaleLaugh
     Sneeze:
-      collection: FemaleSneezes
+      collection: VulpkaninSneeze
     Cough:
       collection: FemaleCoughs
     Yawn:
-      collection: FemaleYawn
+      collection: VulpkaninYawns
     Snore:
       collection: Snores
     Honk:
@@ -734,3 +734,19 @@
   sounds:
     Mew:
       collection: FelinidMews
+
+- type: emoteSounds
+  id: SyntheticEmoteSounds
+  params:
+    variation: 0.05
+  sounds:
+    Beep:
+      path: /Audio/Machines/twobeep.ogg
+    Chime:
+      path: /Audio/Machines/chime.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Buzz:
+      path: /Audio/Machines/buzz-sigh.ogg
+    Ping:
+      path: /Audio/Effects/Cargo/ping.ogg

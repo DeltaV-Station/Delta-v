@@ -1,12 +1,12 @@
-- type: construction
-  name: crafting-menu-name-FDB
-  id: WeaponShotgunForged
-  graph: ForgedShotgunGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FDB
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-FDB
+#  id: WeaponShotgunForged
+#  graph: ForgedShotgunGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FDB
 
 - type: construction
   name: crafting-menu-name-IP
@@ -18,15 +18,15 @@
   objectType: Item
   description: crafting-menu-text-IP
 
-- type: construction
-  name: crafting-menu-name-FP
-  id: WeaponPistolForged
-  graph: ForgedPistolGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FP
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-FP
+#  id: WeaponPistolForged
+#  graph: ForgedPistolGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FP
 
 - type: construction
   name: crafting-menu-name-IPB
@@ -58,15 +58,15 @@
   objectType: Item
   description: crafting-menu-text-IR
 
-- type: construction
-  name: crafting-menu-name-FR
-  id: WeaponRevolverForged
-  graph: ForgedRevolverGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FR
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-FR
+#  id: WeaponRevolverForged
+#  graph: ForgedRevolverGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FR
 
 - type: construction
   name: crafting-menu-name-IMB
@@ -98,25 +98,27 @@
   objectType: Item
   description: crafting-menu-text-MB
 
-- type: construction
-  name: crafting-menu-name-IS
-  id: WeaponSubMachineGunImprovised
-  graph: ImprovisedSMGGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IS
+# Begin DeltaV removal - made it uncraftable
+#- type: construction
+#  name: crafting-menu-name-IS
+#  id: WeaponSubMachineGunImprovised
+#  graph: ImprovisedSMGGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IS
 
-- type: construction
-  name: crafting-menu-name-FS
-  id: WeaponSubMachineGunForged
-  graph: ForgedSMGGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FS
+#- type: construction
+#  name: crafting-menu-name-FS
+#  id: WeaponSubMachineGunForged
+#  graph: ForgedSMGGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FS
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-ISM
@@ -138,15 +140,15 @@
   objectType: Item
   description: crafting-menu-text-IRR
 
-- type: construction
-  name: crafting-menu-name-FRR
-  id: WeaponSniperForged
-  graph: ForgedSniperGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FRR
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-FRR
+#  id: WeaponSniperForged
+#  graph: ForgedSniperGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FRR
 
 - type: construction
   name: crafting-menu-name-IRB
@@ -278,15 +280,15 @@
   objectType: Item
   description: crafting-menu-text-IO
 
-- type: construction
-  name: crafting-menu-name-FO
-  id: OmnitoolForged
-  graph: ForgedOmnitoolGraph
-  startNode: start
-  targetNode: tool
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-FO
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-FO
+#  id: OmnitoolForged
+#  graph: ForgedOmnitoolGraph
+#  startNode: start
+#  targetNode: tool
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-FO
 
 - type: construction
   name: crafting-menu-name-WH
@@ -348,15 +350,15 @@
   objectType: Item
   description: crafting-menu-text-ISW
 
-- type: construction
-  name: crafting-menu-name-FSW
-  id: SwordForged
-  graph: SwordForgedGraph
-  startNode: start
-  targetNode: sword
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FSW
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-FSW
+#  id: SwordForged
+#  graph: SwordForgedGraph
+#  startNode: start
+#  targetNode: sword
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FSW
 
 - type: construction
   name: crafting-menu-name-DSW
@@ -368,15 +370,15 @@
   objectType: Item
   description: crafting-menu-text-DSW
 
-- type: construction
-  name: crafting-menu-name-TSW
-  id: ClaymoreForged
-  graph: ClaymoreForgedGraph
-  startNode: start
-  targetNode: sword
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-TSW
+#- type: construction # DeltaV - made it uncraftable
+#  name: crafting-menu-name-TSW
+#  id: ClaymoreForged
+#  graph: ClaymoreForgedGraph
+# startNode: start
+#  targetNode: sword
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-TSW
 
 - type: construction
   name: crafting-menu-name-ISH
@@ -388,45 +390,47 @@
   objectType: Item
   description: crafting-menu-text-ISH
 
-- type: construction
-  name: crafting-menu-name-FSH
-  id: ForgedShieldBuckler
-  graph: ForgedShieldBucklerGraph
-  startNode: start
-  targetNode: shield
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FSH
+# Begin DeltaV removal - made it uncraftable
+#- type: construction
+#  name: crafting-menu-name-FSH
+#  id: ForgedShieldBuckler
+#  graph: ForgedShieldBucklerGraph
+#  startNode: start
+#  targetNode: shield
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FSH
 
-- type: construction
-  name: crafting-menu-name-FSHT
-  id: ForgedShieldTower
-  graph: ForgedShieldTowerGraph
-  startNode: start
-  targetNode: shield
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-FSHT
+#- type: construction
+#  name: crafting-menu-name-FSHT
+#  id: ForgedShieldTower
+#  graph: ForgedShieldTowerGraph
+#  startNode: start
+#  targetNode: shield
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-FSHT
 
-- type: construction
-  name: crafting-menu-name-PSH
-  id: PaladinShield
-  graph: PaladinShieldGraph
-  startNode: start
-  targetNode: shield
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-PSH
+#- type: construction
+#  name: crafting-menu-name-PSH
+#  id: PaladinShield
+#  graph: PaladinShieldGraph
+#  startNode: start
+#  targetNode: shield
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-PSH
 
-- type: construction
-  name: crafting-menu-name-PSHG
-  id: PaladinShieldGreat
-  graph: PaladinShieldGreatGraph
-  startNode: start
-  targetNode: shield
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-PSHG
+#- type: construction
+#  name: crafting-menu-name-PSHG
+#  id: PaladinShieldGreat
+#  graph: PaladinShieldGreatGraph
+#  startNode: start
+#  targetNode: shield
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-PSHG
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-MVT
@@ -448,25 +452,27 @@
   objectType: Item
   description: crafting-menu-text-IVT
 
-- type: construction
-  name: crafting-menu-name-FVT
-  id: ClothingOuterArmorForged
-  graph: ClothingOuterArmorForgedGraph
-  startNode: start
-  targetNode: vest
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-FVT
+# Begin DeltaV removal - made it uncraftable
+#- type: construction
+#  name: crafting-menu-name-FVT
+#  id: ClothingOuterArmorForged
+#  graph: ClothingOuterArmorForgedGraph
+#  startNode: start
+#  targetNode: vest
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-FVT
 
-- type: construction
-  name: crafting-menu-name-PVT
-  id: ClothingOuterArmorPaladin
-  graph: ClothingOuterArmorPaladinGraph
-  startNode: start
-  targetNode: vest
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-PVT
+#- type: construction
+#  name: crafting-menu-name-PVT
+#  id: ClothingOuterArmorPaladin
+#  graph: ClothingOuterArmorPaladinGraph
+#  startNode: start
+#  targetNode: vest
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-PVT
+# End DeltaV removal
 
 - type: construction
   name: crafting-menu-name-MVTH
@@ -488,22 +494,34 @@
   objectType: Item
   description: crafting-menu-text-IVTH
 
-- type: construction
-  name: crafting-menu-name-FVTH
-  id: ClothingHeadHelmetForged
-  graph: ClothingHeadHelmetForgedGraph
-  startNode: start
-  targetNode: helmet
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-FVTH
+# Begin DeltaV removal - made it uncraftable
+#- type: construction
+#  name: crafting-menu-name-FVTH
+#  id: ClothingHeadHelmetForged
+#  graph: ClothingHeadHelmetForgedGraph
+#  startNode: start
+#  targetNode: helmet
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-FVTH
+
+#- type: construction
+#  name: crafting-menu-name-PVTH
+#  id: ClothingHeadHelmetPaladin
+#  graph: ClothingHeadHelmetPaladinGraph
+#  startNode: start
+#  targetNode: helmet
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-PVTH
+# End DeltaV removal
 
 - type: construction
-  name: crafting-menu-name-PVTH
-  id: ClothingHeadHelmetPaladin
-  graph: ClothingHeadHelmetPaladinGraph
+  name: crafting-menu-name-IRS
+  id: SpeedLoaderMagnumLeverImprovised
+  graph: SpeedLoaderMagnumLeverImprovisedGraph
   startNode: start
-  targetNode: helmet
-  category: construction-category-clothing
+  targetNode: shell
+  category: construction-category-weapons
   objectType: Item
-  description: crafting-menu-text-PVTH
+  description: crafting-menu-text-IRS

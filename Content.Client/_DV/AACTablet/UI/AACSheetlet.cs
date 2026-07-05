@@ -12,6 +12,19 @@ namespace Content.Client._DV.AACTablet.UI;
 [CommonSheetlet]
 public sealed class AACSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet, IButtonConfig
 {
+    private static readonly (string StyleClass, Color Normal, Color Hover)[] SubjectButtonColors =
+    [
+        // Department colors
+        ("CommandButton", Color.FromHex("#404A58"), Color.FromHex("#4F587B")),
+        ("EngineeringButton", Color.FromHex("#77684B"), Color.FromHex("#776D71")),
+        ("EpistemicsButton", Color.FromHex("#6F5973"), Color.FromHex("#71638E")),
+        ("JusticeButton", Color.FromHex("#4F3D4C"), Color.FromHex("#5C4B5A")),
+        ("LogisticsButton", Color.FromHex("#61503A"), Color.FromHex("#675C64")),
+        ("MedicalButton", Color.FromHex("#49687D"), Color.FromHex("#556E95")),
+        ("SecurityButton", Color.FromHex("#724449"), Color.FromHex("#745370")),
+        ("ServiceButton", Color.FromHex("#607952"), Color.FromHex("#667A76")),
+    ];
+
     public override StyleRule[] GetRules(T sheet, object config)
     {
         // Create style boxes
@@ -81,6 +94,21 @@ public sealed class AACSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet, I
                 .Prop(Control.StylePropertyModulateSelf, Color.DarkRed),
         ]);
 
+        SubjectColorRules(rules);
+
         return rules.ToArray();
+    }
+    // AAC - Makes sure colors are applied to subject buttons
+    private static void SubjectColorRules(List<StyleRule> rules)
+    {
+        foreach (var (styleClass, normal, hover) in SubjectButtonColors)
+        {
+            rules.AddRange([
+                E<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(styleClass)
+                    .PseudoNormal().Prop(Control.StylePropertyModulateSelf, normal),
+                E<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(styleClass)
+                    .PseudoHovered().Prop(Control.StylePropertyModulateSelf, hover),
+            ]);
+        }
     }
 }

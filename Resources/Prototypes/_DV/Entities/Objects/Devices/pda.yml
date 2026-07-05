@@ -767,6 +767,15 @@
   - type: Pda
     id: RecruiterIDCard
 
+#hitman
+
+- type: entity
+  parent: PassengerPDA
+  id: HitmanPDA
+  components:
+  - type: Pda
+    id: HitmanIDCard
+
 # Secborglogprobe
 
 - type: entity
@@ -807,3 +816,17 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-interncentcomm
+
+# SRT
+
+- type: entity
+  parent: CentcomPDA
+  id: SRTPDA
+  name: SRT PDA
+  description: A light green PDA that smells of cold fusion.
+  components:
+  - type: Pda
+    id: CentcomIDCardSRT
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

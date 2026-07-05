@@ -138,6 +138,7 @@
     quickEquip: false
     slots:
     - Belt
+    - suitStorage # Delta V - to let you put in suit storage like every other gun
 
 - type: entity
   name: svalinn laser pistol
@@ -167,6 +168,7 @@
     tags:
     - Sidearm
     - LaserWeapon
+    - ConcealCarry # Delta V - allow storin em in boots
 
 - type: entity
   name: retro laser blaster
@@ -361,6 +363,7 @@
     tags:
     - Sidearm
     - LaserWeapon
+    - ConcealCarry #Delta V - allow storin em in boots
 
 - type: entity
   name: pulse carbine
@@ -426,15 +429,27 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2 # Delta-V - was 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 100
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+  # Begin DeltaV modifications - smaller battery and self recharge
+    maxCharge: 4000 # DeltaV -  was 40000
+    startingCharge: 4000 # DeltaV -  was 40000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 10
+  - type: EnergyGun
+    fireModes:
+    - proto: PulseRiflePlasmaProjectile
+      fireCost: 100
+      name: Plasma
+    - proto: Pulse
+      fireCost: 100
+      name: Pulse
+  # End DeltaV modifications
 
 - type: entity
   name: laser cannon
@@ -856,10 +871,9 @@
     price: 100
 
 - type: entity
-  name: experimental C.H.I.M.P. handcannon
   parent: [WeaponPistolCHIMP, BaseSyndicateContraband]
   id: WeaponPistolCHIMPUpgraded
-  description: This C.H.I.M.P. seems to have a greater punch than usual...
+  suffix: Syndicate
   components:
   - type: BatteryWeaponFireModes
     fireModes:
@@ -1048,6 +1062,14 @@
   parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: WeaponLaserGunXenoborg
   name: xenoborg laser gun
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/xenoborg_laser_gun.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-unshaded-4
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
 
 - type: entity
   parent: [WeaponLaserCannon, BaseXenoborgContraband]

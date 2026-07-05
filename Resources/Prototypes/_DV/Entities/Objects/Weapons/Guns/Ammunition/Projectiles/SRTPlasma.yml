@@ -1,0 +1,20 @@
+- type: entity
+  id: PulseRiflePlasmaProjectile
+  name: plasma projectile
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10
+        Heat: 25
+        Structural: 100
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    scale: 0.4, 0.4
+    layers:
+    - state: lightstun
+      shader: unshaded
+  - type: PointLight
+    color: "#00a6ff"

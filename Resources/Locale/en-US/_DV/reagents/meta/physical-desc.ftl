@@ -5,3 +5,4 @@ reagent-physical-desc-diluted = diluted
 reagent-physical-desc-bittersweet = bittersweet
 reagent-physical-desc-pure = pure
 reagent-physical-desc-clarifying = elucidating
+reagent-physical-desc-repairing = repairing
