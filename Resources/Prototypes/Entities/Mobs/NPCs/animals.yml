@@ -491,7 +491,7 @@
 
 - type: entity
   name: mothroach
-  parent: [ BaseMobMothroach, MobCockroach ]
+  parent: [ BaseMobMothroach, MobCockroach, DVNodeCrawler ] # DeltaV - vent crawling
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
