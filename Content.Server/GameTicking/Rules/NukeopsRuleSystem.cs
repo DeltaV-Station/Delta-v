@@ -62,6 +62,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         SubscribeLocalEvent<NukeOperativeComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<NukeOperativeComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<NukeOperativeComponent, EntityZombifiedEvent>(OnOperativeZombified);
+        SubscribeLocalEvent<NukeOperativeComponent, CuffedStateChangeEvent>(OnNukeOpCuffed); // DeltaV
 
         SubscribeLocalEvent<NukeopsRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
@@ -317,6 +318,15 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     {
         if (ev.NewMobState == MobState.Dead)
             CheckRoundShouldEnd();
+    }
+
+    /// <summary>
+    /// DeltaV - Check if the round should end if a nuke op is cuffed. CheckRoundShouldEnd checks if theres any more 
+    /// alive and non-cuffed nukies remaining.
+    /// </summary>
+    private void OnNukeOpCuffed(EntityUid uid, NukeOperativeComponent component, CuffedStateChangeEvent ev)
+    {
+        CheckRoundShouldEnd();
     }
 
     private void OnOperativeZombified(EntityUid uid, NukeOperativeComponent component, ref EntityZombifiedEvent args)

@@ -10,6 +10,7 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
+using Content.Server.StationEvents.Components; // DeltaV
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -259,8 +260,12 @@ public sealed class NukeOpsTest : GameTest
             // Delete the last nukie and make sure the round ends.
             entMan.DeleteEntity(nukies[^1]);
 
-            Assert.That(roundEndSys.IsRoundEndRequested,
-                "All nukies were deleted, but the round didn't end!");
+            // BEGIN DeltaV - We convert to survival, so only check if the round ended if its ShuttleCall
+            if (rule.Component.RoundEndBehavior == RoundEndBehavior.ShuttleCall)
+                Assert.That(roundEndSys.IsRoundEndRequested, "All nukies were deleted, but the round didn't end!");
+            if (rule.Component.RoundEndBehavior == RoundEndBehavior.BecomeSurvival)
+                Assert.That(ticker.IsGameRuleAdded<RampingStationEventSchedulerComponent>(), "All nukies were deleted, but the round wasn't converted to survival.");
+            // END DeltaV
         });
 
         ticker.SetGamePreset((GamePresetPrototype?) null);
