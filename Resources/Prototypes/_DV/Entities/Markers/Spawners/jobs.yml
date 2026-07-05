@@ -1,6 +1,6 @@
 - type: entity
-  id: SpawnPointGladiator
   parent: SpawnPointJobBase
+  id: SpawnPointGladiator
   name: gladiator
   components:
   - type: SpawnPoint
@@ -12,8 +12,8 @@
         state: gladiator
 
 - type: entity
-  id: SpawnPointPrisoner
   parent: SpawnPointJobBase
+  id: SpawnPointPrisoner
   name: prisoner
   components:
   - type: SpawnPoint
@@ -24,8 +24,8 @@
       - state: prisoner
 
 - type: entity
-  id: SpawnPointPrisonGuard
   parent: SpawnPointJobBase
+  id: SpawnPointPrisonGuard
   name: prison guard
   components:
   - type: SpawnPoint
@@ -37,8 +37,8 @@
         state: prisonguard
 
 - type: entity
-  id: SpawnPointMartialArtist
   parent: SpawnPointJobBase
+  id: SpawnPointMartialArtist
   name: martial artist
   components:
   - type: SpawnPoint
@@ -50,8 +50,8 @@
         state: martialartist
 
 - type: entity
-  id: SpawnPointForensicMantis
   parent: SpawnPointJobBase
+  id: SpawnPointForensicMantis
   name: psionic mantis # DeltaV - Rename Forensic Mantis to Psionic Mantis
   components:
   - type: SpawnPoint
@@ -64,8 +64,8 @@
 
 
 - type: entity
-  id: SpawnPointChiefJustice
   parent: SpawnPointJobBase
+  id: SpawnPointChiefJustice
   name: chiefjustice
   components:
   - type: SpawnPoint
@@ -77,8 +77,8 @@
       state: chiefjustice
 
 - type: entity
-  id: SpawnPointClerk
   parent: SpawnPointJobBase
+  id: SpawnPointClerk
   name: clerk
   components:
   - type: SpawnPoint
@@ -90,8 +90,8 @@
       state: clerk
 
 - type: entity
-  id: SpawnPointProsecutor
   parent: SpawnPointJobBase
+  id: SpawnPointProsecutor
   name: prosecutor
   components:
   - type: SpawnPoint
@@ -103,8 +103,8 @@
       state: prosecutor
 
 - type: entity
-  id: SpawnPointCourier
   parent: SpawnPointJobBase
+  id: SpawnPointCourier
   name: courier
   components:
   - type: SpawnPoint
@@ -155,8 +155,8 @@
       state: surgeon
 
 - type: entity
-  id: SpawnPointBoxer
   parent: SpawnPointJobBase
+  id: SpawnPointBoxer
   name: boxer
   components:
   - type: SpawnPoint
@@ -167,8 +167,8 @@
       - state: boxer
 
 - type: entity
-  id: SpawnPointZookeeper
   parent: SpawnPointJobBase
+  id: SpawnPointZookeeper
   name: zookeeper
   components:
   - type: SpawnPoint
