@@ -1,33 +1,4 @@
 ﻿Entries:
-- author: cmorley191
-  changes:
-  - message: Fixed some id cards that were unable to be changed in the ID Card Console
-    type: Fix
-  id: 2011
-  time: '2026-01-02T00:37:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5103
-- author: ShepardToTheStars
-  changes:
-  - message: Fixed teach a lesson objectives from only choosing heads of staff.
-    type: Fix
-  id: 2012
-  time: '2026-01-02T07:02:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4996
-- author: Coryler
-  changes:
-  - message: Remove Telegnosis having a two minute cooldown to return
-    type: Fix
-  id: 2013
-  time: '2026-01-02T19:00:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5013
-- author: EmberAstra
-  changes:
-  - message: added Engineering Void Suits! Lighter but less protected than the standard
-      model.
-    type: Add
-  id: 2014
-  time: '2026-01-02T23:54:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4944
 - author: Halo3moth
   changes:
   - message: Advanced plate carrier's heat, slash, and blunt resistance nerfed from
@@ -4312,4 +4283,37 @@
   id: 2511
   time: '2026-07-04T13:09:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6184
+- author: Proxysseia
+  changes:
+  - message: Clarified that destroying a borg is sabotage and not grand sabotage.
+    type: Tweak
+  id: 2512
+  time: '2026-07-04T16:16:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6204
+- author: Malfaltto
+  changes:
+  - message: Increased Harpy height slider caps in both directions to 0.85 to 1.35
+      respectively.
+    type: Tweak
+  id: 2513
+  time: '2026-07-04T16:30:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6174
+- author: ShepardToTheStars
+  changes:
+  - message: Zombified vent-crawling mobs now take 2 seconds to enter a vent (4x as
+      long as normal).
+    type: Tweak
+  id: 2514
+  time: '2026-07-05T03:08:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6215
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed a few issues with the new borg chassis showing the base uncolored
+      borg sprite.
+    type: Fix
+  - message: Borg job slots have been slightly adjusted on Glacier and Submarine.
+    type: Tweak
+  id: 2515
+  time: '2026-07-05T16:14:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6210
 Order: 1
