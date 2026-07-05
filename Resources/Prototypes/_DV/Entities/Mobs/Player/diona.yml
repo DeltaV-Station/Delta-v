@@ -172,3 +172,17 @@
     - DVDionaAssimilateAction
     - DVDionaGibAction
     - DVDionaReformAction
+
+
+- type: entity
+  id: DVDionaNymphDeferredSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - DVMobDionaNymph
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 2
