@@ -91,7 +91,7 @@
 # Security
 
 - type: entity
-  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterArmoredWinterCoat ]
   id: ClothingOuterCoatBomberSecurity
   name: security bomber jacket
   description: An armored, well-worn vintage leather bomber jacket brandishing Security flair. It features a Shield patch on the back.
@@ -136,6 +136,13 @@
     sprite: _DV/Clothing/OuterClothing/Coats/Bombers/syndi.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/Bombers/syndi.rsi
+  - type: Armor # Same as Cybersun Windbreaker but cold instead of heat
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Cold: 0.75
 
 - type: entity
   parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberSyndicate ]
@@ -152,17 +159,20 @@
     sprite: _DV/Clothing/OuterClothing/Coats/Bombers/cybersun.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/Bombers/cybersun.rsi
-    layers:
-    - state: unshaded
-      shader: unshaded
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: unshaded
+        shader: unshaded
+  - type: Armor # Same as Cybersun Windbreaker but cold instead of heat
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Cold: 0.75
 
 - type: entity
   parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberCybersun ]
   id: ClothingOuterCoatBomberCybersunOpened
   categories: [ HideSpawnMenu ]
-  components:
-  - type: Clothing
-    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/cybersun.rsi
-    layers:
-    - state: open-unshaded
-      shader: unshaded-open
