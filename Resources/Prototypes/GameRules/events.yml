@@ -269,7 +269,7 @@
       maxPicks: 2 # only pick 2 of 3 of them to reduce metagaming
     - groups: NinjaBonusObjectiveGroups
       maxPicks: 5 # 5 kill or steal objectives max
-    maxDifficulty: 400 # ignore difficulty, use maxPicks instead
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:
