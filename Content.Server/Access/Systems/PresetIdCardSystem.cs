@@ -86,8 +86,8 @@ public sealed class PresetIdCardSystem : EntitySystem
             _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 
-        // DeltaV: only set to the job's icon if the id doesn't specify one
-        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.TryIndex(job.Icon, out var jobIcon))
+
+        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.Resolve(job.Icon, out var jobIcon)) // DeltaV: only set to the job's icon if the id doesn't specify one
             _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }

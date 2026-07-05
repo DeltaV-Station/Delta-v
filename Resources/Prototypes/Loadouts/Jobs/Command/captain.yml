@@ -1,3 +1,13 @@
+# For mantles
+#- type: loadoutEffectGroup # DeltaV - No time requirement
+#  id: MasterCap
+#  effects: 
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobCaptain
+#      time: 20h
+
 # Jumpsuit
 - type: loadout
   id: CaptainJumpsuit

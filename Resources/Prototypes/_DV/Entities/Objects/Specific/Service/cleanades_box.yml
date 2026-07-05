@@ -7,10 +7,11 @@
   - type: Storage
     grid:
     - 0,0,4,3
-  - type: StorageFill
-    contents:
-    - id: GrenadeCleanade
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: GrenadeCleanade
+        amount: 10
   - type: Sprite
     layers:
     - state: box

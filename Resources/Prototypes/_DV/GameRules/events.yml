@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -16,6 +17,7 @@
     - id: MenaceSkeleton
     - id: SkiaSpawn
     - id: RatKingSpawn
+    - id: NTAgentSleeper
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -54,22 +56,22 @@
   - type: VentCrittersRule
     table: !type:GroupSelector
       children:
-      - id: MobXeno
-        weight: 0.55
+      - id: MobXenoPlayer
+        weight: 0.20
       - id: MobXenoRouny
         weight: 0.01
       - id: MobXenoDrone
-        weight: 0.25
+        weight: 0.35
       - id: MobXenoSpitter
-        weight: 0.05
+        weight: 0.14
       - id: MobXenoRunner
-        weight: 0.08
+        weight: 0.14
       - id: MobXenoPraetorian
-        weight: 0.03
+        weight: 0.08
       - id: MobXenoRavager
-        weight: 0.02
+        weight: 0.05
       - id: MobXenoQueen
-        weight: 0.01
+        weight: 0.03
 # Mothroaches
 - type: entity
   parent: BaseGameRule
@@ -121,6 +123,9 @@
       roleLoadout:
       - RoleSurvivalStandard
       components:
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
@@ -130,6 +135,10 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: IntrinsicRadioReceiver
+      - type: ActiveRadio
+        channels:
+        - Binary
       mindRoles:
       - MindRoleListeningPost
 # Malign Rifts
@@ -178,6 +187,8 @@
     weight: 5
     minimumPlayers: 20
     reoccurrenceDelay: 30
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing
@@ -217,6 +228,7 @@
         nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
@@ -264,6 +276,7 @@
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -331,6 +344,8 @@
     message: psionic-power-precognition-skia-result-message
   - type: AntagSpawner
     prototype: MobSkia
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagObjectives
     objectives:
     - SkiaReapObjective
@@ -348,3 +363,132 @@
           sound: /Audio/_DV/Effects/creepyshriek.ogg
         - type: BreakLightsOnSpawn
           radius: 10
+
+# nt agent (this is usually for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: NTAgentRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - NTAgentObjective
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: HitmanRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - HitmanEscapeShuttleObjective
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
+  - type: AntagSelection
+    agentName: hitman-round-end-agent-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      startingGear: HitmanGear
+      briefing:
+        text: hitman-role-greeting-human
+        color: yellow
+        sound: /Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg
+      mindRoles:
+      - MindRoleHitman
+      components:
+      - type: AutoImplant
+        implants:
+        - HitmanCardImplant
+
+
+# nt agent sleeper event
+- type: entity
+  id: NTAgentSleeper
+  parent: [NTAgentRule]
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 25
+    weight: 3
+    maxOccurrences: 1
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NTAgentObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - prefRoles: [ NTAgent ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      pickPlayer: true
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant
+
+# NT Pest Control via Pitbulls
+- type: entity
+  id: PitbullMigration
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-pitbull-start-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg
+    earliestStart: 1
+    minimumPlayers: 10
+    weight: 1
+    duration: 15
+  - type: PrecognitionResult
+    message: psionic-power-precognition-pitbull-spawn-result-message
+  - type: VentCrittersRule
+    min: 1           # @  10 Pop -> Spawns  6 mice, 1 pitbull
+    max: 1           # @  50 Pop -> Spawns 12 mice, 2 pitbulls
+    playerRatio: 25  # @ 100 Pop -> Spawns 24 mice, 4 pitbulls
+    table: !type:AllSelector
+      children:
+      - id: MobMouse # VentCrittersRule is coded in a way that it ignores ranges, so we duplicate entries to ensure more mice than dogs
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouse2
+      - id: MobPitbullVent

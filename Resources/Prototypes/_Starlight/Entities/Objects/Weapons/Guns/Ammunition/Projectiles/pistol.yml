@@ -1,0 +1,10 @@
+- type: entity
+  id: BulletPistolImprovised
+  name: bullet (.35 improvised)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12

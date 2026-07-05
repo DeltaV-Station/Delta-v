@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._DV.Silicon.IPC; // DeltaV
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
@@ -24,7 +23,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly InternalEncryptionKeySpawner _internalEncryption = default!; // DeltaV
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
@@ -75,7 +73,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             name = loadout.EntityName;
         }
 
-        if (string.IsNullOrEmpty(name) && PrototypeManager.TryIndex(roleProto.NameDataset, out var nameData))
+        if (string.IsNullOrEmpty(name) && PrototypeManager.Resolve(roleProto.NameDataset, out var nameData))
         {
             name = Loc.GetString(_random.Pick(nameData.Values));
         }
@@ -97,7 +95,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true)
     {
-        PrototypeManager.TryIndex(startingGear, out var gearProto);
+        PrototypeManager.Resolve(startingGear, out var gearProto);
         EquipStartingGear(entity, gearProto, raiseEvent);
     }
 
@@ -106,12 +104,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
     {
-        // Begin DeltaV Additions: Fix nukie IPCs not having comms
-        if (startingGear is not {} proto)
-            return;
-
-        _internalEncryption.TryInsertEncryptionKey(entity, proto);
-        // End DeltaV Additions
         EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent);
     }
 
@@ -206,7 +198,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             foreach (var items in group.Value)
             {
-                if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutPrototype))
+                if (!PrototypeManager.Resolve(items.Prototype, out var loadoutPrototype))
                     return null;
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);

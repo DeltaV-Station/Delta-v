@@ -20,7 +20,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    // [Dependency] private readonly SharedTransformSystem _transform = default!; // Delta V - Never used
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -150,7 +150,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         }
 
         _hands.DoPickup(user, hand, target, hands); // Force pickup - empty hands are not okay
-        _interaction.DoContactInteraction(user, target); // allow for forensics and other systems to work (why does hands system not do this???)
+        _interaction.DoContactInteraction(user, target, null, true); // allow for forensics and other systems to work (why does hands system not do this???) // Stellar - interaction particles
 
         SetPlaceholder(target, ent);
         SetEnabled(target, true);

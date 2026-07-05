@@ -118,6 +118,7 @@
         - SurveillanceCameraGeneral
         - SurveillanceCameraMedical
         - SurveillanceCameraCommand
+        - SurveillanceCameraAI #DeltaV
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -162,7 +163,7 @@
   parent: SurveillanceCameraBase
   id: SurveillanceCameraSupply
   name: camera
-  suffix: Supply
+  suffix: Logistics # DeltaV - Epistemics Department replacing Science
   components:
   - type: DeviceNetwork
     deviceNetId: Wired

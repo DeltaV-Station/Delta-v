@@ -9,23 +9,25 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
+using System.Collections.Generic;
 using System.Linq;
+using Content.IntegrationTests.Fixtures;
 
 namespace Content.IntegrationTests.Tests._DV;
 
 /// <summary>
 /// Checks that every mapped entity with <see cref="MappingCategoriesComponent"/> is allowed to be mapped.
 /// </summary>
-public sealed class MappingCategoryTest
+public sealed class MappingCategoryTest : GameTest
 {
     private const string MapsPath = "/Maps";
     // dev map doesn't matter and don't want to change it
-    private const string TestMapsPath = "/Maps/Test/";
+    private readonly List<string> _ignoredMapsPath = ["/Maps/Test/", "/Maps/Shuttles/AdminSpawn"];
 
     [Test]
     public async Task NonGameMapsLoadableTest()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var resMan = server.ResolveDependency<IResourceManager>();
@@ -39,15 +41,20 @@ public sealed class MappingCategoryTest
             Assert.Multiple(() =>
             {
                 var mapFolder = new ResPath(MapsPath);
-                foreach (var map in resMan.ContentFindFiles(mapFolder))
+                var allMaps = resMan.ContentFindFiles(mapFolder);
+
+                // Filter out paths we don't care about
+                foreach (var testMapPath in _ignoredMapsPath)
+                {
+                    allMaps = allMaps.Where(x => !x.ToRootedPath().ToString().StartsWith(testMapPath));
+                }
+
+                foreach (var map in allMaps)
                 {
                     if (map.Extension != "yml" || map.Filename.StartsWith(".", StringComparison.Ordinal))
                         continue;
 
                     var rootedPath = map.ToRootedPath().ToString();
-                    if (rootedPath.StartsWith(TestMapsPath, StringComparison.Ordinal))
-                        continue;
-
                     if (GetCategory(map, mapLoader) is not {} category)
                     {
                         sawmill.Warning($"Map {map} is missing a category, skipping it.");
@@ -81,8 +88,6 @@ public sealed class MappingCategoryTest
         });
 
         await server.WaitRunTicks(1);
-
-        await pair.CleanReturnAsync();
     }
 
     // me when engine doesnt have this

@@ -11,7 +11,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Serilog;
 
 namespace Content.Server.Players.JobWhitelist;
 
@@ -23,8 +22,10 @@ public sealed class JobWhitelistManager : IPostInjectInit
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
 
     private readonly Dictionary<NetUserId, HashSet<string>> _whitelists = new();
+    private ISawmill _sawmill = default!;
 
     public void Initialize()
     {
@@ -59,12 +60,15 @@ public sealed class JobWhitelistManager : IPostInjectInit
             SendJobWhitelist(session);
     }
 
+    /// <summary>
+    /// Returns false if role whitelist is required but the player does not have it.
+    /// </summary>
     public bool IsAllowed(ICommonSession session, ProtoId<JobPrototype> job)
     {
         if (!_config.GetCVar(CCVars.GameRoleWhitelist))
             return true;
 
-        if (!_prototypes.TryIndex(job, out var jobPrototype) ||
+        if (!_prototypes.Resolve(job, out var jobPrototype) ||
             !jobPrototype.Whitelisted)
         {
             return true;
@@ -81,7 +85,7 @@ public sealed class JobWhitelistManager : IPostInjectInit
     {
         if (!_whitelists.TryGetValue(player, out var whitelists))
         {
-            Log.Error("Unable to check if player {Player} is whitelisted for {Job}. Stack trace:\\n{StackTrace}",
+            _sawmill.Error("Unable to check if player {Player} is whitelisted for {Job}. Stack trace:\\n{StackTrace}",
                 player,
                 job,
                 Environment.StackTrace);
@@ -115,5 +119,6 @@ public sealed class JobWhitelistManager : IPostInjectInit
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
+        _sawmill = _logManager.GetSawmill("job_whitelist");
     }
 }

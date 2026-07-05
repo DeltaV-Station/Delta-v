@@ -31,7 +31,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
-
+  - type: PointLight
+    color: "#edecf7"
 # Medical Combat Hardsuits
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -99,6 +100,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/warden.rsi
+  - type: PointLight
+    color: "#edecf7"
 
 # Advanced Combat Hardsuits
 - type: entity
@@ -135,6 +138,8 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/hos.rsi
+  - type: PointLight
+    color: "#edecf7"
 
 #Roboneuroticist Helmet
 - type: entity
@@ -163,8 +168,7 @@
     heldPrefix: off
   - type: PointLight
     color: red
-  - type: TinfoilHat
-    destroyOnFry: false
+  - type: PsionicallyInsulative
   - type: GuideHelp
     guides:
     - Psionics
@@ -205,11 +209,9 @@
   - type: PointLight
     color: "#ffffff"
   - type: Psionic
-  - type: TinfoilHat
-    passthrough: true
-    destroyOnFry: false
-  - type: ClothingGrantPsionicPower
-    power: DispelPower
+  - type: PsionicallyInsulative
+    allowsPsionicUsage: true
+  - type: DispelPower
   - type: GuideHelp
     guides:
     - Psionics
@@ -283,3 +285,145 @@
     sprite: _DV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+
+#Engineering Void Suit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitEngineering
+  id: ClothingHeadHelmetVoidsuitEngineering
+  name: engineering void suit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments. It's a lot lighter and flimsier than it looks...
+  components:
+  - type: PressureProtection # Using EVA pressure and temperature protections instead of hardsuits.
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.95
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/engineering-light.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-light-vox
+        shader: unshaded
+      head-reptilian:
+      - state: equipped-head-light-reptilian
+        shader: unshaded
+      head-dog:
+      - state: equipped-head-light-dog
+        shader: unshaded
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-light-vulpkanin
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-light-feroxi
+        shader: unshaded
+      # End DeltaV species helmets
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-reptilian:
+      - state: equipped-head-reptilian
+      - state: equipped-head-unshaded-reptilian
+        shader: unshaded
+      # Begin DeltaV species helmets
+      head-vulpkanin:
+      - state: equipped-head-vulpkanin
+      - state: equipped-head-unshaded-vulpkanin
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-feroxi
+      - state: equipped-head-unshaded-feroxi
+        shader: unshaded
+      # End DeltaV species helmets
+      head-dog:
+      - state: equipped-head-dog
+      - state: equipped-head-unshaded-dog
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitSyndieReverseEngineered
+  categories: [ HideSpawnMenu ]
+  name: SA-123 combat hardsuit helmet
+  description: An advanced hardsuit helmet designed for work in special operations.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/ReverseEngineering/syndicate.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
+  - type: PointLight
+    color: aquamarine
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCybersun
+  id: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
+  categories: [ HideSpawnMenu ]
+  name: SA-127 combat hardsuit helmet
+  description: An assault hardsuit helmet featuring nigh-impenetrable armor plating.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: PointLight
+    color: aquamarine
+
+# SRT Hardsuit
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, BaseCentcommContraband ]
+  id: ClothingHeadHelmetHardsuitSRT
+  name: SRT hardsuit helmet
+  description: A special hardsuit helmet worn by members of a NanoTrasen task force.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/SRTHelmet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/SRTHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+  - type: PsionicallyInsulative

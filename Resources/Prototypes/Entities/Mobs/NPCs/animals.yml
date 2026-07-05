@@ -51,7 +51,10 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: ReplacementAccent
     accent: mouse
   - type: MeleeWeapon
@@ -113,7 +116,7 @@
       0: Alive
       10: Dead
   - type: Stamina
-    critThreshold: 10
+    baseCritThreshold: 10
     animationThreshold: 1
   - type: DamageStateVisuals
     states:
@@ -141,8 +144,10 @@
     - Bee
     - Trash
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 0.1
   - type: MobPrice
     price: 50
   - type: NPCRetaliation
@@ -188,7 +193,10 @@
     factions:
     - SimpleHostile
   - type: Bloodstream
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 0.1
   - type: ZombieImmune
 
 
@@ -264,7 +272,10 @@
     interactSuccessSound:
       path: /Audio/Animals/chicken_cluck_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -332,7 +343,6 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -344,7 +354,7 @@
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
-- type: entity # TODO: figure out how to make these guys gib when stepped on
+- type: entity
   name: cockroach
   parent: SimpleMobBase
   id: MobCockroach
@@ -391,9 +401,11 @@
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 20
-  - type: Food
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 20
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - horrible
@@ -427,9 +439,15 @@
         damage: 10
       behaviors:
       - !type:GibBehavior
-        gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.2
+  - type: GibOnTrigger
+  - type: ProtectedFromStepTriggers
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -473,7 +491,7 @@
 
 - type: entity
   name: mothroach
-  parent: MobCockroach
+  parent: [ BaseMobMothroach, MobCockroach ]
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
@@ -501,12 +519,12 @@
   - type: Speech
     speechVerb: Moth
     speechSounds: Chitter # Delta-V - Eep!
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
   - type: Sprite
-    sprite: Mobs/Animals/mothroach/mothroach.rsi
+    sprite: Mobs/Animals/mothroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mothroach
@@ -521,7 +539,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mothroach/mothroach.rsi
+    sprite: Mobs/Animals/mothroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD
@@ -549,7 +567,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 20
   - type: Respirator
     damage:
       types:
@@ -577,6 +598,8 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
     wilhelmProbability: 0.001
+  - type: BodyEmotes
+    soundsId: MothBodyEmotes
   - type: MobPrice
     price: 150
   - type: Tag
@@ -588,9 +611,6 @@
   - type: NpcFactionMember
     factions:
     - Mouse
-  - type: Body
-    prototype: Mothroach
-  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -605,43 +625,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
-  - type: InventorySlots
-  - type: Inventory
-    speciesId: hamster
-    templateId: hamster
-    displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: mask
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: suitstorage
-      eyes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: eyes
-      neck:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: neck
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -709,7 +692,10 @@
     interactSuccessSound:
       path: /Audio/Animals/duck_quack_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -765,7 +751,6 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
-    - type: Timer
     - type: TimedSpawner
       prototypes:
       - MobDuckMallard
@@ -837,8 +822,10 @@
     tags:
     - Trash
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 0.1
   - type: MobPrice
     price: 50
   - type: Destructible
@@ -850,10 +837,11 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune
 
 - type: entity
   name: cow
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobRuminant ]
   id: MobCow
   description: Moo.
   components:
@@ -926,13 +914,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -943,7 +924,7 @@
 
 - type: entity
   name: crab
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobHemocyanin, DVNodeCrawler ]
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -1000,25 +981,20 @@
   - type: ReplacementAccent
     accent: crab
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 50
   - type: Tag
     tags:
     - VimPilot
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: Body
-    prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   name: goat
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobRuminant ]
   id: MobGoat
   description: Her spine consists of long sharp segments, no wonder she is so grumpy.
   components:
@@ -1111,13 +1087,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1170,7 +1139,10 @@
     interactSuccessSound:
       path: /Audio/Animals/goose_honk.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: NpcFactionMember
     factions:
     - Passive
@@ -1212,7 +1184,10 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
     # if you fuck with the gorilla he will harambe you
   - type: MeleeWeapon
     soundHit:
@@ -1238,6 +1213,8 @@
         true
       NavSmash: !type:Bool
         true
+  - type: Puller
+    needsHands: false
   - type: Prying
     pryPowered: true
     force: true
@@ -1348,17 +1325,12 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
   - type: CombatMode
-  # Shitmed Change Start
-  - type: SurgeryTarget
-  - type: Targeting
-  - type: HumanoidAppearance
-    species: Monkey
-  # Shitmed Change End
+    canDisarm: true
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Inventory
     templateId: monkey
@@ -1384,27 +1356,15 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-  # Shitmed Change Start
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
@@ -1419,15 +1379,16 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
     - map: [ "clownedon" ]
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  # Shitmed Change End
   - type: Carriable # DeltaV
   - type: Hands
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
   - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
@@ -1435,15 +1396,6 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body # Shitmed Change
-    prototype: Monkey
-    requiredLegs: 2
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1497,7 +1449,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
 
 
 # DV - For ancestors without shitmed components (scurrets)
@@ -1554,6 +1506,10 @@
       visible: false
   - type: Carriable # DeltaV
   - type: Hands
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
   - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
@@ -1561,9 +1517,6 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1617,8 +1570,11 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: Crawler
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
 
 - type: entity
   name: monkey
@@ -1647,8 +1603,7 @@
       types:
         Blunt: 5
         Piercing: 4
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1
@@ -1717,13 +1672,6 @@
   - type: LizardAccent
   - type: ReplacementAccent
     accent: kobold
-  # Shitmed Change Start
-  - type: HumanoidAppearance
-    species: Kobold
-  - type: Body
-    prototype: Kobold
-    requiredLegs: 2
-  # Shitmed Change End
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
@@ -1764,10 +1712,48 @@
         Slash: 5
         Piercing: 4
   - type: Temperature
-    heatDamageThreshold: 360
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 285
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Mobs/Animals/kobold.rsi
+      state: kobold
+    - map: [ "outline" ]
+      sprite: Mobs/Animals/kobold.rsi
+      state: outline
+    - map: [ "horns" ]
+      sprite: Mobs/Customization/reptilian_parts.rsi
+      state: horns_short
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "ears" ]
+    - map: [ "id" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+  - type: RandomSprite
+    getAllGroups: true
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          kobold: KoboldColors
+      - horns:
+          horns_curled: KoboldHornColors
+          horns_ram: KoboldHornColors
+          horns_short: KoboldHornColors
+          horns_myrsore: KoboldHornColors
+          horns_bighorn: KoboldHornColors
+          horns_argali: KoboldHornColors
+          horns_ayrshire: KoboldHornColors
+          horns_floppy_kobold_ears: Inherit
+          horns_double: Inherit
+          horns_kobold_ears: Inherit
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -1795,8 +1781,7 @@
       types:
         Blunt: 2
         Piercing: 7
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1
@@ -1846,17 +1831,13 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - BaseMobAnimal
+  - DVNodeCrawler
   id: MobMouse
   description: Squeak!
   components:
-  - type: Body
-    prototype: Mouse
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1938,7 +1919,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -2008,7 +1989,10 @@
       types:
         Piercing: 0
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -2124,6 +2108,51 @@
     heldPrefix: 2
 
 - type: entity
+  name: cancer mouse
+  description: Toxic. Squeak!
+  parent: MobMouse
+  id: MobMouseCancer
+  components:
+  - type: GhostRole
+    name: ghost-role-information-cancer-mouse-name
+    description: ghost-role-information-cancer-mouse-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+  - type: Sprite
+    color: LightGreen
+  - type: PointLight
+    color: LightGreen
+    radius: 5
+    energy: 5
+    netsync: false
+  - type: RadiationSource
+    intensity: 0.5
+    slope: 0.3
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: UnstableMutagen
+        Quantity: 50
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+        - ReagentId: Uranium
+          Quantity: 10
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 1
+    - id: SheetUranium1
+      amount: 1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Zombie
+
+- type: entity
   name: lizard #Weh
   parent: SimpleMobBase
   id: MobLizard
@@ -2182,7 +2211,10 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -2193,7 +2225,9 @@
 
 - type: entity
   name: slug
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSlug
   description: And they called this a lizard?
   components:
@@ -2238,11 +2272,16 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
 
 - type: entity
   name: frog
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
@@ -2295,7 +2334,10 @@
     interactSuccessSound:
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Tag
     tags:
     - VimPilot
@@ -2387,7 +2429,10 @@
     interactSuccessSound:
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
 
 - type: entity
   name: parrot
@@ -2447,10 +2492,11 @@
     factions:
     - Passive
   - type: Temperature
-    heatDamageThreshold: 335
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 335
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -2472,7 +2518,7 @@
   - type: MobMover
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: GrenadePenguinCompound
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -2505,8 +2551,8 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      groups:
-        Brute: 5
+      types:
+        Piercing: 5
   - type: Item
     size: Normal
     sprite: Mobs/Animals/grenadepenguin.rsi
@@ -2520,9 +2566,9 @@
     beepInterval: 1
   - type: Explosive
     explosionType: Default
-    maxIntensity: 20
-    intensitySlope: 20
-    totalIntensity: 225
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 150
   - type: ExplodeOnTrigger
     keysIn:
     - timer
@@ -2537,7 +2583,9 @@
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
   name: snake
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
@@ -2578,7 +2626,10 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -2586,7 +2637,7 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat ]
   id: MobSpiderBase
   abstract: true
   components:
@@ -2608,13 +2659,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-  - type: Body
-    prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -2641,12 +2685,16 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    bloodMaxVolume: 150
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -2671,16 +2719,20 @@
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
-    damageCap: 89
     damage:
       types:
         Poison: -0.07
-      groups:
-        Brute: -0.07
-        Burn: -0.07
+        Blunt: -0.03
+        Slash: -0.03
+        Piercing: -0.03
+        Heat: -0.03
+        Cold: -0.03
+        Shock: -0.03
 
 - type: entity
-  parent: MobSpiderBase
+  parent:
+  - MobSpiderBase
+  - DVNodeCrawler # DeltaV - node crawling
   id: MobSpiderAngryBase
   abstract: true
   components:
@@ -2791,9 +2843,10 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodMaxVolume: 150
-      bloodReagent: Laughter
-
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 150
 - type: entity
   name: wizard spider
   parent: MobGiantSpider
@@ -2992,7 +3045,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -3127,18 +3183,22 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodReagent: DemonsBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: DemonsBlood
+        Quantity: 150
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -3348,6 +3408,7 @@
       Dead:
         Base: spacecat_dead
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Tag
@@ -3537,7 +3598,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, DVNodeCrawler ] # DeltaV - node crawling
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3609,7 +3670,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -3668,7 +3729,10 @@
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice
@@ -3738,6 +3802,8 @@
     spawned:
     - id: FoodMeat
       amount: 6
+    - id: FoodMeatBacon # DeltaV #Make Pigs drop bacon as well as meat
+      amount: 6
   - type: Grammar
     attributes:
       gender: epicene
@@ -3761,7 +3827,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase, DVNodeCrawler]
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
@@ -3771,7 +3837,26 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
-  - type: Carriable # DeltaV
+  # DeltaV changes begin
+  - type: Carriable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-nymph-name
+    description: ghost-role-information-nymph-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
+  - type: TypingIndicator
+    proto: diona
+  # DeltaV changes end
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3788,8 +3873,10 @@
     speciesId: cat
     templateId: pet
   - type: Bloodstream
-    bloodReagent: Sap
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 60
   - type: DamageStateVisuals
     states:
       Alive:
@@ -3846,14 +3933,16 @@
     darkThreshold: 0.4
     lightThreshold: 1.2
     darkDamage:
-      groups:
-        Burn: 1.0
+      types:
+        Heat: 1.0
     lightDamage:
-      groups:
-        Brute: -0.1
-        Burn: -0.1
-        Toxin: -0.1
-        Airloss: -0.1
+      types:
+        Blunt: -0.1
+        Piercing: -0.1
+        Slash: -0.1
+        Heat: -0.1
+        Poison: -0.1
+        Asphyxiation: -0.1
     darkMovementSpeedMultiplier: 0.7
 
 - type: entity
@@ -3863,6 +3952,103 @@
   components:
   - type: ReplacementAccent
     accent: nymph
+
+- type: entity
+  name: reindeer buck
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobReindeerBuck
+  description: You think it can pull a sleigh?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: reindeer_buck
+      sprite: Mobs/Animals/reindeer_buck.rsi
+#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
+#    movementLayers:
+#      movement:
+#        state: reindeer_buck
+#    noMovementLayers:
+#      movement:
+#        state: reindeer_buck_still
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: reindeer_buck
+      Critical:
+        Base: reindeer_buck_dead
+      Dead:
+        Base: reindeer_buck_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+    # Horns though
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 22
+    animation: WeaponArcFist
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  name: reindeer doe
+  parent: MobReindeerBuck
+  id: MobReindeerDoe
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+    animation: WeaponArcFist
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: reindeer_doe
+      sprite: Mobs/Animals/reindeer_doe.rsi
+#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
+#    movementLayers:
+#      movement:
+#        state: reindeer_doe
+#    noMovementLayers:
+#      movement:
+#        state: reindeer_doe_still
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: reindeer_doe
+      Critical:
+        Base: reindeer_doe_dead
+      Dead:
+        Base: reindeer_doe_dead
 
 - type: entity
   parent: MobCorgiBase
@@ -3907,14 +4093,18 @@
             sprite: Mobs/Pets/displacements.rsi
             state: corgi_head_displacement
   - type: Hands # HANDS!
+    activeHandId: Right
+    hands:
+      Right:
+        location: Right
+      Left:
+        location: Left
   - type: Puller
   - type: Cuffable # bad dog!
   - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
   - type: Stripping
   - type: ComplexInteraction
   # Implement custom borgi body type
-  - type: Body
-    prototype: SmartCorgi
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 180
@@ -3927,8 +4117,9 @@
     - VimPilot
     - CanPilot
     - DoorBumpOpener
-  - type: StatusIcon # marks them as crew
+  - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
   - type: NpcFactionMember
     factions:
     - NanoTrasen

@@ -3,6 +3,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Camera;
 using Content.Shared.Cuffs;
 using Content.Shared.Damage; // DeltaV End - Addition of HandHeldArmor
+using Content.Shared.Damage.Systems; // DeltaV End - Addition of HandHeldArmor
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;

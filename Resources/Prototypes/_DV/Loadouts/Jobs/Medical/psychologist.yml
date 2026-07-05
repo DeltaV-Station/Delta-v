@@ -18,7 +18,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPsychologist
-      time: 14400 # 4 hours psychologist
+      time: 4h
 
 - type: loadout
   id: SocialWorkerPDA
@@ -29,7 +29,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Civilian
-      time: 14400 # 4 hours service
+      time: 4h
 
 # Head
 - type: loadout

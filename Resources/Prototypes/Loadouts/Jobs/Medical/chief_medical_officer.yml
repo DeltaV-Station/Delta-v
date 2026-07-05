@@ -1,3 +1,13 @@
+# For mantles
+#- type: loadoutEffectGroup # DeltaV - No time requirement
+#  id: MasterCMO
+#  effects:
+#    !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobChiefMedicalOfficer
+#      time: 20h
+
 # Jumpsuit
 - type: loadout
   id: ChiefMedicalOfficerJumpsuit

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Armor;
 using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
+using Content.Shared.Gibbing;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -16,7 +17,6 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Inventory;
@@ -31,7 +31,6 @@ public abstract partial class InventorySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
@@ -43,7 +42,10 @@ public abstract partial class InventorySystem
         //these events ensure that the client also gets its proper events raised when getting its containerstate updated
         SubscribeLocalEvent<InventoryComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<InventoryComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+
         SubscribeAllEvent<UseSlotNetworkMessage>(OnUseSlot);
+
+        SubscribeLocalEvent<InventoryComponent, BeingGibbedEvent>(OnBeingGibbed);
     }
 
     private void OnEntRemoved(EntityUid uid, InventoryComponent component, EntRemovedFromContainerMessage args)
@@ -169,7 +171,7 @@ public abstract partial class InventorySystem
                 target,
                 itemUid)
             {
-                BreakOnMove = true,
+                BreakOnMove = !clothing.EquipWhileMoving,
                 NeedHand = true,
             };
 
@@ -252,10 +254,10 @@ public abstract partial class InventorySystem
                     if (!HasComp(slotEntity, entry.Component.GetType()))
                         return false;
 
-                    continue; // DeltaV - ignore suit storage whitelist
-                    if (TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
-                        _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
-                        return false;
+                    // DeltaV - ignore suit storage whitelist
+                    // if (TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
+                    //     _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
+                    //     return false;
                 }
             }
         }
@@ -277,7 +279,7 @@ public abstract partial class InventorySystem
         }
 
         if (_whitelistSystem.IsWhitelistFail(slotDefinition.Whitelist, itemUid) ||
-            _whitelistSystem.IsBlacklistPass(slotDefinition.Blacklist, itemUid))
+            _whitelistSystem.IsWhitelistPass(slotDefinition.Blacklist, itemUid))
         {
             reason = "inventory-component-can-equip-does-not-fit";
             return false;
@@ -441,7 +443,7 @@ public abstract partial class InventorySystem
                 target,
                 removedItem.Value)
             {
-                BreakOnMove = true,
+                BreakOnMove = !clothing.EquipWhileMoving,
                 NeedHand = true,
             };
 
@@ -468,7 +470,7 @@ public abstract partial class InventorySystem
         // we check if any items were dropped, and make a popup if they were.
         // the reason we check for > 1 is because the first item is always the one we are trying to unequip,
         // whereas we only want to notify for extra dropped items.
-        if (!silent && _gameTiming.IsFirstTimePredicted && firstRun && itemsDropped > 1)
+        if (!silent && firstRun && itemsDropped > 1)
             _popup.PopupClient(Loc.GetString("inventory-component-dropped-from-unequip", ("items", itemsDropped - 1)), target, target);
 
         // TODO: Inventory needs a hot cleanup hoo boy
@@ -561,7 +563,18 @@ public abstract partial class InventorySystem
     {
         foreach (var item in _handsSystem.EnumerateHeld(uid))
         {
-            _interactionSystem.DoContactInteraction(uid, item);
+            _interactionSystem.DoContactInteraction(uid, item, null, true); // Stellar - Interaction particles
+        }
+    }
+
+    private void OnBeingGibbed(Entity<InventoryComponent> ent, ref BeingGibbedEvent args)
+    {
+        foreach (var item in GetHandOrInventoryEntities((ent, null, ent)))
+        {
+            // Give me liberty, give me death
+            // TODO: Give me an API that can tell the difference between a virtual item and an electropak being removed.
+            if (!HasComp<AttachedClothingComponent>(item))
+                args.Giblets.Add(item);
         }
     }
 }

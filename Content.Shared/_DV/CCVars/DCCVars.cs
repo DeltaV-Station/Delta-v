@@ -101,6 +101,18 @@ public sealed partial class DCCVars
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Disables all tips for a player.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTips =
+        CVarDef.Create("game.disable_tips", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Disables all tips for ALL PLAYERS.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableTipsGlobal =
+        CVarDef.Create("game.disable_tips_global", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Whether the Shipyard is enabled.
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
@@ -111,6 +123,41 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> YearOffset =
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
+
+    /// <summary>
+    /// What species to hide, as a comma seperated list.
+    /// </summary>
+    public static readonly CVarDef<string> HiddenSpecies =
+        CVarDef.Create("species.hidden", "Motorkind", CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether a stunned entity will show the stun visuals (seeing stars effect) above their head.
+    /// </summary>
+    public static readonly CVarDef<bool> ShowStunVisuals =
+        CVarDef.Create("game.see_stun_visuals", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
+     * Traits
+     */
+
+    /// <summary>
+    /// Maximum number of traits that can be selected globally.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitCount =
+        CVarDef.Create("traits.max_count", 25, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum trait points available to spend.
+    /// Traits with positive cost consume points, negative cost traits grant points.
+    /// </summary>
+    public static readonly CVarDef<int> MaxTraitPoints =
+        CVarDef.Create("traits.max_points", 15, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether to skip showing the disabled traits popup when spawning.
+    /// </summary>
+    public static readonly CVarDef<bool> SkipDisabledTraitsPopup =
+        CVarDef.Create("traits.skip_disabled_traits_popup", false, CVar.CLIENT | CVar.ARCHIVE);
 
     /*
      * Feedback webhook
@@ -162,10 +209,18 @@ public sealed partial class DCCVars
         CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
 
     /// <summary>
-    ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
+    ///     The maximum amount of hours that will trigger an admin alert on late join.
     /// </summary>
-    public static readonly CVarDef<bool> EnableBacktoBack =
-        CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
+    public static readonly CVarDef<double> LateJoinAlertMaxHours =
+        CVarDef.Create("admin.alerts.latejoin_max_hours", 2.0, CVar.SERVERONLY);
+
+    /// <summary>
+    ///    Whether preset cooldowns should be considered by the SecretRuleSystem. Should be true in production.
+    ///    False by default to avoid breaking unit tests
+    ///    DeltaV specific, but ImpStation preset cooldown code is gated behind this.
+    /// </summary>
+    public static readonly CVarDef<bool> EnablePresetCooldowns =
+        CVarDef.Create("game.enable_preset_cooldowns", false, CVar.SERVERONLY);
 
     /// <summary>
     /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
@@ -195,15 +250,6 @@ public sealed partial class DCCVars
             "#17FFC1FF",
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "The color in which the highlights will be displayed.");
-
-    /* Laying down combat */
-
-    /// <summary>
-    /// Modifier to apply to all melee attacks when laying down.
-    /// Don't increase this above 1...
-    /// </summary>
-    public static readonly CVarDef<float> LayingDownMeleeMod =
-        CVarDef.Create("game.laying_down_melee_mod", 0.25f, CVar.REPLICATED);
 
     /// <summary>
     ///    Maximum number of characters in objective summaries.
@@ -263,4 +309,32 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create("cosmiccult.extra_entropy_for_finale", 1, CVar.SERVER);
+
+    /// <summary>
+    /// Whether the screenshake ported from ES should be disabled.
+    /// False by default, so enabled. Players can change this in accessiblity settings.
+    /// </summary>
+    public static readonly CVarDef<bool> EsScreenshakeDisabled =
+        CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The total time a player has to be SSD to be considered cryoable (stage 3).
+    /// Default is 20 minutes. Value should be bigger than <see cref="SsdIndicatorRecentAfterSeconds"/>.
+    /// </summary>
+    public static readonly CVarDef<float> SsdIndicatorCryoableAfterSeconds =
+        CVarDef.Create("deltav.ssd.cryoable_after_seconds", 1200f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// The total time a player has to be SSD to be considered recently SSD (stage 2).
+    /// If the player has been SSD for less than this time, they are considered "very recently" SSD (stage 1).
+    /// Default is 5 minutes. Value should be smaller than <see cref="SsdIndicatorCryoableAfterSeconds"/>.
+    /// </summary>
+    public static readonly CVarDef<float> SsdIndicatorRecentAfterSeconds =
+        CVarDef.Create("deltav.ssd.recent_after_seconds", 300f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether the round end is an OOC vote.
+    /// </summary>
+    public static readonly CVarDef<bool> RoundEndIsOOCVote =
+        CVarDef.Create("deltav.round_end_is_ooc_vote", false, CVar.SERVER);
 }

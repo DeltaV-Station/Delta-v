@@ -39,78 +39,65 @@
   name: pre-packed lunchbox
   description: Packed with love.
   components:
-  - type: StorageFill
-    contents:
-    #Main
-    - id: FoodPizzaArnoldSlice
-      orGroup: Main
-      prob: 0.2
-      amount: 2
-    - id: FoodBurgerCheese
-      orGroup: Main
-      prob: 0.2
-    - id: FoodCarrot
-      orGroup: Main
-      prob: 0.2
-    - id: FoodMothCapreseSalad
-      orGroup: Main
-      prob: 0.2
-    - id: FoodEggBoiled
-      orGroup: Main
-      prob: 0.2
-    #Drink
-    - id: DrinkJuiceOrangeJuicebox
-      orGroup: Drink
-      prob: 0.15
-    - id: DrinkJuicePineappleJuicebox
-      orGroup: Drink
-      prob: 0.15
-    - id: DrinkJuiceAppleJuicebox
-      orGroup: Drink
-      prob: 0.15
-    - id: DrinkJuiceGrapeJuicebox
-      orGroup: Drink
-      prob: 0.15
-    - id: DrinkChocolateJuicebox
-      orGroup: Drink
-      prob: 0.15
-    - id: DrinkWaterBottleFull
-      orGroup: Drink
-      prob: 0.15
-    #Snack
-    - id: FoodSnackCheesie
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodSnackBoritos
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodSnackChips
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodSnackPistachios
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodSnackChocolate
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodSnackSus
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodMothMoffin
-      orGroup: Snack
-      prob: 0.05
-    - id: FoodMothMothmallowSlice
-      orGroup: Snack
-      prob: 0.05
-    - id: FoodApple
-      orGroup: Snack
-      prob: 0.15
-    - id: FoodBanana
-      orGroup: Snack
-      prob: 0.15
-    #Note
-    - id: PaperWrittenNoteFromMumGeneric
-      prob: 0.1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        #Main
+        - !type:GroupSelector
+          children:
+          - id: FoodPizzaArnoldSlice
+            weight: 0.2
+            amount: 2
+          - id: FoodBurgerCheese
+            weight: 0.2
+          - id: FoodCarrot
+            weight: 0.2
+          - id: FoodMothCapreseSalad
+            weight: 0.2
+          - id: FoodEggBoiled
+            weight: 0.2
+        #Drink
+        - !type:GroupSelector
+          children:
+          - id: DrinkJuiceOrangeJuicebox
+            weight: 0.15
+          - id: DrinkJuicePineappleJuicebox
+            weight: 0.15
+          - id: DrinkJuiceAppleJuicebox
+            weight: 0.15
+          - id: DrinkJuiceGrapeJuicebox
+            weight: 0.15
+          - id: DrinkChocolateJuicebox
+            weight: 0.15
+          - id: DrinkWaterBottleFull
+            weight: 0.15
+        #Snack
+        - !type:GroupSelector
+          children:
+          - id: FoodSnackCheesie
+            weight: 0.15
+          - id: FoodSnackBoritos
+            weight: 0.15
+          - id: FoodSnackChips
+            weight: 0.15
+          - id: FoodSnackPistachios
+            weight: 0.15
+          - id: FoodSnackChocolate
+            weight: 0.15
+          - id: FoodSnackSus
+            weight: 0.15
+          - id: FoodMothMoffin
+            weight: 0.05
+          - id: FoodMothMothmallowSlice
+            weight: 0.05
+          - id: FoodApple
+            weight: 0.15
+          - id: FoodBanana
+            weight: 0.15
+        #Note
+        - id: PaperWrittenNoteFromMumGeneric
+          weight: 0.1
 
 - type: entity
   parent: LunchboxGeneric
@@ -119,30 +106,31 @@
   name: pre-packed lunchbox
   description: Packed with healthy love.
   components:
-  - type: StorageFill
-    contents:
-    #Main
-    - id: FoodCarrot
-      orGroup: HealthyMain
-      prob: 0.5
-    - id: FoodMothCapreseSalad
-      orGroup: HealthyMain
-      prob: 0.5
-    - id: FoodEggBoiled
-      orGroup: HealthyMain
-      prob: 0.25
-    #Drink
-    - id: DrinkWaterBottleFull
-    #Snack
-    - id: FoodApple
-      orGroup: HealthySnack
-      prob: 0.5
-    - id: FoodBanana
-      orGroup: HealthySnack
-      prob: 0.5
-    #Note
-    - id: PaperWrittenNoteFromMumHealthy
-      prob: 0.1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        #Main
+        - !type:GroupSelector
+          children:
+          - id: FoodCarrot
+            weight: 0.5
+          - id: FoodMothCapreseSalad
+            weight: 0.5
+          - id: FoodEggBoiled
+            weight: 0.25
+        #Drink
+        - id: DrinkWaterBottleFull
+        #Snack
+        - !type:GroupSelector
+          children:
+          - id: FoodApple
+            weight: 0.5
+          - id: FoodBanana
+            weight: 0.5
+        #Note
+        - id: PaperWrittenNoteFromMumHealthy
+          weight: 0.1
 
 - type: entity
   parent: LunchboxGeneric
@@ -151,55 +139,48 @@
   name: pre-packed lunchbox
   description: Packed with love.
   components:
-  - type: StorageFill
-    contents:
-    #Main
-    - id: FoodPizzaArnoldSlice
-      amount: 2
-    #Drink
-    - id: DrinkJuiceOrangeJuicebox
-      orGroup: UnhealthyDrink
-      prob: 0.2
-    - id: DrinkJuicePineappleJuicebox
-      orGroup: UnhealthyDrink
-      prob: 0.2
-    - id: DrinkJuiceAppleJuicebox
-      orGroup: UnhealthyDrink
-      prob: 0.2
-    - id: DrinkJuiceGrapeJuicebox
-      orGroup: UnhealthyDrink
-      prob: 0.2
-    - id: DrinkChocolateJuicebox
-      orGroup: UnhealthyDrink
-      prob: 0.2
-    #Snack
-    - id: FoodSnackCheesie
-      orGroup: UnhealthySnack
-      prob: 0.15
-    - id: FoodSnackBoritos
-      orGroup: UnhealthySnack
-      prob: 0.15
-    - id: FoodSnackChips
-      orGroup: UnhealthySnack
-      prob: 0.15
-    - id: FoodSnackPistachios
-      orGroup: UnhealthySnack
-      prob: 0.15
-    - id: FoodSnackChocolate
-      orGroup: UnhealthySnack
-      prob: 0.15
-    - id: FoodSnackSus
-      orGroup: UnhealthySnack
-      prob: 0.15
-    - id: FoodMothMoffin
-      orGroup: UnhealthySnack
-      prob: 0.05
-    - id: FoodMothMothmallowSlice
-      orGroup: UnhealthySnack
-      prob: 0.05
-    #Note
-    - id: PaperWrittenNoteFromMumUnhealthy
-      prob: 0.1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        #Main
+        - id: FoodPizzaArnoldSlice
+          amount: 2
+        #Drink
+        - !type:GroupSelector
+          children:
+          - id: DrinkJuiceOrangeJuicebox
+            weight: 0.2
+          - id: DrinkJuicePineappleJuicebox
+            weight: 0.2
+          - id: DrinkJuiceAppleJuicebox
+            weight: 0.2
+          - id: DrinkJuiceGrapeJuicebox
+            weight: 0.2
+          - id: DrinkChocolateJuicebox
+            weight: 0.2
+        #Snack
+        - !type:GroupSelector
+          children:
+          - id: FoodSnackCheesie
+            weight: 0.15
+          - id: FoodSnackBoritos
+            weight: 0.15
+          - id: FoodSnackChips
+            weight: 0.15
+          - id: FoodSnackPistachios
+            weight: 0.15
+          - id: FoodSnackChocolate
+            weight: 0.15
+          - id: FoodSnackSus
+            weight: 0.15
+          - id: FoodMothMoffin
+            weight: 0.05
+          - id: FoodMothMothmallowSlice
+            weight: 0.05
+        #Note
+        - id: PaperWrittenNoteFromMumUnhealthy
+          weight: 0.1
 
 - type: entity
   parent: LunchboxGeneric
@@ -441,8 +422,10 @@
   id: LunchboxRecruiterMaid
   suffix: Syndicate, Tactical maid
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingUniformJumpskirtTacticalMaid
-    - id: ClothingHeadHatTacticalMaidHeadband
-    - id: ClothingHandsTacticalMaidGloves
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpskirtTacticalMaid
+        - id: ClothingHeadHatTacticalMaidHeadband
+        - id: ClothingHandsTacticalMaidGloves

@@ -1,0 +1,35 @@
+- type: siliconLaw
+  id: Druid1
+  order: 1
+  lawString: law-druid-1
+
+- type: siliconLaw
+  id: Druid2
+  order: 2
+  lawString: law-druid-2
+
+- type: siliconLaw
+  id: Druid3
+  order: 3
+  lawString: law-druid-3
+
+- type: siliconLaw
+  id: Druid4
+  order: 4
+  lawString: law-druid-4
+
+- type: siliconLaw
+  id: Druid5
+  order: 5
+  lawString: law-druid-5
+
+- type: siliconLawset
+  id: Druid
+  name: law-druid-name
+  laws:
+  - Druid1
+  - Druid2
+  - Druid3
+  - Druid4
+  - Druid5
+  obeysTo: laws-owner-organic

@@ -1,6 +1,6 @@
 - type: entity
   name: Syndicate Guard
-  parent: BaseMobHuman
+  parent: MobHuman
   id: MobRadioGuard
   description: "Mindwiped and hypno-indoctrinated into perfect loyalty by the Syndicate. They will throw their life away to defend their objective."
   components:
@@ -12,7 +12,7 @@
         0: Alive
         100: Dead #Tweak for "Acidify on Crit"
     - type: MindContainer
-      showExamineInfo: False
+    - type: MindExaminable
     - type: Loadout
       prototypes:
         - RadioGuardGear

@@ -15,8 +15,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.1
+          !type:PhysShapeAabb # Delta V - Switch to square for more accuracy and enlarge for easier interactions
+          bounds: "-0.20,-0.25,0.20,0.20"
         density: 190
         mask:
         - HighImpassable

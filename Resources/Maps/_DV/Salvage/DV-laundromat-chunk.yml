@@ -2928,7 +2928,7 @@ entities:
           maxVol: 50
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Beer
             Quantity: 25
 - proto: DrinkBlackRussianGlass
@@ -3462,80 +3462,72 @@ entities:
   entities:
   - uid: 264
     components:
-    - type: MetaData
-      name: jug (Bleach)
     - type: Transform
       pos: -0.5863483,10.646547
       parent: 1
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Bleach
             Quantity: 175
     - type: Label
       currentLabel: Bleach
   - uid: 265
     components:
-    - type: MetaData
-      name: jug (Ammonia)
     - type: Transform
       pos: -0.3519733,10.599672
       parent: 1
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Ammonia
             Quantity: 150
     - type: Label
       currentLabel: Ammonia
   - uid: 267
     components:
-    - type: MetaData
-      name: jug (Super Suds)
     - type: Transform
       pos: 7.45502,5.636329
       parent: 1
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: FoamingAgent
             Quantity: 165
     - type: Label
       currentLabel: Super Suds
   - uid: 338
     components:
-    - type: MetaData
-      name: jug (Detergent)
     - type: Transform
       pos: -0.6285926,5.559648
       parent: 1
     - type: SolutionContainerManager
       solutions:
-        beaker:
+        drink:
           temperature: 293.15
           canReact: True
           maxVol: 200
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: SoapReagent
             Quantity: 100
     - type: Label
@@ -4062,7 +4054,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Moonshine
             Quantity: 25
     - type: StepTrigger
@@ -4081,7 +4073,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: SpaceLube
             Quantity: 18
     - type: TileFrictionModifier
@@ -4100,7 +4092,7 @@ entities:
           maxVol: 1000
           name: null
           reagents:
-          - data: null
+          - data: []
             ReagentId: Whiskey
             Quantity: 45
     - type: StepTrigger
@@ -6086,7 +6078,7 @@ entities:
     - type: Transform
       pos: 22.5,15.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 869
     components:

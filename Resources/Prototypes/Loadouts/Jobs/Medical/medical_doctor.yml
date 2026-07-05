@@ -2,21 +2,21 @@
 - type: loadoutEffectGroup
   id: SeniorPhysician
   effects:
- #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
- #   requirement:
- #     !type:RoleTimeRequirement
- #     role: JobChemist
- #     time: 21600 #6 hrs
- # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
- #   requirement:
- #     !type:RoleTimeRequirement
- #     role: JobMedicalDoctor
- #     time: 21600 #6 hrs
+  # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobChemist
+  #     time: 6h
+  # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobMedicalDoctor
+  #     time: 6h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 216000 # 60 hrs
+      time: 60h
 
 # Other Timers
 
@@ -27,7 +27,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 108000 #30 hrs
+      time: 30h
 
 # Head
 
@@ -56,16 +56,19 @@
   id: BlueSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapBlue
+  groupBy: "surgicalcaps" # DeltaV
 
 - type: loadout
   id: GreenSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapGreen
+  groupBy: "surgicalcaps" # DeltaV
 
 - type: loadout
   id: PurpleSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapPurple
+  groupBy: "surgicalcaps" # DeltaV
 
 - type: loadout
   id: NurseHat
@@ -103,16 +106,19 @@
   id: MedicalBlueScrubs
   equipment:
     jumpsuit: UniformScrubsColorBlue
+  groupBy: "surgicalscrubs" # DeltaV
 
 - type: loadout
   id: MedicalGreenScrubs
   equipment:
     jumpsuit: UniformScrubsColorGreen
+  groupBy: "surgicalscrubs" # DeltaV
 
 - type: loadout
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
+  groupBy: "surgicalscrubs" # DeltaV
 
 # Back
 - type: loadout

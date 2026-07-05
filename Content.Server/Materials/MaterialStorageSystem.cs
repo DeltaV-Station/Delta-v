@@ -74,7 +74,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
                 return;
 
             var volumePerSheet = composition.MaterialComposition.FirstOrDefault(kvp => kvp.Key == msg.Material).Value;
-            var sheetsToExtract = Math.Min(msg.SheetsToExtract, _stackSystem.GetMaxCount(material.StackEntity));
+            var sheetsToExtract = Math.Min(msg.SheetsToExtract, _stackSystem.GetMaxCount(material.StackEntity.Value));
 
             volume = sheetsToExtract * volumePerSheet;
         }
@@ -193,7 +193,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (amountToSpawn == 0)
             return new List<EntityUid>();
 
-        return _stackSystem.SpawnMultiple(materialProto.StackEntity, amountToSpawn, coordinates);
+        return _stackSystem.SpawnMultipleAtPosition(materialProto.StackEntity.Value, amountToSpawn, coordinates);
     }
 
     /// <summary>

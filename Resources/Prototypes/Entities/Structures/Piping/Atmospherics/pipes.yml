@@ -80,6 +80,8 @@
         Primary: Structures/Piping/Atmospherics/pipe.rsi
         Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
         Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
+  - type: CrawlableNode # DeltaV
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
@@ -374,31 +376,37 @@
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 0
+        volume: 50
       south1:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 1
+        volume: 50
       south2:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 2
+        volume: 50
       north0:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 0
+        volume: 50
       north1:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 1
+        volume: 50
       north2:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 2
+        volume: 50
   - type: GasPipeManifold
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasPipeManifold
@@ -407,3 +415,5 @@
   - type: Tag
     tags:
     - Unstackable
+  - type: CrawlableNode # DeltaV
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]

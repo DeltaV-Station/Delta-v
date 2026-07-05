@@ -19,10 +19,12 @@
     sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective.rsi
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoEngravedLighter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
 
@@ -42,10 +44,12 @@
   parent: ClothingOuterCoatDetective
   id: ClothingOuterCoatDetectiveLoadout
   components:
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -82,11 +86,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.7
-        Heat: 0.7
-        Caustic: 0.9
+#Begin DeltaV modifications
+        Blunt: 0.70 # Was 0.65
+        Slash: 0.70 # Was 0.65
+        Piercing: 0.70 # Was 0.7
+        Heat: 0.80 # Was 0.7
+#End DeltaV modifications
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -142,7 +147,7 @@
     modifiers:
       coefficients:
         Slash: 0.95
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -297,7 +302,7 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatRD
-  name: research director lab coat
+  name: mystagogue lab coat # DeltaV - Epistemics Department replacing Science
   description: Woven with top of the line technology, this labcoat helps protect against radiation in similar way to the experimental hardsuit.
   components:
   - type: Sprite
@@ -313,7 +318,7 @@
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
   id: ClothingOuterCoatRDOpened
-  name: research director lab coat
+  name: mystagogue lab coat # DeltaV - Science > Epistemics
 
 - type: entity
   parent: ClothingOuterStorageBase

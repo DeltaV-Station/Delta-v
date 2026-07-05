@@ -31,9 +31,6 @@ reagent-desc-penteticacid = A complicated anti-toxin solution that quickly flush
 reagent-name-granibitulari = granibitulari
 reagent-desc-granibitulari = A common, slow-acting medicine for all types of injuries.
 
-reagent-name-pielovene = pielovene
-reagent-desc-pielovene = A honk-spectrum anti-toxin, which treats a broad variety of damage in clowns. Harmful to mimes.
-
 reagent-name-hypothium = hypothium
 reagent-desc-hypothium = A difficult to synthesize drug used to cure most wounds and clot blood.
 

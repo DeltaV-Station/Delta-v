@@ -1,6 +1,6 @@
 - type: entity
   name: nuclear operative mouse
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
   id: MobNukieMouse
   description: A Nuclear Operative... MOUSE?!
   suffix: syndicate
@@ -78,7 +78,7 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Food
+  - type: Edible
   - type: Hunger
     baseDecayRate: 0.1
   - type: Extractable
@@ -112,7 +112,7 @@
   - type: NoSlip
   - type: Respirator #It just works?
     minSaturation: 5.0
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: PressureImmunity
@@ -137,11 +137,11 @@
         Slash: 5
         Piercing: 3
         Structural: 1.5
-  - type: Body
-    prototype: Rat
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: Bloodstream
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice

@@ -1,0 +1,96 @@
+# GhostTakeover
+
+# Snakes
+- type: entity
+  parent: MobPurpleSnake
+  id: MobPurpleSnakeGhost
+  suffix: Player
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: deltav-ghost-role-information-salvageantag-rules
+    mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+  - type: SalvageMobRestrictions
+
+- type: entity
+  parent: MobSmallPurpleSnake
+  id: MobSmallPurpleSnakeGhost
+  suffix: Player, Small
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: deltav-ghost-role-information-salvageantag-rules
+    mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+  - type: SalvageMobRestrictions
+
+# Variants of Xenos to allow ghost takeover again
+
+- type: entity
+  abstract: true
+  id: BaseMobXenoPlayer
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXeno] # Reverse order so suffix works
+  id: MobXenoPlayer
+  name: Burrower
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoPraetorianNPC] # Reverse order so suffix works
+  id: MobXenoPraetorian
+  name: Praetorian
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoDroneNPC] # Reverse order so suffix works
+  id: MobXenoDrone
+  name: Drone
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoQueenNPC] # Reverse order so suffix works
+  id: MobXenoQueen
+  name: Queen
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoRavagerNPC] # Reverse order so suffix works
+  id: MobXenoRavager
+  name: Ravager
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoRunnerNPC] # Reverse order so suffix works
+  id: MobXenoRunner
+  name: Runner
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoRounyNPC] # Reverse order so suffix works
+  id: MobXenoRouny
+  name: Rouny
+
+- type: entity
+  parent: [BaseMobXenoPlayer, MobXenoSpitterNPC] # Reverse order so suffix works
+  id: MobXenoSpitter
+  name: Spitter

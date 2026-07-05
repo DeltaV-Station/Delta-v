@@ -72,6 +72,12 @@ namespace Content.Shared.Chemistry
         }
     }
 
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterOutputDrawSourceMessage(ChemMasterDrawSource drawSource) : BoundUserInterfaceMessage
+    {
+        public readonly ChemMasterDrawSource DrawSource = drawSource;
+    }
+
     /* DeltaV - removed discarding
     public enum ChemMasterMode
     {
@@ -96,10 +102,19 @@ namespace Content.Shared.Chemistry
         U1 = 1,
         U5 = 5,
         U10 = 10,
+        U15 = 15,
+        U20 = 20,
         U25 = 25,
+        U30 = 30,
         U50 = 50,
         U100 = 100,
         All,
+    }
+
+    public enum ChemMasterDrawSource
+    {
+        Internal,
+        External,
     }
 
     public static class ChemMasterReagentAmountToFixedPoint
@@ -171,11 +186,13 @@ namespace Content.Shared.Chemistry
 
         public readonly bool UpdateLabel;
 
+        public readonly ChemMasterDrawSource DrawSource;
+
         public ChemMasterBoundUserInterfaceState(
             // DeltaV - removed discarding
             ChemMasterSortingType sortingType, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel)
+            uint selectedPillType, uint pillDosageLimit, bool updateLabel, ChemMasterDrawSource drawSource)
         {
             InputContainerInfo = inputContainerInfo;
             OutputContainerInfo = outputContainerInfo;
@@ -186,6 +203,7 @@ namespace Content.Shared.Chemistry
             SelectedPillType = selectedPillType;
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
+            DrawSource = drawSource;
         }
     }
 

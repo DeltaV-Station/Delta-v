@@ -20,6 +20,7 @@
     title: objective-condition-reap-soul-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:

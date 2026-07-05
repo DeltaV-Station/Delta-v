@@ -16,7 +16,7 @@
       path: /Audio/Ambience/Objects/hdd_buzz.ogg
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#3db83b"
     castShadows: false
     netsync: false
@@ -56,6 +56,11 @@
   - type: Appearance
   - type: ApcVisuals
   - type: Battery
+    # Very important:
+    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+    # This can not be done by changing the charge rate as the power supply ramps up over time.
+    # This disables prediction for this battery.
+    netsync: false
     maxCharge: 50000
     startingCharge: 0
   - type: ExaminableBattery
@@ -146,8 +151,6 @@
     priority: 1
   - type: StaticPrice
     price: 500
-  - type: BatteryDrinkerSource # EE IPCs
-    maxAmount: 10000
   - type: GuideHelp
     guides:
     - VoltageNetworks
@@ -211,8 +214,6 @@
   - type: Battery
     maxCharge: 50000
     startingCharge: 50000
-  - type: BatteryDrinkerSource # EE IPCs
-    maxAmount: 5000
 
 - type: entity
   parent: BaseAPC
@@ -222,8 +223,6 @@
   - type: Battery
     maxCharge: 100000
     startingCharge: 100000
-  - type: BatteryDrinkerSource # EE IPCs
-    maxAmount: 12000
 
 - type: entity
   parent: BaseAPC
@@ -233,8 +232,6 @@
   - type: Battery
     maxCharge: 150000
     startingCharge: 150000
-  - type: BatteryDrinkerSource # EE IPCs
-    maxAmount: 18000
 
 - type: entity
   parent: BaseAPC
@@ -244,8 +241,6 @@
   - type: Battery
     maxCharge: 200000
     startingCharge: 200000
-  - type: BatteryDrinkerSource # EE IPCs
-    maxAmount: 26000
 
 - type: entity
   parent: BaseAPC

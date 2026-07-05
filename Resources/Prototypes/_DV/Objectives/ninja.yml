@@ -24,6 +24,7 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter
 
 - type: entity
   parent: BaseNinjaTeachLessonObjective
@@ -48,6 +49,7 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter
 
   - type: KillPersonCondition
     requireDead: true

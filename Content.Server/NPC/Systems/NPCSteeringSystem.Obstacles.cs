@@ -12,6 +12,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using ClimbableComponent = Content.Shared.Climbing.Components.ClimbableComponent;
 using ClimbingComponent = Content.Shared.Climbing.Components.ClimbingComponent;
+using Robust.Shared.Random;
 
 namespace Content.Server.NPC.Systems;
 
@@ -161,7 +162,7 @@ public sealed partial class NPCSteeringSystem
             // Try smashing obstacles.
             else if ((component.Flags & PathFlags.Smashing) != 0x0)
             {
-                if (_melee.TryGetWeapon(uid, out _, out var meleeWeapon) && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<CombatModeComponent>(uid, out var combatMode))
+                if (_melee.TryGetWeapon(uid, out var weaponUid, out var meleeWeapon) && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<CombatModeComponent>(uid, out var combatMode)) // DeltaV - Get weaponuid
                 {
                     _combat.SetInCombatMode(uid, true, combatMode);
                     var destructibleQuery = GetEntityQuery<DestructibleComponent>();
@@ -175,7 +176,7 @@ public sealed partial class NPCSteeringSystem
                         // TODO: Validate we can damage it
                         if (destructibleQuery.HasComponent(ent))
                         {
-                            attackResult = _melee.AttemptLightAttack(uid, uid, meleeWeapon, ent);
+                            attackResult = _melee.AttemptLightAttack(uid, weaponUid, meleeWeapon, ent); // DeltaV - Pass weaponUid
                             break;
                         }
                     }

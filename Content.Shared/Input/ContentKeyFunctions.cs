@@ -39,6 +39,9 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction OpenInventoryMenu = "OpenInventoryMenu";
         public static readonly BoundKeyFunction SmartEquipBackpack = "SmartEquipBackpack";
         public static readonly BoundKeyFunction SmartEquipBelt = "SmartEquipBelt";
+        public static readonly BoundKeyFunction SmartEquipPocket1 = "SmartEquipPocket1";
+        public static readonly BoundKeyFunction SmartEquipPocket2 = "SmartEquipPocket2";
+        public static readonly BoundKeyFunction SmartEquipSuitStorage = "SmartEquipSuitStorage";
         public static readonly BoundKeyFunction OpenBackpack = "OpenBackpack";
         public static readonly BoundKeyFunction OpenBelt = "OpenBelt";
         public static readonly BoundKeyFunction OpenAHelp = "OpenAHelp";
@@ -68,19 +71,6 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ZoomOut = "ZoomOut";
         public static readonly BoundKeyFunction ZoomIn = "ZoomIn";
         public static readonly BoundKeyFunction ResetZoom = "ResetZoom";
-
-        // Shitmed Change Start
-        public static readonly BoundKeyFunction TargetHead = "TargetHead";
-        public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
-        public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";
-        public static readonly BoundKeyFunction TargetLeftHand = "TargetLeftHand";
-        public static readonly BoundKeyFunction TargetRightArm = "TargetRightArm";
-        public static readonly BoundKeyFunction TargetRightHand = "TargetRightHand";
-        public static readonly BoundKeyFunction TargetLeftLeg = "TargetLeftLeg";
-        public static readonly BoundKeyFunction TargetLeftFoot = "TargetLeftFoot";
-        public static readonly BoundKeyFunction TargetRightLeg = "TargetRightLeg";
-        public static readonly BoundKeyFunction TargetRightFoot = "TargetRightFoot";
-        // Shitmed Change End
 
         public static readonly BoundKeyFunction ArcadeUp = "ArcadeUp";
         public static readonly BoundKeyFunction ArcadeDown = "ArcadeDown";
@@ -140,7 +130,8 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction EditorCopyObject = "EditorCopyObject";
         public static readonly BoundKeyFunction EditorFlipObject = "EditorFlipObject";
         public static readonly BoundKeyFunction InspectEntity = "InspectEntity";
-
+        public static readonly BoundKeyFunction InspectServerComponent = "InspectServerComponent";
+        public static readonly BoundKeyFunction InspectClientComponent = "InspectClientComponent";
         public static readonly BoundKeyFunction MappingUnselect = "MappingUnselect";
         public static readonly BoundKeyFunction SaveMap = "SaveMap";
         public static readonly BoundKeyFunction MappingEnablePick = "MappingEnablePick";

@@ -71,13 +71,14 @@
   - type: Climbable
     delay: 1.6
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Huge # DeltaV - changed to huge (so felinids can fit)
     grid:
       - 0,0,5,5
     storageOpenSound:
       path: /Audio/Nyanotrasen/Machines/washer_open.ogg
     storageCloseSound:
       path: /Audio/Nyanotrasen/Machines/washer_close.ogg
+  - type: AllowsSleepInside # DeltaV - let felinids sleep inside washing machines
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -186,18 +187,20 @@
   name: washing machine
   suffix: random clothes
   components:
-  - type: StorageFill
-    contents:
-    - id: Soap
-      prob: 0.3
-    - id: ClothingOuterWinterCoatPlaid
-      prob: 0.5
-    - id: ClothingUniformMNKTracksuitBlack
-      prob: 0.3
-    - id: ClothingCostumeNaota
-      prob: 0.2
-    - id: ClothingHeadBandSkull
-      prob: 0.2
-    - id: ClothingNeckScarfStripedBlue
-      prob: 0.3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Soap
+          prob: 0.3
+        - id: ClothingOuterWinterCoatPlaid
+          prob: 0.5
+        - id: ClothingUniformMNKTracksuitBlack
+          prob: 0.3
+        - id: ClothingCostumeNaota
+          prob: 0.2
+        - id: ClothingHeadBandSkull
+          prob: 0.2
+        - id: ClothingNeckScarfStripedBlue
+          prob: 0.3
 

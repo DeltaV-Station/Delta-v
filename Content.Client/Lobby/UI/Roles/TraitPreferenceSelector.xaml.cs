@@ -19,22 +19,24 @@ public sealed partial class TraitPreferenceSelector : Control
 
     public event Action<bool>? PreferenceChanged;
 
-    public TraitPreferenceSelector(TraitPrototype trait)
-    {
-        RobustXamlLoader.Load(this);
-
-        var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
-        text += Loc.GetString(trait.Name);
-
-        Cost = trait.Cost;
-        Checkbox.Text = text;
-        Checkbox.OnToggled += OnCheckBoxToggled;
-
-        if (trait.Description is { } desc)
-        {
-            Checkbox.ToolTip = Loc.GetString(desc);
-        }
-    }
+    // DeltaV - This whole control is generally unused but the compiler wouldn't compile if I removed it
+    // So I'm just gonna comment this part out
+    // public TraitPreferenceSelector(TraitPrototype trait)
+    // {
+    //     RobustXamlLoader.Load(this);
+    //
+    //     var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
+    //     text += Loc.GetString(trait.Name);
+    //
+    //     Cost = trait.Cost;
+    //     Checkbox.Text = text;
+    //     Checkbox.OnToggled += OnCheckBoxToggled;
+    //
+    //     if (trait.Description is { } desc)
+    //     {
+    //         Checkbox.ToolTip = Loc.GetString(desc);
+    //     }
+    // }
 
     private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
     {

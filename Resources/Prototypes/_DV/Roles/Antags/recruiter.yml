@@ -5,10 +5,10 @@
   antagonist: false # you ask questions and write papers not kill people
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 86400 # 24h so you probably know some general lore or something
+    time: 24h
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 3600 # 1h as lawyer so you maybe know how to paperwork
+    time: 1h
 
 - type: startingGear
   id: SyndicateRecruiterGear

@@ -3,6 +3,7 @@ ui-options-general-forknotice = Note: These settings are fork-specific and might
 
 ui-options-no-filters = Disable species vision filters
 ui-options-disable-glimmer-effect = Disable high glimmer shader effect
+ui-options-enable-stun-visuals = Enable the 'Seeing Stars' effect on stunned entities
 
 ## DeltaV NanoChat keybinds
 ui-options-header-nano-chat = NanoChat
@@ -13,3 +14,12 @@ ui-options-function-nano-chat-navigate-down-unread = Navigate down to next unrea
 
 ## DeltaV Curator Chat
 ui-options-function-open-c-help = Open curator help
+
+## DeltaV Tips
+ui-options-delta-tips = Tips
+ui-options-delta-disable-tips = Disable tips
+ui-options-delta-reset-tips = Reset all seen tips
+
+## DeltaV Screenshake Accessiblity Options
+ui-options-screen-shake-intensity = Camera kick intensity
+ui-options-es-screen-shake-toggle = Disable Screenshake

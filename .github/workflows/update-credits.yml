@@ -34,17 +34,19 @@ jobs:
       # Uncomment this and comment the other line if you do this.
       # https://github.com/stefanzweifel/git-auto-commit-action#push-to-protected-branches
 
-      #- name: Commit new credit files
-      #  uses: stefanzweifel/git-auto-commit-action@v4
-      #  with:
-      #    commit_message: Update Credits
-      #    commit_author: PJBot <pieterjan.briers+bot@gmail.com>
+      # - name: Commit new credit files
+      #   uses: stefanzweifel/git-auto-commit-action@v7
+      #   with:
+      #     commit_message: Update Credits
+      #     commit_author: DeltaV-Bot <github@deltav.gay>
+      #     token: ${{ secrets.GITHUB_TOKEN }}
 
       # This will make a PR
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
       - name: Create Pull Request
+        id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: Update Credits
@@ -52,3 +54,14 @@ jobs:
           body: This is an automated Pull Request. This PR updates the github contributors in the credits section.
           author: DeltaV-Bot <github@deltav.gay>
           branch: automated/credits-${{env.NOW}}
+
+      - name: Auto-merge PR with bypass
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{secrets.CREDITS_TOKEN}}
+        run: |
+          gh pr merge ${{ steps.cpr.outputs.pull-request-number }} \
+            --squash \
+            --admin \
+            --delete-branch \
+            --repo ${{ github.repository }}

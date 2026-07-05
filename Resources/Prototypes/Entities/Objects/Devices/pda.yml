@@ -65,14 +65,16 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
+    radius: 1.7
+    falloff: 3
     softness: 5
     autoRot: true
   - type: Ringer
   - type: RingerUplink
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: PDA
+    receiveFrequencyId: NTNet # DeltaV
+    transmitFrequencyId: NTNet # DeltaV
     prefix: device-address-prefix-console
     savableAddress: false
   - type: WirelessNetworkConnection
@@ -124,6 +126,7 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
+  - type: Pager # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -158,6 +161,10 @@
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - NanoChatCartridge # DeltaV
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Security]
+  # End DeltaV
 
 - type: entity
   parent: BasePDA
@@ -173,6 +180,10 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Medical]
+  # End DeltaV
 
 - type: entity
   parent: BasePDA
@@ -186,7 +197,7 @@
     borderColor: "#717059"
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseEngineeringPDA, BasePDA] # DeltaV
   id: TechnicalAssistantPDA
   name: technical assistant PDA
   description: Why isn't it yellow?
@@ -246,7 +257,7 @@
     state: pda-interncadet
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseEpistemicsPDA, BasePDA] # DeltaV
   id: ResearchAssistantPDA
   name: research assistant PDA
   description: Why isn't it purple?
@@ -265,7 +276,7 @@
     state: pda-internsci
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: ServiceWorkerPDA
   name: service worker PDA
   description: Why isn't it gray?
@@ -284,7 +295,7 @@
     state: pda-internservice
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: ChefPDA
   name: chef PDA
   description: Covered in grease and flour.
@@ -304,7 +315,7 @@
     accent: italian
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: BotanistPDA
   name: botanist PDA
   description: Has an earthy scent.
@@ -323,7 +334,7 @@
     state: pda-hydro
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: ClownPDA
   name: clown PDA
   description: Looks can be deceiving.
@@ -372,7 +383,7 @@
         - ItemMask
 
 - type: entity
-  parent: ClownPDA
+  parent: [BaseVisitorPDA, ClownPDA] # DeltaV
   id: VisitorClownPDA
   suffix: Visitor
   components:
@@ -383,7 +394,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: MimePDA
   name: mime PDA
   description: Suprisingly not on mute.
@@ -419,6 +430,9 @@
       whitelist:
         components:
         - Cartridge
+    preinstalled:
+    - CrewManifestCartridge
+    - NewsReaderCartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -452,7 +466,7 @@
     state: pda-chaplain
 
 - type: entity
-  parent: ChaplainPDA
+  parent: [BaseVisitorPDA, ChaplainPDA] # DeltaV
   id: VisitorChaplainPDA
   suffix: Visitor
   components:
@@ -464,7 +478,7 @@
 
 - type: entity
   name: logistics officer PDA # DeltaV - Logistics Department replacing Cargo
-  parent: BasePDA
+  parent: [BaseLogisticsPDA, BasePDA] # DeltaV
   id: QuartermasterPDA
   description: PDA for the guy that directs logistics. # DeltaV - Logistics Department replacing Cargo
   components:
@@ -492,7 +506,7 @@
     - AstroNavCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseLogisticsPDA, BasePDA] # DeltaV
   id: CargoPDA
   name: logistics PDA # DeltaV - Logistics Department replacing Cargo
   description: PDA for the guys that order the pizzas.
@@ -518,7 +532,7 @@
     - NanoChatCartridge # DeltaV
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseLogisticsPDA, BasePDA] # DeltaV
   id: SalvagePDA
   name: salvage PDA
   description: Smells like ash.
@@ -546,7 +560,7 @@
       - NanoChatCartridge # DeltaV
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: BartenderPDA
   name: bartender PDA
   description: Smells like beer.
@@ -564,7 +578,7 @@
     state: pda-bartender
 
 - type: entity
-  parent: BaseWidePDA
+  parent: [BaseServicePDA, BaseWidePDA] # DeltaV
   id: LibrarianPDA
   name: librarian PDA
   description: Smells like books.
@@ -588,7 +602,7 @@
     state: pda-library
 
 - type: entity
-  parent: LibrarianPDA
+  parent: [BaseVisitorPDA, LibrarianPDA] # DeltaV
   id: VisitorLibrarianPDA
   suffix: Visitor
   components:
@@ -633,7 +647,7 @@
     - LogProbeCartridge
 
 - type: entity
-  parent: LawyerPDA
+  parent: [BaseVisitorPDA, LawyerPDA] # DeltaV
   id: VisitorLawyerPDA
   suffix: Visitor
   components:
@@ -644,7 +658,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA]
   id: JanitorPDA
   name: janitor PDA
   description: Smells like bleach.
@@ -684,6 +698,11 @@
     borderColor: "#7C5D00"
   - type: Icon
     state: pda-captain
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Command]
+    autoLinkJobs: [Captain]
+  # End DeltaV
 
 - type: entity
   parent: BasePDA
@@ -709,6 +728,11 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hop
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Command]
+    autoLinkJobs: [HeadOfPersonnel]
+  # End DeltaV
 
 - type: entity
   parent: BasePDA
@@ -728,9 +752,14 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-ce
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Command, Engineering]
+    autoLinkJobs: [ChiefEngineer]
+  # End DeltaV
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseEngineeringPDA, BasePDA]
   id: EngineerPDA
   name: engineer PDA
   description: Rugged and well-worn.
@@ -767,6 +796,11 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-cmo
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Command, Medical]
+    autoLinkJobs: [ChiefMedicalOfficer]
+  # End DeltaV
 
 - type: entity
   parent: BaseMedicalPDA
@@ -791,7 +825,7 @@
     - MedicalDoctor
 
 - type: entity
-  parent: MedicalPDA
+  parent: [BaseVisitorPDA, MedicalPDA] # DeltaV
   id: VisitorMedicalPDA
   suffix: Visitor
   components:
@@ -866,9 +900,14 @@
       - NewsReaderCartridge
       - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Command, Epistemics]
+    autoLinkJobs: [ResearchDirector]
+  # End DeltaV
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseEpistemicsPDA, BasePDA] # DeltaV
   id: SciencePDA
   name: epistemics PDA # DeltaV - Epistemics Department replacing Science
   description: It's covered with an unknown gooey substance.
@@ -922,6 +961,11 @@
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+  # Begin DeltaV
+  - type: Pager
+    autoLinkDepartments: [Command, Security]
+    autoLinkJobs: [HeadOfSecurity]
+  # End DeltaV
 
 - type: entity
   parent: BaseSecurityPDA
@@ -961,7 +1005,7 @@
     state: pda-security
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseCentralPDA, BaseSecurityPDA] # DeltaV
   id: CentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
@@ -996,7 +1040,7 @@
       - NanoChatCartridge # DeltaV
 
 - type: entity
-  parent: CentcomPDA
+  parent: [BaseVisitorPDA, CentcomPDA] # DeltaV
   id: AdminPDA
   name: Admin PDA
   suffix: Admin
@@ -1039,7 +1083,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA]
   id: MusicianPDA
   name: musician PDA
   description: It fills you with inspiration.
@@ -1062,7 +1106,7 @@
     program: 2
 
 - type: entity
-  parent: MusicianPDA
+  parent: [BaseVisitorPDA, MusicianPDA] # DeltaV
   id: VisitorMusicianPDA
   suffix: Visitor
   components:
@@ -1073,7 +1117,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseEngineeringPDA, BasePDA] # DeltaV
   id: AtmosPDA
   name: atmospheric technician PDA # DeltaV - was "atmos PDA"
   description: Still smells like plasma.
@@ -1151,7 +1195,63 @@
       - NanoChatCartridge # DeltaV
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [ SyndiPDA, BaseSyndicateContraband ]
+  id: SyndiOperativePDA
+  name: syndicate operative PDA
+  description: Death to NT!
+  components:
+  - type: Pda
+    id: SyndiOperativeIDCard
+  #- type: Appearance # DeltaV - We don't have a specific operative sprite, so use SyndiPDA
+  #  appearanceDataInit:
+  #   enum.PdaVisuals.PdaType:
+  #     !type:String
+  #     pda-syndi-operative
+  #- type: Icon
+  #  state: pda-syndi-operative
+
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiAgentPDA # DeltaV
+  name: syndicate agent PDA
+  description: Commander... I need to cook!
+  components:
+  - type: Pda
+    id: SyndiAgentIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi-agent # DeltaV
+  - type: Icon
+    state: pda-syndi-agent # DeltaV
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - MedTekCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiCommanderPDA
+  name: syndicate commander PDA
+  description: So what are we, some kind of Nukie squad?
+  components:
+  - type: Pda
+    id: SyndiCommanderIDCard
+  #- type: Appearance # DeltaV - We don't have a specific commander sprite so use SyndiPDA
+  #  appearanceDataInit:
+  #   enum.PdaVisuals.PdaType:
+  #     !type:String
+  #     pda-syndi-commander
+  #- type: Icon
+  #   state: pda-syndi-commander
+
+- type: entity
+  parent: [BaseCentralPDA, BaseSecurityPDA] # DeltaV
   id: ERTLeaderPDA
   name: ERT Leader PDA
   suffix: Leader
@@ -1247,7 +1347,7 @@
     accentVColor: "#447987"
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA # DeltaV
   id: PsychologistPDA
   name: psychologist PDA
   description: Looks immaculately cleaned.
@@ -1266,7 +1366,7 @@
     state: pda-medical
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: ReporterPDA
   name: reporter PDA
   description: Smells like freshly printed press.
@@ -1298,7 +1398,7 @@
     - NanoChatCartridge # DeltaV
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: ZookeeperPDA
   name: zookeeper PDA
   description: Made with genuine synthetic leather. Crikey!
@@ -1316,7 +1416,7 @@
     state: pda-zookeeper
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseServicePDA, BasePDA] # DeltaV
   id: BoxerPDA
   name: boxer PDA
   description: Float like a butterfly, ringtone like a bee.
@@ -1420,7 +1520,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseEngineeringPDA, BasePDA] # DeltaV
   id: SeniorEngineerPDA
   name: senior engineer PDA
   description: Seems to have been taken apart and put back together several times.
@@ -1497,6 +1597,42 @@
   - type: Icon
     state: pda-seniorofficer
 
+# DeltaV - No senior courier job
+#- type: entity
+#  parent: BasePDA
+#  id: SeniorCourierPDA
+#  name: senior courier PDA
+#  description: Smells like postage stamps and shuttle fuel.
+#  components:
+#  - type: Pda
+#    id: CargoIDCard
+#  - type: Appearance
+#    appearanceDataInit:
+#     enum.PdaVisuals.PdaType:
+#       !type:String
+#       pda-seniorcourier
+#  - type: PdaBorderColor
+#    borderColor: "#e39751"
+#    accentVColor: "#DFDFDF"
+#  - type: Icon
+#    state: pda-seniorcourier
+
+- type: entity
+  parent: [ BaseHighlyIllegalContraband, BasePDA ]
+  id: NinjaPDA
+  name: ninja PDA
+  description: You stealthy bastard, you!
+  components:
+  - type: Pda
+    id: NinjaIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-ninja
+  - type: Icon
+    state: pda-ninja
+
 - type: entity
   parent: [ BaseMajorContraband, SyndiPDA ]
   id: PiratePDA
@@ -1512,31 +1648,6 @@
        pda-pirate
   - type: Icon
     state: pda-pirate
-
-- type: entity
-  parent: [ BaseMedicalPDA, BaseSyndicateContraband ]
-  id: SyndiAgentPDA
-  name: syndicate corpsman PDA
-  description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
-  components:
-  - type: Pda
-    id: SyndicateIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-syndi-agent
-  - type: PdaBorderColor
-    borderColor: "#891417"
-  - type: Icon
-    state: pda-syndi-agent
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - MedTekCartridge
-      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: [BasePDA, SelectableLock]

@@ -1,9 +1,10 @@
-using Content.Server.Medical;
+
 using Content.Shared.Body.Components;
 using Content.Shared._DV.Abilities;
 using Content.Shared._DV.Abilities.Felinid;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Item;
+using Content.Shared.Medical;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Robust.Shared.Random;
@@ -37,7 +38,7 @@ public sealed class FelinidSystem : SharedFelinidSystem
 
     private void OnItemCoughedUp(Entity<FelinidComponent> ent, ref ItemCoughedUpEvent args)
     {
-        if (!TryComp<BloodstreamComponent>(ent, out var blood) || blood.ChemicalSolution is not {} solution)
+        if (!TryComp<BloodstreamComponent>(ent, out var blood) || blood.BloodSolution is not {} solution)
             return;
 
         var item = args.Item;

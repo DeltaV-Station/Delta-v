@@ -3,11 +3,10 @@
   name: roles-antag-fugitive-name
   antagonist: true
   objective: roles-antag-fugitive-objective
-  # keep these in sync with the spawner
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 3600 # 1 hour
+    time: 1h
 
 - type: startingGear
   id: FugitiveGear

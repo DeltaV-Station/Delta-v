@@ -1,0 +1,36 @@
+- type: entity
+  name: head stamp box
+  parent: BoxBase
+  id: BoxHeadStampBase
+  description: A cardboard box containing all important command member stamps. Other stamps not included.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RubberStampCaptain
+        - id: RubberStampCE
+        - id: RubberStampHos
+        - id: RubberStampCMO
+        - id: RubberStampHop
+        - id: RubberStampChiefJustice
+        - id: RubberStampRd
+        - id: RubberStampQm
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      components:
+      - Stamp
+  - type: Sprite
+    layers:
+    - state: box
+    - state: stamp
+  - type: Tag
+    tags:
+    - BoxCardboard

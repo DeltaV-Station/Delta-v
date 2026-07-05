@@ -7,13 +7,13 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Psionics; // DeltaV
-using Content.Shared._EE.Silicon.Components; // Goobstation
+using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cloning;
-using Content.Shared.Damage;
+using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -30,6 +30,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Cloning;
 
@@ -55,10 +57,12 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";
     public const float EasyModeCloningCost = 0.7f;
+    private static readonly ProtoId<ReagentPrototype> BloodId = "Blood";
 
     public override void Initialize()
     {
@@ -160,9 +164,6 @@ public sealed class CloningPodSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
             return false;
 
-        if (HasComp<SiliconComponent>(bodyToClone))
-            return false; // Goobstation: Don't clone IPCs.
-
         var cloningCost = (int)Math.Round(physics.FixturesMass);
 
         if (_configManager.GetCVar(CCVars.BiomassEasyMode))
@@ -182,7 +183,7 @@ public sealed class CloningPodSystem : EntitySystem
 
         // genetic damage checks
         if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
-            damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
+            _damageable.GetAllDamage((bodyToClone, damageable)).DamageDict.TryGetValue("Cellular", out var cellularDmg))
         {
             var chance = Math.Clamp((float)(cellularDmg / 100), 0, 1);
             chance *= failChanceModifier;
@@ -308,7 +309,7 @@ public sealed class CloningPodSystem : EntitySystem
         while (i < 1)
         {
             tileMix?.AdjustMoles(Gas.Ammonia, 6f);
-            bloodSolution.AddReagent("Blood", 50);
+            bloodSolution.AddReagent(BloodId, 50);
             if (_robustRandom.Prob(0.2f))
                 i++;
         }

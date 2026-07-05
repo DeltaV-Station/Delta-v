@@ -73,13 +73,23 @@
     - fullstatereset
     - dumpentities
     - fuckrules # DeltaV: move fuckrules to DEBUG
+    - showwallmounts
     - showaccessreaders
+    - quickinspect
+
+- Flags: ADMIN # DeltaV
+  Commands:
+    - adminoverlay
 
 - Flags: MAPPING
   Commands:
     - mapping
+    - mappingclientsidesetup
+    - showsubfloor
+    - showsubfloorforever
     - toggleautosave
     - toggledecals
+    - showwallmounts
     - showaccessreaders
 
 - Flags: QUERY

@@ -50,6 +50,7 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter
   - type: KillPersonCondition
     requireDead: true
 

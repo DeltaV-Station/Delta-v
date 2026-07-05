@@ -5,9 +5,11 @@ using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
+using Content.Server.Radio.EntitySystems; // DeltaV - radio announcements
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared._DV.Species; // DeltaV - Hidden species
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -20,6 +22,7 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Station; // DeltaV - radio announcements
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -35,6 +38,8 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly AdminSystem _admin = default!;
+        [Dependency] private readonly RadioSystem _radio = default!; // DeltaV - radio announcements
+        [Dependency] private readonly SharedStationSystem _station = default!; // DeltaV - radio announcements
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -141,12 +146,13 @@ namespace Content.Server.GameTicking
             var character = GetPlayerProfile(player);
 
             var jobBans = _banManager.GetJobBans(player.UserId);
-            if (jobBans == null || jobId != null && jobBans.Contains(jobId))
+            if (jobBans == null || jobId != null && jobBans.Contains(jobId)) //TODO: use IsRoleBanned directly?
                 return;
 
             if (jobId != null)
             {
-                var ev = new IsJobAllowedEvent(player, new ProtoId<JobPrototype>(jobId));
+                var jobs = new List<ProtoId<JobPrototype>> {jobId};
+                var ev = new IsRoleAllowedEvent(player, jobs, null);
                 RaiseLocalEvent(ref ev);
                 if (ev.Cancelled)
                     return;
@@ -195,12 +201,12 @@ namespace Content.Server.GameTicking
                     var speciesPrototypes = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>();
                     foreach (var proto in speciesPrototypes)
                     {
-                        if (proto.RoundStart)
+                        if (proto.RoundStart && !SpeciesHiderSystem.IsHidden(proto.ID)) // DeltaV - Don't include hidden species
                             roundStart.Add(proto.ID);
                     }
 
                     speciesId = roundStart.Count == 0
-                        ? SharedHumanoidAppearanceSystem.DefaultSpecies
+                        ? HumanoidCharacterProfile.DefaultSpecies
                         : _robustRandom.Pick(roundStart);
                 }
                 else
@@ -210,6 +216,7 @@ namespace Content.Server.GameTicking
                 }
 
                 character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+                character.Appearance = HumanoidCharacterAppearance.EnsureValid(character.Appearance, character.Species, character.Sex);
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
@@ -253,36 +260,11 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            PlayerJoinGame(player, silent);
-
-            var data = player.ContentData();
-
-            DebugTools.AssertNotNull(data);
-
-            var newMind = _mind.CreateMind(data!.UserId, character.Name);
-            _mind.SetUserId(newMind, data.UserId);
-
-            var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-
-            _playTimeTrackings.PlayerRolesChanged(player);
-
-            // Delta-V: Add AlwaysUseSpawner.
-            var spawnPointType = SpawnPointType.Unset;
-            if (jobPrototype.AlwaysUseSpawner)
-            {
+            // Begin DeltaV Additions - Override latejoin
+            DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName, out var clearLatejoin);
+            if (clearLatejoin)
                 lateJoin = false;
-                spawnPointType = SpawnPointType.Job;
-            }
-
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character, spawnPointType: spawnPointType); // DeltaV: pass in spawn point type
-            DebugTools.AssertNotNull(mobMaybe);
-            var mob = mobMaybe!.Value;
-
-            _mind.TransferTo(newMind, mob);
-
-            _roles.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
-            var jobName = _jobs.MindTryGetJobName(newMind);
-            _admin.UpdatePlayerList(player);
+            // End DeltaV Additions - Override latejoin
 
             if (lateJoin && !silent)
             {
@@ -297,16 +279,24 @@ namespace Content.Server.GameTicking
                         playDefaultSound: false,
                         colorOverride: Color.Gold);
                 }
-                else
+                // Begin DeltaV - announce these to departmental channels
+                else if ((_jobs.TryGetPrimaryDepartment(jobId, out var dept)
+                         || _jobs.TryGetDepartment(jobId, out dept))
+                        && dept.RadioChannel is { } channel
+                        && _station.GetLargestGrid(station) is { } grid)
                 {
-                    _chatSystem.DispatchStationAnnouncement(station,
+
+                    var arrivals = SpawnAtPosition("DVArrivalsAnnouncer", new(grid, Vector2.Zero));
+                    _radio.SendRadioMessage(arrivals,
                         Loc.GetString("latejoin-arrival-announcement",
                             ("character", MetaData(mob).EntityName),
                             ("entity", mob),
                             ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
-                        Loc.GetString("latejoin-arrival-sender"),
-                        playDefaultSound: false);
+                        channel,
+                        arrivals);
+                    Del(arrivals);
                 }
+                // End DeltaV - announce these to departmental channels
             }
 
             if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
@@ -353,6 +343,54 @@ namespace Content.Server.GameTicking
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
+        }
+
+        /// <summary>
+        /// Creates a mob on the specified station, creates the new mind, equips job-specific starting gear and loadout
+        /// </summary>
+        public void DoSpawn(
+            ICommonSession player,
+            HumanoidCharacterProfile character,
+            EntityUid station,
+            string jobId,
+            bool silent,
+            out EntityUid mob,
+            out JobPrototype jobPrototype,
+            out string jobName,
+            out bool clearLatejoin)
+        {
+            PlayerJoinGame(player, silent);
+
+            var data = player.ContentData();
+
+            DebugTools.AssertNotNull(data);
+
+            var newMind = _mind.CreateMind(data!.UserId, character.Name);
+            _mind.SetUserId(newMind, data.UserId);
+
+            jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+
+            _playTimeTrackings.PlayerRolesChanged(player);
+
+            // Delta-V: Add AlwaysUseSpawner.
+            var spawnPointType = SpawnPointType.Unset;
+            if (jobPrototype.AlwaysUseSpawner)
+            {
+                clearLatejoin = true;
+                spawnPointType = SpawnPointType.Job;
+            }
+            else
+                clearLatejoin = false;
+
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character, spawnPointType: spawnPointType); // DeltaV: pass in spawn point type
+            DebugTools.AssertNotNull(mobMaybe);
+            mob = mobMaybe!.Value;
+
+            _mind.TransferTo(newMind, mob);
+
+            _roles.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
+            jobName = _jobs.MindTryGetJobName(newMind);
+            _admin.UpdatePlayerList(player);
         }
 
         public void Respawn(ICommonSession player)

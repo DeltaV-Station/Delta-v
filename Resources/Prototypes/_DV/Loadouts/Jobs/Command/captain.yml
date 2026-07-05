@@ -4,11 +4,21 @@
   equipment:
     head: ClothingHeadHatBeretCap
 
+- type: loadout
+  id: CaptainCavalier
+  equipment:
+    head: ClothingHeadHatCaptainCavalier
+
 # Neck
 - type: loadout
   id: CaptainCloakFormal
   equipment:
     neck: ClothingNeckCloakCapFormal
+
+- type: loadout
+  id: CaptainBoatCloak
+  equipment:
+    neck: ClothingNeckCloakBoat
 
 # Gloves
 - type: loadout
@@ -20,6 +30,17 @@
   id: InspectionGloves
   equipment:
     gloves: ClothingHandsGlovesInspection
+
+# Outer clothing
+- type: loadout
+  id: CaptainLongcoat
+  equipment:
+    outerClothing: ClothingLongcoatCaptainArmored
+
+- type: loadout
+  id: CaptainWintercoatArmored
+  equipment:
+    outerClothing: ClothingOuterWinterCapArmored
 
 # Shoes
 - type: loadout

@@ -4,11 +4,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Shipyard.Prototypes;
 
-[Prototype("vessel")]
-public sealed class VesselPrototype : IPrototype
+[Prototype]
+public sealed partial class VesselPrototype : IPrototype
 {
     [ViewVariables, IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// Already localized name of the vessel.

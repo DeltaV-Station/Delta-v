@@ -32,9 +32,14 @@ guide-entry-science = Epistemics
 guide-entry-glimmer-creatures = Glimmer Creatures
 guide-entry-altars = Altars
 guide-entry-psionics = Psionics
+guide-entry-mantis = Psionic Mantis
 guide-entry-reverse-engineering = Reverse Engineering
 
 guide-entry-trade-station = Trade Station
 guide-entry-cargo = Logistics
 
 guide-entry-frequently-used-chemicals = Frequently Used Chemicals
+
+guide-entry-deepfried-recipes = Deep-Fried
+
+guide-entry-frozentreat-recipes = Frozen Treats

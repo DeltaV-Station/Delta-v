@@ -1251,7 +1251,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-7.5
       parent: 166
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 170
     components:
@@ -1259,8 +1259,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-1.5
       parent: 166
-    - type: WarpPoint
-      location: Space Debris
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 88

@@ -22,12 +22,12 @@
     maxItemSize: Huge
     grid:
     - 0,0,8,4
-  - type: StorageFill
-    contents:
-    - id: PaperRecruiterUplink
-      amount: 1
-    - id: ToyFigurineRecruiter
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperRecruiterUplink
+        - id: ToyFigurineRecruiter
   - type: Lock
     lockOnClick: false
   - type: UIRequiresLock

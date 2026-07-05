@@ -16,7 +16,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable # DeltaV - Update for predicted mind examine
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -30,8 +30,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
-  - type: Body
-    prototype: Animal
   - type: Damageable # DeltaV - Change their damage to BiologicalMetaphysical, since they're magical sprite things. Also the shadow anomalite is supposed to take holy damage and it can't normally
     damageContainer: BiologicalMetaphysical
   - type: Dispellable # DeltaV - they're anomalies so they should be dispellable
@@ -57,8 +55,10 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodMaxVolume: 75
-    bloodReagent: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
+      reagents:
+      - ReagentId: Entropy # DeltaV - Was Anomalium, not part of the initial Anomalite PR. Might port it eventually, but until then Entropy is our closest analogue.
+        Quantity: 75 # DeltaV - Was 1, changed due to upstream blood solutions
   - type: InteractionPopup
     successChance: 0.1
     interactSuccessString: petting-success-anomalite
@@ -206,13 +206,14 @@
   - type: Damageable
     damageModifierSet: AnomalitePyroclastic
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold: 0.1
-    specificHeat: 42
     heatDamage:
       types:
         Heat: 0.0
@@ -303,13 +304,14 @@
   - type: Damageable
     damageModifierSet: AnomaliteIce
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold: 0.0
-    specificHeat: 42
     heatDamage:
       types:
         Heat: 1.5
@@ -633,7 +635,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Shadow: 10 # DeltaV - Shadow damage exists here
+        Soul: 10 # DeltaV - Soul damage exists here
     angle: 0
     animation: WeaponArcBite
   - type: Damageable

@@ -1,0 +1,68 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              VerticalExpand="True">
+
+    <!-- Header Panel with Global Stats -->
+    <PanelContainer StyleClasses="TraitsHeaderPanel" Margin="0 0 0 8">
+        <BoxContainer Orientation="Vertical" Margin="12 10">
+            <!-- Title Row -->
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+                <Label Text="{Loc 'trait-editor-title'}"
+                       StyleClasses="TraitsTitleLabel"/>
+                <Control HorizontalExpand="True"/>
+                <Label Name="GlobalTraitCountLabel"
+                       StyleClasses="TraitsStatLabel"/>
+            </BoxContainer>
+
+            <!-- Points Progress Bar -->
+            <BoxContainer Orientation="Vertical" Margin="0 4 0 0">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                    <Label Text="{Loc 'trait-editor-points-label'}"
+                           StyleClasses="TraitsSubtitleLabel"/>
+                    <Control HorizontalExpand="True"/>
+                    <Label Name="GlobalPointsLabel"
+                           StyleClasses="TraitsStatLabel"/>
+                </BoxContainer>
+
+                <!-- Progress Bar Container -->
+                <PanelContainer StyleClasses="TraitsProgressBarBg" SetHeight="12">
+                    <PanelContainer Name="GlobalPointsBar"
+                                    StyleClasses="TraitsProgressBarFill"
+                                    HorizontalAlignment="Left"/>
+                </PanelContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+
+    <!-- Search Bar -->
+    <PanelContainer StyleClasses="TraitsSearchBar" Margin="0 0 0 8">
+        <LineEdit Name="SearchBar"
+                  PlaceHolder="{Loc 'trait-editor-search-placeholder'}"
+                  HorizontalExpand="True"
+                  StyleClasses="TraitsSearchInput"
+                  Margin="10 8"/>
+    </PanelContainer>
+
+    <!-- Categories Container (Scrollable) -->
+    <ScrollContainer VerticalExpand="True"
+                     HScrollEnabled="False">
+        <BoxContainer Name="CategoriesContainer"
+                      Orientation="Vertical"
+                      HorizontalExpand="True"
+                      Margin="0 0 4 0"/>
+    </ScrollContainer>
+
+    <!-- Footer Info -->
+    <PanelContainer StyleClasses="TraitsFooterPanel" Margin="0 8 0 0">
+        <BoxContainer Orientation="Horizontal" Margin="10 6">
+            <Label Name="FooterHintLabel"
+                   Text="{Loc 'trait-editor-footer-hint'}"
+                   StyleClasses="TraitsFooterText"/>
+            <Control HorizontalExpand="True"/>
+            <Label Name="FooterInfoLabel"
+                   Text="{Loc 'trait-editor-footer-info'}"
+                   StyleClasses="TraitsFooterText"/>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

@@ -337,6 +337,19 @@
     access: [["Command"]]
 
 - type: entity
+  parent: CrateBaseSecure
+  id: CrateSyndicateSecure
+  name: secure syndicate crate
+  description: A dark steel crate with red bands and a letter S embossed on the front.
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/syndicate_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/syndicate_secure.rsi
+  - type: AccessReader
+    access: [["SyndicateAgent", "NuclearOperative"]]
+
+- type: entity
   parent: CrateGeneric
   id: CrateLivestock
   name: livestock crate
@@ -493,6 +506,8 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: Paintable
+    group: null
 
 - type: entity
   id: CrateLockBoxEngineering
@@ -557,7 +572,7 @@
 - type: entity
   id: CrateLockBoxScience
   parent: CrateBaseLockBox
-  name: science lock box
+  name: epistemics lock box # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     layers:
@@ -593,11 +608,11 @@
     layers:
     - state: base
     - state: overlay
-      color: "#c12d30"
+      color: "#34476c" # DeltaV - blue security resprite. Was c12d30
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#c12d30"
+      color: "#34476c" # DeltaV - blue security resprite. Was c12d30
       map: [ lid_overlay ]
     - state: welded
       visible: false
@@ -824,7 +839,7 @@
 - type: entity
   parent: CrateGenericSteel
   id: CrateSyndicate
-  name: Syndicate crate
+  name: syndicate crate
   description: A dark steel crate with red bands and a letter S embossed on the front.
   components:
   - type: Icon

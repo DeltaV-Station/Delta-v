@@ -5,12 +5,11 @@
   name: survival-title
   showInVote: true # secret # DeltaV - Me when the survival. Used for periapsis.
   description: survival-description
-  cooldown: 2 # Imp - Can't occur thrice
+  cooldown: 1 # DeltaV
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    #- SpaceTrafficControlFriendlyEventScheduler # DeltaV: spam of garbage roles nobody takes every 10-20 minutes
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
     - SubGamemodesRule # DeltaV
@@ -45,6 +44,7 @@
     - Zombie
     - Wizard
     - CosmicCult # DeltaV
+    - Xenoborgs
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
@@ -67,13 +67,13 @@
     - Revolutionary
     - Zombie
     - Wizard
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -101,7 +101,6 @@
   showInVote: true #4boring4vote # DeltaV - Enable greenshift in gamemode vote
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -134,32 +133,6 @@
     - Secret
 
 - type: gamePreset
-  id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
-  alias:
-    - secretextended
-  name: secret-title
-  showInVote: false #Admin Use
-  description: secret-description
-  rules:
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - GlimmerEventScheduler # DeltaV
-
-- type: gamePreset
-  id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
-  alias:
-  - secretgreenshift
-  name: secret-title
-  showInVote: false #Admin Use
-  description: secret-description
-  rules:
-  - SpaceTrafficControlFriendlyEventScheduler
-  - BasicRoundstartVariation
-  - GlimmerEventScheduler # DeltaV
-
-- type: gamePreset
   id: Sandbox
   alias:
     - sandbox
@@ -177,12 +150,12 @@
     - tator
   name: traitor-title
   description: traitor-description
-  cooldown: 2 # Imp - Can't occur thrice
+  cooldown: 1 # DeltaV
   showInVote: false
   rules:
   - DummyNonAntagChance
   - Traitor
-  - SubGamemodesRule
+  - SubGamemodesRuleNoWizard
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -209,11 +182,11 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
-  cooldown: 2 # Imp - Can't occur thrice
+  cooldown: 2 # DeltaV
   rules:
   - Nukeops
   - DummyNonAntagChance
-  - SubGamemodesRule
+  - SubGamemodesRuleNoWizard
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -232,7 +205,7 @@
   rules:
   - DummyNonAntagChance
   - Revolutionary
-  - SubGamemodesRule
+  - SubGamemodesRuleNoWizard
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -257,6 +230,22 @@
   - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizardNoXenoborg # no two motherships
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
   id: Zombie
   alias:
   - zombie
@@ -266,7 +255,7 @@
   - zomber
   name: zombie-title
   description: zombie-description
-  cooldown: 2 # Imp - Can't occur thrice
+  cooldown: 2 # DeltaV
   showInVote: false
   rules:
   - Zombie

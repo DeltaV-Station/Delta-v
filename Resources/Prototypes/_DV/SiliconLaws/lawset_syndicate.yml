@@ -1,0 +1,29 @@
+- type: siliconLaw
+  id: SyndicateBoard1
+  order: 1
+  lawString: laws-syndicate-board-1
+
+- type: siliconLaw
+  id: SyndicateBoard2
+  order: 2
+  lawString: laws-syndicate-board-2
+
+- type: siliconLaw
+  id: SyndicateBoard3
+  order: 3
+  lawString: laws-syndicate-board-3
+
+- type: siliconLaw
+  id: SyndicateBoard4
+  order: 4
+  lawString: laws-syndicate-board-4
+
+- type: siliconLawset
+  id: SyndicateLawset
+  name: laws-syndicate-name
+  laws:
+  - SyndicateBoard1
+  - SyndicateBoard2
+  - SyndicateBoard3
+  - SyndicateBoard4
+  obeysTo: laws-owner-syndicate

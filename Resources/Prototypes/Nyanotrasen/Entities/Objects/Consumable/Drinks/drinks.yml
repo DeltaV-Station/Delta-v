@@ -11,7 +11,8 @@
         reagents:
         - ReagentId: Sake
           Quantity: 30
-  - type: Drink
+  - type: Edible
+    edible: Drink
   - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sakeglass.rsi
     state: icon
@@ -166,7 +167,7 @@
         - ReagentId: PinkDrink
           Quantity: 30
   - type: Icon
-    sprite: Nyanotrasen/Objects/Consumable/Drinks/pinkdrink.rsi
+    sprite: _DV/Objects/Consumable/Drinks/pinkdrink.rsi # DeltaV replacement
     state: icon
 
 - type: entity

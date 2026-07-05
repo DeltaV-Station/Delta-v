@@ -20,11 +20,16 @@ jobs:
     - uses: actions/stale@v9
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        exempt-issue-labels: 'Priority: 1-Urgent,ignore-stale'
+
         days-before-stale: 90
-        stale-issue-message: 'This issue will close in 2 days due to inactivity'
-        days-before-close: 2
-        stale-pr-message: 'This Pull Request will close in 2 days due to inactivity'
-        stale-issue-label: 'stale'
-        stale-pr-label: 'stale'
         remove-stale-when-updated: true
+
+        stale-issue-message: 'This issue has not been triaged for 90 days'
+        only-issue-labels: 'S: Untriaged'
+        stale-issue-label: 'Stale'
+        days-before-issue-close: -1
+
+        stale-pr-message: 'This Pull Request has not seen activity in 90 days, and will be closed in 2 days without activity'
+        exempt-pr-labels: 'Ignore Stale'
+        stale-pr-label: 'Stale'
+        days-before-pr-close: 2

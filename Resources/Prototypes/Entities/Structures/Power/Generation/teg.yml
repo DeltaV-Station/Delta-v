@@ -63,6 +63,7 @@
     - type: AtmosDevice
     - type: TegGenerator
       thermalEfficiency: 0.1
+      powerFactor: 1.75
 
     - type: DeviceNetwork
       deviceNetId: AtmosDevices
@@ -151,7 +152,6 @@
     # tags
     - type: Tag
       tags:
-        - Pipe
         - Unstackable
 
     # basic interactions
@@ -185,6 +185,8 @@
     - type: TegCirculator
     - type: StealTarget
       stealGroup: Teg
+    - type: CrawlableNode # DeltaV - node crawling
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity

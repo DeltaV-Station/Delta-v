@@ -147,6 +147,7 @@
       - ClothMade
       - Gauze
       - RawMaterial
+      - TiderAnvilParts #SL
       - ConstructionMaterial
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
@@ -226,13 +227,6 @@
     state: durathread
   - type: Stack
     count: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents: #Hell if I know what durathread is made out of.
-        - ReagentId: Fiber
-          Quantity: 6
 
 - type: entity
   parent: MaterialBase
@@ -263,6 +257,7 @@
     tags:
     - Wooden
     - RawMaterial
+    - TiderAnvilParts #SL
     - ConstructionMaterial
   - type: Extractable
     grindableSolutionName: wood
@@ -342,7 +337,7 @@
       - HEAD
   - type: PointLight
     radius: 1.2
-    energy: 1.5
+    energy: 2.7
     color: "#4faffb"
     slots:
 

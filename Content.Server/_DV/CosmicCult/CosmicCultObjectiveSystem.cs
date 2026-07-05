@@ -4,6 +4,7 @@ using Content.Shared.Ninja.Components;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
 using Content.Shared.Warps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
@@ -14,6 +15,7 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -33,11 +35,21 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
         if (args.Cancelled || !_roles.MindHasRole<CosmicColossusRoleComponent>(args.MindId))
             return;
 
+        if (RandomizeEffigyTarget(uid, comp) is null)
+            args.Cancelled = true;
+    }
+
+    public string? RandomizeEffigyTarget(EntityUid uid, CosmicEffigyConditionComponent comp, bool setDescription = false)
+    {
         var warps = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent, WarpPointComponent>();
-        while (query.MoveNext(out var warpUid, out _, out var warp))
+        var query = EntityQueryEnumerator<WarpPointComponent>();
+        var effigyBlacklist = comp.Blacklist;
+
+        // TODO: Add a blacklist comp to this like ninja now has from upstream #40726
+        while (query.MoveNext(out var warpUid, out var warp))
         {
-            if (warp.Location != null)
+            if (_whitelist.IsWhitelistFail(effigyBlacklist, warpUid)
+                && !string.IsNullOrWhiteSpace(warp?.Location))
             {
                 warps.Add(warpUid);
             }
@@ -45,10 +57,22 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
 
         if (warps.Count <= 0)
         {
-            args.Cancelled = true;
-            return;
+            return null;
         }
-        comp.EffigyTarget = _random.Pick(warps);
+
+        var newWarp = _random.Pick(warps);
+        var warpComp = Comp<WarpPointComponent>(newWarp);
+
+        comp.EffigyTarget = newWarp;
+
+        if (setDescription)
+        {
+            _metaData.SetEntityDescription(uid,
+                warpComp.Location != null
+                    ? Loc.GetString("objective-condition-effigy", ("location", warpComp.Location))
+                    : Loc.GetString("objective-condition-effigy-no-target"));
+        }
+        return warpComp.Location;
     }
 
     private void OnEffigyAfterAssign(EntityUid uid, CosmicEffigyConditionComponent comp, ref ObjectiveAfterAssignEvent args)

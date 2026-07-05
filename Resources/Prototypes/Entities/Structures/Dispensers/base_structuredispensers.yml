@@ -62,7 +62,7 @@
     - 0,0,19,5
   - type: ReagentDispenser
     beakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      # whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message # DeltaV - removed so cartons fall through silently to storage
       whitelist:
         components:
         - FitsInDispenser
@@ -74,8 +74,6 @@
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
       storagebase: !type:Container
-  - type: StaticPrice
-    price: 1000
   - type: WiresPanel
   - type: EmptyOnMachineDeconstruct
     containers:

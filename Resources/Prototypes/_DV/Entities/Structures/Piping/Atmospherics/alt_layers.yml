@@ -1,0 +1,97 @@
+# Pressure Pumps
+- type: entity
+  parent: GasPipeLayerAlt1
+  id: GasPressurePumpLayerAlt1
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpPressure
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+
+- type: entity
+  parent: GasPipeLayerAlt2
+  id: GasPressurePumpLayerAlt2
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpPressure
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+
+- type: entity
+  parent: [GasPressurePumpLayerAlt1, GasPressurePumpEnabled]
+  id: GasPressurePumpEnabledAlt1
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [GasPressurePumpLayerAlt2, GasPressurePumpEnabled]
+  id: GasPressurePumpEnabledAlt2
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [GasPressurePumpLayerAlt1, GasPressurePumpEnabledStandard]
+  id: GasPressurePumpEnabledStandardAlt1
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [GasPressurePumpLayerAlt2, GasPressurePumpEnabledStandard]
+  id: GasPressurePumpEnabledStandardAlt2
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [GasPressurePumpLayerAlt1, GasPressurePumpEnabledMax]
+  id: GasPressurePumpEnabledMaxAlt1
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [GasPressurePumpLayerAlt2, GasPressurePumpEnabledMax]
+  id: GasPressurePumpEnabledMaxAlt2
+  categories: [ HideSpawnMenu ]
+
+# Volume Pumps
+- type: entity
+  parent: GasPipeLayerAlt1
+  id: GasVolumePumpLayerAlt1
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpVolume
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+
+- type: entity
+  parent: GasPipeLayerAlt2
+  id: GasVolumePumpLayerAlt2
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpVolume
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+
+- type: entity
+  parent: [GasVolumePumpLayerAlt1, GasVolumePumpEnabled]
+  id: GasVolumePumpEnabledAlt1
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [GasVolumePumpLayerAlt2, GasVolumePumpEnabled]
+  id: GasVolumePumpEnabledAlt2
+  categories: [ HideSpawnMenu ]

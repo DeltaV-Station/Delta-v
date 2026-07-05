@@ -104,6 +104,8 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - CableDetStack1
+  - EmptyDetonator
   - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology
@@ -147,19 +149,21 @@
 #  recipeUnlocks:
 #  - WeaponXrayCannon
 
-- type: technology
-  id: KineticModifications
-  name: research-technology-kinetic-modifications
-  icon:
-    sprite: Objects/Tools/upgrade.rsi
-    state: display
-  discipline: Arsenal
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - PKAUpgradeDamage
-  - PKAUpgradeRange
-  - PKAUpgradeFireRate
+# Begin DeltaV removal - Made PKA upgrades unobtainable after buff to PKA
+#- type: technology
+#  id: KineticModifications
+#  name: research-technology-kinetic-modifications
+#  icon:
+#    sprite: Objects/Tools/upgrade.rsi
+#    state: display
+#  discipline: Arsenal
+#  tier: 2
+#  cost: 7500
+#  recipeUnlocks:
+#  - PKAUpgradeDamage
+#  - PKAUpgradeRange
+#  - PKAUpgradeFireRate
+# End DeltaV removal
 
 - type: technology
   id: BasicShuttleArmament
@@ -210,7 +214,6 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
-  - GamblagatorCapacitor # DeltaV - added for superweapon
   - WeaponEnergyGunAdvanced # DeltaV - Advanced Energy Gun
 
 - type: technology

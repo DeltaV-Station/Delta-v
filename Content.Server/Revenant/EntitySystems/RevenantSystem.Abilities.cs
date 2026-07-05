@@ -14,6 +14,7 @@ using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Impstation.Revenant.EntitySystems;
 using Content.Server.Revenant.Components;
 using Content.Shared.Physics;
 using Content.Shared.DoAfter;
@@ -96,7 +97,7 @@ public sealed partial class RevenantSystem
             return;
         }
 
-        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevenantComponent>(target))
+        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidProfileComponent>(target) || HasComp<RevenantComponent>(target))
             return;
 
         args.Handled = true;
@@ -233,7 +234,7 @@ public sealed partial class RevenantSystem
             return;
         DamageSpecifier dspec = new();
         dspec.DamageDict.Add("Cold", damage.Value);
-        _damage.TryChangeDamage(args.Args.Target, dspec, true, origin: uid);
+        _damage.ChangeDamage(args.Args.Target.Value, dspec, true, origin: uid);
 
         args.Handled = true;
     }
@@ -257,7 +258,7 @@ public sealed partial class RevenantSystem
 
             var ent = player.AttachedEntity.Value;
 
-            if (!HasComp<MobStateComponent>(ent) || !HasComp<HumanoidAppearanceComponent>(ent) || HasComp<RevenantComponent>(ent))
+            if (!HasComp<MobStateComponent>(ent) || !HasComp<HumanoidProfileComponent>(ent) || HasComp<RevenantComponent>(ent))
                 return true;
 
             return !_interact.InRangeUnobstructed((uid, Transform(uid)), (ent, Transform(ent)), range: 0, collisionMask: CollisionGroup.Impassable);
@@ -423,7 +424,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.MalfunctionRadius))
         {
             if (_whitelistSystem.IsWhitelistFail(component.MalfunctionWhitelist, ent) ||
-                _whitelistSystem.IsBlacklistPass(component.MalfunctionBlacklist, ent))
+                _whitelistSystem.IsWhitelistPass(component.MalfunctionBlacklist, ent))
                 continue;
 
             _emagSystem.TryEmagEffect(uid, uid, ent);

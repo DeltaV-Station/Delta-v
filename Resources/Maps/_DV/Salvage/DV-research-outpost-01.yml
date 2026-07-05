@@ -5425,15 +5425,13 @@ entities:
     - type: Transform
       pos: 1.5,-14.5
       parent: 1
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 704
     components:
     - type: Transform
       pos: -0.5,4.5
       parent: 1
-    - type: WarpPoint
-      location: Space Debris
 - proto: WeaponLaserGun
   entities:
   - uid: 693

@@ -1,15 +1,17 @@
+using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Prying.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Shitmed Change
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PryingComponent : Component
 {
     /// <summary>
     /// Whether the entity can pry open powered doors
     /// </summary>
-    [DataField, AutoNetworkedField] // Shitmed Change
+    [DataField]
     public bool PryPowered;
 
     /// <summary>
@@ -18,11 +20,12 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public bool Force;
+
     /// <summary>
     /// Modifier on the prying time.
     /// Lower values result in more time.
     /// </summary>
-    [DataField, AutoNetworkedField] // Shitmed Change
+    [DataField]
     public float SpeedModifier = 1.0f;
 
     /// <summary>
@@ -36,6 +39,12 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public bool Enabled = true;
+
+    /// <summary>
+    /// What alert to show to an entity with this component.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype>? PryingAlertProtoId = "Prying";
 }
 
 /// <summary>
@@ -86,7 +95,7 @@ public record struct GetPryTimeModifierEvent
 {
     public readonly EntityUid User;
     public float PryTimeModifier = 1.0f;
-    public float BaseTime = 5.0f;
+    public TimeSpan BaseTime = TimeSpan.FromSeconds(5);
 
     public GetPryTimeModifierEvent(EntityUid user)
     {

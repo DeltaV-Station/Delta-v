@@ -90,6 +90,8 @@
           Log:
             min: 2
             max: 8
+  - type: TypingIndicator # Add diona typing indicator here so that diona players keep the same typing bubble when polymorphed into a tree.
+    proto: diona
 
 - type: entity
   parent: BaseTree
@@ -229,6 +231,17 @@
         tree04: ""
         tree05: ""
         tree06: ""
+  # DeltaV add Rootsong
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
+  - type: TypingIndicator
+    proto: diona
+  # DeltaV end
 
 - type: entity
   parent: BaseTreeSnow
@@ -359,12 +372,13 @@
           Log:
             min: 2
             max: 8
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MobChristmasKobold:
-            min: 4
-            max: 8
-      # End Delta V - Spawn Christmas kobold.
+      # Delta V - Begin Comment out => Causes test fails since they spawn with weapons which upon removal count against the asserts.
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          MobChristmasKobold:
+#            min: 4
+#            max: 8
+      # End Delta V - End Comment
 
 - type: entity
   parent: FloraTreeChristmas02

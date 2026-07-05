@@ -5,19 +5,30 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Mail;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // TODO: Access & PublicAPI for Commands
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedMailSystem))]
 public sealed partial class MailComponent : Component
 {
+    /// <summary>
+    /// The full name of the person who should receive this mail.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public string Recipient = "None";
+    public string Recipient = "Unknown";
 
+    /// <summary>
+    /// The job title of the person who should receive this mail.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public string RecipientJob = "None";
+    public string RecipientJob = "Unknown";
 
-    // Why do we not use LockComponent?
-    // Because this can't be locked again,
-    // and we have special conditions for unlocking,
-    // and we don't want to add a verb.
+    /// <summary>
+    /// Whether this mail is currently locked.
+    /// </summary>
+    /// <remarks>
+    /// Why do we not use LockComponent?
+    /// Because this can't be locked again,
+    /// and we have special conditions for unlocking,
+    /// and we don't want to add a verb.
+    /// </remarks>
     [DataField, AutoNetworkedField]
     public bool IsLocked = true;
 
@@ -108,5 +119,9 @@ public sealed partial class MailComponent : Component
     [DataField]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 
+    /// <summary>
+    /// Cancellation token for the priority mail timer.
+    /// Used to cancel the penalty timer when priority mail is successfully delivered.
+    /// </summary>
     public CancellationTokenSource? PriorityCancelToken;
 }

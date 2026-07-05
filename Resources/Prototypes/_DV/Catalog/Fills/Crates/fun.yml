@@ -2,11 +2,13 @@
   parent: CrateGenericSteel
   id: CrateFunBBGun
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleBB
-    - id: BoxCartridgeBB
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleBB
+        - id: BoxCartridgeBB
+          amount: 2
 
 - type: entity
   parent: CratePlastic
@@ -14,13 +16,15 @@
   name: cap gun box set
   description: A box filled with fun, harmless cap guns that are sure to keep security entertained and the air smelling of sulfur.
   components:
-  - type: StorageFill
-    contents:
-    - id: RevolverCapGun
-    - id: SpeedLoaderCap
-      amount: 2
-    - id: BoxCartridgeCap
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: RevolverCapGun
+        - id: SpeedLoaderCap
+          amount: 2
+        - id: BoxCartridgeCap
+          amount: 2
 
 - type: entity
   parent: CratePlastic
@@ -28,11 +32,13 @@
   name: laser tag set
   description: A crate filled with a full set of laser tag guns, harmless fun for 6 people.
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponLaserTagGun
-      amount: 6
-    - id: ClothingNeckScarfStripedRed
-      amount: 3
-    - id: ClothingNeckScarfStripedBlue
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponLaserTagGun
+          amount: 6
+        - id: ClothingNeckScarfStripedRed
+          amount: 3
+        - id: ClothingNeckScarfStripedBlue
+          amount: 3

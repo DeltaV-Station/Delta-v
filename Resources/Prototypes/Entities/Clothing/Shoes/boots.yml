@@ -140,14 +140,14 @@
   name: medical winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # Delta V - Recolor to match department color
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # Delta V - Recolor to match department color
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterSci
-  name: science winter boots
+  name: epistemics winter boots # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssci.rsi

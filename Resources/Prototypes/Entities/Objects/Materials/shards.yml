@@ -80,8 +80,6 @@
   - type: DeleteOnTrigger
   - type: StaticPrice
     price: 0
-  - type: Scalpel # Shitmed
-    speed: 0.45
 
 - type: entity
   parent: ShardBase
@@ -244,10 +242,6 @@
     damage:
       types:
         Piercing: 5
-  - type: Tag
-    tags:
-      - ClockworkGlassShard
-      - Trash
   - type: Extractable
     grindableSolutionName: shardcglass
   - type: SolutionContainerManager

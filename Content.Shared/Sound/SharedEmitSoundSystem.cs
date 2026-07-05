@@ -59,9 +59,10 @@ public abstract class SharedEmitSoundSystem : EntitySystem
 
     private void HandleEmitSoundOnUIOpen(EntityUid uid, EmitSoundOnUIOpenComponent component, AfterActivatableUIOpenEvent args)
     {
-        if (_whitelistSystem.IsBlacklistFail(component.Blacklist, args.User))
+        if (_whitelistSystem.IsWhitelistFail(component.Blacklist, args.User))
         {
             TryEmitSound(uid, component, args.User);
+            args.InteractionParticle = true; // Stellar - interaction particles
         }
     }
 

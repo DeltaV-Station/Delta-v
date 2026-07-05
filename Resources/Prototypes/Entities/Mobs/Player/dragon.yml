@@ -6,10 +6,11 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
-  - type: Body # Shitmed
-    prototype: SpaceDragon
   - type: Bloodstream
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 400 # DeltaV - reduced from 650 to 400 to prevent overflow
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -108,14 +109,13 @@
     - RadiationProtection
     - Adrenaline
   - type: Temperature
-    heatDamageThreshold: 800
+  - type: TemperatureDamage
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
+    stages: [ Digestion, Bloodstream ]
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -139,7 +139,7 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     stomachStorageWhitelist:
       components:
       - MobState
@@ -158,6 +158,8 @@
     - StunImmune
   - type: Puller
     needsHands: false
+  - type: MovedByPressure # DeltaV - Spacewind Immune
+    enabled: false
   - type: RandomMetadata
     nameSegments:
     - NamesDragon
@@ -232,8 +234,8 @@
       amount: 1
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
+      types:
+        Piercing: 12
 
 - type: entity
   parent: BaseAction

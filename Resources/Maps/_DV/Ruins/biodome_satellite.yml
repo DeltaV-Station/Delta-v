@@ -4110,15 +4110,13 @@ entities:
     - type: Transform
       pos: 21.5,-1.5
       parent: 2
-- proto: WarpPoint
+- proto: WarpPointRuin
   entities:
   - uid: 606
     components:
     - type: Transform
       pos: 1.5,1.5
       parent: 2
-    - type: WarpPoint
-      location: Space Ruin
 - proto: WeaponShotgunDoubleBarreledRubber
   entities:
   - uid: 583

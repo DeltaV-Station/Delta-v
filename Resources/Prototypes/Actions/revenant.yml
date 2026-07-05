@@ -1,19 +1,14 @@
 - type: entity
-  parent: BaseAction
+  parent: ActionIntrinsicStore
   id: ActionRevenantShop
   name: Shop
   description: Opens the ability shop.
-  components:
-  - type: Action
-    icon: Interface/Actions/shop.png
-  - type: InstantAction
-    event: !type:RevenantShopActionEvent
 
 - type: entity
   parent: BaseAction
   id: ActionRevenantDefile
   name: Defile
-  description: Costs 30 Essence.
+  description: Costs 20 Essence. # DeltaV cost reduced to 20 from 30
   components:
   - type: Action
     itemIconStyle: NoItem # Imp

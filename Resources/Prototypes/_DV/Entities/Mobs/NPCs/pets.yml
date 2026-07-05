@@ -21,7 +21,7 @@
 
 - type: entity
   name: Laika
-  parent: MobSecDog
+  parent: MobSecDogBase
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
@@ -31,10 +31,7 @@
     allowMovement: true
     name: "Laika"
     description: "Security's resident she-dog. Badger the officers for headpats and nip at the heels of violent offenders."
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # DeltaV - 4 hours
+    job: RoleLaika # determines the playtime requirement
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -56,15 +53,9 @@
     - K9
   - type: StealTarget
     stealGroup: AnimalSecurity # DeltaV - Adjusts because we have multiple possible sec animals
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 315 # 10 lower than base
     coldDamageThreshold: 240 # 20 lower than base
-  - type: Grappler
-    handDisabling: SingleActive
-    grapplingPart: grapple-part-jaws
-    proneOnGrapple: true # Make sure Laika isn't shot by sprays
-    grappleSound:
-      collection: VulpkaninGrowls
 
 - type: entity
   parent: MobCarp
@@ -103,11 +94,49 @@
     allowMovement: true
     name: "Carpy the Legal Carp"
     description: "The real brains behind the Justice department. Your honour my client is not fishy!"
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Justice
-      time: 3600 # 1 hours
+    job: RoleCarpy
   - type: GhostTakeoverAvailable
+  - type: Hands
+  - type: DVInnateTools
+    tools: !type:AllSelector
+      children:
+      - id: LuxuryPenCarpy
+      - id: RubberStampCarpy
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+- type: entity
+  name: legal carp stamp
+  parent: RubberStampBase
+  id: RubberStampCarpy
+  description: A stamp specially designed for legal carps, to mark documents that aren't fishy.
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-carpy
+      stampedColor: "#a81f3d"
+      stampState: "paper_stamp-notary"
+    - type: Sprite
+      sprite: _DV/Objects/Misc/stamps.rsi
+      state: stamp-notary
+
+- type: entity
+  name: legal carp pen
+  parent: LuxuryPen
+  id: LuxuryPenCarpy
+  description: The pen is mightier than the sword. This pen is also sharper thank to its carp tooth nib!
+  components:
+  - type: MeleeWeapon
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+        Slash: 10
+    animation: WeaponArcBite
+
 
 - type: entity
   name: Silvia
@@ -161,8 +190,10 @@
           amount: 1
           prob: 0.2
     - type: Bloodstream
-      bloodMaxVolume: 200
-      bloodReagent: Cryoxadone
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 200
     - type: Fixtures
       fixtures:
         fix1:
@@ -220,10 +251,7 @@
       name: ghost-role-information-silvia-name
       description: ghost-role-information-silvia-description
       rules: ghost-role-information-silvia-rules
-      requirements: #No raiders
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 14400 #4 hours
+      job: RoleSilvia # determines the playtime requirement
     - type: GhostTakeoverAvailable
     - type: InteractionPopup
       successChance: 0.65
@@ -247,3 +275,38 @@
       - FootstepSound
     - type: StealTarget
       stealGroup: AnimalSilvia
+
+- type: entity
+  parent: MobBaseScurret
+  id: MobScurretBaba
+  name: Baba
+  description: Wawa?
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Mobs/Animals/scurret/scurret.rsi
+      state: scurret
+      color: "#e69d00"
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-baba-name
+    description: ghost-role-information-baba-description
+    rules: ghost-role-information-nonantagonist-rules
+    job: RoleBaba
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [MobScurretBaba]
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost

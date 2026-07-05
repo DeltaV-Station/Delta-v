@@ -56,6 +56,11 @@
     - entity_storage
   - type: Paintable
     group: Locker
+# ES START
+  - type: ESSparkOnHit
+    prob: 0.25
+    count: 2
+# ES END
 
 - type: entity
   id: LockerBaseSecure
@@ -69,7 +74,23 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2

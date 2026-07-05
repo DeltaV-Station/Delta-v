@@ -19830,15 +19830,13 @@ entities:
     - type: Transform
       pos: 14.5,16.5
       parent: 2
-- proto: WarpPoint
+- proto: WarpPointRuin
   entities:
   - uid: 2403
     components:
     - type: Transform
       pos: -5.5,-0.5
       parent: 2
-    - type: WarpPoint
-      location: Space Ruin
 - proto: WeldingFuelTankFull
   entities:
   - uid: 220

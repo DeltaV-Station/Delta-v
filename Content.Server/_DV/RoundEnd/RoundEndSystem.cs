@@ -12,7 +12,6 @@ public sealed partial class RoundEndSystem : EntitySystem
     {
         var options = new VoteOptions
         {
-            DisplayVotes = false,
             Title = Loc.GetString("round-end-system-vote-title"),
             Duration = _cfg.GetCVar(DCCVars.EmergencyShuttleVoteTime),
             InitiatorText = Loc.GetString("vote-options-server-initiator-text")
@@ -26,7 +25,7 @@ public sealed partial class RoundEndSystem : EntitySystem
         vote.OnFinished += (_, args) =>
         {
             if (args.Winner == null || (bool)args.Winner)
-                RequestRoundEnd(null, false, "round-end-system-vote-shuttle-called-announcement");
+                RequestRoundEnd(checkCooldown: false, text: "round-end-system-vote-shuttle-called-announcement");
         };
     }
 }

@@ -1,6 +1,7 @@
-# Be careful with these as they get removed on shutdown too!
+﻿# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
+  save: false # DeltaV - AI PDAs
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
@@ -46,6 +47,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionOpenCartridges # DeltaV - AI PDA
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -60,6 +62,16 @@
         type: CommunicationsConsoleBoundUserInterface
       enum.StoreUiKey.Key: # DeltaV - AI shop system
         type: StoreBoundUserInterface
+      # Begin DeltaV - AI PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End DeltaV - AI PDAs
+      # Begin DeltaV - AI fax
+      enum.FaxUiKey.Key:
+        type: StationAiFaxBoundUserInterface
+      # End DeltaV - AI fax
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -70,12 +82,16 @@
         toggleAction: ActionAGhostShowStationRecords
       enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionAGhostShowCommunications
+      # Begin DeltaV - AI fax
+      enum.FaxUiKey.Key:
+        toggleAction: ActionStationAiOpenFax
+      # End DeltaV - AI fax
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: CrewMonitor
-    transmitFrequencyId: ShuttleTimer
+    receiveFrequencyId: NTNet # DeltaV
+    transmitFrequencyId: NTNet # DeltaV
   - type: RadarConsole
     followEntity: false
   - type: CommunicationsConsole
@@ -83,9 +99,32 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
-  # Begin DeltaV - AI Shop System
-  - type: StationAiShop
-  # End DeltaV - AI Shop System
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
+  - type: DamagedSiliconAccent
+    startPowerCorruptionAtCharIdx: 4
+    maxPowerCorruptionAtCharIdx: 20
+  - type: StationAiShop # DeltaV - AI Shop System
+  # Begin DeltaV - AI faxes
+  - type: FaxMachine
+    name: Station AI
+    printSound: null
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+        - FaxableObject
+      blacklist:
+        components:
+        - CargoSlip
+        tags:
+        - PaperSlip
+  - type: StationAiFax
+  - type: Pager
+    autoLinkJobs: [ StationAi ]
+  - type: PageSender
+    autoLinkJobs: [ StationAi ]
+  # End DeltaV - AI faxes
 
 - type: entity
   id: AiHeldIntellicard
@@ -108,6 +147,7 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
 
 # Ai
 - type: entity
@@ -159,10 +199,12 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.StationAiVisualState.Key:
+      enum.StationAiVisualLayers.Icon:
         unshaded:
           Empty: { state: empty }
           Occupied: { state: full }
+          Rebooting: { state: dead }
+          Dead: { state: dead }
   - type: Intellicard
 
 - type: entity
@@ -176,9 +218,10 @@
     - state: ai
       shader: unshaded
 
+# Empty AI core
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI Core
+  name: AI core
   description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
@@ -193,23 +236,74 @@
     blacklist:
       tags:
       - GhostOnlyWarp
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
+  - type: Damageable
+    damageModifierSet: StrongMetallic
+  - type: Repairable
+    doAfterDelay: 10
+    allowSelfRepair: false
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        acts: [ "Breakage" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+          SheetPlasteel:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: DamageVisuals
+    thresholds: [25, 50, 75, 100, 200, 300, 400]
+    damageDivisor: 4
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Mobs/Silicon/station_ai_cracks.rsi
   - type: ApcPowerReceiver
-    powerLoad: 1000
-    needsPower: false
+    powerLoad: 500
+  - type: ExtensionCableReceiver
+  - type: Battery
+    # Very important:
+    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+    # This can not be done by changing the charge rate as the power supply ramps up over time.
+    # This disables prediction for this battery.
+    netsync: false
+    maxCharge: 300000
+    startingCharge: 300000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 500
+    batteryRechargeRate: 1000
+    batteryRechargeEfficiency: 0 # Setting to zero until the light flickering issue associated with dynamic power loads is fixed
   - type: StationAiCore
   - type: StationAiVision
   - type: InteractionOutline
@@ -219,12 +313,26 @@
     layers:
     - state: base
     - state: ai_empty
+      map: ["enum.StationAiVisualLayers.Base"]
       shader: unshaded
     - state: ai
-      map: ["enum.StationAiVisualState.Key"]
+      map: ["enum.StationAiVisualLayers.Icon"]
       shader: unshaded
       visible: false
+    - state: ai_unpowered
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          False: { visible: true }
+          True: { visible: false }
+      enum.StationAiVisuals.Broken:
+        enum.StationAiVisualLayers.Base:
+          False: { state: ai_empty }
+          True: { state: ai_error }
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
     interactFailureString: petting-failure-station-ai
@@ -249,6 +357,21 @@
         type: HolopadBoundUserInterface
       enum.StationAiCustomizationUiKey.Key:
         type: StationAiCustomizationBoundUserInterface
+  - type: Construction
+    graph: StationAiCore
+    node: stationAiCore
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      station_ai_brain_slot: !type:Container
+      station_ai_mind_slot: !type:ContainerSlot
+        showEnts: true
+  - type: ContainerFill
+    containers:
+      board:
+      - StationAiCoreElectronics
+  - type: StaticPrice
+    price: 5000
 
 # The job-ready version of an AI spawn.
 - type: entity
@@ -260,17 +383,87 @@
     containerId: station_ai_mind_slot
     job: StationAi
 
+# The station AI core assembly
+- type: entity
+  parent: BaseStructure
+  id: PlayerStationAiAssembly
+  name: AI core assembly
+  description: An unfinished computer core for housing an artifical intelligence.
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: Sprite
+    snapCardinals: true
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: frame_0
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frame: { state: frame_0 }
+          frameWithElectronics: { state: frame_1 }
+          frameWithSecuredElectronics: { state: frame_2 }
+          frameWithWires: { state: frame_3 }
+          frameWithBrain: { state: frame_3b }
+          frameWithBrainFinished: { state: frame_4 }
+          frameWithoutBrainFinished: { state: frame_4 }
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+  - type: Damageable
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel:
+            min: 2
+            max: 4
+      - !type:EmptyContainersBehaviour
+        containers:
+        - station_ai_brain_slot
+        - board
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: StationAiCore
+    node: frame
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      station_ai_brain_slot: !type:Container
+
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
+  save: false # DeltaV - AI PDAs
   parent: PositronicBrain
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
-  - type: BlockMovement
-    blockInteraction: false
   - type: SiliconLawProvider
     laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
@@ -303,6 +496,10 @@
     drawFov: false
   - type: Examiner
   - type: InputMover
+  - type: BlockMovement
+    blockInteraction: false
+  - type: GhostOnMove
+    mustBeDead: true
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
@@ -329,8 +526,54 @@
     damageContainers:
     - Inorganic
     - Silicon
-    - HumanoidSilicon
   # End DeltaV additions
+  - type: ToggleableGhostRole
+    roleName: station-ai-ghost-role-name
+    roleDescription: station-ai-ghost-role-description
+    roleRules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    job: StationAi
+  # Begin DeltaV - AI PDAs
+  - type: Pda
+    idSlot:
+      locked: true
+    penSlot:
+      locked: true
+    paiSlot:
+      locked: true
+  - type: Ringer
+  - type: NanoChatCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    cartridgeSlot:
+      locked: true
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: ContainerContainer
+    containers:
+      program-container: !type:Container
+      Cartridge-Slot: !type:ContainerSlot
+      # Begin DeltaV - AI faxes
+      Paper: !type:ContainerSlot
+      PaperLibrary: !type:Container
+      # End DeltaV - AI faxes
+  - type: ItemSlots
+  - type: PdaBorderColor
+    borderColor: "#45453f"
+    accentVColor: "#447987"
+  # End DeltaV - AI PDAs
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -432,6 +675,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+  - type: RandomMetadata # Delta V - Gives syndiborgs cool names!
+    nameSegments: [NamesDeathCommando]
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -444,6 +689,7 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -470,6 +716,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+  - type: RandomMetadata # Delta V - Gives syndiborgs cool names!
+    nameSegments: [NamesDeathCommando]
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurGhostRole
@@ -482,23 +730,25 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
-  name: syndicate invasion borg spawner
-  id: PlayerBorgSyndicateInvasionGhostRoleSpawner
   parent: MarkerBase
+  id: PlayerBorgSyndicateInvasionGhostRoleSpawner
+  name: syndicate invasion borg spawner
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Structures/Decoration/banner.rsi
         state: banner_syndicate
-  - type: RandomSpawner
-    prototypes:
-    - PlayerBorgSyndicateAssaultGhostRole
-    - PlayerBorgSyndicateAssaultGhostRole # Saboteurs are kinda like cyborg medics, we want less.
-    - PlayerBorgSyndicateSaboteurGhostRole
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: PlayerBorgSyndicateAssaultGhostRole
+      - id: PlayerBorgSyndicateSaboteurGhostRole
+        weight: 0.5 # Saboteurs are kinda like cyborg medics, we want less.
 
 - type: entity
   parent: EngineeringBorgChassisDerelict
@@ -510,6 +760,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleConstruction
@@ -537,6 +788,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -549,6 +801,7 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModulePrying
         - BorgModuleTool
         - BorgModuleFireExtinguisher
       borg_id_chip: # DeltaV - borg id chips
@@ -573,6 +826,7 @@
       raffle:
         settings: default
       reregister: false
+      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -585,6 +839,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
@@ -611,6 +866,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -623,6 +879,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleChemical
@@ -650,6 +907,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -662,6 +920,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool #No fire extinguisher, traversal is better
       - BorgModuleMining
       - BorgModuleTraversal
@@ -688,6 +947,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -725,4 +985,5 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable

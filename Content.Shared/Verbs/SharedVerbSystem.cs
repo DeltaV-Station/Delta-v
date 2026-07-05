@@ -139,7 +139,7 @@ namespace Content.Shared.Verbs
             if (types.Contains(typeof(EquipmentVerb)))
             {
                 var access = canAccess || _interactionSystem.CanAccessEquipment(user, target);
-                var verbEvent = new GetVerbsEvent<EquipmentVerb>(user, target, @using, hands, canInteract: canInteract, canComplexInteract: canComplexInteract, canAccess: canAccess, extraCategories);
+                var verbEvent = new GetVerbsEvent<EquipmentVerb>(user, target, @using, hands, canInteract: canInteract, canComplexInteract: canComplexInteract, canAccess: access, extraCategories);
                 RaiseLocalEvent(target, verbEvent);
                 verbs.UnionWith(verbEvent.Verbs);
             }
@@ -172,7 +172,7 @@ namespace Content.Shared.Verbs
 
             // Perform any contact interactions
             if (verb.DoContactInteraction ?? (verb.DefaultDoContactInteraction && _interactionSystem.InRangeUnobstructed(user, target)))
-                _interactionSystem.DoContactInteraction(user, target);
+                _interactionSystem.DoContactInteraction(user, target, null, true); // Stellar - Interaction particles
         }
     }
 

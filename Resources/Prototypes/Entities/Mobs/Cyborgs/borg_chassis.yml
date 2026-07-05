@@ -31,6 +31,41 @@
     inherentRadioChannels:
     - Common
     - Binary
+  # Begin Impstation - Borg PDAs
+  - type: Pda
+    idSlot:
+      locked: true
+    penSlot:
+      locked: true
+    paiSlot:
+      locked: true
+  - type: PdaBorderColor
+    borderColor: "#717059"
+  - type: Ringer
+  - type: NanoChatCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    cartridgeSlot:
+      locked: true
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: ActionGrant
+    actions:
+    - ActionOpenCartridges
+  - type: StationAiWhitelist
+  - type: BorgPda
+  # End Impstation - Borg PDAs
 
 - type: entity
   id: BorgChassisGeneric
@@ -173,7 +208,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 6 # Delta V - Given additional modules
+      maxModules: 7 # Delta V - Given additional modules, +1 for SRN's Engi module
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -320,6 +355,15 @@
       - BorgModuleMedical
     hasMindState: medical_e
     noMindState: medical_e_r
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+    - BiologicalMetaphysical # DeltaV - Kitsune
 
 - type: entity
   parent: BaseBorgChassisDerelict

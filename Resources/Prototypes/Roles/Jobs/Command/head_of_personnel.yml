@@ -7,23 +7,24 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 9000 # 2.5 hours
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 9000 # 2.5 hours
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 9000 # 2.5 hours
+      time: 2.5h
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   requireAdminNotify: true # DeltaV
+  joinNotifyCrew: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -69,8 +70,8 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: PsionicBonusChance # DeltaV: makes it more likely to become psionic.
-        flatBonus: 0.025
+  - !type:ModifyPsionicChanceSpecial # DeltaV - Command Roles are more likely to be psionic.
+    jobBonusChance: 0.05 # Additional 5% chance.
 
 - type: startingGear
   id: HoPGear

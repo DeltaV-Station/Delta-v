@@ -1413,15 +1413,13 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 222
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 203
     components:
     - type: Transform
       pos: -0.5,-0.5
       parent: 222
-    - type: WarpPoint
-      location: Space Debris
 - proto: WeaponTurretSyndicate
   entities:
   - uid: 51

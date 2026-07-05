@@ -10,6 +10,9 @@
     cultistText: cosmic-examine-text-cultentity
     othersText: cosmic-examine-text-entities
   - type: AntagImmune
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: StaminaResistance
     damageCoefficient: 0 # No more stunning colossi
     worn: false
@@ -85,8 +88,9 @@
         - FlyingMobLayer
   - type: WarpPoint
     follow: true
-  - type: Body
-    requiredLegs: 0
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Emoting
   - type: Speech
     speechSounds: ColossusSpeech
@@ -118,14 +122,18 @@
     - CannotSuicide
     - DoorBumpOpener
     - Unimplantable
+    - GhostOnlyWarp # Prevents it from being warped to or being a warp location bombing target
+    - TaserImmune
   - type: Damageable
     damageContainer: InorganicMetaphysical
     damageModifierSet: EntropicColossus
   - type: Bloodstream
-    bloodMaxVolume: 650
     maxBleedAmount: 0.1
     bleedReductionAmount: 0.1
-    bloodReagent: Entropy
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 400 # DeltaV - reduced from 650 to 400 to prevent overflow
     bloodlossDamage:
       types:
         Bloodloss:
@@ -262,9 +270,16 @@
     allowedStates:
     - Alive
     damage:
-      groups:
-        Brute: -1
-        Burn: -0.5
+      types:
+        Blunt: -1
+        Piercing: -1
+        Slash: -1
+        Heat: -0.5
+        Cold: -0.5
+  - type: MultiplyAttackRateOnSupercritical
+  - type: MultiplyCorruptingSpeedOnSupercritical
+  - type: FlatAttackBonusOnSupercritical
+  - type: HealOnSupercritical
 
 - type: entity
   parent: [ MobCosmicColossusBase ]

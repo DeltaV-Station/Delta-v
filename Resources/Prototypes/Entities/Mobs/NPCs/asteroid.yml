@@ -5,6 +5,7 @@
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
+  - BaseMobAnimal
   abstract: true
   components:
   - type: Reactive
@@ -12,8 +13,6 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -34,8 +33,6 @@
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
-  - type: Body # Shitmed Change
-    prototype: Goliath
   - type: Sprite
     sprite: _DV/Mobs/Aliens/Asteroid/goliath.rsi # DeltaV - upstream uses ancient goliath sprites for some reason
     layers:
@@ -51,8 +48,10 @@
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
   - type: Bloodstream
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -340,6 +339,8 @@
   - type: Tag
     tags:
     - HivelordRemains
+    - Meat
+    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -359,7 +360,8 @@
   - type: Tag
     tags:
     - HivelordRemains
-
+    - Meat
+    - Raw
 
 - type: entity
   id: MobBasilisk
@@ -410,8 +412,10 @@
     capacity: 1
     count: 1
   - type: Bloodstream
-    bloodMaxVolume: 200
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 200
   - type: NpcFactionMember
     factions:
     - SalvageMob # DeltaV - Changed to SalvageMob

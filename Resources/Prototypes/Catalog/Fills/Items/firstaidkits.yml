@@ -4,13 +4,15 @@
   suffix: Filled
   parent: Medkit
   components:
-  - type: StorageFill
-    contents:
-      - id: Brutepack
-      - id: Ointment
-      - id: Gauze
-      - id: PillCanisterTricordrazine
-      - id: PillCanisterGranibitulari # Funkychem - tricordrazine variant
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Ointment
+        - id: Gauze
+        - id: PillCanisterTricordrazine
+        - id: PillCanisterGranibitulari # Funkychem - tricordrazine variant
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -18,98 +20,113 @@
   suffix: Filled
   parent: MedkitBurn
   components:
-  - type: StorageFill
-    contents:
-      - id: Ointment
-        amount: 2
-      - id: PillCanisterKelotane
-      - id: PillCanisterDermaline
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Ointment
+          amount: 2
+        - id: PillCanisterKelotane
+        - id: PillCanisterDermaline
 
 - type: entity
   id: MedkitBruteFilled
   suffix: Filled
   parent: MedkitBrute
   components:
-  - type: StorageFill
-    contents:
-      - id: Brutepack
-      - id: Gauze
-      - id: PillCanisterIron
-      - id: PillCanisterCopper
-      - id: PillCanisterBicaridine # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Gauze
+        - id: PillCanisterIron
+        - id: PillCanisterCopper
+        - id: PillCanisterBicaridine # DeltaV
 
 - type: entity
   id: MedkitToxinFilled
   suffix: Filled
   parent: MedkitToxin
   components:
-  - type: StorageFill
-    contents:
-      - id: SyringeIpecac
-      - id: SyringeEthylredoxrazine
-      - id: AntiPoisonMedipen
-      - id: PillCanisterDylovene
-      - id: PillCanisterCharcoal
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyringeIpecac
+        - id: SyringeEthylredoxrazine
+        - id: AntiPoisonMedipen
+        - id: PillCanisterDylovene
+        - id: PillCanisterCharcoal
 
 - type: entity
   id: MedkitOxygenFilled
   suffix: Filled
   parent: MedkitO2
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingMaskBreathMedical
-      - id: EmergencyOxygenTankFilled
-      - id: EmergencyMedipen
-        amount: 2 # Funkychem - more medipens in O2 kits
-      - id: SyringeConvermol # Funkychem - was inaprovaline
-        amount: 2
-      - id: PillCanisterDexalin
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+          amount: 2 # Funkychem - more medipens in O2 kits
+        - id: SyringeConvermol # Funkychem - was inaprovaline
+          amount: 2
+        - id: PillCanisterDexalin
 
 - type: entity
   id: MedkitRadiationFilled
   suffix: Filled
   parent: MedkitRadiation
   components:
-  - type: StorageFill
-    contents:
-      - id: SyringePhalanximine
-      - id: RadAutoInjector
-      - id: PillCanisterPotassiumIodide
-      - id: PillCanisterHyronalin
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyringePhalanximine
+        - id: RadAutoInjector
+        - id: PillCanisterPotassiumIodide
+        - id: PillCanisterHyronalin
 
 - type: entity
   id: MedkitAdvancedFilled
   suffix: Filled
   parent: MedkitAdvanced
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: Bloodpack
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedicatedSuture
+        - id: RegenerativeMesh
+        - id: Bloodpack
+          amount: 2
 
 - type: entity
   id: MedkitCombatFilled
   suffix: Filled
   parent: MedkitCombat
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: SyringeRevivopine # Funkychem - revivopine is the dedicated combat chemical now
-      - id: SyringeSaline
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedicatedSuture
+        - id: RegenerativeMesh
+        - id: SyringeRevivopine # Funkychem - revivopine is the dedicated combat chemical now
+        - id: SyringeSaline
+        - id: BruteAutoInjector
+        - id: BurnAutoInjector
 
 - type: entity
   id: StimkitFilled
   suffix: Stimkit, Filled
   parent: Medkit
   components:
-  - type: StorageFill
-    contents:
-      - id: StimpackMini
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: StimpackMini
         amount: 6

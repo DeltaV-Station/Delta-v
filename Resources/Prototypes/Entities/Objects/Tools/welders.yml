@@ -105,24 +105,6 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
-  - type: WeldingHealing # Same as Brutepack - EE IPCs
-    damageContainers:
-      - Silicon
-      - HumanoidSilicon # DeltaV
-    fuelCost: 15
-    damage:
-      types:
-        Blunt: -15
-        Piercing: -15
-        Slash: -15
-    bleedingModifier: -20 # DeltaV - IPCs bleed
-  - type: Cautery # Shitmed
-    speed: 0.7
-  - type: SurgeryTool # Shitmed
-    startSound:
-      collection: Welder
-    endSound:
-      collection: WelderOff
   - type: Tag # DeltaV - To make it work w/ the guns
     tags:
     - WeldingTool
@@ -221,12 +203,15 @@
     enabled: false
     radius: 1.0
     color: orange
+  - type: Tag
+    tags:
+      - EmergencyWelder #Starlight, distinction needed for use in crafting recipies.
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]
   id: RefuelingWelder
-  name: refuling welding tool
-  description: "An slow welder that can refuel itself over time."
+  name: refueling welding tool
+  description: "A slow welder that can refuel itself over time."
   components:
   - type: Tool
     speedModifier: 0.5

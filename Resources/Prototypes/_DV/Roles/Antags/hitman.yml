@@ -1,0 +1,29 @@
+- type: antag
+  id: Hitman
+  name: roles-antag-hitman-name
+  objective: roles-antag-hitman-objective
+  antagonist: true
+  setPreference: true
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 24h # works for thief works for me
+
+- type: startingGear
+  id: HitmanGear
+  storage:
+    back:
+    - HitmanCase
+
+- type: startingGear
+  id: HitmanGhostGear
+  equipment:
+    jumpsuit: ClothingUniformHitmanSuit
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetGreyHitman
+    neck: ClothingNeckTieRed
+    gloves: ClothingHandsGlovesLatex
+    shoes: ClothingShoesBootsLaceup
+    id: HitmanPDA
+  storage:
+    back:
+    - HitmanCase

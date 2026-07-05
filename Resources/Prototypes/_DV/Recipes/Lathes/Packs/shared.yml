@@ -42,3 +42,19 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+
+
+- type: latheRecipePack
+  id: SimpleToolsStaticDeltaV # Since we removed the autolathe, let medical, service, and sec print some basic tools too
+  recipes:
+  - Screwdriver
+  - Wrench
+  - Wirecutter
+  - CrowbarGreen
+  - Multitool
+  - Welder
+  - ClothingHeadHatWelding
+  - CableStack
+  - HandheldGPSBasic
+  - HandheldStationMap
+  - MicroManipulatorStockPart # Heads start with machine boards

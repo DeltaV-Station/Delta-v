@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server._DV.Objectives.Events; // DeltaV
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
-using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
@@ -10,6 +9,8 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Overlays;
+using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Laws;
@@ -33,6 +34,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+
+    private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -305,6 +308,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
+            if (TryComp<ShowCrewIconsComponent>(update, out var crewIconComp))
+            {
+                crewIconComp.UncertainCrewBorder = DefaultCrewLawset != provider.Laws;
+                Dirty(update, crewIconComp);
+            }
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
             RaiseLocalEvent(new AILawUpdatedEvent(update, provider.Laws)); // DeltaV - Subvert AI objective
         }

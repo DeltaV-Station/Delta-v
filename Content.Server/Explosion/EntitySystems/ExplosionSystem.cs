@@ -2,21 +2,26 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Destructible;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
+using Content.Server.Station.Systems; // DeltaV - Admin QOL
+using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Atmos.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
+using Content.Shared.Maps;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
-using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
@@ -26,35 +31,49 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem : SharedExplosionSystem
 {
+    // ES START
+    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
+    // ES END
+
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
     [Dependency] private readonly PathfindingSystem _pathfindingSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsSys = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
+    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!; // DeltaV
 
     private EntityQuery<FlammableComponent> _flammableQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
+    private EntityQuery<ActorComponent> _actorQuery;
+    private EntityQuery<DestructibleComponent> _destructibleQuery;
+    private EntityQuery<DamageableComponent> _damageableQuery;
+    private EntityQuery<AirtightComponent> _airtightQuery;
+    private EntityQuery<TileHistoryComponent> _tileHistoryQuery;
 
     /// <summary>
     ///     "Tile-size" for space when there are no nearby grids to use as a reference.
@@ -62,16 +81,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     public const ushort DefaultTileSize = 1;
 
     public const int MaxExplosionAudioRange = 30;
-
-    /// <summary>
-    ///     The "default" explosion prototype.
-    /// </summary>
-    /// <remarks>
-    ///     Generally components should specify an explosion prototype via a yaml datafield, so that the yaml-linter can
-    ///     find errors. However some components, like rogue arrows, or some commands like the admin-smite need to have
-    ///     a "default" option specified outside of yaml data-fields. Hence this const string.
-    /// </remarks>
-    public static readonly ProtoId<ExplosionPrototype> DefaultExplosionPrototypeId = "Default";
 
     public override void Initialize()
     {
@@ -103,6 +112,13 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _flammableQuery = GetEntityQuery<FlammableComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
+        _actorQuery = GetEntityQuery<ActorComponent>();
+        _destructibleQuery = GetEntityQuery<DestructibleComponent>();
+        _damageableQuery = GetEntityQuery<DamageableComponent>();
+        _airtightQuery = GetEntityQuery<AirtightComponent>();
+        _tileHistoryQuery = GetEntityQuery<TileHistoryComponent>();
+
+        _prototypeManager.PrototypesReloaded += ReloadExplosionPrototypes;
     }
 
     private void OnReset(RoundRestartCleanupEvent ev)
@@ -121,6 +137,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         base.Shutdown();
         _nodeGroupSystem.PauseUpdating = false;
         _pathfindingSystem.PauseUpdating = false;
+        _prototypeManager.PrototypesReloaded -= ReloadExplosionPrototypes;
     }
 
     private void RelayedResistance(EntityUid uid, ExplosionResistanceComponent component,
@@ -222,10 +239,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         return r0 * (MathF.Sqrt(12 * totalIntensity / v0 - 3) / 6 + 0.5f);
     }
 
-    /// <summary>
-    ///     Queue an explosions, centered on some entity.
-    /// </summary>
-    public void QueueExplosion(EntityUid uid,
+    /// <inheritdoc />
+    public override void QueueExplosion(EntityUid uid,
         string typeId,
         float totalIntensity,
         float slope,
@@ -247,21 +262,52 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         if (!addLog)
             return;
 
+        // DeltaV - check if on station START
+        string? stationName = null;
+        var station = _stationSystem.GetOwningStation(gridPos?.EntityId);
+        // just in case: is the user on station?
+        if (station is null && user is not null)
+        {
+            station = _stationSystem.GetOwningStation(user);
+        }
+
+        if (station is not null)
+        {
+            if (_stationSystem.TryGetNetEntity(station, out var stationNetEnt))
+            {
+                stationName = _stationSystem.GetStationNames().Find(x => x.Entity == stationNetEnt).Name;
+            }
+        }
+        // DeltaV - check if on station END
+
         if (user == null)
         {
-            _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(uid):entity} exploded ({typeId}) at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+            _adminLogger.Add(LogType.Explosion, station is not null ? LogImpact.Extreme : LogImpact.High, // DeltaV - Set to Extreme if onStation (always alert), add station name if available
+                $"{ToPrettyString(uid):entity} exploded ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
         }
         else
         {
             var alertMinExplosionIntensity = _cfg.GetCVar(CCVars.AdminAlertExplosionMinIntensity);
             var logImpact = (alertMinExplosionIntensity > -1 && totalIntensity >= alertMinExplosionIntensity)
                 ? LogImpact.Extreme
-                : LogImpact.High;
-            _adminLogger.Add(LogType.Explosion, logImpact,
-                $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+                : LogImpact.Medium; // DeltaV - If false, Medium instead of High
+
+            // DeltaV - Set to Extreme if onStation (always alert) START
+            if (station is not null)
+                logImpact = LogImpact.Extreme;
+            // DeltaV - Set to Extreme if onStation (always alert) END
+
+            if (posFound)
+            {
+                _adminLogger.Add(LogType.Explosion,
+                    logImpact,
+                    $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at {(stationName != null ? $"{stationName} " : "")}Pos:{gridPos:coordinates} with intensity {totalIntensity} slope {slope}"); // DeltaV - Add stationName to log message if available
+            }
+            else
+                _adminLogger.Add(LogType.Explosion, logImpact, $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:[Grid or Map not found] with intensity {totalIntensity} slope {slope}");
         }
     }
+
 
     /// <summary>
     ///     Queue an explosion, with a specified epicenter and set of starting tiles.
@@ -329,7 +375,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     private Explosion? SpawnExplosion(QueuedExplosion queued)
     {
         var pos = queued.Epicenter;
-        if (!_mapSystem.MapExists(pos.MapId))
+        if (!_map.MapExists(pos.MapId))
             return null;
 
         var results = GetExplosionTiles(pos, queued.Proto.ID, queued.TotalIntensity, queued.Slope, queued.MaxTileIntensity);
@@ -341,11 +387,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         var visualEnt = CreateExplosionVisualEntity(pos, queued.Proto.ID, spaceMatrix, spaceData, gridData.Values, iterationIntensity);
 
-        // camera shake
-        CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
-
         //For whatever bloody reason, sound system requires ENTITY coordinates.
-        var mapEntityCoords = _transformSystem.ToCoordinates(_mapSystem.GetMap(pos.MapId), pos);
+        var mapEntityCoords = _transformSystem.ToCoordinates(_map.GetMap(pos.MapId), pos);
 
         // play sound.
         // for the normal audio, we want everyone in pvs range
@@ -373,6 +416,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             ? queued.Proto.SmallSoundFar
             : queued.Proto.SoundFar;
 
+        CameraShake(iterationIntensity, pos, queued); // Starlight
+
         _audio.PlayGlobal(farSound, farFilter, true, farSound.Params);
 
         return new Explosion(this,
@@ -388,14 +433,20 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             queued.MaxTileBreak,
             queued.CanCreateVacuum,
             EntityManager,
-            _mapManager,
             visualEnt,
             queued.Cause,
-            _map);
+            _map,
+            _damageableSystem,
+            _tileHistoryQuery);
     }
 
-    private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
+    private void CameraShake(List<float> rangeList, MapCoordinates epicenter, QueuedExplosion queued) // Starlight - replace range with rangeList, totalIntensity with queued
     {
+        // Starlight BEGIN
+        var range = rangeList.Count * 4f;
+        var totalIntensity = queued.TotalIntensity * 10f;
+        // Starlight END
+
         var players = Filter.Empty();
         players.AddInRange(epicenter, range, _playerManager, EntityManager);
 
@@ -413,7 +464,40 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             var distance = delta.Length();
             var effect = 5 * MathF.Pow(totalIntensity, 0.5f) * (1 - distance / range);
             if (effect > 0.01f)
-                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+            {
+                // DeltaV - Camera kick falloff START
+                // _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
+
+                // Exponential decay: N(t) = N₀ ⋅ e^(-λ ⋅ t)
+                // In this case, N = effect and we aren't decaying over time but with increasing distance from the epicenter,
+                // so t = distance / range.  Higher values of λ lead to faster decay, lower values to slower decay.
+                //
+                // severity is a fixed factor used to decrease the overall severity of the camera kick,
+                // as the values were so high by default that decay was only becoming really noticeable near range.
+                //
+                // these changes are made here instead of directly assigning to the effect variable
+                // above to maintain the same overall effect range as before.
+                const float severity = 0.033f;
+                const float lambda = 4f;
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect * severity * MathF.Exp(-lambda * (distance / range)));
+                // DeltaV END
+
+                // Starlight START
+                var shakeParams = rangeList.Count < queued.Proto.SmallSoundIterationThreshold
+                    ? new ESScreenshakeParameters() { Trauma = 0.4f, DecayRate = 0.2f, Frequency = 0.014f }
+                    : new ESScreenshakeParameters() { Trauma = 0.6f, DecayRate = 0.05f, Frequency = 0.014f };
+
+                // DeltaV - Screenshake falloff START
+                // Linear falloff with increasing distance from epicenter,
+                // capped at certain values to avoid diminishing the effect completely near range.
+                shakeParams.DecayRate *= MathF.Min(1 + distance / range, 1.75f);
+                shakeParams.Frequency *= MathF.Max(1 - distance / range, 0.33f);
+                shakeParams.Trauma *= MathF.Max(1 - distance / range, 0.33f);
+                // DeltaV END
+
+                _shake.Screenshake(players, shakeParams, null);
+                // Starlight END
+            }
         }
     }
 }

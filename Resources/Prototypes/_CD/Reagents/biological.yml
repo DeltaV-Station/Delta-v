@@ -8,14 +8,14 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-reflective
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1.5
         conditions:
-          - !type:OrganType
-            type: Human
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Human ]
+            inverted: true
   footstepSound:
     collection: FootstepBlood
     params:

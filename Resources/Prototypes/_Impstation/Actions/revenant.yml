@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseAction
   id: ActionRevenantHaunt
   name: Haunt
@@ -30,7 +30,7 @@
   parent: BaseAction
   id: ActionRevenantAnimate
   name: Animate
-  description: Costs 50 Essence.
+  description: Costs 40 Essence. # DeltaV - reduced cost 50 to 40
   components:
   - type: Action
     itemIconStyle: NoItem

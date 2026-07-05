@@ -1,0 +1,8 @@
+# TODO: Migrate the following OLD status effects located in Resources/Prototypes/_DV/status_effects.yml
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectChronicPainSuppressed
+  name: chronic pain suppression
+  components:
+  - type: ChronicPainSuppressedStatusEffect

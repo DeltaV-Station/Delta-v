@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Forensics;
@@ -49,16 +49,17 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         _itemSlots.AddItemSlot(uid, ImplanterComponent.ImplanterSlotId, component.ImplanterSlot);
 
-        return; // DeltaV - don't use deimplant chosing
-        component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
-
-        Dirty(uid, component);
+        // DeltaV - don't use deimplant chosing
+        // component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
+        //
+        // Dirty(uid, component);
     }
 
     private void OnEntInserted(EntityUid uid, ImplanterComponent component, EntInsertedIntoContainerMessage args)
     {
         var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+        ImplantMode(uid, component); // DeltaV - Properly update implant mode
     }
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)
@@ -178,7 +179,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     protected bool CheckTarget(EntityUid target, EntityWhitelist? whitelist, EntityWhitelist? blacklist)
     {
         return _whitelistSystem.IsWhitelistPassOrNull(whitelist, target) &&
-            _whitelistSystem.IsBlacklistFailOrNull(blacklist, target);
+            _whitelistSystem.IsWhitelistFailOrNull(blacklist, target);
     }
 
     //Draw the implant out of the target

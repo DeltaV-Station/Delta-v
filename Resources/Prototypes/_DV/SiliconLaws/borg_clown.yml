@@ -1,0 +1,42 @@
+# These were orignally under a section called "Job Laws"
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+
+- type: siliconLaw
+  id: Clown4
+  order: 4
+  lawString: law-clown-4
+
+- type: siliconLaw
+  id: Clown5
+  order: 5
+  lawString: law-clown-5
+
+- type: siliconLaw
+  id: Clown6
+  order: 6
+  lawString: law-clown-6
+
+- type: siliconLawset
+  id: Clown
+  name: law-clown-name
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  - Clown4
+  - Clown5
+  - Clown6
+  obeysTo: laws-owner-crew

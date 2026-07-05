@@ -94,6 +94,7 @@
         components:
         - CommandStaff
         - KillPersonCondition # Should also choose those who have targets on their heads by other antags :3
+    - !type:ObjectiveImmuneFilter
 
 - type: entity
   parent: [BaseWizardObjective, BaseKillObjective]
@@ -108,6 +109,7 @@
     title: objective-condition-wizard-kill-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:

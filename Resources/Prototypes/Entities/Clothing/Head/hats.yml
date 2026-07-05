@@ -173,7 +173,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretWarden
   name: warden's beret
-  description: A black beret with a warden's rank emblem. For officers that are more inclined towards style than safety. # DeltaV - changed description to match sprite
+  description: A deep blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety. # DeltaV - changed description to match sprite
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
@@ -364,7 +364,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatFedoraBrown
   id: ClothingHeadHatFedoraGrey
   name: grey fedora
   description: It's a grey fedora.
@@ -373,10 +373,17 @@
     sprite: Clothing/Head/Hats/greyfedora.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyfedora.rsi
-  - type: Tag
-    tags:
-    - PetWearable
-    - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadHatFedoraBrown
+  id: ClothingHeadHatFedoraPress
+  name: press fedora
+  description: It has a little note stuck in the band saying "PRESS". Practically an all-access pass!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/presshat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/presshat.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -568,6 +575,8 @@
     - state: icon-nobeard
       map: [ "foldedLayer" ]
       visible: true
+  - type: Item
+    storedRotation: 0
   - type: Tag
     tags:
     - PetWearable
@@ -1238,6 +1247,8 @@
     sprite: Clothing/Head/Hats/party_red.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_red.rsi
+  - type: Item
+    storedRotation: 0
   - type: Tag
     tags:
     - PetWearable
@@ -1254,12 +1265,6 @@
     sprite: Clothing/Head/Hats/party_yellow.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_yellow.rsi
-  - type: Tag
-    tags:
-    - PetWearable
-    - CorgiWearable
-    - WhitelistChameleon
-    - HamsterWearable
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1270,12 +1275,6 @@
     sprite: Clothing/Head/Hats/party_green.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_green.rsi
-  - type: Tag
-    tags:
-    - PetWearable
-    - CorgiWearable
-    - WhitelistChameleon
-    - HamsterWearable
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1286,12 +1285,6 @@
     sprite: Clothing/Head/Hats/party_blue.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_blue.rsi
-  - type: Tag
-    tags:
-    - PetWearable
-    - CorgiWearable
-    - WhitelistChameleon
-    - HamsterWearable
 
 - type: entity
   parent: ClothingHeadHatPartyRed
