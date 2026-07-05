@@ -5,9 +5,10 @@
     MinSize="800 400"
 >
     <BoxContainer Orientation="Vertical">
+        <Label Name="RoleDescription"/>
         <BoxContainer Orientation="Horizontal" Align="End">
             <Button Name="NewObjectiveButton" Text="{Loc objective-editor-admin-ui-new-objective}" StyleClasses="OpenRight"></Button>
-            <Button Name="SaveButton" Text="{Loc objective-editor-admin-ui-save}" StyleClasses="OpenLeft"></Button>
+            <Button Name="SaveButton" Text="{Loc objective-editor-admin-ui-save}" Access="Public" StyleClasses="OpenLeft"></Button>
         </BoxContainer>
     </BoxContainer>
     <BoxContainer Orientation="Vertical" Margin="4 60 0 0">

@@ -9,9 +9,10 @@ namespace Content.Client._DV.Objectives.Eui;
 [GenerateTypedNameReferences]
 public sealed partial class ObjectiveContainer : BoxContainer
 {
-    private ObjectiveData _objective;
+    private readonly ObjectiveData _objective;
 
     public event Action<ObjectiveData>? DeleteAction;
+    public event Action<ObjectiveData>? RerollAction;
 
     public ObjectiveContainer(ObjectiveData objective)
     {
@@ -23,5 +24,8 @@ public sealed partial class ObjectiveContainer : BoxContainer
         ObjectiveContent.Placeholder = new Rope.Leaf(Loc.GetString("objective-editor-ui-placeholder"));
         ObjectiveContent.TextRope = new Rope.Leaf(_objective.Info.Description);
         Delete.OnPressed += _ => DeleteAction?.Invoke(_objective);
+
+        Reroll.Visible = objective.Proto.HasValue; // We can only re-roll objectives we know the Proto for
+        Reroll.OnPressed += _ => RerollAction?.Invoke(_objective);
     }
 }

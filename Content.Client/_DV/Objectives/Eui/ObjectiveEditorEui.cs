@@ -16,7 +16,7 @@ public sealed class ObjectiveEditorEui : BaseEui
 
     private void SaveObjectives()
     {
-        SendMessage(new ObjectiveEditorSaveMessage([], _targetMind));
+        SendMessage(new ObjectiveEditorSaveMessage([], _targetMind, null, null));
     }
 
     public override void Opened()
@@ -31,6 +31,7 @@ public sealed class ObjectiveEditorEui : BaseEui
             return;
 
         _targetMind = s.TargetMind;
+        _editorUi.SetRoles(s.Role, s.Subtype);
         _editorUi.SetObjectives(s.Objectives);
     }
 }

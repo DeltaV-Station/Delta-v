@@ -17,11 +17,15 @@ public sealed class ObjectiveEditorEui(ObjectivesSystem objectiveSystem, EntityM
     private readonly IAdminManager _adminManager = manager;
     private readonly ISawmill _sawmill = Logger.GetSawmill("objective-editor-eui");
     private readonly Dictionary<string, List<ObjectiveData>> _objectives = [];
-    private EntityUid _targetMind;
+    private Entity<MindComponent> _targetMind;
 
     public override EuiStateBase GetNewState()
     {
-        return new ObjectiveEditorEUIState(_objectives, _entityManager.GetNetEntity(_targetMind));
+        return new ObjectiveEditorEUIState(
+            _objectives,
+            _entityManager.GetNetEntity(_targetMind.Owner),
+            _targetMind.Comp.RoleType,
+            _targetMind.Comp.Subtype);
     }
 
     public void UpdateObjectives(Entity<MindComponent> mind)
@@ -29,6 +33,7 @@ public sealed class ObjectiveEditorEui(ObjectivesSystem objectiveSystem, EntityM
         if (!IsAllowed())
             return;
 
+        _targetMind = mind;
         foreach (var objective in mind.Comp.Objectives)
         {
             var info = _objectiveSystem.GetInfo(objective, mind, mind.Comp);
@@ -42,7 +47,6 @@ public sealed class ObjectiveEditorEui(ObjectivesSystem objectiveSystem, EntityM
             _objectives.GetOrNew(issuer).Add(data);
         }
 
-        _targetMind = mind.Owner;
         StateDirty();
     }
 
