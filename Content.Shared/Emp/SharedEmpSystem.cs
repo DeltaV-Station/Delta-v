@@ -25,12 +25,6 @@ public abstract class SharedEmpSystem : EntitySystem
     [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // Frontier
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
-    /// <summary>
-    ///     DeltaV. Default damage of EMPs, as dertermined by direction. There's no good component to put
-    ///     this on so its defined here.
-    /// </summary>
-    private static readonly DamageSpecifier? DefaultEmpDamage = new() { DamageDict = new() { { "Ion", 130 } } };
-
     private HashSet<EntityUid> _entSet = new();
     private EntityQuery<EmpResistanceComponent> _resistanceQuery;
 
@@ -120,8 +114,6 @@ public abstract class SharedEmpSystem : EntitySystem
 
     /// <summary>
     /// Attempts to apply the effects of an EMP pulse onto an entity by first raising an <see cref="EmpAttemptEvent"/>, followed by raising a <see cref="EmpPulseEvent"/> on it.
-    /// <br/>
-    /// <br/>DeltaV - In most cases, you will want to use <see cref="EmpPulse"/> instead.
     /// </summary>
     /// <param name="uid">The entity to apply the EMP effects on.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
@@ -140,8 +132,6 @@ public abstract class SharedEmpSystem : EntitySystem
 
     /// <summary>
     /// Applies the effects of an EMP pulse onto an entity by raising a <see cref="EmpPulseEvent"/> on it.
-    /// <br/>
-    /// <br/>DeltaV - In most cases, you will want to use <see cref="EmpPulse"/> instead.
     /// </summary>
     /// <param name="uid">The entity to apply the EMP effects on.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
@@ -230,7 +220,7 @@ public record struct EmpAttemptEvent(bool Cancelled);
 /// <param name="User">The player that caused the EMP. For prediction purposes.</param>
 
 [ByRefEvent]
-public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User, DamageSpecifier? Damage = null); // DeltaV - Added Damage
+public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User);
 
 /// <summary>
 /// Raised on an entity after <see cref="EmpDisabledComponent"/> is removed.
