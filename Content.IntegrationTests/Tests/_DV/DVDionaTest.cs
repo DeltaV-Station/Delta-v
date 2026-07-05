@@ -184,7 +184,8 @@ public sealed class DVDionaTest : GameTest
 
     [Test]
     [RunOnSide(Side.Server)]
-    public void GestaltMapPreservation([Range(1, 2)] int additionalNymphCount)
+    [NonParallelizable]
+    public void GestaltMapPreservation([Range(1, 4)] int additionalNymphCount)
     {
         var first = SpawnProfiledNymph("Identical Rings");
         var others = new List<EntityUid>();
