@@ -26,7 +26,6 @@
       head: ClothingHeadHatBeretMedical
 
 # Jumpsuit
-
 - type: loadout
   id: MedicalApronJumpsuit
   equipment:
@@ -58,7 +57,6 @@
     jumpsuit: ClothingUniformJumpskirtMedicalVest
 
 # OuterClothing
-
 - type: loadout
   id: MedicalLabCoat
   equipment:
@@ -73,3 +71,8 @@
   id: LongLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabLong
+
+- type: loadout
+  id: BomberMedical
+  equipment:
+    outerClothing: ClothingOuterCoatBomberMedical
