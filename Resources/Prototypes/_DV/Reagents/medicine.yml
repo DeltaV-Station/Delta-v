@@ -176,6 +176,9 @@
         damage:
           types:
             Bloodloss: -2
+            Caustic: -1
+            Radiation: -1
+            Asphyxiation: -2
       - !type:HealthChange
         damage:
           types:
