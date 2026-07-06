@@ -14,7 +14,6 @@
       prob: 0.8
       children:
       - !type:GroupSelector
-        weight:
         children:
         - id: TreasureCoinIron
           weight: 100

@@ -3806,8 +3806,8 @@
     - id: FoodMeatBacon
       amount: 6
     - id: TreasureCoinIron
-      amount: !type:RangeNumberSelector
-        range: 0, 3
+      amount: 0
+      maxAmount: 3
       # End DeltaV Additions
   - type: Grammar
     attributes:
