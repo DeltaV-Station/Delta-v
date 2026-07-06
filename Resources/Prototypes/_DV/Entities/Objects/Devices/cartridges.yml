@@ -104,3 +104,22 @@
   - type: ActiveRadio
     channels:
     - Common
+
+- type: entity
+  parent: BasePDACartridge
+  id: MedTekPlusCartridge
+  name: MedTek+ cartridge
+  description: A program that provides advanced medical diagnostic tools.
+  components:
+    - type: Sprite
+      sprite: _DV/Objects/Devices/cartridge.rsi
+      state: cart-med-plus
+    - type: Icon
+      sprite: _DV/Objects/Devices/cartridge.rsi
+      state: cart-med-plus
+    - type: Cartridge
+      programName: med-tek-plus-program-name
+      icon:
+        sprite: Objects/Specific/Medical/healthanalyzer.rsi
+        state: icon
+    - type: MedTekPlusCartridge

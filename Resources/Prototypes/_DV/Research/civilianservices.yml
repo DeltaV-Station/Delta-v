@@ -23,3 +23,15 @@
   cost: 7000
   recipeUnlocks:
   - PlantAnalyzer
+
+- type: technology
+  id: MedTekPlus
+  name: research-technology-health-analyzer-plus
+  icon:
+    sprite: _DV/Objects/Devices/cartridge.rsi
+    state: cart-med-plus
+  discipline: CivilianServices
+  tier: 2
+  cost: 7000
+  recipeUnlocks:
+  - MedTekPlusCartridge

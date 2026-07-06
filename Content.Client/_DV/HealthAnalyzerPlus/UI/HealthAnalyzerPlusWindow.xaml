@@ -1,0 +1,16 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ui="clr-namespace:Content.Client._DV.HealthAnalyzerPlus.UI"
+    MaxHeight="525"
+    MinWidth="300">
+    <ScrollContainer
+        Margin="5 5 5 5"
+        ReturnMeasure="True"
+        VerticalExpand="True">
+
+        <ui:HealthAnalyzerPlusControl
+            Name="HealthAnalyzerPlus"
+            Access="Public" /> <!-- DeltaV -->
+    </ScrollContainer>
+</controls:FancyWindow>

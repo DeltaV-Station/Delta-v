@@ -230,3 +230,6 @@ log-probe-card-number = Card: {$number}
 log-probe-recipients = {$count} Recipients
 log-probe-recipient-list = Known Recipients:
 log-probe-message-format = {$sender} → {$recipient}: {$content}
+
+# HealthAnalyzerPlus
+med-tex-plus-program-name = MedTek+

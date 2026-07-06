@@ -110,6 +110,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.HealthAnalyzerPlusUiKey.Key:
+        type: HealthAnalyzerPlusBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -800,6 +802,10 @@
   - type: Pager
     autoLinkDepartments: [Command, Medical]
     autoLinkJobs: [ChiefMedicalOfficer]
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - MedTekPlusCartridge
   # End DeltaV
 
 - type: entity
@@ -1677,6 +1683,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.HealthAnalyzerPlusUiKey.Key:
+        type: HealthAnalyzerPlusBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
 
