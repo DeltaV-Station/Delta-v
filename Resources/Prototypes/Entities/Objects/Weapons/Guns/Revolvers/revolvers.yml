@@ -26,7 +26,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 1.5
+    fireRate: 2 # Delta V - was 1.5
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -67,7 +67,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Gun
-    fireRate: 2
+    fireRate: 2.5 # Delta V - was 2
   - type: RevolverAmmoProvider
     capacity: 5
     chambers: [ True, True, True, True, True ]
@@ -136,7 +136,7 @@
     storedOffset: 0,-2
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2
+    fireRate: 2.5 # Delta V - was 2
     availableModes:
     - SemiAuto
     soundGunshot:
