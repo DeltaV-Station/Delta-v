@@ -1,8 +1,38 @@
 - type: entity
+  name: box of spare staff stamps [CMO]
+  parent: BoxCardboard
+  id: BoxCMOStamps
+  description: A box filled with spare medical rubber stamps, just in case NanoTrasen didn't supply enough. # Extra doctor stamps in case the map doesn't have enough lockers
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,2,2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RubberStampDoctor # I didn't put the CMO stamp in here because it looks too similar in color.
+          amount: !type:ConstantNumberSelector
+            value: 6
+        - id: RubberStampChemist
+        - id: RubberStampPsychologist
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    whitelist:
+      components:
+      - Stamp
+  - type: Sprite
+    layers:
+      - state: box
+      - state: stamp
+
+- type: entity
   name: stamp box [CJ]
   parent: BoxCardboard
   id: BoxCJStamps
-  description: A box filled with CJ's Stamps. Ready to dispense justice!
+  description: A box filled with chief justice's stamps. Ready to dispense justice!
   components:
   - type: Item
     size: Small
