@@ -1,8 +1,9 @@
 - type: entity
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackPlasmaBattery
-  name: Backpack Plasma Battery
-  description: TODO
+  name: Eviscerator backpack
+  description: A backmounted cold fusion reactor to supply a handheld plasma nozzle with enough energy to support a special response team. It probably costs more than most stations.
+  suffix: SRT
   components:
   - type: Tag
     tags:
@@ -28,7 +29,7 @@
     proto: FusionWeaponPlasmaProjectile
     fireCost: 10
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 500
+    startingCharge: 500
   - type: BatterySelfRecharger
-    autoRechargeRate: 5
+    autoRechargeRate: 10
