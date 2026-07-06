@@ -1,0 +1,34 @@
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackPlasmaBattery
+  name: Backpack Plasma Battery
+  description: TODO
+  components:
+  - type: Tag
+    tags:
+    - HeavyPlasmaBattery
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Backpacks/plasmabackpack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: _DV/Clothing/Back/Backpacks/plasmabackpack.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        priority: 2
+        whitelist:
+          tags:
+          - LaserPlasmaBackpack
+  - type: Appearance
+  - type: BatteryAmmoProvider
+    proto: FusionWeaponPlasmaProjectile
+    fireCost: 10
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 5
