@@ -114,8 +114,20 @@
   - type: FlavorProfile
     flavors:
       - nachos
+  #- type: Sprite # DeltaV - replaced below to add foodSequenceLayers slot for sequence system
+  #  state: nachos
+  # Begin DeltaV additions - nachos can be topped with cheese or chili to metamorph into variants
   - type: Sprite
-    state: nachos
+    sprite: Objects/Consumable/Food/meals.rsi
+    layers:
+    - state: nachos
+    - map: ["foodSequenceLayers"]
+  - type: Appearance
+  - type: FoodSequenceStartPoint
+    key: Nachos
+  - type: FoodMetamorphableByAdding
+    onlyFinal: false
+  # End DeltaV additions
   - type: SolutionContainerManager
     solutions:
       food:

@@ -1,3 +1,4 @@
+using Content.Server.RoundEnd;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -25,4 +26,14 @@ public sealed partial class ZombieRuleComponent : Component
     /// </summary>
     [DataField]
     public float ZombieShuttleCallPercentage = 0.7f;
+
+    /// <summary>
+    /// DeltaV - The behavior of the round if all zombies are defeated.
+    /// </summary>
+    public RoundEndBehavior ZombieRoundEndBehavior = RoundEndBehavior.BecomeSurvival;
+
+    /// <summary>
+    /// DeltaV - The amount of time before the evac shuttle will arrive if the ZombieRoundEndBehavior is set to ShuttleCall.
+    /// </summary>
+    public TimeSpan ZombieShuttleDelay = TimeSpan.FromMinutes(10);
 }

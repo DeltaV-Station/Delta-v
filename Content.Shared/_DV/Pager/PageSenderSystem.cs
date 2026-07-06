@@ -1,3 +1,4 @@
+using Content.Shared.CartridgeLoader;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
@@ -54,5 +55,11 @@ public sealed class PageSenderSystem : EntitySystem
             { PagerConstants.DataBody, body },
         };
         _deviceNetwork.QueuePacket(ent, null, payload);
+
+        if (HasComp<PagerComponent>(ent))
+        {
+            var evt = new CartridgeLoaderNotificationSentEvent(Loc.GetString("pager-self-notification"), body);
+            RaiseLocalEvent(ent, ref evt);
+        }
     }
 }

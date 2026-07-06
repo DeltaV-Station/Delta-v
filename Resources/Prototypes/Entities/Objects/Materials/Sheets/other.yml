@@ -108,6 +108,11 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
+  - type: Tag # DeltaV - Added to include TiderAnvilParts
+    tags:
+    - Sheet
+    - TiderAnvilParts #SL
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -140,6 +145,7 @@
     tags:
     - Plastic
     - Sheet
+    - TiderAnvilParts #SL
     - ConstructionMaterial
   - type: Material
   - type: PhysicalComposition

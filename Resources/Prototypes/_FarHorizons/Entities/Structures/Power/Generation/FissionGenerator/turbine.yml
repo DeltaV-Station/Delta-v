@@ -226,6 +226,8 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   id: GasTurbineAlarmEntity

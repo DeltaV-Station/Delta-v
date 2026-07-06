@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server._DV.StationEvents.Components;
-using Content.Server.Atmos.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared.Atmos.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -154,7 +154,7 @@ namespace Content.Server._DV.StationEvents.GameRules
                 while (!targetingSafe && targetingAttempts <= 3); // attempt to avoid the protected areas a few times
 
                 var meteor = Spawn(proto, spawnPosition);
-                var physics = EntityManager.GetComponent<PhysicsComponent>(meteor);
+                var physics = Comp<PhysicsComponent>(meteor);
                 _physics.SetBodyStatus(meteor, physics, BodyStatus.InAir);
                 _physics.SetLinearDamping(meteor, physics, 0f);
                 _physics.SetAngularDamping(meteor, physics, 0f);

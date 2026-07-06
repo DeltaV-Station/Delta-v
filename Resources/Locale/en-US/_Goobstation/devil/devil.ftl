@@ -16,6 +16,8 @@ devil-role-greeting = You are a devil from the depths of hell,
 devil-true-name-heard = The act of {$speaker} commanding {$target}'s true name compels {POSS-ADJ($target)} to stop.
 devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding {$target}'s true name name burns away at {POSS-ADJ($target)} very soul.
 
+devil-clauses-name = Devil Clauses
+
 objective-condition-contract-title = Collect Souls
 objective-condition-contract-description = Collect as many souls as possible.
 

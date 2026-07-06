@@ -310,8 +310,9 @@
     - Biological
     - BiologicalMetaphysical
     damage:
-      groups:
-        Metaphysical: -10
+      types:
+        Holy: -10
+        Soul: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:

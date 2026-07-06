@@ -157,7 +157,7 @@ namespace Content.Shared.StatusEffect
 
             if (TryAddStatusEffect(uid, key, time, refresh, status))
             {
-                EntityManager.AddComponent(uid, component, true);
+                AddComp(uid, component, true);
                 status.ActiveEffects[key].RelevantComponent = Factory.GetComponentName(component.GetType());
                 return true;
             }
