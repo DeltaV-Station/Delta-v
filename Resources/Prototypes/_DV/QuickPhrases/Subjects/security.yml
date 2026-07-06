@@ -82,3 +82,13 @@
   id: ParolePhrase
   parent: BaseSecuritySubjectPhrase
   text: phrase-parole
+
+- type: quickPhrase
+  id: BolaPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-bola
+
+- type: quickPhrase
+  id: TaserPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-taser

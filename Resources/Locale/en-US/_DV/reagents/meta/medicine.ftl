@@ -28,7 +28,7 @@ reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam.
 reagent-name-necrosol = necrosol
 reagent-desc-necrosol = A quite necrotic wonder medicine capable of healing in the cold
 
-reagent-name-salbutamol-saline = Salbutamol & Saline
+reagent-name-salbutamol-saline = salbutamol & saline
 
 reagent-name-pure-oil = pure oil
 reagent-desc-pure-oil = A form of lotophagoi oil purified with claridisol. while even this form can grant someone powers, it can be refined further.
