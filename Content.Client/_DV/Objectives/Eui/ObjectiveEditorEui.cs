@@ -6,8 +6,9 @@ namespace Content.Client._DV.Objectives.Eui;
 
 public sealed class ObjectiveEditorEui : BaseEui
 {
-    private ObjectiveEditorUi _editorUi;
+    private readonly ObjectiveEditorUi _editorUi;
     private NetEntity _targetMind;
+
     public ObjectiveEditorEui()
     {
         _editorUi = new ObjectiveEditorUi();
@@ -16,7 +17,7 @@ public sealed class ObjectiveEditorEui : BaseEui
 
     private void SaveObjectives()
     {
-        SendMessage(new ObjectiveEditorSaveMessage([], _targetMind, null, null));
+        SendMessage(new ObjectiveEditorSaveMessage(_editorUi.GetObjectives(), _targetMind));
     }
 
     public override void Opened()
@@ -31,7 +32,7 @@ public sealed class ObjectiveEditorEui : BaseEui
             return;
 
         _targetMind = s.TargetMind;
-        _editorUi.SetRoles(s.Role, s.Subtype);
+        _editorUi.SetRoleDescription(s.Role, s.Subtype);
         _editorUi.SetObjectives(s.Objectives);
     }
 }

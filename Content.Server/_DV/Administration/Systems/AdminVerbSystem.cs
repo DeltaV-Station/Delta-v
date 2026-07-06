@@ -44,7 +44,7 @@ public sealed partial class AdminVerbSystem : EntitySystem
                 Category = VerbCategory.Admin,
                 Act = () =>
                 {
-                    var ui = new ObjectiveEditorEui(_objectives, EntityManager, _adminManager);
+                    var ui = new ObjectiveEditorEui(EntityManager, _adminManager);
                     if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
                         return;
 

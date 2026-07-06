@@ -6,7 +6,7 @@
     Orientation="Vertical"
     >
     <customControls:HSeparator/>
-    <BoxContainer>
+    <BoxContainer Orientation="Horizontal">
         <PanelContainer
             Margin="20 10 0 0"
             MinHeight="80"
@@ -14,20 +14,42 @@
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"/>
             </PanelContainer.PanelOverride>
-            <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+            <BoxContainer Orientation="Vertical" SeparationOverride="5">
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Issuer:" />
+                    <LineEdit
+                        Name="ObjectiveIssuer"
+                        HorizontalExpand="True"
+                        Editable="True"
+                        MinWidth="500"
+                        Margin="5"
+                    />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Title:" />
+                    <LineEdit
+                        Name="ObjectiveTitle"
+                        HorizontalExpand="True"
+                        Editable="True"
+                        MinWidth="500"
+                        Margin="5"
+                    />
+                </BoxContainer>
                 <TextEdit
-                    Name="ObjectiveContent"
+                    Name="ObjectiveDescription"
                     HorizontalExpand="True"
                     Editable="True"
-                    MinWidth="600"
-                    MinHeight="50"
+                    MinWidth="500"
+                    MinHeight="60"
                     Margin="5"
                 />
             </BoxContainer>
         </PanelContainer>
-    </BoxContainer>
-    <BoxContainer Orientation="Horizontal" Align="End" Margin="0 10 5 10">
-        <Button Name="Delete" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" />
-        <Button Name="Reroll" Text="{Loc objective-editor-admin-ui-reroll}" />
+
+        <BoxContainer Orientation="Vertical" Align="Center" Margin="20 10 5 10">
+            <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" />
+            <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" />
+            <Button Name="RerollButton" Text="{Loc objective-editor-admin-ui-reroll}" />
+        </BoxContainer>
     </BoxContainer>
 </BoxContainer>

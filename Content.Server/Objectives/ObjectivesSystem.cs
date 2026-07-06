@@ -358,12 +358,12 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     /// </summary>
     /// <param name="objective">The objective to set the issuer for.</param>
     /// <param name="issuer">The new issuer of the objective.</param>
-    public void SetIssuer(Entity<ObjectiveComponent?> objective, LocId issuer)
+    public void SetIssuer(EntityUid objective, LocId issuer)
     {
-        if (!Resolve(objective, ref objective.Comp))
+        if (!TryComp<ObjectiveComponent>(objective, out var comp))
             return;
 
-        objective.Comp.Issuer = issuer;
+        comp.Issuer = issuer;
     }
 }
 

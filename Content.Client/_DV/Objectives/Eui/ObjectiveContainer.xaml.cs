@@ -9,23 +9,51 @@ namespace Content.Client._DV.Objectives.Eui;
 [GenerateTypedNameReferences]
 public sealed partial class ObjectiveContainer : BoxContainer
 {
+    private string _issuer;
     private readonly ObjectiveData _objective;
-
+    private readonly string _originalIssuer;
+    private readonly string _originalTitle;
+    private readonly string _originalDesc;
     public event Action<ObjectiveData>? DeleteAction;
     public event Action<ObjectiveData>? RerollAction;
 
-    public ObjectiveContainer(ObjectiveData objective)
+    public ObjectiveContainer(string issuer, ObjectiveData objective)
     {
         RobustXamlLoader.Load(this);
 
         _objective = objective;
+        _issuer = issuer;
 
-        ObjectiveContent.OnTextChanged += _ => _objective.Info.Description = Rope.Collapse(ObjectiveContent.TextRope).Trim();
-        ObjectiveContent.Placeholder = new Rope.Leaf(Loc.GetString("objective-editor-ui-placeholder"));
-        ObjectiveContent.TextRope = new Rope.Leaf(_objective.Info.Description);
-        Delete.OnPressed += _ => DeleteAction?.Invoke(_objective);
+        _originalIssuer = issuer;
+        _originalTitle = objective.Info.Title;
+        _originalDesc = objective.Info.Description;
 
-        Reroll.Visible = objective.Proto.HasValue; // We can only re-roll objectives we know the Proto for
-        Reroll.OnPressed += _ => RerollAction?.Invoke(_objective);
+        ObjectiveIssuer.Text = _issuer;
+        ObjectiveIssuer.OnTextChanged += _ => _issuer = ObjectiveIssuer.Text;
+
+        ObjectiveTitle.Text = _objective.Info.Title;
+        ObjectiveTitle.OnTextChanged += _ => _objective.Info.Title = ObjectiveTitle.Text;
+
+        ObjectiveDescription.TextRope = new Rope.Leaf(_objective.Info.Description);
+        ObjectiveDescription.OnTextChanged += _ => _objective.Info.Description = Rope.Collapse(ObjectiveDescription.TextRope).Trim();
+        ObjectiveDescription.Placeholder = new Rope.Leaf(Loc.GetString("objective-editor-admin-ui-placeholder-description"));
+        DeleteButton.OnPressed += _ => DeleteAction?.Invoke(_objective);
+
+        RerollButton.Visible = objective.Proto.HasValue; // We can only re-roll objectives we know the Proto for
+        RerollButton.OnPressed += _ => RerollAction?.Invoke(_objective);
+
+        ResetButton.OnPressed += _ => ResetObjective();
+    }
+
+    public (string, ObjectiveData) GetData()
+    {
+        return (_issuer, _objective);
+    }
+
+    private void ResetObjective()
+    {
+        ObjectiveIssuer.Text = _originalIssuer;
+        ObjectiveTitle.Text = _originalTitle;
+        ObjectiveDescription.TextRope = new Rope.Leaf(_originalDesc);
     }
 }

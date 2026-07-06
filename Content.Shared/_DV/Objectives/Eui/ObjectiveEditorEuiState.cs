@@ -21,12 +21,8 @@ public sealed class ObjectiveEditorEUIState(
 
 [Serializable, NetSerializable]
 public sealed class ObjectiveEditorSaveMessage(
-    List<ObjectiveData> objectives, NetEntity target,
-    ProtoId<RoleTypePrototype>? role,
-    LocId? subtype) : EuiMessageBase
+    Dictionary<string, List<ObjectiveData>> objectives, NetEntity target) : EuiMessageBase
 {
-    public List<ObjectiveData> Objectives = objectives;
+    public Dictionary<string, List<ObjectiveData>> Objectives = objectives;
     public NetEntity Target = target;
-    public ProtoId<RoleTypePrototype>? Role = role;
-    public LocId? Subtype = subtype;
 }
