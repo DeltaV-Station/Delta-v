@@ -3,7 +3,7 @@
   name: job-name-gladiator
   description: job-description-gladiator
   playTimeTracker: JobGladiator
-  startingGear: NyanoGladiatorGear
+  startingGear: gladiatorGear
   alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconGladiator"
@@ -16,7 +16,7 @@
       time: 21600
 
 - type: startingGear
-  id: NyanoGladiatorGear
+  id: gladiatorGear
   equipment:
     id: GladiatorPDA
     ears: ClothingHeadsetPrison

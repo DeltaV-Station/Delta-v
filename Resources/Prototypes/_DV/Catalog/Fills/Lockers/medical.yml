@@ -97,6 +97,8 @@
       tableId: SurgeonSanitzation
     - !type:NestedSelector
       tableId: SurgeonGloves
+    - id: RubberStampDoctor
+    - id: PrescriptionFolder
     - id: ClothingHeadsetMedical
     - id: ClothingEyesHudMedical
     - id: ClothingBackpackDuffelSurgeryFilled
@@ -161,6 +163,8 @@
   id: LockerFillMedicalDoctorDeltaV
   table: !type:AllSelector
     children:
+    - id: RubberStampDoctor
+    - id: PrescriptionFolder
     - id: NitrousOxideTankFilled
       prob: 0.3
     - id: LunchboxMedicalFilledRandom
@@ -170,6 +174,8 @@
   id: LockerFillParamedicDeltaV
   table: !type:AllSelector
     children:
+    - id: RubberStampDoctor
+    - id: PrescriptionFolder
     - id: ClothingShoesBootsWinterParamedic
     - id: BoxBodyBag
     - id: EmergencyRollerBedSpawnFolded
