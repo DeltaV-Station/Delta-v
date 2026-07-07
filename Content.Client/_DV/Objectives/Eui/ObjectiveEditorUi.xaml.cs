@@ -19,7 +19,6 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
         RobustXamlLoader.Load(this);
         NewObjectiveButton.OnPressed += _ => AddNewObjective();
         DeleteAllButton.OnPressed += _ => ObjectiveContainer.RemoveAllChildren();
-        //RerollAllButton.OnPressed += _ => <Something>;
         ResetButton.OnPressed += _ => SetObjectives(_objectives);
     }
 

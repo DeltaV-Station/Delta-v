@@ -15,7 +15,6 @@ public sealed partial class ObjectiveContainer : BoxContainer
     private readonly string _originalTitle;
     private readonly string _originalDesc;
     public event Action<ObjectiveData>? DeleteAction;
-    public event Action<ObjectiveData>? RerollAction;
 
     public ObjectiveContainer(string issuer, ObjectiveData objective)
     {
@@ -38,9 +37,6 @@ public sealed partial class ObjectiveContainer : BoxContainer
         ObjectiveDescription.OnTextChanged += _ => _objective.Info.Description = Rope.Collapse(ObjectiveDescription.TextRope).Trim();
         ObjectiveDescription.Placeholder = new Rope.Leaf(Loc.GetString("objective-editor-admin-ui-placeholder-description"));
         DeleteButton.OnPressed += _ => DeleteAction?.Invoke(_objective);
-
-        RerollButton.Visible = objective.Proto.HasValue; // We can only re-roll objectives we know the Proto for
-        RerollButton.OnPressed += _ => RerollAction?.Invoke(_objective);
 
         ResetButton.OnPressed += _ => ResetObjective();
     }

@@ -49,7 +49,6 @@
         <BoxContainer Orientation="Vertical" Align="Center" Margin="20 10 5 10">
             <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" />
             <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" />
-            <Button Name="RerollButton" Text="{Loc objective-editor-admin-ui-reroll}" />
         </BoxContainer>
     </BoxContainer>
 </BoxContainer>

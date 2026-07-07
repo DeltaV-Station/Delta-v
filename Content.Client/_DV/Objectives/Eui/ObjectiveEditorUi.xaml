@@ -8,7 +8,6 @@
         <BoxContainer Orientation="Horizontal">
             <BoxContainer Orientation="Horizontal" Align="Begin" >
                 <Button Name="DeleteAllButton" Text="{Loc objective-editor-admin-ui-delete-all}" StyleClasses="OpenRight"/>
-                <Button Name="RerollAllButton" Text="{Loc objective-editor-admin-ui-reroll-all}" Access="Public" StyleClasses="OpenLeft"/>
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" Align="End">
                 <Button Name="NewObjectiveButton" Text="{Loc objective-editor-admin-ui-new-objective}" StyleClasses="OpenRight"/>
