@@ -118,6 +118,7 @@
     damageValue: -10 # 10 seconds to repair from crit
     doAfterDelay: 1
     fuelCost: 0.5
+    qualityNeeded: Welding # DeltaV - for now
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
   - type: LockingWhitelist
@@ -166,6 +167,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    wilhelm: "/Audio/_DV/Machines/robotwilhelm.ogg" # DeltaV - "There seems to be someone among us".
     wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
@@ -280,14 +282,16 @@
     - Critical
     - Dead
     damage:
-      groups:
-        Electronic: -0.5
+      types:
+        Shock: -0.5
   - type: SiliconEmp # DeltaV - EMP damage
   - type: BypassLock
+    openWiresPanel: true
   - type: BypassLockRequiresMobState
     requiredMobState:
     - Critical
     - Dead
+  - type: BorgSwitchableSubtype # CosmicDrift
 
 - type: entity
   abstract: true
@@ -371,6 +375,7 @@
   - type: Wires # DeltaV: NT borgs have a circuit panel
     layoutId: Cyborg
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
@@ -438,6 +443,7 @@
   - type: ShowJobIcons
   - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
     fiberMaterial: fibers-degraded-plasteel
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
 
 - type: entity
   id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
@@ -451,6 +457,7 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
     factions:
     - Syndicate
@@ -597,6 +604,7 @@
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg

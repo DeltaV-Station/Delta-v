@@ -241,8 +241,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 90 # DeltaV: Added wideAnimationRotation
     damage:
-      groups:
-        Brute: 10
+      types:
+        Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool

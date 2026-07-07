@@ -32,10 +32,6 @@ public sealed partial class MonumentMenu : FancyWindow
     // All influence prototypes
     private readonly IEnumerable<InfluencePrototype> _influencePrototypes;
     private readonly ButtonGroup _glyphButtonGroup;
-    private ProtoId<GlyphPrototype> _selectedGlyphProtoId = string.Empty;
-    private HashSet<ProtoId<GlyphPrototype>> _unlockedGlyphProtoIds = [];
-    public Action<ProtoId<GlyphPrototype>>? OnSelectGlyphButtonPressed;
-    public Action? OnRemoveGlyphButtonPressed;
 
     public Action<ProtoId<InfluencePrototype>>? OnGainButtonPressed;
     private int _entropyPerCultist = 0;
@@ -52,9 +48,6 @@ public sealed partial class MonumentMenu : FancyWindow
 
         _glyphButtonGroup = new ButtonGroup();
 
-        RemoveGlyphButton.OnPressed += _ => OnRemoveGlyphButtonPressed?.Invoke();
-        SelectGlyphButton.OnPressed += _ => OnSelectGlyphButtonPressed?.Invoke(_selectedGlyphProtoId);
-
         _cfg.OnValueChanged(DCCVars.CosmicCultistEntropyValue, entropy =>
         {
             _entropyPerCultist = entropy;
@@ -64,15 +57,11 @@ public sealed partial class MonumentMenu : FancyWindow
 
     public void UpdateState(MonumentBuiState state)
     {
-        _selectedGlyphProtoId = state.SelectedGlyph;
-        _unlockedGlyphProtoIds = state.UnlockedGlyphs;
-
         CultProgressBar.BackgroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(15, 17, 30) };
         CultProgressBar.ForegroundStyleBoxOverride = new StyleBoxFlat { BackgroundColor = new Color(91, 62, 124) };
 
         UpdateBar(state);
         UpdateEntropy(state);
-        UpdateGlyphs();
         UpdateInfluences(state);
     }
 
@@ -108,37 +97,6 @@ public sealed partial class MonumentMenu : FancyWindow
         AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", availableEntropy));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", entropyToNextStage.ToString()));
         CrewToConvertUntilNextStage.Text = crewToNextStage.ToString();
-    }
-
-    // Update all the glyph buttons
-    private void UpdateGlyphs()
-    {
-        GlyphContainer.RemoveAllChildren();
-        foreach (var glyph in _glyphPrototypes)
-        {
-            var boxContainer = new BoxContainer();
-            var unlocked = _unlockedGlyphProtoIds.Contains(glyph.ID);
-            var button = new Button
-            {
-                HorizontalExpand = true,
-                StyleClasses = { StyleClass.ButtonSquare },
-                ToolTip = Loc.GetString(glyph.Tooltip),
-                Group = _glyphButtonGroup,
-                Pressed = glyph.ID == _selectedGlyphProtoId,
-                Disabled = !unlocked,
-                Modulate = !unlocked ? Color.Gray : Color.White,
-            };
-            button.OnPressed += _ => _selectedGlyphProtoId = glyph.ID;
-            var glyphIcon = new TextureRect
-            {
-                Texture = _sprite.Frame0(glyph.Icon),
-                TextureScale = new Vector2(2f, 2f),
-                Stretch = TextureRect.StretchMode.KeepCentered,
-            };
-            button.AddChild(glyphIcon);
-            boxContainer.AddChild(button);
-            GlyphContainer.AddChild(boxContainer);
-        }
     }
 
     // Update all the influence thingies

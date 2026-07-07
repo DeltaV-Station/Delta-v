@@ -1,7 +1,7 @@
+using Content.Server._Impstation.Revenant.Components;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Server.Revenant.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Revenant.Components;
 using Content.Server.NPC.HTN;
@@ -28,7 +28,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Construction.Components;
 using Content.Shared.Trigger.Components;
 
-namespace Content.Server.Revenant.EntitySystems;
+namespace Content.Server._Impstation.Revenant.EntitySystems;
 
 public sealed partial class RevenantAnimatedSystem : EntitySystem
 {
@@ -40,6 +40,9 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _moveSpeed = default!;
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+    private const string BluntName = "Blunt";
+    private const string SimpleHostileName = "SimpleHostile";
 
     public override void Initialize()
     {
@@ -79,7 +82,7 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
 
         // Add melee damage if an item doesn't already have it
         if (EnsureHelper<MeleeWeaponComponent>(ent, out var melee))
-            melee.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Blunt"), 5);
+            melee.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(BluntName), 5);
 
         EnsureHelper<InputMoverComponent>(ent);
         EnsureHelper<MovementSpeedModifierComponent>(ent, out var moveSpeed);
@@ -100,7 +103,7 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
 
         EnsureHelper<NpcFactionMemberComponent>(ent, out var factions);
         _factionSystem.ClearFactions((ent, factions));
-        _factionSystem.AddFaction((ent, factions), "SimpleHostile");
+        _factionSystem.AddFaction((ent, factions), SimpleHostileName);
 
         // For things like handcuffs
         EnsureHelper<DoAfterComponent>(ent);

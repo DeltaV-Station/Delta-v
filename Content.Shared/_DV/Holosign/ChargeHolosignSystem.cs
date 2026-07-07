@@ -66,7 +66,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return false;
         }
 
-        var holoUid = EntityManager.PredictedSpawnAtPosition(ent.Comp1.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
+        var holoUid = PredictedSpawnAtPosition(ent.Comp1.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
         var xform = Transform(holoUid);
         if (!xform.Anchored)
             _transform.AnchorEntity(holoUid, xform); // anchor to prevent any tempering with (don't know what could even interact with it)
@@ -88,7 +88,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             ent,
             user);
 
-        EntityManager.PredictedDeleteEntity(sign);
+        PredictedDel(sign);
         return true;
     }
 }

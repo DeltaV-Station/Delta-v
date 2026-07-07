@@ -48,6 +48,8 @@
   id: LockerFillChiefMedicalOfficerDeltaV
   table: !type:AllSelector
     children:
+    - id: BoxCMOStamps # Spare doctor stamps, does not include CMO stamp
+    - id: PrescriptionFolder
     - id: BoxPDAMedical
     - id: ClothingBeltMilitaryWebbingCMO # add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
     - id: CMOIDCard
