@@ -118,6 +118,7 @@
     damageValue: -10 # 10 seconds to repair from crit
     doAfterDelay: 1
     fuelCost: 0.5
+    qualityNeeded: Welding # DeltaV - for now
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
   - type: LockingWhitelist

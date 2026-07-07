@@ -40,6 +40,8 @@
   id: LockerFillMedicalDoctor
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV
+      tableId: LockerFillMedicalDoctorDeltaV
     - id: HandheldHealthAnalyzer
       prob: 0.6
     - id: ClothingHeadMirror

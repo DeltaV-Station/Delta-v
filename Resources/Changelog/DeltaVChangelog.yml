@@ -1,135 +1,4 @@
 ﻿Entries:
-- author: Halo3moth
-  changes:
-  - message: Advanced plate carrier's heat, slash, and blunt resistance nerfed from
-      40% to 30%. Shock nerfed from 30% to 20%
-    type: Tweak
-  id: 2015
-  time: '2026-01-03T00:42:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5081
-- author: ShepardToTheStars
-  changes:
-  - message: Fixed a server-crashing bug where the server would crash if there were
-      zero cosmic cultists and it would try to hold a steward vote with zero options.
-    type: Fix
-  id: 2016
-  time: '2026-01-03T00:47:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5097
-- author: Velcroboy
-  changes:
-  - message: Fixed potted plants not being easy to grab
-    type: Fix
-  id: 2017
-  time: '2026-01-03T00:48:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5052
-- author: SirWarock
-  changes:
-  - message: Surgery now has a new, better UI!
-    type: Tweak
-  id: 2018
-  time: '2026-01-03T13:27:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5107
-- author: EmberAstra
-  changes:
-  - message: 'New Glimmer event: the Oracle and Sophic Grammateus will now occasionally
-      attract foxfire!'
-    type: Add
-  - message: 'New Glimmer event: the Noosphere is coming for your hair, and its fashion
-      sense is... random.'
-    type: Add
-  - message: Using barber scissors on kobolds no longer causes massive errors.
-    type: Fix
-  id: 2019
-  time: '2026-01-03T13:56:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5102
-- author: EmberAstra
-  changes:
-  - message: Advanced Cleaning Modules now come with an Hydra again!
-    type: Fix
-  id: 2020
-  time: '2026-01-04T00:15:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5116
-- author: MilonPL
-  changes:
-  - message: Footprints will no longer despawn after 60 seconds.
-    type: Tweak
-  - message: Footprints are now limited to two per tile.
-    type: Tweak
-  id: 2021
-  time: '2026-01-04T16:37:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5111
-- author: ShepardToTheStars
-  changes:
-  - message: Fixed people getting randomly deleted when there were too many footprints.
-    type: Fix
-  id: 2022
-  time: '2026-01-04T19:25:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5128
-- author: Stxcking
-  changes:
-  - message: Fixes electronic damage missing icon.
-    type: Fix
-  id: 2023
-  time: '2026-01-04T19:26:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5127
-- author: Stxcking
-  changes:
-  - message: Medical borgs now have access to a crew monitor as part of the rescue
-      cyborg module!
-    type: Add
-  id: 2024
-  time: '2026-01-06T01:31:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5117
-- author: ShepardToTheStars
-  changes:
-  - message: The Santa anomalies have been removed from the anomaly pool (until next
-      December)!
-    type: Remove
-  id: 2025
-  time: '2026-01-06T05:27:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5145
-- author: Stxcking
-  changes:
-  - message: Added some missing feroxi mask/helm sprites. In total, 10 bandanas, 2
-      hard suit helms (Goliath + Paramedic Void), 15 masks!
-    type: Add
-  id: 2026
-  time: '2026-01-06T15:59:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5149
-- author: MilonPL
-  changes:
-  - message: Reworked the deep fryer! It can now be used to make new recipes, check
-      out the guidebook for more info!
-    type: Tweak
-  - message: Be careful about putting liquids that aren't cooking oils in the deep
-      fryer! It could start a grease fire!
-    type: Add
-  id: 2027
-  time: '2026-01-06T18:41:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5043
-- author: ShepardToTheStars
-  changes:
-  - message: Secure crates from Logistics once again have a 75% chance of acidifying
-      the contents inside.
-    type: Tweak
-  id: 2028
-  time: '2026-01-06T21:57:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5152
-- author: PureBreadBagel, ShepardToTheStars
-  changes:
-  - message: Added the medical Crashcart from funkystation! It holds life-saving equipment
-      and has a slot for a defibrillator and a gas tank!
-    type: Add
-  id: 2029
-  time: '2026-01-07T04:01:46.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5140
-- author: MilonPL
-  changes:
-  - message: AAC tablet UI looks slightly better now.
-    type: Tweak
-  id: 2030
-  time: '2026-01-07T15:57:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5153
 - author: ShepardToTheStars
   changes:
   - message: The colossus should no longer get objectives to put the effigy on non-station
@@ -4316,4 +4185,156 @@
   id: 2515
   time: '2026-07-05T16:14:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6210
+- author: ShepardToTheStars
+  changes:
+  - message: If the crew defeats the major antag (Nukies, Cosmic Cult, Zombies), the
+      round will now automatically become survival after a bit of time until the crew
+      evacs.
+    type: Tweak
+  id: 2516
+  time: '2026-07-05T17:53:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6127
+- author: sowelipililimute
+  changes:
+  - message: Ghost players can now spawn as vent critters at will, instead of through
+      events adding ghostroles.
+    type: Add
+  id: 2517
+  time: '2026-07-05T18:29:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6187
+- author: sowelipililimute
+  changes:
+  - message: Mothroaches can vent crawl.
+    type: Tweak
+  id: 2518
+  time: '2026-07-05T19:25:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6222
+- author: zHonys, Princess-Cheeseballs
+  changes:
+  - message: Falling asleep while crit will no longer cause you to say whatever is
+      typed in your chatbox.
+    type: Fix
+  - message: You should no longer have your vision permanently darkened if you're
+      killed while sleeping.
+    type: Fix
+  id: 2519
+  time: '2026-07-05T19:34:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6110
+- author: kipdotnet, sha-seng, rebe83, Halo3rat
+  changes:
+  - message: Security now has sticky tickets for issuing fines. Find them in the SecVend
+      or lockers!
+    type: Add
+  id: 2520
+  time: '2026-07-05T20:35:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6089
+- author: ShepardToTheStars
+  changes:
+  - message: The doctor's rubber stamp and prescriptions can be found in medical personnel
+      lockers!
+    type: Add
+  - message: Spare doctor stamps, a chemist stamp, and a psychologist stamp have been
+      added to the CMO's locker, in case a station doesn't have enough.
+    type: Add
+  - message: Space Law and SoP have been updated to allow doctors, chemists, and pharmacists
+      to write perscriptions for less-dangerous controlled medications. Check out
+      the new section in the guidebook on Prescribing Medicine under Medical Regulations.
+    type: Tweak
+  id: 2521
+  time: '2026-07-05T21:35:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6189
+- author: keekee38
+  changes:
+  - message: AAC tablets got a small update
+    type: Tweak
+  id: 2522
+  time: '2026-07-06T01:35:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6193
+- author: Proxysseia
+  changes:
+  - message: Butchering pigs now reveals the riches hidden in their stomach.
+    type: Add
+  id: 2523
+  time: '2026-07-06T01:53:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6173
+- author: keekee38
+  changes:
+  - message: vulps can finally stop (or start) wagging their tails
+    type: Add
+  - message: vulps are messy drinkers
+    type: Tweak
+  id: 2524
+  time: '2026-07-06T01:55:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6177
+- author: ShepardToTheStars, Bonfire Lit
+  changes:
+  - message: The health analyzer window can now print out the details of a medical
+      scan!
+    type: Add
+  id: 2525
+  time: '2026-07-06T17:43:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6194
+- author: ShepardToTheStars, whatston3,  ScyronX, tonotom1
+  changes:
+  - message: You can now examine the condition of most structures, walls, machines,
+      etc., similar to how you can check the condition of windows.
+    type: Add
+  - message: Nanite applicators have been added! They allow you to repair the damage
+      to most structures, walls, machines, and more! It comes in normal, experimental,
+      and syndicate versions. For now, borgs, windows, and tesla coils will still
+      be repaired with welders.
+    type: Add
+  - message: Welding fuel and nanite jerry cans have been added!
+    type: Add
+  - message: Time to repair something now scales with how much damage it has taken.
+      It can take less time if there's not much damage or it can take up to 3 times
+      as long if its very severely damaged.
+    type: Tweak
+  - message: The experimental welder has had its capacity reduced to 200.
+    type: Tweak
+  id: 2526
+  time: '2026-07-06T20:08:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6132
+- author: sowelipililimute
+  changes:
+  - message: Cosmic Cultists can now draw glyphs wherever they damn please instead
+      of in front of the Monument
+    type: Tweak
+  id: 2527
+  time: '2026-07-06T20:13:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6197
+- author: sowelipililimute
+  changes:
+  - message: Events are now properly gated by the round time once again. No more colossus
+      spawns at 10 minutes.
+    type: Fix
+  - message: Removed abductors.
+    type: Remove
+  id: 2528
+  time: '2026-07-07T14:23:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6236
+- author: ShepardToTheStars
+  changes:
+  - message: Holosigns should now be the correct rotation.
+    type: Fix
+  id: 2529
+  time: '2026-07-07T14:24:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6232
+- author: EmberAstra
+  changes:
+  - message: Allulalos can no longer reach APCs without something to stand on.
+    type: Tweak
+  - message: Allulalos can now check station maps without needing something to stand
+      on.
+    type: Tweak
+  id: 2530
+  time: '2026-07-07T14:56:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6237
+- author: sowelipililimute
+  changes:
+  - message: The Monument's progress bar is now obscured.
+    type: Tweak
+  id: 2531
+  time: '2026-07-07T15:45:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6202
 Order: 1
