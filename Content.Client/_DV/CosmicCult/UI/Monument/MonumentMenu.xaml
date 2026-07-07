@@ -44,15 +44,6 @@
                         <Label HorizontalAlignment="Center" Name="CrewToConvertUntilNextStage" FontColorOverride="#4CA7AD" StyleClasses="LabelSmall" />
                     </BoxContainer>
                 </BoxContainer>
-                <!-- Second section (Glyphs) -->
-                <BoxContainer Name="GlyphArea" HorizontalExpand="True" MinHeight="75" Orientation="Vertical" Margin="0 20 0 0">
-                    <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-glyphs-title'}" />
-                    <PanelContainer StyleClasses="LowDivider" />
-                    <!-- Filled out programatically -->
-                    <GridContainer HorizontalAlignment="Center" Name="GlyphContainer" Columns="3" Margin="0 5" />
-                    <Button Name="SelectGlyphButton" Text="{Loc 'monument-interface-glyphs-button-scribe'}" SetHeight="50" Margin="0 10 0 0" StyleClasses="ButtonColorPurpleAndCool" />
-                    <Button Name="RemoveGlyphButton" Text="{Loc 'monument-interface-glyphs-button-unscribe'}" SetHeight="50" Margin="0 10 0 0" StyleClasses="ButtonColorPurpleAndCool" />
-                </BoxContainer>
             </BoxContainer>
             <!-- Right section -->
             <BoxContainer VerticalExpand="True" HorizontalExpand="True" Orientation="Vertical">

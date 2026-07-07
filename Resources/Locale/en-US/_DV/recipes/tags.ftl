@@ -50,3 +50,7 @@ construction-graph-tag-silversword = silver sword
 # Other
 construction-graph-tag-jug = jug
 construction-graph-tag-beaker = beaker
+construction-graph-tag-eletricguitar = Eletric Guitar
+construction-graph-tag-harmonica = Harmonica
+construction-graph-tag-daw = Digital Audio Workstation Machine board
+construction-graph-tag-Synthesizer = Synthesizer

@@ -13,3 +13,17 @@
   storage:
     back:
     - HitmanCase
+
+- type: startingGear
+  id: HitmanGhostGear
+  equipment:
+    jumpsuit: ClothingUniformHitmanSuit
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetGreyHitman
+    neck: ClothingNeckTieRed
+    gloves: ClothingHandsGlovesLatex
+    shoes: ClothingShoesBootsLaceup
+    id: HitmanPDA
+  storage:
+    back:
+    - HitmanCase

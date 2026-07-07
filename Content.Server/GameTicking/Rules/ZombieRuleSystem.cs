@@ -3,7 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Server.RoundEnd;
+using Content.Server.RoundEnd; // DeltaV
 using Content.Server.Station.Systems;
 using Content.Server.Zombies;
 using Content.Shared.GameTicking.Components;
@@ -114,17 +114,33 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     /// </summary>
     private void CheckRoundEnd(ZombieRuleComponent zombieRuleComponent)
     {
+        // BEGIN DeltaV - Change mode to survival if zombies die
+        // Zombies have failed to launch and the mode has been switched to survival
+        if (zombieRuleComponent.ZombieRoundEndBehavior == RoundEndBehavior.Nothing)
+            return;
+        // END DeltaV
+
         var healthy = GetHealthyHumans();
         if (healthy.Count == 1) // Only one human left. spooky
             _popup.PopupEntity(Loc.GetString("zombie-alone"), healthy[0], healthy[0]);
 
-        if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
+
+        // BEGIN DeltaV - Change mode to survival if zombies die
+        var infectedPercent = GetInfectedFraction(false);
+        if (Math.Round(infectedPercent, 0) == 0)  // All zombies defeated
+        {
+            _roundEnd.DoRoundEndBehavior(zombieRuleComponent.ZombieRoundEndBehavior, zombieRuleComponent.ZombieShuttleDelay);
+            zombieRuleComponent.ZombieRoundEndBehavior = RoundEndBehavior.Nothing; // stop this check in the future
+        }
+        // END DeltaV
+
+        if (infectedPercent > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested()) // DeltaV - Move GetInfectedFraction to var
         {
             foreach (var station in _station.GetStations())
             {
                 _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);
             }
-            _roundEnd.RequestRoundEnd(null, false);
+            _roundEnd.RequestRoundEnd(checkCooldown: false);
         }
 
         // we include dead for this count because we don't want to end the round
@@ -166,7 +182,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     {
         var players = GetHealthyHumans(includeOffStation);
         var zombieCount = 0;
-        var query = EntityQueryEnumerator<HumanoidAppearanceComponent, ZombieComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<HumanoidProfileComponent, ZombieComponent, MobStateComponent>();
         while (query.MoveNext(out _, out _, out _, out var mob))
         {
             if (!includeDead && mob.CurrentState == MobState.Dead)
@@ -196,7 +212,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             }
         }
 
-        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+        var players = AllEntityQuery<HumanoidProfileComponent, ActorComponent, MobStateComponent, TransformComponent>();
         var zombers = GetEntityQuery<ZombieComponent>();
         while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
         {

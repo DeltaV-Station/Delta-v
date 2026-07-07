@@ -6,6 +6,7 @@
     - id: SynthesisSpecialist
     - id: SyndicateArmsdealer
     - id: AsakimShuttle
+    - id: HitmanShuttle
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -107,6 +108,7 @@
     duration: null
   - type: PrecognitionResult
     message: psionic-power-precognition-syndicate-armsdealer-result-message
+  - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/strongbox.yml
   - type: AntagSpawner
@@ -138,3 +140,49 @@
         - Syndicate
       mindRoles:
       - MindRoleArmsdealer
+
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: HitmanShuttle
+  components:
+  - type: StationEvent
+    weight: 2
+    minimumPlayers: 25
+    maxOccurrences: 1
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-hitman-spawn-result-message
+  - type: LoadMapRule
+    gridPath: /Maps/_DV/Shuttles/Event/Professional.yml
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - HitmanSurviveObjective
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
+  - type: AntagSelection
+    agentName: hitman-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostHitman
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: HitmanGhostGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      mindRoles:
+      - MindRoleHitman

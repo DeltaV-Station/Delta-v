@@ -7,6 +7,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
+using Content.Shared.Radio.Components; // DeltaV - Client-side Radio Colors
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -157,6 +158,15 @@ namespace Content.Client.Examine
             // opening at the old tooltip rather than the cursor/another entity,
             // since there's probably one open already if it's coming in from the server.
             var entity = GetEntity(ev.EntityUid);
+
+
+            // BEGIN DeltaV - Client-Side Radio Colors
+            // This *seems* a bit hacky, but we basically don't want to overwrite what's been pushed on the client-side,
+            // because the server will send us the server-side colors (default). I've yet to find a scenario where the
+            // server and client don't match, so until then, this is probably fine, if a little hacky.
+            if (HasComp<EncryptionKeyHolderComponent>(entity) || HasComp<EncryptionKeyComponent>(entity))
+                return;
+            // END DeltaV
 
             OpenTooltip(player.Value, entity, ev.CenterAtCursor, ev.OpenAtOldTooltip, ev.KnowTarget);
             UpdateTooltipInfo(player.Value, entity, ev.Message, ev.Verbs, getVerbs: false);

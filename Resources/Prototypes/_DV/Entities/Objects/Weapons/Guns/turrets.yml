@@ -15,3 +15,23 @@
         - SmallMobMask # same as mouse, lets it go under doors but not phase through walls
         layer:
         - SmallMobLayer
+
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretCentralCommand
+  suffix: CentComm
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: StationAiTurret
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand
+    - ERT
+  - type: Machine
+    board: WeaponEnergyTurretCentralCommandTurretboard
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControl
+    transmitFrequencyId: Turret
+  - type: StationAiVision
+    range: 0
