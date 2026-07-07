@@ -944,6 +944,9 @@
   - type: GuideHelp
     guides:
     - Cargo
+  - type: Tag # DeltaV - cargo shotgun
+    tags:
+    - CargoShotgunWhitelist
 
 # Request console variants.
 - type: entity
@@ -1151,6 +1154,9 @@
     guides:
     - CargoBounties
     - Cargo
+  - type: Tag # DeltaV - cargo shotgun
+    tags:
+    - CargoShotgunWhitelist
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -1463,6 +1469,9 @@
   - type: GuideHelp
     guides:
     - Cargo
+  - type: Tag # DeltaV - cargo shotgun
+    tags:
+    - CargoShotgunWhitelist
 
 - type: entity
   parent: BaseComputerAiAccess

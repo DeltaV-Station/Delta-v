@@ -123,3 +123,21 @@
     slots:
     - Back
     - suitStorage
+
+- type: entity
+  parent: WeaponShotgunKammererNonLethal
+  id: WeaponShotgunKammererCargo
+  name: cargo shotgun
+  description: A beanbag shotgun passed down through generations of cargo workers to defend against tiders. Legend has it, it can only fire in proximity of cargo terminals...
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgunLight # you can also put tranqs in it, or god forbid, improvised shotgun shells (meme ammo)
+    capacity: 7
+    proto: ShellShotgunBeanbag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: GunLockByProximity
+    targetTags:
+    - CargoShotgunWhitelist
