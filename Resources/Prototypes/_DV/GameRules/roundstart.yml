@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseGameRule
+  id: UprisingRule
+  components:
+  - type: GameRule
+    minPlayers: 10
+  - type: UprisingRule
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ HeadLoyalist ]
+      max: 2
+      playerRatio: 30
+      mindRoles:
+      - MindRoleHeadLoyalist
+      briefing:
+        text: antag-HeadLoyalist.greeting
+        color: CornflowerBlue
+    - prefRoles: [ HeadInsurgent ]
+      max: 2
+      playerRatio: 30
+      mindRoles:
+      - MindRoleHeadInsurgent
+      briefing:
+        text: antag-HeadInsurgent.greeting
+        color: DarkSalmon
