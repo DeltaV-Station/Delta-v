@@ -6,6 +6,13 @@
     species:
     - Feroxi
 
+- type: loadoutEffectGroup
+  id: TooShortForUISpecies
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Allulalo
+
 # Basic
 - type: loadout
   id: EmergencyWaterVapor
@@ -154,3 +161,15 @@
     proto: WaterBreather
   equipment:
     suitstorage: WaterVaporTankERTFilled
+
+
+# Allulalo
+
+- type: loadout
+  id: LoadoutSpeciesTooShortChair
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TooShortForUISpecies
+  storage:
+    back:
+    - ChairFoldingSpawnFolded
