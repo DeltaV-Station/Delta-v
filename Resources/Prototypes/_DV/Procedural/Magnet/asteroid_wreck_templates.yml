@@ -1,0 +1,337 @@
+- type: entity
+  id: AsteroidWreckSmallMarker
+  parent: BaseRoomMarker
+  name: Asteroid Wreck Marker (small)
+  components:
+  - type: RoomFill
+    minSize: 4,4
+    maxSize: 18,18
+    roomWhitelist:
+      tags:
+      - AsteroidWreck
+
+
+#List of MAPS that can be added to magnet wreck pulls.
+
+#It is IMPORTANT that we use a mask tile to denote areas of space/incorporation into surrounding Debris.
+#This is because areas of space cause DunGen to produce exciting and often regrettable outcomes.
+
+- type: dungeonRoom
+  id: AsteroidSyndiHideout_AsteroidWreck
+  size: 24,28
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-syndi-hideout-asteroidwreck.yml
+  offset: -12,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AsteroidChemlab_AsteroidWreck
+  size: 24,28
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-asteroid-mining-chemlab-asteroidwreck.yml
+  offset: -9,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AsteroidTickNest_AsteroidWreck
+  size: 12,12
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-tick-nest-asteroidwreck.yml
+  offset: -8,-7
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AsteroidMiningLarge1_AsteroidWreck
+  size: 27,24
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-large-asteroid-mining-01-asteroidwreck.yml
+  offset: -12,-20
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AsteroidMiningMed1_AsteroidWreck
+  size: 19,18
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-asteroid-mining-01-asteroidwreck.yml
+  offset: -9,-2
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AsteroidCrystalCave_AsteroidWreck
+  size: 13,14
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-crystal-cave-asteroidwreck.yml
+  offset: -8,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AsteroidBoneCave_AsteroidWreck
+  size: 12,12
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-bone-cave-asteroidwreck.yml
+  offset: -8,-7
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: LargeAsteroid_1_AsteroidWreck
+  size: 23,23
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-asteroid-large-01-asteroidwreck.yml
+  offset: -12,-13
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: LargeAsteroid_2_AsteroidWreck
+  size: 23,23
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-asteroid-large-02-asteroidwreck.yml
+  offset: -12,-13
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: LargeAsteroid_3_AsteroidWreck
+  size: 29,27
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-asteroid-large-03-asteroidwreck.yml
+  offset: -15,-15
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVMediumLibraryWreck_AsteroidWreck
+  size: 15,18
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-library-asteroidwreck.yml
+  offset: -9,-10
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+
+- type: dungeonRoom
+  id: DVTickColony_AsteroidWreck
+  size: 14,15
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-tick-colony-asteroidwreck.yml
+  offset: -7,-7
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVCargoDock_AsteroidWreck
+  size: 13,15
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-dock-asteroidwreck.yml
+  offset: -7,-6
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVSpaceWaffleHome_AsteroidWreck
+  size: 31,24
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-wh-salvage-asteroidwreck.yml
+  offset: -16,-11
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVMediumPetHospital_AsteroidWreck
+  size: 20,20
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-pet-hospital-asteroidwreck.yml
+  offset: -2,16
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVMediumCrashedShuttle_AsteroidWreck
+  size: 14,22
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-crashed-shuttle-asteroidwreck.yml
+  offset: -8,-13
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVMeatball_AsteroidWreck
+  size: 15,18
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-meatball-asteroidwreck.yml
+  offset: -7,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVVeganMeatball_AsteroidWreck
+  size: 17,17
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-vegan-meatball-asteroidwreck.yml
+  offset: -8,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVEngineeringChunk_AsteroidWreck
+  size: 38,44
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-engineering-chunk-asteroidwreck.yml
+  offset: -18,-25
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+#Debris Shared
+
+- type: dungeonRoom
+  id: MediumChunk01_AsteroidWreck
+  size: 18,19
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-chunk-01-asteroidwreck.yml
+  offset: -10,-10
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: MediumMiningOutpost01_AsteroidWreck
+  size: 17,17
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-mining-outpost-01-asteroidwreck.yml
+  offset: -9,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+
+- type: dungeonRoom
+  id: AtlasPerma_AsteroidWreck
+  size: 19,16
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-atlas-perma-asteroidwreck.yml
+  offset: -7,-7
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+
+- type: dungeonRoom
+  id: AtlasCells_AsteroidWreck
+  size: 24,20
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-atlas-jailcells-asteroidwreck.yml
+  offset: -13,-10
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AtlasSalvage_AsteroidWreck
+  size: 17,16
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-atlas-salvage-asteroidwreck.yml
+  offset: -10,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AtlasAtmos_AsteroidWreck
+  size: 25,21
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-atlas-atmos-asteroidwreck.yml
+  offset: -15,-13
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: AtlasConferenceRoom_AsteroidWreck
+  size: 20,30
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-atlas-conference-room-asteroidwreck.yml
+  offset: -10,-17
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+
+- type: dungeonRoom
+  id: DVMedium1_AsteroidWreck
+  size: 18,17
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-medium-01-asteroidwreck.yml
+  offset: -9,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVMediumVault1_AsteroidWreck
+  size: 18,18
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-vault-01-asteroidwreck.yml
+  offset: -9,-10
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: dungeonRoom
+  id: DVMediumHaulingShuttle_AsteroidWreck
+  size: 19,19
+  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-hauling-shuttle-asteroidwreck.yml
+  offset: -7,-12
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - AsteroidWreck
+
+- type: entity
+  id: AsteroidWreckLargeMarker
+  parent: BaseRoomMarker
+  name: Asteroid Wreck Marker (large)
+  components:
+  - type: RoomFill
+    minSize: 20,20
+    maxSize: 50,50
+    roomWhitelist:
+      tags:
+      - AsteroidWreck
+
+- type: entity
+  id: AsteroidWreckMediumMarker
+  parent: BaseRoomMarker
+  name: Asteroid Wreck Marker (medium)
+  components:
+  - type: RoomFill
+    minSize: 14,14
+    maxSize: 25,25
+    roomWhitelist:
+      tags:
+      - AsteroidWreck

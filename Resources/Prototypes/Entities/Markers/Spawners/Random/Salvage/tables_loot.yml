@@ -96,7 +96,6 @@
     - id: SheetPlasma1
       amount: !type:RangeNumberSelector
         range: 3, 5
-    - id: ResearchDisk
     - id: DrinkGoldenCup
     - id: TreasureSampleTube
     - !type:NestedSelector
@@ -105,7 +104,6 @@
         range: 1, 2
     - !type:NestedSelector
       tableId: SalvageInstrumentTable
-    - id: AncientBookDamagedCommon # DeltaV
 
 - type: entityTable
   id: SalvageTreasureUncommon
@@ -131,7 +129,6 @@
     - id: WristwatchGold
     - !type:NestedSelector
       tableId: RingTableCommon
-    - id: AncientBookDamagedUncommon # DeltaV
 
 - type: entityTable
   id: SalvageTreasureRare
@@ -139,10 +136,10 @@
     children:
     - id: MaterialDiamond1
     - id: TreasureCPUSupercharged
-    - id: TechnologyDiskRare
-      weight: 0.5
-    - id: ResearchDisk10000
-      weight: 0.5
+    # - id: TechnologyDiskRare  DeltaV - research moved to seperate spawner
+    #   weight: 0.5
+    # - id: ResearchDisk10000 DeltaV - research moved to seperate spawner
+    #   weight: 0.5
     - id: ArabianLamp
     - !type:NestedSelector
       tableId: TreasureCoinPileRare
@@ -165,7 +162,6 @@
           weight: 1
     - !type:NestedSelector
       tableId: RingTableRare
-    - id: AncientBookDamagedRare # DeltaV
 
 - type: entityTable
   id: SalvageTreasureLegendary
@@ -183,6 +179,38 @@
       tableId: RingTableRare
       rolls: !type:RangeNumberSelector
         range: 2, 3
+
+#DeltaV - "Arcana", or research with a focus on ancient books. Start:
+
+- type: entityTable
+  id: SalvageArcanaCommon
+  table: !type:GroupSelector
+    children:
+    - id: AncientBookDamagedCommon
+    - id: ResearchDisk
+      weight: 0.3
+
+- type: entityTable
+  id: SalvageArcanaUncommon
+  table: !type:GroupSelector
+    children:
+    - id: AncientBookDamagedUncommon
+    - id: ResearchDisk5000
+      weight: 0.15
+    - id: TechnologyDisk
+      weight: 0.15
+
+- type: entityTable
+  id: SalvageArcanaRare
+  table: !type:GroupSelector
+    children:
+    - id: AncientBookDamagedRare
+    - id: ResearchDisk10000
+      weight: 0.15
+    - id: TechnologyDiskRare
+      weight: 0.15
+
+#DeltaV - "Arcana", or research with a focus on ancient books. End
 
 # Equipment: Tools and things used by salvagers. Quote unquote "Gamer Loot"
 

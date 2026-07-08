@@ -108,7 +108,8 @@ public sealed partial class SalvageSystem
                 {
                     EndMagnet((uid, magnetData));
                 }
-                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 59) //DeltaV: was 31 seconds. Increased to give time to actually fulton a crate out.
+                // else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 31) DeltaV - we instead store this threshold in SalvageMagnetData so that it can be shared to UI for manual release.
+                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < magnetData.ReleaseTime) //DeltaV - Magnet release code alternative to above
                 {
                     var magnet = GetMagnet((uid, magnetData));
 
@@ -254,6 +255,8 @@ public sealed partial class SalvageSystem
                 EndTime = dataComp.EndTime,
                 NextOffer = dataComp.NextOffer,
                 ActiveSeed = dataComp.ActiveSeed,
+                ReleaseTime = dataComp.ReleaseTime //DeltaV - Magnet release code addition
+
             });
     }
 
@@ -276,6 +279,7 @@ public sealed partial class SalvageSystem
                     EndTime = data.Comp.EndTime,
                     NextOffer = data.Comp.NextOffer,
                     ActiveSeed = data.Comp.ActiveSeed,
+                    ReleaseTime = data.Comp.ReleaseTime  //DeltaV - Magnet release code addition
                 });
         }
     }
@@ -285,10 +289,6 @@ public sealed partial class SalvageSystem
         var seed = data.Comp.Offered[index];
 
         var offering = GetSalvageOffering(seed);
-        // Begin DeltaV Addition: make wrecks cost mining points to pull
-        if (offering.Cost > 0 && !(_points.TryFindIdCard(user) is {} idCard && _points.RemovePoints(idCard, offering.Cost)))
-            return;
-        // End DeltaV Addition
         var salvMap = _mapSystem.CreateMap();
         var salvMapXform = Transform(salvMap);
 
@@ -302,14 +302,34 @@ public sealed partial class SalvageSystem
         {
             case AsteroidOffering asteroid:
                 var grid = _mapManager.CreateGridEntity(salvMap);
-                await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid.Comp, Vector2i.Zero, seed);
+                //BEGIN DeltaV - Error catching on asteroid generation, because dunGen is not robust.
+                try
+                {
+                    await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid.Comp, Vector2i.Zero, seed);
+                }
+                catch (Exception e)
+                {
+                    Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
+                    QueueDel(grid);
+                }
+                //END DeltaV
                 break;
             case DebrisOffering debris:
-                var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
+                // BEGIN DeltaV - Flexible debris generation, with error catching because DunGen is not robust
                 var debrisGrid = _mapManager.CreateGridEntity(salvMap);
-                await _dungeon.GenerateDungeonAsync(debrisProto, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
+
+                try
+                {
+                    await  _dungeon.GenerateDungeonAsync(debris.DungeonConfig, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
+                }
+                catch (Exception e)
+                {
+                    Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
+                    QueueDel(debrisGrid);
+                }
+                //END DeltaV
                 break;
-            case SalvageOffering wreck:
+            /*case SalvageOffering wreck: //BEGIN DeltaV  - we no longer use wrecks
                 var salvageProto = wreck.SalvageMap;
 
                 if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
@@ -319,7 +339,7 @@ public sealed partial class SalvageSystem
                     return;
                 }
 
-                break;
+                break;*/
             default:
                 throw new ArgumentOutOfRangeException();
         }
