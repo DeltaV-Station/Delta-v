@@ -10,20 +10,24 @@
       - MiningShuttle
   - type: WeatherScheduler # Regular ash storms
     stages:
-    - duration: # 5-10 minutes of calm
+    - weather: null
+      duration: # 5-10 minutes of calm
         min: 300
         max: 600
-    - weather: AshfallLight # ash starts to fall, 30 second warning
+    - weather: WeatherAshfallLight # ash starts to fall, 30 second warning
       message: ash-storm-telegraph
       duration:
         min: 30
         max: 30
-    - weather: Ashfall # 1-2 minutes of damaging storm
+    - weather: WeatherAshfall # 1-2 minutes of damaging storm
       message: ash-storm-alert
       duration:
         min: 60
         max: 120
-    - weather: AshfallLight # ash clears away for 30 seconds
+      damage:
+        types:
+          Heat: 5
+    - weather: WeatherAshfallLight # ash clears away for 30 seconds
       message: ash-storm-clearing
       duration:
         min: 30

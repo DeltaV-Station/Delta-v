@@ -56,3 +56,101 @@
   storage:
     back:
     - PlushieBee
+
+- type: loadout
+  id: LighterFlippo
+  storage:
+    back:
+    - FlippoLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: LighterDonkCo
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChef
+      time: 36000 # 10hr
+  storage:
+    back:
+    - DonkcoLighterNerfed
+  groupBy: "smokeables"
+
+- type: loadout
+  id: LighterHonkCo
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 36000 # 10hr
+  storage:
+    back:
+    - HonkCoFlippoNerfed
+  groupBy: "smokeables"
+
+- type: loadout
+  id: LighterWaffleCo
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Logistics
+      time: 36000 # 10hr
+  storage:
+    back:
+    - WaffleCoFlippoNerfed
+  groupBy: "smokeables"
+
+- type: loadout
+  id: LighterDiscountDan
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPassenger
+      time: 36000 # 10hr
+  storage:
+    back:
+    - DiscountDanLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: LighterInterdyne
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 36000 # 10hr
+  storage:
+    back:
+    - InterdyneFlippoNerfed
+  groupBy: "smokeables"
+
+- type: loadout
+  id: LighterNanotrasen
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 # 10hr
+  storage:
+    back:
+    - NanotrasenFlippo
+  groupBy: "smokeables"
+
+- type: loadout
+  id: MatchboxGorlex
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10hr
+  storage:
+    back:
+    - GorlexMatchboxNerfed
+  groupBy: "smokeables"

@@ -1,6 +1,4 @@
-using Content.Server.Research.TechnologyDisk.Components;
-using Content.Server.UserInterface;
-using Content.Server.Power.Components;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Research.Prototypes;
@@ -9,12 +7,13 @@ using Content.Shared.ReverseEngineering;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server.ReverseEngineering;
+namespace Content.Server.Nyanotrasen.ReverseEngineering;
 
 public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
 
     public override void Initialize()
     {
@@ -112,7 +111,8 @@ public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
             ReverseEngineeringTickResult.SuccessMinor => 10,
             ReverseEngineeringTickResult.SuccessAverage => 25,
             ReverseEngineeringTickResult.SuccessMajor => 40,
-            ReverseEngineeringTickResult.InstantSuccess => 100
+            ReverseEngineeringTickResult.InstantSuccess => 100,
+            _ => 0,
         };
 
         rev.Progress = Math.Clamp(rev.Progress + bonus, 0, 100);
@@ -148,5 +148,6 @@ public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
         disk.Recipes = new();
         foreach (var id in recipes)
             disk.Recipes.Add(id);
+        _nameModifier.RefreshNameModifiers(uid);
     }
 }

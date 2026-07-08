@@ -232,8 +232,12 @@
   description: The sound of it brings fear.
   components:
   - type: Sprite
+    sprite: _DV/Objects/Fun/whistles.rsi # DeltaV - Blue Security Resprite
     state: whistle # DeltaV - replace sec with whistle
+  - type: Item
+    sprite: _DV/Objects/Fun/whistles.rsi # DeltaV - Blue Security Resprite
   - type: Clothing
+    sprite: _DV/Objects/Fun/whistles.rsi # DeltaV - Blue Security Resprite
     equippedPrefix: whistle # DeltaV - replace sec with whistle
   - type: Whistle
     distance: 5

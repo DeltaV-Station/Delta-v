@@ -205,12 +205,12 @@
 
 - type: entity
   parent: BaseMagazinePistolSpecial
-  id: MagazinePistolSpecialMindbreaker
-  name: pistol magazine (.38 special mindbreaker)
-  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold psionic-removing mindbreaker ammunition.
+  id: MagazinePistolSpecialLernaea
+  name: pistol magazine (.38 special lernaea)
+  description: 5-round single-stack magazine for the psi-breaker pistol. Intended to hold psionic-disabling lernaea ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeSpecialMindbreaker
+    proto: CartridgeSpecialLernaea
   - type: Sprite
     layers:
     - state: mindbreaker

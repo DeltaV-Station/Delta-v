@@ -49,16 +49,17 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         _itemSlots.AddItemSlot(uid, ImplanterComponent.ImplanterSlotId, component.ImplanterSlot);
 
-        return; // DeltaV - don't use deimplant chosing
-        component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
-
-        Dirty(uid, component);
+        // DeltaV - don't use deimplant chosing
+        // component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
+        //
+        // Dirty(uid, component);
     }
 
     private void OnEntInserted(EntityUid uid, ImplanterComponent component, EntInsertedIntoContainerMessage args)
     {
         var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+        ImplantMode(uid, component); // DeltaV - Properly update implant mode
     }
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)

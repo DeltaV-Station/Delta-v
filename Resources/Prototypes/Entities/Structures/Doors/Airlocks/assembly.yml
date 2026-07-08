@@ -21,7 +21,7 @@
 - type: entity
   parent: AirlockAssembly
   id: AirlockAssemblyCargo
-  suffix: Cargo
+  suffix: Logistics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/cargo.rsi # DeltaV - Resprite Doors
@@ -30,7 +30,7 @@
 - type: entity
   parent: AirlockAssembly
   id: AirlockAssemblyCargoGlass
-  suffix: Cargo, Glass
+  suffix: Logistics, Glass # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Glass/cargo.rsi # DeltaV - Resprite Doors
@@ -218,7 +218,7 @@
 - type: entity
   parent: AirlockAssembly
   id: AirlockAssemblyScience
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/science.rsi # DeltaV - Resprite Doors
@@ -227,7 +227,7 @@
 - type: entity
   parent: AirlockAssembly
   id: AirlockAssemblyScienceGlass
-  suffix: Science, Glass
+  suffix: Epistemics, Glass # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Glass/science.rsi # DeltaV - Resprite Doors

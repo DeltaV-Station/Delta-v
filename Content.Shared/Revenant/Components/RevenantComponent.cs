@@ -57,7 +57,7 @@ public sealed partial class RevenantComponent : Component
     /// through harvesting player souls.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("maxEssence")]
-    public FixedPoint2 EssenceRegenCap = 75;
+    public FixedPoint2 EssenceRegenCap = 100; // DeltaV changed from 75 to 100
 
     /// <summary>
     /// The coefficient of damage taken to actual health lost.
@@ -69,7 +69,7 @@ public sealed partial class RevenantComponent : Component
     /// The amount of essence passively generated per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("essencePerSecond")]
-    public FixedPoint2 EssencePerSecond = 0.5f;
+    public FixedPoint2 EssencePerSecond = 1.0f; // DeltaV increased from 0.5 to 1
 
     [ViewVariables]
     public float Accumulator = 0;
@@ -110,7 +110,7 @@ public sealed partial class RevenantComponent : Component
     public Vector2 HauntDebuffs = new(3, 8);
 
     [DataField("hauntStolenEssencePerWitness"), ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 HauntStolenEssencePerWitness = 2.5;
+    public FixedPoint2 HauntStolenEssencePerWitness = 5; // DeltaV changed from 2.5 to 5
 
     [DataField("hauntEssenceRegenPerWitness"), ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 HauntEssenceRegenPerWitness = 0.5;
@@ -134,7 +134,7 @@ public sealed partial class RevenantComponent : Component
     /// The amount of essence that is needed to use the ability.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileCost")]
-    public FixedPoint2 DefileCost = 30;
+    public FixedPoint2 DefileCost = 20; // DeltaV - reduced cost from 30 to 20
 
     /// <summary>
     /// The status effects applied after the ability
@@ -148,7 +148,7 @@ public sealed partial class RevenantComponent : Component
     /// The radius around the user that this ability affects
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileRadius")]
-    public float DefileRadius = 3.5f;
+    public float DefileRadius = 4f; //DeltaV - increased from 3.5 to 4
 
     /// <summary>
     /// The amount of tiles that are uprooted by the ability
@@ -161,7 +161,7 @@ public sealed partial class RevenantComponent : Component
     /// happen to it.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("defileEffectChance")]
-    public float DefileEffectChance = 0.5f;
+    public float DefileEffectChance = 0.6f; //DeltaV - increased from 0.5 to 0.6
     #endregion
 
     #region Overload Lights Ability
@@ -261,13 +261,13 @@ public sealed partial class RevenantComponent : Component
 
     #region Animate
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public FixedPoint2 AnimateCost = 50;
+    public FixedPoint2 AnimateCost = 40; //DeltaV - reduced from 50 to 40
 
     /// <summary>
     /// How long an item should be animated for
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public TimeSpan AnimateTime = TimeSpan.FromSeconds(15);
+    public TimeSpan AnimateTime = TimeSpan.FromSeconds(10); // DeltaV - reduced from 15 to 10
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public Vector2 AnimateDebuffs = new(3, 8);
@@ -282,7 +282,7 @@ public sealed partial class RevenantComponent : Component
     public float AnimateSprintSpeed = DefaultAnimateSprintSpeed;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool AnimateCanBoltGuns = false;
+    public bool AnimateCanBoltGuns = true; // DeltavV - made true
     #endregion
     // End Imp Changes
 

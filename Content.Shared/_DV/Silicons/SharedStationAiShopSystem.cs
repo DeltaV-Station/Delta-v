@@ -64,7 +64,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        Spawn(args.Entity, args.Target);
+        Spawn(args.EntityAction, args.Target);
         args.Handled = true;
     }
 }

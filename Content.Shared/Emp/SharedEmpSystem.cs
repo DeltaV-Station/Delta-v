@@ -93,7 +93,8 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>'
     /// <param name="damage">DeltaV - The damage that that EMP will do. If not specified or null, will do 130 Ion damage. To do no damage, pass in a DamageSpecifier with no damage types.</param>
-    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
+    /// <param name="predicted">Whether this pulse is being replicated on the client.</param>
+    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null, bool predicted = true) // Delta V - Add ion damage
     {
         _entSet.Clear();
         _lookup.GetEntitiesInRange(coordinates, range, _entSet);
@@ -114,7 +115,10 @@ public abstract class SharedEmpSystem : EntitySystem
             Dirty(emp, empBlast); // Frontier
         }
 
-        _audio.PlayPredicted(EmpSound, coordinates, user);
+        if (predicted)
+            _audio.PlayPredicted(EmpSound, coordinates, user);
+        else
+            _audio.PlayPvs(EmpSound, coordinates);
     }
 
     /// <summary>

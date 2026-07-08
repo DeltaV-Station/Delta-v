@@ -439,6 +439,8 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: CrawlableNode # DeltaV
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: GasVentPump
@@ -505,6 +507,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
@@ -584,6 +587,8 @@
     guides:
     - GasRecycling
   - type: TegCirculator
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: GasBinaryBase

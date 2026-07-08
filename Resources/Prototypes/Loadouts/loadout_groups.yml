@@ -43,6 +43,7 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - ClothingNeckLanyard
   - OffsetCane
   - OffsetCaneWood
   - OffsetCaneClown
@@ -64,8 +65,8 @@
   - TowelColorMaroon
   - TowelColorMime
   - TowelColorSilver
-  - TowelColorWhite
-  - TowelColorYellow
+  #- TowelColorWhite # DeltaV - Removed due because of being a duplicate
+  #- TowelColorYellow # DeltaV - Removed due because of being a duplicate
   - TowelColorGold
   # Begin DeltaV Additions
   - AACTablet
@@ -76,7 +77,14 @@
   - TapeRecorder
   - ClothingHeadHatUshanka
   - Eyepatch
-  - SuperSynthesizerInstrument #Delta-V - Ports Super Synth Trinket from Starlight
+  - LighterFlippo
+  - LighterDonkCo
+  - LighterHonkCo
+  - LighterWaffleCo
+  - LighterDiscountDan
+  - LighterInterdyne
+  - LighterNanotrasen
+  - MatchboxGorlex
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -190,6 +198,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieCaptain
+  - LighterCentComm # DeltaV
 
 - type: loadoutGroup
   id: HoPHead
@@ -438,6 +447,7 @@
   loadouts:
   - BartenderHead
   - BartenderBowler
+  - SodaJerkCap #DeltaV - Adding retro style outfit for ice cream connoisseurs
 
 - type: loadoutGroup
   id: BartenderJumpsuit
@@ -452,6 +462,7 @@
   - ClothingUniformSeniorBartender
   - ClothingUniformSeniorBartenderSkirt
   # End Imp additions
+  - SodaJerkUniform #DeltaV - Adding retro style outfit for ice cream connoisseurs
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -898,6 +909,7 @@
   - PanFlute
   - Ocarina
   - Bagpipe
+  - SuperSynthesizerInstrument # DeltaV - Make SuperSynths musician only
 
 - type: loadoutGroup
   id: MusicianJobTrinkets
@@ -965,6 +977,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  - CargoTechnicianBeret # DeltaV
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1410,13 +1423,13 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
-  - HeadofSecurityParadeSuit
-  - HeadofSecurityParadeSkirt
+  # - HeadofSecurityParadeSuit # DeltaV - disabled for bluesec
+  # - HeadofSecurityParadeSkirt # DeltaV - disabled for bluesec
   # Begin DeltaV changes
   - HeadofSecurityJumpsuitGrey
   - HeadofSecurityJumpskirtGrey
-  - HeadofSecurityJumpsuitBlue
-  - HeadofSecurityJumpskirtBlue
+  - HeadofSecurityJumpsuitWhite
+  - HeadofSecurityJumpskirtWhite
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1427,7 +1440,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   # Begin DeltaV changes
-  - ScarfRed
+  - ScarfBlue
   - ScarfBlack
   - SecurityPoncho
   - HeadOfSecurityRobe
@@ -1477,8 +1490,8 @@
   # Begin DeltaV additions
   - WardenJumpsuitGrey
   - WardenJumpskirtGrey
-  - WardenJumpsuitBlue
-  - WardenJumpskirtBlue
+  - WardenJumpsuitWhite
+  - WardenJumpskirtWhite
   - WardenTurtlesuit
   - WardenTurtleskirt
   # End DeltaV additions
@@ -1505,7 +1518,9 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
+  - SecurityCap # DeltaV
   - SecurityBeret
+  - SecurityBeretGrey #DeltaV
 #  - SecurityHat # DeltaV - removed for incongruence
 #  - MimeHead # DeltaV - Red Beret | removed for incongruence
 
@@ -1518,8 +1533,8 @@
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
   # Begin DeltaV changes
-  - SecurityJumpsuitBlue
-  - SecurityJumpskirtBlue
+  - SecurityJumpsuitWhite
+  - SecurityJumpskirtWhite
 #  - SeniorOfficerJumpsuit # Removed for incongruence
 #  - SeniorOfficerJumpskirt # Removed for incongruence
   - SeniorSecOfficerTurtlesuit
@@ -1591,7 +1606,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - ScarfRed # DeltaV
+  - ScarfBlue # DeltaV - Was ScarfRed
   - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
@@ -1622,8 +1637,8 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - SecurityCadetJumpsuit # DeltaV - was RedJumpsuit
+  - SecurityCadetJumpskirt # DeltaV - was RedJumpskirt
 
 - type: loadoutGroup
   id: SecurityCadetJobTrinkets
@@ -1846,6 +1861,9 @@
   # Begin of DeltaV Additions
   - ChemistFormalSuit
   - ChemistFormalSkirt # more jumpskirts
+  - PharmacistJumpsuit
+  - PharmacistJumpskirt
+  - PharmacistJumpsuitFormal
   - SeniorChemistJumpsuit # Medical Clothing Overhaul
   - SeniorChemistJumpskirt # Medical Clothing Overhaul
   - OrangeTurtleneckJumpsuit
@@ -1859,6 +1877,7 @@
   loadouts:
   - RegularLabCoat
   - ChemistLabCoat
+  - PharmacistLabCoat # DeltaV
   - SeniorChemistLabCoat # DeltaV - Medical Clothing Overhaul
   - LongLabCoat # DeltaV - Medical Clothing Overhaul
   - ChemistLongLabCoat # DeltaV - Medical Clothing Overhaul
@@ -1957,6 +1976,20 @@
   - JournalistJumpsuit
   - ClothingUniformBrosBlazer #imp
   - ClothingUniformBrosBlazerSkirt #imp
+
+- type: loadoutGroup
+  id: ReporterHead
+  name: loadout-group-reporter-head
+  minLimit: 0
+  loadouts:
+  - ReporterPressFedora
+
+- type: loadoutGroup
+  id: ReporterOuterClothing
+  name: loadout-group-reporter-outerclothing
+  minLimit: 0
+  loadouts:
+  - ReporterPressVest
 
 - type: loadoutGroup
   id: ReporterJobTrinkets

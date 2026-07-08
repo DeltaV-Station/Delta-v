@@ -266,9 +266,9 @@
   name: loadout-group-brig-medic-neck
   minLimit: 0
   loadouts:
-  - ScarfRed
   - ScarfBlack
   - ScarfBlue
+  - ScarfLightBlue
   - SecurityPoncho
 
 - type: loadoutGroup
@@ -338,7 +338,8 @@
   name: loadout-group-security-cadet-head
   minLimit: 0
   loadouts:
-  - MimeHead
+  - SecurityCadetBeret
+  - SecurityCadetCap
 
 ## Security Guns
 - type: loadoutGroup
@@ -464,7 +465,7 @@
   name: loadout-group-security-neck
   minLimit: 0
   loadouts:
-  - ScarfRed
+  - ScarfBlue
   - ScarfBlack
   - SecurityPoncho
 
@@ -489,7 +490,7 @@
   - WardenLongcoat
   - StasecWinterCoatWarden
   - ArmorVestSlim
-  - WardenArmoredWinterCoat
+  # - WardenArmoredWinterCoat #Disabled during bluesec testing
 
 ## Head of Security
 - type: loadoutGroup

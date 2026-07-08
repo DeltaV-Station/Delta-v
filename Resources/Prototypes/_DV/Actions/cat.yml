@@ -9,3 +9,15 @@
     icon: "Nyanotrasen/Icons/verbiconfangs.png"
   - type: InstantAction
     event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseToggleAction
+  id: ActionToggleRootableFelinid
+  name: Sink Claws
+  description: Begin or stop clawing the floor.
+  components:
+  - type: Action
+    icon: _DV/Actions/sinkclaws/claws-off.png
+    iconOn: _DV/Actions/sinkclaws/claws-on.png
+    itemIconStyle: NoItem
+    useDelay: 3
