@@ -28,7 +28,6 @@ trait-category-points = ({$selected} / {$max} pts)
 
 ## Sub-traits
 sub-traits-label = Trait Extras
-sub-traits-header = {$selected}/{$total} traits
 
 ## Condition tooltips
 trait-conditions-tooltip = [bold]Requirements:[/bold]

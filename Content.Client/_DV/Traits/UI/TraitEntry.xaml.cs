@@ -55,7 +55,12 @@ public sealed partial class TraitEntry : PanelContainer
         TraitCostLabel.ModulateSelfOverride = Color.FromHex(costColor);
 
         TraitCheckbox.OnToggled += OnCheckboxToggled;
-        SubTraitsHeaderButton.OnPressed += _ => ToggleSubTraitsExpanded();
+        SubTraitsHeaderButton.OnPressed += _ =>
+        {
+            _subTraitsExpanded = !_subTraitsExpanded;
+            SubTraitsSection.Visible = _subTraitsExpanded;
+            SubTraitsExpandIcon.Text = _subTraitsExpanded ? "▼" : "▶";
+        };
 
         // Build condition tooltips
         UpdateConditionTooltips();
@@ -70,30 +75,12 @@ public sealed partial class TraitEntry : PanelContainer
         }
 
         var subEntry = new TraitEntry(subTrait);
-        subEntry.OnToggled += _ => UpdateSubTraitsHeader();
 
         _subTraitEntries[subTrait.ID] = subEntry;
         SubTraitsContainer.AddChild(subEntry);
 
-        UpdateSubTraitsHeader();
         UpdateSubSectionState();
         return subEntry;
-    }
-
-    private void ToggleSubTraitsExpanded()
-    {
-        _subTraitsExpanded = !_subTraitsExpanded;
-        SubTraitsSection.Visible = _subTraitsExpanded;
-        SubTraitsExpandIcon.Text = _subTraitsExpanded ? "▼" : "▶";
-    }
-
-    private void UpdateSubTraitsHeader()
-    {
-        var selected = _subTraitEntries.Values.Count(e => e.IsSelected);
-        var total = _subTraitEntries.Count;
-        SubTraitsCountLabel.Text = Loc.GetString("sub-traits-header",
-            ("selected", selected),
-            ("total", total));
     }
 
     private void UpdateSubSectionState()

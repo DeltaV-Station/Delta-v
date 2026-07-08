@@ -73,7 +73,6 @@
                     StyleClasses="TraitsSubCategoryHeaderButton"
                     HorizontalExpand="True">
                 <BoxContainer Orientation="Horizontal" Margin="8 6">
-
                     <Label Name="SubTraitsExpandIcon"
                            Text="▼"
                            StyleClasses="TraitsCategoryExpandIcon"
@@ -81,11 +80,6 @@
 
                     <Label Name="SubTraitsTitleLabel"
                            StyleClasses="TraitsCategoryNameLabel"/>
-                    <Control HorizontalExpand="True"/>
-
-                    <Label Name="SubTraitsCountLabel"
-                           StyleClasses="TraitsCategoryStatsLabel"
-                           Margin="0 0 4 0"/>
                 </BoxContainer>
             </Button>
         </PanelContainer>
