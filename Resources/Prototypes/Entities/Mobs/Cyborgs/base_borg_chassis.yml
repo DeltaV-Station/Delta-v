@@ -119,7 +119,7 @@
     doAfterDelay: 1
     fuelCost: 0.5
     qualityNeeded: Welding # DeltaV - for now
-    allowSelfRepair: true # DeltaV - was false
+    allowSelfRepair: false
   - type: BorgChassis
   - type: LockingWhitelist
     blacklist:
