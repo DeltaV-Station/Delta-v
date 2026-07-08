@@ -7,12 +7,6 @@ namespace Content.Server._DV.CartridgeLoader.Cartridges;
 public sealed partial class NanoChatCartridgeComponent : Component
 {
     /// <summary>
-    ///     Station entity to keep track of.
-    /// </summary>
-    [DataField]
-    public EntityUid? Station;
-
-    /// <summary>
     ///     The NanoChat card to keep track of.
     /// </summary>
     [DataField]

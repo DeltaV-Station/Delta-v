@@ -21,3 +21,6 @@ uplink-thermal-goggles-desc = High-tech goggles that allow you to see heat signa
 
 uplink-voice-mask-name = Voice Mask
 uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.
+
+uplink-chameleon-armor-name = Chameleon Armored Vest
+uplink-chameleon-armor-desc = A chameleon vest that offers moderate protection against most forms of security brutality. Be aware the protection is detectable by thorough examination.

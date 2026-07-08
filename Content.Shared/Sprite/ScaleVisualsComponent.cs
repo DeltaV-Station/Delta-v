@@ -24,4 +24,12 @@ public sealed partial class ScaleVisualsComponent : Component
     [DataField]
     [ViewVariables]
     public Vector2? OriginalScale;
+
+    // Delta V Addition
+    /// <summary>
+    /// Base Scale of the Species, which we use to set a new height relative to this.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    [ViewVariables]
+    public Vector2 SpeciesScale = Vector2.One;
 }

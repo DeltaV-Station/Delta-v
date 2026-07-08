@@ -25,10 +25,16 @@ reagent-desc-stabilizine = A potent chemical used to stabliize and regulate body
 
 reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam. A regenerative, miraculous chemical able to purge the body of most impurity. Overdose causes cancerous growth.
 
-reagent-name-salbutamol-saline = Salbutamol & Saline
+reagent-name-necrosol = necrosol
+reagent-desc-necrosol = A quite necrotic wonder medicine capable of healing in the cold
+
+reagent-name-salbutamol-saline = salbutamol & saline
 
 reagent-name-pure-oil = pure oil
 reagent-desc-pure-oil = A form of lotophagoi oil purified with claridisol. while even this form can grant someone powers, it can be refined further.
 
 reagent-name-claridisol =  claridisol
 reagent-desc-claridisol = A psionically charged chemical that is almost useless on its own, but can be used for purifying Lotophagoi Oil
+
+reagent-name-combat-nanites = combat nanites
+reagent-desc-combat-nanites = Highly advanced nanobots in a saline solution. Great at healing combat related trauma, but are known to cause irreversible damage if overused.

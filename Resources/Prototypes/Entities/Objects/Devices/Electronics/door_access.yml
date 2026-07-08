@@ -116,7 +116,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsQuartermaster
-  suffix: Quartermaster, Locked
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -132,7 +132,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsCargo
-  suffix: Cargo, Locked
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -174,7 +174,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsResearchDirector
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["ResearchDirector"]]
@@ -182,7 +182,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsMedicalResearch
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -190,7 +190,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsResearch
-  suffix: Research, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]

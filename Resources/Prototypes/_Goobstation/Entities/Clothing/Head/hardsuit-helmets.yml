@@ -22,6 +22,13 @@
         Piercing: 0.95
         Heat: 0.95
   # DeltaV start
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/Hardsuits/cybersunstealth.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
   # - type: ClothingGrantComponent
   #   component:
   #   - type: Stealth

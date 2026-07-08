@@ -528,3 +528,63 @@
   - type: Loadout
     prototypes: [ CentcomInternGear ]
     roleLoadout: [ RoleSurvivalStandard ]
+
+# SRT
+
+- type: entity
+  id: RandomHumanoidSpawnerSRTBlack
+  name: SRT agent
+  suffix: ERTRole, SRT, Black
+  components:
+    - type: Sprite
+      sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryLast
+      nameFormat: name-format-SRTagent
+    - type: RandomHumanoidSpawner
+      settings: SRTAgentBlack
+
+- type: entity
+  id: RandomHumanoidSpawnerSRTEpsilon
+  name: SRT agent
+  suffix: ERTRole, SRT, Epsilon
+  components:
+    - type: Sprite
+      sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryLast
+      nameFormat: name-format-SRTagent
+    - type: RandomHumanoidSpawner
+      settings: SRTAgentEpsilon
+
+- type: randomHumanoidSettings
+  id: SRTAgentBlack
+  parent: EventHumanoidCentcomm
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcom-srt-name
+    description: ghost-role-information-centcom-srt-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    job: SRTAgent
+  - type: Loadout
+    prototypes: [ SRTOfficerBlack ]
+
+- type: randomHumanoidSettings
+  id: SRTAgentEpsilon
+  parent: EventHumanoidCentcomm
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcom-srt-name
+    description: ghost-role-information-centcom-srt-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    job: SRTAgent
+  - type: Loadout
+    prototypes: [ SRTOfficerEpsilon ]
