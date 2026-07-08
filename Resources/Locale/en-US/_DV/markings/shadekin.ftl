@@ -106,6 +106,8 @@ marking-EarsShadekinAquaIncolor-aqua_default = Ears
 marking-EarsShadekinAquaIncolor-aqua_incolor = Inner ears
 
 # Tails
+marking-TailShadekin = Long Tail
+marking-TailShadekinBig = Big Tail
 marking-TailShadekinShorter = Short Tail
 marking-TailShadekinShorter-shadekin_shorter_over = Tail
 marking-TailShadekinShorterBrush = Short Tail, Furry
