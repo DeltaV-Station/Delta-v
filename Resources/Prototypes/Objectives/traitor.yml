@@ -69,9 +69,11 @@
   # Giving it a limit keeps the objective unique and interesting without being overdone.
   - type: ObjectiveLimit
     limit: 1
-  - type: StoreUnlocker 
+  - type: StoreUnlocker  # Allow DAGD to stay dead
     listings: 
-    - UplinkUnrevivableImplanter # Allow DAGD to stay dead
+    - UplinkUnrevivableImplanterDAGD
+    - UplinkAcidifierImplanterDAGD
+    - UpinkMicrobombImplanterDAGD
   # END DeltaV
 
 #- type: entity

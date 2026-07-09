@@ -168,3 +168,44 @@
       cloneable: false
       analyzable: false # We don't want to tip off that we're DAGD via health scans
       reasonMessage: defibrillator-unrevivable-syndicate-implant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MicroBombImplantSyndicateDAGD
+  name: micro-bomb implant
+  suffix: DAGD
+  description: This implant detonates the user after 3 seconds upon activation or death.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateMicroBomb
+  - type: TimerTrigger
+    delay: 5
+    beepSound:
+      path: /Audio/Machines/Nuke/general_beep.ogg
+      params:
+        volume: -2
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TriggerOnActivateImplant
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: GibOnTrigger
+    targetUser: true
+    keysIn:
+    - timer
+    deleteItems: true
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 120
+    intensitySlope: 3
+    maxIntensity: 30
+    canCreateVacuum: true
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+    - MicroBomb
