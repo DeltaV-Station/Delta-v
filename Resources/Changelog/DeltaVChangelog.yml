@@ -1,29 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: Flashlights will now always point towards your cursor in combat mode.
-    type: Add
-  id: 2034
-  time: '2026-01-08T17:11:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5163
-- author: ShepardToTheStars
-  changes:
-  - message: Redrock spawns a bit further out until we can figure out why its spawning
-      inside the station.
-    type: Tweak
-  id: 2035
-  time: '2026-01-08T20:53:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5166
-- author: PureBreadBagel
-  changes:
-  - message: You are now able to craft the makeshift and forged varient of the omnitool!
-    type: Fix
-  - message: The makeshift/forged varient of the omnitool should no longer display
-      "verb-categories-switch" in its right click menu.
-    type: Fix
-  id: 2036
-  time: '2026-01-09T16:34:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5165
 - author: MilonPL
   changes:
   - message: Picking senior PDAs in the loadout will now change your job name accordingly
@@ -4339,4 +4314,28 @@
   id: 2534
   time: '2026-07-07T18:40:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6055
+- author: jessiscah23
+  changes:
+  - message: Nanotrasen has fixed issues with salvage magnet calibration. Ore seams
+      can now be found on asteroid pulls!
+    type: Fix
+  id: 2535
+  time: '2026-07-09T01:24:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5973
+- author: rebe83
+  changes:
+  - message: The syndicate saboteur cyborg no longer comes with weapons or an advanced
+      tool module.  Cybersun stocks are down 13%.
+    type: Tweak
+  id: 2536
+  time: '2026-07-09T03:53:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6080
+- author: keekee38
+  changes:
+  - message: after years of testing, NT managed to make more bullets fit into the
+      magnum cartridge boxes
+    type: Tweak
+  id: 2537
+  time: '2026-07-09T04:42:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6226
 Order: 1
