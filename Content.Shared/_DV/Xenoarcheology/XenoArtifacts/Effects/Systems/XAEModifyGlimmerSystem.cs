@@ -18,7 +18,7 @@ public sealed class XAEModifyGlimmerSystem : EntitySystem
     private void OnActivated(Entity<XAEModifyGlimmerComponent> arti, ref XenoArtifactNodeActivatedEvent args)
     {
         var range = arti.Comp.Range;
-        var current = _glimmer.Glimmer;
+        var current = Math.Min(_glimmer.Glimmer, 1000); // Only scale up to 1000 glimmer
         if (range.Min > current || current > range.Max)
             return;
 
