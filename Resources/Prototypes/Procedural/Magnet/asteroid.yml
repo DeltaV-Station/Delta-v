@@ -22,7 +22,7 @@
     biomeTemplate: Asteroid
   #DeltaV - 33% chance of generating wreck
   - !type:EntityTableDunGen
-    minCount: -1
+    minCount: 0
     maxCount: 1
     table:
       id: AsteroidWreckLargeMarker
@@ -57,7 +57,7 @@
     biomeTemplate: Asteroid
   #DeltaV - 33% chance of generating wreck
   - !type:EntityTableDunGen
-    minCount: -1
+    minCount: 0
     maxCount: 1
     table:
       id: AsteroidWreckMediumMarker
@@ -92,7 +92,7 @@
     biomeTemplate: Asteroid
   #DeltaV - 33% chance of generating wreck
   - !type:EntityTableDunGen
-    minCount: -1
+    minCount: 0
     maxCount: 1
     table:
       id: AsteroidWreckMediumMarker
@@ -127,7 +127,7 @@
     biomeTemplate: Asteroid
   #DeltaV - 33% chance of generating wreck
   - !type:EntityTableDunGen
-    minCount: -1
+    minCount: 0
     maxCount: 1
     table:
       id: AsteroidWreckSmallMarker
@@ -161,7 +161,7 @@
     biomeTemplate: Asteroid
   #DeltaV - 33% chance of generating wreck
   - !type:EntityTableDunGen
-    minCount: -1
+    minCount: 0
     maxCount: 1
     table:
       id: AsteroidWreckSmallMarker

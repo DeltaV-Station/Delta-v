@@ -4,19 +4,19 @@
     OreIron: 1.0
     OreQuartz: 1.0
     OreCoal: 0.33
-    OreSalt: 0.25
+    OreSalt: 0.125  #DeltaV - was 0.25
     OreGold: 0.25
     OreSilver: 0.25
     OrePlasma: 0.20
     OreUranium: 0.20
-    OreArtifactFragment: 0.10
-    OreBananium: 0.10
+    OreArtifactFragment: 0.05 #DeltaV - was 0.10
+    OreBananium: 0.05 #DeltaV - was 0.10
 
 - type: oreDunGen
   id: OreIron
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockTin #DeltaV - was AsteroidRockTin
-  count: 7 #DeltaV - Was 5
+  count: 13 #DeltaV - Was 5
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -24,7 +24,7 @@
   id: OreQuartz
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockQuartz #DeltaV - was AsteroidRockQuartz
-  count: 7 #DeltaV - Was 5
+  count: 13 #DeltaV - Was 5
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -32,7 +32,7 @@
   id: OreCoal
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockCoal #DeltaV - was AsteroidRockCoal
-  count: 4 #DeltaV - Was 3
+  count: 9 #DeltaV - Was 3
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -48,7 +48,7 @@
   id: OreGold
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockGold #DeltaV - was AsteroidRockGold
-  count: 6 #DeltaV - Was 4
+  count: 10 #DeltaV - Was 4
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -56,7 +56,7 @@
   id: OreSilver
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockSilver #DeltaV - was AsteroidRockSilver
-  count: 6 #DeltaV - Was 4
+  count: 10 #DeltaV - Was 4
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -64,7 +64,7 @@
   id: OrePlasma
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockPlasma #DeltaV - was AsteroidRockPlasma
-  count: 6 #DeltaV - Was 4
+  count: 10 #DeltaV - Was 4
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -72,7 +72,7 @@
   id: OreUranium
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockUranium #DeltaV - was AsteroidRockUranium
-  count: 6 #DeltaV - Was 4
+  count: 10 #DeltaV - Was 4
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -80,7 +80,7 @@
   id: OreBananium
   replacement: AsteroidAltRock #DeltaV - Changed from AsteroidRock to AsteroidAltRock to work with our Mining Rock Spawner.
   entity: AsteroidAltRockBananium #DeltaV - was AsteroidRockBananium
-  count: 4 #DeltaV - Was 6
+  count: 7 #DeltaV - Was 6
   minGroupSize: 3
   maxGroupSize: 6
 
