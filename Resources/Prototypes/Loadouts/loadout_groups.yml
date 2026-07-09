@@ -808,11 +808,23 @@
   - MimeMaskBlushing # DeltaV
 
 - type: loadoutGroup
+  id: MimeNeck
+  name: loadout-group-mime-neck
+  loadouts:
+  - ScarfBlack
+  - ScarfZebra
+  - MimeMantle # DeltaV
+
+- type: loadoutGroup
   id: MimeJumpsuit
   name: loadout-group-mime-jumpsuit
   loadouts:
   - MimeJumpsuit
   - MimeJumpskirt
+  # Begin DeltaV Additions
+  - MimeTurtleneckPants 
+  - MimeTurtleneckSkirt
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: MimeBackpack
