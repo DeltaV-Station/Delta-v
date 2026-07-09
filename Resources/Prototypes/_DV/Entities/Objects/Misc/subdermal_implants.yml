@@ -173,8 +173,7 @@
   parent: BaseSubdermalImplant
   id: MicroBombImplantSyndicateDAGD
   name: micro-bomb implant
-  suffix: DAGD
-  description: This implant detonates the user after 3 seconds upon activation or death.
+  description: This implant detonates the user after a few seconds upon activation or death.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
