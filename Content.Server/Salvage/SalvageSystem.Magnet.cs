@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server.Salvage.Magnet;
+using Content.Shared.Mind.Components;   //DeltaV
 using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
@@ -148,18 +149,20 @@ public sealed partial class SalvageSystem
                 }
             }
 
-            // Uhh yeah don't delete mobs or whatever
-            var mobQuery = AllEntityQuery<MobStateComponent, TransformComponent>();
+            // Uhh yeah don't delete mobs or whatever //DeltaV - this is a really bad idea, and leads to an unacceptable amount of buggy clutter. We only keep mobs with a mind.
+            var mobQuery = AllEntityQuery<MindContainerComponent, TransformComponent>(); //DeltaV - was MobStateComponent instead of MindContainerComponent
             _detachEnts.Clear();
 
-            while (mobQuery.MoveNext(out var mobUid, out _, out var xform))
+            while (mobQuery.MoveNext(out var mobUid, out var mindContainer, out var xform)) //DeltaV - added the out var mindContainer
             {
                 if (xform.GridUid == null || !data.Comp.ActiveEntities.Contains(xform.GridUid.Value) || xform.MapUid == null)
                     continue;
 
-                if (_salvMobQuery.HasComp(mobUid))
+               // if (_salvMobQuery.HasComp(mobUid)) // DeltaV - we test against mind, instead of unreliable salvage mob solution.
+                if (!mindContainer.HasMind)
                     continue;
 
+                /* BEGIN DeltaV - we don't use this, we want to get rid of all the mobs
                 bool CheckParents(EntityUid uid)
                 {
                     do
@@ -173,6 +176,7 @@ public sealed partial class SalvageSystem
 
                 if (CheckParents(mobUid))
                     continue;
+                */ //END DeltaV
 
                 // Can't parent directly to map as it runs grid traversal.
                 _detachEnts.Add(((mobUid, xform), xform.MapUid.Value, _transform.GetWorldPosition(xform)));
@@ -302,8 +306,7 @@ public sealed partial class SalvageSystem
         {
             case AsteroidOffering asteroid:
                 var grid = _mapManager.CreateGridEntity(salvMap);
-                //BEGIN DeltaV - Error catching on asteroid generation, because dunGen is not robust.
-                try
+                try  //BEGIN DeltaV - Error catching on asteroid generation, because dunGen is not robust.
                 {
                     await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid.Comp, Vector2i.Zero, seed);
                 }
@@ -339,7 +342,7 @@ public sealed partial class SalvageSystem
                     return;
                 }
 
-                break;*/
+                break;*/ //END DeltaV
             default:
                 throw new ArgumentOutOfRangeException();
         }

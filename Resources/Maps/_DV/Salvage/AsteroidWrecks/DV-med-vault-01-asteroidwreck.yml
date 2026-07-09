@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 275.2.1
   forkId: ""
   forkVersion: ""
-  time: 07/05/2026 21:40:27
-  entityCount: 276
+  time: 07/09/2026 07:36:34
+  entityCount: 275
 maps:
 - 222
 grids:
@@ -287,7 +287,7 @@ entities:
       parent: 222
     - type: Fixtures
       fixtures: {}
-- proto: BaseAltRockSmoothed
+- proto: AsteroidAltRock
   entities:
   - uid: 204
     components:
@@ -1036,13 +1036,6 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 222
-- proto: JetpackBlackFilled
-  entities:
-  - uid: 164
-    components:
-    - type: Transform
-      pos: 0.5798898,-3.4711018
-      parent: 222
 - proto: LockerElectricalSuppliesFilled
   entities:
   - uid: 173
@@ -1111,6 +1104,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-5.5
+      parent: 222
+- proto: PlushieThrongler
+  entities:
+  - uid: 152
+    components:
+    - type: Transform
+      pos: -1.5777216,-4.4218225
       parent: 222
 - proto: PosterContrabandFreeSyndicateEncryptionKey
   entities:
@@ -1183,11 +1183,6 @@ entities:
     - type: Transform
       pos: 0.5,-2.5
       parent: 222
-  - uid: 152
-    components:
-    - type: Transform
-      pos: 0.5,-3.5
-      parent: 222
   - uid: 153
     components:
     - type: Transform
@@ -1243,11 +1238,6 @@ entities:
       parent: 222
 - proto: SalvageLootSpawner
   entities:
-  - uid: 58
-    components:
-    - type: Transform
-      pos: -1.5,-4.5
-      parent: 222
   - uid: 175
     components:
     - type: Transform
@@ -1370,6 +1360,13 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-0.5
+      parent: 222
+- proto: VendingMachineSyndieDrobe
+  entities:
+  - uid: 58
+    components:
+    - type: Transform
+      pos: 0.5,-3.5
       parent: 222
 - proto: WallPlastitanium
   entities:

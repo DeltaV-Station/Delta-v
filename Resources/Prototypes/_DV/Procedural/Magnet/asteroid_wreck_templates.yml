@@ -1,4 +1,28 @@
 - type: entity
+  id: AsteroidWreckLargeMarker
+  parent: BaseRoomMarker
+  name: Asteroid Wreck Marker (large)
+  components:
+  - type: RoomFill
+    minSize: 20,20
+    maxSize: 50,50
+    roomWhitelist:
+      tags:
+      - AsteroidWreck
+
+- type: entity
+  id: AsteroidWreckMediumMarker
+  parent: BaseRoomMarker
+  name: Asteroid Wreck Marker (medium)
+  components:
+  - type: RoomFill
+    minSize: 14,14
+    maxSize: 25,25
+    roomWhitelist:
+      tags:
+      - AsteroidWreck
+
+- type: entity
   id: AsteroidWreckSmallMarker
   parent: BaseRoomMarker
   name: Asteroid Wreck Marker (small)
@@ -13,7 +37,7 @@
 
 #List of MAPS that can be added to magnet wreck pulls.
 
-#It is IMPORTANT that we use a mask tile to denote areas of space/incorporation into surrounding Debris.
+#It is IMPORTANT that we use a mask tile (ignoreTile) to denote areas of space/incorporation into surrounding Debris.
 #This is because areas of space cause DunGen to produce exciting and often regrettable outcomes.
 
 - type: dungeonRoom
@@ -129,9 +153,9 @@
 
 - type: dungeonRoom
   id: DVTickColony_AsteroidWreck
-  size: 14,15
+  size: 11,14
   atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-tick-colony-asteroidwreck.yml
-  offset: -7,-7
+  offset: -6,-7
   ignoreTile: FloorShuttleOrange
   deleteAfterUse: true
   tags:
@@ -157,15 +181,6 @@
   tags:
   - AsteroidWreck
 
-- type: dungeonRoom
-  id: DVMediumPetHospital_AsteroidWreck
-  size: 20,20
-  atlas: /Maps/_DV/Salvage/AsteroidWrecks/DV-med-pet-hospital-asteroidwreck.yml
-  offset: -2,16
-  ignoreTile: FloorShuttleOrange
-  deleteAfterUse: true
-  tags:
-  - AsteroidWreck
 
 - type: dungeonRoom
   id: DVMediumCrashedShuttle_AsteroidWreck
@@ -207,7 +222,6 @@
   tags:
   - AsteroidWreck
 
-#Debris Shared
 
 - type: dungeonRoom
   id: MediumChunk01_AsteroidWreck
@@ -311,27 +325,3 @@
   deleteAfterUse: true
   tags:
   - AsteroidWreck
-
-- type: entity
-  id: AsteroidWreckLargeMarker
-  parent: BaseRoomMarker
-  name: Asteroid Wreck Marker (large)
-  components:
-  - type: RoomFill
-    minSize: 20,20
-    maxSize: 50,50
-    roomWhitelist:
-      tags:
-      - AsteroidWreck
-
-- type: entity
-  id: AsteroidWreckMediumMarker
-  parent: BaseRoomMarker
-  name: Asteroid Wreck Marker (medium)
-  components:
-  - type: RoomFill
-    minSize: 14,14
-    maxSize: 25,25
-    roomWhitelist:
-      tags:
-      - AsteroidWreck

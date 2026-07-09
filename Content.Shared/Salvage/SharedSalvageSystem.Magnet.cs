@@ -18,9 +18,9 @@ public abstract partial class SharedSalvageSystem
 
     private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
     {
-        { new AsteroidOffering(), 3f }, // DeltaV: was 4.5f
-        { new DebrisOffering(), 1.5f }, // DeltaV: was 3.5f
-        // { new SalvageOffering(), 1.5f } DeltaV: SalvageOffering is removed
+        { new AsteroidOffering(), 3.5f }, // DeltaV: was 4.5f
+        { new DebrisOffering(), 2f }, // DeltaV: was 3.5f
+        // { new SalvageOffering(), 1.5f } DeltaV: SalvageOffering (wrecks) is removed
     };
 
     //BEGIN DeltaV - weight asteroid generation (to balance the varying Wreck spawns they each support)
@@ -59,7 +59,6 @@ public abstract partial class SharedSalvageSystem
         switch (type)
         {
             case AsteroidOffering:
-                //var configId = _asteroidConfigs[rand.Next(_asteroidConfigs.Count)]; // DeltaV - we add weights to the asteroid types
                 var configId = SharedRandomExtensions.Pick(_asteroidConfigs, rand); //DeltaV - we add weights to the asteroid types
                 var configProto = _proto.Index(configId);
                 var layers = new Dictionary<string, int>();
