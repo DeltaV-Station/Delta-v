@@ -9,7 +9,7 @@ namespace Content.Server._DV.Store.Conditions;
 /// A condition where that blocks buying a listing if another listing
 /// specified is bought before it. Used to enforce that a traitor
 /// can only buy 1 of X options.
-/// 
+///
 /// Primarily used for choose-your-own-adventure DAGD Implants.
 /// </summary>
 public sealed partial class XORBuyCondition : ListingCondition
