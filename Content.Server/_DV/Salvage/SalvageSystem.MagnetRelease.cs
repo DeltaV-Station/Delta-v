@@ -1,4 +1,4 @@
-﻿using Content.Server.Salvage.Magnet;
+using Content.Server.Salvage.Magnet;
 using Content.Shared._DV.Salvage.Magnet; //DeltaV
 
 namespace Content.Server.Salvage;
