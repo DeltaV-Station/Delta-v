@@ -17,7 +17,7 @@ namespace Content.Shared.Psionics.Glimmer
             get { return _glimmer; }
             set
             {
-                var newGlimmer = _enabled ? Math.Clamp(value, 0, 1000) : 0;
+                var newGlimmer = _enabled ? Math.Clamp(value, 0, 2000) : 0;
                 if (_glimmer == newGlimmer)
                     return;
 
