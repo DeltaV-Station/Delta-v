@@ -1,0 +1,295 @@
+- type: constructionGraph
+  id: ChairBeachLounge
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: beige
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: black
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: blue
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: brown
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: gray
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: green
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: orange
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: pink
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: purple
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: red
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: teal
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: white
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: yellow
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+
+  - node: beige
+    entity: ChairBeachLoungeBeige
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: black
+    entity: ChairBeachLoungeBlack
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: blue
+    entity: ChairBeachLoungeBlue
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: brown
+    entity: ChairBeachLoungeBrown
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: gray
+    entity: ChairBeachLoungeGray
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: green
+    entity: ChairBeachLoungeGreen
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: orange
+    entity: ChairBeachLoungeOrange
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: pink
+    entity: ChairBeachLoungePink
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: purple
+    entity: ChairBeachLoungePurple
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: red
+    entity: ChairBeachLoungeRed
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: teal
+    entity: ChairBeachLoungeTeal
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: white
+    entity: ChairBeachLoungeWhite
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1
+  - node: yellow
+    entity: ChairBeachLoungeYellow
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 1

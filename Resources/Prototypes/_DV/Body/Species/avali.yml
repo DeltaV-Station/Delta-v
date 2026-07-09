@@ -1,0 +1,273 @@
+- type: markingsGroup
+  id: Avali
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AvaliTailBase ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: true
+      default: [ AvaliEarsBase ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2 # DeltaV
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom: # DeltaV - modified point name
+      limit: 1
+      required: false
+      onlyGroupWhitelisted: false
+    enum.HumanoidVisualLayers.UndergarmentTop: # DeltaV - modified point name
+      limit: 1
+      required: false
+      onlyGroupWhitelisted: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAvali
+  name: avali appearance
+  components:
+  - type: Inventory
+    speciesId: moth # DeltaV - same eyes
+    # Begin DeltaV additions - displacements from Harmony
+    displacements:
+      # head displacement doesn't play nice with sec combat hardsuit, ignoring those until fixed
+      #displacements:
+      #head:
+      #  sizeMaps:
+      #    32:
+      #      sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+      #      state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Avali/displacement.rsi
+            state: mask
+    # End DeltaV additions - displacements from Harmony
+  - type: InitialBody
+    organs:
+      Torso: OrganAvaliTorso
+      Head: OrganAvaliHead
+      ArmLeft: OrganAvaliArmLeft
+      ArmRight: OrganAvaliArmRight
+      HandRight: OrganAvaliHandRight
+      HandLeft: OrganAvaliHandLeft
+      LegLeft: OrganAvaliLegLeft
+      LegRight: OrganAvaliLegRight
+      FootLeft: OrganAvaliFootLeft
+      FootRight: OrganAvaliFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganAvaliEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganAvaliStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Avali
+
+- type: entity
+  parent:
+  - AppearanceAvali
+  - BaseSpeciesMobOrganic
+  id: MobAvali
+  name: Urist McRaptor
+  components:
+  - type: Vocal
+    sounds:
+      Male: RMCMaleAvali
+      Unsexed: RMCMaleAvali
+      Female: RMCFemaleAvali
+  - type: Speech
+    speechVerb: Parrot # Didn't come with one
+    speechSounds: MaleAvali
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#7a8bf2"
+      Burn: # DeltaV
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    damage: # DeltaV - evens out to about 5 after damage modifier
+      types:
+        Slash: 6
+    animation: WeaponArcClaw
+  - type: Icon
+    sprite: _Starlight/Mobs/Species/Avali/parts.rsi # DeltaV - Using Starlight Avali Sprites
+    state: full
+  - type: Fixtures # somewhat lower weight
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Bloodstream
+    bloodReferenceSolution: # DeltaV - Upstream changes for blood solution
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 300
+  - type: BonusStaminaDamage
+    multiplier: 0.85 # less melee stamina damage
+  - type: BonusMeleeDamage # significantly weaker with melee
+    damageModifierSet:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.85
+  - type: Damageable
+    damageModifierSet: Avali
+  - type: Temperature # thrives in the cold, similar to moths
+    currentTemperature: 296.15 # lower natural body temp
+    specificHeat: 25 # makes temp more lethal
+  - type: TemperatureDamage # DeltaV - Update for TemperatureDamage
+    heatDamageThreshold: 310
+    coldDamageThreshold: 223
+    coldDamage:
+      types:
+        Cold : 0.05
+    heatDamage:
+      types:
+        Heat : 5 # extremely high
+    damageCap: 20 # greatly increased temp damage cap
+  - type: ThermalRegulator # CD values
+    metabolismHeat: 400
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 296.15
+    thermalRegulationTemperatureThreshold: 10
+  - type: TemperatureSpeed # less punishing cold
+    thresholds:
+      279: 0.95
+      265: 0.9
+      240: 0.85
+  - type: CosmicMarkVisuals
+    subtleState: moth
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.5
+    enabled: false
+  - type: CursorOffsetAction
+  - type: Preenable
+    featherPrototype: AvaliFeather
+  # End DeltaV additions
+
+- type: entity
+  parent: OrganBase
+  id: OrganAvali
+  abstract: true
+  suffix: avali
+
+- type: entity
+  parent: OrganAvali
+  id: OrganAvaliInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: OrganAvali
+  id: OrganAvaliExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Starlight/Mobs/Species/Avali/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Starlight/Mobs/Species/Avali/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Avali
+
+- type: entity
+  id: OrganAvaliTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAvaliExternal]
+
+- type: entity
+  id: OrganAvaliHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliArmLeft
+  parent: [ OrganBaseArmLeft, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliArmRight
+  parent: [ OrganBaseArmRight, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliHandLeft
+  parent: [ OrganBaseHandLeft, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliHandRight
+  parent: [ OrganBaseHandRight, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliLegLeft
+  parent: [ OrganBaseLegLeft, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliLegRight
+  parent: [ OrganBaseLegRight, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliFootLeft
+  parent: [ OrganBaseFootLeft, OrganAvaliExternal ]
+
+- type: entity
+  id: OrganAvaliFootRight
+  parent: [ OrganBaseFootRight, OrganAvaliExternal ]
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganAvaliInternal, OrganAvaliExternal ]
+  id: OrganAvaliEyes
+  description: They seem as if they're looking at something far away...
+  components:
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _Starlight/Mobs/Species/Avali/parts.rsi
+      state: eyes
+
+- type: entity
+  parent: [ OrganReptilianStomach, OrganAvaliInternal ]
+  id: OrganAvaliStomach
+  categories: [ HideSpawnMenu ]

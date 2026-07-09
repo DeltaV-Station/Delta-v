@@ -1,0 +1,11 @@
+# medical
+- type: entity
+  parent: BorgMedicalSubtypeBase
+  id: MedicalQualifiedDoctorSubtype
+  name: qualified doctor
+  description: "A board-certified cyborg for all your medical needs."
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisQualifiedDoctor
+
+    spritePath: _CD/Mobs/Silicon/Borg/Medical/qualified_doctor.rsi

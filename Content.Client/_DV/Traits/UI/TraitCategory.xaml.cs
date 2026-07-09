@@ -108,6 +108,70 @@ public sealed partial class TraitCategory : BoxContainer
         {
             CategoryPointsLabel.Visible = false;
         }
+
+        // Lock unselected entries whenever the category cap is reached so the
+        // player gets a clear visual cue instead of silently failing to equip.
+        UpdateCategoryFullState();
+    }
+
+    /// <summary>
+    /// Propagates category-cap lock state to every entry.
+    /// <para>
+    /// Selected entries are never locked - they are the traits filling the cap
+    /// and must stay interactive so the player can deselect them.
+    /// </para>
+    /// <para>
+    /// Unselected entries are locked when:
+    /// <list type="bullet">
+    ///   <item><see cref="TraitCategoryPrototype.MaxTraits"/> is defined and already reached, OR</item>
+    ///   <item><see cref="TraitCategoryPrototype.MaxPoints"/> is defined and this specific
+    ///         trait's cost would push spending over the limit.</item>
+    /// </list>
+    /// </para>
+    /// </summary>
+    private void UpdateCategoryFullState()
+    {
+        var traitCapReached = _category.MaxTraits.HasValue && SelectedCount >= _category.MaxTraits.Value;
+
+        foreach (var (_, entry) in _traitEntries)
+        {
+            if (entry.IsSelected)
+            {
+                // Selected traits are never locked by category state.
+                entry.SetLockedByCategory(false);
+                continue;
+            }
+
+            var locked = traitCapReached;
+
+            // Even when the trait count cap hasn't been hit, lock this specific entry
+            // if adding its cost would exceed the category's point budget.
+            if (!locked && _category.MaxPoints.HasValue)
+                locked = PointsSpent + entry.TraitCost > _category.MaxPoints.Value;
+
+            entry.SetLockedByCategory(locked);
+        }
+    }
+
+    /// <summary>
+    /// Called by <see cref="TraitsTab"/> whenever the player's global point budget changes.
+    /// Locks any unselected entry whose cost the player can no longer afford.
+    /// <para>
+    /// Free (0-cost) and negative-cost traits are never locked - they cost nothing or
+    /// actually give points back.  Selected traits are also never locked here; they
+    /// were affordable when picked and must stay interactive to be deselected.
+    /// </para>
+    /// </summary>
+    public void UpdateGlobalPointsLock(int remainingPoints)
+    {
+        foreach (var (_, entry) in _traitEntries)
+        {
+            // A selected trait is always unlocked here - same reasoning as category cap:
+            // it was paid for at selection time and must stay interactive.
+            // Traits that cost nothing or give points back are never locked by budget.
+            var shouldLock = !entry.IsSelected && entry.TraitCost > remainingPoints;
+            entry.SetLockedByPoints(shouldLock);
+        }
     }
 
     public void SetTraitSelected(ProtoId<TraitPrototype> traitId, bool selected)
@@ -171,11 +235,11 @@ public sealed partial class TraitCategory : BoxContainer
     /// Updates condition states for all trait entries based on current job/species.
     /// Traits that don't meet conditions are disabled but still visible.
     /// </summary>
-    public void UpdateConditions(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences)
+    public void UpdateConditions(ProtoId<JobPrototype>? jobId, ProtoId<SpeciesPrototype>? speciesId, IReadOnlySet<ProtoId<AntagPrototype>>? antagPreferences, IReadOnlySet<ProtoId<TraitPrototype>>? selectedTraits)
     {
         foreach (var (_, entry) in _traitEntries)
         {
-            entry.UpdateConditionsMet(jobId, speciesId, antagPreferences);
+            entry.UpdateConditionsMet(jobId, speciesId, antagPreferences, selectedTraits);
         }
 
         // Update stats since some traits may have been deselected

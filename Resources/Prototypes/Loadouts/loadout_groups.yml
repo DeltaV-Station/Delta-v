@@ -43,6 +43,7 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - ClothingNeckLanyard
   - OffsetCane
   - OffsetCaneWood
   - OffsetCaneClown
@@ -64,8 +65,8 @@
   - TowelColorMaroon
   - TowelColorMime
   - TowelColorSilver
-  - TowelColorWhite
-  - TowelColorYellow
+  #- TowelColorWhite # DeltaV - Removed due because of being a duplicate
+  #- TowelColorYellow # DeltaV - Removed due because of being a duplicate
   - TowelColorGold
   # Begin DeltaV Additions
   - AACTablet
@@ -76,7 +77,6 @@
   - TapeRecorder
   - ClothingHeadHatUshanka
   - Eyepatch
-  - SuperSynthesizerInstrument #Delta-V - Ports Super Synth Trinket from Starlight
   - LighterFlippo
   - LighterDonkCo
   - LighterHonkCo
@@ -447,6 +447,7 @@
   loadouts:
   - BartenderHead
   - BartenderBowler
+  - SodaJerkCap #DeltaV - Adding retro style outfit for ice cream connoisseurs
 
 - type: loadoutGroup
   id: BartenderJumpsuit
@@ -461,6 +462,7 @@
   - ClothingUniformSeniorBartender
   - ClothingUniformSeniorBartenderSkirt
   # End Imp additions
+  - SodaJerkUniform #DeltaV - Adding retro style outfit for ice cream connoisseurs
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -907,6 +909,7 @@
   - PanFlute
   - Ocarina
   - Bagpipe
+  - SuperSynthesizerInstrument # DeltaV - Make SuperSynths musician only
 
 - type: loadoutGroup
   id: MusicianJobTrinkets
@@ -974,6 +977,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  - CargoTechnicianBeret # DeltaV
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1857,6 +1861,9 @@
   # Begin of DeltaV Additions
   - ChemistFormalSuit
   - ChemistFormalSkirt # more jumpskirts
+  - PharmacistJumpsuit
+  - PharmacistJumpskirt
+  - PharmacistJumpsuitFormal
   - SeniorChemistJumpsuit # Medical Clothing Overhaul
   - SeniorChemistJumpskirt # Medical Clothing Overhaul
   - OrangeTurtleneckJumpsuit
@@ -1870,6 +1877,7 @@
   loadouts:
   - RegularLabCoat
   - ChemistLabCoat
+  - PharmacistLabCoat # DeltaV
   - SeniorChemistLabCoat # DeltaV - Medical Clothing Overhaul
   - LongLabCoat # DeltaV - Medical Clothing Overhaul
   - ChemistLongLabCoat # DeltaV - Medical Clothing Overhaul
@@ -1968,6 +1976,20 @@
   - JournalistJumpsuit
   - ClothingUniformBrosBlazer #imp
   - ClothingUniformBrosBlazerSkirt #imp
+
+- type: loadoutGroup
+  id: ReporterHead
+  name: loadout-group-reporter-head
+  minLimit: 0
+  loadouts:
+  - ReporterPressFedora
+
+- type: loadoutGroup
+  id: ReporterOuterClothing
+  name: loadout-group-reporter-outerclothing
+  minLimit: 0
+  loadouts:
+  - ReporterPressVest
 
 - type: loadoutGroup
   id: ReporterJobTrinkets

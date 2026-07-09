@@ -5,6 +5,7 @@
         <Button Name="ReturnToBodyButton" Text="{Loc ghost-gui-return-to-body-button}" />
         <Button Name="GhostWarpButton" Text="{Loc ghost-gui-ghost-warp-button}" />
         <Button Name="GhostRolesButton" />
+        <Button Name="VentCritterButton" Text="{Loc ghost-gui-spawn-vent-critter-button}" /> <!-- DeltaV: freeform ghosties -->
         <Button Name="GhostRespawnButton" Text="{Loc ghost-gui-respawn}" /> <!-- Frontier -->
     </BoxContainer>
 </widgets:GhostGui>
