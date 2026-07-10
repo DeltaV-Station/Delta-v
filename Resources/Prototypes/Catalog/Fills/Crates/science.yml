@@ -15,10 +15,10 @@
           amount: 2
 
 - type: entity
-  parent: CrateScienceSecure
+  parent: CrateMedicalSecure # DeltaV - Was CrateScienceSecure, but now medical
   id: CrateCrewMonitoring
   name: crew monitoring crate
-  description: Contains a flatpack of a crew monitoring server and a few crew monitoring computers. Requires Science access to open.
+  description: Contains a flatpack of a crew monitoring server and a few crew monitoring computers. Requires Medical access to open. # DeltaV - changed to medical access
   components:
   - type: EntityTableContainerFill
     containers:
