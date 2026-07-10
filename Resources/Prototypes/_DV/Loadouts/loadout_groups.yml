@@ -83,6 +83,17 @@
   - ScarfZebra
   - MimeMantle
 
+- type: loadoutGroup
+  id: MimeJumpsuit
+  name: loadout-group-mime-jumpsuit
+  loadouts:
+  - MimeJumpsuit
+  - MimeJumpskirt
+  # Begin DeltaV Additions
+  - MimeTurtleneckPants
+  - MimeTurtleneckSkirt
+  # End DeltaV Additions
+
 ## Musician
 - type: loadoutGroup
   id: MusicianNeck
