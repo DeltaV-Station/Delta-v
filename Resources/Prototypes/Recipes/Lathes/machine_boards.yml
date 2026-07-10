@@ -301,10 +301,10 @@
 
 ## Supply
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
-  id: CargoTelepadMachineCircuitboard
-  result: CargoTelepadMachineCircuitboard
+#- type: latheRecipe DeltaV - remove cargo telepad
+#  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+#  id: CargoTelepadMachineCircuitboard
+#  result: CargoTelepadMachineCircuitboard
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
