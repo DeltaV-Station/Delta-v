@@ -2,8 +2,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitSecBlue
-  result: ClothingUniformJumpsuitSecBlue
+  id: ClothingUniformJumpsuitSecWhite
+  result: ClothingUniformJumpsuitSecWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -11,9 +11,19 @@
   result: ClothingUniformJumpsuitSecGrey
 
 - type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoSWhite
+  result: ClothingUniformJumpsuitHoSWhite
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoSTurtle
+  result: ClothingUniformJumpsuitHoSTurtle
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitWardenBlue
-  result: ClothingUniformJumpsuitWardenBlue
+  id: ClothingUniformJumpsuitWardenWhite
+  result: ClothingUniformJumpsuitWardenWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -25,12 +35,17 @@
   id: ClothingUniformJumpsuitSecSenior
   result: ClothingUniformJumpsuitSecSenior
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecCadet
+  result: ClothingUniformJumpsuitSecCadet
+
 # Jumpskirts - Security
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtSecBlue
-  result: ClothingUniformJumpskirtSecBlue
+  id: ClothingUniformJumpskirtSecWhite
+  result: ClothingUniformJumpskirtSecWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -38,19 +53,24 @@
   result: ClothingUniformJumpskirtSecGrey
 
 - type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtHoSBlue
-  result: ClothingUniformJumpskirtHoSBlue
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSWhite
+  result: ClothingUniformJumpskirtHoSWhite
 
 - type: latheRecipe
-  parent: BaseJumpsuitRecipe
+  parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpskirtHoSGrey
   result: ClothingUniformJumpskirtHoSGrey
 
 - type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSTurtle
+  result: ClothingUniformJumpskirtHoSTurtle
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtWardenBlue
-  result: ClothingUniformJumpskirtWardenBlue
+  id: ClothingUniformJumpskirtWardenWhite
+  result: ClothingUniformJumpskirtWardenWhite
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -71,6 +91,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtSecSenior
   result: ClothingUniformJumpskirtSecSenior
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSecCadet
+  result: ClothingUniformJumpskirtSecCadet
 
 # Security Sweater
 
@@ -234,6 +259,23 @@
   parent: BaseHatRecipe
   id: ClothingHeadPrisonGuard
   result: ClothingHeadPrisonGuard
+
+# Security Hats
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretCadet
+  result: ClothingHeadHatBeretCadet
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretSecurityGrey
+  result: ClothingHeadHatBeretSecurityGrey
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatCapSec
+  result: ClothingHeadHatCapSec
 
 #Centcomm Clothing
 

@@ -21,7 +21,7 @@
 
 - type: entity
   name: Laika
-  parent: MobSecDog
+  parent: MobSecDogBase
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
@@ -96,11 +96,10 @@
     description: "The real brains behind the Justice department. Your honour my client is not fishy!"
     job: RoleCarpy
   - type: GhostTakeoverAvailable
-  -  type: Body
-     prototype: Human
   - type: Hands
-  - type: InnateTool
-    tools:
+  - type: DVInnateTools
+    tools: !type:AllSelector
+      children:
       - id: LuxuryPenCarpy
       - id: RubberStampCarpy
   - type: UserInterface

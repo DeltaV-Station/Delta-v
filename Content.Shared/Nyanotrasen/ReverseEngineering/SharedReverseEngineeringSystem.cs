@@ -216,27 +216,30 @@ public abstract class SharedReverseEngineeringSystem : EntitySystem
         var msg = new FormattedMessage();
         if (GetItem(ent) is not {} item || !TryComp<ReverseEngineeringComponent>(item, out var rev))
         {
-            msg.AddMarkup(Loc.GetString("reverse-engineering-status-ready"));
+            msg.TryAddMarkup(Loc.GetString("reverse-engineering-status-ready"), out _);
             return msg;
         }
 
         var comp = ent.Comp;
-        msg.PushMarkup(Loc.GetString("reverse-engineering-current-item", ("item", item)));
+        msg.TryAddMarkup(Loc.GetString("reverse-engineering-current-item", ("item", item)), out _);
         msg.PushNewline();
 
         var analysisScore = comp.ScanBonus;
         if (!comp.SafetyOn)
             analysisScore += comp.DangerBonus;
 
-        msg.PushMarkup(Loc.GetString("reverse-engineering-analysis-score", ("score", analysisScore)));
-        msg.PushMarkup(Loc.GetString("reverse-engineering-item-difficulty", ("difficulty", rev.Difficulty)));
-        msg.PushMarkup(Loc.GetString("reverse-engineering-progress", ("progress", rev.Progress)));
+        msg.TryAddMarkup(Loc.GetString("reverse-engineering-analysis-score", ("score", analysisScore)), out _);
+        msg.PushNewline();
+        msg.TryAddMarkup(Loc.GetString("reverse-engineering-item-difficulty", ("difficulty", rev.Difficulty)), out _);
+        msg.PushNewline();
+        msg.TryAddMarkup(Loc.GetString("reverse-engineering-progress", ("progress", rev.Progress)), out _);
+        msg.PushNewline();
 
         if (comp.LastResult is {} result)
         {
             var lastProbe = Loc.GetString($"reverse-engineering-result-{result}");
 
-            msg.AddMarkup(Loc.GetString("reverse-engineering-last-attempt-result", ("result", lastProbe)));
+            msg.TryAddMarkup(Loc.GetString("reverse-engineering-last-attempt-result", ("result", lastProbe)), out _);
         }
 
         return msg;

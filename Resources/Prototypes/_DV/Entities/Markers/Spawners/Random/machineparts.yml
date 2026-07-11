@@ -1,0 +1,35 @@
+- type: entity
+  parent: MarkerBase
+  id: SalvagePartsSpawnerLow
+  name: salvage parts spawner
+  suffix: 90%
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/stock_parts.rsi
+      state: matter_bin
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.90
+      children:
+      - id: MicroManipulatorStockPart
+
+- type: entity
+  parent: MarkerBase
+  id: SalvagePartsSpawnerMid
+  name: salvage parts spawner
+  suffix: 50%
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Misc/stock_parts.rsi
+        state: advanced_matter_bin
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.50
+      children:
+      - id: MicroManipulatorStockPart

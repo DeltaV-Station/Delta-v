@@ -349,6 +349,11 @@ public sealed class ArrivalsSystem : EntitySystem
         if (!HasComp<StationArrivalsComponent>(ev.Station))
             return;
 
+        // Begin DeltaV - some jobs may not use arrivals
+        if (ev.Job is { } jobId && _protoManager.Index(ev.Job).AlwaysUseSpawner)
+            return;
+        // End DeltaV
+
         TryGetArrivals(out var arrivals);
 
         if (!TryComp(arrivals, out TransformComponent? arrivalsXform))

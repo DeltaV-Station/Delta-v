@@ -49,9 +49,9 @@
   description: Shootouts with syndicate agents are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/hosmantle.rsi
+    sprite: _DV/Clothing/Neck/mantles/hosmantle.rsi # DeltaV - Blue Security Resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/hosmantle.rsi
+    sprite: _DV/Clothing/Neck/mantles/hosmantle.rsi # DeltaV - Blue Security Resprite
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]

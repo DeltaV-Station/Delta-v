@@ -13,6 +13,20 @@
   - UplinkAllies
 
 - type: listing
+  id: SpiderOperativeReinforcement
+  name: uplink-reinforcement-radio-nukie-spider-name
+  description: uplink-reinforcement-radio-nukie-spider-desc
+  productEntity: ReinforcementRadioSyndicateNukieSpider
+  icon: { sprite: _DV/Mobs/Animals/nukiespider.rsi, state: syndicate-spider-egg }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAllies
+
+- type: listing
   id: UplinkMobCatC4
   name: uplink-mobcat-C4-name
   description: uplink-mobcat-C4-desc
@@ -36,6 +50,6 @@
   discountDownTo:
     Telecrystal: 7
   cost:
-    Telecrystal: 13
+    Telecrystal: 12
   categories:
   - UplinkAllies

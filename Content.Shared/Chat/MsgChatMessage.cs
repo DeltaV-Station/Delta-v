@@ -41,7 +41,13 @@ namespace Content.Shared.Chat
         [NonSerialized]
         public bool Read;
 
-        public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0)
+        /// <summary>
+        /// DeltaV - If not null, contains the radio channel proto ID that the message was sent on. 
+        /// Used to replace the channel color client-side.
+        /// </summary>
+        public string? RadioChannelProtoId = null;
+
+        public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0, string? radioChannelProto = null) // DeltaV - added radioChannelProto
         {
             Channel = channel;
             Message = message;
@@ -52,6 +58,22 @@ namespace Content.Shared.Chat
             MessageColorOverride = colorOverride;
             AudioPath = audioPath;
             AudioVolume = audioVolume;
+            RadioChannelProtoId = radioChannelProto; // DeltaV
+        }
+
+        public ChatMessage(ChatMessage copyFrom)
+        {
+            Channel = copyFrom.Channel;
+            Message = copyFrom.Message;
+            WrappedMessage = copyFrom.WrappedMessage;
+            SenderEntity = copyFrom.SenderEntity;
+            SenderKey = copyFrom.SenderKey;
+            HideChat = copyFrom.HideChat;
+            MessageColorOverride = copyFrom.MessageColorOverride;
+            AudioPath = copyFrom.AudioPath;
+            AudioVolume = copyFrom.AudioVolume;
+            Read = copyFrom.Read;
+            RadioChannelProtoId = copyFrom.RadioChannelProtoId; // DeltaV
         }
     }
 

@@ -1,0 +1,96 @@
+# Nuclear spider for Delta-V because critters are neat.
+# Used nukie mouse as a starting point, added/removed/modified properties as necessary
+- type: entity
+  parent: MobGiantSpiderAngry
+  id: MobNukieSpider
+  name: nuclear operative tarantula
+  suffix: syndicate
+  description: A spider? A NUKIE SPIDER?!
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-nukie-spider-name
+    description: ghost-role-information-nukie-spider-description
+    rules: ghost-role-information-nukie-spider-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameFormat: name-format-nukie-operator
+    nameSegments: [NamesNukieSpider]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: PointLight
+    radius: 3
+    energy: 2.3
+    offset: 0, -2
+    color: green
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Animals/nukiespider.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: syndicate-spider
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: syndicate-spider-moving
+    noMovementLayers:
+      movement:
+        state: syndicate-spider
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      150: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 4.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: syndicate-spider
+      Critical:
+        Base: syndicate-spider-dead
+      Dead:
+        Base: syndicate-spider-dead
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - Radio
+  - type: Respirator #It just works?
+    minSaturation: 5.0
+  - type: TemperatureDamage
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: PressureImmunity
+  - type: Insulated
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 6
+        Structural: 15
+  - type: MobPrice
+    price: 250 # Their suits, while tiny, go for quite a bit on the market
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: NukieSpider

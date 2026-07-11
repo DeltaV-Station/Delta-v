@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, MobCombat, DVNodeCrawler ]
   id: MobSkia
   name: skia
   description: A shadow given form, lashing out at anything that comes too close.
@@ -10,6 +10,8 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: skia
+  - type: Stealth
+    lastVisibility: 0.8
   - type: DamageStateVisuals
     states:
       Alive:
@@ -28,8 +30,8 @@
       0: Alive
       120: Dead
   - type: Damageable
-    damageModifierSet: ManifestedSpirit
     damageContainer: BiologicalMetaphysical
+    damageModifierSet: Spirit
   - type: Fixtures
     fixtures:
       fix1:
@@ -47,7 +49,6 @@
   - type: NoSlip
   - type: MovedByPressure
     enabled: false
-  - type: JetpackUser
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
@@ -63,8 +64,8 @@
     damage:
       types:
         Slash: 19
-        Pierce: 8
-        Shadow: 8
+        Piercing: 8
+        Soul: 8
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -81,21 +82,26 @@
     darkThreshold: 0.3
     lightThreshold: 0.7
     darkDamage:
-      groups:
-        Brute: -5
-        Burn: -5
-        Toxin: -5
-        Airloss: -5
-        Genetic: -5
-        Metaphysical: -1
+      types:
+        Blunt: -5
+        Piercing: -5
+        Slash: -5
+        Heat: -5
+        Poison: -5
+        Asphyxiation: -2.5
+        Bloodloss: -2.5
+        Cellular: -5
+        Soul: -1
     lightDamage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 1.5
+        Piercing: 1.5
+        Slash: 1.5
     healWhenDead: true
     darkMovementSpeedMultiplier: 1.25
     lightMovementSpeedMultiplier: 1.0
   - type: LightLevelDamageMult
-    lightReceivedMultiplier: 2.0
+    lightReceivedMultiplier: 1.5
     lightDealtMultiplier: 0.5
   - type: ResurrectWhenAble
     timeToResurrect: 30.0
@@ -111,6 +117,7 @@
     range: 5.0
     energyConsumption: 20000
     disableDuration: 20.0
+  - type: Jaunt
   - type: Butcherable
     spawned:
     - id: Ectoplasm

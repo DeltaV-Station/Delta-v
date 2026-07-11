@@ -72,12 +72,10 @@ job-title-admeme-overwriting = Overwriting
 job-title-admeme-adding = Adding
 
 # Role timers
-JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
 JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
-JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
 JobZookeeper = Zookeeper
@@ -102,3 +100,6 @@ role-name-baba = Baba
 # Station specific
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
+
+# Generic secdog
+role-name-k9-officer = K9 Officer

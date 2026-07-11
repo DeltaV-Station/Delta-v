@@ -68,7 +68,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
         var uid = args.SenderSession.AttachedEntity;
         if (!Exists(uid))
         {
-            Log.Warning($"Client {args.SenderSession} sent TypingChangedEvent without an attached entity.");
+            Log.Debug($"Client {args.SenderSession} sent TypingChangedEvent without an attached entity."); // DeltaV - warning - > debug
             return;
         }
 

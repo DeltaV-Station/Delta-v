@@ -24,6 +24,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private readonly ProtoId<TagPrototype> PreventTag = "PreventLabel";
     private readonly EntProtoId SleepActionId = "ActionSleep"; // The action used for sleeping inside bags. Currently uses the default sleep action (same as beds)
@@ -118,7 +119,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         if (args.User == args.Item)
             return;
 
-        Transform(uid).AttachToGridOrMap();
+        _transform.AttachToGridOrMap(uid);
         args.Cancel();
     }
 

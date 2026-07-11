@@ -1,14 +1,12 @@
-using Content.Shared.Humanoid.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
-
-namespace Content.Server.CharacterAppearance.Components;
+namespace Content.Server.Humanoid.Components;
 
 [RegisterComponent]
 public sealed partial class RandomHumanoidAppearanceComponent : Component
 {
     [DataField("randomizeName")] public bool RandomizeName = true;
+
     /// <summary>
-    /// After randomizing, sets the hair style to this, if possible
+    /// DeltaV - If true, keeps the original humanoid gender.
     /// </summary>
-    [DataField] public string? Hair = null;
+    [DataField] public bool KeepGender = false;
 }

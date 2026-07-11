@@ -71,7 +71,7 @@
         shader: unshaded
   - type: Reflect
     reflects:
-    - energy # Deltav - previously reflected all projectiles
+    - energy # DeltaV - previously reflected all projectiles
   - type: IgnitionSource
     temperature: 700
 
@@ -197,6 +197,12 @@
       malus: 0.4
     - type: Execution
       doAfterDuration: 4.0
+      # DeltaV changes
+    - type: Reflect
+      reflectProb: .1
+      reflects:
+      - Energy
+      # DeltaV changes end
     - type: Contraband
       severity: Syndicate
   - type: Sprite
@@ -419,6 +425,8 @@
     reflects:
     - Energy
     - NonEnergy
+  - type: DisarmMalus
+    malus: 0.8
     # DeltaV changes end
 # Borgs
 

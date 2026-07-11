@@ -24,6 +24,9 @@
   - type: Tag
     tags:
       - SilverSword
+  - type: RevealRevenantOnCollide
+  - type: CollisionWake
+    enabled: False
 
 - type: entity
   parent: SilverSword
@@ -37,7 +40,6 @@
   - type: Construction
     graph: RadiantSword
     node: embeddedsword
-
 
 - type: entity
   parent: SilverSword
@@ -60,6 +62,7 @@
     graph: RadiantSword
     node: radiantsword
   - type: RevealRevenantOnCollide
+    revealTime: 10
   - type: CollisionWake
     enabled: false
 
