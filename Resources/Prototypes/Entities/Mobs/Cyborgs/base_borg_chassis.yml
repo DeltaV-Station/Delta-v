@@ -505,7 +505,7 @@
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
-    - Binary
+    # - Binary # DeltaV - only the mothership can talk over binary (prevents "accidents" on binary)
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
@@ -592,6 +592,12 @@
     containers:
       borg_id_chip:
       - IdChipXenoborg
+  - type: IdChipSlot # DeltaV - borg id chips, no crew IDs. Incompatible with *xeno*borg systems.
+    whitelist:
+      requireAll: true
+      tags:
+      - IdChip
+      - Xenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
