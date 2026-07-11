@@ -22,24 +22,30 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -0.15
+          types:
+            Blunt: -0.15
+            Piercing: -0.15
+            Slash: -0.15
     - reagents: [ Blood ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -0.25
-            Burn: -0.25
+          types:
+            Blunt: -0.25
+            Piercing: -0.25
+            Slash: -0.25
+            Heat: -0.25
     - reagents: [ RobustHarvest ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1
-            Burn: -1
+          types:
+            Blunt: -1
+            Piercing: -1
+            Slash: -1
+            Heat: -1
     - reagents: [ WeedKiller, PlantBGone ]
       methods: [ Touch ]
       effects:
@@ -114,8 +120,8 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      groups:
-        Brute: 9
+      types:
+        Blunt: 9
     animation: WeaponArcBite
   - type: Climbing
   - type: FootstepModifier

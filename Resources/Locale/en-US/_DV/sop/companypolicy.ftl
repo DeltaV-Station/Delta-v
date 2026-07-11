@@ -1,0 +1,9 @@
+company-policy-name = Company Policy
+company-policy-coc-name = Code of Conduct
+company-policy-as-name = Appearance Standards
+company-policy-rar-name = Rights and Responsibilities
+company-policy-sd-name = Self-defence
+company-policy-dfoc-name = Dangers From Our Competitors
+company-policy-pt-name = Potential Threats
+company-policy-ccc-name = Contacting Central Command
+company-policy-conclusion-name = Conclusion
