@@ -8,7 +8,6 @@ using Content.Shared.Administration;
 using Content.Shared.Eui;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Objectives.Eui;
 
@@ -20,7 +19,7 @@ public sealed class ObjectiveEditorEui(EntityManager entityManager, IAdminManage
     private readonly MetaDataSystem _metadata = entityManager.System<MetaDataSystem>();
     private readonly IAdminManager _adminManager = manager;
     private readonly ISawmill _sawmill = Logger.GetSawmill("objective-editor-eui");
-    private readonly Dictionary<string, List<ObjectiveData>> _objectives = [];
+    private readonly List<ObjectiveData> _objectives = [];
     private Entity<MindComponent> _targetMind;
 
     public override EuiStateBase GetNewState()
@@ -45,10 +44,10 @@ public sealed class ObjectiveEditorEui(EntityManager entityManager, IAdminManage
                 continue;
 
             var metadata = _entityManager.GetComponent<MetaDataComponent>(objective);
-            var data = new ObjectiveData(metadata.EntityPrototype?.ID, info.Value);
-
             var issuer = _entityManager.GetComponent<ObjectiveComponent>(objective).LocIssuer;
-            _objectives.GetOrNew(issuer).Add(data);
+            var data = new ObjectiveData(issuer, metadata.EntityPrototype?.ID, info.Value);
+
+            _objectives.Add(data);
         }
 
         StateDirty();
@@ -71,25 +70,22 @@ public sealed class ObjectiveEditorEui(EntityManager entityManager, IAdminManage
         }
 
         // Now spawn a new set of objectives to match
-        foreach (var (issuer, objectives) in message.Objectives)
+        foreach (var objective in message.Objectives)
         {
-            foreach (var objective in objectives)
-            {
-                var newObjective = CreateObjective(objective);
-                if (!newObjective.HasValue)
-                    continue; // TODO(Barry) Log an error
+            var newObjective = CreateObjective(objective);
+            if (!newObjective.HasValue)
+                continue; // TODO(Barry) Log an error
 
-                var metadata = _entityManager.GetComponent<MetaDataComponent>(newObjective.Value);
+            var metadata = _entityManager.GetComponent<MetaDataComponent>(newObjective.Value);
 
-                // Setup new Title/Description
-                _metadata.SetEntityName(newObjective.Value, objective.Info.Title, metadata: metadata);
-                _metadata.SetEntityDescription(newObjective.Value, objective.Info.Description, metadata: metadata);
+            // Setup new Title/Description
+            _metadata.SetEntityName(newObjective.Value, objective.Info.Title, metadata: metadata);
+            _metadata.SetEntityDescription(newObjective.Value, objective.Info.Description, metadata: metadata);
 
-                // Now the issuer
-                _objectiveSystem.SetIssuer(newObjective.Value, issuer);
+            // Now the issuer
+            _objectiveSystem.SetIssuer(newObjective.Value, objective.Issuer);
 
-                _mind.AddObjective(_targetMind.Owner, _targetMind.Comp, newObjective.Value);
-            }
+            _mind.AddObjective(_targetMind.Owner, _targetMind.Comp, newObjective.Value);
         }
     }
 

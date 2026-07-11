@@ -7,12 +7,12 @@ namespace Content.Shared._DV.Objectives.Eui;
 
 [Serializable, NetSerializable]
 public sealed class ObjectiveEditorEUIState(
-    Dictionary<string, List<ObjectiveData>> objectives,
+    List<ObjectiveData> objectives,
     NetEntity targetMind,
     ProtoId<RoleTypePrototype>? role,
     LocId? subtype) : EuiStateBase
 {
-    public Dictionary<string, List<ObjectiveData>> Objectives { get; } = objectives;
+    public List<ObjectiveData> Objectives { get; } = objectives;
     public NetEntity TargetMind { get; } = targetMind;
 
     public ProtoId<RoleTypePrototype>? Role = role;
@@ -21,8 +21,8 @@ public sealed class ObjectiveEditorEUIState(
 
 [Serializable, NetSerializable]
 public sealed class ObjectiveEditorSaveMessage(
-    Dictionary<string, List<ObjectiveData>> objectives, NetEntity target) : EuiMessageBase
+   List<ObjectiveData> objectives, NetEntity target) : EuiMessageBase
 {
-    public Dictionary<string, List<ObjectiveData>> Objectives = objectives;
+    public List<ObjectiveData> Objectives = objectives;
     public NetEntity Target = target;
 }

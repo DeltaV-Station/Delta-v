@@ -46,9 +46,17 @@
             </BoxContainer>
         </PanelContainer>
 
-        <BoxContainer Orientation="Vertical" Align="Center" Margin="20 10 5 10">
-            <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" />
-            <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" />
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer >
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"/>
+                </PanelContainer.PanelOverride>
+                <TextureButton Name="IconSelectButton" SetWidth="128" SetHeight="128" />
+            </PanelContainer>
+            <BoxContainer Orientation="Horizontal" Align="Center" Margin="20 10 5 10">
+                <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" />
+                <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" />
+            </BoxContainer>
         </BoxContainer>
     </BoxContainer>
 </BoxContainer>
