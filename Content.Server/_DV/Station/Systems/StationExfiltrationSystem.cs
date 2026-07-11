@@ -32,7 +32,6 @@ public sealed class StationExfiltrationSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly CommunicationsConsoleSystem _communicationsConsole = default!;
 
     public override void Initialize()
     {
