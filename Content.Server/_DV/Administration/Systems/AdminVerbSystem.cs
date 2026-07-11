@@ -9,7 +9,6 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem : EntitySystem
 {
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly ThavenMoodsSystem _moods = default!;
     private void AddDVAdminVerbs(GetVerbsEvent<Verb> args)
     {
@@ -34,10 +33,8 @@ public sealed partial class AdminVerbSystem : EntitySystem
 
 
         if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp) &&
-            mindComp.UserId != null &&
-            mindComp.Objectives.Count != 0)
+            mindComp.UserId != null)
         {
-            // They have objectives, yay!
             args.Verbs.Add(new Verb()
             {
                 Text = Loc.GetString("Edit Objectives"),
