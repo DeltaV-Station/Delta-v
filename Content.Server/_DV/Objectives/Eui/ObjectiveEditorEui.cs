@@ -82,8 +82,9 @@ public sealed class ObjectiveEditorEui(EntityManager entityManager, IAdminManage
             _metadata.SetEntityName(newObjective.Value, objective.Info.Title, metadata: metadata);
             _metadata.SetEntityDescription(newObjective.Value, objective.Info.Description, metadata: metadata);
 
-            // Now the issuer
+            // Now the issuer and Icon
             _objectiveSystem.SetIssuer(newObjective.Value, objective.Issuer);
+            _objectiveSystem.SetIcon(newObjective.Value, objective.Info.Icon);
 
             _mind.AddObjective(_targetMind.Owner, _targetMind.Comp, newObjective.Value);
         }
