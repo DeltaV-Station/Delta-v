@@ -82,6 +82,7 @@
           temperature: 373.15
   - type: Repairable
     doAfterDelay: 30 # you can heal the mothership core, but it takes a while
+    qualityNeeded: Welding # DeltaV
   - type: DamagedSiliconAccent
     enableChargeCorruption: false
   # TODO: make it explosive again once until issue https://github.com/space-wizards/space-station-14/issues/40606 is fixed
@@ -120,6 +121,8 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.DeployableTurretControllerUiKey.Key: # DeltaV - Turret Control
+        type: TurretControllerWindowBoundUserInterface
   - type: Pullable
   - type: StaticPrice
     price: 800
@@ -233,9 +236,16 @@
         toggleAction: ActionXenoborgControlMonitor
       enum.SurveillanceCameraMonitorUiKey.Key:
         toggleAction: ActionXenoborgCameraMonitor
+      enum.DeployableTurretControllerUiKey.Key: # DeltaV - Turret Control
+        toggleAction: ActionXenoborgTurretControl
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
+# Begin DeltaV Additions
+  - type: DeployableTurretController
+  - type: DeviceList
+    isAllowList: true
+# End DeltaV Additions
 
 - type: entity
   parent: BaseAGhostAction

@@ -1,0 +1,104 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseWeaponLeverAction
+  description: A click clack shooty.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/LeverAction/gunshot.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeMagnum
+    capacity: 8
+    proto: CartridgeMagnum
+    soundInsert:
+      path: /Audio/_DV/Weapons/Guns/LeverAction/insert.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 480
+
+- type: entity
+  parent: [BaseWeaponLeverAction, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLeverActionL93
+  name: L93
+  description: An ancient and almost forgotten design, but a reliable, powerful and accurate design is not so easily lost to time, no matter how simple. Uses .45 Magnum rounds.
+  components:
+  - type: Item
+    sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
+    shape:
+    - 0,0,3,1
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2.5
+  - type: GunSpreadModifier
+    spread: 0.4
+
+- type: entity
+  parent: [BaseWeaponLeverAction, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponLeverActionSKL93
+  name: SKL93
+  description: A modernized variant of the L93, manufactured in limited amounts by Waffle Corp, lightweight materials are used for the furniture. It has an extended barrel and magazine, along side a WZR-4X Scope. Uses .45 Magnum rounds.
+  components:
+  - type: Item
+    sprite: _DV/Objects/Weapons/Guns/Rifles/skl93.rsi
+    shape:
+    - 0,0,4,1
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/skl93.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/skl93.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 3
+  - type: GunSpreadModifier
+    spread: 0.1
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeMagnum
+    capacity: 10
+    proto: CartridgeMagnum
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2
+    pvsIncrease: 0.3
+  - type: StaticPrice
+    price: 670
+
+- type: entity
+  parent: WeaponLeverActionSKL93
+  id: WeaponLeverActionSKL93AP # For the uplink.
+  suffix: armor-piercing
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumAP

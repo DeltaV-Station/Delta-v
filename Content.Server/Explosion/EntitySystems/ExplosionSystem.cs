@@ -19,6 +19,7 @@ using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
+using Content.Shared.Maps;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Robust.Server.GameStates;
@@ -30,6 +31,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -47,6 +49,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -70,6 +73,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     private EntityQuery<DestructibleComponent> _destructibleQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<AirtightComponent> _airtightQuery;
+    private EntityQuery<TileHistoryComponent> _tileHistoryQuery;
 
     /// <summary>
     ///     "Tile-size" for space when there are no nearby grids to use as a reference.
@@ -112,6 +116,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _destructibleQuery = GetEntityQuery<DestructibleComponent>();
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _airtightQuery = GetEntityQuery<AirtightComponent>();
+        _tileHistoryQuery = GetEntityQuery<TileHistoryComponent>();
 
         _prototypeManager.PrototypesReloaded += ReloadExplosionPrototypes;
     }
@@ -431,7 +436,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             visualEnt,
             queued.Cause,
             _map,
-            _damageableSystem);
+            _damageableSystem,
+            _tileHistoryQuery);
     }
 
     private void CameraShake(List<float> rangeList, MapCoordinates epicenter, QueuedExplosion queued) // Starlight - replace range with rangeList, totalIntensity with queued

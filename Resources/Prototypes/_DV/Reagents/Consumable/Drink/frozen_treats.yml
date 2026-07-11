@@ -19,7 +19,7 @@
   color: "#F39E33"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -37,7 +37,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
@@ -55,7 +55,7 @@
   color: "#F9CD85"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -94,7 +94,7 @@
   color: "#C06B20"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -133,7 +133,7 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: Theobromine
@@ -165,7 +165,7 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -188,7 +188,7 @@
   color: "#FFFBD6"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -213,7 +213,7 @@
   flavor: tea
   color: "#7EB626"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -251,7 +251,7 @@
   color: "#FFFBD6"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: Theobromine
@@ -282,7 +282,7 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: Theobromine
@@ -311,7 +311,7 @@
   color: "#EDC392"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -366,7 +366,7 @@
   color: "#D6CE58"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -499,7 +499,7 @@
   color: "#FFD376"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
