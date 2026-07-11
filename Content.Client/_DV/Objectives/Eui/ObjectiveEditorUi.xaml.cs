@@ -15,6 +15,7 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
 {
     private List<ObjectiveData> _objectives = new();
     private readonly SpriteSystem _sprite;
+    private readonly SpriteSpecifier _defaultIcon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/cross.svg.png"));
 
     public ObjectiveEditorUi()
     {
@@ -79,7 +80,7 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
         var newObjective = new ObjectiveInfo(
             Title: Loc.GetString("objective-editor-admin-ui-placeholder-title"),
             Description: Loc.GetString("objective-editor-admin-ui-placeholder-description"),
-            Icon: SpriteSpecifier.Invalid, // TOOD(Barry): Probably something to think about rendering
+            Icon: _defaultIcon,
             Progress: 0 // TODO(Barry): We need to probably do something with this
         );
 

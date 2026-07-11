@@ -108,7 +108,6 @@ public sealed partial class ObjectiveContainer : BoxContainer
 
     private void SetIcon(SpriteSpecifier sprite)
     {
-        // TODO(Barry): Default should probably be -> "/Textures/Interface/Nano/cross.svg.png"
         IconSelectButton.TextureNormal = _sprite.Frame0(sprite);
         _objective.Info.Icon = sprite;
     }
