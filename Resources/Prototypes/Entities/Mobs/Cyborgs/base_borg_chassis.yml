@@ -594,10 +594,8 @@
       - IdChipXenoborg
   - type: IdChipSlot # DeltaV - borg id chips, no crew IDs. Incompatible with *xeno*borg systems.
     whitelist:
-      requireAll: true
       tags:
-      - IdChip
-      - Xenoborg
+      - IdChipXenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
