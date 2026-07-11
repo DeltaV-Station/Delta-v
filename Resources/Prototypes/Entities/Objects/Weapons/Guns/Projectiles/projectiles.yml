@@ -1468,23 +1468,3 @@
     solution: bolt
   - type: TimedDespawn # DeltaV - limit range to match taser
     lifetime: 0.170 
-
-- type: entity
-  parent: MuzzleFlashEffectHeavyLaser
-  id: MuzzleFlashSentryLethal
-  components:
-  - type: Sprite
-    layers:
-    - shader: unshaded
-      sprite: _DV/Objects/Weapons/Guns/Projectiles/muzzleflash.rsi
-      state: turretlethal
-
-- type: entity
-  parent: MuzzleFlashEffectOmnilaser
-  id: MuzzleFlashSentryDisable
-  components:
-  - type: Sprite
-    layers:
-    - shader: unshaded
-      sprite: _DV/Objects/Weapons/Guns/Projectiles/muzzleflash.rsi
-      state: turretdisable
