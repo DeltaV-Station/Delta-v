@@ -113,13 +113,32 @@
 
 - type: entity
   parent: Holopad
-  id: HolopadJusticeClerk
+  id: HolopadJusticeClerk # TODO - Remove for Justice Rework
   suffix: Clerk
   components:
   - type: Label
     currentLabel: holopad-justice-clerk
   - type: PageSender
     autoLinkJobs: [Clerk]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeJusticeWarden
+  components:
+  - type: Label
+    currentLabel: holopad-justice-warden
+#  - type: PageSender # Uncomment when role is real.
+#    autoLinkJobs: [ JusticeWarden ]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeMarshal
+  suffix: Marshal
+  components:
+  - type: Label
+    currentLabel: holopad-justice-marshal
+#  - type: PageSender # Uncomment when role is real.
+#    autoLinkJobs: [ Marshal ]
 
 - type: entity
   parent: HolopadJustice

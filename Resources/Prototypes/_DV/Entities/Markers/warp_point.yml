@@ -106,6 +106,14 @@
   - type: WarpPoint
     location: Security Checkpoint
 
+- type: entity
+  id: WarpPointArmorer
+  parent: WarpPoint
+  suffix: Armorer
+  components:
+  - type: WarpPoint
+    location: Armorer
+
 # Justice
 - type: entity
   id: WarpPointCourt
@@ -130,6 +138,22 @@
   components:
   - type: WarpPoint
     location: Attorney
+
+- type: entity
+  id: WarpPointJusticeWarden
+  parent: WarpPoint
+  suffix: JusticeWarden
+  components:
+  - type: WarpPoint
+    location: Warden
+
+- type: entity
+  id: WarpPointMarshal
+  parent: WarpPoint
+  suffix: Marshal
+  components:
+  - type: WarpPoint
+    location: Marshal
 
 #Medical
 - type: entity

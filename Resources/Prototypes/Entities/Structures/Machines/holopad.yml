@@ -759,6 +759,10 @@
   components:
   - type: Label
     currentLabel: holopad-justice-attorney # DeltaV - Lawyer > Attorney
+  # Begin DeltaV
+  - type: PageSender
+    autoLinkJobs: [ Lawyer ]
+  # End DeltaV
 
 - type: entity
   parent: HolopadSecurity # DeltaV
