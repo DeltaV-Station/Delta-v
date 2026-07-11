@@ -89,6 +89,7 @@
   parent: BorgChassisSelectable
   name: engineer cyborg
   components:
+  - type: ShowAccessReaderSettings
   - type: BorgSwitchableType
     selectedBorgType: engineering
 

@@ -23,6 +23,7 @@ using Robust.Shared.Timing;
 using Content.Shared._DV.Access.Systems;
 using Content.Shared._DV.Access.Components;
 using Content.Shared.Mind; // DeltaV - Subdermal ID Cards
+using Content.Shared.Ninja.Components; // DeltaV
 
 namespace Content.Shared.Access.Systems;
 
@@ -150,6 +151,9 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
     {
+        if (HasComp<SpaceNinjaComponent>(args.UserUid)) // DeltaV - Don't break access with its a ninja
+            return;
+
         if (!reader.BreakOnAccessBreaker)
             return;
 
