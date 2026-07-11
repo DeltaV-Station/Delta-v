@@ -36,6 +36,7 @@ sop-injunctions-name = Injunctions
 sop-hearing-procedure-name = Hearing Procedure
 sop-dnr-name  = DNRs
 sop-medical-eval-name = Medical Evaluation
+sop-prescribing-medicine-name = Prescribing Medicine
 sop-quarantine-name = Quarantine
 sop-soc-name = Standard of Care
 sop-health-safety-name = Health and Safety

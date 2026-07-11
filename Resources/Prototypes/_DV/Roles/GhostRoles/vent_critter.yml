@@ -1,0 +1,39 @@
+- type: dvSpawnableGhostRole
+  id: MobMouse
+  entity: MobMouse
+  rules: ghost-role-information-freeagent-rules
+  mindRoles:
+  - MindRoleGhostRoleFreeAgentHarmless
+
+- type: dvSpawnableGhostRole
+  id: MobMothroach
+  entity: MobMothroach
+  rules: ghost-role-information-freeagent-rules
+  mindRoles:
+  - MindRoleGhostRoleFreeAgentHarmless
+
+- type: dvSpawnableGhostRole
+  id: MobSnail
+  entity: MobSnail
+  rules: ghost-role-information-freeagent-rules
+  mindRoles:
+  - MindRoleGhostRoleFreeAgentHarmless
+
+- type: dvSpawnableGhostRole
+  id: MobSnailSpeed
+  entity: MobSnailSpeed
+  rules: ghost-role-information-freeagent-rules
+  mindRoles:
+  - MindRoleGhostRoleFreeAgentHarmless
+
+- type: dvSpawnableGhostRole
+  id: MobSnailMoth
+  entity: MobSnailMoth
+  rules: ghost-role-information-freeagent-rules
+  mindRoles:
+  - MindRoleGhostRoleFreeAgentHarmless
+
+- type: dvSpawnableGhostRole
+  id: MobDionaNymph
+  entity: MobDionaNymph
+  rules: ghost-role-information-nonantagonist-rules

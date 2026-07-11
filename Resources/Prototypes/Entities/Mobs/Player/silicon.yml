@@ -1,4 +1,4 @@
-﻿# Be careful with these as they get removed on shutdown too!
+# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
   save: false # DeltaV - AI PDAs
@@ -703,11 +703,11 @@
       borg_brain:
         - SyndicateNeuroling # DeltaV
       borg_module:
-        - BorgModuleAdvancedTool # Delta V - replaced tool module
+        - BorgModuleTool
         - BorgModuleCable # DeltaV
         - BorgModuleConstruction # DeltaV
         - BorgModuleOperative
-        - BorgModuleSyndicateWeapon
+        # - BorgModuleSyndicateWeapon # DeltaV - removed for balance
         - BorgModuleCloakDeviceSyndicate # DeltaV
       borg_id_chip: # DeltaV - borg id chips
       - IdChipSyndie

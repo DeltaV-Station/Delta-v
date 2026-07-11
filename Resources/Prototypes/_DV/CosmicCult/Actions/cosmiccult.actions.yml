@@ -47,6 +47,28 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionCosmicDrawGlyph
+  name: Draw Glyph
+  description: Scribe a glyph into realspace.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: astral
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:EventCosmicDrawGlyph {}
+  - type: CosmicGlyphDraw
+  - type: UserInterface
+    interfaces:
+      enum.CosmicGlyphDrawUiKey.Key:
+        type: CosmicGlyphDrawBoundUserInterface
+
+- type: entity
+  parent: BaseAction
   id: ActionCosmicPlaceMonument
   name: Beckon The Monument
   description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists!
