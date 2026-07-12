@@ -129,6 +129,12 @@
   id: SurgeryCapsDeltaV
   table: !type:GroupSelector
     children:
+    - id: ClothingHeadHatSurgcapGreen
+      weight: 0.1
+    - id: ClothingHeadHatSurgcapPurple
+      weight: 0.05
+    - id: ClothingHeadHatSurgcapBlue
+      weight: 0.11
     - id: ClothingHeadHatSurgcapCyan
       weight: 0.13
     - id: ClothingHeadHatSurgcapBlack
@@ -146,6 +152,12 @@
   id: ScrubsDeltaV
   table: !type:GroupSelector
     children:
+    - id: UniformScrubsColorBlue
+      weight: 0.13
+    - id: UniformScrubsColorGreen
+      weight: 0.13
+    - id: UniformScrubsColorPurple
+      weight: 0.05
     - id: UniformScrubsColorCyan
       weight: 0.13
     - id: UniformScrubsColorBlack

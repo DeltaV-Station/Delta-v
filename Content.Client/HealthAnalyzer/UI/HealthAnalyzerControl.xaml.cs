@@ -52,6 +52,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     public event Action<TriageStatus>? OnTriageStatusChanged;
     public event Action? OnClaimPatient;
     // End DeltaV - Medical Records
+    public Action? OnPrintMedTekRecord; // DeltaV - MedTek Reports
+
 
     public HealthAnalyzerControl()
     {
@@ -87,6 +89,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         StatusBox.Children.Last().RemoveStyleClass("ButtonSquare");
         ClaimButton.OnPressed += _ => OnClaimPatient?.Invoke();
         // End DeltaV - Medical Records
+        PrintReportButton.OnPressed += (_) => OnPrintMedTekRecord?.Invoke(); // DeltaV - MedTek Reports
     }
 
     public void Populate(HealthAnalyzerUiState state)
@@ -112,7 +115,12 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         ScanModeLabel.FontColorOverride = state.ScanMode.HasValue && state.ScanMode.Value ? Color.Green : Color.Red;
 
+        PrintReportButton.Disabled = state is { ScanMode: false }; // DeltaV
+
         // Patient Information
+        SpriteView.SetEntity(target.Value);
+        SpriteView.Visible = state.ScanMode.HasValue && state.ScanMode.Value;
+        NoDataTex.Visible = !SpriteView.Visible;
 
         var name = new FormattedMessage();
         name.PushColor(Color.White);
@@ -276,7 +284,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
             var groupTitleText = $"{Loc.GetString(
                 "health-analyzer-window-damage-group-text",
-                ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
+                ("damageGroup", _prototypes.Index(damageGroupId).LocalizedName),
                 ("amount", damageAmount)
             )}";
 
@@ -292,7 +300,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             DamageGroupsContainer.AddChild(groupContainer); // DeltaV - Health Analyzer Plus
 
             // Show the damage for each type in that group.
-            var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
+            var group = _prototypes.Index(damageGroupId);
 
             foreach (var type in group.DamageTypes)
             {

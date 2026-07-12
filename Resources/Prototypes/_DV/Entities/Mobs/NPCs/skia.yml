@@ -49,7 +49,6 @@
   - type: NoSlip
   - type: MovedByPressure
     enabled: false
-  - type: JetpackUser
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
@@ -102,7 +101,7 @@
     darkMovementSpeedMultiplier: 1.25
     lightMovementSpeedMultiplier: 1.0
   - type: LightLevelDamageMult
-    lightReceivedMultiplier: 2.0
+    lightReceivedMultiplier: 1.5
     lightDealtMultiplier: 0.5
   - type: ResurrectWhenAble
     timeToResurrect: 30.0
