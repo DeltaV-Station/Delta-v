@@ -695,3 +695,51 @@
           tags:
           - PowerCell
           - PowerCellSmall
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseSecurityContraband ]
+  id: WeaponUCR
+  name: UCR Beta
+  description: Wumpidy
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/Unstable_Core_Refractor.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/Unstable_Core_Refractor.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
+    selectedMode: FullAuto
+    fireRate: 20
+    availableModes: FullAuto
+    minAngle: 18
+    maxAngle: 25
+  - type: Battery
+    maxCharge: 660
+    startingCharge: 660
+  - type: BatterySelfRecharger
+    autoRechargeRate: 100
+  - type: BatteryAmmoProvider
+    proto: FocussedCoreExhaust
+    fireCost: 30
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
