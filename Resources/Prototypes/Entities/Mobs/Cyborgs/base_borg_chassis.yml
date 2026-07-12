@@ -608,3 +608,5 @@
   - type: Xenoborg
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
+  - type: EmpResistance # DeltaV
+    durationMultiplier: 0.1 # Only disabled for 10%. Default EMP stun time is 60% so still a 6 second disable. Battery has 40% resistance already.

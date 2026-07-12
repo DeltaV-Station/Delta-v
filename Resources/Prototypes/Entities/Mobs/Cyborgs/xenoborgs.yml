@@ -54,7 +54,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -149,7 +149,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -205,7 +205,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -261,7 +261,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 
 # xenoborgs empty
@@ -288,7 +288,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: XenoborgHeavy
@@ -308,7 +308,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: XenoborgScout
@@ -328,7 +328,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: XenoborgStealth
@@ -349,4 +349,4 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
