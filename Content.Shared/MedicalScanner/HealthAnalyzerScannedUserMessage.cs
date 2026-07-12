@@ -33,7 +33,7 @@ public struct HealthAnalyzerUiState
 
     public HealthAnalyzerUiState() {}
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, MedicalRecord? medicalRecord = null) // DeltaV - Medical Records
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, Solution? bloodType, Solution? bloodSolution, MedicalRecord? medicalRecord = null) // DeltaV - Health Analyzer Plus, Medical Records
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -41,6 +41,8 @@ public struct HealthAnalyzerUiState
         ScanMode = scanMode;
         Bleeding = bleeding;
         Unrevivable = unrevivable;
+        BloodType = bloodType; // DeltaV - Health Analyzer Plus
+        BloodSolution = bloodSolution; // DeltaV - Health Analyzer Plus
         MedicalRecord = medicalRecord; // DeltaV - Medical Records
     }
 }

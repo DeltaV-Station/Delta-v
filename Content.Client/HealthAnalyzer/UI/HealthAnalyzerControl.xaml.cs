@@ -26,6 +26,9 @@ using Content.Shared._DV.Traits.Assorted; // DeltaV
 using Content.Shared._DV.Medical; // DeltaV - Uncloneable
 using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
 
+using Content.Shared.Chemistry.Components; // DeltaV - Health Analyzer Plus
+using Content.Shared.Chemistry.Reagent; // DeltaV - Health Analyzer Plus
+
 // Health analyzer UI is split from its window because it's used by both the
 // health analyzer item and the cryo pod UI.
 
@@ -130,9 +133,13 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             ? $"{state.Temperature - Atmospherics.T0C:F1} °C ({state.Temperature:F1} K)"
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
+        // Begin DeltaV - Health Analyzer Plus
+        /*
         BloodLabel.Text = !float.IsNaN(state.BloodLevel)
             ? $"{state.BloodLevel * 100:F1} %"
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
+        */
+        // End DeltaV - Health Analyzer Plus
 
         StatusLabel.Text =
             _entityManager.TryGetComponent<MobStateComponent>(target.Value, out var mobStateComponent)
@@ -141,7 +148,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         // Total Damage
 
-        DamageLabel.Text = _damageable.GetTotalDamage(target.Value).ToString();
+        // DamageLabel.Text = _damageable.GetTotalDamage(target.Value).ToString(); // DeltaV - Health Analyzer Plus
 
         // Alerts
         // DeltaV traits - This is going to be horrid if we just keep adding things like this.
@@ -207,7 +214,13 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         var damagePerType = _damageable.GetAllDamage(target.Value).DamageDict;
 
-        DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+        // Begin DeltaV - Health Analyzer Plus
+        var totalDamage = _damageable.GetTotalDamage( target.Value );
+
+        DrawDiagnosticGroups( totalDamage, damageSortedGroups, damagePerType );
+
+        DrawBloodstreamInfo( state.BloodLevel, state.BloodType, state.BloodSolution );
+        // End DeltaV - Health Analyzer Plus
 
         // Begin DeltaV - Medical Records
         if (state.MedicalRecord is not { } records)
@@ -243,10 +256,18 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     private void DrawDiagnosticGroups(
+        FixedPoint2 totalDamage, // DeltaV - Health Analyzer Plus
         Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
         IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
     {
-        GroupsContainer.RemoveAllChildren();
+        // Begin DeltaV - Health Analyzer Plus
+        // GroupsContainer.RemoveAllChildren();
+        DamageGroupsContainer.RemoveAllChildren();
+
+        TotalDamageLabel.Text = Loc.GetString( "health-analyzer-plus-window-entity-total-damage-text", ( "amount", totalDamage.ToString() ) );
+
+        NoDamageLabel.Visible = ( totalDamage == 0 );
+        // End DeltaV - Health Analyzer Plus
 
         foreach (var (damageGroupId, damageAmount) in groups)
         {
@@ -267,7 +288,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
             groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId));
 
-            GroupsContainer.AddChild(groupContainer);
+            // GroupsContainer.AddChild(groupContainer); // DeltaV - Health Analyzer Plus
+            DamageGroupsContainer.AddChild(groupContainer); // DeltaV - Health Analyzer Plus
 
             // Show the damage for each type in that group.
             var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
@@ -287,6 +309,107 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             }
         }
     }
+
+    // Begin DeltaV - Health Analyzer Plus
+    private void DrawBloodstreamInfo( float bloodlevel, Solution? bloodType, Solution? bloodSolution )
+    {
+        BloodstreamReagentListContainer.RemoveAllChildren();
+
+        List<ReagentQuantity> bloodstream = new();
+        FixedPoint2 bloodQuantity = FixedPoint2.Zero;
+        FixedPoint2 totalReagentQuantity = FixedPoint2.Zero;
+
+        // Make sure we can access the bloodtype and reagents before trying to use them
+        if ( bloodType is not null && bloodSolution is not null )
+        {
+            // Get all of the reagents in the bloodstream, ignoring the patient's blood
+            // It would show up on the scanner otherwise since it is in the blood solution
+            /*
+            foreach ( var reagent in bloodSolution!.Contents )
+            {
+                bool isBlood = false;
+                foreach ( var blood in bloodType!.Contents )
+                    if ( reagent.Reagent == blood.Reagent )
+                        isBlood = true;
+
+                // If it was blood, add it to the blood level quantity
+                // If it was not blood, add it to the reagent list
+                if ( isBlood )
+                {
+                    bloodQuantity += reagent.Quantity;
+                }
+                else
+                {
+                    bloodstream.Add( reagent );
+                    totalReagentQuantity += reagent.Quantity;
+                }
+            }
+            */
+
+            // Get all of the medicines in the bloodstream
+            foreach ( var reagent in bloodSolution!.Contents )
+            {
+                if ( reagent.Group == "Medicine" )
+                {
+                    bloodstream.Add( reagent );
+                    totalReagentQuantity += reagent.Quantity;
+                }
+            }
+        }
+
+        string bloodQuantityPercent = !float.IsNaN( bloodlevel )
+            ? $"{bloodlevel * 100:F1} %"
+            : Loc.GetString( "health-analyzer-window-entity-unknown-value-text" );
+
+        // Display the percent and amount of blood in the system
+        // Normal health scanner is percent only, this one adds the actual units too
+        BloodLevelLabel.Text = Loc.GetString(
+            "health-analyzer-plus-window-entity-blood-level-quantity-text",
+            ( "percent", bloodQuantityPercent ),
+            ( "amount", bloodQuantity.ToString() )
+        );
+
+        // Display the total amount of reagents in the bloodstream, 0 is valid
+        TotalReagentQuantityLabel.Text = Loc.GetString(
+            "health-analyzer-plus-window-entity-total-reagents-text",
+            ( "amount", totalReagentQuantity.ToString() )
+        );
+
+        // If the bloodstream was empty, display a message instead to fill the space with something
+        NoReagentsLabel.Visible = ( bloodstream.Count == 0 );
+
+        // For each of the reagents in the bloodstream, add them to the list of reagents
+        // If there are none, this loop will simply do nothing
+        foreach ( var ( reagentID, reagentQuantity ) in bloodstream )
+        {
+            var reagentPrototype = _prototypes.Index<ReagentPrototype>( reagentID.Prototype );
+
+            // Make a new container for each reagent we add to the list
+            var reagentContainer = new BoxContainer
+            {
+                Align = AlignMode.Begin,
+                Orientation = LayoutOrientation.Vertical
+            };
+
+            // Add the string "[] <reagent_name>: <reagent_amount>u" for the current reagent
+            // The [] is a unicode block character, and is colored with the reagent color
+            // to make it easier to identify
+            reagentContainer.AddChild(
+                new RichTextLabel{ Text =
+                    Loc.GetString( "health-analyzer-plus-window-reagent-text",
+                        ( "reagentColor", reagentPrototype.SubstanceColor ),
+                        ( "reagentName", reagentPrototype.LocalizedName ),
+                        ( "amount", reagentQuantity )
+                    )
+                }
+            );
+
+            BloodstreamReagentListContainer.AddChild( reagentContainer );
+        }
+
+        return;
+    }
+    // End DeltaV - Health Analyzer Plus
 
     private Texture GetTexture(string texture)
     {

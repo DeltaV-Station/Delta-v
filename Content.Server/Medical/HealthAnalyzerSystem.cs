@@ -23,6 +23,7 @@ using Content.Server.Body.Systems;
 // Begin DeltaV
 using Content.Server._DV.MedicalRecords;
 using Content.Shared._DV.MedicalRecords;
+using Content.Shared.Chemistry.Components;
 // End DeltaV
 
 namespace Content.Server.Medical;
@@ -268,9 +269,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         var bleeding = false;
         var unrevivable = false;
 
+        Solution? bloodType = new(); // DeltaV - Health Analyzer Plus
+        Solution? bloodSolution = null; // DeltaV - Health Analyzer Plus
+
         if (TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(entity, bloodstream.BloodSolutionName,
-                ref bloodstream.BloodSolution, out var bloodSolution))
+                ref bloodstream.BloodSolution, out bloodSolution)) // DeltaV - Health Analyzer Plus
         {
             bloodAmount = _bloodstreamSystem.GetBloodLevel(entity);
             bleeding = bloodstream.BleedAmount > 0;
@@ -286,6 +290,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             null,
             bleeding,
             unrevivable,
+            bloodType, // DeltaV - Health Analyzer Plus
+            bloodSolution, // DeltaV - Health Analyzer Plus
             _medicalRecords.GetMedicalRecords(entity) // DeltaV - Medical Records
         );
     }
