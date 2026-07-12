@@ -40,6 +40,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
     private readonly UnborgableSystem _unborgable; // DeltaV
     private readonly RedshirtSystem _redshirt; // DeltaV
+    private readonly TofuDifficultySystem _tofu; // DeltaV
     private readonly UncloneableSystem _uncloneable; // DeltaV
 
     // Begin DeltaV - Medical Records
@@ -65,6 +66,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
         _redshirt = _entityManager.System<RedshirtSystem>(); // DeltaV
+        _tofu = _entityManager.System<TofuDifficultySystem>(); // DeltaV
         _uncloneable = _entityManager.System<UncloneableSystem>(); // DeltaV
 
         // Begin DeltaV - Medical Records
@@ -155,6 +157,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // DeltaV traits - This is going to be horrid if we just keep adding things like this.
         var unborgable = _unborgable.IsUnborgable(target.Value);
         var redshirt = _redshirt.IsRedshirt(target.Value) && mobStateComponent?.CurrentState == MobState.Dead; // DeltaV - Redshirt
+        var tofu = _tofu.IsTofu(target.Value); // DeltaV - Tofu
         var uncloneable = _uncloneable.IsUncloneable(target.Value) && mobStateComponent?.CurrentState == MobState.Dead; // DeltaV - Unclonable
         // END DeltaV
 
@@ -194,6 +197,14 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             AlertsContainer.AddChild(new RichTextLabel
             {
                 Text = Loc.GetString("health-analyzer-window-entity-redshirt-text"),
+                Margin = new Thickness(0, 4),
+                MaxWidth = 300
+            });
+
+        if (tofu) // DeltaV
+            AlertsContainer.AddChild(new RichTextLabel()
+            {
+                Text = Loc.GetString("health-analyzer-window-entity-tofu-text"),
                 Margin = new Thickness(0, 4),
                 MaxWidth = 300
             });

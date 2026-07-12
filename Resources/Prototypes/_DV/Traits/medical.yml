@@ -99,3 +99,13 @@
   - !type:AddCompsEffect
     components:
     - type: Synth
+
+- type: trait
+  id: TofuDifficulty
+  name: trait-tofu-difficulty-name
+  description: trait-tofu-difficulty-desc
+  category: Medical
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: TofuDifficulty

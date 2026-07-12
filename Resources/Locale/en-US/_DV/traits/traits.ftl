@@ -79,3 +79,6 @@ trait-ion-storm-susceptible-desc = Your synthetic body lacks protection against 
 
 trait-mechanical-synthetic-name = Mechanical Synthetic
 trait-mechanical-synthetic-desc = Your synthetic body is fully mechanical rather than biomechanical.
+
+trait-tofu-difficulty-name = Tofu Difficulty
+trait-tofu-difficulty-desc = You have in some fashion angered the gods. Your entire body is tofu... life's difficult now. Don't get hit.

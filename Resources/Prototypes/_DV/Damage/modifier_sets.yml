@@ -190,3 +190,18 @@
     Radiation: 0.5
     Caustic: 0.5
     Cold: 0.8 # DeltaV - Cold res
+
+- type: damageModifierSet
+  id: Tofu
+  coefficients:
+    Blunt: 20
+    Slash: 20
+    Piercing: 20
+    Heat: 20
+    Cold: 20
+    Caustic: 20
+    # You do not care about the whimsy off invisible forces. You're Tofu
+    Holy: 0
+    Soul: 0
+    Radiation: 0
+    Shock: 0
