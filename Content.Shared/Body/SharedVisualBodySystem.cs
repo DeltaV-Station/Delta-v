@@ -148,7 +148,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (ent.Comp.Layer.Equals(HumanoidVisualLayers.Eyes))
         {
             // Delta V - Begin Add AppearanceLoaded Event
-            var appearanceLoaded = new AppearanceLoadedEvent(ent.Comp.Profile.EyeColor);
+            var appearanceLoaded = new AppearanceLoadedEvent(ent.Comp.Profile.EyeColor, ent.Comp.Profile.SkinColor);
             RaiseLocalEvent(args.Body.Owner, ref appearanceLoaded);
             // Delta V - End
             SetOrganColor(ent, ent.Comp.Profile.EyeColor);
