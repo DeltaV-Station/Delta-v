@@ -151,7 +151,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
     {
-        if (HasComp<SpaceNinjaComponent>(args.UserUid)) // DeltaV - Don't break access with its a ninja
+        if (HasComp<SpaceNinjaComponent>(args.UserUid)) // DeltaV - Don't break access if its a ninja doing it
             return;
 
         if (!reader.BreakOnAccessBreaker)
