@@ -26,3 +26,17 @@ public sealed class ObjectiveEditorSaveMessage(
     public List<ObjectiveData> Objectives = objectives;
     public NetEntity Target = target;
 }
+
+
+[Serializable, NetSerializable]
+public sealed class ObjectiveEditorCreateMessage(EntProtoId? proto = null) : EuiMessageBase
+{
+    public EntProtoId? Proto = proto;
+}
+
+
+[Serializable, NetSerializable]
+public sealed class ObjectiveEditorCreateResponse(ObjectiveData? data) : EuiMessageBase
+{
+    public ObjectiveData? Data = data;
+}

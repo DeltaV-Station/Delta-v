@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseObjective
+  id: EditorDefaultObjective
+  components:
+  - type: Objective
+    issuer: Editor
+    difficulty: 0
+    icon:
+  - type: FreeObjective
+

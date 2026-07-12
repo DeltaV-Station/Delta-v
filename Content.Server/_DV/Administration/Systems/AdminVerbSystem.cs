@@ -41,12 +41,12 @@ public sealed partial class AdminVerbSystem : EntitySystem
                 Category = VerbCategory.Admin,
                 Act = () =>
                 {
-                    var ui = new ObjectiveEditorEui(EntityManager, _adminManager);
                     if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
                         return;
 
+                    var ui = new ObjectiveEditorEui();
                     _euiManager.OpenEui(ui, session);
-                    ui.UpdateObjectives((mindId, mindComp));
+                    ui.UpdateObjectivesFor((mindId, mindComp));
                 },
                 Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
             });

@@ -6,6 +6,8 @@ objective-editor-admin-ui-save = Save
 objective-editor-admin-ui-delete = Delete
 objective-editor-admin-ui-delete-all = Delete All
 
+objective-editor-admin-ui-view = View
+
 objective-editor-admin-ui-reset = Reset
 objective-editor-admin-ui-reset-all = Reset All
 

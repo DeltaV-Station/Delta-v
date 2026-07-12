@@ -57,8 +57,9 @@
                 </PanelContainer>
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" Align="Center" Margin="20 10 5 10">
-                <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" />
-                <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" />
+                <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" StyleClasses="OpenRight" />
+                <Button Name="ViewButton" Text="{Loc objective-editor-admin-ui-view}" StyleClasses="OpenBoth" />
+                <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" StyleClasses="OpenLeft"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

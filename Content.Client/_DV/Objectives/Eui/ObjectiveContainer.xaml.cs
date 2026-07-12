@@ -14,6 +14,7 @@ public sealed partial class ObjectiveContainer : BoxContainer
 
     public event Action<ObjectiveData>? DeleteAction;
     public event Action<int, string>? UpdateTitleAction;
+    public event Action<NetEntity>? OnViewAction;
 
     private readonly SpriteSystem _sprite;
     private const int MaxTabTitleLength = 15;
@@ -52,6 +53,7 @@ public sealed partial class ObjectiveContainer : BoxContainer
         ObjectiveDescription.Placeholder = new Rope.Leaf(Loc.GetString("objective-editor-admin-ui-placeholder-description"));
 
         DeleteButton.OnPressed += _ => DeleteAction?.Invoke(_objective);
+        ViewButton.OnPressed += _ => OnViewAction?.Invoke(_objective.Entity);
         ResetButton.OnPressed += _ => ResetObjective();
 
         SetIcon(_objective.Info.Icon);
