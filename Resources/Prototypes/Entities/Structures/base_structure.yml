@@ -26,6 +26,11 @@
   - type: Tag
     tags:
       - Structure
+  - type: ExaminableDamage # DeltaV
+    messages: BaseStructureMessages
+  - type: Repairable # Monolith - Nanite Applicator
+    doAfterDelay: 3
+    qualityNeeded: Applicating
 
 - type: entity
   # This means that it's not anchored on spawn.
