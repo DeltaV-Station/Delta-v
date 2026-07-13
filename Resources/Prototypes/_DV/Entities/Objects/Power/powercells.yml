@@ -22,11 +22,11 @@
     state: capacitor
 
 - type: entity
+  parent: PowerCellHigh
+  id: PowerCellHighXenoborg
   name: xenoborg power cell
   description: A rechargeable power cell with many differences from our own designs. It seems to be somewhat resistant to electromagnetic pulses.
-  id: PowerCellHighXenoborg
   suffix: Full
-  parent: PowerCellHigh
   components:
   - type: Sprite
     sprite: _DV/Objects/Power/power_cells.rsi

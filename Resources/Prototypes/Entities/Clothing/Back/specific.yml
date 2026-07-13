@@ -152,7 +152,8 @@
     blacklist:
       components:
       - SiliconLawProvider
-  - type: ItemToggle # DeltaV - Allow Toggle
+  # Begin DeltaV changes - Allow toggling magnet
+  - type: ItemToggle
     onUse: false
     soundActivate: &soundActivate
       collection: sparks
@@ -162,3 +163,4 @@
   - type: ItemToggleExamine # DeltaV - Allow Toggle
     on: magnet-pickup-component-magnet-xenoborg-on
     off: magnet-pickup-component-magnet-xenoborg-off
+  # End DeltaV changes
