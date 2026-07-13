@@ -1,65 +1,4 @@
 ﻿Entries:
-- author: Unkn0wnGh0st333
-  changes:
-  - message: Gulp Emote from Goob has been added...  gulp...
-    type: Add
-  id: 2053
-  time: '2026-01-12T04:42:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5033
-- author: Velcroboy
-  changes:
-  - message: Tanks of ammonia are now purchasable from logi for mixing more space
-      cleaner or making the station stinky
-    type: Add
-  id: 2054
-  time: '2026-01-13T05:00:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5167
-- author: Pharaz4
-  changes:
-  - message: Syndicate Assault, Medical, and Saboteur borgs now get names.
-    type: Add
-  - message: Fixed SRN Saboteur borg not being able to fit Engineering module
-    type: Fix
-  id: 2055
-  time: '2026-01-14T13:23:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5197
-- author: MilonPL
-  changes:
-  - message: Added a dynamic tip system that shows contextual tips to players based
-      on their job, playtime, and more.
-    type: Add
-  - message: Tips can be disabled or reset in the Options menu under DeltaV.
-    type: Add
-  id: 2056
-  time: '2026-01-14T20:23:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5199
-- author: Velcroboy
-  changes:
-  - message: Fixed bomb and effigy targets being on grids off the station sometimes.
-    type: Fix
-  id: 2057
-  time: '2026-01-15T07:29:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5213
-- author: Pharaz4
-  changes:
-  - message: Hard hats are now protective!
-    type: Tweak
-  id: 2058
-  time: '2026-01-15T15:44:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5175
-- author: Halo3moth
-  changes:
-  - message: The hos locker will now spawn with a briefcase that allows them to pick
-      between sidearms.
-    type: Add
-  - message: The energy magnum now also works for the hos steal objective.
-    type: Tweak
-  - message: Energy magnum standard bolt from 20 heat to 24 and magnum bolt from 30
-      heat to 24 heat and 11 pierce.
-    type: Tweak
-  id: 2059
-  time: '2026-01-16T17:46:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5203
 - author: mnva0
   changes:
   - message: Ovinia now start with a emergency survival box.
@@ -4341,4 +4280,56 @@
   id: 2553
   time: '2026-07-11T17:25:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5924
+- author: Coryler
+  changes:
+  - message: Avali Preened Feather Color are now correct again
+    type: Fix
+  id: 2554
+  time: '2026-07-13T13:32:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6285
+- author: pootslap
+  changes:
+  - message: Starlight forged weapons/armour/ammo are no longer craftable.
+    type: Remove
+  id: 2555
+  time: '2026-07-13T13:46:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6250
+- author: ArionGekkota
+  changes:
+  - message: Added the small arms mining kit to the mining voucher. It contains a
+      crusher dagger and mining drill!
+    type: Add
+  id: 2556
+  time: '2026-07-13T13:51:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6260
+- author: jessiscah23
+  changes:
+  - message: Due to the growing influence of the Cargo Pilots' Employee Advocacy Group,
+      cargo telepads are no longer available to be researched.
+    type: Remove
+  id: 2557
+  time: '2026-07-13T14:24:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6266
+- author: Velitation
+  changes:
+  - message: Added 2 new outfits and a mantle to the mime's loadout. The outfits can
+      also be printed out at a uniform printer.
+    type: Add
+  id: 2558
+  time: '2026-07-13T16:16:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6264
+- author: ShepardToTheStars
+  changes:
+  - message: Derelict borgs no longer have access to heads' rooms.
+    type: Fix
+  id: 2559
+  time: '2026-07-13T17:38:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6284
+- author: Coryler
+  changes:
+  - message: Character height should be correctly applied for clones and paradox clones.
+    type: Fix
+  id: 2560
+  time: '2026-07-13T19:58:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6205
 Order: 1
