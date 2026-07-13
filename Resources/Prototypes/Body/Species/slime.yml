@@ -41,10 +41,10 @@
   appearances:
     enum.HumanoidVisualLayers.Hair:
       layerAlpha: 0.72
-      matchSkin: true
+#      matchSkin: true                          #Delta V - Allow Slime people to change hair color
     enum.HumanoidVisualLayers.FacialHair:
       layerAlpha: 0.72
-      matchSkin: true
+#      matchSkin: true                          #Delta V - Allow Slime people to change facial hair color
 
 - type: entity
   parent: BaseSpeciesAppearance
