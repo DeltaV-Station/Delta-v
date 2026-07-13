@@ -79,3 +79,69 @@
   sprites:
   - sprite: _DV/Mobs/Customization/makeup.rsi
     state: moth_blush
+
+#Delta V - Slime-specific Makeup additions
+#Swapping the eyeshadow to head markings only on Slime people to account for newly added Eye markings and limit
+
+- type: marking
+  id: MakeupEyeshadowLower
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: eyeshadow_lower
+
+- type: marking
+  id: MakeupEyeshadowUpper
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: eyeshadow_upper
+
+- type: marking
+  id: MakeupFoureyesEyeshadow
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: foureyes_eyeshadow
+
+- type: marking
+  id: MakeupDroopyLEyeshadowUpper
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: droopyL_eyeshadow_upper
+
+- type: marking
+  id: MakeupDroopyLEyeshadowLower
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: droopyL_eyeshadow_lower
+
+- type: marking
+  id: MakeupDroopyREyeshadowUpper
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: droopyR_eyeshadow_upper
+
+- type: marking
+  id: MakeupDroopyREyeshadowLower
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/makeup.rsi
+    state: droopyR_eyeshadow_lower

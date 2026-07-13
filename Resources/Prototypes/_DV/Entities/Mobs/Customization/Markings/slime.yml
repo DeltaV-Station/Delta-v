@@ -1,0 +1,102 @@
+#HeadSide
+- type: marking
+  id: SlimeLongEars
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_standard
+
+- type: marking
+  id: SlimeEarsWide
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_wide
+
+- type: marking
+  id: SlimeEarsSmall
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_small
+
+- type: marking
+  id: SlimeEarsUpwards
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_upwards
+
+- type: marking
+  id: SlimeEarsTall
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_tall
+
+- type: marking
+  id: SlimeEarsThin
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_thin
+
+#Eyes
+- type: marking
+  id: SlimeEyesDroopyRight
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: droopyR
+
+- type: marking
+  id: SlimeEyesFourEyes
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: foureyes
+
+#Chest
+- type: marking
+  id: TorsoBitsF
+  bodyPart: Chest
+  groupWhitelist: [Slime]
+  sexRestriction: [Female]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/chest.rsi
+    state: torsobits_f
+
+- type: marking
+  id: TorsoBitsM
+  bodyPart: Chest
+  groupWhitelist: [Slime]
+  sexRestriction: [Male]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/chest.rsi
+    state: torsobits_m

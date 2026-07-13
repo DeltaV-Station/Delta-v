@@ -164,7 +164,7 @@
   # this is not a very big issue on humans, but is much more pronounced on vox & other nonhuman species, where the skin being more colorful can make for some truly dreadful meshing with the sprite thats definitely not desired.
   # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the eyeshadow, etc.
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Reptilian]
+  groupWhitelist: [Human, Reptilian] #Delta V- Removed from Slime people to account for added eyes
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
@@ -173,7 +173,7 @@
 - type: marking
   id: TattooEyeshadowLower
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Reptilian]
+  groupWhitelist: [Human, Reptilian] #Delta V- Removed from Slime people to account for added eyes
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
