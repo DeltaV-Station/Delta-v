@@ -429,3 +429,16 @@
   materials:
     Steel: 1000
     Uranium: 250
+
+# Crafting base component for Unstable Core Refractor
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: UnstableReactorHousing
+  result: UnstableReactorHousing
+  materials:
+    Steel: 5000
+    Glass: 2500
+    Gold: 2500
+    Silver: 4500
+    Uranium: 1000

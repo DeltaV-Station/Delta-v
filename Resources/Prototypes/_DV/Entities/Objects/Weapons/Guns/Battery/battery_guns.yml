@@ -698,9 +698,9 @@
 
 - type: entity
   parent: [ BaseWeaponBattery, BaseSecurityContraband ]
-  id: WeaponUCR
-  name: UCR Beta
-  description: Wumpidy
+  id: WeaponUnstableCoreRefractor
+  name: Unstable core refractor
+  description: A distant relitive to a nuclear control rod. This device was made to utalize and contain radiation from a unstable reactor core by exausting core heat in concetrated beams.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/Unstable_Core_Refractor.rsi
@@ -743,3 +743,9 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Construction
+    graph: UnstableCoreRefractor
+    node: UnstableRefractor
+  - type: Tag
+    tags:
+    - UnstableCoreRefractor
