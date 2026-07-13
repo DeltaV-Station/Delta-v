@@ -62,6 +62,7 @@ public abstract class SharedDVCommunicationsConsoleSystem : EntitySystem
     protected virtual void OnMapInit(Entity<DVCommunicationsConsoleComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.CanAnnounceAt = Timing.CurTime + ent.Comp.InitialAnnouncementDelay;
+        Dirty(ent);
     }
 
     private void OnAnnouncement(Entity<DVCommunicationsConsoleComponent> ent, ref DVCommunicationsConsoleAnnouncementMessage args)
