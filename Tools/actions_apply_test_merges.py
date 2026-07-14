@@ -52,12 +52,18 @@ def apply_test_merge(pr):
     number = pr["number"]
     branch = f"tm-{number}"
 
-    fetch = run("git", "fetch", "origin", f"pull/{number}/head:{branch}")
+    fetch = run(
+        "git", "-c", "submodule.recurse=false",
+        "fetch", "origin", f"pull/{number}/head:{branch}",
+    )
     if fetch.returncode != 0:
         print(f"::error::Failed to fetch PR #{number} ({pr['html_url']})")
         sys.exit(1)
 
-    merge = run("git", "merge", "--no-ff", "--no-edit", branch)
+    merge = run(
+        "git", "-c", "submodule.recurse=false",
+        "merge", "--no-ff", "--no-edit", branch,
+    )
     if merge.returncode != 0:
         print(f"::error::Failed to merge PR #{number} ({pr['html_url']}) - conflicts?")
         run("git", "merge", "--abort")
