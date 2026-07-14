@@ -218,6 +218,7 @@
         - id: NewtonCradle
         - id: BoxEnvelope
         - id: BrbSign
+        - id: ClothingNeckLanyard #Harmony addition. Also obtainable through character loadouts and PTech vendor
         # Begin DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
         - id: BoxFolderBlack
           amount: 2
@@ -391,6 +392,8 @@
           prob: 0.05
         - id: MobMothroach
           prob: 0.03
+        - id: MobRosyMothroach # Frontier
+          prob: 0.005 # Frontier
         - id: MobMouse
           prob: 0.05
           # Food Packaging

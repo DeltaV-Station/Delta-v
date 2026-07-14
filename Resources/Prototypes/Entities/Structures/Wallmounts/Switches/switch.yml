@@ -172,7 +172,8 @@
   parent: SignalButtonDirectional
   id: LockableButton
   name: lockable button
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] Delta V - Expose for admin use
+  suffix: Unassigned #  Delta V - Expose for admin use
   components:
   - type: Appearance
   - type: Lock
@@ -230,7 +231,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonResearchDirector
-  suffix: ResearchDirector
+  suffix: Mystagogue # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["ResearchDirector"]]
@@ -326,7 +327,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonCargo
-  suffix: Cargo
+  suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -334,7 +335,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonResearch
-  suffix: Research
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]

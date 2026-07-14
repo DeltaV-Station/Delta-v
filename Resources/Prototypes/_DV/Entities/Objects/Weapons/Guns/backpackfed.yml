@@ -1,0 +1,38 @@
+- type: entity
+  id: WeaponPlasmaBackpack
+  parent: [BaseItem, BaseGunWieldable]
+  name: eviscerator nozzle
+  suffix: SRT, Admeme
+  description: A power-hungry plasma gun, capable of sending a good amount of structure destroying plasma projectiles downrange.
+  components:
+  - type: Tag
+    tags:
+    - LaserPlasmaBackpack
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/BackFed/plasmaeviscerator.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Weapons/Guns/BackFed/plasmaeviscerator.rsi
+    size: Normal
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -11
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    cameraRecoilScalar: 0
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+  - type: Appearance
+  - type: ClothingSlotAmmoProvider
+  - type: SlotBasedConnectedContainer
+    targetSlot: BACK
+    containerWhitelist:
+      tags:
+      - HeavyPlasmaBattery
+  - type: UseDelay
+    delay: 1.0

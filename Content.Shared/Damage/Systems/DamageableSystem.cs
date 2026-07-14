@@ -11,9 +11,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-using Content.Shared.Body.Systems; // Shitmed Change
-using Robust.Shared.Random; // Shitmed Change
-
 namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem : EntitySystem
@@ -25,8 +22,6 @@ public sealed partial class DamageableSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly SharedChemistryGuideDataSystem _chemistryGuideData = default!;
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
-    [Dependency] private readonly IRobustRandom _random = default!; // Shitmed Change
 
     private EntityQuery<AppearanceComponent> _appearanceQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;
@@ -43,6 +38,8 @@ public sealed partial class DamageableSystem : EntitySystem
     public float UniversalTopicalsHealModifier { get; private set; } = 1f;
     public float UniversalMobDamageModifier { get; private set; } = 1f;
 
+    private Dictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _supportedTypesByContainer = new();
+
     /// <summary>
     ///     If the damage in a DamageableComponent was changed this function should be called.
     /// </summary>
@@ -54,8 +51,7 @@ public sealed partial class DamageableSystem : EntitySystem
         Entity<DamageableComponent> ent,
         DamageSpecifier? damageDelta = null,
         bool interruptsDoAfters = true,
-        EntityUid? origin = null,
-        bool canSever = true // Shitmed
+        EntityUid? origin = null
     )
     {
         ent.Comp.Damage.GetDamagePerGroup(_prototypeManager, ent.Comp.DamagePerGroup);
@@ -74,32 +70,7 @@ public sealed partial class DamageableSystem : EntitySystem
 
         // TODO DAMAGE
         // byref struct event.
-        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin, canSever: canSever)); // Shitmed
-    }
-    private void DamageableGetState(Entity<DamageableComponent> ent, ref ComponentGetState args)
-    {
-        if (_netMan.IsServer)
-        {
-            args.State = new DamageableComponentState(
-                ent.Comp.Damage.DamageDict,
-                ent.Comp.DamageContainerID,
-                ent.Comp.DamageModifierSetId,
-                ent.Comp.HealthBarThreshold
-            );
-            // TODO BODY SYSTEM pass damage onto body system
-            // BOBBY WHEN? 😭
-            // BOBBY SOON 🫡
-
-            return;
-        }
-
-        // avoid mispredicting damage on newly spawned entities.
-        args.State = new DamageableComponentState(
-            ent.Comp.Damage.DamageDict.ShallowClone(),
-            ent.Comp.DamageContainerID,
-            ent.Comp.DamageModifierSetId,
-            ent.Comp.HealthBarThreshold
-        );
+        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin));
     }
 
     /// <summary>
@@ -123,4 +94,11 @@ public sealed partial class DamageableSystem : EntitySystem
         }
         return damageTypes;
     }
+
+    // Delta V - Begin Workaround to Change the Camdage Container
+    public void ChangeDamageContainer(Entity<DamageableComponent> ent, ProtoId<DamageContainerPrototype> damageContainer)
+    {
+        ent.Comp.DamageContainerID = damageContainer;
+    }
+    // Delta V - End
 }

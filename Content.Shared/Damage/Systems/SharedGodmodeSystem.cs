@@ -7,7 +7,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Body.Systems; // Shitmed Change
 using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.Prototypes;
 
@@ -16,9 +15,6 @@ namespace Content.Shared.Damage.Systems;
 public abstract class SharedGodmodeSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
 
     public override void Initialize()
     {
@@ -72,18 +68,8 @@ public abstract class SharedGodmodeSystem : EntitySystem
 
     public virtual void EnableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
     {
-        godmode ??= EnsureComp<GodmodeComponent>(uid);
-
-        if (TryComp<DamageableComponent>(uid, out var damageable))
-        {
-            godmode.OldDamage = new DamageSpecifier(damageable.Damage);
-        }
-
         // Rejuv to cover other stuff
         RaiseLocalEvent(uid, new RejuvenateEvent());
-
-        foreach (var (id, _) in _bodySystem.GetBodyChildren(uid)) // Shitmed Change
-            EnableGodmode(id);
     }
 
     public virtual void DisableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
@@ -91,15 +77,7 @@ public abstract class SharedGodmodeSystem : EntitySystem
         if (!Resolve(uid, ref godmode, false))
             return;
 
-        if (godmode.OldDamage != null)
-        {
-            _damageable.SetDamage(uid, godmode.OldDamage);
-        }
-
         RemComp<GodmodeComponent>(uid);
-
-        foreach (var (id, _) in _bodySystem.GetBodyChildren(uid)) // Shitmed Change
-            DisableGodmode(id);
     }
 
     /// <summary>

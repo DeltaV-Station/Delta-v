@@ -37,3 +37,28 @@
   - type: Tag
     tags:
     - HolofanProjector
+
+- type: entity
+  parent: BaseItem
+  id: HoloprojectorAnomaly
+  name: anomaly projector
+  description: A handy way to warn people about a particularly anomalous zone - let everyone know that reality isn't normal anymore.
+  components:
+  - type: ChargeHolosignProjector
+    signProto: HolosignAnomaly
+    signComponentName: HoloAnomaly
+  - type: AutoRecharge
+    rechargeDuration: 60
+  - type: Sprite
+    sprite: _DV/Objects/Devices/Holoprojectors/epistemics.rni
+    state: icon
+  - type: Item
+    storedRotation: -90
+  - type: LimitedCharges
+    maxCharges: 6
+  - type: ContainerContainer
+    containers:
+      signs: !type:Container
+  - type: Tag
+    tags:
+    - HolofanProjector

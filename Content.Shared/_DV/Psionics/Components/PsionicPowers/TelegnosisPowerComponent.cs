@@ -11,9 +11,9 @@ public sealed partial class TelegnosisPowerComponent : BasePsionicPowerComponent
 
     public override string PowerName { get; set; } = "psionic-power-name-telegnosis";
 
-    public override int MinGlimmerChanged { get; set; } = 10;
+    public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged { get; set; } = 50;
+    public override int MaxGlimmerChanged { get; set; } = 25;
 
     /// <summary>
     /// The mob prototype that will be used to telegnosis.

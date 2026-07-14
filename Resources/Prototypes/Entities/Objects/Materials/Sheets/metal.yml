@@ -15,6 +15,7 @@
     tags:
     - Sheet
     - Metal
+    - TiderAnvilParts #SL
     - ConstructionMaterial
   - type: Damageable
     damageContainer: Inorganic
@@ -45,14 +46,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
-  - type: Healing # DeltaV - steel heals caustic damage for IPCs
-    delay: 1
-    damageContainers:
-    - Silicon
-    - HumanoidSilicon
-    damage:
-      types:
-        Caustic: -5
   - type: Stack
     stackType: Steel
     baseLayer: base

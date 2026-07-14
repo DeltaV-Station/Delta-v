@@ -2,6 +2,7 @@
   parent: FlippoLighter
   id: SyndicateFlippoDV
   name: Blood-red flippo
+  suffix: Gun, Regenerates Fuel
   description: "A 'Valid' choice in lighters. Contains no copper. This one seems to have a few extra features."
   components:
   - type: Sprite
@@ -73,3 +74,113 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 0.1
+
+# Loadout nerfed lighters for loadouts
+
+- type: entity
+  abstract: true
+  parent: BaseBrandedLighter
+  id: BaseBrandedLighterNerfed
+  suffix: Nerfed
+  components:
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 1 # does a little bit of damage on hit when off
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.2
+
+- type: entity
+  parent: BaseBrandedLighterNerfed
+  id: WaffleCoFlippoNerfed
+  name: Waffle Co. flippo
+  description: "A mass produced lighter. The Waffle Co. logo turns the spark wheel when pushed up, minimising risk of lighter burns for even the most inept user."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/waffleco.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/waffleco.rsi
+  - type: PointLight
+    color: brown
+
+- type: entity
+  parent: BaseBrandedLighterNerfed
+  id: HonkCoFlippoNerfed
+  name: Honk Co. flippo
+  description: "A rubbery gag lighter produced by Honk Co. hidden inside of a plastic banana peel."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/honkco.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/honkco.rsi
+  - type: PointLight
+    color: yellow
+
+- type: entity
+  parent: BaseBrandedLighterNerfed
+  id: DonkcoLighterNerfed
+  name: Donk Co. flippo
+  description: "A Breaded novelty lighter made by Donk Co."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/donkco.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/donkco.rsi
+  - type: PointLight
+    color: orange
+
+- type: entity
+  parent: BaseBrandedLighterNerfed
+  id: InterdyneFlippoNerfed
+  name: Interdyne flippo
+  description: "A deep blue, off-brand flippo lighter, decorated with the logo of Interdyne Pharmaceuticals' 'Gene Clean' clinics. Become the master of your own cigarette."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/interdyne.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/interdyne.rsi
+  - type: PointLight
+    color: cyan
+
+- type: entity
+  parent: Matchbox
+  id: GorlexMatchboxNerfed
+  name: Gorlex match box
+  description: "A pneumatic match box styled after the Gorlex Marauders' equipment. As if those things would ever appear here."
+  suffix: Nerfed
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/gorlex.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/gorlex.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: GorlexMatchstick
+        amount: 6
+  - type: Matchbox
+
+- type: entity
+  parent: BaseBrandedLighterNerfed
+  id: CentCommFlippoNerfed
+  name: CentComm flippo
+  description: "A gaudy jade-colored flippo frame with worn gilding, containing a colored flame. The latch is secured by a miniature access reader that only responds to CentComm officials. So much for loyalty."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/centcomm.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/centcomm.rsi
+  - type: ItemToggleRequiresLock
+    requireLocked: false
+  - type: PointLight
+    color: Gold
+  - type: Lock
+  - type: AccessReader
+    access: [["CentralCommand"]]

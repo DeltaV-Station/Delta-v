@@ -11,20 +11,6 @@
   - ArtifactDisplayCaseMachineCircuitBoard
 
 - type: technology
-  id: PsionicProsthetics
-  name: research-technology-psionic-prosthetics
-  icon:
-    sprite: _DV/Interface/Actions/actions_psionics.rsi
-    state: dispel
-  discipline: Experimental
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - DispelLeftArm
-  - RecallLeftArm
-  - ForcewallLeftArm
-
-- type: technology
   id: DirectedRadiation
   name: research-technology-directed-radiation
   icon:

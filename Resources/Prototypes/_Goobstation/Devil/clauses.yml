@@ -173,10 +173,12 @@
   addedComponents:
   - type: Muted
 
-- type: clause
-  id: aleg
-  clauseWeight: 20
-  event: !type:DevilContractLoseLegEvent
+# Delta V Begin - Nubody, doesn't work currently
+# - type: clause
+#   id: aleg
+#   clauseWeight: 20
+#   event: !type:DevilContractLoseLegEvent
+# Delta V End - Nubody, doesn't work currently
 
 - type: clause
   id: ahand
@@ -224,11 +226,12 @@
   - type: CheatDeath
     infiniteRevives: true
 
-- type: clause
-  id: time
-  clauseWeight: 150
-  addedComponents:
-  - type: DelayedDeath
-    preventAllRevives: true # :trol:
-    deathTime: 300
-    deathMessageId: devil-deal-time-ran-out
+# Delta V - Nubody, No shitmed
+#- type: clause
+#  id: time
+#  clauseWeight: 150
+#  addedComponents:
+#  - type: DelayedDeath
+#    preventAllRevives: true # :trol:
+#    deathTime: 300
+#    deathMessageId: devil-deal-time-ran-out

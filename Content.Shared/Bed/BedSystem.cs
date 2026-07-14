@@ -1,12 +1,11 @@
-using Content.Shared._EE.Silicon.Components; // Goobstation
 using Content.Shared.Actions;
 using Content.Shared.Bed.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Events;
-using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Metabolism;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -21,9 +20,9 @@ public sealed class BedSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedMetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
 
@@ -151,8 +150,7 @@ public sealed class BedSystem : EntitySystem
 
             foreach (var healedEntity in strapComponent.BuckledEntities)
             {
-                if (_mobStateSystem.IsDead(healedEntity)
-                    || HasComp<SiliconComponent>(healedEntity)) // Goobstation)
+                if (_mobStateSystem.IsDead(healedEntity))
                     continue;
 
                 var damage = bedComponent.Damage;

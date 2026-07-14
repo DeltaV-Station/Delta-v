@@ -1503,6 +1503,7 @@
       Taco: ChiliPepper
       Burger: ChiliPepper
       Skewer: ChiliPepperSkewer
+      Nachos: ChiliPepper # DeltaV
 
 - type: entity
   name: chilly pepper
@@ -1739,7 +1740,7 @@
         - ReagentId: Nutriment
           Quantity: 2
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
+    sprite: _DV/Objects/Specific/Hydroponics/ambrosia_deus.rsi # Delta-V - Replaced Sprite due to Ambrosia Nobilis
   - type: Item
     heldPrefix: produce
   - type: Produce
@@ -1747,7 +1748,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: Clothing
-    sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
+    sprite: _DV/Objects/Specific/Hydroponics/ambrosia_deus.rsi # Delta-V - Replaced Sprite due to Ambrosia Nobilis
     slots:
     - HEAD
   - type: Tag

@@ -12,6 +12,7 @@ using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Store.Systems;
+using Content.Shared.Cuffs.Components; // DeltaV
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -61,6 +62,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         SubscribeLocalEvent<NukeOperativeComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<NukeOperativeComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<NukeOperativeComponent, EntityZombifiedEvent>(OnOperativeZombified);
+        SubscribeLocalEvent<NukeOperativeComponent, CuffedStateChangeEvent>(OnNukeOpCuffed); // DeltaV
 
         SubscribeLocalEvent<NukeopsRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
@@ -318,6 +320,15 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             CheckRoundShouldEnd();
     }
 
+    /// <summary>
+    /// DeltaV - Check if the round should end if a nuke op is cuffed. CheckRoundShouldEnd checks if theres any more 
+    /// alive and non-cuffed nukies remaining.
+    /// </summary>
+    private void OnNukeOpCuffed(EntityUid uid, NukeOperativeComponent component, CuffedStateChangeEvent ev)
+    {
+        CheckRoundShouldEnd();
+    }
+
     private void OnOperativeZombified(EntityUid uid, NukeOperativeComponent component, ref EntityZombifiedEvent args)
     {
         RemCompDeferred(uid, component);
@@ -462,10 +473,16 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void CheckRoundShouldEnd()
     {
         var query = QueryActiveRules();
+
+        // BEGIN DeltaV - Allow round to become survival
+        // CheckRoundShouldEnd needs to be outside the query, because it might add an active rule
+        List<Entity<NukeopsRuleComponent>> nukeOpsRules = new();
         while (query.MoveNext(out var uid, out _, out var nukeops, out _))
         {
-            CheckRoundShouldEnd((uid, nukeops));
+            nukeOpsRules.Add((uid, nukeops));
         }
+        nukeOpsRules.ForEach(CheckRoundShouldEnd);
+        // END DeltaV
     }
 
     private void CheckRoundShouldEnd(Entity<NukeopsRuleComponent> ent)
@@ -500,12 +517,22 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         // Check if there are nuke operatives still alive on the same map as the shuttle,
         // or on the same map as the station.
         // If there are, the round can continue.
-        var operatives = EntityQuery<NukeOperativeComponent, MobStateComponent, TransformComponent>(true);
+
+        // BEGIN DeltaV - Detect Nukie Failure Better
+        // We need to use a EntityQueryEnumerator instead of a EntityQuery, because we need the uid to check for cuffs
+        var operatives = new List<Entity<NukeOperativeComponent, MobStateComponent, TransformComponent>>();
+        var operativesEnumerator = EntityQueryEnumerator<NukeOperativeComponent, MobStateComponent, TransformComponent>();
+        while (operativesEnumerator.MoveNext(out var uid, out var nukeOp, out var mobState, out var transform))
+        {
+            operatives.Add((uid, nukeOp, mobState, transform));
+        }
+
         var operativesAlive = operatives
-            .Where(op =>
-                op.Item3.MapID == shuttleMapId
-                || op.Item3.MapID == targetStationMap)
-            .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
+            .Where(op => op.Comp3.MapID == shuttleMapId
+                || op.Comp3.MapID == targetStationMap)
+            .Any(op => op.Comp2.CurrentState == MobState.Alive && op.Comp1.Running &&
+                !TryComp<CuffableComponent>(op, out _)); // in the case the crew keeps one alive
+        // END DeltaV
 
         if (operativesAlive)
             return; // There are living operatives than can access the shuttle, or are still on the station's map.

@@ -21,11 +21,20 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: ClothingGrantComponent
-    component:
-    - type: Stealth
+  # DeltaV start
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - sprite: _DV/Clothing/Head/Hardsuits/cybersunstealth.rsi
+        state: on-equipped-HELMET-light
+        shader: unshaded
+  # - type: ClothingGrantComponent
+  #   component:
+  #   - type: Stealth
     # Harmony start
-    - type: StealthOnMove
-      passiveVisibilityRate: -0.5
-      movementVisibilityRate: 0.45 # DeltaV - was 0.6
+  #   - type: StealthOnMove
+  #     passiveVisibilityRate: -0.5
+  #     movementVisibilityRate: 0.6
     # Harmony end
+  # DeltaV end

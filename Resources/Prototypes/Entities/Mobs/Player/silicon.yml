@@ -1,6 +1,7 @@
-﻿# Be careful with these as they get removed on shutdown too!
+# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
+  save: false # DeltaV - AI PDAs
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
@@ -46,6 +47,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionOpenCartridges # DeltaV - AI PDA
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -60,6 +62,16 @@
         type: CommunicationsConsoleBoundUserInterface
       enum.StoreUiKey.Key: # DeltaV - AI shop system
         type: StoreBoundUserInterface
+      # Begin DeltaV - AI PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End DeltaV - AI PDAs
+      # Begin DeltaV - AI fax
+      enum.FaxUiKey.Key:
+        type: StationAiFaxBoundUserInterface
+      # End DeltaV - AI fax
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -70,12 +82,16 @@
         toggleAction: ActionAGhostShowStationRecords
       enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionAGhostShowCommunications
+      # Begin DeltaV - AI fax
+      enum.FaxUiKey.Key:
+        toggleAction: ActionStationAiOpenFax
+      # End DeltaV - AI fax
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: CrewMonitor
-    transmitFrequencyId: ShuttleTimer
+    receiveFrequencyId: NTNet # DeltaV
+    transmitFrequencyId: NTNet # DeltaV
   - type: RadarConsole
     followEntity: false
   - type: CommunicationsConsole
@@ -83,10 +99,32 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: DamagedSiliconAccent
     startPowerCorruptionAtCharIdx: 4
     maxPowerCorruptionAtCharIdx: 20
   - type: StationAiShop # DeltaV - AI Shop System
+  # Begin DeltaV - AI faxes
+  - type: FaxMachine
+    name: Station AI
+    printSound: null
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+        - FaxableObject
+      blacklist:
+        components:
+        - CargoSlip
+        tags:
+        - PaperSlip
+  - type: StationAiFax
+  - type: Pager
+    autoLinkJobs: [ StationAi ]
+  - type: PageSender
+    autoLinkJobs: [ StationAi ]
+  # End DeltaV - AI faxes
 
 - type: entity
   id: AiHeldIntellicard
@@ -109,6 +147,7 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
 
 # Ai
 - type: entity
@@ -418,6 +457,7 @@
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
+  save: false # DeltaV - AI PDAs
   parent: PositronicBrain
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
@@ -486,7 +526,6 @@
     damageContainers:
     - Inorganic
     - Silicon
-    - HumanoidSilicon
   # End DeltaV additions
   - type: ToggleableGhostRole
     roleName: station-ai-ghost-role-name
@@ -495,6 +534,46 @@
     mindRoles:
     - MindRoleGhostRoleSilicon
     job: StationAi
+  # Begin DeltaV - AI PDAs
+  - type: Pda
+    idSlot:
+      locked: true
+    penSlot:
+      locked: true
+    paiSlot:
+      locked: true
+  - type: Ringer
+  - type: NanoChatCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    cartridgeSlot:
+      locked: true
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: ContainerContainer
+    containers:
+      program-container: !type:Container
+      Cartridge-Slot: !type:ContainerSlot
+      # Begin DeltaV - AI faxes
+      Paper: !type:ContainerSlot
+      PaperLibrary: !type:Container
+      # End DeltaV - AI faxes
+  - type: ItemSlots
+  - type: PdaBorderColor
+    borderColor: "#45453f"
+    accentVColor: "#447987"
+  # End DeltaV - AI PDAs
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -624,11 +703,11 @@
       borg_brain:
         - SyndicateNeuroling # DeltaV
       borg_module:
-        - BorgModuleAdvancedTool # Delta V - replaced tool module
+        - BorgModuleTool
         - BorgModuleCable # DeltaV
         - BorgModuleConstruction # DeltaV
         - BorgModuleOperative
-        - BorgModuleSyndicateWeapon
+        # - BorgModuleSyndicateWeapon # DeltaV - removed for balance
         - BorgModuleCloakDeviceSyndicate # DeltaV
       borg_id_chip: # DeltaV - borg id chips
       - IdChipSyndie
@@ -681,6 +760,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleConstruction
@@ -721,6 +801,7 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModulePrying
         - BorgModuleTool
         - BorgModuleFireExtinguisher
       borg_id_chip: # DeltaV - borg id chips
@@ -758,6 +839,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
@@ -797,6 +879,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleChemical
@@ -837,6 +920,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool #No fire extinguisher, traversal is better
       - BorgModuleMining
       - BorgModuleTraversal

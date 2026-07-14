@@ -42,6 +42,6 @@ public sealed class DamageOnUnequipSystem : SharedDamageOnUnequipSystem
             _jittering.DoJitter(args.Wearer, TimeSpan.FromSeconds(15), false);
         }
 
-        _damageable.TryChangeDamage(args.Wearer, ent.Comp.UnequipDamage, true, true, canSever: false); // Shitmed
+        _damageable.TryChangeDamage(args.Wearer, ent.Comp.UnequipDamage, true, true);
     }
 }

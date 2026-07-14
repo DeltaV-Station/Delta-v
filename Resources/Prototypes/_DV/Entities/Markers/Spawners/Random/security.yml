@@ -91,3 +91,23 @@
       prob: 0.2
     - id: WeaponEnergyGunMini
       prob: 0.1
+
+- type: entityTable
+  id: RevolverCrateTable
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: WeaponRevolverInspector
+      - id: WeaponRevolverSnub
+    - !type:GroupSelector
+      children:
+      - id: WeaponRevolverK38Master
+      - id: WeaponRevolverLucky
+      - id: WeaponRevolverFitz
+    - id: SpeedLoaderMagnum
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: SpeedLoaderSpecial
+      amount: !type:ConstantNumberSelector
+        value: 2

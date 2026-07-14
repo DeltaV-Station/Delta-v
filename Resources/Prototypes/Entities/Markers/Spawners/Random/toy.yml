@@ -42,7 +42,6 @@
       # Begin DeltaV - see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
     - id: PlushieMothRandom # Nyano - random moth plushies
     - id: PlushieMort
-    - id: PlushieIPC
     - id: PlushieFelinid
     - id: PlushieOni
     - id: PlushieHarpy
@@ -51,6 +50,7 @@
     - id: PlushieChitinid
     - id: PlushieKitsune
     - id: PlushieThaven # IMP port
+    - id: PlushieAvali
     # End DeltaV
     - !type:GroupSelector
       children:
@@ -327,6 +327,7 @@
     - id: NukeDiskFake
     - id: DiceBag
     - id: SpectralLocator
+    - id: Magic9Ball
     - id: BarberScissors
     - id: SprayFlowerPin
     - id: ClothingShoesSkates

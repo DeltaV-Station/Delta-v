@@ -1,0 +1,146 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "State based Copyright",
+    "size": {
+        "x": 160,
+        "y": 160
+    },
+    "states": [
+        {
+            "name": "reactor",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi"
+        },
+        {
+            "name": "reactorbroken",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reactor_gas_input_lights",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083
+                ]
+            ]
+        },
+        {
+            "name": "reactor_gas_output_lights",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083
+                ]
+            ]
+        },
+        {
+            "name": "reactor_lights_warning",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083
+                ]
+            ]
+        },
+        {
+            "name": "reactor_lights_meltdown",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.042,
+                    0.042,
+                    0.042,
+                    0.042,
+                    0.042,
+                    0.042
+                ]
+            ]
+        },
+        {
+            "name": "reactor_status_active",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reactor_status_overheat",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reactor_status_meltdown",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "reactor_smoke",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi"
+        },
+        {
+            "name": "reactor_fire",
+            "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi"
+        }
+    ]
+}

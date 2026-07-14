@@ -3,23 +3,26 @@
   name: department-Logistics # DeltaV
   description: department-Logistics-description # DeltaV
   color: "#A46106"
+  radioChannel: Supply # DeltaV
   roles:
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
-  - Courier # DeltaV - Courier, see Resources/Prototypes/_DV/Roles/Jobs/Cargo/courier.yml
-  - CargoAssistant # DeltaV
+  # BEGIN DeltaV Logistics Jobs
+  - Courier
+  - CargoAssistant
+  # END DeltaV
 
 - type: department
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
+  radioChannel: Service # DeltaV
   weight: -10
   roles:
   - Bartender
   - Botanist
-  - Boxer # DeltaV - Keep Zookeeper/Boxer
   # - Chaplain # DeltaV - Move Chaplain into Epistemics
   - Chef
   - Clown
@@ -32,17 +35,19 @@
   - Passenger
   - Reporter
   - Visitor
-  - Zookeeper # DeltaV - Keep Zookeeper/Boxer
   - ServiceWorker
-  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
-  - Prisoner # Nyanotrasen - Prisoner, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
+  # BEGIN DeltaV Jobs
+  - Boxer
+  - MartialArtist
+  - Zookeeper
+  # END DeltaV
 
 - type: department
   id: CentralCommand
   name: department-CentralCommand
   description: department-CentralCommand-description
   color: "#0c344d"
+  radioChannel: CentCom # DeltaV
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -61,6 +66,7 @@
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
+  radioChannel: Command # DeltaV
   roles:
   - Captain
   - ChiefEngineer
@@ -88,6 +94,7 @@
   name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
+  radioChannel: Engineering # DeltaV
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
@@ -99,6 +106,7 @@
   name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
+  radioChannel: Medical # DeltaV
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -106,14 +114,16 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - MedicalBorg # Delta V - Medical Borg, see Resources/Prototypes/_DV/Roles/Jobs/Medical/medicalborg.yml
-  - Surgeon # Delta V - Surgeon, see Resources/Prototypes/_DV/Roles/Jobs/Medical/surgeon.yml
+  # BEGIN DeltaV Med Jobs
+  - Surgeon
+  # END DeltaV
 
 - type: department
   id: Security
   name: department-Security
   description: department-Security-description
-  color: "#DE3A3A"
+  color: "#1563bdC8" # DeltaV changed to blue, was "#DE3A3A"
+  radioChannel: Security # DeltaV
   weight: 20
   roles:
   - HeadOfSecurity
@@ -121,23 +131,29 @@
   - SecurityOfficer
   - Detective
   - Warden
-  - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
-  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
-  - SecurityBorg # Delta-V : Security Borg
+  # BEGIN DeltaV Sec Jobs
+  - Brigmedic
+  - PrisonGuard
+  - RoleLaika 
+  - RoleK9Officer
+  # END DeltaV
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
   name: department-Epistemics # DeltaV
   description: department-Epistemics-description # DeltaV
   color: "#D381C9"
+  radioChannel: Science # DeltaV
   roles:
   - ResearchDirector
   - Scientist
   - ResearchAssistant
-  - Chaplain # DeltaV - Move Chaplain into Epistemics
-  - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
-  - Roboticist # DeltaV: Roboticist job
-  - Librarian # DeltaV - Move Librarian into epistemics as curator
+  # BEGIN DeltaV Epi Jobs
+  - Chaplain # Moved from Service into Epi
+  - ForensicMantis
+  - Librarian # Curator, moved from Service into Epi
+  - Roboticist
+  # END DeltaV
 
 - type: department
   id: Silicon
@@ -146,24 +162,20 @@
   color: "#D381C9"
   roles:
   - Borg
-  - MedicalBorg # DeltaV - roundstart mediborg job
-  - SecurityBorg # Delta-V : Security Borg
   - StationAi
   primary: false # DeltaV - removed from primary dept
 
-- type: department
-  id: Specific
-  name: department-Specific
-  description: department-Specific-description
-  color: "#9FED58"
-  weight: 10
-  roles:
-  - Boxer # DeltaV - Keep Zookeeper/Boxer
-  - Reporter
-  - Zookeeper # DeltaV - Keep Zookeeper/Boxer
-  - Psychologist
-  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
-  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
-  - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
-  primary: false
+# DeltaV - get rid of 'station-specific' as a department. All of these
+#          jobs are under another category, so all this does is list
+#          them twice in the job select and on the crew monitor.
+# - type: department
+#   id: Specific
+#   name: department-Specific
+#   description: department-Specific-description
+#   color: "#9FED58"
+#   weight: 10
+#   roles:
+#   - Reporter
+#   - Psychologist
+#   primary: false
+# END DeltaV
