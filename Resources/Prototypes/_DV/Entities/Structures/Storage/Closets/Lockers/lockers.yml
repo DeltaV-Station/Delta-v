@@ -25,6 +25,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
+# Justice
 - type: entity
   parent: CommandLockerBaseSecureDeltaV
   id: LockerChiefJustice
@@ -40,7 +41,7 @@
 
 - type: entity
   parent: LockerBaseSecureDeltaV
-  id: LockerClerk
+  id: LockerClerk # TODO - Remove for Justice Rework
   name: clerk's locker
   components:
   - type: Appearance
@@ -51,6 +52,33 @@
   - type: AccessReader
     access: [["Clerk"]]
 
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerMarshal
+  name: marshal's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals # TODO - Resprite
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [ [ "Marshal" ] ]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJusticeWarden
+  name: warden's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals # TODO - Resprite
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [ [ "JusticeWarden" ] ]
+
+# Medical
 - type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerPsychologist
@@ -75,6 +103,7 @@
   - type: AccessReader
     access: [["Medical"], ["Surgery"]] # Added medical until surgeon returns
 
+# Service
 - type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerKitchen
@@ -99,6 +128,7 @@
   - type: AccessReader
     access: [["Janitor"]]
 
+# Logistic
 - type: entity
   parent: LockerBaseSecure
   id: LockerLogistics # Wizden has sprites for this but doesn't have an entity that uses them?
@@ -111,6 +141,7 @@
   - type: AccessReader
     access: [["Cargo"]]
 
+# Security
 - type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerArmoryStorage
@@ -123,6 +154,20 @@
   - type: AccessReader
     access: [["Armory"]]
 
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerArmorer
+  name: armorer's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: warden
+    stateDoorOpen: warden_open
+    stateDoorClosed: warden_door
+  - type: AccessReader
+    access: [ [ "Armory" ] ]
+
+# Epistemics
 - type: entity
   parent: LockerBooze
   id: LockerForensicMantis
@@ -151,6 +196,17 @@
             min: 1
             max: 2
 
+- type: entity
+  parent: LockerForensicMantis
+  id: LockerArchivist
+  name: archivist's cabinet
+  suffix: Empty
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  components:
+  - type: AccessReader
+    access: [ [ "Library" ] ]
+
+# Gun safe
 - type: entity
   id: SalvageGunSafeBaseSecure
   parent: GunSafe
@@ -326,16 +382,6 @@
   components:
   - type: AccessReader
     access: [["Armory"]]
-
-- type: entity
-  parent: LockerForensicMantis
-  id: LockerArchivist
-  name: archivist's cabinet
-  suffix: Empty
-  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
-  components:
-  - type: AccessReader
-    access: [["Library"]]
 
 # Evac pod
 - type: entity
