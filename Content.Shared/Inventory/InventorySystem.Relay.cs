@@ -86,14 +86,15 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, WieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IngestionAttemptEvent>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, StealthAddedEvent>(RefRelayInventoryEvent); // DeltaV - Items disable Stealth.
-        // DeltaV Start - Psionic Events
+        // DeltaV Start
+        SubscribeLocalEvent<InventoryComponent, StealthAddedEvent>(RefRelayInventoryEvent); // Items disable Stealth.
+        // Psionic Events
         SubscribeLocalEvent<InventoryComponent, DispelledEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, PsionicPowerUseAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TargetedByPsionicPowerEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, NoosphericFryEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, WeightlessnessChangedEvent>(RefRelayInventoryEvent); // Heavy Clothing
-        // DeltaV End - Psionic Events
+        // DeltaV End
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);
