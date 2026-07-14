@@ -15,6 +15,7 @@ import yaml
 
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 GITHUB_REPOSITORY = os.environ["GITHUB_REPOSITORY"]
+GITHUB_REF_NAME = os.environ["GITHUB_REF_NAME"]
 GITHUB_API_URL = os.environ.get("GITHUB_API_URL", "https://api.github.com")
 
 TEST_MERGE_LABEL = "Test Merge"
@@ -60,7 +61,8 @@ def unshallow():
     print("Repository is shallow, fetching full (blobless) history")
     result = run(
         "git", "-c", "submodule.recurse=false",
-        "fetch", "--unshallow", "--filter=blob:none", "origin",
+        "fetch", "--unshallow", "--filter=blob:none",
+        "origin", GITHUB_REF_NAME,
     )
     if result.returncode != 0:
         print("::error::Failed to unshallow repository")
