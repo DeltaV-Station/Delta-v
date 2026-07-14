@@ -21,9 +21,9 @@ public abstract class SharedTelegnosisPowerSystem : BasePsionicPowerSystem<Teleg
 
         SubscribeLocalEvent<TelegnosticProjectionComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<TelegnosticProjectionComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+        SubscribeLocalEvent<TelegnosticProjectionComponent, MindSwapLinkSeveredEvent>(OnLinkSevered);
         SubscribeLocalEvent<TelegnosisPowerComponent, ShowSSDIndicatorEvent>(OnShowSSDIndicator);
         SubscribeLocalEvent<TelegnosisPowerComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<TelegnosisPowerComponent, MindSwapLinkSeveredEvent>(OnLinkSevered);
     }
 
     private void OnMindRemoved(Entity<TelegnosticProjectionComponent> projection, ref MindRemovedMessage args)
@@ -35,6 +35,16 @@ public abstract class SharedTelegnosisPowerSystem : BasePsionicPowerSystem<Teleg
     {
         // no astrally stealing someone's shoes
         args.Cancelled = true;
+    }
+
+    private void OnLinkSevered(Entity<TelegnosticProjectionComponent> victim, ref MindSwapLinkSeveredEvent args)
+    {
+        RemComp<PsionicallyInvisibleComponent>(victim);
+        RemComp<StealthComponent>(victim);
+        EnsureComp<SpeechComponent>(victim);
+        EnsureComp<DispellableComponent>(victim);
+        _metaData.SetEntityName(victim, Loc.GetString("telegnostic-trapped-entity-name"));
+        _metaData.SetEntityDescription(victim, Loc.GetString("telegnostic-trapped-entity-desc"));
     }
 
     private void OnShowSSDIndicator(Entity<TelegnosisPowerComponent> psionic, ref ShowSSDIndicatorEvent args)
@@ -51,16 +61,6 @@ public abstract class SharedTelegnosisPowerSystem : BasePsionicPowerSystem<Teleg
             return;
 
         args.PushMarkup($"[color=yellow]{Loc.GetString("telegnosis-power-ssd", ("ent", entity))}[/color]");
-    }
-
-    private void OnLinkSevered(Entity<TelegnosisPowerComponent> victim, ref MindSwapLinkSeveredEvent args)
-    {
-        RemComp<PsionicallyInvisibleComponent>(victim);
-        RemComp<StealthComponent>(victim);
-        EnsureComp<SpeechComponent>(victim);
-        EnsureComp<DispellableComponent>(victim);
-        _metaData.SetEntityName(victim, Loc.GetString("telegnostic-trapped-entity-name"));
-        _metaData.SetEntityDescription(victim, Loc.GetString("telegnostic-trapped-entity-desc"));
     }
 
     public EntityUid GetCasterProjection(Entity<TelegnosisPowerComponent> entity)
