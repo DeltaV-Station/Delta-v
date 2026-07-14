@@ -41,7 +41,7 @@
   - type: GridFill
     path: /Maps/_DV/Shuttles/Misc/glacier_surface_shuttle.yml
 
-# Delta V specific roles
+# DeltaV specific roles
 - type: entity
   parent: AirlockScience
   id: AirlockMantisLocked
@@ -105,6 +105,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsProsecutor ]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockAttorneyGlassLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
 
 - type: entity
   parent: AirlockJustice

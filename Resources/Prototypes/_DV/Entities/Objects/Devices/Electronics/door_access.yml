@@ -144,6 +144,14 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsAttorney
+  suffix: Attorney, Locked
+  components:
+  - type: AccessReader
+    access: [["Attorney"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsClerk # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
@@ -156,7 +164,7 @@
   suffix: Justice Warden, Locked
   components:
   - type: AccessReader
-    access: [ [ "JusticeWarden" ] ]
+    access: [["JusticeWarden"]]
 
 - type: entity
   parent: DoorElectronics
@@ -164,7 +172,7 @@
   suffix: Marshal, Locked
   components:
   - type: AccessReader
-    access: [ [ "Marshal" ] ]
+    access: [["Marshal"]]
 
 - type: entity
   parent: DoorElectronics

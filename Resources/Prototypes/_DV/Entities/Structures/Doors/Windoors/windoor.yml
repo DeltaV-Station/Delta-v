@@ -65,6 +65,15 @@
 
 - type: entity
   parent: WindoorSecureJusticeLocked
+  id: WindoorSecureAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: WindoorSecureJusticeLocked
   id: WindoorSecureClerkLocked # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:

@@ -220,6 +220,24 @@
   - type: PresetIdCard
     job: Prosecutor
 
+- type: entity
+  parent: IDCardStandard
+  id: AttorneyIDCard
+  name: attorney ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: &color-justice-top "#641327"
+    - state: stripe_bottom
+      color: &color-justice-bottom "#4c0e1d"
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Lawyer
+  - type: PresetIdCard
+    job: Attorney
+
 # MARK: Service
 
 - type: entity

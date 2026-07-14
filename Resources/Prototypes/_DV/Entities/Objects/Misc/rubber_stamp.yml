@@ -45,6 +45,20 @@
     state: stamp-prosec
 
 - type: entity
+  name: attorney's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampAttorney
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-attorney
+    stampedColor: "#233D57"
+    stampState: "paper_stamp-lawyer"
+  - type: Sprite
+    state: stamp-lawyer
+
+- type: entity
   parent: RubberStampBase
   id: RubberStampHatePaperwork
   name: paperwork hater rubber stamp

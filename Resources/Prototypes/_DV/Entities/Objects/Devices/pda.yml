@@ -143,7 +143,7 @@
 
 - type: entity
   parent: BaseJusticePDA
-  id: ClerkPDA
+  id: ClerkPDA # TODO - Remove for Justice Rework
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
   components:
@@ -178,6 +178,35 @@
     state: pda-prosecutor
   - type: Pager
     autoLinkJobs: [Prosecutor]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: AttorneyPDA
+  name: attorney PDA
+  description: For attorney to poach dubious clients.
+  components:
+  - type: Pda
+    id: AttorneyIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-lawyer
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    state: pda-lawyer
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - CrimeAssistCartridge
+    - LogProbeCartridge
+  - type: Pager
+    autoLinkDepartments: [ Attorney ]
 
 # Misc
 

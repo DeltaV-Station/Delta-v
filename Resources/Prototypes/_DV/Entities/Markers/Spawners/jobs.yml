@@ -104,6 +104,18 @@
 
 - type: entity
   parent: SpawnPointJobBase
+  id: SpawnPointAttorney
+  name: attorney
+  components:
+  - type: SpawnPoint
+    job_id: Attorney
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  parent: SpawnPointJobBase
   id: SpawnPointCourier
   name: courier
   components:
