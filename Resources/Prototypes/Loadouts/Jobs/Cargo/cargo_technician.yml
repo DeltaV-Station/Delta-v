@@ -37,6 +37,18 @@
   equipment:
     outerClothing: ClothingOuterWinterCargo
 
+# DeltaV
+- type: loadout
+  id: CargoTechnicianDenimJacket
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCargoTechnician
+      time: 144000 # 40hr
+  equipment:
+    outerClothing: ClothingOuterDenimJacket
+
 # Shoes
 - type: loadout
   id: CargoWinterBoots
