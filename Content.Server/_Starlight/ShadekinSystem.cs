@@ -15,6 +15,7 @@ using Content.Shared._Goobstation.Overlays;
 using Robust.Shared.Timing;
 using Content.Server.Body.Components;
 using System.Linq;
+using Content.Shared.Body.Components;
 using Content.Shared.Flash; // Delta V - Flash Work
 
 
@@ -63,6 +64,7 @@ public sealed class ShadekinSystem : EntitySystem
     private void OnInit(EntityUid uid, ShadekinComponent component, ComponentStartup args)
     {
         UpdateAlert(uid, component, (short)component.CurrentState);
+        RemComp<InternalsComponent>(uid);
     }
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)
