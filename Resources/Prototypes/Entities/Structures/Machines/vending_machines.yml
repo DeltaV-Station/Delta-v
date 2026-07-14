@@ -2266,11 +2266,24 @@
   components:
   - type: VendingMachine
     pack: ChemVendInventorySyndicate
+    # Begin DeltaV Additions - Replaced the sprites
     offState: off
     brokenState: broken
-    normalState: normal
-    denyState: deny
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
     ejectDelay: 2
+  - type: Sprite
+    sprite: _DV/Structures/Machines/VendingMachines/syndiejuice.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    # End DeltaV Additions
   - type: AccessReader
     access: [["SyndicateAgent"]]
 

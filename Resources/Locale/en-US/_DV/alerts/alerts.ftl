@@ -14,3 +14,6 @@ alerts-light-level-bright-desc = You are in an area with bright light.
 
 alerts-resurrecting-name = Resurrecting
 alerts-resurrecting-desc = You are currently dead, but will resurrect soon.
+
+alert-heavy-clothing-name = You're [color=yellow]heavy[/color]
+alert-heavy-clothing-desc = Heavy gear is weighing you down, rendering you [color=yellow]immune[/color] to space wind and slippery surfaces!

@@ -8,7 +8,7 @@
   color: "#331002"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -31,7 +31,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -54,7 +54,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -78,7 +78,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -101,7 +101,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -124,10 +124,33 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.02
+
+- type: reagent
+  id: Firebolt
+  name: reagent-name-firebolt
+  parent: BaseAlcohol
+  desc: reagent-desc-firebolt
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: firebolt
+  color: "#f29219"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/firebolt.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2

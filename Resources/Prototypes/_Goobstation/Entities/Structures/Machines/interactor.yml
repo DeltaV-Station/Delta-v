@@ -109,9 +109,9 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-  - type: HandsFill
-    hands:
-      interactor_tool: null # no tool by default
+  # - type: HandsFill # Delta V - Commented out due to removal of Shitmed
+  #   hands:
+  #     interactor_tool: null # no tool by default
   - type: ComplexInteraction
   # Linking
   - type: DeviceLinkSink

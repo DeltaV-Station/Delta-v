@@ -43,6 +43,17 @@
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
       shuttleTime: 600 #No reduction in time as we don't have swiping for red alert like in /tg/. Shuttle times are intended to create friction, so having a way to brainlessly bypass that would be dumb.
+  # Begin Starlight Additions
+    orange:
+      announcement: alert-level-orange-announcement
+      selectable: true
+      sound:
+        path: /Audio/_Starlight/misc/orange.ogg
+      color: "#ff8119"
+      emergencyLightColor: "#ff8119"
+      forceEnableEmergencyLights: true
+      shuttleTime: 480
+  # End Starlight Additions
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false

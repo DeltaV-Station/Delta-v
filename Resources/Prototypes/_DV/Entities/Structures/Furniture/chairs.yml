@@ -1,0 +1,107 @@
+#Green
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairGreen
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#82C36E"
+  - type: Construction
+    graph: Seat
+    node: chairComfyGreen
+
+#Red
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairRed
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#FF3333"
+  - type: Construction
+    graph: Seat
+    node: chairComfyRed
+
+#Blue
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairBlue
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#004C99"
+  - type: Construction
+    graph: Seat
+    node: chairComfyBlue
+
+#Black
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairBlack
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#606060"
+  - type: Construction
+    graph: Seat
+    node: chairComfyBlack
+
+#Pink
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairPink
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#FF66FF"
+  - type: Construction
+    graph: Seat
+    node: chairComfyPink
+
+#Orange
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairOrange
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#FF8000"
+  - type: Construction
+    graph: Seat
+    node: chairComfyOrange
+
+#Sky Blue
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairSkyBlue
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#66B2FF"
+  - type: Construction
+    graph: Seat
+    node: chairComfySkyBlue
+
+#Cyan
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairCyan
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#00CCCC"
+  - type: Construction
+    graph: Seat
+    node: chairComfyCyan
+
+#Purple
+- type: entity
+  parent: ComfyChair
+  id: ComfyChairPurple
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#B266FF"
+  - type: Construction
+    graph: Seat
+    node: chairComfyPurple

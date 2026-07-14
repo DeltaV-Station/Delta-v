@@ -94,7 +94,7 @@ public abstract partial class SharedChronicPainSystem : EntitySystem
             return;
 
         var effect = RobustRandom.Pick(effects);
-        Popup.PopupPredicted(Loc.GetString(effect), entity, entity);
+        Popup.PopupClient(Loc.GetString(effect), entity, entity);
 
         // Set next popup time
         var delay = RobustRandom.Next(entity.Comp.MinimumPopupDelay, entity.Comp.MaximumPopupDelay);

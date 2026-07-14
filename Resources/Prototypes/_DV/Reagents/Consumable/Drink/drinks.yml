@@ -9,14 +9,12 @@
     sprite: Objects/Consumable/Drinks/lean.rsi
     state: icon
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-    Poison:
-      effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -31,8 +29,6 @@
           reagent: Lean
           min: 35
         probability: 0.1
-    Medicine:
-      effects:
       - !type:Vomit
         conditions:
           - !type:ReagentCondition
@@ -56,7 +52,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -94,14 +90,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.20
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -122,7 +118,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -144,7 +140,7 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -167,14 +163,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.30
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -217,14 +213,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
-    Poison:
+    Bloodstream:
       effects:
       - !type:Jitter
 
@@ -260,7 +256,28 @@
   metamorphicChangeColor: false
   fizziness: 0.2
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
+
+- type: reagent
+  parent: BaseDrink
+  id: CoffeeNocaf
+  name: reagent-name-coffee-nocaf
+  desc: reagent-desc-coffee-nocaf
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: coffee
+  color: "#664300"
+  recognizable: false
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/coffeeglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

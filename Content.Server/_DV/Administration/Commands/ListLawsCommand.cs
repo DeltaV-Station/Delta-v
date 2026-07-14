@@ -26,11 +26,11 @@ public sealed class ListLawsCommand : LocalizedEntityCommands
         switch (args.Length)
         {
             case 0:
-                foreach (var (ent, lawProvider) in _entityManager.AllEntities<SiliconLawProviderComponent>())
+                var query = _entityManager.EntityQueryEnumerator<SiliconLawProviderComponent, SiliconLawBoundComponent>();
+                while (query.MoveNext(out var ent, out var lawProvider, out _))
                 {
                     WriteLawReport(shell, ent, lawProvider);
                 }
-
                 break;
             case 1:
                 if (!_player.TryGetSessionByUsername(args[0], out var session) ||

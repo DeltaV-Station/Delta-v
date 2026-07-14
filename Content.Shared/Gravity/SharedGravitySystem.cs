@@ -257,4 +257,9 @@ public record struct IsWeightlessEvent(bool IsWeightless = false, bool Handled =
 /// Raised on an entity when their weightless status changes.
 /// </summary>
 [ByRefEvent]
-public readonly record struct WeightlessnessChangedEvent(bool Weightless);
+// Start DeltaV - Made WeightlessnessChangedEvent relay to inventory.
+public readonly record struct WeightlessnessChangedEvent(bool Weightless) : IInventoryRelayEvent
+{
+    SlotFlags IInventoryRelayEvent.TargetSlots => ~SlotFlags.POCKET;
+}
+// End DeltaV - Made WeightlessnessChangedEvent relay to inventory.

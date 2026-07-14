@@ -32,13 +32,17 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
+// ES START
+using Content.Shared._ES.Sparks;
+using Content.Shared.Interaction.Events;
+// ES END
 
 namespace Content.Server.Electrocution;
 
 public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    // [Dependency] private readonly IMapManager _mapManager = default!; // DV - Never used
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -56,6 +60,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+// ES START
+    [Dependency] private ESSparksSystem _esSparks = default!;
+// ES END
 
     private static readonly ProtoId<StatusEffectPrototype> StatusKeyIn = "Electrocution";
     private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
@@ -299,7 +306,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             || !DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
             return false;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goobstation
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
         return true;
     }
 
@@ -349,13 +356,16 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         electrocutionComponent.Electrocuting = uid;
         electrocutionComponent.Source = sourceUid;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goobstation
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient), true);
 
         return true;
     }
 
     private bool DoCommonElectrocutionAttempt(EntityUid uid, EntityUid? sourceUid, ref float siemensCoefficient, bool ignoreInsulation = false)
     {
+// ES START
+        TrySpark(uid, sourceUid);
+// ES END
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,
             ignoreInsulation ? SlotFlags.NONE : ~SlotFlags.POCKET);
@@ -368,6 +378,23 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         siemensCoefficient = attemptEvent.SiemensCoefficient;
         return true;
     }
+
+// ES START
+    private bool TrySpark(EntityUid uid, EntityUid? sourceUid)
+    {
+        if (!sourceUid.HasValue)
+            return false;
+
+        if (!TryComp<StatusEffectsComponent>(uid, out var statusEffects) ||
+            !_statusEffects.CanApplyEffect(uid, StatusKeyIn, statusEffects))
+        {
+            return false;
+        }
+
+        _esSparks.DoSparks(sourceUid.Value);
+        return true;
+    }
+// ES END
 
     private bool DoCommonElectrocution(EntityUid uid, EntityUid? sourceUid,
         int? shockDamage, TimeSpan time, bool refresh, float siemensCoefficient = 1f,

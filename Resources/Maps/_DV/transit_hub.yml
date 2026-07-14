@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/10/2026 18:13:52
-  entityCount: 2094
+  time: 04/08/2026 10:03:44
+  entityCount: 2108
 maps: []
 grids:
 - 1
@@ -1274,7 +1274,7 @@ entities:
     - type: Transform
       pos: 0.5,25.5
       parent: 1
-- proto: AirlockExternalCommandLocked
+- proto: AirlockExternalCentralCommandLocked
   entities:
   - uid: 781
     components:
@@ -1299,6 +1299,8 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 1810
     components:
     - type: MetaData
@@ -5714,6 +5716,122 @@ entities:
     - type: Transform
       pos: 1.5,27.5
       parent: 1
+- proto: ClosetWallEmergencyFilledRandom
+  entities:
+  - uid: 2065
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,20.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2066
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,5.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2095
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,12.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2096
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,5.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2097
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-9.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2099
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,12.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2102
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-4.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2103
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-4.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2107
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,23.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: ClosetWallEmergencyN2FilledRandom
+  entities:
+  - uid: 1869
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,2.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2098
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-9.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2101
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2105
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,19.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2106
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,22.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ClothingEyesGlasses
   entities:
   - uid: 1970
@@ -6700,6 +6818,15 @@ entities:
     - type: Transform
       pos: 0.5,-6.5
       parent: 1
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 2108
+    components:
+    - type: Transform
+      pos: -0.5,20.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: FaxMachineBase
   entities:
   - uid: 599
@@ -10466,7 +10593,7 @@ entities:
   - uid: 237
     components:
     - type: Transform
-      pos: 2.5,5.5
+      pos: -1.5,2.5
       parent: 1
   - uid: 962
     components:
@@ -10501,7 +10628,7 @@ entities:
   - uid: 1192
     components:
     - type: Transform
-      pos: -1.5,2.5
+      pos: 2.5,5.5
       parent: 1
   - uid: 1229
     components:
@@ -10848,7 +10975,7 @@ entities:
   - uid: 2062
     components:
     - type: Transform
-      pos: -2.5,12.5
+      pos: -3.5,13.5
       parent: 1
   - uid: 2063
     components:
@@ -10860,20 +10987,20 @@ entities:
     - type: Transform
       pos: 3.5,1.5
       parent: 1
-  - uid: 2065
-    components:
-    - type: Transform
-      pos: -2.5,-4.5
-      parent: 1
-  - uid: 2066
-    components:
-    - type: Transform
-      pos: 2.5,-9.5
-      parent: 1
   - uid: 2067
     components:
     - type: Transform
       pos: 5.5,18.5
+      parent: 1
+  - uid: 2100
+    components:
+    - type: Transform
+      pos: -1.5,-5.5
+      parent: 1
+  - uid: 2104
+    components:
+    - type: Transform
+      pos: 2.5,-6.5
       parent: 1
 - proto: RandomSnacks
   entities:

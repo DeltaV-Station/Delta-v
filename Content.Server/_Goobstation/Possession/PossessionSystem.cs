@@ -47,9 +47,9 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    // [Dependency] private readonly TagSystem _tag = default!; // Delta V - Never used
 
-    private static readonly ProtoId<TagPrototype> CannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals.
+    // private static readonly ProtoId<TagPrototype> CannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals. // DV - ShitMed Removal
     private static readonly EntProtoId LolipopProto = "FoodLollipop"; // DeltaV - Don't use literals.
 
     public override void Initialize()
@@ -89,7 +89,7 @@ public sealed partial class PossessionSystem : EntitySystem
 
         _action.AddAction(possessed, ref possessed.Comp.ActionEntity, possessed.Comp.EndPossessionAction);
 
-        _tag.AddTag(possessed, CannotSuicideAnyTag); // DeltaV - Use ProtoId.
+        // _tag.AddTag(possessed, CannotSuicideAnyTag); // DeltaV - Use ProtoId.// DV - ShitMed Removal
 
         possessed.Comp.PossessedContainer = _container.EnsureContainer<Container>(possessed, "PossessedContainer");
     }
@@ -117,7 +117,7 @@ public sealed partial class PossessionSystem : EntitySystem
         if (possessed.Comp.PolymorphEntity && HasComp<PolymorphedEntityComponent>(possessed))
             _polymorph.Revert(possessed.Owner);
 
-        _tag.RemoveTag(possessed, CannotSuicideAnyTag); // DeltaV - Use ProtoId.
+        // _tag.RemoveTag(possessed, CannotSuicideAnyTag); // DeltaV - Use ProtoId.// DV - ShitMed Removal
 
         // Remove associated components.
         if (!possessed.Comp.WasPacified)

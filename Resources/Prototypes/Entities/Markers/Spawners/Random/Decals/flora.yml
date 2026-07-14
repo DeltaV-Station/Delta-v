@@ -16,7 +16,6 @@
     - FloorDesertAstroSand
     - FloorAstroIce
     - FloorAstroSnow
-    - FloorMowedAstroSnow # DeltaV
     - FloorAstroAsteroidSand
     - FloorAsteroidSandUnvariantized
     - FloorAsteroidIronsandUnvariantized
@@ -30,6 +29,13 @@
     - FloorGrassDark
     - FloorGrassJungle
     - FloorGrass
+    # Delta V - Begin Additions
+    - FloorMowedAstroSnow
+    - FloorAstroSnowDug
+    - FloorGrassDarkIndoors
+    - FloorGrassLightIndoors
+    - FloorMowedAstroSnowDug
+    # Delta V - End Additions
 
 - type: entity
   parent: DecalSpawnerFloraBase

@@ -659,7 +659,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 8 # DeltaV - was 5
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
   - type: Fixtures
@@ -753,7 +753,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 8 #DeltaV - Was 5
 
 # Riveting
 - type: entity

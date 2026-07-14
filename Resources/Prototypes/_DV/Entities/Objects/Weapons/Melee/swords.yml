@@ -24,6 +24,9 @@
   - type: Tag
     tags:
       - SilverSword
+  - type: RevealRevenantOnCollide
+  - type: CollisionWake
+    enabled: False
 
 - type: entity
   parent: SilverSword
@@ -37,7 +40,6 @@
   - type: Construction
     graph: RadiantSword
     node: embeddedsword
-
 
 - type: entity
   parent: SilverSword
@@ -60,5 +62,48 @@
     graph: RadiantSword
     node: radiantsword
   - type: RevealRevenantOnCollide
+    revealTime: 10
   - type: CollisionWake
     enabled: false
+
+- type: entity
+  parent: BaseSword
+  id: DualSwords
+  name: dual swords
+  description: A pair of weak but incredibly light swords.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 7
+    wideAnimationRotation: 225
+    swingLeft: true
+    damage:
+      types:
+        Slash: 2
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .25
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 4.5
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
+  - type: JumpAbility
+    jumpDistance: 2.5
+    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: ActionGrant
+    actions:
+    - ActionGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionGravityJump
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage

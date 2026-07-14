@@ -1,102 +1,157 @@
 - type: entity
-  name: Mining Rock Spawner
-  id: RandomRockSpawner
   parent: MarkerBase
+  id: RandomRockSpawner
+  name: random rock spawner
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: _DV/Structures/Walls/asteroid_rock.rsi
         state: full
-  - type: RandomSpawner
-    prototypes:
-      - AsteroidAltRock
-    chance: .90
-    rarePrototypes:
-      - AsteroidAltRockMining
-      - Barricade
-      - MountainRockMining
-      - MountainRock
-      - RandomStalagmiteOrCrystal
-      - RandomWallRockSpawner
-      - RandomBasaltRockSpawner
-      - AsteroidRockOreCrab
-      - RandomWoodenStructure
-    rareChance: 0.15
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomRockTable
+      prob: 0.90
+  - type: Tag
+    tags:
+    - Wall
+    - Natural
 
 - type: entity
-  name: Crystal Spawner
-  id: RandomCrystalSpawner
-  suffix: 100%
   parent: MarkerBase
+  id: RandomCrystalSpawner
+  name: random crystal spawner
+  suffix: 100%
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Structures/Decoration/crystal.rsi
         state: crystal_grey
-  - type: RandomSpawner
-    prototypes:
-      - CrystalGreen
-      - CrystalPink
-      - CrystalGrey
-      - CrystalOrange
-      - CrystalBlue
-      - CrystalCyan
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: CrystalGreen
+      - id: CrystalPink
+      - id: CrystalGrey
+      - id: CrystalOrange
+      - id: CrystalBlue
+      - id: CrystalCyan
 
 - type: entity
-  name: Wall Rock Spawner
-  id: RandomWallRockSpawner
   parent: MarkerBase
+  id: RandomWallRockSpawner
+  name: wall rock spawner
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Structures/Walls/rock.rsi
         state: rock
-  - type: RandomSpawner
-    prototypes:
-      - WallRockGold
-      - WallRockPlasma
-      - WallRockQuartz
-      - WallRockSilver
-      - WallRockTin
-      - WallRockUranium
-      - WallRockBananium
-      - WallRockArtifactFragment
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: WallRock
+        weight: 9
+      - id: WallRockQuartz
+      - id: WallRockSilver
+      - id: WallRockTin
+      - id: WallRockSalt
+      - id: WallRockTin
+      - id: WallRockCoal
+      - !type:GroupSelector
+        weight: 0.75
+        children:
+        - id: WallRockGold
+        - id: WallRockPlasma
+        - id: WallRockUranium
+      - !type:GroupSelector
+        weight: 0.5
+        children:
+        - id: WallRockBananium
+        - id: WallRockArtifactFragment
+        - id: WallRockDiamond
+  - type: Tag
+    tags:
+    - Wall
+    - Natural
 
 - type: entity
-  name: Basalt Rock Spawner
-  id: RandomBasaltRockSpawner
   parent: MarkerBase
+  id: RandomBasaltRockSpawner
+  name: basalt rock spawner
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Structures/Walls/rock.rsi
         state: rock_wall
-  - type: RandomSpawner
-    prototypes:
-      - WallRockBasaltGold
-      - WallRockBasaltPlasma
-      - WallRockBasaltQuartz
-      - WallRockBasaltSilver
-      - WallRockBasaltTin
-      - WallRockBasaltUranium
-      - WallRockBasaltArtifactFragment
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: WallRockBasalt
+        weight: 9
+      - id: WallRockBasaltQuartz
+      - id: WallRockBasaltSilver
+      - id: WallRockBasaltTin
+      - id: WallRockBasaltSalt
+      - id: WallRockBasaltCoal
+      - !type:GroupSelector
+        weight: 0.75
+        children:
+        - id: WallRockBasaltGold
+        - id: WallRockBasaltPlasma
+        - id: WallRockBasaltUranium
+      - !type:GroupSelector
+        weight: 0.5
+        children:
+        - id: WallRockBasaltArtifactFragment
+        - id: WallRockBasaltBananium
+        - id: WallRockBasaltDiamond
+  - type: Tag
+    tags:
+    - Wall
+    - Natural
 
 - type: entity
+  parent: MarkerBase
   id: RandomWoodenStructure
   name: wooden wall or support spawner
-  parent: MarkerBase
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Objects/Decoration/mines.rsi
         state: support_wall_broken
-  - type: RandomSpawner
-    prototypes:
-      - RandomWoodenWall
-      - RandomWoodenSupport
-    chance: 0.9
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: RandomWoodenWall
+      - id: RandomWoodenSupport
+
+#Tables
+- type: entityTable
+  id: RandomRockTable
+  table: !type:GroupSelector
+    children:
+    - id: AsteroidAltRock
+      weight: 9
+    - !type:GroupSelector
+      children:
+      - id: AsteroidAltRockMining
+      - id: Barricade
+      - id: MountainRockMining
+      - id: MountainRock
+      - id: RandomBrownStalagmite
+      - id: RandomGreyStalagmite
+      - id: RandomCrystalSpawner
+      - id: AsteroidRockOreCrab
+      - id: RandomWoodenStructure
+      - id: RandomWallRockSpawner
+      - id: RandomBasaltRockSpawner
+      - id: SpawnMobOreCrab
+        weight: 0.5

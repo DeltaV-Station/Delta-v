@@ -1,6 +1,6 @@
 ﻿using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
-using Content.Server.Psionics; // DeltaV
+using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Mind.Components;
@@ -37,9 +37,9 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
 
         // Delta-V: Do not allow humanoids to become sentient. Intended to stop people from
         // repeatedly cloning themselves and using cognizine on their bodies.
-        // HumanoidAppearanceComponent is common to all player species, and is also used for the
+        // HumanoidProfileComponent is common to all player species, and is also used for the
         // Ripley pilot whitelist, so there's a precedent for using it for this kind of check.
-        if (HasComp<HumanoidAppearanceComponent>(entity))
+        if (HasComp<HumanoidProfileComponent>(entity))
         {
             return;
         }

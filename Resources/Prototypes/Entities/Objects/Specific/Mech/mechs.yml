@@ -42,7 +42,6 @@
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
   - type: MeleeWeapon
-    canWideSwing: false
     hidden: true
     attackRate: 0.75
     damage:
@@ -131,7 +130,7 @@
     mechToPilotDamageMultiplier: 0.75
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -178,7 +177,7 @@
     mechToPilotDamageMultiplier: 0.5
     pilotWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
 
 - type: entity
   parent: MechHonker

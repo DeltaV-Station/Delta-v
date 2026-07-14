@@ -17,12 +17,12 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 6
     baseWalkSpeed: 4
-  #- type: PsionicallyInvisible
+  - type: PsionicallyInvisible
   - type: Eye
     drawFov: false
     visMask:
       - Normal
-      - TelegnosticProjection
+      - PsionicInvisibility
   - type: Input
     context: "ghost"
   - type: TelegnosticProjection

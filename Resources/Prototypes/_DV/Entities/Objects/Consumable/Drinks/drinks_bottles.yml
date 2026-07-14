@@ -15,3 +15,21 @@
   - type: Sprite
     sprite: _DV/Objects/Consumable/Drinks/angobitters.rsi
   - type: Sealable
+
+
+- type: entity
+  parent: [DrinkVisualsOpenable, DrinkBottlePlasticSmallBaseFull]
+  id: DrinkCaramelBottleFull
+  name: caramel bottle
+  description: A bottle of what is essentially molten sugar with enough water to keep it somewhat fluid.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Caramel
+          Quantity: 50
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/caramel-bottle.rsi
+  - type: Label
+    currentLabel: reagent-name-caramel

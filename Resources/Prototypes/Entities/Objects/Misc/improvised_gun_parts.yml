@@ -4,7 +4,7 @@
   parent: BaseItem
   id: ModularReceiver
   name: modular receiver
-  description: A vital part used in the creation of firearms. #Could use a better description, but I'm not a gun nut so I can't really do that.
+  description: A modular reciever, essential for the production of firearms. This loads and ejects the cartridge. # DeltaV
   components:
     - type: Item
       storedRotation: -90
@@ -21,7 +21,7 @@
   parent: BaseItem
   id: RifleStock
   name: rifle stock
-  description: A robust wooden stock, used in the creation of firearms. #Same as above
+  description: A robust wooden stock, used in the creation of firearms. It's a nice place to put your shoulder when firing. # DeltaV
   components:
     - type: Item
       storedRotation: -90

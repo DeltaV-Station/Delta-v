@@ -1,0 +1,22 @@
+- type: entity
+  id: HitmanCase
+  name: hitman case
+  description: A case containing the tools of the trade of a hitman.
+  parent: ToolboxThief
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/hitman-case.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 2
+    toolName: hitman-briefcase-window-title
+    toolDesc: hitman-briefcase-window-description
+    possibleSets:
+    - HitmanSharpshooterKit
+    - HitmanLoudKit
+    - HitmanAssassinKit
+    - HitmanPoisonerKit
+    - HitmanInfiltrationKit
+    - HitmanDisguiseKit
+    - HitmanEscapistKit
+    - HitmanTrackerKit

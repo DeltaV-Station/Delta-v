@@ -41,7 +41,7 @@ public sealed partial class OracleComponent : Component
     [DataField("rewardReagents", customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
     public IReadOnlyList<string> RewardReagents = new[]
     {
-        "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "Wine", "Blood", "Ichor"
+        "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "Ambrosia", "Nectar", "Wine", "Blood", "Ichor",
     };
 
     [DataField("demandMessages")]

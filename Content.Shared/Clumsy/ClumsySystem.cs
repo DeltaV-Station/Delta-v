@@ -16,7 +16,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Shared.Clumsy;
 
@@ -49,10 +48,7 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyHypo)
             return;
 
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
-        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.ClumsyDefaultCheck, GetNetEntity(ent)))
             return;
 
         args.TargetGettingInjected = args.EntityUsingInjector;
@@ -68,10 +64,7 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyDefib)
             return;
 
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
-        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.ClumsyDefaultCheck, GetNetEntity(ent)))
             return;
 
         args.DefibTarget = args.EntityUsingDefib;
@@ -87,10 +80,7 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyCatching)
             return;
 
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(args.Item).Id);
-        var rand = new System.Random(seed);
-        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.ClumsyDefaultCheck, GetNetEntity(ent)))
             return;
 
         args.Cancelled = true; // fail to catch
@@ -121,10 +111,7 @@ public sealed class ClumsySystem : EntitySystem
         if (args.Gun.Comp.ClumsyProof)
             return;
 
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(args.Gun).Id);
-        var rand = new System.Random(seed);
-        if (!rand.Prob(ent.Comp.ClumsyGunShootCheck)) // DeltaV change from default to gun check
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.ClumsyGunShootCheck, GetNetEntity(ent)))
             return;
 
         if (ent.Comp.GunShootFailDamage != null)
@@ -146,10 +133,8 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyVaulting || args.PuttingOnTable != ent.Owner) // DeltaV - don't bonk if someone else vaults/biomasses you
             return;
 
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
-        if (!_cfg.GetCVar(CCVars.GameTableBonk) && !rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        if (!_cfg.GetCVar(CCVars.GameTableBonk)
+            && !SharedRandomExtensions.PredictedProb(_timing, ent.Comp.ClumsyDefaultCheck, GetNetEntity(ent)))
             return;
 
         HitHeadClumsy(ent, args.BeingClimbedOn);
@@ -200,7 +185,7 @@ public sealed class ClumsySystem : EntitySystem
         {
             stunTime = bonkComp.BonkTime;
             if (bonkComp.BonkDamage != null)
-                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true, targetPart: TargetBodyPart.Head); // Shitmed Change
+                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true);
         }
 
         _stun.TryUpdateParalyzeDuration(target, stunTime);

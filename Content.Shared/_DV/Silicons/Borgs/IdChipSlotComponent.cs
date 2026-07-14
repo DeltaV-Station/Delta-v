@@ -9,7 +9,7 @@ namespace Content.Shared._DV.Silicons.Borgs;
 /// Adds an id chip slot for a borg which will control its access.
 /// Enables an id chip's access when inserted to an id chip slot.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(IdChipSlotSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(IdChipSlotSystem)), AutoGenerateComponentState]
 public sealed partial class IdChipSlotComponent : Component
 {
     /// <summary>
@@ -35,6 +35,12 @@ public sealed partial class IdChipSlotComponent : Component
     /// </summary>
     [DataField(required: true)]
     public EntityWhitelist Whitelist = new();
+
+    /// <summary>
+    /// Whether the ID chip slot is active
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Active = true;
 }
 
 /// <summary>
