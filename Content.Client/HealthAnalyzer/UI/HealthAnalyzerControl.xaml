@@ -1,7 +1,9 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._DV.UserInterfaces"
+    xmlns:xe="clr-namespace:Content.Client.UserInterface.XamlExtensions"
     VerticalExpand="True"
-    Orientation="Vertical">
+    Orientation="Vertical"> <!-- DeltaV - added ui and xe namespaces -->
     <Label
         Name="NoPatientDataText"
         Text="{Loc health-analyzer-window-no-patient-data-text}" />
@@ -11,7 +13,8 @@
         Margin="0 0 0 5"
         Orientation="Vertical">
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
-            <TextureRect Name="NoDataTex" Access="Public" SetSize="96 96" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/> <!-- DeltaV - Size changed to 96-->
+            <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64" />
+            <TextureRect Name="NoDataTex" Access="Public" SetSize="64 64" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/> 
             <BoxContainer Margin="5 0 0 0" Orientation="Vertical" VerticalAlignment="Top">
                 <RichTextLabel Name="NameLabel" SetWidth="150" />
                 <Label Name="SpeciesLabel" VerticalAlignment="Top" StyleClasses="LabelSubText" />
@@ -22,6 +25,14 @@
             <Label Margin="0 0 5 0" HorizontalExpand="True" HorizontalAlignment="Right" VerticalExpand="True"
                    VerticalAlignment="Top" Name="ScanModeLabel"
                    Text="{Loc 'health-analyzer-window-entity-unknown-text'}" />
+            <!-- BEGIN DeltaV - MedTek Reports -->
+            <BoxContainer HorizontalExpand="False"
+                Orientation="Vertical"
+                Name="PrintButtonsContainer"
+                Margin="0 0 5 0">
+				<ui:IconButton Name="PrintReportButton" Icon="{xe:Tex '/Textures/_DV/Interface/VerbIcons/print.png'}" />
+            </BoxContainer>
+            <!-- END DeltaV -->
         </BoxContainer>
 
         <PanelContainer StyleClasses="LowDivider" />

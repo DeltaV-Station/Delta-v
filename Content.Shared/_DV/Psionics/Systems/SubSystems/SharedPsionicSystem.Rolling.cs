@@ -74,7 +74,7 @@ public abstract partial class SharedPsionicSystem
             return false;
         // If the psionic already has that power, do not add it again.
         if (powerEntity.Components.Any(psionicComponent =>
-                EntityManager.HasComponent(psionic, psionicComponent.Value.Component.GetType())))
+                HasComp(psionic, psionicComponent.Value.Component.GetType())))
             return false;
         // If they don't have it already, add it.
         EntityManager.AddComponents(psionic, powerEntity);

@@ -31,10 +31,10 @@
     - type: ThrowingAngle
       angle: 315
     - type: LandAtCursor
-    - type: DamageOtherOnHit
-      damage:
-        types:
-          Piercing: 3
+    #- type: DamageOtherOnHit # DeltaV - make stealth item as damage is always visible
+    #  damage:
+    #    types:
+    #      Piercing: 3
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]

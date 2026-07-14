@@ -1,6 +1,6 @@
 # If an ID contains sprite component changes, put it here. Otherwise, put it in identification_cards_alt.yml
 
-# Command
+# MARK: Command
 - type: entity
   parent: IDCardStandard
   id: ChiefJusticeIDCard
@@ -19,7 +19,7 @@
   - type: PresetIdCard
     job: ChiefJustice
 
-# Security and Prisoners
+# MARK: Security and Prisoners
 - type: entity
   parent: IDCardStandard
   id: PrisonGuardIDCard
@@ -33,8 +33,8 @@
     - state: stripe_bottom
       color: &color-security-bottom "#262626"
     - sprite: *icon-rsi-dv
-      offset:
-      state: nyanoPrisonGuard
+      offset: *icon-offset
+      state: PrisonGuard
   - type: PresetIdCard
     job: PrisonGuard
 
@@ -42,7 +42,7 @@
   parent: IDCardStandard
   id: PrisonerJobIDCard # Not to be confused with genpop prisoner ids
   name: prisoner ID card
-  suffix: Job
+  suffix: DeltaV job
   components:
   - type: Sprite
     layers:
@@ -63,11 +63,29 @@
     - state: orange
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoGladiator
+      state: Gladiator
   - type: PresetIdCard
     job: Gladiator
 
-# Cargo / Logistics
+- type: entity
+  parent: IDCardStandard
+  id: K9OfficerIDCard
+  name: K9 officer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-security-top
+    - state: stripe_bottom
+      color: *color-security-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: SecurityK9Officer
+  - type: PresetIdCard
+    job: RoleK9Officer
+
+# MARK: Cargo / Logistics
 
 - type: entity
   parent: IDCardStandard
@@ -83,7 +101,7 @@
       color: &color-supply-bottom "#5b4523"
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoMailCarrier
+      state: MailCarrier
   - type: PresetIdCard
     job: Courier
 
@@ -105,7 +123,7 @@
   - type: PresetIdCard
     job: CargoAssistant
 
-# Medical
+# MARK: Medical
 
 - type: entity
   parent: MedicalIDCard
@@ -126,7 +144,7 @@
     jobTitle: job-name-surgeon
     jobIcon: JobIconSurgeon
 
-# Science / Epi
+# MARK: Science / Epi
 
 - type: entity
   parent: IDCardStandard
@@ -142,7 +160,7 @@
       color: &color-science-bottom "#652368"
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoMantis
+      state: PsionicMantis
   - type: PresetIdCard
     job: ForensicMantis
 
@@ -164,7 +182,7 @@
   - type: PresetIdCard
     job: Roboticist
 
-# Justice
+# MARK: Justice
 
 - type: entity
   parent: IDCardStandard
@@ -202,7 +220,7 @@
   - type: PresetIdCard
     job: Prosecutor
 
-# Service
+# MARK: Service
 
 - type: entity
   parent: BartenderIDCard
@@ -216,7 +234,7 @@
     tags:
     - DoorBumpOpener
 
-# Other
+# MARK: Other
 
 - type: entity
   parent: IDCardStandard
@@ -228,11 +246,11 @@
     - state: default
     - sprite: *icon-rsi-dv
       offset: *icon-offset
-      state: nyanoMartialArtist
+      state: MartialArtist
   - type: PresetIdCard
     job: MartialArtist
 
-# Admemes and all that
+# MARK: Admemes and all that
 
 - type: entity
   parent: IDCardStandard
@@ -302,7 +320,8 @@
     categories:
     - Debug
 
-# CentComm
+
+# MARK: CentComm / SRT
 
 - type: entity
   parent: IDCardStandard
@@ -324,21 +343,20 @@
   - type: PresetIdCard
     job: CentralCommandIntern
 
-# Security K9 Officer
 - type: entity
   parent: IDCardStandard
-  id: K9OfficerIDCard
-  name: K9 officer ID card
+  id: CentcomIDCardSRT
+  name: SRT agent ID card
   components:
   - type: Sprite
     layers:
-    - state: default
+    - state: centcom
     - state: stripe_top
-      color: *color-security-top
+      color: *color-centcomm-top
     - state: stripe_bottom
-      color: *color-security-bottom
-    - sprite: *icon-rsi-dv
+      color: *color-centcomm-bottom
+    - sprite: *icon-rsi
       offset: *icon-offset
-      state: SecurityK9Officer
+      state: DeathSquad
   - type: PresetIdCard
-    job: RoleK9Officer
+    job: SRTAgent

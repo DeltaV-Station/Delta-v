@@ -1,8 +1,8 @@
 # Engineering Void Suit
 - type: entity
+  parent: LockerEngineerFilled
   id: LockerEngineerFilledVoidsuit
   suffix: Filled, Void suit
-  parent: LockerEngineerFilled
   components:
   - type: EntityTableContainerFill
     containers:
@@ -16,9 +16,9 @@
           tableId: FillLockerEngineer
 
 - type: entity
+  parent: LockerEngineerFilled
   id: LockerEngineerFilledOnlyHardsuit # Probably need a better ID than the existing LockerEngineerFilledHardsuit. Leaving up to mappers.
   suffix: Filled, Hardsuit
-  parent: LockerEngineerFilled
   components:
   - type: EntityTableContainerFill
     containers:
@@ -30,6 +30,24 @@
         - id: ClothingMaskBreath
         - !type:NestedSelector
           tableId: FillLockerEngineer
+
+- type: entityTable
+  id: FillLockerAtmosphericsDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHandsGlovesColorYellow
+    - id: DoorRemoteFirefight
+    - id: LunchboxEngineeringFilledRandom
+      prob: 0.3
+    - id: PillCanisterPotassiumIodide # Far Horizons / Nuclear Reactor Port
+
+- type: entityTable
+  id: FillLockerEngineerDeltaV
+  table: !type:AllSelector
+    children:
+    - id: LunchboxEngineeringFilledRandom
+      prob: 0.3
+    - id: HolotapeProjector
 
 # Escape Pod Locker
 - type: entity
