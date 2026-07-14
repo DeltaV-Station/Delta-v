@@ -48,6 +48,25 @@ def run(*args):
     return subprocess.run(args, check=False)
 
 
+def unshallow():
+    is_shallow = subprocess.run(
+        ["git", "rev-parse", "--is-shallow-repository"],
+        check=True, capture_output=True, text=True,
+    ).stdout.strip()
+
+    if is_shallow != "true":
+        return
+
+    print("Repository is shallow, fetching full (blobless) history")
+    result = run(
+        "git", "-c", "submodule.recurse=false",
+        "fetch", "--unshallow", "--filter=blob:none", "origin",
+    )
+    if result.returncode != 0:
+        print("::error::Failed to unshallow repository")
+        sys.exit(1)
+
+
 def apply_test_merge(pr):
     number = pr["number"]
     branch = f"tm-{number}"
@@ -66,7 +85,8 @@ def apply_test_merge(pr):
     )
     if merge.returncode != 0:
         print(f"::error::Failed to merge PR #{number} ({pr['html_url']}) - conflicts?")
-        run("git", "merge", "--abort")
+        if os.path.exists(".git/MERGE_HEAD"):
+            run("git", "merge", "--abort")
         sys.exit(1)
 
 
@@ -96,6 +116,9 @@ def main():
 
     prs = get_test_merge_prs()
     print(f"Found {len(prs)} open PR(s) labelled '{TEST_MERGE_LABEL}'")
+
+    if prs:
+        unshallow()
 
     for pr in prs:
         print(f"Applying PR #{pr['number']}: {pr['title']} ({pr['html_url']})")
