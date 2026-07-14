@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Content.Shared.Whitelist; // DeltaV
 
 namespace Content.Shared.ItemRecall;
 
@@ -41,10 +40,4 @@ public sealed partial class ItemRecallComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? MarkedEntity;
-
-    /// <summary>
-    // DeltaV - Prevent steal target items from being marked.
-    /// <summary>
-    [DataField]
-    public EntityWhitelist? MarkedEntityBlacklist = new();
 }

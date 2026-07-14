@@ -465,9 +465,9 @@
   description: A dress for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hosformaldress.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hosformaldress.rsi # DeltaV - resprite
 
 - type: entity
   parent: [UnsensoredClothingUniformSkirtBase, BaseSyndicateContraband]

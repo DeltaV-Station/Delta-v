@@ -35,19 +35,6 @@
   - type: Label
     currentLabel: reagent-name-nitrogen
 
-- type: entity
-  parent: BoxSurvival
-  id: BoxSurvivalHumanoidSilicon
-  suffix: IPC
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: Flare
-        - id: CableApcStack10
-        - id: WelderMini
-
 # Water Vapor Breather Boxes
 - type: entity
   parent: BoxSurvivalBrigmedic

@@ -51,10 +51,10 @@ public sealed class MachineConstruction : InteractionTest
         return; // DeltaV - i doubt this will break ever and cbf to change it to something else
 
         // Change it into an autolathe
-        await InteractUsing("AutolatheMachineCircuitboard");
-        AssertPrototype(MachineFrame);
-        await Interact(Manipulator1, Manipulator1, Manipulator1, Manipulator1, Glass, Screw);
-        AssertPrototype("Autolathe");
+        // await InteractUsing("AutolatheMachineCircuitboard");
+        // AssertPrototype(MachineFrame);
+        // await Interact(Manipulator1, Manipulator1, Manipulator1, Manipulator1, Glass, Screw);
+        // AssertPrototype("Autolathe");
     }
 }
 

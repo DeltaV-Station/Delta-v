@@ -1274,7 +1274,7 @@
   productPrototypes:
     - FoodAmbrosiaVulgaris
   mutationPrototypes:
-    - ambrosiaDeus
+    - AmbrosiaNobilis # Delta-V - Added Secondary Mutation (Ambrosia Nobilis)
   lifespan: 25
   maturation: 10
   production: 3
@@ -1305,7 +1305,7 @@
   name: seeds-ambrosiadeus-name
   noun: seeds-noun-seeds
   displayName: seeds-ambrosiadeus-display-name
-  plantRsi: Objects/Specific/Hydroponics/ambrosia_deus.rsi
+  plantRsi: _DV/Objects/Specific/Hydroponics/ambrosia_deus.rsi # Delta-V - Replaced Sprite due to Ambrosia Nobilis
   packetPrototype: AmbrosiaDeusSeeds
   productPrototypes:
     - FoodAmbrosiaDeus
@@ -1314,7 +1314,7 @@
   production: 3
   yield: 3
   potency: 10
-  growthStages: 6
+  growthStages: 5 # Delta-V - Replaced Sprite due to Ambrosia Nobilis
   waterConsumption: 0.60
   chemicals:
     Nutriment:

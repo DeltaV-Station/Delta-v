@@ -4,6 +4,10 @@ namespace Content.Server.Entry
     public static class IgnoredComponents
     {
         public static string[] List => new[] {
+            // ES START
+            "ESTimedDespawnLightFade",
+            "ESTimedDespawnSpriteFade",
+            // ES END
             "ConstructionGhost",
             "IconSmooth",
             "InteractionOutline",

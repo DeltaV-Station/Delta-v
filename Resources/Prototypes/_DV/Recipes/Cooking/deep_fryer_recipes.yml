@@ -47,55 +47,6 @@
   baseRecipe: RecipeCarrotFries
   burnTime: 10
 
-- type: microwaveMealRecipe
-  id: RecipeNachos # Renamed to tortilla chips (nachos have cheese)
-  name: nachos recipe
-  result: FoodMealNachos
-  secretRecipe: true
-  time: 10
-  group: DeepFried
-  deepFried: true
-  solids:
-    FoodDoughTortillaFlat: 1
-
-- type: deepFryerRecipe
-  id: DeepFryerRecipeTortillaChips
-  baseRecipe: RecipeNachos
-  burnTime: 15
-
-- type: microwaveMealRecipe
-  id: RecipeNachosCheesy
-  name: cheesy nachos recipe
-  result: FoodMealNachosCheesy
-  secretRecipe: true
-  time: 10
-  group: DeepFried
-  deepFried: true
-  solids:
-    FoodCheeseSlice: 1
-    FoodDoughTortillaFlat: 1
-
-- type: deepFryerRecipe
-  id: DeepFryerRecipeNachosCheesy
-  baseRecipe: RecipeNachosCheesy
-  burnTime: 15
-
-- type: microwaveMealRecipe
-  id: RecipeNachosCuban
-  name: cuban nachos recipe
-  result: FoodMealNachosCuban
-  secretRecipe: true
-  time: 10
-  group: DeepFried
-  deepFried: true
-  solids:
-    FoodChiliPepper: 1
-    FoodDoughTortillaFlat: 1
-
-- type: deepFryerRecipe
-  id: DeepFryerRecipeNachosCuban
-  baseRecipe: RecipeNachosCuban
-  burnTime: 15
 
 - type: microwaveMealRecipe
   id: RecipeFriedChicken
@@ -112,3 +63,35 @@
   id: DeepFryerRecipeFriedChicken
   baseRecipe: RecipeFriedChicken
   burnTime: 45
+
+- type: microwaveMealRecipe
+  id: RecipeOnionRings
+  name: onion rings recipe
+  result: FoodOnionRings
+  secretRecipe: true
+  time: 5
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodOnionSlice: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeOnionRings
+  baseRecipe: RecipeOnionRings
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeTacoShell
+  name: taco shell recipe
+  result: FoodTacoShell
+  secretRecipe: true
+  time: 5
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodDoughTortillaFlat: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeTacoShell
+  baseRecipe: RecipeTacoShell
+  burnTime: 10

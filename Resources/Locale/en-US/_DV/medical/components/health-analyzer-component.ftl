@@ -6,10 +6,15 @@ health-analyzer-window-triage-unclaim = Claimed by: {$claimedBy}
 health-analyzer-window-triage-status-None = None
     .ToolTip = Patient with no injuries
 health-analyzer-window-triage-status-Minor = Minor
-    .ToolTip = Victim with relatively minor injuries
+    .ToolTip = Victim with relatively minor injuries.
 health-analyzer-window-triage-status-Delayed = Delayed
     .ToolTip = Victim's transport can be delayed. Potentially life threatening, but not immediately.
 health-analyzer-window-triage-status-Immediate = Immediate
     .ToolTip = Victim can be helped by immediate intervention and transport. Requires medical attention for survival.
 health-analyzer-window-triage-status-Expectant = Expectant
     .ToolTip = Victim unlikely to survive, or is already dead.
+
+# MedTek Printouts
+health-analyzer-printout-damage-none = [italic]None[/italic]
+health-analyzer-printout-damage-group-text = [bold]{$damageGroup}: {$amount}[/bold]
+health-analyzer-printout-damage-type-text = [bullet/]{$damageType}: {$amount}

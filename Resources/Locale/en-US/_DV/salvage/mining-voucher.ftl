@@ -24,7 +24,7 @@ mining-voucher-resonator-description =
 mining-voucher-survival-name = Survival Capsule, Explorer's Webbing, and Medical Tracking Implanter
 mining-voucher-survival-description =
     Contains an explorer's webbing, which allows you to carry even more mining equipment,
-    a spare shelter capsule, and a medical tracking implanter to go with it.
+    a spare shelter capsule, a holoflare gun, and a medical tracking implanter to go with it.
 
 mining-voucher-minebot-name = Minebot Kit
 mining-voucher-minebot-description =
@@ -35,3 +35,9 @@ mining-voucher-conscription-name = Mining Conscription Kit
 mining-voucher-conscription-description =
     Contains a whole new mining starter kit for one crewmember, including
     a proto-kinetic accelerator, mineral scanner and other useful gear.
+
+mining-voucher-dagger-name = Small Arms Kit
+mining-voucher-dagger-description =
+    Contains a crusher dagger, a mining drill and a fire extinguisher.
+    You may have downsized your weaponry compared to other crusher users, but
+    at least you have enough bag space to carry a bigger fire extinguisher!

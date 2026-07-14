@@ -88,7 +88,7 @@
   id: WeaponEnergyMagnum
   name: steal-target-groups-weapon-energy-magnum
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/energy_magnum.rsi #DeltaV - Adjust for blue magnum
     state: icon
 
 # Thief Collection
@@ -162,6 +162,13 @@
   sprite:
     sprite: Objects/Tools/lantern.rsi
     state: lantern
+
+- type: stealTargetGroup
+  id: ClothingEyesHuds
+  name: steal-target-groups-huds
+  sprite:
+    sprite: Clothing/Eyes/Hud/sec.rsi
+    state: icon
 
 # Thief single item
 
@@ -255,13 +262,6 @@
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpuboard
-
-- type: stealTargetGroup
-  id: ClothingEyesHudBeer
-  name: steal-target-groups-clothing-eyes-hud-beer
-  sprite:
-    sprite: Clothing/Eyes/Hud/beergoggles.rsi
-    state: icon
 
 - type: stealTargetGroup
   id: Bible

@@ -1,9 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
-using Content.Server.Power.Components;
 using Content.Server.Radio;
-using Content.Server.Station.Systems;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CCVar;
@@ -12,6 +12,8 @@ using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -27,7 +29,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
 
     private EntityQuery<PdaComponent> _pdaQuery;
     private EntityQuery<NanoChatCardComponent> _cardQuery;
@@ -63,13 +65,10 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
     private void OnActiveProgramChanged(Entity<CartridgeLoaderComponent> ent, ref ActiveProgramChangedEvent args)
     {
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
+        if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        _nanoChat.SetClosed((cardUid, nanoChatCard), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
+        _nanoChat.SetClosed(nanoChatCard.Value.AsNullable(), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
     }
 
     private void OnUiOpened(Entity<CartridgeLoaderComponent> ent, ref BoundUIOpenedEvent args)
@@ -77,14 +76,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!PdaUiKey.Key.Equals(args.UiKey))
             return;
 
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
+        if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        if (nanoChatCard.IsClosed)
-            _nanoChat.SetClosed((cardUid, nanoChatCard), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
+        if (nanoChatCard.Value.Comp.IsClosed)
+            _nanoChat.SetClosed(nanoChatCard.Value.AsNullable(), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
 
     }
 
@@ -93,15 +89,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!PdaUiKey.Key.Equals(args.UiKey))
             return;
 
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
-            return;
-
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
+        if (!GetCardEntity(ent, out var nanoChatCard))
             return;
 
         // Since the UI got closed we always set it to be closed
-        if (!nanoChatCard.IsClosed)
-            _nanoChat.SetClosed((cardUid, nanoChatCard), true);
+        if (!nanoChatCard.Value.Comp.IsClosed)
+            _nanoChat.SetClosed(nanoChatCard.Value.AsNullable(), true);
     }
 
     public override void Update(float frameTime)
@@ -120,7 +113,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 continue; // TODO Perf: this could be faster if we get rid of the trycomp in the update loop altogether
                           //  There was a reason I did this in the Update loop but I can't remember.
 
-            var newCard = pda.ContainedId;
+            GetCardEntity(cartridge.LoaderUid.Value, out var newCardEnt);
+            var newCard = newCardEnt?.Owner;
             var currentCard = nanoChat.Card;
 
             // If the cards match, nothing to do
@@ -149,31 +143,31 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         switch (msg.Type)
         {
             case NanoChatUiMessageType.NewChat:
-                HandleNewChat(card, msg);
+                HandleNewChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.SelectChat:
-                HandleSelectChat(card, msg);
+                HandleSelectChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.EditChat:
-                HandleEditChat(card, msg);
+                HandleEditChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.CloseChat:
-                HandleCloseChat(card);
+                HandleCloseChat(card.Value);
                 break;
             case NanoChatUiMessageType.ToggleMute:
-                HandleToggleMute(card);
+                HandleToggleMute(card.Value);
                 break;
             case NanoChatUiMessageType.ToggleMuteChat:
-                HandleToggleMuteChat(card, msg);
+                HandleToggleMuteChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.DeleteChat:
-                HandleDeleteChat(card, msg);
+                HandleDeleteChat(card.Value, msg);
                 break;
             case NanoChatUiMessageType.SendMessage:
-                HandleSendMessage(ent, card, msg);
+                HandleSendMessage(ent, card.Value, msg);
                 break;
             case NanoChatUiMessageType.ToggleListNumber:
-                HandleToggleListNumber(card);
+                HandleToggleListNumber(card.Value);
                 break;
         }
 
@@ -188,9 +182,15 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <returns>True if a valid NanoChat card was found</returns>
     private bool GetCardEntity(
         EntityUid loaderUid,
-        out Entity<NanoChatCardComponent> card)
+        [NotNullWhen(true)] out Entity<NanoChatCardComponent>? card)
     {
-        card = default;
+        card = null;
+
+        if (TryComp<NanoChatCardComponent>(loaderUid, out var selfCard))
+        {
+            card = (loaderUid, selfCard);
+            return true;
+        }
 
         // Get the PDA and check if it has an ID card
         if (!_pdaQuery.TryComp(loaderUid, out var pda) ||
@@ -200,6 +200,30 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         card = (pda.ContainedId.Value, idCard);
         return true;
+    }
+
+    /// <summary>
+    ///     Gets the cartridge loader associated with a card.
+    /// </summary>
+    private bool GetCartridgeLoader(
+        Entity<NanoChatCardComponent> card,
+        [NotNullWhen(true)] out Entity<CartridgeLoaderComponent>? loader)
+    {
+        loader = null;
+
+        if (TryComp<CartridgeLoaderComponent>(card, out var selfLoader))
+        {
+            loader = (card, selfLoader);
+            return true;
+        }
+
+        if (card.Comp.PdaUid is { } pdaUid && TryComp<CartridgeLoaderComponent>(pdaUid, out var pdaLoader))
+        {
+            loader = (pdaUid, pdaLoader);
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -431,9 +455,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     {
         // First verify we can send from this device
         var channel = _prototype.Index(sender.Comp.RadioChannel);
-        var sendAttemptEvent = new RadioSendAttemptEvent(channel, sender);
-        RaiseLocalEvent(ref sendAttemptEvent);
-        if (sendAttemptEvent.Cancelled)
+        if (!CanSend(sender))
             return (true, new List<Entity<NanoChatCardComponent>>());
 
         var foundRecipients = new List<Entity<NanoChatCardComponent>>();
@@ -462,26 +484,19 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 if (receiverCart.Card != recipient.Owner)
                     continue;
 
-                // Check if devices are on same station/map
-                var recipientStation = _station.GetOwningStation(receiverUid);
-                var senderStation = _station.GetOwningStation(sender);
+                var receiverMapId = Transform(receiverUid).MapID;
+                var senderMapId = Transform(sender).MapID;
 
-                // Both entities must be on a station
-                if (recipientStation == null || senderStation == null)
+                // Must be on the same map unless long range is allowed.
+                if (!channel.LongRange && receiverMapId != senderMapId)
                     continue;
 
-                // Must be on same map/station unless long range allowed
-                if (!channel.LongRange && recipientStation != senderStation)
-                    continue;
-
-                // Needs telecomms
-                if (!HasActiveServer(senderStation.Value) || !HasActiveServer(recipientStation.Value))
+                // Check if telecommunications are active on both ends
+                if (!_radio.HasActiveServer(receiverMapId, receiverCart.RadioChannel) || !_radio.HasActiveServer(senderMapId, sender.Comp.RadioChannel))
                     continue;
 
                 // Check if recipient can receive
-                var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, receiverUid);
-                RaiseLocalEvent(ref receiveAttemptEv);
-                if (receiveAttemptEv.Cancelled)
+                if (!CanReceive(sender, receiverUid))
                     continue;
 
                 // Found valid cartridge that can receive
@@ -494,21 +509,26 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Checks if there are any active telecomms servers on the given station
+    ///     Tests if a NanoChat cartridge can send messages
     /// </summary>
-    private bool HasActiveServer(EntityUid station)
+    /// <param name="sender">The NanoChat cartridge trying to send</param>
+    private bool CanSend(Entity<NanoChatCartridgeComponent> sender)
     {
-        // I have no idea why this isn't public in the RadioSystem
-        var query =
-            EntityQueryEnumerator<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent>();
+        var sendAttemptEvent = new RadioSendAttemptEvent(_prototype.Index(sender.Comp.RadioChannel), sender);
+        RaiseLocalEvent(ref sendAttemptEvent);
+        return !sendAttemptEvent.Cancelled;
+    }
 
-        while (query.MoveNext(out var uid, out _, out _, out var power))
-        {
-            if (_station.GetOwningStation(uid) == station && power.Powered)
-                return true;
-        }
-
-        return false;
+    /// <summary>
+    ///     Tests if a receiver can receive from a given NanoChat cartridge
+    /// </summary>
+    /// <param name="sender">The NanoChat cartridge trying to send</param>
+    /// <param name="receiver">The receiver cartridge trying to receive</param>
+    private bool CanReceive(Entity<NanoChatCartridgeComponent> sender, EntityUid receiver)
+    {
+        var receiveAttemptEv = new RadioReceiveAttemptEvent(_prototype.Index(sender.Comp.RadioChannel), sender, receiver);
+        RaiseLocalEvent(ref receiveAttemptEv);
+        return !receiveAttemptEv.Cancelled;
     }
 
     /// <summary>
@@ -562,12 +582,11 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         HashSet<uint> mutedChats = recipient.Comp.MutedChats;
         if (recipient.Comp.NotificationsMuted ||
             mutedChats.Contains(message.SenderId) ||
-            recipient.Comp.PdaUid is not { } pdaUid ||
-            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
+            !GetCartridgeLoader(recipient, out var loader) ||
             // Don't notify if the recipient has the NanoChat program open with this chat selected.
             (hasSelectedCurrentChat &&
-                _ui.IsUiOpen(pdaUid, PdaUiKey.Key) &&
-                HasComp<NanoChatCartridgeComponent>(loader.ActiveProgram)))
+                _ui.IsUiOpen(loader.Value.Owner, PdaUiKey.Key) &&
+                HasComp<NanoChatCartridgeComponent>(loader.Value.Comp.ActiveProgram)))
             return;
 
         var title = "";
@@ -580,10 +599,10 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         else
             title = Loc.GetString("nano-chat-new-message-title", ("sender", senderName));
 
-        _cartridge.SendNotification(pdaUid,
+        _cartridge.SendNotification(loader.Value,
             title,
             Loc.GetString("nano-chat-new-message-body", ("message", SharedNanoChatSystem.Truncate(message.Content, NotificationMaxLength, " [...]"))),
-            loader);
+            loader.Value);
     }
 
     /// <summary>
@@ -628,6 +647,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             if (card.Number != number)
                 continue;
 
+            if (HasComp<BorgChassisComponent>(uid))
+            {
+                if (!TryComp<BorgSwitchableTypeComponent>(uid, out var switchable) || switchable.SelectedBorgType is not { } borgType)
+                    return new NanoChatRecipient(number, MetaData(uid).EntityName, null);
+
+                return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"borg-type-{borgType}-transponder"));
+            }
+            if (HasComp<StationAiHeldComponent>(uid))
+            {
+                return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"station-ai-transponder"));
+            }
+
             // Try to get job title from ID card if possible
             string? jobTitle = null;
             var name = "Unknown";
@@ -652,20 +683,38 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     private void UpdateUI(Entity<NanoChatCartridgeComponent> ent, EntityUid loader)
     {
         List<NanoChatRecipient>? contacts;
-        if (_station.GetOwningStation(loader) is { } station)
-        {
-            ent.Comp.Station = station;
 
+        if (CanSend(ent) && _radio.HasActiveServer(Transform(ent).MapID, ent.Comp.RadioChannel))
+        {
             contacts = [];
 
             var query = AllEntityQuery<NanoChatCardComponent, IdCardComponent>();
             while (query.MoveNext(out var entityId, out var nanoChatCard, out var idCardComponent))
             {
-                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName && _station.GetOwningStation(entityId) == station)
+                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName)
                 {
                     contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName));
                 }
             }
+
+            var borgQuery = AllEntityQuery<NanoChatCardComponent, BorgChassisComponent>();
+            while (borgQuery.MoveNext(out var borgId, out var borgChatCard, out var _))
+            {
+                if (borgChatCard.ListNumber && borgChatCard.Number is uint nanoChatNumber)
+                {
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, MetaData(borgId).EntityName));
+                }
+            }
+
+            var aiQuery = AllEntityQuery<NanoChatCardComponent, StationAiHeldComponent>();
+            while (aiQuery.MoveNext(out var aiId, out var aiChatCard, out var _))
+            {
+                if (aiChatCard.ListNumber && aiChatCard.Number is uint nanoChatNumber)
+                {
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, MetaData(aiId).EntityName));
+                }
+            }
+
             contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
         }
         else

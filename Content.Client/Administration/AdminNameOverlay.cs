@@ -8,12 +8,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Content.Shared.SSDIndicator; // DeltaV - SSD time indicator
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // DeltaV - SSD time indicator
 
 namespace Content.Client.Administration;
 
@@ -26,6 +28,7 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly IUserInterfaceManager _userInterfaceManager;
     private readonly SharedRoleSystem _roles;
     private readonly IPrototypeManager _prototypeManager;
+    private readonly IGameTiming _timing; // DeltaV - Add timing
     private readonly Font _font;
     private readonly Font _fontBold;
     private AdminOverlayAntagFormat _overlayFormat;
@@ -53,7 +56,8 @@ internal sealed class AdminNameOverlay : Overlay
         IUserInterfaceManager userInterfaceManager,
         IConfigurationManager config,
         SharedRoleSystem roles,
-        IPrototypeManager prototypeManager)
+        IPrototypeManager prototypeManager,
+        IGameTiming timing) // DeltaV - Add timing
     {
         _system = system;
         _entityManager = entityManager;
@@ -62,6 +66,7 @@ internal sealed class AdminNameOverlay : Overlay
         _userInterfaceManager = userInterfaceManager;
         _roles = roles;
         _prototypeManager = prototypeManager;
+        _timing = timing; // DeltaV - Add timing
         ZIndex = 200;
         // Setting these to a specific ttf would break the antag symbols
         _font = resourceCache.NotoStack();
@@ -230,6 +235,18 @@ internal sealed class AdminNameOverlay : Overlay
                 args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.StartingJob, uiScale, playerInfo.Connected ? color : colorDisconnected);
                 currentOffset += lineoffset;
             }
+
+            // DeltaV - SSD Time START
+            if (_entityManager.TryGetComponent<SSDIndicatorComponent>(entity, out var ssdIndicator)
+                && ssdIndicator.SsdSince is {} ssdSince)
+            {
+                color = Color.MediumPurple;
+                color.A = alpha;
+                var ssdText = Loc.GetString("admin-overlay-ssd-time", ("time", (_timing.CurTime - ssdSince).ToString("%hh':'mm':'ss")));
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, ssdText, uiScale, color);
+                currentOffset += lineoffset;
+            }
+            // DeltaV END
 
             // Determine antag symbol
             string? symbol;

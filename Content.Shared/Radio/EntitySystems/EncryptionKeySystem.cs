@@ -166,9 +166,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
     private void OnHolderExamined(EntityUid uid, EncryptionKeyHolderComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange
-            || !component.ExamineWhileLocked && !component.KeysUnlocked // Goobstation
-            || !component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open) // Goobstation
+        if (!args.IsInDetailsRange)
             return;
 
         if (component.KeyContainer.ContainedEntities.Count == 0)

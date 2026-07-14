@@ -8,6 +8,7 @@
     - id: BoxPDACargo
     - id: QuartermasterIDCard
     - id: StockTradingCartridge
+    - id: PersonalAILearnerCargo #imp
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -16,6 +17,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingLongcoatCaptainArmored
+    - id: PersonalAILearnerCommand # imp
+    - id: ClothingOuterWinterCapArmored
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -23,8 +26,10 @@
   id: LockerFillHeadOfPersonnelDeltaV
   table: !type:AllSelector
     children:
+    - id: ClothingHeadsetAltService
     - id: ClothingOuterCoatHoPArmored
     - id: BookIanDossier # HoP steal objective, see Resources/Prototypes/_DV/Entities/Objects/Misc/ian_dossier.yml
+    - id: PersonalAILearnerService # imp
     - id: LunchboxCommandFilledRandom
       prob: 0.8
 
@@ -32,8 +37,14 @@
   id: LockerFillChiefEngineerDeltaV
   table: !type:AllSelector
     children:
+    - id: HolotapeProjector
+    - id: BoxFolderCeClipboard
+    - id: AirGrenade
+    - id: RCDRecharging
+    - id: ClothingEyesGlassesMesonTray
     - id: BoxPDAEngineering
     - id: CEIDCard
+    - id: PersonalAILearnerEngineering # imp
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -41,9 +52,12 @@
   id: LockerFillChiefMedicalOfficerDeltaV
   table: !type:AllSelector
     children:
+    - id: BoxCMOStamps # Spare doctor stamps, does not include CMO stamp
+    - id: PrescriptionFolder
     - id: BoxPDAMedical
     - id: ClothingBeltMilitaryWebbingCMO # add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
     - id: CMOIDCard
+    - id: PersonalAILearnerMedical #imp
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 
@@ -54,9 +68,11 @@
     - id: BoxPDAScience
     - id: RDIDCard
     - id: BoxFolderRdClipboard
+    - id: PersonalAILearnerScience # imp
     - id: LunchboxCommandFilledRandom
       prob: 0.3
     - id: CosmicCenser
+    - id: BibleMystagogue
 
 - type: entityTable
   id: LockerFillHeadOfSecurityDeltaV
@@ -67,5 +83,6 @@
     - id: HoSIDCard
     - id: ClothingOuterVestPlateCarrierAdv
     - id: SecWatchCartridge
+    - id: PersonalAILearnerSecurity #imp
     - id: LunchboxCommandFilledRandom
       prob: 0.3
