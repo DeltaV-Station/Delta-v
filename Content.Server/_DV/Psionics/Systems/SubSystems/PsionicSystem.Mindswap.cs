@@ -9,6 +9,9 @@ using JetBrains.Annotations;
 
 namespace Content.Server._DV.Psionics.Systems;
 
+/// <summary>
+/// This handles swapping the minds of beings for psionic reasons, such as telegnosis or mass mindswaps.
+/// </summary>
 public sealed partial class PsionicSystem
 {
     [Dependency] private readonly ActionsSystem _action = default!;
