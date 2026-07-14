@@ -28,7 +28,7 @@ public sealed class ShadekinSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly SharedFlashSystem _flashSystem = default!;
