@@ -19,4 +19,10 @@ public sealed partial class HystericalStrengthPowerComponent : BasePsionicPowerC
     /// </summary>
     [DataField]
     public float AddedDensity = 500;
+
+    /// <summary>
+    /// The prototype ID of the status effect.
+    /// </summary>
+    [DataField]
+    public EntProtoId HystericalStrengthEffectProto = "HystericalStrengthStatusEffect";
 }

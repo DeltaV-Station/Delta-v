@@ -8,22 +8,13 @@ using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
-using Content.Shared.Stunnable;
-using Robust.Shared.Physics.Collision.Shapes;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class HystericalStrengthPowerSystem : BasePsionicPowerSystem<HystericalStrengthPowerComponent, HystericalStrengthPowerActionEvent>
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly FixtureSystem _fixture = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-
-    public static readonly EntProtoId HystericalStrengthEffectProto = "HystericalStrengthStatusEffect";
-    private readonly string _fixtureID = "HystericalStrengthFixture";
 
     public override void Initialize()
     {
@@ -40,10 +31,8 @@ public sealed class HystericalStrengthPowerSystem : BasePsionicPowerSystem<Hyste
         // If the action ISN'T toggled, it WILL be toggled after this code, so we have to treat it as if it IS toggled on.
         if (!args.Action.Comp.Toggled)
         {
-            if (!_statusEffects.TryUpdateStatusEffectDuration(args.Performer, HystericalStrengthEffectProto))
+            if (!_statusEffects.TryUpdateStatusEffectDuration(args.Performer, psionic.Comp.HystericalStrengthEffectProto))
                 return;
-
-            _fixture.TryCreateFixture(args.Performer, new PhysShapeCircle(), _fixtureID, 500, false, friction: 0f);
 
             var messageUser = Loc.GetString("psionic-power-hysterical-strength-used");
             var messageOthers = Loc.GetString("psionic-power-hysterical-strength-used-others", ("user", Identity.Entity(args.Performer, EntityManager)));
@@ -52,24 +41,22 @@ public sealed class HystericalStrengthPowerSystem : BasePsionicPowerSystem<Hyste
         }
         else
         {
-            StopPower(args.Performer);
+            if (!_statusEffects.TryRemoveStatusEffect(args.Performer, psionic.Comp.HystericalStrengthEffectProto))
+                return;
         }
-
         AfterPowerUsed(psionic, args.Performer);
     }
 
-    private void StopPower(Entity<HystericalStrengthPowerComponent?> performer, bool toggleOff = false)
+    private void TogglePowerAction(EntityUid performer, HystericalStrengthPowerComponent? comp = null)
     {
-        _statusEffects.TryRemoveStatusEffect(performer, HystericalStrengthEffectProto);
-        _fixture.DestroyFixture(performer, _fixtureID);
-
-        if (toggleOff && Resolve(performer, ref performer.Comp))
-            Action.SetToggled(performer.Comp.ActionEntity, false);
+        // In case the power wasn't stopped by pressing the ability, we'll need to un-press it ourselves.
+        if (Resolve(performer, ref comp, false))
+            Action.SetToggled(comp.ActionEntity, false);
     }
 
     private void PunishPsionic(EntityUid victim, EntityUid? dispeller = null)
     {
-        StopPower(victim, true);
+        TogglePowerAction(victim);
 
         var message = Loc.GetString("psionic-power-hysterical-strength-being-dispelled", ("dispelled", Identity.Entity(victim, EntityManager)));
 
@@ -80,11 +67,13 @@ public sealed class HystericalStrengthPowerSystem : BasePsionicPowerSystem<Hyste
 
     private void OnActiveDispelled(Entity<HystericalStrengthStatusEffectComponent> effect, ref StatusEffectRelayedEvent<DispelledEvent> args)
     {
+        PredictedQueueDel(effect);
         PunishPsionic(args.Args.Target, args.Args.Target);
     }
 
-    private void OnActiveSuppressed(Entity<HystericalStrengthStatusEffectComponent> ent, ref StatusEffectRelayedEvent<PsionicSuppressedEvent> args)
+    private void OnActiveSuppressed(Entity<HystericalStrengthStatusEffectComponent> effect, ref StatusEffectRelayedEvent<PsionicSuppressedEvent> args)
     {
+        PredictedQueueDel(effect);
         PunishPsionic(args.Args.Victim, args.Args.Victim);
     }
 
@@ -93,7 +82,8 @@ public sealed class HystericalStrengthPowerSystem : BasePsionicPowerSystem<Hyste
         if (args.Args.NewMobState == MobState.Alive)
             return;
 
-        StopPower(args.Args.Target, true);
+        PredictedQueueDel(effect);
+        TogglePowerAction(args.Args.Target);
     }
 
     public override void Update(float frameTime)

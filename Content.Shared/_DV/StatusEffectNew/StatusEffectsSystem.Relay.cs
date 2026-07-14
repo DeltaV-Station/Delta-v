@@ -22,6 +22,5 @@ public sealed partial class StatusEffectsSystem
         // Generic
         SubscribeLocalEvent<StatusEffectContainerComponent, ModifySlowOnDamageSpeedEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, ModifyClothingSlowdownEvent>(RefRelayStatusEffectEvent);
-        SubscribeLocalEvent<StatusEffectContainerComponent, MobStateChangedEvent>(RefRelayStatusEffectEvent); // <- REMOVE THIS IF UPSTREAM ADDS THIS
     }
 }
