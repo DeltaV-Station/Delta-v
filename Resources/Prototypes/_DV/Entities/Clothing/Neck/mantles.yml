@@ -42,3 +42,14 @@
     sprite: _DV/Clothing/Neck/mantles/salvagemantle.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/mantles/salvagemantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimeMantle
+  name: mime's mantle
+  description: A collared mantle designed for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/mantles/mimemantle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/mantles/mimemantle.rsi
