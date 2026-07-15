@@ -283,7 +283,7 @@
   - type: Lung
     alert: LowNitrogen
 
-- type: entity  #Delta V - Added custom Slime eye organ
+- type: entity # DeltaV - Added custom Slime eye organ
   parent: [ OrganBaseEyes, OrganSlimePersonExternal, OrganSlimePersonInternal ]
   id: OrganSlimeEyes
   components:
