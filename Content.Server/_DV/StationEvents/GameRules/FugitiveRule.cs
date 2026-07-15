@@ -109,7 +109,9 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         var report = new FormattedMessage();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-title"));
         report.PushNewline();
+        report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-first-line"));
+        report.PushNewline();
         report.PushNewline();
 
         if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
@@ -121,8 +123,11 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         var species = PrototypeManager.Index(humanoid.Species);
 
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
+        report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)));
+        report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex)));
+        report.PushNewline();
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))));
@@ -133,6 +138,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
             0 => Loc.GetString("fugitive-report-detail-dna", ("dna", GetDNA(uid))),
             _ => Loc.GetString("fugitive-report-detail-prints", ("prints", GetPrints(uid)))
         });
+        report.PushNewline();
 
         report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crimes-header"));
@@ -172,6 +178,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         {
             var count = RobustRandom.Next(rule.MinCounts, rule.MaxCounts + 1);
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crime", ("crime", Loc.GetString(crime)), ("count", count)));
+            report.PushNewline();
         }
     }
 }
