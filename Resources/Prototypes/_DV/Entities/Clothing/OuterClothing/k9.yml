@@ -102,6 +102,13 @@
   name: K9 durathread vest
   description: A tight-fitting and sturdy armor vest for canines, reinforced with durathread weave to protect against sharp objects and blunt force trauma.
   components:
+  - type: Armor
+  modifiers:
+    coefficients:
+      Blunt: 0.6
+      Slash: 0.6
+      Piercing: 0.9
+      Heat: 0.9
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
     state: icon-secdog
