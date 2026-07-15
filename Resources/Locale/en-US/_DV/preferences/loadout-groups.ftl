@@ -37,6 +37,8 @@ loadout-group-assistant-head = Assistant head
 
 loadout-group-clown-mask = Clown mask
 
+loadout-group-mime-shoes = Mime shoes
+
 # Logistics
 
 loadout-group-cargo-technician-neck = Cargo Technician neck
