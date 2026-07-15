@@ -215,7 +215,7 @@
     - CrimeAssistCartridge
     - LogProbeCartridge
   - type: Pager
-    autoLinkDepartments: [ Attorney ]
+    autoLinkJobs: [Attorney]
 
 - type: entity
   parent: BaseJusticePDA
@@ -234,6 +234,8 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-prisonguard
+  - type: Pager
+    autoLinkJobs: [JusticeWarden]
 
 - type: entity
   parent: BaseJusticePDA
@@ -252,7 +254,7 @@
   - type: Icon
     state: pda-clerk
   - type: Pager
-    autoLinkJobs: [ Marshal ]
+    autoLinkJobs: [Marshal]
 
 # Misc
 

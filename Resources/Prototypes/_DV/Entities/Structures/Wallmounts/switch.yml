@@ -28,7 +28,7 @@
   suffix: Attorney
   components:
   - type: AccessReader
-    access: [ [ "Attorney" ] ]
+    access: [["Attorney"]]
 
 - type: entity
   parent: LockableButton
@@ -52,7 +52,7 @@
   suffix: JusticeWarden
   components:
   - type: AccessReader
-    access: [ [ "JusticeWarden" ] ]
+    access: [[JusticeWarden]]
 
 - type: entity
   parent: LockableButton
@@ -60,7 +60,7 @@
   suffix: Marshal
   components:
   - type: AccessReader
-    access: [ [ "Marshal" ] ]
+    access: [["Marshal"]]
 
 - type: entity
   parent: LockableButton
