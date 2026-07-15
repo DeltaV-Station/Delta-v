@@ -1,0 +1,51 @@
+- type: job
+  id: Marshal
+  name: job-name-marshal
+  description: job-description-marshal
+  playTimeTracker: JobMarshal
+  setPreference: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 20h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Justice
+    time: 10h
+  startingGear: MarshalGear
+  alwaysUseSpawner: true
+  canBeAntag: false
+  icon: "JobIconClerk"
+  supervisors: job-supervisors-warden
+  whitelisted: true
+  access:
+  - Justice
+  - Marshal
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: MarshalGear
+  equipment:
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetJustice
+    belt: ClothingBeltSecurity
+  storage:
+    back:
+    - Flash
+
+- type: chameleonOutfit
+  id: MarshalChameleonOutfit
+  job: Marshal
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetJustice
+    head: ClothingHeadPrisonGuard
+    jumpsuit: ClothingUniformJumpsuitPrisonGuard
+    mask: ClothingMaskGasSecurity
+    gloves: ClothingHandsGlovesColorBlack
