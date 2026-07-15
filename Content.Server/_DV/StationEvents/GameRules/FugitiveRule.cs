@@ -142,7 +142,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crimes-header"));
-
+        report.PushNewline();
         // generate some random crimes to avoid this situation
         // "officer what are my charges?"
         // "uh i dunno a piece of paper said to arrest you thats it"
