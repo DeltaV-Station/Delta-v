@@ -1,12 +1,3 @@
-# Augments
-construction-graph-tag-augment-casing = casing
-construction-graph-tag-cell-recharger-board = cell recharger machine board
-construction-graph-tag-cyborg-recharger-board = cyborg recharging station machine board
-construction-graph-tag-botany-tools-panel = botany tools panel electronics
-construction-graph-tag-paperwork-tools-panel = paperwork tools panel electronics
-construction-graph-tag-utility-tools-panel = utility tools panel electronics
-construction-graph-tag-surgery-tools-panel = surgery tools panel electronics
-
 # Chef
 construction-graph-tag-cake-base = plain cake
 
@@ -50,3 +41,7 @@ construction-graph-tag-silversword = silver sword
 # Other
 construction-graph-tag-jug = jug
 construction-graph-tag-beaker = beaker
+construction-graph-tag-eletricguitar = Eletric Guitar
+construction-graph-tag-harmonica = Harmonica
+construction-graph-tag-daw = Digital Audio Workstation Machine board
+construction-graph-tag-Synthesizer = Synthesizer

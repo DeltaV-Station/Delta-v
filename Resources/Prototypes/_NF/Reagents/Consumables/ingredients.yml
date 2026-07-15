@@ -8,7 +8,7 @@
   physicalDesc: reagent-physical-desc-powdery
   recognizable: true # "Waiter, there seems to be grounds in my coffee."
   metabolisms:
-    Drink:
+    Digestion:
       effects:
         - !type:SatiateHunger
           factor: 0.1

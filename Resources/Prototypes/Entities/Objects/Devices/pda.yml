@@ -430,6 +430,9 @@
       whitelist:
         components:
         - Cartridge
+    #preinstalled: # DeltaV - Mime can use BasePDA cartridges
+    #- CrewManifestCartridge
+    #- NewsReaderCartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
