@@ -1,4 +1,4 @@
-#Eyes
+# Eyes
 - type: marking
   id: SlimeEyesDefault
   bodyPart: Eyes
@@ -38,12 +38,13 @@
   - sprite: _Impstation/Mobs/Customization/Slime/eyes.rsi
     state: droopyL
 
-#Snout
+# Snout
 - type: marking
   id: SlimeNose
   bodyPart: Snout
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Slime/snout.rsi
     state: nose

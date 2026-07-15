@@ -1,9 +1,10 @@
-#HeadSide
+# HeadSide
 - type: marking
   id: SlimeLongEars
   bodyPart: HeadSide
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/ears.rsi
     state: slime_ears_standard
@@ -13,6 +14,7 @@
   bodyPart: HeadSide
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/ears.rsi
     state: slime_ears_wide
@@ -22,6 +24,7 @@
   bodyPart: HeadSide
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/ears.rsi
     state: slime_ears_small
@@ -31,6 +34,7 @@
   bodyPart: HeadSide
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/ears.rsi
     state: slime_ears_upwards
@@ -40,6 +44,7 @@
   bodyPart: HeadSide
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/ears.rsi
     state: slime_ears_tall
@@ -49,11 +54,12 @@
   bodyPart: HeadSide
   groupWhitelist: [Slime]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/ears.rsi
     state: slime_ears_thin
 
-#Eyes
+# Eyes
 - type: marking
   id: SlimeEyesDroopyRight
   bodyPart: Eyes
@@ -80,13 +86,79 @@
   - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
     state: foureyes
 
-#Chest
+# DeltaV - Slime-specific Makeup additions
+# Swapping the eyeshadow to head markings only on Slime people to account for newly added Eye markings and limit
+- type: marking
+  id: MakeupEyeshadowLower
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: eyeshadow_lower
+
+- type: marking
+  id: MakeupEyeshadowUpper
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: eyeshadow_upper
+
+- type: marking
+  id: MakeupFoureyesEyeshadow
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: foureyes_eyeshadow
+
+- type: marking
+  id: MakeupDroopyLEyeshadowUpper
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyL_eyeshadow_upper
+
+- type: marking
+  id: MakeupDroopyLEyeshadowLower
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyL_eyeshadow_lower
+
+- type: marking
+  id: MakeupDroopyREyeshadowUpper
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyR_eyeshadow_upper
+
+- type: marking
+  id: MakeupDroopyREyeshadowLower
+  bodyPart: Head
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyR_eyeshadow_lower
+
+# Chest
 - type: marking
   id: TorsoBitsF
   bodyPart: Chest
   groupWhitelist: [Slime]
   sexRestriction: [Female]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/chest.rsi
     state: torsobits_f
@@ -97,6 +169,7 @@
   groupWhitelist: [Slime]
   sexRestriction: [Male]
   forcedColoring: true
+  MatchSkin: true
   sprites:
   - sprite: _DV/Mobs/Customization/Slime/chest.rsi
     state: torsobits_m
