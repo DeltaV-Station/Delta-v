@@ -472,13 +472,37 @@
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-infiltrator-module }
 
 - type: entity
-  parent: CloakingDevice
+  parent: [ BaseItem, BaseSyndicateContraband ]
   id: CloakingDeviceSyndicateBorg
+  name: syndicate cloaking device
   description: A device that allows the borg to become cloaked for a short amount of time. Will recharge after 30 seconds of non-use.
   components:
   - type: Sprite
-    sprite: Objects/Tools/access_breaker.rsi # Finally using this awesome icon
+    sprite: Objects/Tools/access_breaker.rsi # Finally using this awesome sprite
     state: icon
+  - type: ItemToggle
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: Stealth
+      minVisibility: 0.1
+      lastVisibility: 0.1
+  - type: PowerCellDraw
+    drawRate: 3.6
+    pauseRecharging: true
+  - type: ToggleCellDraw
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmallNuclear
+        disableEject: true
+        swap: false
 
 # Service Modules
 

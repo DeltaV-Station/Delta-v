@@ -45,7 +45,7 @@ public sealed class EngraveableSystem : EntitySystem
             return;
 
         // We need an actor to give the verb.
-        if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+        if (!TryComp(args.User, out ActorComponent? actor)) // Delta V - Change to Proxy Method
             return;
 
         // Make sure ghosts can't engrave stuff.

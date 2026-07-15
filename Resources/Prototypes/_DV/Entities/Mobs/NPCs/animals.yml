@@ -179,7 +179,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
-        Quantity: 300 # BIG DOG. MUCH BLOOD :3
+        Quantity: 150 # BIG DOG. MUCH BLOOD :3 - About half as much as a human
   - type: Puller
     needsHands: false
   - type: MobPrice
@@ -230,8 +230,6 @@
   name: scrimpering whimperlet
   description: A pitiful creature. It loses a lot of salt through its tears.
   components:
-  - type: Body
-    prototype: Animal
   - type: GhostRole
     name: ghost-role-information-whimperlet-name
     description: ghost-role-information-whimperlet-description
@@ -451,8 +449,6 @@
     - CannotSuicide
     - VimPilot
   - type: CanEscapeInventory
-  - type: Body
-    prototype: Mothroach
   - type: TypingIndicator
     proto: moth
   - type: Destructible

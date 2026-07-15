@@ -58,8 +58,8 @@
     transmitFrequencyId: SuitSensor
     savableAddress: false
   - type: WirelessNetworkConnection
-    range: 1200
-  - type: StationLimitedNetwork
+    range: 3600 # DeltaV - was 1200
+  # - type: StationLimitedNetwork # DeltaV - this stinks and we don't want it to be limited
 
 - type: entity
   abstract: true

@@ -30,8 +30,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
-  - type: Body
-    prototype: Animal
   - type: Damageable # DeltaV - Change their damage to BiologicalMetaphysical, since they're magical sprite things. Also the shadow anomalite is supposed to take holy damage and it can't normally
     damageContainer: BiologicalMetaphysical
   - type: Dispellable # DeltaV - they're anomalies so they should be dispellable

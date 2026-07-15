@@ -1,0 +1,248 @@
+- type: markingsGroup
+  id: Ovinia
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.NeckFluff:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 2
+      required: true
+      default: [ OviniaEars ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceOvinia
+  name: ovinia appearance
+  components:
+  - type: Inventory
+    speciesId: ovinia
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+  - type: InitialBody
+    organs:
+      Torso: OrganOviniaTorso
+      Head: OrganOviniaHead
+      ArmLeft: OrganOviniaArmLeft
+      ArmRight: OrganOviniaArmRight
+      HandRight: OrganOviniaHandRight
+      HandLeft: OrganOviniaHandLeft
+      LegLeft: OrganOviniaLegLeft
+      LegRight: OrganOviniaLegRight
+      FootLeft: OrganOviniaFootLeft
+      FootRight: OrganOviniaFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganAnimalLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganAnimalStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganAnimalKidneys
+  - type: HumanoidProfile
+    species: Ovinia
+  - type: ScaleVisuals
+    scale: 0.9, 0.9
+
+- type: entity
+  parent:
+  - AppearanceOvinia
+  - BaseSpeciesMobOrganic
+  id: MobOvinia
+  name: Urist McSheepy
+  components:
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 215 # sheep be heavy
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageModifierSet: Ovinia
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Ovinia
+  - type: Vocal
+    sounds:
+      Male: MaleOvinia
+      Female: FemaleOvinia
+      Unsexed: MaleOvinia
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - OviniaEmotes
+  - type: ProtectedFromStepTriggers
+  - type: TypingIndicator
+    proto: ovinia
+  - type: Hunger
+    baseDecayRate: 0.026 #25% slower than normal (chewin they cud)
+  - type: Thirst
+    baseDecayRate: 0.075 #25% slower than normal
+
+- type: entity
+  parent: OrganBase
+  id: OrganOvinia
+  abstract: true
+  suffix: ovinia
+
+- type: entity
+  parent: OrganOvinia
+  id: OrganOviniaExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ovinia
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: OrganOviniaTorso
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganOviniaExternal ]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaHead
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganOviniaExternal ]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    markingData:
+      layers:
+      - Head
+      - Hair
+      - FacialHair
+      - Snout
+      - SnoutCover
+      - HeadSide
+      - HeadTop
+      - NeckFluff # Delta V - Adds NeckFluff to Ovinia
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaArmLeft
+  parent: [ OrganBaseArmLeft, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaArmRight
+  parent: [ OrganBaseArmRight, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaHandLeft
+  parent: [ OrganBaseHandLeft, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaHandRight
+  parent: [ OrganBaseHandRight, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaLegLeft
+  parent: [ OrganBaseLegLeft, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaLegRight
+  parent: [ OrganBaseLegRight, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaFootLeft
+  parent: [ OrganBaseFootLeft, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: OrganOviniaFootRight
+  parent: [ OrganBaseFootRight, OrganOviniaExternal ]
+  categories: [ HideSpawnMenu ]

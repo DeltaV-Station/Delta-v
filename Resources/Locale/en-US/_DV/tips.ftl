@@ -1,7 +1,7 @@
 tips-dataset-140 = Lotophagoi oil from the Oracle will drug you up for a long time, but is one of the most reliable sources of psionics.
 tips-dataset-141 = Turn off glimmer probers when glimmer approaches concerning levels.
 tips-dataset-142 = Glimmer probers power themselves when glimmer gets too high.
-tips-dataset-143 = Oneirophages have psionic invisiblity. Psionic insulation will allow you to see them.
+tips-dataset-143 = You can now use the #Mentor-VC in Delta V's Discord to teach your friends!
 tips-dataset-144 = Someone who looks just like you may be a paradox anomaly.
 tips-dataset-145 = Rat kings can command their rats to attack someone by pointing at them.
 tips-dataset-146 = If you see shimmering at the edges of your vision, glimmer may be getting too high.

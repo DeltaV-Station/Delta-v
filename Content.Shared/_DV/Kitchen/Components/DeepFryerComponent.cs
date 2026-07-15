@@ -137,6 +137,12 @@ public sealed partial class DeepFryerComponent : Component
     /// <seealso cref="ProfessionalChefComponent"/>
     [DataField]
     public float MissChance = 0.25f;
+
+    /// <summary>
+    /// Check for whether the cooking timer needs to be reset after powering down
+    /// </summary>
+    [DataField]
+    public bool WasPreviouslyPowered = true;
 }
 
 /// <summary>
