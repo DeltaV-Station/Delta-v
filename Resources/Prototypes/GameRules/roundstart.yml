@@ -245,6 +245,7 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
+  startingBalance: 30 # DeltaV - more TC for traitors
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
