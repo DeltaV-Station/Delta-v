@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Added new mapping command 'togglenetworklinks'
-    type: Add
-  id: 2063
-  time: '2026-01-16T18:09:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5188
-- author: Halo3moth
-  changes:
-  - message: Devils will now role 2.5 times more often.
-    type: Tweak
-  id: 2064
-  time: '2026-01-16T18:13:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5225
 - author: EmberAstra
   changes:
   - message: Added the microwave emitter! Epistemics has a radiation gun to shoot
@@ -4345,4 +4331,26 @@
   id: 2563
   time: '2026-07-14T01:38:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5902
+- author: Velitation
+  changes:
+  - message: Mime PDAs once again start with the NanoTask, NoteKeeper, and NanoChat
+      apps.
+    type: Tweak
+  id: 2564
+  time: '2026-07-15T00:43:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6252
+- author: ShepardToTheStars
+  changes:
+  - message: The airlock access override now breaks accesses on the door. You can
+      see if accesses on doors have been broken with the Diagnostic HUD.
+    type: Tweak
+  - message: Added access configurators to engineer lockers, engineering techfab,
+      and the EngiVend. Engineers are now allowed to repair access around the station!
+    type: Add
+  - message: The AI and engineering borgs can now see if a door's accesses have been
+      modified.
+    type: Add
+  id: 2565
+  time: '2026-07-15T01:58:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6263
 Order: 1
