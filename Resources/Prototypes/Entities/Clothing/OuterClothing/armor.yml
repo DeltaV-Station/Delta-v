@@ -72,7 +72,7 @@
 - type: entity
   parent: ClothingOuterArmorBase
   id: ClothingOuterArmorReflective
-  name: reflective vest
+  name: Thermal vest
   description: An armored vest with advanced shielding to protect against energy weapons.
   components:
   - type: Sprite
@@ -85,12 +85,12 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.75 # DeltaV - changed from 60% resistant to 25%
-  - type: Reflect
-    reflectProb: 0.75 # DeltaV - changed from 100% reflect to 75%
-    reflects:
-      - Energy
-    reflectingInHands: false
+        Heat: 0.5 # DeltaV - changed from 60% resistant to 25%
+#  - type: Reflect
+#    reflectProb: 0.75 # DeltaV - changed from 100% reflect to 75%
+#    reflects:
+#      - Energy
+#    reflectingInHands: false
 
 #Detective's vest
 - type: entity
