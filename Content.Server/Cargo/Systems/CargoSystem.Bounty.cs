@@ -21,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._DV.Cargo.Components; // DeltaV: Bounty claim messages
 
 namespace Content.Server.Cargo.Systems;
 

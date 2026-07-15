@@ -2,6 +2,7 @@ using Content.Client.Cargo.UI;
 using Content.Shared.Cargo.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
+using Content.Shared._DV.Cargo.Components; // DeltaV: Bounty claim messages
 
 namespace Content.Client.Cargo.BUI;
 

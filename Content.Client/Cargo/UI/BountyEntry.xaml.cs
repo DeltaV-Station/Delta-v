@@ -50,15 +50,16 @@ public sealed partial class BountyEntry : BoxContainer
 
         // Begin DeltaV bounty claiming
         ClaimButton.OnPressed += _ => OnClaimButtonPressed?.Invoke();
-        BountyStatusSelector.AddItem(Loc.GetString("bounty-console-status", ("status", 0)), 0);
-        BountyStatusSelector.AddItem(Loc.GetString("bounty-console-status", ("status", 1)), 1);
-        BountyStatusSelector.AddItem(Loc.GetString("bounty-console-status", ("status", 2)), 2);
+        BountyStatusSelector.AddItem(Loc.GetString($"bounty-console-status-{nameof(CargoBountyStatus.Undelivered)}"), 0);
+        BountyStatusSelector.AddItem(Loc.GetString($"bounty-console-status-{nameof(CargoBountyStatus.Waiting)}"), 1);
+        BountyStatusSelector.AddItem(Loc.GetString($"bounty-console-status-{nameof(CargoBountyStatus.OnShuttle)}"), 2);
+
         BountyStatusSelector.Select((int) bounty.Status);
-        BountyStatusSelector.ToolTip = Loc.GetString("bounty-console-status-tooltip", ("status", (int) bounty.Status));
+        BountyStatusSelector.ToolTip = Loc.GetString($"bounty-console-status-tooltip-{bounty.Status.ToString()}");
 
         var claimedByText = string.IsNullOrEmpty(bounty.ClaimedBy) ? Loc.GetString("bounty-console-claimed-by-none") : bounty.ClaimedBy;
         ClaimedBylabel.SetMarkup(Loc.GetString("bounty-console-claimed-by", ("claimant", claimedByText)));
-        StatusLabel.SetMarkup(Loc.GetString("bounty-console-status-label", ("status", (int) bounty.Status)));
+        StatusLabel.SetMarkup(Loc.GetString($"bounty-console-formatted-status-{bounty.Status.ToString()}"));
         // End DeltaV bounty claiming
     }
 
