@@ -1,115 +1,4 @@
 ﻿Entries:
-- author: Apachito
-  changes:
-  - message: Moved the craftable armor to the clothing tab in the crafting menu
-    type: Tweak
-  - message: Reduced firerate on the forged smg from 5 to 4.5
-    type: Tweak
-  - message: Made improvised ammo do 75% damage compared to their normal counterparts
-    type: Tweak
-  id: 2052
-  time: '2026-01-11T22:08:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5129
-- author: Unkn0wnGh0st333
-  changes:
-  - message: Gulp Emote from Goob has been added...  gulp...
-    type: Add
-  id: 2053
-  time: '2026-01-12T04:42:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5033
-- author: Velcroboy
-  changes:
-  - message: Tanks of ammonia are now purchasable from logi for mixing more space
-      cleaner or making the station stinky
-    type: Add
-  id: 2054
-  time: '2026-01-13T05:00:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5167
-- author: Pharaz4
-  changes:
-  - message: Syndicate Assault, Medical, and Saboteur borgs now get names.
-    type: Add
-  - message: Fixed SRN Saboteur borg not being able to fit Engineering module
-    type: Fix
-  id: 2055
-  time: '2026-01-14T13:23:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5197
-- author: MilonPL
-  changes:
-  - message: Added a dynamic tip system that shows contextual tips to players based
-      on their job, playtime, and more.
-    type: Add
-  - message: Tips can be disabled or reset in the Options menu under DeltaV.
-    type: Add
-  id: 2056
-  time: '2026-01-14T20:23:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5199
-- author: Velcroboy
-  changes:
-  - message: Fixed bomb and effigy targets being on grids off the station sometimes.
-    type: Fix
-  id: 2057
-  time: '2026-01-15T07:29:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5213
-- author: Pharaz4
-  changes:
-  - message: Hard hats are now protective!
-    type: Tweak
-  id: 2058
-  time: '2026-01-15T15:44:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5175
-- author: Halo3moth
-  changes:
-  - message: The hos locker will now spawn with a briefcase that allows them to pick
-      between sidearms.
-    type: Add
-  - message: The energy magnum now also works for the hos steal objective.
-    type: Tweak
-  - message: Energy magnum standard bolt from 20 heat to 24 and magnum bolt from 30
-      heat to 24 heat and 11 pierce.
-    type: Tweak
-  id: 2059
-  time: '2026-01-16T17:46:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5203
-- author: mnva0
-  changes:
-  - message: Ovinia now start with a emergency survival box.
-    type: Fix
-  id: 2060
-  time: '2026-01-16T17:55:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5207
-- author: Halo3moth
-  changes:
-  - message: Re-added the graytide stamp to maints lockers.
-    type: Add
-  - message: Tweak some of the spawn rates for meme items in maints lockers.
-    type: Tweak
-  id: 2061
-  time: '2026-01-16T17:58:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5221
-- author: Pharaz4
-  changes:
-  - message: Fixed extra hardsuit that spawned in Suit storage lockers.
-    type: Fix
-  - message: Fixed free Epistemics access for HoP in pTech.
-    type: Fix
-  id: 2062
-  time: '2026-01-16T17:59:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5201
-- author: BarryNorfolk
-  changes:
-  - message: Added new mapping command 'togglenetworklinks'
-    type: Add
-  id: 2063
-  time: '2026-01-16T18:09:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5188
-- author: Halo3moth
-  changes:
-  - message: Devils will now role 2.5 times more often.
-    type: Tweak
-  id: 2064
-  time: '2026-01-16T18:13:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5225
 - author: EmberAstra
   changes:
   - message: Added the microwave emitter! Epistemics has a radiation gun to shoot
@@ -4344,4 +4233,124 @@
   id: 2552
   time: '2026-07-11T16:34:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5960
+- author: rebe83, mousesweater
+  changes:
+  - message: Command members now have learner PAIs in their locker ready to absorb
+      knowledge!
+    type: Add
+  id: 2553
+  time: '2026-07-11T17:25:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5924
+- author: Coryler
+  changes:
+  - message: Avali Preened Feather Color are now correct again
+    type: Fix
+  id: 2554
+  time: '2026-07-13T13:32:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6285
+- author: pootslap
+  changes:
+  - message: Starlight forged weapons/armour/ammo are no longer craftable.
+    type: Remove
+  id: 2555
+  time: '2026-07-13T13:46:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6250
+- author: ArionGekkota
+  changes:
+  - message: Added the small arms mining kit to the mining voucher. It contains a
+      crusher dagger and mining drill!
+    type: Add
+  id: 2556
+  time: '2026-07-13T13:51:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6260
+- author: jessiscah23
+  changes:
+  - message: Due to the growing influence of the Cargo Pilots' Employee Advocacy Group,
+      cargo telepads are no longer available to be researched.
+    type: Remove
+  id: 2557
+  time: '2026-07-13T14:24:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6266
+- author: Velitation
+  changes:
+  - message: Added 2 new outfits and a mantle to the mime's loadout. The outfits can
+      also be printed out at a uniform printer.
+    type: Add
+  id: 2558
+  time: '2026-07-13T16:16:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6264
+- author: ShepardToTheStars
+  changes:
+  - message: Derelict borgs no longer have access to heads' rooms.
+    type: Fix
+  id: 2559
+  time: '2026-07-13T17:38:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6284
+- author: Coryler
+  changes:
+  - message: Character height should be correctly applied for clones and paradox clones.
+    type: Fix
+  id: 2560
+  time: '2026-07-13T19:58:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6205
+- author: ShepardToTheStars
+  changes:
+  - message: Objects animated by glimmer, revenants, or magic cannot be turned into
+      zombies anymore.
+    type: Fix
+  id: 2561
+  time: '2026-07-13T20:36:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6291
+- author: ShepardToTheStars
+  changes:
+  - message: Xenoborg ID chip slots are no longer compatible with crew ID chips or
+      IDs.
+    type: Tweak
+  - message: Only the Xenoborg Mothership Core can talk over binary. All xenoborgs
+      can still listen.
+    type: Tweak
+  - message: Xenoborgs now have EMP resistant batteries and will only take drain around
+      40% of battery.
+    type: Tweak
+  - message: Xenoborgs will only be disabled for 6 seconds when hit by an EMP, instead
+      of 60 seconds.
+    type: Tweak
+  - message: The Xenoborg mothership core now has a magnet for materials.
+    type: Tweak
+  - message: The Xenoborg silicon storage square now has a toggleable magnet.
+    type: Fix
+  id: 2562
+  time: '2026-07-13T21:26:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6278
+- author: Cepelinas1
+  changes:
+  - message: Certain fauna, like space dragons or mice can now see in the dark!
+    type: Add
+  - message: Dragons can now smell blood.
+    type: Add
+  id: 2563
+  time: '2026-07-14T01:38:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5902
+- author: Velitation
+  changes:
+  - message: Mime PDAs once again start with the NanoTask, NoteKeeper, and NanoChat
+      apps.
+    type: Tweak
+  id: 2564
+  time: '2026-07-15T00:43:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6252
+- author: ShepardToTheStars
+  changes:
+  - message: The airlock access override now breaks accesses on the door. You can
+      see if accesses on doors have been broken with the Diagnostic HUD.
+    type: Tweak
+  - message: Added access configurators to engineer lockers, engineering techfab,
+      and the EngiVend. Engineers are now allowed to repair access around the station!
+    type: Add
+  - message: The AI and engineering borgs can now see if a door's accesses have been
+      modified.
+    type: Add
+  id: 2565
+  time: '2026-07-15T01:58:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6263
 Order: 1

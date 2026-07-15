@@ -87,9 +87,10 @@
       - id: RifleStock
         launchAngle: 180
         prob: 0.80
-  - type: Construction
-    graph: ImprovisedSniperGraph
-    node: shotgun
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: ImprovisedSniperGraph
+  #  node: shotgun
 
 
 - type: entity
