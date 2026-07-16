@@ -612,6 +612,19 @@
       enum.PdaVisuals.PdaType: !type:String
         pda-mechanic
 
+- type: entity
+  parent: EngineerPDA
+  id: NuclearScientistPDA
+  name: nuclear scientist PDA
+  description: The built-in Geiger counter is still broken from the last meltdown.
+  components:
+  - type: Pda
+    id: NuclearScientistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-nuclearscientist
+
 # Cargo Technician
 
 - type: entity
