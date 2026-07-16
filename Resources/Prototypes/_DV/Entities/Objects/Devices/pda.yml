@@ -616,10 +616,10 @@
   parent: EngineerPDA
   id: NuclearScientistPDA
   name: nuclear scientist PDA
-  description: In-built geiger still broken from the last meltdown.
+  description: The built-in Geiger counter is still broken from the last meltdown.
   components:
   - type: Pda
-    id: nucsciIDCard
+    id: NuclearScientistIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType: !type:String
