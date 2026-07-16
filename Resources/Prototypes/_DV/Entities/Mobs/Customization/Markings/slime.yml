@@ -1,4 +1,4 @@
-# HeadSide
+# HeadSide - Ears
 - type: marking
   id: SlimeLongEars
   bodyPart: HeadSide
@@ -86,29 +86,36 @@
   - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
     state: foureyes
 
-# DeltaV - Slime-specific Makeup additions
-# Swapping the eyeshadow to head markings only on Slime people to account for newly added Eye markings and limit
 - type: marking
-  id: MakeupEyeshadowLower
-  bodyPart: Head
+  id: SlimeEyesLEyeLower
+  bodyPart: Eyes
   groupWhitelist: [Slime]
-  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
   sprites:
-  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
-    state: eyeshadow_lower
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: lefteye_lower
 
 - type: marking
-  id: MakeupEyeshadowUpper
-  bodyPart: Head
+  id: SlimeEyesREyeLower
+  bodyPart: Eyes
   groupWhitelist: [Slime]
-  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
   sprites:
-  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
-    state: eyeshadow_upper
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: righteye_lower
 
+# Eyes - Makeup
 - type: marking
   id: MakeupFoureyesEyeshadow
-  bodyPart: Head
+  bodyPart: Eyes
   groupWhitelist: [Slime]
   forcedColoring: true
   sprites:
@@ -117,7 +124,7 @@
 
 - type: marking
   id: MakeupDroopyLEyeshadowUpper
-  bodyPart: Head
+  bodyPart: Eyes
   groupWhitelist: [Slime]
   forcedColoring: true
   sprites:
@@ -126,7 +133,7 @@
 
 - type: marking
   id: MakeupDroopyLEyeshadowLower
-  bodyPart: Head
+  bodyPart: Eyes
   groupWhitelist: [Slime]
   forcedColoring: true
   sprites:
@@ -135,7 +142,7 @@
 
 - type: marking
   id: MakeupDroopyREyeshadowUpper
-  bodyPart: Head
+  bodyPart: Eyes
   groupWhitelist: [Slime]
   forcedColoring: true
   sprites:
@@ -144,7 +151,7 @@
 
 - type: marking
   id: MakeupDroopyREyeshadowLower
-  bodyPart: Head
+  bodyPart: Eyes
   groupWhitelist: [Slime]
   forcedColoring: true
   sprites:
