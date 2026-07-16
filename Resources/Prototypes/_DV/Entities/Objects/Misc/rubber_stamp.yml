@@ -1,7 +1,7 @@
 - type: entity
-  name: notary stamp
   parent: RubberStampBase
   id: RubberStampNotary
+  name: notary stamp
   suffix: DO NOT MAP
   description: An old-fashioned seal for marking important documents, made of polished bronze.
   components:
@@ -16,9 +16,9 @@
     stealGroup: RubberStampNotary
 
 - type: entity
-  name: chief justice stamp
   parent: RubberStampBase
   id: RubberStampChiefJustice
+  name: chief justice stamp
   suffix: DO NOT MAP
   components:
   - type: Stamp
@@ -30,9 +30,9 @@
     state: stamp-cj
 
 - type: entity
-  name: prosecutor's rubber stamp
   parent: RubberStampBase
   id: RubberStampProsec
+  name: prosecutor's rubber stamp
   suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
   components:
@@ -45,9 +45,9 @@
     state: stamp-prosec
 
 - type: entity
-  name: attorney's rubber stamp
   parent: RubberStampBase
   id: RubberStampAttorney
+  name: attorney's rubber stamp
   suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
   components:
@@ -59,9 +59,9 @@
     state: stamp-lawyer
 
 - type: entity
-  name: warden's rubber stamp
   parent: [ RubberStampBase, BaseSecurityContraband ]
   id: RubberStampJusticeWarden
+  name: warden's rubber stamp
   categories: [ DoNotMap ]
   description: With a simple press of ink to paper, a life is sealed behind bars. Maybe not forever
   components:
@@ -74,9 +74,9 @@
     state: stamp-warden
 
 - type: entity
-  name: armorer's rubber stamp
   parent: [ RubberStampBase, BaseSecurityContraband ]
   id: RubberStampArmorer
+  name: armorer's rubber stamp
   categories: [ DoNotMap ]
   description: A rubber stamp for stamping important documents. Or weapons licenses for passengers.
   components:
@@ -111,9 +111,9 @@
     color: orange
 
 - type: entity
-  name: IA rubber stamp
-  parent: RubberStampBase
   id: RubberStampNTAgent
+  parent: RubberStampBase
+  name: IA rubber stamp
   suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. For internal related affairs.
   components:
@@ -125,9 +125,9 @@
     state: stamp-cap
 
 - type: entity
-  name: chemist's rubber stamp
   parent: RubberStampBase
   id: RubberStampChemist
+  name: chemist's rubber stamp
   suffix: DO NOT MAP
   components:
   - type: Stamp

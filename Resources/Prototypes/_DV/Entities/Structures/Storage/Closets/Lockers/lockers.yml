@@ -26,6 +26,20 @@
         acts: [ "Destruction" ]
 
 # Justice
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJustice
+  name: justice locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Justice"]]
+
 - type: entity
   parent: CommandLockerBaseSecureDeltaV
   id: LockerChiefJustice
@@ -54,16 +68,42 @@
 
 - type: entity
   parent: LockerBaseSecureDeltaV
-  id: LockerMarshal
-  name: marshal's locker
+  id: LockerProsecutor
+  name: prosecutor's locker
   components:
   - type: Appearance
-  - type: EntityStorageVisuals # TODO - Resprite
+  - type: EntityStorageVisuals
     stateBaseClosed: clerk
     stateDoorOpen: clerk_open
     stateDoorClosed: clerk_door
   - type: AccessReader
-    access: [ [ "Marshal" ] ]
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerAttorney
+  name: attorney's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Attorney"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJusticeDetective
+  name: detective's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Detective"]]
 
 - type: entity
   parent: LockerBaseSecureDeltaV
@@ -76,7 +116,20 @@
     stateDoorOpen: clerk_open
     stateDoorClosed: clerk_door
   - type: AccessReader
-    access: [ [ "JusticeWarden" ] ]
+    access: [["JusticeWarden"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerMarshal
+  name: marshal's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals # TODO - Resprite
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Marshal"]]
 
 # Medical
 - type: entity

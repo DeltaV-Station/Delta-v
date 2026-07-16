@@ -32,6 +32,7 @@ holopad-logistics-lobby = Logistics - Lobby
 holopad-justice-prosecutor = Justice - Prosecutor
 holopad-justice-attorney = Justice - Attorney
 holopad-justice-clerk = Justice - Clerk
+holopad-justice-detective = Justice - Detective
 holopad-justice-warden = Justice - Warden
 holopad-justice-marshal = Justice - Marshal
 holopad-justice-lobby = Justice - Lobby

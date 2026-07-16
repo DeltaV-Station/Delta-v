@@ -126,6 +126,24 @@
 
 - type: entity
   parent: AirlockJustice
+  id: AirlockJusticeDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockJusticeDetectiveGlassLocked
+  suffix: Detective, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
+
+- type: entity
+  parent: AirlockJustice
   id: AirlockClerkLocked # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
@@ -207,6 +225,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsProsecutor ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintJusticeDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
 
 - type: entity
   parent: AirlockMaintJusticeLocked
