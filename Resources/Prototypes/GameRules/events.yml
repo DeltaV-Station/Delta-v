@@ -679,6 +679,7 @@
   id: SleeperAgents
   components:
   - type: StationEvent
+    startingBalance: 30 # DeltaV - more TC for traitors
     earliestStart: 30
     weight: 5 # DeltaV - Was 8 now 5
     minimumPlayers: 15
