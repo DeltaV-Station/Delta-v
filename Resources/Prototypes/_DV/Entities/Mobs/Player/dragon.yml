@@ -143,16 +143,16 @@
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false 
+    soundPerceivedByOthers: false
   - type: MeleeWeapon
     altDisarm: false
-    angle: 90 
+    angle: 90
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Blunt: 30 
-        Slash: 40 
+        Blunt: 30
+        Slash: 40
         Structural: 60
   - type: ActionGun
     action: ActionDragonsBreath
@@ -189,7 +189,7 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 2.5 
+    speedModifier: 2.5
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: NightVision
