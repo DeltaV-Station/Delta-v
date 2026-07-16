@@ -201,7 +201,7 @@ public sealed partial class HumanoidProfileEditor
     // Begin CD - Character Records
     private void SetProfileHeight(float height)
     {
-        Profile = Profile?.WithHeight(height).WithCDCharacterRecords();
+        Profile = Profile?.WithHeight(height);
         SetDirty();
         ReloadProfilePreview();
     }
