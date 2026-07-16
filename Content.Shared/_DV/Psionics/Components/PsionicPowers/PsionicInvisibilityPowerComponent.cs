@@ -10,7 +10,7 @@ public sealed partial class PsionicInvisibilityPowerComponent : BasePsionicPower
 
     public override string PowerName { get; set; } = "psionic-power-name-psionic-invisibility";
 
-    public override int MinGlimmerChanged { get; set; } = 10;
+    public override int MinGlimmerChanged { get; set; } = 5;
 
-    public override int MaxGlimmerChanged { get; set; } = 25;
+    public override int MaxGlimmerChanged { get; set; } = 15;
 }

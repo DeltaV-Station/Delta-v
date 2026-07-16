@@ -269,6 +269,11 @@
 
 - type: latheRecipe
   parent: BaseHatRecipe
+  id: ClothingHeadHatBeretSecurityGrey
+  result: ClothingHeadHatBeretSecurityGrey
+
+- type: latheRecipe
+  parent: BaseHatRecipe
   id: ClothingHeadHatCapSec
   result: ClothingHeadHatCapSec
 
@@ -428,6 +433,16 @@
   parent: BaseCoatRecipe
   id: ClothingOuterWinterLongMime
   result: ClothingOuterWinterLongMime
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMimeTurtleneckPants
+  result: ClothingUniformJumpsuitMimeTurtleneckPants
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMimeTurtleneckSkirt
+  result: ClothingUniformJumpskirtMimeTurtleneckSkirt
 
 # Atmos
 - type: latheRecipe

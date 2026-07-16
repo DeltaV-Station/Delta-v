@@ -8,7 +8,7 @@
   color: "#f9cab3"
   reactiveEffects:
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 2.0
       effects:
       - !type:HealthChange
@@ -27,7 +27,7 @@
   flavor: antifreeze # warm
   color: "#34b3c9"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -45,7 +45,7 @@
   flavor: horrible
   color: "#2e4404"
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:Vomit
         probability: 0.5
@@ -59,7 +59,7 @@
   color: "#cf3600"
   physicalDesc: reagent-physical-desc-sickly
   metabolisms:
-    Poison:
+    Bloodstream:
       metabolismRate: 0.02 # 20 damage after 50 seconds
       effects:
       - !type:HealthChange

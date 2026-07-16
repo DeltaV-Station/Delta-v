@@ -71,13 +71,14 @@
   - type: Climbable
     delay: 1.6
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Huge # DeltaV - changed to huge (so felinids can fit)
     grid:
       - 0,0,5,5
     storageOpenSound:
       path: /Audio/Nyanotrasen/Machines/washer_open.ogg
     storageCloseSound:
       path: /Audio/Nyanotrasen/Machines/washer_close.ogg
+  - type: AllowsSleepInside # DeltaV - let felinids sleep inside washing machines
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

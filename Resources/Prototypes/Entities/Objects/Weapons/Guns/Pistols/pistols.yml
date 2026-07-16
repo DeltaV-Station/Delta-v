@@ -49,7 +49,7 @@
         whitelist:
           tags:
             - MagazinePistol
-            - MagazinePistolHighCapacity
+            #- MagazinePistolHighCapacity Delta V - not all pistols can take machine pistol mags
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
@@ -116,11 +116,11 @@
   description: A cyborg-mounted weapon system based on the Viper pistol. Creates ammunition on the fly from an internal fabricator, which slowly self-charges.
   components:
   - type: Gun
-    fireRate: 5
+    fireRate: 6
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
-      - FullAuto
+    - SemiAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: Sprite
@@ -141,7 +141,7 @@
     proto: CartridgePistol
     cycleable: false # No synthesizing ammo for your syndicate masters.
   - type: BallisticAmmoSelfRefiller
-    autoRefillRate: 4s
+    autoRefillRate: 2s
     affectedByEmp: true
   - type: AmmoCounter
 

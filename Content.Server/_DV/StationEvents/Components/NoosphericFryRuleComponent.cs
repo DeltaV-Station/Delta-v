@@ -1,6 +1,8 @@
 using Content.Server._DV.StationEvents.GameRules;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.StationEvents.Components;
 
@@ -13,7 +15,7 @@ public sealed partial class NoosphericFryRuleComponent : Component
     [DataField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
             {"Heat", 10},
             {"Shock", 10},
