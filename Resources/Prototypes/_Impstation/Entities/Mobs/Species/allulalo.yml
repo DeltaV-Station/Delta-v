@@ -101,9 +101,7 @@
   - type: TypingIndicator
     proto: allulalo
   - type: PseudoItem # DeltaV - Allows Allulalo to fit inside bags
-    storedOffset: 0,17
-    shape:
-    - 0,0,3,3
+    sizeMultiplier: 0.5 # Allulalo are WAY smaller even at full sprite scale
   - type: Vocal
     sounds:
       Male: Allulalo

@@ -176,6 +176,7 @@
     - AnomalyHost
   - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Carriable # DeltaV
+  - type: PseudoItem # DeltaV - Any humanoid can be stuffed into a bag, but only if small enough. Footprint based on a mix of species multiplier, and character height.
   - type: GrappleTarget # DeltaV - Allow targets to be grappled
   - type: RMCSetPose # DeltaV - RMC pose port
 

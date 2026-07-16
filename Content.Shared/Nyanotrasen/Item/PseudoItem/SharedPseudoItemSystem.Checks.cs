@@ -20,15 +20,22 @@ public partial class SharedPseudoItemSystem
             return false;
 
         TryComp<ItemComponent>(itemEnt, out var item);
-        // If the entity doesn't have an item comp, create a fake one
-        // The fake component is never actually added to the entity
-        item ??= new ItemComponent
+        // If the entity doesn't have an item comp, create a fake one from the scaled footprint.
+        // The fake component is never actually added to the entity.
+        if (item == null)
         {
-            Owner = itemEnt,
-            Shape = itemEnt.Comp.Shape,
-            Size = itemEnt.Comp.Size,
-            StoredOffset = itemEnt.Comp.StoredOffset
-        };
+            // Too big to be stored at its current effective scale (e.g. above the duffel cutoff).
+            if (!TryGetScaledShape((itemEnt, itemEnt.Comp), out var shape))
+                return false;
+
+            item = new ItemComponent
+            {
+                Owner = itemEnt,
+                Shape = shape,
+                Size = itemEnt.Comp.Size,
+                StoredOffset = itemEnt.Comp.StoredOffset
+            };
+        }
 
         return _storage.CanInsert(storageEnt, itemEnt, out _, storageEnt.Comp, item, ignoreStacks: true);
     }
