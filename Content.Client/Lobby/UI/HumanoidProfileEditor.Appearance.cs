@@ -9,7 +9,7 @@ using Content.Shared.Preferences;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Client._CD.Records.UI;
+using Content.Client._CD.Records.UI; // DeltaV
 
 namespace Content.Client.Lobby.UI;
 
@@ -201,8 +201,7 @@ public sealed partial class HumanoidProfileEditor
     // Begin CD - Character Records
     private void SetProfileHeight(float height)
     {
-        Profile = Profile?.WithHeight(height);
-        
+        Profile = Profile?.WithHeight(height).WithCDCharacterRecords();
         SetDirty();
         ReloadProfilePreview();
     }
