@@ -9,6 +9,7 @@ using Content.Shared.Preferences;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Content.Client._CD.Records.UI;
 
 namespace Content.Client.Lobby.UI;
 
@@ -193,6 +194,7 @@ public sealed partial class HumanoidProfileEditor
         RefreshLoadouts();
         UpdateSexControls(); // update sex for new species
         UpdateSpeciesGuidebookIcon();
+        UpdateHeightControls(); // DeltaV
         ReloadPreview();
     }
 
@@ -200,6 +202,7 @@ public sealed partial class HumanoidProfileEditor
     private void SetProfileHeight(float height)
     {
         Profile = Profile?.WithHeight(height);
+        
         SetDirty();
         ReloadProfilePreview();
     }
@@ -208,20 +211,25 @@ public sealed partial class HumanoidProfileEditor
     private void UpdateHeightControls()
     {
         if (Profile == null)
-        {
             return;
-        }
 
-        var species = _species.Find(x => x.ID == Profile.Species);
-        if (species != null)
-            _defaultHeight = species.DefaultHeight;
+        var prototype = _prototypeManager.Index(Profile.Species);
+        _defaultHeight = prototype.DefaultHeight;
 
-        var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
         var sliderPercent = (Profile.Height - prototype.MinHeight) /
                             (prototype.MaxHeight - prototype.MinHeight);
         CDHeightSlider.Value = sliderPercent;
-        CDHeight.Text = Profile.Height.ToString(CultureInfo.InvariantCulture);
+
+        // Allulalo scales are weird. Do this here so its only cosmetic text-wise
+        var scaleReference = _defaultHeight * prototype.BaseScale.Y;
+
+        if (prototype.MockBaseScale is { } mockedScale)
+            scaleReference = _defaultHeight * mockedScale.Y;
+
+        var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, sliderPercent), 2);
+        CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(scaleReference * newHeight);
     }
+
     // End CD - Character Records
 
     private void SetAge(int newAge)

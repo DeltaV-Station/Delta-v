@@ -177,7 +177,7 @@ namespace Content.Shared.Preferences
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
             // Begin CD - Character Records
-            Height = height;
+            Height = height; // This is a scale. Not actual height.
             CDCharacterRecords = cdCharacterRecords;
             // End CD - Character Records
 

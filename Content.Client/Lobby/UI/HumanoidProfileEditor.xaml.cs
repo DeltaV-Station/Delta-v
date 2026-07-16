@@ -221,34 +221,21 @@ namespace Content.Client.Lobby.UI
             // Begin CD - Character Records
             #region CDHeight
 
-            CDHeight.OnTextChanged += args =>
-            {
-                if (Profile is null || !float.TryParse(args.Text, out var newHeight))
-                    return;
-
-                var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
-                newHeight = MathF.Round(Math.Clamp(newHeight, prototype.MinHeight, prototype.MaxHeight), 2);
-
-                // The percentage between the start and end numbers, aka "inverse lerp"
-                var sliderPercent = (newHeight - prototype.MinHeight) /
-                                    (prototype.MaxHeight - prototype.MinHeight);
-                CDHeightSlider.Value = sliderPercent;
-
-                SetProfileHeight(newHeight);
-            };
-
-            CDHeightReset.OnPressed += _ =>
-            {
-                CDHeight.SetText(_defaultHeight.ToString(CultureInfo.InvariantCulture), true);
-            };
-
             CDHeightSlider.OnValueChanged += _ =>
             {
                 if (Profile is null)
                     return;
-                var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+
+                var prototype = _prototypeManager.Index(Profile.Species);
                 var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, CDHeightSlider.Value), 2);
-                CDHeight.Text = newHeight.ToString(CultureInfo.InvariantCulture);
+
+                var speciesScale = prototype.BaseScale.Y;
+
+                // DeltaV - Allulalo scales are weird
+                if (prototype.MockBaseScale is { } mockScale)
+                    speciesScale = mockScale.Y;
+
+                CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(newHeight * speciesScale);
                 SetProfileHeight(newHeight);
             };
 
