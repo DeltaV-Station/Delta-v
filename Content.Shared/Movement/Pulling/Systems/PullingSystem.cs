@@ -10,6 +10,7 @@ using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid; // DeltaV
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -295,6 +296,14 @@ public sealed class PullingSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        // BEGIN DeltaV - Slow if smaller puller
+        if (component.Pulling.HasValue && TryComp<HumanoidProfileComponent>(uid, out var profile))
+        {
+            var sizeModifier = Math.Min(profile.Height * profile.Height, 1); // Expontial. Only slow if smaller. Average+ characters unaffected.
+            args.ModifySpeed(sizeModifier, sizeModifier);
+        }
+        // END DeltaV
+
         if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var heldMoveSpeed) && component.Pulling.HasValue)
         {
             var (walkMod, sprintMod) =
