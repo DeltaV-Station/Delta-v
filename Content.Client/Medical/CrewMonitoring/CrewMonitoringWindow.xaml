@@ -18,6 +18,21 @@
                     </PanelContainer>
                 </controls:StripeBack>
 
+                <!-- BEGIN DeltaV - Station/Shuttle Map Buttons -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Button Name="StationMapButton"
+                            ToggleMode="True"
+                            Text="{Loc crew-monitoring-ui-button-station-map}"
+                            StyleClasses="OpenRight"
+                            HorizontalExpand="True" />
+                    <Button Name="ShuttleMapButton"
+                            ToggleMode="True"
+                            Text="{Loc crew-monitoring-ui-button-shuttle-map}"
+                            StyleClasses="OpenLeft"
+                            HorizontalExpand="True" /> 
+                </BoxContainer>
+                <!-- END DeltaV -->
+    
                 <LineEdit Name="SearchLineEdit" HorizontalExpand="True"
                           PlaceHolder="{Loc crew-monitoring-ui-filter-line-placeholder}" />
 

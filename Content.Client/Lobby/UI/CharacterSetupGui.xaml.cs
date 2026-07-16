@@ -93,7 +93,7 @@ namespace Content.Client.Lobby.UI
             foreach (var (slot, character) in _preferencesManager.Preferences!.Characters)
             {
                 // DeltaV - Ignore hidden species.
-                if (character is HumanoidCharacterProfile hcp && SpeciesHiderSystem.IsHidden(hcp.Species.Id))
+                if (character is { } hcp && SpeciesHiderSystem.IsHidden(hcp.Species.Id))
                     continue;
                 // End DeltaV
                 numberOfFullSlots++;

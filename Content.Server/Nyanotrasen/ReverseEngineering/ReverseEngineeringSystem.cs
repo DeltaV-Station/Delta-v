@@ -1,3 +1,4 @@
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Research.Prototypes;
@@ -12,6 +13,7 @@ public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
 
     public override void Initialize()
     {
@@ -146,5 +148,6 @@ public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
         disk.Recipes = new();
         foreach (var id in recipes)
             disk.Recipes.Add(id);
+        _nameModifier.RefreshNameModifiers(uid);
     }
 }

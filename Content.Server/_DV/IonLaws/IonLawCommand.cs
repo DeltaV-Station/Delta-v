@@ -11,12 +11,12 @@ public sealed class IonLawCommand : ToolshedCommand
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private IonLawSystem? _ionLaw;
+    private DVIonLawSystem? _ionLaw;
 
     [CommandImplementation("generate")]
     public IEnumerable<string> GenerateNames(int count)
     {
-        _ionLaw ??= GetSys<IonLawSystem>();
+        _ionLaw ??= GetSys<DVIonLawSystem>();
 
         for (var i = 0; i < count; i++)
         {

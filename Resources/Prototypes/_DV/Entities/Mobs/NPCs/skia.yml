@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, MobCombat, DVNodeCrawler ]
   id: MobSkia
   name: skia
   description: A shadow given form, lashing out at anything that comes too close.
@@ -49,7 +49,6 @@
   - type: NoSlip
   - type: MovedByPressure
     enabled: false
-  - type: JetpackUser
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
@@ -85,19 +84,24 @@
     darkDamage:
       types:
         Blunt: -5
+        Piercing: -5
+        Slash: -5
         Heat: -5
         Poison: -5
-        Asphyxiation: -5
+        Asphyxiation: -2.5
+        Bloodloss: -2.5
         Cellular: -5
         Soul: -1
     lightDamage:
       types:
-        Blunt: 5
+        Blunt: 1.5
+        Piercing: 1.5
+        Slash: 1.5
     healWhenDead: true
     darkMovementSpeedMultiplier: 1.25
     lightMovementSpeedMultiplier: 1.0
   - type: LightLevelDamageMult
-    lightReceivedMultiplier: 2.0
+    lightReceivedMultiplier: 1.5
     lightDealtMultiplier: 0.5
   - type: ResurrectWhenAble
     timeToResurrect: 30.0

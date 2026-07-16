@@ -45,6 +45,9 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap;
         ShuttleMap.NavMap = NavMap; // DeltaV - crew monitoring radar
+
+        StationMapButton.OnPressed += _ => EnableShuttleMap(false); // DeltaV - crew monitoring radar
+        ShuttleMapButton.OnPressed += _ => EnableShuttleMap(true); // DeltaV - crew monitoring radar
     }
 
     public void Set(string stationName, EntityUid? mapUid)
@@ -57,6 +60,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         // Begin DeltaV - handle navmap visibility based on current position
         // else
         //    NavMap.Visible = false;
+        EnableShuttleMap(!NavMap.MapUid.HasValue);
         // End DeltaV - handle navmap visibility based on current position
 
         StationName.AddStyleClass("LabelBig");
@@ -67,28 +71,6 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-
-        // Begin DeltaV - handle navmap visibility based on current position
-        var ent = ShuttleMap.Owner;
-
-        // If an entity is being tracked, use them as the focus, since they may be off-station
-        // and we want to use the nav map if they are.
-        if (_trackedEntity is { } trackedEntity)
-            ent = _entManager.GetEntity(trackedEntity);
-
-        // We need to make sure the entity is valid because for some reason, it *could* be an 
-        // invalid entity and GetOwningStation will throw an exception.
-        if (ent.HasValue && ent.Value.IsValid() && _station.GetOwningStation(ent) is not null)
-        {
-            NavMap.Visible = true;
-            ShuttleMap.Visible = false;
-        }
-        else
-        {
-            NavMap.Visible = false;
-            ShuttleMap.Visible = true;
-        }
-        // End DeltaV - handle navmap visibility based on current position
 
         if (_tryToScrollToListFocus)
             TryToScrollToFocus();
@@ -388,6 +370,18 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         _tryToScrollToListFocus = true;
 
         UpdateSensorsTable(_trackedEntity, prevTrackedEntity);
+    }
+
+    /// <summary>
+    /// DeltaV - If true, will show the shuttle map. If false, will show the normal station map.
+    /// </summary>
+    private void EnableShuttleMap(bool visible)
+    {
+        NavMap.Visible = !visible;
+        StationMapButton.Pressed = !visible;
+
+        ShuttleMap.Visible = visible;
+        ShuttleMapButton.Pressed = visible;
     }
 
     private void UpdateSensorsTable(NetEntity? currTrackedEntity, NetEntity? prevTrackedEntity)

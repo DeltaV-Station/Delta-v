@@ -216,7 +216,7 @@
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
-  productEntity: BriefcaseWeaponHushpupFilled
+  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup # DeltaV - changed from briefcase back to bundle
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 8
@@ -225,24 +225,24 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkC20R
-  name: uplink-c20r-name
-  description: uplink-c20r-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: BriefcaseWeaponC20Filled
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+#- type: listing # DeltaV - do not use briefcases for traitors
+#  id: UplinkC20R
+#  name: uplink-c20r-name
+#  description: uplink-c20r-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+#  productEntity: BriefcaseWeaponC20Filled
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 10
+#  cost:
+#    Telecrystal: 14
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
 
 - type: listing
   id: UplinkC20RBundle
@@ -257,30 +257,30 @@
     Telecrystal: 15 # DeltaV - was 17
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+  #conditions: # DeltaV - do not make nukie only
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
-- type: listing
-  id: UplinkBulldog
-  name: uplink-bulldog-name
-  description: uplink-bulldog-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: BriefcaseWeaponBulldogFilled
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+#- type: listing # DeltaV - do not use briefcase for traitors
+# id: UplinkBulldog
+#  name: uplink-bulldog-name
+#  description: uplink-bulldog-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+#  productEntity: BriefcaseWeaponBulldogFilled
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 10
+#  cost:
+#    Telecrystal: 14
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
 
 - type: listing
   id: UplinkEstocBundle
@@ -295,16 +295,16 @@
     Telecrystal: 15 # DeltaV - was 18
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+  #conditions: # DeltaV - do not make nukie only
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 - type: listing
   id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
+  name: uplink-bulldog-bundle-name
+  description: uplink-bulldog-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
   discountCategory: veryRareDiscounts
@@ -314,11 +314,11 @@
     Telecrystal: 15 # DeltaV - was 20
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+  #conditions: # DeltaV - do not make nukie only (I'm aware the code below is a typo)
+  #- !type:StoreWhitelistCondition
+  #  blacklist:
+  #    tags:
+  #    - NukeOpsUplink
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -333,11 +333,11 @@
     Telecrystal: 40 # DeltaV - Was 25
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+  #conditions: # DeltaV - do not make nukie only
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 - type: listing
   id: UplinkL6SawBundle
@@ -1356,9 +1356,9 @@
   productEntity: BoxHoloparasite
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4 #Delta-V was 8
+    Telecrystal: 6 # DeltaV # was 8
   cost:
-    Telecrystal: 8 #Delta-V was 14
+    Telecrystal: 10 # DeltaV # was 14
   categories:
   - UplinkAllies
   conditions:

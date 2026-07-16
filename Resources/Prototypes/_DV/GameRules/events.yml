@@ -187,6 +187,8 @@
     weight: 5
     minimumPlayers: 20
     reoccurrenceDelay: 30
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing
@@ -342,6 +344,8 @@
     message: psionic-power-precognition-skia-result-message
   - type: AntagSpawner
     prototype: MobSkia
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagObjectives
     objectives:
     - SkiaReapObjective

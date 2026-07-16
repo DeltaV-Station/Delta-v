@@ -135,12 +135,12 @@
     heldPrefix: implanter
   - type: Sprite
     sprite: Objects/Specific/Medical/syndi_implanter.rsi
-    state: implanter1
+    state: implanter0 # DeltaV - Fix empty sprite, was implanter1
     layers:
-    - state: implanter0
+    - state: implanter1 # DeltaV - Fix empty sprite, was implanter0
       map: [ "implantFull" ]
       visible: true
-    - state: implanter1
+    - state: implanter0 # DeltaV - Fix empty sprite, was implanter1
       map: [ "implantOnly" ]
   - type: GenericVisualizer
     visuals:

@@ -71,6 +71,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Chitinid
+  - type: Inventory
+    speciesId: moth #same eyes
 
 - type: entity
   parent:
@@ -79,8 +81,6 @@
   id: MobChitinid
   name: Urist McAnt
   components:
-  - type: Inventory
-    speciesId: moth #same eyes
   - type: Icon
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: full
@@ -108,7 +108,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
+        Quantity: 300
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:

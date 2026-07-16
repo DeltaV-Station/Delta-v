@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared._DV.Species;
 using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -159,6 +160,8 @@ public sealed partial class HumanoidProfileEditor
 
         for (var i = 0; i < _species.Count; i++)
         {
+            if (SpeciesHiderSystem.IsHidden(_species[i].ID)) // Delta V - Don't add hidden species
+                continue;
             var name = Loc.GetString(_species[i].Name);
             SpeciesButton.AddItem(name, i);
 

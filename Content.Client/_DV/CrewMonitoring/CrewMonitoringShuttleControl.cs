@@ -111,6 +111,9 @@ public sealed class CrewMonitoringShuttleControl : BaseShuttleControl
             if (blip.Blinks && !lit)
                 continue;
 
+            if (!blip.Coordinates.IsValid(EntManager))
+                continue;
+
             var blipPos = _transform.ToMapCoordinates(blip.Coordinates);
 
             if (mapPos.MapId == MapId.Nullspace)

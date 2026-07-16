@@ -5,6 +5,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Tools.Components; // Monolith - Nanite Applicators
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Serialization;
 
@@ -115,8 +116,26 @@ public sealed partial class RepairableSystem : EntitySystem
             delay *= ent.Comp.SelfRepairPenalty;
         }
 
+        // BEGIN DeltaV - Scale Repair Time with Damage
+        // If its a self-repair, ignore it since they've already been penalized.
+        if (args.User != args.Target && TryComp<DamageableComponent>(args.Target, out var damageComp))
+        {
+            // TODO: Scale with the destructible threshold if DestructibleSystem ever gets more prediction added.
+            // For now, just scale up the delay per 100 damage, or reduce the delay if its less.
+            var totalDamage = _damageableSystem.GetPositiveDamage((args.Target, damageComp)).GetTotal();
+            delay *= Math.Clamp((float)totalDamage / 100.0f, 0.5f, 3.0f);
+        }
+        // END DeltaV
+
+        // BEGIN Monolith - Nanite Applicators
+        if (!TryComp<ToolComponent>(args.Used, out var tool))
+            return;
+        // END Monolith
+        
         // Run the repairing doafter
         args.Handled = _toolSystem.UseTool(args.Used, args.User, ent.Owner, delay, ent.Comp.QualityNeeded, new RepairDoAfterEvent(), ent.Comp.FuelCost);
+        
+
     }
 }
 
