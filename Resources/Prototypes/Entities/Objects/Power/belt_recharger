@@ -7,13 +7,7 @@
   - type: Item
     size: Ginormous
   - type: Sprite
-    sprite: Objects/Power/portable_recharger.rsi
-    layers:
-    - map: ["enum.PowerChargerVisualLayers.Base"]
-      state: charging
-    - map: ["enum.PowerChargerVisualLayers.Light"]
-      state: charging-unlit
-      shader: unshaded
+    sprite: _DV/Clothing/Belt/security.rsi
   - type: Clothing
     equippedPrefix: charging
     quickEquip: false
