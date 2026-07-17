@@ -26,15 +26,15 @@
       - Ingot
 #      - RodMetal1 # DeltaV - Not a tag.
       - Sheet
-# Begin DeltaV Changes
-#      - CableCoil - Cable module is already a default.
+    # Begin DeltaV Changes
+    #  - CableCoil - Cable module is already a default.
       - ConstructionMaterial
-#      components:
-#      - ConstructionMaterials # Was not ported due to tag.
-#    blacklist:
-#      tags:
-#      - PrizeTicket
-# End DeltaV Changes
+    #  components:
+    #  - ConstructionMaterials # Was not ported due to tag.
+    #blacklist:
+    #  tags:
+    #  - PrizeTicket
+    # End DeltaV Changes
   - type: Dumpable
   - type: StaticPrice
     price: 55.5
@@ -81,7 +81,7 @@
   - type: Storage
     grid:
     - 0,0,19,9
-# Begin DeltaV Additions - On/Off Toggle
+  # Begin DeltaV Additions - On/Off Toggle
   - type: ItemToggle
     soundActivate: &soundActivate
       collection: sparks
@@ -91,4 +91,4 @@
   - type: ItemToggleExamine
     on: magnet-pickup-component-magnet-on
     off: magnet-pickup-component-magnet-off
-# End DeltaV Additions - On/Off Toggle
+  # End DeltaV Additions - On/Off Toggle
