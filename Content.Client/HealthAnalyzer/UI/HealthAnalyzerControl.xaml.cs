@@ -227,7 +227,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         DrawDiagnosticGroups( totalDamage, damageSortedGroups, damagePerType );
 
-        DrawBloodstreamInfo( state.BloodLevel, state.BloodType, state.BloodSolution );
+        DrawBloodstreamInfo( state.BloodLevel, state.BloodSolution );
         // End DeltaV - Health Analyzer Plus
 
         // Begin DeltaV - Medical Records
@@ -319,45 +319,20 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     // Begin DeltaV - Health Analyzer Plus
-    private void DrawBloodstreamInfo( float bloodlevel, Solution? bloodType, Solution? bloodSolution )
+    private void DrawBloodstreamInfo( float bloodlevel, Solution? bloodSolution )
     {
         BloodstreamReagentListContainer.RemoveAllChildren();
 
         List<ReagentQuantity> bloodstream = new();
-        FixedPoint2 bloodQuantity = FixedPoint2.Zero;
         FixedPoint2 totalReagentQuantity = FixedPoint2.Zero;
 
         // Make sure we can access the bloodtype and reagents before trying to use them
-        if ( bloodType is not null && bloodSolution is not null )
+        if ( bloodSolution is not null )
         {
-            // Get all of the reagents in the bloodstream, ignoring the patient's blood
-            // It would show up on the scanner otherwise since it is in the blood solution
-            /*
-            foreach ( var reagent in bloodSolution!.Contents )
-            {
-                bool isBlood = false;
-                foreach ( var blood in bloodType!.Contents )
-                    if ( reagent.Reagent == blood.Reagent )
-                        isBlood = true;
-
-                // If it was blood, add it to the blood level quantity
-                // If it was not blood, add it to the reagent list
-                if ( isBlood )
-                {
-                    bloodQuantity += reagent.Quantity;
-                }
-                else
-                {
-                    bloodstream.Add( reagent );
-                    totalReagentQuantity += reagent.Quantity;
-                }
-            }
-            */
-
             // Get all of the medicines in the bloodstream
             foreach ( var reagent in bloodSolution!.Contents )
             {
-                if ( reagent.Group == "Medicine" )
+                if ( _prototypes.Index<ReagentPrototype>( reagent.Reagent.Prototype ).Group == "Medicine" )
                 {
                     bloodstream.Add( reagent );
                     totalReagentQuantity += reagent.Quantity;
@@ -373,8 +348,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // Normal health scanner is percent only, this one adds the actual units too
         BloodLevelLabel.Text = Loc.GetString(
             "health-analyzer-plus-window-entity-blood-level-quantity-text",
-            ( "percent", bloodQuantityPercent ),
-            ( "amount", bloodQuantity.ToString() )
+            ( "percent", bloodQuantityPercent )
         );
 
         // Display the total amount of reagents in the bloodstream, 0 is valid

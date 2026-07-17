@@ -270,7 +270,6 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
         var bleeding = false;
         var unrevivable = false;
 
-        Solution? bloodType = new(); // DeltaV - Health Analyzer Plus
         Solution? bloodSolution = null; // DeltaV - Health Analyzer Plus
 
         if (TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
@@ -291,7 +290,6 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
             null,
             bleeding,
             unrevivable,
-            bloodType, // DeltaV - Health Analyzer Plus
             bloodSolution, // DeltaV - Health Analyzer Plus
             _medicalRecords.GetMedicalRecords(entity) // DeltaV - Medical Records
         );

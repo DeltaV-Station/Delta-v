@@ -59,12 +59,12 @@
             <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
             <Label Name="TemperatureLabel" />
             <Label Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
-            <!-- Begin DeltaV - Advanced Health Analyzer -->
+            <!-- Begin DeltaV - Health Analyzer Plus -->
             <Label Name="BloodLevelLabel" />
             <!-- Label Name="BloodLabel" / -->
             <!-- Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" / -->
             <!-- Label Name="DamageLabel" / -->
-            <!-- End DeltaV - Advanced Health Analyzer -->
+            <!-- End DeltaV - Health Analyzer Plus -->
         </GridContainer>
     </BoxContainer>
 
@@ -76,12 +76,12 @@
 
     <PanelContainer StyleClasses="LowDivider" />
 
-    <!-- Begin DeltaV - Advanced Health Analyzer -->
+    <!-- Begin DeltaV - Health Analyzer Plus -->
     <!-- BoxContainer Name="GroupsContainer" Margin="0 5 0 5" Orientation="Vertical" -->
     <!-- /BoxContainer -->
 
-    <GridContainer Margin="0 5 0 0" Columns="3">
-        <BoxContainer Name="DamageBox" Margin="5 5 10 5" Orientation="Vertical">
+    <GridContainer Margin="0 5 0 5" Columns="3" HorizontalAlignment="Center">
+        <BoxContainer Name="DamageBox" Margin="5 5 5 5" Orientation="Vertical">
             <Label Name="TotalDamageLabel" HorizontalAlignment="Center" />
             <PanelContainer Name="DamageGroupsDivider" StyleClasses="LowDivider" />
             <Label
@@ -97,7 +97,7 @@
 
         <PanelContainer StyleClasses="LowDivider" />
 
-        <BoxContainer Name="BloodstreamBox" Margin="10 5 5 5" Orientation="Vertical">
+        <BoxContainer Name="BloodstreamBox" Margin="5 5 5 5" Orientation="Vertical">
             <Label Name="TotalReagentQuantityLabel" HorizontalAlignment="Center" />
             <PanelContainer Name="BloodstreamReagentsDivider" StyleClasses="LowDivider" />
             <Label
@@ -111,6 +111,6 @@
             </BoxContainer>
         </BoxContainer>
     </GridContainer>
-    <!-- End DeltaV - Advanced Health Analyzer -->
+    <!-- End DeltaV - Health Analyzer Plus -->
 
 </BoxContainer>
