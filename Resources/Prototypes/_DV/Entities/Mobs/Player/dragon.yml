@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMobDragon
   id: MobDragonMatriarch
-  suffix: Event
+  suffix: Admeme
   name: Space Dragon Matriarch
   description: A gigantic mass of armored scales and razorsharp claws. Are you sure you want to be this close?
   components:
@@ -83,16 +83,16 @@
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false 
+    soundPerceivedByOthers: false
   - type: MeleeWeapon
     altDisarm: false
-    angle: 90 
+    angle: 90
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Blunt: 30 
-        Slash: 40 
+        Blunt: 30
+        Slash: 40
         Structural: 60
   - type: ActionGun
     action: ActionDragonsBreath
