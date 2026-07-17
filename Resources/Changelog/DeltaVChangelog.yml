@@ -1,30 +1,4 @@
 ﻿Entries:
-- author: BunglesnortBoss
-  changes:
-  - message: Made AI Nanites a good option. Heals 50 HP with a shorter cooldown
-    type: Tweak
-  id: 2067
-  time: '2026-01-16T18:27:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5210
-- author: pootslap
-  changes:
-  - message: Carpy has acquired a fancy new pen and stamp and is ready to dispense
-      legal advice.
-    type: Tweak
-  - message: Removed the duplicate chaplain stamp from the listening post
-    type: Fix
-  id: 2068
-  time: '2026-01-16T18:29:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5169
-- author: cmorley191
-  changes:
-  - message: Harpies are now reliably more sensitive to pollutant gases than other
-      species. For example, 0.4% of CO2 will make harpies start gasping, while humans
-      are okay up to 1.1% CO2
-    type: Add
-  id: 2069
-  time: '2026-01-16T18:32:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5158
 - author: ShepardToTheStars
   changes:
   - message: Added CentComm Shipyard to order free ships with CentComm access.
@@ -4352,4 +4326,48 @@
   id: 2567
   time: '2026-07-16T20:24:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6283
+- author: ollyoaner
+  changes:
+  - message: Slime people upgrades! (Incl. ports from Impstation). Some slimeperson
+      characters might need their eye marking(s) fix due to them being eyeless by
+      default!
+    type: Add
+  id: 2568
+  time: '2026-07-17T03:50:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6288
+- author: Velitation
+  changes:
+  - message: Added 2 new hats, 3 new neck items, 1 new coat and, 1 pair of shoes to
+      the mime loadout.
+    type: Add
+  - message: Mimes can now select which shoes they start with.
+    type: Tweak
+  id: 2569
+  time: '2026-07-17T04:31:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6307
+- author: ArionGekkota
+  changes:
+  - message: 'Hitman: Added the ninja kit, for those who want a melee-oriented fight,
+      as well as its brand new medium-frequency blade!'
+    type: Add
+  - message: 'Hitman: Gave some extra goodies to the sharpshooter and poisoner kit.'
+    type: Tweak
+  - message: 'Hitman: Revamped the tracker kit to include way more tools to spy on
+      the crew.'
+    type: Tweak
+  - message: 'Hitman: Reworked the loud kit into the bounty hunter kit, now equipped
+      with a repeater and more cowboy attire'
+    type: Tweak
+  - message: 'Hitman: Merged the disguise and assassin kit into one kit, combining
+      stealth and the ability to blend in anywhere'
+    type: Tweak
+  - message: 'Hitman: Reworked the infiltrator kit into the saboteur kit, a kit more
+      focused on sabotage and setting up traps'
+    type: Tweak
+  - message: 'Hitman: Removed the escapist kit. The new ninja kit was given a scram
+      implant to compensate.'
+    type: Remove
+  id: 2570
+  time: '2026-07-17T04:40:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6270
 Order: 1
