@@ -72,6 +72,7 @@
   parent: BorgChassisSelectable
   name: generic cyborg
   suffix: type picked
+  abstract: true # CD - Borg sub-subtypes
   components:
   - type: BorgSwitchableType
     selectedBorgType: generic
@@ -80,6 +81,7 @@
   id: BorgChassisMining
   parent: BorgChassisSelectable
   name: salvage cyborg
+  abstract: true # CD - Borg sub-subtypes
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
@@ -88,15 +90,17 @@
   id: BorgChassisEngineer
   parent: BorgChassisSelectable
   name: engineer cyborg
+  abstract: true # CD - Borg sub-subtypes
   components:
-  - type: ShowAccessReaderSettings # DeltaV
   - type: BorgSwitchableType
     selectedBorgType: engineering
+  - type: ShowAccessReaderSettings # DeltaV - show door access
 
 - type: entity
   id: BorgChassisJanitor
   parent: BorgChassisSelectable
   name: janitor cyborg
+  abstract: true # CD - Borg sub-subtypes
   components:
   - type: BorgSwitchableType
     selectedBorgType: janitor
@@ -105,6 +109,7 @@
   id: BorgChassisMedical
   parent: BorgChassisSelectable
   name: medical cyborg
+  abstract: true # CD - Borg sub-subtypes
   components:
   - type: BorgSwitchableType
     selectedBorgType: medical
@@ -113,6 +118,7 @@
   id: BorgChassisService
   parent: BorgChassisSelectable
   name: service cyborg
+  abstract: true # CD - Borg sub-subtypes
   components:
   - type: BorgSwitchableType
     selectedBorgType: service

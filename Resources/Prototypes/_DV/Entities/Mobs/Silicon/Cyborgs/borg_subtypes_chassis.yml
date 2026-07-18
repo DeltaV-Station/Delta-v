@@ -1,216 +1,258 @@
 # region Engineering
+- type: entity
+  id: BorgChassisEngineeringDefault
+  parent: BorgChassisEngineer
+  name: default engineering cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: EngineeringDefaultSubtype
 
 - type: entity
   id: BorgChassisEngineeringStandard
-  parent: BorgChassisSelectable
+  parent: BorgChassisEngineer
   name: standard engineering cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: ShowAccessReaderSettings
-  - type: BorgSwitchableType
-    selectedBorgType: engineering
   - type: BorgSwitchableSubtype
     borgSubtype: EngineerStandardSubtype
 
 - type: entity
   id: BorgChassisEngineeringGeneric
-  parent: BorgChassisSelectable
+  parent: BorgChassisEngineer
   name: generic engineering cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: ShowAccessReaderSettings
-  - type: BorgSwitchableType
-    selectedBorgType: engineering
   - type: BorgSwitchableSubtype
     borgSubtype: EngineerGenericSubtype
 
 - type: entity
   id: BorgChassisEngineeringAntique
-  parent: BorgChassisSelectable
+  parent: BorgChassisEngineer
   name: antique engineering cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: ShowAccessReaderSettings
-  - type: BorgSwitchableType
-    selectedBorgType: engineering
   - type: BorgSwitchableSubtype
     borgSubtype: EngineerAntiqueSubtype
 
 # region Generic
+- type: entity
+  id: BorgChassisGenericDefault
+  parent: BorgChassisGeneric
+  name: default generic cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: GenericDefaultSubtype
 
 - type: entity
-  id: BorgChassisGenericGeneric
-  parent: BorgChassisSelectable
-  name: generic cyborg
+  id: BorgChassisGenericGeneric # Wow, great name
+  parent: BorgChassisGeneric
+  name: generic generic cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: generic
   - type: BorgSwitchableSubtype
     borgSubtype: GenericGenericSubtype
 
 # region Janitor
+- type: entity
+  id: BorgChassisJanitorDefault
+  parent: BorgChassisJanitor
+  name: default janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: JanitorDefaultSubtype
 
 - type: entity
   id: BorgChassisJanitorStandard
-  parent: BorgChassisSelectable
+  parent: BorgChassisJanitor
   name: standard janitor cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: janitor
   - type: BorgSwitchableSubtype
     borgSubtype: JanitorStandardSubtype
 
 - type: entity
   id: BorgChassisJanitorGeneric
-  parent: BorgChassisSelectable
+  parent: BorgChassisJanitor
   name: generic janitor cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: janitor
   - type: BorgSwitchableSubtype
     borgSubtype: JanitorGenericSubtype
 
 - type: entity
   id: BorgChassisJanitorMopbot
-  parent: BorgChassisSelectable
+  parent: BorgChassisJanitor
   name: mopbot cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: janitor
   - type: BorgSwitchableSubtype
     borgSubtype: JanitorMopbotSubtype
 
 - type: entity
   id: BorgChassisJanitorVest
-  parent: BorgChassisSelectable
+  parent: BorgChassisJanitor
   name: vest janitor cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: janitor
   - type: BorgSwitchableSubtype
     borgSubtype: JanitorVestSubtype
 
 # region Medical
-
+- type: entity
+  id: BorgChassisMedicalDefault
+  parent: BorgChassisMedical
+  name: default medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: MedicalDefaultSubtype
+  
 - type: entity
   id: BorgChassisMedicalStandard
-  parent: BorgChassisSelectable
+  parent: BorgChassisMedical
   name: standard medical cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: medical
   - type: BorgSwitchableSubtype
     borgSubtype: MedicalStandardSubtype
 
 - type: entity
   id: BorgChassisMedicalGeneric
-  parent: BorgChassisSelectable
+  parent: BorgChassisMedical
   name: generic medical cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: medical
   - type: BorgSwitchableSubtype
     borgSubtype: MedicalGenericSubtype
 
 - type: entity
   id: BorgChassisMedicalDoctor
-  parent: BorgChassisSelectable
+  parent: BorgChassisMedical
   name: doctor medical cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: medical
   - type: BorgSwitchableSubtype
     borgSubtype: MedicalDoctorSubtype
 
+- type: entity
+  id: BorgChassisQualifiedDoctor
+  parent: BorgChassisMedical
+  name: qualified doctor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: MedicalQualifiedDoctorSubtype
+
 # region Salvage
+- type: entity
+  id: BorgChassisMiningDefault
+  parent: BorgChassisMining
+  name: default salvage cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: SalvageDefaultSubtype
 
 - type: entity
   id: BorgChassisSalvageStandard
-  parent: BorgChassisSelectable
+  parent: BorgChassisMining
   name: standard salvage cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: mining
   - type: BorgSwitchableSubtype
     borgSubtype: SalvageStandardSubtype
 
 - type: entity
   id: BorgChassisSalvageGeneric
-  parent: BorgChassisSelectable
+  parent: BorgChassisMining
   name: generic salvage cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: mining
   - type: BorgSwitchableSubtype
     borgSubtype: SalvageGenericSubtype
 
 # region Security
+- type: entity
+  id: BorgChassisSecurityDefault
+  parent: BorgChassisSecurity
+  name: default security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: SecurityDefaultSubtype
 
 - type: entity
   id: BorgChassisSecurityStandard
-  parent: BorgChassisSelectable
+  parent: BorgChassisSecurity
   name: standard security cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: security
   - type: BorgSwitchableSubtype
     borgSubtype: SecurityStandardSubtype
 
 - type: entity
   id: BorgChassisSecurityGeneric
-  parent: BorgChassisSelectable
+  parent: BorgChassisSecurity
   name: generic security cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: security
   - type: BorgSwitchableSubtype
     borgSubtype: SecurityGenericSubtype
 
 # region Service
+- type: entity
+  id: BorgChassisServiceDefault
+  parent: BorgChassisService
+  name: default service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: ServiceDefaultSubtype
 
 - type: entity
   id: BorgChassisServiceStandard
-  parent: BorgChassisSelectable
+  parent: BorgChassisService
   name: standard service cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: service
   - type: BorgSwitchableSubtype
     borgSubtype: ServiceStandardSubtype
 
 - type: entity
   id: BorgChassisServiceGeneric
-  parent: BorgChassisSelectable
+  parent: BorgChassisService
   name: generic service cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: service
   - type: BorgSwitchableSubtype
     borgSubtype: ServiceGenericSubtype
 
 - type: entity
   id: BorgChassisServiceWaitress
-  parent: BorgChassisSelectable
+  parent: BorgChassisService
   name: waitress service cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: service
   - type: BorgSwitchableSubtype
     borgSubtype: ServiceWaitressSubtype
 
 - type: entity
   id: BorgChassisServiceBrobot
-  parent: BorgChassisSelectable
+  parent: BorgChassisService
   name: brobot service cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: service
   - type: BorgSwitchableSubtype
     borgSubtype: ServiceBrobotSubtype
 
 - type: entity
   id: BorgChassisServiceMaximilium
-  parent: BorgChassisSelectable
+  parent: BorgChassisService
   name: maximilium service cyborg
+  categories: [ HideSpawnMenu ]
   components:
-  - type: BorgSwitchableType
-    selectedBorgType: service
   - type: BorgSwitchableSubtype
     borgSubtype: ServiceMaximiliumSubtype

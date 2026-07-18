@@ -2,6 +2,7 @@
   id: BorgChassisSecurity
   parent: BorgChassisSelectable
   name: security cyborg
+  abstract: true
   components:
   - type: BorgSwitchableType
     selectedBorgType: security

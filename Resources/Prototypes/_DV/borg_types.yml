@@ -3,7 +3,7 @@
   id: security
 
   # Description
-  dummyPrototype: BorgChassisSecurity
+  dummyPrototype: BorgChassisSecurityDefault
 
   # Functional
   extraModuleCount: 3
@@ -50,23 +50,23 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    sprite: _DV/Mobs/Silicon/chassis.rsi
+    sprite: _DV/Mobs/Silicon/Cyborgs/Security/default.rsi
     layers:
-    - state: security
+    - state: borg
       map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: security_e_r
+    - state: borg_e_r
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: security_l
+    - state: borg_l
       shader: unshaded
       map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
   inventoryTemplateId: borgShort
-  spriteBodyState: security
-  spriteHasMindState: security_e
-  spriteNoMindState: security_e_r
-  spriteToggleLightState: security_l
+  spriteBodyState: borg
+  spriteHasMindState: borg_e
+  spriteNoMindState: borg_e_r
+  spriteToggleLightState: borg_l
 
   # Pet
   petSuccessString: petting-success-security-cyborg

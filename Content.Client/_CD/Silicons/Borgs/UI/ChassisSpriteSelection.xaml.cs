@@ -17,7 +17,7 @@ public sealed partial class ChassisSpriteSelection : Control
     public event Action? SubtypeSelected;
 
     private const int PrototypeViewSize = 2;
-    private static readonly ProtoId<EntityCategoryPrototype> _borgSubtypeCategory = "BorgSubtype";
+    private static readonly ProtoId<EntityCategoryPrototype> BorgSubtypeCategory = "BorgSubtype";
 
     public ChassisSpriteSelection()
     {
@@ -33,9 +33,8 @@ public sealed partial class ChassisSpriteSelection : Control
 
         var buttonGroup = new ButtonGroup();
         List<Button> buttons = new List<Button>();
-        buttons.Add(CreateDefaultSubtypeButton(borgTypePrototype, buttonGroup));
 
-        foreach (var ent in _prototype.Categories.GetValueRefOrNullRef(_borgSubtypeCategory))
+        foreach (var ent in _prototype.Categories.GetValueRefOrNullRef(BorgSubtypeCategory))
         {
             if (!ent.TryGetComponent<Shared._CD.Silicons.Borgs.BorgSubtypeDefinitionComponent>(out var subtype, _componentFactory))
                 continue;
@@ -65,26 +64,6 @@ public sealed partial class ChassisSpriteSelection : Control
         {
             OptionsContainer.AddChild(button);
         }
-    }
-
-    private Button CreateDefaultSubtypeButton(BorgTypePrototype borgTypePrototype, ButtonGroup group)
-    {
-        var button = new Button
-        {
-            ToolTip = "default",
-            Group = group,
-            MinHeight = 32,
-        };
-
-        button.OnPressed += _ =>
-        {
-            SubtypePrototype = null;
-            SubtypeSelected?.Invoke();
-        };
-
-        button.AddChild(CreateEntityPrototypeView(borgTypePrototype.DummyPrototype));
-
-        return button;
     }
 
     private EntityPrototypeView CreateEntityPrototypeView(EntProtoId entProtoId)

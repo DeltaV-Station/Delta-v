@@ -4,7 +4,6 @@
   abstract: true
   id: BorgSubtypeBase
   name: borg subtype base
-  description: Default state for other subtypes to use.
   categories: [ "BorgSubtype" ]
   components:
     - type: BorgSubtypeDefinition
@@ -25,7 +24,33 @@
       spriteHasMindState: borg_e
       # if rsi has a specific no mind state sprite, use that instead (i.e. borg_e_r)
       spriteNoMindState: borg_e
+      footstepCollection:
+        collection: FootstepBorg
 
+- type: entity
+  abstract: true
+  id: MovingSpriteBorgSubtype
+  name: borg subtype base w/ moving animations
+  categories: [ "BorgSubtype" ]
+  components:
+    - type: BorgSubtypeDefinition
+      # Visuals
+      layerData:
+        - state: borg
+          map: [ "enum.BorgVisualLayers.Body", "movement" ]
+        - state: borg_e
+          map: [ "enum.BorgVisualLayers.Light" ]
+          shader: unshaded
+          visible: false
+        - state: borg_l
+          shader: unshaded
+          map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+          visible: false
+      spriteBodyState: borg
+      spriteHasMindState: borg_e
+      # if rsi has a specific no mind state sprite, use that instead (i.e. borg_e_r)
+      spriteNoMindState: borg_e
+      spriteBodyMovementState: borg_moving # Only difference is that this is defined
       footstepCollection:
         collection: FootstepBorg
 
@@ -38,8 +63,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: generic
-
-      dummyPrototype: BorgChassisGeneric
+      dummyPrototype: BorgChassisGenericDefault
 
 # mining (salvage)
 - type: entity
@@ -50,9 +74,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: mining
-
-      # Entity prototype for preview in selection menu
-      dummyPrototype: BorgChassisMining
+      dummyPrototype: BorgChassisMiningDefault
 
 # engineering
 - type: entity
@@ -63,9 +85,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: engineering
-
-      # Entity prototype for preview in selection menu
-      dummyPrototype: BorgChassisEngineer
+      dummyPrototype: BorgChassisEngineeringDefault
 
 # janitor
 - type: entity
@@ -76,9 +96,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: janitor
-
-      # Entity prototype for preview in selection menu
-      dummyPrototype: BorgChassisJanitor
+      dummyPrototype: BorgChassisJanitorDefault
 
 # medical
 - type: entity
@@ -89,9 +107,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: medical
-
-      # Description
-      dummyPrototype: BorgChassisMedical
+      dummyPrototype: BorgChassisMedicalDefault
 
 # service
 - type: entity
@@ -102,9 +118,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: service
-
-      # Description
-      dummyPrototype: BorgChassisService
+      dummyPrototype: BorgChassisServiceDefault
 
 ## Begin DeltaV Additions
 
@@ -117,9 +131,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: security
-
-      # Description
-      dummyPrototype: BorgChassisSecurity
+      dummyPrototype: BorgChassisSecurityDefault
 
 # salvage
 - type: entity
@@ -130,9 +142,7 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: mining
-
-      # Description
-      dummyPrototype: BorgChassisSalvage
+      dummyPrototype: BorgChassisMiningDefault
 
 ## End DeltaV Additions
 

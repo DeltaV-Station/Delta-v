@@ -1,10 +1,19 @@
 # region Engineering
+- type: entity
+  parent: BorgEngineerSubtypeBase
+  id: EngineeringDefaultSubtype
+  name: default engineering cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisEngineeringDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Engineering/default.rsi
 
 - type: entity
   parent: BorgEngineerSubtypeBase
   id: EngineerStandardSubtype
   name: standard engineering cyborg
-  description: "A standard cyborg for all your engineering needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisEngineeringStandard
@@ -14,7 +23,7 @@
   parent: BorgEngineerSubtypeBase
   id: EngineerGenericSubtype
   name: generic engineering cyborg
-  description: "A generic cyborg for all your engineering needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisEngineeringGeneric
@@ -24,31 +33,49 @@
   parent: BorgEngineerSubtypeBase
   id: EngineerAntiqueSubtype
   name: antique engineering cyborg
-  description: "An antique engineering cyborg, looks like it has patched up hundreds of meteor holes."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisEngineeringAntique
     spritePath: _DV/Mobs/Silicon/Cyborgs/Engineering/antique.rsi
 
 # region Generic
+- type: entity
+  parent: BorgGenericSubtypeBase
+  id: GenericDefaultSubtype
+  name: default generic cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisGenericDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Generic/default.rsi
 
 - type: entity
   parent: BorgGenericSubtypeBase
   id: GenericGenericSubtype
-  name: generic cyborg
-  description: "A generic cyborg, it's extra generic looking."
+  name: generic generic cyborg
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisGenericGeneric
     spritePath: _DV/Mobs/Silicon/Cyborgs/Generic/generic.rsi
 
 # region Janitor
+- type: entity
+  parent: [ MovingSpriteBorgSubtype, BorgJanitorSubtypeBase ]
+  id: JanitorDefaultSubtype
+  name: default janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisJanitorDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Janitor/default.rsi
 
 - type: entity
   parent: BorgJanitorSubtypeBase
   id: JanitorStandardSubtype
   name: standard janitor cyborg
-  description: "A standard cyborg for all your janitorial needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisJanitorStandard
@@ -58,7 +85,7 @@
   parent: BorgJanitorSubtypeBase
   id: JanitorGenericSubtype
   name: generic janitor cyborg
-  description: "A generic cyborg for all your janitorial needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisJanitorGeneric
@@ -68,7 +95,7 @@
   parent: BorgJanitorSubtypeBase
   id: JanitorMopbotSubtype
   name: mopbot cyborg
-  description: "A bot with a mop, call it Mopbot."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisJanitorMopbot
@@ -78,19 +105,28 @@
   parent: BorgJanitorSubtypeBase
   id: JanitorVestSubtype
   name: vest janitor cyborg
-  description: "A janitor cyborg with a high-visibility vest."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisJanitorVest
     spritePath: _DV/Mobs/Silicon/Cyborgs/Janitor/vest.rsi
 
 # region Medical
+- type: entity
+  parent: [ MovingSpriteBorgSubtype, BorgMedicalSubtypeBase ]
+  id: MedicalDefaultSubtype
+  name: default medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisMedicalDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Medical/default.rsi
 
 - type: entity
   parent: BorgMedicalSubtypeBase
   id: MedicalStandardSubtype
   name: standard medical cyborg
-  description: "A standard cyborg for all your medical needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisMedicalStandard
@@ -100,7 +136,7 @@
   parent: BorgMedicalSubtypeBase
   id: MedicalGenericSubtype
   name: generic medical cyborg
-  description: "A generic cyborg for all your medical needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisMedicalGeneric
@@ -110,19 +146,38 @@
   parent: BorgMedicalSubtypeBase
   id: MedicalDoctorSubtype
   name: doctor medical cyborg
-  description: "A cyborg in a white coat for all your medical needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisMedicalDoctor
     spritePath: _DV/Mobs/Silicon/Cyborgs/Medical/doctor.rsi
 
+- type: entity
+  parent: BorgMedicalSubtypeBase
+  id: MedicalQualifiedDoctorSubtype
+  name: qualified doctor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisQualifiedDoctor
+    spritePath: _CD/Mobs/Silicon/Borg/Medical/qualified_doctor.rsi
+
 # region Salvage
+- type: entity
+  parent: [ MovingSpriteBorgSubtype, BorgSalvageSubtypeBase ]
+  id: SalvageDefaultSubtype
+  name: default salvage cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisMiningDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Salvage/default.rsi
 
 - type: entity
   parent: BorgSalvageSubtypeBase
   id: SalvageStandardSubtype
   name: standard salvage cyborg
-  description: "A standard cyborg for all your salvage needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisSalvageStandard
@@ -132,19 +187,28 @@
   parent: BorgSalvageSubtypeBase
   id: SalvageGenericSubtype
   name: generic salvage cyborg
-  description: "A generic cyborg for all your salvage needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisSalvageGeneric
     spritePath: _DV/Mobs/Silicon/Cyborgs/Salvage/generic.rsi
 
 # region Security
+- type: entity
+  parent: BorgSecuritySubtypeBase
+  id: SecurityDefaultSubtype
+  name: default security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisSecurityDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Security/default.rsi
 
 - type: entity
   parent: BorgSecuritySubtypeBase
   id: SecurityStandardSubtype
   name: standard security cyborg
-  description: "A standard cyborg for all your security needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisSecurityStandard
@@ -154,19 +218,28 @@
   parent: BorgSecuritySubtypeBase
   id: SecurityGenericSubtype
   name: generic security cyborg
-  description: "A generic cyborg for all your security needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisSecurityGeneric
     spritePath: _DV/Mobs/Silicon/Cyborgs/Security/generic.rsi
 
 # region Service
+- type: entity
+  parent: BorgServiceSubtypeBase
+  id: ServiceDefaultSubtype
+  name: default service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSubtypeDefinition
+    dummyPrototype: BorgChassisServiceDefault
+    spritePath: _DV/Mobs/Silicon/Cyborgs/Service/default.rsi
 
 - type: entity
   parent: BorgServiceSubtypeBase
   id: ServiceStandardSubtype
   name: standard service cyborg
-  description: "A standard cyborg for all your service needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisServiceStandard
@@ -176,7 +249,7 @@
   parent: BorgServiceSubtypeBase
   id: ServiceGenericSubtype
   name: generic service cyborg
-  description: "A generic cyborg for all your service needs."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisServiceGeneric
@@ -186,7 +259,7 @@
   parent: BorgServiceSubtypeBase
   id: ServiceWaitressSubtype
   name: waitress service cyborg
-  description: "A service cyborg in a waitress uniform."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisServiceWaitress
@@ -196,7 +269,7 @@
   parent: BorgServiceSubtypeBase
   id: ServiceBrobotSubtype
   name: brobot service cyborg
-  description: "Suh dude!?"
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisServiceBrobot
@@ -206,7 +279,7 @@
   parent: BorgServiceSubtypeBase
   id: ServiceMaximiliumSubtype
   name: maximilium service cyborg
-  description: "A rather distinguished service cyborg."
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisServiceMaximilium
