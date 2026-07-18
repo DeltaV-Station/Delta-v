@@ -14,12 +14,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Funkystation.Stains.Systems;
 
-[Serializable, NetSerializable]
-public enum StainVisuals : byte
-{
-    Toggle
-}
-
 public abstract class SharedStainSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
@@ -51,7 +45,7 @@ public abstract class SharedStainSystem : EntitySystem
     private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
     {
         if (_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var sol))
-            sol.Value.Comp.Solution.CanReact = false;
+            _solution.SetCanReact(sol.Value, false);
     }
 
     private void OnSpilledOn(Entity<StainableComponent> ent, ref InventoryRelayedEvent<SpilledOnEvent> args)
@@ -164,4 +158,10 @@ public abstract class SharedStainSystem : EntitySystem
         if (_puddle.TrySpillAt(args.User, split, out _))
             _popup.PopupEntity(Loc.GetString("stain-verb-wring-success"), args.User, args.User);
     }
+}
+
+[Serializable, NetSerializable]
+public enum StainVisuals : byte
+{
+    Toggle,
 }

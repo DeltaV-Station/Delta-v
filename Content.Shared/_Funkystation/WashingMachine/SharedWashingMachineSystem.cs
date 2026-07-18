@@ -97,6 +97,7 @@ public abstract class SharedWashingMachineSystem : EntitySystem
 
         ent.Comp.State = WashingMachineState.Washing;
         ent.Comp.WashFinishTime = Timing.CurTime + ent.Comp.WashTime;
+        ent.Comp.NextWashingStep = Timing.CurTime + ent.Comp.WashingStepCooldown;
 
         Dirty(ent.Owner, ent.Comp);
         Appearance.SetData(ent.Owner, WashingMachineVisuals.State, WashingMachineState.Washing);
@@ -113,9 +114,5 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         }
 
         return true;
-    }
-
-    protected virtual void UpdateForensics(Entity<WashingMachineComponent> ent, HashSet<EntityUid> items)
-    {
     }
 }

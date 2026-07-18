@@ -5,7 +5,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Destructible;
 using Content.Shared.Storage.Components;
 using Content.Server.Forensics;
 using Content.Shared.Clothing.Components;
@@ -34,12 +33,11 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
     {
         base.Initialize();
         SubscribeLocalEvent<WashingMachineComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<WashingMachineComponent, BreakageEventArgs>(OnBreak);
     }
 
-    private void OnMapInit(Entity<WashingMachineComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<WashingMachineComponent> machine, ref MapInitEvent args)
     {
-        Appearance.SetData(ent.Owner, WashingMachineVisuals.State, ent.Comp.State);
+        Appearance.SetData(machine.Owner, WashingMachineVisuals.State, machine.Comp.State);
     }
 
     public override void Update(float frameTime)
@@ -48,116 +46,117 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
         var query = EntityQueryEnumerator<WashingMachineComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.State != WashingMachineState.Washing)
+            if (comp.State != WashingMachineState.Washing || comp.NextWashingStep > Timing.CurTime)
                 continue;
 
             if (Timing.CurTime >= comp.WashFinishTime)
             {
-                FinishWash(uid, comp);
+                FinishWash((uid, comp));
                 continue;
             }
 
-            ProcessWashingHazards(uid, comp, frameTime);
+            comp.NextWashingStep = Timing.CurTime + comp.WashingStepCooldown;
+            ProcessWashingHazards((uid, comp));
         }
     }
 
-    private void ProcessWashingHazards(EntityUid uid, WashingMachineComponent comp, float frameTime)
+    private void ProcessWashingHazards(Entity<WashingMachineComponent> machine)
     {
-        if (!TryComp<EntityStorageComponent>(uid, out var storage) || storage.Contents.ContainedEntities.Count == 0)
+        if (!TryComp<EntityStorageComponent>(machine, out var storage) || storage.Contents.ContainedEntities.Count == 0)
             return;
 
         var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
-        var damage = new DamageSpecifier(bluntProto, comp.BluntDamagePerSecond * frameTime);
+        var damage = new DamageSpecifier(bluntProto, machine.Comp.EntityBluntDamage);
 
-        var waterSpray = new Solution();
-        waterSpray.AddReagent(comp.WaterSprayReagent, comp.WaterSprayAmount);
+        var reagentSpray = new Solution();
+        reagentSpray.AddReagent(machine.Comp.SprayReagent, machine.Comp.ReagentSprayAmount);
 
-        var sprayWater = _random.Prob(comp.WaterSprayChance * frameTime);
-
+        // We store them in a hashset as gibbing will modify the collection and cause an error.
+        var entitiesToWash = storage.Contents.ContainedEntities.ToHashSet();
+        var doSpray = _random.Prob(machine.Comp.ReagentSprayChance);
         var hasHeavyItems = false;
 
-        foreach (var item in storage.Contents.ContainedEntities)
+        foreach (var item in entitiesToWash)
         {
             _damageable.TryChangeDamage(item, damage, true);
 
-            if (sprayWater)
-                _reactive.DoEntityReaction(item, waterSpray, ReactionMethod.Touch);
+            if (doSpray)
+                _reactive.DoEntityReaction(item, reagentSpray, ReactionMethod.Touch);
 
             if (!hasHeavyItems && !HasComp<ClothingComponent>(item))
                 hasHeavyItems = true;
         }
 
-        if (hasHeavyItems)
-        {
-            if (_random.Prob(comp.ThumpSoundChance * frameTime))
-                Audio.PlayPvs(HitSound, uid);
-
-            comp.AccumulatedSelfDamage += comp.SelfDamagePerSecond * frameTime;
-        }
+        if (hasHeavyItems && _random.Prob(machine.Comp.ThumpSoundChance))
+            Audio.PlayPvs(HitSound, machine);
     }
 
-    protected override bool TryStartWash(Entity<WashingMachineComponent> ent, EntityUid user)
+    protected override bool TryStartWash(Entity<WashingMachineComponent> machine, EntityUid user)
     {
-        if (!base.TryStartWash(ent, user))
+        if (!base.TryStartWash(machine, user))
             return false;
 
-        ent.Comp.AudioStream = Audio.PlayPvs(ent.Comp.WashLoopSound, ent.Owner)?.Entity;
+        machine.Comp.AudioStream = Audio.PlayPvs(machine.Comp.WashLoopSound, machine.Owner)?.Entity;
         return true;
     }
 
-    private void FinishWash(EntityUid uid, WashingMachineComponent comp)
+    private void FinishWash(Entity<WashingMachineComponent> machine)
     {
-        comp.State = WashingMachineState.Idle;
-        comp.WashFinishTime = null;
-        comp.NextWashAllowed = Timing.CurTime + comp.Cooldown;
+        machine.Comp.State = WashingMachineState.Idle;
+        machine.Comp.WashFinishTime = null;
+        machine.Comp.NextWashAllowed = Timing.CurTime + machine.Comp.Cooldown;
 
-        Audio.Stop(comp.AudioStream);
-        Audio.PlayPvs(comp.WashFinishedSound, uid);
-        Appearance.SetData(uid, WashingMachineVisuals.State, WashingMachineState.Idle);
+        Audio.Stop(machine.Comp.AudioStream);
+        Audio.PlayPvs(machine.Comp.WashFinishedSound, machine);
+        Appearance.SetData(machine, WashingMachineVisuals.State, WashingMachineState.Idle);
 
+        var hasHeavyItems = false;
         HashSet<EntityUid> items = new();
-        if (TryComp<EntityStorageComponent>(uid, out var storage))
+        if (TryComp<EntityStorageComponent>(machine, out var storage))
         {
             items = storage.Contents.ContainedEntities.ToHashSet();
             foreach (var item in items)
             {
-                if (TryComp<StainableComponent>(item, out var stain) && _solution.TryGetSolution(item, stain.SolutionName, out var sol))
-                {
-                    if (TryComp<ForensicsComponent>(uid, out var machineForensics))
-                        machineForensics.DNAs.UnionWith(_forensics.GetSolutionsDNA(sol.Value.Comp.Solution));
+                if (!hasHeavyItems && !HasComp<ClothingComponent>(item))
+                    hasHeavyItems = true;
 
-                    _solution.RemoveAllSolution(sol.Value);
-                    _stains.UpdateVisuals((item, stain));
-                }
+                if (!TryComp<StainableComponent>(item, out var stain)
+                    || !_solution.TryGetSolution(item, stain.SolutionName, out var sol))
+                    continue;
+
+                if (TryComp<ForensicsComponent>(machine, out var machineForensics))
+                    machineForensics.DNAs.UnionWith(_forensics.GetSolutionsDNA(sol.Value.Comp.Solution));
+
+                _solution.RemoveAllSolution(sol.Value);
+                _stains.UpdateVisuals((item, stain));
             }
         }
 
         var machineEv = new WashingMachineFinishedWashingEvent(items);
-        RaiseLocalEvent(uid, machineEv);
+        RaiseLocalEvent(machine, machineEv);
 
-        var itemEv = new WashingMachineWashedEvent(uid, items);
+        var itemEv = new WashingMachineWashedEvent(machine, items);
         foreach (var item in items)
         {
             RaiseLocalEvent(item, itemEv);
         }
 
-        UpdateForensics((uid, comp), items);
+        UpdateForensics((machine, machine), items);
 
-        if (comp.AccumulatedSelfDamage > 0)
+        if (hasHeavyItems && machine.Comp.SelfDamage > 0)
         {
             var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
-            var selfDamage = new DamageSpecifier(bluntProto, comp.AccumulatedSelfDamage);
-            _damageable.TryChangeDamage(uid, selfDamage, ignoreResistances: true);
-            comp.AccumulatedSelfDamage = 0;
+            var selfDamage = new DamageSpecifier(bluntProto, machine.Comp.SelfDamage * machine.Comp.WashTime.Seconds);
+            _damageable.TryChangeDamage(machine.Owner, selfDamage, ignoreResistances: true);
         }
 
-        Dirty(uid, comp);
-        Storage.OpenStorage(uid);
+        Storage.OpenStorage(machine);
+        Dirty(machine);
     }
 
-    protected override void UpdateForensics(Entity<WashingMachineComponent> ent, HashSet<EntityUid> items)
+    private void UpdateForensics(Entity<WashingMachineComponent> machine, HashSet<EntityUid> items)
     {
-        if (!TryComp<ForensicsComponent>(ent.Owner, out var forensics))
+        if (!TryComp<ForensicsComponent>(machine.Owner, out var forensics))
             return;
 
         foreach (var item in items)
@@ -165,20 +164,11 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
             if (!TryComp<FiberComponent>(item, out var fiber))
                 continue;
 
-            var fiberText = fiber.FiberColor == null
+            var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
                 ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
                 : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
 
-            forensics.Fibers.Add(fiberText);
+            forensics.Fibers.Add(fiberLocale + " ; " + fiber.Fiberprint);
         }
-    }
-
-    private void OnBreak(Entity<WashingMachineComponent> ent, ref BreakageEventArgs args)
-    {
-        ent.Comp.State = WashingMachineState.Broken;
-        ent.Comp.WashFinishTime = null;
-        Audio.Stop(ent.Comp.AudioStream);
-        Dirty(ent.Owner, ent.Comp);
-        Appearance.SetData(ent.Owner, WashingMachineVisuals.State, WashingMachineState.Broken);
     }
 }

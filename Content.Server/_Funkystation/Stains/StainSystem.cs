@@ -8,11 +8,12 @@ namespace Content.Server._Funkystation.Stains;
 public sealed class StainSystem : SharedStainSystem
 {
     [Dependency] private readonly TagSystem _tag = null!;
+    private static readonly string ScannableDnaTag = "DNASolutionScannable";
 
     protected override void OnStained(Entity<StainableComponent> ent, Entity<SolutionComponent> solution)
     {
         base.OnStained(ent, solution);
 
-        _tag.AddTag(ent.Owner, "DNASolutionScannable");
+        _tag.AddTag(ent.Owner, ScannableDnaTag);
     }
 }

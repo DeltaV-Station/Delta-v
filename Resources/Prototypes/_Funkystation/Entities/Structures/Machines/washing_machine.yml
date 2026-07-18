@@ -20,11 +20,6 @@
       map: [ "washing" ]
       visible: false
   - type: WashingMachine
-    washTime: 5
-    cooldown: 6
-    bluntDamagePerSecond: 6
-    selfDamagePerSecond: 6
-    waterSprayAmount: 150
     washLoopSound:
       path: /Audio/_Funkystation/Machines/washing_loop.ogg
       params:
@@ -68,9 +63,8 @@
       machine_parts: !type:Container
       entity_storage: !type:Container
   - type: Construction
-    graph: Machine
-    node: machine
-    containers: [machine_parts, machine_board, entity_storage]
+    forbiddenContainers:
+    - entity_storage
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -80,7 +74,6 @@
         !type:DamageTrigger
         damage: 50
       behaviors:
-      - !type:ExplodeBehavior
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
