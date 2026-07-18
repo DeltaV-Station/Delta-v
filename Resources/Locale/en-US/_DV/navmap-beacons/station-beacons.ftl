@@ -53,6 +53,5 @@ station-beacon-chiefjustice = Chief Justice
 station-beacon-prosecutor = Prosecutor
 station-beacon-clerk = Clerk
 station-beacon-attorney = Attorney
-station-beacon-detective = Detective
 station-beacon-marshal = Marshal
 station-beacon-justice-armory = Justice Armory

@@ -307,14 +307,6 @@
     defaultText: station-beacon-attorney
 
 - type: entity
-  parent: DefaultStationBeaconJustice
-  id: DefaultStationBeaconDetective
-  suffix: Detective
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-detective
-
-- type: entity
   parent: DefaultStationBeaconSecurity
   id: DefaultStationBeaconArmorer
   suffix: Armorer
