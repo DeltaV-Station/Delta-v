@@ -236,6 +236,10 @@ namespace Content.Client.Lobby.UI
                     speciesScale = mockScale.Y;
 
                 CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(newHeight * speciesScale);
+
+                var sizeModifier = Math.Round((1 - Math.Min(newHeight * newHeight, 1)) * 100); // Same forumla as PullingSystem.OnRefreshMovespeed but its made into a readable percent
+                CDPullSpeedReductionLabel.Text = $"{sizeModifier}%";
+
                 SetProfileHeight(newHeight);
             };
 
