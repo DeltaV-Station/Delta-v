@@ -5,8 +5,8 @@ al-borg-engineering-subtype-generic-engineering-cyborg-name = NTCD-GEN-ENG-10
 al-borg-engineering-subtype-antique-engineering-cyborg-name = NTCD-ENG-00
 
 # generic
-al-borg-generic-subtype-default-cyborg-name = NT-GEN-02
-al-borg-generic-subtype-generic-cyborg-name = NTCD-GEN-01
+al-borg-generic-subtype-default-generic-cyborg-name = NT-GEN-02
+al-borg-generic-subtype-generic-generic-cyborg-name = NTCD-GEN-01
 
 # janitor
 al-borg-janitor-subtype-default-janitor-cyborg-name = NT-JAN-14
@@ -20,6 +20,7 @@ al-borg-medical-subtype-default-medical-cyborg-name = NT-MED-14
 al-borg-medical-subtype-generic-medical-cyborg-name = NTCD-GEN-MED-16
 al-borg-medical-subtype-standard-medical-cyborg-name = NTCD-MED-08
 al-borg-medical-subtype-doctor-medical-cyborg-name = NTCD-MED-09
+al-borg-medical-subtype-qualified-doctor-cyborg-name = NTCD-MEDBOT-03
 
 # salvage
 al-borg-mining-subtype-default-salvage-cyborg-name = NT-SALV-14

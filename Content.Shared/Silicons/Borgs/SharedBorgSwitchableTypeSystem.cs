@@ -125,25 +125,24 @@ public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem // D
         {
             footstepModifier.FootstepSoundCollection = prototype.FootstepCollection;
         }
-// Start CosmicDrift Changes - Moved to BorgSwitchableTypeSystem.cs
-//        if (prototype.SpriteBodyMovementState is { } movementState)
-//        {
-//            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
-//            spriteMovement.NoMovementLayers.Clear();
-//            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
-//            {
-//                State = prototype.SpriteBodyState,
-//            };
-//            spriteMovement.MovementLayers.Clear();
-//            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
-//            {
-//                State = movementState,
-//            };
-//        }
-//        else
-//        {
-//            RemComp<SpriteMovementComponent>(entity);
-//        }
-// End CosmicDrift Changes - Moved to BorgSwitchableTypeSystem.cs
+
+        if (prototype.SpriteBodyMovementState is { } movementState)
+        {
+            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
+            spriteMovement.NoMovementLayers.Clear();
+            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
+            {
+                State = prototype.SpriteBodyState,
+            };
+            spriteMovement.MovementLayers.Clear();
+            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
+            {
+                State = movementState,
+            };
+        }
+        else
+        {
+            RemComp<SpriteMovementComponent>(entity);
+        }
     }
 }

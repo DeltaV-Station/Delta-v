@@ -57,6 +57,9 @@
       movementLayers:
         movement:
           state: borg_moving
+      noMovementLayers:
+        movement:
+          state: borg
 
 # generic
 - type: entity
