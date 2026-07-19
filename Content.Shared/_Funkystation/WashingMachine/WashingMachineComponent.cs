@@ -4,6 +4,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Funkystation.WashingMachine;
 
+/// <summary>
+/// This defines a machine with entityStorage capable of cleaning reagent stains on clothing.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class WashingMachineComponent : Component
 {

@@ -25,6 +25,7 @@
     damageCoefficient: 0.75 # Decent at stopping disablers
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  # Funky Start - Stainable Clothing.
   - type: Stainable
     clothingVisuals:
       outerClothing:
@@ -33,6 +34,7 @@
     iconVisuals:
     - sprite: _Funkystation/Effects/blood.rsi
       state: armorbloodicon
+  # Funky End - Stainable Clothing.
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity

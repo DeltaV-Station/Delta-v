@@ -5,6 +5,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Funkystation.Stains.Components;
 
+/// <summary>
+/// This lets clothing be stained by blood or other reagents that aren't water.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StainableComponent : Component
 {

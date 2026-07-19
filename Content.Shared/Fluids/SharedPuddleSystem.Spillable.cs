@@ -17,7 +17,7 @@ using Content.Shared.Spillable;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared._Funkystation.Fluids;
+using Content.Shared._Funkystation.Fluids; // Funky - Stainable Clothing.
 using Robust.Shared.Player;
 
 
@@ -167,13 +167,13 @@ public abstract partial class SharedPuddleSystem
                 continue;
 
             var splitSolution = _solutionContainerSystem.SplitSolution(soln.Value, totalSplit / hitCount);
-
+            // Funky Start - Stainable Clothing.
             if (splitSolution.Volume > 0)
             {
                 var stainEv = new SpilledOnEvent(entity.Owner, splitSolution.Clone());
                 RaiseLocalEvent(hit, stainEv);
             }
-
+            // Funky End - Stainable Clothing.
             AdminLogger.Add(LogType.MeleeHit,
                 $"{ToPrettyString(args.User):actor} "
                 + $"splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} "
