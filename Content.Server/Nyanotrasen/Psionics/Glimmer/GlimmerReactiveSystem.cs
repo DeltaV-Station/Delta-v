@@ -220,7 +220,7 @@ namespace Content.Server.Psionics.Glimmer
 
             var totalIntensity = (float)(_glimmerSystem.Glimmer * explosionMultiplier);
             var slope = (float)(11 - _glimmerSystem.Glimmer / 100);
-            var maxIntensity = 20;
+            var maxIntensity = 75; // Same as syndicate bomb
 
             var removed = (float) _glimmerSystem.Glimmer * _random.NextFloat(0.06f, 0.08f);
             _glimmerSystem.Glimmer -= (int)removed;
