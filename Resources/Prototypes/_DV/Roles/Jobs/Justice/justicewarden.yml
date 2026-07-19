@@ -26,12 +26,14 @@
   whitelisted: true
   access:
   - Justice
+  - Clerk # TODO: Remove when Clerk is kill
   - Prosecutor
   - Detective
   - Cryogenics
   - Corpsman # Warden requires access to the treatment of their prisoners.
   - Marshal
   - JusticeWarden
+  - Detective
   - GenpopEnter
   - GenpopLeave
   - Maintenance

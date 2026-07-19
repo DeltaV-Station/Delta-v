@@ -125,7 +125,8 @@
   - type: Sprite
     layers:
     - state: green
-    - state: warden
+    - sprite: *job-rsi-dv
+      state: prisonguard
 
 - type: entity
   parent: SpawnPointJobBase
