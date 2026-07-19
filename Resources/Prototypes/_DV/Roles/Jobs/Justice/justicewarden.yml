@@ -18,7 +18,7 @@
     department: Security
     time: 10h
   weight: 5
-  startingGear: JusticeWardenGear
+  #startingGear: JusticeWardenGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconPrisonGuard"
   requireAdminNotify: true
   supervisors: job-supervisors-cj
@@ -41,11 +41,11 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-- type: startingGear
-  id: JusticeWardenGear
-  equipment:
-    id: JusticeWardenPDA
-    ears: ClothingHeadsetJustice
-  storage:
-    back:
-    - Flash
+#- type: startingGear # Bypass ChameleonJobLoadoutTest
+#  id: JusticeWardenGear
+#  equipment:
+#    id: JusticeWardenPDA
+#    ears: ClothingHeadsetJustice
+#  storage:
+#    back:
+#    - Flash

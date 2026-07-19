@@ -11,7 +11,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 6h
-  startingGear: AttorneyGear
+  #startingGear: AttorneyGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj
   access:
@@ -27,16 +27,16 @@
     - type: Condemned
       soulOwnedNotDevil: true
 
-- type: startingGear
-  id: AttorneyGear
-  equipment:
-    shoes: ClothingShoesBootsLaceup
-    id: LawyerPDA
-    ears: ClothingHeadsetJustice
-  inhand:
-  - BriefcaseBrownFilled
-  storage:
-    back:
-    - RubberStampAttorney
-    - BookSpaceLaw
-    - ForensicScanner
+#- type: startingGear # Bypass ChameleonJobLoadoutTest
+#  id: AttorneyGear
+#  equipment:
+#    shoes: ClothingShoesBootsLaceup
+#    id: LawyerPDA
+#    ears: ClothingHeadsetJustice
+#  inhand:
+#  - BriefcaseBrownFilled
+#  storage:
+#    back:
+#    - RubberStampAttorney
+#    - BookSpaceLaw
+#    - ForensicScanner

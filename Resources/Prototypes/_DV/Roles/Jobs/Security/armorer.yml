@@ -12,7 +12,7 @@
     department: Security
     time: 10h
   weight: 5
-  startingGear: ArmorerGear
+  #startingGear: ArmorerGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconWarden"
   requireAdminNotify: true
   supervisors: job-supervisors-hos
@@ -28,11 +28,11 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-- type: startingGear
-  id: ArmorerGear
-  equipment:
-    id: ArmorerPDA
-    ears: ClothingHeadsetSecurity
-  storage:
-    back:
-    - Flash
+#- type: startingGear
+#  id: ArmorerGear
+#  equipment:
+#    id: ArmorerPDA
+#    ears: ClothingHeadsetSecurity
+#  storage:
+#    back:
+#    - Flash

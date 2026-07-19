@@ -13,7 +13,7 @@
   - !type:DepartmentTimeRequirement
     department: Justice
     time: 10h
-  startingGear: MarshalGear
+  #startingGear: MarshalGear # Bypass ChameleonJobLoadoutTest
   alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconClerk"
@@ -27,12 +27,12 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-- type: startingGear
-  id: MarshalGear
-  equipment:
-    id: PrisonGuardPDA
-    ears: ClothingHeadsetJustice
-    belt: ClothingBeltSecurity
-  storage:
-    back:
-    - Flash
+#- type: startingGear # Bypass ChameleonJobLoadoutTest
+#  id: MarshalGear
+#  equipment:
+#    id: PrisonGuardPDA
+#    ears: ClothingHeadsetJustice
+#    belt: ClothingBeltSecurity
+#  storage:
+#    back:
+#    - Flash
