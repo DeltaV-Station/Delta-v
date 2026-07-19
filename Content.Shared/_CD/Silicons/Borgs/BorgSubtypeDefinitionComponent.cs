@@ -16,7 +16,7 @@ namespace Content.Shared._CD.Silicons.Borgs;
 [EntityCategory("BorgSubtype")]
 public sealed partial class BorgSubtypeDefinitionComponent : Component
 {
-    private static ProtoId<SoundCollectionPrototype> DefaultFootsteps = new("FootstepBorg"); // DeltaV - Removed Readonly
+    private static ProtoId<SoundCollectionPrototype> _defaultFootsteps = new("FootstepBorg"); // DeltaV - Removed Readonly
 
     /// <summary>
     /// <inheritdoc cref="BorgTypePrototype.InventoryTemplateId"/>
@@ -67,7 +67,7 @@ public sealed partial class BorgSubtypeDefinitionComponent : Component
     /// Sound specifier for footstep sounds created by this subtype.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public SoundSpecifier FootstepCollection { get; set; } = new SoundCollectionSpecifier(DefaultFootsteps);
+    public SoundSpecifier FootstepCollection { get; set; } = new SoundCollectionSpecifier(_defaultFootsteps);
 
     /// <summary>
     /// <inheritdoc cref="BorgTypePrototype.SpriteBodyMovementState"/>

@@ -121,6 +121,8 @@
   - type: BorgSubtypeDefinition
     dummyPrototype: BorgChassisMedicalDefault
     spritePath: _DV/Mobs/Silicon/Cyborgs/Medical/default.rsi
+    footstepCollection:
+      collection: FootstepHoverBorg
 
 - type: entity
   parent: BorgMedicalSubtypeBase

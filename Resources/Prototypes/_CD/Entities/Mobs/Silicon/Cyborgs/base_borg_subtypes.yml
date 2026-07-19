@@ -53,6 +53,10 @@
       spriteBodyMovementState: borg_moving # Only difference is that this is defined
       footstepCollection:
         collection: FootstepBorg
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: borg_moving
 
 # generic
 - type: entity
