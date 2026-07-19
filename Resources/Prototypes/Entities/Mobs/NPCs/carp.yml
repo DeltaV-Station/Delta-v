@@ -90,6 +90,8 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: NightVision #DeltaV - Added nightvision to animals
+      color: "#808080"
 
 - type: entity
   parent: BaseMobCarp

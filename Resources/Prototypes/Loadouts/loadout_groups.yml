@@ -797,6 +797,10 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  # Begin DeltaV Additions
+  - MimeBeretTassledBlack
+  - MimeBeretTassledWhite
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: MimeMask
@@ -813,6 +817,10 @@
   loadouts:
   - MimeJumpsuit
   - MimeJumpskirt
+  # Begin DeltaV Additions
+  - MimeTurtleneckPants
+  - MimeTurtleneckSkirt
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -828,7 +836,10 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
-  - MimeWintercoatLong # DeltaV
+  # Begin DeltaV Additions
+  - MimeWintercoatLong
+  - MimeFurCoat
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: MimeBelt
@@ -1185,6 +1196,7 @@
   # Begin DeltaV additions
   - ElectricianPDA
   - MechanicPDA
+  - NuclearScientistPDA
   # End DeltaV additions
 
 - type: loadoutGroup
