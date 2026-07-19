@@ -5,11 +5,13 @@ public static class UnitConversion
     /// <summary>
     /// DeltaV - The average height of a human in centimeters. According to the US CDC, its
     /// 171 for men and 160 for women. So average of that is ~165cm.
+    /// 
+    /// Just kidding, we're going with EE's arbitrary standard of 175cm.
     /// </summary>
-    private const int AVERAGE_HEIGHT_CM = 165;
+    private const int AVERAGE_HEIGHT_CM = 175;
 
     /// <summary>
-    /// DeltaV - 1.0 scale is considered average for humans, so a scale of 1 will be 165.
+    /// DeltaV - 1.0 scale is considered average for humans, so a scale of 1 will be 175cm.
     /// Ensure that scale also includes the base species height AND the user-defined height.
     /// </summary>
     /// <param name="scale"></param>
@@ -22,7 +24,7 @@ public static class UnitConversion
 
     /// <summary>
     /// DeltaV - Gets nicely formatted string that contains both metric and imperial measurements.
-    /// With a scale of 1, it should look like... 165cm (5' 5")
+    /// With a scale of 1, it should look like... 175cm (5' 9")
     /// </summary>
     /// <param name="scale"></param>
     /// <returns></returns>
