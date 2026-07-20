@@ -75,3 +75,45 @@
     heldPrefix: bloodredsynth
     size: Normal
     sprite: _DV/Objects/Fun/Instruments/redsupersynth.rsi
+
+- type: entity
+  parent: BaseHandheldInstrument
+  id: DJSetInstrument
+  name: portable disc jockey control system
+  description: An all-in-one standalone DJ system. Your neck hurts looking at this.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Instruments/djset.rsi
+    layers:
+    - state: icon
+    - state: display
+      shader: unshaded
+  - type: Appearance
+  - type: ActivatableUI
+    inHandsOnly: false
+    singleUser: true
+  - type: Instrument
+    allowPercussion: true
+    program: 118
+  - type: SwappableInstrument # I looked up DJ terms so I hope these makes sense.
+    instrumentList:
+      "Melodic Drums": {117: 0}
+      "Synth Drums": {118: 0}
+      "Square Lead": {80: 0}
+      "Saw Lead": {81: 0}
+      "Vocal Lead": {85: 0}
+      "Deep Bass": {38: 0}
+      "Heavy Bass": {39: 0}
+      "Warm Pad": {89: 0}
+      "Multi-Synth Pad": {90: 0}
+      "Space Ambience": {94: 0}
+      "Track FX": {97: 0}
+      "Crystal FX": {98: 0}
+      "Atmos FX": {99: 0}
+      "Riser FX": {100: 0}
+      "Echo FX": {102: 0}
+      "Sci-Fi FX": {103: 0}
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck

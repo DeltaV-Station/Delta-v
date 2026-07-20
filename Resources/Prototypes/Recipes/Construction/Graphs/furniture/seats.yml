@@ -172,6 +172,160 @@
           steps:
             - tool: Screwing
               doAfter: 1
+# Delta V - Begin additions
+        - to: chairComfyBlack
+          steps:
+          - material: FloorCarpetBlack
+            amount: 1
+
+        - to: chairComfyBlue
+          steps:
+          - material: FloorCarpetBlue
+            amount: 1
+
+        - to: chairComfySkyBlue
+          steps:
+          - material: FloorCarpetSkyBlue
+            amount: 1
+
+        - to: chairComfyCyan
+          steps:
+          - material: FloorCarpetCyan
+            amount: 1
+
+        - to: chairComfyGreen
+          steps:
+          - material: FloorCarpetGreen
+            amount: 1
+
+        - to: chairComfyOrange
+          steps:
+          - material: FloorCarpetOrange
+            amount: 1
+
+        - to: chairComfyPurple
+          steps:
+          - material: FloorCarpetPurple
+            amount: 1
+
+        - to: chairComfyPink
+          steps:
+          - material: FloorCarpetPink
+            amount: 1
+
+        - to: chairComfyRed
+          steps:
+          - material: FloorCarpetRed
+            amount: 1
+
+    - node: chairComfyBlack
+      entity: ComfyChairBlack
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemBlack
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyBlue
+      entity: ComfyChairBlue
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemBlue
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfySkyBlue
+      entity: ComfyChairSkyBlue
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemSkyBlue
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyCyan
+      entity: ComfyChairCyan
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemCyan
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyGreen
+      entity: ComfyChairGreen
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemGreen
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyOrange
+      entity: ComfyChairOrange
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemOrange
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyPurple
+      entity: ComfyChairPurple
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemPurple
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyPink
+      entity: ComfyChairPink
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemPink
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+    - node: chairComfyRed
+      entity: ComfyChairRed
+      edges:
+      - to: chairComfy
+        completed:
+        - !type:SpawnPrototype
+          prototype: FloorCarpetItemRed
+          amount: 1
+        steps:
+        - tool: Slicing
+          doAfter: 1
+# Delta V - End additions
 
     - node: chairPilotSeat
       entity: ChairPilotSeat

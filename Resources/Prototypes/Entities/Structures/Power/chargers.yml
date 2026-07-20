@@ -259,6 +259,7 @@
   components:
   - type: Sprite
     sprite: Structures/Power/borg_charger.rsi
+    noRot: True
     layers:
       - state: borgcharger-u1
         map: ["base"]
@@ -278,8 +279,6 @@
     whitelist:
       components:
       - BorgChassis
-      - Silicon # EE IPCs
-      - AugmentStationRecharge # DeltaV augment power cells
   - type: Construction
     containers:
     - machine_parts
@@ -323,13 +322,22 @@
     whitelist:
       components:
       - BorgChassis
-      - Silicon # EE IPCs
-      - AugmentStationRecharge # DeltaV augment power cells
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
 
 - type: entity
   parent: BorgCharger

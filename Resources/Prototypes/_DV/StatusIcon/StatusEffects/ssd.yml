@@ -1,0 +1,13 @@
+- type: ssdIcon
+  id: RecentSSDIcon
+  icon:
+    sprite: /Textures/_DV/Effects/recent_ssd.rsi
+    state: recent
+  locationPreference: Left
+
+- type: ssdIcon
+  id: VeryRecentSSDIcon
+  icon:
+    sprite: /Textures/_DV/Effects/recent_ssd.rsi
+    state: very-recent
+  locationPreference: Left

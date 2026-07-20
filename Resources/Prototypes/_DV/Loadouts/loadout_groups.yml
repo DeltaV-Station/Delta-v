@@ -81,6 +81,21 @@
   loadouts:
   - ScarfBlack
   - ScarfZebra
+  - MimeMantle
+  - MimeCloak
+  - MimeMantleOffShoulder
+  - MimeStole
+
+- type: loadoutGroup
+  id: MimeShoes
+  name: loadout-group-mime-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteShoes
+  - BlackShoes
+  - MimeWinterBoots
+  - MimeFurBoots
 
 ## Musician
 - type: loadoutGroup
@@ -266,9 +281,9 @@
   name: loadout-group-brig-medic-neck
   minLimit: 0
   loadouts:
-  - ScarfRed
   - ScarfBlack
   - ScarfBlue
+  - ScarfLightBlue
   - SecurityPoncho
 
 - type: loadoutGroup
@@ -338,7 +353,8 @@
   name: loadout-group-security-cadet-head
   minLimit: 0
   loadouts:
-  - MimeHead
+  - SecurityCadetBeret
+  - SecurityCadetCap
 
 ## Security Guns
 - type: loadoutGroup
@@ -350,6 +366,7 @@
   - SecurityFirearmWeaponPistolPollock
   - SecurityFirearmWeaponPistolSLP57
   - SecurityFirearmWeaponPistolMk58
+  - SecurityFirearmWeaponPistolSV213
   - SecurityFirearmWeaponDisabler
   - SecurityFirearmTruncheon
 
@@ -362,6 +379,7 @@
   - SecurityRevolverInspector
   - SecurityFirearmWeaponRevolverFitz
   - SecurityRevolverWeaponRevolverLucky
+  - SecurityFirearmWeaponPistolSV213
   - SecurityFirearmTruncheon
 
 - type: loadoutGroup
@@ -372,6 +390,7 @@
   loadouts:
   - SecurityFirearmMagazinePistol
   - SecurityFirearmMagazinePistolRubber
+  - SecurityFirearmPowercellMedium
 
 - type: loadoutGroup
   id: SecurityRevolverAmmo
@@ -383,6 +402,7 @@
   - SecurityFirearmSpeedLoaderMagnum
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
+  - SecurityFirearmPowercellMedium
 
 - type: loadoutGroup
   id: SecurityAllFirearm
@@ -413,6 +433,21 @@
   - SecurityFirearmSpeedLoaderMagnum
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
+
+## Security utility
+- type: loadoutGroup
+  id: SecurityUtility
+  name: security-utility
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  - FlashBangLoadout
+  - TearGasLoadout
+  - StingerGrenadeLoadout
+  - RadioHandheldSecurityLoadout
+  - SecHoloProjectorLoadout
+  - HandcuffsLoadout
+  - SecLiteLoadout
 
 ## Security Gloves
 - type: loadoutGroup
@@ -445,7 +480,7 @@
   name: loadout-group-security-neck
   minLimit: 0
   loadouts:
-  - ScarfRed
+  - ScarfBlue
   - ScarfBlack
   - SecurityPoncho
 
@@ -470,6 +505,7 @@
   - WardenLongcoat
   - StasecWinterCoatWarden
   - ArmorVestSlim
+  # - WardenArmoredWinterCoat #Disabled during bluesec testing
 
 ## Head of Security
 - type: loadoutGroup
@@ -482,6 +518,7 @@
   - StasecWinterCoatHoS
   - HeadOfSecurityTrenchcoat
   - ArmorVestSlim
+  - HeadofSecurityWinterCoat
 
 ## Detective
 - type: loadoutGroup
@@ -1001,15 +1038,6 @@
   - ScarfBlack
   - ScarfZebra
 
-# Species
-- type: loadoutGroup
-  id: GroupHumanoidSilicon
-  name: loadout-group-humanoid-silicon
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - EmergencyIPCBox
-
 # ERT
 - type: loadoutGroup
   id: GroupEVATankERT
@@ -1069,3 +1097,10 @@
   minLimit: 0
   loadouts:
   - LizardPlushieZookeeper
+
+- type: loadoutGroup
+  id: ChefShoes
+  name: loadout-group-chef-shoes-delta
+  loadouts:
+  - ChefShoes
+  - ChefSandals

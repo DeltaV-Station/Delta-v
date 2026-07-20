@@ -415,7 +415,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool CanOpen(EntityUid user, EntityUid target, bool silent = false, EntityStorageComponent? component = null)
     {
-        if (!Resolve(target, ref component))
+        if (!Resolve(target, ref component, logMissing: false)) // Delta V - Add logMissing due to our ArenaMobs in crates attempting to open people
             return false;
 
         if (!HasComp<HandsComponent>(user))

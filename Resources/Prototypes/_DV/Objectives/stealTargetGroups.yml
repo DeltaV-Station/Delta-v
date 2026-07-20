@@ -27,6 +27,13 @@
     state: steal
 
 - type: stealTargetGroup
+  id: WeaponEnergyShotgun
+  name: steal-target-groups-energy-shotgun
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: BoxFolderRdClipboard
   name: steal-target-groups-box-folder-rd-clipboard
   sprite:
@@ -102,6 +109,13 @@
   sprite:
     sprite: _DV/Objects/Misc/ce_clipboard.rsi
     state: ce_clipboard
+
+- type: stealTargetGroup
+  id: ClothingOuterHardsuitEngineeringWhite
+  name: steal-target-groups-hardsuit-CE
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    state: icon
 
 # Ninja
 

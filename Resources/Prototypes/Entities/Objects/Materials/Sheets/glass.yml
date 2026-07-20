@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Sheet
+    - TiderAnvilParts #SL
     - ConstructionMaterial
   - type: Material
   - type: Damageable
@@ -49,13 +50,6 @@
     solutions:
       glass:
         canReact: false
-  # EE - IPC Healing
-  - type: BlindHealing
-    damageContainers:
-      - Silicon
-      - HumanoidSilicon # DeltaV - IPCs need to see
-  - type: StackPrice
-    price: 2
 
 - type: entity
   parent: SheetGlassBase
@@ -507,7 +501,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: brassglass
+    grindableSolutionName: cglass
   - type: SolutionContainerManager
     solutions:
       cglass:

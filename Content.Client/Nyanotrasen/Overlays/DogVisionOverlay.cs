@@ -18,10 +18,12 @@ public sealed partial class DogVisionOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _dogVisionShader;
 
+    private static readonly ProtoId<ShaderPrototype> DogVisionName = "DogVision";
+
     public DogVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _dogVisionShader = _prototypeManager.Index<ShaderPrototype>("DogVision").Instance().Duplicate();
+        _dogVisionShader = _prototypeManager.Index<ShaderPrototype>(DogVisionName).Instance().Duplicate();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

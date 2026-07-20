@@ -8,6 +8,8 @@ contraband_examine = false # Doubtful that it's desired at all, and would requir
 secret_weight_prototype = "SecretDeltaV"
 role_timer_override = "DeltaV"
 showgreentext = false # focus more on telling a story
+round_end_pvs_overrides = false # Fix EOR lag due to sending every player model to every player on the server (80 times 80 on highpop)
+enable_preset_cooldowns = true
 
 [movement]
 mob_pushing = false
@@ -106,3 +108,10 @@ time = 600
 
 [chat]
 max_announcement_length = 512
+
+[audio]
+attenuation = 4 # inversedistanceclamped 1 << 2, see audioparams.cs
+z_offset = -2
+
+[deltav]
+round_end_is_ooc_vote = true

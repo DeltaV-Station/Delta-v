@@ -18,7 +18,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// What happens if all of the cultists die.
     /// </summary>
     [DataField]
-    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
+    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.BecomeSurvival;
 
     /// <summary>
     /// Sender for shuttle call.
@@ -60,6 +60,45 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
+
+    #region Progress Checking
+    /// <summary>
+    /// The next time the monument should check the progress of the cult.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextProgressCheck = TimeSpan.Zero;
+
+    /// <summary>
+    /// The amount of time between progress checks.
+    /// </summary>
+    [DataField]
+    public TimeSpan TimeBetweenProgressChecks = TimeSpan.FromMinutes(15);
+
+    /// <summary>
+    /// The progress value of the monument last time it was checked.
+    /// </summary>
+    [DataField]
+    public int LastProgress = 0;
+
+    /// <summary>
+    /// The number of times the the progress check as failed. Resets after some progress.
+    /// </summary>
+    [DataField]
+    public int ConsecutiveProgressFails = 0;
+
+    /// <summary>
+    /// The number of times the progress check has to fail for the round for round-end behavior to happen.
+    /// </summary>
+    [DataField]
+    public int ProgressFailureTolerance = 3;
+
+    [DataField]
+    public LocId ProgressFailTextShuttleCall = "cosmiccult-progress-fail-shuttle-call";
+
+    [DataField]
+    public LocId ProgressFailTextAnnouncement = "cosmiccult-progress-fail-announcement";
+
+    #endregion
 
     [DataField]
     public HashSet<EntityUid> Cultists = [];

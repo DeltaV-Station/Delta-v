@@ -18,6 +18,10 @@
     solution: drink
   - type: Item
     size: Normal
+  - type: Tag # DeltaV - Service Borg Module; DrinkBottle allows cartons to be stocked in dispensers
+    tags:
+    - Ingredients
+    - DrinkBottle
 
 - type: entity
   abstract: true

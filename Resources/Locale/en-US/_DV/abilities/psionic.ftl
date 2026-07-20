@@ -1,7 +1,6 @@
 ## Names of Psionic Powers
 psionic-power-name-dispel = Dispel
 psionic-power-name-eruption = Psionic Eruption
-psionic-power-name-fractured-form = Fractured Form
 psionic-power-name-mass-sleep = Mass Sleep
 psionic-power-name-mindswap = Mind Swap
 psionic-power-name-mindswap-return = Mind Swap Return
@@ -27,13 +26,6 @@ psionic-equipped-shielded-in-doafter = The insulative gear broke your concentrat
 psionic-dispelled = Someone dispelled your psionic concentration!
 
 ## Specific Psionic messages
-# Fractured Form
-psionic-power-fractured-form-nobodies = You have no alternate forms to switch to!
-psionic-power-fractured-form-sleepy = You feel very sleepy... You should find somewhere to rest.
-psionic-power-fractured-form-ssd = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } in a deep sleep. { CAPITALIZE(POSS-ADJ($ent)) } eyes seem to be darting around as if dreaming.
-psionic-power-fractured-form-examine-self = You feel a strange connection to { OBJECT($ent) }.
-psionic-power-fractured-form-dispelled = Someone dispelled your sleepiness..
-
 # Metapsionic Pulse
 psionic-power-metapsionic-success = You detect psychic presence there.
 psionic-power-metapsionic-failure = You don't detect any psychic presence there.
@@ -43,6 +35,10 @@ psionic-power-metapsionic-power-detected = You detect that {$power} was used nea
 psionic-power-mindswap-target-mindshielded = Your mindshield.. surprisingly shielded your mind from an psionic influence.
 psionic-power-mindswap-own-mindshield = Your mindshield.. stops your mind from leaving your body.
 psionic-power-mindswap-original-lost = The psionic tether to your original body was severed!
+
+# Noospheric Zap
+psionic-power-noospheric-zap-user = Lightning shoots out of {THE($user)}'s fingertips!
+psionic-power-noospheric-zap-battery = {CAPITALIZE(THE($battery))}'s charge ramps up!
 
 # Precognition
 psionic-power-precognition-failure-by-damage = Your concentration was broken! You fail to decipher anything of use.
@@ -96,6 +92,8 @@ psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message = Yo
 psionic-power-precognition-syndicate-armsdealer-result-message = You see a vision of a ship lurking in the shadows, its cargo deadly.
 psionic-power-precognition-rift-spawn-result-message = You see a small spark of energy, quickly expanding as it tears reality apart, twisting everything around it.
 psionic-power-precognition-asakim-spawn-result-message = You smell stale air from a cryopod opening, and the faint echo of an intelligence far away but very near.
+psionic-power-precognition-pitbull-spawn-result-message = You see a vision of a hundred small creatures being torn apart by bloodthirsty beasts in a maze of steel.
+psionic-power-precognition-hitman-spawn-result-message = You see a man in a business suit, a corpse at their feet.
 
 # Psionic Eruption
 psionic-eruption-begin = {CAPITALIZE(THE($user))} is being consumed by a psionic energy!
@@ -115,9 +113,8 @@ eruption-warning-window-title = Your Brain isn't Ready!
 eruption-warning-window-prompt-text-part = You feel a strong pressure building up in your mind
                                             and you need to release it before it overwhelms you.
                                             When you are ready, you can unleash a psionic eruption.
-                                            Doing so will cause a massive psionic discharge,
-                                            which will destroy yourself and the station around you.
-                                            THIS ALONE DOES NOT MAKE YOU AN ANTAGONIST.
+                                            Doing so will cause a massive psionic discharge, obliterating you entirely.
+                                            You should probably try to find a fix to that...
                                             Do not detonately randomly, ensure proper buildup.
                                             Do you understand?
 eruption-warning-window-acknowledge-button = I Understand

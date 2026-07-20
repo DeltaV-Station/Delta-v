@@ -84,13 +84,6 @@
   - type: PhysicalComposition
     materialComposition:
       Plasma: 100
-  - type: Healing # DeltaV - Plasma heals IPC radiation
-    delay: 2.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      types:
-        Radiation: -5.0
   - type: Stack
     stackType: Plasma
     baseLayer: base
@@ -115,6 +108,11 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
+  - type: Tag # DeltaV - Added to include TiderAnvilParts
+    tags:
+    - Sheet
+    - TiderAnvilParts #SL
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -147,19 +145,12 @@
     tags:
     - Plastic
     - Sheet
+    - TiderAnvilParts #SL
     - ConstructionMaterial
   - type: Material
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
-  - type: Healing # DeltaV - plastic repairs stop bleeding
-    delay: 3.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      groups:
-        Brute: 0 # funny
-    bloodlossModifier: -20
   - type: Stack
     stackType: Plastic
     baseLayer: base

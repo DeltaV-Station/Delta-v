@@ -111,6 +111,11 @@
   flavorType: Complex
   description: flavor-complex-blellow
 
+- type: flavor
+  id: firebolt
+  flavorType: Complex
+  description: flavor-complex-firebolt-deltav
+
 #Delta-V additional drink flavors
 - type: flavor
   id: deadrum
@@ -182,6 +187,16 @@
   flavorType: Complex
   description: flavor-complex-unholy-water
 
+- type: flavor
+  id: Pure
+  flavorType: Complex
+  description: flavor-complex-pure
+
+- type: flavor
+  id: Clarifying
+  flavorType: Complex
+  description: flavor-complex-clarifying
+
 # this is prefixed with "candy" to avoid clashes with potential future strawberries upstream
 - type: flavor
   id: candystrawberry
@@ -252,3 +267,8 @@
   id: awful
   flavorType: Base
   description: flavor-base-awful
+
+- type: flavor
+  id: prickly
+  flavorType: Base
+  description: flavor-base-prickly

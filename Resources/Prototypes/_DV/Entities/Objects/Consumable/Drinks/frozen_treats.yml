@@ -1,0 +1,406 @@
+# I SCREAM, YOU SCREAM, WE ALL SCREAM FOR ICE CREAM
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamAppleCaramel
+  suffix: apple caramel ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamAppleCaramel
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-applecaramel.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamCaramel
+  suffix: caramel ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamCaramel
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-caramel.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamCaramelFudge
+  suffix: caramel fudge ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamCaramelFudge
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-caramelfudge.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamCherry
+  suffix: cherry ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamCherry
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-cherry.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamChocolate
+  suffix: chocolate ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamChocolate
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-chocolate.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamBerryCobbler
+  suffix: cobbler's ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamBerryCobbler
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-cobblers.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamCoffee
+  suffix: coffee ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamCoffee
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-coffee.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamCookieDough
+  suffix: cookie dough ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamCookieDough
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-cookiedough.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamGreenTea
+  suffix: green tea ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamGreenTea
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-greentea.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamMint
+  suffix: mint ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamMint
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-mint.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamNeapolitan
+  suffix: neapolitan ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamNeapolitan
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-neapolitan.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamPistachio
+  suffix: pistachio ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamPistachio
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-pistachio.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamRockyRoad
+  suffix: rocky road ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamRockyRoad
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-rockyroad.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamTower
+  suffix: tower of ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamTower
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-tower.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamVegan
+  suffix: vegan ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamVegan
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-vegan.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamWatermelon
+  suffix: watermelon ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamWatermelon
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-watermelon.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSherbetRainbow
+  suffix: rainbow sherbet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSherbetRainbow
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/sherbet-rainbow.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIceCreamSherbetlemon
+  suffix: lemon sherbet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSherbetLemon
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/sherbet-lemon.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSherbetLime
+  suffix: lime sherbet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSherbetLime
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/sherbet-lime.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSherbetOrange
+  suffix: orange sherbet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSherbetOrange
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/sherbet-orange.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSherbetPineapple
+  suffix: pineapple sherbet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSherbetPineapple
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/sherbet-pineapple.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSherbetRaspberry
+  suffix: raspberry sherbet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSherbetRaspberry
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/sherbet-raspberry.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSlushBlueRaspberry
+  suffix: blue raspberry slush
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: SlushBlueRaspberry
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/slush-blueraspberry.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSlushCherry
+  suffix: cherry slush
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: SlushCherry
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/slush-cherry.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSlushCola
+  suffix: cola slush
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: SlushCola
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/slush-cola.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: IceCreamSundaeTropical
+  suffix: tropical sundae
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: IceCreamSundaeTropical
+          Quantity: 30
+  - type: Icon
+    sprite: _DV/Objects/Consumable/Drinks/frozen_treats/tropicalsunday.rsi
+    state: icon
+
+# Stop-gap for making chopped nuts available; In a later edition, going to make pistachios growable and grindable
+# to get chopped nuts (including grinding Sweeties packs)
+- type: entity
+  id: GlassChoppedNuts
+  parent: DrinkGlass
+  suffix: chopped nuts
+  components:
+  - type: Label
+    currentLabel: reagent-name-chopped-nuts
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ChoppedNuts
+          Quantity: 30

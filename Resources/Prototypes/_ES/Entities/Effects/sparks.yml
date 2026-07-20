@@ -1,0 +1,52 @@
+- type: entity
+  id: ESEffectSparks
+  name: sparks
+  components:
+  - type: Sprite
+    sprite: _ES/Effects/sparks.rsi
+    layers:
+    - state: sparks
+      shader: unshaded
+    drawdepth: Effects
+    noRot: true
+    loop: false
+  - type: Appearance
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+    sleepingAllowed: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        hard: true
+        restitution: 0.0
+        density: 100
+        mask:
+        - Impassable
+  - type: ESTimedDespawn
+    lifetime: 1.1
+  - type: EmitSoundOnSpawn
+    positional: true
+    sound:
+      collection: sparks
+      params:
+        variation: 0.250
+  - type: ESTimedDespawnSpriteFade
+    fadeTime: 0.3
+  - type: ESTimedDespawnLightFade
+    fadeTime: 0.5
+  - type: AnimationPlayer
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    falloff: 6
+    color: "#FAA019"
+    netsync: false
+  - type: IgnitionSource
+    ignited: true
+  - type: Tag
+    tags:
+    - HideContextMenu

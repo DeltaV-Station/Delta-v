@@ -1,6 +1,6 @@
 // DeltaV Start - Fix EvenHealing with Limbs.
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Systems;
+
+using Content.Shared.Body;
 // DeltaV End - Fix EvenHealing with Limbs.
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -19,29 +19,13 @@ namespace Content.Shared.EntityEffects.Effects.Damage;
 public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSystem<DamageableComponent, EvenHealthChange>
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!; // DeltaV
 
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<EvenHealthChange> args)
     {
         foreach (var (group, amount) in args.Effect.Damage)
         {
             // Begin DeltaV Additions - Limb even healing
-            _damageable.HealEvenly(entity.AsNullable(), amount * args.Scale, group, doPartDamage: false);
-
-            var bodyParts = SharedTargetingSystem.GetValidParts();
-            foreach (var bodyPart in bodyParts)
-            {
-                var (targetType, targetSymmetry) = _body.ConvertTargetBodyPart(bodyPart);
-                if (_body.GetBodyChildrenOfType(entity, targetType, symmetry: targetSymmetry) is { } part)
-                {
-                    _damageable.HealEvenly(
-                        entity.AsNullable(),
-                        amount * args.Scale,
-                        targetPart: bodyPart,
-                        onlyDamageParts: true);
-                }
-            }
-            // End DeltaV Additions - Limb even healing
+            _damageable.HealEvenly(entity.AsNullable(), amount * args.Scale, group);
         }
     }
 }
