@@ -9,7 +9,7 @@ namespace Content.Shared._DV.Body.Components;
 /// Mostly used for things like wheeled/floating objects.
 /// </summary>
 [RegisterComponent]
-[Access(typeof(SmallCharacterSystem), Other = AccessPermissions.Read)]
+[Access(typeof(SmallCharacterSystem))]
 public sealed partial class SmallCharacterComponent : Component
 {
     /// <summary>

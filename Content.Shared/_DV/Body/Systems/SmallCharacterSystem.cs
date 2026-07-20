@@ -41,7 +41,7 @@ public sealed partial class SmallCharacterSystem : EntitySystem
             return NO_PENTALTY;
 
         // Ignore if they aren't a small character in the first place
-        if (!Resolve(puller, ref puller.Comp))
+        if (!Resolve(puller, ref puller.Comp, false))
             return NO_PENTALTY;
 
         // If the pulled entity has the component that ignores the penalty
