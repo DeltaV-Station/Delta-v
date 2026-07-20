@@ -1,0 +1,225 @@
+using System.Linq;
+using System.Numerics;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Systems;
+using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes;
+using Content.Shared._DV.NodeCrawl;
+using Content.Shared.Atmos;
+using Content.Shared.NodeContainer;
+using Content.Shared.Zombies;
+using Robust.Shared.Reflection;
+using Robust.Shared.Utility;
+
+namespace Content.Server._DV.NodeCrawl;
+
+public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
+{
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly BarotraumaSystem _barotrauma = default!;
+    [Dependency] private readonly IReflectionManager _reflection = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CrawlableNodeComponent, NodeGroupsRebuilt>(OnNodeGroupsRebuilt);
+
+        SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
+        SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
+        SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
+
+        SubscribeLocalEvent<NodeCrawlerComponent, EntityZombifiedEvent>(OnZombify);
+    }
+
+    private GasMixture? GetExistingAir(Entity<NodeCrawlerMovementComponent> movement)
+    {
+        if (movement.Comp.Node is not { } node)
+            return null;
+
+        if (!TryComp<NodeContainerComponent>(node, out var nodeContainer))
+            return null;
+
+        foreach (var containedNode in nodeContainer.Nodes.Values)
+        {
+            if (containedNode is not PipeNode pipe)
+                continue;
+
+            return pipe.Air;
+        }
+
+        return null;
+    }
+
+    protected override void SetupAir(Entity<NodeCrawlerMovementComponent> movement)
+    {
+        base.SetupAir(movement);
+
+        if (movement.Comp.HeldCrawler is not { } heldCrawler ||
+            !TryComp<BarotraumaComponent>(heldCrawler, out var barotrauma))
+        {
+            return;
+        }
+
+        if (GetExistingAir(movement) is { } existingAir)
+        {
+            var pressure = existingAir.Pressure switch
+            {
+                // Adjust pressure based on equipment. Works differently depending on if it's "high" or "low".
+                <= Atmospherics.WarningLowPressure => _barotrauma.GetFeltLowPressure(heldCrawler, barotrauma, existingAir.Pressure),
+                >= Atmospherics.WarningHighPressure => _barotrauma.GetFeltHighPressure(heldCrawler, barotrauma, existingAir.Pressure),
+                _ => existingAir.Pressure,
+            };
+
+            if (pressure is >= Atmospherics.HazardLowPressure and <= Atmospherics.HazardHighPressure)
+                return;
+        }
+
+        var xform = Transform(movement);
+        var indices = _transform.GetGridTilePositionOrDefault((movement, xform));
+
+        if (_atmosphere.GetTileMixture(xform.GridUid, xform.MapUid, indices, true) is { Temperature: > 0f } environment)
+        {
+            // we want to get one atmosphere's worth of pressure in the air volume of the component
+            // we need to take an amount of moles from the gas, so
+            // PV = nRT
+            // (Atmospherics.OneAtmosphere) * (movement.Comp.AirVolume) = (amount of mols) * R * (environment.Temperature)
+            // solve for amount of mols
+            // amount of mols = (Atmospherics.OneAtmosphere) * (movement.Comp.AirVolume) / R * (environment.Temperature)
+            var transferMoles = Atmospherics.OneAtmosphere * movement.Comp.AirVolume / (environment.Temperature * Atmospherics.R);
+
+            movement.Comp.Air = new(movement.Comp.AirVolume);
+            _atmosphere.Merge(movement.Comp.Air, environment.Remove(transferMoles));
+        }
+    }
+
+    protected override void EjectAir(Entity<NodeCrawlerMovementComponent> movement)
+    {
+        base.EjectAir(movement);
+
+        if (movement.Comp.Air is not { } air)
+            return;
+
+        var xform = Transform(movement);
+        var indices = _transform.GetGridTilePositionOrDefault((movement, xform));
+
+        if (_atmosphere.GetTileMixture(xform.GridUid, xform.MapUid, indices, true) is not { } environment)
+            return;
+
+        _atmosphere.Merge(environment, air);
+        air.Clear();
+    }
+
+    private Entity<NodeCrawlerMovementComponent>? GetMovement(Entity<NodeCrawlerComponent> crawler)
+    {
+        if (!TryComp<NodeCrawlerMovementComponent>(crawler.Comp.Mover, out var mover))
+            return null;
+
+        return new(crawler.Comp.Mover.Value, mover);
+    }
+
+    private Entity<NodeContainerComponent>? GetNodeContainer(Entity<NodeCrawlerComponent> crawler)
+    {
+        if (GetMovement(crawler) is not { } mover || mover.Comp.Node is not { } node)
+            return null;
+
+        if (!TryComp<NodeContainerComponent>(node, out var nodeContainer))
+            return null;
+
+        return (node, nodeContainer);
+    }
+
+    private GasMixture? GetAir(Entity<NodeCrawlerComponent> crawler)
+    {
+        if (GetMovement(crawler)?.Comp.Air is { } air)
+            return air;
+
+        if (GetNodeContainer(crawler) is not { } nodeContainer)
+            return null;
+
+        foreach (var containedNode in nodeContainer.Comp.Nodes.Values)
+        {
+            if (containedNode is not PipeNode pipe)
+                continue;
+
+            return pipe.Air;
+        }
+
+        return null;
+    }
+
+    private void OnInhaleLocation(Entity<NodeCrawlerComponent> ent, ref InhaleLocationEvent args)
+    {
+        if (GetAir(ent) is not { } air)
+            return;
+
+        args.Gas = air;
+    }
+
+    private void OnExhaleLocation(Entity<NodeCrawlerComponent> ent, ref ExhaleLocationEvent args)
+    {
+        if (GetAir(ent) is not { } air)
+            return;
+
+        args.Gas = air;
+    }
+
+    private void OnGetAir(Entity<NodeCrawlerComponent> ent, ref AtmosExposedGetAirEvent args)
+    {
+        if (args.Handled || GetAir(ent) is not { } air)
+            return;
+
+        args.Gas = air;
+        args.Handled = true;
+    }
+
+    private void OnNodeGroupsRebuilt(Entity<CrawlableNodeComponent> ent, ref NodeGroupsRebuilt args)
+    {
+        if (!TryComp<NodeContainerComponent>(ent, out var nodeContainer))
+            return;
+
+        // ugly workaround for https://github.com/space-wizards/RobustToolbox/issues/6694 not letting List<Type>
+        // get serialized properly
+        var possibleTypes = ent.Comp.ReachableNodeTypes.Select(it => _reflection.GetType(it)).ToList();
+
+        ent.Comp.DeadEnd = false;
+        var set = new HashSet<EntityUid>();
+        foreach (var node in nodeContainer.Nodes.Values)
+        {
+            foreach (var reachable in node.ReachableNodes)
+            {
+                if (possibleTypes.Count != 0 &&
+                    !possibleTypes.TrueForAll(type => reachable.GetType() == type))
+                {
+                    continue;
+                }
+
+                DebugTools.Assert(HasComp<CrawlableNodeComponent>(reachable.Owner), $"Node {ToPrettyString(reachable.Owner)} reachable from {ToPrettyString(ent)} should be a crawlable node, but wasn't");
+                set.Add(reachable.Owner);
+            }
+
+            if (node is PipeNode pipeNode &&
+                node.ReachableNodes.Count != BitOperations.PopCount((uint)pipeNode.CurrentPipeDirection))
+            {
+                ent.Comp.DeadEnd = true;
+            }
+        }
+
+        ent.Comp.ReachableNodes = set;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Lengthens the amount of time that it takes a zombified vent crawling mob to get back into the vent.
+    /// They are really hard to kill otherwise.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnZombify(Entity<NodeCrawlerComponent> ent, ref EntityZombifiedEvent args)
+    {
+        ent.Comp.EnterDelay = ent.Comp.ZombieEnterDelay;
+        Dirty(ent);
+    }
+}

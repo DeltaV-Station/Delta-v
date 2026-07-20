@@ -12,7 +12,6 @@ namespace Content.Server.StationEvents;
 public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingStationEventSchedulerComponent>
 {
     [Dependency] private readonly IChatManager _chatManager = default!; // DeltaV
-    [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;

@@ -109,10 +109,12 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         var report = new FormattedMessage();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-title"));
         report.PushNewline();
+        report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-first-line"));
         report.PushNewline();
+        report.PushNewline();
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
         {
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-inhuman", ("name", uid)));
             return report;
@@ -121,22 +123,28 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         var species = PrototypeManager.Index(humanoid.Species);
 
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
+        report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)));
-        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex.ToString())));
+        report.PushNewline();
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex)));
+        report.PushNewline();
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
+        {
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))));
-
+            report.PushNewline();
+        }
         // add a random identifying quality that officers can use to track them down
         report.AddMarkupOrThrow(RobustRandom.Next(0, 2) switch
         {
             0 => Loc.GetString("fugitive-report-detail-dna", ("dna", GetDNA(uid))),
             _ => Loc.GetString("fugitive-report-detail-prints", ("prints", GetPrints(uid)))
         });
+        report.PushNewline();
 
         report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crimes-header"));
-
+        report.PushNewline();
         // generate some random crimes to avoid this situation
         // "officer what are my charges?"
         // "uh i dunno a piece of paper said to arrest you thats it"
@@ -172,6 +180,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         {
             var count = RobustRandom.Next(rule.MinCounts, rule.MaxCounts + 1);
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-crime", ("crime", Loc.GetString(crime)), ("count", count)));
+            report.PushNewline();
         }
     }
 }
