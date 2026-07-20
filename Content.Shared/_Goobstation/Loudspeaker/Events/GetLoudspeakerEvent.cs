@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.Loudspeaker.Events;
+namespace Content.Shared._Goobstation.Loudspeaker.Events;
 
 [ByRefEvent]
 public record struct GetLoudspeakerEvent(

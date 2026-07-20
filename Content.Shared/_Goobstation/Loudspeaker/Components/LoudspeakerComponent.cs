@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Loudspeaker.Components;
+namespace Content.Shared._Goobstation.Loudspeaker.Components;
 
 /// <summary>
 /// Used for items (or entities) that have loudspeaker capabilities.

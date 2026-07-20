@@ -109,8 +109,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Loudspeaker.Events; // goob - loudspeakers
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
+using Content.Shared._Goobstation.Loudspeaker.Events; // goob - loudspeakers
 using System.Globalization;
 using System.Linq;
 using System.Text;

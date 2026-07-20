@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.Loudspeaker.Components;
+namespace Content.Shared._Goobstation.Loudspeaker.Components;
 
 /// <summary>
 ///     Marks an entity that is holding equipped loudspeaker(s).

@@ -1,6 +1,4 @@
-using Content.Goobstation.Common.Speech;
-using Content.Goobstation.Shared.Loudspeaker.Components;
-using Content.Goobstation.Shared.Loudspeaker.Events;
+using Content.Shared._Goobstation.Loudspeaker.Events;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
@@ -9,7 +7,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Loudspeaker.Systems;
+namespace Content.Shared._Goobstation.Loudspeaker.Systems;
 
 public sealed class LoudSpeakerSystem : EntitySystem
 {
@@ -22,31 +20,31 @@ public sealed class LoudSpeakerSystem : EntitySystem
 
         base.Initialize();
 
-        SubscribeLocalEvent<LoudspeakerComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<LoudspeakerComponent, GotUnequippedEvent>(OnUnequipped);
-        SubscribeLocalEvent<LoudspeakerComponent, GotEquippedHandEvent>(OnEquippedHands);
-        SubscribeLocalEvent<LoudspeakerComponent, GotUnequippedHandEvent>(OnUnequippedHands);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, GotEquippedEvent>(OnEquipped);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, GotUnequippedEvent>(OnUnequipped);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, GotEquippedHandEvent>(OnEquippedHands);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, GotUnequippedHandEvent>(OnUnequippedHands);
 
-        SubscribeLocalEvent<LoudspeakerHolderComponent, GetLoudspeakerEvent>(GetLoudSpeakers);
-        SubscribeLocalEvent<LoudspeakerComponent, GetLoudspeakerDataEvent>(OnGetLoudspeakerData);
-        SubscribeLocalEvent<LoudspeakerHolderComponent, GetSpeechSoundEvent>(OnGetSpeechSound);
+        SubscribeLocalEvent<Components.LoudspeakerHolderComponent, GetLoudspeakerEvent>(GetLoudSpeakers);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, GetLoudspeakerDataEvent>(OnGetLoudspeakerData);
+        SubscribeLocalEvent<Components.LoudspeakerHolderComponent, GetSpeechSoundEvent>(OnGetSpeechSound);
 
-        SubscribeLocalEvent<LoudspeakerComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<LoudspeakerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<Components.LoudspeakerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
 
     }
 
-    private void OnEquipped(EntityUid uid, LoudspeakerComponent comp, GotEquippedEvent args)
+    private void OnEquipped(EntityUid uid, Components.LoudspeakerComponent comp, GotEquippedEvent args)
     {
         if (!args.SlotFlags.HasFlag(comp.RequiredSlot))
             return;
 
-        EnsureComp<LoudspeakerHolderComponent>(args.Equipee).Loudspeakers.Add(uid);
+        EnsureComp<Components.LoudspeakerHolderComponent>(args.Equipee).Loudspeakers.Add(uid);
     }
 
-    private void OnUnequipped(EntityUid uid, LoudspeakerComponent comp, GotUnequippedEvent args)
+    private void OnUnequipped(EntityUid uid, Components.LoudspeakerComponent comp, GotUnequippedEvent args)
     {
-        if (!TryComp<LoudspeakerHolderComponent>(args.Equipee, out var holder))
+        if (!TryComp<Components.LoudspeakerHolderComponent>(args.Equipee, out var holder))
             return;
 
         holder.Loudspeakers.Remove(uid);
@@ -54,17 +52,17 @@ public sealed class LoudSpeakerSystem : EntitySystem
         DoRemovalCheck(args.Equipee, holder);
     }
 
-    private void OnEquippedHands(EntityUid uid, LoudspeakerComponent comp, GotEquippedHandEvent args)
+    private void OnEquippedHands(EntityUid uid, Components.LoudspeakerComponent comp, GotEquippedHandEvent args)
     {
         if (!comp.WorksInHand)
             return;
 
-        EnsureComp<LoudspeakerHolderComponent>(args.User).Loudspeakers.Add(uid);
+        EnsureComp<Components.LoudspeakerHolderComponent>(args.User).Loudspeakers.Add(uid);
     }
 
-    private void OnUnequippedHands(EntityUid uid, LoudspeakerComponent comp, GotUnequippedHandEvent args)
+    private void OnUnequippedHands(EntityUid uid, Components.LoudspeakerComponent comp, GotUnequippedHandEvent args)
     {
-        if (!TryComp<LoudspeakerHolderComponent>(args.User, out var holder))
+        if (!TryComp<Components.LoudspeakerHolderComponent>(args.User, out var holder))
             return;
 
         holder.Loudspeakers.Remove(uid);
@@ -72,12 +70,12 @@ public sealed class LoudSpeakerSystem : EntitySystem
         DoRemovalCheck(args.User, holder);
     }
 
-    private void GetLoudSpeakers(Entity<LoudspeakerHolderComponent> ent, ref GetLoudspeakerEvent args)
+    private void GetLoudSpeakers(Entity<Components.LoudspeakerHolderComponent> ent, ref GetLoudspeakerEvent args)
     {
         args.Loudspeakers = ent.Comp.Loudspeakers;
     }
 
-    private void OnGetLoudspeakerData(Entity<LoudspeakerComponent> ent, ref GetLoudspeakerDataEvent args)
+    private void OnGetLoudspeakerData(Entity<Components.LoudspeakerComponent> ent, ref GetLoudspeakerDataEvent args)
     {
         args.IsActive = ent.Comp.IsActive;
 
@@ -87,7 +85,7 @@ public sealed class LoudSpeakerSystem : EntitySystem
         args.SpeechSounds = ent.Comp.SpeechSounds;
     }
 
-    private void OnGetSpeechSound(Entity<LoudspeakerHolderComponent> ent, ref GetSpeechSoundEvent args)
+    private void OnGetSpeechSound(Entity<Components.LoudspeakerHolderComponent> ent, ref GetSpeechSoundEvent args)
     {
 
         foreach (var loudspeaker in ent.Comp.Loudspeakers)
@@ -104,7 +102,7 @@ public sealed class LoudSpeakerSystem : EntitySystem
         }
     }
 
-    private void OnExamined(Entity<LoudspeakerComponent> ent, ref ExaminedEvent args)
+    private void OnExamined(Entity<Components.LoudspeakerComponent> ent, ref ExaminedEvent args)
     {
         var state = ent.Comp.IsActive ? "on" : "off";
 
@@ -115,7 +113,7 @@ public sealed class LoudSpeakerSystem : EntitySystem
         args.PushMarkup(message);
     }
 
-    private void OnGetVerbs(Entity<LoudspeakerComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetVerbs(Entity<Components.LoudspeakerComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract
             || !ent.Comp.CanToggle)
@@ -140,16 +138,16 @@ public sealed class LoudSpeakerSystem : EntitySystem
 
     #region Helper methods
 
-    private void DoRemovalCheck(EntityUid equipee, LoudspeakerHolderComponent comp)
+    private void DoRemovalCheck(EntityUid equipee, Components.LoudspeakerHolderComponent comp)
     {
         if (comp.Loudspeakers.Count == 0) // only remove when theres no loudspeakers
         {
-            RemComp<LoudspeakerHolderComponent>(equipee);
+            RemComp<Components.LoudspeakerHolderComponent>(equipee);
             return;
         }
     }
 
-    private void ToggleLoudspeakerEffect(EntityUid user, Entity<LoudspeakerComponent> loudspeaker)
+    private void ToggleLoudspeakerEffect(EntityUid user, Entity<Components.LoudspeakerComponent> loudspeaker)
     {
         var state = !loudspeaker.Comp.IsActive ? "on" : "off";
 
