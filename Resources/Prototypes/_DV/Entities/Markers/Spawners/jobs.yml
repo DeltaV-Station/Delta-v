@@ -1,21 +1,71 @@
 - type: entity
-  id: SpawnPointMedicalBorg
   parent: SpawnPointJobBase
-  name: medical cyborg
+  id: SpawnPointGladiator
+  name: gladiator
   components:
   - type: SpawnPoint
-    job_id: MedicalBorg
+    job_id: Gladiator
   - type: Sprite
     layers:
-    - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: medical
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: medical_e
+      - state: green
+      - sprite: &job-rsi-dv _DV/Markers/jobs.rsi
+        state: gladiator
 
 - type: entity
-  id: SpawnPointChiefJustice
   parent: SpawnPointJobBase
+  id: SpawnPointPrisoner
+  name: prisoner
+  components:
+  - type: SpawnPoint
+    job_id: Prisoner
+  - type: Sprite
+    layers:
+      - state: green
+      - state: prisoner
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointPrisonGuard
+  name: prison guard
+  components:
+  - type: SpawnPoint
+    job_id: PrisonGuard
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: *job-rsi-dv
+        state: prisonguard
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointMartialArtist
+  name: martial artist
+  components:
+  - type: SpawnPoint
+    job_id: MartialArtist
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: *job-rsi-dv
+        state: martialartist
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointForensicMantis
+  name: psionic mantis # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  components:
+  - type: SpawnPoint
+    job_id: ForensicMantis
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: *job-rsi-dv
+        state: psionicmantis
+
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointChiefJustice
   name: chiefjustice
   components:
   - type: SpawnPoint
@@ -23,12 +73,12 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: chiefjustice
 
 - type: entity
-  id: SpawnPointClerk
   parent: SpawnPointJobBase
+  id: SpawnPointClerk
   name: clerk
   components:
   - type: SpawnPoint
@@ -36,12 +86,12 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: clerk
 
 - type: entity
-  id: SpawnPointProsecutor
   parent: SpawnPointJobBase
+  id: SpawnPointProsecutor
   name: prosecutor
   components:
   - type: SpawnPoint
@@ -49,12 +99,12 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: prosecutor
 
 - type: entity
-  id: SpawnPointCourier
   parent: SpawnPointJobBase
+  id: SpawnPointCourier
   name: courier
   components:
   - type: SpawnPoint
@@ -62,23 +112,8 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: courier
-
-- type: entity
-  id: SpawnPointSecurityBorg
-  parent: SpawnPointJobBase
-  name: security cyborg
-  components:
-  - type: SpawnPoint
-    job_id: SecurityBorg
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: _DV/Mobs/Silicon/chassis.rsi
-      state: security
-    - sprite: _DV/Mobs/Silicon/chassis.rsi
-      state: security_e
 
 - type: entity
   parent: SpawnPointJobBase
@@ -90,7 +125,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: roboticist
 
 - type: entity
@@ -103,7 +138,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: cargoassistant
 
 - type: entity
@@ -116,12 +151,12 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _DV/Markers/jobs.rsi
+    - sprite: *job-rsi-dv
       state: surgeon
 
 - type: entity
-  id: SpawnPointBoxer
   parent: SpawnPointJobBase
+  id: SpawnPointBoxer
   name: boxer
   components:
   - type: SpawnPoint
@@ -132,8 +167,8 @@
       - state: boxer
 
 - type: entity
-  id: SpawnPointZookeeper
   parent: SpawnPointJobBase
+  id: SpawnPointZookeeper
   name: zookeeper
   components:
   - type: SpawnPoint

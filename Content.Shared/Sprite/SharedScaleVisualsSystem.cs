@@ -41,8 +41,13 @@ public abstract class SharedScaleVisualsSystem : EntitySystem
         comp.Scale = scale;
         Dirty(uid, comp);
 
+        // Delta V - Begin Species Scaling
+        // 120% species scale => add 0.2 to scale
+        var newScale = scale + comp.SpeciesScale - Vector2.One;
+        // Delta V - End Species Scaling
+
         var appearanceComponent = EnsureComp<AppearanceComponent>(uid);
-        _appearance.SetData(uid, ScaleVisuals.Scale, scale, appearanceComponent);
+        _appearance.SetData(uid, ScaleVisuals.Scale, newScale /* Delta V - Custom Species Scale */, appearanceComponent);
 
         // Raise an event for content use.
         var ev = new ScaleEntityEvent(uid, scale);

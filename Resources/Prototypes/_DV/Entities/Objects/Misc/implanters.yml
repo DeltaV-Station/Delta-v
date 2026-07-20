@@ -23,14 +23,6 @@
     implant: WatchdogImplant
 
 - type: entity
-  parent: BaseImplantOnlyImplanter
-  id: MedicalTrackingImplanter
-  name: medical tracking implanter
-  components:
-  - type: Implanter
-    implant: MedicalTrackingImplant
-
-- type: entity
   parent: BaseImplantOnlyImplanterCentcomm
   id: CentCommImplanter
   name: centcomm mindshield implanter
@@ -83,8 +75,27 @@
 
 - type: entity
   id: HitmanCardImplanter
-  name: hitman card implanter.
+  name: hitman card implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
     implant: HitmanCardImplant
+
+# MARK: DAGD
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: UnrevivableImplanterSyndicate
+  name: true death implanter
+  suffix: DAGD
+  components:
+  - type: Implanter
+    implant: UnrevivableImplantSyndicate
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: MicroBombImplanterSyndicateDAGD
+  name: micro-bomb implanter
+  suffix: DAGD
+  components:
+  - type: Implanter
+    implant: MicroBombImplantSyndicateDAGD

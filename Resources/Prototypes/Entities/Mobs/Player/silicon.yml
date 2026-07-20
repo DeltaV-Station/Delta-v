@@ -1,4 +1,4 @@
-﻿# Be careful with these as they get removed on shutdown too!
+# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
   save: false # DeltaV - AI PDAs
@@ -99,10 +99,12 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: DamagedSiliconAccent
     startPowerCorruptionAtCharIdx: 4
     maxPowerCorruptionAtCharIdx: 20
   - type: StationAiShop # DeltaV - AI Shop System
+  - type: ShowAccessReaderSettings # DeltaV - They can see access breaks
   # Begin DeltaV - AI faxes
   - type: FaxMachine
     name: Station AI
@@ -146,6 +148,7 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
 
 # Ai
 - type: entity
@@ -701,11 +704,11 @@
       borg_brain:
         - SyndicateNeuroling # DeltaV
       borg_module:
-        - BorgModuleAdvancedTool # Delta V - replaced tool module
+        - BorgModuleTool
         - BorgModuleCable # DeltaV
         - BorgModuleConstruction # DeltaV
         - BorgModuleOperative
-        - BorgModuleSyndicateWeapon
+        # - BorgModuleSyndicateWeapon # DeltaV - removed for balance
         - BorgModuleCloakDeviceSyndicate # DeltaV
       borg_id_chip: # DeltaV - borg id chips
       - IdChipSyndie
@@ -758,6 +761,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleConstruction
@@ -798,6 +802,7 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModulePrying
         - BorgModuleTool
         - BorgModuleFireExtinguisher
       borg_id_chip: # DeltaV - borg id chips
@@ -835,6 +840,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
@@ -874,6 +880,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleChemical
@@ -914,6 +921,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool #No fire extinguisher, traversal is better
       - BorgModuleMining
       - BorgModuleTraversal

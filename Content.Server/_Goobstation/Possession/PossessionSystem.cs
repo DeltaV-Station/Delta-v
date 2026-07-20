@@ -47,7 +47,7 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    // [Dependency] private readonly TagSystem _tag = default!; // Delta V - Never used
 
     // private static readonly ProtoId<TagPrototype> CannotSuicideAnyTag = "CannotSuicideAny"; // DeltaV - Don't use literals. // DV - ShitMed Removal
     private static readonly EntProtoId LolipopProto = "FoodLollipop"; // DeltaV - Don't use literals.

@@ -23,7 +23,7 @@
     receiveFrequencyId: NTNet # DeltaV - NTNet
   - type: WirelessNetworkConnection
     range: 500
-  - type: StationLimitedNetwork
+  # - type: StationLimitedNetwork # DeltaV - don't restrict this unnecessarily
   - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
