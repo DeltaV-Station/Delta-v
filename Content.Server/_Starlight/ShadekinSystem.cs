@@ -205,13 +205,10 @@ public sealed class ShadekinSystem : EntitySystem
         }
     }
 
-    private void ApplyLightDamage(EntityUid uid, ShadekinState state)
+    private void ApplyLightDamage(EntityUid uid, float dmg)
     {
-        if (state != ShadekinState.Extreme)
-            return;
-
         var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Heat", 5);
+        damage.DamageDict.Add("Heat", dmg);
         _damageable.TryChangeDamage(uid, damage, true, false);
 
     }
@@ -283,11 +280,11 @@ public sealed class ShadekinSystem : EntitySystem
 
             SetPassiveBuff(uid, component.CurrentState);
             ToggleNightVision(uid, component.CurrentState);
-            ApplyLightDamage(uid, component.CurrentState);
+
             _speed.RefreshMovementSpeedModifiers(uid);
 
             if (component.CurrentState == ShadekinState.Extreme)
-                ApplyLightDamage(uid, component.CurrentState);
+                ApplyLightDamage(uid, 5);
         }
     }
 }

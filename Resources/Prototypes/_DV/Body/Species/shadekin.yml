@@ -119,6 +119,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Shadekin
+  - type: Deathgasp
+    damageType: Bloodloss
   - type: Reactive
     groups:
       Flammable: [Touch]
