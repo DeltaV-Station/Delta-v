@@ -34,7 +34,7 @@
     sprite: _DV/Clothing/Ears/Headsets/justice.rsi
 
 - type: entity
-  parent: ClothingHeadsetAltSyndicate
+  parent: [ ClothingHeadsetAltSyndicate, ClothingHeadsetAltLoudspeaker ]
   id: ClothingHeadsetAltSyndicateListening
   name: blood-red over-ear interception headset
   description: An advanced, modular syndicate interception intercom that fits over the head.
