@@ -23,3 +23,8 @@
   - type: Loudspeaker
     canToggle: true
     affectRadio: true
+
+- type: entity
+  parent: [ClothingHeadsetAltSyndicate, ClothingHeadsetAltLoudspeaker]
+  id: ClothingHeadsetAltSyndicateCommander
+  name: blood-red commander over-ear headset
