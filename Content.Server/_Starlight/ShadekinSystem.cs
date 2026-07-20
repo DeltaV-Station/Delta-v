@@ -15,6 +15,8 @@ using Content.Shared._Goobstation.Overlays;
 using Robust.Shared.Timing;
 using Content.Server.Body.Components;
 using System.Linq;
+using Content.Shared._Goobstation.Flashbang;
+using Content.Shared._Starlight.Flash.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Flash; // Delta V - Flash Work
 
@@ -59,6 +61,7 @@ public sealed class ShadekinSystem : EntitySystem
         SubscribeLocalEvent<ShadekinComponent, EyeColorInitEvent>(OnEyeColorChange);
         SubscribeLocalEvent<ShadekinComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
         SubscribeLocalEvent<ShadekinComponent, AfterFlashedEvent>(OnShadekinFlashed); // Delta V - Prevent Chain Flashing
+        SubscribeLocalEvent<ShadekinComponent, FlashDurationMultiplierEvent>(GetFlashModifier); // Delta V - Flash Modifier to Shadekin
     }
 
     private void OnInit(EntityUid uid, ShadekinComponent component, ComponentStartup args)
@@ -242,7 +245,15 @@ public sealed class ShadekinSystem : EntitySystem
         return returnState;
     }
 
-    // Delta V - Begin After Flash Event
+    // Delta V - Begin Shadekin Flash Changes
+    private void GetFlashModifier(EntityUid uid, ShadekinComponent comp, FlashDurationMultiplierEvent args)
+    {
+        if (!TryComp<FlashModifierComponent>(uid, out var flashModifier))
+            return;
+
+        args.Multiplier = flashModifier.Modifier;
+    }
+
     private void OnShadekinFlashed(EntityUid uid, ShadekinComponent comp, AfterFlashedEvent ev)
     {
         RemComp<NightVisionComponent>(uid);

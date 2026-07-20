@@ -173,14 +173,6 @@ public abstract class SharedFlashSystem : EntitySystem
         var multiplier = multiplierEv.Multiplier;
         // Goobstation end
 
-        // Starlight begin - FlashModifier Component for Shadekin
-        if (HasComp<FlashModifierComponent>(target))
-        {
-            FlashModifierComponent comp = Comp<FlashModifierComponent>(target);
-            multiplier = comp.Modifier;
-        }
-        // Starlight end
-
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
         if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration * multiplier, true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection. Added Flashduration Multiplier
             return;
